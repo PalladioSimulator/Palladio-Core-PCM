@@ -38,8 +38,8 @@
 //----------------------
 // Generic helper methods
 //----------------------
-«DEFINE SystemMemberVar FOR ProvidedRole»
-   protected «this.providedInterface__ProvidedRole.fqn()» «this.portMemberVar()» = null;
+«DEFINE SystemMemberVar FOR OperationProvidedRole»
+   protected «this.providedInterface__OperationProvidedRole.fqn()» «this.portMemberVar()» = null;
 «ENDDEFINE»
 
 «DEFINE UserActions FOR AbstractUserAction»
@@ -49,7 +49,7 @@
    «ENDIF»
 «ENDDEFINE»
 
-«DEFINE DummyRequiredSystemTM(System s) FOR RequiredRole»
+«DEFINE DummyRequiredSystemTM(System s) FOR OperationRequiredRole»
 	null 
 «ENDDEFINE»
 

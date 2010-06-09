@@ -141,7 +141,7 @@
 
 «DEFINE Action FOR SetVariableAction»
 	«FOREACH this.localVariableUsages_SetVariableAction AS pu»
-		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+		«FOREACH pu.variableCharacterisation__SetVariable AS vc»
 			«IF pu.namedReference_VariableUsage.isInnerReference()»
 				resultStackFrame.addValue("«pu.parameterUsageLHS()».«vc.type.toString()»",
 				   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",methodBodyStackFrame.copyFrame()));

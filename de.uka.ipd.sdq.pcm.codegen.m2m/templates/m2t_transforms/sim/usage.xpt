@@ -45,7 +45,7 @@
 «DEFINE UsageScenarioConstructorContextInit FOR System»
 		«this.fqnContext()» context«this.javaName()» = 
 			new «this.fqnContext()»
-				(«EXPAND m2t_transforms::usage::DummyRequiredSystemTM(this) FOREACH this.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»);
+				(«EXPAND m2t_transforms::usage::DummyRequiredSystemTM(this) FOREACH this.requiredRoles_InterfaceRequiringEntity.typeSelect(repository::OperationRequiredRole) SEPARATOR ","»);
       	my«this.javaName()».setContext(context«this.javaName()»);
 «ENDDEFINE»
 

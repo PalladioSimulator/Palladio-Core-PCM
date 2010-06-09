@@ -6,12 +6,12 @@
 «IMPORT entity»
 «IMPORT composition»
 
-«DEFINE PortDelegationDelegatingCall FOR Signature»
-   «IF this.returntype__Signature != null»
-		return myComponent.«this.interface_Signature.javaName().toFirstLower()»_«this.javaSignature()»(
+«DEFINE PortDelegationDelegatingCall FOR OperationSignature»
+   «IF this.returntype__OperationSignature != null»
+		return myComponent.«this.interface__OperationSignature.javaName().toFirstLower()»_«this.javaSignature()»(
 		     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
    «ELSE»
-		myComponent.«this.interface_Signature.javaName().toFirstLower()»_«this.javaSignature()»(
+		myComponent.«this.interface__OperationSignature.javaName().toFirstLower()»_«this.javaSignature()»(
 		     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
    «ENDIF»
 «ENDDEFINE»

@@ -1,7 +1,7 @@
 «EXTENSION m2t_transforms::java_names»
 «IMPORT repository»
 
-«DEFINE DelegatorClass(String prefix) FOR Interface»
+«DEFINE DelegatorClass(String prefix) FOR OperationInterface»
    «FILE (this.implementationPackage()+".delegates").fqnToDirectoryPath()+"/"+prefix+this.javaName()+".java"»
 	  package «this.implementationPackage()».delegates;
 	  // Delegator class for interface «this.entityName»
@@ -20,14 +20,14 @@
 	     	return this.myInnerPort.getComponentAssemblyContextID();
 	     }
 	     
-	     «EXPAND Delegator FOREACH this.signatures__Interface»
+	     «EXPAND Delegator FOREACH this.signatures__OperationInterface»
 	  }
 	«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE Delegator FOR Signature»
-   public «EXPAND m2t_transforms::java_core::Signature FOR this» {
-		logger.debug("Delegating «this.serviceName»");
+«DEFINE Delegator FOR OperationSignature»
+   public «EXPAND m2t_transforms::java_core::OperationSignature FOR this» {
+		logger.debug("Delegating «this.entityName»");
 		// Pre
 		ctx.setEvaluationMode(de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.VariableMode.EXCEPTION_ON_NOT_FOUND);
 		«EXPAND m2t_transforms::java_core::ReturnTypeTM FOR this» result = myInnerPort.«this.javaSignature()»(

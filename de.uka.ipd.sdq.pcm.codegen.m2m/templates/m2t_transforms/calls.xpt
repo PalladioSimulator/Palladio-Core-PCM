@@ -13,7 +13,7 @@
 // An instance of a port can be passed as prefix
 // The list of parameter usages characterises the paramter contents
 // ----------------------------------
-«DEFINE Call(Object call, String prefix, List[VariableUsage] parameterUsages, List[VariableUsage] outParameterUsages) FOR Signature»
+«DEFINE Call(Object call, String prefix, List[VariableSetter] parameterUsages, List[VariableSetter] outParameterUsages) FOR OperationSignature»
 	«EXPAND PreCallTM(call, prefix, parameterUsages) FOR this»
    	«prefix»«this.javaSignature()» 
 	   	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
@@ -25,7 +25,7 @@
 // Template method for code to be executed before 
 // an external call
 // ----------------------------------
-«DEFINE PreCallTM(Object call, String prefix, List[VariableUsage] parameterUsages) FOR Signature»
+«DEFINE PreCallTM(Object call, String prefix, List[VariableSetter] parameterUsages) FOR Signature»
 «ENDDEFINE»
 
 
@@ -33,5 +33,5 @@
 // Template method for code to be executed after 
 // an external call
 // ----------------------------------
-«DEFINE PostCallTM(Object call, String prefix, List[VariableUsage] outParameterUsages) FOR Signature»
+«DEFINE PostCallTM(Object call, String prefix, List[VariableSetter] outParameterUsages) FOR Signature»
 «ENDDEFINE»

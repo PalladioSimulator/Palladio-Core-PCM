@@ -35,8 +35,8 @@
 	«ENDFILE»
 «ENDDEFINE» 
 
-«DEFINE ContextInit FOR ProvidedRole»
-	«this.portMemberVar()» = («this.providedInterface__ProvidedRole.fqn()»)
+«DEFINE ContextInit FOR OperationProvidedRole»
+	«this.portMemberVar()» = («this.providedInterface__OperationProvidedRole.fqn()»)
 		javax.rmi.PortableRemoteObject.narrow(
-			context.lookup("ejb/«this.providedInterface__ProvidedRole.javaName()»"),«this.providedInterface__ProvidedRole.fqn()».class);
+			context.lookup("ejb/«this.providedInterface__OperationProvidedRole.javaName()»"),«this.providedInterface__OperationProvidedRole.fqn()».class);
 «ENDDEFINE»

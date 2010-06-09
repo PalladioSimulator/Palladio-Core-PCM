@@ -28,16 +28,16 @@ javaVariableName(String s) :
 specificationString(String s) :
    s.replaceAll('"','\\\\"').removeAllSpecialChars();
  
-String javaSignature(Signature s) :
-   s.serviceName + s.posInInterface(0); // Ignore Java conventions and use user supplied name (s.serviceName.toFirstLower();)
+String javaSignature(OperationSignature s) :
+   s.entityName + s.posInInterface(0); // Ignore Java conventions and use user supplied name (s.serviceName.toFirstLower();)
          
 // TODO: Disable in Code Generations!
-String posInInterface(Signature s, int pos) :
-	s.interface_Signature.signatures__Interface.get(pos) == s ? pos : s.posInInterface(pos+1); 
+String posInInterface(OperationSignature s, int pos) :
+	s.interface__OperationSignature.signatures__OperationInterface.get(pos) == s ? pos : s.posInInterface(pos+1); 
 	
 // ID of a single port class
-portClassName(ProvidedRole r) :
-   r.providedInterface__ProvidedRole.javaName()+"_"+r.providingEntity_ProvidedRole.javaName();
+portClassName(OperationProvidedRole r) :
+   r.providedInterface__OperationProvidedRole.javaName()+"_"+r.providingEntity__ProvidedRole.javaName();
 
 // Name of the class containing the interfaces of the required roles
 contextClassName(InterfaceRequiringEntity c) :
@@ -48,12 +48,12 @@ contextInterfaceName(InterfaceRequiringEntity c) :
    
 // ID of a member variable used in the main component implementation to store the singleton port
 // instance
-portMemberVar(ProvidedRole r) :
+portMemberVar(OperationProvidedRole r) :
    "m_port"+r.javaName();
    
 // Name of the getter Method used to get the singleton port instances
 // of the provided ports
-portGetter(ProvidedRole r) :
+portGetter(OperationProvidedRole r) :
    "getPort"+r.javaName();
 
 // Base package of a generated system   
@@ -64,7 +64,7 @@ implementationPackage(Entity e) :
    "should never be called!";
 
 // Base package of the implementation of an interface
-implementationPackage(Interface i) :
+implementationPackage(OperationInterface i) :
    i.repository_Interface.basePackageName();
    
 // Base package of the implementation of a system
@@ -128,11 +128,11 @@ fqnContext(InterfaceRequiringEntity c) :
 fqnContextInterface(InterfaceRequiringEntity c) :
   c.fqnContextPackage()+".I"+c.contextClassName();
 
-fqnPortPackage(ProvidedRole pr) :
-  pr.providingEntity_ProvidedRole.implementationPackage()+".ports";
+fqnPortPackage(OperationProvidedRole pr) :
+  pr.providingEntity__ProvidedRole.implementationPackage()+".ports";
 
-fqnPort(ProvidedRole pr) :
-  pr.providingEntity_ProvidedRole.implementationPackage()+".ports."+pr.portClassName();
+fqnPort(OperationProvidedRole pr) :
+  pr.providingEntity__ProvidedRole.implementationPackage()+".ports."+pr.portClassName();
 
 beanName(RepositoryComponent c) :
   c.javaName()+'Bean';
@@ -143,13 +143,13 @@ fqnInterface(InterfaceProvidingEntity c) :
 interfaceName(InterfaceProvidingEntity c) :
   'I'+c.javaName();
     
-dummyComponentName(RequiredRole rr):
-	rr.requiredInterface__RequiredRole.javaName()+"Dummy";
+dummyComponentName(OperationRequiredRole rr):
+	rr.requiringEntity__RequiredRole.javaName()+"Dummy";
 
-fqnDummyComponentPackage(RequiredRole rr):
+fqnDummyComponentPackage(OperationRequiredRole rr):
 	"dummies";
 
-fqnDummyComponent(RequiredRole rr):
+fqnDummyComponent(OperationRequiredRole rr):
   rr.fqnDummyComponentPackage()+"."+rr.dummyComponentName();
   
 // ---------------- End FQN -------------------

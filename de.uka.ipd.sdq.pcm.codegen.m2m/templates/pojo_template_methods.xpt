@@ -23,19 +23,19 @@
 // ----------------------------
 // Parameter
 // ----------------------------
-«AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
+«AROUND m2t_transforms::java_core::ParameterListTM FOR OperationSignature»
 	«EXPAND m2t_transforms::java_core::Parameter FOREACH this.parameters__Signature SEPARATOR ","»
 «ENDAROUND»
 
-«AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
+«AROUND m2t_transforms::java_core::ParameterUsageListTM FOR OperationSignature»
    «EXPAND m2t_transforms::java_core::ParameterUse FOREACH this.parameters__Signature SEPARATOR ","»
 «ENDAROUND»
 
-«AROUND m2t_transforms::java_core::ReturnTypeTM FOR Signature»
+«AROUND m2t_transforms::java_core::ReturnTypeTM FOR OperationSignature»
    «EXPAND m2t_transforms::java_core::ReturnType FOR this»
 «ENDAROUND»
 
-«AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR Signature»
+«AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR OperationSignature»
    «EXPAND m2t_transforms::pojo::provided_ports::PortDelegationDelegatingCall FOR this»
 «ENDAROUND»
 

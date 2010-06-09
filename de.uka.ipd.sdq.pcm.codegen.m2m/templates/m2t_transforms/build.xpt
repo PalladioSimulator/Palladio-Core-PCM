@@ -54,7 +54,7 @@ output=output
 	</fileset>
 
 	<fileset id="ejb-classes" dir="${dist-dir}">
-		«EXPAND IncludeClasses FOREACH this.usageScenario_UsageModel.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.typeSelect(usagemodel::EntryLevelSystemCall).providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.typeSelect(system::System).toSet()»
+		«EXPAND IncludeClasses FOREACH this.usageScenario_UsageModel.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.typeSelect(usagemodel::EntryLevelSystemCall).providedRole_EntryLevelSystemCall.providingEntity__ProvidedRole.typeSelect(system::System).toSet()»
 		<include name="META-INF/ejb-jar.xml" />
 	</fileset>
 
@@ -83,14 +83,14 @@ output=output
 «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE EJBClientRef FOR ProvidedRole»
+«DEFINE EJBClientRef FOR OperationProvidedRole»
     <ejb-ref>
-        <ejb-ref-name>ejb/«this.providedInterface__ProvidedRole.javaName()»</ejb-ref-name>
+        <ejb-ref-name>ejb/«this.providedInterface__OperationProvidedRole.javaName()»</ejb-ref-name>
 	    <ejb-ref-type>Session</ejb-ref-type> 
-	    <remote>«this.providedInterface__ProvidedRole.fqn()»</remote>
-	    «LET ((System)this.providingEntity_ProvidedRole).providedDelegationConnectors_ComposedStructure.select(pdc|pdc.outerProvidedRole_ProvidedDelegationConnector==this).get(0) AS delegationConnector»
+	    <remote>«this.providedInterface__OperationProvidedRole.fqn()»</remote>
+	    «LET ((System)this.providingEntity__ProvidedRole).providedDelegationConnectors_ComposedStructure.select(pdc|pdc.outerProvidedRole_ProvidedDelegationConnector==this).get(0) AS delegationConnector»
 			«LET delegationConnector.assemblyContext_ProvidedDelegationConnector AS componentContext»
-			    <ejb-link>«componentContext.encapsulatedComponent_AssemblyContext.javaName()»_«this.providedInterface__ProvidedRole.javaName()»_«componentContext.id»</ejb-link> 
+			    <ejb-link>«componentContext.encapsulatedComponent_AssemblyContext.javaName()»_«this.providedInterface__OperationProvidedRole.javaName()»_«componentContext.id»</ejb-link> 
 			«ENDLET»
 	    «ENDLET»
     </ejb-ref>

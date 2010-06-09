@@ -11,13 +11,13 @@
 // according to the specification in the QoS
 // annotations of the system
 //-------------------------------
-«DEFINE DummyMethodBody(System s,RequiredRole r) FOR Signature»
+«DEFINE DummyMethodBody(System s,OperationRequiredRole r) FOR OperationSignature»
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe resultStackFrame = 
 		new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe();
 	«LET s.qosAnnotations_System.specifiedQoSAnnotations_QoSAnnotations.select(spet|spet.role_SpecifiedQoSAnnotation==r && spet.signature_SpecifiedQoSAnnation==this) AS annotations»
 		«IF annotations.size == 1»
 			double delay = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«annotations.get(0).specification_SpecifiedExecutionTime.specification.specificationString()»"));
-			logger.info("SystemExternalCall «annotations.get(0).signature_SpecifiedQoSAnnation.serviceName» delaying execution for "+delay);
+			logger.info("SystemExternalCall «annotations.get(0).signature_SpecifiedQoSAnnation.entityName» delaying execution for "+delay);
 			ctx.getThread().hold(delay);
 		«ENDIF»
 	«ENDLET»

@@ -22,7 +22,7 @@
    	«EXPAND PortGetter FOREACH this.providedRoles_InterfaceProvidingEntity»
 «ENDDEFINE»
 
-«DEFINE PortImplFile FOR ProvidedRole»
+«DEFINE PortImplFile FOR OperationProvidedRole»
    «FILE this.fqnPortPackage().fqnToDirectoryPath()+"/"+this.portClassName()+".java"»
 	  package «this.fqnPortPackage()»;
       «EXPAND PortImpl FOR this»
@@ -36,35 +36,35 @@
    «ENDFILE» 
 «ENDDEFINE»
 
-«DEFINE PortImpl FOR ProvidedRole»
+«DEFINE PortImpl FOR OperationProvidedRole»
 	  // Port class for «this.portClassName()»
-	  public class «this.portClassName()» implements «this.providedInterface__ProvidedRole.fqn()»
+	  public class «this.portClassName()» implements «this.providedInterface__OperationProvidedRole.fqn()»
 	  {
-	     protected «this.providingEntity_ProvidedRole.fqnInterface()» myComponent = null;
+	     protected «this.providingEntity__ProvidedRole.fqnInterface()» myComponent = null;
 	     
 	     public «this.portClassName()»(){}
 
-	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent){
+	     public «this.portClassName()»(«this.providingEntity__ProvidedRole.fqnInterface()» myComponent){
 	        this.myComponent = myComponent;
 	     }
 	     
 	     public String getComponentAssemblyContextID() {
 	     	return this.myComponent.getAssemblyContextID();
 	     }
-	     «EXPAND PortDelegator FOREACH this.providedInterface__ProvidedRole.signatures__Interface»
+	     «EXPAND PortDelegator FOREACH this.providedInterface__OperationProvidedRole.signatures__OperationInterface»
 	  }
 «ENDDEFINE»
 
-«DEFINE ComposedStructurePortImpl(ComposedProvidingRequiringEntity cs) FOR ProvidedRole»
+«DEFINE ComposedStructurePortImpl(ComposedProvidingRequiringEntity cs) FOR OperationProvidedRole»
 	  // Port class for «this.portClassName()»
-	  public class «this.portClassName()» implements «this.providedInterface__ProvidedRole.fqn()»
+	  public class «this.portClassName()» implements «this.providedInterface__OperationProvidedRole.fqn()»
 	  {
 		private static org.apache.log4j.Logger logger = 
 			org.apache.log4j.Logger.getLogger(«this.portClassName()».class.getName());
 	  
-	     protected «this.providedInterface__ProvidedRole.fqn()» myInnerPort = null;
+	     protected «this.providedInterface__OperationProvidedRole.fqn()» myInnerPort = null;
 	     
-	     public «this.portClassName()»(«this.providedInterface__ProvidedRole.fqn()» myInnerPort){
+	     public «this.portClassName()»(«this.providedInterface__OperationProvidedRole.fqn()» myInnerPort){
 	        this.myInnerPort = myInnerPort;
 	     }
 	 	     
@@ -72,46 +72,46 @@
 	     	return this.myInnerPort.getComponentAssemblyContextID();
 	     }
 	     
-	     «EXPAND ComposedStructurePortDelegator(cs) FOREACH this.providedInterface__ProvidedRole.signatures__Interface»
+	     «EXPAND ComposedStructurePortDelegator(cs) FOREACH this.providedInterface__OperationProvidedRole.signatures__OperationInterface»
 	  }
 «ENDDEFINE»
 
 
-«DEFINE PortDelegator FOR Signature»
-   public «EXPAND m2t_transforms::java_core::Signature FOR this» {
+«DEFINE PortDelegator FOR OperationSignature»
+   public «EXPAND m2t_transforms::java_core::OperationSignature FOR this» {
    	  «EXPAND PortDelegationDelegatingCallTM FOR this»
    }   
 «ENDDEFINE»
 
-«DEFINE ComposedStructurePortDelegator(ComposedProvidingRequiringEntity cs) FOR Signature»
-   public «EXPAND m2t_transforms::java_core::Signature FOR this» {
+«DEFINE ComposedStructurePortDelegator(ComposedProvidingRequiringEntity cs) FOR OperationSignature»
+   public «EXPAND m2t_transforms::java_core::OperationSignature FOR this» {
    	  «EXPAND ComposedStructurePortDelegationDelegatingCallTM(cs) FOR this»
    }   
 «ENDDEFINE»
 
-«DEFINE PortDelegationDelegatingCallTM FOR Signature»
+«DEFINE PortDelegationDelegatingCallTM FOR OperationSignature»
 	«ERROR "OAW GENERATION ERROR [m2t_transforms/provided_ports.xpt]: PortDelegationDelegatingCallTM must be overridden"»
 «ENDDEFINE»
 
-«DEFINE ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR Signature»
+«DEFINE ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR OperationSignature»
 	«ERROR "OAW GENERATION ERROR [m2t_transforms/provided_ports.xpt]: ComposedStructurePortDelegationDelegatingCallTM must be overridden"»
 «ENDDEFINE»
 
-«DEFINE PortMemberVars FOR ProvidedRole»
+«DEFINE PortMemberVars FOR OperationProvidedRole»
     protected «this.fqnPort()» «this.portMemberVar()» = new «this.fqnPort()»(this);
 «ENDDEFINE»
 
-«DEFINE ContextPortGetter(ComposedStructure cs) FOR ProvidedRole»
+«DEFINE ContextPortGetter(ComposedStructure cs) FOR OperationProvidedRole»
     protected «this.fqnPort()» «this.portMemberVar()» = null;
 «ENDDEFINE»
 
-«DEFINE PortGetter FOR ProvidedRole»
-   public «this.providedInterface__ProvidedRole.fqn()» «this.portGetter()» () {
+«DEFINE PortGetter FOR OperationProvidedRole»
+   public «this.providedInterface__OperationProvidedRole.fqn()» «this.portGetter()» () {
       return «this.portMemberVar()»;
    }
 «ENDDEFINE»
 
 // Generate method signatures for basic component port getters
-«DEFINE ComponentPortGetter FOR ProvidedRole»
-   public «this.providedInterface__ProvidedRole.fqn()» «this.portGetter()» ();
+«DEFINE ComponentPortGetter FOR OperationProvidedRole»
+   public «this.providedInterface__OperationProvidedRole.fqn()» «this.portGetter()» ();
 «ENDDEFINE»

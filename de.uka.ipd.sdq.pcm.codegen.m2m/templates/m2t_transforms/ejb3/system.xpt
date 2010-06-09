@@ -27,13 +27,13 @@
 	«EXPAND SessionBeanPortBean(s,this) FOREACH this.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity»
 «ENDDEFINE»
 
-«DEFINE SessionBeanPortBean(System s, AssemblyContext a) FOR ProvidedRole»
+«DEFINE SessionBeanPortBean(System s, AssemblyContext a) FOR OperationProvidedRole»
 <session>
 	<ejb-name>«a.portSessionBeanName(this)»</ejb-name>
 	<!--
 	<mapped-name>/ejb/«s.javaName()»/«a.encapsulatedComponent_AssemblyContext.javaName()»_«a.id»</mapped-name>
 	-->
-	<business-remote>«this.providedInterface__ProvidedRole.fqn()»</business-remote>
+	<business-remote>«this.providedInterface__OperationProvidedRole.fqn()»</business-remote>
 	<ejb-class>«this.fqnPort()»</ejb-class>
 	<session-type>Stateless</session-type>
     <ejb-local-ref>
@@ -82,11 +82,11 @@
 </session>
 «ENDDEFINE»
 
-«DEFINE Connector(System s, AssemblyContext a) FOR RequiredRole»
+«DEFINE Connector(System s, AssemblyContext a) FOR OperationRequiredRole»
 <ejb-ref>
 	<ejb-ref-name>«this.contextDependencyJNDIName()»</ejb-ref-name>
 	<ejb-ref-type>Session</ejb-ref-type>
-	<remote>«this.requiredInterface__RequiredRole.fqn()»</remote>
+	<remote>«this.requiredInterface__OperationRequiredRole.fqn()»</remote>
 	«IF s.hasConnector(a,this)»
 		<ejb-link>«s.getConnector(a,this).providingAssemblyContext_AssemblyConnector.portSessionBeanName(s.getConnector(a,this).providedRole_AssemblyConnector)»</ejb-link>
 		<injection-target>

@@ -54,23 +54,23 @@
 //-------------------------
 // Call parameter Template Methods
 //-------------------------
-«AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
+«AROUND m2t_transforms::java_core::ParameterListTM FOR OperationSignature»
 	de.uka.ipd.sdq.simucomframework.variables.StackContext ctx
 «ENDAROUND»
 
-«AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
+«AROUND m2t_transforms::java_core::ParameterUsageListTM FOR OperationSignature»
 	ctx
 «ENDAROUND»
 
-«AROUND m2t_transforms::java_core::ReturnTypeTM FOR Signature»
+«AROUND m2t_transforms::java_core::ReturnTypeTM FOR OperationSignature»
    de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>
 «ENDAROUND»
 
-«AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR Signature»
+«AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR OperationSignature»
    «EXPAND m2t_transforms::sim::provided_ports::PortDelegationDelegatingCall FOR this»
 «ENDAROUND»
 
-«AROUND m2t_transforms::provided_ports::ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR Signature»
+«AROUND m2t_transforms::provided_ports::ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR OperationSignature»
    «EXPAND m2t_transforms::sim::provided_ports::ComposedStructurePortDelegationDelegatingCall(cs) FOR this»
 «ENDAROUND»
 
@@ -79,11 +79,11 @@
 // Pre-/Post-Call TM
 //-------------------------
 
-«AROUND m2t_transforms::calls::PreCallTM(Object call, String prefix, List[VariableUsage] parameterUsages) FOR Signature»
+«AROUND m2t_transforms::calls::PreCallTM(Object call, String prefix, List[VariableUsage] parameterUsages) FOR OperationSignature»
 	«EXPAND m2t_transforms::sim::calls::PreCall(call, prefix, parameterUsages) FOR this»
 «ENDAROUND»
  
-«AROUND m2t_transforms::calls::PostCallTM(Object call, String prefix, List[VariableUsage] outParameterUsages) FOR Signature»
+«AROUND m2t_transforms::calls::PostCallTM(Object call, String prefix, List[VariableUsage] outParameterUsages) FOR OperationSignature»
 	«EXPAND m2t_transforms::sim::calls::PostCall(call, prefix, outParameterUsages) FOR this»
 «ENDAROUND»
 
@@ -140,12 +140,12 @@
 //-----------------------------
 // Dummies TM
 //-----------------------------
-«AROUND m2t_transforms::usage::DummyRequiredSystemTM(System s) FOR RequiredRole»
+«AROUND m2t_transforms::usage::DummyRequiredSystemTM(System s) FOR OperationRequiredRole»
 	«EXPAND m2t_transforms::dummies::DummyComponent(s) FOR this»
 	new «s.implementationPackage()».«this.fqnDummyComponent()»()
 «ENDAROUND»
 
-«AROUND m2t_transforms::dummies::DummyMethodBodyTM(System s,RequiredRole r) FOR Signature»
+«AROUND m2t_transforms::dummies::DummyMethodBodyTM(System s,OperationRequiredRole r) FOR OperationSignature»
 	«EXPAND m2t_transforms::prototype::dummies::DummyMethodBody(s,r) FOR this»
 «ENDAROUND»
 

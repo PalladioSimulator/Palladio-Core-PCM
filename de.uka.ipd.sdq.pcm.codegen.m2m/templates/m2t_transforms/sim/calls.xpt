@@ -8,7 +8,7 @@
 «IMPORT parameter»
 «IMPORT seff»
 
-«DEFINE PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) FOR Signature»
+«DEFINE PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) FOR OperationSignature»
 	«IF ExternalCallAction.isInstance(call)»
 		// If the call goes over network, simulate the possibility of a communication link failure.
 		// This only works in case that the "simulate linking resources" option is deactivated.
@@ -44,7 +44,7 @@
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> callResult =	
 «ENDDEFINE»
 
-«DEFINE PrepareSimulatedStackFrame(List[VariableUsage] parameterUsages) FOR Signature»
+«DEFINE PrepareSimulatedStackFrame(List[VariableUsage] parameterUsages) FOR OperationSignature»
 	// Start Simulate an external call
 	try{
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> currentFrame = ctx.getStack().currentStackFrame();
@@ -64,10 +64,10 @@
 		«ENDLET»
 	«ENDFOREACH» 
 «ENDDEFINE»
-«DEFINE TidySimulatedStackFrame FOR Signature»
+«DEFINE TidySimulatedStackFrame FOR OperationSignature»
  	ctx.getStack().removeStackFrame();
 «ENDDEFINE»
-«DEFINE PostCall(Object call, String prefix, List[VariableUsage] outParameterUsages) FOR Signature»
+«DEFINE PostCall(Object call, String prefix, List[VariableUsage] outParameterUsages) FOR OperationSignature»
 	«IF ExternalCallAction.isInstance(call)»
 		// If the return comes over network, simulate the possibility of a communication link failure.
 		// This only works in case that the "simulate linking resources" option is deactivated.

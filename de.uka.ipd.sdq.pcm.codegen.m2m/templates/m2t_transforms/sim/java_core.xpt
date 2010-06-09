@@ -16,7 +16,7 @@
 		this.myComponentStackFrame = myComponentStackFrame;	
 		this.myDefaultComponentStackFrame = new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
 		«IF ImplementationComponentType.isInstance(this)»
-			«FOREACH ((ImplementationComponentType)this).componentParameterUsage_ImplementationComponentType AS pu»
+			«FOREACH ((ImplementationComponentType)this).componentParameter_ImplementationComponentType AS pu»
 				«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
 					this.myDefaultComponentStackFrame.addValue("«pu.parameterUsageLHS()+'.'+vc.type.toString()»",
 					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",

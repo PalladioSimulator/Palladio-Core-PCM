@@ -7,12 +7,12 @@
 «IMPORT core::composition»
 «IMPORT completions»
 
-«DEFINE PortDelegationDelegatingCall FOR Signature»
-	return myComponent.«this.interface_Signature.javaName().toFirstLower()»_«this.javaSignature()»(
+«DEFINE PortDelegationDelegatingCall FOR OperationSignature»
+	return myComponent.«this.interface__OperationSignature.javaName().toFirstLower()»_«this.javaSignature()»(
 	     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
 «ENDDEFINE»
 
-«DEFINE ComposedStructurePortDelegationDelegatingCall(ComposedProvidingRequiringEntity cs) FOR Signature»
+«DEFINE ComposedStructurePortDelegationDelegatingCall(ComposedProvidingRequiringEntity cs) FOR OperationSignature»
 	//logger.debug("Entering port of composed structure «cs.entityName»");
 	«EXPAND PrePortCode FOR cs»
 	«EXPAND m2t_transforms::java_core::ReturnTypeTM FOR this» result = myInnerPort.«this.javaSignature()»(

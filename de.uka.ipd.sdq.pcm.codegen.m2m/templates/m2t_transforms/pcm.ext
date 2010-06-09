@@ -15,37 +15,37 @@ findStart(List[AbstractAction] actions) :
 connectors(ComposedStructure s) : 
    s.assemblyConnectors_ComposedStructure;
 
-test(AssemblyConnector c, AssemblyContext ctx, RequiredRole r):
-   c.requiredRole_AssemblyConnector.id == r.id && c.requiringAssemblyContext_AssemblyConnector.id == ctx.id;
+test(AssemblyConnector c, AssemblyContext ctx, OperationRequiredRole r):
+   c.requiredRole__AssemblyConnector.id == r.id && c.requiringAssemblyContext_AssemblyConnector.id == ctx.id;
 
-hasConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+hasConnector(ComposedStructure s, AssemblyContext ctx, OperationRequiredRole r) :
    connectors(s).select(con|test(con,ctx,r)).size == 1; 
    
-getConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+getConnector(ComposedStructure s, AssemblyContext ctx, OperationRequiredRole r) :
    connectors(s).select(con|test(con,ctx,r)).get(0); 
 
-hasProvidedDelegationConnector(ComposedStructure s, ProvidedRole p) :
+hasProvidedDelegationConnector(ComposedStructure s, OperationProvidedRole p) :
    s.providedDelegationConnectors_ComposedStructure.select(dc|dc.outerProvidedRole_ProvidedDelegationConnector == p).size == 1;
    
-getProvidedDelegationConnector(ComposedStructure s, ProvidedRole p) :
+getProvidedDelegationConnector(ComposedStructure s, OperationProvidedRole p) :
    s.providedDelegationConnectors_ComposedStructure.select(dc|dc.outerProvidedRole_ProvidedDelegationConnector == p).get(0);
    
-hasRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+hasRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, OperationRequiredRole r) :
    s.requiredDelegationConnectors_ComposedStructure.select(dc|dc.innerRequiredRole_RequiredDelegationConnector ==  r).size == 1;    
    
-getRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+getRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, OperationRequiredRole r) :
    s.requiredDelegationConnectors_ComposedStructure.select(dc|dc.innerRequiredRole_RequiredDelegationConnector ==  r).get(0);  
    
 List[EntryLevelSystemCall] querySytemCallsInLoops(ScenarioBehaviour scenBe):
 	scenBe.actions_ScenarioBehaviour.typeSelect(Loop).collect(l|querySystemCalls(l.bodyBehaviour_Loop)).flatten();
 
-List[EntryLevelSystemCall] querySytemCallsInBraches(ScenarioBehaviour scenBe):
+List[EntryLevelSystemCall] querySytemCallsInBranches(ScenarioBehaviour scenBe):
 	scenBe.actions_ScenarioBehaviour.typeSelect(Branch).collect(b|b.branchTransitions_Branch.branchedBehaviour_BranchTransition.querySystemCalls()).flatten();
 	
 List[EntryLevelSystemCall] querySystemCalls(ScenarioBehaviour scenBe) :
   scenBe.actions_ScenarioBehaviour.typeSelect(EntryLevelSystemCall).
   union(scenBe.querySytemCallsInLoops()).
-  union(scenBe.querySytemCallsInBraches());
+  union(scenBe.querySytemCallsInBranches());
 
 querySystemCalls(UsageScenario us) :
   querySystemCalls(us.scenarioBehaviour_UsageScenario);
@@ -76,11 +76,11 @@ collectRepositories(System s):
   	union(s.providedRoles_InterfaceProvidingEntity.collectRepositories()).
   	union(s.requiredRoles_InterfaceRequiringEntity.collectRepositories()).toSet();
   
-collectRepositories(ProvidedRole pr):
-	pr.providedInterface__ProvidedRole.repository_Interface;
+collectRepositories(OperationProvidedRole pr):
+	pr.providedInterface__OperationProvidedRole.repository_Interface;
 	
-collectRepositories(RequiredRole rr):
-	rr.requiredInterface__RequiredRole.repository_Interface;
+collectRepositories(OperationRequiredRole rr):
+	rr.requiredInterface__OperationRequiredRole.repository_Interface;
 	
 collectRepositories(RepositoryComponent pct):
 	pct.repository_RepositoryComponent;
@@ -110,12 +110,12 @@ AbstractAction findStopAction(AbstractAction a):
 AbstractUserAction findStop(AbstractUserAction a):
 	Stop.isInstance(a) ? a : (a.successor != null ? findStop(a.successor) : null);
 	
-List[InterfaceProvidingEntity] getProvidingEntities(List[ProvidedRole] pr) :
+List[InterfaceProvidingEntity] getProvidingEntities(List[OperationProvidedRole] pr) :
 	getProvidingEntitiesRecursive(pr,0);
 	
-List[InterfaceProvidingEntity] getProvidingEntitiesRecursive(List[ProvidedRole] pr, int i) :
+List[InterfaceProvidingEntity] getProvidingEntitiesRecursive(List[OperationProvidedRole] pr, int i) :
 	i < pr.size
-		? (getProvidingEntitiesRecursive(pr,i+1).contains(pr.get(i).providingEntity_ProvidedRole) ? getProvidingEntitiesRecursive(pr,i+1) : getProvidingEntitiesRecursive(pr,i+1).union({pr.get(i).providingEntity_ProvidedRole}) ) 
+		? (getProvidingEntitiesRecursive(pr,i+1).contains(pr.get(i).providingEntity__ProvidedRole) ? getProvidingEntitiesRecursive(pr,i+1) : getProvidingEntitiesRecursive(pr,i+1).union({pr.get(i).providingEntity__ProvidedRole}) ) 
 		: {};
 		
 BasicComponent findContainerComponent(EObject o) :

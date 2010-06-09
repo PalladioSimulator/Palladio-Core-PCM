@@ -30,7 +30,7 @@
 	      
 		«IF InterfaceProvidingEntity.isInstance(this)»
 			/* And finally, my ports */
-			«EXPAND PortInit(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
+			«EXPAND PortInit(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(repository::OperationProvidedRole)»
 		«ENDIF»
 	}
 «ENDDEFINE»
@@ -88,7 +88,7 @@
       */
 «ENDDEFINE»
 
-«DEFINE PortInit(ComposedStructure cs) FOR ProvidedRole»
+«DEFINE PortInit(ComposedStructure cs) FOR OperationProvidedRole»
 «this.portMemberVar()» = new «this.fqnPort()»(
 		«IF cs.hasProvidedDelegationConnector(this)»
 			my«cs.getProvidedDelegationConnector(this).assemblyContext_ProvidedDelegationConnector.javaName()».
@@ -102,7 +102,7 @@
 «DEFINE Init(ComposedStructure s) FOR AssemblyContext»
    private void init«this.javaName()»() {
       «this.encapsulatedComponent_AssemblyContext.fqnContext()» context = new «this.encapsulatedComponent_AssemblyContext.fqnContext()»(
-         «EXPAND PortQuery(s,this) FOREACH this.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»
+         «EXPAND PortQuery(s,this) FOREACH this.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity.typeSelect(repository::OperationRequiredRole) SEPARATOR ","»
       );
       my«this.javaName()».setContext(context);
       «EXPAND ChildInitTM(s) FOR this»
@@ -116,17 +116,17 @@
 // Get the right port to bind
 // If the component is unbound, a null pointer is generated
 // -----------------------------------
-«DEFINE PortQuery(ComposedStructure s, AssemblyContext ctx) FOR RequiredRole»
+«DEFINE PortQuery(ComposedStructure s, AssemblyContext ctx) FOR OperationRequiredRole»
 	«IF hasConnector(s,ctx,this)»
 		«LET getConnector(s,ctx,this) AS connector»
 			/* From Connector «connector.id» */
-			my«connector.providingAssemblyContext_AssemblyConnector.javaName()».«connector.providedRole_AssemblyConnector.portGetter()»()
+			my«connector.providingAssemblyContext_AssemblyConnector.javaName()».«connector.providedRole__AssemblyConnector.portGetter()»()
 	   	«ENDLET»
 	«ELSE» 
 		«IF hasRequiredDelegationConnector(s,ctx,this)»
 			«IF Completion.isInstance(s)»
-				«EXPAND m2t_transforms::delegator_class::DelegatorClass(s.javaName()+"Delegator") FOR this.requiredInterface__RequiredRole»
-				new «this.requiredInterface__RequiredRole.implementationPackage()».delegates.«s.javaName()+"Delegator"»«this.requiredInterface__RequiredRole.javaName()»
+				«EXPAND m2t_transforms::delegator_class::DelegatorClass(s.javaName()+"Delegator") FOR this.requiredInterface__OperationRequiredRole»
+				new «this.requiredInterface__OperationRequiredRole.implementationPackage()».delegates.«s.javaName()+"Delegator"»«this.requiredInterface__OperationRequiredRole.javaName()»
 				(
 			«ENDIF»
 			«LET getRequiredDelegationConnector(s,ctx,this) AS connector»

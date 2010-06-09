@@ -9,8 +9,8 @@ extension m2t_transforms::java_names;
 contextDependencyJNDIName(InterfaceRequiringEntity e) :
 	"ejb/"+e.javaName()+"/Context";
 
-contextDependencyJNDIName(RequiredRole r) :
-	"ejb/"+r.requiredInterface__RequiredRole.javaName();
+contextDependencyJNDIName(OperationRequiredRole r) :
+	"ejb/"+r.requiredInterface__OperationRequiredRole.javaName();
 
 beanInterfaceName(InterfaceRequiringEntity e) :
 	"I" + e.javaName() + "Bean";
@@ -27,8 +27,8 @@ fqnBean(RepositoryComponent c) :
 implementationSessionBeanName(AssemblyContext ac) :
   ac.encapsulatedComponent_AssemblyContext.javaName()+"_Impl_"+ac.id;
   
-portSessionBeanName(AssemblyContext ac, ProvidedRole p) :
-  ac.encapsulatedComponent_AssemblyContext.javaName()+"_"+p.providedInterface__ProvidedRole.javaName()+"_"+ac.id;
+portSessionBeanName(AssemblyContext ac, OperationProvidedRole p) :
+  ac.encapsulatedComponent_AssemblyContext.javaName()+"_"+p.providedInterface__OperationProvidedRole.javaName()+"_"+ac.id;
   
 contextSessionBeanName(AssemblyContext ac) :
   ac.encapsulatedComponent_AssemblyContext.entityName+"_Context_"+ac.id;

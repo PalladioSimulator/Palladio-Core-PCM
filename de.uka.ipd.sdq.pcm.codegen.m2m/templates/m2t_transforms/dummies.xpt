@@ -6,24 +6,24 @@
 «IMPORT core::entity»
 «IMPORT repository»
 
-«DEFINE DummyComponent(System s) FOR RequiredRole»
+«DEFINE DummyComponent(System s) FOR OperationRequiredRole»
 	«FILE (s.implementationPackage()+"."+this.fqnDummyComponent()).fqnToDirectoryPath()+".java"»
 		package «s.implementationPackage()».«this.fqnDummyComponentPackage()»;
 				
 		public class «this.dummyComponentName()» 
-		implements «this.requiredInterface__RequiredRole.fqn()» {
+		implements «this.requiredInterface__OperationRequiredRole.fqn()» {
 			private static org.apache.log4j.Logger logger = 
 				org.apache.log4j.Logger.getLogger(«this.dummyComponentName()».class.getName());
 			public String getComponentAssemblyContextID() {
 				return "";
 			}
-			«EXPAND DummyMethod(s,this) FOREACH this.requiredInterface__RequiredRole.signatures__Interface»
+			«EXPAND DummyMethod(s,this) FOREACH this.requiredInterface__OperationRequiredRole.signatures__OperationInterface»
 		}
 	«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE DummyMethod(System s, RequiredRole r) FOR Signature»
-	public «EXPAND m2t_transforms::java_core::Signature FOR this» {
+«DEFINE DummyMethod(System s, OperationRequiredRole r) FOR OperationSignature»
+	public «EXPAND m2t_transforms::java_core::OperationSignature FOR this» {
 		«EXPAND DummyMethodBodyTM(s,r) FOR this»
 	}
 «ENDDEFINE»
@@ -33,6 +33,6 @@
 // of dummy components attached to the unbound
 // system required roles
 //---------------------------------------------
-«DEFINE DummyMethodBodyTM(System s,RequiredRole r) FOR Signature»
+«DEFINE DummyMethodBodyTM(System s,OperationRequiredRole r) FOR OperationSignature»
 	// No implementation provided yet
 «ENDDEFINE»
