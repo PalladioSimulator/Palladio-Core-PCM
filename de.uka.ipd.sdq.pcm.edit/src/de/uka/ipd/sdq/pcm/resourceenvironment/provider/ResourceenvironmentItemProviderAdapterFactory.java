@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -127,26 +127,26 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CommunicationLinkResourceSpecificationItemProvider communicationLinkResourceSpecificationItemProvider;
+	protected ResourceContainerItemProvider resourceContainerItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCommunicationLinkResourceSpecificationAdapter() {
-		if (communicationLinkResourceSpecificationItemProvider == null) {
-			communicationLinkResourceSpecificationItemProvider = new CommunicationLinkResourceSpecificationItemProvider(this);
+	public Adapter createResourceContainerAdapter() {
+		if (resourceContainerItemProvider == null) {
+			resourceContainerItemProvider = new ResourceContainerItemProvider(this);
 		}
 
-		return communicationLinkResourceSpecificationItemProvider;
+		return resourceContainerItemProvider;
 	}
 
 	/**
@@ -173,26 +173,26 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResourceContainerItemProvider resourceContainerItemProvider;
+	protected CommunicationLinkResourceSpecificationItemProvider communicationLinkResourceSpecificationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResourceContainerAdapter() {
-		if (resourceContainerItemProvider == null) {
-			resourceContainerItemProvider = new ResourceContainerItemProvider(this);
+	public Adapter createCommunicationLinkResourceSpecificationAdapter() {
+		if (communicationLinkResourceSpecificationItemProvider == null) {
+			communicationLinkResourceSpecificationItemProvider = new CommunicationLinkResourceSpecificationItemProvider(this);
 		}
 
-		return resourceContainerItemProvider;
+		return communicationLinkResourceSpecificationItemProvider;
 	}
 
 	/**

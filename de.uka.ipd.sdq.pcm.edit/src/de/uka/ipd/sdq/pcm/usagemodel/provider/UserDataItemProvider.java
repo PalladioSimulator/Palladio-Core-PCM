@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -36,11 +36,11 @@ import de.uka.ipd.sdq.pcm.usagemodel.UserData;
  */
 public class UserDataItemProvider
 	extends ItemProviderAdapter
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,7 +109,7 @@ public class UserDataItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(UsagemodelPackage.Literals.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA);
+			childrenFeatures.add(UsagemodelPackage.Literals.USER_DATA__USER_DATA_VARIABLE_SETTERS_USER_DATA);
 		}
 		return childrenFeatures;
 	}
@@ -161,7 +161,7 @@ public class UserDataItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(UserData.class)) {
-			case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
+			case UsagemodelPackage.USER_DATA__USER_DATA_VARIABLE_SETTERS_USER_DATA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,8 +181,8 @@ public class UserDataItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagemodelPackage.Literals.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
+				(UsagemodelPackage.Literals.USER_DATA__USER_DATA_VARIABLE_SETTERS_USER_DATA,
+				 ParameterFactory.eINSTANCE.createVariableSetter()));
 	}
 
 	/**

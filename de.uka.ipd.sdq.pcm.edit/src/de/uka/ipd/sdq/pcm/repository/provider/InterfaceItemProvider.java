@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -25,7 +25,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
@@ -36,11 +35,11 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  */
 public class InterfaceItemProvider
 	extends EntityItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,48 +69,25 @@ public class InterfaceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addParentInterface__InterfacePropertyDescriptor(object);
-			addAncestorInterfaces_InterfacePropertyDescriptor(object);
+			addParentInterfaces__InterfacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Parent Interface Interface feature.
+	 * This adds a property descriptor for the Parent Interfaces Interface feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addParentInterface__InterfacePropertyDescriptor(Object object) {
+	protected void addParentInterfaces__InterfacePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_parentInterface__Interface_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_parentInterface__Interface_feature", "_UI_Interface_type"),
-				 RepositoryPackage.Literals.INTERFACE__PARENT_INTERFACE_INTERFACE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Ancestor Interfaces Interface feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAncestorInterfaces_InterfacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Interface_ancestorInterfaces_Interface_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_ancestorInterfaces_Interface_feature", "_UI_Interface_type"),
-				 RepositoryPackage.Literals.INTERFACE__ANCESTOR_INTERFACES_INTERFACE,
+				 getString("_UI_Interface_parentInterfaces__Interface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_parentInterfaces__Interface_feature", "_UI_Interface_type"),
+				 RepositoryPackage.Literals.INTERFACE__PARENT_INTERFACES_INTERFACE,
 				 true,
 				 false,
 				 true,
@@ -133,8 +109,6 @@ public class InterfaceItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RepositoryPackage.Literals.INTERFACE__PROTOCOLS_INTERFACE);
-			childrenFeatures.add(RepositoryPackage.Literals.INTERFACE__SIGNATURES_INTERFACE);
-			childrenFeatures.add(RepositoryPackage.Literals.INTERFACE__REQUIRED_CHARACTERISATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -190,8 +164,6 @@ public class InterfaceItemProvider
 
 		switch (notification.getFeatureID(Interface.class)) {
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
-			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
-			case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -208,16 +180,6 @@ public class InterfaceItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.INTERFACE__SIGNATURES_INTERFACE,
-				 RepositoryFactory.eINSTANCE.createSignature()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.INTERFACE__REQUIRED_CHARACTERISATIONS,
-				 RepositoryFactory.eINSTANCE.createRequiredCharacterisation()));
 	}
 
 	/**

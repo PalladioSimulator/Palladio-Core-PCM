@@ -1,9 +1,9 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.parameter.provider;
+package de.uka.ipd.sdq.pcm.repository.provider;
 
 
 import java.util.Collection;
@@ -11,7 +11,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -19,28 +18,25 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.stoex.StoexFactory;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.repository.ResourceInterface;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.ResourceInterface} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableUsageItemProvider
-	extends ItemProviderAdapter
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+public class ResourceInterfaceItemProvider
+	extends InterfaceItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -55,7 +51,7 @@ public class VariableUsageItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableUsageItemProvider(AdapterFactory adapterFactory) {
+	public ResourceInterfaceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -86,8 +82,7 @@ public class VariableUsageItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ParameterPackage.Literals.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE);
-			childrenFeatures.add(ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE);
+			childrenFeatures.add(RepositoryPackage.Literals.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE);
 		}
 		return childrenFeatures;
 	}
@@ -106,14 +101,14 @@ public class VariableUsageItemProvider
 	}
 
 	/**
-	 * This returns VariableUsage.gif.
+	 * This returns ResourceInterface.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableUsage"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceInterface"));
 	}
 
 	/**
@@ -124,7 +119,10 @@ public class VariableUsageItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_VariableUsage_type");
+		String label = ((ResourceInterface)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ResourceInterface_type") :
+			getString("_UI_ResourceInterface_type") + " " + label;
 	}
 
 	/**
@@ -138,9 +136,8 @@ public class VariableUsageItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(VariableUsage.class)) {
-			case ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE:
-			case ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE:
+		switch (notification.getFeatureID(ResourceInterface.class)) {
+			case RepositoryPackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -160,29 +157,8 @@ public class VariableUsageItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ParameterPackage.Literals.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE,
-				 ParameterFactory.eINSTANCE.createVariableCharacterisation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
-				 StoexFactory.eINSTANCE.createVariableReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
-				 StoexFactory.eINSTANCE.createNamespaceReference()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return PalladioComponentModelEditPlugin.INSTANCE;
+				(RepositoryPackage.Literals.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE,
+				 RepositoryFactory.eINSTANCE.createResourceSignature()));
 	}
 
 }

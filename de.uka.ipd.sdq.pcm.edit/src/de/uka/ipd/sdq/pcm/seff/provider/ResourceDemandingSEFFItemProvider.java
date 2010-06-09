@@ -1,13 +1,11 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import java.util.Collection;
 import java.util.List;
 
@@ -25,7 +23,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -38,11 +37,11 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  */
 public class ResourceDemandingSEFFItemProvider
 	extends IdentifierItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -276,6 +275,11 @@ public class ResourceDemandingSEFFItemProvider
 			(createChildParameter
 				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
 				 SeffFactory.eINSTANCE.createRecoveryBlockAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createEmitEventAction()));
 
 		newChildDescriptors.add
 			(createChildParameter

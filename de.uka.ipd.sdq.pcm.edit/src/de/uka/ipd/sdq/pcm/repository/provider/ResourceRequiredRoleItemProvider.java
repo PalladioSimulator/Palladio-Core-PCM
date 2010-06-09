@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -30,11 +30,11 @@ import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
  */
 public class ResourceRequiredRoleItemProvider
 	extends RoleItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -64,7 +64,7 @@ public class ResourceRequiredRoleItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRequiredInterface_ResourceRequiredRolePropertyDescriptor(object);
+			addRequiredInterface__ResourceRequiredRolePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,13 +75,13 @@ public class ResourceRequiredRoleItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRequiredInterface_ResourceRequiredRolePropertyDescriptor(Object object) {
+	protected void addRequiredInterface__ResourceRequiredRolePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ResourceRequiredRole_requiredInterface_ResourceRequiredRole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceRequiredRole_requiredInterface_ResourceRequiredRole_feature", "_UI_ResourceRequiredRole_type"),
+				 getString("_UI_ResourceRequiredRole_requiredInterface__ResourceRequiredRole_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceRequiredRole_requiredInterface__ResourceRequiredRole_feature", "_UI_ResourceRequiredRole_type"),
 				 RepositoryPackage.Literals.RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE,
 				 true,
 				 false,

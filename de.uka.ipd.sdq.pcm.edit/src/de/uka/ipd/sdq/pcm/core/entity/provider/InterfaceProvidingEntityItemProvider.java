@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -32,11 +32,11 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
  */
 public class InterfaceProvidingEntityItemProvider
 	extends EntityItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,7 +147,12 @@ public class InterfaceProvidingEntityItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
-				 RepositoryFactory.eINSTANCE.createProvidedRole()));
+				 RepositoryFactory.eINSTANCE.createOperationProvidedRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createSinkRole()));
 	}
 
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,19 +11,14 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
-import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType} object.
@@ -33,11 +28,11 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  */
 public class PrimitiveDataTypeItemProvider
 	extends DataTypeItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,31 +62,8 @@ public class PrimitiveDataTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PrimitiveDataType_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveDataType_type_feature", "_UI_PrimitiveDataType_type"),
-				 RepositoryPackage.Literals.PRIMITIVE_DATA_TYPE__TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -113,8 +85,7 @@ public class PrimitiveDataTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		PrimitiveTypeEnum labelValue = ((PrimitiveDataType)object).getType();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((PrimitiveDataType)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_PrimitiveDataType_type") :
 			getString("_UI_PrimitiveDataType_type") + " " + label;
@@ -130,12 +101,6 @@ public class PrimitiveDataTypeItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(PrimitiveDataType.class)) {
-			case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

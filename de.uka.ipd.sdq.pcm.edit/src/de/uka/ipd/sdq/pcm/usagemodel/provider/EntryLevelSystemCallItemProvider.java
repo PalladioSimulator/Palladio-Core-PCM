@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -33,11 +33,11 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  */
 public class EntryLevelSystemCallItemProvider
 	extends AbstractUserActionItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,7 +68,7 @@ public class EntryLevelSystemCallItemProvider
 			super.getPropertyDescriptors(object);
 
 			addProvidedRole_EntryLevelSystemCallPropertyDescriptor(object);
-			addSignature_EntryLevelSystemCallPropertyDescriptor(object);
+			addOperationSignature__EntryLevelSystemCallPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,19 +96,19 @@ public class EntryLevelSystemCallItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Signature Entry Level System Call feature.
+	 * This adds a property descriptor for the Operation Signature Entry Level System Call feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSignature_EntryLevelSystemCallPropertyDescriptor(Object object) {
+	protected void addOperationSignature__EntryLevelSystemCallPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EntryLevelSystemCall_signature_EntryLevelSystemCall_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EntryLevelSystemCall_signature_EntryLevelSystemCall_feature", "_UI_EntryLevelSystemCall_type"),
-				 UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL,
+				 getString("_UI_EntryLevelSystemCall_operationSignature__EntryLevelSystemCall_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntryLevelSystemCall_operationSignature__EntryLevelSystemCall_feature", "_UI_EntryLevelSystemCall_type"),
+				 UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OPERATION_SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL,
 				 true,
 				 false,
 				 true,
@@ -129,8 +129,8 @@ public class EntryLevelSystemCallItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
-			childrenFeatures.add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
+			childrenFeatures.add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_VARIABLE_SETTERS_ENTRY_LEVEL_SYSTEM_CALL);
+			childrenFeatures.add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_VARIABLE_SETTERS_ENTRY_LEVEL_SYSTEM_CALL);
 		}
 		return childrenFeatures;
 	}
@@ -185,8 +185,8 @@ public class EntryLevelSystemCallItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EntryLevelSystemCall.class)) {
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_VARIABLE_SETTERS_ENTRY_LEVEL_SYSTEM_CALL:
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_VARIABLE_SETTERS_ENTRY_LEVEL_SYSTEM_CALL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -206,13 +206,13 @@ public class EntryLevelSystemCallItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
+				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_VARIABLE_SETTERS_ENTRY_LEVEL_SYSTEM_CALL,
+				 ParameterFactory.eINSTANCE.createVariableSetter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
+				(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_VARIABLE_SETTERS_ENTRY_LEVEL_SYSTEM_CALL,
+				 ParameterFactory.eINSTANCE.createVariableSetter()));
 	}
 
 	/**
@@ -227,8 +227,8 @@ public class EntryLevelSystemCallItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL ||
-			childFeature == UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL;
+			childFeature == UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_VARIABLE_SETTERS_ENTRY_LEVEL_SYSTEM_CALL ||
+			childFeature == UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_VARIABLE_SETTERS_ENTRY_LEVEL_SYSTEM_CALL;
 
 		if (qualify) {
 			return getString

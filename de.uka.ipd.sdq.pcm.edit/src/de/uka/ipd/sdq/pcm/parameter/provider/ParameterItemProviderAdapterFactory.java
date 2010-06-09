@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -81,72 +81,72 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.VariableSetter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VariableCharacterisationItemProvider variableCharacterisationItemProvider;
+	protected VariableSetterItemProvider variableSetterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableSetter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createVariableCharacterisationAdapter() {
-		if (variableCharacterisationItemProvider == null) {
-			variableCharacterisationItemProvider = new VariableCharacterisationItemProvider(this);
+	public Adapter createVariableSetterAdapter() {
+		if (variableSetterItemProvider == null) {
+			variableSetterItemProvider = new VariableSetterItemProvider(this);
 		}
 
-		return variableCharacterisationItemProvider;
+		return variableSetterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.Variable} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CharacterisedVariableItemProvider characterisedVariableItemProvider;
+	protected VariableItemProvider variableItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.Variable}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCharacterisedVariableAdapter() {
-		if (characterisedVariableItemProvider == null) {
-			characterisedVariableItemProvider = new CharacterisedVariableItemProvider(this);
+	public Adapter createVariableAdapter() {
+		if (variableItemProvider == null) {
+			variableItemProvider = new VariableItemProvider(this);
 		}
 
-		return characterisedVariableItemProvider;
+		return variableItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VariableUsageItemProvider variableUsageItemProvider;
+	protected VariableCharacteristicItemProvider variableCharacteristicItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createVariableUsageAdapter() {
-		if (variableUsageItemProvider == null) {
-			variableUsageItemProvider = new VariableUsageItemProvider(this);
+	public Adapter createVariableCharacteristicAdapter() {
+		if (variableCharacteristicItemProvider == null) {
+			variableCharacteristicItemProvider = new VariableCharacteristicItemProvider(this);
 		}
 
-		return variableUsageItemProvider;
+		return variableCharacteristicItemProvider;
 	}
 
 	/**
@@ -248,9 +248,9 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (variableUsageItemProvider != null) variableUsageItemProvider.dispose();
-		if (variableCharacterisationItemProvider != null) variableCharacterisationItemProvider.dispose();
-		if (characterisedVariableItemProvider != null) characterisedVariableItemProvider.dispose();
+		if (variableSetterItemProvider != null) variableSetterItemProvider.dispose();
+		if (variableItemProvider != null) variableItemProvider.dispose();
+		if (variableCharacteristicItemProvider != null) variableCharacteristicItemProvider.dispose();
 	}
 
 }

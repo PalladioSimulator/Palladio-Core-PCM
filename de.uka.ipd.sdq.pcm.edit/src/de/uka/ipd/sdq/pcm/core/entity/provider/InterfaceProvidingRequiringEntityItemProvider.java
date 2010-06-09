@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -32,11 +32,11 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
  */
 public class InterfaceProvidingRequiringEntityItemProvider
 	extends InterfaceProvidingEntityItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,7 +149,12 @@ public class InterfaceProvidingRequiringEntityItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
-				 RepositoryFactory.eINSTANCE.createRequiredRole()));
+				 RepositoryFactory.eINSTANCE.createOperationRequiredRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createSourceRole()));
 
 		newChildDescriptors.add
 			(createChildParameter

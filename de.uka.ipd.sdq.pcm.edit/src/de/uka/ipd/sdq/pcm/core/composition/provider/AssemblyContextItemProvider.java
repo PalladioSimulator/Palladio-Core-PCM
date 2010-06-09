@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -36,11 +36,11 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
  */
 public class AssemblyContextItemProvider
 	extends EntityItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,7 +109,7 @@ public class AssemblyContextItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CompositionPackage.Literals.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT);
+			childrenFeatures.add(CompositionPackage.Literals.ASSEMBLY_CONTEXT__CONFIG_VARIABLE_SETTERS_ASSEMBLY_CONTEXT);
 		}
 		return childrenFeatures;
 	}
@@ -164,7 +164,7 @@ public class AssemblyContextItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AssemblyContext.class)) {
-			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_VARIABLE_SETTERS_ASSEMBLY_CONTEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -184,8 +184,8 @@ public class AssemblyContextItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CompositionPackage.Literals.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
+				(CompositionPackage.Literals.ASSEMBLY_CONTEXT__CONFIG_VARIABLE_SETTERS_ASSEMBLY_CONTEXT,
+				 ParameterFactory.eINSTANCE.createVariableSetter()));
 	}
 
 	/**

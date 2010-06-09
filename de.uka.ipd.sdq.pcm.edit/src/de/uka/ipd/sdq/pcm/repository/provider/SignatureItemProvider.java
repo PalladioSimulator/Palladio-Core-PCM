@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -20,10 +20,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -36,12 +35,12 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * @generated
  */
 public class SignatureItemProvider
-	extends ItemProviderAdapter
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	extends EntityItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,55 +70,9 @@ public class SignatureItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addServiceNamePropertyDescriptor(object);
-			addReturntype__SignaturePropertyDescriptor(object);
 			addFailureTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Service Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addServiceNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Signature_serviceName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Signature_serviceName_feature", "_UI_Signature_type"),
-				 RepositoryPackage.Literals.SIGNATURE__SERVICE_NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Returntype Signature feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReturntype__SignaturePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Signature_returntype__Signature_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Signature_returntype__Signature_feature", "_UI_Signature_type"),
-				 RepositoryPackage.Literals.SIGNATURE__RETURNTYPE_SIGNATURE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -156,7 +109,6 @@ public class SignatureItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RepositoryPackage.Literals.SIGNATURE__PARAMETERS_SIGNATURE);
 			childrenFeatures.add(RepositoryPackage.Literals.SIGNATURE__EXCEPTIONS_SIGNATURE);
 		}
 		return childrenFeatures;
@@ -194,7 +146,7 @@ public class SignatureItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Signature)object).getServiceName();
+		String label = ((Signature)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Signature_type") :
 			getString("_UI_Signature_type") + " " + label;
@@ -212,10 +164,6 @@ public class SignatureItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Signature.class)) {
-			case RepositoryPackage.SIGNATURE__SERVICE_NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 			case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -233,11 +181,6 @@ public class SignatureItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.SIGNATURE__PARAMETERS_SIGNATURE,
-				 RepositoryFactory.eINSTANCE.createParameter()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -32,11 +32,11 @@ import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
  */
 public class SetVariableActionItemProvider
 	extends AbstractInternalControlFlowActionItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,7 +158,7 @@ public class SetVariableActionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
+				 ParameterFactory.eINSTANCE.createVariableSetter()));
 	}
 
 }

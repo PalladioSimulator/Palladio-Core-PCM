@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -81,75 +81,6 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.PassiveResource} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PassiveResourceItemProvider passiveResourceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.PassiveResource}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPassiveResourceAdapter() {
-		if (passiveResourceItemProvider == null) {
-			passiveResourceItemProvider = new PassiveResourceItemProvider(this);
-		}
-
-		return passiveResourceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.Signature} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SignatureItemProvider signatureItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.Signature}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSignatureAdapter() {
-		if (signatureItemProvider == null) {
-			signatureItemProvider = new SignatureItemProvider(this);
-		}
-
-		return signatureItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.Parameter} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterItemProvider parameterItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.Parameter}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterAdapter() {
-		if (parameterItemProvider == null) {
-			parameterItemProvider = new ParameterItemProvider(this);
-		}
-
-		return parameterItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.Repository} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,118 +104,49 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.OperationInterface} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProvidesComponentTypeItemProvider providesComponentTypeItemProvider;
+	protected OperationInterfaceItemProvider operationInterfaceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationInterface}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createProvidesComponentTypeAdapter() {
-		if (providesComponentTypeItemProvider == null) {
-			providesComponentTypeItemProvider = new ProvidesComponentTypeItemProvider(this);
+	public Adapter createOperationInterfaceAdapter() {
+		if (operationInterfaceItemProvider == null) {
+			operationInterfaceItemProvider = new OperationInterfaceItemProvider(this);
 		}
 
-		return providesComponentTypeItemProvider;
+		return operationInterfaceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.RequiredRole} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.OperationSignature} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RequiredRoleItemProvider requiredRoleItemProvider;
+	protected OperationSignatureItemProvider operationSignatureItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.RequiredRole}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationSignature}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRequiredRoleAdapter() {
-		if (requiredRoleItemProvider == null) {
-			requiredRoleItemProvider = new RequiredRoleItemProvider(this);
+	public Adapter createOperationSignatureAdapter() {
+		if (operationSignatureItemProvider == null) {
+			operationSignatureItemProvider = new OperationSignatureItemProvider(this);
 		}
 
-		return requiredRoleItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.Interface} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InterfaceItemProvider interfaceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.Interface}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInterfaceAdapter() {
-		if (interfaceItemProvider == null) {
-			interfaceItemProvider = new InterfaceItemProvider(this);
-		}
-
-		return interfaceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RequiredCharacterisationItemProvider requiredCharacterisationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRequiredCharacterisationAdapter() {
-		if (requiredCharacterisationItemProvider == null) {
-			requiredCharacterisationItemProvider = new RequiredCharacterisationItemProvider(this);
-		}
-
-		return requiredCharacterisationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceRequiredRoleItemProvider resourceRequiredRoleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResourceRequiredRoleAdapter() {
-		if (resourceRequiredRoleItemProvider == null) {
-			resourceRequiredRoleItemProvider = new ResourceRequiredRoleItemProvider(this);
-		}
-
-		return resourceRequiredRoleItemProvider;
+		return operationSignatureItemProvider;
 	}
 
 	/**
@@ -311,49 +173,141 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.OperationRequiredRole} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CompleteComponentTypeItemProvider completeComponentTypeItemProvider;
+	protected OperationRequiredRoleItemProvider operationRequiredRoleItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationRequiredRole}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCompleteComponentTypeAdapter() {
-		if (completeComponentTypeItemProvider == null) {
-			completeComponentTypeItemProvider = new CompleteComponentTypeItemProvider(this);
+	public Adapter createOperationRequiredRoleAdapter() {
+		if (operationRequiredRoleItemProvider == null) {
+			operationRequiredRoleItemProvider = new OperationRequiredRoleItemProvider(this);
 		}
 
-		return completeComponentTypeItemProvider;
+		return operationRequiredRoleItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.CompositeComponent} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CompositeComponentItemProvider compositeComponentItemProvider;
+	protected ResourceRequiredRoleItemProvider resourceRequiredRoleItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompositeComponent}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCompositeComponentAdapter() {
-		if (compositeComponentItemProvider == null) {
-			compositeComponentItemProvider = new CompositeComponentItemProvider(this);
+	public Adapter createResourceRequiredRoleAdapter() {
+		if (resourceRequiredRoleItemProvider == null) {
+			resourceRequiredRoleItemProvider = new ResourceRequiredRoleItemProvider(this);
 		}
 
-		return compositeComponentItemProvider;
+		return resourceRequiredRoleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.SinkRole} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SinkRoleItemProvider sinkRoleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.SinkRole}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSinkRoleAdapter() {
+		if (sinkRoleItemProvider == null) {
+			sinkRoleItemProvider = new SinkRoleItemProvider(this);
+		}
+
+		return sinkRoleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.EventGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EventGroupItemProvider eventGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.EventGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEventGroupAdapter() {
+		if (eventGroupItemProvider == null) {
+			eventGroupItemProvider = new EventGroupItemProvider(this);
+		}
+
+		return eventGroupItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.EventType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EventTypeItemProvider eventTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.EventType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEventTypeAdapter() {
+		if (eventTypeItemProvider == null) {
+			eventTypeItemProvider = new EventTypeItemProvider(this);
+		}
+
+		return eventTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.SourceRole} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SourceRoleItemProvider sourceRoleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.SourceRole}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSourceRoleAdapter() {
+		if (sourceRoleItemProvider == null) {
+			sourceRoleItemProvider = new SourceRoleItemProvider(this);
+		}
+
+		return sourceRoleItemProvider;
 	}
 
 	/**
@@ -380,6 +334,98 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompleteComponentTypeItemProvider completeComponentTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompleteComponentTypeAdapter() {
+		if (completeComponentTypeItemProvider == null) {
+			completeComponentTypeItemProvider = new CompleteComponentTypeItemProvider(this);
+		}
+
+		return completeComponentTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProvidesComponentTypeItemProvider providesComponentTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProvidesComponentTypeAdapter() {
+		if (providesComponentTypeItemProvider == null) {
+			providesComponentTypeItemProvider = new ProvidesComponentTypeItemProvider(this);
+		}
+
+		return providesComponentTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.OperationProvidedRole} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperationProvidedRoleItemProvider operationProvidedRoleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationProvidedRole}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperationProvidedRoleAdapter() {
+		if (operationProvidedRoleItemProvider == null) {
+			operationProvidedRoleItemProvider = new OperationProvidedRoleItemProvider(this);
+		}
+
+		return operationProvidedRoleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.PassiveResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PassiveResourceItemProvider passiveResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.PassiveResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPassiveResourceAdapter() {
+		if (passiveResourceItemProvider == null) {
+			passiveResourceItemProvider = new PassiveResourceItemProvider(this);
+		}
+
+		return passiveResourceItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ApplicationFailureType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -400,6 +446,144 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		}
 
 		return applicationFailureTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompositeDataTypeItemProvider compositeDataTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompositeDataTypeAdapter() {
+		if (compositeDataTypeItemProvider == null) {
+			compositeDataTypeItemProvider = new CompositeDataTypeItemProvider(this);
+		}
+
+		return compositeDataTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ResourceSignature} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceSignatureItemProvider resourceSignatureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ResourceSignature}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceSignatureAdapter() {
+		if (resourceSignatureItemProvider == null) {
+			resourceSignatureItemProvider = new ResourceSignatureItemProvider(this);
+		}
+
+		return resourceSignatureItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ResourceInterface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceInterfaceItemProvider resourceInterfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ResourceInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceInterfaceAdapter() {
+		if (resourceInterfaceItemProvider == null) {
+			resourceInterfaceItemProvider = new ResourceInterfaceItemProvider(this);
+		}
+
+		return resourceInterfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.InfrastructureSignature} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InfrastructureSignatureItemProvider infrastructureSignatureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.InfrastructureSignature}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInfrastructureSignatureAdapter() {
+		if (infrastructureSignatureItemProvider == null) {
+			infrastructureSignatureItemProvider = new InfrastructureSignatureItemProvider(this);
+		}
+
+		return infrastructureSignatureItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.InfrastructureInterface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InfrastructureInterfaceItemProvider infrastructureInterfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.InfrastructureInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInfrastructureInterfaceAdapter() {
+		if (infrastructureInterfaceItemProvider == null) {
+			infrastructureInterfaceItemProvider = new InfrastructureInterfaceItemProvider(this);
+		}
+
+		return infrastructureInterfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.CompositeComponent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompositeComponentItemProvider compositeComponentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompositeComponent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompositeComponentAdapter() {
+		if (compositeComponentItemProvider == null) {
+			compositeComponentItemProvider = new CompositeComponentItemProvider(this);
+		}
+
+		return compositeComponentItemProvider;
 	}
 
 	/**
@@ -449,52 +633,6 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CompositeDataTypeItemProvider compositeDataTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCompositeDataTypeAdapter() {
-		if (compositeDataTypeItemProvider == null) {
-			compositeDataTypeItemProvider = new CompositeDataTypeItemProvider(this);
-		}
-
-		return compositeDataTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InnerDeclarationItemProvider innerDeclarationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInnerDeclarationAdapter() {
-		if (innerDeclarationItemProvider == null) {
-			innerDeclarationItemProvider = new InnerDeclarationItemProvider(this);
-		}
-
-		return innerDeclarationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.EnvironmentFailureType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -515,29 +653,6 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		}
 
 		return environmentFailureTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProvidedRoleItemProvider providedRoleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createProvidedRoleAdapter() {
-		if (providedRoleItemProvider == null) {
-			providedRoleItemProvider = new ProvidedRoleItemProvider(this);
-		}
-
-		return providedRoleItemProvider;
 	}
 
 	/**
@@ -641,24 +756,29 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	public void dispose() {
 		if (passiveResourceItemProvider != null) passiveResourceItemProvider.dispose();
 		if (basicComponentItemProvider != null) basicComponentItemProvider.dispose();
-		if (requiredRoleItemProvider != null) requiredRoleItemProvider.dispose();
-		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
-		if (signatureItemProvider != null) signatureItemProvider.dispose();
-		if (parameterItemProvider != null) parameterItemProvider.dispose();
-		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
-		if (exceptionTypeItemProvider != null) exceptionTypeItemProvider.dispose();
-		if (requiredCharacterisationItemProvider != null) requiredCharacterisationItemProvider.dispose();
 		if (resourceRequiredRoleItemProvider != null) resourceRequiredRoleItemProvider.dispose();
+		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
+		if (operationProvidedRoleItemProvider != null) operationProvidedRoleItemProvider.dispose();
+		if (operationInterfaceItemProvider != null) operationInterfaceItemProvider.dispose();
+		if (operationSignatureItemProvider != null) operationSignatureItemProvider.dispose();
+		if (exceptionTypeItemProvider != null) exceptionTypeItemProvider.dispose();
+		if (compositeDataTypeItemProvider != null) compositeDataTypeItemProvider.dispose();
+		if (resourceSignatureItemProvider != null) resourceSignatureItemProvider.dispose();
+		if (resourceInterfaceItemProvider != null) resourceInterfaceItemProvider.dispose();
+		if (infrastructureSignatureItemProvider != null) infrastructureSignatureItemProvider.dispose();
+		if (infrastructureInterfaceItemProvider != null) infrastructureInterfaceItemProvider.dispose();
+		if (eventTypeItemProvider != null) eventTypeItemProvider.dispose();
+		if (eventGroupItemProvider != null) eventGroupItemProvider.dispose();
+		if (operationRequiredRoleItemProvider != null) operationRequiredRoleItemProvider.dispose();
+		if (sinkRoleItemProvider != null) sinkRoleItemProvider.dispose();
+		if (sourceRoleItemProvider != null) sourceRoleItemProvider.dispose();
+		if (applicationFailureTypeItemProvider != null) applicationFailureTypeItemProvider.dispose();
 		if (completeComponentTypeItemProvider != null) completeComponentTypeItemProvider.dispose();
 		if (providesComponentTypeItemProvider != null) providesComponentTypeItemProvider.dispose();
 		if (compositeComponentItemProvider != null) compositeComponentItemProvider.dispose();
 		if (primitiveDataTypeItemProvider != null) primitiveDataTypeItemProvider.dispose();
 		if (collectionDataTypeItemProvider != null) collectionDataTypeItemProvider.dispose();
-		if (compositeDataTypeItemProvider != null) compositeDataTypeItemProvider.dispose();
-		if (innerDeclarationItemProvider != null) innerDeclarationItemProvider.dispose();
-		if (applicationFailureTypeItemProvider != null) applicationFailureTypeItemProvider.dispose();
 		if (environmentFailureTypeItemProvider != null) environmentFailureTypeItemProvider.dispose();
-		if (providedRoleItemProvider != null) providedRoleItemProvider.dispose();
 	}
 
 }

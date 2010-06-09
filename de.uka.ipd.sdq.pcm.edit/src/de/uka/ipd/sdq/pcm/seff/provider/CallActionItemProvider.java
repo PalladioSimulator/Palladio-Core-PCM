@@ -6,23 +6,13 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-
-import de.uka.ipd.sdq.pcm.seff.CallAction;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -31,6 +21,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.seff.CallAction;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.CallAction} object.
@@ -90,8 +85,7 @@ public class CallActionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffPackage.Literals.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION);
-			childrenFeatures.add(SeffPackage.Literals.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION);
+			childrenFeatures.add(SeffPackage.Literals.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION);
 		}
 		return childrenFeatures;
 	}
@@ -132,8 +126,7 @@ public class CallActionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CallAction.class)) {
-			case SeffPackage.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
-			case SeffPackage.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
+			case SeffPackage.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -153,36 +146,8 @@ public class CallActionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPackage.Literals.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == SeffPackage.Literals.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION ||
-			childFeature == SeffPackage.Literals.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
+				(SeffPackage.Literals.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION,
+				 ParameterFactory.eINSTANCE.createVariableSetter()));
 	}
 
 	/**

@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -104,6 +104,52 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceDemandingBehaviourItemProvider resourceDemandingBehaviourItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceDemandingBehaviourAdapter() {
+		if (resourceDemandingBehaviourItemProvider == null) {
+			resourceDemandingBehaviourItemProvider = new ResourceDemandingBehaviourItemProvider(this);
+		}
+
+		return resourceDemandingBehaviourItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.BranchAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BranchActionItemProvider branchActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.BranchAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBranchActionAdapter() {
+		if (branchActionItemProvider == null) {
+			branchActionItemProvider = new BranchActionItemProvider(this);
+		}
+
+		return branchActionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.StartAction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,29 +193,6 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		}
 
 		return resourceDemandingSEFFItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceDemandingBehaviourItemProvider resourceDemandingBehaviourItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResourceDemandingBehaviourAdapter() {
-		if (resourceDemandingBehaviourItemProvider == null) {
-			resourceDemandingBehaviourItemProvider = new ResourceDemandingBehaviourItemProvider(this);
-		}
-
-		return resourceDemandingBehaviourItemProvider;
 	}
 
 	/**
@@ -403,29 +426,6 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.BranchAction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BranchActionItemProvider branchActionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.BranchAction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBranchActionAdapter() {
-		if (branchActionItemProvider == null) {
-			branchActionItemProvider = new BranchActionItemProvider(this);
-		}
-
-		return branchActionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.AcquireAction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -587,6 +587,29 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.EmitEventAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EmitEventActionItemProvider emitEventActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.EmitEventAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEmitEventActionAdapter() {
+		if (emitEventActionItemProvider == null) {
+			emitEventActionItemProvider = new EmitEventActionItemProvider(this);
+		}
+
+		return emitEventActionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -707,6 +730,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		if (internalCallActionItemProvider != null) internalCallActionItemProvider.dispose();
 		if (recoveryBlockActionItemProvider != null) recoveryBlockActionItemProvider.dispose();
 		if (recoveryBlockAlternativeBehaviourItemProvider != null) recoveryBlockAlternativeBehaviourItemProvider.dispose();
+		if (emitEventActionItemProvider != null) emitEventActionItemProvider.dispose();
 	}
 
 }

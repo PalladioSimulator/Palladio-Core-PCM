@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,7 +11,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -20,24 +19,22 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.NamedElementItemProvider;
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationRequiredRole} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class InnerDeclarationItemProvider
-	extends NamedElementItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+public class OperationRequiredRoleItemProvider
+	extends RequiredRoleItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -52,7 +49,7 @@ public class InnerDeclarationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InnerDeclarationItemProvider(AdapterFactory adapterFactory) {
+	public OperationRequiredRoleItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -67,25 +64,25 @@ public class InnerDeclarationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDatatype_InnerDeclarationPropertyDescriptor(object);
+			addRequiredInterface__OperationRequiredRolePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Datatype Inner Declaration feature.
+	 * This adds a property descriptor for the Required Interface Operation Required Role feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDatatype_InnerDeclarationPropertyDescriptor(Object object) {
+	protected void addRequiredInterface__OperationRequiredRolePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InnerDeclaration_datatype_InnerDeclaration_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InnerDeclaration_datatype_InnerDeclaration_feature", "_UI_InnerDeclaration_type"),
-				 RepositoryPackage.Literals.INNER_DECLARATION__DATATYPE_INNER_DECLARATION,
+				 getString("_UI_OperationRequiredRole_requiredInterface__OperationRequiredRole_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OperationRequiredRole_requiredInterface__OperationRequiredRole_feature", "_UI_OperationRequiredRole_type"),
+				 RepositoryPackage.Literals.OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE,
 				 true,
 				 false,
 				 true,
@@ -95,14 +92,14 @@ public class InnerDeclarationItemProvider
 	}
 
 	/**
-	 * This returns InnerDeclaration.gif.
+	 * This returns OperationRequiredRole.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InnerDeclaration"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OperationRequiredRole"));
 	}
 
 	/**
@@ -113,10 +110,10 @@ public class InnerDeclarationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InnerDeclaration)object).getEntityName();
+		String label = ((OperationRequiredRole)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_InnerDeclaration_type") :
-			getString("_UI_InnerDeclaration_type") + " " + label;
+			getString("_UI_OperationRequiredRole_type") :
+			getString("_UI_OperationRequiredRole_type") + " " + label;
 	}
 
 	/**
@@ -142,17 +139,6 @@ public class InnerDeclarationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return PalladioComponentModelEditPlugin.INSTANCE;
 	}
 
 }

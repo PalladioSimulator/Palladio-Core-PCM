@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -35,11 +35,11 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
  */
 public class ComposedProvidingRequiringEntityItemProvider
 	extends ComposedStructureItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,12 +154,22 @@ public class ComposedProvidingRequiringEntityItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
-				 RepositoryFactory.eINSTANCE.createProvidedRole()));
+				 RepositoryFactory.eINSTANCE.createOperationProvidedRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createSinkRole()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
-				 RepositoryFactory.eINSTANCE.createRequiredRole()));
+				 RepositoryFactory.eINSTANCE.createOperationRequiredRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createSourceRole()));
 
 		newChildDescriptors.add
 			(createChildParameter

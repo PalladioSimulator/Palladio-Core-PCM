@@ -1,9 +1,9 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.parameter.provider;
+package de.uka.ipd.sdq.pcm.repository.provider;
 
 
 import java.util.Collection;
@@ -11,36 +11,32 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
-import de.uka.ipd.sdq.stoex.provider.VariableItemProvider;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.InfrastructureInterface} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CharacterisedVariableItemProvider
-	extends VariableItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+public class InfrastructureInterfaceItemProvider
+	extends InterfaceItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -55,7 +51,7 @@ public class CharacterisedVariableItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CharacterisedVariableItemProvider(AdapterFactory adapterFactory) {
+	public InfrastructureInterfaceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,42 +66,49 @@ public class CharacterisedVariableItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCharacterisationTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Characterisation Type feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCharacterisationTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CharacterisedVariable_characterisationType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CharacterisedVariable_characterisationType_feature", "_UI_CharacterisedVariable_type"),
-				 ParameterPackage.Literals.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(RepositoryPackage.Literals.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This returns CharacterisedVariable.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns InfrastructureInterface.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CharacterisedVariable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InfrastructureInterface"));
 	}
 
 	/**
@@ -116,11 +119,10 @@ public class CharacterisedVariableItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		VariableCharacterisationType labelValue = ((CharacterisedVariable)object).getCharacterisationType();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((InfrastructureInterface)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CharacterisedVariable_type") :
-			getString("_UI_CharacterisedVariable_type") + " " + label;
+			getString("_UI_InfrastructureInterface_type") :
+			getString("_UI_InfrastructureInterface_type") + " " + label;
 	}
 
 	/**
@@ -134,9 +136,9 @@ public class CharacterisedVariableItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CharacterisedVariable.class)) {
-			case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		switch (notification.getFeatureID(InfrastructureInterface.class)) {
+			case RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -152,17 +154,11 @@ public class CharacterisedVariableItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
 
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return PalladioComponentModelEditPlugin.INSTANCE;
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
+				 RepositoryFactory.eINSTANCE.createInfrastructureSignature()));
 	}
 
 }

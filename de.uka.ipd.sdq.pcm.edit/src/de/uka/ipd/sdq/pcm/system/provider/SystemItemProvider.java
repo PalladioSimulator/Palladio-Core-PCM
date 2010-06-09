@@ -1,14 +1,11 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.system.provider;
 
-import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -24,7 +21,10 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.ComposedProvidingRequiringEntityItemProvider;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
@@ -38,11 +38,11 @@ import de.uka.ipd.sdq.pcm.system.SystemPackage;
  */
 public class SystemItemProvider
 	extends EntityItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,6 +92,9 @@ public class SystemItemProvider
 			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE);
 			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
 			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
+			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE);
+			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
+			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
 			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
 			childrenFeatures.add(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
 			childrenFeatures.add(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
@@ -155,6 +158,9 @@ public class SystemItemProvider
 			case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
 			case SystemPackage.SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+			case SystemPackage.SYSTEM__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE:
+			case SystemPackage.SYSTEM__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+			case SystemPackage.SYSTEM__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
 			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
@@ -199,18 +205,43 @@ public class SystemItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(CompositionPackage.Literals.COMPOSED_STRUCTURE__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE,
+				 CompositionFactory.eINSTANCE.createAssemblyEventConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CompositionPackage.Literals.COMPOSED_STRUCTURE__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
+				 CompositionFactory.eINSTANCE.createSinkDelegationConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CompositionPackage.Literals.COMPOSED_STRUCTURE__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
+				 CompositionFactory.eINSTANCE.createSourceDelegationConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(CompositionPackage.Literals.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
 				 CompositionFactory.eINSTANCE.createProvidedDelegationConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
-				 RepositoryFactory.eINSTANCE.createProvidedRole()));
+				 RepositoryFactory.eINSTANCE.createOperationProvidedRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createSinkRole()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
-				 RepositoryFactory.eINSTANCE.createRequiredRole()));
+				 RepositoryFactory.eINSTANCE.createOperationRequiredRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createSourceRole()));
 
 		newChildDescriptors.add
 			(createChildParameter

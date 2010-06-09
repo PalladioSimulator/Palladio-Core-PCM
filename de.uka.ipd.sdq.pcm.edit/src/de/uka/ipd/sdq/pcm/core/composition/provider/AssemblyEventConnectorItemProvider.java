@@ -1,9 +1,9 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.repository.provider;
+package de.uka.ipd.sdq.pcm.core.composition.provider;
 
 
 import java.util.Collection;
@@ -19,27 +19,25 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.Parameter} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParameterItemProvider
-	extends ItemProviderAdapter
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+public class AssemblyEventConnectorItemProvider
+	extends ConnectorItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -54,7 +52,7 @@ public class ParameterItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterItemProvider(AdapterFactory adapterFactory) {
+	public AssemblyEventConnectorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,27 +67,28 @@ public class ParameterItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDatatype__ParameterPropertyDescriptor(object);
-			addParameterNamePropertyDescriptor(object);
-			addModifier__ParameterPropertyDescriptor(object);
+			addSinkRole__AssemblyEventConnectorPropertyDescriptor(object);
+			addSourceRole__AssemblyEventConnectorPropertyDescriptor(object);
+			addSinkAssemblyContext__AssemblyEventConnectorPropertyDescriptor(object);
+			addSourceAssemblyContext__AssemblyEventConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Datatype Parameter feature.
+	 * This adds a property descriptor for the Sink Role Assembly Event Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDatatype__ParameterPropertyDescriptor(Object object) {
+	protected void addSinkRole__AssemblyEventConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_datatype__Parameter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_datatype__Parameter_feature", "_UI_Parameter_type"),
-				 RepositoryPackage.Literals.PARAMETER__DATATYPE_PARAMETER,
+				 getString("_UI_AssemblyEventConnector_sinkRole__AssemblyEventConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyEventConnector_sinkRole__AssemblyEventConnector_feature", "_UI_AssemblyEventConnector_type"),
+				 CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR,
 				 true,
 				 false,
 				 true,
@@ -99,58 +98,80 @@ public class ParameterItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Parameter Name feature.
+	 * This adds a property descriptor for the Source Role Assembly Event Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addParameterNamePropertyDescriptor(Object object) {
+	protected void addSourceRole__AssemblyEventConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_parameterName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_parameterName_feature", "_UI_Parameter_type"),
-				 RepositoryPackage.Literals.PARAMETER__PARAMETER_NAME,
+				 getString("_UI_AssemblyEventConnector_sourceRole__AssemblyEventConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyEventConnector_sourceRole__AssemblyEventConnector_feature", "_UI_AssemblyEventConnector_type"),
+				 CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Modifier Parameter feature.
+	 * This adds a property descriptor for the Sink Assembly Context Assembly Event Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addModifier__ParameterPropertyDescriptor(Object object) {
+	protected void addSinkAssemblyContext__AssemblyEventConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_modifier__Parameter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_modifier__Parameter_feature", "_UI_Parameter_type"),
-				 RepositoryPackage.Literals.PARAMETER__MODIFIER_PARAMETER,
+				 getString("_UI_AssemblyEventConnector_sinkAssemblyContext__AssemblyEventConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyEventConnector_sinkAssemblyContext__AssemblyEventConnector_feature", "_UI_AssemblyEventConnector_type"),
+				 CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns Parameter.gif.
+	 * This adds a property descriptor for the Source Assembly Context Assembly Event Connector feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSourceAssemblyContext__AssemblyEventConnectorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AssemblyEventConnector_sourceAssemblyContext__AssemblyEventConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyEventConnector_sourceAssemblyContext__AssemblyEventConnector_feature", "_UI_AssemblyEventConnector_type"),
+				 CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns AssemblyEventConnector.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Parameter"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssemblyEventConnector"));
 	}
 
 	/**
@@ -161,10 +182,10 @@ public class ParameterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Parameter)object).getParameterName();
+		String label = ((AssemblyEventConnector)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Parameter_type") :
-			getString("_UI_Parameter_type") + " " + label;
+			getString("_UI_AssemblyEventConnector_type") :
+			getString("_UI_AssemblyEventConnector_type") + " " + label;
 	}
 
 	/**
@@ -177,13 +198,6 @@ public class ParameterItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Parameter.class)) {
-			case RepositoryPackage.PARAMETER__PARAMETER_NAME:
-			case RepositoryPackage.PARAMETER__MODIFIER_PARAMETER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

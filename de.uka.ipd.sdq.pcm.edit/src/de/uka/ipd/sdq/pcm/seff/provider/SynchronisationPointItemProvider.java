@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -36,11 +36,11 @@ import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
  */
 public class SynchronisationPointItemProvider
 	extends ItemProviderAdapter
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,7 +86,7 @@ public class SynchronisationPointItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffPackage.Literals.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT);
+			childrenFeatures.add(SeffPackage.Literals.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT);
 			childrenFeatures.add(SeffPackage.Literals.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT);
 		}
 		return childrenFeatures;
@@ -139,7 +139,7 @@ public class SynchronisationPointItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SynchronisationPoint.class)) {
-			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
+			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT:
 			case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -160,8 +160,8 @@ public class SynchronisationPointItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPackage.Literals.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
+				(SeffPackage.Literals.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT,
+				 ParameterFactory.eINSTANCE.createVariableSetter()));
 
 		newChildDescriptors.add
 			(createChildParameter

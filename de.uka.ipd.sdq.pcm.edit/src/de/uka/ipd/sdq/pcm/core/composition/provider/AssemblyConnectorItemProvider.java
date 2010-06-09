@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -33,11 +33,11 @@ import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
  */
 public class AssemblyConnectorItemProvider
 	extends ConnectorItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,8 +69,8 @@ public class AssemblyConnectorItemProvider
 
 			addRequiringAssemblyContext_AssemblyConnectorPropertyDescriptor(object);
 			addProvidingAssemblyContext_AssemblyConnectorPropertyDescriptor(object);
-			addProvidedRole_AssemblyConnectorPropertyDescriptor(object);
-			addRequiredRole_AssemblyConnectorPropertyDescriptor(object);
+			addProvidedRole__AssemblyConnectorPropertyDescriptor(object);
+			addRequiredRole__AssemblyConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -125,13 +125,13 @@ public class AssemblyConnectorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProvidedRole_AssemblyConnectorPropertyDescriptor(Object object) {
+	protected void addProvidedRole__AssemblyConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblyConnector_providedRole_AssemblyConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_providedRole_AssemblyConnector_feature", "_UI_AssemblyConnector_type"),
+				 getString("_UI_AssemblyConnector_providedRole__AssemblyConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_providedRole__AssemblyConnector_feature", "_UI_AssemblyConnector_type"),
 				 CompositionPackage.Literals.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR,
 				 true,
 				 false,
@@ -147,13 +147,13 @@ public class AssemblyConnectorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRequiredRole_AssemblyConnectorPropertyDescriptor(Object object) {
+	protected void addRequiredRole__AssemblyConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblyConnector_requiredRole_AssemblyConnector_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_requiredRole_AssemblyConnector_feature", "_UI_AssemblyConnector_type"),
+				 getString("_UI_AssemblyConnector_requiredRole__AssemblyConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyConnector_requiredRole__AssemblyConnector_feature", "_UI_AssemblyConnector_type"),
 				 CompositionPackage.Literals.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR,
 				 true,
 				 false,

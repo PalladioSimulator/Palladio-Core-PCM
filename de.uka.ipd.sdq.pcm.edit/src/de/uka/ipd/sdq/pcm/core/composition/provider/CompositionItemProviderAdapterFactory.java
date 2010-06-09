@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -104,26 +104,26 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AssemblyContextItemProvider assemblyContextItemProvider;
+	protected AssemblyConnectorItemProvider assemblyConnectorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAssemblyContextAdapter() {
-		if (assemblyContextItemProvider == null) {
-			assemblyContextItemProvider = new AssemblyContextItemProvider(this);
+	public Adapter createAssemblyConnectorAdapter() {
+		if (assemblyConnectorItemProvider == null) {
+			assemblyConnectorItemProvider = new AssemblyConnectorItemProvider(this);
 		}
 
-		return assemblyContextItemProvider;
+		return assemblyConnectorItemProvider;
 	}
 
 	/**
@@ -150,29 +150,6 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AssemblyConnectorItemProvider assemblyConnectorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAssemblyConnectorAdapter() {
-		if (assemblyConnectorItemProvider == null) {
-			assemblyConnectorItemProvider = new AssemblyConnectorItemProvider(this);
-		}
-
-		return assemblyConnectorItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,6 +170,98 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 		}
 
 		return resourceRequiredDelegationConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AssemblyEventConnectorItemProvider assemblyEventConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAssemblyEventConnectorAdapter() {
+		if (assemblyEventConnectorItemProvider == null) {
+			assemblyEventConnectorItemProvider = new AssemblyEventConnectorItemProvider(this);
+		}
+
+		return assemblyEventConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SinkDelegationConnectorItemProvider sinkDelegationConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSinkDelegationConnectorAdapter() {
+		if (sinkDelegationConnectorItemProvider == null) {
+			sinkDelegationConnectorItemProvider = new SinkDelegationConnectorItemProvider(this);
+		}
+
+		return sinkDelegationConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SourceDelegationConnectorItemProvider sourceDelegationConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSourceDelegationConnectorAdapter() {
+		if (sourceDelegationConnectorItemProvider == null) {
+			sourceDelegationConnectorItemProvider = new SourceDelegationConnectorItemProvider(this);
+		}
+
+		return sourceDelegationConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AssemblyContextItemProvider assemblyContextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAssemblyContextAdapter() {
+		if (assemblyContextItemProvider == null) {
+			assemblyContextItemProvider = new AssemblyContextItemProvider(this);
+		}
+
+		return assemblyContextItemProvider;
 	}
 
 	/**
@@ -298,6 +367,9 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 		if (assemblyConnectorItemProvider != null) assemblyConnectorItemProvider.dispose();
 		if (requiredDelegationConnectorItemProvider != null) requiredDelegationConnectorItemProvider.dispose();
 		if (resourceRequiredDelegationConnectorItemProvider != null) resourceRequiredDelegationConnectorItemProvider.dispose();
+		if (assemblyEventConnectorItemProvider != null) assemblyEventConnectorItemProvider.dispose();
+		if (sinkDelegationConnectorItemProvider != null) sinkDelegationConnectorItemProvider.dispose();
+		if (sourceDelegationConnectorItemProvider != null) sourceDelegationConnectorItemProvider.dispose();
 		if (assemblyContextItemProvider != null) assemblyContextItemProvider.dispose();
 	}
 

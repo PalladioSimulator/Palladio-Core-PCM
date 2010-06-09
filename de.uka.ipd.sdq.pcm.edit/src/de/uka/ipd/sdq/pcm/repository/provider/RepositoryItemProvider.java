@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -38,11 +38,11 @@ import de.uka.ipd.sdq.pcm.subsystem.SubsystemFactory;
  */
 public class RepositoryItemProvider
 	extends EntityItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,9 +112,9 @@ public class RepositoryItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY);
-			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY);
-			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES);
 			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__DATATYPES_REPOSITORY);
+			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES);
+			childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY);
 		}
 		return childrenFeatures;
 	}
@@ -173,9 +173,9 @@ public class RepositoryItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
+			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
+			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -220,18 +220,8 @@ public class RepositoryItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
-				 RepositoryFactory.eINSTANCE.createInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES,
-				 RepositoryFactory.eINSTANCE.createApplicationFailureType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES,
-				 RepositoryFactory.eINSTANCE.createEnvironmentFailureType()));
+				(RepositoryPackage.Literals.REPOSITORY__DATATYPES_REPOSITORY,
+				 RepositoryFactory.eINSTANCE.createCompositeDataType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -245,8 +235,33 @@ public class RepositoryItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RepositoryPackage.Literals.REPOSITORY__DATATYPES_REPOSITORY,
-				 RepositoryFactory.eINSTANCE.createCompositeDataType()));
+				(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES,
+				 RepositoryFactory.eINSTANCE.createApplicationFailureType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES,
+				 RepositoryFactory.eINSTANCE.createEnvironmentFailureType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
+				 RepositoryFactory.eINSTANCE.createOperationInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
+				 RepositoryFactory.eINSTANCE.createResourceInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
+				 RepositoryFactory.eINSTANCE.createInfrastructureInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
+				 RepositoryFactory.eINSTANCE.createEventGroup()));
 	}
 
 	/**

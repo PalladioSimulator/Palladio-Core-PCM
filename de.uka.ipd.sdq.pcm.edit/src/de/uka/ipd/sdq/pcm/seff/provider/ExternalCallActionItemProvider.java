@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -34,11 +34,11 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  */
 public class ExternalCallActionItemProvider
 	extends AbstractActionItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,7 +68,7 @@ public class ExternalCallActionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFailuretypePropertyDescriptor(object);
+			addFailureTypesPropertyDescriptor(object);
 			addCalledService_ExternalServicePropertyDescriptor(object);
 			addRole_ExternalServicePropertyDescriptor(object);
 			addRetryCountPropertyDescriptor(object);
@@ -77,19 +77,19 @@ public class ExternalCallActionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Failuretype feature.
+	 * This adds a property descriptor for the Failure Types feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFailuretypePropertyDescriptor(Object object) {
+	protected void addFailureTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FailureHandlingEntity_failuretype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FailureHandlingEntity_failuretype_feature", "_UI_FailureHandlingEntity_type"),
-				 SeffPackage.Literals.FAILURE_HANDLING_ENTITY__FAILURETYPE,
+				 getString("_UI_FailureHandlingEntity_failureTypes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FailureHandlingEntity_failureTypes_feature", "_UI_FailureHandlingEntity_type"),
+				 SeffPackage.Literals.FAILURE_HANDLING_ENTITY__FAILURE_TYPES,
 				 true,
 				 false,
 				 true,
@@ -176,8 +176,8 @@ public class ExternalCallActionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffPackage.Literals.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION);
-			childrenFeatures.add(SeffPackage.Literals.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION);
+			childrenFeatures.add(SeffPackage.Literals.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION);
+			childrenFeatures.add(SeffPackage.Literals.CALL_RETURN_ACTION__VARIABLE_SETTER_RETURNS_CALL_RETURN_ACTION);
 		}
 		return childrenFeatures;
 	}
@@ -235,8 +235,8 @@ public class ExternalCallActionItemProvider
 			case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
-			case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
+			case SeffPackage.EXTERNAL_CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION:
+			case SeffPackage.EXTERNAL_CALL_ACTION__VARIABLE_SETTER_RETURNS_CALL_RETURN_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -256,13 +256,13 @@ public class ExternalCallActionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPackage.Literals.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
+				(SeffPackage.Literals.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION,
+				 ParameterFactory.eINSTANCE.createVariableSetter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPackage.Literals.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
+				(SeffPackage.Literals.CALL_RETURN_ACTION__VARIABLE_SETTER_RETURNS_CALL_RETURN_ACTION,
+				 ParameterFactory.eINSTANCE.createVariableSetter()));
 	}
 
 	/**
@@ -277,8 +277,8 @@ public class ExternalCallActionItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == SeffPackage.Literals.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION ||
-			childFeature == SeffPackage.Literals.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION;
+			childFeature == SeffPackage.Literals.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION ||
+			childFeature == SeffPackage.Literals.CALL_RETURN_ACTION__VARIABLE_SETTER_RETURNS_CALL_RETURN_ACTION;
 
 		if (qualify) {
 			return getString

@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -30,11 +30,11 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  */
 public class CollectionIteratorActionItemProvider
 	extends AbstractLoopActionItemProvider
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -64,25 +64,25 @@ public class CollectionIteratorActionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addParameter_CollectionIteratorActionPropertyDescriptor(object);
+			addVariable__CollectionIteratorActionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Parameter Collection Iterator Action feature.
+	 * This adds a property descriptor for the Variable Collection Iterator Action feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addParameter_CollectionIteratorActionPropertyDescriptor(Object object) {
+	protected void addVariable__CollectionIteratorActionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CollectionIteratorAction_parameter_CollectionIteratorAction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CollectionIteratorAction_parameter_CollectionIteratorAction_feature", "_UI_CollectionIteratorAction_type"),
-				 SeffPackage.Literals.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION,
+				 getString("_UI_CollectionIteratorAction_variable__CollectionIteratorAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CollectionIteratorAction_variable__CollectionIteratorAction_feature", "_UI_CollectionIteratorAction_type"),
+				 SeffPackage.Literals.COLLECTION_ITERATOR_ACTION__VARIABLE_COLLECTION_ITERATOR_ACTION,
 				 true,
 				 false,
 				 true,

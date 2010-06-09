@@ -1,9 +1,9 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.parameter.provider;
+package de.uka.ipd.sdq.pcm.core.composition.provider;
 
 
 import java.util.Collection;
@@ -12,7 +12,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -20,29 +19,25 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.CoreFactory;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
+import de.uka.ipd.sdq.pcm.repository.provider.DelegationConnectorItemProvider;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableCharacterisationItemProvider
-	extends ItemProviderAdapter
-	implements	
-		IEditingDomainItemProvider,	
-		IStructuredItemContentProvider,	
-		ITreeItemContentProvider,	
-		IItemLabelProvider,	
+public class SourceDelegationConnectorItemProvider
+	extends DelegationConnectorItemProvider
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
 		IItemPropertySource {
 	/**
 	 * <!-- begin-user-doc -->
@@ -57,7 +52,7 @@ public class VariableCharacterisationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableCharacterisationItemProvider(AdapterFactory adapterFactory) {
+	public SourceDelegationConnectorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -72,72 +67,88 @@ public class VariableCharacterisationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
+			addInnerSourceRole__SourceDelegationConnectorPropertyDescriptor(object);
+			addOuterSourceRole__SourceDelegationConnectorPropertyDescriptor(object);
+			addAssemblyContext__SourceDelegationConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Inner Source Role Source Delegation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addInnerSourceRole__SourceDelegationConnectorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableCharacterisation_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableCharacterisation_type_feature", "_UI_VariableCharacterisation_type"),
-				 ParameterPackage.Literals.VARIABLE_CHARACTERISATION__TYPE,
+				 getString("_UI_SourceDelegationConnector_innerSourceRole__SourceDelegationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SourceDelegationConnector_innerSourceRole__SourceDelegationConnector_feature", "_UI_SourceDelegationConnector_type"),
+				 CompositionPackage.Literals.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_DELEGATION_CONNECTOR,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Outer Source Role Source Delegation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(ParameterPackage.Literals.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION);
-		}
-		return childrenFeatures;
+	protected void addOuterSourceRole__SourceDelegationConnectorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SourceDelegationConnector_outerSourceRole__SourceDelegationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SourceDelegationConnector_outerSourceRole__SourceDelegationConnector_feature", "_UI_SourceDelegationConnector_type"),
+				 CompositionPackage.Literals.SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_DELEGATION_CONNECTOR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This adds a property descriptor for the Assembly Context Source Delegation Connector feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addAssemblyContext__SourceDelegationConnectorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SourceDelegationConnector_assemblyContext__SourceDelegationConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SourceDelegationConnector_assemblyContext__SourceDelegationConnector_feature", "_UI_SourceDelegationConnector_type"),
+				 CompositionPackage.Literals.SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns VariableCharacterisation.gif.
+	 * This returns SourceDelegationConnector.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableCharacterisation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SourceDelegationConnector"));
 	}
 
 	/**
@@ -148,11 +159,10 @@ public class VariableCharacterisationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		VariableCharacterisationType labelValue = ((VariableCharacterisation)object).getType();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((SourceDelegationConnector)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_VariableCharacterisation_type") :
-			getString("_UI_VariableCharacterisation_type") + " " + label;
+			getString("_UI_SourceDelegationConnector_type") :
+			getString("_UI_SourceDelegationConnector_type") + " " + label;
 	}
 
 	/**
@@ -165,15 +175,6 @@ public class VariableCharacterisationItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(VariableCharacterisation.class)) {
-			case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -187,11 +188,6 @@ public class VariableCharacterisationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ParameterPackage.Literals.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION,
-				 CoreFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 
 	/**

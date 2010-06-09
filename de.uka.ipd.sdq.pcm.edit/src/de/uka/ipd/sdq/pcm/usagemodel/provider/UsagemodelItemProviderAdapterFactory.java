@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -104,26 +104,26 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.UserData} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ScenarioBehaviourItemProvider scenarioBehaviourItemProvider;
+	protected UserDataItemProvider userDataItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.UserData}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createScenarioBehaviourAdapter() {
-		if (scenarioBehaviourItemProvider == null) {
-			scenarioBehaviourItemProvider = new ScenarioBehaviourItemProvider(this);
+	public Adapter createUserDataAdapter() {
+		if (userDataItemProvider == null) {
+			userDataItemProvider = new UserDataItemProvider(this);
 		}
 
-		return scenarioBehaviourItemProvider;
+		return userDataItemProvider;
 	}
 
 	/**
@@ -150,26 +150,118 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.UserData} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UserDataItemProvider userDataItemProvider;
+	protected EntryLevelSystemCallItemProvider entryLevelSystemCallItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.UserData}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createUserDataAdapter() {
-		if (userDataItemProvider == null) {
-			userDataItemProvider = new UserDataItemProvider(this);
+	public Adapter createEntryLevelSystemCallAdapter() {
+		if (entryLevelSystemCallItemProvider == null) {
+			entryLevelSystemCallItemProvider = new EntryLevelSystemCallItemProvider(this);
 		}
 
-		return userDataItemProvider;
+		return entryLevelSystemCallItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScenarioBehaviourItemProvider scenarioBehaviourItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScenarioBehaviourAdapter() {
+		if (scenarioBehaviourItemProvider == null) {
+			scenarioBehaviourItemProvider = new ScenarioBehaviourItemProvider(this);
+		}
+
+		return scenarioBehaviourItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BranchTransitionItemProvider branchTransitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBranchTransitionAdapter() {
+		if (branchTransitionItemProvider == null) {
+			branchTransitionItemProvider = new BranchTransitionItemProvider(this);
+		}
+
+		return branchTransitionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Branch} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BranchItemProvider branchItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.Branch}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBranchAdapter() {
+		if (branchItemProvider == null) {
+			branchItemProvider = new BranchItemProvider(this);
+		}
+
+		return branchItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Loop} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LoopItemProvider loopItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.Loop}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLoopAdapter() {
+		if (loopItemProvider == null) {
+			loopItemProvider = new LoopItemProvider(this);
+		}
+
+		return loopItemProvider;
 	}
 
 	/**
@@ -242,49 +334,26 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Loop} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Delay} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LoopItemProvider loopItemProvider;
+	protected DelayItemProvider delayItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.Loop}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.Delay}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLoopAdapter() {
-		if (loopItemProvider == null) {
-			loopItemProvider = new LoopItemProvider(this);
+	public Adapter createDelayAdapter() {
+		if (delayItemProvider == null) {
+			delayItemProvider = new DelayItemProvider(this);
 		}
 
-		return loopItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EntryLevelSystemCallItemProvider entryLevelSystemCallItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEntryLevelSystemCallAdapter() {
-		if (entryLevelSystemCallItemProvider == null) {
-			entryLevelSystemCallItemProvider = new EntryLevelSystemCallItemProvider(this);
-		}
-
-		return entryLevelSystemCallItemProvider;
+		return delayItemProvider;
 	}
 
 	/**
@@ -308,75 +377,6 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 		}
 
 		return closedWorkloadItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Branch} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BranchItemProvider branchItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.Branch}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBranchAdapter() {
-		if (branchItemProvider == null) {
-			branchItemProvider = new BranchItemProvider(this);
-		}
-
-		return branchItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BranchTransitionItemProvider branchTransitionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBranchTransitionAdapter() {
-		if (branchTransitionItemProvider == null) {
-			branchTransitionItemProvider = new BranchTransitionItemProvider(this);
-		}
-
-		return branchTransitionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Delay} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DelayItemProvider delayItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.Delay}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDelayAdapter() {
-		if (delayItemProvider == null) {
-			delayItemProvider = new DelayItemProvider(this);
-		}
-
-		return delayItemProvider;
 	}
 
 	/**
