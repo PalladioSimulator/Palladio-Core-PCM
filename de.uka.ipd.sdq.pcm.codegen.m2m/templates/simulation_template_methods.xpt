@@ -1,0 +1,178 @@
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::java_names»
+«IMPORT system»
+«IMPORT core::composition»
+«IMPORT usagemodel»
+«IMPORT core::entity»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT seff::performance»
+«IMPORT resourcetype»
+«IMPORT allocation»
+«IMPORT parameter»
+«IMPORT qosannotations»
+«IMPORT completions»
+
+«AROUND m2t_transforms::java_core::ComponentConstructorTM FOR RepositoryComponent»
+	«EXPAND m2t_transforms::sim::java_core::ComponentConstructor FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::composed_structure::ComponentConstructorParametersTM FOR AssemblyContext»
+	«IF BasicComponent.isInstance(this.encapsulatedComponent_AssemblyContext)»
+		"«this.id»"
+	«ENDIF»
+«ENDAROUND»
+
+«AROUND m2t_transforms::composed_structure::ChildInitTM(ComposedStructure s) FOR AssemblyContext»
+	«IF BasicComponent.isInstance(this.encapsulatedComponent_AssemblyContext)»
+		«EXPAND m2t_transforms::sim::composed_structure::ChildInitTM(s) FOR this»
+	«ENDIF»
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::SpecificImplementationPartTM FOR RepositoryComponent»
+	«EXPAND m2t_transforms::sim::java_core::SpecificImplementationPartTM FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::allocation::AllocationTM FOR Allocation»
+	«EXPAND m2t_transforms::sim::allocation::Allocation FOR this»
+«ENDAROUND»
+
+//-------------------------
+// Sensors TM
+//-------------------------
+«AROUND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR String»
+	«EXPAND m2t_transforms::sim::sensors::StartResponseTimeMeasurement FOR this»	
+«ENDAROUND»
+
+«AROUND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR String»
+	«EXPAND m2t_transforms::sim::sensors::EndResponseTimeMeasurement FOR this»	
+«ENDAROUND»
+
+//-------------------------
+// Call parameter Template Methods
+//-------------------------
+«AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
+	de.uka.ipd.sdq.simucomframework.Context ctx
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
+	ctx
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ReturnTypeTM FOR Signature»
+   de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR Signature»
+   «EXPAND m2t_transforms::sim::provided_ports::PortDelegationDelegatingCall FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR Signature»
+   «EXPAND m2t_transforms::sim::provided_ports::ComposedStructurePortDelegationDelegatingCall(cs) FOR this»
+«ENDAROUND»
+
+//-------------------------
+// Pre-/Post-Call TM
+//-------------------------
+
+«AROUND m2t_transforms::calls::PreCallTM(Object call, String prefix, List[VariableUsage] parameterUsages) FOR Signature»
+	«EXPAND m2t_transforms::sim::calls::PreCall(call, prefix, parameterUsages) FOR this»
+«ENDAROUND»
+ 
+«AROUND m2t_transforms::calls::PostCallTM(Object call, String prefix, List[VariableUsage] outParameterUsages) FOR Signature»
+	«EXPAND m2t_transforms::sim::calls::PostCall(call, prefix, outParameterUsages) FOR this»
+«ENDAROUND» 
+
+// ----------------------------
+// Resource Demand
+// ----------------------------
+
+«AROUND m2t_transforms::resources::ResourceDemandTM FOR ParametricResourceDemand»
+	«EXPAND m2t_transforms::sim::resources::ResourceDemand FOR this»
+«ENDAROUND»
+
+// ----------------------------
+// Actions Dispatcher ---> SEFF
+// ----------------------------
+«AROUND m2t_transforms::seff::Action FOR StartAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::seff::Action FOR StopAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::seff::Action FOR SetVariableAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::seff::Action FOR LoopAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+ 
+«AROUND m2t_transforms::seff::Action FOR BranchAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR InternalAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR AcquireAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR ReleaseAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR ForkAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR DelegatingExternalCallAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+
+// ----------------------------
+// End of Actions Dispatcher 
+// ----------------------------
+
+//-----------------------------
+// Dummies TM
+//-----------------------------
+«AROUND m2t_transforms::usage::DummyRequiredSystemTM(System s) FOR RequiredRole»
+	«EXPAND m2t_transforms::dummies::DummyComponent(s) FOR this»
+	new «s.implementationPackage()».«this.fqnDummyComponent()»()
+«ENDAROUND»
+
+«AROUND m2t_transforms::dummies::DummyMethodBodyTM(System s,RequiredRole r) FOR Signature»
+	«EXPAND m2t_transforms::sim::dummies::DummyMethodBody(s,r) FOR this»
+«ENDAROUND»
+
+//-----------------------------
+// Usage TM
+//-----------------------------
+«AROUND m2t_transforms::usage::MainTM FOR UsageModel»
+	«EXPAND m2t_transforms::sim::usage::Main FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::usage::UsageScenarioTM(Allocation a) FOR UsageScenario»
+	«EXPAND m2t_transforms::sim::usage::UsageScenario(a) FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::user_actions::UserAction FOR Loop»
+	«EXPAND m2t_transforms::sim::user_actions::UserAction FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::user_actions::UserAction FOR Branch»
+	«EXPAND m2t_transforms::sim::user_actions::UserAction FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::user_actions::UserAction FOR Stop»
+	«EXPAND m2t_transforms::sim::user_actions::UserAction FOR this»
+«ENDAROUND»
