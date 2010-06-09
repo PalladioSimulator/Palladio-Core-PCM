@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.infrastructure;
 
-import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.transformations.builder.seff.DelegatorComponentSeffBuilder;
 import de.uka.ipd.sdq.pcm.transformations.builder.seff.MarshallerComponentSeffBuilder;
@@ -18,9 +18,9 @@ public class MarshallingComponentBuilder extends
 	
 	public MarshallingComponentBuilder(
 			PCMAndCompletionModelHolder models, 
-			Interface providedIf,
-			Interface requiredIf, 
-			Interface middlewareInterface,
+			OperationInterface providedIf,
+			OperationInterface requiredIf, 
+			OperationInterface middlewareInterface,
 			ResourceContainer container,
 			 MarshallerSide side) {
 		super(models, providedIf, requiredIf, middlewareInterface, container);
@@ -29,7 +29,7 @@ public class MarshallingComponentBuilder extends
 
 	@Override
 	protected DelegatorComponentSeffBuilder getSeffBuilder() {
-		MarshallerComponentSeffBuilder builder = new MarshallerComponentSeffBuilder(getProvidedRole(),getRequiredRole(),getMiddlewareRole(),side);
+		MarshallerComponentSeffBuilder builder = new MarshallerComponentSeffBuilder(getOperationProvidedRole(),getOperationRequiredRole(),getMiddlewareRole(),side);
 		return builder;
 	}
 

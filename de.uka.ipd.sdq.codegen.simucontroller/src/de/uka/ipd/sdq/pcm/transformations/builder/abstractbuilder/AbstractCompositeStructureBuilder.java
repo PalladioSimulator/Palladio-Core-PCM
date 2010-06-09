@@ -6,6 +6,8 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
@@ -18,7 +20,7 @@ extends AbstractComponentBuilder {
 		super(models);
 	}
 
-	protected void addRequiredDelegationConnector(RequiredRole innerRole, AssemblyContext innerContext, RequiredRole outerRole) {
+	protected void addRequiredDelegationConnector(OperationRequiredRole innerRole, AssemblyContext innerContext, OperationRequiredRole outerRole) {
 		if (innerRole == null || innerContext == null || outerRole == null)
 			throw new IllegalArgumentException("At least on argument is null in delegation connector creation.");
 		RequiredDelegationConnector reqDelCon = CompositionFactory.eINSTANCE.createRequiredDelegationConnector();
@@ -29,7 +31,7 @@ extends AbstractComponentBuilder {
 		getComposedStructure().getRequiredDelegationConnectors_ComposedStructure().add(reqDelCon);
 	}
 
-	protected void addProvidedDelegationConnector(ProvidedRole innerRole, AssemblyContext innerContext, ProvidedRole outerRole) {
+	protected void addProvidedDelegationConnector(OperationProvidedRole innerRole, AssemblyContext innerContext, OperationProvidedRole outerRole) {
 		if (innerRole == null || innerContext == null || outerRole == null)
 			throw new IllegalArgumentException("At least on argument is null in delegation connector creation.");
 		ProvidedDelegationConnector delCon = CompositionFactory.eINSTANCE.createProvidedDelegationConnector();
@@ -40,12 +42,12 @@ extends AbstractComponentBuilder {
 		getComposedStructure().getProvidedDelegationConnectors_ComposedStructure().add(delCon);
 	}
 
-	protected void addAssemblyConnector(RequiredRole from, AssemblyContext fromContext, ProvidedRole to, AssemblyContext toContext){
+	protected void addAssemblyConnector(OperationRequiredRole from, AssemblyContext fromContext, OperationProvidedRole to, AssemblyContext toContext){
 		AssemblyConnector acon = CompositionFactory.eINSTANCE.createAssemblyConnector();
 		acon.setParentStructure_AssemblyConnector(getComposedStructure());
-		acon.setRequiredRole_AssemblyConnector(from);
+		acon.setRequiredRole__AssemblyConnector(from);
 		acon.setRequiringAssemblyContext_AssemblyConnector(fromContext);
-		acon.setProvidedRole_AssemblyConnector(to);
+		acon.setProvidedRole__AssemblyConnector(to);
 		acon.setProvidingAssemblyContext_AssemblyConnector(toContext);
 	}
 	

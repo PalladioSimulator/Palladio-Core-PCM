@@ -40,9 +40,9 @@ extends AbstractClientServerConnectorCompletionBuilder {
 	protected IMiddlewareInteractingComponentBuilder createClientSideBuilder() {
 		return 	new DelayMiddlewareComponentBuilder(
 				myModels, 
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.middlewareInterface,
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.middlewareOperationInterface,
 				this.fromResourceContainer,
 				delaySpec);
 	}
@@ -56,9 +56,9 @@ extends AbstractClientServerConnectorCompletionBuilder {
 	protected IMiddlewareInteractingComponentBuilder createServerSideBuilder() {
 		return new DelayMiddlewareComponentBuilder(
 				myModels, 
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.middlewareInterface,
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.middlewareOperationInterface,
 				this.toResourceContainer,
 				delaySpec);
 	}

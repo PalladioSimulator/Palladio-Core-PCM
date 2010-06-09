@@ -42,9 +42,9 @@ extends AbstractClientServerConnectorCompletionBuilder {
 	protected IMiddlewareInteractingComponentBuilder createClientSideBuilder() {
 		MiddlewareCallingComponentBuilder builder =	new MiddlewareCallingComponentBuilder(
 				myModels, 
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.middlewareInterface,
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.middlewareOperationInterface,
 				this.fromResourceContainer,
 				processCallSignature,
 				unprocessCallSignature);
@@ -61,9 +61,9 @@ extends AbstractClientServerConnectorCompletionBuilder {
 	protected IMiddlewareInteractingComponentBuilder createServerSideBuilder() {
 		MiddlewareCallingComponentBuilder builder =	new MiddlewareCallingComponentBuilder(
 				myModels, 
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.middlewareInterface,
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.middlewareOperationInterface,
 				this.toResourceContainer,
 				unprocessCallSignature,
 				processCallSignature);

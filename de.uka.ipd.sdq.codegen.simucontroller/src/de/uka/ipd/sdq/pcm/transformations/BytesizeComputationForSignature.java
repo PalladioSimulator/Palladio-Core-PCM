@@ -2,12 +2,11 @@ package de.uka.ipd.sdq.pcm.transformations;
 
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
@@ -38,13 +37,21 @@ public class BytesizeComputationForSignature {
 	 * @param mod
 	 * @return
 	 */
-	public static String getBytesizeForSignature(Signature sig, Modifier mod){
+	public static String getBytesizeForSignature(Signature signature, Modifier mod){
 		StringBuffer result = new StringBuffer();
 		
-		EList<Parameter> params = sig.getParameters__Signature();
-		for (Parameter param : params){
-			DataType dataType = param.getDatatype__Parameter();
-			ParameterModifier parMod = param.getModifier__Parameter();
+		if (! (signature instanceof OperationSignature)){
+			throw new RuntimeException("de.uka.ipd.sdq.pcm.transformations: Cannot handle other signatures than OperationSignatures (of ExternalCallActions) in BytesizeComputation yet. Fix the code.");
+		}
+		OperationSignature sig = (OperationSignature)signature;
+		
+		/* Anne: Changes after meta model change of 04.05.2010 (see Bug 607): Removed ParameterModifier.
+		EList<Variable> params = sig.getParameters__OperationSignature();
+		for (Variable param : params){
+			DataType dataType = param.getDataType__Variable();
+			
+			 * ParameterModifier parMod = param.getModifier__Parameter();
+			 *
 			if (mod == Modifier.IN){
 				if (parMod == ParameterModifier.IN || 
 					parMod == ParameterModifier.INOUT || 
@@ -57,22 +64,36 @@ public class BytesizeComputationForSignature {
 					result.append(getCharacterisationString(dataType, param.getParameterName()));
 				}
 			}
-		}
+		}*/
 
+		if (mod == Modifier.IN){
+			EList<Variable> params = sig.getParameters__OperationSignature();
+			for (Variable param : params){
+				DataType dataType = param.getDataType__Variable();
+				result.append(getCharacterisationString(dataType, param.getEntityName()));
+			}
+		}
+		
+		//End change after meta model change of 04.05.2010 (see Bug 607)
+		
 		if (mod == Modifier.OUT){
-			DataType returnType = sig.getReturntype__Signature();	
+			DataType returnType = sig.getReturntype__OperationSignature().getDataType__Variable();	
 			if (returnType != null){
 				result.append(getCharacterisationString(returnType, "RETURN"));	
 			}
 		}
-		
+				
 		int length = result.length();
 		if (length > 0) 
 			result.delete(length-3, length); // remove last " + "
 		else if (length == 0)
 			result.append("0");
 
-		return result.toString();
+		if (result.length() > 0){
+			return result.toString();
+		} else {
+			return null;
+		}
 	}
 
 	/**
@@ -96,16 +117,16 @@ public class BytesizeComputationForSignature {
 		} else if (dataType instanceof CollectionDataType){
 			CollectionDataType collDataType = (CollectionDataType)dataType;
 			result.append(name+".BYTESIZE + ");
-			DataType innerDataType = collDataType.getInnerType_CollectionDataType();
+			DataType innerDataType = collDataType.getInnerDataType__CollectionDataType();
 			String innerSize = getCharacterisationString(innerDataType, name + ".INNER");
 			result.append(name+".NUMBER_OF_ELEMENTS * "+ innerSize);
 		} else if (dataType instanceof CompositeDataType){
 			CompositeDataType compDataType = (CompositeDataType)dataType;
-			EList<InnerDeclaration> innerList = compDataType.getInnerDeclaration_CompositeDataType();
+			EList<Variable> innerList = compDataType.getMembers__CompositeDataType();
 			result.append("(");
 			result.append(name+".BYTESIZE + ");
-			for (InnerDeclaration decl : innerList){
-				DataType innerDataType = decl.getDatatype_InnerDeclaration();
+			for (Variable decl : innerList){
+				DataType innerDataType = decl.getDataType__Variable();
 				result.append(getCharacterisationString(innerDataType, name+"."+decl.getEntityName()));
 			}
 			result.delete(result.length()-3, result.length());

@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.infrastructure;
 
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.transformations.builder.abstractbuilder.BasicComponentBuilder;
 import de.uka.ipd.sdq.pcm.transformations.builder.seff.DelegatorComponentSeffBuilder;
@@ -11,12 +11,12 @@ import de.uka.ipd.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHold
 public class BasicMiddlewareComponentBuilder extends BasicComponentBuilder
 		implements IMiddlewareInteractingComponentBuilder {
 
-	protected Interface middleware;
-	private RequiredRole myRequiredMiddlewareInterface;
+	protected OperationInterface middleware;
+	private OperationRequiredRole myRequiredMiddlewareInterface;
 
 
 	public BasicMiddlewareComponentBuilder(PCMAndCompletionModelHolder models,
-			Interface providedIf, Interface requiredIf, Interface middlewareInterface,
+			OperationInterface providedIf, OperationInterface requiredIf, OperationInterface middlewareInterface,
 			ResourceContainer container) {
 		super(models, providedIf, requiredIf, container);
 		
@@ -25,16 +25,16 @@ public class BasicMiddlewareComponentBuilder extends BasicComponentBuilder
 
 	@Override
 	public void build() {
-		myRequiredMiddlewareInterface = addRequiredRole(middleware,"Middleware");
+		myRequiredMiddlewareInterface = addOperationRequiredRole(middleware,"Middleware");
 		super.build();
 	}
 
 	@Override
 	protected DelegatorComponentSeffBuilder getSeffBuilder(){
-		return new MiddlewareComponentSeffBuilder(getProvidedRole(),getRequiredRole(),getMiddlewareRole());
+		return new MiddlewareComponentSeffBuilder(getOperationProvidedRole(),getOperationRequiredRole(),getMiddlewareRole());
 	}
 	
-	public RequiredRole getMiddlewareRole() {
+	public OperationRequiredRole getMiddlewareRole() {
 		return myRequiredMiddlewareInterface;
 	}
 

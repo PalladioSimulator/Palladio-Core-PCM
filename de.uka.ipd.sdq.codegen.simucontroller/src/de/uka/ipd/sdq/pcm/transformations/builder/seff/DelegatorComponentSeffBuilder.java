@@ -6,8 +6,9 @@ import java.util.List;
 
 import de.uka.ipd.sdq.completions.CompletionsFactory;
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
@@ -26,11 +27,11 @@ implements ISeffBuilder {
 	
 	protected ArrayList<AbstractActionDescriptor> preActions = new ArrayList<AbstractActionDescriptor>();
 	protected ArrayList<AbstractActionDescriptor> postActions = new ArrayList<AbstractActionDescriptor>();
-	protected RequiredRole domainReqRole;
-	protected ProvidedRole domainProvRole;
+	protected OperationRequiredRole domainReqRole;
+	protected OperationProvidedRole domainProvRole;
 	private ArrayList<ResourceDemandingSEFF> createdSeffs = new ArrayList<ResourceDemandingSEFF>();
 
-	public DelegatorComponentSeffBuilder(ProvidedRole domainProvRole, RequiredRole domainReqRole) {
+	public DelegatorComponentSeffBuilder(OperationProvidedRole domainProvRole, OperationRequiredRole domainReqRole) {
 		this.domainReqRole = domainReqRole;
 		this.domainProvRole = domainProvRole;
 	}
@@ -54,7 +55,7 @@ implements ISeffBuilder {
 	}	
 	
 	public void build() {
-		for (Signature providedService : domainProvRole.getProvidedInterface__ProvidedRole().getSignatures__Interface()){
+		for (OperationSignature providedService : domainProvRole.getProvidedInterface__OperationProvidedRole().getSignatures__OperationInterface()){
 			ResourceDemandingSEFF seff = buildSeff(providedService);
 			this.createdSeffs.add(seff);
 		}
@@ -62,7 +63,7 @@ implements ISeffBuilder {
 	
 	
 	@Override
-	protected ResourceDemandingSEFF buildSeff(Signature signature) {
+	protected ResourceDemandingSEFF buildSeff(OperationSignature signature) {
 		ResourceDemandingSEFF seff = super.buildSeff(signature);
 		StartAction start = SeffFactory.eINSTANCE.createStartAction();
 		AbstractAction lastAction = start;
@@ -96,7 +97,7 @@ implements ISeffBuilder {
 	}
 
 	private void setSignatureInActions(
-			ArrayList<AbstractActionDescriptor> actions, Signature sig) {
+			ArrayList<AbstractActionDescriptor> actions, OperationSignature sig) {
 		for (AbstractActionDescriptor descriptor : actions) {
 			if (descriptor instanceof ISignatureDependentAction) {
 				ISignatureDependentAction sigDescriptor = (ISignatureDependentAction) descriptor;

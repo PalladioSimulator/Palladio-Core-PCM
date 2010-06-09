@@ -33,9 +33,9 @@ extends AbstractClientServerConnectorCompletionBuilder {
 	protected IMiddlewareInteractingComponentBuilder createClientSideBuilder() {
 		return 	new MarshallingComponentBuilder(
 				myModels, 
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.middlewareInterface,
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.middlewareOperationInterface,
 				fromResourceContainer,
 				MarshallingComponentBuilder.MarshallerSide.CLIENT);
 	}
@@ -49,9 +49,9 @@ extends AbstractClientServerConnectorCompletionBuilder {
 	protected IMiddlewareInteractingComponentBuilder createServerSideBuilder() {
 		return new MarshallingComponentBuilder(
 				myModels, 
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.middlewareInterface,
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.middlewareOperationInterface,
 				toResourceContainer,
 				MarshallingComponentBuilder.MarshallerSide.SERVER);
 	}

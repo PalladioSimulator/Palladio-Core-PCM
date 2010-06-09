@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.infrastructure;
 
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.transformations.builder.IComponentBuilder;
 
 
@@ -10,7 +10,7 @@ public interface IMiddlewareInteractingComponentBuilder extends
 		
 		/**
 		 */
-		public abstract RequiredRole getMiddlewareRole();
+		public abstract OperationRequiredRole getMiddlewareRole();
 		
 
 }

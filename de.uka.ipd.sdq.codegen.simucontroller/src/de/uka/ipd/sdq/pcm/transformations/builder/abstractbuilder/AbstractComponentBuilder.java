@@ -1,7 +1,9 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.abstractbuilder;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
@@ -21,8 +23,8 @@ implements IComponentBuilder {
 	/**
 	 */
 	protected RepositoryComponent myComponent;
-	protected ProvidedRole myProvidedRole;
-	protected RequiredRole myRequiredRole;
+	protected OperationProvidedRole myOperationProvidedRole;
+	protected OperationRequiredRole myOperationRequiredRole;
 	protected AssemblyContext myAssemblyContext;
 	protected PCMAndCompletionModelHolder myModels;
 	private static int counter = 0;
@@ -38,28 +40,28 @@ implements IComponentBuilder {
 		return myAssemblyContext;
 	}
 
-	protected ProvidedRole addProvidedRole(Interface interf, String roleName) {
-		ProvidedRole result = RepositoryFactory.eINSTANCE.createProvidedRole();
-		result.setProvidedInterface__ProvidedRole(interf);
+	protected OperationProvidedRole addOperationProvidedRole(OperationInterface interf, String roleName) {
+		OperationProvidedRole result = RepositoryFactory.eINSTANCE.createOperationProvidedRole();
+		result.setProvidedInterface__OperationProvidedRole(interf);
 		result.setEntityName(roleName);
 		myComponent.getProvidedRoles_InterfaceProvidingEntity().add(result);
 		return result;
 	}
 
-	protected RequiredRole addRequiredRole(Interface interf, String roleName) {
-		RequiredRole result = RepositoryFactory.eINSTANCE.createRequiredRole();
-		result.setRequiredInterface__RequiredRole(interf);
+	protected OperationRequiredRole addOperationRequiredRole(OperationInterface interf, String roleName) {
+		OperationRequiredRole result = RepositoryFactory.eINSTANCE.createOperationRequiredRole();
+		result.setRequiredInterface__OperationRequiredRole(interf);
 		result.setEntityName(roleName);
 		myComponent.getRequiredRoles_InterfaceRequiringEntity().add(result);
 		return result;
 	}
 
-	public ProvidedRole getProvidedRole() {
-		return myProvidedRole;
+	public OperationProvidedRole getOperationProvidedRole() {
+		return myOperationProvidedRole;
 	}
 
-	public RequiredRole getRequiredRole() {
-		return myRequiredRole;
+	public OperationRequiredRole getOperationRequiredRole() {
+		return myOperationRequiredRole;
 	}
 	
 	protected int getNextCounter(){

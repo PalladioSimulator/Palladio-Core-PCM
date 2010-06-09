@@ -4,7 +4,7 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
@@ -21,26 +21,26 @@ public abstract class BasicComponentBuilder
 extends AbstractComponentBuilder {
 
 	protected DelegatorComponentSeffBuilder seffBuilder;
-	private Interface providedInterface;
-	private Interface requiredInterface;
+	private OperationInterface providedOperationInterface;
+	private OperationInterface requiredOperationInterface;
 	private AllocationContext myAllocationContext;
 	protected ResourceContainer container;
 
 	public BasicComponentBuilder(
 			PCMAndCompletionModelHolder models,
-			Interface interf,
+			OperationInterface interf,
 			ResourceContainer container) {
 		this(models,interf,interf,container);
 	}
 	
 	public BasicComponentBuilder(
 			PCMAndCompletionModelHolder models,
-			Interface providedIf,
-			Interface requiredIf,
+			OperationInterface providedIf,
+			OperationInterface requiredIf,
 			ResourceContainer container) {
 		super(models);
-		this.providedInterface = providedIf;
-		this.requiredInterface = requiredIf;
+		this.providedOperationInterface = providedIf;
+		this.requiredOperationInterface = requiredIf;
 		this.container = container;
 	}
 
@@ -50,8 +50,8 @@ extends AbstractComponentBuilder {
 	public void build() {
 		super.build();
 		
-		myProvidedRole = addProvidedRole(providedInterface,"ProvidedRole");
-		myRequiredRole = addRequiredRole(requiredInterface,"RequiredRole");
+		myOperationProvidedRole = addOperationProvidedRole(providedOperationInterface,"ProvidedRole");
+		myOperationRequiredRole = addOperationRequiredRole(requiredOperationInterface,"RequiredRole");
 
 		ISeffBuilder seffBuilder = this.getSeffBuilder();
 		seffBuilder.build();

@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.infrastructure;
 
-import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.transformations.builder.seff.DelegatorComponentSeffBuilder;
 import de.uka.ipd.sdq.pcm.transformations.builder.seff.StaticInternalActionDescriptor;
@@ -12,8 +12,8 @@ public class DelayMiddlewareComponentBuilder extends
 	private String demandStoEx;
 
 	public DelayMiddlewareComponentBuilder(PCMAndCompletionModelHolder models,
-			Interface providedIf, Interface requiredIf,
-			Interface middlewareInterface, ResourceContainer container,
+			OperationInterface providedIf, OperationInterface requiredIf,
+			OperationInterface middlewareInterface, ResourceContainer container,
 			String demandStoEx) {
 		super(models, providedIf, requiredIf, middlewareInterface, container);
 		if (demandStoEx == null)

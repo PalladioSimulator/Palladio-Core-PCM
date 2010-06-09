@@ -9,8 +9,8 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.transformations.FeatureUtils;
@@ -80,12 +80,12 @@ public class ConnectorReplacingBuilder implements IBuilder {
 				serverContainer = linkingRes.getConnectedResourceContainers_LinkingResource().get(1);
 				//clientContainer = linkingRes.getFromResourceContainer_LinkingResource().get(0);
 				//serverContainer = linkingRes.getToResourceContainer_LinkingResource().get(0);
-				builder = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),linkingRes);
+				builder = new NetworkLoadingComponentBuilder(models, connector.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),linkingRes);
 			}
 		} else {
 			clientContainer = findContainer(this.connector.getRequiringAssemblyContext_AssemblyConnector());
 			serverContainer = clientContainer;
-			builder = new LocalCommunicationComponentBuilder(models, connector.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole());
+			builder = new LocalCommunicationComponentBuilder(models, connector.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole());
 		}
 		
 		if (FeatureUtils.hasFeature(featureConfig,"Encryption"))
@@ -101,32 +101,36 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	private void connectConnectorCompletionWithMiddleware(IClientServerConnectorCompletionComponentBuilder componentBuilder) {
 		// Only support point-to-point connections
 		AllocationContext clientMWContext = findClientSideMiddlewareAllocationContext();
+		// TODO due to metamodel changes, I am using an ugly cast here to ensure that the returned RequiredRole is an OperationProvidedRole.
+		// As the builder currently only works with OperationProvidedRoles, this works, but it should be done in a cleaner way.
 		addAssemblyConnector(componentBuilder.getClientSideMiddlewareRole(), componentBuilder.getAssemblyContext(),
-				clientMWContext.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().get(0),
+				(OperationProvidedRole)clientMWContext.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().get(0),
 				clientMWContext.getAssemblyContext_AllocationContext());
 		AllocationContext serverMWContext = findServerSideMiddlewareAllocationContext();
+		// TODO due to metamodel changes, I am using an ugly cast here to ensure that the returned RequiredRole is an OperationProvidedRole.
+		// As the builder currently only works with OperationProvidedRoles, this works, but it should be done in a cleaner way.
 		addAssemblyConnector(componentBuilder.getServerSideMiddlewareRole(), componentBuilder.getAssemblyContext(),
-				serverMWContext.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().get(0),
+				(OperationProvidedRole)serverMWContext.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().get(0),
 				serverMWContext.getAssemblyContext_AllocationContext());
 	}
 
 	private void embeddConnectorCompletionInApplication(IClientServerConnectorCompletionComponentBuilder componentBuilder) {
-		addAssemblyConnector(connector.getRequiredRole_AssemblyConnector(), 
+		addAssemblyConnector(connector.getRequiredRole__AssemblyConnector(), 
 					connector.getRequiringAssemblyContext_AssemblyConnector(),
-					componentBuilder.getProvidedRole(), 
+					componentBuilder.getOperationProvidedRole(), 
 					componentBuilder.getAssemblyContext());
-		addAssemblyConnector(componentBuilder.getRequiredRole(), 
+		addAssemblyConnector(componentBuilder.getOperationRequiredRole(), 
 					componentBuilder.getAssemblyContext(), 
-					connector.getProvidedRole_AssemblyConnector(), 
+					connector.getProvidedRole__AssemblyConnector(), 
 					connector.getProvidingAssemblyContext_AssemblyConnector());
 	}
 
-	private void addAssemblyConnector(RequiredRole from, AssemblyContext fromContext, ProvidedRole to, AssemblyContext toContext){
+	private void addAssemblyConnector(OperationRequiredRole from, AssemblyContext fromContext, OperationProvidedRole to, AssemblyContext toContext){
 		AssemblyConnector acon = CompositionFactory.eINSTANCE.createAssemblyConnector();
 		acon.setParentStructure_AssemblyConnector(parent);
-		acon.setRequiredRole_AssemblyConnector(from);
+		acon.setRequiredRole__AssemblyConnector(from);
 		acon.setRequiringAssemblyContext_AssemblyConnector(fromContext);
-		acon.setProvidedRole_AssemblyConnector(to);
+		acon.setProvidedRole__AssemblyConnector(to);
 		acon.setProvidingAssemblyContext_AssemblyConnector(toContext);
 	}	
 
@@ -172,9 +176,11 @@ public class ConnectorReplacingBuilder implements IBuilder {
 	private AllocationContext findAllocationContext(
 			ResourceContainer resourceContainer, Interface interfaceToSearch) {
 		for (AllocationContext context : models.getAllocation().getAllocationContexts_Allocation())
+			// TODO due to metamodel changes, I am using an ugly cast here to ensure that the returned RequiredRole is an OperationProvidedRole.
+			// As the builder currently only works with OperationProvidedRoles, this works, but it should be done in a cleaner way.
 			if (context.getResourceContainer_AllocationContext() == resourceContainer && 
 					context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().size() > 0 &&
-				    context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().get(0).getProvidedInterface__ProvidedRole() == interfaceToSearch)
+				    ((OperationProvidedRole)context.getAssemblyContext_AllocationContext().getEncapsulatedComponent_AssemblyContext().getProvidedRoles_InterfaceProvidingEntity().get(0)).getProvidedInterface__OperationProvidedRole() == interfaceToSearch)
 				return context;
 		throw new RuntimeException("Model invalid, unable to find middleware component for resource container "+resourceContainer.getEntityName());
 	}	

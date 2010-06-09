@@ -1,29 +1,30 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.util;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
-import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.transformations.BytesizeComputationForSignature.Modifier;
 
 public class NumberOfElementsComputationForSignature {
 
 	public static String countAmount(
-			Signature currentSignature,
-			PrimitiveTypeEnum type, 
+			OperationSignature currentSignature,
+			PrimitiveDataType type, 
 			Modifier modifier) {
 		
 		String result = null;
-		for (Parameter p : currentSignature.getParameters__Signature()) {
-			if (matchesModifier(p,modifier)){
+		if (modifier == Modifier.IN){
+			for (Variable p : currentSignature.getParameters__OperationSignature()) {
 				String stoex = countForParameter(p, type);
 				result = appendStoEx(result, stoex);
 			}
 		}
-		if (currentSignature.getReturntype__Signature() != null && modifier == Modifier.OUT){
-			TypesCountingVisitor visitor = new TypesCountingVisitor("RETURN",type);
-			String stoex = visitor.doSwitch(currentSignature.getReturntype__Signature());
-			result = appendStoEx(result, stoex);
+		if (modifier == Modifier.OUT){
+			if (currentSignature.getReturntype__OperationSignature() != null && modifier == Modifier.OUT){
+				TypesCountingVisitor visitor = new TypesCountingVisitor("RETURN",type);
+				String stoex = visitor.doSwitch(currentSignature.getReturntype__OperationSignature().getDataType__Variable());
+				result = appendStoEx(result, stoex);
+			}
 		}
 		return result;
 	}
@@ -39,7 +40,7 @@ public class NumberOfElementsComputationForSignature {
 		return result;
 	}
 	
-	private static boolean matchesModifier(Parameter p, Modifier modifier) {
+	/*private static boolean matchesModifier(Variable p, Modifier modifier) {
 		ParameterModifier parMod = p.getModifier__Parameter();
 		switch(modifier){
 		case IN:
@@ -55,11 +56,11 @@ public class NumberOfElementsComputationForSignature {
 			break;
 		}
 		return false;
-	}
+	}*/
 
-	private static String countForParameter(Parameter p, PrimitiveTypeEnum type) {
+	private static String countForParameter(Variable p, PrimitiveDataType type) {
 		TypesCountingVisitor visitor = new TypesCountingVisitor(p,type);
-		return visitor.doSwitch(p.getDatatype__Parameter());
+		return visitor.doSwitch(p.getDataType__Variable());
 	}
 
 }

@@ -1,9 +1,9 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.seff;
 
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 
 public interface ISignatureDependentAction {
 
-	void setCurrentSignature(Signature sig);
+	void setCurrentSignature(OperationSignature sig);
 
 }

@@ -4,10 +4,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
@@ -16,79 +17,81 @@ import de.uka.ipd.sdq.pcm.transformations.BytesizeComputationForSignature;
 
 public class BytesizeComputationForSignatureTest {
 
-	private Signature testSig1;
-	private Signature testSig2;
-	private Signature testSig3;
+	private OperationSignature testSig1;
+	private OperationSignature testSig2;
+	private OperationSignature testSig3;
 	
 	@Before
 	public void setUp(){
 		RepositoryFactory factory = RepositoryFactory.eINSTANCE; 
+		ParameterFactory paramFactory = ParameterFactory.eINSTANCE;
 		
-		testSig1 = factory.createSignature();
+		testSig1 = factory.createOperationSignature();
 		
 		
-		Parameter param1 = factory.createParameter();
+		Variable param1 = paramFactory.createVariable();
 		PrimitiveDataType primDT = factory.createPrimitiveDataType();
-		primDT.setType(PrimitiveTypeEnum.INT);
-		param1.setParameterName("param1");
-		param1.setDatatype__Parameter(primDT);
-		testSig1.getParameters__Signature().add(param1);
+		primDT.setEntityName("INT");
+		param1.setEntityName("param1");
+		param1.setDataType__Variable(primDT);
+		testSig1.getParameters__OperationSignature().add(param1);
 		
-		Parameter param2 = factory.createParameter();
+		Variable param2 = paramFactory.createVariable();
 		CollectionDataType collDT = factory.createCollectionDataType();
 		collDT.setEntityName("SomeCollection");
-		collDT.setInnerType_CollectionDataType(primDT);
+		collDT.setInnerDataType__CollectionDataType(primDT);
 		
-		param2.setDatatype__Parameter(collDT);
-		param2.setParameterName("param2");
+		param2.setDataType__Variable(collDT);
+		param2.setEntityName("param2");
 		//param2.setModifier__Parameter(ParameterModifier.OUT);
-		testSig1.getParameters__Signature().add(param2);
+		testSig1.getParameters__OperationSignature().add(param2);
 		
 		
-		Parameter param3 = factory.createParameter();
+		Variable param3 = paramFactory.createVariable();
 		CompositeDataType compDT = factory.createCompositeDataType();
 		compDT.setEntityName("SomeComposite");
-		param3.setDatatype__Parameter(compDT);
-		param3.setParameterName("param3");
+		param3.setDataType__Variable(compDT);
+		param3.setEntityName("param3");
 		
-		InnerDeclaration innerDecl1 = factory.createInnerDeclaration();
+		Variable innerDecl1 = paramFactory.createVariable();
 		innerDecl1.setEntityName("innerParam1");
-		innerDecl1.setDatatype_InnerDeclaration(primDT);
-		compDT.getInnerDeclaration_CompositeDataType().add(innerDecl1);
+		innerDecl1.setDataType__Variable(primDT);
+		compDT.getMembers__CompositeDataType().add(innerDecl1);
 
-		InnerDeclaration innerDecl2 = factory.createInnerDeclaration();
+		Variable innerDecl2 = paramFactory.createVariable();
 		innerDecl2.setEntityName("innerParam2");
-		innerDecl2.setDatatype_InnerDeclaration(primDT);
-		compDT.getInnerDeclaration_CompositeDataType().add(innerDecl2);
+		innerDecl2.setDataType__Variable(primDT);
+		compDT.getMembers__CompositeDataType().add(innerDecl2);
 		
-		InnerDeclaration innerDecl3 = factory.createInnerDeclaration();
+		Variable innerDecl3 = paramFactory.createVariable();
 		innerDecl3.setEntityName("innerParam3");
-		innerDecl3.setDatatype_InnerDeclaration(collDT);
-		compDT.getInnerDeclaration_CompositeDataType().add(innerDecl3);
+		innerDecl3.setDataType__Variable(collDT);
+		compDT.getMembers__CompositeDataType().add(innerDecl3);
 
-		InnerDeclaration innerDecl4 = factory.createInnerDeclaration();
+		Variable innerDecl4 = paramFactory.createVariable();
 		innerDecl4.setEntityName("innerParam4");
 		
 		CompositeDataType compDT2 = factory.createCompositeDataType();
 		compDT2.setEntityName("AnotherComposite");
-		innerDecl4.setDatatype_InnerDeclaration(compDT2);
-		InnerDeclaration innerInnerDecl1 = factory.createInnerDeclaration();
+		innerDecl4.setDataType__Variable(compDT2);
+		Variable innerInnerDecl1 = paramFactory.createVariable();
 		innerInnerDecl1.setEntityName("innerInnerParam1");
-		innerInnerDecl1.setDatatype_InnerDeclaration(primDT);
-		compDT2.getInnerDeclaration_CompositeDataType().add(innerInnerDecl1);
+		innerInnerDecl1.setDataType__Variable(primDT);
+		compDT2.getMembers__CompositeDataType().add(innerInnerDecl1);
 		
-		compDT.getInnerDeclaration_CompositeDataType().add(innerDecl4);
+		compDT.getMembers__CompositeDataType().add(innerDecl4);
 		
 		
-		testSig1.getParameters__Signature().add(param3);
+		testSig1.getParameters__OperationSignature().add(param3);
 		
 	}
 	
+	/* TODO: update for metamodel changes in parameter package
 	@Before
 	public void setUp2(){
 		RepositoryFactory factory = RepositoryFactory.eINSTANCE; 
 		
-		testSig2 = factory.createSignature();
+		testSig2 = factory.createOperationSignature();
 		
 		Parameter param1 = factory.createParameter();
 		PrimitiveDataType primDT = factory.createPrimitiveDataType();
@@ -107,9 +110,9 @@ public class BytesizeComputationForSignatureTest {
 		
 		CollectionDataType collDT2 = factory.createCollectionDataType();
 		collDT2.setEntityName("SomeCollection2");
-		collDT2.setInnerType_CollectionDataType(primDT);
+		collDT2.setInnerDataType__CollectionDataType(primDT);
 		
-		collDT.setInnerType_CollectionDataType(collDT2);		
+		collDT.setInnerDataType__CollectionDataType(collDT2);		
 		
 	}
 
@@ -117,7 +120,7 @@ public class BytesizeComputationForSignatureTest {
 	public void setUp3(){
 		RepositoryFactory factory = RepositoryFactory.eINSTANCE; 
 		
-		testSig3 = factory.createSignature();
+		testSig3 = factory.createOperationSignature();
 		
 		Parameter param1 = factory.createParameter();
 		PrimitiveDataType primDT = factory.createPrimitiveDataType();
@@ -146,8 +149,8 @@ public class BytesizeComputationForSignatureTest {
 		innerDecl2.setDatatype_InnerDeclaration(primDT);
 		compDT.getInnerDeclaration_CompositeDataType().add(innerDecl2);
 		
-		collDT.setInnerType_CollectionDataType(compDT);		
-	}
+		collDT.setInnerDataType__CollectionDataType(compDT);		
+	}*/
 	
 	@Test
 	public void testGetByteSize(){

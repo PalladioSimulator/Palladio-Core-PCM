@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.connectors;
 
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.transformations.builder.IComponentBuilder;
 
 /**
@@ -11,6 +11,6 @@ import de.uka.ipd.sdq.pcm.transformations.builder.IComponentBuilder;
  */
 public interface IClientServerConnectorCompletionComponentBuilder 
 extends IComponentBuilder {
-	RequiredRole getClientSideMiddlewareRole();
-	RequiredRole getServerSideMiddlewareRole();
+	OperationRequiredRole getClientSideMiddlewareRole();
+	OperationRequiredRole getServerSideMiddlewareRole();
 }

@@ -34,9 +34,9 @@ extends AbstractClientServerConnectorCompletionBuilder {
 	protected IMiddlewareInteractingComponentBuilder createClientSideBuilder() {
 		return 	new BasicMiddlewareComponentBuilder(
 				myModels, 
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.middlewareInterface,
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.middlewareOperationInterface,
 				this.fromResourceContainer);
 	}
 	
@@ -49,9 +49,9 @@ extends AbstractClientServerConnectorCompletionBuilder {
 	protected IMiddlewareInteractingComponentBuilder createServerSideBuilder() {
 		return new BasicMiddlewareComponentBuilder(
 				myModels, 
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__RequiredRole(),
-				this.middlewareInterface,
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.connectorToReplace.getRequiredRole__AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+				this.middlewareOperationInterface,
 				this.toResourceContainer);
 	}
 }

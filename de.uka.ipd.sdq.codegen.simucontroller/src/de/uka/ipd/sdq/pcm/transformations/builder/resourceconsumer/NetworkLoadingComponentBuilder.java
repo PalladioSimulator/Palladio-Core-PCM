@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.pcm.transformations.builder.resourceconsumer;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
@@ -32,7 +32,7 @@ public class NetworkLoadingComponentBuilder extends BasicComponentBuilder {
 	 */
 	public NetworkLoadingComponentBuilder(
 			PCMAndCompletionModelHolder models,
-			Interface interf, 
+			OperationInterface interf, 
 			LinkingResource linkingRes) {
 		super(models, interf, null);
 		
@@ -48,7 +48,7 @@ public class NetworkLoadingComponentBuilder extends BasicComponentBuilder {
 	 */
 	@Override
 	protected DelegatorComponentSeffBuilder getSeffBuilder() {
-		DelegatorComponentSeffBuilder builder = new DelegatorComponentSeffBuilder(getProvidedRole(),getRequiredRole());
+		DelegatorComponentSeffBuilder builder = new DelegatorComponentSeffBuilder(getOperationProvidedRole(),getOperationRequiredRole());
 
 		// Network demand for the Request
 		builder.appendPreAction(new StaticInternalActionDescriptor("stream.BYTESIZE", typeOfLink));

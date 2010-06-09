@@ -1,8 +1,9 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.connectors;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.transformations.builder.IComponentBuilder;
 import de.uka.ipd.sdq.pcm.transformations.builder.infrastructure.IMiddlewareInteractingComponentBuilder;
@@ -12,9 +13,9 @@ public abstract class AbstractClientServerConnectorCompletionBuilder
 extends AbstractConnectorCompletionBuilder
 implements IClientServerConnectorCompletionComponentBuilder {
 
-	protected Interface middlewareInterface;
-	private RequiredRole myClientRole;
-	private RequiredRole myServerRole;
+	protected OperationInterface middlewareOperationInterface;
+	private OperationRequiredRole myClientRole;
+	private OperationRequiredRole myServerRole;
 	private IComponentBuilder innerBuilder;
 
 	private IMiddlewareInteractingComponentBuilder serverBuilder;
@@ -31,17 +32,19 @@ implements IClientServerConnectorCompletionComponentBuilder {
 			IComponentBuilder innerBuilder) {
 		super(models, connector);
 		
-		middlewareInterface = models.getMiddlewareRepository().getInterfaces__Repository().get(0);
+		// TODO due to metamodel changes, I am using an ugly cast here to ensure that the returned interface is an OperationInterface.
+		// As the builder currently only works with OperationInterfaces, this works, but it should be done in a cleaner way. 
+		middlewareOperationInterface = (OperationInterface)models.getMiddlewareRepository().getInterfaces__Repository().get(0);
 		this.fromResourceContainer = fromResourceContainer;
 		this.toResourceContainer = toResourceContainer;
 		this.innerBuilder = innerBuilder;
 	}
 	
-	public RequiredRole getClientSideMiddlewareRole() {
+	public OperationRequiredRole getClientSideMiddlewareRole() {
 		return myClientRole;
 	}
 
-	public RequiredRole getServerSideMiddlewareRole() {
+	public OperationRequiredRole getServerSideMiddlewareRole() {
 		return myServerRole;
 	}
 
@@ -65,21 +68,25 @@ implements IClientServerConnectorCompletionComponentBuilder {
 		innerBuilder.build();
 		getComposedStructure().getAssemblyContexts_ComposedStructure().add(innerBuilder.getAssemblyContext());
 		
-		myClientRole = addRequiredRole(middlewareInterface,"ClientMiddleware");
-		myServerRole = addRequiredRole(middlewareInterface,"ServerMiddleware");
+		myClientRole = addOperationRequiredRole(middlewareOperationInterface,"ClientMiddleware");
+		myServerRole = addOperationRequiredRole(middlewareOperationInterface,"ServerMiddleware");
 		
 		getClientSideBuilder().build();
 		this.getComposedStructure().getAssemblyContexts_ComposedStructure().add(getClientSideBuilder().getAssemblyContext());
 		getServerSideBuilder().build();
 		this.getComposedStructure().getAssemblyContexts_ComposedStructure().add(getServerSideBuilder().getAssemblyContext());
 				
-		addProvidedDelegationConnector(getClientSideBuilder().getProvidedRole(), getClientSideBuilder().getAssemblyContext(), myComponent.getProvidedRoles_InterfaceProvidingEntity().get(0));
-		addRequiredDelegationConnector(getServerSideBuilder().getRequiredRole(),getServerSideBuilder().getAssemblyContext(),myComponent.getRequiredRoles_InterfaceRequiringEntity().get(0));
+		// TODO due to metamodel changes, I am using an ugly cast here to ensure that the returned RequiredRole is an OperationProvidedRole.
+		// As the builder currently only works with OperationProvidedRoles, this works, but it should be done in a cleaner way.
+		addProvidedDelegationConnector(getClientSideBuilder().getOperationProvidedRole(), getClientSideBuilder().getAssemblyContext(), (OperationProvidedRole)myComponent.getProvidedRoles_InterfaceProvidingEntity().get(0));
+		// TODO due to metamodel changes, I am using an ugly cast here to ensure that the returned RequiredRole is an OperationRequiredRole.
+		// As the builder currently only works with OperationRequiredRoles, this works, but it should be done in a cleaner way.
+		addRequiredDelegationConnector(getServerSideBuilder().getOperationRequiredRole(),getServerSideBuilder().getAssemblyContext(), (OperationRequiredRole)myComponent.getRequiredRoles_InterfaceRequiringEntity().get(0));
 		
-		addAssemblyConnector(getClientSideBuilder().getRequiredRole(), getClientSideBuilder().getAssemblyContext(), 
-				innerBuilder.getProvidedRole(), innerBuilder.getAssemblyContext());
-		addAssemblyConnector(innerBuilder.getRequiredRole(),innerBuilder.getAssemblyContext(),
-				getServerSideBuilder().getProvidedRole(), getServerSideBuilder().getAssemblyContext());
+		addAssemblyConnector(getClientSideBuilder().getOperationRequiredRole(), getClientSideBuilder().getAssemblyContext(), 
+				innerBuilder.getOperationProvidedRole(), innerBuilder.getAssemblyContext());
+		addAssemblyConnector(innerBuilder.getOperationRequiredRole(),innerBuilder.getAssemblyContext(),
+				getServerSideBuilder().getOperationProvidedRole(), getServerSideBuilder().getAssemblyContext());
 		
 		if (innerBuilder instanceof IClientServerConnectorCompletionComponentBuilder) {
 			IClientServerConnectorCompletionComponentBuilder csBuilder = (IClientServerConnectorCompletionComponentBuilder) innerBuilder;

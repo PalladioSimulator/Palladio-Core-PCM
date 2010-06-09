@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.resourceconsumer;
 
-import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.transformations.builder.abstractbuilder.BasicComponentBuilder;
 import de.uka.ipd.sdq.pcm.transformations.builder.seff.DelegatorComponentSeffBuilder;
 import de.uka.ipd.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
@@ -22,7 +22,7 @@ public class LocalCommunicationComponentBuilder extends BasicComponentBuilder {
 	 */
 	public LocalCommunicationComponentBuilder(
 			PCMAndCompletionModelHolder models,
-			Interface interf) {
+			OperationInterface interf) {
 		super(models, interf, null);
 	}
 
@@ -31,7 +31,7 @@ public class LocalCommunicationComponentBuilder extends BasicComponentBuilder {
 	 */
 	@Override
 	protected DelegatorComponentSeffBuilder getSeffBuilder() {
-		DelegatorComponentSeffBuilder builder = new DelegatorComponentSeffBuilder(getProvidedRole(),getRequiredRole());
+		DelegatorComponentSeffBuilder builder = new DelegatorComponentSeffBuilder(getOperationProvidedRole(),getOperationRequiredRole());
 		return builder;
 	}
 }

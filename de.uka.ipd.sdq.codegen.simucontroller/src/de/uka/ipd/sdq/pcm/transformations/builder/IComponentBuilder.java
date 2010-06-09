@@ -1,17 +1,17 @@
 package de.uka.ipd.sdq.pcm.transformations.builder;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
 public interface IComponentBuilder extends IBuilder {
 
 	AssemblyContext getAssemblyContext();
 	
-	ProvidedRole getProvidedRole();
+	OperationProvidedRole getOperationProvidedRole();
 
-	RequiredRole getRequiredRole();
+	OperationRequiredRole getOperationRequiredRole();
 
 	RepositoryComponent getComponent();
 }
