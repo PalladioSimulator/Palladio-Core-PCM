@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -37,6 +37,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +66,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 	 * @ordered
 	 */
 	protected static final String STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.successor.oclIsUndefined()";
+
 	/**
 	 * The cached OCL invariant for the '{@link #StopHasNoSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Stop Has No Successor</em>}' invariant operation.
 	 * <!-- begin-user-doc -->

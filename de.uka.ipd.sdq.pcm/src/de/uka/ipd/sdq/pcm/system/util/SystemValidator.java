@@ -5,20 +5,17 @@
  */
 package de.uka.ipd.sdq.pcm.system.util;
 
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-
-import de.uka.ipd.sdq.pcm.core.entity.util.EntityValidator;
-
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.core.composition.util.CompositionValidator;
+import de.uka.ipd.sdq.pcm.core.entity.util.EntityValidator;
+import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -91,6 +88,14 @@ public class SystemValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	protected CompositionValidator compositionValidator;
+
+	/**
+	 * The cached base package validator.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected EntityValidator entityValidator;
 
 	/**
@@ -102,6 +107,7 @@ public class SystemValidator extends EObjectValidator {
 	public SystemValidator() {
 		super();
 		identifierValidator = IdentifierValidator.INSTANCE;
+		compositionValidator = CompositionValidator.INSTANCE;
 		entityValidator = EntityValidator.INSTANCE;
 	}
 
@@ -146,6 +152,8 @@ public class SystemValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(system, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(system, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(system, diagnostics, context);
+		if (result || diagnostics != null) result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraint(system, diagnostics, context);
+		if (result || diagnostics != null) result &= compositionValidator.validateComposedStructure_MultipleConnectorConstraintForAssembyConnectors(system, diagnostics, context);
 		if (result || diagnostics != null) result &= entityValidator.validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(system, diagnostics, context);
 		if (result || diagnostics != null) result &= validateSystem_SystemMustHaveAtLeastOneProvidedRole(system, diagnostics, context);
 		return result;

@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -24,7 +24,6 @@ package de.uka.ipd.sdq.pcm.core.entity;
  * @generated
  */
 public interface InterfaceProvidingRequiringEntity extends InterfaceProvidingEntity, InterfaceRequiringEntity, ResourceInterfaceRequiringEntity {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

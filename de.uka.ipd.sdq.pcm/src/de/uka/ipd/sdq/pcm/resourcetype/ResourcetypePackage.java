@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -288,6 +288,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMUNICATION_LINK_RESOURCE_TYPE_FEATURE_COUNT = PROCESSING_RESOURCE_TYPE_FEATURE_COUNT + 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceType <em>Resource Type</em>}'.

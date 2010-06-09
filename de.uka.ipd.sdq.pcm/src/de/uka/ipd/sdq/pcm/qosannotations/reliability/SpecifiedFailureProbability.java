@@ -1,13 +1,15 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.qosannotations.reliability;
 
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
+
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 
 /**
  * <!-- begin-user-doc -->

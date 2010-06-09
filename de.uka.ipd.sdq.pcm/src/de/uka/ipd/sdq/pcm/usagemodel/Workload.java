@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -40,7 +40,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Workload extends EObject {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

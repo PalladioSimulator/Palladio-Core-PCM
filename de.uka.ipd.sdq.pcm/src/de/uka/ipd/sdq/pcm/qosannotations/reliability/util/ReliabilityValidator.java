@@ -5,16 +5,15 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.reliability.util;
 
-import de.uka.ipd.sdq.pcm.qosannotations.reliability.*;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability;
 
 /**
  * <!-- begin-user-doc -->

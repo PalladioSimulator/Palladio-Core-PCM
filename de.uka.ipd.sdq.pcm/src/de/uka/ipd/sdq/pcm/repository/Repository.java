@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -23,9 +23,9 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryDescription <em>Repository Description</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository <em>Components Repository</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository <em>Interfaces Repository</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getFailureTypes <em>Failure Types</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getDatatypes_Repository <em>Datatypes Repository</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getFailureTypes <em>Failure Types</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository <em>Interfaces Repository</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,10 +44,6 @@ public interface Repository extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Repository Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Repository Description</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This property represents a description of the repository.
@@ -75,10 +71,6 @@ public interface Repository extends Entity {
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository_RepositoryComponent <em>Repository Repository Component</em>}'.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Components Repository</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This property represents the provides component types stored in the repository.
@@ -96,10 +88,6 @@ public interface Repository extends Entity {
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Interface}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}'.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Interfaces Repository</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This property represents the interfaces stored in the repository.
@@ -135,10 +123,6 @@ public interface Repository extends Entity {
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.DataType}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.DataType#getRepository_DataType <em>Repository Data Type</em>}'.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Datatypes Repository</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This property represents the data types stored in the repository.

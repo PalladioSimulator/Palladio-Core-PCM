@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.qosannotations;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
@@ -130,8 +130,8 @@ public interface SpecifiedOutputParameterAbstraction extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Expected External Outputs Specified Output Parameter Abstraction</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>}'.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableSetter}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter <em>Specified Output Parameter Abstraction expected External Outputs Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Expected External Outputs Specified Output Parameter Abstraction</em>' containment reference list isn't clear,
@@ -140,10 +140,10 @@ public interface SpecifiedOutputParameterAbstraction extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expected External Outputs Specified Output Parameter Abstraction</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
-	 * @model opposite="specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter
+	 * @model opposite="specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<VariableUsage> getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction();
+	EList<VariableSetter> getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction();
 
 } // SpecifiedOutputParameterAbstraction

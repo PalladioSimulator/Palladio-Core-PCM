@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -76,14 +76,14 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass specifiedOutputParameterAbstractionEClass = null;
+	private EClass qoSAnnotationsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass qoSAnnotationsEClass = null;
+	private EClass specifiedOutputParameterAbstractionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -253,6 +253,42 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getQoSAnnotations() {
+		return qoSAnnotationsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations() {
+		return (EReference)qoSAnnotationsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQoSAnnotations_System_QoSAnnotations() {
+		return (EReference)qoSAnnotationsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations() {
+		return (EReference)qoSAnnotationsEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSpecifiedOutputParameterAbstraction() {
 		return specifiedOutputParameterAbstractionEClass;
 	}
@@ -291,42 +327,6 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 */
 	public EReference getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction() {
 		return (EReference)specifiedOutputParameterAbstractionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getQoSAnnotations() {
-		return qoSAnnotationsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations() {
-		return (EReference)qoSAnnotationsEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations() {
-		return (EReference)qoSAnnotationsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getQoSAnnotations_System_QoSAnnotations() {
-		return (EReference)qoSAnnotationsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -422,7 +422,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		initEClass(specifiedQoSAnnotationEClass, SpecifiedQoSAnnotation.class, "SpecifiedQoSAnnotation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSpecifiedQoSAnnotation_Signature_SpecifiedQoSAnnation(), theRepositoryPackage.getSignature(), null, "signature_SpecifiedQoSAnnation", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSpecifiedQoSAnnotation_Role_SpecifiedQoSAnnotation(), theRepositoryPackage.getRole(), null, "role_SpecifiedQoSAnnotation", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecifiedQoSAnnotation_Specification_SpecifiedExecutionTime(), theCorePackage.getPCMRandomVariable(), null, "specification_SpecifiedExecutionTime", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecifiedQoSAnnotation_Specification_SpecifiedExecutionTime(), theCorePackage.getPCMRandomVariable(), theCorePackage.getPCMRandomVariable_SpecifiedQoSAnnotation_SpecifiedExecutionTime(), "specification_SpecifiedExecutionTime", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSpecifiedQoSAnnotation_QosAnnotations_SpecifiedQoSAnnotation(), this.getQoSAnnotations(), this.getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations(), "qosAnnotations_SpecifiedQoSAnnotation", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(qoSAnnotationsEClass, QoSAnnotations.class, "QoSAnnotations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -434,7 +434,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		initEReference(getSpecifiedOutputParameterAbstraction_QosAnnotations_SpecifiedOutputParameterAbstraction(), this.getQoSAnnotations(), this.getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations(), "qosAnnotations_SpecifiedOutputParameterAbstraction", null, 1, 1, SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSpecifiedOutputParameterAbstraction_Signature_SpecifiedOutputParameterAbstraction(), theRepositoryPackage.getSignature(), null, "signature_SpecifiedOutputParameterAbstraction", null, 1, 1, SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSpecifiedOutputParameterAbstraction_Role_SpecifiedOutputParameterAbstraction(), theRepositoryPackage.getRole(), null, "role_SpecifiedOutputParameterAbstraction", null, 1, 1, SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction(), theParameterPackage.getVariableUsage(), theParameterPackage.getVariableUsage_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(), "expectedExternalOutputs_SpecifiedOutputParameterAbstraction", null, 0, -1, SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction(), theParameterPackage.getVariableSetter(), theParameterPackage.getVariableSetter_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter(), "expectedExternalOutputs_SpecifiedOutputParameterAbstraction", null, 0, -1, SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

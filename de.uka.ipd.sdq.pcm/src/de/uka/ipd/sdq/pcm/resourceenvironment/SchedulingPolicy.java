@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -32,7 +32,9 @@ public enum SchedulingPolicy implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EXACT(0, "EXACT", "EXACT"), /**
+	EXACT(0, "EXACT", "EXACT"),
+
+	/**
 	 * The '<em><b>DELAY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

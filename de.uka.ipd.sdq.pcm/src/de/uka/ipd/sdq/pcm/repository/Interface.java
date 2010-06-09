@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -27,17 +27,14 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterface__Interface <em>Parent Interface Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getAncestorInterfaces_Interface <em>Ancestor Interfaces Interface</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterfaces__Interface <em>Parent Interfaces Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRequiredCharacterisations <em>Required Characterisations</em>}</li>
  * </ul>
  * </p>
  *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Interface extends Entity {
@@ -49,47 +46,24 @@ public interface Interface extends Entity {
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Parent Interface Interface</b></em>' reference list.
+	 * Returns the value of the '<em><b>Parent Interfaces Interface</b></em>' reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Interface}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent Interface Interface</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This property represents the interfaces from which this interface directly inherits.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Parent Interface Interface</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_ParentInterface__Interface()
+	 * @return the value of the '<em>Parent Interfaces Interface</em>' reference list.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_ParentInterfaces__Interface()
 	 * @model ordered="false"
 	 * @generated
 	 */
-	EList<Interface> getParentInterface__Interface();
-
-	/**
-	 * Returns the value of the '<em><b>Ancestor Interfaces Interface</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Interface}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This property represents the set of all parent interfaces, from which this interface inherits. All means not just the direct one.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Ancestor Interfaces Interface</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_AncestorInterfaces_Interface()
-	 * @model transient="true" volatile="true" derived="true" ordered="false"
-	 * @generated
-	 */
-	EList<Interface> getAncestorInterfaces_Interface();
+	EList<Interface> getParentInterfaces__Interface();
 
 	/**
 	 * Returns the value of the '<em><b>Protocols Interface</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.protocol.Protocol}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Protocols Interface</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This property represents the protocol bound to this interfaces, i.e., the way, in the sense of the order, the services of this interfaces are allowed to be called.
@@ -100,27 +74,6 @@ public interface Interface extends Entity {
 	 * @generated
 	 */
 	EList<Protocol> getProtocols__Interface();
-
-	/**
-	 * Returns the value of the '<em><b>Signatures Interface</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Signature}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Signature#getInterface_Signature <em>Interface Signature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Signatures Interface</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This property represents the set of signatures of which the interface consists.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Signatures Interface</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_Signatures__Interface()
-	 * @see de.uka.ipd.sdq.pcm.repository.Signature#getInterface_Signature
-	 * @model opposite="interface_Signature" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<Signature> getSignatures__Interface();
 
 	/**
 	 * Returns the value of the '<em><b>Repository Interface</b></em>' container reference.
@@ -150,23 +103,6 @@ public interface Interface extends Entity {
 	void setRepository_Interface(Repository value);
 
 	/**
-	 * Returns the value of the '<em><b>Required Characterisations</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation <em>Interface Required Characterisation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * documentation of required variable characterisations
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Required Characterisations</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_RequiredCharacterisations()
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
-	 * @model opposite="interface_RequiredCharacterisation" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<RequiredCharacterisation> getRequiredCharacterisations();
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -180,33 +116,5 @@ public interface Interface extends Entity {
 	 * @generated
 	 */
 	boolean NoProtocolTypeIDUsedTwice(DiagnosticChain diagnostics, Map<Object, Object> context);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * -- full signature has to be unique 
-	 * -- (use of ocl-tupels) #
-	 * let sigs : Bag(
-	 * 	-- parameters: Sequence of DataType, NOT name #
-	 * 	-- exceptions have not to be considered #
-	 * 	Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) 
-	 * ) = 
-	 * self.signatures__Interface->collect(sig : Signature |
-	 * 	Tuple{
-	 * 		returnType : DataType = sig.returntype__Signature,
-	 * 		serviceName : String = sig.serviceName,
-	 * 		parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter
-	 * 	}
-	 * )
-	 * in
-	 * sigs->isUnique(s|s)
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='-- full signature has to be unique \r\n-- (use of ocl-tupels) #\r\nlet sigs : Bag(\r\n\t-- parameters: Sequence of DataType, NOT name #\r\n\t-- exceptions have not to be considered #\r\n\tTuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) \r\n) = \r\nself.signatures__Interface->collect(sig : Signature |\r\n\tTuple{\r\n\t\treturnType : DataType = sig.returntype__Signature,\r\n\t\tserviceName : String = sig.serviceName,\r\n\t\tparameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter\r\n\t}\r\n)\r\nin\r\nsigs->isUnique(s|s)'"
-	 * @generated
-	 */
-	boolean SignaturesHaveToBeUniqueForAnInterface(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Interface

@@ -28,19 +28,19 @@
     <domainDiagramElement
         href="../../pcm.genmodel#//pcm/seff/ResourceDemandingSEFF"/>
     <childNodes
-        visualID="3040"
-        editPartClassName="VariableUsageEditPart"
-        itemSemanticEditPolicyClassName="VariableUsageItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="VariableUsageCanonicalEditPolicy"
+        visualID="3048"
+        editPartClassName="VariableSetterEditPart"
+        itemSemanticEditPolicyClassName="VariableSetterItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="VariableSetterCanonicalEditPolicy"
         compartments="//@diagram/@compartments.2"
-        graphicalNodeEditPolicyClassName="VariableUsageGraphicalNodeEditPolicy"
-        createCommandClassName="VariableUsageCreateCommand"
+        graphicalNodeEditPolicyClassName="VariableSetterGraphicalNodeEditPolicy"
+        createCommandClassName="VariableSetterCreateCommand"
         containers="//@diagram/@compartments.0 //@diagram/@compartments.8">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="VariableUsageEditHelper"/>
+          editHelperClassName="VariableSetterEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ParametricParameterUsageFigure"
@@ -51,14 +51,14 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/parameter/VariableUsage"/>
+            href="../../pcm.genmodel#//pcm/parameter/VariableSetter"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/CallAction/inputParameterUsages_ExternalCallAction"/>
+            href="../../pcm.genmodel#//pcm/seff/CallAction/variableSetterInputs__CallAction"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/CallAction/inputParameterUsages_ExternalCallAction"/>
+            href="../../pcm.genmodel#//pcm/seff/CallAction/variableSetterInputs__CallAction"/>
       </modelFacet>
       <labels
-          visualID="5038"
+          visualID="5043"
           editPartClassName="WrappingLabel3EditPart"
           itemSemanticEditPolicyClassName="WrappingLabel3ItemSemanticEditPolicy"
           readOnly="true"
@@ -75,13 +75,12 @@
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3033"
-        editPartClassName="VariableCharacterisationEditPart"
-        itemSemanticEditPolicyClassName="VariableCharacterisationItemSemanticEditPolicy"
-        notationViewFactoryClassName="VariableCharacterisationViewFactory"
-        canonicalEditPolicyClassName="VariableCharacterisationCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="VariableCharacterisationGraphicalNodeEditPolicy"
-        createCommandClassName="VariableCharacterisationCreateCommand"
+        visualID="3049"
+        editPartClassName="PCMRandomVariableEditPart"
+        itemSemanticEditPolicyClassName="PCMRandomVariableItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PCMRandomVariableCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PCMRandomVariableGraphicalNodeEditPolicy"
+        createCommandClassName="PCMRandomVariableCreateCommand"
         containers="//@diagram/@compartments.2"
         labelReadOnly="true"
         labelElementIcon="true">
@@ -89,21 +88,17 @@
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="VariableCharacterisationEditHelper"/>
+          editHelperClassName="PCMRandomVariableEditHelper"/>
       <viewmap
           xsi:type="gmfgen:FigureViewmap"
           figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-      <behaviour
-          xsi:type="gmfgen:CustomBehaviour"
-          key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
+            href="../../pcm.genmodel#//pcm/core/PCMRandomVariable"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+            href="../../pcm.genmodel#//pcm/parameter/VariableSetter/specification__VariableSetter"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+            href="../../pcm.genmodel#//pcm/parameter/VariableSetter/specification__VariableSetter"/>
       </modelFacet>
       <labelModelFacet
           xsi:type="gmfgen:FeatureLabelModelFacet"
@@ -111,17 +106,17 @@
           viewPattern="{0} = {1}"
           editPattern="">
         <metaFeatures
-            href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation/type"/>
+            href="../../../../../plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
       </labelModelFacet>
     </childNodes>
     <childNodes
-        visualID="3041"
-        editPartClassName="VariableUsage2EditPart"
-        itemSemanticEditPolicyClassName="VariableUsage2ItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="VariableUsage2CanonicalEditPolicy"
+        visualID="3050"
+        editPartClassName="VariableSetter2EditPart"
+        itemSemanticEditPolicyClassName="VariableSetter2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="VariableSetter2CanonicalEditPolicy"
         compartments="//@diagram/@compartments.3"
-        graphicalNodeEditPolicyClassName="VariableUsage2GraphicalNodeEditPolicy"
-        createCommandClassName="VariableUsage2CreateCommand"
+        graphicalNodeEditPolicyClassName="VariableSetter2GraphicalNodeEditPolicy"
+        createCommandClassName="VariableSetter2CreateCommand"
         containers="//@diagram/@compartments.1 //@diagram/@compartments.9">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -138,14 +133,14 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/parameter/VariableUsage"/>
+            href="../../pcm.genmodel#//pcm/parameter/VariableSetter"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/CallAction/outputVariableUsages_ExternalCallAction"/>
+            href="../../pcm.genmodel#//pcm/seff/CallAction/variableSetterInputs__CallAction"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/CallAction/outputVariableUsages_ExternalCallAction"/>
+            href="../../pcm.genmodel#//pcm/seff/CallReturnAction/variableSetterReturns__CallReturnAction"/>
       </modelFacet>
       <labels
-          visualID="5039"
+          visualID="5044"
           editPartClassName="WrappingLabel4EditPart"
           itemSemanticEditPolicyClassName="WrappingLabel4ItemSemanticEditPolicy"
           readOnly="true"
@@ -162,13 +157,12 @@
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3035"
-        editPartClassName="VariableCharacterisation2EditPart"
-        itemSemanticEditPolicyClassName="VariableCharacterisation2ItemSemanticEditPolicy"
-        notationViewFactoryClassName="VariableCharacterisationViewFactory"
-        canonicalEditPolicyClassName="VariableCharacterisation2CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="VariableCharacterisation2GraphicalNodeEditPolicy"
-        createCommandClassName="VariableCharacterisation2CreateCommand"
+        visualID="3051"
+        editPartClassName="PCMRandomVariable2EditPart"
+        itemSemanticEditPolicyClassName="PCMRandomVariable2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PCMRandomVariable2CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PCMRandomVariable2GraphicalNodeEditPolicy"
+        createCommandClassName="PCMRandomVariable2CreateCommand"
         containers="//@diagram/@compartments.3"
         labelReadOnly="true"
         labelElementIcon="true">
@@ -180,17 +174,13 @@
       <viewmap
           xsi:type="gmfgen:FigureViewmap"
           figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-      <behaviour
-          xsi:type="gmfgen:CustomBehaviour"
-          key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
+            href="../../pcm.genmodel#//pcm/core/PCMRandomVariable"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+            href="../../pcm.genmodel#//pcm/parameter/VariableSetter/specification__VariableSetter"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+            href="../../pcm.genmodel#//pcm/parameter/VariableSetter/specification__VariableSetter"/>
       </modelFacet>
       <labelModelFacet
           xsi:type="gmfgen:FeatureLabelModelFacet"
@@ -198,7 +188,7 @@
           viewPattern="{0} = {1}"
           editPattern="">
         <metaFeatures
-            href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation/type"/>
+            href="../../../../../plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
       </labelModelFacet>
     </childNodes>
     <childNodes
@@ -1010,14 +1000,14 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3036"
-        editPartClassName="VariableUsage3EditPart"
-        itemSemanticEditPolicyClassName="VariableUsage3ItemSemanticEditPolicy"
-        notationViewFactoryClassName="VariableUsageViewFactory"
-        canonicalEditPolicyClassName="VariableUsage3CanonicalEditPolicy"
+        visualID="3046"
+        editPartClassName="VariableSetter3EditPart"
+        itemSemanticEditPolicyClassName="VariableSetter3ItemSemanticEditPolicy"
+        notationViewFactoryClassName="VariableSetterViewFactory"
+        canonicalEditPolicyClassName="VariableSetter3CanonicalEditPolicy"
         compartments="//@diagram/@compartments.16"
-        graphicalNodeEditPolicyClassName="VariableUsage3GraphicalNodeEditPolicy"
-        createCommandClassName="VariableUsage3CreateCommand"
+        graphicalNodeEditPolicyClassName="VariableSetter3GraphicalNodeEditPolicy"
+        createCommandClassName="VariableSetter3CreateCommand"
         containers="//@diagram/@compartments.15 //@diagram/@compartments.20">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -1034,17 +1024,17 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/parameter/VariableUsage"/>
+            href="../../pcm.genmodel#//pcm/parameter/VariableSetter"/>
         <containmentMetaFeature
             href="../../pcm.genmodel#//pcm/seff/SetVariableAction/localVariableUsages_SetVariableAction"/>
         <childMetaFeature
             href="../../pcm.genmodel#//pcm/seff/SetVariableAction/localVariableUsages_SetVariableAction"/>
       </modelFacet>
       <labels
-          visualID="5035"
+          visualID="5042"
           editPartClassName="WrappingLabel7EditPart"
           itemSemanticEditPolicyClassName="WrappingLabel7ItemSemanticEditPolicy"
-          notationViewFactoryClassName="VariableUsageLabelViewFactory"
+          notationViewFactoryClassName="VariableSetterLabelViewFactory"
           readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
@@ -1059,13 +1049,12 @@
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3037"
-        editPartClassName="VariableCharacterisation3EditPart"
-        itemSemanticEditPolicyClassName="VariableCharacterisation3ItemSemanticEditPolicy"
-        notationViewFactoryClassName="VariableCharacterisationViewFactory"
-        canonicalEditPolicyClassName="VariableCharacterisation3CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="VariableCharacterisation3GraphicalNodeEditPolicy"
-        createCommandClassName="VariableCharacterisation3CreateCommand"
+        visualID="3052"
+        editPartClassName="PCMRandomVariable3EditPart"
+        itemSemanticEditPolicyClassName="PCMRandomVariable3ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="PCMRandomVariable3CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PCMRandomVariable3GraphicalNodeEditPolicy"
+        createCommandClassName="PCMRandomVariable3CreateCommand"
         containers="//@diagram/@compartments.16"
         labelReadOnly="true"
         labelElementIcon="true">
@@ -1077,17 +1066,13 @@
       <viewmap
           xsi:type="gmfgen:FigureViewmap"
           figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-      <behaviour
-          xsi:type="gmfgen:CustomBehaviour"
-          key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
+            href="../../pcm.genmodel#//pcm/core/PCMRandomVariable"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+            href="../../pcm.genmodel#//pcm/parameter/VariableSetter/specification__VariableSetter"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+            href="../../pcm.genmodel#//pcm/parameter/VariableSetter/specification__VariableSetter"/>
       </modelFacet>
       <labelModelFacet
           xsi:type="gmfgen:FeatureLabelModelFacet"
@@ -1095,7 +1080,7 @@
           viewPattern="{0} = {1}"
           editPattern="">
         <metaFeatures
-            href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation/type"/>
+            href="../../../../../plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
       </labelModelFacet>
     </childNodes>
     <childNodes
@@ -1782,10 +1767,10 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7035"
-        editPartClassName="VariableUsageVariableCharacterisationEditPart"
-        itemSemanticEditPolicyClassName="VariableUsageVariableCharacterisationItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="VariableUsageVariableCharacterisationCanonicalEditPolicy"
+        visualID="7040"
+        editPartClassName="VariableSetterVariableCharacterisationEditPart"
+        itemSemanticEditPolicyClassName="VariableSetterVariableCharacterisationItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="VariableSetterVariableCharacterisationCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.1"
         title="VariableCharacterisation"
         node="//@diagram/@childNodes.0">
@@ -1797,10 +1782,10 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7036"
-        editPartClassName="VariableUsageVariableCharacterisation2EditPart"
-        itemSemanticEditPolicyClassName="VariableUsageVariableCharacterisation2ItemSemanticEditPolicy"
-        canonicalEditPolicyClassName="VariableUsageVariableCharacterisation2CanonicalEditPolicy"
+        visualID="7041"
+        editPartClassName="VariableSetterVariableCharacterisation2EditPart"
+        itemSemanticEditPolicyClassName="VariableSetterVariableCharacterisation2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="VariableSetterVariableCharacterisation2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.3"
         title="VariableCharacterisation"
         node="//@diagram/@childNodes.2">
@@ -2025,11 +2010,11 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7032"
-        editPartClassName="VariableUsageVariableCharacterisation3EditPart"
-        itemSemanticEditPolicyClassName="VariableUsageVariableCharacterisation3ItemSemanticEditPolicy"
-        notationViewFactoryClassName="VariableUsageVariableCharacterisationViewFactory"
-        canonicalEditPolicyClassName="VariableUsageVariableCharacterisation3CanonicalEditPolicy"
+        visualID="7039"
+        editPartClassName="VariableSetterVariableCharacterisation3EditPart"
+        itemSemanticEditPolicyClassName="VariableSetterVariableCharacterisation3ItemSemanticEditPolicy"
+        notationViewFactoryClassName="VariableSetterVariableCharacterisationViewFactory"
+        canonicalEditPolicyClassName="VariableSetterVariableCharacterisation3CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.24"
         title="VariableCharacterisation"
         node="//@diagram/@childNodes.23">

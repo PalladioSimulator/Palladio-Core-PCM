@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
-import de.uka.ipd.sdq.pcm.core.CorePackage;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -22,6 +21,7 @@ import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;

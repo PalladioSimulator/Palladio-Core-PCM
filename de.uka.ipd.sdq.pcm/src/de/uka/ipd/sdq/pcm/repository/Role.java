@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -22,7 +22,6 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * @generated
  */
 public interface Role extends Entity {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

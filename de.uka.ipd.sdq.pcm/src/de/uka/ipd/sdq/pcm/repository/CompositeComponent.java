@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -43,17 +43,17 @@ public interface CompositeComponent extends ComposedProvidingRequiringEntity, Im
 	 * 	self.parentCompleteComponentTypes->notEmpty()
 	 * then
 	 * 	--own interface IDs:
-	 *     self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()
+	 *     self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity__ProvidedRole.id)->asSet()
 	 *     =
 	 *     --complete type interface IDs:
-	 *     self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()
+	 *     self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity__ProvidedRole.id)->asSet()
 	 * else
 	 * 	true
 	 * endif
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#\r\nif\r\n\t -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\r\n\tself.parentCompleteComponentTypes->notEmpty()\r\nthen\r\n\t--own interface IDs:\r\n    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()\r\n    =\r\n    --complete type interface IDs:\r\n    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()\r\nelse\r\n\ttrue\r\nendif'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#\r\nif\r\n\t -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\r\n\tself.parentCompleteComponentTypes->notEmpty()\r\nthen\r\n\t--own interface IDs:\r\n    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity__ProvidedRole.id)->asSet()\r\n    =\r\n    --complete type interface IDs:\r\n    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity__ProvidedRole.id)->asSet()\r\nelse\r\n\ttrue\r\nendif'"
 	 * @generated
 	 */
 	boolean ProvideSameInterfaces(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -68,17 +68,17 @@ public interface CompositeComponent extends ComposedProvidingRequiringEntity, Im
 	 * 	self.parentCompleteComponentTypes->notEmpty()
 	 * then
 	 * 	--own interface IDs:
-	 *     self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()
+	 *     self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiringEntity__RequiredRole.id)->asSet()
 	 *     =
 	 *     --complete type interface IDs:
-	 *     self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()
+	 *     self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiringEntity__RequiredRole.id)->asSet()
 	 * else
 	 * 	true
 	 * endif
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #\r\nif\r\n\t -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\r\n\tself.parentCompleteComponentTypes->notEmpty()\r\nthen\r\n\t--own interface IDs:\r\n    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()\r\n    =\r\n    --complete type interface IDs:\r\n    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()\r\nelse\r\n\ttrue\r\nendif'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #\r\nif\r\n\t -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\r\n\tself.parentCompleteComponentTypes->notEmpty()\r\nthen\r\n\t--own interface IDs:\r\n    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiringEntity__RequiredRole.id)->asSet()\r\n    =\r\n    --complete type interface IDs:\r\n    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiringEntity__RequiredRole.id)->asSet()\r\nelse\r\n\ttrue\r\nendif'"
 	 * @generated
 	 */
 	boolean RequireSameInterfaces(DiagnosticChain diagnostics, Map<Object, Object> context);

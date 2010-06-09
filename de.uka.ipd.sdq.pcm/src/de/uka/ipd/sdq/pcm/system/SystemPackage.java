@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -134,13 +134,40 @@ public interface SystemPackage extends EPackage {
 	int SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Assembly Event Connector Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Sink Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Source Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+	int SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
@@ -149,7 +176,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+	int SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
@@ -158,7 +185,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 6;
+	int SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment reference list.
@@ -167,7 +194,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 7;
+	int SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Qos Annotations System</b></em>' containment reference list.
@@ -176,7 +203,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__QOS_ANNOTATIONS_SYSTEM = EntityPackage.ENTITY_FEATURE_COUNT + 8;
+	int SYSTEM__QOS_ANNOTATIONS_SYSTEM = EntityPackage.ENTITY_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>System</em>' class.
@@ -185,7 +212,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 9;
+	int SYSTEM_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 12;
 
 
 	/**

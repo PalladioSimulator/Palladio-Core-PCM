@@ -1,14 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: de.uka.ipd.sdq.pcm; singleton:=true
-Bundle-Version: 3.1.0.qualifier
+Bundle-SymbolicName: de.uka.ipd.sdq.pcm;singleton:=true
+Bundle-Version: 3.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: de.uka.ipd.sdq.pcm,
- de.uka.ipd.sdq.pcm.allocation,
+Export-Package: de.uka.ipd.sdq.pcm.allocation,
  de.uka.ipd.sdq.pcm.allocation.impl,
  de.uka.ipd.sdq.pcm.allocation.util,
  de.uka.ipd.sdq.pcm.core,
@@ -23,7 +22,6 @@ Export-Package: de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.pcm.core.entity.util,
  de.uka.ipd.sdq.pcm.core.impl,
  de.uka.ipd.sdq.pcm.core.util,
- de.uka.ipd.sdq.pcm.impl,
  de.uka.ipd.sdq.pcm.parameter,
  de.uka.ipd.sdq.pcm.parameter.impl,
  de.uka.ipd.sdq.pcm.parameter.util,
@@ -72,8 +70,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
- org.antlr,
- de.uka.ipd.sdq.errorhandling,
- org.eclipse.emf.ecore.xmi,
- org.eclipse.ocl.ecore;bundle-version="1.2.1"
+ de.uka.ipd.sdq.units;visibility:=reexport,
+ org.antlr;bundle-version="3.0.0",
+ de.uka.ipd.sdq.errorhandling;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

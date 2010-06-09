@@ -1,12 +1,13 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import de.uka.ipd.sdq.identifier.Identifier;
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +31,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface ResourceDemandingSEFF extends Identifier, ServiceEffectSpecification, ResourceDemandingBehaviour {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

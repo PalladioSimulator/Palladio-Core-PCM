@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.repository.*;
+import de.uka.ipd.sdq.pcm.repository.ApplicationFailureType;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -28,11 +28,19 @@ import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
+import de.uka.ipd.sdq.pcm.repository.EnvironmentFailureType;
+import de.uka.ipd.sdq.pcm.repository.EventGroup;
+import de.uka.ipd.sdq.pcm.repository.EventType;
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
+import de.uka.ipd.sdq.pcm.repository.FailureType;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -41,9 +49,14 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.ResourceInterface;
 import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.ResourceSignature;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.repository.SinkRole;
+import de.uka.ipd.sdq.pcm.repository.SourceRole;
+import de.uka.ipd.sdq.pcm.repository.StopFailureType;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,6 +73,7 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
@@ -132,44 +146,96 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createRoleAdapter();
 			}
 			@Override
+			public Adapter caseResourceRequiredRole(ResourceRequiredRole object) {
+				return createResourceRequiredRoleAdapter();
+			}
+			@Override
 			public Adapter caseInterface(Interface object) {
 				return createInterfaceAdapter();
-			}
-			@Override
-			public Adapter caseSignature(Signature object) {
-				return createSignatureAdapter();
-			}
-			@Override
-			public Adapter caseParameter(Parameter object) {
-				return createParameterAdapter();
-			}
-			@Override
-			public Adapter caseDataType(DataType object) {
-				return createDataTypeAdapter();
 			}
 			@Override
 			public Adapter caseRepository(Repository object) {
 				return createRepositoryAdapter();
 			}
 			@Override
-			public Adapter caseFailureType(FailureType object) {
-				return createFailureTypeAdapter();
-			}
-			@Override
-			public Adapter caseExceptionType(ExceptionType object) {
-				return createExceptionTypeAdapter();
-			}
-			@Override
-			public Adapter caseRequiredCharacterisation(RequiredCharacterisation object) {
-				return createRequiredCharacterisationAdapter();
+			public Adapter caseDataType(DataType object) {
+				return createDataTypeAdapter();
 			}
 			@Override
 			public Adapter caseDelegationConnector(DelegationConnector object) {
 				return createDelegationConnectorAdapter();
 			}
 			@Override
-			public Adapter caseResourceRequiredRole(ResourceRequiredRole object) {
-				return createResourceRequiredRoleAdapter();
+			public Adapter caseOperationProvidedRole(OperationProvidedRole object) {
+				return createOperationProvidedRoleAdapter();
+			}
+			@Override
+			public Adapter caseOperationInterface(OperationInterface object) {
+				return createOperationInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseOperationSignature(OperationSignature object) {
+				return createOperationSignatureAdapter();
+			}
+			@Override
+			public Adapter caseSignature(Signature object) {
+				return createSignatureAdapter();
+			}
+			@Override
+			public Adapter caseExceptionType(ExceptionType object) {
+				return createExceptionTypeAdapter();
+			}
+			@Override
+			public Adapter caseFailureType(FailureType object) {
+				return createFailureTypeAdapter();
+			}
+			@Override
+			public Adapter caseCompositeDataType(CompositeDataType object) {
+				return createCompositeDataTypeAdapter();
+			}
+			@Override
+			public Adapter caseResourceSignature(ResourceSignature object) {
+				return createResourceSignatureAdapter();
+			}
+			@Override
+			public Adapter caseResourceInterface(ResourceInterface object) {
+				return createResourceInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseInfrastructureSignature(InfrastructureSignature object) {
+				return createInfrastructureSignatureAdapter();
+			}
+			@Override
+			public Adapter caseInfrastructureInterface(InfrastructureInterface object) {
+				return createInfrastructureInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseEventType(EventType object) {
+				return createEventTypeAdapter();
+			}
+			@Override
+			public Adapter caseEventGroup(EventGroup object) {
+				return createEventGroupAdapter();
+			}
+			@Override
+			public Adapter caseOperationRequiredRole(OperationRequiredRole object) {
+				return createOperationRequiredRoleAdapter();
+			}
+			@Override
+			public Adapter caseSinkRole(SinkRole object) {
+				return createSinkRoleAdapter();
+			}
+			@Override
+			public Adapter caseSourceRole(SourceRole object) {
+				return createSourceRoleAdapter();
+			}
+			@Override
+			public Adapter caseApplicationFailureType(ApplicationFailureType object) {
+				return createApplicationFailureTypeAdapter();
+			}
+			@Override
+			public Adapter caseStopFailureType(StopFailureType object) {
+				return createStopFailureTypeAdapter();
 			}
 			@Override
 			public Adapter caseCompleteComponentType(CompleteComponentType object) {
@@ -190,22 +256,6 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCollectionDataType(CollectionDataType object) {
 				return createCollectionDataTypeAdapter();
-			}
-			@Override
-			public Adapter caseCompositeDataType(CompositeDataType object) {
-				return createCompositeDataTypeAdapter();
-			}
-			@Override
-			public Adapter caseInnerDeclaration(InnerDeclaration object) {
-				return createInnerDeclarationAdapter();
-			}
-			@Override
-			public Adapter caseStopFailureType(StopFailureType object) {
-				return createStopFailureTypeAdapter();
-			}
-			@Override
-			public Adapter caseApplicationFailureType(ApplicationFailureType object) {
-				return createApplicationFailureTypeAdapter();
 			}
 			@Override
 			public Adapter caseEnvironmentFailureType(EnvironmentFailureType object) {
@@ -276,62 +326,6 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource <em>Passive Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.PassiveResource
-	 * @generated
-	 */
-	public Adapter createPassiveResourceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Signature <em>Signature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.Signature
-	 * @generated
-	 */
-	public Adapter createSignatureAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Parameter <em>Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.Parameter
-	 * @generated
-	 */
-	public Adapter createParameterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.DataType <em>Data Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.DataType
-	 * @generated
-	 */
-	public Adapter createDataTypeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Repository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -356,20 +350,6 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRepositoryComponentAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType <em>Provides Component Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType
-	 * @generated
-	 */
-	public Adapter createProvidesComponentTypeAdapter() {
 		return null;
 	}
 
@@ -402,6 +382,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.OperationInterface <em>Operation Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.OperationInterface
+	 * @generated
+	 */
+	public Adapter createOperationInterfaceAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Interface <em>Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -416,30 +410,30 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation <em>Required Characterisation</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.OperationSignature <em>Operation Signature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation
+	 * @see de.uka.ipd.sdq.pcm.repository.OperationSignature
 	 * @generated
 	 */
-	public Adapter createRequiredCharacterisationAdapter() {
+	public Adapter createOperationSignatureAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole <em>Resource Required Role</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Signature <em>Signature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole
+	 * @see de.uka.ipd.sdq.pcm.repository.Signature
 	 * @generated
 	 */
-	public Adapter createResourceRequiredRoleAdapter() {
+	public Adapter createSignatureAdapter() {
 		return null;
 	}
 
@@ -458,6 +452,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.OperationRequiredRole <em>Operation Required Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
+	 * @generated
+	 */
+	public Adapter createOperationRequiredRoleAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.FailureType <em>Failure Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -468,6 +476,118 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFailureTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.DelegationConnector <em>Delegation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.DelegationConnector
+	 * @generated
+	 */
+	public Adapter createDelegationConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.OperationProvidedRole <em>Operation Provided Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
+	 * @generated
+	 */
+	public Adapter createOperationProvidedRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole <em>Resource Required Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole
+	 * @generated
+	 */
+	public Adapter createResourceRequiredRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.SinkRole <em>Sink Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.SinkRole
+	 * @generated
+	 */
+	public Adapter createSinkRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.EventGroup <em>Event Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.EventGroup
+	 * @generated
+	 */
+	public Adapter createEventGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.EventType <em>Event Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.EventType
+	 * @generated
+	 */
+	public Adapter createEventTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.SourceRole <em>Source Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.SourceRole
+	 * @generated
+	 */
+	public Adapter createSourceRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent <em>Basic Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.BasicComponent
+	 * @generated
+	 */
+	public Adapter createBasicComponentAdapter() {
 		return null;
 	}
 
@@ -500,44 +620,30 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.DelegationConnector <em>Delegation Connector</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType <em>Provides Component Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.DelegationConnector
+	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType
 	 * @generated
 	 */
-	public Adapter createDelegationConnectorAdapter() {
+	public Adapter createProvidesComponentTypeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent <em>Composite Component</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource <em>Passive Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeComponent
+	 * @see de.uka.ipd.sdq.pcm.repository.PassiveResource
 	 * @generated
 	 */
-	public Adapter createCompositeComponentAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent <em>Basic Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.BasicComponent
-	 * @generated
-	 */
-	public Adapter createBasicComponentAdapter() {
+	public Adapter createPassiveResourceAdapter() {
 		return null;
 	}
 
@@ -570,6 +676,104 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.DataType <em>Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.DataType
+	 * @generated
+	 */
+	public Adapter createDataTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.CompositeDataType <em>Composite Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.CompositeDataType
+	 * @generated
+	 */
+	public Adapter createCompositeDataTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ResourceSignature <em>Resource Signature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.ResourceSignature
+	 * @generated
+	 */
+	public Adapter createResourceSignatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ResourceInterface <em>Resource Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.ResourceInterface
+	 * @generated
+	 */
+	public Adapter createResourceInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.InfrastructureSignature <em>Infrastructure Signature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+	 * @generated
+	 */
+	public Adapter createInfrastructureSignatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.InfrastructureInterface <em>Infrastructure Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
+	 * @generated
+	 */
+	public Adapter createInfrastructureInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent <em>Composite Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.CompositeComponent
+	 * @generated
+	 */
+	public Adapter createCompositeComponentAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType <em>Primitive Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -594,34 +798,6 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCollectionDataTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.CompositeDataType <em>Composite Data Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeDataType
-	 * @generated
-	 */
-	public Adapter createCompositeDataTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration <em>Inner Declaration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.InnerDeclaration
-	 * @generated
-	 */
-	public Adapter createInnerDeclarationAdapter() {
 		return null;
 	}
 

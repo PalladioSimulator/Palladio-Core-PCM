@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -16,12 +16,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UserData;
@@ -35,7 +34,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UserData;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl#getAssemblyContext_userData <em>Assembly Context user Data</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl#getUsageModel_UserData <em>Usage Model User Data</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl#getUserDataParameterUsages_UserData <em>User Data Parameter Usages User Data</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl#getUserDataVariableSetters__UserData <em>User Data Variable Setters User Data</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,14 +59,14 @@ public class UserDataImpl extends EObjectImpl implements UserData {
 	protected AssemblyContext assemblyContext_userData;
 
 	/**
-	 * The cached value of the '{@link #getUserDataParameterUsages_UserData() <em>User Data Parameter Usages User Data</em>}' containment reference list.
+	 * The cached value of the '{@link #getUserDataVariableSetters__UserData() <em>User Data Variable Setters User Data</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUserDataParameterUsages_UserData()
+	 * @see #getUserDataVariableSetters__UserData()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableUsage> userDataParameterUsages_UserData;
+	protected EList<VariableSetter> userDataVariableSetters__UserData;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,37 +85,6 @@ public class UserDataImpl extends EObjectImpl implements UserData {
 	@Override
 	protected EClass eStaticClass() {
 		return UsagemodelPackage.Literals.USER_DATA;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<VariableUsage> getUserDataParameterUsages_UserData() {
-		if (userDataParameterUsages_UserData == null) {
-			userDataParameterUsages_UserData = new EObjectContainmentWithInverseEList<VariableUsage>(VariableUsage.class, this, UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA, ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE);
-		}
-		return userDataParameterUsages_UserData;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetUsageModel_UserData((UsageModel)otherEnd, msgs);
-			case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getUserDataParameterUsages_UserData()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -203,13 +171,44 @@ public class UserDataImpl extends EObjectImpl implements UserData {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<VariableSetter> getUserDataVariableSetters__UserData() {
+		if (userDataVariableSetters__UserData == null) {
+			userDataVariableSetters__UserData = new EObjectContainmentWithInverseEList<VariableSetter>(VariableSetter.class, this, UsagemodelPackage.USER_DATA__USER_DATA_VARIABLE_SETTERS_USER_DATA, ParameterPackage.VARIABLE_SETTER__USER_DATA_VARIABLE_SETTER);
+		}
+		return userDataVariableSetters__UserData;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetUsageModel_UserData((UsageModel)otherEnd, msgs);
+			case UsagemodelPackage.USER_DATA__USER_DATA_VARIABLE_SETTERS_USER_DATA:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getUserDataVariableSetters__UserData()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
 				return basicSetUsageModel_UserData(null, msgs);
-			case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-				return ((InternalEList<?>)getUserDataParameterUsages_UserData()).basicRemove(otherEnd, msgs);
+			case UsagemodelPackage.USER_DATA__USER_DATA_VARIABLE_SETTERS_USER_DATA:
+				return ((InternalEList<?>)getUserDataVariableSetters__UserData()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -241,8 +240,8 @@ public class UserDataImpl extends EObjectImpl implements UserData {
 				return basicGetAssemblyContext_userData();
 			case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
 				return getUsageModel_UserData();
-			case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-				return getUserDataParameterUsages_UserData();
+			case UsagemodelPackage.USER_DATA__USER_DATA_VARIABLE_SETTERS_USER_DATA:
+				return getUserDataVariableSetters__UserData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -262,9 +261,9 @@ public class UserDataImpl extends EObjectImpl implements UserData {
 			case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
 				setUsageModel_UserData((UsageModel)newValue);
 				return;
-			case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-				getUserDataParameterUsages_UserData().clear();
-				getUserDataParameterUsages_UserData().addAll((Collection<? extends VariableUsage>)newValue);
+			case UsagemodelPackage.USER_DATA__USER_DATA_VARIABLE_SETTERS_USER_DATA:
+				getUserDataVariableSetters__UserData().clear();
+				getUserDataVariableSetters__UserData().addAll((Collection<? extends VariableSetter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -284,8 +283,8 @@ public class UserDataImpl extends EObjectImpl implements UserData {
 			case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
 				setUsageModel_UserData((UsageModel)null);
 				return;
-			case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-				getUserDataParameterUsages_UserData().clear();
+			case UsagemodelPackage.USER_DATA__USER_DATA_VARIABLE_SETTERS_USER_DATA:
+				getUserDataVariableSetters__UserData().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -303,8 +302,8 @@ public class UserDataImpl extends EObjectImpl implements UserData {
 				return assemblyContext_userData != null;
 			case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
 				return getUsageModel_UserData() != null;
-			case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-				return userDataParameterUsages_UserData != null && !userDataParameterUsages_UserData.isEmpty();
+			case UsagemodelPackage.USER_DATA__USER_DATA_VARIABLE_SETTERS_USER_DATA:
+				return userDataVariableSetters__UserData != null && !userDataVariableSetters__UserData.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

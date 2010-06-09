@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
-import de.uka.ipd.sdq.pcm.parameter.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -13,12 +12,12 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,9 +70,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ParameterPackage.VARIABLE_USAGE: return createVariableUsage();
-			case ParameterPackage.VARIABLE_CHARACTERISATION: return createVariableCharacterisation();
-			case ParameterPackage.CHARACTERISED_VARIABLE: return createCharacterisedVariable();
+			case ParameterPackage.VARIABLE_SETTER: return createVariableSetter();
+			case ParameterPackage.VARIABLE: return createVariable();
+			case ParameterPackage.VARIABLE_CHARACTERISTIC: return createVariableCharacteristic();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -114,29 +113,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableCharacterisation createVariableCharacterisation() {
-		VariableCharacterisationImpl variableCharacterisation = new VariableCharacterisationImpl();
-		return variableCharacterisation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CharacterisedVariable createCharacterisedVariable() {
-		CharacterisedVariableImpl characterisedVariable = new CharacterisedVariableImpl();
-		return characterisedVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public VariableUsage createVariableUsage() {
-		VariableUsageImpl variableUsage = new VariableUsageImpl();
-		return variableUsage;
+	public VariableSetter createVariableSetter() {
+		VariableSetterImpl variableSetter = new VariableSetterImpl();
+		return variableSetter;
 	}
 
 	/**
@@ -157,6 +136,26 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 */
 	public String convertVariableCharacterisationTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable createVariable() {
+		VariableImpl variable = new VariableImpl();
+		return variable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VariableCharacteristic createVariableCharacteristic() {
+		VariableCharacteristicImpl variableCharacteristic = new VariableCharacteristicImpl();
+		return variableCharacteristic;
 	}
 
 	/**

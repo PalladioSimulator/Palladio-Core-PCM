@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -10,8 +10,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
@@ -127,6 +127,49 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ScenarioBehaviour getScenarioBehaviour_UsageScenario() {
+		return scenarioBehaviour_UsageScenario;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetScenarioBehaviour_UsageScenario(ScenarioBehaviour newScenarioBehaviour_UsageScenario, NotificationChain msgs) {
+		ScenarioBehaviour oldScenarioBehaviour_UsageScenario = scenarioBehaviour_UsageScenario;
+		scenarioBehaviour_UsageScenario = newScenarioBehaviour_UsageScenario;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO, oldScenarioBehaviour_UsageScenario, newScenarioBehaviour_UsageScenario);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScenarioBehaviour_UsageScenario(ScenarioBehaviour newScenarioBehaviour_UsageScenario) {
+		if (newScenarioBehaviour_UsageScenario != scenarioBehaviour_UsageScenario) {
+			NotificationChain msgs = null;
+			if (scenarioBehaviour_UsageScenario != null)
+				msgs = ((InternalEObject)scenarioBehaviour_UsageScenario).eInverseRemove(this, UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR, ScenarioBehaviour.class, msgs);
+			if (newScenarioBehaviour_UsageScenario != null)
+				msgs = ((InternalEObject)newScenarioBehaviour_UsageScenario).eInverseAdd(this, UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR, ScenarioBehaviour.class, msgs);
+			msgs = basicSetScenarioBehaviour_UsageScenario(newScenarioBehaviour_UsageScenario, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO, newScenarioBehaviour_UsageScenario, newScenarioBehaviour_UsageScenario));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Workload getWorkload_UsageScenario() {
 		return workload_UsageScenario;
 	}
@@ -187,49 +230,6 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 				return basicSetWorkload_UsageScenario((Workload)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ScenarioBehaviour getScenarioBehaviour_UsageScenario() {
-		return scenarioBehaviour_UsageScenario;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetScenarioBehaviour_UsageScenario(ScenarioBehaviour newScenarioBehaviour_UsageScenario, NotificationChain msgs) {
-		ScenarioBehaviour oldScenarioBehaviour_UsageScenario = scenarioBehaviour_UsageScenario;
-		scenarioBehaviour_UsageScenario = newScenarioBehaviour_UsageScenario;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO, oldScenarioBehaviour_UsageScenario, newScenarioBehaviour_UsageScenario);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setScenarioBehaviour_UsageScenario(ScenarioBehaviour newScenarioBehaviour_UsageScenario) {
-		if (newScenarioBehaviour_UsageScenario != scenarioBehaviour_UsageScenario) {
-			NotificationChain msgs = null;
-			if (scenarioBehaviour_UsageScenario != null)
-				msgs = ((InternalEObject)scenarioBehaviour_UsageScenario).eInverseRemove(this, UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR, ScenarioBehaviour.class, msgs);
-			if (newScenarioBehaviour_UsageScenario != null)
-				msgs = ((InternalEObject)newScenarioBehaviour_UsageScenario).eInverseAdd(this, UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR, ScenarioBehaviour.class, msgs);
-			msgs = basicSetScenarioBehaviour_UsageScenario(newScenarioBehaviour_UsageScenario, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO, newScenarioBehaviour_UsageScenario, newScenarioBehaviour_UsageScenario));
 	}
 
 	/**

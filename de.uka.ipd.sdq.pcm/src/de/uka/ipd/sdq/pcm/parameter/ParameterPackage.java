@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
@@ -76,205 +77,122 @@ public interface ParameterPackage extends EPackage {
 	ParameterPackage eINSTANCE = de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl <em>Variable Characterisation</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableSetterImpl <em>Variable Setter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisation()
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableSetterImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableSetter()
 	 * @generated
 	 */
-	int VARIABLE_CHARACTERISATION = 1;
+	int VARIABLE_SETTER = 0;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl <em>Characterised Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCharacterisedVariable()
-	 * @generated
-	 */
-	int CHARACTERISED_VARIABLE = 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableUsage()
-	 * @generated
-	 */
-	int VARIABLE_USAGE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Variable Characterisation Variable Usage</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Specification Variable Setter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE = 0;
+	int VARIABLE_SETTER__SPECIFICATION_VARIABLE_SETTER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Named Reference Variable Usage</b></em>' containment reference.
+	 * The feature id for the '<em><b>User Data Variable Setter</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE = 1;
+	int VARIABLE_SETTER__USER_DATA_VARIABLE_SETTER = 1;
 
 	/**
-	 * The feature id for the '<em><b>User Data Variable Usage</b></em>' container reference.
+	 * The feature id for the '<em><b>Assembly Context Variable Setter</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE = 2;
+	int VARIABLE_SETTER__ASSEMBLY_CONTEXT_VARIABLE_SETTER = 2;
 
 	/**
-	 * The feature id for the '<em><b>Assembly Context Variable Usage</b></em>' container reference.
+	 * The feature id for the '<em><b>Entry Level System Call Input Variable Setter</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE = 3;
+	int VARIABLE_SETTER__ENTRY_LEVEL_SYSTEM_CALL_INPUT_VARIABLE_SETTER = 3;
 
 	/**
-	 * The feature id for the '<em><b>Entry Level System Call Variable Usage</b></em>' container reference.
+	 * The feature id for the '<em><b>Entry Level System Call Output Variable Setter</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_VARIABLE_USAGE = 4;
+	int VARIABLE_SETTER__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_VARIABLE_SETTER = 4;
 
 	/**
-	 * The feature id for the '<em><b>Entry Level System Call Output Parameter Usage</b></em>' container reference.
+	 * The feature id for the '<em><b>Call Action Variable Setter</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE = 5;
+	int VARIABLE_SETTER__CALL_ACTION_VARIABLE_SETTER = 5;
 
 	/**
-	 * The feature id for the '<em><b>Call Action in Variable Usage</b></em>' container reference.
+	 * The feature id for the '<em><b>Synchronisation Point Variable Setter</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE__CALL_ACTION_IN_VARIABLE_USAGE = 6;
+	int VARIABLE_SETTER__SYNCHRONISATION_POINT_VARIABLE_SETTER = 6;
 
 	/**
-	 * The feature id for the '<em><b>Synchronisation Point Variable Usage</b></em>' container reference.
+	 * The feature id for the '<em><b>Call Return Action Variable Setter</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE = 7;
+	int VARIABLE_SETTER__CALL_RETURN_ACTION_VARIABLE_SETTER = 7;
 
 	/**
-	 * The feature id for the '<em><b>Set Variable Action Variable Usage</b></em>' container reference.
+	 * The feature id for the '<em><b>Set Variable Action Variable Setter</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE = 8;
+	int VARIABLE_SETTER__SET_VARIABLE_ACTION_VARIABLE_SETTER = 8;
 
 	/**
-	 * The feature id for the '<em><b>Call Action out Variable Usage</b></em>' container reference.
+	 * The feature id for the '<em><b>Specified Output Parameter Abstraction expected External Outputs Variable Setter</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE__CALL_ACTION_OUT_VARIABLE_USAGE = 9;
+	int VARIABLE_SETTER__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_SETTER = 9;
 
 	/**
-	 * The feature id for the '<em><b>Specified Output Parameter Abstraction expected External Outputs Variable Usage</b></em>' container reference.
+	 * The feature id for the '<em><b>Variable Characteristic Variable Setter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE = 10;
+	int VARIABLE_SETTER__VARIABLE_CHARACTERISTIC_VARIABLE_SETTER = 10;
 
 	/**
-	 * The number of structural features of the '<em>Variable Usage</em>' class.
+	 * The number of structural features of the '<em>Variable Setter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_USAGE_FEATURE_COUNT = 11;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CHARACTERISATION__TYPE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Specification Variable Characterisation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Variable Usage Variable Characterisation</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION = 2;
-
-	/**
-	 * The number of structural features of the '<em>Variable Characterisation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CHARACTERISATION_FEATURE_COUNT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Id Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHARACTERISED_VARIABLE__ID_VARIABLE = StoexPackage.VARIABLE__ID_VARIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Characterisation Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE = StoexPackage.VARIABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Characterised Variable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHARACTERISED_VARIABLE_FEATURE_COUNT = StoexPackage.VARIABLE_FEATURE_COUNT + 1;
+	int VARIABLE_SETTER_FEATURE_COUNT = 11;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType <em>Variable Characterisation Type</em>}' enum.
@@ -288,199 +206,290 @@ public interface ParameterPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation <em>Variable Characterisation</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter <em>Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Variable Characterisation</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation
+	 * @return the meta object for class '<em>Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter
 	 * @generated
 	 */
-	EClass getVariableCharacterisation();
+	EClass getVariableSetter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSpecification__VariableSetter <em>Specification Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType()
-	 * @see #getVariableCharacterisation()
+	 * @return the meta object for the containment reference '<em>Specification Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSpecification__VariableSetter()
+	 * @see #getVariableSetter()
 	 * @generated
 	 */
-	EAttribute getVariableCharacterisation_Type();
+	EReference getVariableSetter_Specification__VariableSetter();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation <em>Specification Variable Characterisation</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getUserData__VariableSetter <em>User Data Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Specification Variable Characterisation</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation()
-	 * @see #getVariableCharacterisation()
+	 * @return the meta object for the container reference '<em>User Data Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getUserData__VariableSetter()
+	 * @see #getVariableSetter()
 	 * @generated
 	 */
-	EReference getVariableCharacterisation_Specification_VariableCharacterisation();
+	EReference getVariableSetter_UserData__VariableSetter();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation <em>Variable Usage Variable Characterisation</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getAssemblyContext__VariableSetter <em>Assembly Context Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Variable Usage Variable Characterisation</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation()
-	 * @see #getVariableCharacterisation()
+	 * @return the meta object for the container reference '<em>Assembly Context Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getAssemblyContext__VariableSetter()
+	 * @see #getVariableSetter()
 	 * @generated
 	 */
-	EReference getVariableCharacterisation_VariableUsage_VariableCharacterisation();
+	EReference getVariableSetter_AssemblyContext__VariableSetter();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable <em>Characterised Variable</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getEntryLevelSystemCall__InputVariableSetter <em>Entry Level System Call Input Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Characterised Variable</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable
+	 * @return the meta object for the container reference '<em>Entry Level System Call Input Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getEntryLevelSystemCall__InputVariableSetter()
+	 * @see #getVariableSetter()
 	 * @generated
 	 */
-	EClass getCharacterisedVariable();
+	EReference getVariableSetter_EntryLevelSystemCall__InputVariableSetter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable#getCharacterisationType <em>Characterisation Type</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getEntryLevelSystemCall__OutputVariableSetter <em>Entry Level System Call Output Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Characterisation Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable#getCharacterisationType()
-	 * @see #getCharacterisedVariable()
+	 * @return the meta object for the container reference '<em>Entry Level System Call Output Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getEntryLevelSystemCall__OutputVariableSetter()
+	 * @see #getVariableSetter()
 	 * @generated
 	 */
-	EAttribute getCharacterisedVariable_CharacterisationType();
+	EReference getVariableSetter_EntryLevelSystemCall__OutputVariableSetter();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage <em>Variable Usage</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getCallAction__VariableSetter <em>Call Action Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Variable Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage
+	 * @return the meta object for the container reference '<em>Call Action Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getCallAction__VariableSetter()
+	 * @see #getVariableSetter()
 	 * @generated
 	 */
-	EClass getVariableUsage();
+	EReference getVariableSetter_CallAction__VariableSetter();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage <em>Variable Characterisation Variable Usage</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSynchronisationPoint__VariableSetter <em>Synchronisation Point Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Variable Characterisation Variable Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage()
-	 * @see #getVariableUsage()
+	 * @return the meta object for the container reference '<em>Synchronisation Point Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSynchronisationPoint__VariableSetter()
+	 * @see #getVariableSetter()
 	 * @generated
 	 */
-	EReference getVariableUsage_VariableCharacterisation_VariableUsage();
+	EReference getVariableSetter_SynchronisationPoint__VariableSetter();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getNamedReference_VariableUsage <em>Named Reference Variable Usage</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getCallReturnAction__VariableSetter <em>Call Return Action Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Named Reference Variable Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getNamedReference_VariableUsage()
-	 * @see #getVariableUsage()
+	 * @return the meta object for the container reference '<em>Call Return Action Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getCallReturnAction__VariableSetter()
+	 * @see #getVariableSetter()
 	 * @generated
 	 */
-	EReference getVariableUsage_NamedReference_VariableUsage();
+	EReference getVariableSetter_CallReturnAction__VariableSetter();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage <em>User Data Variable Usage</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSetVariableAction__VariableSetter <em>Set Variable Action Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>User Data Variable Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage()
-	 * @see #getVariableUsage()
+	 * @return the meta object for the container reference '<em>Set Variable Action Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSetVariableAction__VariableSetter()
+	 * @see #getVariableSetter()
 	 * @generated
 	 */
-	EReference getVariableUsage_UserData_VariableUsage();
+	EReference getVariableSetter_SetVariableAction__VariableSetter();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getAssemblyContext_VariableUsage <em>Assembly Context Variable Usage</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter <em>Specified Output Parameter Abstraction expected External Outputs Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Assembly Context Variable Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getAssemblyContext_VariableUsage()
-	 * @see #getVariableUsage()
+	 * @return the meta object for the container reference '<em>Specified Output Parameter Abstraction expected External Outputs Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter()
+	 * @see #getVariableSetter()
 	 * @generated
 	 */
-	EReference getVariableUsage_AssemblyContext_VariableUsage();
+	EReference getVariableSetter_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getEntryLevelSystemCall_VariableUsage <em>Entry Level System Call Variable Usage</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getVariableCharacteristic__VariableSetter <em>Variable Characteristic Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Entry Level System Call Variable Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getEntryLevelSystemCall_VariableUsage()
-	 * @see #getVariableUsage()
+	 * @return the meta object for the reference '<em>Variable Characteristic Variable Setter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getVariableCharacteristic__VariableSetter()
+	 * @see #getVariableSetter()
 	 * @generated
 	 */
-	EReference getVariableUsage_EntryLevelSystemCall_VariableUsage();
+	EReference getVariableSetter_VariableCharacteristic__VariableSetter();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getEntryLevelSystemCall_OutputParameterUsage <em>Entry Level System Call Output Parameter Usage</em>}'.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableImpl <em>Variable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Entry Level System Call Output Parameter Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getEntryLevelSystemCall_OutputParameterUsage()
-	 * @see #getVariableUsage()
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariable()
 	 * @generated
 	 */
-	EReference getVariableUsage_EntryLevelSystemCall_OutputParameterUsage();
+	int VARIABLE = 1;
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallAction_in_VariableUsage <em>Call Action in Variable Usage</em>}'.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Call Action in Variable Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallAction_in_VariableUsage()
-	 * @see #getVariableUsage()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getVariableUsage_CallAction_in_VariableUsage();
+	int VARIABLE__ID = EntityPackage.ENTITY__ID;
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage <em>Synchronisation Point Variable Usage</em>}'.
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Synchronisation Point Variable Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage()
-	 * @see #getVariableUsage()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getVariableUsage_SynchronisationPoint_VariableUsage();
+	int VARIABLE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage <em>Set Variable Action Variable Usage</em>}'.
+	 * The feature id for the '<em><b>Implementation Component Type Variable</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Set Variable Action Variable Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage()
-	 * @see #getVariableUsage()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getVariableUsage_SetVariableAction_VariableUsage();
+	int VARIABLE__IMPLEMENTATION_COMPONENT_TYPE_VARIABLE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallAction_out_VariableUsage <em>Call Action out Variable Usage</em>}'.
+	 * The feature id for the '<em><b>Data Type Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Call Action out Variable Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallAction_out_VariableUsage()
-	 * @see #getVariableUsage()
 	 * @generated
+	 * @ordered
 	 */
-	EReference getVariableUsage_CallAction_out_VariableUsage();
+	int VARIABLE__DATA_TYPE_VARIABLE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>}'.
+	 * The feature id for the '<em><b>Composite Data Type Variable</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage()
-	 * @see #getVariableUsage()
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__COMPOSITE_DATA_TYPE_VARIABLE = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Resource Signature Variable</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__RESOURCE_SIGNATURE_VARIABLE = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Infrastructure Signature Variable</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__INFRASTRUCTURE_SIGNATURE_VARIABLE = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Event Type Variable</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__EVENT_TYPE_VARIABLE = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Variable Characteristics Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__VARIABLE_CHARACTERISTICS_VARIABLE = EntityPackage.ENTITY_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Operation Signature Variable</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__OPERATION_SIGNATURE_VARIABLE = EntityPackage.ENTITY_FEATURE_COUNT + 7;
+
+	/**
+	 * The number of structural features of the '<em>Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 8;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacteristicImpl <em>Variable Characteristic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacteristicImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacteristic()
 	 * @generated
 	 */
-	EReference getVariableUsage_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage();
+	int VARIABLE_CHARACTERISTIC = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_CHARACTERISTIC__ID_VARIABLE = StoexPackage.STO_EX_VARIABLE__ID_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Characterisation Definition Variable Characteristic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_CHARACTERISTIC__CHARACTERISATION_DEFINITION_VARIABLE_CHARACTERISTIC = StoexPackage.STO_EX_VARIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Variable Variable Characteristic</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_CHARACTERISTIC__VARIABLE_VARIABLE_CHARACTERISTIC = StoexPackage.STO_EX_VARIABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Variable Characteristic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_CHARACTERISTIC_FEATURE_COUNT = StoexPackage.STO_EX_VARIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType <em>Variable Characterisation Type</em>}'.
@@ -491,6 +500,136 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getVariableCharacterisationType();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.Variable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.Variable
+	 * @generated
+	 */
+	EClass getVariable();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.Variable#getImplementationComponentType__Variable <em>Implementation Component Type Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Implementation Component Type Variable</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.Variable#getImplementationComponentType__Variable()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EReference getVariable_ImplementationComponentType__Variable();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.Variable#getEventType__Variable <em>Event Type Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Event Type Variable</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.Variable#getEventType__Variable()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EReference getVariable_EventType__Variable();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.parameter.Variable#getVariableCharacteristics__Variable <em>Variable Characteristics Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Variable Characteristics Variable</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.Variable#getVariableCharacteristics__Variable()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EReference getVariable_VariableCharacteristics__Variable();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.parameter.Variable#getDataType__Variable <em>Data Type Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Type Variable</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.Variable#getDataType__Variable()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EReference getVariable_DataType__Variable();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.Variable#getCompositeDataType__Variable <em>Composite Data Type Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Composite Data Type Variable</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.Variable#getCompositeDataType__Variable()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EReference getVariable_CompositeDataType__Variable();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.Variable#getResourceSignature__Variable <em>Resource Signature Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Resource Signature Variable</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.Variable#getResourceSignature__Variable()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EReference getVariable_ResourceSignature__Variable();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.Variable#getInfrastructureSignature__Variable <em>Infrastructure Signature Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Infrastructure Signature Variable</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.Variable#getInfrastructureSignature__Variable()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EReference getVariable_InfrastructureSignature__Variable();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.Variable#getOperationSignature__Variable <em>Operation Signature Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Operation Signature Variable</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.Variable#getOperationSignature__Variable()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EReference getVariable_OperationSignature__Variable();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic <em>Variable Characteristic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable Characteristic</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic
+	 * @generated
+	 */
+	EClass getVariableCharacteristic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic#getCharacterisationDefinition__VariableCharacteristic <em>Characterisation Definition Variable Characteristic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Characterisation Definition Variable Characteristic</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic#getCharacterisationDefinition__VariableCharacteristic()
+	 * @see #getVariableCharacteristic()
+	 * @generated
+	 */
+	EAttribute getVariableCharacteristic_CharacterisationDefinition__VariableCharacteristic();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic#getVariable__VariableCharacteristic <em>Variable Variable Characteristic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Variable Variable Characteristic</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic#getVariable__VariableCharacteristic()
+	 * @see #getVariableCharacteristic()
+	 * @generated
+	 */
+	EReference getVariableCharacteristic_Variable__VariableCharacteristic();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -515,154 +654,102 @@ public interface ParameterPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl <em>Variable Characterisation</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableSetterImpl <em>Variable Setter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisation()
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableSetterImpl
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableSetter()
 		 * @generated
 		 */
-		EClass VARIABLE_CHARACTERISATION = eINSTANCE.getVariableCharacterisation();
+		EClass VARIABLE_SETTER = eINSTANCE.getVariableSetter();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Specification Variable Setter</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute VARIABLE_CHARACTERISATION__TYPE = eINSTANCE.getVariableCharacterisation_Type();
+		EReference VARIABLE_SETTER__SPECIFICATION_VARIABLE_SETTER = eINSTANCE.getVariableSetter_Specification__VariableSetter();
 
 		/**
-		 * The meta object literal for the '<em><b>Specification Variable Characterisation</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>User Data Variable Setter</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION = eINSTANCE.getVariableCharacterisation_Specification_VariableCharacterisation();
+		EReference VARIABLE_SETTER__USER_DATA_VARIABLE_SETTER = eINSTANCE.getVariableSetter_UserData__VariableSetter();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable Usage Variable Characterisation</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Assembly Context Variable Setter</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION = eINSTANCE.getVariableCharacterisation_VariableUsage_VariableCharacterisation();
+		EReference VARIABLE_SETTER__ASSEMBLY_CONTEXT_VARIABLE_SETTER = eINSTANCE.getVariableSetter_AssemblyContext__VariableSetter();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl <em>Characterised Variable</em>}' class.
+		 * The meta object literal for the '<em><b>Entry Level System Call Input Variable Setter</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCharacterisedVariable()
 		 * @generated
 		 */
-		EClass CHARACTERISED_VARIABLE = eINSTANCE.getCharacterisedVariable();
+		EReference VARIABLE_SETTER__ENTRY_LEVEL_SYSTEM_CALL_INPUT_VARIABLE_SETTER = eINSTANCE.getVariableSetter_EntryLevelSystemCall__InputVariableSetter();
 
 		/**
-		 * The meta object literal for the '<em><b>Characterisation Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Entry Level System Call Output Variable Setter</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE = eINSTANCE.getCharacterisedVariable_CharacterisationType();
+		EReference VARIABLE_SETTER__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_VARIABLE_SETTER = eINSTANCE.getVariableSetter_EntryLevelSystemCall__OutputVariableSetter();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>}' class.
+		 * The meta object literal for the '<em><b>Call Action Variable Setter</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableUsage()
 		 * @generated
 		 */
-		EClass VARIABLE_USAGE = eINSTANCE.getVariableUsage();
+		EReference VARIABLE_SETTER__CALL_ACTION_VARIABLE_SETTER = eINSTANCE.getVariableSetter_CallAction__VariableSetter();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable Characterisation Variable Usage</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Synchronisation Point Variable Setter</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE = eINSTANCE.getVariableUsage_VariableCharacterisation_VariableUsage();
+		EReference VARIABLE_SETTER__SYNCHRONISATION_POINT_VARIABLE_SETTER = eINSTANCE.getVariableSetter_SynchronisationPoint__VariableSetter();
 
 		/**
-		 * The meta object literal for the '<em><b>Named Reference Variable Usage</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Call Return Action Variable Setter</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE = eINSTANCE.getVariableUsage_NamedReference_VariableUsage();
+		EReference VARIABLE_SETTER__CALL_RETURN_ACTION_VARIABLE_SETTER = eINSTANCE.getVariableSetter_CallReturnAction__VariableSetter();
 
 		/**
-		 * The meta object literal for the '<em><b>User Data Variable Usage</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Set Variable Action Variable Setter</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE = eINSTANCE.getVariableUsage_UserData_VariableUsage();
+		EReference VARIABLE_SETTER__SET_VARIABLE_ACTION_VARIABLE_SETTER = eINSTANCE.getVariableSetter_SetVariableAction__VariableSetter();
 
 		/**
-		 * The meta object literal for the '<em><b>Assembly Context Variable Usage</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Specified Output Parameter Abstraction expected External Outputs Variable Setter</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE = eINSTANCE.getVariableUsage_AssemblyContext_VariableUsage();
+		EReference VARIABLE_SETTER__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_SETTER = eINSTANCE.getVariableSetter_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter();
 
 		/**
-		 * The meta object literal for the '<em><b>Entry Level System Call Variable Usage</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Variable Characteristic Variable Setter</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_VARIABLE_USAGE = eINSTANCE.getVariableUsage_EntryLevelSystemCall_VariableUsage();
-
-		/**
-		 * The meta object literal for the '<em><b>Entry Level System Call Output Parameter Usage</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE = eINSTANCE.getVariableUsage_EntryLevelSystemCall_OutputParameterUsage();
-
-		/**
-		 * The meta object literal for the '<em><b>Call Action in Variable Usage</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE_USAGE__CALL_ACTION_IN_VARIABLE_USAGE = eINSTANCE.getVariableUsage_CallAction_in_VariableUsage();
-
-		/**
-		 * The meta object literal for the '<em><b>Synchronisation Point Variable Usage</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE = eINSTANCE.getVariableUsage_SynchronisationPoint_VariableUsage();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Variable Action Variable Usage</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE = eINSTANCE.getVariableUsage_SetVariableAction_VariableUsage();
-
-		/**
-		 * The meta object literal for the '<em><b>Call Action out Variable Usage</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE_USAGE__CALL_ACTION_OUT_VARIABLE_USAGE = eINSTANCE.getVariableUsage_CallAction_out_VariableUsage();
-
-		/**
-		 * The meta object literal for the '<em><b>Specified Output Parameter Abstraction expected External Outputs Variable Usage</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE = eINSTANCE.getVariableUsage_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage();
+		EReference VARIABLE_SETTER__VARIABLE_CHARACTERISTIC_VARIABLE_SETTER = eINSTANCE.getVariableSetter_VariableCharacteristic__VariableSetter();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType <em>Variable Characterisation Type</em>}' enum.
@@ -673,6 +760,106 @@ public interface ParameterPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum VARIABLE_CHARACTERISATION_TYPE = eINSTANCE.getVariableCharacterisationType();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableImpl <em>Variable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableImpl
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariable()
+		 * @generated
+		 */
+		EClass VARIABLE = eINSTANCE.getVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Event Type Variable</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE__EVENT_TYPE_VARIABLE = eINSTANCE.getVariable_EventType__Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable Characteristics Variable</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE__VARIABLE_CHARACTERISTICS_VARIABLE = eINSTANCE.getVariable_VariableCharacteristics__Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Implementation Component Type Variable</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE__IMPLEMENTATION_COMPONENT_TYPE_VARIABLE = eINSTANCE.getVariable_ImplementationComponentType__Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Type Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE__DATA_TYPE_VARIABLE = eINSTANCE.getVariable_DataType__Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Composite Data Type Variable</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE__COMPOSITE_DATA_TYPE_VARIABLE = eINSTANCE.getVariable_CompositeDataType__Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Signature Variable</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE__RESOURCE_SIGNATURE_VARIABLE = eINSTANCE.getVariable_ResourceSignature__Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Infrastructure Signature Variable</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE__INFRASTRUCTURE_SIGNATURE_VARIABLE = eINSTANCE.getVariable_InfrastructureSignature__Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation Signature Variable</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE__OPERATION_SIGNATURE_VARIABLE = eINSTANCE.getVariable_OperationSignature__Variable();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacteristicImpl <em>Variable Characteristic</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacteristicImpl
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacteristic()
+		 * @generated
+		 */
+		EClass VARIABLE_CHARACTERISTIC = eINSTANCE.getVariableCharacteristic();
+
+		/**
+		 * The meta object literal for the '<em><b>Characterisation Definition Variable Characteristic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIABLE_CHARACTERISTIC__CHARACTERISATION_DEFINITION_VARIABLE_CHARACTERISTIC = eINSTANCE.getVariableCharacteristic_CharacterisationDefinition__VariableCharacteristic();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable Variable Characteristic</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_CHARACTERISTIC__VARIABLE_VARIABLE_CHARACTERISTIC = eINSTANCE.getVariableCharacteristic_Variable__VariableCharacteristic();
 
 	}
 

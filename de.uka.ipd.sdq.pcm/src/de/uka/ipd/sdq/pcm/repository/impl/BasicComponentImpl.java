@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
@@ -97,11 +96,11 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent() {
-		if (serviceEffectSpecifications__BasicComponent == null) {
-			serviceEffectSpecifications__BasicComponent = new EObjectContainmentWithInverseEList<ServiceEffectSpecification>(ServiceEffectSpecification.class, this, RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT, SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION);
+	public EList<PassiveResource> getPassiveResource_BasicComponent() {
+		if (passiveResource_BasicComponent == null) {
+			passiveResource_BasicComponent = new EObjectContainmentWithInverseEList<PassiveResource>(PassiveResource.class, this, RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT, RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE);
 		}
-		return serviceEffectSpecifications__BasicComponent;
+		return passiveResource_BasicComponent;
 	}
 
 	/**
@@ -109,11 +108,11 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PassiveResource> getPassiveResource_BasicComponent() {
-		if (passiveResource_BasicComponent == null) {
-			passiveResource_BasicComponent = new EObjectContainmentWithInverseEList<PassiveResource>(PassiveResource.class, this, RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT, RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE);
+	public EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent() {
+		if (serviceEffectSpecifications__BasicComponent == null) {
+			serviceEffectSpecifications__BasicComponent = new EObjectContainmentWithInverseEList<ServiceEffectSpecification>(ServiceEffectSpecification.class, this, RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT, SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION);
 		}
-		return passiveResource_BasicComponent;
+		return serviceEffectSpecifications__BasicComponent;
 	}
 
 	/**
@@ -175,7 +174,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PROVIDE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- BC has to provide the same interfaces like the implementationComponentType (if set) #\n"+"if\n"+"	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\n"+"	self.parentCompleteComponentTypes->notEmpty()\n"+"then\n"+"	--own interface IDs:\n"+"    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()\n"+"    =\n"+"    --complete type interface IDs:\n"+"    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()\n"+"else\n"+"	true\n"+"endif";
+	protected static final String PROVIDE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- BC has to provide the same interfaces like the implementationComponentType (if set) #\n"+"if\n"+"	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\n"+"	self.parentCompleteComponentTypes->notEmpty()\n"+"then\n"+"	--own interface IDs:\n"+"    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity__ProvidedRole.id)->asSet()\n"+"    =\n"+"    --complete type interface IDs:\n"+"    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity__ProvidedRole.id)->asSet()\n"+"else\n"+"	true\n"+"endif";
 
 	/**
 	 * The cached OCL invariant for the '{@link #ProvideSameInterfacesAsImplementationType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Provide Same Interfaces As Implementation Type</em>}' invariant operation.
@@ -226,7 +225,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REQUIRE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- BC has to require the same interfaces like the implementationComponentType (if set) #\n"+"if\n"+"	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\n"+"	self.parentCompleteComponentTypes->notEmpty()\n"+"then\n"+"	--own interface IDs:\n"+"    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()\n"+"    =\n"+"    --complete type interface IDs:\n"+"    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()\n"+"else\n"+"	true\n"+"endif";
+	protected static final String REQUIRE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- BC has to require the same interfaces like the implementationComponentType (if set) #\n"+"if\n"+"	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\n"+"	self.parentCompleteComponentTypes->notEmpty()\n"+"then\n"+"	--own interface IDs:\n"+"    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiringEntity__RequiredRole.id)->asSet()\n"+"    =\n"+"    --complete type interface IDs:\n"+"    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiringEntity__RequiredRole.id)->asSet()\n"+"else\n"+"	true\n"+"endif";
 
 	/**
 	 * The cached OCL invariant for the '{@link #RequireSameInterfacesAsImplementationType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Require Same Interfaces As Implementation Type</em>}' invariant operation.

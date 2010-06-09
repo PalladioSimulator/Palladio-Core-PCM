@@ -5,11 +5,11 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 /**
  * <!-- begin-user-doc -->

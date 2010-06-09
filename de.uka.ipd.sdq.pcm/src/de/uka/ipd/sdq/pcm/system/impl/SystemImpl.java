@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -26,11 +25,15 @@ import org.eclipse.ocl.ecore.OCL;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.util.CompositionValidator;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
@@ -59,6 +62,9 @@ import de.uka.ipd.sdq.pcm.system.util.SystemValidator;
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getAssemblyConnectors_ComposedStructure <em>Assembly Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getRequiredDelegationConnectors_ComposedStructure <em>Required Delegation Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getResourceRequiredDelegationConnectors_ComposedStructure <em>Resource Required Delegation Connectors Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getAssemblyEventConnector__ComposedStructure <em>Assembly Event Connector Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getSinkDelegationConnectors__ComposedStructure <em>Sink Delegation Connectors Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getSourceDelegationConnectors__ComposedStructure <em>Source Delegation Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getProvidedDelegationConnectors_ComposedStructure <em>Provided Delegation Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getRequiredRoles_InterfaceRequiringEntity <em>Required Roles Interface Requiring Entity</em>}</li>
@@ -116,6 +122,36 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	 * @ordered
 	 */
 	protected EList<ResourceRequiredDelegationConnector> resourceRequiredDelegationConnectors_ComposedStructure;
+
+	/**
+	 * The cached value of the '{@link #getAssemblyEventConnector__ComposedStructure() <em>Assembly Event Connector Composed Structure</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssemblyEventConnector__ComposedStructure()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AssemblyEventConnector> assemblyEventConnector__ComposedStructure;
+
+	/**
+	 * The cached value of the '{@link #getSinkDelegationConnectors__ComposedStructure() <em>Sink Delegation Connectors Composed Structure</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSinkDelegationConnectors__ComposedStructure()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SinkDelegationConnector> sinkDelegationConnectors__ComposedStructure;
+
+	/**
+	 * The cached value of the '{@link #getSourceDelegationConnectors__ComposedStructure() <em>Source Delegation Connectors Composed Structure</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceDelegationConnectors__ComposedStructure()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SourceDelegationConnector> sourceDelegationConnectors__ComposedStructure;
 
 	/**
 	 * The cached value of the '{@link #getProvidedDelegationConnectors_ComposedStructure() <em>Provided Delegation Connectors Composed Structure</em>}' containment reference list.
@@ -203,11 +239,11 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ProvidedDelegationConnector> getProvidedDelegationConnectors_ComposedStructure() {
-		if (providedDelegationConnectors_ComposedStructure == null) {
-			providedDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<ProvidedDelegationConnector>(ProvidedDelegationConnector.class, this, SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR);
+	public EList<AssemblyConnector> getAssemblyConnectors_ComposedStructure() {
+		if (assemblyConnectors_ComposedStructure == null) {
+			assemblyConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyConnector>(AssemblyConnector.class, this, SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR);
 		}
-		return providedDelegationConnectors_ComposedStructure;
+		return assemblyConnectors_ComposedStructure;
 	}
 
 	/**
@@ -227,11 +263,11 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AssemblyConnector> getAssemblyConnectors_ComposedStructure() {
-		if (assemblyConnectors_ComposedStructure == null) {
-			assemblyConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyConnector>(AssemblyConnector.class, this, SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR);
+	public EList<ResourceRequiredDelegationConnector> getResourceRequiredDelegationConnectors_ComposedStructure() {
+		if (resourceRequiredDelegationConnectors_ComposedStructure == null) {
+			resourceRequiredDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<ResourceRequiredDelegationConnector>(ResourceRequiredDelegationConnector.class, this, SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
 		}
-		return assemblyConnectors_ComposedStructure;
+		return resourceRequiredDelegationConnectors_ComposedStructure;
 	}
 
 	/**
@@ -239,11 +275,47 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ResourceRequiredDelegationConnector> getResourceRequiredDelegationConnectors_ComposedStructure() {
-		if (resourceRequiredDelegationConnectors_ComposedStructure == null) {
-			resourceRequiredDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<ResourceRequiredDelegationConnector>(ResourceRequiredDelegationConnector.class, this, SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
+	public EList<AssemblyEventConnector> getAssemblyEventConnector__ComposedStructure() {
+		if (assemblyEventConnector__ComposedStructure == null) {
+			assemblyEventConnector__ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyEventConnector>(AssemblyEventConnector.class, this, SystemPackage.SYSTEM__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_EVENT_CONNECTOR);
 		}
-		return resourceRequiredDelegationConnectors_ComposedStructure;
+		return assemblyEventConnector__ComposedStructure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SinkDelegationConnector> getSinkDelegationConnectors__ComposedStructure() {
+		if (sinkDelegationConnectors__ComposedStructure == null) {
+			sinkDelegationConnectors__ComposedStructure = new EObjectContainmentWithInverseEList<SinkDelegationConnector>(SinkDelegationConnector.class, this, SystemPackage.SYSTEM__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.SINK_DELEGATION_CONNECTOR__PARENT_STRUCTURE_SINK_DELEGATION_CONNECTOR);
+		}
+		return sinkDelegationConnectors__ComposedStructure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SourceDelegationConnector> getSourceDelegationConnectors__ComposedStructure() {
+		if (sourceDelegationConnectors__ComposedStructure == null) {
+			sourceDelegationConnectors__ComposedStructure = new EObjectContainmentWithInverseEList<SourceDelegationConnector>(SourceDelegationConnector.class, this, SystemPackage.SYSTEM__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.SOURCE_DELEGATION_CONNECTOR__PARENT_STRUCTURE_SOURCE_DELEGATION_CONNECTOR);
+		}
+		return sourceDelegationConnectors__ComposedStructure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ProvidedDelegationConnector> getProvidedDelegationConnectors_ComposedStructure() {
+		if (providedDelegationConnectors_ComposedStructure == null) {
+			providedDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<ProvidedDelegationConnector>(ProvidedDelegationConnector.class, this, SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR);
+		}
+		return providedDelegationConnectors_ComposedStructure;
 	}
 
 	/**
@@ -292,6 +364,108 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 			qosAnnotations_System = new EObjectContainmentWithInverseEList<QoSAnnotations>(QoSAnnotations.class, this, SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM, QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS);
 		}
 		return qosAnnotations_System;
+	}
+
+	/**
+	 * The cached OCL expression body for the '{@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Multiple Connectors Constraint</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MULTIPLE_CONNECTORS_CONSTRAINT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.providedDelegationConnectors_ComposedStructure->forAll( c1, c2 | c1 <> c2 implies c1.outerProvidedRole_ProvidedDelegationConnector <> c2.outerProvidedRole_ProvidedDelegationConnector)\n"+"";
+
+	/**
+	 * The cached OCL invariant for the '{@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Multiple Connectors Constraint</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint MULTIPLE_CONNECTORS_CONSTRAINT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean MultipleConnectorsConstraint(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (MULTIPLE_CONNECTORS_CONSTRAINT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(CompositionPackage.Literals.COMPOSED_STRUCTURE);
+			try {
+				MULTIPLE_CONNECTORS_CONSTRAINT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(MULTIPLE_CONNECTORS_CONSTRAINT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(MULTIPLE_CONNECTORS_CONSTRAINT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CompositionValidator.DIAGNOSTIC_SOURCE,
+						 CompositionValidator.COMPOSED_STRUCTURE__MULTIPLE_CONNECTORS_CONSTRAINT,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "MultipleConnectorsConstraint", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * The cached OCL expression body for the '{@link #MultipleConnectorConstraintForAssembyConnectors(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Multiple Connector Constraint For Assemby Connectors</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MultipleConnectorConstraintForAssembyConnectors(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MULTIPLE_CONNECTOR_CONSTRAINT_FOR_ASSEMBY_CONNECTORS__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.assemblyConnectors_ComposedStructure->forAll( c1, c2 | c1 <> c2 implies c1.requiredRole__AssemblyConnector <> c2.requiredRole__AssemblyConnector) ";
+
+	/**
+	 * The cached OCL invariant for the '{@link #MultipleConnectorConstraintForAssembyConnectors(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Multiple Connector Constraint For Assemby Connectors</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MultipleConnectorConstraintForAssembyConnectors(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint MULTIPLE_CONNECTOR_CONSTRAINT_FOR_ASSEMBY_CONNECTORS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean MultipleConnectorConstraintForAssembyConnectors(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (MULTIPLE_CONNECTOR_CONSTRAINT_FOR_ASSEMBY_CONNECTORS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(CompositionPackage.Literals.COMPOSED_STRUCTURE);
+			try {
+				MULTIPLE_CONNECTOR_CONSTRAINT_FOR_ASSEMBY_CONNECTORS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(MULTIPLE_CONNECTOR_CONSTRAINT_FOR_ASSEMBY_CONNECTORS__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(MULTIPLE_CONNECTOR_CONSTRAINT_FOR_ASSEMBY_CONNECTORS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CompositionValidator.DIAGNOSTIC_SOURCE,
+						 CompositionValidator.COMPOSED_STRUCTURE__MULTIPLE_CONNECTOR_CONSTRAINT_FOR_ASSEMBY_CONNECTORS,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "MultipleConnectorConstraintForAssembyConnectors", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -413,6 +587,12 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResourceRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case SystemPackage.SYSTEM__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAssemblyEventConnector__ComposedStructure()).basicAdd(otherEnd, msgs);
+			case SystemPackage.SYSTEM__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSinkDelegationConnectors__ComposedStructure()).basicAdd(otherEnd, msgs);
+			case SystemPackage.SYSTEM__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSourceDelegationConnectors__ComposedStructure()).basicAdd(otherEnd, msgs);
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProvidedDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
@@ -443,6 +623,12 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 				return ((InternalEList<?>)getRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<?>)getResourceRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case SystemPackage.SYSTEM__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE:
+				return ((InternalEList<?>)getAssemblyEventConnector__ComposedStructure()).basicRemove(otherEnd, msgs);
+			case SystemPackage.SYSTEM__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<?>)getSinkDelegationConnectors__ComposedStructure()).basicRemove(otherEnd, msgs);
+			case SystemPackage.SYSTEM__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList<?>)getSourceDelegationConnectors__ComposedStructure()).basicRemove(otherEnd, msgs);
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList<?>)getProvidedDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
@@ -473,6 +659,12 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 				return getRequiredDelegationConnectors_ComposedStructure();
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return getResourceRequiredDelegationConnectors_ComposedStructure();
+			case SystemPackage.SYSTEM__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE:
+				return getAssemblyEventConnector__ComposedStructure();
+			case SystemPackage.SYSTEM__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return getSinkDelegationConnectors__ComposedStructure();
+			case SystemPackage.SYSTEM__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return getSourceDelegationConnectors__ComposedStructure();
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return getProvidedDelegationConnectors_ComposedStructure();
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
@@ -511,6 +703,18 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getResourceRequiredDelegationConnectors_ComposedStructure().clear();
 				getResourceRequiredDelegationConnectors_ComposedStructure().addAll((Collection<? extends ResourceRequiredDelegationConnector>)newValue);
+				return;
+			case SystemPackage.SYSTEM__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE:
+				getAssemblyEventConnector__ComposedStructure().clear();
+				getAssemblyEventConnector__ComposedStructure().addAll((Collection<? extends AssemblyEventConnector>)newValue);
+				return;
+			case SystemPackage.SYSTEM__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getSinkDelegationConnectors__ComposedStructure().clear();
+				getSinkDelegationConnectors__ComposedStructure().addAll((Collection<? extends SinkDelegationConnector>)newValue);
+				return;
+			case SystemPackage.SYSTEM__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getSourceDelegationConnectors__ComposedStructure().clear();
+				getSourceDelegationConnectors__ComposedStructure().addAll((Collection<? extends SourceDelegationConnector>)newValue);
 				return;
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getProvidedDelegationConnectors_ComposedStructure().clear();
@@ -556,6 +760,15 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getResourceRequiredDelegationConnectors_ComposedStructure().clear();
 				return;
+			case SystemPackage.SYSTEM__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE:
+				getAssemblyEventConnector__ComposedStructure().clear();
+				return;
+			case SystemPackage.SYSTEM__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getSinkDelegationConnectors__ComposedStructure().clear();
+				return;
+			case SystemPackage.SYSTEM__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getSourceDelegationConnectors__ComposedStructure().clear();
+				return;
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getProvidedDelegationConnectors_ComposedStructure().clear();
 				return;
@@ -591,6 +804,12 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 				return requiredDelegationConnectors_ComposedStructure != null && !requiredDelegationConnectors_ComposedStructure.isEmpty();
 			case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return resourceRequiredDelegationConnectors_ComposedStructure != null && !resourceRequiredDelegationConnectors_ComposedStructure.isEmpty();
+			case SystemPackage.SYSTEM__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE:
+				return assemblyEventConnector__ComposedStructure != null && !assemblyEventConnector__ComposedStructure.isEmpty();
+			case SystemPackage.SYSTEM__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return sinkDelegationConnectors__ComposedStructure != null && !sinkDelegationConnectors__ComposedStructure.isEmpty();
+			case SystemPackage.SYSTEM__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return sourceDelegationConnectors__ComposedStructure != null && !sourceDelegationConnectors__ComposedStructure.isEmpty();
 			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return providedDelegationConnectors_ComposedStructure != null && !providedDelegationConnectors_ComposedStructure.isEmpty();
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
@@ -618,6 +837,9 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 				case SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
 				case SystemPackage.SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				case SystemPackage.SYSTEM__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE;
+				case SystemPackage.SYSTEM__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				case SystemPackage.SYSTEM__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				default: return -1;
 			}
@@ -666,6 +888,9 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 				case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
 				case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE;
+				case CompositionPackage.COMPOSED_STRUCTURE__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				case CompositionPackage.COMPOSED_STRUCTURE__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				default: return -1;
 			}

@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -22,6 +22,7 @@ public interface SystemFactory extends EFactory {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->

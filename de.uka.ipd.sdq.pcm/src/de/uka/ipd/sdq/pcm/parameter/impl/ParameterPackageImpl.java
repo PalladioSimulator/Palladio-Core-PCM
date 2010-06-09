@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -23,12 +23,12 @@ import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
 import de.uka.ipd.sdq.pcm.core.impl.CorePackageImpl;
-import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
@@ -72,21 +72,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass variableCharacterisationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass characterisedVariableEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass variableUsageEClass = null;
+	private EClass variableSetterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,6 +80,20 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * @generated
 	 */
 	private EEnum variableCharacterisationTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variableCharacteristicEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -218,8 +218,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getVariableCharacterisation() {
-		return variableCharacterisationEClass;
+	public EClass getVariableSetter() {
+		return variableSetterEClass;
 	}
 
 	/**
@@ -227,8 +227,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVariableCharacterisation_Type() {
-		return (EAttribute)variableCharacterisationEClass.getEStructuralFeatures().get(0);
+	public EReference getVariableSetter_Specification__VariableSetter() {
+		return (EReference)variableSetterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -236,8 +236,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariableCharacterisation_Specification_VariableCharacterisation() {
-		return (EReference)variableCharacterisationEClass.getEStructuralFeatures().get(1);
+	public EReference getVariableSetter_UserData__VariableSetter() {
+		return (EReference)variableSetterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -245,8 +245,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariableCharacterisation_VariableUsage_VariableCharacterisation() {
-		return (EReference)variableCharacterisationEClass.getEStructuralFeatures().get(2);
+	public EReference getVariableSetter_AssemblyContext__VariableSetter() {
+		return (EReference)variableSetterEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -254,8 +254,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCharacterisedVariable() {
-		return characterisedVariableEClass;
+	public EReference getVariableSetter_EntryLevelSystemCall__InputVariableSetter() {
+		return (EReference)variableSetterEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -263,8 +263,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCharacterisedVariable_CharacterisationType() {
-		return (EAttribute)characterisedVariableEClass.getEStructuralFeatures().get(0);
+	public EReference getVariableSetter_EntryLevelSystemCall__OutputVariableSetter() {
+		return (EReference)variableSetterEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -272,8 +272,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getVariableUsage() {
-		return variableUsageEClass;
+	public EReference getVariableSetter_CallAction__VariableSetter() {
+		return (EReference)variableSetterEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -281,8 +281,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariableUsage_VariableCharacterisation_VariableUsage() {
-		return (EReference)variableUsageEClass.getEStructuralFeatures().get(0);
+	public EReference getVariableSetter_SynchronisationPoint__VariableSetter() {
+		return (EReference)variableSetterEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -290,8 +290,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariableUsage_NamedReference_VariableUsage() {
-		return (EReference)variableUsageEClass.getEStructuralFeatures().get(1);
+	public EReference getVariableSetter_CallReturnAction__VariableSetter() {
+		return (EReference)variableSetterEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -299,8 +299,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariableUsage_UserData_VariableUsage() {
-		return (EReference)variableUsageEClass.getEStructuralFeatures().get(2);
+	public EReference getVariableSetter_SetVariableAction__VariableSetter() {
+		return (EReference)variableSetterEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -308,8 +308,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariableUsage_AssemblyContext_VariableUsage() {
-		return (EReference)variableUsageEClass.getEStructuralFeatures().get(3);
+	public EReference getVariableSetter_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter() {
+		return (EReference)variableSetterEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -317,62 +317,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariableUsage_EntryLevelSystemCall_VariableUsage() {
-		return (EReference)variableUsageEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariableUsage_EntryLevelSystemCall_OutputParameterUsage() {
-		return (EReference)variableUsageEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariableUsage_CallAction_in_VariableUsage() {
-		return (EReference)variableUsageEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariableUsage_SynchronisationPoint_VariableUsage() {
-		return (EReference)variableUsageEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariableUsage_SetVariableAction_VariableUsage() {
-		return (EReference)variableUsageEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariableUsage_CallAction_out_VariableUsage() {
-		return (EReference)variableUsageEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariableUsage_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage() {
-		return (EReference)variableUsageEClass.getEStructuralFeatures().get(10);
+	public EReference getVariableSetter_VariableCharacteristic__VariableSetter() {
+		return (EReference)variableSetterEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -382,6 +328,114 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 */
 	public EEnum getVariableCharacterisationType() {
 		return variableCharacterisationTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariable() {
+		return variableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariable_ImplementationComponentType__Variable() {
+		return (EReference)variableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariable_EventType__Variable() {
+		return (EReference)variableEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariable_VariableCharacteristics__Variable() {
+		return (EReference)variableEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariable_DataType__Variable() {
+		return (EReference)variableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariable_CompositeDataType__Variable() {
+		return (EReference)variableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariable_ResourceSignature__Variable() {
+		return (EReference)variableEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariable_InfrastructureSignature__Variable() {
+		return (EReference)variableEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariable_OperationSignature__Variable() {
+		return (EReference)variableEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariableCharacteristic() {
+		return variableCharacteristicEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariableCharacteristic_CharacterisationDefinition__VariableCharacteristic() {
+		return (EAttribute)variableCharacteristicEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableCharacteristic_Variable__VariableCharacteristic() {
+		return (EReference)variableCharacteristicEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -412,26 +466,32 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		isCreated = true;
 
 		// Create classes and their features
-		variableUsageEClass = createEClass(VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__CALL_ACTION_IN_VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__CALL_ACTION_OUT_VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE);
+		variableSetterEClass = createEClass(VARIABLE_SETTER);
+		createEReference(variableSetterEClass, VARIABLE_SETTER__SPECIFICATION_VARIABLE_SETTER);
+		createEReference(variableSetterEClass, VARIABLE_SETTER__USER_DATA_VARIABLE_SETTER);
+		createEReference(variableSetterEClass, VARIABLE_SETTER__ASSEMBLY_CONTEXT_VARIABLE_SETTER);
+		createEReference(variableSetterEClass, VARIABLE_SETTER__ENTRY_LEVEL_SYSTEM_CALL_INPUT_VARIABLE_SETTER);
+		createEReference(variableSetterEClass, VARIABLE_SETTER__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_VARIABLE_SETTER);
+		createEReference(variableSetterEClass, VARIABLE_SETTER__CALL_ACTION_VARIABLE_SETTER);
+		createEReference(variableSetterEClass, VARIABLE_SETTER__SYNCHRONISATION_POINT_VARIABLE_SETTER);
+		createEReference(variableSetterEClass, VARIABLE_SETTER__CALL_RETURN_ACTION_VARIABLE_SETTER);
+		createEReference(variableSetterEClass, VARIABLE_SETTER__SET_VARIABLE_ACTION_VARIABLE_SETTER);
+		createEReference(variableSetterEClass, VARIABLE_SETTER__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_SETTER);
+		createEReference(variableSetterEClass, VARIABLE_SETTER__VARIABLE_CHARACTERISTIC_VARIABLE_SETTER);
 
-		variableCharacterisationEClass = createEClass(VARIABLE_CHARACTERISATION);
-		createEAttribute(variableCharacterisationEClass, VARIABLE_CHARACTERISATION__TYPE);
-		createEReference(variableCharacterisationEClass, VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION);
-		createEReference(variableCharacterisationEClass, VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION);
+		variableEClass = createEClass(VARIABLE);
+		createEReference(variableEClass, VARIABLE__IMPLEMENTATION_COMPONENT_TYPE_VARIABLE);
+		createEReference(variableEClass, VARIABLE__DATA_TYPE_VARIABLE);
+		createEReference(variableEClass, VARIABLE__COMPOSITE_DATA_TYPE_VARIABLE);
+		createEReference(variableEClass, VARIABLE__RESOURCE_SIGNATURE_VARIABLE);
+		createEReference(variableEClass, VARIABLE__INFRASTRUCTURE_SIGNATURE_VARIABLE);
+		createEReference(variableEClass, VARIABLE__EVENT_TYPE_VARIABLE);
+		createEReference(variableEClass, VARIABLE__VARIABLE_CHARACTERISTICS_VARIABLE);
+		createEReference(variableEClass, VARIABLE__OPERATION_SIGNATURE_VARIABLE);
 
-		characterisedVariableEClass = createEClass(CHARACTERISED_VARIABLE);
-		createEAttribute(characterisedVariableEClass, CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE);
+		variableCharacteristicEClass = createEClass(VARIABLE_CHARACTERISTIC);
+		createEAttribute(variableCharacteristicEClass, VARIABLE_CHARACTERISTIC__CHARACTERISATION_DEFINITION_VARIABLE_CHARACTERISTIC);
+		createEReference(variableCharacteristicEClass, VARIABLE_CHARACTERISTIC__VARIABLE_VARIABLE_CHARACTERISTIC);
 
 		// Create enums
 		variableCharacterisationTypeEEnum = createEEnum(VARIABLE_CHARACTERISATION_TYPE);
@@ -461,41 +521,50 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
+		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		UsagemodelPackage theUsagemodelPackage = (UsagemodelPackage)EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI);
 		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
 		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
 		QosannotationsPackage theQosannotationsPackage = (QosannotationsPackage)EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI);
-		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
+		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		characterisedVariableEClass.getESuperTypes().add(theStoexPackage.getVariable());
+		variableEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		variableCharacteristicEClass.getESuperTypes().add(theStoexPackage.getStoExVariable());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(variableUsageEClass, VariableUsage.class, "VariableUsage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariableUsage_VariableCharacterisation_VariableUsage(), this.getVariableCharacterisation(), this.getVariableCharacterisation_VariableUsage_VariableCharacterisation(), "variableCharacterisation_VariableUsage", null, 0, -1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableUsage_NamedReference_VariableUsage(), theStoexPackage.getAbstractNamedReference(), null, "namedReference_VariableUsage", null, 1, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableUsage_UserData_VariableUsage(), theUsagemodelPackage.getUserData(), theUsagemodelPackage.getUserData_UserDataParameterUsages_UserData(), "userData_VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableUsage_AssemblyContext_VariableUsage(), theCompositionPackage.getAssemblyContext(), theCompositionPackage.getAssemblyContext_ConfigParameterUsages_AssemblyContext(), "assemblyContext_VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableUsage_EntryLevelSystemCall_VariableUsage(), theUsagemodelPackage.getEntryLevelSystemCall(), theUsagemodelPackage.getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall(), "entryLevelSystemCall_VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableUsage_EntryLevelSystemCall_OutputParameterUsage(), theUsagemodelPackage.getEntryLevelSystemCall(), theUsagemodelPackage.getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall(), "entryLevelSystemCall_OutputParameterUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableUsage_CallAction_in_VariableUsage(), theSeffPackage.getCallAction(), theSeffPackage.getCallAction_InputParameterUsages_ExternalCallAction(), "callAction_in_VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableUsage_SynchronisationPoint_VariableUsage(), theSeffPackage.getSynchronisationPoint(), theSeffPackage.getSynchronisationPoint_OutputParameterUsage_SynchronisationPoint(), "synchronisationPoint_VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableUsage_SetVariableAction_VariableUsage(), theSeffPackage.getSetVariableAction(), theSeffPackage.getSetVariableAction_LocalVariableUsages_SetVariableAction(), "setVariableAction_VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableUsage_CallAction_out_VariableUsage(), theSeffPackage.getCallAction(), theSeffPackage.getCallAction_OutputVariableUsages_ExternalCallAction(), "callAction_out_VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableUsage_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(), theQosannotationsPackage.getSpecifiedOutputParameterAbstraction(), theQosannotationsPackage.getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction(), "specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(variableSetterEClass, VariableSetter.class, "VariableSetter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariableSetter_Specification__VariableSetter(), theCorePackage.getPCMRandomVariable(), theCorePackage.getPCMRandomVariable_VariableSetter__PCMRandomVariable(), "specification__VariableSetter", null, 1, 1, VariableSetter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableSetter_UserData__VariableSetter(), theUsagemodelPackage.getUserData(), theUsagemodelPackage.getUserData_UserDataVariableSetters__UserData(), "userData__VariableSetter", null, 0, 1, VariableSetter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableSetter_AssemblyContext__VariableSetter(), theCompositionPackage.getAssemblyContext(), theCompositionPackage.getAssemblyContext_ConfigVariableSetters__AssemblyContext(), "assemblyContext__VariableSetter", null, 0, 1, VariableSetter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableSetter_EntryLevelSystemCall__InputVariableSetter(), theUsagemodelPackage.getEntryLevelSystemCall(), theUsagemodelPackage.getEntryLevelSystemCall_InputVariableSetters__EntryLevelSystemCall(), "entryLevelSystemCall__InputVariableSetter", null, 0, 1, VariableSetter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableSetter_EntryLevelSystemCall__OutputVariableSetter(), theUsagemodelPackage.getEntryLevelSystemCall(), theUsagemodelPackage.getEntryLevelSystemCall_OutputVariableSetters__EntryLevelSystemCall(), "entryLevelSystemCall__OutputVariableSetter", null, 0, 1, VariableSetter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableSetter_CallAction__VariableSetter(), theSeffPackage.getCallAction(), theSeffPackage.getCallAction_VariableSetterInputs__CallAction(), "callAction__VariableSetter", null, 0, 1, VariableSetter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableSetter_SynchronisationPoint__VariableSetter(), theSeffPackage.getSynchronisationPoint(), theSeffPackage.getSynchronisationPoint_OutputVariableSetters__SynchronisationPoint(), "synchronisationPoint__VariableSetter", null, 0, 1, VariableSetter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableSetter_CallReturnAction__VariableSetter(), theSeffPackage.getCallReturnAction(), theSeffPackage.getCallReturnAction_VariableSetterReturns__CallReturnAction(), "callReturnAction__VariableSetter", null, 0, 1, VariableSetter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableSetter_SetVariableAction__VariableSetter(), theSeffPackage.getSetVariableAction(), theSeffPackage.getSetVariableAction_LocalVariableUsages_SetVariableAction(), "setVariableAction__VariableSetter", null, 0, 1, VariableSetter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableSetter_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter(), theQosannotationsPackage.getSpecifiedOutputParameterAbstraction(), theQosannotationsPackage.getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction(), "specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter", null, 0, 1, VariableSetter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableSetter_VariableCharacteristic__VariableSetter(), this.getVariableCharacteristic(), null, "variableCharacteristic__VariableSetter", null, 1, 1, VariableSetter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(variableCharacterisationEClass, VariableCharacterisation.class, "VariableCharacterisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVariableCharacterisation_Type(), this.getVariableCharacterisationType(), "type", null, 1, 1, VariableCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableCharacterisation_Specification_VariableCharacterisation(), theCorePackage.getPCMRandomVariable(), null, "specification_VariableCharacterisation", null, 1, 1, VariableCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableCharacterisation_VariableUsage_VariableCharacterisation(), this.getVariableUsage(), this.getVariableUsage_VariableCharacterisation_VariableUsage(), "variableUsage_VariableCharacterisation", null, 0, 1, VariableCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariable_ImplementationComponentType__Variable(), theRepositoryPackage.getImplementationComponentType(), theRepositoryPackage.getImplementationComponentType_ComponentParameter__ImplementationComponentType(), "implementationComponentType__Variable", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariable_DataType__Variable(), theRepositoryPackage.getDataType(), null, "dataType__Variable", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariable_CompositeDataType__Variable(), theRepositoryPackage.getCompositeDataType(), theRepositoryPackage.getCompositeDataType_Members__CompositeDataType(), "compositeDataType__Variable", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariable_ResourceSignature__Variable(), theRepositoryPackage.getResourceSignature(), theRepositoryPackage.getResourceSignature_Parameter__ResourceSignature(), "resourceSignature__Variable", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariable_InfrastructureSignature__Variable(), theRepositoryPackage.getInfrastructureSignature(), theRepositoryPackage.getInfrastructureSignature_Parameters__InfrastructureSignature(), "infrastructureSignature__Variable", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariable_EventType__Variable(), theRepositoryPackage.getEventType(), theRepositoryPackage.getEventType_Payload__EventType(), "eventType__Variable", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariable_VariableCharacteristics__Variable(), this.getVariableCharacteristic(), this.getVariableCharacteristic_Variable__VariableCharacteristic(), "variableCharacteristics__Variable", null, 1, -1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariable_OperationSignature__Variable(), theRepositoryPackage.getOperationSignature(), theRepositoryPackage.getOperationSignature_Parameters__OperationSignature(), "operationSignature__Variable", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(characterisedVariableEClass, CharacterisedVariable.class, "CharacterisedVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCharacterisedVariable_CharacterisationType(), this.getVariableCharacterisationType(), "characterisationType", null, 1, 1, CharacterisedVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(variableCharacteristicEClass, VariableCharacteristic.class, "VariableCharacteristic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVariableCharacteristic_CharacterisationDefinition__VariableCharacteristic(), this.getVariableCharacterisationType(), "characterisationDefinition__VariableCharacteristic", null, 1, 1, VariableCharacteristic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableCharacteristic_Variable__VariableCharacteristic(), this.getVariable(), this.getVariable_VariableCharacteristics__Variable(), "variable__VariableCharacteristic", null, 1, 1, VariableCharacteristic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(variableCharacterisationTypeEEnum, VariableCharacterisationType.class, "VariableCharacterisationType");

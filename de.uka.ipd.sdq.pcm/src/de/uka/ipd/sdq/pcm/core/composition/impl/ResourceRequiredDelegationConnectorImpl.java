@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -85,47 +85,6 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComposedStructure getParentStructure_ResourceRequiredDelegationConnector() {
-		if (eContainerFeatureID() != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR) return null;
-		return (ComposedStructure)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParentStructure_ResourceRequiredDelegationConnector(ComposedStructure newParentStructure_ResourceRequiredDelegationConnector, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParentStructure_ResourceRequiredDelegationConnector, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParentStructure_ResourceRequiredDelegationConnector(ComposedStructure newParentStructure_ResourceRequiredDelegationConnector) {
-		if (newParentStructure_ResourceRequiredDelegationConnector != eInternalContainer() || (eContainerFeatureID() != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR && newParentStructure_ResourceRequiredDelegationConnector != null)) {
-			if (EcoreUtil.isAncestor(this, newParentStructure_ResourceRequiredDelegationConnector))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newParentStructure_ResourceRequiredDelegationConnector != null)
-				msgs = ((InternalEObject)newParentStructure_ResourceRequiredDelegationConnector).eInverseAdd(this, CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
-			msgs = basicSetParentStructure_ResourceRequiredDelegationConnector(newParentStructure_ResourceRequiredDelegationConnector, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, newParentStructure_ResourceRequiredDelegationConnector, newParentStructure_ResourceRequiredDelegationConnector));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ResourceRequiredRole getInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
 		if (innerResourceRequiredRole_ResourceRequiredDelegationConnector != null && innerResourceRequiredRole_ResourceRequiredDelegationConnector.eIsProxy()) {
 			InternalEObject oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector = (InternalEObject)innerResourceRequiredRole_ResourceRequiredDelegationConnector;
@@ -195,6 +154,47 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 		outerResourceRequiredRole_ResourceRequiredDelegationConnector = newOuterResourceRequiredRole_ResourceRequiredDelegationConnector;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector, outerResourceRequiredRole_ResourceRequiredDelegationConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComposedStructure getParentStructure_ResourceRequiredDelegationConnector() {
+		if (eContainerFeatureID() != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR) return null;
+		return (ComposedStructure)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParentStructure_ResourceRequiredDelegationConnector(ComposedStructure newParentStructure_ResourceRequiredDelegationConnector, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParentStructure_ResourceRequiredDelegationConnector, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentStructure_ResourceRequiredDelegationConnector(ComposedStructure newParentStructure_ResourceRequiredDelegationConnector) {
+		if (newParentStructure_ResourceRequiredDelegationConnector != eInternalContainer() || (eContainerFeatureID() != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR && newParentStructure_ResourceRequiredDelegationConnector != null)) {
+			if (EcoreUtil.isAncestor(this, newParentStructure_ResourceRequiredDelegationConnector))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParentStructure_ResourceRequiredDelegationConnector != null)
+				msgs = ((InternalEObject)newParentStructure_ResourceRequiredDelegationConnector).eInverseAdd(this, CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
+			msgs = basicSetParentStructure_ResourceRequiredDelegationConnector(newParentStructure_ResourceRequiredDelegationConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR, newParentStructure_ResourceRequiredDelegationConnector, newParentStructure_ResourceRequiredDelegationConnector));
 	}
 
 	/**

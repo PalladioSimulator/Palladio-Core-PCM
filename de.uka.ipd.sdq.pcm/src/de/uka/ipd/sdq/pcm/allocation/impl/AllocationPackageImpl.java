@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -258,15 +258,6 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAllocation_AllocationContexts_Allocation() {
-		return (EReference)allocationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getAllocation_TargetResourceEnvironment_Allocation() {
 		return (EReference)allocationEClass.getEStructuralFeatures().get(0);
 	}
@@ -278,6 +269,15 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 	 */
 	public EReference getAllocation_System_Allocation() {
 		return (EReference)allocationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAllocation_AllocationContexts_Allocation() {
+		return (EReference)allocationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**

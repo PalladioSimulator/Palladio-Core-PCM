@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -9,7 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getAssemblyContext_userData <em>Assembly Context user Data</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData <em>Usage Model User Data</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData <em>User Data Parameter Usages User Data</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUserDataVariableSetters__UserData <em>User Data Variable Setters User Data</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,24 +47,6 @@ public interface UserData extends EObject {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>User Data Parameter Usages User Data</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage <em>User Data Variable Usage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>User Data Parameter Usages User Data</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>User Data Parameter Usages User Data</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUserData_UserDataParameterUsages_UserData()
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage
-	 * @model opposite="userData_VariableUsage" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<VariableUsage> getUserDataParameterUsages_UserData();
 
 	/**
 	 * Returns the value of the '<em><b>Assembly Context user Data</b></em>' reference.
@@ -119,5 +101,23 @@ public interface UserData extends EObject {
 	 * @generated
 	 */
 	void setUsageModel_UserData(UsageModel value);
+
+	/**
+	 * Returns the value of the '<em><b>User Data Variable Setters User Data</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableSetter}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getUserData__VariableSetter <em>User Data Variable Setter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>User Data Variable Setters User Data</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>User Data Variable Setters User Data</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUserData_UserDataVariableSetters__UserData()
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getUserData__VariableSetter
+	 * @model opposite="userData__VariableSetter" containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<VariableSetter> getUserDataVariableSetters__UserData();
 
 } // UserData

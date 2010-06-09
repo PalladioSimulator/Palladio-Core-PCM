@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -43,12 +43,18 @@ import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.EnvironmentFailureType;
+import de.uka.ipd.sdq.pcm.repository.EventGroup;
+import de.uka.ipd.sdq.pcm.repository.EventType;
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.FailureType;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
@@ -59,11 +65,14 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.ResourceInterface;
 import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.ResourceSignature;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.repository.SinkRole;
+import de.uka.ipd.sdq.pcm.repository.SourceRole;
 import de.uka.ipd.sdq.pcm.repository.StopFailureType;
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
@@ -101,34 +110,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass passiveResourceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass signatureEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass parameterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dataTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass repositoryEClass = null;
 
 	/**
@@ -137,13 +118,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	private EClass repositoryComponentEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass providesComponentTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,6 +138,13 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass operationInterfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass interfaceEClass = null;
 
 	/**
@@ -171,14 +152,14 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass requiredCharacterisationEClass = null;
+	private EClass operationSignatureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resourceRequiredRoleEClass = null;
+	private EClass signatureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,7 +173,70 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass operationRequiredRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass failureTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass delegationConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operationProvidedRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceRequiredRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sinkRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass eventGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass eventTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sourceRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass basicComponentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -213,21 +257,14 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass delegationConnectorEClass = null;
+	private EClass providesComponentTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass compositeComponentEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass basicComponentEClass = null;
+	private EClass passiveResourceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -248,14 +285,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass primitiveDataTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass collectionDataTypeEClass = null;
+	private EClass dataTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -269,7 +299,49 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass innerDeclarationEClass = null;
+	private EClass resourceSignatureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceInterfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass infrastructureSignatureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass infrastructureInterfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass compositeComponentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass primitiveDataTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass collectionDataTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -290,14 +362,14 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum parameterModifierEEnum = null;
+	private EEnum primitiveTypeEnumEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum primitiveTypeEnumEEnum = null;
+	private EEnum parameterModifierEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -431,159 +503,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPassiveResource() {
-		return passiveResourceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPassiveResource_Capacity_PassiveResource() {
-		return (EReference)passiveResourceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPassiveResource_BasicComponent_PassiveResource() {
-		return (EReference)passiveResourceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSignature() {
-		return signatureEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSignature_ServiceName() {
-		return (EAttribute)signatureEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSignature_Parameters__Signature() {
-		return (EReference)signatureEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSignature_Interface_Signature() {
-		return (EReference)signatureEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSignature_Returntype__Signature() {
-		return (EReference)signatureEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSignature_Exceptions__Signature() {
-		return (EReference)signatureEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSignature_FailureType() {
-		return (EReference)signatureEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getParameter() {
-		return parameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getParameter_Datatype__Parameter() {
-		return (EReference)parameterEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_ParameterName() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_Modifier__Parameter() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getParameter_Signature_Parameter() {
-		return (EReference)parameterEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDataType() {
-		return dataTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDataType_Repository_DataType() {
-		return (EReference)dataTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRepository() {
 		return repositoryEClass;
 	}
@@ -612,7 +531,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	public EReference getRepository_Interfaces__Repository() {
-		return (EReference)repositoryEClass.getEStructuralFeatures().get(2);
+		return (EReference)repositoryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -630,7 +549,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	public EReference getRepository_Datatypes_Repository() {
-		return (EReference)repositoryEClass.getEStructuralFeatures().get(4);
+		return (EReference)repositoryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -656,15 +575,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProvidesComponentType() {
-		return providesComponentTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRequiredRole() {
 		return requiredRoleEClass;
 	}
@@ -674,17 +584,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRequiredRole_RequiredInterface__RequiredRole() {
+	public EReference getRequiredRole_RequiringEntity__RequiredRole() {
 		return (EReference)requiredRoleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRequiredRole_RequiringEntity_RequiredRole() {
-		return (EReference)requiredRoleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -701,6 +602,24 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOperationInterface() {
+		return operationInterfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperationInterface_Signatures__OperationInterface() {
+		return (EReference)operationInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInterface() {
 		return interfaceEClass;
 	}
@@ -710,7 +629,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_ParentInterface__Interface() {
+	public EReference getInterface_ParentInterfaces__Interface() {
 		return (EReference)interfaceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -719,7 +638,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_AncestorInterfaces_Interface() {
+	public EReference getInterface_Protocols__Interface() {
 		return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -728,7 +647,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_Protocols__Interface() {
+	public EReference getInterface_Repository_Interface() {
 		return (EReference)interfaceEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -737,8 +656,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_Signatures__Interface() {
-		return (EReference)interfaceEClass.getEStructuralFeatures().get(3);
+	public EClass getOperationSignature() {
+		return operationSignatureEClass;
 	}
 
 	/**
@@ -746,8 +665,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_Repository_Interface() {
-		return (EReference)interfaceEClass.getEStructuralFeatures().get(4);
+	public EReference getOperationSignature_Parameters__OperationSignature() {
+		return (EReference)operationSignatureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -755,8 +674,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_RequiredCharacterisations() {
-		return (EReference)interfaceEClass.getEStructuralFeatures().get(5);
+	public EReference getOperationSignature_Returntype__OperationSignature() {
+		return (EReference)operationSignatureEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -764,8 +683,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRequiredCharacterisation() {
-		return requiredCharacterisationEClass;
+	public EReference getOperationSignature_Interface__OperationSignature() {
+		return (EReference)operationSignatureEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -773,8 +692,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRequiredCharacterisation_Type() {
-		return (EAttribute)requiredCharacterisationEClass.getEStructuralFeatures().get(0);
+	public EClass getSignature() {
+		return signatureEClass;
 	}
 
 	/**
@@ -782,8 +701,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRequiredCharacterisation_Parameter() {
-		return (EReference)requiredCharacterisationEClass.getEStructuralFeatures().get(1);
+	public EReference getSignature_Exceptions__Signature() {
+		return (EReference)signatureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -791,35 +710,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRequiredCharacterisation_Interface_RequiredCharacterisation() {
-		return (EReference)requiredCharacterisationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getResourceRequiredRole() {
-		return resourceRequiredRoleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResourceRequiredRole_RequiredInterface_ResourceRequiredRole() {
-		return (EReference)resourceRequiredRoleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResourceRequiredRole_ResourceRequiringEntity_ResourceRequiredRole() {
-		return (EReference)resourceRequiredRoleEClass.getEStructuralFeatures().get(1);
+	public EReference getSignature_FailureType() {
+		return (EReference)signatureEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -854,6 +746,24 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOperationRequiredRole() {
+		return operationRequiredRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperationRequiredRole_RequiredInterface__OperationRequiredRole() {
+		return (EReference)operationRequiredRoleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFailureType() {
 		return failureTypeEClass;
 	}
@@ -872,6 +782,168 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDelegationConnector() {
+		return delegationConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOperationProvidedRole() {
+		return operationProvidedRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperationProvidedRole_ProvidedInterface__OperationProvidedRole() {
+		return (EReference)operationProvidedRoleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getResourceRequiredRole() {
+		return resourceRequiredRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResourceRequiredRole_RequiredInterface__ResourceRequiredRole() {
+		return (EReference)resourceRequiredRoleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResourceRequiredRole_ResourceRequiringEntity__ResourceRequiredRole() {
+		return (EReference)resourceRequiredRoleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSinkRole() {
+		return sinkRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSinkRole_Eventgroup__SinkRole() {
+		return (EReference)sinkRoleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEventGroup() {
+		return eventGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEventGroup_EventTypes__EventGroup() {
+		return (EReference)eventGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEventType() {
+		return eventTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEventType_Payload__EventType() {
+		return (EReference)eventTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEventType_EventGroup__EventType() {
+		return (EReference)eventTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSourceRole() {
+		return sourceRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSourceRole_Eventgroup__SourceRole() {
+		return (EReference)sourceRoleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBasicComponent() {
+		return basicComponentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBasicComponent_PassiveResource_BasicComponent() {
+		return (EReference)basicComponentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBasicComponent_ServiceEffectSpecifications__BasicComponent() {
+		return (EReference)basicComponentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImplementationComponentType() {
 		return implementationComponentTypeEClass;
 	}
@@ -881,7 +953,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getImplementationComponentType_ParentCompleteComponentTypes() {
+	public EReference getImplementationComponentType_ComponentParameter__ImplementationComponentType() {
 		return (EReference)implementationComponentTypeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -890,7 +962,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getImplementationComponentType_ComponentParameterUsage_ImplementationComponentType() {
+	public EReference getImplementationComponentType_ParentCompleteComponentTypes() {
 		return (EReference)implementationComponentTypeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -917,8 +989,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDelegationConnector() {
-		return delegationConnectorEClass;
+	public EClass getProvidesComponentType() {
+		return providesComponentTypeEClass;
 	}
 
 	/**
@@ -926,8 +998,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCompositeComponent() {
-		return compositeComponentEClass;
+	public EClass getPassiveResource() {
+		return passiveResourceEClass;
 	}
 
 	/**
@@ -935,8 +1007,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getBasicComponent() {
-		return basicComponentEClass;
+	public EReference getPassiveResource_Capacity_PassiveResource() {
+		return (EReference)passiveResourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -944,17 +1016,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBasicComponent_ServiceEffectSpecifications__BasicComponent() {
-		return (EReference)basicComponentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBasicComponent_PassiveResource_BasicComponent() {
-		return (EReference)basicComponentEClass.getEStructuralFeatures().get(1);
+	public EReference getPassiveResource_BasicComponent_PassiveResource() {
+		return (EReference)passiveResourceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -980,8 +1043,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPrimitiveDataType() {
-		return primitiveDataTypeEClass;
+	public EClass getDataType() {
+		return dataTypeEClass;
 	}
 
 	/**
@@ -989,8 +1052,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPrimitiveDataType_Type() {
-		return (EAttribute)primitiveDataTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDataType_CharacterisationDefinitions__Datatype() {
+		return (EAttribute)dataTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -998,17 +1061,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCollectionDataType() {
-		return collectionDataTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCollectionDataType_InnerType_CollectionDataType() {
-		return (EReference)collectionDataTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getDataType_Repository_DataType() {
+		return (EReference)dataTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1025,7 +1079,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCompositeDataType_ParentType_CompositeDataType() {
+	public EReference getCompositeDataType_Members__CompositeDataType() {
 		return (EReference)compositeDataTypeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1034,8 +1088,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCompositeDataType_InnerDeclaration_CompositeDataType() {
-		return (EReference)compositeDataTypeEClass.getEStructuralFeatures().get(1);
+	public EClass getResourceSignature() {
+		return resourceSignatureEClass;
 	}
 
 	/**
@@ -1043,8 +1097,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getInnerDeclaration() {
-		return innerDeclarationEClass;
+	public EReference getResourceSignature_ResourceInterface__ResourceSignature() {
+		return (EReference)resourceSignatureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1052,8 +1106,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInnerDeclaration_Datatype_InnerDeclaration() {
-		return (EReference)innerDeclarationEClass.getEStructuralFeatures().get(0);
+	public EReference getResourceSignature_Parameter__ResourceSignature() {
+		return (EReference)resourceSignatureEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1061,8 +1115,98 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInnerDeclaration_CompositeDataType_InnerDeclaration() {
-		return (EReference)innerDeclarationEClass.getEStructuralFeatures().get(1);
+	public EClass getResourceInterface() {
+		return resourceInterfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResourceInterface_ResourceSignatures__ResourceInterface() {
+		return (EReference)resourceInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInfrastructureSignature() {
+		return infrastructureSignatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInfrastructureSignature_InfrastructureInterface__InfrastructureSignature() {
+		return (EReference)infrastructureSignatureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInfrastructureSignature_Parameters__InfrastructureSignature() {
+		return (EReference)infrastructureSignatureEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInfrastructureInterface() {
+		return infrastructureInterfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInfrastructureInterface_InfrastructureSignatures__InfrastructureInterface() {
+		return (EReference)infrastructureInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCompositeComponent() {
+		return compositeComponentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPrimitiveDataType() {
+		return primitiveDataTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCollectionDataType() {
+		return collectionDataTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCollectionDataType_InnerDataType__CollectionDataType() {
+		return (EReference)collectionDataTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1097,26 +1241,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProvidedRole_ProvidedInterface__ProvidedRole() {
+	public EReference getProvidedRole_ProvidingEntity__ProvidedRole() {
 		return (EReference)providedRoleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProvidedRole_ProvidingEntity_ProvidedRole() {
-		return (EReference)providedRoleEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getParameterModifier() {
-		return parameterModifierEEnum;
 	}
 
 	/**
@@ -1126,6 +1252,15 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 */
 	public EEnum getPrimitiveTypeEnum() {
 		return primitiveTypeEnumEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getParameterModifier() {
+		return parameterModifierEEnum;
 	}
 
 	/**
@@ -1165,67 +1300,97 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		createEReference(basicComponentEClass, BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT);
 
 		implementationComponentTypeEClass = createEClass(IMPLEMENTATION_COMPONENT_TYPE);
+		createEReference(implementationComponentTypeEClass, IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE);
 		createEReference(implementationComponentTypeEClass, IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES);
-		createEReference(implementationComponentTypeEClass, IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE);
 
 		repositoryComponentEClass = createEClass(REPOSITORY_COMPONENT);
 		createEReference(repositoryComponentEClass, REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT);
 
 		requiredRoleEClass = createEClass(REQUIRED_ROLE);
-		createEReference(requiredRoleEClass, REQUIRED_ROLE__REQUIRED_INTERFACE_REQUIRED_ROLE);
 		createEReference(requiredRoleEClass, REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE);
 
 		roleEClass = createEClass(ROLE);
 
+		resourceRequiredRoleEClass = createEClass(RESOURCE_REQUIRED_ROLE);
+		createEReference(resourceRequiredRoleEClass, RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE);
+		createEReference(resourceRequiredRoleEClass, RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE);
+
 		interfaceEClass = createEClass(INTERFACE);
-		createEReference(interfaceEClass, INTERFACE__PARENT_INTERFACE_INTERFACE);
-		createEReference(interfaceEClass, INTERFACE__ANCESTOR_INTERFACES_INTERFACE);
+		createEReference(interfaceEClass, INTERFACE__PARENT_INTERFACES_INTERFACE);
 		createEReference(interfaceEClass, INTERFACE__PROTOCOLS_INTERFACE);
-		createEReference(interfaceEClass, INTERFACE__SIGNATURES_INTERFACE);
 		createEReference(interfaceEClass, INTERFACE__REPOSITORY_INTERFACE);
-		createEReference(interfaceEClass, INTERFACE__REQUIRED_CHARACTERISATIONS);
-
-		signatureEClass = createEClass(SIGNATURE);
-		createEAttribute(signatureEClass, SIGNATURE__SERVICE_NAME);
-		createEReference(signatureEClass, SIGNATURE__PARAMETERS_SIGNATURE);
-		createEReference(signatureEClass, SIGNATURE__RETURNTYPE_SIGNATURE);
-		createEReference(signatureEClass, SIGNATURE__EXCEPTIONS_SIGNATURE);
-		createEReference(signatureEClass, SIGNATURE__FAILURE_TYPE);
-		createEReference(signatureEClass, SIGNATURE__INTERFACE_SIGNATURE);
-
-		parameterEClass = createEClass(PARAMETER);
-		createEReference(parameterEClass, PARAMETER__DATATYPE_PARAMETER);
-		createEAttribute(parameterEClass, PARAMETER__PARAMETER_NAME);
-		createEAttribute(parameterEClass, PARAMETER__MODIFIER_PARAMETER);
-		createEReference(parameterEClass, PARAMETER__SIGNATURE_PARAMETER);
-
-		dataTypeEClass = createEClass(DATA_TYPE);
-		createEReference(dataTypeEClass, DATA_TYPE__REPOSITORY_DATA_TYPE);
 
 		repositoryEClass = createEClass(REPOSITORY);
 		createEAttribute(repositoryEClass, REPOSITORY__REPOSITORY_DESCRIPTION);
 		createEReference(repositoryEClass, REPOSITORY__COMPONENTS_REPOSITORY);
-		createEReference(repositoryEClass, REPOSITORY__INTERFACES_REPOSITORY);
-		createEReference(repositoryEClass, REPOSITORY__FAILURE_TYPES);
 		createEReference(repositoryEClass, REPOSITORY__DATATYPES_REPOSITORY);
+		createEReference(repositoryEClass, REPOSITORY__FAILURE_TYPES);
+		createEReference(repositoryEClass, REPOSITORY__INTERFACES_REPOSITORY);
 
-		failureTypeEClass = createEClass(FAILURE_TYPE);
-		createEReference(failureTypeEClass, FAILURE_TYPE__REPOSITORY_FAILURE_TYPE);
+		dataTypeEClass = createEClass(DATA_TYPE);
+		createEAttribute(dataTypeEClass, DATA_TYPE__CHARACTERISATION_DEFINITIONS_DATATYPE);
+		createEReference(dataTypeEClass, DATA_TYPE__REPOSITORY_DATA_TYPE);
+
+		delegationConnectorEClass = createEClass(DELEGATION_CONNECTOR);
+
+		operationProvidedRoleEClass = createEClass(OPERATION_PROVIDED_ROLE);
+		createEReference(operationProvidedRoleEClass, OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE);
+
+		operationInterfaceEClass = createEClass(OPERATION_INTERFACE);
+		createEReference(operationInterfaceEClass, OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE);
+
+		operationSignatureEClass = createEClass(OPERATION_SIGNATURE);
+		createEReference(operationSignatureEClass, OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE);
+		createEReference(operationSignatureEClass, OPERATION_SIGNATURE__RETURNTYPE_OPERATION_SIGNATURE);
+		createEReference(operationSignatureEClass, OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE);
+
+		signatureEClass = createEClass(SIGNATURE);
+		createEReference(signatureEClass, SIGNATURE__EXCEPTIONS_SIGNATURE);
+		createEReference(signatureEClass, SIGNATURE__FAILURE_TYPE);
 
 		exceptionTypeEClass = createEClass(EXCEPTION_TYPE);
 		createEAttribute(exceptionTypeEClass, EXCEPTION_TYPE__EXCEPTION_NAME);
 		createEAttribute(exceptionTypeEClass, EXCEPTION_TYPE__EXCEPTION_MESSAGE);
 
-		requiredCharacterisationEClass = createEClass(REQUIRED_CHARACTERISATION);
-		createEAttribute(requiredCharacterisationEClass, REQUIRED_CHARACTERISATION__TYPE);
-		createEReference(requiredCharacterisationEClass, REQUIRED_CHARACTERISATION__PARAMETER);
-		createEReference(requiredCharacterisationEClass, REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION);
+		failureTypeEClass = createEClass(FAILURE_TYPE);
+		createEReference(failureTypeEClass, FAILURE_TYPE__REPOSITORY_FAILURE_TYPE);
 
-		delegationConnectorEClass = createEClass(DELEGATION_CONNECTOR);
+		compositeDataTypeEClass = createEClass(COMPOSITE_DATA_TYPE);
+		createEReference(compositeDataTypeEClass, COMPOSITE_DATA_TYPE__MEMBERS_COMPOSITE_DATA_TYPE);
 
-		resourceRequiredRoleEClass = createEClass(RESOURCE_REQUIRED_ROLE);
-		createEReference(resourceRequiredRoleEClass, RESOURCE_REQUIRED_ROLE__REQUIRED_INTERFACE_RESOURCE_REQUIRED_ROLE);
-		createEReference(resourceRequiredRoleEClass, RESOURCE_REQUIRED_ROLE__RESOURCE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE);
+		resourceSignatureEClass = createEClass(RESOURCE_SIGNATURE);
+		createEReference(resourceSignatureEClass, RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE);
+		createEReference(resourceSignatureEClass, RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE);
+
+		resourceInterfaceEClass = createEClass(RESOURCE_INTERFACE);
+		createEReference(resourceInterfaceEClass, RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE);
+
+		infrastructureSignatureEClass = createEClass(INFRASTRUCTURE_SIGNATURE);
+		createEReference(infrastructureSignatureEClass, INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE);
+		createEReference(infrastructureSignatureEClass, INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE);
+
+		infrastructureInterfaceEClass = createEClass(INFRASTRUCTURE_INTERFACE);
+		createEReference(infrastructureInterfaceEClass, INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE);
+
+		eventTypeEClass = createEClass(EVENT_TYPE);
+		createEReference(eventTypeEClass, EVENT_TYPE__EVENT_GROUP_EVENT_TYPE);
+		createEReference(eventTypeEClass, EVENT_TYPE__PAYLOAD_EVENT_TYPE);
+
+		eventGroupEClass = createEClass(EVENT_GROUP);
+		createEReference(eventGroupEClass, EVENT_GROUP__EVENT_TYPES_EVENT_GROUP);
+
+		operationRequiredRoleEClass = createEClass(OPERATION_REQUIRED_ROLE);
+		createEReference(operationRequiredRoleEClass, OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE);
+
+		sinkRoleEClass = createEClass(SINK_ROLE);
+		createEReference(sinkRoleEClass, SINK_ROLE__EVENTGROUP_SINK_ROLE);
+
+		sourceRoleEClass = createEClass(SOURCE_ROLE);
+		createEReference(sourceRoleEClass, SOURCE_ROLE__EVENTGROUP_SOURCE_ROLE);
+
+		applicationFailureTypeEClass = createEClass(APPLICATION_FAILURE_TYPE);
+
+		stopFailureTypeEClass = createEClass(STOP_FAILURE_TYPE);
 
 		completeComponentTypeEClass = createEClass(COMPLETE_COMPONENT_TYPE);
 		createEReference(completeComponentTypeEClass, COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES);
@@ -1235,28 +1400,14 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		compositeComponentEClass = createEClass(COMPOSITE_COMPONENT);
 
 		primitiveDataTypeEClass = createEClass(PRIMITIVE_DATA_TYPE);
-		createEAttribute(primitiveDataTypeEClass, PRIMITIVE_DATA_TYPE__TYPE);
 
 		collectionDataTypeEClass = createEClass(COLLECTION_DATA_TYPE);
-		createEReference(collectionDataTypeEClass, COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE);
-
-		compositeDataTypeEClass = createEClass(COMPOSITE_DATA_TYPE);
-		createEReference(compositeDataTypeEClass, COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE);
-		createEReference(compositeDataTypeEClass, COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE);
-
-		innerDeclarationEClass = createEClass(INNER_DECLARATION);
-		createEReference(innerDeclarationEClass, INNER_DECLARATION__DATATYPE_INNER_DECLARATION);
-		createEReference(innerDeclarationEClass, INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION);
-
-		stopFailureTypeEClass = createEClass(STOP_FAILURE_TYPE);
-
-		applicationFailureTypeEClass = createEClass(APPLICATION_FAILURE_TYPE);
+		createEReference(collectionDataTypeEClass, COLLECTION_DATA_TYPE__INNER_DATA_TYPE_COLLECTION_DATA_TYPE);
 
 		environmentFailureTypeEClass = createEClass(ENVIRONMENT_FAILURE_TYPE);
 		createEReference(environmentFailureTypeEClass, ENVIRONMENT_FAILURE_TYPE__PROCESSINGRESOURCETYPE);
 
 		providedRoleEClass = createEClass(PROVIDED_ROLE);
-		createEReference(providedRoleEClass, PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE);
 		createEReference(providedRoleEClass, PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE);
 
 		// Create enums
@@ -1307,23 +1458,34 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		repositoryComponentEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
 		requiredRoleEClass.getESuperTypes().add(this.getRole());
 		roleEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		resourceRequiredRoleEClass.getESuperTypes().add(this.getRole());
 		interfaceEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		repositoryEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		failureTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		dataTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		delegationConnectorEClass.getESuperTypes().add(theConnectorsPackage.getConnector());
-		resourceRequiredRoleEClass.getESuperTypes().add(this.getRole());
+		operationProvidedRoleEClass.getESuperTypes().add(this.getProvidedRole());
+		operationInterfaceEClass.getESuperTypes().add(this.getInterface());
+		operationSignatureEClass.getESuperTypes().add(this.getSignature());
+		signatureEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		failureTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		compositeDataTypeEClass.getESuperTypes().add(this.getDataType());
+		resourceSignatureEClass.getESuperTypes().add(this.getSignature());
+		resourceInterfaceEClass.getESuperTypes().add(this.getInterface());
+		infrastructureSignatureEClass.getESuperTypes().add(this.getSignature());
+		infrastructureInterfaceEClass.getESuperTypes().add(this.getInterface());
+		eventTypeEClass.getESuperTypes().add(this.getSignature());
+		eventGroupEClass.getESuperTypes().add(this.getInterface());
+		operationRequiredRoleEClass.getESuperTypes().add(this.getRequiredRole());
+		sinkRoleEClass.getESuperTypes().add(this.getProvidedRole());
+		sourceRoleEClass.getESuperTypes().add(this.getRequiredRole());
+		applicationFailureTypeEClass.getESuperTypes().add(this.getStopFailureType());
+		stopFailureTypeEClass.getESuperTypes().add(this.getFailureType());
 		completeComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
 		providesComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
 		compositeComponentEClass.getESuperTypes().add(theEntityPackage.getComposedProvidingRequiringEntity());
 		compositeComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
 		primitiveDataTypeEClass.getESuperTypes().add(this.getDataType());
-		collectionDataTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		collectionDataTypeEClass.getESuperTypes().add(this.getDataType());
-		compositeDataTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		compositeDataTypeEClass.getESuperTypes().add(this.getDataType());
-		innerDeclarationEClass.getESuperTypes().add(theEntityPackage.getNamedElement());
-		stopFailureTypeEClass.getESuperTypes().add(this.getFailureType());
-		applicationFailureTypeEClass.getESuperTypes().add(this.getStopFailureType());
 		environmentFailureTypeEClass.getESuperTypes().add(this.getStopFailureType());
 		providedRoleEClass.getESuperTypes().add(this.getRole());
 
@@ -1364,8 +1526,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(implementationComponentTypeEClass, ImplementationComponentType.class, "ImplementationComponentType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getImplementationComponentType_ComponentParameter__ImplementationComponentType(), theParameterPackage.getVariable(), theParameterPackage.getVariable_ImplementationComponentType__Variable(), "componentParameter__ImplementationComponentType", null, 0, -1, ImplementationComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getImplementationComponentType_ParentCompleteComponentTypes(), this.getCompleteComponentType(), null, "parentCompleteComponentTypes", null, 0, -1, ImplementationComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getImplementationComponentType_ComponentParameterUsage_ImplementationComponentType(), theParameterPackage.getVariableUsage(), null, "componentParameterUsage_ImplementationComponentType", null, 0, -1, ImplementationComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(implementationComponentTypeEClass, ecorePackage.getEBoolean(), "RequiredInterfacesHaveToConformToCompleteType", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1388,19 +1550,19 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEClass(repositoryComponentEClass, RepositoryComponent.class, "RepositoryComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRepositoryComponent_Repository_RepositoryComponent(), this.getRepository(), this.getRepository_Components__Repository(), "repository_RepositoryComponent", null, 1, 1, RepositoryComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(requiredRoleEClass, RequiredRole.class, "RequiredRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRequiredRole_RequiredInterface__RequiredRole(), this.getInterface(), null, "requiredInterface__RequiredRole", null, 1, 1, RequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRequiredRole_RequiringEntity_RequiredRole(), theEntityPackage.getInterfaceRequiringEntity(), theEntityPackage.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity(), "requiringEntity_RequiredRole", null, 1, 1, RequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(requiredRoleEClass, RequiredRole.class, "RequiredRole", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRequiredRole_RequiringEntity__RequiredRole(), theEntityPackage.getInterfaceRequiringEntity(), theEntityPackage.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity(), "requiringEntity__RequiredRole", null, 1, 1, RequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(roleEClass, Role.class, "Role", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInterface_ParentInterface__Interface(), this.getInterface(), null, "parentInterface__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getInterface_AncestorInterfaces_Interface(), this.getInterface(), null, "ancestorInterfaces_Interface", null, 0, -1, Interface.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEClass(resourceRequiredRoleEClass, ResourceRequiredRole.class, "ResourceRequiredRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResourceRequiredRole_RequiredInterface__ResourceRequiredRole(), this.getInterface(), null, "requiredInterface__ResourceRequiredRole", null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceRequiredRole_ResourceRequiringEntity__ResourceRequiredRole(), theEntityPackage.getResourceInterfaceRequiringEntity(), theEntityPackage.getResourceInterfaceRequiringEntity_ResourceRequiredRoles_ResourceInterfaceRequiringEntity(), "resourceRequiringEntity__ResourceRequiredRole", null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(interfaceEClass, Interface.class, "Interface", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInterface_ParentInterfaces__Interface(), this.getInterface(), null, "parentInterfaces__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getInterface_Protocols__Interface(), theProtocolPackage.getProtocol(), null, "protocols__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getInterface_Signatures__Interface(), this.getSignature(), this.getSignature_Interface_Signature(), "signatures__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getInterface_Repository_Interface(), this.getRepository(), this.getRepository_Interfaces__Repository(), "repository_Interface", null, 1, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getInterface_RequiredCharacterisations(), this.getRequiredCharacterisation(), this.getRequiredCharacterisation_Interface_RequiredCharacterisation(), "requiredCharacterisations", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(interfaceEClass, ecorePackage.getEBoolean(), "NoProtocolTypeIDUsedTwice", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1411,65 +1573,104 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(interfaceEClass, ecorePackage.getEBoolean(), "SignaturesHaveToBeUniqueForAnInterface", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(signatureEClass, Signature.class, "Signature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSignature_ServiceName(), ecorePackage.getEString(), "serviceName", null, 1, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSignature_Parameters__Signature(), this.getParameter(), this.getParameter_Signature_Parameter(), "parameters__Signature", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSignature_Returntype__Signature(), this.getDataType(), null, "returntype__Signature", null, 0, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSignature_Exceptions__Signature(), this.getExceptionType(), null, "exceptions__Signature", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSignature_FailureType(), this.getFailureType(), null, "failureType", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSignature_Interface_Signature(), this.getInterface(), this.getInterface_Signatures__Interface(), "interface_Signature", null, 1, 1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = addEOperation(signatureEClass, ecorePackage.getEBoolean(), "ParameterNamesHaveToBeUniqueForASignature", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameter_Datatype__Parameter(), this.getDataType(), null, "datatype__Parameter", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getParameter_ParameterName(), ecorePackage.getEString(), "parameterName", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getParameter_Modifier__Parameter(), this.getParameterModifier(), "modifier__Parameter", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getParameter_Signature_Parameter(), this.getSignature(), this.getSignature_Parameters__Signature(), "signature_Parameter", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataType_Repository_DataType(), this.getRepository(), this.getRepository_Datatypes_Repository(), "repository_DataType", null, 1, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRepository_RepositoryDescription(), ecorePackage.getEString(), "repositoryDescription", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRepository_Components__Repository(), this.getRepositoryComponent(), this.getRepositoryComponent_Repository_RepositoryComponent(), "components__Repository", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRepository_Interfaces__Repository(), this.getInterface(), this.getInterface_Repository_Interface(), "interfaces__Repository", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRepository_FailureTypes(), this.getFailureType(), this.getFailureType_Repository_FailureType(), "failureTypes", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRepository_Datatypes_Repository(), this.getDataType(), this.getDataType_Repository_DataType(), "datatypes_Repository", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRepository_FailureTypes(), this.getFailureType(), this.getFailureType_Repository_FailureType(), "failureTypes", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRepository_Interfaces__Repository(), this.getInterface(), this.getInterface_Repository_Interface(), "interfaces__Repository", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(failureTypeEClass, FailureType.class, "FailureType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFailureType_Repository_FailureType(), this.getRepository(), this.getRepository_FailureTypes(), "repository_FailureType", null, 1, 1, FailureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDataType_CharacterisationDefinitions__Datatype(), theParameterPackage.getVariableCharacterisationType(), "characterisationDefinitions__Datatype", null, 0, -1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDataType_Repository_DataType(), this.getRepository(), this.getRepository_Datatypes_Repository(), "repository_DataType", null, 1, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(dataTypeEClass, ecorePackage.getEBoolean(), "DataTypeMustNotHaveAvailableCharacterisationsWithIdenticalNameToBeParsableAsCode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(delegationConnectorEClass, DelegationConnector.class, "DelegationConnector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(operationProvidedRoleEClass, OperationProvidedRole.class, "OperationProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperationProvidedRole_ProvidedInterface__OperationProvidedRole(), this.getOperationInterface(), null, "providedInterface__OperationProvidedRole", null, 1, 1, OperationProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(operationInterfaceEClass, OperationInterface.class, "OperationInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperationInterface_Signatures__OperationInterface(), this.getOperationSignature(), this.getOperationSignature_Interface__OperationSignature(), "signatures__OperationInterface", null, 0, -1, OperationInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(operationInterfaceEClass, ecorePackage.getEBoolean(), "SignaturesHaveToBeUniqueForAnInterface", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(operationSignatureEClass, OperationSignature.class, "OperationSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperationSignature_Parameters__OperationSignature(), theParameterPackage.getVariable(), theParameterPackage.getVariable_OperationSignature__Variable(), "parameters__OperationSignature", null, 0, -1, OperationSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationSignature_Returntype__OperationSignature(), theParameterPackage.getVariable(), null, "returntype__OperationSignature", null, 0, 1, OperationSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getOperationSignature_Interface__OperationSignature(), this.getOperationInterface(), this.getOperationInterface_Signatures__OperationInterface(), "interface__OperationSignature", null, 1, 1, OperationSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(operationSignatureEClass, ecorePackage.getEBoolean(), "ParameterNamesHaveToBeUniqueForASignature", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(signatureEClass, Signature.class, "Signature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSignature_Exceptions__Signature(), this.getExceptionType(), null, "exceptions__Signature", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSignature_FailureType(), this.getFailureType(), null, "failureType", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(exceptionTypeEClass, ExceptionType.class, "ExceptionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExceptionType_ExceptionName(), ecorePackage.getEString(), "exceptionName", null, 1, 1, ExceptionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExceptionType_ExceptionMessage(), ecorePackage.getEString(), "exceptionMessage", null, 1, 1, ExceptionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(requiredCharacterisationEClass, RequiredCharacterisation.class, "RequiredCharacterisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRequiredCharacterisation_Type(), theParameterPackage.getVariableCharacterisationType(), "type", null, 1, 1, RequiredCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRequiredCharacterisation_Parameter(), this.getParameter(), null, "parameter", null, 1, 1, RequiredCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRequiredCharacterisation_Interface_RequiredCharacterisation(), this.getInterface(), this.getInterface_RequiredCharacterisations(), "interface_RequiredCharacterisation", null, 1, 1, RequiredCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(failureTypeEClass, FailureType.class, "FailureType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFailureType_Repository_FailureType(), this.getRepository(), this.getRepository_FailureTypes(), "repository_FailureType", null, 1, 1, FailureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(delegationConnectorEClass, DelegationConnector.class, "DelegationConnector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(compositeDataTypeEClass, CompositeDataType.class, "CompositeDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompositeDataType_Members__CompositeDataType(), theParameterPackage.getVariable(), theParameterPackage.getVariable_CompositeDataType__Variable(), "members__CompositeDataType", null, 1, -1, CompositeDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(resourceRequiredRoleEClass, ResourceRequiredRole.class, "ResourceRequiredRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceRequiredRole_RequiredInterface_ResourceRequiredRole(), this.getInterface(), null, "requiredInterface_ResourceRequiredRole", null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceRequiredRole_ResourceRequiringEntity_ResourceRequiredRole(), theEntityPackage.getResourceInterfaceRequiringEntity(), theEntityPackage.getResourceInterfaceRequiringEntity_ResourceRequiredRoles_ResourceInterfaceRequiringEntity(), "resourceRequiringEntity_ResourceRequiredRole", null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(resourceSignatureEClass, ResourceSignature.class, "ResourceSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResourceSignature_ResourceInterface__ResourceSignature(), this.getResourceInterface(), this.getResourceInterface_ResourceSignatures__ResourceInterface(), "resourceInterface__ResourceSignature", null, 1, 1, ResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getResourceSignature_Parameter__ResourceSignature(), theParameterPackage.getVariable(), theParameterPackage.getVariable_ResourceSignature__Variable(), "parameter__ResourceSignature", null, 1, 1, ResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(resourceInterfaceEClass, ResourceInterface.class, "ResourceInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResourceInterface_ResourceSignatures__ResourceInterface(), this.getResourceSignature(), this.getResourceSignature_ResourceInterface__ResourceSignature(), "resourceSignatures__ResourceInterface", null, 0, -1, ResourceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(infrastructureSignatureEClass, InfrastructureSignature.class, "InfrastructureSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInfrastructureSignature_InfrastructureInterface__InfrastructureSignature(), this.getInfrastructureInterface(), this.getInfrastructureInterface_InfrastructureSignatures__InfrastructureInterface(), "infrastructureInterface__InfrastructureSignature", null, 1, 1, InfrastructureSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getInfrastructureSignature_Parameters__InfrastructureSignature(), theParameterPackage.getVariable(), theParameterPackage.getVariable_InfrastructureSignature__Variable(), "parameters__InfrastructureSignature", null, 0, -1, InfrastructureSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(infrastructureInterfaceEClass, InfrastructureInterface.class, "InfrastructureInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInfrastructureInterface_InfrastructureSignatures__InfrastructureInterface(), this.getInfrastructureSignature(), this.getInfrastructureSignature_InfrastructureInterface__InfrastructureSignature(), "infrastructureSignatures__InfrastructureInterface", null, 0, -1, InfrastructureInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(eventTypeEClass, EventType.class, "EventType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEventType_EventGroup__EventType(), this.getEventGroup(), this.getEventGroup_EventTypes__EventGroup(), "eventGroup__EventType", null, 1, 1, EventType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getEventType_Payload__EventType(), theParameterPackage.getVariable(), theParameterPackage.getVariable_EventType__Variable(), "payload__EventType", null, 1, 1, EventType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(eventGroupEClass, EventGroup.class, "EventGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEventGroup_EventTypes__EventGroup(), this.getEventType(), this.getEventType_EventGroup__EventType(), "eventTypes__EventGroup", null, 0, -1, EventGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(operationRequiredRoleEClass, OperationRequiredRole.class, "OperationRequiredRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperationRequiredRole_RequiredInterface__OperationRequiredRole(), this.getOperationInterface(), null, "requiredInterface__OperationRequiredRole", null, 1, 1, OperationRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(sinkRoleEClass, SinkRole.class, "SinkRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSinkRole_Eventgroup__SinkRole(), this.getEventGroup(), null, "eventgroup__SinkRole", null, 1, 1, SinkRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(sourceRoleEClass, SourceRole.class, "SourceRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSourceRole_Eventgroup__SourceRole(), this.getEventGroup(), null, "eventgroup__SourceRole", null, 1, 1, SourceRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(applicationFailureTypeEClass, ApplicationFailureType.class, "ApplicationFailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(stopFailureTypeEClass, StopFailureType.class, "StopFailureType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(completeComponentTypeEClass, CompleteComponentType.class, "CompleteComponentType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompleteComponentType_ParentProvidesComponentTypes(), this.getProvidesComponentType(), null, "parentProvidesComponentTypes", null, 0, -1, CompleteComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1524,22 +1725,9 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(primitiveDataTypeEClass, PrimitiveDataType.class, "PrimitiveDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPrimitiveDataType_Type(), this.getPrimitiveTypeEnum(), "type", null, 1, 1, PrimitiveDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(collectionDataTypeEClass, CollectionDataType.class, "CollectionDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCollectionDataType_InnerType_CollectionDataType(), this.getDataType(), null, "innerType_CollectionDataType", null, 1, 1, CollectionDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(compositeDataTypeEClass, CompositeDataType.class, "CompositeDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompositeDataType_ParentType_CompositeDataType(), this.getCompositeDataType(), null, "parentType_CompositeDataType", null, 0, -1, CompositeDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCompositeDataType_InnerDeclaration_CompositeDataType(), this.getInnerDeclaration(), this.getInnerDeclaration_CompositeDataType_InnerDeclaration(), "innerDeclaration_CompositeDataType", null, 0, -1, CompositeDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(innerDeclarationEClass, InnerDeclaration.class, "InnerDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInnerDeclaration_Datatype_InnerDeclaration(), this.getDataType(), null, "datatype_InnerDeclaration", null, 1, 1, InnerDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getInnerDeclaration_CompositeDataType_InnerDeclaration(), this.getCompositeDataType(), this.getCompositeDataType_InnerDeclaration_CompositeDataType(), "compositeDataType_InnerDeclaration", null, 1, 1, InnerDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(stopFailureTypeEClass, StopFailureType.class, "StopFailureType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(applicationFailureTypeEClass, ApplicationFailureType.class, "ApplicationFailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCollectionDataType_InnerDataType__CollectionDataType(), this.getDataType(), null, "innerDataType__CollectionDataType", null, 1, 1, CollectionDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(environmentFailureTypeEClass, EnvironmentFailureType.class, "EnvironmentFailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnvironmentFailureType_Processingresourcetype(), theResourcetypePackage.getProcessingResourceType(), null, "processingresourcetype", null, 1, 1, EnvironmentFailureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1553,9 +1741,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(providedRoleEClass, ProvidedRole.class, "ProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProvidedRole_ProvidedInterface__ProvidedRole(), this.getInterface(), null, "providedInterface__ProvidedRole", null, 1, 1, ProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getProvidedRole_ProvidingEntity_ProvidedRole(), theEntityPackage.getInterfaceProvidingEntity(), theEntityPackage.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity(), "providingEntity_ProvidedRole", null, 1, 1, ProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(providedRoleEClass, ProvidedRole.class, "ProvidedRole", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProvidedRole_ProvidingEntity__ProvidedRole(), theEntityPackage.getInterfaceProvidingEntity(), theEntityPackage.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity(), "providingEntity__ProvidedRole", null, 1, 1, ProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(parameterModifierEEnum, ParameterModifier.class, "ParameterModifier");
@@ -1565,13 +1752,13 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		addEEnumLiteral(parameterModifierEEnum, ParameterModifier.INOUT);
 
 		initEEnum(primitiveTypeEnumEEnum, PrimitiveTypeEnum.class, "PrimitiveTypeEnum");
-		addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.INT);
-		addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.STRING);
 		addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.BOOL);
-		addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.DOUBLE);
 		addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.CHAR);
 		addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.BYTE);
+		addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.INT);
 		addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.LONG);
+		addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.DOUBLE);
+		addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.STRING);
 
 		// Create resource
 		createResource(eNS_URI);

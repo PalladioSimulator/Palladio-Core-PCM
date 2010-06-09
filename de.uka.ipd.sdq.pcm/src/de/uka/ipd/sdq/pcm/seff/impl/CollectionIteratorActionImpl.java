@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.CollectionIteratorActionImpl#getParameter_CollectionIteratorAction <em>Parameter Collection Iterator Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.CollectionIteratorActionImpl#getVariable__CollectionIteratorAction <em>Variable Collection Iterator Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,15 +34,16 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
-	 * The cached value of the '{@link #getParameter_CollectionIteratorAction() <em>Parameter Collection Iterator Action</em>}' reference.
+	 * The cached value of the '{@link #getVariable__CollectionIteratorAction() <em>Variable Collection Iterator Action</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParameter_CollectionIteratorAction()
+	 * @see #getVariable__CollectionIteratorAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected Parameter parameter_CollectionIteratorAction;
+	protected Variable variable__CollectionIteratorAction;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,16 +69,16 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parameter getParameter_CollectionIteratorAction() {
-		if (parameter_CollectionIteratorAction != null && parameter_CollectionIteratorAction.eIsProxy()) {
-			InternalEObject oldParameter_CollectionIteratorAction = (InternalEObject)parameter_CollectionIteratorAction;
-			parameter_CollectionIteratorAction = (Parameter)eResolveProxy(oldParameter_CollectionIteratorAction);
-			if (parameter_CollectionIteratorAction != oldParameter_CollectionIteratorAction) {
+	public Variable getVariable__CollectionIteratorAction() {
+		if (variable__CollectionIteratorAction != null && variable__CollectionIteratorAction.eIsProxy()) {
+			InternalEObject oldVariable__CollectionIteratorAction = (InternalEObject)variable__CollectionIteratorAction;
+			variable__CollectionIteratorAction = (Variable)eResolveProxy(oldVariable__CollectionIteratorAction);
+			if (variable__CollectionIteratorAction != oldVariable__CollectionIteratorAction) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION, oldParameter_CollectionIteratorAction, parameter_CollectionIteratorAction));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SeffPackage.COLLECTION_ITERATOR_ACTION__VARIABLE_COLLECTION_ITERATOR_ACTION, oldVariable__CollectionIteratorAction, variable__CollectionIteratorAction));
 			}
 		}
-		return parameter_CollectionIteratorAction;
+		return variable__CollectionIteratorAction;
 	}
 
 	/**
@@ -85,8 +86,8 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parameter basicGetParameter_CollectionIteratorAction() {
-		return parameter_CollectionIteratorAction;
+	public Variable basicGetVariable__CollectionIteratorAction() {
+		return variable__CollectionIteratorAction;
 	}
 
 	/**
@@ -94,11 +95,11 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParameter_CollectionIteratorAction(Parameter newParameter_CollectionIteratorAction) {
-		Parameter oldParameter_CollectionIteratorAction = parameter_CollectionIteratorAction;
-		parameter_CollectionIteratorAction = newParameter_CollectionIteratorAction;
+	public void setVariable__CollectionIteratorAction(Variable newVariable__CollectionIteratorAction) {
+		Variable oldVariable__CollectionIteratorAction = variable__CollectionIteratorAction;
+		variable__CollectionIteratorAction = newVariable__CollectionIteratorAction;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION, oldParameter_CollectionIteratorAction, parameter_CollectionIteratorAction));
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.COLLECTION_ITERATOR_ACTION__VARIABLE_COLLECTION_ITERATOR_ACTION, oldVariable__CollectionIteratorAction, variable__CollectionIteratorAction));
 	}
 
 	/**
@@ -109,9 +110,9 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION:
-				if (resolve) return getParameter_CollectionIteratorAction();
-				return basicGetParameter_CollectionIteratorAction();
+			case SeffPackage.COLLECTION_ITERATOR_ACTION__VARIABLE_COLLECTION_ITERATOR_ACTION:
+				if (resolve) return getVariable__CollectionIteratorAction();
+				return basicGetVariable__CollectionIteratorAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -124,8 +125,8 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION:
-				setParameter_CollectionIteratorAction((Parameter)newValue);
+			case SeffPackage.COLLECTION_ITERATOR_ACTION__VARIABLE_COLLECTION_ITERATOR_ACTION:
+				setVariable__CollectionIteratorAction((Variable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -139,8 +140,8 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION:
-				setParameter_CollectionIteratorAction((Parameter)null);
+			case SeffPackage.COLLECTION_ITERATOR_ACTION__VARIABLE_COLLECTION_ITERATOR_ACTION:
+				setVariable__CollectionIteratorAction((Variable)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -154,8 +155,8 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION:
-				return parameter_CollectionIteratorAction != null;
+			case SeffPackage.COLLECTION_ITERATOR_ACTION__VARIABLE_COLLECTION_ITERATOR_ACTION:
+				return variable__CollectionIteratorAction != null;
 		}
 		return super.eIsSet(featureID);
 	}

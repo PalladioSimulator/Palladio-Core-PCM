@@ -5,34 +5,25 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import de.uka.ipd.sdq.pcm.repository.EnvironmentFailureType;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
-import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
-
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
 import org.eclipse.ocl.ParserException;
-
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
+
+import de.uka.ipd.sdq.pcm.repository.EnvironmentFailureType;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 /**
  * <!-- begin-user-doc -->

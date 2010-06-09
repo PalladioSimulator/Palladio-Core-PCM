@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.protocol.util;
 
-import de.uka.ipd.sdq.pcm.protocol.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -13,7 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.protocol.Protocol;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-import de.uka.ipd.sdq.pcm.protocol.ServiceCall;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +33,7 @@ public class ProtocolSwitch<T> {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->

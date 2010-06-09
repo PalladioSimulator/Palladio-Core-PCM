@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -84,10 +84,6 @@ public enum VariableCharacterisationType implements Enumerator {
 	/**
 	 * The '<em><b>STRUCTURE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>STRUCTURE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The structure characterisation type is used to describe the structure of the data. With structure we refer to performance relevant properties of data like for example whether an array is sorted, a tree is balanced, a collection is indexed, and so on.... The allowed set of value of the structure characterisation has to be specified by the component developer for a particular component.
@@ -102,10 +98,6 @@ public enum VariableCharacterisationType implements Enumerator {
 	/**
 	 * The '<em><b>NUMBER OF ELEMENTS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>NUMBER OF ELEMENTS</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The number of elements of a collection data type describe the amount of data objects contained in the collection.
@@ -120,10 +112,6 @@ public enum VariableCharacterisationType implements Enumerator {
 	/**
 	 * The '<em><b>VALUE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>VALUE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The value characterisation can be used to specify the actual value of a parameter. It is only available for parameters having a primitive type. The value characterisation should be used with care as it increased the complexity of the resulting analysis model significantly. It should be only used in performance-critical cases.
@@ -138,10 +126,6 @@ public enum VariableCharacterisationType implements Enumerator {
 	/**
 	 * The '<em><b>BYTESIZE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>BYTESIZE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The bytesize characterisation specifies the memory footprint of a data object.
@@ -156,10 +140,6 @@ public enum VariableCharacterisationType implements Enumerator {
 	/**
 	 * The '<em><b>TYPE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>TYPE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * The type characterisation specifies the actual data type of polymorphic data objects in cases where the actual type has an impact on performance. For example in a shape drawing application the actual shape of a geometric object has an impact on the performance as drawing a circle is much more time consuming than drawing a simple line.

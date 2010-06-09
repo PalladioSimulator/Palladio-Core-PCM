@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.pcm.core.connectors.*;
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
@@ -32,6 +31,7 @@ public class ConnectorsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->

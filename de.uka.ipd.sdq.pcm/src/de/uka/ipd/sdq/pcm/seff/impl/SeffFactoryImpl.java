@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import de.uka.ipd.sdq.pcm.seff.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -15,15 +14,21 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
+import de.uka.ipd.sdq.pcm.seff.EmitEventAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
+import de.uka.ipd.sdq.pcm.seff.InternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
+import de.uka.ipd.sdq.pcm.seff.RecoveryBlockAction;
+import de.uka.ipd.sdq.pcm.seff.RecoveryBlockAlternativeBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -105,6 +110,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 			case SeffPackage.INTERNAL_CALL_ACTION: return createInternalCallAction();
 			case SeffPackage.RECOVERY_BLOCK_ACTION: return createRecoveryBlockAction();
 			case SeffPackage.RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR: return createRecoveryBlockAlternativeBehaviour();
+			case SeffPackage.EMIT_EVENT_ACTION: return createEmitEventAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,6 +131,26 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ResourceDemandingBehaviour createResourceDemandingBehaviour() {
+		ResourceDemandingBehaviourImpl resourceDemandingBehaviour = new ResourceDemandingBehaviourImpl();
+		return resourceDemandingBehaviour;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BranchAction createBranchAction() {
+		BranchActionImpl branchAction = new BranchActionImpl();
+		return branchAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StartAction createStartAction() {
 		StartActionImpl startAction = new StartActionImpl();
 		return startAction;
@@ -138,16 +164,6 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public ResourceDemandingSEFF createResourceDemandingSEFF() {
 		ResourceDemandingSEFFImpl resourceDemandingSEFF = new ResourceDemandingSEFFImpl();
 		return resourceDemandingSEFF;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceDemandingBehaviour createResourceDemandingBehaviour() {
-		ResourceDemandingBehaviourImpl resourceDemandingBehaviour = new ResourceDemandingBehaviourImpl();
-		return resourceDemandingBehaviour;
 	}
 
 	/**
@@ -255,16 +271,6 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BranchAction createBranchAction() {
-		BranchActionImpl branchAction = new BranchActionImpl();
-		return branchAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AcquireAction createAcquireAction() {
 		AcquireActionImpl acquireAction = new AcquireActionImpl();
 		return acquireAction;
@@ -328,6 +334,16 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public RecoveryBlockAlternativeBehaviour createRecoveryBlockAlternativeBehaviour() {
 		RecoveryBlockAlternativeBehaviourImpl recoveryBlockAlternativeBehaviour = new RecoveryBlockAlternativeBehaviourImpl();
 		return recoveryBlockAlternativeBehaviour;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EmitEventAction createEmitEventAction() {
+		EmitEventActionImpl emitEventAction = new EmitEventActionImpl();
+		return emitEventAction;
 	}
 
 	/**

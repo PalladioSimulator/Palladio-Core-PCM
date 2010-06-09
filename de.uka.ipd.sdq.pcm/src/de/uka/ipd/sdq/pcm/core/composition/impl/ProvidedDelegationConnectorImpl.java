@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.util.CompositionValidator;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl;
 
 /**
@@ -62,7 +62,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected ProvidedRole innerProvidedRole_ProvidedDelegationConnector;
+	protected OperationProvidedRole innerProvidedRole_ProvidedDelegationConnector;
 
 	/**
 	 * The cached value of the '{@link #getOuterProvidedRole_ProvidedDelegationConnector() <em>Outer Provided Role Provided Delegation Connector</em>}' reference.
@@ -72,7 +72,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected ProvidedRole outerProvidedRole_ProvidedDelegationConnector;
+	protected OperationProvidedRole outerProvidedRole_ProvidedDelegationConnector;
 
 	/**
 	 * The cached value of the '{@link #getAssemblyContext_ProvidedDelegationConnector() <em>Assembly Context Provided Delegation Connector</em>}' reference.
@@ -108,10 +108,10 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedRole getInnerProvidedRole_ProvidedDelegationConnector() {
+	public OperationProvidedRole getInnerProvidedRole_ProvidedDelegationConnector() {
 		if (innerProvidedRole_ProvidedDelegationConnector != null && innerProvidedRole_ProvidedDelegationConnector.eIsProxy()) {
 			InternalEObject oldInnerProvidedRole_ProvidedDelegationConnector = (InternalEObject)innerProvidedRole_ProvidedDelegationConnector;
-			innerProvidedRole_ProvidedDelegationConnector = (ProvidedRole)eResolveProxy(oldInnerProvidedRole_ProvidedDelegationConnector);
+			innerProvidedRole_ProvidedDelegationConnector = (OperationProvidedRole)eResolveProxy(oldInnerProvidedRole_ProvidedDelegationConnector);
 			if (innerProvidedRole_ProvidedDelegationConnector != oldInnerProvidedRole_ProvidedDelegationConnector) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR, oldInnerProvidedRole_ProvidedDelegationConnector, innerProvidedRole_ProvidedDelegationConnector));
@@ -125,7 +125,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedRole basicGetInnerProvidedRole_ProvidedDelegationConnector() {
+	public OperationProvidedRole basicGetInnerProvidedRole_ProvidedDelegationConnector() {
 		return innerProvidedRole_ProvidedDelegationConnector;
 	}
 
@@ -134,8 +134,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInnerProvidedRole_ProvidedDelegationConnector(ProvidedRole newInnerProvidedRole_ProvidedDelegationConnector) {
-		ProvidedRole oldInnerProvidedRole_ProvidedDelegationConnector = innerProvidedRole_ProvidedDelegationConnector;
+	public void setInnerProvidedRole_ProvidedDelegationConnector(OperationProvidedRole newInnerProvidedRole_ProvidedDelegationConnector) {
+		OperationProvidedRole oldInnerProvidedRole_ProvidedDelegationConnector = innerProvidedRole_ProvidedDelegationConnector;
 		innerProvidedRole_ProvidedDelegationConnector = newInnerProvidedRole_ProvidedDelegationConnector;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR, oldInnerProvidedRole_ProvidedDelegationConnector, innerProvidedRole_ProvidedDelegationConnector));
@@ -146,10 +146,10 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedRole getOuterProvidedRole_ProvidedDelegationConnector() {
+	public OperationProvidedRole getOuterProvidedRole_ProvidedDelegationConnector() {
 		if (outerProvidedRole_ProvidedDelegationConnector != null && outerProvidedRole_ProvidedDelegationConnector.eIsProxy()) {
 			InternalEObject oldOuterProvidedRole_ProvidedDelegationConnector = (InternalEObject)outerProvidedRole_ProvidedDelegationConnector;
-			outerProvidedRole_ProvidedDelegationConnector = (ProvidedRole)eResolveProxy(oldOuterProvidedRole_ProvidedDelegationConnector);
+			outerProvidedRole_ProvidedDelegationConnector = (OperationProvidedRole)eResolveProxy(oldOuterProvidedRole_ProvidedDelegationConnector);
 			if (outerProvidedRole_ProvidedDelegationConnector != oldOuterProvidedRole_ProvidedDelegationConnector) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR, oldOuterProvidedRole_ProvidedDelegationConnector, outerProvidedRole_ProvidedDelegationConnector));
@@ -163,7 +163,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedRole basicGetOuterProvidedRole_ProvidedDelegationConnector() {
+	public OperationProvidedRole basicGetOuterProvidedRole_ProvidedDelegationConnector() {
 		return outerProvidedRole_ProvidedDelegationConnector;
 	}
 
@@ -172,8 +172,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOuterProvidedRole_ProvidedDelegationConnector(ProvidedRole newOuterProvidedRole_ProvidedDelegationConnector) {
-		ProvidedRole oldOuterProvidedRole_ProvidedDelegationConnector = outerProvidedRole_ProvidedDelegationConnector;
+	public void setOuterProvidedRole_ProvidedDelegationConnector(OperationProvidedRole newOuterProvidedRole_ProvidedDelegationConnector) {
+		OperationProvidedRole oldOuterProvidedRole_ProvidedDelegationConnector = outerProvidedRole_ProvidedDelegationConnector;
 		outerProvidedRole_ProvidedDelegationConnector = newOuterProvidedRole_ProvidedDelegationConnector;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR, oldOuterProvidedRole_ProvidedDelegationConnector, outerProvidedRole_ProvidedDelegationConnector));
@@ -317,7 +317,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext";
+	protected static final String COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.innerProvidedRole_ProvidedDelegationConnector.providedInterface__OperationProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext";
 
 	/**
 	 * The cached OCL invariant for the '{@link #ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Component Of Assembly Context And Inner Role Providing Component Need To Be The Same</em>}' invariant operation.
@@ -436,10 +436,10 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
-				setInnerProvidedRole_ProvidedDelegationConnector((ProvidedRole)newValue);
+				setInnerProvidedRole_ProvidedDelegationConnector((OperationProvidedRole)newValue);
 				return;
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
-				setOuterProvidedRole_ProvidedDelegationConnector((ProvidedRole)newValue);
+				setOuterProvidedRole_ProvidedDelegationConnector((OperationProvidedRole)newValue);
 				return;
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
 				setAssemblyContext_ProvidedDelegationConnector((AssemblyContext)newValue);
@@ -460,10 +460,10 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
-				setInnerProvidedRole_ProvidedDelegationConnector((ProvidedRole)null);
+				setInnerProvidedRole_ProvidedDelegationConnector((OperationProvidedRole)null);
 				return;
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
-				setOuterProvidedRole_ProvidedDelegationConnector((ProvidedRole)null);
+				setOuterProvidedRole_ProvidedDelegationConnector((OperationProvidedRole)null);
 				return;
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
 				setAssemblyContext_ProvidedDelegationConnector((AssemblyContext)null);

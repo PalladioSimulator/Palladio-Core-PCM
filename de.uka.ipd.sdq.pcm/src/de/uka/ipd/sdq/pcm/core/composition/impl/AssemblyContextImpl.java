@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -23,7 +22,7 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 
 /**
@@ -35,7 +34,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getParentStructure_AssemblyContext <em>Parent Structure Assembly Context</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getEncapsulatedComponent_AssemblyContext <em>Encapsulated Component Assembly Context</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getConfigParameterUsages_AssemblyContext <em>Config Parameter Usages Assembly Context</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getConfigVariableSetters__AssemblyContext <em>Config Variable Setters Assembly Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,14 +59,14 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	protected RepositoryComponent encapsulatedComponent_AssemblyContext;
 
 	/**
-	 * The cached value of the '{@link #getConfigParameterUsages_AssemblyContext() <em>Config Parameter Usages Assembly Context</em>}' containment reference list.
+	 * The cached value of the '{@link #getConfigVariableSetters__AssemblyContext() <em>Config Variable Setters Assembly Context</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConfigParameterUsages_AssemblyContext()
+	 * @see #getConfigVariableSetters__AssemblyContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableUsage> configParameterUsages_AssemblyContext;
+	protected EList<VariableSetter> configVariableSetters__AssemblyContext;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,44 +85,6 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	@Override
 	protected EClass eStaticClass() {
 		return CompositionPackage.Literals.ASSEMBLY_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RepositoryComponent getEncapsulatedComponent_AssemblyContext() {
-		if (encapsulatedComponent_AssemblyContext != null && encapsulatedComponent_AssemblyContext.eIsProxy()) {
-			InternalEObject oldEncapsulatedComponent_AssemblyContext = (InternalEObject)encapsulatedComponent_AssemblyContext;
-			encapsulatedComponent_AssemblyContext = (RepositoryComponent)eResolveProxy(oldEncapsulatedComponent_AssemblyContext);
-			if (encapsulatedComponent_AssemblyContext != oldEncapsulatedComponent_AssemblyContext) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT, oldEncapsulatedComponent_AssemblyContext, encapsulatedComponent_AssemblyContext));
-			}
-		}
-		return encapsulatedComponent_AssemblyContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RepositoryComponent basicGetEncapsulatedComponent_AssemblyContext() {
-		return encapsulatedComponent_AssemblyContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEncapsulatedComponent_AssemblyContext(RepositoryComponent newEncapsulatedComponent_AssemblyContext) {
-		RepositoryComponent oldEncapsulatedComponent_AssemblyContext = encapsulatedComponent_AssemblyContext;
-		encapsulatedComponent_AssemblyContext = newEncapsulatedComponent_AssemblyContext;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT, oldEncapsulatedComponent_AssemblyContext, encapsulatedComponent_AssemblyContext));
 	}
 
 	/**
@@ -172,11 +133,49 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<VariableUsage> getConfigParameterUsages_AssemblyContext() {
-		if (configParameterUsages_AssemblyContext == null) {
-			configParameterUsages_AssemblyContext = new EObjectContainmentWithInverseEList<VariableUsage>(VariableUsage.class, this, CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT, ParameterPackage.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE);
+	public RepositoryComponent getEncapsulatedComponent_AssemblyContext() {
+		if (encapsulatedComponent_AssemblyContext != null && encapsulatedComponent_AssemblyContext.eIsProxy()) {
+			InternalEObject oldEncapsulatedComponent_AssemblyContext = (InternalEObject)encapsulatedComponent_AssemblyContext;
+			encapsulatedComponent_AssemblyContext = (RepositoryComponent)eResolveProxy(oldEncapsulatedComponent_AssemblyContext);
+			if (encapsulatedComponent_AssemblyContext != oldEncapsulatedComponent_AssemblyContext) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT, oldEncapsulatedComponent_AssemblyContext, encapsulatedComponent_AssemblyContext));
+			}
 		}
-		return configParameterUsages_AssemblyContext;
+		return encapsulatedComponent_AssemblyContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RepositoryComponent basicGetEncapsulatedComponent_AssemblyContext() {
+		return encapsulatedComponent_AssemblyContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEncapsulatedComponent_AssemblyContext(RepositoryComponent newEncapsulatedComponent_AssemblyContext) {
+		RepositoryComponent oldEncapsulatedComponent_AssemblyContext = encapsulatedComponent_AssemblyContext;
+		encapsulatedComponent_AssemblyContext = newEncapsulatedComponent_AssemblyContext;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT, oldEncapsulatedComponent_AssemblyContext, encapsulatedComponent_AssemblyContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<VariableSetter> getConfigVariableSetters__AssemblyContext() {
+		if (configVariableSetters__AssemblyContext == null) {
+			configVariableSetters__AssemblyContext = new EObjectContainmentWithInverseEList<VariableSetter>(VariableSetter.class, this, CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_VARIABLE_SETTERS_ASSEMBLY_CONTEXT, ParameterPackage.VARIABLE_SETTER__ASSEMBLY_CONTEXT_VARIABLE_SETTER);
+		}
+		return configVariableSetters__AssemblyContext;
 	}
 
 	/**
@@ -192,8 +191,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParentStructure_AssemblyContext((ComposedStructure)otherEnd, msgs);
-			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConfigParameterUsages_AssemblyContext()).basicAdd(otherEnd, msgs);
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_VARIABLE_SETTERS_ASSEMBLY_CONTEXT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConfigVariableSetters__AssemblyContext()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -208,8 +207,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 		switch (featureID) {
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				return basicSetParentStructure_AssemblyContext(null, msgs);
-			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
-				return ((InternalEList<?>)getConfigParameterUsages_AssemblyContext()).basicRemove(otherEnd, msgs);
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_VARIABLE_SETTERS_ASSEMBLY_CONTEXT:
+				return ((InternalEList<?>)getConfigVariableSetters__AssemblyContext()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -241,8 +240,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 			case CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT:
 				if (resolve) return getEncapsulatedComponent_AssemblyContext();
 				return basicGetEncapsulatedComponent_AssemblyContext();
-			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
-				return getConfigParameterUsages_AssemblyContext();
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_VARIABLE_SETTERS_ASSEMBLY_CONTEXT:
+				return getConfigVariableSetters__AssemblyContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -262,9 +261,9 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 			case CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT:
 				setEncapsulatedComponent_AssemblyContext((RepositoryComponent)newValue);
 				return;
-			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
-				getConfigParameterUsages_AssemblyContext().clear();
-				getConfigParameterUsages_AssemblyContext().addAll((Collection<? extends VariableUsage>)newValue);
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_VARIABLE_SETTERS_ASSEMBLY_CONTEXT:
+				getConfigVariableSetters__AssemblyContext().clear();
+				getConfigVariableSetters__AssemblyContext().addAll((Collection<? extends VariableSetter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -284,8 +283,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 			case CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT:
 				setEncapsulatedComponent_AssemblyContext((RepositoryComponent)null);
 				return;
-			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
-				getConfigParameterUsages_AssemblyContext().clear();
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_VARIABLE_SETTERS_ASSEMBLY_CONTEXT:
+				getConfigVariableSetters__AssemblyContext().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -303,8 +302,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 				return getParentStructure_AssemblyContext() != null;
 			case CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT:
 				return encapsulatedComponent_AssemblyContext != null;
-			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
-				return configParameterUsages_AssemblyContext != null && !configParameterUsages_AssemblyContext.isEmpty();
+			case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_VARIABLE_SETTERS_ASSEMBLY_CONTEXT:
+				return configVariableSetters__AssemblyContext != null && !configVariableSetters__AssemblyContext.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

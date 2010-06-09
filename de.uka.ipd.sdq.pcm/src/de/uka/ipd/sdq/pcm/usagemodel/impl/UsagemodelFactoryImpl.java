@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
-import de.uka.ipd.sdq.pcm.usagemodel.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -112,9 +111,9 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ScenarioBehaviour createScenarioBehaviour() {
-		ScenarioBehaviourImpl scenarioBehaviour = new ScenarioBehaviourImpl();
-		return scenarioBehaviour;
+	public UserData createUserData() {
+		UserDataImpl userData = new UserDataImpl();
+		return userData;
 	}
 
 	/**
@@ -132,9 +131,49 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UserData createUserData() {
-		UserDataImpl userData = new UserDataImpl();
-		return userData;
+	public EntryLevelSystemCall createEntryLevelSystemCall() {
+		EntryLevelSystemCallImpl entryLevelSystemCall = new EntryLevelSystemCallImpl();
+		return entryLevelSystemCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ScenarioBehaviour createScenarioBehaviour() {
+		ScenarioBehaviourImpl scenarioBehaviour = new ScenarioBehaviourImpl();
+		return scenarioBehaviour;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BranchTransition createBranchTransition() {
+		BranchTransitionImpl branchTransition = new BranchTransitionImpl();
+		return branchTransition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Branch createBranch() {
+		BranchImpl branch = new BranchImpl();
+		return branch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Loop createLoop() {
+		LoopImpl loop = new LoopImpl();
+		return loop;
 	}
 
 	/**
@@ -172,19 +211,9 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Loop createLoop() {
-		LoopImpl loop = new LoopImpl();
-		return loop;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EntryLevelSystemCall createEntryLevelSystemCall() {
-		EntryLevelSystemCallImpl entryLevelSystemCall = new EntryLevelSystemCallImpl();
-		return entryLevelSystemCall;
+	public Delay createDelay() {
+		DelayImpl delay = new DelayImpl();
+		return delay;
 	}
 
 	/**
@@ -195,36 +224,6 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	public ClosedWorkload createClosedWorkload() {
 		ClosedWorkloadImpl closedWorkload = new ClosedWorkloadImpl();
 		return closedWorkload;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Branch createBranch() {
-		BranchImpl branch = new BranchImpl();
-		return branch;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BranchTransition createBranchTransition() {
-		BranchTransitionImpl branchTransition = new BranchTransitionImpl();
-		return branchTransition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Delay createDelay() {
-		DelayImpl delay = new DelayImpl();
-		return delay;
 	}
 
 	/**

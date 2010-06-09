@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,10 +12,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 
@@ -40,6 +39,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached value of the '{@link #getLocalVariableUsages_SetVariableAction() <em>Local Variable Usages Set Variable Action</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -48,7 +48,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableUsage> localVariableUsages_SetVariableAction;
+	protected EList<VariableSetter> localVariableUsages_SetVariableAction;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,9 +74,9 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<VariableUsage> getLocalVariableUsages_SetVariableAction() {
+	public EList<VariableSetter> getLocalVariableUsages_SetVariableAction() {
 		if (localVariableUsages_SetVariableAction == null) {
-			localVariableUsages_SetVariableAction = new EObjectContainmentWithInverseEList<VariableUsage>(VariableUsage.class, this, SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION, ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE);
+			localVariableUsages_SetVariableAction = new EObjectContainmentWithInverseEList<VariableSetter>(VariableSetter.class, this, SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION, ParameterPackage.VARIABLE_SETTER__SET_VARIABLE_ACTION_VARIABLE_SETTER);
 		}
 		return localVariableUsages_SetVariableAction;
 	}
@@ -135,7 +135,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 		switch (featureID) {
 			case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
 				getLocalVariableUsages_SetVariableAction().clear();
-				getLocalVariableUsages_SetVariableAction().addAll((Collection<? extends VariableUsage>)newValue);
+				getLocalVariableUsages_SetVariableAction().addAll((Collection<? extends VariableSetter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

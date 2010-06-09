@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -101,6 +101,7 @@ public interface SpecifiedQoSAnnotation extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getSpecifiedQoSAnnotation_SpecifiedExecutionTime <em>Specified Qo SAnnotation Specified Execution Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Specification Specified Execution Time</em>' containment reference isn't clear,
@@ -110,7 +111,8 @@ public interface SpecifiedQoSAnnotation extends EObject {
 	 * @return the value of the '<em>Specification Specified Execution Time</em>' containment reference.
 	 * @see #setSpecification_SpecifiedExecutionTime(PCMRandomVariable)
 	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedQoSAnnotation_Specification_SpecifiedExecutionTime()
-	 * @model containment="true" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getSpecifiedQoSAnnotation_SpecifiedExecutionTime
+	 * @model opposite="specifiedQoSAnnotation_SpecifiedExecutionTime" containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	PCMRandomVariable getSpecification_SpecifiedExecutionTime();

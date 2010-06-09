@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
@@ -92,39 +91,6 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SpecifiedQoSAnnotation> getSpecifiedQoSAnnotations_QoSAnnotations() {
-		if (specifiedQoSAnnotations_QoSAnnotations == null) {
-			specifiedQoSAnnotations_QoSAnnotations = new EObjectContainmentWithInverseEList<SpecifiedQoSAnnotation>(SpecifiedQoSAnnotation.class, this, QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION);
-		}
-		return specifiedQoSAnnotations_QoSAnnotations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecifiedOutputParameterAbstractions_QoSAnnotations()).basicAdd(otherEnd, msgs);
-			case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetSystem_QoSAnnotations((de.uka.ipd.sdq.pcm.system.System)otherEnd, msgs);
-			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecifiedQoSAnnotations_QoSAnnotations()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<SpecifiedOutputParameterAbstraction> getSpecifiedOutputParameterAbstractions_QoSAnnotations() {
 		if (specifiedOutputParameterAbstractions_QoSAnnotations == null) {
 			specifiedOutputParameterAbstractions_QoSAnnotations = new EObjectContainmentWithInverseEList<SpecifiedOutputParameterAbstraction>(SpecifiedOutputParameterAbstraction.class, this, QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS, QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
@@ -171,6 +137,39 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS, newSystem_QoSAnnotations, newSystem_QoSAnnotations));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SpecifiedQoSAnnotation> getSpecifiedQoSAnnotations_QoSAnnotations() {
+		if (specifiedQoSAnnotations_QoSAnnotations == null) {
+			specifiedQoSAnnotations_QoSAnnotations = new EObjectContainmentWithInverseEList<SpecifiedQoSAnnotation>(SpecifiedQoSAnnotation.class, this, QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS, QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION);
+		}
+		return specifiedQoSAnnotations_QoSAnnotations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecifiedOutputParameterAbstractions_QoSAnnotations()).basicAdd(otherEnd, msgs);
+			case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetSystem_QoSAnnotations((de.uka.ipd.sdq.pcm.system.System)otherEnd, msgs);
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecifiedQoSAnnotations_QoSAnnotations()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

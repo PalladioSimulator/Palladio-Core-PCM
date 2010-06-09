@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -100,14 +100,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass scenarioBehaviourEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass abstractUserActionEClass = null;
+	private EClass userDataEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,7 +114,42 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass userDataEClass = null;
+	private EClass entryLevelSystemCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractUserActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass scenarioBehaviourEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass branchTransitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass branchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass loopEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,14 +177,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass loopEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass entryLevelSystemCallEClass = null;
+	private EClass delayEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,27 +185,6 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * @generated
 	 */
 	private EClass closedWorkloadEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass branchEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass branchTransitionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass delayEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -354,6 +354,15 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUsageScenario_ScenarioBehaviour_UsageScenario() {
+		return (EReference)usageScenarioEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getUsageScenario_Workload_UsageScenario() {
 		return (EReference)usageScenarioEClass.getEStructuralFeatures().get(2);
 	}
@@ -363,8 +372,143 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUsageScenario_ScenarioBehaviour_UsageScenario() {
-		return (EReference)usageScenarioEClass.getEStructuralFeatures().get(1);
+	public EClass getUserData() {
+		return userDataEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUserData_AssemblyContext_userData() {
+		return (EReference)userDataEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUserData_UsageModel_UserData() {
+		return (EReference)userDataEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUserData_UserDataVariableSetters__UserData() {
+		return (EReference)userDataEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUsageModel() {
+		return usageModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUsageModel_UsageScenario_UsageModel() {
+		return (EReference)usageModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUsageModel_UserData_UsageModel() {
+		return (EReference)usageModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntryLevelSystemCall() {
+		return entryLevelSystemCallEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall() {
+		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntryLevelSystemCall_OperationSignature__EntryLevelSystemCall() {
+		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntryLevelSystemCall_OutputVariableSetters__EntryLevelSystemCall() {
+		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntryLevelSystemCall_InputVariableSetters__EntryLevelSystemCall() {
+		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAbstractUserAction() {
+		return abstractUserActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractUserAction_Successor() {
+		return (EReference)abstractUserActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractUserAction_Predecessor() {
+		return (EReference)abstractUserActionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractUserAction_ScenarioBehaviour_AbstractUserAction() {
+		return (EReference)abstractUserActionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -417,8 +561,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAbstractUserAction() {
-		return abstractUserActionEClass;
+	public EClass getBranchTransition() {
+		return branchTransitionEClass;
 	}
 
 	/**
@@ -426,8 +570,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAbstractUserAction_Successor() {
-		return (EReference)abstractUserActionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getBranchTransition_BranchProbability() {
+		return (EAttribute)branchTransitionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -435,8 +579,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAbstractUserAction_Predecessor() {
-		return (EReference)abstractUserActionEClass.getEStructuralFeatures().get(1);
+	public EReference getBranchTransition_Branch_BranchTransition() {
+		return (EReference)branchTransitionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -444,8 +588,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAbstractUserAction_ScenarioBehaviour_AbstractUserAction() {
-		return (EReference)abstractUserActionEClass.getEStructuralFeatures().get(2);
+	public EReference getBranchTransition_BranchedBehaviour_BranchTransition() {
+		return (EReference)branchTransitionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -453,8 +597,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUsageModel() {
-		return usageModelEClass;
+	public EClass getBranch() {
+		return branchEClass;
 	}
 
 	/**
@@ -462,8 +606,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUsageModel_UsageScenario_UsageModel() {
-		return (EReference)usageModelEClass.getEStructuralFeatures().get(0);
+	public EReference getBranch_BranchTransitions_Branch() {
+		return (EReference)branchEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -471,8 +615,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUsageModel_UserData_UsageModel() {
-		return (EReference)usageModelEClass.getEStructuralFeatures().get(1);
+	public EClass getLoop() {
+		return loopEClass;
 	}
 
 	/**
@@ -480,8 +624,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUserData() {
-		return userDataEClass;
+	public EReference getLoop_LoopIteration_Loop() {
+		return (EReference)loopEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -489,26 +633,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUserData_UserDataParameterUsages_UserData() {
-		return (EReference)userDataEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUserData_AssemblyContext_userData() {
-		return (EReference)userDataEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUserData_UsageModel_UserData() {
-		return (EReference)userDataEClass.getEStructuralFeatures().get(1);
+	public EReference getLoop_BodyBehaviour_Loop() {
+		return (EReference)loopEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -552,8 +678,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLoop() {
-		return loopEClass;
+	public EClass getDelay() {
+		return delayEClass;
 	}
 
 	/**
@@ -561,62 +687,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLoop_BodyBehaviour_Loop() {
-		return (EReference)loopEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getLoop_LoopIteration_Loop() {
-		return (EReference)loopEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEntryLevelSystemCall() {
-		return entryLevelSystemCallEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall() {
-		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall() {
-		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEntryLevelSystemCall_Signature_EntryLevelSystemCall() {
-		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall() {
-		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(2);
+	public EReference getDelay_TimeSpecification_Delay() {
+		return (EReference)delayEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -644,78 +716,6 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 */
 	public EReference getClosedWorkload_ThinkTime_ClosedWorkload() {
 		return (EReference)closedWorkloadEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBranch() {
-		return branchEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBranch_BranchTransitions_Branch() {
-		return (EReference)branchEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBranchTransition() {
-		return branchTransitionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBranchTransition_BranchProbability() {
-		return (EAttribute)branchTransitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBranchTransition_Branch_BranchTransition() {
-		return (EReference)branchTransitionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBranchTransition_BranchedBehaviour_BranchTransition() {
-		return (EReference)branchTransitionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDelay() {
-		return delayEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDelay_TimeSpecification_Delay() {
-		return (EReference)delayEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -757,7 +757,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		userDataEClass = createEClass(USER_DATA);
 		createEReference(userDataEClass, USER_DATA__ASSEMBLY_CONTEXT_USER_DATA);
 		createEReference(userDataEClass, USER_DATA__USAGE_MODEL_USER_DATA);
-		createEReference(userDataEClass, USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA);
+		createEReference(userDataEClass, USER_DATA__USER_DATA_VARIABLE_SETTERS_USER_DATA);
 
 		usageModelEClass = createEClass(USAGE_MODEL);
 		createEReference(usageModelEClass, USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL);
@@ -765,9 +765,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
 		entryLevelSystemCallEClass = createEClass(ENTRY_LEVEL_SYSTEM_CALL);
 		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL);
-		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL);
-		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
-		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
+		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__OPERATION_SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL);
+		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_VARIABLE_SETTERS_ENTRY_LEVEL_SYSTEM_CALL);
+		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__INPUT_VARIABLE_SETTERS_ENTRY_LEVEL_SYSTEM_CALL);
 
 		abstractUserActionEClass = createEClass(ABSTRACT_USER_ACTION);
 		createEReference(abstractUserActionEClass, ABSTRACT_USER_ACTION__SUCCESSOR);
@@ -866,17 +866,17 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		initEClass(userDataEClass, UserData.class, "UserData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUserData_AssemblyContext_userData(), theCompositionPackage.getAssemblyContext(), null, "assemblyContext_userData", null, 1, 1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getUserData_UsageModel_UserData(), this.getUsageModel(), this.getUsageModel_UserData_UsageModel(), "usageModel_UserData", null, 1, 1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getUserData_UserDataParameterUsages_UserData(), theParameterPackage.getVariableUsage(), theParameterPackage.getVariableUsage_UserData_VariableUsage(), "userDataParameterUsages_UserData", null, 0, -1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getUserData_UserDataVariableSetters__UserData(), theParameterPackage.getVariableSetter(), theParameterPackage.getVariableSetter_UserData__VariableSetter(), "userDataVariableSetters__UserData", null, 0, -1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(usageModelEClass, UsageModel.class, "UsageModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUsageModel_UsageScenario_UsageModel(), this.getUsageScenario(), this.getUsageScenario_UsageModel_UsageScenario(), "usageScenario_UsageModel", null, 0, -1, UsageModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getUsageModel_UserData_UsageModel(), this.getUserData(), this.getUserData_UsageModel_UserData(), "userData_UsageModel", null, 0, -1, UsageModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(entryLevelSystemCallEClass, EntryLevelSystemCall.class, "EntryLevelSystemCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall(), theRepositoryPackage.getProvidedRole(), null, "providedRole_EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getEntryLevelSystemCall_Signature_EntryLevelSystemCall(), theRepositoryPackage.getSignature(), null, "signature_EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall(), theParameterPackage.getVariableUsage(), theParameterPackage.getVariableUsage_EntryLevelSystemCall_OutputParameterUsage(), "outputParameterUsages_EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall(), theParameterPackage.getVariableUsage(), theParameterPackage.getVariableUsage_EntryLevelSystemCall_VariableUsage(), "inputParameterUsages_EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall(), theRepositoryPackage.getOperationProvidedRole(), null, "providedRole_EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getEntryLevelSystemCall_OperationSignature__EntryLevelSystemCall(), theRepositoryPackage.getOperationSignature(), null, "operationSignature__EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getEntryLevelSystemCall_OutputVariableSetters__EntryLevelSystemCall(), theParameterPackage.getVariableSetter(), theParameterPackage.getVariableSetter_EntryLevelSystemCall__OutputVariableSetter(), "outputVariableSetters__EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getEntryLevelSystemCall_InputVariableSetters__EntryLevelSystemCall(), theParameterPackage.getVariableSetter(), theParameterPackage.getVariableSetter_EntryLevelSystemCall__InputVariableSetter(), "inputVariableSetters__EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(abstractUserActionEClass, AbstractUserAction.class, "AbstractUserAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAbstractUserAction_Successor(), this.getAbstractUserAction(), this.getAbstractUserAction_Predecessor(), "successor", null, 0, 1, AbstractUserAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -934,7 +934,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(loopEClass, Loop.class, "Loop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLoop_LoopIteration_Loop(), theCorePackage.getPCMRandomVariable(), null, "loopIteration_Loop", null, 1, 1, Loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLoop_LoopIteration_Loop(), theCorePackage.getPCMRandomVariable(), theCorePackage.getPCMRandomVariable_Loop_LoopIteration(), "loopIteration_Loop", null, 1, 1, Loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getLoop_BodyBehaviour_Loop(), this.getScenarioBehaviour(), this.getScenarioBehaviour_Loop_ScenarioBehaviour(), "bodyBehaviour_Loop", null, 1, 1, Loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(stopEClass, Stop.class, "Stop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -972,7 +972,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(delayEClass, Delay.class, "Delay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDelay_TimeSpecification_Delay(), theCorePackage.getPCMRandomVariable(), null, "timeSpecification_Delay", null, 1, 1, Delay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDelay_TimeSpecification_Delay(), theCorePackage.getPCMRandomVariable(), theCorePackage.getPCMRandomVariable_Delay_TimeSpecification(), "timeSpecification_Delay", null, 1, 1, Delay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(closedWorkloadEClass, ClosedWorkload.class, "ClosedWorkload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getClosedWorkload_Population(), ecorePackage.getEInt(), "population", null, 1, 1, ClosedWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

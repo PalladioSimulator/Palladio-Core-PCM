@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -38,34 +38,6 @@ public interface ResourceRequiredDelegationConnector extends EObject {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>Parent Structure Resource Required Delegation Connector</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure <em>Resource Required Delegation Connectors Composed Structure</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent Structure Resource Required Delegation Connector</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent Structure Resource Required Delegation Connector</em>' container reference.
-	 * @see #setParentStructure_ResourceRequiredDelegationConnector(ComposedStructure)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector()
-	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure
-	 * @model opposite="resourceRequiredDelegationConnectors_ComposedStructure" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
-	ComposedStructure getParentStructure_ResourceRequiredDelegationConnector();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector <em>Parent Structure Resource Required Delegation Connector</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent Structure Resource Required Delegation Connector</em>' container reference.
-	 * @see #getParentStructure_ResourceRequiredDelegationConnector()
-	 * @generated
-	 */
-	void setParentStructure_ResourceRequiredDelegationConnector(ComposedStructure value);
 
 	/**
 	 * Returns the value of the '<em><b>Inner Resource Required Role Resource Required Delegation Connector</b></em>' reference.
@@ -118,5 +90,33 @@ public interface ResourceRequiredDelegationConnector extends EObject {
 	 * @generated
 	 */
 	void setOuterResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent Structure Resource Required Delegation Connector</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure <em>Resource Required Delegation Connectors Composed Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent Structure Resource Required Delegation Connector</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent Structure Resource Required Delegation Connector</em>' container reference.
+	 * @see #setParentStructure_ResourceRequiredDelegationConnector(ComposedStructure)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector()
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure
+	 * @model opposite="resourceRequiredDelegationConnectors_ComposedStructure" required="true" transient="false" ordered="false"
+	 * @generated
+	 */
+	ComposedStructure getParentStructure_ResourceRequiredDelegationConnector();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector <em>Parent Structure Resource Required Delegation Connector</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent Structure Resource Required Delegation Connector</em>' container reference.
+	 * @see #getParentStructure_ResourceRequiredDelegationConnector()
+	 * @generated
+	 */
+	void setParentStructure_ResourceRequiredDelegationConnector(ComposedStructure value);
 
 } // ResourceRequiredDelegationConnector

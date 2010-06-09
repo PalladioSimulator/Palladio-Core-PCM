@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -22,6 +22,7 @@ public interface CompositionFactory extends EFactory {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
@@ -40,13 +41,13 @@ public interface CompositionFactory extends EFactory {
 	ProvidedDelegationConnector createProvidedDelegationConnector();
 
 	/**
-	 * Returns a new object of class '<em>Assembly Context</em>'.
+	 * Returns a new object of class '<em>Assembly Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assembly Context</em>'.
+	 * @return a new object of class '<em>Assembly Connector</em>'.
 	 * @generated
 	 */
-	AssemblyContext createAssemblyContext();
+	AssemblyConnector createAssemblyConnector();
 
 	/**
 	 * Returns a new object of class '<em>Required Delegation Connector</em>'.
@@ -58,15 +59,6 @@ public interface CompositionFactory extends EFactory {
 	RequiredDelegationConnector createRequiredDelegationConnector();
 
 	/**
-	 * Returns a new object of class '<em>Assembly Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assembly Connector</em>'.
-	 * @generated
-	 */
-	AssemblyConnector createAssemblyConnector();
-
-	/**
 	 * Returns a new object of class '<em>Resource Required Delegation Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,6 +66,42 @@ public interface CompositionFactory extends EFactory {
 	 * @generated
 	 */
 	ResourceRequiredDelegationConnector createResourceRequiredDelegationConnector();
+
+	/**
+	 * Returns a new object of class '<em>Assembly Event Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Assembly Event Connector</em>'.
+	 * @generated
+	 */
+	AssemblyEventConnector createAssemblyEventConnector();
+
+	/**
+	 * Returns a new object of class '<em>Sink Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sink Delegation Connector</em>'.
+	 * @generated
+	 */
+	SinkDelegationConnector createSinkDelegationConnector();
+
+	/**
+	 * Returns a new object of class '<em>Source Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Source Delegation Connector</em>'.
+	 * @generated
+	 */
+	SourceDelegationConnector createSourceDelegationConnector();
+
+	/**
+	 * Returns a new object of class '<em>Assembly Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Assembly Context</em>'.
+	 * @generated
+	 */
+	AssemblyContext createAssemblyContext();
 
 	/**
 	 * Returns the package supported by this factory.

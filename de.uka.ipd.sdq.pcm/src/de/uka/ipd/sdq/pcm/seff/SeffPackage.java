@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -282,26 +282,6 @@ public interface SeffPackage extends EPackage {
 	int STOP_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl <em>Start Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getStartAction()
-	 * @generated
-	 */
-	int START_ACTION = 7;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl <em>Resource Demanding SEFF</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getResourceDemandingSEFF()
-	 * @generated
-	 */
-	int RESOURCE_DEMANDING_SEFF = 9;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingBehaviourImpl <em>Resource Demanding Behaviour</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -330,166 +310,6 @@ public interface SeffPackage extends EPackage {
 	int RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ReleaseActionImpl <em>Release Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.ReleaseActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getReleaseAction()
-	 * @generated
-	 */
-	int RELEASE_ACTION = 11;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl <em>Abstract Loop Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractLoopAction()
-	 * @generated
-	 */
-	int ABSTRACT_LOOP_ACTION = 4;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl <em>Loop Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getLoopAction()
-	 * @generated
-	 */
-	int LOOP_ACTION = 12;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl <em>Internal Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getInternalAction()
-	 * @generated
-	 */
-	int INTERNAL_ACTION = 13;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ForkActionImpl <em>Fork Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.ForkActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getForkAction()
-	 * @generated
-	 */
-	int FORK_ACTION = 15;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ForkedBehaviourImpl <em>Forked Behaviour</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.ForkedBehaviourImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getForkedBehaviour()
-	 * @generated
-	 */
-	int FORKED_BEHAVIOUR = 16;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl <em>Synchronisation Point</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getSynchronisationPoint()
-	 * @generated
-	 */
-	int SYNCHRONISATION_POINT = 17;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl <em>External Call Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getExternalCallAction()
-	 * @generated
-	 */
-	int EXTERNAL_CALL_ACTION = 18;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl <em>Abstract Branch Transition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractBranchTransition()
-	 * @generated
-	 */
-	int ABSTRACT_BRANCH_TRANSITION = 5;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl <em>Probabilistic Branch Transition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getProbabilisticBranchTransition()
-	 * @generated
-	 */
-	int PROBABILISTIC_BRANCH_TRANSITION = 20;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchActionImpl <em>Branch Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.BranchActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchAction()
-	 * @generated
-	 */
-	int BRANCH_ACTION = 6;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AcquireActionImpl <em>Acquire Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.AcquireActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAcquireAction()
-	 * @generated
-	 */
-	int ACQUIRE_ACTION = 21;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.CollectionIteratorActionImpl <em>Collection Iterator Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.CollectionIteratorActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getCollectionIteratorAction()
-	 * @generated
-	 */
-	int COLLECTION_ITERATOR_ACTION = 22;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.GuardedBranchTransitionImpl <em>Guarded Branch Transition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.GuardedBranchTransitionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getGuardedBranchTransition()
-	 * @generated
-	 */
-	int GUARDED_BRANCH_TRANSITION = 23;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl <em>Set Variable Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getSetVariableAction()
-	 * @generated
-	 */
-	int SET_VARIABLE_ACTION = 24;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl <em>Service Effect Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
-	 * @generated
-	 */
-	int SERVICE_EFFECT_SPECIFICATION = 8;
-
-	/**
 	 * The feature id for the '<em><b>Steps Behaviour</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -508,14 +328,14 @@ public interface SeffPackage extends EPackage {
 	int RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingInternalBehaviourImpl <em>Resource Demanding Internal Behaviour</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl <em>Abstract Loop Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingInternalBehaviourImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getResourceDemandingInternalBehaviour()
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractLoopAction()
 	 * @generated
 	 */
-	int RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR = 10;
+	int ABSTRACT_LOOP_ACTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -590,34 +410,14 @@ public interface SeffPackage extends EPackage {
 	int ABSTRACT_LOOP_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.FailureOccurrenceDescriptionImpl <em>Failure Occurrence Description</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl <em>Abstract Branch Transition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.FailureOccurrenceDescriptionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getFailureOccurrenceDescription()
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractBranchTransition()
 	 * @generated
 	 */
-	int FAILURE_OCCURRENCE_DESCRIPTION = 14;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl <em>Call Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getCallAction()
-	 * @generated
-	 */
-	int CALL_ACTION = 28;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.FailureHandlingEntityImpl <em>Failure Handling Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.FailureHandlingEntityImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getFailureHandlingEntity()
-	 * @generated
-	 */
-	int FAILURE_HANDLING_ENTITY = 19;
+	int ABSTRACT_BRANCH_TRANSITION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -663,6 +463,16 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchActionImpl <em>Branch Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.BranchActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchAction()
+	 * @generated
+	 */
+	int BRANCH_ACTION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -737,6 +547,16 @@ public interface SeffPackage extends EPackage {
 	int BRANCH_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl <em>Start Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getStartAction()
+	 * @generated
+	 */
+	int START_ACTION = 7;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -800,34 +620,14 @@ public interface SeffPackage extends EPackage {
 	int START_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl <em>Internal Call Action</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl <em>Service Effect Specification</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getInternalCallAction()
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
 	 * @generated
 	 */
-	int INTERNAL_CALL_ACTION = 25;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.RecoveryBlockActionImpl <em>Recovery Block Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.RecoveryBlockActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getRecoveryBlockAction()
-	 * @generated
-	 */
-	int RECOVERY_BLOCK_ACTION = 26;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.RecoveryBlockAlternativeBehaviourImpl <em>Recovery Block Alternative Behaviour</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.RecoveryBlockAlternativeBehaviourImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getRecoveryBlockAlternativeBehaviour()
-	 * @generated
-	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR = 27;
+	int SERVICE_EFFECT_SPECIFICATION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
@@ -864,6 +664,16 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVICE_EFFECT_SPECIFICATION_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl <em>Resource Demanding SEFF</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getResourceDemandingSEFF()
+	 * @generated
+	 */
+	int RESOURCE_DEMANDING_SEFF = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -947,6 +757,16 @@ public interface SeffPackage extends EPackage {
 	int RESOURCE_DEMANDING_SEFF_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 7;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingInternalBehaviourImpl <em>Resource Demanding Internal Behaviour</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingInternalBehaviourImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getResourceDemandingInternalBehaviour()
+	 * @generated
+	 */
+	int RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR = 10;
+
+	/**
 	 * The feature id for the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -990,6 +810,16 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR_FEATURE_COUNT = RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ReleaseActionImpl <em>Release Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.ReleaseActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getReleaseAction()
+	 * @generated
+	 */
+	int RELEASE_ACTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1062,6 +892,16 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int RELEASE_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl <em>Loop Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getLoopAction()
+	 * @generated
+	 */
+	int LOOP_ACTION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1145,6 +985,16 @@ public interface SeffPackage extends EPackage {
 	int LOOP_ACTION_FEATURE_COUNT = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl <em>Internal Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getInternalAction()
+	 * @generated
+	 */
+	int INTERNAL_ACTION = 13;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1217,6 +1067,16 @@ public interface SeffPackage extends EPackage {
 	int INTERNAL_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.FailureOccurrenceDescriptionImpl <em>Failure Occurrence Description</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.FailureOccurrenceDescriptionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getFailureOccurrenceDescription()
+	 * @generated
+	 */
+	int FAILURE_OCCURRENCE_DESCRIPTION = 14;
+
+	/**
 	 * The feature id for the '<em><b>Failure Probability</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1235,13 +1095,13 @@ public interface SeffPackage extends EPackage {
 	int FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Internal Action Failure Occurence Description</b></em>' container reference.
+	 * The feature id for the '<em><b>Failure Occurence Descriptions</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION = 2;
+	int FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Failure Occurrence Description</em>' class.
@@ -1251,6 +1111,16 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ForkActionImpl <em>Fork Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.ForkActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getForkAction()
+	 * @generated
+	 */
+	int FORK_ACTION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1334,6 +1204,16 @@ public interface SeffPackage extends EPackage {
 	int FORK_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ForkedBehaviourImpl <em>Forked Behaviour</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.ForkedBehaviourImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getForkedBehaviour()
+	 * @generated
+	 */
+	int FORKED_BEHAVIOUR = 16;
+
+	/**
 	 * The feature id for the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1388,13 +1268,23 @@ public interface SeffPackage extends EPackage {
 	int FORKED_BEHAVIOUR_FEATURE_COUNT = RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Output Parameter Usage Synchronisation Point</b></em>' containment reference list.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl <em>Synchronisation Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getSynchronisationPoint()
+	 * @generated
+	 */
+	int SYNCHRONISATION_POINT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Output Variable Setters Synchronisation Point</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT = 0;
+	int SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Fork Action Synchronisation Point</b></em>' container reference.
@@ -1422,6 +1312,16 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int SYNCHRONISATION_POINT_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl <em>External Call Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getExternalCallAction()
+	 * @generated
+	 */
+	int EXTERNAL_CALL_ACTION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1469,31 +1369,31 @@ public interface SeffPackage extends EPackage {
 	int EXTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Output Variable Usages External Call Action</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Variable Setter Inputs Call Action</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 0;
+	int EXTERNAL_CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Input Parameter Usages External Call Action</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Variable Setter Returns Call Return Action</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 1;
+	int EXTERNAL_CALL_ACTION__VARIABLE_SETTER_RETURNS_CALL_RETURN_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Failuretype</b></em>' reference list.
+	 * The feature id for the '<em><b>Failure Types</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CALL_ACTION__FAILURETYPE = ABSTRACT_ACTION_FEATURE_COUNT + 2;
+	int EXTERNAL_CALL_ACTION__FAILURE_TYPES = ABSTRACT_ACTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Called Service External Service</b></em>' reference.
@@ -1532,13 +1432,88 @@ public interface SeffPackage extends EPackage {
 	int EXTERNAL_CALL_ACTION_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Failuretype</b></em>' reference list.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl <em>Call Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getCallAction()
+	 * @generated
+	 */
+	int CALL_ACTION = 30;
+
+	/**
+	 * The feature id for the '<em><b>Variable Setter Inputs Call Action</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FAILURE_HANDLING_ENTITY__FAILURETYPE = 0;
+	int CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Call Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_ACTION_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.CallReturnActionImpl <em>Call Return Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.CallReturnActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getCallReturnAction()
+	 * @generated
+	 */
+	int CALL_RETURN_ACTION = 19;
+
+	/**
+	 * The feature id for the '<em><b>Variable Setter Inputs Call Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_RETURN_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION = CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Variable Setter Returns Call Return Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_RETURN_ACTION__VARIABLE_SETTER_RETURNS_CALL_RETURN_ACTION = CALL_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Call Return Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_RETURN_ACTION_FEATURE_COUNT = CALL_ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.FailureHandlingEntityImpl <em>Failure Handling Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.FailureHandlingEntityImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getFailureHandlingEntity()
+	 * @generated
+	 */
+	int FAILURE_HANDLING_ENTITY = 20;
+
+	/**
+	 * The feature id for the '<em><b>Failure Types</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILURE_HANDLING_ENTITY__FAILURE_TYPES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Failure Handling Entity</em>' class.
@@ -1548,6 +1523,16 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int FAILURE_HANDLING_ENTITY_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl <em>Probabilistic Branch Transition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getProbabilisticBranchTransition()
+	 * @generated
+	 */
+	int PROBABILISTIC_BRANCH_TRANSITION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1602,6 +1587,16 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROBABILISTIC_BRANCH_TRANSITION_FEATURE_COUNT = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AcquireActionImpl <em>Acquire Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.AcquireActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAcquireAction()
+	 * @generated
+	 */
+	int ACQUIRE_ACTION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1676,6 +1671,16 @@ public interface SeffPackage extends EPackage {
 	int ACQUIRE_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.CollectionIteratorActionImpl <em>Collection Iterator Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.CollectionIteratorActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getCollectionIteratorAction()
+	 * @generated
+	 */
+	int COLLECTION_ITERATOR_ACTION = 23;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1739,13 +1744,13 @@ public interface SeffPackage extends EPackage {
 	int COLLECTION_ITERATOR_ACTION__BODY_BEHAVIOUR_LOOP = ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Collection Iterator Action</b></em>' reference.
+	 * The feature id for the '<em><b>Variable Collection Iterator Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 0;
+	int COLLECTION_ITERATOR_ACTION__VARIABLE_COLLECTION_ITERATOR_ACTION = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Collection Iterator Action</em>' class.
@@ -1755,6 +1760,16 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLLECTION_ITERATOR_ACTION_FEATURE_COUNT = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.GuardedBranchTransitionImpl <em>Guarded Branch Transition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.GuardedBranchTransitionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getGuardedBranchTransition()
+	 * @generated
+	 */
+	int GUARDED_BRANCH_TRANSITION = 24;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1809,6 +1824,16 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int GUARDED_BRANCH_TRANSITION_FEATURE_COUNT = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl <em>Set Variable Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getSetVariableAction()
+	 * @generated
+	 */
+	int SET_VARIABLE_ACTION = 25;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1883,49 +1908,23 @@ public interface SeffPackage extends EPackage {
 	int SET_VARIABLE_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Output Variable Usages External Call Action</b></em>' containment reference list.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl <em>Internal Call Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getInternalCallAction()
 	 * @generated
-	 * @ordered
 	 */
-	int CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION = 0;
+	int INTERNAL_CALL_ACTION = 26;
 
 	/**
-	 * The feature id for the '<em><b>Input Parameter Usages External Call Action</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Variable Setter Inputs Call Action</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION = 1;
-
-	/**
-	 * The number of structural features of the '<em>Call Action</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CALL_ACTION_FEATURE_COUNT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Output Variable Usages External Call Action</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION = CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION;
-
-	/**
-	 * The feature id for the '<em><b>Input Parameter Usages External Call Action</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERNAL_CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION = CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION;
+	int INTERNAL_CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION = CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2000,6 +1999,16 @@ public interface SeffPackage extends EPackage {
 	int INTERNAL_CALL_ACTION_FEATURE_COUNT = CALL_ACTION_FEATURE_COUNT + 7;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.RecoveryBlockActionImpl <em>Recovery Block Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.RecoveryBlockActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getRecoveryBlockAction()
+	 * @generated
+	 */
+	int RECOVERY_BLOCK_ACTION = 27;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2072,13 +2081,23 @@ public interface SeffPackage extends EPackage {
 	int RECOVERY_BLOCK_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Failuretype</b></em>' reference list.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.RecoveryBlockAlternativeBehaviourImpl <em>Recovery Block Alternative Behaviour</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.RecoveryBlockAlternativeBehaviourImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getRecoveryBlockAlternativeBehaviour()
+	 * @generated
+	 */
+	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR = 28;
+
+	/**
+	 * The feature id for the '<em><b>Failure Types</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__FAILURETYPE = FAILURE_HANDLING_ENTITY__FAILURETYPE;
+	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__FAILURE_TYPES = FAILURE_HANDLING_ENTITY__FAILURE_TYPES;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>' container reference.
@@ -2133,6 +2152,97 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR_FEATURE_COUNT = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 5;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.EmitEventActionImpl <em>Emit Event Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.EmitEventActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getEmitEventAction()
+	 * @generated
+	 */
+	int EMIT_EVENT_ACTION = 29;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMIT_EVENT_ACTION__ID = ABSTRACT_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMIT_EVENT_ACTION__ENTITY_NAME = ABSTRACT_ACTION__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMIT_EVENT_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMIT_EVENT_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMIT_EVENT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Variable Setter Inputs Call Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMIT_EVENT_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Event Type Emit Event Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Source Role Emit Event Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Emit Event Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMIT_EVENT_ACTION_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 3;
 
 
 	/**
@@ -2210,37 +2320,6 @@ public interface SeffPackage extends EPackage {
 	EReference getAbstractAction_ResourceDemandingBehaviour_AbstractAction();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.StartAction <em>Start Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Start Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.StartAction
-	 * @generated
-	 */
-	EClass getStartAction();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF <em>Resource Demanding SEFF</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Demanding SEFF</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
-	 * @generated
-	 */
-	EClass getResourceDemandingSEFF();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours <em>Resource Demanding Internal Behaviours</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Resource Demanding Internal Behaviours</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours()
-	 * @see #getResourceDemandingSEFF()
-	 * @generated
-	 */
-	EReference getResourceDemandingSEFF_ResourceDemandingInternalBehaviours();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour <em>Resource Demanding Behaviour</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2282,6 +2361,154 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResourceDemandingBehaviour_Steps_Behaviour();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction <em>Abstract Loop Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Loop Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractLoopAction
+	 * @generated
+	 */
+	EClass getAbstractLoopAction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Body Behaviour Loop</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop()
+	 * @see #getAbstractLoopAction()
+	 * @generated
+	 */
+	EReference getAbstractLoopAction_BodyBehaviour_Loop();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition <em>Abstract Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition
+	 * @generated
+	 */
+	EClass getAbstractBranchTransition();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition <em>Branch Action Abstract Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Branch Action Abstract Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition()
+	 * @see #getAbstractBranchTransition()
+	 * @generated
+	 */
+	EReference getAbstractBranchTransition_BranchAction_AbstractBranchTransition();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition <em>Branch Behaviour Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Branch Behaviour Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition()
+	 * @see #getAbstractBranchTransition()
+	 * @generated
+	 */
+	EReference getAbstractBranchTransition_BranchBehaviour_BranchTransition();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.BranchAction <em>Branch Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Branch Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.BranchAction
+	 * @generated
+	 */
+	EClass getBranchAction();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.BranchAction#getBranches_Branch <em>Branches Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Branches Branch</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.BranchAction#getBranches_Branch()
+	 * @see #getBranchAction()
+	 * @generated
+	 */
+	EReference getBranchAction_Branches_Branch();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.StartAction <em>Start Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Start Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.StartAction
+	 * @generated
+	 */
+	EClass getStartAction();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification <em>Service Effect Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Service Effect Specification</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
+	 * @generated
+	 */
+	EClass getServiceEffectSpecification();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getSeffTypeID <em>Seff Type ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Seff Type ID</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getSeffTypeID()
+	 * @see #getServiceEffectSpecification()
+	 * @generated
+	 */
+	EAttribute getServiceEffectSpecification_SeffTypeID();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF <em>Described Service SEFF</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Described Service SEFF</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF()
+	 * @see #getServiceEffectSpecification()
+	 * @generated
+	 */
+	EReference getServiceEffectSpecification_DescribedService__SEFF();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification <em>Basic Component Service Effect Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Basic Component Service Effect Specification</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification()
+	 * @see #getServiceEffectSpecification()
+	 * @generated
+	 */
+	EReference getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF <em>Resource Demanding SEFF</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Demanding SEFF</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
+	 * @generated
+	 */
+	EClass getResourceDemandingSEFF();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours <em>Resource Demanding Internal Behaviours</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resource Demanding Internal Behaviours</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours()
+	 * @see #getResourceDemandingSEFF()
+	 * @generated
+	 */
+	EReference getResourceDemandingSEFF_ResourceDemandingInternalBehaviours();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour <em>Resource Demanding Internal Behaviour</em>}'.
@@ -2347,27 +2574,6 @@ public interface SeffPackage extends EPackage {
 	EReference getLoopAction_IterationCount_LoopAction();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction <em>Abstract Loop Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Abstract Loop Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractLoopAction
-	 * @generated
-	 */
-	EClass getAbstractLoopAction();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Body Behaviour Loop</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop()
-	 * @see #getAbstractLoopAction()
-	 * @generated
-	 */
-	EReference getAbstractLoopAction_BodyBehaviour_Loop();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.InternalAction <em>Internal Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2399,6 +2605,17 @@ public interface SeffPackage extends EPackage {
 	EClass getFailureOccurrenceDescription();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureProbability <em>Failure Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Failure Probability</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureProbability()
+	 * @see #getFailureOccurrenceDescription()
+	 * @generated
+	 */
+	EAttribute getFailureOccurrenceDescription_FailureProbability();
+
+	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureType <em>Failure Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2410,26 +2627,15 @@ public interface SeffPackage extends EPackage {
 	EReference getFailureOccurrenceDescription_FailureType();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getInternalAction_FailureOccurenceDescription <em>Internal Action Failure Occurence Description</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureOccurenceDescriptions <em>Failure Occurence Descriptions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Internal Action Failure Occurence Description</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getInternalAction_FailureOccurenceDescription()
+	 * @return the meta object for the container reference '<em>Failure Occurence Descriptions</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureOccurenceDescriptions()
 	 * @see #getFailureOccurrenceDescription()
 	 * @generated
 	 */
-	EReference getFailureOccurrenceDescription_InternalAction_FailureOccurenceDescription();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureProbability <em>Failure Probability</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Failure Probability</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureProbability()
-	 * @see #getFailureOccurrenceDescription()
-	 * @generated
-	 */
-	EAttribute getFailureOccurrenceDescription_FailureProbability();
+	EReference getFailureOccurrenceDescription_FailureOccurenceDescriptions();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ForkAction <em>Fork Action</em>}'.
@@ -2506,26 +2712,15 @@ public interface SeffPackage extends EPackage {
 	EClass getSynchronisationPoint();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint <em>Synchronous Forked Behaviours Synchronisation Point</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getOutputVariableSetters__SynchronisationPoint <em>Output Variable Setters Synchronisation Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Synchronous Forked Behaviours Synchronisation Point</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint()
+	 * @return the meta object for the containment reference list '<em>Output Variable Setters Synchronisation Point</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getOutputVariableSetters__SynchronisationPoint()
 	 * @see #getSynchronisationPoint()
 	 * @generated
 	 */
-	EReference getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint <em>Output Parameter Usage Synchronisation Point</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Output Parameter Usage Synchronisation Point</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint()
-	 * @see #getSynchronisationPoint()
-	 * @generated
-	 */
-	EReference getSynchronisationPoint_OutputParameterUsage_SynchronisationPoint();
+	EReference getSynchronisationPoint_OutputVariableSetters__SynchronisationPoint();
 
 	/**
 	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint <em>Fork Action Synchronisation Point</em>}'.
@@ -2537,6 +2732,17 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSynchronisationPoint_ForkAction_SynchronisationPoint();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint <em>Synchronous Forked Behaviours Synchronisation Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Synchronous Forked Behaviours Synchronisation Point</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint()
+	 * @see #getSynchronisationPoint()
+	 * @generated
+	 */
+	EReference getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction <em>External Call Action</em>}'.
@@ -2582,36 +2788,25 @@ public interface SeffPackage extends EPackage {
 	EAttribute getExternalCallAction_RetryCount();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.CallAction <em>Call Action</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.CallReturnAction <em>Call Return Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Call Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.CallAction
+	 * @return the meta object for class '<em>Call Return Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.CallReturnAction
 	 * @generated
 	 */
-	EClass getCallAction();
+	EClass getCallReturnAction();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.CallAction#getOutputVariableUsages_ExternalCallAction <em>Output Variable Usages External Call Action</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.CallReturnAction#getVariableSetterReturns__CallReturnAction <em>Variable Setter Returns Call Return Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Output Variable Usages External Call Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.CallAction#getOutputVariableUsages_ExternalCallAction()
-	 * @see #getCallAction()
+	 * @return the meta object for the containment reference list '<em>Variable Setter Returns Call Return Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.CallReturnAction#getVariableSetterReturns__CallReturnAction()
+	 * @see #getCallReturnAction()
 	 * @generated
 	 */
-	EReference getCallAction_OutputVariableUsages_ExternalCallAction();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.CallAction#getInputParameterUsages_ExternalCallAction <em>Input Parameter Usages External Call Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Input Parameter Usages External Call Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.CallAction#getInputParameterUsages_ExternalCallAction()
-	 * @see #getCallAction()
-	 * @generated
-	 */
-	EReference getCallAction_InputParameterUsages_ExternalCallAction();
+	EReference getCallReturnAction_VariableSetterReturns__CallReturnAction();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.FailureHandlingEntity <em>Failure Handling Entity</em>}'.
@@ -2624,15 +2819,15 @@ public interface SeffPackage extends EPackage {
 	EClass getFailureHandlingEntity();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.seff.FailureHandlingEntity#getFailuretype <em>Failuretype</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.seff.FailureHandlingEntity#getFailureTypes <em>Failure Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Failuretype</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.FailureHandlingEntity#getFailuretype()
+	 * @return the meta object for the reference list '<em>Failure Types</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.FailureHandlingEntity#getFailureTypes()
 	 * @see #getFailureHandlingEntity()
 	 * @generated
 	 */
-	EReference getFailureHandlingEntity_Failuretype();
+	EReference getFailureHandlingEntity_FailureTypes();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition <em>Probabilistic Branch Transition</em>}'.
@@ -2654,59 +2849,6 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProbabilisticBranchTransition_BranchProbability();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition <em>Abstract Branch Transition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Abstract Branch Transition</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition
-	 * @generated
-	 */
-	EClass getAbstractBranchTransition();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition <em>Branch Action Abstract Branch Transition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Branch Action Abstract Branch Transition</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition()
-	 * @see #getAbstractBranchTransition()
-	 * @generated
-	 */
-	EReference getAbstractBranchTransition_BranchAction_AbstractBranchTransition();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition <em>Branch Behaviour Branch Transition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Branch Behaviour Branch Transition</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition()
-	 * @see #getAbstractBranchTransition()
-	 * @generated
-	 */
-	EReference getAbstractBranchTransition_BranchBehaviour_BranchTransition();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.BranchAction <em>Branch Action</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Branch Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.BranchAction
-	 * @generated
-	 */
-	EClass getBranchAction();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.BranchAction#getBranches_Branch <em>Branches Branch</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Branches Branch</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.BranchAction#getBranches_Branch()
-	 * @see #getBranchAction()
-	 * @generated
-	 */
-	EReference getBranchAction_Branches_Branch();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.AcquireAction <em>Acquire Action</em>}'.
@@ -2740,15 +2882,15 @@ public interface SeffPackage extends EPackage {
 	EClass getCollectionIteratorAction();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction#getParameter_CollectionIteratorAction <em>Parameter Collection Iterator Action</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction#getVariable__CollectionIteratorAction <em>Variable Collection Iterator Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parameter Collection Iterator Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction#getParameter_CollectionIteratorAction()
+	 * @return the meta object for the reference '<em>Variable Collection Iterator Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction#getVariable__CollectionIteratorAction()
 	 * @see #getCollectionIteratorAction()
 	 * @generated
 	 */
-	EReference getCollectionIteratorAction_Parameter_CollectionIteratorAction();
+	EReference getCollectionIteratorAction_Variable__CollectionIteratorAction();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition <em>Guarded Branch Transition</em>}'.
@@ -2867,47 +3009,57 @@ public interface SeffPackage extends EPackage {
 	EReference getRecoveryBlockAlternativeBehaviour_RecoveryBlockAction_RecoveryBlockAlternativeBehaviour();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification <em>Service Effect Specification</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.EmitEventAction <em>Emit Event Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Service Effect Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
+	 * @return the meta object for class '<em>Emit Event Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.EmitEventAction
 	 * @generated
 	 */
-	EClass getServiceEffectSpecification();
+	EClass getEmitEventAction();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getSeffTypeID <em>Seff Type ID</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.EmitEventAction#getEventType__EmitEventAction <em>Event Type Emit Event Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Seff Type ID</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getSeffTypeID()
-	 * @see #getServiceEffectSpecification()
+	 * @return the meta object for the reference '<em>Event Type Emit Event Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.EmitEventAction#getEventType__EmitEventAction()
+	 * @see #getEmitEventAction()
 	 * @generated
 	 */
-	EAttribute getServiceEffectSpecification_SeffTypeID();
+	EReference getEmitEventAction_EventType__EmitEventAction();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF <em>Described Service SEFF</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.EmitEventAction#getSourceRole__EmitEventAction <em>Source Role Emit Event Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Described Service SEFF</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF()
-	 * @see #getServiceEffectSpecification()
+	 * @return the meta object for the reference '<em>Source Role Emit Event Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.EmitEventAction#getSourceRole__EmitEventAction()
+	 * @see #getEmitEventAction()
 	 * @generated
 	 */
-	EReference getServiceEffectSpecification_DescribedService__SEFF();
+	EReference getEmitEventAction_SourceRole__EmitEventAction();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification <em>Basic Component Service Effect Specification</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.CallAction <em>Call Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Basic Component Service Effect Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification()
-	 * @see #getServiceEffectSpecification()
+	 * @return the meta object for class '<em>Call Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.CallAction
 	 * @generated
 	 */
-	EReference getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification();
+	EClass getCallAction();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.CallAction#getVariableSetterInputs__CallAction <em>Variable Setter Inputs Call Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Variable Setter Inputs Call Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.CallAction#getVariableSetterInputs__CallAction()
+	 * @see #getCallAction()
+	 * @generated
+	 */
+	EReference getCallAction_VariableSetterInputs__CallAction();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2994,34 +3146,6 @@ public interface SeffPackage extends EPackage {
 		EReference ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = eINSTANCE.getAbstractAction_ResourceDemandingBehaviour_AbstractAction();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl <em>Start Action</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getStartAction()
-		 * @generated
-		 */
-		EClass START_ACTION = eINSTANCE.getStartAction();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl <em>Resource Demanding SEFF</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getResourceDemandingSEFF()
-		 * @generated
-		 */
-		EClass RESOURCE_DEMANDING_SEFF = eINSTANCE.getResourceDemandingSEFF();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Demanding Internal Behaviours</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS = eINSTANCE.getResourceDemandingSEFF_ResourceDemandingInternalBehaviours();
-
-		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingBehaviourImpl <em>Resource Demanding Behaviour</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3054,6 +3178,130 @@ public interface SeffPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR = eINSTANCE.getResourceDemandingBehaviour_Steps_Behaviour();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl <em>Abstract Loop Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractLoopAction()
+		 * @generated
+		 */
+		EClass ABSTRACT_LOOP_ACTION = eINSTANCE.getAbstractLoopAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Body Behaviour Loop</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP = eINSTANCE.getAbstractLoopAction_BodyBehaviour_Loop();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl <em>Abstract Branch Transition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractBranchTransition()
+		 * @generated
+		 */
+		EClass ABSTRACT_BRANCH_TRANSITION = eINSTANCE.getAbstractBranchTransition();
+
+		/**
+		 * The meta object literal for the '<em><b>Branch Action Abstract Branch Transition</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION = eINSTANCE.getAbstractBranchTransition_BranchAction_AbstractBranchTransition();
+
+		/**
+		 * The meta object literal for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION = eINSTANCE.getAbstractBranchTransition_BranchBehaviour_BranchTransition();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchActionImpl <em>Branch Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.BranchActionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchAction()
+		 * @generated
+		 */
+		EClass BRANCH_ACTION = eINSTANCE.getBranchAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Branches Branch</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BRANCH_ACTION__BRANCHES_BRANCH = eINSTANCE.getBranchAction_Branches_Branch();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl <em>Start Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getStartAction()
+		 * @generated
+		 */
+		EClass START_ACTION = eINSTANCE.getStartAction();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl <em>Service Effect Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
+		 * @generated
+		 */
+		EClass SERVICE_EFFECT_SPECIFICATION = eINSTANCE.getServiceEffectSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Seff Type ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID = eINSTANCE.getServiceEffectSpecification_SeffTypeID();
+
+		/**
+		 * The meta object literal for the '<em><b>Described Service SEFF</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF = eINSTANCE.getServiceEffectSpecification_DescribedService__SEFF();
+
+		/**
+		 * The meta object literal for the '<em><b>Basic Component Service Effect Specification</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION = eINSTANCE.getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl <em>Resource Demanding SEFF</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getResourceDemandingSEFF()
+		 * @generated
+		 */
+		EClass RESOURCE_DEMANDING_SEFF = eINSTANCE.getResourceDemandingSEFF();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Demanding Internal Behaviours</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS = eINSTANCE.getResourceDemandingSEFF_ResourceDemandingInternalBehaviours();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingInternalBehaviourImpl <em>Resource Demanding Internal Behaviour</em>}' class.
@@ -3110,24 +3358,6 @@ public interface SeffPackage extends EPackage {
 		EReference LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION = eINSTANCE.getLoopAction_IterationCount_LoopAction();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl <em>Abstract Loop Action</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractLoopAction()
-		 * @generated
-		 */
-		EClass ABSTRACT_LOOP_ACTION = eINSTANCE.getAbstractLoopAction();
-
-		/**
-		 * The meta object literal for the '<em><b>Body Behaviour Loop</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP = eINSTANCE.getAbstractLoopAction_BodyBehaviour_Loop();
-
-		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl <em>Internal Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3156,6 +3386,14 @@ public interface SeffPackage extends EPackage {
 		EClass FAILURE_OCCURRENCE_DESCRIPTION = eINSTANCE.getFailureOccurrenceDescription();
 
 		/**
+		 * The meta object literal for the '<em><b>Failure Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY = eINSTANCE.getFailureOccurrenceDescription_FailureProbability();
+
+		/**
 		 * The meta object literal for the '<em><b>Failure Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3164,20 +3402,12 @@ public interface SeffPackage extends EPackage {
 		EReference FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE = eINSTANCE.getFailureOccurrenceDescription_FailureType();
 
 		/**
-		 * The meta object literal for the '<em><b>Internal Action Failure Occurence Description</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Failure Occurence Descriptions</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION = eINSTANCE.getFailureOccurrenceDescription_InternalAction_FailureOccurenceDescription();
-
-		/**
-		 * The meta object literal for the '<em><b>Failure Probability</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY = eINSTANCE.getFailureOccurrenceDescription_FailureProbability();
+		EReference FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS = eINSTANCE.getFailureOccurrenceDescription_FailureOccurenceDescriptions();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ForkActionImpl <em>Fork Action</em>}' class.
@@ -3242,20 +3472,12 @@ public interface SeffPackage extends EPackage {
 		EClass SYNCHRONISATION_POINT = eINSTANCE.getSynchronisationPoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Synchronous Forked Behaviours Synchronisation Point</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Output Variable Setters Synchronisation Point</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT = eINSTANCE.getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint();
-
-		/**
-		 * The meta object literal for the '<em><b>Output Parameter Usage Synchronisation Point</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT = eINSTANCE.getSynchronisationPoint_OutputParameterUsage_SynchronisationPoint();
+		EReference SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT = eINSTANCE.getSynchronisationPoint_OutputVariableSetters__SynchronisationPoint();
 
 		/**
 		 * The meta object literal for the '<em><b>Fork Action Synchronisation Point</b></em>' container reference feature.
@@ -3264,6 +3486,14 @@ public interface SeffPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT = eINSTANCE.getSynchronisationPoint_ForkAction_SynchronisationPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Synchronous Forked Behaviours Synchronisation Point</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT = eINSTANCE.getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl <em>External Call Action</em>}' class.
@@ -3300,30 +3530,22 @@ public interface SeffPackage extends EPackage {
 		EAttribute EXTERNAL_CALL_ACTION__RETRY_COUNT = eINSTANCE.getExternalCallAction_RetryCount();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl <em>Call Action</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.CallReturnActionImpl <em>Call Return Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getCallAction()
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.CallReturnActionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getCallReturnAction()
 		 * @generated
 		 */
-		EClass CALL_ACTION = eINSTANCE.getCallAction();
+		EClass CALL_RETURN_ACTION = eINSTANCE.getCallReturnAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Output Variable Usages External Call Action</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Variable Setter Returns Call Return Action</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION = eINSTANCE.getCallAction_OutputVariableUsages_ExternalCallAction();
-
-		/**
-		 * The meta object literal for the '<em><b>Input Parameter Usages External Call Action</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION = eINSTANCE.getCallAction_InputParameterUsages_ExternalCallAction();
+		EReference CALL_RETURN_ACTION__VARIABLE_SETTER_RETURNS_CALL_RETURN_ACTION = eINSTANCE.getCallReturnAction_VariableSetterReturns__CallReturnAction();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.FailureHandlingEntityImpl <em>Failure Handling Entity</em>}' class.
@@ -3336,12 +3558,12 @@ public interface SeffPackage extends EPackage {
 		EClass FAILURE_HANDLING_ENTITY = eINSTANCE.getFailureHandlingEntity();
 
 		/**
-		 * The meta object literal for the '<em><b>Failuretype</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Failure Types</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FAILURE_HANDLING_ENTITY__FAILURETYPE = eINSTANCE.getFailureHandlingEntity_Failuretype();
+		EReference FAILURE_HANDLING_ENTITY__FAILURE_TYPES = eINSTANCE.getFailureHandlingEntity_FailureTypes();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl <em>Probabilistic Branch Transition</em>}' class.
@@ -3360,50 +3582,6 @@ public interface SeffPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY = eINSTANCE.getProbabilisticBranchTransition_BranchProbability();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl <em>Abstract Branch Transition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractBranchTransition()
-		 * @generated
-		 */
-		EClass ABSTRACT_BRANCH_TRANSITION = eINSTANCE.getAbstractBranchTransition();
-
-		/**
-		 * The meta object literal for the '<em><b>Branch Action Abstract Branch Transition</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION = eINSTANCE.getAbstractBranchTransition_BranchAction_AbstractBranchTransition();
-
-		/**
-		 * The meta object literal for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION = eINSTANCE.getAbstractBranchTransition_BranchBehaviour_BranchTransition();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchActionImpl <em>Branch Action</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.BranchActionImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchAction()
-		 * @generated
-		 */
-		EClass BRANCH_ACTION = eINSTANCE.getBranchAction();
-
-		/**
-		 * The meta object literal for the '<em><b>Branches Branch</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BRANCH_ACTION__BRANCHES_BRANCH = eINSTANCE.getBranchAction_Branches_Branch();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AcquireActionImpl <em>Acquire Action</em>}' class.
@@ -3434,12 +3612,12 @@ public interface SeffPackage extends EPackage {
 		EClass COLLECTION_ITERATOR_ACTION = eINSTANCE.getCollectionIteratorAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Collection Iterator Action</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Variable Collection Iterator Action</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION = eINSTANCE.getCollectionIteratorAction_Parameter_CollectionIteratorAction();
+		EReference COLLECTION_ITERATOR_ACTION__VARIABLE_COLLECTION_ITERATOR_ACTION = eINSTANCE.getCollectionIteratorAction_Variable__CollectionIteratorAction();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.GuardedBranchTransitionImpl <em>Guarded Branch Transition</em>}' class.
@@ -3540,38 +3718,48 @@ public interface SeffPackage extends EPackage {
 		EReference RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__RECOVERY_BLOCK_ACTION_RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR = eINSTANCE.getRecoveryBlockAlternativeBehaviour_RecoveryBlockAction_RecoveryBlockAlternativeBehaviour();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl <em>Service Effect Specification</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.EmitEventActionImpl <em>Emit Event Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.EmitEventActionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getEmitEventAction()
 		 * @generated
 		 */
-		EClass SERVICE_EFFECT_SPECIFICATION = eINSTANCE.getServiceEffectSpecification();
+		EClass EMIT_EVENT_ACTION = eINSTANCE.getEmitEventAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Seff Type ID</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Event Type Emit Event Action</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID = eINSTANCE.getServiceEffectSpecification_SeffTypeID();
+		EReference EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION = eINSTANCE.getEmitEventAction_EventType__EmitEventAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Described Service SEFF</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Source Role Emit Event Action</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF = eINSTANCE.getServiceEffectSpecification_DescribedService__SEFF();
+		EReference EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION = eINSTANCE.getEmitEventAction_SourceRole__EmitEventAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Basic Component Service Effect Specification</b></em>' container reference feature.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl <em>Call Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getCallAction()
+		 * @generated
+		 */
+		EClass CALL_ACTION = eINSTANCE.getCallAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable Setter Inputs Call Action</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION = eINSTANCE.getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification();
+		EReference CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION = eINSTANCE.getCallAction_VariableSetterInputs__CallAction();
 
 	}
 

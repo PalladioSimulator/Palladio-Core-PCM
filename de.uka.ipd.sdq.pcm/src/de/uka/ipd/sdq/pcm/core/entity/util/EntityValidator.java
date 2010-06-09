@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-import de.uka.ipd.sdq.pcm.core.entity.*;
+import de.uka.ipd.sdq.pcm.core.composition.util.CompositionValidator;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -89,6 +89,14 @@ public class EntityValidator extends EObjectValidator {
 	protected IdentifierValidator identifierValidator;
 
 	/**
+	 * The cached base package validator.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompositionValidator compositionValidator;
+
+	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,6 +105,7 @@ public class EntityValidator extends EObjectValidator {
 	public EntityValidator() {
 		super();
 		identifierValidator = IdentifierValidator.INSTANCE;
+		compositionValidator = CompositionValidator.INSTANCE;
 	}
 
 	/**
@@ -143,23 +152,6 @@ public class EntityValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateEntity(Entity entity, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(entity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(entity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(entity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(entity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(entity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(entity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(entity, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(entity, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateNamedElement(NamedElement namedElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(namedElement, diagnostics, context);
 	}
@@ -186,23 +178,6 @@ public class EntityValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateInterfaceRequiringEntity(InterfaceRequiringEntity interfaceRequiringEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(interfaceRequiringEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(interfaceRequiringEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(interfaceRequiringEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(interfaceRequiringEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(interfaceRequiringEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(interfaceRequiringEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(interfaceRequiringEntity, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(interfaceRequiringEntity, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity interfaceProvidingRequiringEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_EveryMultiplicityConforms(interfaceProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(interfaceProvidingRequiringEntity, diagnostics, context);
@@ -212,6 +187,23 @@ public class EntityValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(interfaceProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(interfaceProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(interfaceProvidingRequiringEntity, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInterfaceRequiringEntity(InterfaceRequiringEntity interfaceRequiringEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(interfaceRequiringEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(interfaceRequiringEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(interfaceRequiringEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(interfaceRequiringEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(interfaceRequiringEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(interfaceRequiringEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(interfaceRequiringEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(interfaceRequiringEntity, diagnostics, context);
 		return result;
 	}
 
@@ -246,6 +238,8 @@ public class EntityValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(composedProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(composedProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(composedProvidingRequiringEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraint(composedProvidingRequiringEntity, diagnostics, context);
+		if (result || diagnostics != null) result &= compositionValidator.validateComposedStructure_MultipleConnectorConstraintForAssembyConnectors(composedProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(composedProvidingRequiringEntity, diagnostics, context);
 		return result;
 	}
@@ -258,6 +252,23 @@ public class EntityValidator extends EObjectValidator {
 	 */
 	public boolean validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(ComposedProvidingRequiringEntity composedProvidingRequiringEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return composedProvidingRequiringEntity.ProvidedRolesMustBeBound(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEntity(Entity entity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(entity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(entity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(entity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(entity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(entity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(entity, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(entity, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(entity, diagnostics, context);
+		return result;
 	}
 
 	/**

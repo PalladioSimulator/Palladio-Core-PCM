@@ -1,20 +1,22 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.parameter.util;
 
-import de.uka.ipd.sdq.pcm.parameter.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 import de.uka.ipd.sdq.stoex.Atom;
 import de.uka.ipd.sdq.stoex.BooleanExpression;
 import de.uka.ipd.sdq.stoex.Comparison;
@@ -22,9 +24,9 @@ import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IfElse;
 import de.uka.ipd.sdq.stoex.Power;
 import de.uka.ipd.sdq.stoex.Product;
+import de.uka.ipd.sdq.stoex.StoExVariable;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.Unary;
-import de.uka.ipd.sdq.stoex.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +43,7 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
@@ -89,16 +92,28 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	protected ParameterSwitch<Adapter> modelSwitch =
 		new ParameterSwitch<Adapter>() {
 			@Override
-			public Adapter caseVariableUsage(VariableUsage object) {
-				return createVariableUsageAdapter();
+			public Adapter caseVariableSetter(VariableSetter object) {
+				return createVariableSetterAdapter();
 			}
 			@Override
-			public Adapter caseVariableCharacterisation(VariableCharacterisation object) {
-				return createVariableCharacterisationAdapter();
+			public Adapter caseVariable(Variable object) {
+				return createVariableAdapter();
 			}
 			@Override
-			public Adapter caseCharacterisedVariable(CharacterisedVariable object) {
-				return createCharacterisedVariableAdapter();
+			public Adapter caseVariableCharacteristic(VariableCharacteristic object) {
+				return createVariableCharacteristicAdapter();
+			}
+			@Override
+			public Adapter caseIdentifier(Identifier object) {
+				return createIdentifierAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseEntity(Entity object) {
+				return createEntityAdapter();
 			}
 			@Override
 			public Adapter caseExpression(Expression object) {
@@ -137,8 +152,8 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 				return createAtomAdapter();
 			}
 			@Override
-			public Adapter caseVariable(Variable object) {
-				return createVariableAdapter();
+			public Adapter caseStoExVariable(StoExVariable object) {
+				return createStoExVariableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -161,44 +176,44 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation <em>Variable Characterisation</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter <em>Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter
 	 * @generated
 	 */
-	public Adapter createVariableCharacterisationAdapter() {
+	public Adapter createVariableSetterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable <em>Characterised Variable</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.Variable <em>Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable
+	 * @see de.uka.ipd.sdq.pcm.parameter.Variable
 	 * @generated
 	 */
-	public Adapter createCharacterisedVariableAdapter() {
+	public Adapter createVariableAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage <em>Variable Usage</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic <em>Variable Characteristic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacteristic
 	 * @generated
 	 */
-	public Adapter createVariableUsageAdapter() {
+	public Adapter createVariableCharacteristicAdapter() {
 		return null;
 	}
 
@@ -329,16 +344,58 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Variable <em>Variable</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.StoExVariable <em>Sto Ex Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.Variable
+	 * @see de.uka.ipd.sdq.stoex.StoExVariable
 	 * @generated
 	 */
-	public Adapter createVariableAdapter() {
+	public Adapter createStoExVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.identifier.Identifier
+	 * @generated
+	 */
+	public Adapter createIdentifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.Entity
+	 * @generated
+	 */
+	public Adapter createEntityAdapter() {
 		return null;
 	}
 

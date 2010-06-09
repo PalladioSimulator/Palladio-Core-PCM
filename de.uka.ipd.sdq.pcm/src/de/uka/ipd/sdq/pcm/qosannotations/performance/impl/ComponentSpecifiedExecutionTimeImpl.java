@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -35,6 +35,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached value of the '{@link #getAssemblyContext_ComponentSpecifiedExecutionTime() <em>Assembly Context Component Specified Execution Time</em>}' reference.
 	 * <!-- begin-user-doc -->

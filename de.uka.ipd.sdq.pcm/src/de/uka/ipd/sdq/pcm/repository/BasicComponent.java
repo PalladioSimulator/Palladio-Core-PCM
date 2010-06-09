@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -42,35 +42,10 @@ public interface BasicComponent extends ImplementationComponentType {
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Service Effect Specifications Basic Component</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification <em>Basic Component Service Effect Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Service Effect Specifications Basic Component</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This property contains the service effect specification for services provided by this basic component.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Service Effect Specifications Basic Component</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_ServiceEffectSpecifications__BasicComponent()
-	 * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification
-	 * @model opposite="basicComponent_ServiceEffectSpecification" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent();
-
-	/**
 	 * Returns the value of the '<em><b>Passive Resource Basic Component</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.PassiveResource}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource <em>Basic Component Passive Resource</em>}'.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Passive Resource Basic Component</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * This property represents the passive resources, e.g., semaphores, that are owned by this basic component.
@@ -82,6 +57,23 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * @generated
 	 */
 	EList<PassiveResource> getPassiveResource_BasicComponent();
+
+	/**
+	 * Returns the value of the '<em><b>Service Effect Specifications Basic Component</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification <em>Basic Component Service Effect Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * This property contains the service effect specification for services provided by this basic component.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Service Effect Specifications Basic Component</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_ServiceEffectSpecifications__BasicComponent()
+	 * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification
+	 * @model opposite="basicComponent_ServiceEffectSpecification" containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,17 +99,17 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * 	self.parentCompleteComponentTypes->notEmpty()
 	 * then
 	 * 	--own interface IDs:
-	 *     self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()
+	 *     self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity__ProvidedRole.id)->asSet()
 	 *     =
 	 *     --complete type interface IDs:
-	 *     self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()
+	 *     self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity__ProvidedRole.id)->asSet()
 	 * else
 	 * 	true
 	 * endif
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='-- BC has to provide the same interfaces like the implementationComponentType (if set) #\r\nif\r\n\t -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\r\n\tself.parentCompleteComponentTypes->notEmpty()\r\nthen\r\n\t--own interface IDs:\r\n    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()\r\n    =\r\n    --complete type interface IDs:\r\n    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()\r\nelse\r\n\ttrue\r\nendif'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='-- BC has to provide the same interfaces like the implementationComponentType (if set) #\r\nif\r\n\t -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\r\n\tself.parentCompleteComponentTypes->notEmpty()\r\nthen\r\n\t--own interface IDs:\r\n    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity__ProvidedRole.id)->asSet()\r\n    =\r\n    --complete type interface IDs:\r\n    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity__ProvidedRole.id)->asSet()\r\nelse\r\n\ttrue\r\nendif'"
 	 * @generated
 	 */
 	boolean ProvideSameInterfacesAsImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -132,17 +124,17 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * 	self.parentCompleteComponentTypes->notEmpty()
 	 * then
 	 * 	--own interface IDs:
-	 *     self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()
+	 *     self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiringEntity__RequiredRole.id)->asSet()
 	 *     =
 	 *     --complete type interface IDs:
-	 *     self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()
+	 *     self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiringEntity__RequiredRole.id)->asSet()
 	 * else
 	 * 	true
 	 * endif
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='-- BC has to require the same interfaces like the implementationComponentType (if set) #\r\nif\r\n\t -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\r\n\tself.parentCompleteComponentTypes->notEmpty()\r\nthen\r\n\t--own interface IDs:\r\n    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()\r\n    =\r\n    --complete type interface IDs:\r\n    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()\r\nelse\r\n\ttrue\r\nendif'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='-- BC has to require the same interfaces like the implementationComponentType (if set) #\r\nif\r\n\t -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\r\n\tself.parentCompleteComponentTypes->notEmpty()\r\nthen\r\n\t--own interface IDs:\r\n    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiringEntity__RequiredRole.id)->asSet()\r\n    =\r\n    --complete type interface IDs:\r\n    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiringEntity__RequiredRole.id)->asSet()\r\nelse\r\n\ttrue\r\nendif'"
 	 * @generated
 	 */
 	boolean RequireSameInterfacesAsImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context);

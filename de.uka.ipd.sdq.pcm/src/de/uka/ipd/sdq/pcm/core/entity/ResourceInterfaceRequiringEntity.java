@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -40,7 +40,7 @@ public interface ResourceInterfaceRequiringEntity extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getResourceRequiringEntity_ResourceRequiredRole <em>Resource Requiring Entity Resource Required Role</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getResourceRequiringEntity__ResourceRequiredRole <em>Resource Requiring Entity Resource Required Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Resource Required Roles Resource Interface Requiring Entity</em>' containment reference list isn't clear,
@@ -49,8 +49,8 @@ public interface ResourceInterfaceRequiringEntity extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resource Required Roles Resource Interface Requiring Entity</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getResourceInterfaceRequiringEntity_ResourceRequiredRoles_ResourceInterfaceRequiringEntity()
-	 * @see de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getResourceRequiringEntity_ResourceRequiredRole
-	 * @model opposite="resourceRequiringEntity_ResourceRequiredRole" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole#getResourceRequiringEntity__ResourceRequiredRole
+	 * @model opposite="resourceRequiringEntity__ResourceRequiredRole" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ResourceRequiredRole> getResourceRequiredRoles_ResourceInterfaceRequiringEntity();

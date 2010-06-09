@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
@@ -47,6 +46,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The default value of the '{@link #getOperatingSystem_ResourceContainer() <em>Operating System Resource Container</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,6 +56,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * @ordered
 	 */
 	protected static final ContainerOperatingSystem OPERATING_SYSTEM_RESOURCE_CONTAINER_EDEFAULT = ContainerOperatingSystem.ABSTRACT;
+
 	/**
 	 * The cached value of the '{@link #getOperatingSystem_ResourceContainer() <em>Operating System Resource Container</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -65,6 +66,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * @ordered
 	 */
 	protected ContainerOperatingSystem operatingSystem_ResourceContainer = OPERATING_SYSTEM_RESOURCE_CONTAINER_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getActiveResourceSpecifications_ResourceContainer() <em>Active Resource Specifications Resource Container</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

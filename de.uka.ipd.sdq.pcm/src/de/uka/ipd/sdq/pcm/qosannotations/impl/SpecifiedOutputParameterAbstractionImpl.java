@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.qosannotations.impl;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -17,10 +16,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
@@ -79,7 +78,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends EObjectImp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableUsage> expectedExternalOutputs_SpecifiedOutputParameterAbstraction;
+	protected EList<VariableSetter> expectedExternalOutputs_SpecifiedOutputParameterAbstraction;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,9 +221,9 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends EObjectImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<VariableUsage> getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction() {
+	public EList<VariableSetter> getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction() {
 		if (expectedExternalOutputs_SpecifiedOutputParameterAbstraction == null) {
-			expectedExternalOutputs_SpecifiedOutputParameterAbstraction = new EObjectContainmentWithInverseEList<VariableUsage>(VariableUsage.class, this, QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION, ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE);
+			expectedExternalOutputs_SpecifiedOutputParameterAbstraction = new EObjectContainmentWithInverseEList<VariableSetter>(VariableSetter.class, this, QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION, ParameterPackage.VARIABLE_SETTER__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_SETTER);
 		}
 		return expectedExternalOutputs_SpecifiedOutputParameterAbstraction;
 	}
@@ -320,7 +319,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends EObjectImp
 				return;
 			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
 				getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction().clear();
-				getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction().addAll((Collection<? extends VariableUsage>)newValue);
+				getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction().addAll((Collection<? extends VariableSetter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

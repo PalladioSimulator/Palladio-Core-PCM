@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.qosannotations.*;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
@@ -34,6 +33,7 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
@@ -140,20 +140,6 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction <em>Specified Output Parameter Abstraction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction
-	 * @generated
-	 */
-	public Adapter createSpecifiedOutputParameterAbstractionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations <em>Qo SAnnotations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -164,6 +150,20 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createQoSAnnotationsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction <em>Specified Output Parameter Abstraction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction
+	 * @generated
+	 */
+	public Adapter createSpecifiedOutputParameterAbstractionAdapter() {
 		return null;
 	}
 

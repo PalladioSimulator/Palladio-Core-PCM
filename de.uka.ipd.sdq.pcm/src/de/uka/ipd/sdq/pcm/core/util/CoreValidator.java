@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.core.util;
 
-import de.uka.ipd.sdq.pcm.core.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;

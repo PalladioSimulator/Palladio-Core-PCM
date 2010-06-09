@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -76,16 +76,6 @@ public interface EntityPackage extends EPackage {
 	EntityPackage eINSTANCE = de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl <em>Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl
-	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getEntity()
-	 * @generated
-	 */
-	int ENTITY = 6;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl <em>Named Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,6 +102,16 @@ public interface EntityPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl <em>Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl
+	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getEntity()
+	 * @generated
+	 */
+	int ENTITY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -197,16 +197,6 @@ public interface EntityPackage extends EPackage {
 	int INTERFACE_PROVIDING_REQUIRING_ENTITY = 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceRequiringEntityImpl <em>Interface Requiring Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceRequiringEntityImpl
-	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getInterfaceRequiringEntity()
-	 * @generated
-	 */
-	int INTERFACE_REQUIRING_ENTITY = 3;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,6 +249,16 @@ public interface EntityPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceRequiringEntityImpl <em>Interface Requiring Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceRequiringEntityImpl
+	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getInterfaceRequiringEntity()
+	 * @generated
+	 */
+	int INTERFACE_REQUIRING_ENTITY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -407,6 +407,33 @@ public interface EntityPackage extends EPackage {
 	int COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 
 	/**
+	 * The feature id for the '<em><b>Assembly Event Connector Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Sink Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Source Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+
+	/**
 	 * The feature id for the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -451,16 +478,6 @@ public interface EntityPackage extends EPackage {
 	 */
 	int COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 3;
 
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity <em>Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Entity</em>'.
-	 * @see de.uka.ipd.sdq.pcm.core.entity.Entity
-	 * @generated
-	 */
-	EClass getEntity();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement <em>Named Element</em>}'.
@@ -567,6 +584,16 @@ public interface EntityPackage extends EPackage {
 	EClass getComposedProvidingRequiringEntity();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Entity</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.Entity
+	 * @generated
+	 */
+	EClass getEntity();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -588,16 +615,6 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl <em>Entity</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl
-		 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getEntity()
-		 * @generated
-		 */
-		EClass ENTITY = eINSTANCE.getEntity();
-
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -689,6 +706,16 @@ public interface EntityPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPOSED_PROVIDING_REQUIRING_ENTITY = eINSTANCE.getComposedProvidingRequiringEntity();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl <em>Entity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl
+		 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getEntity()
+		 * @generated
+		 */
+		EClass ENTITY = eINSTANCE.getEntity();
 
 	}
 

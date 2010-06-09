@@ -5,10 +5,10 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.StopFailureType;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

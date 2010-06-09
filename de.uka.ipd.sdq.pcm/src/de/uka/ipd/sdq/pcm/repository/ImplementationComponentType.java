@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -10,7 +10,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,8 +27,8 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentParameter__ImplementationComponentType <em>Component Parameter Implementation Component Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getParentCompleteComponentTypes <em>Parent Complete Component Types</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentParameterUsage_ImplementationComponentType <em>Component Parameter Usage Implementation Component Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,6 +45,24 @@ public interface ImplementationComponentType extends RepositoryComponent {
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
+	 * Returns the value of the '<em><b>Component Parameter Implementation Component Type</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.Variable}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.Variable#getImplementationComponentType__Variable <em>Implementation Component Type Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Component Parameter Implementation Component Type</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Component Parameter Implementation Component Type</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ComponentParameter__ImplementationComponentType()
+	 * @see de.uka.ipd.sdq.pcm.parameter.Variable#getImplementationComponentType__Variable
+	 * @model opposite="implementationComponentType__Variable" containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<Variable> getComponentParameter__ImplementationComponentType();
+
+	/**
 	 * Returns the value of the '<em><b>Parent Complete Component Types</b></em>' reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType}.
 	 * <!-- begin-user-doc -->
@@ -59,25 +77,6 @@ public interface ImplementationComponentType extends RepositoryComponent {
 	 * @generated
 	 */
 	EList<CompleteComponentType> getParentCompleteComponentTypes();
-
-	/**
-	 * Returns the value of the '<em><b>Component Parameter Usage Implementation Component Type</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Component Parameter Usage Implementation Component Type</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This property specified the variables of the component that are to be initialized using the assembly context to parametrize the component.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Component Parameter Usage Implementation Component Type</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ComponentParameterUsage_ImplementationComponentType()
-	 * @model containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<VariableUsage> getComponentParameterUsage_ImplementationComponentType();
 
 	/**
 	 * <!-- begin-user-doc -->

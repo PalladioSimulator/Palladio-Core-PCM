@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
@@ -110,18 +109,6 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AllocationContext> getAllocationContexts_Allocation() {
-		if (allocationContexts_Allocation == null) {
-			allocationContexts_Allocation = new EObjectContainmentWithInverseEList<AllocationContext>(AllocationContext.class, this, AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION, AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT);
-		}
-		return allocationContexts_Allocation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ResourceEnvironment getTargetResourceEnvironment_Allocation() {
 		if (targetResourceEnvironment_Allocation != null && targetResourceEnvironment_Allocation.eIsProxy()) {
 			InternalEObject oldTargetResourceEnvironment_Allocation = (InternalEObject)targetResourceEnvironment_Allocation;
@@ -191,6 +178,18 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 		system_Allocation = newSystem_Allocation;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION, oldSystem_Allocation, system_Allocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<AllocationContext> getAllocationContexts_Allocation() {
+		if (allocationContexts_Allocation == null) {
+			allocationContexts_Allocation = new EObjectContainmentWithInverseEList<AllocationContext>(AllocationContext.class, this, AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION, AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT);
+		}
+		return allocationContexts_Allocation;
 	}
 
 	/**

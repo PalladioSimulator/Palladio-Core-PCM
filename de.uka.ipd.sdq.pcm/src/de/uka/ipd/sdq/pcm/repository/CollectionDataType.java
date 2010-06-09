@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,13 +12,13 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This entity represents a collection data type, e.g.,. a list, array, set, of items of the a particular type.
+ * This&nbsp;entity&nbsp;represents&nbsp;a&nbsp;collection&nbsp;data&nbsp;type,&nbsp;e.g.,.&nbsp;a&nbsp;list,&nbsp;array,&nbsp;set,&nbsp;of&nbsp;items&nbsp;of&nbsp;the&nbsp;referenced&nbsp;type.
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.CollectionDataType#getInnerType_CollectionDataType <em>Inner Type Collection Data Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.CollectionDataType#getInnerDataType__CollectionDataType <em>Inner Data Type Collection Data Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,7 +26,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * @model
  * @generated
  */
-public interface CollectionDataType extends Entity, DataType {
+public interface CollectionDataType extends DataType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -36,32 +35,29 @@ public interface CollectionDataType extends Entity, DataType {
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Inner Type Collection Data Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Inner Data Type Collection Data Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Inner Type Collection Data Type</em>' reference isn't clear,
+	 * If the meaning of the '<em>Inner Data Type Collection Data Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This property represents the type of items contained in the collection data type.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Inner Type Collection Data Type</em>' reference.
-	 * @see #setInnerType_CollectionDataType(DataType)
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCollectionDataType_InnerType_CollectionDataType()
+	 * @return the value of the '<em>Inner Data Type Collection Data Type</em>' reference.
+	 * @see #setInnerDataType__CollectionDataType(DataType)
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCollectionDataType_InnerDataType__CollectionDataType()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	DataType getInnerType_CollectionDataType();
+	DataType getInnerDataType__CollectionDataType();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.CollectionDataType#getInnerType_CollectionDataType <em>Inner Type Collection Data Type</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.CollectionDataType#getInnerDataType__CollectionDataType <em>Inner Data Type Collection Data Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Inner Type Collection Data Type</em>' reference.
-	 * @see #getInnerType_CollectionDataType()
+	 * @param value the new value of the '<em>Inner Data Type Collection Data Type</em>' reference.
+	 * @see #getInnerDataType__CollectionDataType()
 	 * @generated
 	 */
-	void setInnerType_CollectionDataType(DataType value);
+	void setInnerDataType__CollectionDataType(DataType value);
 
 } // CollectionDataType

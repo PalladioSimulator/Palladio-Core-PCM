@@ -1,10 +1,11 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.qosannotations.reliability.impl;
 
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -12,17 +13,16 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
+
 import de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.SpecifiedFailureProbability;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.util.ReliabilityValidator;
-import java.util.Map;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,6 +44,7 @@ public class SpecifiedFailureProbabilityImpl extends SpecifiedQoSAnnotationImpl 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -53,6 +54,7 @@ public class SpecifiedFailureProbabilityImpl extends SpecifiedQoSAnnotationImpl 
 	 * @ordered
 	 */
 	protected static final double FAILURE_PROBABILITY_EDEFAULT = 0.0;
+
 	/**
 	 * The cached value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -112,6 +114,7 @@ public class SpecifiedFailureProbabilityImpl extends SpecifiedQoSAnnotationImpl 
 	 * @ordered
 	 */
 	protected static final String ENSURE_VALID_PARAMETER_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.failureProbability.oclAsType(Real) >= 0 and self.failureProbability.oclAsType(Real) <= 1";
+
 	/**
 	 * The cached OCL invariant for the '{@link #EnsureValidParameterRange(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Ensure Valid Parameter Range</em>}' invariant operation.
 	 * <!-- begin-user-doc -->

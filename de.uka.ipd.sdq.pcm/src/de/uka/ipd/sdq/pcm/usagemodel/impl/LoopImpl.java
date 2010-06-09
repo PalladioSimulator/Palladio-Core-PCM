@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.usagemodel.Loop;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
@@ -82,6 +83,49 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PCMRandomVariable getLoopIteration_Loop() {
+		return loopIteration_Loop;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLoopIteration_Loop(PCMRandomVariable newLoopIteration_Loop, NotificationChain msgs) {
+		PCMRandomVariable oldLoopIteration_Loop = loopIteration_Loop;
+		loopIteration_Loop = newLoopIteration_Loop;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, oldLoopIteration_Loop, newLoopIteration_Loop);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLoopIteration_Loop(PCMRandomVariable newLoopIteration_Loop) {
+		if (newLoopIteration_Loop != loopIteration_Loop) {
+			NotificationChain msgs = null;
+			if (loopIteration_Loop != null)
+				msgs = ((InternalEObject)loopIteration_Loop).eInverseRemove(this, CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION, PCMRandomVariable.class, msgs);
+			if (newLoopIteration_Loop != null)
+				msgs = ((InternalEObject)newLoopIteration_Loop).eInverseAdd(this, CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION, PCMRandomVariable.class, msgs);
+			msgs = basicSetLoopIteration_Loop(newLoopIteration_Loop, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, newLoopIteration_Loop, newLoopIteration_Loop));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ScenarioBehaviour getBodyBehaviour_Loop() {
 		return bodyBehaviour_Loop;
 	}
@@ -128,55 +172,16 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
+				if (loopIteration_Loop != null)
+					msgs = ((InternalEObject)loopIteration_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, null, msgs);
+				return basicSetLoopIteration_Loop((PCMRandomVariable)otherEnd, msgs);
 			case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
 				if (bodyBehaviour_Loop != null)
 					msgs = ((InternalEObject)bodyBehaviour_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP, null, msgs);
 				return basicSetBodyBehaviour_Loop((ScenarioBehaviour)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PCMRandomVariable getLoopIteration_Loop() {
-		return loopIteration_Loop;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLoopIteration_Loop(PCMRandomVariable newLoopIteration_Loop, NotificationChain msgs) {
-		PCMRandomVariable oldLoopIteration_Loop = loopIteration_Loop;
-		loopIteration_Loop = newLoopIteration_Loop;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, oldLoopIteration_Loop, newLoopIteration_Loop);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLoopIteration_Loop(PCMRandomVariable newLoopIteration_Loop) {
-		if (newLoopIteration_Loop != loopIteration_Loop) {
-			NotificationChain msgs = null;
-			if (loopIteration_Loop != null)
-				msgs = ((InternalEObject)loopIteration_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, null, msgs);
-			if (newLoopIteration_Loop != null)
-				msgs = ((InternalEObject)newLoopIteration_Loop).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, null, msgs);
-			msgs = basicSetLoopIteration_Loop(newLoopIteration_Loop, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, newLoopIteration_Loop, newLoopIteration_Loop));
 	}
 
 	/**

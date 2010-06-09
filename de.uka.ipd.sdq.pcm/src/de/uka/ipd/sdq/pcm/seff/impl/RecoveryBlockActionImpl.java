@@ -5,36 +5,28 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import de.uka.ipd.sdq.pcm.seff.RecoveryBlockAction;
-import de.uka.ipd.sdq.pcm.seff.RecoveryBlockAlternativeBehaviour;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
-
 import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.ocl.ParserException;
-
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
+
+import de.uka.ipd.sdq.pcm.seff.RecoveryBlockAction;
+import de.uka.ipd.sdq.pcm.seff.RecoveryBlockAlternativeBehaviour;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
 /**
  * <!-- begin-user-doc -->

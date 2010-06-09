@@ -1,13 +1,13 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import org.eclipse.emf.ecore.EObject;
 
+import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**

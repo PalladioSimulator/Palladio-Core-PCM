@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -10,8 +10,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
@@ -98,20 +98,23 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 	 * @generated not
 	 */
 	public Unit basicGetUnit() {
-		// TODO: implement this method
+		// TODO: implement this method to return the 'Unit' reference
+		// -> do not perform proxy resolution
 		// Ensure that you remove @generated or mark it @generated NOT
+		// throw new UnsupportedOperationException();
 		return null;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	public void setUnit(Unit newUnit) {
 		// TODO: implement this method to set the 'Unit' reference
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		
+		//throw new UnsupportedOperationException();
 	}
 
 	/**

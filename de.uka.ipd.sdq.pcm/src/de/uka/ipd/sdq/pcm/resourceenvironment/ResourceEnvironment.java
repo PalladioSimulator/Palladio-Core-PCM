@@ -1,13 +1,13 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc -->

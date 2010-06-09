@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-import de.uka.ipd.sdq.pcm.usagemodel.*;
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
@@ -89,6 +88,14 @@ public class UsagemodelValidator extends EObjectValidator {
 	public static final int SCENARIO_BEHAVIOUR__EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR = 3;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'All Branch Probabilities Must Sum Up To1' of 'Branch'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int BRANCH__ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1 = 4;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Stop Has No Successor' of 'Stop'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -127,14 +134,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public static final int CLOSED_WORKLOAD__THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED = 9;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'All Branch Probabilities Must Sum Up To1' of 'Branch'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int BRANCH__ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1 = 4;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -257,6 +256,58 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateUserData(UserData userData, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(userData, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateUsageModel(UsageModel usageModel, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(usageModel, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEntryLevelSystemCall(EntryLevelSystemCall entryLevelSystemCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(entryLevelSystemCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(entryLevelSystemCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(entryLevelSystemCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(entryLevelSystemCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(entryLevelSystemCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(entryLevelSystemCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(entryLevelSystemCall, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(entryLevelSystemCall, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractUserAction(AbstractUserAction abstractUserAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(abstractUserAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractUserAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractUserAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractUserAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(abstractUserAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractUserAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractUserAction, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(abstractUserAction, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateScenarioBehaviour(ScenarioBehaviour scenarioBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_EveryMultiplicityConforms(scenarioBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(scenarioBehaviour, diagnostics, context);
@@ -307,25 +358,36 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAbstractUserAction(AbstractUserAction abstractUserAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(abstractUserAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractUserAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractUserAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(abstractUserAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(abstractUserAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(abstractUserAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(abstractUserAction, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(abstractUserAction, diagnostics, context);
+	public boolean validateBranchTransition(BranchTransition branchTransition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(branchTransition, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBranch(Branch branch, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(branch, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(branch, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(branch, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(branch, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(branch, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(branch, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(branch, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(branch, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBranch_AllBranchProbabilitiesMustSumUpTo1(branch, diagnostics, context);
 		return result;
 	}
 
 	/**
+	 * Validates the AllBranchProbabilitiesMustSumUpTo1 constraint of '<em>Branch</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateUsageModel(UsageModel usageModel, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(usageModel, diagnostics, context);
+	public boolean validateBranch_AllBranchProbabilitiesMustSumUpTo1(Branch branch, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return branch.AllBranchProbabilitiesMustSumUpTo1(diagnostics, context);
 	}
 
 	/**
@@ -333,8 +395,16 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateUserData(UserData userData, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(userData, diagnostics, context);
+	public boolean validateLoop(Loop loop, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(loop, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(loop, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(loop, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(loop, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(loop, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(loop, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(loop, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(loop, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -425,32 +495,15 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateLoop(Loop loop, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(loop, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(loop, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(loop, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(loop, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(loop, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(loop, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(loop, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(loop, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateEntryLevelSystemCall(EntryLevelSystemCall entryLevelSystemCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(entryLevelSystemCall, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(entryLevelSystemCall, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(entryLevelSystemCall, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(entryLevelSystemCall, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(entryLevelSystemCall, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(entryLevelSystemCall, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(entryLevelSystemCall, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(entryLevelSystemCall, diagnostics, context);
+	public boolean validateDelay(Delay delay, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(delay, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(delay, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(delay, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(delay, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(delay, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(delay, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(delay, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(delay, diagnostics, context);
 		return result;
 	}
 
@@ -490,60 +543,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 */
 	public boolean validateClosedWorkload_ThinkTimeInClosedWorkloadNeedsToBeSpecified(ClosedWorkload closedWorkload, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return closedWorkload.ThinkTimeInClosedWorkloadNeedsToBeSpecified(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBranch(Branch branch, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(branch, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(branch, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(branch, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(branch, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(branch, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(branch, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(branch, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(branch, diagnostics, context);
-		if (result || diagnostics != null) result &= validateBranch_AllBranchProbabilitiesMustSumUpTo1(branch, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * Validates the AllBranchProbabilitiesMustSumUpTo1 constraint of '<em>Branch</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBranch_AllBranchProbabilitiesMustSumUpTo1(Branch branch, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return branch.AllBranchProbabilitiesMustSumUpTo1(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBranchTransition(BranchTransition branchTransition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(branchTransition, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateDelay(Delay delay, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(delay, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(delay, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(delay, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(delay, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(delay, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(delay, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(delay, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(delay, diagnostics, context);
-		return result;
 	}
 
 	/**

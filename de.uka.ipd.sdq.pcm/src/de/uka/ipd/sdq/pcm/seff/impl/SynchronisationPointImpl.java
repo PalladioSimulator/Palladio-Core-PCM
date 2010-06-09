@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -17,10 +16,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -33,7 +32,7 @@ import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl#getOutputParameterUsage_SynchronisationPoint <em>Output Parameter Usage Synchronisation Point</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl#getOutputVariableSetters__SynchronisationPoint <em>Output Variable Setters Synchronisation Point</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl#getForkAction_SynchronisationPoint <em>Fork Action Synchronisation Point</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.SynchronisationPointImpl#getSynchronousForkedBehaviours_SynchronisationPoint <em>Synchronous Forked Behaviours Synchronisation Point</em>}</li>
  * </ul>
@@ -50,14 +49,14 @@ public class SynchronisationPointImpl extends EObjectImpl implements Synchronisa
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getOutputParameterUsage_SynchronisationPoint() <em>Output Parameter Usage Synchronisation Point</em>}' containment reference list.
+	 * The cached value of the '{@link #getOutputVariableSetters__SynchronisationPoint() <em>Output Variable Setters Synchronisation Point</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputParameterUsage_SynchronisationPoint()
+	 * @see #getOutputVariableSetters__SynchronisationPoint()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableUsage> outputParameterUsage_SynchronisationPoint;
+	protected EList<VariableSetter> outputVariableSetters__SynchronisationPoint;
 
 	/**
 	 * The cached value of the '{@link #getSynchronousForkedBehaviours_SynchronisationPoint() <em>Synchronous Forked Behaviours Synchronisation Point</em>}' containment reference list.
@@ -93,44 +92,11 @@ public class SynchronisationPointImpl extends EObjectImpl implements Synchronisa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ForkedBehaviour> getSynchronousForkedBehaviours_SynchronisationPoint() {
-		if (synchronousForkedBehaviours_SynchronisationPoint == null) {
-			synchronousForkedBehaviours_SynchronisationPoint = new EObjectContainmentWithInverseEList<ForkedBehaviour>(ForkedBehaviour.class, this, SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT, SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR);
+	public EList<VariableSetter> getOutputVariableSetters__SynchronisationPoint() {
+		if (outputVariableSetters__SynchronisationPoint == null) {
+			outputVariableSetters__SynchronisationPoint = new EObjectContainmentWithInverseEList<VariableSetter>(VariableSetter.class, this, SeffPackage.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT, ParameterPackage.VARIABLE_SETTER__SYNCHRONISATION_POINT_VARIABLE_SETTER);
 		}
-		return synchronousForkedBehaviours_SynchronisationPoint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutputParameterUsage_SynchronisationPoint()).basicAdd(otherEnd, msgs);
-			case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetForkAction_SynchronisationPoint((ForkAction)otherEnd, msgs);
-			case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSynchronousForkedBehaviours_SynchronisationPoint()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<VariableUsage> getOutputParameterUsage_SynchronisationPoint() {
-		if (outputParameterUsage_SynchronisationPoint == null) {
-			outputParameterUsage_SynchronisationPoint = new EObjectContainmentWithInverseEList<VariableUsage>(VariableUsage.class, this, SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT, ParameterPackage.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE);
-		}
-		return outputParameterUsage_SynchronisationPoint;
+		return outputVariableSetters__SynchronisationPoint;
 	}
 
 	/**
@@ -179,11 +145,44 @@ public class SynchronisationPointImpl extends EObjectImpl implements Synchronisa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ForkedBehaviour> getSynchronousForkedBehaviours_SynchronisationPoint() {
+		if (synchronousForkedBehaviours_SynchronisationPoint == null) {
+			synchronousForkedBehaviours_SynchronisationPoint = new EObjectContainmentWithInverseEList<ForkedBehaviour>(ForkedBehaviour.class, this, SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT, SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR);
+		}
+		return synchronousForkedBehaviours_SynchronisationPoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutputVariableSetters__SynchronisationPoint()).basicAdd(otherEnd, msgs);
+			case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetForkAction_SynchronisationPoint((ForkAction)otherEnd, msgs);
+			case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSynchronousForkedBehaviours_SynchronisationPoint()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
-				return ((InternalEList<?>)getOutputParameterUsage_SynchronisationPoint()).basicRemove(otherEnd, msgs);
+			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT:
+				return ((InternalEList<?>)getOutputVariableSetters__SynchronisationPoint()).basicRemove(otherEnd, msgs);
 			case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
 				return basicSetForkAction_SynchronisationPoint(null, msgs);
 			case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:
@@ -214,8 +213,8 @@ public class SynchronisationPointImpl extends EObjectImpl implements Synchronisa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
-				return getOutputParameterUsage_SynchronisationPoint();
+			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT:
+				return getOutputVariableSetters__SynchronisationPoint();
 			case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
 				return getForkAction_SynchronisationPoint();
 			case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:
@@ -233,9 +232,9 @@ public class SynchronisationPointImpl extends EObjectImpl implements Synchronisa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
-				getOutputParameterUsage_SynchronisationPoint().clear();
-				getOutputParameterUsage_SynchronisationPoint().addAll((Collection<? extends VariableUsage>)newValue);
+			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT:
+				getOutputVariableSetters__SynchronisationPoint().clear();
+				getOutputVariableSetters__SynchronisationPoint().addAll((Collection<? extends VariableSetter>)newValue);
 				return;
 			case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
 				setForkAction_SynchronisationPoint((ForkAction)newValue);
@@ -256,8 +255,8 @@ public class SynchronisationPointImpl extends EObjectImpl implements Synchronisa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
-				getOutputParameterUsage_SynchronisationPoint().clear();
+			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT:
+				getOutputVariableSetters__SynchronisationPoint().clear();
 				return;
 			case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
 				setForkAction_SynchronisationPoint((ForkAction)null);
@@ -277,8 +276,8 @@ public class SynchronisationPointImpl extends EObjectImpl implements Synchronisa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
-				return outputParameterUsage_SynchronisationPoint != null && !outputParameterUsage_SynchronisationPoint.isEmpty();
+			case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_VARIABLE_SETTERS_SYNCHRONISATION_POINT:
+				return outputVariableSetters__SynchronisationPoint != null && !outputVariableSetters__SynchronisationPoint.isEmpty();
 			case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
 				return getForkAction_SynchronisationPoint() != null;
 			case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:

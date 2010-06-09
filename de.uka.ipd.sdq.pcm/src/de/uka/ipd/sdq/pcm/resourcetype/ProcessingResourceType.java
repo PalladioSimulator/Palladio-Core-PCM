@@ -1,10 +1,9 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.resourcetype;
-
 
 
 /**
@@ -24,7 +23,6 @@ package de.uka.ipd.sdq.pcm.resourcetype;
  * @generated
  */
 public interface ProcessingResourceType extends ResourceType {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

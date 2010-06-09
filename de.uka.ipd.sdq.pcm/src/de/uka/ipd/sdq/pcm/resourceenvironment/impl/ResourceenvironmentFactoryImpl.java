@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -14,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
@@ -142,9 +142,9 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CommunicationLinkResourceSpecification createCommunicationLinkResourceSpecification() {
-		CommunicationLinkResourceSpecificationImpl communicationLinkResourceSpecification = new CommunicationLinkResourceSpecificationImpl();
-		return communicationLinkResourceSpecification;
+	public ResourceContainer createResourceContainer() {
+		ResourceContainerImpl resourceContainer = new ResourceContainerImpl();
+		return resourceContainer;
 	}
 
 	/**
@@ -162,29 +162,9 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceContainer createResourceContainer() {
-		ResourceContainerImpl resourceContainer = new ResourceContainerImpl();
-		return resourceContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchedulingPolicy createSchedulingPolicyFromString(EDataType eDataType, String initialValue) {
-		SchedulingPolicy result = SchedulingPolicy.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSchedulingPolicyToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
+	public CommunicationLinkResourceSpecification createCommunicationLinkResourceSpecification() {
+		CommunicationLinkResourceSpecificationImpl communicationLinkResourceSpecification = new CommunicationLinkResourceSpecificationImpl();
+		return communicationLinkResourceSpecification;
 	}
 
 	/**
@@ -204,6 +184,26 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 * @generated
 	 */
 	public String convertContainerOperatingSystemToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchedulingPolicy createSchedulingPolicyFromString(EDataType eDataType, String initialValue) {
+		SchedulingPolicy result = SchedulingPolicy.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSchedulingPolicyToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

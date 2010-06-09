@@ -5,10 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import de.uka.ipd.sdq.pcm.repository.FailureType;
-import de.uka.ipd.sdq.pcm.repository.ApplicationFailureType;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.repository.ApplicationFailureType;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureProbability <em>Failure Probability</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureType <em>Failure Type</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getInternalAction_FailureOccurenceDescription <em>Internal Action Failure Occurence Description</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureOccurenceDescriptions <em>Failure Occurence Descriptions</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,60 +42,6 @@ public interface FailureOccurrenceDescription extends EObject {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>Failure Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Failure Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Failure Type</em>' reference.
-	 * @see #setFailureType(FailureType)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getFailureOccurrenceDescription_FailureType()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	FailureType getFailureType();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureType <em>Failure Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Failure Type</em>' reference.
-	 * @see #getFailureType()
-	 * @generated
-	 */
-	void setFailureType(FailureType value);
-
-	/**
-	 * Returns the value of the '<em><b>Internal Action Failure Occurence Description</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.InternalAction#getFailureOccurrenceDescriptions <em>Failure Occurrence Descriptions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Internal Action Failure Occurence Description</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Internal Action Failure Occurence Description</em>' container reference.
-	 * @see #setInternalAction_FailureOccurenceDescription(InternalAction)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getFailureOccurrenceDescription_InternalAction_FailureOccurenceDescription()
-	 * @see de.uka.ipd.sdq.pcm.seff.InternalAction#getFailureOccurrenceDescriptions
-	 * @model opposite="failureOccurrenceDescriptions" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
-	InternalAction getInternalAction_FailureOccurenceDescription();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getInternalAction_FailureOccurenceDescription <em>Internal Action Failure Occurence Description</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Internal Action Failure Occurence Description</em>' container reference.
-	 * @see #getInternalAction_FailureOccurenceDescription()
-	 * @generated
-	 */
-	void setInternalAction_FailureOccurenceDescription(InternalAction value);
 
 	/**
 	 * Returns the value of the '<em><b>Failure Probability</b></em>' attribute.
@@ -123,5 +68,59 @@ public interface FailureOccurrenceDescription extends EObject {
 	 * @generated
 	 */
 	void setFailureProbability(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Failure Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Failure Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Failure Type</em>' reference.
+	 * @see #setFailureType(ApplicationFailureType)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getFailureOccurrenceDescription_FailureType()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	ApplicationFailureType getFailureType();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureType <em>Failure Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Failure Type</em>' reference.
+	 * @see #getFailureType()
+	 * @generated
+	 */
+	void setFailureType(ApplicationFailureType value);
+
+	/**
+	 * Returns the value of the '<em><b>Failure Occurence Descriptions</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.InternalAction#getFailureOccurrenceDescriptions <em>Failure Occurrence Descriptions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Failure Occurence Descriptions</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Failure Occurence Descriptions</em>' container reference.
+	 * @see #setFailureOccurenceDescriptions(InternalAction)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getFailureOccurrenceDescription_FailureOccurenceDescriptions()
+	 * @see de.uka.ipd.sdq.pcm.seff.InternalAction#getFailureOccurrenceDescriptions
+	 * @model opposite="failureOccurrenceDescriptions" required="true" transient="false" ordered="false"
+	 * @generated
+	 */
+	InternalAction getFailureOccurenceDescriptions();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureOccurenceDescriptions <em>Failure Occurence Descriptions</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Failure Occurence Descriptions</em>' container reference.
+	 * @see #getFailureOccurenceDescriptions()
+	 * @generated
+	 */
+	void setFailureOccurenceDescriptions(InternalAction value);
 
 } // FailureOccurrenceDescription

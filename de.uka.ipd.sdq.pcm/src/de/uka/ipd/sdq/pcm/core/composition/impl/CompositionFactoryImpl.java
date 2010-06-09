@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
-import de.uka.ipd.sdq.pcm.core.composition.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -14,11 +13,14 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,6 +77,9 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 			case CompositionPackage.ASSEMBLY_CONNECTOR: return createAssemblyConnector();
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR: return createRequiredDelegationConnector();
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR: return createResourceRequiredDelegationConnector();
+			case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR: return createAssemblyEventConnector();
+			case CompositionPackage.SINK_DELEGATION_CONNECTOR: return createSinkDelegationConnector();
+			case CompositionPackage.SOURCE_DELEGATION_CONNECTOR: return createSourceDelegationConnector();
 			case CompositionPackage.ASSEMBLY_CONTEXT: return createAssemblyContext();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -96,9 +101,9 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssemblyContext createAssemblyContext() {
-		AssemblyContextImpl assemblyContext = new AssemblyContextImpl();
-		return assemblyContext;
+	public AssemblyConnector createAssemblyConnector() {
+		AssemblyConnectorImpl assemblyConnector = new AssemblyConnectorImpl();
+		return assemblyConnector;
 	}
 
 	/**
@@ -116,9 +121,9 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssemblyConnector createAssemblyConnector() {
-		AssemblyConnectorImpl assemblyConnector = new AssemblyConnectorImpl();
-		return assemblyConnector;
+	public ResourceRequiredDelegationConnector createResourceRequiredDelegationConnector() {
+		ResourceRequiredDelegationConnectorImpl resourceRequiredDelegationConnector = new ResourceRequiredDelegationConnectorImpl();
+		return resourceRequiredDelegationConnector;
 	}
 
 	/**
@@ -126,9 +131,39 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceRequiredDelegationConnector createResourceRequiredDelegationConnector() {
-		ResourceRequiredDelegationConnectorImpl resourceRequiredDelegationConnector = new ResourceRequiredDelegationConnectorImpl();
-		return resourceRequiredDelegationConnector;
+	public AssemblyEventConnector createAssemblyEventConnector() {
+		AssemblyEventConnectorImpl assemblyEventConnector = new AssemblyEventConnectorImpl();
+		return assemblyEventConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SinkDelegationConnector createSinkDelegationConnector() {
+		SinkDelegationConnectorImpl sinkDelegationConnector = new SinkDelegationConnectorImpl();
+		return sinkDelegationConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SourceDelegationConnector createSourceDelegationConnector() {
+		SourceDelegationConnectorImpl sourceDelegationConnector = new SourceDelegationConnectorImpl();
+		return sourceDelegationConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AssemblyContext createAssemblyContext() {
+		AssemblyContextImpl assemblyContext = new AssemblyContextImpl();
+		return assemblyContext;
 	}
 
 	/**

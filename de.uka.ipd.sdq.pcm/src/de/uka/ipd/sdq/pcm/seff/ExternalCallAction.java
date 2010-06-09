@@ -1,18 +1,16 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-import org.eclipse.emf.common.util.EList;
-
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.repository.Role;
-import de.uka.ipd.sdq.pcm.repository.Signature;
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
+
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +36,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * @model
  * @generated
  */
-public interface ExternalCallAction extends AbstractAction, CallAction, FailureHandlingEntity {
+public interface ExternalCallAction extends AbstractAction, CallReturnAction, FailureHandlingEntity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -55,12 +53,12 @@ public interface ExternalCallAction extends AbstractAction, CallAction, FailureH
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Called Service External Service</em>' reference.
-	 * @see #setCalledService_ExternalService(Signature)
+	 * @see #setCalledService_ExternalService(OperationSignature)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_CalledService_ExternalService()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Signature getCalledService_ExternalService();
+	OperationSignature getCalledService_ExternalService();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getCalledService_ExternalService <em>Called Service External Service</em>}' reference.
@@ -70,7 +68,7 @@ public interface ExternalCallAction extends AbstractAction, CallAction, FailureH
 	 * @see #getCalledService_ExternalService()
 	 * @generated
 	 */
-	void setCalledService_ExternalService(Signature value);
+	void setCalledService_ExternalService(OperationSignature value);
 
 	/**
 	 * Returns the value of the '<em><b>Role External Service</b></em>' reference.
@@ -81,12 +79,12 @@ public interface ExternalCallAction extends AbstractAction, CallAction, FailureH
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Role External Service</em>' reference.
-	 * @see #setRole_ExternalService(RequiredRole)
+	 * @see #setRole_ExternalService(OperationRequiredRole)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_Role_ExternalService()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	RequiredRole getRole_ExternalService();
+	OperationRequiredRole getRole_ExternalService();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role External Service</em>}' reference.
@@ -96,7 +94,7 @@ public interface ExternalCallAction extends AbstractAction, CallAction, FailureH
 	 * @see #getRole_ExternalService()
 	 * @generated
 	 */
-	void setRole_ExternalService(RequiredRole value);
+	void setRole_ExternalService(OperationRequiredRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Retry Count</b></em>' attribute.
@@ -134,11 +132,11 @@ public interface ExternalCallAction extends AbstractAction, CallAction, FailureH
 	 * (declared in calledService_ExternalService attribute) belongs to the role
 	 * (declared in role_ExternalService attribute)
 	 * </pre>
-	 * self.role_ExternalService.requiredInterface__RequiredRole.signatures__Interface->includes(self.calledService_ExternalService)
+	 * self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.role_ExternalService.requiredInterface__RequiredRole.signatures__Interface->includes(self.calledService_ExternalService)'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)'"
 	 * @generated
 	 */
 	boolean SignatureBelongsToRole(DiagnosticChain diagnostics, Map<Object, Object> context);

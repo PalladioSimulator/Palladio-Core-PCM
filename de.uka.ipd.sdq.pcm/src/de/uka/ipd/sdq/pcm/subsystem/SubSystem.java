@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -30,7 +30,6 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
  * @generated
  */
 public interface SubSystem extends ComposedProvidingRequiringEntity, RepositoryComponent {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

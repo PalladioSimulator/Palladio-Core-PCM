@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -89,7 +89,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass communicationLinkResourceSpecificationEClass = null;
+	private EClass resourceContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,14 +103,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resourceContainerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum schedulingPolicyEEnum = null;
+	private EClass communicationLinkResourceSpecificationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,6 +111,13 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * @generated
 	 */
 	private EEnum containerOperatingSystemEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum schedulingPolicyEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -305,8 +305,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCommunicationLinkResourceSpecification() {
-		return communicationLinkResourceSpecificationEClass;
+	public EClass getResourceContainer() {
+		return resourceContainerEClass;
 	}
 
 	/**
@@ -314,8 +314,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification() {
-		return (EReference)communicationLinkResourceSpecificationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getResourceContainer_OperatingSystem_ResourceContainer() {
+		return (EAttribute)resourceContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -323,8 +323,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCommunicationLinkResourceSpecification_FailureProbability() {
-		return (EAttribute)communicationLinkResourceSpecificationEClass.getEStructuralFeatures().get(1);
+	public EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer() {
+		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -332,26 +332,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification() {
-		return (EReference)communicationLinkResourceSpecificationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification() {
-		return (EReference)communicationLinkResourceSpecificationEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification() {
-		return (EReference)communicationLinkResourceSpecificationEClass.getEStructuralFeatures().get(4);
+	public EReference getResourceContainer_ResourceEnvironment_ResourceContainer() {
+		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -431,8 +413,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getResourceContainer() {
-		return resourceContainerEClass;
+	public EClass getCommunicationLinkResourceSpecification() {
+		return communicationLinkResourceSpecificationEClass;
 	}
 
 	/**
@@ -440,8 +422,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResourceContainer_OperatingSystem_ResourceContainer() {
-		return (EAttribute)resourceContainerEClass.getEStructuralFeatures().get(0);
+	public EReference getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification() {
+		return (EReference)communicationLinkResourceSpecificationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -449,8 +431,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer() {
-		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(1);
+	public EAttribute getCommunicationLinkResourceSpecification_FailureProbability() {
+		return (EAttribute)communicationLinkResourceSpecificationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -458,8 +440,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceContainer_ResourceEnvironment_ResourceContainer() {
-		return (EReference)resourceContainerEClass.getEStructuralFeatures().get(2);
+	public EReference getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification() {
+		return (EReference)communicationLinkResourceSpecificationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -467,8 +449,17 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getSchedulingPolicy() {
-		return schedulingPolicyEEnum;
+	public EReference getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification() {
+		return (EReference)communicationLinkResourceSpecificationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification() {
+		return (EReference)communicationLinkResourceSpecificationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -478,6 +469,15 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 */
 	public EEnum getContainerOperatingSystem() {
 		return containerOperatingSystemEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSchedulingPolicy() {
+		return schedulingPolicyEEnum;
 	}
 
 	/**

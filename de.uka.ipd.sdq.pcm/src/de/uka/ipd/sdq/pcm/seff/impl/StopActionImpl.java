@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -37,6 +37,7 @@ public class StopActionImpl extends AbstractInternalControlFlowActionImpl implem
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +66,7 @@ public class StopActionImpl extends AbstractInternalControlFlowActionImpl implem
 	 * @ordered
 	 */
 	protected static final String STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.successor_AbstractAction.oclIsUndefined()";
+
 	/**
 	 * The cached OCL invariant for the '{@link #StopActionSuccessorMustNotBeDefined(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Stop Action Successor Must Not Be Defined</em>}' invariant operation.
 	 * <!-- begin-user-doc -->

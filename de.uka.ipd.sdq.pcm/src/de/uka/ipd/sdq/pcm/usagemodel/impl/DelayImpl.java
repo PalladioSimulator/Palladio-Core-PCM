@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.usagemodel.Delay;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
@@ -35,6 +36,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached value of the '{@link #getTimeSpecification_Delay() <em>Time Specification Delay</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -97,14 +99,30 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 		if (newTimeSpecification_Delay != timeSpecification_Delay) {
 			NotificationChain msgs = null;
 			if (timeSpecification_Delay != null)
-				msgs = ((InternalEObject)timeSpecification_Delay).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, null, msgs);
+				msgs = ((InternalEObject)timeSpecification_Delay).eInverseRemove(this, CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION, PCMRandomVariable.class, msgs);
 			if (newTimeSpecification_Delay != null)
-				msgs = ((InternalEObject)newTimeSpecification_Delay).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, null, msgs);
+				msgs = ((InternalEObject)newTimeSpecification_Delay).eInverseAdd(this, CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION, PCMRandomVariable.class, msgs);
 			msgs = basicSetTimeSpecification_Delay(newTimeSpecification_Delay, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, newTimeSpecification_Delay, newTimeSpecification_Delay));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
+				if (timeSpecification_Delay != null)
+					msgs = ((InternalEObject)timeSpecification_Delay).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, null, msgs);
+				return basicSetTimeSpecification_Delay((PCMRandomVariable)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

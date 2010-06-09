@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -37,6 +37,7 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +66,7 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
 	 * @ordered
 	 */
 	protected static final String AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.oclIsTypeOf(ProvidesComponentType)\n"+"implies\n"+"self.providedRoles_InterfaceProvidingEntity->size() >= 1";
+
 	/**
 	 * The cached OCL invariant for the '{@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>}' invariant operation.
 	 * <!-- begin-user-doc -->

@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -22,6 +22,7 @@ public interface ParameterFactory extends EFactory {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
@@ -31,31 +32,31 @@ public interface ParameterFactory extends EFactory {
 	ParameterFactory eINSTANCE = de.uka.ipd.sdq.pcm.parameter.impl.ParameterFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Variable Characterisation</em>'.
+	 * Returns a new object of class '<em>Variable Setter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Variable Characterisation</em>'.
+	 * @return a new object of class '<em>Variable Setter</em>'.
 	 * @generated
 	 */
-	VariableCharacterisation createVariableCharacterisation();
+	VariableSetter createVariableSetter();
 
 	/**
-	 * Returns a new object of class '<em>Characterised Variable</em>'.
+	 * Returns a new object of class '<em>Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Characterised Variable</em>'.
+	 * @return a new object of class '<em>Variable</em>'.
 	 * @generated
 	 */
-	CharacterisedVariable createCharacterisedVariable();
+	Variable createVariable();
 
 	/**
-	 * Returns a new object of class '<em>Variable Usage</em>'.
+	 * Returns a new object of class '<em>Variable Characteristic</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Variable Usage</em>'.
+	 * @return a new object of class '<em>Variable Characteristic</em>'.
 	 * @generated
 	 */
-	VariableUsage createVariableUsage();
+	VariableCharacteristic createVariableCharacteristic();
 
 	/**
 	 * Returns the package supported by this factory.

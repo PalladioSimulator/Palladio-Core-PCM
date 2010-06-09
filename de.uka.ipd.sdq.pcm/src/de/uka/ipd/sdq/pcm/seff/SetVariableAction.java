@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -7,7 +7,7 @@ package de.uka.ipd.sdq.pcm.seff;
 
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,8 +41,8 @@ public interface SetVariableAction extends AbstractInternalControlFlowAction {
 
 	/**
 	 * Returns the value of the '<em><b>Local Variable Usages Set Variable Action</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage <em>Set Variable Action Variable Usage</em>}'.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableSetter}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSetVariableAction__VariableSetter <em>Set Variable Action Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Local Variable Usages Set Variable Action</em>' containment reference list isn't clear,
@@ -51,10 +51,10 @@ public interface SetVariableAction extends AbstractInternalControlFlowAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Local Variable Usages Set Variable Action</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSetVariableAction_LocalVariableUsages_SetVariableAction()
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage
-	 * @model opposite="setVariableAction_VariableUsage" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getSetVariableAction__VariableSetter
+	 * @model opposite="setVariableAction__VariableSetter" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<VariableUsage> getLocalVariableUsages_SetVariableAction();
+	EList<VariableSetter> getLocalVariableUsages_SetVariableAction();
 
 } // SetVariableAction

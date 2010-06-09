@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -28,7 +28,6 @@ package de.uka.ipd.sdq.pcm.seff;
  * @generated
  */
 public interface ForkedBehaviour extends ResourceDemandingBehaviour {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

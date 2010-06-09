@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -42,24 +42,6 @@ public interface Allocation extends Entity {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * Returns the value of the '<em><b>Allocation Contexts Allocation</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext <em>Allocation Allocation Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Allocation Contexts Allocation</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Allocation Contexts Allocation</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocation_AllocationContexts_Allocation()
-	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext
-	 * @model opposite="allocation_AllocationContext" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<AllocationContext> getAllocationContexts_Allocation();
 
 	/**
 	 * Returns the value of the '<em><b>Target Resource Environment Allocation</b></em>' reference.
@@ -112,6 +94,24 @@ public interface Allocation extends Entity {
 	 * @generated
 	 */
 	void setSystem_Allocation(de.uka.ipd.sdq.pcm.system.System value);
+
+	/**
+	 * Returns the value of the '<em><b>Allocation Contexts Allocation</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext <em>Allocation Allocation Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Allocation Contexts Allocation</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Allocation Contexts Allocation</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocation_AllocationContexts_Allocation()
+	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext
+	 * @model opposite="allocation_AllocationContext" containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<AllocationContext> getAllocationContexts_Allocation();
 
 	/**
 	 * <!-- begin-user-doc -->

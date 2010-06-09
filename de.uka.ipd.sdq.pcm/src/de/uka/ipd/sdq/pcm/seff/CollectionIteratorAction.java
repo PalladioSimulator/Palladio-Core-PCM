@@ -1,11 +1,12 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +20,7 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction#getParameter_CollectionIteratorAction <em>Parameter Collection Iterator Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction#getVariable__CollectionIteratorAction <em>Variable Collection Iterator Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,29 +37,29 @@ public interface CollectionIteratorAction extends AbstractLoopAction {
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Parameter Collection Iterator Action</b></em>' reference.
+	 * Returns the value of the '<em><b>Variable Collection Iterator Action</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameter Collection Iterator Action</em>' reference isn't clear,
+	 * If the meaning of the '<em>Variable Collection Iterator Action</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter Collection Iterator Action</em>' reference.
-	 * @see #setParameter_CollectionIteratorAction(Parameter)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getCollectionIteratorAction_Parameter_CollectionIteratorAction()
+	 * @return the value of the '<em>Variable Collection Iterator Action</em>' reference.
+	 * @see #setVariable__CollectionIteratorAction(Variable)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getCollectionIteratorAction_Variable__CollectionIteratorAction()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Parameter getParameter_CollectionIteratorAction();
+	Variable getVariable__CollectionIteratorAction();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction#getParameter_CollectionIteratorAction <em>Parameter Collection Iterator Action</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction#getVariable__CollectionIteratorAction <em>Variable Collection Iterator Action</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parameter Collection Iterator Action</em>' reference.
-	 * @see #getParameter_CollectionIteratorAction()
+	 * @param value the new value of the '<em>Variable Collection Iterator Action</em>' reference.
+	 * @see #getVariable__CollectionIteratorAction()
 	 * @generated
 	 */
-	void setParameter_CollectionIteratorAction(Parameter value);
+	void setVariable__CollectionIteratorAction(Variable value);
 
 } // CollectionIteratorAction

@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,8 +11,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
@@ -202,9 +203,9 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 		if (newSpecification_SpecifiedExecutionTime != specification_SpecifiedExecutionTime) {
 			NotificationChain msgs = null;
 			if (specification_SpecifiedExecutionTime != null)
-				msgs = ((InternalEObject)specification_SpecifiedExecutionTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME, null, msgs);
+				msgs = ((InternalEObject)specification_SpecifiedExecutionTime).eInverseRemove(this, CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_QO_SANNOTATION_SPECIFIED_EXECUTION_TIME, PCMRandomVariable.class, msgs);
 			if (newSpecification_SpecifiedExecutionTime != null)
-				msgs = ((InternalEObject)newSpecification_SpecifiedExecutionTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME, null, msgs);
+				msgs = ((InternalEObject)newSpecification_SpecifiedExecutionTime).eInverseAdd(this, CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_QO_SANNOTATION_SPECIFIED_EXECUTION_TIME, PCMRandomVariable.class, msgs);
 			msgs = basicSetSpecification_SpecifiedExecutionTime(newSpecification_SpecifiedExecutionTime, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -261,6 +262,10 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
+				if (specification_SpecifiedExecutionTime != null)
+					msgs = ((InternalEObject)specification_SpecifiedExecutionTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SPECIFICATION_SPECIFIED_EXECUTION_TIME, null, msgs);
+				return basicSetSpecification_SpecifiedExecutionTime((PCMRandomVariable)otherEnd, msgs);
 			case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);

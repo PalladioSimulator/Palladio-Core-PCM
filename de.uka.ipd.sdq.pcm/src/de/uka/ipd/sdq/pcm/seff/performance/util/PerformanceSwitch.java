@@ -1,11 +1,10 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff.performance.util;
 
-import de.uka.ipd.sdq.pcm.seff.performance.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -34,6 +33,7 @@ public class PerformanceSwitch<T> {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->

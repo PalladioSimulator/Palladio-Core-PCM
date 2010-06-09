@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -13,23 +13,31 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.seff.*;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
+import de.uka.ipd.sdq.pcm.seff.CallAction;
+import de.uka.ipd.sdq.pcm.seff.CallReturnAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
+import de.uka.ipd.sdq.pcm.seff.EmitEventAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import de.uka.ipd.sdq.pcm.seff.FailureHandlingEntity;
+import de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
+import de.uka.ipd.sdq.pcm.seff.InternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
+import de.uka.ipd.sdq.pcm.seff.RecoveryBlockAction;
+import de.uka.ipd.sdq.pcm.seff.RecoveryBlockAlternativeBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
@@ -58,6 +66,7 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -286,11 +295,19 @@ public class SeffSwitch<T> {
 				ExternalCallAction externalCallAction = (ExternalCallAction)theEObject;
 				T result = caseExternalCallAction(externalCallAction);
 				if (result == null) result = caseAbstractAction(externalCallAction);
-				if (result == null) result = caseCallAction(externalCallAction);
+				if (result == null) result = caseCallReturnAction(externalCallAction);
 				if (result == null) result = caseFailureHandlingEntity(externalCallAction);
 				if (result == null) result = caseEntity(externalCallAction);
+				if (result == null) result = caseCallAction(externalCallAction);
 				if (result == null) result = caseIdentifier(externalCallAction);
 				if (result == null) result = caseNamedElement(externalCallAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SeffPackage.CALL_RETURN_ACTION: {
+				CallReturnAction callReturnAction = (CallReturnAction)theEObject;
+				T result = caseCallReturnAction(callReturnAction);
+				if (result == null) result = caseCallAction(callReturnAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -385,6 +402,17 @@ public class SeffSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SeffPackage.EMIT_EVENT_ACTION: {
+				EmitEventAction emitEventAction = (EmitEventAction)theEObject;
+				T result = caseEmitEventAction(emitEventAction);
+				if (result == null) result = caseAbstractAction(emitEventAction);
+				if (result == null) result = caseCallAction(emitEventAction);
+				if (result == null) result = caseEntity(emitEventAction);
+				if (result == null) result = caseIdentifier(emitEventAction);
+				if (result == null) result = caseNamedElement(emitEventAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SeffPackage.CALL_ACTION: {
 				CallAction callAction = (CallAction)theEObject;
 				T result = caseCallAction(callAction);
@@ -441,6 +469,66 @@ public class SeffSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Demanding Behaviour</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Demanding Behaviour</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceDemandingBehaviour(ResourceDemandingBehaviour object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Loop Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Loop Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractLoopAction(AbstractLoopAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Branch Transition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Branch Transition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractBranchTransition(AbstractBranchTransition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Branch Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Branch Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBranchAction(BranchAction object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Start Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -456,6 +544,21 @@ public class SeffSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Effect Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Effect Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceEffectSpecification(ServiceEffectSpecification object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Resource Demanding SEFF</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -467,21 +570,6 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public T caseResourceDemandingSEFF(ResourceDemandingSEFF object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Demanding Behaviour</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Demanding Behaviour</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseResourceDemandingBehaviour(ResourceDemandingBehaviour object) {
 		return null;
 	}
 
@@ -527,21 +615,6 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public T caseLoopAction(LoopAction object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abstract Loop Action</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Abstract Loop Action</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAbstractLoopAction(AbstractLoopAction object) {
 		return null;
 	}
 
@@ -636,17 +709,17 @@ public class SeffSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Call Action</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Call Return Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Call Action</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Call Return Action</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCallAction(CallAction object) {
+	public T caseCallReturnAction(CallReturnAction object) {
 		return null;
 	}
 
@@ -677,36 +750,6 @@ public class SeffSwitch<T> {
 	 * @generated
 	 */
 	public T caseProbabilisticBranchTransition(ProbabilisticBranchTransition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Abstract Branch Transition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Abstract Branch Transition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAbstractBranchTransition(AbstractBranchTransition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Branch Action</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Branch Action</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBranchAction(BranchAction object) {
 		return null;
 	}
 
@@ -816,17 +859,32 @@ public class SeffSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Service Effect Specification</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Emit Event Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Service Effect Specification</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Emit Event Action</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseServiceEffectSpecification(ServiceEffectSpecification object) {
+	public T caseEmitEventAction(EmitEventAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallAction(CallAction object) {
 		return null;
 	}
 

@@ -5,22 +5,18 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import de.uka.ipd.sdq.pcm.repository.FailureType;
-import de.uka.ipd.sdq.pcm.repository.ApplicationFailureType;
-
-import de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription;
-import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import de.uka.ipd.sdq.pcm.repository.ApplicationFailureType;
+import de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription;
+import de.uka.ipd.sdq.pcm.seff.InternalAction;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +27,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.FailureOccurrenceDescriptionImpl#getFailureProbability <em>Failure Probability</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.FailureOccurrenceDescriptionImpl#getFailureType <em>Failure Type</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.FailureOccurrenceDescriptionImpl#getInternalAction_FailureOccurenceDescription <em>Internal Action Failure Occurence Description</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.FailureOccurrenceDescriptionImpl#getFailureOccurenceDescriptions <em>Failure Occurence Descriptions</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,7 +69,7 @@ public class FailureOccurrenceDescriptionImpl extends EObjectImpl implements Fai
 	 * @generated
 	 * @ordered
 	 */
-	protected FailureType failureType;
+	protected ApplicationFailureType failureType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,129 +88,6 @@ public class FailureOccurrenceDescriptionImpl extends EObjectImpl implements Fai
 	@Override
 	protected EClass eStaticClass() {
 		return SeffPackage.Literals.FAILURE_OCCURRENCE_DESCRIPTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FailureType getFailureType() {
-		if (failureType != null && failureType.eIsProxy()) {
-			InternalEObject oldFailureType = (InternalEObject)failureType;
-			failureType = (FailureType)eResolveProxy(oldFailureType);
-			if (failureType != oldFailureType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE, oldFailureType, failureType));
-			}
-		}
-		return failureType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FailureType basicGetFailureType() {
-		return failureType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFailureType(FailureType newFailureType) {
-		FailureType oldFailureType = failureType;
-		failureType = newFailureType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE, oldFailureType, failureType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InternalAction getInternalAction_FailureOccurenceDescription() {
-		if (eContainerFeatureID() != SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION) return null;
-		return (InternalAction)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInternalAction_FailureOccurenceDescription(InternalAction newInternalAction_FailureOccurenceDescription, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newInternalAction_FailureOccurenceDescription, SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInternalAction_FailureOccurenceDescription(InternalAction newInternalAction_FailureOccurenceDescription) {
-		if (newInternalAction_FailureOccurenceDescription != eInternalContainer() || (eContainerFeatureID() != SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION && newInternalAction_FailureOccurenceDescription != null)) {
-			if (EcoreUtil.isAncestor(this, newInternalAction_FailureOccurenceDescription))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newInternalAction_FailureOccurenceDescription != null)
-				msgs = ((InternalEObject)newInternalAction_FailureOccurenceDescription).eInverseAdd(this, SeffPackage.INTERNAL_ACTION__FAILURE_OCCURRENCE_DESCRIPTIONS, InternalAction.class, msgs);
-			msgs = basicSetInternalAction_FailureOccurenceDescription(newInternalAction_FailureOccurenceDescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION, newInternalAction_FailureOccurenceDescription, newInternalAction_FailureOccurenceDescription));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetInternalAction_FailureOccurenceDescription((InternalAction)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION:
-				return basicSetInternalAction_FailureOccurenceDescription(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION:
-				return eInternalContainer().eInverseRemove(this, SeffPackage.INTERNAL_ACTION__FAILURE_OCCURRENCE_DESCRIPTIONS, InternalAction.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -243,6 +116,129 @@ public class FailureOccurrenceDescriptionImpl extends EObjectImpl implements Fai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ApplicationFailureType getFailureType() {
+		if (failureType != null && failureType.eIsProxy()) {
+			InternalEObject oldFailureType = (InternalEObject)failureType;
+			failureType = (ApplicationFailureType)eResolveProxy(oldFailureType);
+			if (failureType != oldFailureType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE, oldFailureType, failureType));
+			}
+		}
+		return failureType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApplicationFailureType basicGetFailureType() {
+		return failureType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFailureType(ApplicationFailureType newFailureType) {
+		ApplicationFailureType oldFailureType = failureType;
+		failureType = newFailureType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE, oldFailureType, failureType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InternalAction getFailureOccurenceDescriptions() {
+		if (eContainerFeatureID() != SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS) return null;
+		return (InternalAction)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFailureOccurenceDescriptions(InternalAction newFailureOccurenceDescriptions, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newFailureOccurenceDescriptions, SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFailureOccurenceDescriptions(InternalAction newFailureOccurenceDescriptions) {
+		if (newFailureOccurenceDescriptions != eInternalContainer() || (eContainerFeatureID() != SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS && newFailureOccurenceDescriptions != null)) {
+			if (EcoreUtil.isAncestor(this, newFailureOccurenceDescriptions))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newFailureOccurenceDescriptions != null)
+				msgs = ((InternalEObject)newFailureOccurenceDescriptions).eInverseAdd(this, SeffPackage.INTERNAL_ACTION__FAILURE_OCCURRENCE_DESCRIPTIONS, InternalAction.class, msgs);
+			msgs = basicSetFailureOccurenceDescriptions(newFailureOccurenceDescriptions, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS, newFailureOccurenceDescriptions, newFailureOccurenceDescriptions));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetFailureOccurenceDescriptions((InternalAction)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS:
+				return basicSetFailureOccurenceDescriptions(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS:
+				return eInternalContainer().eInverseRemove(this, SeffPackage.INTERNAL_ACTION__FAILURE_OCCURRENCE_DESCRIPTIONS, InternalAction.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -251,8 +247,8 @@ public class FailureOccurrenceDescriptionImpl extends EObjectImpl implements Fai
 			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE:
 				if (resolve) return getFailureType();
 				return basicGetFailureType();
-			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION:
-				return getInternalAction_FailureOccurenceDescription();
+			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS:
+				return getFailureOccurenceDescriptions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -269,10 +265,10 @@ public class FailureOccurrenceDescriptionImpl extends EObjectImpl implements Fai
 				setFailureProbability((Double)newValue);
 				return;
 			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE:
-				setFailureType((FailureType)newValue);
+				setFailureType((ApplicationFailureType)newValue);
 				return;
-			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION:
-				setInternalAction_FailureOccurenceDescription((InternalAction)newValue);
+			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS:
+				setFailureOccurenceDescriptions((InternalAction)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -290,10 +286,10 @@ public class FailureOccurrenceDescriptionImpl extends EObjectImpl implements Fai
 				setFailureProbability(FAILURE_PROBABILITY_EDEFAULT);
 				return;
 			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE:
-				setFailureType((FailureType)null);
+				setFailureType((ApplicationFailureType)null);
 				return;
-			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION:
-				setInternalAction_FailureOccurenceDescription((InternalAction)null);
+			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS:
+				setFailureOccurenceDescriptions((InternalAction)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -311,8 +307,8 @@ public class FailureOccurrenceDescriptionImpl extends EObjectImpl implements Fai
 				return failureProbability != FAILURE_PROBABILITY_EDEFAULT;
 			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE:
 				return failureType != null;
-			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION:
-				return getInternalAction_FailureOccurenceDescription() != null;
+			case SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS:
+				return getFailureOccurenceDescriptions() != null;
 		}
 		return super.eIsSet(featureID);
 	}

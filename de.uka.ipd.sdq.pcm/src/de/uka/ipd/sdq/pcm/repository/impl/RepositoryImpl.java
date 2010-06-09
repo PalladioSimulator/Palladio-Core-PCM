@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -34,9 +33,9 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getRepositoryDescription <em>Repository Description</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getComponents__Repository <em>Components Repository</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getInterfaces__Repository <em>Interfaces Repository</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getFailureTypes <em>Failure Types</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getDatatypes_Repository <em>Datatypes Repository</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getFailureTypes <em>Failure Types</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getInterfaces__Repository <em>Interfaces Repository</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,14 +80,14 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	protected EList<RepositoryComponent> components__Repository;
 
 	/**
-	 * The cached value of the '{@link #getInterfaces__Repository() <em>Interfaces Repository</em>}' containment reference list.
+	 * The cached value of the '{@link #getDatatypes_Repository() <em>Datatypes Repository</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInterfaces__Repository()
+	 * @see #getDatatypes_Repository()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Interface> interfaces__Repository;
+	protected EList<DataType> datatypes_Repository;
 
 	/**
 	 * The cached value of the '{@link #getFailureTypes() <em>Failure Types</em>}' containment reference list.
@@ -101,14 +100,14 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	protected EList<FailureType> failureTypes;
 
 	/**
-	 * The cached value of the '{@link #getDatatypes_Repository() <em>Datatypes Repository</em>}' containment reference list.
+	 * The cached value of the '{@link #getInterfaces__Repository() <em>Interfaces Repository</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDatatypes_Repository()
+	 * @see #getInterfaces__Repository()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DataType> datatypes_Repository;
+	protected EList<Interface> interfaces__Repository;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -209,12 +208,12 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 		switch (featureID) {
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComponents__Repository()).basicAdd(otherEnd, msgs);
-			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInterfaces__Repository()).basicAdd(otherEnd, msgs);
-			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFailureTypes()).basicAdd(otherEnd, msgs);
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDatatypes_Repository()).basicAdd(otherEnd, msgs);
+			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFailureTypes()).basicAdd(otherEnd, msgs);
+			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInterfaces__Repository()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -229,12 +228,12 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 		switch (featureID) {
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 				return ((InternalEList<?>)getComponents__Repository()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-				return ((InternalEList<?>)getInterfaces__Repository()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
-				return ((InternalEList<?>)getFailureTypes()).basicRemove(otherEnd, msgs);
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				return ((InternalEList<?>)getDatatypes_Repository()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
+				return ((InternalEList<?>)getFailureTypes()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
+				return ((InternalEList<?>)getInterfaces__Repository()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -251,12 +250,12 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 				return getRepositoryDescription();
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 				return getComponents__Repository();
-			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-				return getInterfaces__Repository();
-			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
-				return getFailureTypes();
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				return getDatatypes_Repository();
+			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
+				return getFailureTypes();
+			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
+				return getInterfaces__Repository();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -277,17 +276,17 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 				getComponents__Repository().clear();
 				getComponents__Repository().addAll((Collection<? extends RepositoryComponent>)newValue);
 				return;
-			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-				getInterfaces__Repository().clear();
-				getInterfaces__Repository().addAll((Collection<? extends Interface>)newValue);
+			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
+				getDatatypes_Repository().clear();
+				getDatatypes_Repository().addAll((Collection<? extends DataType>)newValue);
 				return;
 			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
 				getFailureTypes().clear();
 				getFailureTypes().addAll((Collection<? extends FailureType>)newValue);
 				return;
-			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
-				getDatatypes_Repository().clear();
-				getDatatypes_Repository().addAll((Collection<? extends DataType>)newValue);
+			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
+				getInterfaces__Repository().clear();
+				getInterfaces__Repository().addAll((Collection<? extends Interface>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -307,14 +306,14 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 				getComponents__Repository().clear();
 				return;
-			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-				getInterfaces__Repository().clear();
+			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
+				getDatatypes_Repository().clear();
 				return;
 			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
 				getFailureTypes().clear();
 				return;
-			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
-				getDatatypes_Repository().clear();
+			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
+				getInterfaces__Repository().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -332,12 +331,12 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 				return REPOSITORY_DESCRIPTION_EDEFAULT == null ? repositoryDescription != null : !REPOSITORY_DESCRIPTION_EDEFAULT.equals(repositoryDescription);
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 				return components__Repository != null && !components__Repository.isEmpty();
-			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-				return interfaces__Repository != null && !interfaces__Repository.isEmpty();
-			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
-				return failureTypes != null && !failureTypes.isEmpty();
 			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
 				return datatypes_Repository != null && !datatypes_Repository.isEmpty();
+			case RepositoryPackage.REPOSITORY__FAILURE_TYPES:
+				return failureTypes != null && !failureTypes.isEmpty();
+			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
+				return interfaces__Repository != null && !interfaces__Repository.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

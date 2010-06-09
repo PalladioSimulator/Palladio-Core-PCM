@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -25,26 +25,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum PrimitiveTypeEnum implements Enumerator {
 	/**
-	 * The '<em><b>INT</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #INT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	INT(0, "INT", "INT"),
-
-	/**
-	 * The '<em><b>STRING</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #STRING_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	STRING(1, "STRING", "STRING"),
-
-	/**
 	 * The '<em><b>BOOL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,17 +32,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOOL(2, "BOOL", "BOOL"),
-
-	/**
-	 * The '<em><b>DOUBLE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #DOUBLE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	DOUBLE(3, "DOUBLE", "DOUBLE"),
+	BOOL(0, "BOOL", "BOOL"),
 
 	/**
 	 * The '<em><b>CHAR</b></em>' literal object.
@@ -72,7 +42,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CHAR(4, "CHAR", "CHAR"),
+	CHAR(1, "CHAR", "CHAR"),
 
 	/**
 	 * The '<em><b>BYTE</b></em>' literal object.
@@ -82,7 +52,17 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BYTE(5, "BYTE", "BYTE"),
+	BYTE(2, "BYTE", "BYTE"),
+
+	/**
+	 * The '<em><b>INT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #INT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	INT(3, "INT", "INT"),
 
 	/**
 	 * The '<em><b>LONG</b></em>' literal object.
@@ -92,7 +72,27 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LONG(6, "LONG", "LONG");
+	LONG(4, "LONG", "LONG"),
+
+	/**
+	 * The '<em><b>DOUBLE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DOUBLE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DOUBLE(5, "DOUBLE", "DOUBLE"),
+
+	/**
+	 * The '<em><b>STRING</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STRING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STRING(6, "STRING", "STRING");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,36 +100,6 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
-	 * The '<em><b>INT</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>INT</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #INT
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int INT_VALUE = 0;
-
-	/**
-	 * The '<em><b>STRING</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>STRING</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #STRING
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int STRING_VALUE = 1;
 
 	/**
 	 * The '<em><b>BOOL</b></em>' literal value.
@@ -144,22 +114,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BOOL_VALUE = 2;
-
-	/**
-	 * The '<em><b>DOUBLE</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>DOUBLE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #DOUBLE
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int DOUBLE_VALUE = 3;
+	public static final int BOOL_VALUE = 0;
 
 	/**
 	 * The '<em><b>CHAR</b></em>' literal value.
@@ -174,7 +129,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CHAR_VALUE = 4;
+	public static final int CHAR_VALUE = 1;
 
 	/**
 	 * The '<em><b>BYTE</b></em>' literal value.
@@ -189,7 +144,22 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BYTE_VALUE = 5;
+	public static final int BYTE_VALUE = 2;
+
+	/**
+	 * The '<em><b>INT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>INT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #INT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int INT_VALUE = 3;
 
 	/**
 	 * The '<em><b>LONG</b></em>' literal value.
@@ -204,7 +174,37 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LONG_VALUE = 6;
+	public static final int LONG_VALUE = 4;
+
+	/**
+	 * The '<em><b>DOUBLE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>DOUBLE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DOUBLE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DOUBLE_VALUE = 5;
+
+	/**
+	 * The '<em><b>STRING</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>STRING</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #STRING
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STRING_VALUE = 6;
 
 	/**
 	 * An array of all the '<em><b>Primitive Type Enum</b></em>' enumerators.
@@ -214,13 +214,13 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 */
 	private static final PrimitiveTypeEnum[] VALUES_ARRAY =
 		new PrimitiveTypeEnum[] {
-			INT,
-			STRING,
 			BOOL,
-			DOUBLE,
 			CHAR,
 			BYTE,
+			INT,
 			LONG,
+			DOUBLE,
+			STRING,
 		};
 
 	/**
@@ -271,13 +271,13 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 */
 	public static PrimitiveTypeEnum get(int value) {
 		switch (value) {
-			case INT_VALUE: return INT;
-			case STRING_VALUE: return STRING;
 			case BOOL_VALUE: return BOOL;
-			case DOUBLE_VALUE: return DOUBLE;
 			case CHAR_VALUE: return CHAR;
 			case BYTE_VALUE: return BYTE;
+			case INT_VALUE: return INT;
 			case LONG_VALUE: return LONG;
+			case DOUBLE_VALUE: return DOUBLE;
+			case STRING_VALUE: return STRING;
 		}
 		return null;
 	}

@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -24,7 +24,8 @@ import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -37,8 +38,8 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl#getComponentParameter__ImplementationComponentType <em>Component Parameter Implementation Component Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl#getParentCompleteComponentTypes <em>Parent Complete Component Types</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl#getComponentParameterUsage_ImplementationComponentType <em>Component Parameter Usage Implementation Component Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +54,16 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
+	 * The cached value of the '{@link #getComponentParameter__ImplementationComponentType() <em>Component Parameter Implementation Component Type</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponentParameter__ImplementationComponentType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Variable> componentParameter__ImplementationComponentType;
+
+	/**
 	 * The cached value of the '{@link #getParentCompleteComponentTypes() <em>Parent Complete Component Types</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,16 +72,6 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 	 * @ordered
 	 */
 	protected EList<CompleteComponentType> parentCompleteComponentTypes;
-
-	/**
-	 * The cached value of the '{@link #getComponentParameterUsage_ImplementationComponentType() <em>Component Parameter Usage Implementation Component Type</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComponentParameterUsage_ImplementationComponentType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<VariableUsage> componentParameterUsage_ImplementationComponentType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -96,11 +97,11 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CompleteComponentType> getParentCompleteComponentTypes() {
-		if (parentCompleteComponentTypes == null) {
-			parentCompleteComponentTypes = new EObjectResolvingEList<CompleteComponentType>(CompleteComponentType.class, this, RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES);
+	public EList<Variable> getComponentParameter__ImplementationComponentType() {
+		if (componentParameter__ImplementationComponentType == null) {
+			componentParameter__ImplementationComponentType = new EObjectContainmentWithInverseEList<Variable>(Variable.class, this, RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE, ParameterPackage.VARIABLE__IMPLEMENTATION_COMPONENT_TYPE_VARIABLE);
 		}
-		return parentCompleteComponentTypes;
+		return componentParameter__ImplementationComponentType;
 	}
 
 	/**
@@ -108,11 +109,11 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<VariableUsage> getComponentParameterUsage_ImplementationComponentType() {
-		if (componentParameterUsage_ImplementationComponentType == null) {
-			componentParameterUsage_ImplementationComponentType = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE);
+	public EList<CompleteComponentType> getParentCompleteComponentTypes() {
+		if (parentCompleteComponentTypes == null) {
+			parentCompleteComponentTypes = new EObjectResolvingEList<CompleteComponentType>(CompleteComponentType.class, this, RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES);
 		}
-		return componentParameterUsage_ImplementationComponentType;
+		return parentCompleteComponentTypes;
 	}
 
 	/**
@@ -222,11 +223,26 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComponentParameter__ImplementationComponentType()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-				return ((InternalEList<?>)getComponentParameterUsage_ImplementationComponentType()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				return ((InternalEList<?>)getComponentParameter__ImplementationComponentType()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -239,10 +255,10 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				return getComponentParameter__ImplementationComponentType();
 			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
 				return getParentCompleteComponentTypes();
-			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-				return getComponentParameterUsage_ImplementationComponentType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -256,13 +272,13 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				getComponentParameter__ImplementationComponentType().clear();
+				getComponentParameter__ImplementationComponentType().addAll((Collection<? extends Variable>)newValue);
+				return;
 			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
 				getParentCompleteComponentTypes().clear();
 				getParentCompleteComponentTypes().addAll((Collection<? extends CompleteComponentType>)newValue);
-				return;
-			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-				getComponentParameterUsage_ImplementationComponentType().clear();
-				getComponentParameterUsage_ImplementationComponentType().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -276,11 +292,11 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				getComponentParameter__ImplementationComponentType().clear();
+				return;
 			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
 				getParentCompleteComponentTypes().clear();
-				return;
-			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-				getComponentParameterUsage_ImplementationComponentType().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -294,10 +310,10 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				return componentParameter__ImplementationComponentType != null && !componentParameter__ImplementationComponentType.isEmpty();
 			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
 				return parentCompleteComponentTypes != null && !parentCompleteComponentTypes.isEmpty();
-			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-				return componentParameterUsage_ImplementationComponentType != null && !componentParameterUsage_ImplementationComponentType.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

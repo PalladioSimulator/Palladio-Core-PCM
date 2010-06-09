@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -125,16 +125,6 @@ public interface QosannotationsPackage extends EPackage {
 	int SPECIFIED_QO_SANNOTATION_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedOutputParameterAbstractionImpl <em>Specified Output Parameter Abstraction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedOutputParameterAbstractionImpl
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl#getSpecifiedOutputParameterAbstraction()
-	 * @generated
-	 */
-	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION = 2;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl <em>Qo SAnnotations</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -197,6 +187,16 @@ public interface QosannotationsPackage extends EPackage {
 	 * @ordered
 	 */
 	int QO_SANNOTATIONS_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedOutputParameterAbstractionImpl <em>Specified Output Parameter Abstraction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedOutputParameterAbstractionImpl
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl#getSpecifiedOutputParameterAbstraction()
+	 * @generated
+	 */
+	int SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Qos Annotations Specified Output Parameter Abstraction</b></em>' container reference.
@@ -299,6 +299,49 @@ public interface QosannotationsPackage extends EPackage {
 	EReference getSpecifiedQoSAnnotation_QosAnnotations_SpecifiedQoSAnnotation();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations <em>Qo SAnnotations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Qo SAnnotations</em>'.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations
+	 * @generated
+	 */
+	EClass getQoSAnnotations();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Specified Output Parameter Abstractions Qo SAnnotations</em>'.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations()
+	 * @see #getQoSAnnotations()
+	 * @generated
+	 */
+	EReference getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations <em>System Qo SAnnotations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>System Qo SAnnotations</em>'.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations()
+	 * @see #getQoSAnnotations()
+	 * @generated
+	 */
+	EReference getQoSAnnotations_System_QoSAnnotations();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations <em>Specified Qo SAnnotations Qo SAnnotations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Specified Qo SAnnotations Qo SAnnotations</em>'.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations()
+	 * @see #getQoSAnnotations()
+	 * @generated
+	 */
+	EReference getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction <em>Specified Output Parameter Abstraction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -351,49 +394,6 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations <em>Qo SAnnotations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Qo SAnnotations</em>'.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations
-	 * @generated
-	 */
-	EClass getQoSAnnotations();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations <em>Specified Qo SAnnotations Qo SAnnotations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Specified Qo SAnnotations Qo SAnnotations</em>'.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations()
-	 * @see #getQoSAnnotations()
-	 * @generated
-	 */
-	EReference getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Specified Output Parameter Abstractions Qo SAnnotations</em>'.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations()
-	 * @see #getQoSAnnotations()
-	 * @generated
-	 */
-	EReference getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations <em>System Qo SAnnotations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>System Qo SAnnotations</em>'.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations()
-	 * @see #getQoSAnnotations()
-	 * @generated
-	 */
-	EReference getQoSAnnotations_System_QoSAnnotations();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -460,6 +460,40 @@ public interface QosannotationsPackage extends EPackage {
 		EReference SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION = eINSTANCE.getSpecifiedQoSAnnotation_QosAnnotations_SpecifiedQoSAnnotation();
 
 		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl <em>Qo SAnnotations</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl
+		 * @see de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl#getQoSAnnotations()
+		 * @generated
+		 */
+		EClass QO_SANNOTATIONS = eINSTANCE.getQoSAnnotations();
+
+		/**
+		 * The meta object literal for the '<em><b>Specified Output Parameter Abstractions Qo SAnnotations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS = eINSTANCE.getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations();
+
+		/**
+		 * The meta object literal for the '<em><b>System Qo SAnnotations</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS = eINSTANCE.getQoSAnnotations_System_QoSAnnotations();
+
+		/**
+		 * The meta object literal for the '<em><b>Specified Qo SAnnotations Qo SAnnotations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS = eINSTANCE.getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedOutputParameterAbstractionImpl <em>Specified Output Parameter Abstraction</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -500,40 +534,6 @@ public interface QosannotationsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION = eINSTANCE.getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl <em>Qo SAnnotations</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl
-		 * @see de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl#getQoSAnnotations()
-		 * @generated
-		 */
-		EClass QO_SANNOTATIONS = eINSTANCE.getQoSAnnotations();
-
-		/**
-		 * The meta object literal for the '<em><b>Specified Qo SAnnotations Qo SAnnotations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS = eINSTANCE.getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations();
-
-		/**
-		 * The meta object literal for the '<em><b>Specified Output Parameter Abstractions Qo SAnnotations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS = eINSTANCE.getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations();
-
-		/**
-		 * The meta object literal for the '<em><b>System Qo SAnnotations</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS = eINSTANCE.getQoSAnnotations_System_QoSAnnotations();
 
 	}
 

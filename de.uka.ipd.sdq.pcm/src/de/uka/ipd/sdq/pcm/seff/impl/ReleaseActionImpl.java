@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -34,6 +34,7 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached value of the '{@link #getPassiveResource_ReleaseAction() <em>Passive Resource Release Action</em>}' reference.
 	 * <!-- begin-user-doc -->

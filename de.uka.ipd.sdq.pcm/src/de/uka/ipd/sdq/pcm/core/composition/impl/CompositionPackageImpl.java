@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -19,12 +19,15 @@ import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
 import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.util.CompositionValidator;
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
@@ -83,14 +86,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass assemblyContextEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass requiredDelegationConnectorEClass = null;
+	private EClass composedStructureEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,6 +100,13 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass requiredDelegationConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass resourceRequiredDelegationConnectorEClass = null;
 
 	/**
@@ -111,7 +114,28 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass composedStructureEClass = null;
+	private EClass assemblyEventConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sinkDelegationConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sourceDelegationConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass assemblyContextEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -290,8 +314,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAssemblyContext() {
-		return assemblyContextEClass;
+	public EClass getComposedStructure() {
+		return composedStructureEClass;
 	}
 
 	/**
@@ -299,8 +323,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssemblyContext_EncapsulatedComponent_AssemblyContext() {
-		return (EReference)assemblyContextEClass.getEStructuralFeatures().get(1);
+	public EReference getComposedStructure_AssemblyContexts_ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -308,8 +332,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssemblyContext_ParentStructure_AssemblyContext() {
-		return (EReference)assemblyContextEClass.getEStructuralFeatures().get(0);
+	public EReference getComposedStructure_AssemblyConnectors_ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -317,8 +341,107 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAssemblyContext_ConfigParameterUsages_AssemblyContext() {
-		return (EReference)assemblyContextEClass.getEStructuralFeatures().get(2);
+	public EReference getComposedStructure_RequiredDelegationConnectors_ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComposedStructure_AssemblyEventConnector__ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComposedStructure_SinkDelegationConnectors__ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComposedStructure_SourceDelegationConnectors__ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComposedStructure_ProvidedDelegationConnectors_ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAssemblyConnector() {
+		return assemblyConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector() {
+		return (EReference)assemblyConnectorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector() {
+		return (EReference)assemblyConnectorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssemblyConnector_ProvidedRole__AssemblyConnector() {
+		return (EReference)assemblyConnectorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssemblyConnector_RequiredRole__AssemblyConnector() {
+		return (EReference)assemblyConnectorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssemblyConnector_ParentStructure_AssemblyConnector() {
+		return (EReference)assemblyConnectorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -371,71 +494,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAssemblyConnector() {
-		return assemblyConnectorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector() {
-		return (EReference)assemblyConnectorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector() {
-		return (EReference)assemblyConnectorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssemblyConnector_ProvidedRole_AssemblyConnector() {
-		return (EReference)assemblyConnectorEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssemblyConnector_RequiredRole_AssemblyConnector() {
-		return (EReference)assemblyConnectorEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAssemblyConnector_ParentStructure_AssemblyConnector() {
-		return (EReference)assemblyConnectorEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getResourceRequiredDelegationConnector() {
 		return resourceRequiredDelegationConnectorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector() {
-		return (EReference)resourceRequiredDelegationConnectorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -461,8 +521,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComposedStructure() {
-		return composedStructureEClass;
+	public EReference getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector() {
+		return (EReference)resourceRequiredDelegationConnectorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -470,8 +530,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComposedStructure_AssemblyContexts_ComposedStructure() {
-		return (EReference)composedStructureEClass.getEStructuralFeatures().get(0);
+	public EClass getAssemblyEventConnector() {
+		return assemblyEventConnectorEClass;
 	}
 
 	/**
@@ -479,8 +539,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComposedStructure_ProvidedDelegationConnectors_ComposedStructure() {
-		return (EReference)composedStructureEClass.getEStructuralFeatures().get(4);
+	public EReference getAssemblyEventConnector_SinkRole__AssemblyEventConnector() {
+		return (EReference)assemblyEventConnectorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -488,8 +548,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComposedStructure_RequiredDelegationConnectors_ComposedStructure() {
-		return (EReference)composedStructureEClass.getEStructuralFeatures().get(2);
+	public EReference getAssemblyEventConnector_SourceRole__AssemblyEventConnector() {
+		return (EReference)assemblyEventConnectorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -497,8 +557,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComposedStructure_AssemblyConnectors_ComposedStructure() {
-		return (EReference)composedStructureEClass.getEStructuralFeatures().get(1);
+	public EReference getAssemblyEventConnector_SinkAssemblyContext__AssemblyEventConnector() {
+		return (EReference)assemblyEventConnectorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -506,8 +566,143 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure() {
-		return (EReference)composedStructureEClass.getEStructuralFeatures().get(3);
+	public EReference getAssemblyEventConnector_SourceAssemblyContext__AssemblyEventConnector() {
+		return (EReference)assemblyEventConnectorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssemblyEventConnector_ParentStructure__AssemblyEventConnector() {
+		return (EReference)assemblyEventConnectorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSinkDelegationConnector() {
+		return sinkDelegationConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSinkDelegationConnector_InnerSinkRole__SinkDelegationConnector() {
+		return (EReference)sinkDelegationConnectorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSinkDelegationConnector_OuterSinkRole__SinkDelegationConnector() {
+		return (EReference)sinkDelegationConnectorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSinkDelegationConnector_AssemblyContext__SinkDelegationConnector() {
+		return (EReference)sinkDelegationConnectorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSinkDelegationConnector_ParentStructure_SinkDelegationConnector() {
+		return (EReference)sinkDelegationConnectorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSourceDelegationConnector() {
+		return sourceDelegationConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSourceDelegationConnector_InnerSourceRole__SourceDelegationConnector() {
+		return (EReference)sourceDelegationConnectorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSourceDelegationConnector_OuterSourceRole__SourceDelegationConnector() {
+		return (EReference)sourceDelegationConnectorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector() {
+		return (EReference)sourceDelegationConnectorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSourceDelegationConnector_ParentStructure_SourceDelegationConnector() {
+		return (EReference)sourceDelegationConnectorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAssemblyContext() {
+		return assemblyContextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssemblyContext_ParentStructure_AssemblyContext() {
+		return (EReference)assemblyContextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssemblyContext_EncapsulatedComponent_AssemblyContext() {
+		return (EReference)assemblyContextEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssemblyContext_ConfigVariableSetters__AssemblyContext() {
+		return (EReference)assemblyContextEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -549,6 +744,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 		createEReference(composedStructureEClass, COMPOSED_STRUCTURE__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE);
 		createEReference(composedStructureEClass, COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
 		createEReference(composedStructureEClass, COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
+		createEReference(composedStructureEClass, COMPOSED_STRUCTURE__ASSEMBLY_EVENT_CONNECTOR_COMPOSED_STRUCTURE);
+		createEReference(composedStructureEClass, COMPOSED_STRUCTURE__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
+		createEReference(composedStructureEClass, COMPOSED_STRUCTURE__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
 		createEReference(composedStructureEClass, COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
 
 		assemblyConnectorEClass = createEClass(ASSEMBLY_CONNECTOR);
@@ -569,10 +767,29 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 		createEReference(resourceRequiredDelegationConnectorEClass, RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
 		createEReference(resourceRequiredDelegationConnectorEClass, RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
 
+		assemblyEventConnectorEClass = createEClass(ASSEMBLY_EVENT_CONNECTOR);
+		createEReference(assemblyEventConnectorEClass, ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR);
+		createEReference(assemblyEventConnectorEClass, ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR);
+		createEReference(assemblyEventConnectorEClass, ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR);
+		createEReference(assemblyEventConnectorEClass, ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR);
+		createEReference(assemblyEventConnectorEClass, ASSEMBLY_EVENT_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_EVENT_CONNECTOR);
+
+		sinkDelegationConnectorEClass = createEClass(SINK_DELEGATION_CONNECTOR);
+		createEReference(sinkDelegationConnectorEClass, SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_DELEGATION_CONNECTOR);
+		createEReference(sinkDelegationConnectorEClass, SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_DELEGATION_CONNECTOR);
+		createEReference(sinkDelegationConnectorEClass, SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR);
+		createEReference(sinkDelegationConnectorEClass, SINK_DELEGATION_CONNECTOR__PARENT_STRUCTURE_SINK_DELEGATION_CONNECTOR);
+
+		sourceDelegationConnectorEClass = createEClass(SOURCE_DELEGATION_CONNECTOR);
+		createEReference(sourceDelegationConnectorEClass, SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_DELEGATION_CONNECTOR);
+		createEReference(sourceDelegationConnectorEClass, SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_DELEGATION_CONNECTOR);
+		createEReference(sourceDelegationConnectorEClass, SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR);
+		createEReference(sourceDelegationConnectorEClass, SOURCE_DELEGATION_CONNECTOR__PARENT_STRUCTURE_SOURCE_DELEGATION_CONNECTOR);
+
 		assemblyContextEClass = createEClass(ASSEMBLY_CONTEXT);
 		createEReference(assemblyContextEClass, ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT);
 		createEReference(assemblyContextEClass, ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT);
-		createEReference(assemblyContextEClass, ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT);
+		createEReference(assemblyContextEClass, ASSEMBLY_CONTEXT__CONFIG_VARIABLE_SETTERS_ASSEMBLY_CONTEXT);
 	}
 
 	/**
@@ -613,12 +830,15 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 		composedStructureEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		assemblyConnectorEClass.getESuperTypes().add(theConnectorsPackage.getConnector());
 		requiredDelegationConnectorEClass.getESuperTypes().add(theRepositoryPackage.getDelegationConnector());
+		assemblyEventConnectorEClass.getESuperTypes().add(theConnectorsPackage.getConnector());
+		sinkDelegationConnectorEClass.getESuperTypes().add(theRepositoryPackage.getDelegationConnector());
+		sourceDelegationConnectorEClass.getESuperTypes().add(theRepositoryPackage.getDelegationConnector());
 		assemblyContextEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(providedDelegationConnectorEClass, ProvidedDelegationConnector.class, "ProvidedDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector(), theRepositoryPackage.getProvidedRole(), null, "innerProvidedRole_ProvidedDelegationConnector", null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector(), theRepositoryPackage.getProvidedRole(), null, "outerProvidedRole_ProvidedDelegationConnector", null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector(), theRepositoryPackage.getOperationProvidedRole(), null, "innerProvidedRole_ProvidedDelegationConnector", null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector(), theRepositoryPackage.getOperationProvidedRole(), null, "outerProvidedRole_ProvidedDelegationConnector", null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProvidedDelegationConnector_AssemblyContext_ProvidedDelegationConnector(), this.getAssemblyContext(), null, "assemblyContext_ProvidedDelegationConnector", null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProvidedDelegationConnector_ParentStructure_ProvidedDelegationConnector(), this.getComposedStructure(), this.getComposedStructure_ProvidedDelegationConnectors_ComposedStructure(), "parentStructure_ProvidedDelegationConnector", null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -645,13 +865,34 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 		initEReference(getComposedStructure_AssemblyConnectors_ComposedStructure(), this.getAssemblyConnector(), this.getAssemblyConnector_ParentStructure_AssemblyConnector(), "assemblyConnectors_ComposedStructure", null, 0, -1, ComposedStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getComposedStructure_RequiredDelegationConnectors_ComposedStructure(), this.getRequiredDelegationConnector(), this.getRequiredDelegationConnector_ParentStructure_RequiredDelegationConnector(), "requiredDelegationConnectors_ComposedStructure", null, 0, -1, ComposedStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure(), this.getResourceRequiredDelegationConnector(), this.getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector(), "resourceRequiredDelegationConnectors_ComposedStructure", null, 0, -1, ComposedStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getComposedStructure_AssemblyEventConnector__ComposedStructure(), this.getAssemblyEventConnector(), this.getAssemblyEventConnector_ParentStructure__AssemblyEventConnector(), "assemblyEventConnector__ComposedStructure", null, 0, -1, ComposedStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getComposedStructure_SinkDelegationConnectors__ComposedStructure(), this.getSinkDelegationConnector(), this.getSinkDelegationConnector_ParentStructure_SinkDelegationConnector(), "sinkDelegationConnectors__ComposedStructure", null, 0, -1, ComposedStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getComposedStructure_SourceDelegationConnectors__ComposedStructure(), this.getSourceDelegationConnector(), this.getSourceDelegationConnector_ParentStructure_SourceDelegationConnector(), "sourceDelegationConnectors__ComposedStructure", null, 0, -1, ComposedStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getComposedStructure_ProvidedDelegationConnectors_ComposedStructure(), this.getProvidedDelegationConnector(), this.getProvidedDelegationConnector_ParentStructure_ProvidedDelegationConnector(), "providedDelegationConnectors_ComposedStructure", null, 0, -1, ComposedStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(composedStructureEClass, ecorePackage.getEBoolean(), "MultipleConnectorsConstraint", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(composedStructureEClass, ecorePackage.getEBoolean(), "MultipleConnectorConstraintForAssembyConnectors", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(assemblyConnectorEClass, AssemblyConnector.class, "AssemblyConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector(), this.getAssemblyContext(), null, "requiringAssemblyContext_AssemblyConnector", null, 1, 1, AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector(), this.getAssemblyContext(), null, "providingAssemblyContext_AssemblyConnector", null, 1, 1, AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAssemblyConnector_ProvidedRole_AssemblyConnector(), theRepositoryPackage.getProvidedRole(), null, "providedRole_AssemblyConnector", null, 1, 1, AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAssemblyConnector_RequiredRole_AssemblyConnector(), theRepositoryPackage.getRequiredRole(), null, "requiredRole_AssemblyConnector", null, 1, 1, AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAssemblyConnector_ProvidedRole__AssemblyConnector(), theRepositoryPackage.getOperationProvidedRole(), null, "providedRole__AssemblyConnector", null, 1, 1, AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAssemblyConnector_RequiredRole__AssemblyConnector(), theRepositoryPackage.getOperationRequiredRole(), null, "requiredRole__AssemblyConnector", null, 1, 1, AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getAssemblyConnector_ParentStructure_AssemblyConnector(), this.getComposedStructure(), this.getComposedStructure_AssemblyConnectors_ComposedStructure(), "parentStructure_AssemblyConnector", null, 1, 1, AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(assemblyConnectorEClass, ecorePackage.getEBoolean(), "AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -682,8 +923,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(requiredDelegationConnectorEClass, RequiredDelegationConnector.class, "RequiredDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector(), theRepositoryPackage.getRequiredRole(), null, "innerRequiredRole_RequiredDelegationConnector", null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector(), theRepositoryPackage.getRequiredRole(), null, "outerRequiredRole_RequiredDelegationConnector", null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector(), theRepositoryPackage.getOperationRequiredRole(), null, "innerRequiredRole_RequiredDelegationConnector", null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector(), theRepositoryPackage.getOperationRequiredRole(), null, "outerRequiredRole_RequiredDelegationConnector", null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector(), this.getAssemblyContext(), null, "assemblyContext_RequiredDelegationConnector", null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRequiredDelegationConnector_ParentStructure_RequiredDelegationConnector(), this.getComposedStructure(), this.getComposedStructure_RequiredDelegationConnectors_ComposedStructure(), "parentStructure_RequiredDelegationConnector", null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -719,10 +960,29 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 		initEReference(getResourceRequiredDelegationConnector_OuterResourceRequiredRole_ResourceRequiredDelegationConnector(), theRepositoryPackage.getResourceRequiredRole(), null, "outerResourceRequiredRole_ResourceRequiredDelegationConnector", null, 1, 1, ResourceRequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector(), this.getComposedStructure(), this.getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure(), "parentStructure_ResourceRequiredDelegationConnector", null, 1, 1, ResourceRequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		initEClass(assemblyEventConnectorEClass, AssemblyEventConnector.class, "AssemblyEventConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAssemblyEventConnector_SinkRole__AssemblyEventConnector(), theRepositoryPackage.getSinkRole(), null, "sinkRole__AssemblyEventConnector", null, 1, 1, AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAssemblyEventConnector_SourceRole__AssemblyEventConnector(), theRepositoryPackage.getSourceRole(), null, "sourceRole__AssemblyEventConnector", null, 1, 1, AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAssemblyEventConnector_SinkAssemblyContext__AssemblyEventConnector(), this.getAssemblyContext(), null, "sinkAssemblyContext__AssemblyEventConnector", null, 1, 1, AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAssemblyEventConnector_SourceAssemblyContext__AssemblyEventConnector(), this.getAssemblyContext(), null, "sourceAssemblyContext__AssemblyEventConnector", null, 1, 1, AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAssemblyEventConnector_ParentStructure__AssemblyEventConnector(), this.getComposedStructure(), this.getComposedStructure_AssemblyEventConnector__ComposedStructure(), "parentStructure__AssemblyEventConnector", null, 1, 1, AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(sinkDelegationConnectorEClass, SinkDelegationConnector.class, "SinkDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSinkDelegationConnector_InnerSinkRole__SinkDelegationConnector(), theRepositoryPackage.getSinkRole(), null, "innerSinkRole__SinkDelegationConnector", null, 1, 1, SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSinkDelegationConnector_OuterSinkRole__SinkDelegationConnector(), theRepositoryPackage.getSinkRole(), null, "outerSinkRole__SinkDelegationConnector", null, 1, 1, SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSinkDelegationConnector_AssemblyContext__SinkDelegationConnector(), this.getAssemblyContext(), null, "assemblyContext__SinkDelegationConnector", null, 1, 1, SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSinkDelegationConnector_ParentStructure_SinkDelegationConnector(), this.getComposedStructure(), this.getComposedStructure_SinkDelegationConnectors__ComposedStructure(), "parentStructure_SinkDelegationConnector", null, 1, 1, SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(sourceDelegationConnectorEClass, SourceDelegationConnector.class, "SourceDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSourceDelegationConnector_InnerSourceRole__SourceDelegationConnector(), theRepositoryPackage.getSourceRole(), null, "innerSourceRole__SourceDelegationConnector", null, 1, 1, SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSourceDelegationConnector_OuterSourceRole__SourceDelegationConnector(), theRepositoryPackage.getSourceRole(), null, "outerSourceRole__SourceDelegationConnector", null, 1, 1, SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector(), this.getAssemblyContext(), null, "assemblyContext__SourceDelegationConnector", null, 1, 1, SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSourceDelegationConnector_ParentStructure_SourceDelegationConnector(), this.getComposedStructure(), this.getComposedStructure_SourceDelegationConnectors__ComposedStructure(), "parentStructure_SourceDelegationConnector", null, 1, 1, SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
 		initEClass(assemblyContextEClass, AssemblyContext.class, "AssemblyContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssemblyContext_ParentStructure_AssemblyContext(), this.getComposedStructure(), this.getComposedStructure_AssemblyContexts_ComposedStructure(), "parentStructure_AssemblyContext", null, 1, 1, AssemblyContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getAssemblyContext_EncapsulatedComponent_AssemblyContext(), theRepositoryPackage.getRepositoryComponent(), null, "encapsulatedComponent_AssemblyContext", null, 1, 1, AssemblyContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAssemblyContext_ConfigParameterUsages_AssemblyContext(), theParameterPackage.getVariableUsage(), theParameterPackage.getVariableUsage_AssemblyContext_VariableUsage(), "configParameterUsages_AssemblyContext", null, 0, -1, AssemblyContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAssemblyContext_ConfigVariableSetters__AssemblyContext(), theParameterPackage.getVariableSetter(), theParameterPackage.getVariableSetter_AssemblyContext__VariableSetter(), "configVariableSetters__AssemblyContext", null, 0, -1, AssemblyContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 	}
 
 } //CompositionPackageImpl

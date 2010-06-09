@@ -5,26 +5,20 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-
-import de.uka.ipd.sdq.pcm.seff.CallAction;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
+import de.uka.ipd.sdq.pcm.seff.CallAction;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,8 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl#getOutputVariableUsages_ExternalCallAction <em>Output Variable Usages External Call Action</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl#getInputParameterUsages_ExternalCallAction <em>Input Parameter Usages External Call Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl#getVariableSetterInputs__CallAction <em>Variable Setter Inputs Call Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,24 +42,14 @@ public abstract class CallActionImpl extends EObjectImpl implements CallAction {
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * The cached value of the '{@link #getOutputVariableUsages_ExternalCallAction() <em>Output Variable Usages External Call Action</em>}' containment reference list.
+	 * The cached value of the '{@link #getVariableSetterInputs__CallAction() <em>Variable Setter Inputs Call Action</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputVariableUsages_ExternalCallAction()
+	 * @see #getVariableSetterInputs__CallAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableUsage> outputVariableUsages_ExternalCallAction;
-
-	/**
-	 * The cached value of the '{@link #getInputParameterUsages_ExternalCallAction() <em>Input Parameter Usages External Call Action</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInputParameterUsages_ExternalCallAction()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<VariableUsage> inputParameterUsages_ExternalCallAction;
+	protected EList<VariableSetter> variableSetterInputs__CallAction;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,23 +75,11 @@ public abstract class CallActionImpl extends EObjectImpl implements CallAction {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<VariableUsage> getOutputVariableUsages_ExternalCallAction() {
-		if (outputVariableUsages_ExternalCallAction == null) {
-			outputVariableUsages_ExternalCallAction = new EObjectContainmentWithInverseEList<VariableUsage>(VariableUsage.class, this, SeffPackage.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION, ParameterPackage.VARIABLE_USAGE__CALL_ACTION_OUT_VARIABLE_USAGE);
+	public EList<VariableSetter> getVariableSetterInputs__CallAction() {
+		if (variableSetterInputs__CallAction == null) {
+			variableSetterInputs__CallAction = new EObjectContainmentWithInverseEList<VariableSetter>(VariableSetter.class, this, SeffPackage.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION, ParameterPackage.VARIABLE_SETTER__CALL_ACTION_VARIABLE_SETTER);
 		}
-		return outputVariableUsages_ExternalCallAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<VariableUsage> getInputParameterUsages_ExternalCallAction() {
-		if (inputParameterUsages_ExternalCallAction == null) {
-			inputParameterUsages_ExternalCallAction = new EObjectContainmentWithInverseEList<VariableUsage>(VariableUsage.class, this, SeffPackage.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION, ParameterPackage.VARIABLE_USAGE__CALL_ACTION_IN_VARIABLE_USAGE);
-		}
-		return inputParameterUsages_ExternalCallAction;
+		return variableSetterInputs__CallAction;
 	}
 
 	/**
@@ -120,10 +91,8 @@ public abstract class CallActionImpl extends EObjectImpl implements CallAction {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SeffPackage.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutputVariableUsages_ExternalCallAction()).basicAdd(otherEnd, msgs);
-			case SeffPackage.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInputParameterUsages_ExternalCallAction()).basicAdd(otherEnd, msgs);
+			case SeffPackage.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getVariableSetterInputs__CallAction()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -136,10 +105,8 @@ public abstract class CallActionImpl extends EObjectImpl implements CallAction {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SeffPackage.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
-				return ((InternalEList<?>)getOutputVariableUsages_ExternalCallAction()).basicRemove(otherEnd, msgs);
-			case SeffPackage.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
-				return ((InternalEList<?>)getInputParameterUsages_ExternalCallAction()).basicRemove(otherEnd, msgs);
+			case SeffPackage.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION:
+				return ((InternalEList<?>)getVariableSetterInputs__CallAction()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -152,10 +119,8 @@ public abstract class CallActionImpl extends EObjectImpl implements CallAction {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffPackage.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
-				return getOutputVariableUsages_ExternalCallAction();
-			case SeffPackage.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
-				return getInputParameterUsages_ExternalCallAction();
+			case SeffPackage.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION:
+				return getVariableSetterInputs__CallAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -169,13 +134,9 @@ public abstract class CallActionImpl extends EObjectImpl implements CallAction {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffPackage.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
-				getOutputVariableUsages_ExternalCallAction().clear();
-				getOutputVariableUsages_ExternalCallAction().addAll((Collection<? extends VariableUsage>)newValue);
-				return;
-			case SeffPackage.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
-				getInputParameterUsages_ExternalCallAction().clear();
-				getInputParameterUsages_ExternalCallAction().addAll((Collection<? extends VariableUsage>)newValue);
+			case SeffPackage.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION:
+				getVariableSetterInputs__CallAction().clear();
+				getVariableSetterInputs__CallAction().addAll((Collection<? extends VariableSetter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,11 +150,8 @@ public abstract class CallActionImpl extends EObjectImpl implements CallAction {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffPackage.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
-				getOutputVariableUsages_ExternalCallAction().clear();
-				return;
-			case SeffPackage.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
-				getInputParameterUsages_ExternalCallAction().clear();
+			case SeffPackage.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION:
+				getVariableSetterInputs__CallAction().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -207,10 +165,8 @@ public abstract class CallActionImpl extends EObjectImpl implements CallAction {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffPackage.CALL_ACTION__OUTPUT_VARIABLE_USAGES_EXTERNAL_CALL_ACTION:
-				return outputVariableUsages_ExternalCallAction != null && !outputVariableUsages_ExternalCallAction.isEmpty();
-			case SeffPackage.CALL_ACTION__INPUT_PARAMETER_USAGES_EXTERNAL_CALL_ACTION:
-				return inputParameterUsages_ExternalCallAction != null && !inputParameterUsages_ExternalCallAction.isEmpty();
+			case SeffPackage.CALL_ACTION__VARIABLE_SETTER_INPUTS_CALL_ACTION:
+				return variableSetterInputs__CallAction != null && !variableSetterInputs__CallAction.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

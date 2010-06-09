@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -28,8 +28,8 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.util.CompositionValidator;
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorImpl;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,8 +40,8 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getRequiringAssemblyContext_AssemblyConnector <em>Requiring Assembly Context Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidingAssemblyContext_AssemblyConnector <em>Providing Assembly Context Assembly Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidedRole_AssemblyConnector <em>Provided Role Assembly Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getRequiredRole_AssemblyConnector <em>Required Role Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidedRole__AssemblyConnector <em>Provided Role Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getRequiredRole__AssemblyConnector <em>Required Role Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getParentStructure_AssemblyConnector <em>Parent Structure Assembly Connector</em>}</li>
  * </ul>
  * </p>
@@ -77,24 +77,24 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	protected AssemblyContext providingAssemblyContext_AssemblyConnector;
 
 	/**
-	 * The cached value of the '{@link #getProvidedRole_AssemblyConnector() <em>Provided Role Assembly Connector</em>}' reference.
+	 * The cached value of the '{@link #getProvidedRole__AssemblyConnector() <em>Provided Role Assembly Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvidedRole_AssemblyConnector()
+	 * @see #getProvidedRole__AssemblyConnector()
 	 * @generated
 	 * @ordered
 	 */
-	protected ProvidedRole providedRole_AssemblyConnector;
+	protected OperationProvidedRole providedRole__AssemblyConnector;
 
 	/**
-	 * The cached value of the '{@link #getRequiredRole_AssemblyConnector() <em>Required Role Assembly Connector</em>}' reference.
+	 * The cached value of the '{@link #getRequiredRole__AssemblyConnector() <em>Required Role Assembly Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequiredRole_AssemblyConnector()
+	 * @see #getRequiredRole__AssemblyConnector()
 	 * @generated
 	 * @ordered
 	 */
-	protected RequiredRole requiredRole_AssemblyConnector;
+	protected OperationRequiredRole requiredRole__AssemblyConnector;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -196,16 +196,16 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedRole getProvidedRole_AssemblyConnector() {
-		if (providedRole_AssemblyConnector != null && providedRole_AssemblyConnector.eIsProxy()) {
-			InternalEObject oldProvidedRole_AssemblyConnector = (InternalEObject)providedRole_AssemblyConnector;
-			providedRole_AssemblyConnector = (ProvidedRole)eResolveProxy(oldProvidedRole_AssemblyConnector);
-			if (providedRole_AssemblyConnector != oldProvidedRole_AssemblyConnector) {
+	public OperationProvidedRole getProvidedRole__AssemblyConnector() {
+		if (providedRole__AssemblyConnector != null && providedRole__AssemblyConnector.eIsProxy()) {
+			InternalEObject oldProvidedRole__AssemblyConnector = (InternalEObject)providedRole__AssemblyConnector;
+			providedRole__AssemblyConnector = (OperationProvidedRole)eResolveProxy(oldProvidedRole__AssemblyConnector);
+			if (providedRole__AssemblyConnector != oldProvidedRole__AssemblyConnector) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR, oldProvidedRole_AssemblyConnector, providedRole_AssemblyConnector));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR, oldProvidedRole__AssemblyConnector, providedRole__AssemblyConnector));
 			}
 		}
-		return providedRole_AssemblyConnector;
+		return providedRole__AssemblyConnector;
 	}
 
 	/**
@@ -213,8 +213,8 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedRole basicGetProvidedRole_AssemblyConnector() {
-		return providedRole_AssemblyConnector;
+	public OperationProvidedRole basicGetProvidedRole__AssemblyConnector() {
+		return providedRole__AssemblyConnector;
 	}
 
 	/**
@@ -222,11 +222,11 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProvidedRole_AssemblyConnector(ProvidedRole newProvidedRole_AssemblyConnector) {
-		ProvidedRole oldProvidedRole_AssemblyConnector = providedRole_AssemblyConnector;
-		providedRole_AssemblyConnector = newProvidedRole_AssemblyConnector;
+	public void setProvidedRole__AssemblyConnector(OperationProvidedRole newProvidedRole__AssemblyConnector) {
+		OperationProvidedRole oldProvidedRole__AssemblyConnector = providedRole__AssemblyConnector;
+		providedRole__AssemblyConnector = newProvidedRole__AssemblyConnector;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR, oldProvidedRole_AssemblyConnector, providedRole_AssemblyConnector));
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR, oldProvidedRole__AssemblyConnector, providedRole__AssemblyConnector));
 	}
 
 	/**
@@ -234,16 +234,16 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequiredRole getRequiredRole_AssemblyConnector() {
-		if (requiredRole_AssemblyConnector != null && requiredRole_AssemblyConnector.eIsProxy()) {
-			InternalEObject oldRequiredRole_AssemblyConnector = (InternalEObject)requiredRole_AssemblyConnector;
-			requiredRole_AssemblyConnector = (RequiredRole)eResolveProxy(oldRequiredRole_AssemblyConnector);
-			if (requiredRole_AssemblyConnector != oldRequiredRole_AssemblyConnector) {
+	public OperationRequiredRole getRequiredRole__AssemblyConnector() {
+		if (requiredRole__AssemblyConnector != null && requiredRole__AssemblyConnector.eIsProxy()) {
+			InternalEObject oldRequiredRole__AssemblyConnector = (InternalEObject)requiredRole__AssemblyConnector;
+			requiredRole__AssemblyConnector = (OperationRequiredRole)eResolveProxy(oldRequiredRole__AssemblyConnector);
+			if (requiredRole__AssemblyConnector != oldRequiredRole__AssemblyConnector) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR, oldRequiredRole_AssemblyConnector, requiredRole_AssemblyConnector));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR, oldRequiredRole__AssemblyConnector, requiredRole__AssemblyConnector));
 			}
 		}
-		return requiredRole_AssemblyConnector;
+		return requiredRole__AssemblyConnector;
 	}
 
 	/**
@@ -251,8 +251,8 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequiredRole basicGetRequiredRole_AssemblyConnector() {
-		return requiredRole_AssemblyConnector;
+	public OperationRequiredRole basicGetRequiredRole__AssemblyConnector() {
+		return requiredRole__AssemblyConnector;
 	}
 
 	/**
@@ -260,11 +260,11 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequiredRole_AssemblyConnector(RequiredRole newRequiredRole_AssemblyConnector) {
-		RequiredRole oldRequiredRole_AssemblyConnector = requiredRole_AssemblyConnector;
-		requiredRole_AssemblyConnector = newRequiredRole_AssemblyConnector;
+	public void setRequiredRole__AssemblyConnector(OperationRequiredRole newRequiredRole__AssemblyConnector) {
+		OperationRequiredRole oldRequiredRole__AssemblyConnector = requiredRole__AssemblyConnector;
+		requiredRole__AssemblyConnector = newRequiredRole__AssemblyConnector;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR, oldRequiredRole_AssemblyConnector, requiredRole_AssemblyConnector));
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR, oldRequiredRole__AssemblyConnector, requiredRole__AssemblyConnector));
 	}
 
 	/**
@@ -316,7 +316,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)\n"+"";
+	protected static final String ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole__AssemblyConnector)\n"+"";
 
 	/**
 	 * The cached OCL invariant for the '{@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Assembly Connectors Referenced Provided Roles And Child Context Must Match</em>}' invariant operation.
@@ -367,7 +367,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)\n"+"\n"+"";
+	protected static final String ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__AssemblyConnector)\n"+"\n"+"";
 
 	/**
 	 * The cached OCL invariant for the '{@link #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Assembly Connectors Referenced Required Role And Child Context Must Match</em>}' invariant operation.
@@ -418,7 +418,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.providedRole_AssemblyConnector.providedInterface__ProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole or \n"+"self.providedRole_AssemblyConnector.providedInterface__ProvidedRole->closure(parentInterface__Interface)->exists(interface|interface = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole)\n"+"";
+	protected static final String ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.providedRole__AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole__AssemblyConnector.requiredInterface__OperationRequiredRole or \n"+"self.providedRole__AssemblyConnector.providedInterface__OperationProvidedRole->closure(parentInterfaces__Interface)->exists(interface|interface = self.requiredRole__AssemblyConnector.requiredInterface__OperationRequiredRole)\n"+"";
 
 	/**
 	 * The cached OCL invariant for the '{@link #AssemblyConnectorsReferencedInterfacesMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Assembly Connectors Referenced Interfaces Must Match</em>}' invariant operation.
@@ -520,11 +520,11 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 				if (resolve) return getProvidingAssemblyContext_AssemblyConnector();
 				return basicGetProvidingAssemblyContext_AssemblyConnector();
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR:
-				if (resolve) return getProvidedRole_AssemblyConnector();
-				return basicGetProvidedRole_AssemblyConnector();
+				if (resolve) return getProvidedRole__AssemblyConnector();
+				return basicGetProvidedRole__AssemblyConnector();
 			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR:
-				if (resolve) return getRequiredRole_AssemblyConnector();
-				return basicGetRequiredRole_AssemblyConnector();
+				if (resolve) return getRequiredRole__AssemblyConnector();
+				return basicGetRequiredRole__AssemblyConnector();
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
 				return getParentStructure_AssemblyConnector();
 		}
@@ -546,10 +546,10 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 				setProvidingAssemblyContext_AssemblyConnector((AssemblyContext)newValue);
 				return;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR:
-				setProvidedRole_AssemblyConnector((ProvidedRole)newValue);
+				setProvidedRole__AssemblyConnector((OperationProvidedRole)newValue);
 				return;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR:
-				setRequiredRole_AssemblyConnector((RequiredRole)newValue);
+				setRequiredRole__AssemblyConnector((OperationRequiredRole)newValue);
 				return;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
 				setParentStructure_AssemblyConnector((ComposedStructure)newValue);
@@ -573,10 +573,10 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 				setProvidingAssemblyContext_AssemblyConnector((AssemblyContext)null);
 				return;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR:
-				setProvidedRole_AssemblyConnector((ProvidedRole)null);
+				setProvidedRole__AssemblyConnector((OperationProvidedRole)null);
 				return;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR:
-				setRequiredRole_AssemblyConnector((RequiredRole)null);
+				setRequiredRole__AssemblyConnector((OperationRequiredRole)null);
 				return;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
 				setParentStructure_AssemblyConnector((ComposedStructure)null);
@@ -598,9 +598,9 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
 				return providingAssemblyContext_AssemblyConnector != null;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR:
-				return providedRole_AssemblyConnector != null;
+				return providedRole__AssemblyConnector != null;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR:
-				return requiredRole_AssemblyConnector != null;
+				return requiredRole__AssemblyConnector != null;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
 				return getParentStructure_AssemblyConnector() != null;
 		}

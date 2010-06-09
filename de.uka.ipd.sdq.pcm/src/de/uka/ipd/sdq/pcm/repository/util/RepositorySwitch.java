@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.repository.*;
+import de.uka.ipd.sdq.pcm.repository.ApplicationFailureType;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -28,11 +28,19 @@ import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
+import de.uka.ipd.sdq.pcm.repository.EnvironmentFailureType;
+import de.uka.ipd.sdq.pcm.repository.EventGroup;
+import de.uka.ipd.sdq.pcm.repository.EventType;
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
+import de.uka.ipd.sdq.pcm.repository.FailureType;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -41,9 +49,14 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.ResourceInterface;
 import de.uka.ipd.sdq.pcm.repository.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.ResourceSignature;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.repository.SinkRole;
+import de.uka.ipd.sdq.pcm.repository.SourceRole;
+import de.uka.ipd.sdq.pcm.repository.StopFailureType;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,6 +78,7 @@ public class RepositorySwitch<T> {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -195,30 +209,22 @@ public class RepositorySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RepositoryPackage.RESOURCE_REQUIRED_ROLE: {
+				ResourceRequiredRole resourceRequiredRole = (ResourceRequiredRole)theEObject;
+				T result = caseResourceRequiredRole(resourceRequiredRole);
+				if (result == null) result = caseRole(resourceRequiredRole);
+				if (result == null) result = caseEntity(resourceRequiredRole);
+				if (result == null) result = caseIdentifier(resourceRequiredRole);
+				if (result == null) result = caseNamedElement(resourceRequiredRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RepositoryPackage.INTERFACE: {
 				Interface interface_ = (Interface)theEObject;
 				T result = caseInterface(interface_);
 				if (result == null) result = caseEntity(interface_);
 				if (result == null) result = caseIdentifier(interface_);
 				if (result == null) result = caseNamedElement(interface_);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.SIGNATURE: {
-				Signature signature = (Signature)theEObject;
-				T result = caseSignature(signature);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.PARAMETER: {
-				Parameter parameter = (Parameter)theEObject;
-				T result = caseParameter(parameter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.DATA_TYPE: {
-				DataType dataType = (DataType)theEObject;
-				T result = caseDataType(dataType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -231,24 +237,12 @@ public class RepositorySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.FAILURE_TYPE: {
-				FailureType failureType = (FailureType)theEObject;
-				T result = caseFailureType(failureType);
-				if (result == null) result = caseEntity(failureType);
-				if (result == null) result = caseIdentifier(failureType);
-				if (result == null) result = caseNamedElement(failureType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.EXCEPTION_TYPE: {
-				ExceptionType exceptionType = (ExceptionType)theEObject;
-				T result = caseExceptionType(exceptionType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.REQUIRED_CHARACTERISATION: {
-				RequiredCharacterisation requiredCharacterisation = (RequiredCharacterisation)theEObject;
-				T result = caseRequiredCharacterisation(requiredCharacterisation);
+			case RepositoryPackage.DATA_TYPE: {
+				DataType dataType = (DataType)theEObject;
+				T result = caseDataType(dataType);
+				if (result == null) result = caseEntity(dataType);
+				if (result == null) result = caseIdentifier(dataType);
+				if (result == null) result = caseNamedElement(dataType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -262,13 +256,182 @@ public class RepositorySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.RESOURCE_REQUIRED_ROLE: {
-				ResourceRequiredRole resourceRequiredRole = (ResourceRequiredRole)theEObject;
-				T result = caseResourceRequiredRole(resourceRequiredRole);
-				if (result == null) result = caseRole(resourceRequiredRole);
-				if (result == null) result = caseEntity(resourceRequiredRole);
-				if (result == null) result = caseIdentifier(resourceRequiredRole);
-				if (result == null) result = caseNamedElement(resourceRequiredRole);
+			case RepositoryPackage.OPERATION_PROVIDED_ROLE: {
+				OperationProvidedRole operationProvidedRole = (OperationProvidedRole)theEObject;
+				T result = caseOperationProvidedRole(operationProvidedRole);
+				if (result == null) result = caseProvidedRole(operationProvidedRole);
+				if (result == null) result = caseRole(operationProvidedRole);
+				if (result == null) result = caseEntity(operationProvidedRole);
+				if (result == null) result = caseIdentifier(operationProvidedRole);
+				if (result == null) result = caseNamedElement(operationProvidedRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.OPERATION_INTERFACE: {
+				OperationInterface operationInterface = (OperationInterface)theEObject;
+				T result = caseOperationInterface(operationInterface);
+				if (result == null) result = caseInterface(operationInterface);
+				if (result == null) result = caseEntity(operationInterface);
+				if (result == null) result = caseIdentifier(operationInterface);
+				if (result == null) result = caseNamedElement(operationInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.OPERATION_SIGNATURE: {
+				OperationSignature operationSignature = (OperationSignature)theEObject;
+				T result = caseOperationSignature(operationSignature);
+				if (result == null) result = caseSignature(operationSignature);
+				if (result == null) result = caseEntity(operationSignature);
+				if (result == null) result = caseIdentifier(operationSignature);
+				if (result == null) result = caseNamedElement(operationSignature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.SIGNATURE: {
+				Signature signature = (Signature)theEObject;
+				T result = caseSignature(signature);
+				if (result == null) result = caseEntity(signature);
+				if (result == null) result = caseIdentifier(signature);
+				if (result == null) result = caseNamedElement(signature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.EXCEPTION_TYPE: {
+				ExceptionType exceptionType = (ExceptionType)theEObject;
+				T result = caseExceptionType(exceptionType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.FAILURE_TYPE: {
+				FailureType failureType = (FailureType)theEObject;
+				T result = caseFailureType(failureType);
+				if (result == null) result = caseEntity(failureType);
+				if (result == null) result = caseIdentifier(failureType);
+				if (result == null) result = caseNamedElement(failureType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.COMPOSITE_DATA_TYPE: {
+				CompositeDataType compositeDataType = (CompositeDataType)theEObject;
+				T result = caseCompositeDataType(compositeDataType);
+				if (result == null) result = caseDataType(compositeDataType);
+				if (result == null) result = caseEntity(compositeDataType);
+				if (result == null) result = caseIdentifier(compositeDataType);
+				if (result == null) result = caseNamedElement(compositeDataType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.RESOURCE_SIGNATURE: {
+				ResourceSignature resourceSignature = (ResourceSignature)theEObject;
+				T result = caseResourceSignature(resourceSignature);
+				if (result == null) result = caseSignature(resourceSignature);
+				if (result == null) result = caseEntity(resourceSignature);
+				if (result == null) result = caseIdentifier(resourceSignature);
+				if (result == null) result = caseNamedElement(resourceSignature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.RESOURCE_INTERFACE: {
+				ResourceInterface resourceInterface = (ResourceInterface)theEObject;
+				T result = caseResourceInterface(resourceInterface);
+				if (result == null) result = caseInterface(resourceInterface);
+				if (result == null) result = caseEntity(resourceInterface);
+				if (result == null) result = caseIdentifier(resourceInterface);
+				if (result == null) result = caseNamedElement(resourceInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.INFRASTRUCTURE_SIGNATURE: {
+				InfrastructureSignature infrastructureSignature = (InfrastructureSignature)theEObject;
+				T result = caseInfrastructureSignature(infrastructureSignature);
+				if (result == null) result = caseSignature(infrastructureSignature);
+				if (result == null) result = caseEntity(infrastructureSignature);
+				if (result == null) result = caseIdentifier(infrastructureSignature);
+				if (result == null) result = caseNamedElement(infrastructureSignature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.INFRASTRUCTURE_INTERFACE: {
+				InfrastructureInterface infrastructureInterface = (InfrastructureInterface)theEObject;
+				T result = caseInfrastructureInterface(infrastructureInterface);
+				if (result == null) result = caseInterface(infrastructureInterface);
+				if (result == null) result = caseEntity(infrastructureInterface);
+				if (result == null) result = caseIdentifier(infrastructureInterface);
+				if (result == null) result = caseNamedElement(infrastructureInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.EVENT_TYPE: {
+				EventType eventType = (EventType)theEObject;
+				T result = caseEventType(eventType);
+				if (result == null) result = caseSignature(eventType);
+				if (result == null) result = caseEntity(eventType);
+				if (result == null) result = caseIdentifier(eventType);
+				if (result == null) result = caseNamedElement(eventType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.EVENT_GROUP: {
+				EventGroup eventGroup = (EventGroup)theEObject;
+				T result = caseEventGroup(eventGroup);
+				if (result == null) result = caseInterface(eventGroup);
+				if (result == null) result = caseEntity(eventGroup);
+				if (result == null) result = caseIdentifier(eventGroup);
+				if (result == null) result = caseNamedElement(eventGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.OPERATION_REQUIRED_ROLE: {
+				OperationRequiredRole operationRequiredRole = (OperationRequiredRole)theEObject;
+				T result = caseOperationRequiredRole(operationRequiredRole);
+				if (result == null) result = caseRequiredRole(operationRequiredRole);
+				if (result == null) result = caseRole(operationRequiredRole);
+				if (result == null) result = caseEntity(operationRequiredRole);
+				if (result == null) result = caseIdentifier(operationRequiredRole);
+				if (result == null) result = caseNamedElement(operationRequiredRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.SINK_ROLE: {
+				SinkRole sinkRole = (SinkRole)theEObject;
+				T result = caseSinkRole(sinkRole);
+				if (result == null) result = caseProvidedRole(sinkRole);
+				if (result == null) result = caseRole(sinkRole);
+				if (result == null) result = caseEntity(sinkRole);
+				if (result == null) result = caseIdentifier(sinkRole);
+				if (result == null) result = caseNamedElement(sinkRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.SOURCE_ROLE: {
+				SourceRole sourceRole = (SourceRole)theEObject;
+				T result = caseSourceRole(sourceRole);
+				if (result == null) result = caseRequiredRole(sourceRole);
+				if (result == null) result = caseRole(sourceRole);
+				if (result == null) result = caseEntity(sourceRole);
+				if (result == null) result = caseIdentifier(sourceRole);
+				if (result == null) result = caseNamedElement(sourceRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.APPLICATION_FAILURE_TYPE: {
+				ApplicationFailureType applicationFailureType = (ApplicationFailureType)theEObject;
+				T result = caseApplicationFailureType(applicationFailureType);
+				if (result == null) result = caseStopFailureType(applicationFailureType);
+				if (result == null) result = caseFailureType(applicationFailureType);
+				if (result == null) result = caseEntity(applicationFailureType);
+				if (result == null) result = caseIdentifier(applicationFailureType);
+				if (result == null) result = caseNamedElement(applicationFailureType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.STOP_FAILURE_TYPE: {
+				StopFailureType stopFailureType = (StopFailureType)theEObject;
+				T result = caseStopFailureType(stopFailureType);
+				if (result == null) result = caseFailureType(stopFailureType);
+				if (result == null) result = caseEntity(stopFailureType);
+				if (result == null) result = caseIdentifier(stopFailureType);
+				if (result == null) result = caseNamedElement(stopFailureType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -321,54 +484,19 @@ public class RepositorySwitch<T> {
 				PrimitiveDataType primitiveDataType = (PrimitiveDataType)theEObject;
 				T result = casePrimitiveDataType(primitiveDataType);
 				if (result == null) result = caseDataType(primitiveDataType);
+				if (result == null) result = caseEntity(primitiveDataType);
+				if (result == null) result = caseIdentifier(primitiveDataType);
+				if (result == null) result = caseNamedElement(primitiveDataType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case RepositoryPackage.COLLECTION_DATA_TYPE: {
 				CollectionDataType collectionDataType = (CollectionDataType)theEObject;
 				T result = caseCollectionDataType(collectionDataType);
-				if (result == null) result = caseEntity(collectionDataType);
 				if (result == null) result = caseDataType(collectionDataType);
+				if (result == null) result = caseEntity(collectionDataType);
 				if (result == null) result = caseIdentifier(collectionDataType);
 				if (result == null) result = caseNamedElement(collectionDataType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.COMPOSITE_DATA_TYPE: {
-				CompositeDataType compositeDataType = (CompositeDataType)theEObject;
-				T result = caseCompositeDataType(compositeDataType);
-				if (result == null) result = caseEntity(compositeDataType);
-				if (result == null) result = caseDataType(compositeDataType);
-				if (result == null) result = caseIdentifier(compositeDataType);
-				if (result == null) result = caseNamedElement(compositeDataType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.INNER_DECLARATION: {
-				InnerDeclaration innerDeclaration = (InnerDeclaration)theEObject;
-				T result = caseInnerDeclaration(innerDeclaration);
-				if (result == null) result = caseNamedElement(innerDeclaration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.STOP_FAILURE_TYPE: {
-				StopFailureType stopFailureType = (StopFailureType)theEObject;
-				T result = caseStopFailureType(stopFailureType);
-				if (result == null) result = caseFailureType(stopFailureType);
-				if (result == null) result = caseEntity(stopFailureType);
-				if (result == null) result = caseIdentifier(stopFailureType);
-				if (result == null) result = caseNamedElement(stopFailureType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.APPLICATION_FAILURE_TYPE: {
-				ApplicationFailureType applicationFailureType = (ApplicationFailureType)theEObject;
-				T result = caseApplicationFailureType(applicationFailureType);
-				if (result == null) result = caseStopFailureType(applicationFailureType);
-				if (result == null) result = caseFailureType(applicationFailureType);
-				if (result == null) result = caseEntity(applicationFailureType);
-				if (result == null) result = caseIdentifier(applicationFailureType);
-				if (result == null) result = caseNamedElement(applicationFailureType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -398,66 +526,6 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Passive Resource</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Passive Resource</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePassiveResource(PassiveResource object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Signature</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Signature</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSignature(Signature object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParameter(Parameter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDataType(DataType object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -484,21 +552,6 @@ public class RepositorySwitch<T> {
 	 * @generated
 	 */
 	public T caseRepositoryComponent(RepositoryComponent object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Provides Component Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Provides Component Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProvidesComponentType(ProvidesComponentType object) {
 		return null;
 	}
 
@@ -533,6 +586,21 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperationInterface(OperationInterface object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -548,32 +616,32 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Required Characterisation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Operation Signature</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Required Characterisation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Operation Signature</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRequiredCharacterisation(RequiredCharacterisation object) {
+	public T caseOperationSignature(OperationSignature object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Required Role</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Signature</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Required Role</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Signature</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResourceRequiredRole(ResourceRequiredRole object) {
+	public T caseSignature(Signature object) {
 		return null;
 	}
 
@@ -593,6 +661,21 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation Required Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation Required Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperationRequiredRole(OperationRequiredRole object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Failure Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -604,6 +687,126 @@ public class RepositorySwitch<T> {
 	 * @generated
 	 */
 	public T caseFailureType(FailureType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Delegation Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDelegationConnector(DelegationConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation Provided Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation Provided Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperationProvidedRole(OperationProvidedRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Required Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Required Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceRequiredRole(ResourceRequiredRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sink Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sink Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSinkRole(SinkRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEventGroup(EventGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEventType(EventType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Source Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Source Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSourceRole(SourceRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Basic Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Basic Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBasicComponent(BasicComponent object) {
 		return null;
 	}
 
@@ -638,47 +841,32 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Delegation Connector</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Provides Component Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Delegation Connector</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Provides Component Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDelegationConnector(DelegationConnector object) {
+	public T caseProvidesComponentType(ProvidesComponentType object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Composite Component</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Passive Resource</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Composite Component</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Passive Resource</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCompositeComponent(CompositeComponent object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Basic Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Basic Component</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBasicComponent(BasicComponent object) {
+	public T casePassiveResource(PassiveResource object) {
 		return null;
 	}
 
@@ -713,6 +901,111 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataType(DataType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Composite Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Composite Data Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompositeDataType(CompositeDataType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Signature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Signature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceSignature(ResourceSignature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceInterface(ResourceInterface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Infrastructure Signature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Infrastructure Signature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInfrastructureSignature(InfrastructureSignature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Infrastructure Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Infrastructure Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInfrastructureInterface(InfrastructureInterface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Composite Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Composite Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompositeComponent(CompositeComponent object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Primitive Data Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -739,36 +1032,6 @@ public class RepositorySwitch<T> {
 	 * @generated
 	 */
 	public T caseCollectionDataType(CollectionDataType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Composite Data Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Composite Data Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCompositeDataType(CompositeDataType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Inner Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Inner Declaration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInnerDeclaration(InnerDeclaration object) {
 		return null;
 	}
 

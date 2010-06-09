@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -10,7 +10,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 
 import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,12 +53,12 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Inner Provided Role Provided Delegation Connector</em>' reference.
-	 * @see #setInnerProvidedRole_ProvidedDelegationConnector(ProvidedRole)
+	 * @see #setInnerProvidedRole_ProvidedDelegationConnector(OperationProvidedRole)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ProvidedRole getInnerProvidedRole_ProvidedDelegationConnector();
+	OperationProvidedRole getInnerProvidedRole_ProvidedDelegationConnector();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector <em>Inner Provided Role Provided Delegation Connector</em>}' reference.
@@ -68,7 +68,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	 * @see #getInnerProvidedRole_ProvidedDelegationConnector()
 	 * @generated
 	 */
-	void setInnerProvidedRole_ProvidedDelegationConnector(ProvidedRole value);
+	void setInnerProvidedRole_ProvidedDelegationConnector(OperationProvidedRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Outer Provided Role Provided Delegation Connector</b></em>' reference.
@@ -79,12 +79,12 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Outer Provided Role Provided Delegation Connector</em>' reference.
-	 * @see #setOuterProvidedRole_ProvidedDelegationConnector(ProvidedRole)
+	 * @see #setOuterProvidedRole_ProvidedDelegationConnector(OperationProvidedRole)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ProvidedRole getOuterProvidedRole_ProvidedDelegationConnector();
+	OperationProvidedRole getOuterProvidedRole_ProvidedDelegationConnector();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector <em>Outer Provided Role Provided Delegation Connector</em>}' reference.
@@ -94,7 +94,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	 * @see #getOuterProvidedRole_ProvidedDelegationConnector()
 	 * @generated
 	 */
-	void setOuterProvidedRole_ProvidedDelegationConnector(ProvidedRole value);
+	void setOuterProvidedRole_ProvidedDelegationConnector(OperationProvidedRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Assembly Context Provided Delegation Connector</b></em>' reference.
@@ -167,11 +167,11 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext
+	 * self.innerProvidedRole_ProvidedDelegationConnector.providedInterface__OperationProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.innerProvidedRole_ProvidedDelegationConnector.providedInterface__OperationProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext'"
 	 * @generated
 	 */
 	boolean ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context);

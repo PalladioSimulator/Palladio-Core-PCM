@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -68,34 +68,6 @@ public interface UsageScenario extends Entity {
 	void setUsageModel_UsageScenario(UsageModel value);
 
 	/**
-	 * Returns the value of the '<em><b>Workload Usage Scenario</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.Workload#getUsageScenario_Workload <em>Usage Scenario Workload</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Workload Usage Scenario</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Workload Usage Scenario</em>' containment reference.
-	 * @see #setWorkload_UsageScenario(Workload)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageScenario_Workload_UsageScenario()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.Workload#getUsageScenario_Workload
-	 * @model opposite="usageScenario_Workload" containment="true" required="true" ordered="false"
-	 * @generated
-	 */
-	Workload getWorkload_UsageScenario();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario <em>Workload Usage Scenario</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Workload Usage Scenario</em>' containment reference.
-	 * @see #getWorkload_UsageScenario()
-	 * @generated
-	 */
-	void setWorkload_UsageScenario(Workload value);
-
-	/**
 	 * Returns the value of the '<em><b>Scenario Behaviour Usage Scenario</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour <em>Usage Scenario Senario Behaviour</em>}'.
 	 * <!-- begin-user-doc -->
@@ -122,5 +94,33 @@ public interface UsageScenario extends Entity {
 	 * @generated
 	 */
 	void setScenarioBehaviour_UsageScenario(ScenarioBehaviour value);
+
+	/**
+	 * Returns the value of the '<em><b>Workload Usage Scenario</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.Workload#getUsageScenario_Workload <em>Usage Scenario Workload</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Workload Usage Scenario</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Workload Usage Scenario</em>' containment reference.
+	 * @see #setWorkload_UsageScenario(Workload)
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageScenario_Workload_UsageScenario()
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.Workload#getUsageScenario_Workload
+	 * @model opposite="usageScenario_Workload" containment="true" required="true" ordered="false"
+	 * @generated
+	 */
+	Workload getWorkload_UsageScenario();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario <em>Workload Usage Scenario</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Workload Usage Scenario</em>' containment reference.
+	 * @see #getWorkload_UsageScenario()
+	 * @generated
+	 */
+	void setWorkload_UsageScenario(Workload value);
 
 } // UsageScenario

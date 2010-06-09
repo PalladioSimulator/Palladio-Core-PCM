@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -22,6 +22,7 @@ public interface SeffFactory extends EFactory {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
@@ -40,6 +41,24 @@ public interface SeffFactory extends EFactory {
 	StopAction createStopAction();
 
 	/**
+	 * Returns a new object of class '<em>Resource Demanding Behaviour</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Demanding Behaviour</em>'.
+	 * @generated
+	 */
+	ResourceDemandingBehaviour createResourceDemandingBehaviour();
+
+	/**
+	 * Returns a new object of class '<em>Branch Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Branch Action</em>'.
+	 * @generated
+	 */
+	BranchAction createBranchAction();
+
+	/**
 	 * Returns a new object of class '<em>Start Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,15 +75,6 @@ public interface SeffFactory extends EFactory {
 	 * @generated
 	 */
 	ResourceDemandingSEFF createResourceDemandingSEFF();
-
-	/**
-	 * Returns a new object of class '<em>Resource Demanding Behaviour</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Demanding Behaviour</em>'.
-	 * @generated
-	 */
-	ResourceDemandingBehaviour createResourceDemandingBehaviour();
 
 	/**
 	 * Returns a new object of class '<em>Resource Demanding Internal Behaviour</em>'.
@@ -157,15 +167,6 @@ public interface SeffFactory extends EFactory {
 	ProbabilisticBranchTransition createProbabilisticBranchTransition();
 
 	/**
-	 * Returns a new object of class '<em>Branch Action</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Branch Action</em>'.
-	 * @generated
-	 */
-	BranchAction createBranchAction();
-
-	/**
 	 * Returns a new object of class '<em>Acquire Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,6 +228,15 @@ public interface SeffFactory extends EFactory {
 	 * @generated
 	 */
 	RecoveryBlockAlternativeBehaviour createRecoveryBlockAlternativeBehaviour();
+
+	/**
+	 * Returns a new object of class '<em>Emit Event Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Emit Event Action</em>'.
+	 * @generated
+	 */
+	EmitEventAction createEmitEventAction();
 
 	/**
 	 * Returns the package supported by this factory.

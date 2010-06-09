@@ -1,17 +1,17 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
@@ -183,26 +183,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int LINKING_RESOURCE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl <em>Communication Link Resource Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getCommunicationLinkResourceSpecification()
-	 * @generated
-	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 4;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl <em>Processing Resource Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getProcessingResourceSpecification()
-	 * @generated
-	 */
-	int PROCESSING_RESOURCE_SPECIFICATION = 3;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,6 +245,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_CONTAINER_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl <em>Processing Resource Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getProcessingResourceSpecification()
+	 * @generated
+	 */
+	int PROCESSING_RESOURCE_SPECIFICATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>MTTR</b></em>' attribute.
@@ -339,6 +329,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 7;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl <em>Communication Link Resource Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getCommunicationLinkResourceSpecification()
+	 * @generated
+	 */
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION = 4;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -402,17 +402,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getSchedulingPolicy()
-	 * @generated
-	 */
-	int SCHEDULING_POLICY = 6;
-
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem <em>Container Operating System</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -421,6 +410,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int CONTAINER_OPERATING_SYSTEM = 5;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getSchedulingPolicy()
+	 * @generated
+	 */
+	int SCHEDULING_POLICY = 6;
 
 
 	/**
@@ -499,69 +498,47 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EReference getLinkingResource_ResourceEnvironment_LinkingResource();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification <em>Communication Link Resource Specification</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer <em>Resource Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Communication Link Resource Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification
+	 * @return the meta object for class '<em>Resource Container</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer
 	 * @generated
 	 */
-	EClass getCommunicationLinkResourceSpecification();
+	EClass getResourceContainer();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkingResource_CommunicationLinkResourceSpecification <em>Linking Resource Communication Link Resource Specification</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getOperatingSystem_ResourceContainer <em>Operating System Resource Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Linking Resource Communication Link Resource Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkingResource_CommunicationLinkResourceSpecification()
-	 * @see #getCommunicationLinkResourceSpecification()
+	 * @return the meta object for the attribute '<em>Operating System Resource Container</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getOperatingSystem_ResourceContainer()
+	 * @see #getResourceContainer()
 	 * @generated
 	 */
-	EReference getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification();
+	EAttribute getResourceContainer_OperatingSystem_ResourceContainer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability <em>Failure Probability</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer <em>Active Resource Specifications Resource Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Failure Probability</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability()
-	 * @see #getCommunicationLinkResourceSpecification()
+	 * @return the meta object for the containment reference list '<em>Active Resource Specifications Resource Container</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer()
+	 * @see #getResourceContainer()
 	 * @generated
 	 */
-	EAttribute getCommunicationLinkResourceSpecification_FailureProbability();
+	EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification <em>Communication Link Resource Type Communication Link Resource Specification</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getResourceEnvironment_ResourceContainer <em>Resource Environment Resource Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Communication Link Resource Type Communication Link Resource Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification()
-	 * @see #getCommunicationLinkResourceSpecification()
+	 * @return the meta object for the container reference '<em>Resource Environment Resource Container</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getResourceEnvironment_ResourceContainer()
+	 * @see #getResourceContainer()
 	 * @generated
 	 */
-	EReference getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLatency_CommunicationLinkResourceSpecification <em>Latency Communication Link Resource Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Latency Communication Link Resource Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLatency_CommunicationLinkResourceSpecification()
-	 * @see #getCommunicationLinkResourceSpecification()
-	 * @generated
-	 */
-	EReference getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification <em>Throughput Communication Link Resource Specification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Throughput Communication Link Resource Specification</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification()
-	 * @see #getCommunicationLinkResourceSpecification()
-	 * @generated
-	 */
-	EReference getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification();
+	EReference getResourceContainer_ResourceEnvironment_ResourceContainer();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification <em>Processing Resource Specification</em>}'.
@@ -651,57 +628,69 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EReference getProcessingResourceSpecification_ResourceContainer_ProcessingResourceSpecification();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer <em>Resource Container</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification <em>Communication Link Resource Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Container</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer
+	 * @return the meta object for class '<em>Communication Link Resource Specification</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification
 	 * @generated
 	 */
-	EClass getResourceContainer();
+	EClass getCommunicationLinkResourceSpecification();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getOperatingSystem_ResourceContainer <em>Operating System Resource Container</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkingResource_CommunicationLinkResourceSpecification <em>Linking Resource Communication Link Resource Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Operating System Resource Container</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getOperatingSystem_ResourceContainer()
-	 * @see #getResourceContainer()
+	 * @return the meta object for the container reference '<em>Linking Resource Communication Link Resource Specification</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkingResource_CommunicationLinkResourceSpecification()
+	 * @see #getCommunicationLinkResourceSpecification()
 	 * @generated
 	 */
-	EAttribute getResourceContainer_OperatingSystem_ResourceContainer();
+	EReference getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer <em>Active Resource Specifications Resource Container</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability <em>Failure Probability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Active Resource Specifications Resource Container</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer()
-	 * @see #getResourceContainer()
+	 * @return the meta object for the attribute '<em>Failure Probability</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability()
+	 * @see #getCommunicationLinkResourceSpecification()
 	 * @generated
 	 */
-	EReference getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
+	EAttribute getCommunicationLinkResourceSpecification_FailureProbability();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getResourceEnvironment_ResourceContainer <em>Resource Environment Resource Container</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification <em>Communication Link Resource Type Communication Link Resource Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Resource Environment Resource Container</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getResourceEnvironment_ResourceContainer()
-	 * @see #getResourceContainer()
+	 * @return the meta object for the reference '<em>Communication Link Resource Type Communication Link Resource Specification</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification()
+	 * @see #getCommunicationLinkResourceSpecification()
 	 * @generated
 	 */
-	EReference getResourceContainer_ResourceEnvironment_ResourceContainer();
+	EReference getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification();
 
 	/**
-	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLatency_CommunicationLinkResourceSpecification <em>Latency Communication Link Resource Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Scheduling Policy</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
+	 * @return the meta object for the containment reference '<em>Latency Communication Link Resource Specification</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLatency_CommunicationLinkResourceSpecification()
+	 * @see #getCommunicationLinkResourceSpecification()
 	 * @generated
 	 */
-	EEnum getSchedulingPolicy();
+	EReference getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification <em>Throughput Communication Link Resource Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Throughput Communication Link Resource Specification</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification()
+	 * @see #getCommunicationLinkResourceSpecification()
+	 * @generated
+	 */
+	EReference getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem <em>Container Operating System</em>}'.
@@ -712,6 +701,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getContainerOperatingSystem();
+
+	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Scheduling Policy</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
+	 * @generated
+	 */
+	EEnum getSchedulingPolicy();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -796,54 +795,38 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EReference LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE = eINSTANCE.getLinkingResource_ResourceEnvironment_LinkingResource();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl <em>Communication Link Resource Specification</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getCommunicationLinkResourceSpecification()
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getResourceContainer()
 		 * @generated
 		 */
-		EClass COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification();
+		EClass RESOURCE_CONTAINER = eINSTANCE.getResourceContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Linking Resource Communication Link Resource Specification</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Operating System Resource Container</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINKING_RESOURCE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification();
+		EAttribute RESOURCE_CONTAINER__OPERATING_SYSTEM_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_OperatingSystem_ResourceContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Failure Probability</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Active Resource Specifications Resource Container</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY = eINSTANCE.getCommunicationLinkResourceSpecification_FailureProbability();
+		EReference RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Resource Environment Resource Container</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification();
-
-		/**
-		 * The meta object literal for the '<em><b>Latency Communication Link Resource Specification</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification();
-
-		/**
-		 * The meta object literal for the '<em><b>Throughput Communication Link Resource Specification</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification();
+		EReference RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_ResourceEnvironment_ResourceContainer();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl <em>Processing Resource Specification</em>}' class.
@@ -912,48 +895,54 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EReference PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification_ResourceContainer_ProcessingResourceSpecification();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl <em>Resource Container</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl <em>Communication Link Resource Specification</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceContainerImpl
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getResourceContainer()
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getCommunicationLinkResourceSpecification()
 		 * @generated
 		 */
-		EClass RESOURCE_CONTAINER = eINSTANCE.getResourceContainer();
+		EClass COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification();
 
 		/**
-		 * The meta object literal for the '<em><b>Operating System Resource Container</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Linking Resource Communication Link Resource Specification</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RESOURCE_CONTAINER__OPERATING_SYSTEM_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_OperatingSystem_ResourceContainer();
+		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINKING_RESOURCE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification();
 
 		/**
-		 * The meta object literal for the '<em><b>Active Resource Specifications Resource Container</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Failure Probability</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
+		EAttribute COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY = eINSTANCE.getCommunicationLinkResourceSpecification_FailureProbability();
 
 		/**
-		 * The meta object literal for the '<em><b>Resource Environment Resource Container</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_ResourceEnvironment_ResourceContainer();
+		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
+		 * The meta object literal for the '<em><b>Latency Communication Link Resource Specification</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getSchedulingPolicy()
 		 * @generated
 		 */
-		EEnum SCHEDULING_POLICY = eINSTANCE.getSchedulingPolicy();
+		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Throughput Communication Link Resource Specification</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem <em>Container Operating System</em>}' enum.
@@ -964,6 +953,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum CONTAINER_OPERATING_SYSTEM = eINSTANCE.getContainerOperatingSystem();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getSchedulingPolicy()
+		 * @generated
+		 */
+		EEnum SCHEDULING_POLICY = eINSTANCE.getSchedulingPolicy();
 
 	}
 

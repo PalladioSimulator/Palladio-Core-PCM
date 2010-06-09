@@ -1,34 +1,32 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.ocl.ParserException;
-import org.eclipse.ocl.ecore.Constraint;
-import org.eclipse.ocl.ecore.OCL;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 import java.util.Collection;
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
+
+import de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription;
+import de.uka.ipd.sdq.pcm.seff.InternalAction;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,7 +85,7 @@ public class InternalActionImpl extends AbstractInternalControlFlowActionImpl im
 	 */
 	public EList<FailureOccurrenceDescription> getFailureOccurrenceDescriptions() {
 		if (failureOccurrenceDescriptions == null) {
-			failureOccurrenceDescriptions = new EObjectContainmentWithInverseEList<FailureOccurrenceDescription>(FailureOccurrenceDescription.class, this, SeffPackage.INTERNAL_ACTION__FAILURE_OCCURRENCE_DESCRIPTIONS, SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_FAILURE_OCCURENCE_DESCRIPTION);
+			failureOccurrenceDescriptions = new EObjectContainmentWithInverseEList<FailureOccurrenceDescription>(FailureOccurrenceDescription.class, this, SeffPackage.INTERNAL_ACTION__FAILURE_OCCURRENCE_DESCRIPTIONS, SeffPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_OCCURENCE_DESCRIPTIONS);
 		}
 		return failureOccurrenceDescriptions;
 	}

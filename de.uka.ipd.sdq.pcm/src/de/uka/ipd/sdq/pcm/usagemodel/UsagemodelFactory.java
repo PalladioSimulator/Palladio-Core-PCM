@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -22,6 +22,7 @@ public interface UsagemodelFactory extends EFactory {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
@@ -40,13 +41,13 @@ public interface UsagemodelFactory extends EFactory {
 	UsageScenario createUsageScenario();
 
 	/**
-	 * Returns a new object of class '<em>Scenario Behaviour</em>'.
+	 * Returns a new object of class '<em>User Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scenario Behaviour</em>'.
+	 * @return a new object of class '<em>User Data</em>'.
 	 * @generated
 	 */
-	ScenarioBehaviour createScenarioBehaviour();
+	UserData createUserData();
 
 	/**
 	 * Returns a new object of class '<em>Usage Model</em>'.
@@ -58,13 +59,49 @@ public interface UsagemodelFactory extends EFactory {
 	UsageModel createUsageModel();
 
 	/**
-	 * Returns a new object of class '<em>User Data</em>'.
+	 * Returns a new object of class '<em>Entry Level System Call</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>User Data</em>'.
+	 * @return a new object of class '<em>Entry Level System Call</em>'.
 	 * @generated
 	 */
-	UserData createUserData();
+	EntryLevelSystemCall createEntryLevelSystemCall();
+
+	/**
+	 * Returns a new object of class '<em>Scenario Behaviour</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scenario Behaviour</em>'.
+	 * @generated
+	 */
+	ScenarioBehaviour createScenarioBehaviour();
+
+	/**
+	 * Returns a new object of class '<em>Branch Transition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Branch Transition</em>'.
+	 * @generated
+	 */
+	BranchTransition createBranchTransition();
+
+	/**
+	 * Returns a new object of class '<em>Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Branch</em>'.
+	 * @generated
+	 */
+	Branch createBranch();
+
+	/**
+	 * Returns a new object of class '<em>Loop</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Loop</em>'.
+	 * @generated
+	 */
+	Loop createLoop();
 
 	/**
 	 * Returns a new object of class '<em>Stop</em>'.
@@ -94,22 +131,13 @@ public interface UsagemodelFactory extends EFactory {
 	OpenWorkload createOpenWorkload();
 
 	/**
-	 * Returns a new object of class '<em>Loop</em>'.
+	 * Returns a new object of class '<em>Delay</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Loop</em>'.
+	 * @return a new object of class '<em>Delay</em>'.
 	 * @generated
 	 */
-	Loop createLoop();
-
-	/**
-	 * Returns a new object of class '<em>Entry Level System Call</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Entry Level System Call</em>'.
-	 * @generated
-	 */
-	EntryLevelSystemCall createEntryLevelSystemCall();
+	Delay createDelay();
 
 	/**
 	 * Returns a new object of class '<em>Closed Workload</em>'.
@@ -119,33 +147,6 @@ public interface UsagemodelFactory extends EFactory {
 	 * @generated
 	 */
 	ClosedWorkload createClosedWorkload();
-
-	/**
-	 * Returns a new object of class '<em>Branch</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Branch</em>'.
-	 * @generated
-	 */
-	Branch createBranch();
-
-	/**
-	 * Returns a new object of class '<em>Branch Transition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Branch Transition</em>'.
-	 * @generated
-	 */
-	BranchTransition createBranchTransition();
-
-	/**
-	 * Returns a new object of class '<em>Delay</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Delay</em>'.
-	 * @generated
-	 */
-	Delay createDelay();
 
 	/**
 	 * Returns the package supported by this factory.

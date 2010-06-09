@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -10,7 +10,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 
 import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,12 +53,12 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Inner Required Role Required Delegation Connector</em>' reference.
-	 * @see #setInnerRequiredRole_RequiredDelegationConnector(RequiredRole)
+	 * @see #setInnerRequiredRole_RequiredDelegationConnector(OperationRequiredRole)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	RequiredRole getInnerRequiredRole_RequiredDelegationConnector();
+	OperationRequiredRole getInnerRequiredRole_RequiredDelegationConnector();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector <em>Inner Required Role Required Delegation Connector</em>}' reference.
@@ -68,7 +68,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * @see #getInnerRequiredRole_RequiredDelegationConnector()
 	 * @generated
 	 */
-	void setInnerRequiredRole_RequiredDelegationConnector(RequiredRole value);
+	void setInnerRequiredRole_RequiredDelegationConnector(OperationRequiredRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Outer Required Role Required Delegation Connector</b></em>' reference.
@@ -79,12 +79,12 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Outer Required Role Required Delegation Connector</em>' reference.
-	 * @see #setOuterRequiredRole_RequiredDelegationConnector(RequiredRole)
+	 * @see #setOuterRequiredRole_RequiredDelegationConnector(OperationRequiredRole)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	RequiredRole getOuterRequiredRole_RequiredDelegationConnector();
+	OperationRequiredRole getOuterRequiredRole_RequiredDelegationConnector();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector <em>Outer Required Role Required Delegation Connector</em>}' reference.
@@ -94,7 +94,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * @see #getOuterRequiredRole_RequiredDelegationConnector()
 	 * @generated
 	 */
-	void setOuterRequiredRole_RequiredDelegationConnector(RequiredRole value);
+	void setOuterRequiredRole_RequiredDelegationConnector(OperationRequiredRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Assembly Context Required Delegation Connector</b></em>' reference.
@@ -167,11 +167,11 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext
+	 * self.innerRequiredRole_RequiredDelegationConnector.requiredInterface__OperationRequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.innerRequiredRole_RequiredDelegationConnector.requiredInterface__OperationRequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext'"
 	 * @generated
 	 */
 	boolean ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -180,11 +180,11 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure_RequiredDelegationConnector
+	 * self.outerRequiredRole_RequiredDelegationConnector.requiredInterface__OperationRequiredRole=self.parentStructure_RequiredDelegationConnector
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure_RequiredDelegationConnector'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.outerRequiredRole_RequiredDelegationConnector.requiredInterface__OperationRequiredRole=self.parentStructure_RequiredDelegationConnector'"
 	 * @generated
 	 */
 	boolean RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(DiagnosticChain diagnostics, Map<Object, Object> context);

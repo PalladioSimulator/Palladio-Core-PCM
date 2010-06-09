@@ -41,14 +41,22 @@
           ordered="false" eType="#//usagemodel/ClosedWorkload" eOpposite="#//usagemodel/ClosedWorkload/thinkTime_ClosedWorkload"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource_capacity_PCMRandomVariable"
           ordered="false" eType="#//repository/PassiveResource" eOpposite="#//repository/PassiveResource/capacity_PassiveResource"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableSetter__PCMRandomVariable"
+          ordered="false" lowerBound="1" eType="#//parameter/VariableSetter" eOpposite="#//parameter/VariableSetter/specification__VariableSetter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="loop_LoopIteration" ordered="false"
+          eType="#//usagemodel/Loop" eOpposite="#//usagemodel/Loop/loopIteration_Loop"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parametricResourceDemand_PCMRandomVariable"
           ordered="false" eType="#//seff/performance/ParametricResourceDemand" eOpposite="#//seff/performance/ParametricResourceDemand/specification_ParametericResourceDemand"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="loopAction_PCMRandomVariable"
           ordered="false" eType="#//seff/LoopAction" eOpposite="#//seff/LoopAction/iterationCount_LoopAction"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="guardedBranchTransition_PCMRandomVariable"
           ordered="false" eType="#//seff/GuardedBranchTransition" eOpposite="#//seff/GuardedBranchTransition/branchCondition_GuardedBranchTransition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedQoSAnnotation_SpecifiedExecutionTime"
+          ordered="false" eType="#//qosannotations/SpecifiedQoSAnnotation" eOpposite="#//qosannotations/SpecifiedQoSAnnotation/specification_SpecifiedExecutionTime"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="openWorkload_PCMRandomVariable"
           ordered="false" eType="#//usagemodel/OpenWorkload" eOpposite="#//usagemodel/OpenWorkload/interArrivalTime_OpenWorkload"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="delay_TimeSpecification"
+          ordered="false" eType="#//usagemodel/Delay" eOpposite="#//usagemodel/Delay/timeSpecification_Delay"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="communicationLinkResourceSpecifcation_throughput_PCMRandomVariable"
           ordered="false" eType="#//resourceenvironment/CommunicationLinkResourceSpecification"
           eOpposite="#//resourceenvironment/CommunicationLinkResourceSpecification/throughput_CommunicationLinkResourceSpecification"/>
@@ -79,7 +87,7 @@
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles_InterfaceProvidingEntity"
             ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" containment="true"
-            eOpposite="#//repository/ProvidedRole/providingEntity_ProvidedRole"/>
+            eOpposite="#//repository/ProvidedRole/providingEntity__ProvidedRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntity"
           abstract="true" eSuperTypes="#//core/entity/InterfaceProvidingEntity #//core/entity/InterfaceRequiringEntity #//core/entity/ResourceInterfaceRequiringEntity">
@@ -94,7 +102,7 @@
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles_InterfaceRequiringEntity"
             ordered="false" upperBound="-1" eType="#//repository/RequiredRole" containment="true"
-            eOpposite="#//repository/RequiredRole/requiringEntity_RequiredRole"/>
+            eOpposite="#//repository/RequiredRole/requiringEntity__RequiredRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ResourceInterfaceRequiringEntity"
           abstract="true" eSuperTypes="#//core/entity/Entity">
@@ -103,7 +111,7 @@
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredRoles_ResourceInterfaceRequiringEntity"
             ordered="false" upperBound="-1" eType="#//repository/ResourceRequiredRole"
-            containment="true" eOpposite="#//repository/ResourceRequiredRole/resourceRequiringEntity_ResourceRequiredRole"/>
+            containment="true" eOpposite="#//repository/ResourceRequiredRole/resourceRequiringEntity__ResourceRequiredRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComposedProvidingRequiringEntity"
           abstract="true" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/InterfaceProvidingRequiringEntity">
@@ -174,10 +182,10 @@
         <eOperations name="ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-            <details key="body" value="self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext"/>
+            <details key="body" value="self.innerProvidedRole_ProvidedDelegationConnector.providedInterface__OperationProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext"/>
+            <details key="documentation" value="self.innerProvidedRole_ProvidedDelegationConnector.providedInterface__OperationProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent_AssemblyContext"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -195,9 +203,9 @@
           </eParameters>
         </eOperations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="innerProvidedRole_ProvidedDelegationConnector"
-            ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
+            ordered="false" lowerBound="1" eType="#//repository/OperationProvidedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="outerProvidedRole_ProvidedDelegationConnector"
-            ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
+            ordered="false" lowerBound="1" eType="#//repository/OperationProvidedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_ProvidedDelegationConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_ProvidedDelegationConnector"
@@ -209,6 +217,50 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="TODO/FIXME: The distinction between ComposedStructure and ComposedProvidingRequiringStructure does not make sense at the moment, because the ComposedStructure already talks about inner provided / required delegation connectors, which only make sense if there are outer roles for interfaces -> ComposedProvidingRequiringStructure. IDEA: Move the delegation connector attributes to ComposedProvidingRequiringStructure. I'm not sure about the assembly connectors. SEE ALSO: ComposedProvidingRequiringStructure &#xD;&#xA;However, as AssemblyContexts of ComposedStructure always contain InterfaceProvidingRequiringEntities at the moment, the above might not help... -- Anne"/>
         </eAnnotations>
+        <eOperations name="MultipleConnectorsConstraint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+            <details key="body" value="self.providedDelegationConnectors_ComposedStructure->forAll( c1, c2 | c1 &lt;> c2 implies c1.outerProvidedRole_ProvidedDelegationConnector &lt;> c2.outerProvidedRole_ProvidedDelegationConnector)&#xD;&#xA;"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.providedDelegationConnectors_ComposedStructure->forAll( c1, c2 | c1 &lt;> c2 implies c1.outerProvidedRole_ProvidedDelegationConnector &lt;> c2.outerProvidedRole_ProvidedDelegationConnector)&#xD;&#xA;"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eOperations name="MultipleConnectorConstraintForAssembyConnectors" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+            <details key="body" value="self.assemblyConnectors_ComposedStructure->forAll( c1, c2 | c1 &lt;> c2 implies c1.requiredRole__AssemblyConnector &lt;> c2.requiredRole__AssemblyConnector) "/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.assemblyConnectors_ComposedStructure->forAll( c1, c2 | c1 &lt;> c2 implies c1.requiredRole__AssemblyConnector &lt;> c2.requiredRole__AssemblyConnector) "/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContexts_ComposedStructure"
             ordered="false" upperBound="-1" eType="#//core/composition/AssemblyContext"
             containment="true" eOpposite="#//core/composition/AssemblyContext/parentStructure_AssemblyContext"/>
@@ -221,6 +273,15 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiredDelegationConnectors_ComposedStructure"
             ordered="false" upperBound="-1" eType="#//core/composition/ResourceRequiredDelegationConnector"
             containment="true" eOpposite="#//core/composition/ResourceRequiredDelegationConnector/parentStructure_ResourceRequiredDelegationConnector"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyEventConnector__ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/AssemblyEventConnector"
+            containment="true" eOpposite="#//core/composition/AssemblyEventConnector/parentStructure__AssemblyEventConnector"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="sinkDelegationConnectors__ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/SinkDelegationConnector"
+            containment="true" eOpposite="#//core/composition/SinkDelegationConnector/parentStructure_SinkDelegationConnector"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="sourceDelegationConnectors__ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/SourceDelegationConnector"
+            containment="true" eOpposite="#//core/composition/SourceDelegationConnector/parentStructure_SourceDelegationConnector"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnectors_ComposedStructure"
             ordered="false" upperBound="-1" eType="#//core/composition/ProvidedDelegationConnector"
             containment="true" eOpposite="#//core/composition/ProvidedDelegationConnector/parentStructure_ProvidedDelegationConnector"/>
@@ -232,10 +293,10 @@
         <eOperations name="AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-            <details key="body" value="self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;"/>
+            <details key="body" value="self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole__AssemblyConnector)&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. &#xD;&#xA;self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;"/>
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. &#xD;&#xA;self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole__AssemblyConnector)&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -255,10 +316,10 @@
         <eOperations name="AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-            <details key="body" value="self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
+            <details key="body" value="self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. &#xD;&#xA;self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. &#xD;&#xA;self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -277,10 +338,10 @@
         </eOperations>
         <eOperations name="AssemblyConnectorsReferencedInterfacesMustMatch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-            <details key="body" value="self.providedRole_AssemblyConnector.providedInterface__ProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole or &#xD;&#xA;self.providedRole_AssemblyConnector.providedInterface__ProvidedRole->closure(parentInterface__Interface)->exists(interface|interface = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole)&#xD;&#xA;"/>
+            <details key="body" value="self.providedRole__AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole__AssemblyConnector.requiredInterface__OperationRequiredRole or &#xD;&#xA;self.providedRole__AssemblyConnector.providedInterface__OperationProvidedRole->closure(parentInterfaces__Interface)->exists(interface|interface = self.requiredRole__AssemblyConnector.requiredInterface__OperationRequiredRole)&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The Interfaces references by this Connector must match. This means that either &#xD;&#xA;1) the referenced providedRole and the referenced requiredRole refer to the same Interface (first part of the expression) or 2)  the Interface A referenced by the providedRole is a subtype of the Interface B referenced by the requiredRole as transitively defined by the parentInterface__Interface property. That means that either Interface A is the parentInterface__Interface of Interface B, or there is a set of Interfaces &#xD;&#xA;self.providedRole_AssemblyConnector.providedInterface__ProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole or &#xD;&#xA;self.providedRole_AssemblyConnector.providedInterface__ProvidedRole->closure(parentInterface__Interface)->exists(interface|interface = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole)&#xD;&#xA;"/>
+            <details key="documentation" value="The Interfaces references by this Connector must match. This means that either &#xD;&#xA;1) the referenced providedRole and the referenced requiredRole refer to the same Interface (first part of the expression) or 2)  the Interface A referenced by the providedRole is a subtype of the Interface B referenced by the requiredRole as transitively defined by the parentInterface__Interface property. That means that either Interface A is the parentInterface__Interface of Interface B, or there is a set of Interfaces &#xD;&#xA;self.providedRole__AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole__AssemblyConnector.requiredInterface__OperationRequiredRole or &#xD;&#xA;self.providedRole__AssemblyConnector.providedInterface__OperationProvidedRole->closure(parentInterfaces__Interface)->exists(interface|interface = self.requiredRole__AssemblyConnector.requiredInterface__OperationRequiredRole)&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -301,10 +362,10 @@
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providingAssemblyContext_AssemblyConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_AssemblyConnector"
-            ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole_AssemblyConnector"
-            ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole__AssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//repository/OperationProvidedRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole__AssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//repository/OperationRequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_AssemblyConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
             eOpposite="#//core/composition/ComposedStructure/assemblyConnectors_ComposedStructure"/>
@@ -339,10 +400,10 @@
         <eOperations name="ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-            <details key="body" value="self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext"/>
+            <details key="body" value="self.innerRequiredRole_RequiredDelegationConnector.requiredInterface__OperationRequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext"/>
+            <details key="documentation" value="self.innerRequiredRole_RequiredDelegationConnector.requiredInterface__OperationRequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent_AssemblyContext"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -362,10 +423,10 @@
         <eOperations name="RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-            <details key="body" value="self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure_RequiredDelegationConnector"/>
+            <details key="body" value="self.outerRequiredRole_RequiredDelegationConnector.requiredInterface__OperationRequiredRole=self.parentStructure_RequiredDelegationConnector"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure_RequiredDelegationConnector"/>
+            <details key="documentation" value="self.outerRequiredRole_RequiredDelegationConnector.requiredInterface__OperationRequiredRole=self.parentStructure_RequiredDelegationConnector"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -383,9 +444,9 @@
           </eParameters>
         </eOperations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="innerRequiredRole_RequiredDelegationConnector"
-            ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
+            ordered="false" lowerBound="1" eType="#//repository/OperationRequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="outerRequiredRole_RequiredDelegationConnector"
-            ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
+            ordered="false" lowerBound="1" eType="#//repository/OperationRequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_RequiredDelegationConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_RequiredDelegationConnector"
@@ -404,6 +465,50 @@
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
             eOpposite="#//core/composition/ComposedStructure/resourceRequiredDelegationConnectors_ComposedStructure"/>
       </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="AssemblyEventConnector" eSuperTypes="#//core/connectors/Connector">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="An AssemblyConnector is a bidirectional link of two assembly contexts. Intuitively, an AssemblyEventConnector connects a&#xD;&#xA;sink and a source. AssemblyContext must refer to the tuple (Role,&#xD;&#xA;AssemblyContext) in order to uniquely identify which component sink and source roles communicate with each other."/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="sinkRole__AssemblyEventConnector"
+            ordered="false" lowerBound="1" eType="#//repository/SinkRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="sourceRole__AssemblyEventConnector"
+            ordered="false" lowerBound="1" eType="#//repository/SourceRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="sinkAssemblyContext__AssemblyEventConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="sourceAssemblyContext__AssemblyEventConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure__AssemblyEventConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
+            eOpposite="#//core/composition/ComposedStructure/assemblyEventConnector__ComposedStructure"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SinkDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A SinkDelegationConnector delegates an incoming event to the encapsulated assembly contexts to inner sink roles."/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="innerSinkRole__SinkDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/SinkRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="outerSinkRole__SinkDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/SinkRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext__SinkDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_SinkDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
+            eOpposite="#//core/composition/ComposedStructure/sinkDelegationConnectors__ComposedStructure"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SourceDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A SourceDelegationConnector delegates outgoing events of encapsulated assembly&#xD;&#xA;contexts to an external souce role of the enclosing assembly context."/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="innerSourceRole__SourceDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/SourceRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="outerSourceRole__SourceDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/SourceRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext__SourceDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_SourceDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
+            eOpposite="#//core/composition/ComposedStructure/sourceDelegationConnectors__ComposedStructure"/>
+      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="AssemblyContext" eSuperTypes="#//core/entity/Entity">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="An AssemblyContext uniquely identifies an assembly instance of an AssemblyContext."/>
@@ -413,9 +518,9 @@
             eOpposite="#//core/composition/ComposedStructure/assemblyContexts_ComposedStructure"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedComponent_AssemblyContext"
             ordered="false" lowerBound="1" eType="#//repository/RepositoryComponent"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="configParameterUsages_AssemblyContext"
-            ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
-            eOpposite="#//parameter/VariableUsage/assemblyContext_VariableUsage"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="configVariableSetters__AssemblyContext"
+            ordered="false" upperBound="-1" eType="#//parameter/VariableSetter" containment="true"
+            eOpposite="#//parameter/VariableSetter/assemblyContext__VariableSetter"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/4.0"
@@ -463,9 +568,9 @@
           ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="usageModel_UserData"
           ordered="false" lowerBound="1" eType="#//usagemodel/UsageModel" eOpposite="#//usagemodel/UsageModel/userData_UsageModel"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="userDataParameterUsages_UserData"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
-          eOpposite="#//parameter/VariableUsage/userData_VariableUsage"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="userDataVariableSetters__UserData"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableSetter" containment="true"
+          eOpposite="#//parameter/VariableSetter/userData__VariableSetter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UsageModel">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -483,15 +588,15 @@
         <details key="documentation" value="An EntryLevelSystemCall models the call to a service provided by a system. Therefore, an&#xD;&#xA;EntryLevelSystemCall references a ProvidedRole of a PCM System, from which the&#xD;&#xA;called interface and the providing component within the system can be derived, and a Signature&#xD;&#xA;specifying the called service. Notice, that the usage model does not permit the domain expert to&#xD;&#xA;model calls directly to components, but only to system roles. (TODO: Add such a constraint.) This decouples the System structure&#xD;&#xA;(i.e., the component-based software architecture model and its allocation) from the UsageModel&#xD;&#xA;and the software architect can change the System (e.g., include new components, remove existing&#xD;&#xA;components, or change their wiring or allocation) independently from the domain expert, if&#xD;&#xA;the system provided roles are not affected. EntryLevelSystemCalls may include a set of&#xD;&#xA;input parameter characterisations and a set of output parameter characterisations (as described in&#xD;&#xA;the pcm::parameters package). However, the random variables characterising the input parameters&#xD;&#xA;like NUMBER_OF_ELEMENTS can not depend on other variables in the usage model. They have&#xD;&#xA;to be composed from literals only including literals describing random variables having a&#xD;&#xA;certain fixed distribution.&#xD;&#xA;&#xD;&#xA;TODO Anne: Constraint that ensures that the referred signature is contained in the interface referenced by the ProvidedRole (see Diagram)"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_EntryLevelSystemCall"
-          ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signature_EntryLevelSystemCall"
-          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameterUsages_EntryLevelSystemCall"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
-          eOpposite="#//parameter/VariableUsage/entryLevelSystemCall_OutputParameterUsage"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameterUsages_EntryLevelSystemCall"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
-          eOpposite="#//parameter/VariableUsage/entryLevelSystemCall_VariableUsage"/>
+          ordered="false" lowerBound="1" eType="#//repository/OperationProvidedRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature__EntryLevelSystemCall"
+          ordered="false" lowerBound="1" eType="#//repository/OperationSignature"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputVariableSetters__EntryLevelSystemCall"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableSetter" containment="true"
+          eOpposite="#//parameter/VariableSetter/entryLevelSystemCall__OutputVariableSetter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputVariableSetters__EntryLevelSystemCall"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableSetter" containment="true"
+          eOpposite="#//parameter/VariableSetter/entryLevelSystemCall__InputVariableSetter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractUserAction" abstract="true"
         eSuperTypes="#//core/entity/Entity">
@@ -633,7 +738,7 @@
         <details key="documentation" value="A Loop models a repeated sequence of actions in the user flow. It contains a nested ScenarioBehaviour specifying the loop body, and a RandomVariable specifying the number of iterations."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="loopIteration_Loop" ordered="false"
-          lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+          lowerBound="1" eType="#//core/PCMRandomVariable" containment="true" eOpposite="#//core/PCMRandomVariable/loop_LoopIteration"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
           lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"
           eOpposite="#//usagemodel/ScenarioBehaviour/loop_ScenarioBehaviour"/>
@@ -727,7 +832,8 @@
         <details key="documentation" value="A Delay represents a timing delay as a RandomVariable between two user actions. The Delay&#xD;&#xA;is included into the usage model to express that users do not call system services in direct successions,&#xD;&#xA;but usually need some time to determine their next action. User delays are for example useful,&#xD;&#xA;if a performance analyst wants to determine the execution time for a complete scenario behaviour&#xD;&#xA;(instead of a single service), which needs to include user delays."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="timeSpecification_Delay"
-          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"
+          eOpposite="#//core/PCMRandomVariable/delay_TimeSpecification"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ClosedWorkload" eSuperTypes="#//usagemodel/Workload">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -831,10 +937,10 @@
       </eOperations>
       <eOperations name="ProvideSameInterfacesAsImplementationType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-          <details key="body" value="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+          <details key="body" value="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+          <details key="documentation" value="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -853,10 +959,10 @@
       </eOperations>
       <eOperations name="RequireSameInterfacesAsImplementationType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-          <details key="body" value="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+          <details key="body" value="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiringEntity__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiringEntity__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+          <details key="documentation" value="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiringEntity__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiringEntity__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -937,14 +1043,11 @@
           </eGenericType>
         </eParameters>
       </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="componentParameter__ImplementationComponentType"
+          ordered="false" upperBound="-1" eType="#//parameter/Variable" containment="true"
+          eOpposite="#//parameter/Variable/implementationComponentType__Variable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentCompleteComponentTypes"
           ordered="false" upperBound="-1" eType="#//repository/CompleteComponentType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="componentParameterUsage_ImplementationComponentType"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property specified the variables of the component that are to be initialized using the assembly context to parametrize the component."/>
-        </eAnnotations>
-      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RepositoryComponent" abstract="true"
         eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity">
@@ -958,17 +1061,11 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RequiredRole" eSuperTypes="#//repository/Role">
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredRole" abstract="true" eSuperTypes="#//repository/Role">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a required interface."/>
+        <details key="documentation" value="Required roles list the interfaces required by a component."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface__RequiredRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the interfaces that is required by this role."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiringEntity_RequiredRole"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiringEntity__RequiredRole"
           ordered="false" lowerBound="1" eType="#//core/entity/InterfaceRequiringEntity"
           eOpposite="#//core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -981,7 +1078,17 @@
         <details key="documentation" value="This entity represents an abstraction of an interface role. "/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredRole" eSuperTypes="#//repository/Role">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Required role for resource interface access of a component"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface__ResourceRequiredRole"
+          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiringEntity__ResourceRequiredRole"
+          ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceRequiringEntity"
+          eOpposite="#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Interface" abstract="true" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity models the interface as a set of signatures representing services provided or required by a component. An interface is an abstraction of piece of software (a software entity) which should contain a sufficient amount of information for a caller to understand and finally request the realised functionality from any entity claiming to offer the specified functionality. Note that this implies, that the specification of the interface also has to contain a sufficient amount of information for the implementer to actually implement the interface. Due to the inherent need of an interface to abstract the behaviour of the software entity not in all cases there is sufficient information provided to use or implement an interface in an unambiquious way.&#xD;&#xA;&#xD;&#xA;Interfaces can exist on their own, i.e., without any entity requesting or implementing the specified functionality. Two roles can be identified a software entity can take relative to an interface. Any entity can either claim to implement the functionality specified in an interface or to request that functionality. This is reflected in the Palladio Component Model by a set of abstract meta-classes giving a conceptual view on interfaces, entities, and their relationships."/>
       </eAnnotations>
@@ -1007,39 +1114,10 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eOperations name="SignaturesHaveToBeUniqueForAnInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-          <details key="body" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__Interface->collect(sig : Signature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returntype__Signature,&#xD;&#xA;&#x9;&#x9;serviceName : String = sig.serviceName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(s|s)"/>
-        </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__Interface->collect(sig : Signature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returntype__Signature,&#xD;&#xA;&#x9;&#x9;serviceName : String = sig.serviceName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(s|s)"/>
-        </eAnnotations>
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
-          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
-          </eAnnotations>
-        </eParameters>
-        <eParameters name="context">
-          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The cache of context-specific information."/>
-          </eAnnotations>
-          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-          </eGenericType>
-        </eParameters>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parentInterface__Interface"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentInterfaces__Interface"
           ordered="false" upperBound="-1" eType="#//repository/Interface">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="This property represents the interfaces from which this interface directly inherits."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ancestorInterfaces_Interface"
-          ordered="false" upperBound="-1" eType="#//repository/Interface" volatile="true"
-          transient="true" derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the set of all parent interfaces, from which this interface inherits. All means not just the direct one."/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="protocols__Interface"
@@ -1048,123 +1126,10 @@
           <details key="documentation" value="This property represents the protocol bound to this interfaces, i.e., the way, in the sense of the order, the services of this interfaces are allowed to be called."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signatures__Interface"
-          ordered="false" upperBound="-1" eType="#//repository/Signature" containment="true"
-          eOpposite="#//repository/Signature/interface_Signature">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the set of signatures of which the interface consists."/>
-        </eAnnotations>
-      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="repository_Interface"
           ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/interfaces__Repository">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="This property represents the repository where this interface is stored."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCharacterisations"
-          ordered="false" upperBound="-1" eType="#//repository/RequiredCharacterisation"
-          containment="true" eOpposite="#//repository/RequiredCharacterisation/interface_RequiredCharacterisation">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="documentation of required variable characterisations"/>
-        </eAnnotations>
-      </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Signature">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&lt;p>&#xD;&#xA;    This&amp;nbsp;entity&amp;nbsp;represents&amp;nbsp;the&amp;nbsp;signature&amp;nbsp;of&amp;nbsp;a&amp;nbsp;method,&amp;nbsp;i.e.,&amp;nbsp;its&amp;nbsp;parameters,&amp;nbsp;exception&amp;nbsp;declarations,&amp;nbsp;return&amp;nbsp;type,&amp;nbsp;etc.&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    Every&amp;nbsp;service&amp;nbsp;of&amp;nbsp;an&amp;nbsp;interface&amp;nbsp;has&amp;nbsp;a&amp;nbsp;unique&amp;nbsp;signature,&amp;nbsp;like&amp;nbsp;void&amp;nbsp;doSomething(int&amp;nbsp;a).&amp;nbsp;A&amp;nbsp;PCM&amp;nbsp;signature&amp;nbsp;is&amp;nbsp;comparable&amp;nbsp;to&amp;nbsp;a&amp;nbsp;method&amp;nbsp;signature&amp;nbsp;in&amp;nbsp;programming&amp;nbsp;languages&amp;nbsp;like&amp;nbsp;C#,&amp;nbsp;Java&amp;nbsp;or&amp;nbsp;the&amp;nbsp;OMG&amp;nbsp;IDL.&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    It&amp;nbsp;contains:&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    *&amp;nbsp;A&amp;nbsp;type&amp;nbsp;of&amp;nbsp;the&amp;nbsp;return&amp;nbsp;value&amp;nbsp;or&amp;nbsp;void&amp;nbsp;(no&amp;nbsp;return&amp;nbsp;value),&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    *&amp;nbsp;an&amp;nbsp;identifier&amp;nbsp;naming&amp;nbsp;the&amp;nbsp;service,&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    *&amp;nbsp;an&amp;nbsp;ordered&amp;nbsp;set&amp;nbsp;of&amp;nbsp;parameters&amp;nbsp;(0..*).Each&amp;nbsp;parameter&amp;nbsp;is&amp;nbsp;a&amp;nbsp;tuple&amp;nbsp;of&amp;nbsp;a&amp;nbsp;datatype&amp;nbsp;and&amp;nbsp;an&amp;nbsp;identifier&amp;nbsp;(which&amp;nbsp;is&amp;nbsp;unique&amp;nbsp;across&amp;nbsp;the&amp;nbsp;parameters).&amp;nbsp;Additionally,&amp;nbsp;the&amp;nbsp;modifiers&amp;nbsp;in,&amp;nbsp;out,&amp;nbsp;and&amp;nbsp;inout&amp;nbsp;(with&amp;nbsp;its&amp;nbsp;OMG&lt;br />&#xD;&#xA;    IDL&amp;nbsp;semantics)&amp;nbsp;can&amp;nbsp;be&amp;nbsp;used&amp;nbsp;for&amp;nbsp;parameters,&amp;nbsp;and&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    *&amp;nbsp;an&amp;nbsp;unordered&amp;nbsp;set&amp;nbsp;of&amp;nbsp;exceptions.&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    A&amp;nbsp;signature&amp;nbsp;has&amp;nbsp;to&amp;nbsp;be&amp;nbsp;unique&amp;nbsp;for&amp;nbsp;an&amp;nbsp;interface&amp;nbsp;through&amp;nbsp;the&amp;nbsp;tupel&amp;nbsp;(identifier,&amp;nbsp;order&amp;nbsp;of&amp;nbsp;parameters).&amp;nbsp;An&amp;nbsp;interface&amp;nbsp;has&amp;nbsp;a&amp;nbsp;list&amp;nbsp;of&amp;nbsp;1..*&amp;nbsp;signatures&amp;nbsp;(interfaces&amp;nbsp;associate&amp;nbsp;1..*&amp;nbsp;signatures,&amp;nbsp;not&amp;nbsp;the&amp;nbsp;other&amp;nbsp;way&amp;nbsp;around).&amp;nbsp;A&lt;br />&#xD;&#xA;    signature&amp;nbsp;is&amp;nbsp;assigned&amp;nbsp;to&amp;nbsp;exactly&amp;nbsp;one&amp;nbsp;interface.&amp;nbsp;However,&amp;nbsp;different&amp;nbsp;interfaces&amp;nbsp;can&amp;nbsp;define&amp;nbsp;equally&amp;nbsp;named&amp;nbsp;signatures.&amp;nbsp;If,&amp;nbsp;for&amp;nbsp;example,&amp;nbsp;void&amp;nbsp;doIt()&amp;nbsp;is&amp;nbsp;defined&amp;nbsp;for&amp;nbsp;interface&amp;nbsp;A&amp;nbsp;and&amp;nbsp;B,&amp;nbsp;void&amp;nbsp;doIt()&amp;nbsp;is&amp;nbsp;not&amp;nbsp;identical&amp;nbsp;in&amp;nbsp;both&amp;nbsp;interfaces.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    Failure that may occur inside external services must be specified at the service signatures. This way components that&#xD;&#xA;    use this services may implement failure handling without knowing the internal behaviour of the connected component.&#xD;&#xA;&lt;/p>"/>
-      </eAnnotations>
-      <eOperations name="ParameterNamesHaveToBeUniqueForASignature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-          <details key="body" value="self.parameters__Signature->isUnique(p : Parameter |&#xD;&#xA;&#x9;p.parameterName&#xD;&#xA;)"/>
-        </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.parameters__Signature->isUnique(p : Parameter |&#xD;&#xA;&#x9;p.parameterName&#xD;&#xA;)"/>
-        </eAnnotations>
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
-          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
-          </eAnnotations>
-        </eParameters>
-        <eParameters name="context">
-          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The cache of context-specific information."/>
-          </eAnnotations>
-          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-          </eGenericType>
-        </eParameters>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the service name realized by this method."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters__Signature"
-          upperBound="-1" eType="#//repository/Parameter" containment="true" eOpposite="#//repository/Parameter/signature_Parameter">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the list of parameters of the corresponding method."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="returntype__Signature"
-          ordered="false" eType="#//repository/DataType">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the return type of the corresponding method."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions__Signature"
-          ordered="false" upperBound="-1" eType="#//repository/ExceptionType" containment="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the list of exceptions declared by this signature."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="failureType" ordered="false"
-          upperBound="-1" eType="#//repository/FailureType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interface_Signature"
-          ordered="false" lowerBound="1" eType="#//repository/Interface" eOpposite="#//repository/Interface/signatures__Interface">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the interface that contains the method with this signature."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Parameter">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a parameter within a signature. The parameter has a name and it is of a data type."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="datatype__Parameter"
-          ordered="false" lowerBound="1" eType="#//repository/DataType">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the data type of the parameter."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterName" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property holds the name of the parameter."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifier__Parameter"
-          ordered="false" lowerBound="1" eType="#//repository/ParameterModifier">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the modifier of the parameter like known from C#."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signature_Parameter"
-          ordered="false" lowerBound="1" eType="#//repository/Signature" eOpposite="#//repository/Signature/parameters__Signature">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property navigates to the signature this parameter is a part of."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a data type that can be stored in a repository and used for specification and modeling of interface signatures."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="repository_DataType"
-          ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/datatypes_Repository">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property specifies the repository to which this data type belongs."/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
@@ -1185,15 +1150,6 @@
           <details key="documentation" value="This property represents the provides component types stored in the repository."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces__Repository"
-          ordered="false" upperBound="-1" eType="#//repository/Interface" containment="true"
-          eOpposite="#//repository/Interface/repository_Interface">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the interfaces stored in the repository."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="failureTypes" ordered="false"
-          upperBound="-1" eType="#//repository/FailureType" containment="true" eOpposite="#//repository/FailureType/repository_FailureType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="datatypes_Repository"
           ordered="false" upperBound="-1" eType="#//repository/DataType" containment="true"
           eOpposite="#//repository/DataType/repository_DataType">
@@ -1201,38 +1157,158 @@
           <details key="documentation" value="This property represents the data types stored in the repository."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="failureTypes" ordered="false"
+          upperBound="-1" eType="#//repository/FailureType" containment="true" eOpposite="#//repository/FailureType/repository_FailureType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces__Repository"
+          ordered="false" upperBound="-1" eType="#//repository/Interface" containment="true"
+          eOpposite="#//repository/Interface/repository_Interface">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This property represents the interfaces stored in the repository."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="FailureType" abstract="true" eSuperTypes="#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Represents failures that can occur in a software system."/>
+        <details key="documentation" value="This&amp;nbsp;entity&amp;nbsp;represents&amp;nbsp;a&amp;nbsp;data&amp;nbsp;type&amp;nbsp;that&amp;nbsp;can&amp;nbsp;be&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;a&amp;nbsp;repository&amp;nbsp;and&amp;nbsp;used&amp;nbsp;for&amp;nbsp;specification&amp;nbsp;and&amp;nbsp;modeling&amp;nbsp;of&amp;nbsp;interface&amp;nbsp;signatures&#xD;&#xA;or component parameters. All valid characterisations of a data type a referenced."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="repository_FailureType"
-          ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/failureTypes"/>
+      <eOperations name="DataTypeMustNotHaveAvailableCharacterisationsWithIdenticalNameToBeParsableAsCode"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="--self.characterisationDefinitions_Datatype.entityName->asSet()->size() = self.characterisationDefinitions_Datatype->size()&#xD;&#xA;true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="--self.characterisationDefinitions_Datatype.entityName->asSet()->size() = self.characterisationDefinitions_Datatype->size()&#xD;&#xA;true"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="characterisationDefinitions__Datatype"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableCharacterisationType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repository_DataType"
+          ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/datatypes_Repository">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This property specifies the repository to which this data type belongs."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="ParameterModifier">
+    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
+        eSuperTypes="#//core/connectors/Connector">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Parameter modifiers like known from C#."/>
+        <details key="documentation" value="This entity represents a delegation connector, i.e., connector used for connecting a provided/required role of a component woth provided/reqiured port of its subcomponent."/>
       </eAnnotations>
-      <eLiterals name="none">
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OperationProvidedRole" eSuperTypes="#//repository/ProvidedRole">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents the provided operation interfaces. The PCM uses the association of an operation interface to a component to determine its role. "/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterface__OperationProvidedRole"
+          ordered="false" lowerBound="1" eType="#//repository/OperationInterface">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Use this value if no parameter modifier shall be applied."/>
+          <details key="documentation" value="This property represents the corresponding interface that is provided by this role."/>
         </eAnnotations>
-      </eLiterals>
-      <eLiterals name="in" value="1">
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OperationInterface" eSuperTypes="#//repository/Interface">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The OperationInterface is a specific type of interface related to operation calls. For this, it also refereferences a set of operation interfaces. Operations can represent methods, functions or any comparable concept."/>
+      </eAnnotations>
+      <eOperations name="SignaturesHaveToBeUniqueForAnInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, entityName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__OperationInterface->collect(sig : OperationSignature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returntype__OperationSignature,&#xD;&#xA;&#x9;&#x9;entityName : String = sig.entityName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__OperationSignature.dataType__Variable&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(s|s)"/>
+        </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="&quot;in&quot; according to C# semantics"/>
+          <details key="documentation" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, entityName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__OperationInterface->collect(sig : OperationSignature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returntype__OperationSignature,&#xD;&#xA;&#x9;&#x9;entityName : String = sig.entityName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__OperationSignature.dataType__Variable&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(s|s)"/>
         </eAnnotations>
-      </eLiterals>
-      <eLiterals name="out" value="2">
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signatures__OperationInterface"
+          ordered="false" upperBound="-1" eType="#//repository/OperationSignature"
+          containment="true" eOpposite="#//repository/OperationSignature/interface__OperationSignature">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="&quot;out&quot; according to C# semantics"/>
+          <details key="documentation" value="This property represents the set of signatures of which the interface consists."/>
         </eAnnotations>
-      </eLiterals>
-      <eLiterals name="inout" value="3">
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OperationSignature" eSuperTypes="#//repository/Signature">
+      <eOperations name="ParameterNamesHaveToBeUniqueForASignature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.parameters__OperationSignature->isUnique(v : Variable |&#xD;&#xA;&#x9;v.entityName&#xD;&#xA;)"/>
+        </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="ref&quot; according to C# semantics"/>
+          <details key="documentation" value="self.parameters__OperationSignature->isUnique(v : Variable |&#xD;&#xA;&#x9;v.entityName&#xD;&#xA;)"/>
         </eAnnotations>
-      </eLiterals>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters__OperationSignature"
+          upperBound="-1" eType="#//parameter/Variable" containment="true" eOpposite="#//parameter/Variable/operationSignature__Variable">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This property represents the list of parameters of the corresponding method."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returntype__OperationSignature"
+          ordered="false" eType="#//parameter/Variable">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This property represents the return type of the corresponding method."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interface__OperationSignature"
+          ordered="false" lowerBound="1" eType="#//repository/OperationInterface"
+          eOpposite="#//repository/OperationInterface/signatures__OperationInterface">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This property represents the interface that contains the method with this signature."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Signature" abstract="true" eSuperTypes="#//core/entity/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;p>&#xD;&#xA;    This&amp;nbsp;entity&amp;nbsp;represents&amp;nbsp;the&amp;nbsp;signature&amp;nbsp;of&amp;nbsp;a&amp;nbsp;method,&amp;nbsp;i.e.,&amp;nbsp;its&amp;nbsp;parameters,&amp;nbsp;exception&amp;nbsp;declarations,&amp;nbsp;return&amp;nbsp;type,&amp;nbsp;etc.&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    Every&amp;nbsp;service&amp;nbsp;of&amp;nbsp;an&amp;nbsp;interface&amp;nbsp;has&amp;nbsp;a&amp;nbsp;unique&amp;nbsp;signature,&amp;nbsp;like&amp;nbsp;void&amp;nbsp;doSomething(int&amp;nbsp;a).&amp;nbsp;A&amp;nbsp;PCM&amp;nbsp;signature&amp;nbsp;is&amp;nbsp;comparable&amp;nbsp;to&amp;nbsp;a&amp;nbsp;method&amp;nbsp;signature&amp;nbsp;in&amp;nbsp;programming&amp;nbsp;languages&amp;nbsp;like&amp;nbsp;C#,&amp;nbsp;Java&amp;nbsp;or&amp;nbsp;the&amp;nbsp;OMG&amp;nbsp;IDL.&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    It&amp;nbsp;contains:&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    *&amp;nbsp;A&amp;nbsp;type&amp;nbsp;of&amp;nbsp;the&amp;nbsp;return&amp;nbsp;value&amp;nbsp;or&amp;nbsp;void&amp;nbsp;(no&amp;nbsp;return&amp;nbsp;value),&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    *&amp;nbsp;an&amp;nbsp;identifier&amp;nbsp;naming&amp;nbsp;the&amp;nbsp;service,&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    *&amp;nbsp;an&amp;nbsp;ordered&amp;nbsp;set&amp;nbsp;of&amp;nbsp;parameters&amp;nbsp;(0..*).Each&amp;nbsp;parameter&amp;nbsp;is&amp;nbsp;a&amp;nbsp;tuple&amp;nbsp;of&amp;nbsp;a&amp;nbsp;datatype&amp;nbsp;and&amp;nbsp;an&amp;nbsp;identifier&amp;nbsp;(which&amp;nbsp;is&amp;nbsp;unique&amp;nbsp;across&amp;nbsp;the&amp;nbsp;parameters).&amp;nbsp;Additionally,&amp;nbsp;the&amp;nbsp;modifiers&amp;nbsp;in,&amp;nbsp;out,&amp;nbsp;and&amp;nbsp;inout&amp;nbsp;(with&amp;nbsp;its&amp;nbsp;OMG&lt;br />&#xD;&#xA;    IDL&amp;nbsp;semantics)&amp;nbsp;can&amp;nbsp;be&amp;nbsp;used&amp;nbsp;for&amp;nbsp;parameters,&amp;nbsp;and&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    *&amp;nbsp;an&amp;nbsp;unordered&amp;nbsp;set&amp;nbsp;of&amp;nbsp;exceptions.&lt;br />&#xD;&#xA;    &lt;br />&#xD;&#xA;    A&amp;nbsp;signature&amp;nbsp;has&amp;nbsp;to&amp;nbsp;be&amp;nbsp;unique&amp;nbsp;for&amp;nbsp;an&amp;nbsp;interface&amp;nbsp;through&amp;nbsp;the&amp;nbsp;tupel&amp;nbsp;(identifier,&amp;nbsp;order&amp;nbsp;of&amp;nbsp;parameters).&amp;nbsp;An&amp;nbsp;interface&amp;nbsp;has&amp;nbsp;a&amp;nbsp;list&amp;nbsp;of&amp;nbsp;1..*&amp;nbsp;signatures&amp;nbsp;(interfaces&amp;nbsp;associate&amp;nbsp;1..*&amp;nbsp;signatures,&amp;nbsp;not&amp;nbsp;the&amp;nbsp;other&amp;nbsp;way&amp;nbsp;around).&amp;nbsp;A&lt;br />&#xD;&#xA;    signature&amp;nbsp;is&amp;nbsp;assigned&amp;nbsp;to&amp;nbsp;exactly&amp;nbsp;one&amp;nbsp;interface.&amp;nbsp;However,&amp;nbsp;different&amp;nbsp;interfaces&amp;nbsp;can&amp;nbsp;define&amp;nbsp;equally&amp;nbsp;named&amp;nbsp;signatures.&amp;nbsp;If,&amp;nbsp;for&amp;nbsp;example,&amp;nbsp;void&amp;nbsp;doIt()&amp;nbsp;is&amp;nbsp;defined&amp;nbsp;for&amp;nbsp;interface&amp;nbsp;A&amp;nbsp;and&amp;nbsp;B,&amp;nbsp;void&amp;nbsp;doIt()&amp;nbsp;is&amp;nbsp;not&amp;nbsp;identical&amp;nbsp;in&amp;nbsp;both&amp;nbsp;interfaces.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    Failure that may occur inside external services must be specified at the service signatures. This way components that&#xD;&#xA;    use this services may implement failure handling without knowing the internal behaviour of the connected component.&#xD;&#xA;&lt;/p>"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions__Signature"
+          ordered="false" upperBound="-1" eType="#//repository/ExceptionType" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This property represents the list of exceptions declared by this signature."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="failureType" ordered="false"
+          upperBound="-1" eType="#//repository/FailureType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExceptionType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1251,32 +1327,100 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RequiredCharacterisation">
+    <eClassifiers xsi:type="ecore:EClass" name="FailureType" abstract="true" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Specification of required variable characeterisations per parameter. Increases power of interfaces and lifts variable characterisations to the interface to enable extended interoperability checks."/>
+        <details key="documentation" value="Represents failures that can occur in a software system."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
-          lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" ordered="false"
-          lowerBound="1" eType="#//repository/Parameter"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interface_RequiredCharacterisation"
-          ordered="false" lowerBound="1" eType="#//repository/Interface" eOpposite="#//repository/Interface/requiredCharacterisations"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repository_FailureType"
+          ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/failureTypes"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
-        eSuperTypes="#//core/connectors/Connector">
+    <eClassifiers xsi:type="ecore:EClass" name="CompositeDataType" eSuperTypes="#//repository/DataType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a delegation connector, i.e., connector used for connecting a provided/required role of a component woth provided/reqiured port of its subcomponent."/>
+        <details key="documentation" value="This&amp;nbsp;entity&amp;nbsp;represents&amp;nbsp;a&amp;nbsp;complex&amp;nbsp;data&amp;nbsp;type&amp;nbsp;containing&amp;nbsp;which is composed by&#xD;&#xA;Variables.&amp;nbsp;This&amp;nbsp;construct&amp;nbsp;is&amp;nbsp;common&amp;nbsp;in&amp;nbsp;higher&amp;nbsp;programming&amp;nbsp;languages&amp;nbsp;as&amp;nbsp;record,&amp;nbsp;struct,&amp;nbsp;or&amp;nbsp;class."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="members__CompositeDataType"
+          ordered="false" lowerBound="1" upperBound="-1" eType="#//parameter/Variable"
+          containment="true" eOpposite="#//parameter/Variable/compositeDataType__Variable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceSignature" eSuperTypes="#//repository/Signature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="TODO: This structure still has to be finalized by Henning. There is no influence on other model elements yet. so this can be done later on."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceInterface__ResourceSignature"
+          ordered="false" lowerBound="1" eType="#//repository/ResourceInterface" eOpposite="#//repository/ResourceInterface/resourceSignatures__ResourceInterface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter__ResourceSignature"
+          ordered="false" lowerBound="1" eType="#//parameter/Variable" containment="true"
+          eOpposite="#//parameter/Variable/resourceSignature__Variable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceInterface" eSuperTypes="#//repository/Interface">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceSignatures__ResourceInterface"
+          ordered="false" upperBound="-1" eType="#//repository/ResourceSignature"
+          containment="true" eOpposite="#//repository/ResourceSignature/resourceInterface__ResourceSignature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InfrastructureSignature" eSuperTypes="#//repository/Signature">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureInterface__InfrastructureSignature"
+          ordered="false" lowerBound="1" eType="#//repository/InfrastructureInterface"
+          eOpposite="#//repository/InfrastructureInterface/infrastructureSignatures__InfrastructureInterface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters__InfrastructureSignature"
+          ordered="false" upperBound="-1" eType="#//parameter/Variable" containment="true"
+          eOpposite="#//parameter/Variable/infrastructureSignature__Variable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InfrastructureInterface" eSuperTypes="#//repository/Interface">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureSignatures__InfrastructureInterface"
+          ordered="false" upperBound="-1" eType="#//repository/InfrastructureSignature"
+          containment="true" eOpposite="#//repository/InfrastructureSignature/infrastructureInterface__InfrastructureSignature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventType" eSuperTypes="#//repository/Signature">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The EventType represents a single class of events that can be emited by a source or consumed by a sink. The characteristics of the event are defined by the variable included in the EventType.&#xD;&#xA;Due to the extension of the signature class, the EventType is also accessible for ServiceEffectSpecifications (SEFF). By this, a SEFF is able to represent an event handler for this type of events."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="eventGroup__EventType"
+          ordered="false" lowerBound="1" eType="#//repository/EventGroup" eOpposite="#//repository/EventGroup/eventTypes__EventGroup"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="payload__EventType" ordered="false"
+          lowerBound="1" eType="#//parameter/Variable" containment="true" eOpposite="#//parameter/Variable/eventType__Variable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventGroup" eSuperTypes="#//repository/Interface">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An EventGroup combines a set of EventTypes that are supported by a Sink and/or a Source. This is comparable to an operation interface combining a set of operation signatures."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="eventTypes__EventGroup"
+          ordered="false" upperBound="-1" eType="#//repository/EventType" containment="true"
+          eOpposite="#//repository/EventType/eventGroup__EventType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OperationRequiredRole" eSuperTypes="#//repository/RequiredRole">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This entity represents the required operation interfaces. The PCM uses the association of an operation interface to a component to determine its role. "/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface__OperationRequiredRole"
+          ordered="false" lowerBound="1" eType="#//repository/OperationInterface">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="This property represents the interfaces that is required by this role."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SinkRole" eSuperTypes="#//repository/ProvidedRole">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A SinkRole, extending a ProvidedRole, identifies components that provide an event handler for specific EventTypes. As for SourceRoles, the EventTypes, a SinkRole is compatible with, are defined by the associated EventGroup."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="eventgroup__SinkRole"
+          ordered="false" lowerBound="1" eType="#//repository/EventGroup"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SourceRole" eSuperTypes="#//repository/RequiredRole">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A SourceRole, extending a RequiredRole, identifies components that are able to emit events of specific types. Which types of events it is able to emit is described by an EventGroup. EventGroups are described in more detail more later."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="eventgroup__SourceRole"
+          ordered="false" lowerBound="1" eType="#//repository/EventGroup"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ApplicationFailureType" eSuperTypes="#//repository/StopFailureType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Application failures originate in the application itself. InteralActions may specify application failures."/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredRole" eSuperTypes="#//repository/Role">
+    <eClassifiers xsi:type="ecore:EClass" name="StopFailureType" abstract="true" eSuperTypes="#//repository/FailureType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Required role for resource interface access of a component"/>
+        <details key="documentation" value="Represents failures with stop semantics. Such failures lead to direct interuption of the current control flow and passing&#xD;&#xA;the failure information up the calling hierarchy."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredInterface_ResourceRequiredRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRequiringEntity_ResourceRequiredRole"
-          ordered="false" lowerBound="1" eType="#//core/entity/ResourceInterfaceRequiringEntity"
-          eOpposite="#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles_ResourceInterfaceRequiringEntity"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompleteComponentType" eSuperTypes="#//repository/RepositoryComponent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1358,16 +1502,41 @@
         </eParameters>
       </eOperations>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ParameterModifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Parameter modifiers like known from C#."/>
+      </eAnnotations>
+      <eLiterals name="none">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Use this value if no parameter modifier shall be applied."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="in" value="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="&quot;in&quot; according to C# semantics"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="out" value="2">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="&quot;out&quot; according to C# semantics"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="inout" value="3">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="ref&quot; according to C# semantics"/>
+        </eAnnotations>
+      </eLiterals>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//core/entity/ComposedProvidingRequiringEntity #//repository/ImplementationComponentType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Composite components are special implementation component types, which are composed from inner components. Component developers compose inner components within composite components with assembly connectors. An assembly connector binds a provided role with a required role. To access the inner components, composite components themselves provide or require interfaces. A delegation connector binds a provided (required) role of the composite component with an inner component provided (required) role. A composite component may contain other composite components, which are also themselves composed out of inner components. This enables building arbitrary hierarchies of nested components. Like a basic component, a composite component may contain a SEFF.  However, this SEFF is not specified manually by the composite component developer, but can be computed by combining the SEFFs of the inner components."/>
       </eAnnotations>
       <eOperations name="ProvideSameInterfaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-          <details key="body" value="-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+          <details key="body" value="-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+          <details key="documentation" value="-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1386,10 +1555,10 @@
       </eOperations>
       <eOperations name="RequireSameInterfaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-          <details key="body" value="-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+          <details key="body" value="-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiringEntity__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiringEntity__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+          <details key="documentation" value="-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiringEntity__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiringEntity__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1409,78 +1578,15 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataType" eSuperTypes="#//repository/DataType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a primitive data type such as integer, string, and double."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
-          lowerBound="1" eType="#//repository/PrimitiveTypeEnum">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represent the base type of this type, e.g., if this type represents the integer interval (1..5), the base type will be INT."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveTypeEnum">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Primitive types for usage in datatype and interface definitions"/>
-      </eAnnotations>
-      <eLiterals name="INT"/>
-      <eLiterals name="STRING" value="1"/>
-      <eLiterals name="BOOL" value="2"/>
-      <eLiterals name="DOUBLE" value="3"/>
-      <eLiterals name="CHAR" value="4"/>
-      <eLiterals name="BYTE" value="5"/>
-      <eLiterals name="LONG" value="6"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CollectionDataType" eSuperTypes="#//core/entity/Entity #//repository/DataType">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a collection data type, e.g.,. a list, array, set, of items of the a particular type."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="innerType_CollectionDataType"
-          ordered="false" lowerBound="1" eType="#//repository/DataType">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the type of items contained in the collection data type."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CompositeDataType" eSuperTypes="#//core/entity/Entity #//repository/DataType">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents a complex data type containing other data types. This construct is common in higher programming languages as record, struct, or class."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parentType_CompositeDataType"
-          ordered="false" upperBound="-1" eType="#//repository/CompositeDataType">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the parent type in the inheritance hierarchy. Null if there is no parent."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="innerDeclaration_CompositeDataType"
-          ordered="false" upperBound="-1" eType="#//repository/InnerDeclaration" containment="true"
-          eOpposite="#//repository/InnerDeclaration/compositeDataType_InnerDeclaration">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the internals, i.e., named items, each of a data type, forming this composite data type."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InnerDeclaration" eSuperTypes="#//core/entity/NamedElement">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represent a declaration of a data type inside of a composite data type. It enriches the data type it declares with a name to allow multiple declarations of the same type within a composite data type."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="datatype_InnerDeclaration"
-          ordered="false" lowerBound="1" eType="#//repository/DataType">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the data type that the inner declaration declares."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="compositeDataType_InnerDeclaration"
-          ordered="false" lowerBound="1" eType="#//repository/CompositeDataType" eOpposite="#//repository/CompositeDataType/innerDeclaration_CompositeDataType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StopFailureType" abstract="true" eSuperTypes="#//repository/FailureType">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Represents failures with stop semantics. Such failures lead to direct interuption of the current control flow and passing&#xD;&#xA;the failure information up the calling hierarchy."/>
+        <details key="documentation" value="This&amp;nbsp;entity&amp;nbsp;represents&amp;nbsp;a&amp;nbsp;primitive&amp;nbsp;data&amp;nbsp;type.&amp;nbsp;Examples&#xD;&#xA;are&amp;nbsp;integer,&amp;nbsp;string,&amp;nbsp;double, or any java class."/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ApplicationFailureType" eSuperTypes="#//repository/StopFailureType">
+    <eClassifiers xsi:type="ecore:EClass" name="CollectionDataType" eSuperTypes="#//repository/DataType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Application failures originate in the application itself. InteralActions may specify application failures."/>
+        <details key="documentation" value="This&amp;nbsp;entity&amp;nbsp;represents&amp;nbsp;a&amp;nbsp;collection&amp;nbsp;data&amp;nbsp;type,&amp;nbsp;e.g.,.&amp;nbsp;a&amp;nbsp;list,&amp;nbsp;array,&amp;nbsp;set,&amp;nbsp;of&amp;nbsp;items&amp;nbsp;of&amp;nbsp;the&amp;nbsp;referenced&amp;nbsp;type."/>
       </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="innerDataType__CollectionDataType"
+          ordered="false" lowerBound="1" eType="#//repository/DataType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EnvironmentFailureType" eSuperTypes="#//repository/StopFailureType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1511,17 +1617,23 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="processingresourcetype"
           ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" eSuperTypes="#//repository/Role">
+    <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveTypeEnum">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This entity represents the provided interfaces. The PCM uses the association of an interface to a component to determine its role. Provided roles list the interfaces offered by a component."/>
+        <details key="documentation" value="Primitive types for usage in datatype and interface definitions"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterface__ProvidedRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This property represents the corresponding interface that is provided by this role."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providingEntity_ProvidedRole"
+      <eLiterals name="BOOL"/>
+      <eLiterals name="CHAR" value="1"/>
+      <eLiterals name="BYTE" value="2"/>
+      <eLiterals name="INT" value="3"/>
+      <eLiterals name="LONG" value="4"/>
+      <eLiterals name="DOUBLE" value="5"/>
+      <eLiterals name="STRING" value="6"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" abstract="true" eSuperTypes="#//repository/Role">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Provided roles list the interfaces offered by a component."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providingEntity__ProvidedRole"
           ordered="false" lowerBound="1" eType="#//core/entity/InterfaceProvidingEntity"
           eOpposite="#//core/entity/InterfaceProvidingEntity/providedRoles_InterfaceProvidingEntity">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1552,73 +1664,73 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The parameter package allows to model data dependent performance characteristics of software systems. It is mainly used to specify performance dependencies on input and output parameters of single service calls. It can also be used to describe dependencies on the state of components by the use of component parameters. The latter describe stochastically a component state which does not change over time. &#xD;&#xA;&#xD;&#xA;Parameters are described by the use of variable usages which on the one side contain a performance abstraction of the variable's value and on the other side the name of the variable for refering to the variable. Characterisations available include Structure (information on the data's internal structure like &quot;sorted&quot; or &quot;unsorted&quot; for an array), Number of Elements (size of a collection), Value (the actuall variable value), Bytesize (the variable's memory footprint), or type (the type of the variable in polymorphic cases).&#xD;&#xA;&#xD;&#xA;Example for variable usages may be a.NUMBER_OF_ELEMENTS = 10 (array &quot;a&quot; contains 10 elements), tree.STRUCTURE = &quot;balanced&quot; (tree &quot;tree&quot; is a balanced tree), and so on."/>
     </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableUsage">
+    <eClassifiers xsi:type="ecore:EClass" name="VariableSetter">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Variable usages are used to characterise variables like input and output variables or component parameters. They contain the specification of the variable as VariableCharacterisation and also refer to the name of the characterised variable in its namedReference association. Note that it was an explicit design decision to refer to variable names instead of the actual variables (i.e., by refering to Parameter class). It eased the writing of transformations (DSolver as well as SimuCom) but put some complexity in the frontend for entering the variable usages."/>
+        <details key="documentation" value="&lt;p>&#xD;&#xA;    SetVariable is used to set the characterisations of a Variable to certain values. Each of the set characterisations and&#xD;&#xA;    the values are referenced via VariableCharacterisation. The deprecated name of this element was VariableUsage.&#xD;&#xA;&lt;/p>"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacterisation_VariableUsage"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableCharacterisation"
-          containment="true" eOpposite="#//parameter/VariableCharacterisation/variableUsage_VariableCharacterisation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specification__VariableSetter"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"
+          eOpposite="#//core/PCMRandomVariable/variableSetter__PCMRandomVariable">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="This association contains the information which abstract information on a specific variable is available. For example, whether we know something on the variable's value, its structure or memory footprint. There can be multiple characterisations of the same variable if more than one type of information is available."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="namedReference_VariableUsage"
-          ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
-          containment="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="This association is used to store the reference to the characterised variable. The references are of the form &quot;namespace1.namespace2.variable&quot; split up into namespace references and a variable reference. The reference has to identify the referenced variable in a unique way, i.e., no two variables can have the same name in a given scope."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="userData_VariableUsage"
-          ordered="false" eType="#//usagemodel/UserData" eOpposite="#//usagemodel/UserData/userDataParameterUsages_UserData"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_VariableUsage"
-          ordered="false" eType="#//core/composition/AssemblyContext" eOpposite="#//core/composition/AssemblyContext/configParameterUsages_AssemblyContext"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="entryLevelSystemCall_VariableUsage"
-          ordered="false" eType="#//usagemodel/EntryLevelSystemCall" eOpposite="#//usagemodel/EntryLevelSystemCall/inputParameterUsages_EntryLevelSystemCall"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="entryLevelSystemCall_OutputParameterUsage"
-          ordered="false" eType="#//usagemodel/EntryLevelSystemCall" eOpposite="#//usagemodel/EntryLevelSystemCall/outputParameterUsages_EntryLevelSystemCall"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="callAction_in_VariableUsage"
-          ordered="false" eType="#//seff/CallAction" eOpposite="#//seff/CallAction/inputParameterUsages_ExternalCallAction"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="synchronisationPoint_VariableUsage"
-          ordered="false" eType="#//seff/SynchronisationPoint" eOpposite="#//seff/SynchronisationPoint/outputParameterUsage_SynchronisationPoint"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="setVariableAction_VariableUsage"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="userData__VariableSetter"
+          ordered="false" eType="#//usagemodel/UserData" eOpposite="#//usagemodel/UserData/userDataVariableSetters__UserData"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext__VariableSetter"
+          ordered="false" eType="#//core/composition/AssemblyContext" eOpposite="#//core/composition/AssemblyContext/configVariableSetters__AssemblyContext"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entryLevelSystemCall__InputVariableSetter"
+          ordered="false" eType="#//usagemodel/EntryLevelSystemCall" eOpposite="#//usagemodel/EntryLevelSystemCall/inputVariableSetters__EntryLevelSystemCall"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entryLevelSystemCall__OutputVariableSetter"
+          ordered="false" eType="#//usagemodel/EntryLevelSystemCall" eOpposite="#//usagemodel/EntryLevelSystemCall/outputVariableSetters__EntryLevelSystemCall"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="callAction__VariableSetter"
+          ordered="false" eType="#//seff/CallAction" eOpposite="#//seff/CallAction/variableSetterInputs__CallAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="synchronisationPoint__VariableSetter"
+          ordered="false" eType="#//seff/SynchronisationPoint" eOpposite="#//seff/SynchronisationPoint/outputVariableSetters__SynchronisationPoint"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="callReturnAction__VariableSetter"
+          ordered="false" eType="#//seff/CallReturnAction" eOpposite="#//seff/CallReturnAction/variableSetterReturns__CallReturnAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="setVariableAction__VariableSetter"
           ordered="false" eType="#//seff/SetVariableAction" eOpposite="#//seff/SetVariableAction/localVariableUsages_SetVariableAction"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="callAction_out_VariableUsage"
-          ordered="false" eType="#//seff/CallAction" eOpposite="#//seff/CallAction/outputVariableUsages_ExternalCallAction"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter"
           ordered="false" eType="#//qosannotations/SpecifiedOutputParameterAbstraction"
           eOpposite="#//qosannotations/SpecifiedOutputParameterAbstraction/expectedExternalOutputs_SpecifiedOutputParameterAbstraction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacteristic__VariableSetter"
+          ordered="false" lowerBound="1" eType="#//parameter/VariableCharacteristic"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation">
+    <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Variable characterisations store performance critical meta-information on a variable. For example, if a variable's value is used in a long running loop, the value of the variable is performance critical. Or as an other example, for Q-Sort it is performancewise important to know how much elements are in a given array and whether the array is sorted or not. Variable characterisations contain a type which tells what kind of meta-information is stored (STRUCTURE, NUMBER_OF_ELEMENTS, ...) and a PCMRandomVariable for storing the value of the characterisation.&#xD;&#xA;&#xD;&#xA;For example, in &quot;a.NUMBER_OF_ELEMENTS=10&quot; the a is the name of the variable, NUMBER_OF_ELEMENTS is the characterisation type and &quot;10&quot; would be the specification (as PCMRandomVariable) of the characterisation's value."/>
+        <details key="documentation" value="&lt;p>&#xD;&#xA;    A named variable, e.g. a component, call, or return parameter.&#xD;&#xA;&lt;/p>"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
-          lowerBound="1" eType="#//parameter/VariableCharacterisationType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="implementationComponentType__Variable"
+          ordered="false" eType="#//repository/ImplementationComponentType" eOpposite="#//repository/ImplementationComponentType/componentParameter__ImplementationComponentType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataType__Variable" ordered="false"
+          lowerBound="1" eType="#//repository/DataType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="compositeDataType__Variable"
+          ordered="false" eType="#//repository/CompositeDataType" eOpposite="#//repository/CompositeDataType/members__CompositeDataType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceSignature__Variable"
+          ordered="false" eType="#//repository/ResourceSignature" eOpposite="#//repository/ResourceSignature/parameter__ResourceSignature"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureSignature__Variable"
+          ordered="false" eType="#//repository/InfrastructureSignature" eOpposite="#//repository/InfrastructureSignature/parameters__InfrastructureSignature"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="eventType__Variable"
+          ordered="false" eType="#//repository/EventType" eOpposite="#//repository/EventType/payload__EventType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacteristics__Variable"
+          ordered="false" lowerBound="1" upperBound="-1" eType="#//parameter/VariableCharacteristic"
+          containment="true" eOpposite="#//parameter/VariableCharacteristic/variable__VariableCharacteristic"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature__Variable"
+          ordered="false" eType="#//repository/OperationSignature" eOpposite="#//repository/OperationSignature/parameters__OperationSignature">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The type specifies the kind of the variable characterisation. There are 5 types available: STRUCTURE, NUMBER_OF_ELEMENTS, VALUE, BYTESIZE, and TYPE."/>
+          <details key="documentation" value="This property navigates to the signature this parameter is a part of."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="specification_VariableCharacterisation"
-          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The specification contains the value of a variable characterisation. It is a stoachastic expression which may also contain references to other variable characterisations (that is the reason why it is a PCMRandomVariable). "/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variableUsage_VariableCharacterisation"
-          ordered="false" eType="#//parameter/VariableUsage" eOpposite="#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable">
+    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacteristic" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//StoExVariable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A characterised variable is a special variable which contains a performance abstraction of a data type. It can be transformed in a named reference and a variable characterisation. It has to end always with a variable characterisation type. Examples are &quot;a.NUMBER_OF_ELEMENTS&quot; or &quot;array.STRUCTURE&quot;."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="characterisationType"
-          ordered="false" lowerBound="1" eType="#//parameter/VariableCharacterisationType">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The type of the characterisation of the characterised variable. The type can be any of the varibale characterisation types, i.e., STRUCTURE, NUMBER_OF_ELEMENTS, TYPE, VALUE, or BYTESIZE."/>
-        </eAnnotations>
-      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="characterisationDefinition__VariableCharacteristic"
+          ordered="false" lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable__VariableCharacteristic"
+          ordered="false" lowerBound="1" eType="#//parameter/Variable" eOpposite="#//parameter/Variable/variableCharacteristics__Variable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="VariableCharacterisationType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1973,7 +2085,7 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="failureOccurrenceDescriptions"
           ordered="false" upperBound="-1" eType="#//seff/FailureOccurrenceDescription"
-          containment="true" eOpposite="#//seff/FailureOccurrenceDescription/internalAction_FailureOccurenceDescription"/>
+          containment="true" eOpposite="#//seff/FailureOccurrenceDescription/failureOccurenceDescriptions"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FailureOccurrenceDescription">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1982,8 +2094,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureProbability" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="failureType" ordered="false"
-          lowerBound="1" eType="#//repository/FailureType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="internalAction_FailureOccurenceDescription"
+          lowerBound="1" eType="#//repository/ApplicationFailureType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="failureOccurenceDescriptions"
           ordered="false" lowerBound="1" eType="#//seff/InternalAction" eOpposite="#//seff/InternalAction/failureOccurrenceDescriptions"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ForkAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
@@ -2010,25 +2122,25 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Component developers can use a SynchronisationPoint to join synchronously ForkedBehaviours and specify a result of the computations with its attached VariableUsages."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameterUsage_SynchronisationPoint"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
-          eOpposite="#//parameter/VariableUsage/synchronisationPoint_VariableUsage"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputVariableSetters__SynchronisationPoint"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableSetter" containment="true"
+          eOpposite="#//parameter/VariableSetter/synchronisationPoint__VariableSetter"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="forkAction_SynchronisationPoint"
           ordered="false" lowerBound="1" eType="#//seff/ForkAction" eOpposite="#//seff/ForkAction/synchronisingBehaviours_ForkAction"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="synchronousForkedBehaviours_SynchronisationPoint"
           ordered="false" lowerBound="1" upperBound="-1" eType="#//seff/ForkedBehaviour"
           containment="true" eOpposite="#//seff/ForkedBehaviour/synchronisationPoint_ForkedBehaviour"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ExternalCallAction" eSuperTypes="#//seff/AbstractAction #//seff/CallAction #//seff/FailureHandlingEntity">
+    <eClassifiers xsi:type="ecore:EClass" name="ExternalCallAction" eSuperTypes="#//seff/AbstractAction #//seff/CallReturnAction #//seff/FailureHandlingEntity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="ExternalCallAction models the invocation of a service specified in a required interface. Therefore, it references a Role, from which the providing component can be derived, and a Signature to specify the called service. ExternalCallActions model synchronous calls to required services, i.e., the caller waits until the called service finishes execution before continuing execution itself. The PCM allows modelling asynchronous calls to required services by using an ExternalCallAction inside a ForkedBehaviour.&#xD;&#xA;ExternalCallActions do not have resource demands by themselves. Component developers need to specify the resource demand of the called service in the RDSEFF of that service. The resource demand can also be calculated by analysing the providing component. This keeps the RDSEFF specification of different component developers independent from each other and makes them replaceable in an architectural model.&#xD;&#xA;ExternalCallActions may contain two sets of VariableUsages specifying input parameter characterisations and output parameter characterisations respectively. VariableUsages for input parameters may only reference IN or INOUT parameters of the call’s referenced signature. The random variable characterisation inside such a VariableUsage may be constants, probability distribution functions, or include a stochastic expression involving for example arithmetic operations. The latter models a dependency between the current service’s own input parameters and the input parameters of the required service."/>
       </eAnnotations>
       <eOperations name="SignatureBelongsToRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-          <details key="body" value="self.role_ExternalService.requiredInterface__RequiredRole.signatures__Interface->includes(self.calledService_ExternalService)"/>
+          <details key="body" value="self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="&lt;pre id=&quot;comment_text_0&quot; class=&quot;bz_comment_text&quot;>&#xD;&#xA;check if the signature&#xD;&#xA;(declared in calledService_ExternalService attribute) belongs to the role&#xD;&#xA;(declared in role_ExternalService attribute)&#xD;&#xA;&lt;/pre>&#xD;&#xA;self.role_ExternalService.requiredInterface__RequiredRole.signatures__Interface->includes(self.calledService_ExternalService)"/>
+          <details key="documentation" value="&lt;pre id=&quot;comment_text_0&quot; class=&quot;bz_comment_text&quot;>&#xD;&#xA;check if the signature&#xD;&#xA;(declared in calledService_ExternalService attribute) belongs to the role&#xD;&#xA;(declared in role_ExternalService attribute)&#xD;&#xA;&lt;/pre>&#xD;&#xA;self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2046,9 +2158,9 @@
         </eParameters>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="calledService_ExternalService"
-          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+          ordered="false" lowerBound="1" eType="#//repository/OperationSignature"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="role_ExternalService"
-          ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
+          ordered="false" lowerBound="1" eType="#//repository/OperationRequiredRole"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="retryCount" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           defaultValueLiteral="0">
@@ -2057,11 +2169,20 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CallReturnAction" abstract="true"
+        eSuperTypes="#//seff/CallAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Generic class realising call relations between behaviours (e.g. method call) for calls with parameters send to the called signature and return values."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableSetterReturns__CallReturnAction"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableSetter" containment="true"
+          eOpposite="#//parameter/VariableSetter/callReturnAction__VariableSetter"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FailureHandlingEntity" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&lt;p>&#xD;&#xA;    Failure handling entities are any program constructs that can handle failures. Instances of failure handling entities&#xD;&#xA;    specify any number of failure types that can be handled.&#xD;&#xA;&lt;/p>"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="failuretype" ordered="false"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="failureTypes" ordered="false"
           upperBound="-1" eType="#//repository/FailureType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
@@ -2082,8 +2203,8 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Collection Iterator Action Models the repeated execution of its inner ResourceDemandingBehaviour for each element of a collection data type. Therefore it contains a reference to an input parameter of the service’s signature, which must be of type CollectionDataType. The NUMBER OF ELEMENTS must be specified from the outside of the component, either by another RDSEFF or by an usage model calling this service. It can be of type integer or IntPMF. Besides the source of the number of iterations, CollectionIteratorActions differ from LoopAction only in their allowed stochastic dependence of random variables inside the loop body’s ResourceDemandingBehaviour. If the same random variable occurs twice in such a loop body, analysis tools must evaluate the second occurrence in stochastic dependence to the first occurrence. This complicates the involved calculation and might lead to the intractability of the model, therefore component developers should use CollectionIteratorActions with care and only include them if they expect that the prediction results would be vastly inaccurate without it."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_CollectionIteratorAction"
-          ordered="false" lowerBound="1" eType="#//repository/Parameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable__CollectionIteratorAction"
+          ordered="false" lowerBound="1" eType="#//parameter/Variable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GuardedBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2098,8 +2219,8 @@
         <details key="documentation" value="Set Variable Action Assigns a variable characterisation to an OUT parameter, INOUT parameter, or return value of the service. It ensures that performance-relevant output parameter characterisations of a component service are specified to use them to parameterise the calling RDSEFF. A SetVariableAction must only use output parameters on the left hand side of the assignment and must not use input parameter or local variable&#xD;&#xA;names, because input parameters cannot be returned and local names should not be exposed to adhere the black box principle. The action is only intended to allow proper data flow modelling (i.e., output parameter passing) between different component services, but not to reveal additional internals of the service the current RDSEFF models. Thus, the assigned characterisation is not accessible in subsequent actions of the current RDSEFF. Notice, that the stochastic expression used in this assignment must characterise the result of the whole computation of the current service. For non-trivial components, this requires a substantial stochastic approximation based on manual abstraction. However, recall that not the actual result of a component service needs to be specified, but only its performance-relevant attributes. For example, to model the return value of a component service compressing a file, using its file size divided by the compression factor as the stochastic expression is usually sufficient, while the value of the compressed file is not of interest in a performance model.&#xD;&#xA;Multiple SetVariableActions assigning to the same output parameter might occur at different locations of the control flow in an RDSEFF. In the case of sequences, loops, and fork, the last assignment overwrites the former assignments and gets transferred back to the calling RDSEFF. Therefore, analysis tools may ignore the former assignments. In the case of using a SetVariableAction in two different branches of a BranchAction, only the assignment in the chosen branch is valid and gets transferred back to the caller."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="localVariableUsages_SetVariableAction"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
-          eOpposite="#//parameter/VariableUsage/setVariableAction_VariableUsage"/>
+          ordered="false" upperBound="-1" eType="#//parameter/VariableSetter" containment="true"
+          eOpposite="#//parameter/VariableSetter/setVariableAction__VariableSetter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InternalCallAction" eSuperTypes="#//seff/CallAction #//seff/AbstractInternalControlFlowAction">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2148,16 +2269,22 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
           ordered="false" lowerBound="1" eType="#//seff/RecoveryBlockAction" eOpposite="#//seff/RecoveryBlockAction/recoveryBlockalternativeBehaviours"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EmitEventAction" eSuperTypes="#//seff/AbstractAction #//seff/CallAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="EmitEventAction specifies when a component emits an event during its processing. To enable the specification of the EventType characteristics, the EmitEventAction extends the CallAction. The EmitEventAction defines which type of events are emited, their characteristics and the SourceRole that triggered. Each EmitEventAction is limited to one type of events. To support multiple types of events, multiple EmitEventActions have to be used."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="eventType__EmitEventAction"
+          ordered="false" lowerBound="1" eType="#//repository/EventType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceRole__EmitEventAction"
+          ordered="false" lowerBound="1" eType="#//repository/SourceRole"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CallAction" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Generic class realising call relations between behaviours (e.g. method call)."/>
+        <details key="documentation" value="Generic class realising call relations between behaviours (e.g. method call) for calls with parameters send to the called signature."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outputVariableUsages_ExternalCallAction"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
-          eOpposite="#//parameter/VariableUsage/callAction_out_VariableUsage"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameterUsages_ExternalCallAction"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
-          eOpposite="#//parameter/VariableUsage/callAction_in_VariableUsage"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableSetterInputs__CallAction"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableSetter" containment="true"
+          eOpposite="#//parameter/VariableSetter/callAction__VariableSetter"/>
     </eClassifiers>
     <eSubpackages name="performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/Performance/1.0"
         nsPrefix="">
@@ -2225,7 +2352,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="role_SpecifiedQoSAnnotation"
           ordered="false" lowerBound="1" eType="#//repository/Role"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="specification_SpecifiedExecutionTime"
-          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"
+          eOpposite="#//core/PCMRandomVariable/specifiedQoSAnnotation_SpecifiedExecutionTime"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="qosAnnotations_SpecifiedQoSAnnotation"
           ordered="false" lowerBound="1" eType="#//qosannotations/QoSAnnotations"
           eOpposite="#//qosannotations/QoSAnnotations/specifiedQoSAnnotations_QoSAnnotations"/>
@@ -2256,8 +2384,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="role_SpecifiedOutputParameterAbstraction"
           ordered="false" lowerBound="1" eType="#//repository/Role"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="expectedExternalOutputs_SpecifiedOutputParameterAbstraction"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
-          eOpposite="#//parameter/VariableUsage/specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage"/>
+          ordered="false" upperBound="-1" eType="#//parameter/VariableSetter" containment="true"
+          eOpposite="#//parameter/VariableSetter/specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableSetter"/>
     </eClassifiers>
     <eSubpackages name="performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/Performance/4.0"
         nsPrefix="">

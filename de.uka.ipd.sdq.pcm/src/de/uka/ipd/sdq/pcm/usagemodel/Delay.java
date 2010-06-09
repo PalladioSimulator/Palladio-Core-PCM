@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -41,6 +41,7 @@ public interface Delay extends AbstractUserAction {
 
 	/**
 	 * Returns the value of the '<em><b>Time Specification Delay</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getDelay_TimeSpecification <em>Delay Time Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Time Specification Delay</em>' containment reference isn't clear,
@@ -50,7 +51,8 @@ public interface Delay extends AbstractUserAction {
 	 * @return the value of the '<em>Time Specification Delay</em>' containment reference.
 	 * @see #setTimeSpecification_Delay(PCMRandomVariable)
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getDelay_TimeSpecification_Delay()
-	 * @model containment="true" required="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getDelay_TimeSpecification
+	 * @model opposite="delay_TimeSpecification" containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	PCMRandomVariable getTimeSpecification_Delay();

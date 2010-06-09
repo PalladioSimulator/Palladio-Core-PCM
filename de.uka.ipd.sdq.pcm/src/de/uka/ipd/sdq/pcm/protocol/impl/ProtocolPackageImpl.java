@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.protocol.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
@@ -27,7 +26,6 @@ import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
 import de.uka.ipd.sdq.pcm.protocol.Protocol;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolFactory;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-import de.uka.ipd.sdq.pcm.protocol.ServiceCall;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.reliability.ReliabilityPackage;

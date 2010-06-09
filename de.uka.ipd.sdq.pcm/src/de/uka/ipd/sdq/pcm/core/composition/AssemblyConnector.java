@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -10,8 +10,8 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,8 +29,8 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector <em>Requiring Assembly Context Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector <em>Providing Assembly Context Assembly Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector <em>Provided Role Assembly Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector <em>Required Role Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole__AssemblyConnector <em>Provided Role Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole__AssemblyConnector <em>Required Role Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getParentStructure_AssemblyConnector <em>Parent Structure Assembly Connector</em>}</li>
  * </ul>
  * </p>
@@ -108,22 +108,22 @@ public interface AssemblyConnector extends Connector {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Role Assembly Connector</em>' reference.
-	 * @see #setProvidedRole_AssemblyConnector(ProvidedRole)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_ProvidedRole_AssemblyConnector()
+	 * @see #setProvidedRole__AssemblyConnector(OperationProvidedRole)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_ProvidedRole__AssemblyConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ProvidedRole getProvidedRole_AssemblyConnector();
+	OperationProvidedRole getProvidedRole__AssemblyConnector();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector <em>Provided Role Assembly Connector</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole__AssemblyConnector <em>Provided Role Assembly Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Provided Role Assembly Connector</em>' reference.
-	 * @see #getProvidedRole_AssemblyConnector()
+	 * @see #getProvidedRole__AssemblyConnector()
 	 * @generated
 	 */
-	void setProvidedRole_AssemblyConnector(ProvidedRole value);
+	void setProvidedRole__AssemblyConnector(OperationProvidedRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Required Role Assembly Connector</b></em>' reference.
@@ -134,22 +134,22 @@ public interface AssemblyConnector extends Connector {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required Role Assembly Connector</em>' reference.
-	 * @see #setRequiredRole_AssemblyConnector(RequiredRole)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_RequiredRole_AssemblyConnector()
+	 * @see #setRequiredRole__AssemblyConnector(OperationRequiredRole)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_RequiredRole__AssemblyConnector()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	RequiredRole getRequiredRole_AssemblyConnector();
+	OperationRequiredRole getRequiredRole__AssemblyConnector();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector <em>Required Role Assembly Connector</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole__AssemblyConnector <em>Required Role Assembly Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Required Role Assembly Connector</em>' reference.
-	 * @see #getRequiredRole_AssemblyConnector()
+	 * @see #getRequiredRole__AssemblyConnector()
 	 * @generated
 	 */
-	void setRequiredRole_AssemblyConnector(RequiredRole value);
+	void setRequiredRole__AssemblyConnector(OperationRequiredRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Parent Structure Assembly Connector</b></em>' container reference.
@@ -184,12 +184,12 @@ public interface AssemblyConnector extends Connector {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. 
-	 * self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)
+	 * self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole__AssemblyConnector)
 	 * 
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)\r\n'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole__AssemblyConnector)\r\n'"
 	 * @generated
 	 */
 	boolean AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -199,13 +199,13 @@ public interface AssemblyConnector extends Connector {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. 
-	 * self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)
+	 * self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__AssemblyConnector)
 	 * 
 	 * 
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)\r\n\r\n'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__AssemblyConnector)\r\n\r\n'"
 	 * @generated
 	 */
 	boolean AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -216,13 +216,13 @@ public interface AssemblyConnector extends Connector {
 	 * <!-- begin-model-doc -->
 	 * The Interfaces references by this Connector must match. This means that either 
 	 * 1) the referenced providedRole and the referenced requiredRole refer to the same Interface (first part of the expression) or 2)  the Interface A referenced by the providedRole is a subtype of the Interface B referenced by the requiredRole as transitively defined by the parentInterface__Interface property. That means that either Interface A is the parentInterface__Interface of Interface B, or there is a set of Interfaces 
-	 * self.providedRole_AssemblyConnector.providedInterface__ProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole or 
-	 * self.providedRole_AssemblyConnector.providedInterface__ProvidedRole->closure(parentInterface__Interface)->exists(interface|interface = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole)
+	 * self.providedRole__AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole__AssemblyConnector.requiredInterface__OperationRequiredRole or 
+	 * self.providedRole__AssemblyConnector.providedInterface__OperationProvidedRole->closure(parentInterfaces__Interface)->exists(interface|interface = self.requiredRole__AssemblyConnector.requiredInterface__OperationRequiredRole)
 	 * 
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.providedRole_AssemblyConnector.providedInterface__ProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole or \r\nself.providedRole_AssemblyConnector.providedInterface__ProvidedRole->closure(parentInterface__Interface)->exists(interface|interface = self.requiredRole_AssemblyConnector.requiredInterface__RequiredRole)\r\n'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.providedRole__AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole__AssemblyConnector.requiredInterface__OperationRequiredRole or \r\nself.providedRole__AssemblyConnector.providedInterface__OperationProvidedRole->closure(parentInterfaces__Interface)->exists(interface|interface = self.requiredRole__AssemblyConnector.requiredInterface__OperationRequiredRole)\r\n'"
 	 * @generated
 	 */
 	boolean AssemblyConnectorsReferencedInterfacesMustMatch(DiagnosticChain diagnostics, Map<Object, Object> context);

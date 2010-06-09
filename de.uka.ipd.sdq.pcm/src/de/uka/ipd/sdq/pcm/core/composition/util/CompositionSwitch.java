@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -11,14 +11,16 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.pcm.core.composition.*;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
@@ -44,6 +46,7 @@ public class CompositionSwitch<T> {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -151,6 +154,38 @@ public class CompositionSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR: {
+				AssemblyEventConnector assemblyEventConnector = (AssemblyEventConnector)theEObject;
+				T result = caseAssemblyEventConnector(assemblyEventConnector);
+				if (result == null) result = caseConnector(assemblyEventConnector);
+				if (result == null) result = caseEntity(assemblyEventConnector);
+				if (result == null) result = caseIdentifier(assemblyEventConnector);
+				if (result == null) result = caseNamedElement(assemblyEventConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CompositionPackage.SINK_DELEGATION_CONNECTOR: {
+				SinkDelegationConnector sinkDelegationConnector = (SinkDelegationConnector)theEObject;
+				T result = caseSinkDelegationConnector(sinkDelegationConnector);
+				if (result == null) result = caseDelegationConnector(sinkDelegationConnector);
+				if (result == null) result = caseConnector(sinkDelegationConnector);
+				if (result == null) result = caseEntity(sinkDelegationConnector);
+				if (result == null) result = caseIdentifier(sinkDelegationConnector);
+				if (result == null) result = caseNamedElement(sinkDelegationConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CompositionPackage.SOURCE_DELEGATION_CONNECTOR: {
+				SourceDelegationConnector sourceDelegationConnector = (SourceDelegationConnector)theEObject;
+				T result = caseSourceDelegationConnector(sourceDelegationConnector);
+				if (result == null) result = caseDelegationConnector(sourceDelegationConnector);
+				if (result == null) result = caseConnector(sourceDelegationConnector);
+				if (result == null) result = caseEntity(sourceDelegationConnector);
+				if (result == null) result = caseIdentifier(sourceDelegationConnector);
+				if (result == null) result = caseNamedElement(sourceDelegationConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CompositionPackage.ASSEMBLY_CONTEXT: {
 				AssemblyContext assemblyContext = (AssemblyContext)theEObject;
 				T result = caseAssemblyContext(assemblyContext);
@@ -180,32 +215,17 @@ public class CompositionSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Assembly Context</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Assembly Context</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAssemblyContext(AssemblyContext object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Required Delegation Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Required Delegation Connector</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRequiredDelegationConnector(RequiredDelegationConnector object) {
+	public T caseComposedStructure(ComposedStructure object) {
 		return null;
 	}
 
@@ -225,6 +245,21 @@ public class CompositionSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Required Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Required Delegation Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRequiredDelegationConnector(RequiredDelegationConnector object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Resource Required Delegation Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -240,17 +275,62 @@ public class CompositionSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Assembly Event Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Assembly Event Connector</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseComposedStructure(ComposedStructure object) {
+	public T caseAssemblyEventConnector(AssemblyEventConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sink Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sink Delegation Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSinkDelegationConnector(SinkDelegationConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Source Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Source Delegation Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSourceDelegationConnector(SourceDelegationConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Assembly Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Assembly Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssemblyContext(AssemblyContext object) {
 		return null;
 	}
 

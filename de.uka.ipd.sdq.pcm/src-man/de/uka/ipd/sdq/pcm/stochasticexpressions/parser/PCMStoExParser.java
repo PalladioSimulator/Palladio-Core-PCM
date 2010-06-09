@@ -12,9 +12,6 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.Token;
 import org.antlr.runtime.TokenStream;
 
-import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
@@ -928,7 +925,7 @@ public class PCMStoExParser extends Parser {
 
         AbstractNamedReference id = null;
 
-        VariableCharacterisationType type = null;
+//        VariableCharacterisationType type = null;
 
         Collection<Expression> args = null;
 
@@ -1069,12 +1066,14 @@ public class PCMStoExParser extends Parser {
 
                     match(input,DOT,FOLLOW_DOT_in_atom769); 
                     pushFollow(FOLLOW_characterisation_in_atom775);
-                    type=characterisation();
+//                    type=characterisation();
                     _fsp--;
 
-                     a = ParameterFactory.eINSTANCE.createCharacterisedVariable();
-                    		  	((CharacterisedVariable)a).setId_Variable(id);
-                    		  	((CharacterisedVariable)a).setCharacterisationType(type);
+//                     a = ParameterFactory.eINSTANCE.createCharacterisedVariable();
+//                    		  	((CharacterisedVariable)a).setId_Variable(id);
+// TODO: Implement Handling of CharacterisationDefinition
+// characterization type removed by henning
+//                   		  	((CharacterisedVariable)a).setCharacterisationType(type);
                     		  
 
                     }
@@ -1249,43 +1248,43 @@ public class PCMStoExParser extends Parser {
 
     // $ANTLR start characterisation
     // PCMStoEx.g:189:1: characterisation returns [VariableCharacterisationType ct] : type= characterisation_keywords ;
-    public final VariableCharacterisationType characterisation() throws RecognitionException {
-        VariableCharacterisationType ct = null;
-
-        String type = null;
-
-
-        try {
-            // PCMStoEx.g:190:3: (type= characterisation_keywords )
-            // PCMStoEx.g:191:2: type= characterisation_keywords
-            {
-            pushFollow(FOLLOW_characterisation_keywords_in_characterisation995);
-            type=characterisation_keywords();
-            _fsp--;
-
-            if(type.equals("TYPE"))
-            		ct = VariableCharacterisationType.TYPE;
-            	 else if(type.equals("BYTESIZE"))
-            		ct = VariableCharacterisationType.BYTESIZE;
-            	 else if(type.equals("NUMBER_OF_ELEMENTS"))
-            		ct = VariableCharacterisationType.NUMBER_OF_ELEMENTS;
-            	 else if(type.equals("VALUE"))
-            		ct = VariableCharacterisationType.VALUE;
-            	 else if(type.equals("STRUCTURE"))
-            		ct = VariableCharacterisationType.STRUCTURE;
-            	
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ct;
-    }
+//    public final VariableCharacterisationType characterisation() throws RecognitionException {
+//        VariableCharacterisationType ct = null;
+//
+//        String type = null;
+//
+//
+//        try {
+//            // PCMStoEx.g:190:3: (type= characterisation_keywords )
+//            // PCMStoEx.g:191:2: type= characterisation_keywords
+//            {
+//            pushFollow(FOLLOW_characterisation_keywords_in_characterisation995);
+//            type=characterisation_keywords();
+//            _fsp--;
+//
+//            if(type.equals("TYPE"))
+//            		ct = VariableCharacterisationType.TYPE;
+//            	 else if(type.equals("BYTESIZE"))
+//            		ct = VariableCharacterisationType.BYTESIZE;
+//            	 else if(type.equals("NUMBER_OF_ELEMENTS"))
+//            		ct = VariableCharacterisationType.NUMBER_OF_ELEMENTS;
+//            	 else if(type.equals("VALUE"))
+//            		ct = VariableCharacterisationType.VALUE;
+//            	 else if(type.equals("STRUCTURE"))
+//            		ct = VariableCharacterisationType.STRUCTURE;
+//            	
+//
+//            }
+//
+//        }
+//        catch (RecognitionException re) {
+//            reportError(re);
+//            recover(input,re);
+//        }
+//        finally {
+//        }
+//        return ct;
+//    }
     // $ANTLR end characterisation
 
 

@@ -61,12 +61,12 @@
       <children
           compartment="//@nodes.2/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../../pcm.ecore#//seff/CallAction/inputParameterUsages_ExternalCallAction"/>
+            href="../../pcm.ecore#//seff/CallAction/variableSetterInputs__CallAction"/>
         <childrenFeature
-            href="../../pcm.ecore#//seff/CallAction/inputParameterUsages_ExternalCallAction"/>
+            href="../../pcm.ecore#//seff/CallAction/variableSetterInputs__CallAction"/>
         <ownedChild>
           <domainMetaElement
-              href="../../pcm.ecore#//parameter/VariableUsage"/>
+              href="../../pcm.ecore#//parameter/VariableSetter"/>
           <labelMappings
               readOnly="true">
             <diagramLabel
@@ -80,12 +80,12 @@
           <children
               compartment="//@nodes.2/@ownedChild/@children.0/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+                href="../../pcm.ecore#//parameter/VariableSetter/specification__VariableSetter"/>
             <childrenFeature
-                href="../../pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+                href="../../pcm.ecore#//parameter/VariableSetter/specification__VariableSetter"/>
             <ownedChild>
               <domainMetaElement
-                  href="../../pcm.ecore#//parameter/VariableCharacterisation"/>
+                  href="../../pcm.ecore#//core/PCMRandomVariable"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping"
                   readOnly="true"
@@ -94,7 +94,7 @@
                 <diagramLabel
                     href="seffeditor.gmfgraph#VariableCharacterisationLabel"/>
                 <features
-                    href="../../pcm.ecore#//parameter/VariableCharacterisation/type"/>
+                    href="../../../../../plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
@@ -113,12 +113,12 @@
       <children
           compartment="//@nodes.2/@ownedChild/@compartments.1">
         <containmentFeature
-            href="../../pcm.ecore#//seff/CallAction/outputVariableUsages_ExternalCallAction"/>
+            href="../../pcm.ecore#//seff/CallAction/variableSetterInputs__CallAction"/>
         <childrenFeature
-            href="../../pcm.ecore#//seff/CallAction/outputVariableUsages_ExternalCallAction"/>
+            href="../../pcm.ecore#//seff/CallReturnAction/variableSetterReturns__CallReturnAction"/>
         <ownedChild>
           <domainMetaElement
-              href="../../pcm.ecore#//parameter/VariableUsage"/>
+              href="../../pcm.ecore#//parameter/VariableSetter"/>
           <labelMappings
               readOnly="true">
             <diagramLabel
@@ -132,12 +132,12 @@
           <children
               compartment="//@nodes.2/@ownedChild/@children.1/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+                href="../../pcm.ecore#//parameter/VariableSetter/specification__VariableSetter"/>
             <childrenFeature
-                href="../../pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+                href="../../pcm.ecore#//parameter/VariableSetter/specification__VariableSetter"/>
             <ownedChild>
               <domainMetaElement
-                  href="../../pcm.ecore#//parameter/VariableCharacterisation"/>
+                  href="../../pcm.ecore#//core/PCMRandomVariable"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping"
                   readOnly="true"
@@ -146,7 +146,7 @@
                 <diagramLabel
                     href="seffeditor.gmfgraph#VariableCharacterisationLabel"/>
                 <features
-                    href="../../pcm.ecore#//parameter/VariableCharacterisation/type"/>
+                    href="../../../../../plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
@@ -818,7 +818,7 @@
             href="../../pcm.ecore#//seff/SetVariableAction/localVariableUsages_SetVariableAction"/>
         <ownedChild>
           <domainMetaElement
-              href="../../pcm.ecore#//parameter/VariableUsage"/>
+              href="../../pcm.ecore#//parameter/VariableSetter"/>
           <labelMappings
               readOnly="true">
             <diagramLabel
@@ -832,12 +832,12 @@
           <children
               compartment="//@nodes.7/@ownedChild/@children.0/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+                href="../../pcm.ecore#//parameter/VariableSetter/specification__VariableSetter"/>
             <childrenFeature
-                href="../../pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+                href="../../pcm.ecore#//parameter/VariableSetter/specification__VariableSetter"/>
             <ownedChild>
               <domainMetaElement
-                  href="../../pcm.ecore#//parameter/VariableCharacterisation"/>
+                  href="../../pcm.ecore#//core/PCMRandomVariable"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping"
                   readOnly="true"
@@ -846,7 +846,7 @@
                 <diagramLabel
                     href="seffeditor.gmfgraph#VariableCharacterisationLabel"/>
                 <features
-                    href="../../pcm.ecore#//parameter/VariableCharacterisation/type"/>
+                    href="../../../../../plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"

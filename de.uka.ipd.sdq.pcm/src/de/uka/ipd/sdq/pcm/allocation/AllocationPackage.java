@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -252,17 +252,6 @@ public interface AllocationPackage extends EPackage {
 	EClass getAllocation();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation <em>Allocation Contexts Allocation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Allocation Contexts Allocation</em>'.
-	 * @see de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation()
-	 * @see #getAllocation()
-	 * @generated
-	 */
-	EReference getAllocation_AllocationContexts_Allocation();
-
-	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getTargetResourceEnvironment_Allocation <em>Target Resource Environment Allocation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -283,6 +272,17 @@ public interface AllocationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAllocation_System_Allocation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation <em>Allocation Contexts Allocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Allocation Contexts Allocation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation()
+	 * @see #getAllocation()
+	 * @generated
+	 */
+	EReference getAllocation_AllocationContexts_Allocation();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -351,14 +351,6 @@ public interface AllocationPackage extends EPackage {
 		EClass ALLOCATION = eINSTANCE.getAllocation();
 
 		/**
-		 * The meta object literal for the '<em><b>Allocation Contexts Allocation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION = eINSTANCE.getAllocation_AllocationContexts_Allocation();
-
-		/**
 		 * The meta object literal for the '<em><b>Target Resource Environment Allocation</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -373,6 +365,14 @@ public interface AllocationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ALLOCATION__SYSTEM_ALLOCATION = eINSTANCE.getAllocation_System_Allocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Allocation Contexts Allocation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION = eINSTANCE.getAllocation_AllocationContexts_Allocation();
 
 	}
 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
-import de.uka.ipd.sdq.pcm.subsystem.*;
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
@@ -39,6 +38,7 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->

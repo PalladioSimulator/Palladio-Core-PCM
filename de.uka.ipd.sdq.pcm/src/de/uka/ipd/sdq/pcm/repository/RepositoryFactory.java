@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -22,6 +22,7 @@ public interface RepositoryFactory extends EFactory {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
@@ -29,33 +30,6 @@ public interface RepositoryFactory extends EFactory {
 	 * @generated
 	 */
 	RepositoryFactory eINSTANCE = de.uka.ipd.sdq.pcm.repository.impl.RepositoryFactoryImpl.init();
-
-	/**
-	 * Returns a new object of class '<em>Passive Resource</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Passive Resource</em>'.
-	 * @generated
-	 */
-	PassiveResource createPassiveResource();
-
-	/**
-	 * Returns a new object of class '<em>Signature</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Signature</em>'.
-	 * @generated
-	 */
-	Signature createSignature();
-
-	/**
-	 * Returns a new object of class '<em>Parameter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter</em>'.
-	 * @generated
-	 */
-	Parameter createParameter();
 
 	/**
 	 * Returns a new object of class '<em>Repository</em>'.
@@ -67,49 +41,22 @@ public interface RepositoryFactory extends EFactory {
 	Repository createRepository();
 
 	/**
-	 * Returns a new object of class '<em>Provides Component Type</em>'.
+	 * Returns a new object of class '<em>Operation Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provides Component Type</em>'.
+	 * @return a new object of class '<em>Operation Interface</em>'.
 	 * @generated
 	 */
-	ProvidesComponentType createProvidesComponentType();
+	OperationInterface createOperationInterface();
 
 	/**
-	 * Returns a new object of class '<em>Required Role</em>'.
+	 * Returns a new object of class '<em>Operation Signature</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Required Role</em>'.
+	 * @return a new object of class '<em>Operation Signature</em>'.
 	 * @generated
 	 */
-	RequiredRole createRequiredRole();
-
-	/**
-	 * Returns a new object of class '<em>Interface</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Interface</em>'.
-	 * @generated
-	 */
-	Interface createInterface();
-
-	/**
-	 * Returns a new object of class '<em>Required Characterisation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Required Characterisation</em>'.
-	 * @generated
-	 */
-	RequiredCharacterisation createRequiredCharacterisation();
-
-	/**
-	 * Returns a new object of class '<em>Resource Required Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Required Role</em>'.
-	 * @generated
-	 */
-	ResourceRequiredRole createResourceRequiredRole();
+	OperationSignature createOperationSignature();
 
 	/**
 	 * Returns a new object of class '<em>Exception Type</em>'.
@@ -121,22 +68,58 @@ public interface RepositoryFactory extends EFactory {
 	ExceptionType createExceptionType();
 
 	/**
-	 * Returns a new object of class '<em>Complete Component Type</em>'.
+	 * Returns a new object of class '<em>Operation Required Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Complete Component Type</em>'.
+	 * @return a new object of class '<em>Operation Required Role</em>'.
 	 * @generated
 	 */
-	CompleteComponentType createCompleteComponentType();
+	OperationRequiredRole createOperationRequiredRole();
 
 	/**
-	 * Returns a new object of class '<em>Composite Component</em>'.
+	 * Returns a new object of class '<em>Resource Required Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Composite Component</em>'.
+	 * @return a new object of class '<em>Resource Required Role</em>'.
 	 * @generated
 	 */
-	CompositeComponent createCompositeComponent();
+	ResourceRequiredRole createResourceRequiredRole();
+
+	/**
+	 * Returns a new object of class '<em>Sink Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sink Role</em>'.
+	 * @generated
+	 */
+	SinkRole createSinkRole();
+
+	/**
+	 * Returns a new object of class '<em>Event Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Event Group</em>'.
+	 * @generated
+	 */
+	EventGroup createEventGroup();
+
+	/**
+	 * Returns a new object of class '<em>Event Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Event Type</em>'.
+	 * @generated
+	 */
+	EventType createEventType();
+
+	/**
+	 * Returns a new object of class '<em>Source Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Source Role</em>'.
+	 * @generated
+	 */
+	SourceRole createSourceRole();
 
 	/**
 	 * Returns a new object of class '<em>Basic Component</em>'.
@@ -148,6 +131,42 @@ public interface RepositoryFactory extends EFactory {
 	BasicComponent createBasicComponent();
 
 	/**
+	 * Returns a new object of class '<em>Complete Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Complete Component Type</em>'.
+	 * @generated
+	 */
+	CompleteComponentType createCompleteComponentType();
+
+	/**
+	 * Returns a new object of class '<em>Provides Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Provides Component Type</em>'.
+	 * @generated
+	 */
+	ProvidesComponentType createProvidesComponentType();
+
+	/**
+	 * Returns a new object of class '<em>Operation Provided Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operation Provided Role</em>'.
+	 * @generated
+	 */
+	OperationProvidedRole createOperationProvidedRole();
+
+	/**
+	 * Returns a new object of class '<em>Passive Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Passive Resource</em>'.
+	 * @generated
+	 */
+	PassiveResource createPassiveResource();
+
+	/**
 	 * Returns a new object of class '<em>Application Failure Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,6 +174,60 @@ public interface RepositoryFactory extends EFactory {
 	 * @generated
 	 */
 	ApplicationFailureType createApplicationFailureType();
+
+	/**
+	 * Returns a new object of class '<em>Composite Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Composite Data Type</em>'.
+	 * @generated
+	 */
+	CompositeDataType createCompositeDataType();
+
+	/**
+	 * Returns a new object of class '<em>Resource Signature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Signature</em>'.
+	 * @generated
+	 */
+	ResourceSignature createResourceSignature();
+
+	/**
+	 * Returns a new object of class '<em>Resource Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Interface</em>'.
+	 * @generated
+	 */
+	ResourceInterface createResourceInterface();
+
+	/**
+	 * Returns a new object of class '<em>Infrastructure Signature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Infrastructure Signature</em>'.
+	 * @generated
+	 */
+	InfrastructureSignature createInfrastructureSignature();
+
+	/**
+	 * Returns a new object of class '<em>Infrastructure Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Infrastructure Interface</em>'.
+	 * @generated
+	 */
+	InfrastructureInterface createInfrastructureInterface();
+
+	/**
+	 * Returns a new object of class '<em>Composite Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Composite Component</em>'.
+	 * @generated
+	 */
+	CompositeComponent createCompositeComponent();
 
 	/**
 	 * Returns a new object of class '<em>Primitive Data Type</em>'.
@@ -175,24 +248,6 @@ public interface RepositoryFactory extends EFactory {
 	CollectionDataType createCollectionDataType();
 
 	/**
-	 * Returns a new object of class '<em>Composite Data Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Composite Data Type</em>'.
-	 * @generated
-	 */
-	CompositeDataType createCompositeDataType();
-
-	/**
-	 * Returns a new object of class '<em>Inner Declaration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Inner Declaration</em>'.
-	 * @generated
-	 */
-	InnerDeclaration createInnerDeclaration();
-
-	/**
 	 * Returns a new object of class '<em>Environment Failure Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -200,15 +255,6 @@ public interface RepositoryFactory extends EFactory {
 	 * @generated
 	 */
 	EnvironmentFailureType createEnvironmentFailureType();
-
-	/**
-	 * Returns a new object of class '<em>Provided Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provided Role</em>'.
-	 * @generated
-	 */
-	ProvidedRole createProvidedRole();
 
 	/**
 	 * Returns the package supported by this factory.

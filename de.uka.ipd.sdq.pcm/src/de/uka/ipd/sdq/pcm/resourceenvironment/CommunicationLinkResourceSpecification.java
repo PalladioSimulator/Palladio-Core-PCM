@@ -1,13 +1,11 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
 import de.uka.ipd.sdq.identifier.Identifier;
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 

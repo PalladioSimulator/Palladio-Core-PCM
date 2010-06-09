@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -22,6 +22,7 @@ public interface ResourceenvironmentFactory extends EFactory {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
@@ -49,13 +50,13 @@ public interface ResourceenvironmentFactory extends EFactory {
 	LinkingResource createLinkingResource();
 
 	/**
-	 * Returns a new object of class '<em>Communication Link Resource Specification</em>'.
+	 * Returns a new object of class '<em>Resource Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Communication Link Resource Specification</em>'.
+	 * @return a new object of class '<em>Resource Container</em>'.
 	 * @generated
 	 */
-	CommunicationLinkResourceSpecification createCommunicationLinkResourceSpecification();
+	ResourceContainer createResourceContainer();
 
 	/**
 	 * Returns a new object of class '<em>Processing Resource Specification</em>'.
@@ -67,13 +68,13 @@ public interface ResourceenvironmentFactory extends EFactory {
 	ProcessingResourceSpecification createProcessingResourceSpecification();
 
 	/**
-	 * Returns a new object of class '<em>Resource Container</em>'.
+	 * Returns a new object of class '<em>Communication Link Resource Specification</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Container</em>'.
+	 * @return a new object of class '<em>Communication Link Resource Specification</em>'.
 	 * @generated
 	 */
-	ResourceContainer createResourceContainer();
+	CommunicationLinkResourceSpecification createCommunicationLinkResourceSpecification();
 
 	/**
 	 * Returns the package supported by this factory.

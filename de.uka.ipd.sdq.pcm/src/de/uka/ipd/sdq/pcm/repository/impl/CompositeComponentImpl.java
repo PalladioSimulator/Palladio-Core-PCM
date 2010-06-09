@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -28,7 +28,8 @@ import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.Variable;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
@@ -45,8 +46,8 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getRepository_RepositoryComponent <em>Repository Repository Component</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getComponentParameter__ImplementationComponentType <em>Component Parameter Implementation Component Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getParentCompleteComponentTypes <em>Parent Complete Component Types</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getComponentParameterUsage_ImplementationComponentType <em>Component Parameter Usage Implementation Component Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,6 +62,16 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
+	 * The cached value of the '{@link #getComponentParameter__ImplementationComponentType() <em>Component Parameter Implementation Component Type</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponentParameter__ImplementationComponentType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Variable> componentParameter__ImplementationComponentType;
+
+	/**
 	 * The cached value of the '{@link #getParentCompleteComponentTypes() <em>Parent Complete Component Types</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,16 +80,6 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * @ordered
 	 */
 	protected EList<CompleteComponentType> parentCompleteComponentTypes;
-
-	/**
-	 * The cached value of the '{@link #getComponentParameterUsage_ImplementationComponentType() <em>Component Parameter Usage Implementation Component Type</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComponentParameterUsage_ImplementationComponentType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<VariableUsage> componentParameterUsage_ImplementationComponentType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,11 +146,11 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CompleteComponentType> getParentCompleteComponentTypes() {
-		if (parentCompleteComponentTypes == null) {
-			parentCompleteComponentTypes = new EObjectResolvingEList<CompleteComponentType>(CompleteComponentType.class, this, RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES);
+	public EList<Variable> getComponentParameter__ImplementationComponentType() {
+		if (componentParameter__ImplementationComponentType == null) {
+			componentParameter__ImplementationComponentType = new EObjectContainmentWithInverseEList<Variable>(Variable.class, this, RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE, ParameterPackage.VARIABLE__IMPLEMENTATION_COMPONENT_TYPE_VARIABLE);
 		}
-		return parentCompleteComponentTypes;
+		return componentParameter__ImplementationComponentType;
 	}
 
 	/**
@@ -157,11 +158,11 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<VariableUsage> getComponentParameterUsage_ImplementationComponentType() {
-		if (componentParameterUsage_ImplementationComponentType == null) {
-			componentParameterUsage_ImplementationComponentType = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE);
+	public EList<CompleteComponentType> getParentCompleteComponentTypes() {
+		if (parentCompleteComponentTypes == null) {
+			parentCompleteComponentTypes = new EObjectResolvingEList<CompleteComponentType>(CompleteComponentType.class, this, RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES);
 		}
-		return componentParameterUsage_ImplementationComponentType;
+		return parentCompleteComponentTypes;
 	}
 
 	/**
@@ -183,68 +184,6 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * @ordered
 	 */
 	protected static Constraint REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean ProvideSameInterfaces(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (PROVIDE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(RepositoryPackage.Literals.COMPOSITE_COMPONENT);
-			try {
-				PROVIDE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(PROVIDE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
-		}
-		if (!EOCL_ENV.createQuery(PROVIDE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.COMPOSITE_COMPONENT__PROVIDE_SAME_INTERFACES,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ProvideSameInterfaces", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean RequireSameInterfaces(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (REQUIRE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(RepositoryPackage.Literals.COMPOSITE_COMPONENT);
-			try {
-				REQUIRE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(REQUIRE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
-		}
-		if (!EOCL_ENV.createQuery(REQUIRE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.COMPOSITE_COMPONENT__REQUIRE_SAME_INTERFACES,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RequireSameInterfaces", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -336,7 +275,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PROVIDE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#\n"+"if\n"+"	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\n"+"	self.parentCompleteComponentTypes->notEmpty()\n"+"then\n"+"	--own interface IDs:\n"+"    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()\n"+"    =\n"+"    --complete type interface IDs:\n"+"    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()\n"+"else\n"+"	true\n"+"endif";
+	protected static final String PROVIDE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#\n"+"if\n"+"	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\n"+"	self.parentCompleteComponentTypes->notEmpty()\n"+"then\n"+"	--own interface IDs:\n"+"    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity__ProvidedRole.id)->asSet()\n"+"    =\n"+"    --complete type interface IDs:\n"+"    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity__ProvidedRole.id)->asSet()\n"+"else\n"+"	true\n"+"endif";
 
 	/**
 	 * The cached OCL invariant for the '{@link #ProvideSameInterfaces(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Provide Same Interfaces</em>}' invariant operation.
@@ -349,6 +288,37 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	protected static Constraint PROVIDE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ProvideSameInterfaces(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (PROVIDE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(RepositoryPackage.Literals.COMPOSITE_COMPONENT);
+			try {
+				PROVIDE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(PROVIDE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(PROVIDE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 RepositoryValidator.DIAGNOSTIC_SOURCE,
+						 RepositoryValidator.COMPOSITE_COMPONENT__PROVIDE_SAME_INTERFACES,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ProvideSameInterfaces", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * The cached OCL expression body for the '{@link #RequireSameInterfaces(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Require Same Interfaces</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -356,7 +326,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REQUIRE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #\n"+"if\n"+"	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\n"+"	self.parentCompleteComponentTypes->notEmpty()\n"+"then\n"+"	--own interface IDs:\n"+"    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()\n"+"    =\n"+"    --complete type interface IDs:\n"+"    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()\n"+"else\n"+"	true\n"+"endif";
+	protected static final String REQUIRE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #\n"+"if\n"+"	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #\n"+"	self.parentCompleteComponentTypes->notEmpty()\n"+"then\n"+"	--own interface IDs:\n"+"    self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiringEntity__RequiredRole.id)->asSet()\n"+"    =\n"+"    --complete type interface IDs:\n"+"    self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiringEntity__RequiredRole.id)->asSet()\n"+"else\n"+"	true\n"+"endif";
 
 	/**
 	 * The cached OCL invariant for the '{@link #RequireSameInterfaces(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Require Same Interfaces</em>}' invariant operation.
@@ -373,6 +343,38 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean RequireSameInterfaces(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (REQUIRE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(RepositoryPackage.Literals.COMPOSITE_COMPONENT);
+			try {
+				REQUIRE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(REQUIRE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(REQUIRE_SAME_INTERFACES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 RepositoryValidator.DIAGNOSTIC_SOURCE,
+						 RepositoryValidator.COMPOSITE_COMPONENT__REQUIRE_SAME_INTERFACES,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RequireSameInterfaces", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -380,6 +382,8 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetRepository_RepositoryComponent((Repository)otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComponentParameter__ImplementationComponentType()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -394,8 +398,8 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 		switch (featureID) {
 			case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
 				return basicSetRepository_RepositoryComponent(null, msgs);
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-				return ((InternalEList<?>)getComponentParameterUsage_ImplementationComponentType()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				return ((InternalEList<?>)getComponentParameter__ImplementationComponentType()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -424,10 +428,10 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 		switch (featureID) {
 			case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
 				return getRepository_RepositoryComponent();
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				return getComponentParameter__ImplementationComponentType();
 			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES:
 				return getParentCompleteComponentTypes();
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-				return getComponentParameterUsage_ImplementationComponentType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -444,13 +448,13 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 			case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
 				setRepository_RepositoryComponent((Repository)newValue);
 				return;
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				getComponentParameter__ImplementationComponentType().clear();
+				getComponentParameter__ImplementationComponentType().addAll((Collection<? extends Variable>)newValue);
+				return;
 			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES:
 				getParentCompleteComponentTypes().clear();
 				getParentCompleteComponentTypes().addAll((Collection<? extends CompleteComponentType>)newValue);
-				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-				getComponentParameterUsage_ImplementationComponentType().clear();
-				getComponentParameterUsage_ImplementationComponentType().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -467,11 +471,11 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 			case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
 				setRepository_RepositoryComponent((Repository)null);
 				return;
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				getComponentParameter__ImplementationComponentType().clear();
+				return;
 			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES:
 				getParentCompleteComponentTypes().clear();
-				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-				getComponentParameterUsage_ImplementationComponentType().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -487,10 +491,10 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 		switch (featureID) {
 			case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
 				return getRepository_RepositoryComponent() != null;
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE:
+				return componentParameter__ImplementationComponentType != null && !componentParameter__ImplementationComponentType.isEmpty();
 			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES:
 				return parentCompleteComponentTypes != null && !parentCompleteComponentTypes.isEmpty();
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-				return componentParameterUsage_ImplementationComponentType != null && !componentParameterUsage_ImplementationComponentType.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -510,8 +514,8 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 		}
 		if (baseClass == ImplementationComponentType.class) {
 			switch (derivedFeatureID) {
+				case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE: return RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE;
 				case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES: return RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES;
-				case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE: return RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE;
 				default: return -1;
 			}
 		}
@@ -533,8 +537,8 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 		}
 		if (baseClass == ImplementationComponentType.class) {
 			switch (baseFeatureID) {
+				case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE: return RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_IMPLEMENTATION_COMPONENT_TYPE;
 				case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES: return RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES;
-				case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE: return RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE;
 				default: return -1;
 			}
 		}

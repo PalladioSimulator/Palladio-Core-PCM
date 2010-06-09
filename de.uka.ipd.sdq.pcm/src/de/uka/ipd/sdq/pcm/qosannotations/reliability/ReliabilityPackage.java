@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -186,6 +186,7 @@ public interface ReliabilityPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SPECIFIED_FAILURE_PROBABILITY = eINSTANCE.getSpecifiedFailureProbability();
+
 		/**
 		 * The meta object literal for the '<em><b>Failure Probability</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->

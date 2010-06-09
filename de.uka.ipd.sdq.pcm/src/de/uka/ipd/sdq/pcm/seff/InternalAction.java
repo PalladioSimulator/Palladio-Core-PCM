@@ -1,14 +1,14 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
 package de.uka.ipd.sdq.pcm.seff;
 
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +42,7 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
 	/**
 	 * Returns the value of the '<em><b>Failure Occurrence Descriptions</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getInternalAction_FailureOccurenceDescription <em>Internal Action Failure Occurence Description</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureOccurenceDescriptions <em>Failure Occurence Descriptions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Failure Occurrence Descriptions</em>' containment reference list isn't clear,
@@ -51,8 +51,8 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Failure Occurrence Descriptions</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getInternalAction_FailureOccurrenceDescriptions()
-	 * @see de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getInternalAction_FailureOccurenceDescription
-	 * @model opposite="internalAction_FailureOccurenceDescription" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.seff.FailureOccurrenceDescription#getFailureOccurenceDescriptions
+	 * @model opposite="failureOccurenceDescriptions" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<FailureOccurrenceDescription> getFailureOccurrenceDescriptions();

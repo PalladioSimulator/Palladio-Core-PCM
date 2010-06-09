@@ -1,5 +1,5 @@
 /**
- * Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany
+ * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
  *
  * $Id$
  */
@@ -7,9 +7,9 @@ package de.uka.ipd.sdq.pcm.usagemodel;
 
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.parameter.VariableSetter;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,9 +39,9 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall <em>Provided Role Entry Level System Call</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsages_EntryLevelSystemCall <em>Output Parameter Usages Entry Level System Call</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall <em>Input Parameter Usages Entry Level System Call</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOperationSignature__EntryLevelSystemCall <em>Operation Signature Entry Level System Call</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOutputVariableSetters__EntryLevelSystemCall <em>Output Variable Setters Entry Level System Call</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getInputVariableSetters__EntryLevelSystemCall <em>Input Variable Setters Entry Level System Call</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,24 +58,6 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Input Parameter Usages Entry Level System Call</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getEntryLevelSystemCall_VariableUsage <em>Entry Level System Call Variable Usage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Input Parameter Usages Entry Level System Call</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input Parameter Usages Entry Level System Call</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall()
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getEntryLevelSystemCall_VariableUsage
-	 * @model opposite="entryLevelSystemCall_VariableUsage" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<VariableUsage> getInputParameterUsages_EntryLevelSystemCall();
-
-	/**
 	 * Returns the value of the '<em><b>Provided Role Entry Level System Call</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -84,12 +66,12 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Role Entry Level System Call</em>' reference.
-	 * @see #setProvidedRole_EntryLevelSystemCall(ProvidedRole)
+	 * @see #setProvidedRole_EntryLevelSystemCall(OperationProvidedRole)
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ProvidedRole getProvidedRole_EntryLevelSystemCall();
+	OperationProvidedRole getProvidedRole_EntryLevelSystemCall();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall <em>Provided Role Entry Level System Call</em>}' reference.
@@ -99,50 +81,68 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 	 * @see #getProvidedRole_EntryLevelSystemCall()
 	 * @generated
 	 */
-	void setProvidedRole_EntryLevelSystemCall(ProvidedRole value);
+	void setProvidedRole_EntryLevelSystemCall(OperationProvidedRole value);
 
 	/**
-	 * Returns the value of the '<em><b>Signature Entry Level System Call</b></em>' reference.
+	 * Returns the value of the '<em><b>Operation Signature Entry Level System Call</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Signature Entry Level System Call</em>' reference isn't clear,
+	 * If the meaning of the '<em>Operation Signature Entry Level System Call</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Signature Entry Level System Call</em>' reference.
-	 * @see #setSignature_EntryLevelSystemCall(Signature)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_Signature_EntryLevelSystemCall()
+	 * @return the value of the '<em>Operation Signature Entry Level System Call</em>' reference.
+	 * @see #setOperationSignature__EntryLevelSystemCall(OperationSignature)
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_OperationSignature__EntryLevelSystemCall()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Signature getSignature_EntryLevelSystemCall();
+	OperationSignature getOperationSignature__EntryLevelSystemCall();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOperationSignature__EntryLevelSystemCall <em>Operation Signature Entry Level System Call</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Signature Entry Level System Call</em>' reference.
-	 * @see #getSignature_EntryLevelSystemCall()
+	 * @param value the new value of the '<em>Operation Signature Entry Level System Call</em>' reference.
+	 * @see #getOperationSignature__EntryLevelSystemCall()
 	 * @generated
 	 */
-	void setSignature_EntryLevelSystemCall(Signature value);
+	void setOperationSignature__EntryLevelSystemCall(OperationSignature value);
 
 	/**
-	 * Returns the value of the '<em><b>Output Parameter Usages Entry Level System Call</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getEntryLevelSystemCall_OutputParameterUsage <em>Entry Level System Call Output Parameter Usage</em>}'.
+	 * Returns the value of the '<em><b>Output Variable Setters Entry Level System Call</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableSetter}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getEntryLevelSystemCall__OutputVariableSetter <em>Entry Level System Call Output Variable Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output Parameter Usages Entry Level System Call</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Output Variable Setters Entry Level System Call</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output Parameter Usages Entry Level System Call</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall()
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getEntryLevelSystemCall_OutputParameterUsage
-	 * @model opposite="entryLevelSystemCall_OutputParameterUsage" containment="true" ordered="false"
+	 * @return the value of the '<em>Output Variable Setters Entry Level System Call</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_OutputVariableSetters__EntryLevelSystemCall()
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getEntryLevelSystemCall__OutputVariableSetter
+	 * @model opposite="entryLevelSystemCall__OutputVariableSetter" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<VariableUsage> getOutputParameterUsages_EntryLevelSystemCall();
+	EList<VariableSetter> getOutputVariableSetters__EntryLevelSystemCall();
+
+	/**
+	 * Returns the value of the '<em><b>Input Variable Setters Entry Level System Call</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableSetter}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableSetter#getEntryLevelSystemCall__InputVariableSetter <em>Entry Level System Call Input Variable Setter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Input Variable Setters Entry Level System Call</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Input Variable Setters Entry Level System Call</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_InputVariableSetters__EntryLevelSystemCall()
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableSetter#getEntryLevelSystemCall__InputVariableSetter
+	 * @model opposite="entryLevelSystemCall__InputVariableSetter" containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<VariableSetter> getInputVariableSetters__EntryLevelSystemCall();
 
 } // EntryLevelSystemCall

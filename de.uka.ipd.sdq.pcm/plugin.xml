@@ -37,6 +37,19 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0"
+            class="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"
+            genModel="model/pcm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="composition"
+            class="de.uka.ipd.sdq.pcm.core.composition.util.CompositionResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/4.0"
             class="de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage"
             genModel="model/pcm.genmodel"/>
@@ -50,15 +63,15 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0"
-            class="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0"
+            class="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            type="composition"
-            class="de.uka.ipd.sdq.pcm.core.composition.util.CompositionResourceFactoryImpl"/>
+            type="usagemodel"
+            class="de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -141,45 +154,6 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0"
-            class="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"
-            genModel="model/pcm.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <parser
-            type="allocation"
-            class="de.uka.ipd.sdq.pcm.allocation.util.AllocationResourceFactoryImpl"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0"
-            class="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"
-            genModel="model/pcm.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <parser
-            type="resourceenvironment"
-            class="de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentResourceFactoryImpl"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0"
-            class="de.uka.ipd.sdq.pcm.system.SystemPackage"
-            genModel="model/pcm.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <parser
-            type="system"
-            class="de.uka.ipd.sdq.pcm.system.util.SystemResourceFactoryImpl"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/4.0"
             class="de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage"
             genModel="model/pcm.genmodel"/>
@@ -219,15 +193,41 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0"
-            class="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0"
+            class="de.uka.ipd.sdq.pcm.system.SystemPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            type="usagemodel"
-            class="de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceFactoryImpl"/>
+            type="system"
+            class="de.uka.ipd.sdq.pcm.system.util.SystemResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0"
+            class="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"
+            genModel="model/pcm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="resourceenvironment"
+            class="de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0"
+            class="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"
+            genModel="model/pcm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="allocation"
+            class="de.uka.ipd.sdq.pcm.allocation.util.AllocationResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
