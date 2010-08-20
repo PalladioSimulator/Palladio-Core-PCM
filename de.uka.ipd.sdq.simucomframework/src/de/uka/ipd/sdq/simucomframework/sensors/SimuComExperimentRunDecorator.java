@@ -33,7 +33,7 @@ public class SimuComExperimentRunDecorator extends Observable implements
 			setChanged();
 			notifyObservers(arg0);
 			decoratedRun.addMeasurement(arg0);
-	}
+		}
 	}
 
 	public StateMeasurement addStateMeasurement(StateSensor arg0, State arg1,
@@ -59,12 +59,30 @@ public class SimuComExperimentRunDecorator extends Observable implements
 		} else
 			return null;
 	}
-	
+
+	public StateMeasurement addStateMeasurementAfterRun(StateSensor arg0,
+			State arg1, double arg2) {
+		StateMeasurement measurement = decoratedRun.addStateMeasurement(arg0,
+				arg1, arg2);
+		setChanged();
+		notifyObservers(measurement);
+		return measurement;
+	}
+
+	public TimeSpanMeasurement addTimeSpanMeasurementAfterRun(
+			TimeSpanSensor arg0, double arg1, double arg2) {
+		TimeSpanMeasurement measurement = decoratedRun.addTimeSpanMeasurement(
+				arg0, arg1, arg2);
+		setChanged();
+		notifyObservers(new DecoratorTimeSpanMeasurement(arg0, arg1, arg2));
+		return measurement;
+	}
+
 	public ScalabilityMeasurement addScalabilityMeasurement(
 			ScalabilitySensor arg0, Double[] arg1, double arg2) {
 		if (model.getSimulationControl().isRunning()) {
 			ScalabilityMeasurement measurement = decoratedRun
-					.addScalabilityMeasurement(arg0, arg1, arg2); 
+					.addScalabilityMeasurement(arg0, arg1, arg2);
 			setChanged();
 			notifyObservers(measurement);
 			return measurement;
@@ -96,17 +114,16 @@ public class SimuComExperimentRunDecorator extends Observable implements
 		decoratedRun.setExperimentRunID(arg0);
 	}
 
-	
 	public class DecoratorMeasurement {
-		
+
 		protected double eventTime;
-		
+
 		protected Sensor sensor;
 
 		public DecoratorMeasurement(Sensor sensor, double eventTime) {
 			this.eventTime = eventTime;
 			this.sensor = sensor;
-}
+		}
 
 		public double getEventTime() {
 			return eventTime;
@@ -123,14 +140,15 @@ public class SimuComExperimentRunDecorator extends Observable implements
 		public void setSensor(Sensor sensor) {
 			this.sensor = sensor;
 		}
-		
+
 	}
-	
+
 	public class DecoratorTimeSpanMeasurement extends DecoratorMeasurement {
-		
+
 		private double timeSpan;
 
-		public DecoratorTimeSpanMeasurement(Sensor sensor, double eventTime, double timeSpan) {
+		public DecoratorTimeSpanMeasurement(Sensor sensor, double eventTime,
+				double timeSpan) {
 			super(sensor, eventTime);
 			this.timeSpan = timeSpan;
 		}
@@ -142,7 +160,7 @@ public class SimuComExperimentRunDecorator extends Observable implements
 		public void setTimeSpan(double timeSpan) {
 			this.timeSpan = timeSpan;
 		}
-		
+
 	}
-	
+
 }

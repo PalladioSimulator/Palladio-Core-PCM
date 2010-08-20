@@ -6,6 +6,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.URI;
 
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
 
 /**
  * @author roman
@@ -44,7 +45,6 @@ public class SimuComConfig implements Serializable {
 	private boolean simulateFailures = false;
 	private boolean simulateLinkingResources = false;
 	private long datasourceID;
-	private Integer runNumber;
 	private Long maxMeasurementsCount;
 	private boolean isDebug;
 	private long[] randomSeed = null;
@@ -54,6 +54,8 @@ public class SimuComConfig implements Serializable {
 	private int confidenceHalfWidth = 0;
 	private URI confidenceModelElementURI;
 	private String confidenceModelElementName;
+
+	private ExperimentRunDescriptor descriptor = null;
 
 	/**
 	 * @param configuration a map which maps configuration option IDs to their values. 
@@ -66,7 +68,7 @@ public class SimuComConfig implements Serializable {
 	 * SimuComConfig.CONFIDENCE_MODELELEMENT_NAME, SimuComConfig.CONFIDENCE_MODELELEMENT_URI 
 	 * 
 	 */
-	public SimuComConfig(Map<String,Object> configuration, int runNo, boolean debug){
+	public SimuComConfig(Map<String,Object> configuration, boolean debug){
 		try {
 			this.nameExperimentRun = (String) configuration.get(
 					EXPERIMENT_RUN);
@@ -78,7 +80,6 @@ public class SimuComConfig implements Serializable {
 					VERBOSE_LOGGING);
 			this.datasourceID = (Integer)configuration.get(
 					DATASOURCE_ID);
-			this.runNumber = runNo;
 			this.isDebug = debug;
 			this.randomSeed = getSeedFromConfig(configuration);
 			
@@ -112,7 +113,7 @@ public class SimuComConfig implements Serializable {
 			throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
 		}
 	}
-
+	
 	private long[] getSeedFromConfig(Map<String,Object> configuration) {
 		if ((Boolean)configuration.get(USE_FIXED_SEED)) {
 			long[] seed = new long[6];
@@ -125,7 +126,14 @@ public class SimuComConfig implements Serializable {
 	}
 	
 	public String getNameExperimentRun() {
-		return nameExperimentRun + " RunNo. "+runNumber;
+		if(descriptor != null) {
+			return descriptor.getNameExperimentRun();
+		}
+		return getNameBase();
+	}
+	
+	public String getNameBase() {
+		return nameExperimentRun;
 	}
 
 	public long getSimuTime() {
@@ -186,5 +194,36 @@ public class SimuComConfig implements Serializable {
 		}
 		return randomNumberGenerator;
 	}
+	
+	public void setExperimentRunDescriptor(ExperimentRunDescriptor descriptor){
+		this.descriptor  = descriptor;
+	}
+	
+	public ExperimentRunDescriptor getExperimentRunDescriptor(){
+		return descriptor;
+	}
 
+	private SimuComConfig() {
+	}
+
+	public SimuComConfig copy(ExperimentRunDescriptor descriptor) {
+		SimuComConfig result = new SimuComConfig();
+		
+		result.descriptor = descriptor;
+		result.nameExperimentRun = this.nameExperimentRun;
+		result.confidenceHalfWidth = this.confidenceHalfWidth;
+		result.confidenceLevel = this.confidenceLevel;
+		result.confidenceModelElementName = this.confidenceModelElementName;
+		result.confidenceModelElementURI = this.confidenceModelElementURI;
+		result.datasourceID = this.datasourceID;
+		result.isDebug = this.isDebug;
+		result.maxMeasurementsCount = this.maxMeasurementsCount;
+		result.randomSeed = this.randomSeed;
+		result.simulateFailures = this.simulateFailures;
+		result.simulateLinkingResources = this.simulateLinkingResources;
+		result.simuTime = this.simuTime;
+		result.useConfidence = this.useConfidence;
+		result.verboseLogging = this.verboseLogging;
+		return result;
+	}
 }

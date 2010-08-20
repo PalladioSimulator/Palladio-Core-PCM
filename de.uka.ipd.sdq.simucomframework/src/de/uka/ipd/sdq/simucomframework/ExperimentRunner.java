@@ -30,13 +30,7 @@ public class ExperimentRunner {
 		
 		model.getSimulationControl().start();
 		
-		model.getResourceRegistry().deactivateAllActiveResources();
-		model.getResourceRegistry().deactivateAllPassiveResources();
-
-		model.getDAOFactory().store();
-
-		double elapsedTime = System.nanoTime() - startTime;
-		return elapsedTime;
+		return System.nanoTime() - startTime;
 	}
 
 	/**

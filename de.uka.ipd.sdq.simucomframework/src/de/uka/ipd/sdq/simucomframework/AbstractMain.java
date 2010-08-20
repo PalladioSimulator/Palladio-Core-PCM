@@ -5,11 +5,16 @@ import java.util.Observer;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
+import de.uka.ipd.sdq.simucomframework.sensors.SensorHelper;
+import de.uka.ipd.sdq.simucomframework.sensors.SimuComExperimentRunDecorator;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
+import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
+import de.uka.ipd.sdq.workflow.pcm.runconfig.ParameterDescriptor;
 
 /**
  * Base class for simulation instances. It contains a generic simulation start
@@ -75,8 +80,8 @@ implements
 				
 		final long SIM_STOP_TIME = config.getSimuTime();
 		
-		model = 
-			SimuComFactory.getSimuComModel(config,getStatus(),isRemoteRun); 
+		model = SimuComFactory.getSimuComModel(config,getStatus(),isRemoteRun); 
+		
 		model.initialiseResourceContainer(getResourceContainerFactory());
 		model.setUsageScenarios(getWorkloads());
 		model.getSimulationControl().addTimeObserver(new Observer(){
@@ -95,11 +100,46 @@ implements
 		double simRealTime = ExperimentRunner.run(model, SIM_STOP_TIME);
 		logger.info("Simulation stopped. It took "+(simRealTime/Math.pow(10,9))+" seconds real time to terminate");
 		logger.debug("Flushing simulation data store");
+		
+		storeRunDescription(config.getExperimentRunDescriptor());
+		
 		model.getDAOFactory().store();
+		
 		model.getConfig().getRandomGenerator().dispose();
 		return model.getErrorStatus();
 	}
 	
+	/**
+	 * TODO: Where to put this code?
+	 * 
+	 * If a sensitivity analysis has been conducted we need to store the current parameter values.
+	 * @param descriptor
+	 * @param run
+	 */
+	private void storeRunDescription(
+			ExperimentRunDescriptor descriptor) {
+		if (descriptor == null) return;
+		
+		// TODO: Save data in clean model after migration to EDP2
+		for(ParameterDescriptor p : descriptor.getParameters()){
+			TimeSpanSensor s = createSensor(p.getName());
+			storeValue(s, p.getValue());
+		}
+		
+	}
+
+	private void storeValue(TimeSpanSensor s, double value) {
+		if (model.getCurrentExperimentRun() instanceof SimuComExperimentRunDecorator){
+			SimuComExperimentRunDecorator erd = (SimuComExperimentRunDecorator) model.getCurrentExperimentRun();
+			erd.addTimeSpanMeasurementAfterRun(s, 0, value);
+		}
+
+	}
+
+	private TimeSpanSensor createSensor(String name) {
+		return SensorHelper.createOrReuseTimeSensor(model.getDAOFactory(), model.getExperimentDatastore(), name);
+	}
+
 	/**
 	 * Setup log4j
 	 * @param config SimuCom config which is queried for the logging settings

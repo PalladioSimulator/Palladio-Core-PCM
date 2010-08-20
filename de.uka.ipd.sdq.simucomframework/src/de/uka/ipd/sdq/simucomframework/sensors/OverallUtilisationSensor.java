@@ -26,10 +26,13 @@ public class OverallUtilisationSensor {
 	}
 	
 	public void setTotalResourceDemand(double resourceDemand, int numberOfCores){
-		double totalTime = simulationControl.getCurrentSimulationTime()*numberOfCores;		
-		experimentRun.addStateMeasurement(this.sensor, busy, 0);
-		experimentRun.addStateMeasurement(this.sensor, idle, resourceDemand);
-		experimentRun.addStateMeasurement(this.sensor, busy, totalTime);
+		double totalTime = simulationControl.getCurrentSimulationTime()*numberOfCores;
+		if (experimentRun instanceof SimuComExperimentRunDecorator){
+			SimuComExperimentRunDecorator erd = (SimuComExperimentRunDecorator) experimentRun;
+			erd.addStateMeasurementAfterRun(this.sensor, busy, 0);
+			erd.addStateMeasurementAfterRun(this.sensor, idle, resourceDemand);
+			erd.addStateMeasurementAfterRun(this.sensor, busy, totalTime);
+		}
 	}
 	
 	public StateSensor getSensor(){
