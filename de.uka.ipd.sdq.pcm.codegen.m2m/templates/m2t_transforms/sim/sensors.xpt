@@ -1,0 +1,22 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+«DEFINE StartResponseTimeMeasurement FOR String»
+	// Take current time
+	de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().getSampleBlackboard().addSample(
+		de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils.buildProbeSetSample(
+			de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().getProbeStrategyRegistry().getProbeStrategy(
+				de.uka.ipd.sdq.probespec.framework.ProbeType.CURRENT_TIME, null).takeSample(
+					"start«this»", ctx.getModel().getSimulationControl()),
+						ctx.getThread().getRequestContext(), "«this»", de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().obtainProbeSetId("start«this»")));
+«ENDDEFINE»
+
+«DEFINE EndResponseTimeMeasurement FOR String»
+	// Take current time
+	de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().getSampleBlackboard().addSample(
+		de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils.buildProbeSetSample(
+			de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().getProbeStrategyRegistry().getProbeStrategy(
+				de.uka.ipd.sdq.probespec.framework.ProbeType.CURRENT_TIME, null).takeSample(
+					"end«this»", ctx.getModel().getSimulationControl()),
+						ctx.getThread().getRequestContext(), "«this»", de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().obtainProbeSetId("end«this»")));
+«ENDDEFINE»

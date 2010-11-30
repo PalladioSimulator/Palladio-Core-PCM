@@ -1,0 +1,181 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT core::composition»
+«IMPORT usagemodel»
+«IMPORT core::entity»
+«IMPORT repository»
+«IMPORT parameter»
+«IMPORT seff»
+
+«DEFINE PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) FOR OperationSignature»
+	«IF ExternalCallAction.isInstance(call)»	
+		«LET (ExternalCallAction)call AS externalCall»
+			«LET externalCall.id.javaVariableName() AS id»
+		//start handling potential failures
+				«LET javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature()) AS triesVar»
+		int «triesVar» = 1 + «externalCall.retryCount»; //The call plus the retries
+		//Execute the external call until it succeeds or the maximal try count is exeeded.
+		for(int retries=0; retries<«triesVar»; ++retries) {
+					«EXPAND m2t_transforms::seff::InitFailureHandling(id) FOR externalCall»	
+			try { // needs to be closed after the call in PostCall
+				«ENDLET»
+			«ENDLET»
+		«ENDLET»
+		    // end of failure handling before the call
+			
+			// If the call goes over network, simulate the possibility of a communication link failure.
+			// This only works in case that the "simulate linking resources" option is deactivated.
+			if ((ctx.getModel().getConfig().getSimulateFailures()) && (!ctx.getModel().getConfig().getSimulateLinkingResources())) {
+				de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer fromContainer = null;
+				de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer toContainer = null;
+				try {
+					fromContainer = ctx.findResource(this.assemblyContextID);
+					toContainer = ctx.findResource(«prefix»getComponentAssemblyContextID());
+		   		} catch (de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound exception) {
+					// If the call is system external, no target resource container will be found.
+			    	// In this case, assume there is no possibility for comm link failures.
+		   		}
+				if ((fromContainer != null) && (toContainer != null) && (!fromContainer.getResourceContainerID().equals(toContainer.getResourceContainerID()))) {
+					String linkingResourceID = main.ResourceEnvironment.getInstance().getLinkingResourceContainerID(fromContainer.getResourceContainerID(), toContainer.getResourceContainerID());
+					if (linkingResourceID == null) {
+						linkingResourceID = main.ResourceEnvironment.getInstance().getLinkingResourceContainerID(toContainer.getResourceContainerID(), fromContainer.getResourceContainerID());
+					}
+					// If the linkingResourceID is NULL, we have to assume that no linking
+					// resource has been specified. In this case, we assume a perfect link
+					// that never fails.
+					if (linkingResourceID != null) {
+						de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer linkingContainer = ctx.findLinkingResource(linkingResourceID);
+						double failureProbability = linkingContainer.getActiveResources().iterator().next().getFailureProbability();
+						if ((failureProbability > 0.0) && (Math.random() < failureProbability)) {
+   		   		   			de.uka.ipd.sdq.simucomframework.exceptions.EnvironmentFailureException.raise("LAN");
+  						}
+  					}
+  		   		}
+			}
+	«ENDIF»	
+	«EXPAND GenericPreCall(call,parameterUsages) FOR this»	
+«ENDDEFINE»
+
+«REM»This generic pre call does not include simulation of network failures. «ENDREM»
+«DEFINE GenericPreCall(Object call,List[VariableUsage] parameterUsages) FOR OperationSignature»
+	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
+	«IF ExternalCallAction.isInstance(call)»
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Call "+this.interface__OperationSignature.entityName+"."+this.javaSignature()+" <Component: "+((ExternalCallAction)call).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">"»
+	«ELSE»
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()+" <EntryLevelSystemCall id: "+((Entity)call).id+" >"»
+	«ENDIF»		
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> callResult =	
+«ENDDEFINE»
+
+«DEFINE PrepareSimulatedStackFrame(List[VariableUsage] parameterUsages) FOR Signature»
+	// Start Simulate an external call
+	try{
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> currentFrame = ctx.getStack().currentStackFrame();
+	// prepare stackframe
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> stackframe = ctx.getStack().createAndPushNewStackFrame();
+	«FOREACH parameterUsages AS pu»
+		«LET pu.parameterUsageLHS() AS lhs_prefix»
+			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+				«IF pu.namedReference__VariableUsage.isInnerReference()»
+					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",currentFrame.copyFrame()));
+				«ELSE»
+					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»",currentFrame));
+				«ENDIF»
+			«ENDFOREACH»
+		«ENDLET»
+	«ENDFOREACH» 
+«ENDDEFINE»
+«DEFINE TidySimulatedStackFrame FOR Signature»
+ 	ctx.getStack().removeStackFrame();
+«ENDDEFINE»
+
+«REM»This generic post call does not include simulation of network failures. «ENDREM»
+«DEFINE GenericPostCall(Object call, List[VariableUsage] outParameterUsages) FOR OperationSignature»
+	// Stop the time measurement
+	«IF ExternalCallAction.isInstance(call)»
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Call "+this.interface__OperationSignature.entityName+"."+this.javaSignature()+" <Component: "+((ExternalCallAction)call).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">"»
+	«ELSE»
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()+" <EntryLevelSystemCall id: "+((Entity)call).id+" >"»
+	«ENDIF»		
+
+	«FOREACH outParameterUsages AS pu»
+		«LET pu.parameterUsageLHS() AS lhs_prefix»
+			// Copy out parameter «lhs_prefix» to local stack frame
+			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+				«IF pu.namedReference__VariableUsage.isInnerReference()»
+					methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult.copyFrame()));
+				«ELSE»
+					methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult));
+				«ENDIF»
+			«ENDFOREACH»
+		«ENDLET»
+	«ENDFOREACH» 
+	}
+	finally
+	{
+		«EXPAND TidySimulatedStackFrame FOR this»
+	}
+	// END Simulate an external call
+«ENDDEFINE»
+
+«DEFINE PostCall(Object call, String prefix, List[VariableUsage] outParameterUsages) FOR OperationSignature»
+	«EXPAND GenericPostCall(call,outParameterUsages) FOR this»
+	«IF ExternalCallAction.isInstance(call)»
+		// If the return comes over network, simulate the possibility of a communication link failure.
+		// This only works in case that the "simulate linking resources" option is deactivated.
+		if ((ctx.getModel().getConfig().getSimulateFailures()) && (!ctx.getModel().getConfig().getSimulateLinkingResources())) {
+			de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer fromContainer = null;
+			de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer toContainer = null;
+			try {
+				fromContainer = ctx.findResource(this.assemblyContextID);
+				toContainer = ctx.findResource(«prefix»getComponentAssemblyContextID());
+		   	} catch (de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound exception) {
+				// If the call is system external, no target resource container will be found.
+			    // In this case, assume there is no possibility for comm link failures.
+		   	}
+			if ((fromContainer != null) && (toContainer != null) && (!fromContainer.getResourceContainerID().equals(toContainer.getResourceContainerID()))) {
+				String linkingResourceID = main.ResourceEnvironment.getInstance().getLinkingResourceContainerID(fromContainer.getResourceContainerID(), toContainer.getResourceContainerID());
+				if (linkingResourceID == null) {
+					linkingResourceID = main.ResourceEnvironment.getInstance().getLinkingResourceContainerID(toContainer.getResourceContainerID(), fromContainer.getResourceContainerID());
+				}
+				// If the linkingResourceID is NULL, we have to assume that no linking
+				// resource has been specified. In this case, we assume a perfect link
+				// that never fails.
+				if (linkingResourceID != null) {
+					de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer linkingContainer = ctx.findLinkingResource(linkingResourceID);
+					double failureProbability = linkingContainer.getActiveResources().iterator().next().getFailureProbability();
+					if ((failureProbability > 0.0) && (Math.random() < failureProbability)) {
+   		   		   		de.uka.ipd.sdq.simucomframework.exceptions.EnvironmentFailureException.raise("LAN");
+  					}
+  				}
+  		    }
+		}
+		
+		//Start failure handling section
+		break; // success, go on.
+    	} // end of try block from the pre cal failure handling section
+    	«LET (ExternalCallAction)call AS externalCall»
+    		«LET externalCall.id.javaVariableName() AS id»
+    			«LET javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature()) AS triesVar»
+    				«EXPAND m2t_transforms::seff::CatchFailureExceptions(id) FOR externalCall-»
+ 		if(failureException_«id» != null) { // failure occurred
+ 			if(!(«EXPAND m2t_transforms::seff::CheckIfExceptionIsHandled(id) FOR externalCall-»)) //is this failure type handled?
+ 				throw failureException_«id»;
+			if(retries == «triesVar»-1) { // retry count exceeded?
+			 	//yes, could not be handled => failure
+				throw failureException_«id»;
+			}
+		}	
+		de.uka.ipd.sdq.simucomframework.exceptions.FailureStatistics.getInstance().increaseHandledFailureCounter(failureException_«id».getFailureType()); //count handled failure
+				«ENDLET»
+			«ENDLET»
+		«ENDLET»
+	}
+	// End failure handling section. 
+	«ENDIF»	
+«ENDDEFINE»

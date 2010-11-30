@@ -1,0 +1,165 @@
+import core::entity;
+import repository;
+import seff;
+import system;
+import core::composition;
+import usagemodel;
+import parameter;
+import stoex;
+import completions;
+import emf;
+import reliability;
+
+findStart(List[AbstractAction] actions) :
+   actions.typeSelect(StartAction).first();
+   
+connectors(ComposedStructure s) : 
+   s.assemblyConnectors_ComposedStructure;
+
+test(AssemblyConnector c, AssemblyContext ctx, RequiredRole r):
+   c.requiredRole_AssemblyConnector.id == r.id && c.requiringAssemblyContext_AssemblyConnector.id == ctx.id;
+
+hasConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+   connectors(s).select(con|test(con,ctx,r)).size == 1; 
+   
+getConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+   connectors(s).select(con|test(con,ctx,r)).get(0); 
+
+hasProvidedDelegationConnector(ComposedStructure s, ProvidedRole p) :
+   s.providedDelegationConnectors_ComposedStructure.select(dc|dc.outerProvidedRole_ProvidedDelegationConnector == p).size == 1;
+   
+getProvidedDelegationConnector(ComposedStructure s, ProvidedRole p) :
+   s.providedDelegationConnectors_ComposedStructure.select(dc|dc.outerProvidedRole_ProvidedDelegationConnector == p).get(0);
+   
+hasRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+   s.requiredDelegationConnectors_ComposedStructure.select(dc|dc.innerRequiredRole_RequiredDelegationConnector ==  r).size == 1;    
+   
+getRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+   s.requiredDelegationConnectors_ComposedStructure.select(dc|dc.innerRequiredRole_RequiredDelegationConnector ==  r).get(0);  
+   
+List[EntryLevelSystemCall] querySytemCallsInLoops(ScenarioBehaviour scenBe):
+	scenBe.actions_ScenarioBehaviour.typeSelect(Loop).collect(l|querySystemCalls(l.bodyBehaviour_Loop)).flatten();
+
+List[EntryLevelSystemCall] querySytemCallsInBraches(ScenarioBehaviour scenBe):
+	scenBe.actions_ScenarioBehaviour.typeSelect(Branch).collect(b|b.branchTransitions_Branch.branchedBehaviour_BranchTransition.querySystemCalls()).flatten();
+	
+List[EntryLevelSystemCall] querySystemCalls(ScenarioBehaviour scenBe) :
+  scenBe.actions_ScenarioBehaviour.typeSelect(EntryLevelSystemCall).
+  union(scenBe.querySytemCallsInLoops()).
+  union(scenBe.querySytemCallsInBraches());
+
+querySystemCalls(UsageScenario us) :
+  querySystemCalls(us.scenarioBehaviour_UsageScenario);
+  
+getID(VariableReference vr) :
+  vr.referenceName;
+
+getID(AbstractNamedReference nsr):
+  'this is never called';
+  
+getID(NamespaceReference nsr):
+  nsr.referenceName + '.' + nsr.innerReference_NamespaceReference.getID();
+
+parameterUsageLHS(VariableUsage vu) :
+  vu.namedReference__VariableUsage.getID();
+  
+isInnerReference(VariableReference vr) :
+  vr.referenceName == "INNER";
+
+isInnerReference(AbstractNamedReference nsr):
+  false;
+  
+isInnerReference(NamespaceReference nsr):
+  nsr.referenceName == "INNER" || nsr.innerReference_NamespaceReference.isInnerReference();
+  
+collectRepositories(System s):
+  s.assemblyContexts_ComposedStructure.encapsulatedComponent_AssemblyContext.collectRepositories().
+  	union(s.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole).collectRepositories()).
+  	union(s.requiredRoles_InterfaceRequiringEntity.typeSelect(OperationRequiredRole).collectRepositories()).toSet();
+  
+collectRepositories(OperationProvidedRole pr):
+	pr.providedInterface__OperationProvidedRole.repository_Interface;
+	
+collectRepositories(OperationRequiredRole rr):
+	rr.requiredInterface__OperationRequiredRole.repository_Interface;
+	
+collectRepositories(RepositoryComponent pct):
+	pct.repository_RepositoryComponent;
+	
+collectRepositories(CompositeComponent cc):
+	cc.assemblyContexts_ComposedStructure.encapsulatedComponent_AssemblyContext.collectRepositories().addAll(
+		{cc.repository_RepositoryComponent});
+		
+collectRepositories(InterfaceProvidingRequiringEntity pct):
+	null;
+		
+hasSEFF(Signature service, RepositoryComponent c):
+	!BasicComponent.isInstance(c) ? false : ((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).size > 0;
+	
+getSEFF(Signature service, RepositoryComponent c):
+	((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).get(0);
+	
+getAllCompletions(ComposedStructure s):
+	s.assemblyContexts_ComposedStructure.encapsulatedComponent_AssemblyContext.typeSelect(Completion).
+		 union(s.assemblyContexts_ComposedStructure.encapsulatedComponent_AssemblyContext.
+		 		select(comp|comp != null && ComposedStructure.isInstance(comp) && !Completion.isInstance(comp)).
+		 		typeSelect(ComposedStructure).collect(cs|cs.getAllCompletions()));
+		 		
+AbstractAction findStopAction(AbstractAction a):
+	StopAction.isInstance(a) ? a : (a.successor_AbstractAction != null ? findStopAction(a.successor_AbstractAction) : null);
+
+AbstractUserAction findStop(AbstractUserAction a):
+	Stop.isInstance(a) ? a : (a.successor != null ? findStop(a.successor) : null);
+	
+List[InterfaceProvidingEntity] getProvidingEntities(List[ProvidedRole] pr) :
+	getProvidingEntitiesRecursive(pr,0);
+	
+List[InterfaceProvidingEntity] getProvidingEntitiesRecursive(List[ProvidedRole] pr, int i) :
+	i < pr.size
+		? (getProvidingEntitiesRecursive(pr,i+1).contains(pr.get(i).providingEntity_ProvidedRole) ? getProvidingEntitiesRecursive(pr,i+1) : getProvidingEntitiesRecursive(pr,i+1).union({pr.get(i).providingEntity_ProvidedRole}) ) 
+		: {};
+		
+BasicComponent findContainerComponent(EObject o) :
+	BasicComponent.isInstance(o) ? o : o.eContainer.findContainerComponent();
+	
+List[System] uniqueSystemList(List[System] s) :
+	recursiveList(s,{},0);
+	
+List[System] recursiveList(List[System] s, List[System] result, int pos):
+	pos < s.size ? (result.contains(s.get(pos)) ? recursiveList(s,result,pos+1) : recursiveList(s,(List[System])result.union({s.get(pos)}).toList(),pos+1)) : result; 
+
+List[ExternalCallAction] queryExternalCallActions(AbstractAction a, List[ExternalCallAction] result):
+	a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result) : result;
+	
+List[ExternalCallAction] queryExternalCallActions(ExternalCallAction a, List[ExternalCallAction] result):
+	a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result.add(a).toList()) : result;
+
+List[ExternalCallAction] queryExternalCallActions(BranchAction a, List[ExternalCallAction] result):
+	queryExternalCallActions(a.branches_Branch, result) 
+			-> a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result) : result;
+	
+List[ExternalCallAction] queryExternalCallActions(List[AbstractBranchTransition] list, List[ExternalCallAction] result):
+	list.size > 0 ? (queryExternalCallActions(list.first().branchBehaviour_BranchTransition.steps_Behaviour.findStart(), result) 
+					-> queryExternalCallActions(list.withoutFirst(), result)) : result;
+	
+List[ExternalCallAction] queryExternalCallActions(AbstractLoopAction a, List[ExternalCallAction] result):
+	queryExternalCallActions(a.bodyBehaviour_Loop.steps_Behaviour.findStart(), result) 
+			-> a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result) : result;
+			
+List[ExternalCallAction] queryExternalCallActions(ForkAction a, List[ExternalCallAction] result):
+	queryExternalCallActionsForkedBehaviour(a.asynchronousForkedBehaviours_ForkAction, result)
+			 -> (a.synchronisingBehaviours_ForkAction != null ? queryExternalCallActions(a.synchronisingBehaviours_ForkAction, result) : {})
+			-> a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result) : result;
+
+List[ExternalCallAction] queryExternalCallActions(SynchronisationPoint p, List[ExternalCallAction] result):
+	queryExternalCallActionsForkedBehaviour(p.synchronousForkedBehaviours_SynchronisationPoint, result);
+
+List[ExternalCallAction] queryExternalCallActionsForkedBehaviour(List[ForkedBehaviour] list, List[ExternalCallAction] result):
+	list.size > 0 ? (queryExternalCallActions(list.first(), result) 
+					-> queryExternalCallActionsForkedBehaviour(list.withoutFirst(), result)) : result;
+
+List[ExternalCallAction] queryExternalCallActions(ForkedBehaviour b, List[ExternalCallAction] result):
+	queryExternalCallActions(b.steps_Behaviour.findStart(), result);
+
+RecoveryBlockAlternativeBehaviour findPrimaryAlterantive(List[RecoveryBlockAlternativeBehaviour] behaviours):
+	behaviours.selectFirst(b| behaviours.forAll(s| s.nextAlternative_RecoveryBlockAlternativeBehaviour != b));

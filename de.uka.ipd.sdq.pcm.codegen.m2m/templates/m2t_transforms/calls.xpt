@@ -1,0 +1,37 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT core::composition»
+«IMPORT usagemodel»
+«IMPORT core::entity»
+«IMPORT repository»
+«IMPORT parameter»
+«IMPORT seff»
+
+//-----------------------------------
+// Templates for the call to an external method
+// An instance of a port can be passed as prefix
+// The list of parameter usages characterises the paramter contents
+// ----------------------------------
+«DEFINE Call(Entity call, String prefix, List[VariableUsage] parameterUsages, List[VariableUsage] outParameterUsages) FOR OperationSignature»
+	«EXPAND PreCallTM(call, prefix, parameterUsages) FOR this»
+   	«prefix»«this.javaSignature()» 
+	   	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+	«EXPAND PostCallTM(call, prefix, outParameterUsages) FOR this»
+«ENDDEFINE»
+
+
+// ----------------------------------
+// Template method for code to be executed before 
+// an external call
+// ----------------------------------
+«DEFINE PreCallTM(Entity call, String prefix, List[VariableUsage] parameterUsages) FOR OperationSignature»
+«ENDDEFINE»
+
+
+// ----------------------------------
+// Template method for code to be executed after 
+// an external call
+// ----------------------------------
+«DEFINE PostCallTM(Entity call, String prefix, List[VariableUsage] outParameterUsages) FOR OperationSignature»
+«ENDDEFINE»
