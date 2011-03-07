@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Datatypes Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes
-Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: sdq.ipd.uka.de
-Export-Package: de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes
-Require-Bundle: org.apache.log4j;bundle-version="1.2.13"

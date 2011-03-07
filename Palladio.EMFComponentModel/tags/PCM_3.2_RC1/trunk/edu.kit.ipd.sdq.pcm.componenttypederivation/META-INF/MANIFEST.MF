@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Component Type Derivation Plug-In
-Bundle-SymbolicName: edu.kit.ipd.sdq.pcm.componenttypederivation
-Bundle-Version: 1.0.0
-Bundle-Vendor: 

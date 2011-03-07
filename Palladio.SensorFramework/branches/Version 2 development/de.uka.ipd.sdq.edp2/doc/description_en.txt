@@ -1,2 +1,0 @@
-This plug-in project contains the implementation of EDP2.
-See other files in this directory as well as the package documentations for more information.

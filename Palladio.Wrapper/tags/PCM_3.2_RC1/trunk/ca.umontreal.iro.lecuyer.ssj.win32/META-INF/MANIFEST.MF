@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Win32 Fragment
-Bundle-SymbolicName: ca.umontreal.iro.lecuyer.ssj.win32
-Bundle-Version: 1.2.2
-Bundle-Vendor: sdq.ipd.uka.de
-Fragment-Host: ca.umontreal.iro.lecuyer.ssj;bundle-version="1.2.2"
-Eclipse-PlatformFilter: (& (osgi.ws=win32) (osgi.os=win32) (osgi.arch=x86))

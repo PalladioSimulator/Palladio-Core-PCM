@@ -1,3 +1,0 @@
-in PCM 3.1, there seems to be a bug with generating derived attributes. 
-Make sure to first load the genmodel, then open the created ecore model 
-and set transient:=true for the derived attributes or references.  

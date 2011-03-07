@@ -1,1 +1,0 @@
-This plugins contains jobs and other classes that are specific to the PCM metamodel: model loading, model validation, workflow configuration and builder, and the PCMResourceSetPartition 
