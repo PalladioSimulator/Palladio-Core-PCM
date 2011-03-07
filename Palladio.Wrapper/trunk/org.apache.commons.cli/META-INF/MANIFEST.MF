@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.apache.commons.cli
+Bundle-SymbolicName: org.apache.commons.cli
+Bundle-Version: 1.1
+Bundle-ClassPath: commons-cli-1.1.jar
+Bundle-Vendor: sdq.ipd.uka.de
+Export-Package: org.apache.commons.cli
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

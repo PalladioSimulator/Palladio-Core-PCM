@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<project name="opt4j" default="all">
+
+	<property file="utils/build.properties" />
+
+	<tstamp>
+		<format property="date" pattern="MM/dd/yyyy" />
+		<format property="date-flat" pattern="MMddyyyy" />
+	</tstamp>
+
+	<!-- VERSIONING -->
+	<!-- <property name="version" value="snapshot-${date-flat}" /> -->
+	<property name="version" value="2.2" />
+
+	<taskdef name="jarjar" classname="com.tonicsystems.jarjar.JarJarTask" classpath="${utils.dir}/jarjar-1.0.jar" />
+
+	<path id="compile.classpath">
+		<fileset dir="${lib.dir}" includes="*.jar" />
+	</path>
+
+	<filterset id="defaultFilter">
+		<filter token="VERSION" value="${version}" />
+		<filter token="DATE" value="${date}" />
+	</filterset>
+
+	<target name="all" depends="clean,dist,dist-src,javadoc" description="Compile Java source." />
+
+	<target name="init">
+		<mkdir dir="${build.dir}/src" />
+		<copy toDir="${build.dir}/src" overwrite="true">
+			<fileset dir="${resource.dir}" excludes=".svn,.svn/**/*,**/.svn" />
+			<fileset dir="${src.dir}" excludes=".svn,.svn/**/*,**/.svn" />
+			<filterset refid="defaultFilter" />
+		</copy>
+	</target>
+
+	<target name="compile" depends="init" description="Compile Java source.">
+		<mkdir dir="${build.dir}/classes" />
+		<javac srcdir="${build.dir}/src" debug="on" destdir="${build.dir}/classes" source="1.6" target="1.6">
+			<classpath refid="compile.classpath" />
+			<compilerarg value="-Xlint" />
+		</javac>
+		<copy toDir="${build.dir}/classes">
+			<fileset dir="${resource.dir}" excludes=".svn,.svn/**/*,**/.svn,**/*.java" />
+		</copy>
+	</target>
+
+	<target name="jar" depends="compile" description="Build jar.">
+		<mkdir dir="${build.dir}/jar" />
+		<jarjar jarfile="${build.dir}/jar/collect.jar">
+			<zipfileset src="${lib.dir}/collections-generic-4.01.jar" excludes="META-INF/**" />
+			<keep pattern="org.apache.commons.collections15.Transformer" />
+		</jarjar>
+		<jarjar jarfile="${build.dir}/jar/opt4j-${version}.jar">
+			<fileset dir="${build.dir}/classes" excludes="**/tutorial/**" />
+			<zipfileset src="${lib.dir}/${guice.jar}" excludes="META-INF/**" />
+			<zipfileset src="${lib.dir}/${sat4j.core.jar}" excludes="META-INF/**" />
+			<zipfileset src="${lib.dir}/${ptplot.jar}" excludes="META-INF/**" />
+			<zipfileset src="${lib.dir}/${sat4j.pb.jar}" excludes="META-INF/**" />
+			<zipfileset src="${lib.dir}/aopalliance.jar" excludes="META-INF/**" />
+			<zipfileset src="${lib.dir}/guice-multibindings-2.0.jar" excludes="META-INF/**" />
+			<zipfileset src="${build.dir}/jar/collect.jar" />
+			<manifest>
+				<attribute name="Main-Class" value="${main.class}" />
+				<attribute name="SplashScreen-Image" value="img/splash.png" />
+			</manifest>
+		</jarjar>
+		<jarjar jarfile="${build.dir}/jar/opt4j.tutorial-${version}.jar">
+			<fileset dir="${build.dir}/classes" includes="**/tutorial/**" />
+		</jarjar>
+		<jarjar jarfile="${build.dir}/jar/opt4j-${version}-src.jar">
+			<fileset dir="${build.dir}/src" includes="**/*.java" />
+			<zipfileset src="${build.dir}/jar/opt4j-${version}.jar" excludes="META-INF/**" />
+			<manifest>
+				<attribute name="Main-Class" value="${main.class}" />
+				<attribute name="SplashScreen-Image" value="img/splash.png" />
+			</manifest>
+		</jarjar>
+		<delete file="${build.dir}/jar/collect.jar" />
+	</target>
+
+	<target name="dist" depends="jar" description="Build distribution.">
+		<property name="dist-bin.dir" value="${build.dir}/${dist.dir}/bin/opt4j-${version}" />
+
+		<mkdir dir="${dist-bin.dir}" />
+
+		<copy toDir="${dist-bin.dir}" file="${build.dir}/jar/opt4j-${version}.jar" />
+
+		<copy toDir="${dist-bin.dir}">
+			<fileset dir="${files.dir}" includes="**/*" excludes=".svn,.svn/**/*,**/.svn,*.pdf" />
+			<filterset refid="defaultFilter" />
+		</copy>
+		<copy toDir="${dist-bin.dir}">
+			<fileset dir="${files.dir}" includes="*.pdf" />
+		</copy>
+		
+		<copy toDir="${dist-bin.dir}/tutorial" file="${build.dir}/jar/opt4j.tutorial-${version}.jar" />
+		<copy toDir="${dist-bin.dir}/tutorial">
+			<fileset dir="${src.dir}" includes="**/tutorial/*" excludes=".svn,.svn/**/*,**/.svn" />
+		</copy>
+
+		<zip destfile="${build.dir}/opt4j-${version}.zip" basedir="${build.dir}/dist/bin" />
+		<!-- <tar destfile="${build.dir}/opt4j-${version}.tar" basedir="${build.dir}/dist" /> -->
+		<!-- <gzip src="${build.dir}/opt4j-${version}.tar" destfile="${build.dir}/opt4j-${version}.tar.gz" /> -->
+	</target>
+
+	<target name="dist-src" depends="dist,javadoc-nosrc" description="Build distribution (sources).">
+		<property name="dist-src.dir" value="${build.dir}/${dist.dir}/src/opt4j-${version}" />
+
+		<mkdir dir="${dist-src.dir}" />
+
+		<copy toDir="${dist-src.dir}/libsrc" file="${build.dir}/jar/opt4j-${version}-src.jar" />
+		<copy toDir="${dist-src.dir}">
+			<fileset dir="${dist-bin.dir}" />
+		</copy>
+		<copy toDir="${dist-src.dir}/sources">
+			<fileset dir="${build.dir}/src" />
+		</copy>
+		<copy toDir="${dist-src.dir}/javadoc">
+			<fileset dir="${build.dir}/javadoc-nosrc" />
+		</copy>
+
+		<zip destfile="${build.dir}/opt4j-${version}-sources.zip" basedir="${build.dir}/dist/src" />
+	</target>
+
+	<macrodef name="javadoc-create">
+		<attribute name="destdir" default="NOT SET" />
+		<attribute name="linksource" default="yes" />
+		<attribute name="author" default="yes" />
+		<sequential>
+			<mkdir dir="${build.dir}/javadoc" />
+			<javadoc sourcepath="${build.dir}/src" packagenames="*" destdir="@{destdir}" author="@{author}" public="true" windowtitle="Opt4J ${version} API, Meta-heuristic Optimization Framework for Java" overview="${build.dir}/src/overview.html" linksource="@{linksource}">
+				<doctitle>
+					<![CDATA[Opt4J &ndash; Meta-heuristic Optimization Framework for Java]]>
+				</doctitle>
+				<classpath refid="compile.classpath" />
+				<link href="http://java.sun.com/javase/6/docs/api" />
+				<link href="http://google-guice.googlecode.com/svn/trunk/javadoc/" />
+			</javadoc>
+		</sequential>
+	</macrodef>
+
+
+	<target name="javadoc" depends="init" description="Generate Javadocs.">
+		<javadoc-create destdir="${build.dir}/javadoc" />
+	</target>
+
+	<target name="javadoc-nosrc" depends="init" description="Generate Javadocs.">
+		<javadoc-create destdir="${build.dir}/javadoc-nosrc" linksource="no" />
+	</target>
+
+	<target name="clean" description="Remove generated files.">
+		<delete dir="${build.dir}" />
+	</target>
+	
+	<property name="doc.html.stylesheet" value="${doc.xsl.dir}/xhtml/docbook.xsl" />
+	<property name="doc.fo.stylesheet" value="${doc.xsl.dir}/fo/docbook.xsl" />
+	
+	<path id="doc.classpath">
+		<fileset dir="${doc.lib.dir}" includes="*.jar" />
+	</path>
+
+	<taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop" classpath="util/lib/fop.jar">
+		<classpath refid="doc.classpath" />
+	</taskdef>
+	
+	<target name="doc-html">
+		<xslt style="${doc.html.stylesheet}" extension=".html" basedir="${doc.src.dir}" destdir="${doc.build.dir}/html">
+			<classpath refid="doc.classpath" />
+			<include name="book.xml" />
+		</xslt>
+	</target>
+
+	<target name="doc-pdf">
+		<xslt style="${doc.fo.stylesheet}" extension=".fo" basedir="${doc.src.dir}" destdir="${doc.build.dir}/fo">
+			<classpath refid="doc.classpath" />
+			<include name="book.xml" />
+		</xslt>
+		<mkdir dir="${doc.build.dir}/pdf" />
+		<fop format="application/pdf" fofile="${doc.build.dir}/fo/book.fo" outfile="${doc.build.dir}/pdf/book.pdf" />
+	</target>
+
+</project>

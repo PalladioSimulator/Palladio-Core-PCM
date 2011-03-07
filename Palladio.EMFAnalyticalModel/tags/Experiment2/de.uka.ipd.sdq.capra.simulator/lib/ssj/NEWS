@@ -1,0 +1,163 @@
+==========================================================================
+What is new in version SSJ-1.2.1
+--------------------------------
+
+- package probdist
+   * BetaDist: bug correction in the getMaximumLikelihoodEstimate. Did not
+     work for a range of parameters alpha, beta.
+
+   * *Dist: improvements and corrections in getMaximumLikelihoodEstimate.
+
+   * When u = 1, the inverseF method now returns Double.POSITIVE_INFINITY
+     instead of throwing an exception.
+
+
+
+==========================================================================
+What is new in version SSJ-1.2
+--------------------------------
+
+
+- new package probdistmulti
+     For multivariate probability distributions.
+
+- new package randvarmulti
+     For multivariate non-uniform random number generators. 
+
+- package probdist
+   * Removed the two-dimensionnal distributions BiNormalDist, BiNormalGenzDist,
+     ContinuousDistribution2Dim, BiNormalDonnellyDist, BivariateTDist and
+     moved them to package probdistmulti. The BivariateTDist distribution has 
+     been renamed BiStudentDist.
+
+   * New methods getMean, getVariance and getStandardDeviation to get the mean,
+     the variance and the standard deviation for probability distributions.
+
+   * New methods getMaximumLikelihoodEstimate and getInstanceFromMLE that imple-
+     ment the maximum likelihood estimator for most probability distributions.
+
+   * New probability distributions: UniformIntDist, FatigueLifeDist, PascalDist,
+     FisherFDist, HyperbolicSecantDist, InverseGaussianDist, LoglogisticDist,
+     Pearson5Dist, Pearson6Dist.
+
+   * The distribution NegativeBinomialDist now takes a double instead of an int
+     as its first parameter; the distribution with an integer as first 
+     parameter is now called PascalDist (it is the former NegativeBinomialDist).
+
+   * New methods in DistributionFactory.
+
+- package randvar
+   * New non-uniform random number generators: UniformIntGen, FatigueLifeGen,
+     FisherFGen, HyperbolicSecantGen, InverseGaussianGen, LoglogisticGen,
+     Pearson5Gen, Pearson6Gen.
+
+   * New class RandomVariateGenWithCache: caches random values for more
+     efficiency when using common random numbers.
+
+   * The generator NegativeBinomialConvolutionGen has been renamed
+     PascalConvolutionGen.
+
+- package rng
+   * New classes RandomStreamWithCache, which caches random values for more
+     efficiency, and TruncatedRandomStream, which generates uniform random
+     numbers in a subinterval of [0, 1].
+
+- package util
+   * New classes TextDataReader (reads data from text files), JDBCManager (
+     interface for accessing a database), MathFunction (to pass an arbitrary
+     function as argument to another) and Misc (miscellaneous functions).
+
+   * New RootFinder class to solve one-dimensional non-linear equations.
+
+   * New methods Num.digamma, Num.trigamma, Num.tetragamma: the logarithmic
+     derivatives of the Gamma function. Added Num.evalChebyStar for the
+     evaluation of shifted Chebychev polynomials.
+
+   * New methods PrintfFormat.formatWithError to print real intervals.
+
+
+==========================================================================
+What is new in version SSJ-1.1.9
+--------------------------------
+
+- package util
+  Added Num.log1p(x) for better accuracy of log(1 + x) at small x.
+
+- package randvar
+  Added the classes BetaSymmetricalPolarGen and BetaSymmetricalBestGen
+    that generate symmetrical Beta variates.
+
+- package rng
+  Provided a faster method to jump the the next substreams in all the WELL*
+  generators and in the F2NL607 generator.
+
+- package probdist
+  * Replaced all functions Math.log(1+x) by Num.log1p(x) for better accuracy.
+
+  * Corrected LogarithmicDist:
+       the probabilities were not always computed correctly.
+
+  * Corrected a bug in BinomialDist:
+       the method inverseF(u) had a bug for n = 1.
+
+  * Added the bivariate normal distribution:
+       classes BiNormalDist, BiNormalDonnellyDist and BiNormalGenzDist
+
+  * Added the bivariate t distribution:
+       class BivariateTDist.
+
+  * Added the Brent-Dekker method to compute the inverse distribution function
+    for an arbitrary continuous probability function.
+
+- package hups
+  * Changed the constructors in class NiedXingSequenceBase2. The old 3
+    arguments constructor has been eliminated and the 4 arguments constructor
+    of the previous version has become the 3 arguments constructor
+    of the new version. This gives the correct generating matrices for the
+    Niederreiter-Xing sequence; the old 3 arguments constructor used
+    the transposed generating matrices.
+
+  * Correction in NiedXingSequenceBase2 and in NiedSequenceBase2 and in
+    DigitalNetBase2FromFile: did not work correctly for number of bits = w < 31.
+
+
+==========================================================================
+What is new in version SSJ-1.1.8
+--------------------------------
+
+- package rng
+   LFSR113, LFSR258:
+    programmed a faster method nextInt
+
+- package gof
+   FBar, FDist:
+    added a better approximation for the Anderson-Darling distribution.
+
+- package probdist
+   BetaSymmetricalDist:
+    added a much faster inverse distribution for parameter alpha > 1.
+
+   BetaDist:
+    corrected a bug that gave the wrong values for the CDF for some 
+    range of parameters.
+
+   BinomialDist, PoissonDist, 
+    ExponentialDist, JohnsonSUDist, ParetoDist, WeibullDist:
+    added a better approximation in the tails of the distributions.
+
+   GammaDist: added a better approximation for large alpha.
+
+   Corrected a bug in DiscreteDistribution: the inverseF function was
+   not correct for cdf(x) > 0.5.
+
+   Made a correction in EmpiricalDist: the barF function.
+
+- package randvar
+   BetaStratifiedRejectionGen  object always returned 0.
+    Bug correction
+
+   GammaRejectionLoglogisticGen object went into infinite loop.
+    Bug correction
+
+- package util
+   class ChronoSingleThread has been added.

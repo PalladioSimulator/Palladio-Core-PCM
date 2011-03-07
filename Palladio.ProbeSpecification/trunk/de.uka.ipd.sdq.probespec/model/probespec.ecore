@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="probespec"
+    nsURI="http://sdq.ipd.uka.de/ProbeSpec/0.1" nsPrefix="probespec">
+  <eClassifiers xsi:type="ecore:EClass" name="Calculator" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pipeElement" ordered="false"
+        eType="ecore:EClass ../../de.uka.ipd.sdq.pipesandfilters/model/pipesandfilters.ecore#//PipeElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PassiveResourceCalculator" eSuperTypes="#//UnaryCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryCalculator" abstract="true" eSuperTypes="#//Calculator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="probeSet" ordered="false"
+        lowerBound="1" eType="#//ProbeSet" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProbeSet" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="probes" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Probe" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" ordered="false"
+        lowerBound="1" eType="#//ProbeSetPosition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedElement" ordered="false"
+        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Probe" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PassiveResourceStateProbe" eSuperTypes="#//Probe"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StoExProbe" eSuperTypes="#//Probe"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SEFFParameterProbe" eSuperTypes="#//Probe"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CurrentTimeProbe" eSuperTypes="#//Probe"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProbeSetPosition">
+    <eLiterals name="BEFORE"/>
+    <eLiterals name="AFTER" value="1"/>
+    <eLiterals name="NONE" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StoExCalculator" eSuperTypes="#//UnaryCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SEFFParameterCalculator" eSuperTypes="#//UnaryCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ResponseTimeCalculator" eSuperTypes="#//BinaryCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryCalculator" abstract="true" eSuperTypes="#//Calculator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="probeSet" ordered="false"
+        lowerBound="2" upperBound="2" eType="#//ProbeSet" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WaitingTimeCalculator" eSuperTypes="#//BinaryCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProbeSpecRepository">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calculator" ordered="false"
+        upperBound="-1" eType="#//Calculator" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CPUStateProbe" eSuperTypes="#//Probe"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HDDStateProbe" eSuperTypes="#//Probe"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CPUDemandProbe" eSuperTypes="#//Probe"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HDDDemandProbe" eSuperTypes="#//Probe"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HDDStateCalculator" eSuperTypes="#//UnaryCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CPUStateCalculator" eSuperTypes="#//UnaryCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CPUDemandCalculator" eSuperTypes="#//UnaryCalculator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HDDDemandCalculator" eSuperTypes="#//UnaryCalculator"/>
+</ecore:EPackage>

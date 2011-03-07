@@ -1,0 +1,273 @@
+
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DesignDecision (DesignDecision - UML-Dokumentation)</title>
+<meta name="generator" content="IBM Rational Model Publisher">
+<link href="WebPublish.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">&Uuml;bersicht</a></td><td class="NavBarMainLink"><a href="_8276117_7780122111691002115669728011173_7611365-top-summary.html">Anfang</a></td><td class="NavBarMainHighlight">Paket</td><td class="NavBarMainPrint">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">DesignDecision - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"></td><td class="BookMarkSections"></td>
+</tr>
+</table>
+<hr>
+<span class="PackageFullyQualifiedName"></span>
+<br>
+<span class="ElementTitle">ModellDesignDecision</span>
+<p>
+<a name="documentationSection"></a>The DesignDecisions metamodel represents degrees of freedom that can be exploited for optimisation.</br></br>The core idea is each degree of freedom can be represented by a DegreeOfFreedom element. Each DegreeOfFreedom has two parts: It links a model element that is the changeable entity in this DegreeOfFreedom, and it specifies a Domain of possible values that the model element can take. </br></br>The actual making of a decision is represented in the Choice element. For a specific candidate architecture, one Choice for each DegreeOfFreedom in the Problem as to be made. The Choice contains a reference to the DegreeOfFreedom that it decides and a reference to a value from the DegreeOfFreedom's Domain that represent the selected value.  See the diagram "Design and Choice" for an overview of DegreeOfFreedom, Domain and Choice.</br></br>All of the above mentioned elements are abstract and are subclassed for the different generic degrees of freedom. For example, the degree of freedom of "component allocation" is represented in the AllocationDegree. See the documentation of each subclass of design decision for details. The diagram AssembledComponentDegree visualises the subclassing for the example degree of freedom of "component selection". </br></br></p>
+<p></p>
+<table border="1" class="ImageTable">
+<tr>
+<td><img border="0" src="../images/_8276117_77118122111691002115669728011173_7611365.GIF" alt="confusing overview" usemap="#map_8276117_77118122111691002115669728011173_7611365"></td>
+</tr>
+</table>
+<map name="map_8276117_77118122111691002115669728011173_7611365">
+<area shape="poly" coords="1340,226,1447,175,1451,184,1344,235,1340,226" href="_683679810777386691006779810182888211973103265-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="1125,209,1234,234,1231,244,1122,219,1125,209" href="_011910210110777386691006779810182888211973103265-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="1096,166,1192,129,1195,138,1099,175,1096,166" href="_896611706977386691006779810182888211973103265-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="931,78,777,78,777,68,931,68,931,78" href="_83738410510777386691006779810182888211973103265-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="977,103,811,196,806,187,972,94,977,103" href="_10510569827777384691006779810182888211973103265-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="957,218,871,228,869,218,955,208,957,218" href="_99117122836977384691006779810182888211973103265-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="726,246,614,292,610,283,722,237,726,246" href="_8168511511977384691006779810182888211973103265-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="1322,576,1401,613,1396,622,1317,585,1322,576" href="_767711410081767171691006109111101-1177376_675119-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="552,337,438,623,428,619,542,333,552,337" href="_83857887103766976691006886897974121707166581-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="775,474,465,631,460,622,770,465,775,474" href="_976649817668121691006886897974121707166581-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="731,675,803,462,812,465,740,678,731,675" href="_78737610247668121691006886897974121707166581-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="279,564,385,616,380,625,274,573,279,564" href="_6998909657668121691006886897974121707166581-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="933,540,896,470,904,465,941,535,933,540" href="_87411481897082469100687199971091121711008765-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="1129,636,1048,491,1056,486,1137,631,1129,636" href="_9910067848580122122691002115669728011173_7611365-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="144,382,244,331,248,340,148,391,144,382" href="_8583891096980122122691002115669728011173_7611365-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="1230,447,1120,362,1126,354,1236,439,1230,447" href="_687766-10780122121691002115669728011173_7611365-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="1059,414,1065,353,1075,354,1069,415,1059,414" href="_67387736580122121691002115669728011173_7611365-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="842,618,859,464,869,465,852,619,842,618" href="_80107_8511980122120691002115669728011173_7611365-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="1256,533,1260,508,1269,510,1265,535,1256,533" href="_651016875080122120691002115669728011173_7611365-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="342,432,296,350,304,345,350,427,342,432" href="_10912089_8980122119691002115669728011173_7611365-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="219,520,273,342,282,345,228,523,219,520" href="_1167810411711180122114691002115669728011173_7611365-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="771,424,612,342,616,333,775,415,771,424" href="_49710390480122113691002115669728011173_7611365-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="979,323,632,308,632,298,979,313,979,323" href="_475971189980122113691002115669728011173_7611365-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="poly" coords="335,307,476,301,476,311,335,317,335,307" href="_6711417511180122112691002115669728011173_7611365-content.html" alt="Mehrfachlinienkoordinaten, die einen Hot Spot auf der Grafik beschreiben">
+<area shape="rect" coords="1232,236,1360,286" href="_1201206011177386691006779810182888211973103265-content.html" alt="FeatureSubset">
+<area shape="rect" coords="932,44,1110,94" href="_1039861186977384691006779810182888211973103265-content.html" alt="OptionalFeatureDegree">
+<area shape="rect" coords="956,176,1123,226" href="_89685677377384691006779810182888211973103265-content.html" alt="FeatureGroupDegree">
+<area shape="rect" coords="704,188,869,238" href="_7811881167377384691006779810182888211973103265-content.html" alt="FeatureConfigDegree">
+<area shape="rect" coords="860,535,1054,585" href="_115661011001197082469100687199971091121711008765-content.html" alt="ConnectorConfigDegree">
+<area shape="rect" coords="1016,631,1290,681" href="_9776686710780122122691002115669728011173_7611365-content.html" alt="ResourceContainerReplicationDegree">
+<area shape="rect" coords="9,391,183,446" href="_82-8219980122122691002115669728011173_7611365-content.html" alt="DiscreteRangeChoice">
+<area shape="rect" coords="1184,439,1384,510" href="_6767-114080122121691002115669728011173_7611365-content.html" alt="ContinuousRangeDegree">
+<area shape="rect" coords="980,415,1158,486" href="_666669105480122121691002115669728011173_7611365-content.html" alt="DiscreteRangeDegree">
+<area shape="rect" coords="621,679,847,729" href="_7010411568080122120691002115669728011173_7611365-content.html" alt="AssembledComponentDegree">
+<area shape="rect" coords="776,619,926,669" href="_68861077510380122120691002115669728011173_7611365-content.html" alt="AllocationDegree">
+<area shape="rect" coords="1172,535,1355,585" href="_66585838980122119691002115669728011173_7611365-content.html" alt="ProcessingRateDegree">
+<area shape="rect" coords="273,427,462,482" href="_7967688511180122115691002115669728011173_7611365-content.html" alt="ContinousRangeChoice">
+<area shape="rect" coords="141,523,306,573" href="_101728979480122114691002115669728011173_7611365-content.html" alt="EnumerationChoice">
+<area shape="rect" coords="740,415,908,465" href="_372977480122113691002115669728011173_7611365-content.html" alt="EnumerationDegree">
+<area shape="rect" coords="980,284,1183,355" href="_211169121880122113691002115669728011173_7611365-content.html" alt="RangeDegree">
+<area shape="rect" coords="249,296,336,346" href="_6672837911580122112691002115669728011173_7611365-content.html" alt="Choice">
+<area shape="rect" coords="477,284,632,334" href="_10710410598580122111691002115669728011173_7611365-content.html" alt="DegreeOfFreedom">
+</map>
+<table class="PackagesTable" border="1"></table>
+<p></p>
+<table class="ContainedElements" border="1">
+<tr>
+<td colspan="2" class="DetailsTitle">Klassifikationsmerkmale</td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::AllocationDegree" href="_68861077510380122120691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="AllocationDegree"></a>&nbsp;<a title="DesignDecision::AllocationDegree" href="_68861077510380122120691002115669728011173_7611365-content.html">AllocationDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::AssembledComponentDegree" href="_7010411568080122120691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="AssembledComponentDegree"></a>&nbsp;<a title="DesignDecision::AssembledComponentDegree" href="_7010411568080122120691002115669728011173_7611365-content.html">AssembledComponentDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::Candidate" href="_86113_89997572101691006658376120104115801131057165-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="Candidate"></a>&nbsp;<a title="DesignDecision::Candidate" href="_86113_89997572101691006658376120104115801131057165-content.html">Candidate</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::Candidates" href="_10912076100857572101691006658376120104115801131057165-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="Candidates"></a>&nbsp;<a title="DesignDecision::Candidates" href="_10912076100857572101691006658376120104115801131057165-content.html">Candidates</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::Choice" href="_6672837911580122112691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="Choice"></a>&nbsp;<a title="DesignDecision::Choice" href="_6672837911580122112691002115669728011173_7611365-content.html">Choice</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::ConnectorConfigDegree" href="_115661011001197082469100687199971091121711008765-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="ConnectorConfigDegree"></a>&nbsp;<a title="DesignDecision::ConnectorConfigDegree" href="_115661011001197082469100687199971091121711008765-content.html">ConnectorConfigDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::ContinousRangeChoice" href="_7967688511180122115691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="ContinousRangeChoice"></a>&nbsp;<a title="DesignDecision::ContinousRangeChoice" href="_7967688511180122115691002115669728011173_7611365-content.html">ContinousRangeChoice</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::ContinuousRangeDegree" href="_6767-114080122121691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="ContinuousRangeDegree"></a>&nbsp;<a title="DesignDecision::ContinuousRangeDegree" href="_6767-114080122121691002115669728011173_7611365-content.html">ContinuousRangeDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::DegreeOfFreedom" href="_10710410598580122111691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="DegreeOfFreedom"></a>&nbsp;<a title="DesignDecision::DegreeOfFreedom" href="_10710410598580122111691002115669728011173_7611365-content.html">DegreeOfFreedom</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::DiscreteRangeChoice" href="_82-8219980122122691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="DiscreteRangeChoice"></a>&nbsp;<a title="DesignDecision::DiscreteRangeChoice" href="_82-8219980122122691002115669728011173_7611365-content.html">DiscreteRangeChoice</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::DiscreteRangeDegree" href="_666669105480122121691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="DiscreteRangeDegree"></a>&nbsp;<a title="DesignDecision::DiscreteRangeDegree" href="_666669105480122121691002115669728011173_7611365-content.html">DiscreteRangeDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::EnumerationChoice" href="_101728979480122114691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="EnumerationChoice"></a>&nbsp;<a title="DesignDecision::EnumerationChoice" href="_101728979480122114691002115669728011173_7611365-content.html">EnumerationChoice</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::EnumerationDegree" href="_372977480122113691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="EnumerationDegree"></a>&nbsp;<a title="DesignDecision::EnumerationDegree" href="_372977480122113691002115669728011173_7611365-content.html">EnumerationDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::FeatureConfigDegree" href="_7811881167377384691006779810182888211973103265-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="FeatureConfigDegree"></a>&nbsp;<a title="DesignDecision::FeatureConfigDegree" href="_7811881167377384691006779810182888211973103265-content.html">FeatureConfigDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::FeatureGroupDegree" href="_89685677377384691006779810182888211973103265-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="FeatureGroupDegree"></a>&nbsp;<a title="DesignDecision::FeatureGroupDegree" href="_89685677377384691006779810182888211973103265-content.html">FeatureGroupDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::FeatureSubset" href="_1201206011177386691006779810182888211973103265-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="FeatureSubset"></a>&nbsp;<a title="DesignDecision::FeatureSubset" href="_1201206011177386691006779810182888211973103265-content.html">FeatureSubset</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::OptionalFeatureDegree" href="_1039861186977384691006779810182888211973103265-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="OptionalFeatureDegree"></a>&nbsp;<a title="DesignDecision::OptionalFeatureDegree" href="_1039861186977384691006779810182888211973103265-content.html">OptionalFeatureDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::Problem" href="_7100116876980122122691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="Problem"></a>&nbsp;<a title="DesignDecision::Problem" href="_7100116876980122122691002115669728011173_7611365-content.html">Problem</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::ProcessingRateDegree" href="_66585838980122119691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="ProcessingRateDegree"></a>&nbsp;<a title="DesignDecision::ProcessingRateDegree" href="_66585838980122119691002115669728011173_7611365-content.html">ProcessingRateDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::RangeDegree" href="_211169121880122113691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="RangeDegree"></a>&nbsp;<a title="DesignDecision::RangeDegree" href="_211169121880122113691002115669728011173_7611365-content.html">RangeDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::ResourceContainerReplicationDegree" href="_9776686710780122122691002115669728011173_7611365-content.html"><img border="0" src="../images/-1749482139_icon.jpeg" alt="ResourceContainerReplicationDegree"></a>&nbsp;<a title="DesignDecision::ResourceContainerReplicationDegree" href="_9776686710780122122691002115669728011173_7611365-content.html">ResourceContainerReplicationDegree</a></td>
+</tr>
+</table>
+<p></p>
+<table class="ContainedElements" border="1">
+<tr>
+<td colspan="2" class="DetailsTitle">Diagramme</td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::AssembledComponentDegree" href="_109788-6570666869100610876788111389116_7580119-content.html"><img border="0" src="../images/617942589_icon.jpeg" alt="AssembledComponentDegree"></a>&nbsp;<a title="DesignDecision::AssembledComponentDegree" href="_109788-6570666869100610876788111389116_7580119-content.html">AssembledComponentDegree</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::Choices" href="_7311681988966788969100-7299781021109701021107103-content.html"><img border="0" src="../images/617942589_icon.jpeg" alt="Choices"></a>&nbsp;<a title="DesignDecision::Choices" href="_7311681988966788969100-7299781021109701021107103-content.html">Choices</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::confusing overview" href="_8276117_77118122111691002115669728011173_7611365-content.html"><img border="0" src="../images/617942589_icon.jpeg" alt="confusing overview"></a>&nbsp;<a title="DesignDecision::confusing overview" href="_8276117_77118122111691002115669728011173_7611365-content.html">confusing overview</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::Decision and Choice" href="_84787119115801220691002115669728011173_7611365-content.html"><img border="0" src="../images/617942589_icon.jpeg" alt="Decision and Choice"></a>&nbsp;<a title="DesignDecision::Decision and Choice" href="_84787119115801220691002115669728011173_7611365-content.html">Decision and Choice</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::Inheritance of Degrees" href="_10579109_697768769100610681-9011673891205365-content.html"><img border="0" src="../images/617942589_icon.jpeg" alt="Inheritance of Degrees"></a>&nbsp;<a title="DesignDecision::Inheritance of Degrees" href="_10579109_697768769100610681-9011673891205365-content.html">Inheritance of Degrees</a></td>
+</tr>
+<tr class="ClassTableEntry">
+<td class="ClassTableEntryLink"><a title="DesignDecision::ProcessingRateDegree" href="_9798107899801220691002115669728011173_7611365-content.html"><img border="0" src="../images/617942589_icon.jpeg" alt="ProcessingRateDegree"></a>&nbsp;<a title="DesignDecision::ProcessingRateDegree" href="_9798107899801220691002115669728011173_7611365-content.html">ProcessingRateDegree</a></td>
+</tr>
+</table>
+<p></p>
+<table class="ContainedElements" border="1">
+<tr>
+<td colspan="1" class="DetailsTitle">Profil</td>
+</tr>
+<tr>
+<td>Default</td>
+</tr>
+<tr>
+<td>Deployment</td>
+</tr>
+<tr>
+<td>Ecore</td>
+</tr>
+<tr>
+<td>Standard</td>
+</tr>
+</table>
+<br>
+<p class="LargeTitle">Eigenschaften:</p>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>basePackage</b></td><td class="PropertyValue">de.uka.ipd.sdq.pcm</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">DesignDecision</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Nesting Package</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>nsPrefix</b></td><td class="PropertyValue">designdecision</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>nsURI</b></td><td class="PropertyValue">http://sdq.ipd.uka.de/DesignDecision/1.0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>packageName</b></td><td class="PropertyValue">designdecision</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>prefix</b></td><td class="PropertyValue">designdecision</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">DesignDecision</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue">ePackage</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Viewpoint</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+<hr>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">&Uuml;bersicht</a></td><td class="NavBarMainLink"><a href="_8276117_7780122111691002115669728011173_7611365-top-summary.html">Anfang</a></td><td class="NavBarMainHighlight">Paket</td><td class="NavBarMainPrint">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">DesignDecision - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"></td><td class="BookMarkSections"></td>
+</tr>
+</table>
+</body>
+</html>

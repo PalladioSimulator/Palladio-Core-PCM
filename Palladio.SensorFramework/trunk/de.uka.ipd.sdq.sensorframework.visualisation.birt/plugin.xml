@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+      <extension
+            point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.sensorframework.visualisation.birt.editor.BirtHistogramReport"
+               icon="icons/new_chart.gif"
+               id="de.uka.ipd.sdq.sensorframework.visualisation.birt.editor.BirtHistogramReport"
+               name="Birt Histogram Viewer">
+         </editor>
+      </extension>
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram"
+               acceptsMultiple="true"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.birt.editor.BirtHistogramReport"
+               displayName="Birt Histogram Chart"
+               editorID="de.uka.ipd.sdq.sensorframework.visualisation.birt.editor.BirtHistogramReport">
+         </Visualisation>
+      </extension>
+</plugin>

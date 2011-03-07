@@ -1,0 +1,274 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>seff - UML-Dokumentation</title>
+<meta name="generator" content="IBM Rational Model Publisher">
+<meta name="description" content="Inhalt für GuardedBranchTransition">
+<link rel="stylesheet" type="text/css" href="WebPublish.css">
+</head>
+<body>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">Übersicht</a></td><td class="NavBarMainLink"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">seff - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#attributeSummary" title="Attribute">Attribute</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#attributeDetail" title="Attribute">Attribute</a></span></td>
+</tr>
+</table>
+<hr>
+<span class="PackageFullyQualifiedName">seff</span>
+<br>
+<span class="ElementTitle">Klasse GuardedBranchTransition</span>
+<p>
+<a name="documentationSection"></a>Guarded&nbsp;Branch&nbsp;Transition&nbsp;Provides&nbsp;a&nbsp;link&nbsp;between&nbsp;a&nbsp;BranchAction&nbsp;and&nbsp;a&nbsp;nested&nbsp;ResourceDemandingBehaviour,&nbsp;which&nbsp;includes&nbsp;the&nbsp;actions&nbsp;executed&nbsp;inside&nbsp;the&nbsp;branch.&nbsp;It&nbsp;uses&nbsp;a&nbsp;guard,&nbsp;i.e.&nbsp;a&nbsp;boolean&nbsp;expression&nbsp;specified&nbsp;by&nbsp;a&nbsp;RandomVariable,&nbsp;to&nbsp;determine&nbsp;whether&nbsp;the&nbsp;transition&nbsp;is&nbsp;chosen.&nbsp;If&nbsp;the&nbsp;guard&nbsp;evaluates&nbsp;to&nbsp;true,&nbsp;the&nbsp;branch&nbsp;is&nbsp;chosen,&nbsp;otherwise&nbsp;if&nbsp;the&nbsp;guard&nbsp;evaluates&nbsp;to&nbsp;false&nbsp;another&nbsp;branch&nbsp;transition&nbsp;must&nbsp;be&nbsp;chosen.<br />The&nbsp;guard&nbsp;may&nbsp;contain&nbsp;references&nbsp;to&nbsp;the&nbsp;service’s&nbsp;input&nbsp;parameters&nbsp;or&nbsp;component&nbsp;parameters.&nbsp;A&nbsp;component&nbsp;developer&nbsp;can&nbsp;specify&nbsp;complex&nbsp;boolean&nbsp;expressions&nbsp;by&nbsp;using&nbsp;the&nbsp;AND,&nbsp;OR,&nbsp;and&nbsp;NOT&nbsp;operations&nbsp;provided&nbsp;by&nbsp;the&nbsp;StoEx&nbsp;framework.&nbsp;As&nbsp;the&nbsp;domain&nbsp;expert&nbsp;may&nbsp;have&nbsp;characterised&nbsp;the&nbsp;parameters&nbsp;used&nbsp;in&nbsp;a&nbsp;guard&nbsp;with&nbsp;probability&nbsp;distributions,&nbsp;it&nbsp;might&nbsp;happen&nbsp;that&nbsp;a&nbsp;guard&nbsp;does&nbsp;not&nbsp;evaluate&nbsp;to&nbsp;true&nbsp;or&nbsp;false&nbsp;with&nbsp;a&nbsp;probability&nbsp;of&nbsp;1.0.&nbsp;For&nbsp;example,&nbsp;the&nbsp;specification&nbsp;can&nbsp;express&nbsp;that&nbsp;a&nbsp;guard&nbsp;evaluates&nbsp;to&nbsp;true&nbsp;with&nbsp;a&nbsp;probability&nbsp;of&nbsp;0.3,&nbsp;and&nbsp;to&nbsp;false&nbsp;with&nbsp;a&nbsp;probability&nbsp;of&nbsp;0.7.&nbsp;In&nbsp;any&nbsp;case,&nbsp;the&nbsp;probabilities&nbsp;of&nbsp;the&nbsp;individual&nbsp;guards&nbsp;attached&nbsp;to&nbsp;all&nbsp;GuardedBranchTransitions&nbsp;contained&nbsp;in&nbsp;a&nbsp;BranchAction&nbsp;must&nbsp;sum&nbsp;up&nbsp;to&nbsp;1.0.<br />There&nbsp;is&nbsp;no&nbsp;predefined&nbsp;order&nbsp;in&nbsp;evaluating&nbsp;the&nbsp;guards&nbsp;attached&nbsp;to&nbsp;a&nbsp;BranchAction.&nbsp;This&nbsp;differs&nbsp;from&nbsp;programming&nbsp;languages&nbsp;such&nbsp;as&nbsp;C&nbsp;or&nbsp;Java,&nbsp;where&nbsp;the&nbsp;conditions&nbsp;on&nbsp;if/then/else&nbsp;statements&nbsp;are&nbsp;evaluated&nbsp;in&nbsp;the&nbsp;order&nbsp;of&nbsp;their&nbsp;appearance&nbsp;in&nbsp;the&nbsp;code.&nbsp;Such&nbsp;programming&nbsp;languages&nbsp;allow&nbsp;overlapping&nbsp;branching&nbsp;conditions&nbsp;(for&nbsp;example,&nbsp;if&nbsp;(X&lt;10)&nbsp;//...&nbsp;else&nbsp;if&nbsp;(X&lt;20)&nbsp;//&nbsp;...),&nbsp;which&nbsp;are&nbsp;not&nbsp;allowed&nbsp;for&nbsp;the&nbsp;guards&nbsp;in&nbsp;GuardedBranchTransitions,&nbsp;because&nbsp;the&nbsp;missing&nbsp;order&nbsp;specification&nbsp;would&nbsp;lead&nbsp;to&nbsp;ambiguous&nbsp;boolean&nbsp;expressions&nbsp;and&nbsp;enable&nbsp;more&nbsp;than&nbsp;one&nbsp;guard&nbsp;to&nbsp;become&nbsp;true.&nbsp;If&nbsp;X&nbsp;would&nbsp;have&nbsp;the&nbsp;value&nbsp;5,&nbsp;both&nbsp;conditions&nbsp;would&nbsp;evaluate&nbsp;to&nbsp;true&nbsp;if&nbsp;they&nbsp;would&nbsp;be&nbsp;used&nbsp;directly&nbsp;as&nbsp;guards&nbsp;in&nbsp;GuardedBranchTransitions.&nbsp;The&nbsp;correct&nbsp;specification&nbsp;of&nbsp;the&nbsp;guards&nbsp;in&nbsp;this&nbsp;case&nbsp;would&nbsp;be&nbsp;X.VALUE&nbsp;10&nbsp;and&nbsp;X.VALUE&nbsp;10&nbsp;AND&nbsp;X.VALUE&nbsp;20.&nbsp;Guards&nbsp;might&nbsp;lead&nbsp;to&nbsp;stochastic&nbsp;dependencies&nbsp;when&nbsp;evaluating&nbsp;variable&nbsp;characterisations&nbsp;inside&nbsp;a&nbsp;branched&nbsp;behaviour.&nbsp;For&nbsp;example,&nbsp;if&nbsp;the&nbsp;guard&nbsp;X.VALUE&nbsp;&nbsp;&nbsp;10&nbsp;had&nbsp;formerly&nbsp;evaluated&nbsp;to&nbsp;true,&nbsp;and&nbsp;the&nbsp;RDSEFF&nbsp;uses&nbsp;X.VALUE&nbsp;inside&nbsp;the&nbsp;branched&nbsp;behaviour,&nbsp;the&nbsp;sample&nbsp;space&nbsp;of&nbsp;the&nbsp;random&nbsp;variable&nbsp;specifying&nbsp;the&nbsp;characterisation&nbsp;must&nbsp;be&nbsp;restricted,&nbsp;as&nbsp;the&nbsp;event&nbsp;that&nbsp;X&nbsp;takes&nbsp;a&nbsp;values&nbsp;greater&nbsp;than&nbsp;10&nbsp;cannot&nbsp;occur&nbsp;anymore.&nbsp;Therefore&nbsp;its&nbsp;probability&nbsp;is&nbsp;zero.&nbsp;Any&nbsp;variable&nbsp;characterisation&nbsp;always&nbsp;needs&nbsp;to&nbsp;be&nbsp;evaluated&nbsp;under&nbsp;the&nbsp;condition&nbsp;that&nbsp;all&nbsp;guards&nbsp;in&nbsp;the&nbsp;usage&nbsp;scenario’s&nbsp;path&nbsp;to&nbsp;it&nbsp;have&nbsp;evaluated&nbsp;to&nbsp;true.</p>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3"><a name="attributeSummary">Attribute</a></td>
+</tr>
+<tr>
+<td class="packagedElementType">&lt;Class&gt; PCMRandomVariable </td><td><a title="pcm::seff::GuardedBranchTransition::branchCondition_GuardedBranchTransition" href="#_H.j.i.q.oXDFE.d.u.r9.cZ.f.t9T4NQ"><img border="0" src="../images/1090855041_icon.png" alt="branchCondition_GuardedBranchTransition"></a>&nbsp;<a title="pcm::seff::GuardedBranchTransition::branchCondition_GuardedBranchTransition" href="#_H.j.i.q.oXDFE.d.u.r9.cZ.f.t9T4NQ">branchCondition_GuardedBranchTransition</a></td><td></td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <a title="pcm::seff::AbstractBranchTransition" href="_.eX2J0I.n.oE.d.u.cP.r8SM.hB.k.pQ-content.html"><img border="0" src="../images/285548010_icon.png" alt="pcm::seff::AbstractBranchTransition"></a>&nbsp;<a title="pcm::seff::AbstractBranchTransition" href="_.eX2J0I.n.oE.d.u.cP.r8SM.hB.k.pQ-content.html">pcm::seff::AbstractBranchTransition</a></td>
+</tr>
+<tr>
+<td><a title="pcm::seff::AbstractBranchTransition::branchBehaviour_BranchTransition" href="_.eX2J0I.n.oE.d.u.cP.r8SM.hB.k.pQ-content.html#_YS.p44.eTDE.d.q49.q.z7R-.l1H.g"><img border="0" src="../images/1090855041_icon.png" alt="branchBehaviour_BranchTransition"></a>&nbsp;<a title="pcm::seff::AbstractBranchTransition::branchBehaviour_BranchTransition" href="_.eX2J0I.n.oE.d.u.cP.r8SM.hB.k.pQ-content.html#_YS.p44.eTDE.d.q49.q.z7R-.l1H.g">branchBehaviour_BranchTransition</a></td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <img border="0" src="../images/285548010_icon.png" alt="identifier::Identifier">&nbsp;identifier::Identifier</td>
+</tr>
+<tr>
+<td><img border="0" src="../images/1090855041_icon.png" alt="id">&nbsp;id</td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <img border="0" src="../images/285548010_icon.png" alt="pcm::core::entity::NamedElement">&nbsp;pcm::core::entity::NamedElement</td>
+</tr>
+<tr>
+<td><img border="0" src="../images/1090855041_icon.png" alt="entityName">&nbsp;entityName</td>
+</tr>
+</table>
+<br>
+<a name="propertiesTable">
+<p class="LargeTitle">Eigenschaften:</p>
+</a>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Classifier Behavior</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Abstract</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Active</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">GuardedBranchTransition</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; seff</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; seff</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Package</b></td><td class="PropertyValue"><a href="_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; seff</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::seff::GuardedBranchTransition</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Representation</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+<p></p>
+<table class="DetailsTable">
+<tr>
+<td class="DetailsTitle" colspan="2"><a name="attributeDetail">Details für Attribute</a></td>
+</tr>
+</table>
+<span class="ListItem">
+<br>
+<img src="../images/1090855041_icon.png" alt="">&nbsp;<a name="_H.j.i.q.oXDFE.d.u.r9.cZ.f.t9T4NQ">branchCondition_GuardedBranchTransition</a></span>
+<pre>Public&nbsp;&lt;Class&gt; PCMRandomVariable branchCondition_GuardedBranchTransition</pre>
+<dl>
+<dd></dd>
+<dt>
+<a name="attributeConstraintsTable_H.j.i.q.oXDFE.d.u.r9.cZ.f.t9T4NQ"><b>Integritätsbedingungen:</b></a>
+</dt>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Aggregation</b></td><td class="PropertyValue">Composite</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association</b></td><td class="PropertyValue"><a href="_H.j.i.q.oHDFE.d.u.r9.cZ.f.t9T4NQ-content.html">&lt;Association&gt; A_branchCondition_GuardedBranchTransition_guardedBranchTransition</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association End</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Class</b></td><td class="PropertyValue"><a href="_.oV.d.p.gI.n.oE.d.u.cP.r8SM.hB.k.pQ-content.html">&lt;Class&gt; GuardedBranchTransition</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Datatype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Composite</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived Union</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Ordered</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Read Only</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Static</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Unique</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower Value</b></td><td class="PropertyValue"><a href="_H.j.s.b.oHDFE.d.u.r9.cZ.f.t9T4NQ-content.html">&lt;Literal Integer&gt; 1</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Multiplicity</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">branchCondition_GuardedBranchTransition</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_.oV.d.p.gI.n.oE.d.u.cP.r8SM.hB.k.pQ-content.html">&lt;Class&gt; GuardedBranchTransition</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Opposite</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_.oV.d.p.gI.n.oE.d.u.cP.r8SM.hB.k.pQ-content.html">&lt;Class&gt; GuardedBranchTransition</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Association</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::seff::GuardedBranchTransition::branchCondition_GuardedBranchTransition</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Type</b></td><td class="PropertyValue"><a href="_GIDL.sP.d.xE.d.qB_7.d.kO.s.cBPA-content.html">&lt;Class&gt; PCMRandomVariable</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper Value</b></td><td class="PropertyValue"><a href="_H.j.s.b.oXDFE.d.u.r9.cZ.f.t9T4NQ-content.html">&lt;Literal Unlimited Natural&gt; 1</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<br>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">Übersicht</a></td><td class="NavBarMainLink"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">seff - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#attributeSummary" title="Attribute">Attribute</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#attributeDetail" title="Attribute">Attribute</a></span></td>
+</tr>
+</table>
+</body>
+</html>

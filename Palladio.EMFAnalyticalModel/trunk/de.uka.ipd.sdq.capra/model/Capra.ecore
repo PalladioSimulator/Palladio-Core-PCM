@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="capra"
+    nsURI="http://sdq.ipd.uka.de/Capra/1.0" nsPrefix="capra">
+  <eClassifiers xsi:type="ecore:EClass" name="ExperimentSeries">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="experiment" ordered="false"
+        upperBound="-1" eType="#//experiment/Experiment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemConfigurationFile"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedulerLibraryFile" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputDirectory" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="summaryFile" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capraFile" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CapraModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
+        eType="#//core/ReplicatedProcess" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" ordered="false"
+        upperBound="-1" eType="#//resources/Resource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="identifiers" ordered="false"
+        upperBound="-1" eType="#//core/Identifier" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" ordered="false"
+        upperBound="-1" eType="#//measurement/Sensor" containment="true"/>
+  </eClassifiers>
+  <eSubpackages name="experiment" nsURI="http://sdq.ipd.uka.de/Capra/Experiment/1.0"
+      nsPrefix="experiment">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceUsageSpecification">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" ordered="false"
+          lowerBound="1" eType="#//core/VariableResourceUsage"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceUsageSpecification"
+          ordered="false" lowerBound="1" eType="#//core/ResourceUsage" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Experiment">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceUsageSpecification"
+          ordered="false" upperBound="-1" eType="#//experiment/ResourceUsageSpecification"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="core" nsURI="http://sdq.ipd.uka.de/Capra/Core/1.0" nsPrefix="capra.core">
+    <eClassifiers xsi:type="ecore:EClass" name="ReplicatedProcess">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numReplicas" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processvariable" ordered="false"
+          lowerBound="1" eType="#//core/ProcessVariable" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessVariable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="process" ordered="false"
+          lowerBound="1" eType="#//core/CapraExpression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CapraExpression" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InstantaneousAction" abstract="true"
+        eSuperTypes="#//core/Action"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Terminal" abstract="true" eSuperTypes="#//core/CapraExpression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//core/CapraExpression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EventAction" abstract="true" eSuperTypes="#//core/InstantaneousAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="identifier" ordered="false"
+          lowerBound="1" eType="#//core/CommunicationIdentifier"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CommunicationIdentifier" eSuperTypes="#//core/Identifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Identifier" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DemandAction" eSuperTypes="#//core/Action">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="identifier" ordered="false"
+          lowerBound="1" eType="#//core/DemandIdentifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceUsage" ordered="false"
+          lowerBound="1" eType="#//core/AbstractResourceUsage" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DemandIdentifier" eSuperTypes="#//core/Identifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractResourceUsage" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SuccessfulTermination" eSuperTypes="#//core/Terminal"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticPrefix" eSuperTypes="#//core/Operator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="action" ordered="false"
+          unique="false" lowerBound="1" eType="#//core/Action" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetOptions" ordered="false"
+          upperBound="-1" eType="#//core/InternalSelector" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InternalSelector">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" ordered="false"
+          unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+          defaultValueLiteral="1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="process" ordered="false"
+          lowerBound="1" eType="#//core/CapraExpression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Choice" eSuperTypes="#//core/Operator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="options" unique="false"
+          upperBound="-1" eType="#//core/ExternalSelector" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExternalSelector">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="input" ordered="false"
+          lowerBound="1" eType="#//core/InputEventAction" containment="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Inputs of all ExternalSelectors of a Choice must be disjoint."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetProcess" ordered="false"
+          lowerBound="1" eType="#//core/CapraExpression" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InputEventAction" eSuperTypes="#//core/EventAction"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputEventAction" eSuperTypes="#//core/EventAction"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CommunicationEventAction" eSuperTypes="#//core/EventAction"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BoundedLoop" eSuperTypes="#//core/Operator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="repeatedProcess" ordered="false"
+          lowerBound="1" eType="#//core/CapraExpression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetProcess" ordered="false"
+          lowerBound="1" eType="#//core/CapraExpression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="numberOfIterations" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityMassFunction"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParallelComposition" eSuperTypes="#//core/Operator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parallelProcesses" ordered="false"
+          upperBound="-1" eType="#//core/CapraExpression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetProcess" ordered="false"
+          lowerBound="1" eType="#//core/CapraExpression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSynchronised" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Restriction" eSuperTypes="#//core/Operator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="restrictedProcess" ordered="false"
+          lowerBound="1" eType="#//core/CapraExpression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="restrictedIdentifiers"
+          ordered="false" upperBound="-1" eType="#//core/CommunicationIdentifier"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceUsage" eSuperTypes="#//core/AbstractResourceUsage">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" ordered="false"
+          lowerBound="1" eType="#//resources/ProcessingResource"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="usageTime" ordered="false"
+          lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityDensityFunction"
+          volatile="true" transient="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageTimeSpecification"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Renaming" eSuperTypes="#//core/Operator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="renamedProcess" ordered="false"
+          lowerBound="1" eType="#//core/CapraExpression" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" ordered="false"
+          upperBound="-1" eType="#//core/Mapping" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Mapping">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
+          lowerBound="1" eType="#//core/Identifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" ordered="false"
+          lowerBound="1" eType="#//core/Identifier"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SilentIdentifier" eSuperTypes="#//core/CommunicationIdentifier #//core/DemandIdentifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessVariableUsage" eSuperTypes="#//core/CapraExpression">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processVariable" ordered="false"
+          lowerBound="1" eType="#//core/ProcessVariable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableResourceUsage" eSuperTypes="#//core/AbstractResourceUsage">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="resources" nsURI="http://sdq.ipd.uka.de/Capra/Resources/1.0"
+      nsPrefix="resources">
+    <eClassifiers xsi:type="ecore:EClass" name="Resource" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DelayResource" eSuperTypes="#//resources/ActiveResource"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ActiveResource" abstract="true" eSuperTypes="#//resources/Resource"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ContentionResource" abstract="true"
+        eSuperTypes="#//resources/Resource">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResource" eSuperTypes="#//resources/ContentionResource #//resources/ActiveResource">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scheduler" ordered="false"
+          lowerBound="1" eType="#//schedulers/Scheduler" containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="schedulers" nsURI="http://sdq.ipd.uka.de/Capra/Schedulers/1.0"
+      nsPrefix="capra.schedulers">
+    <eClassifiers xsi:type="ecore:EClass" name="Assignment" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SelectionPolicy" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="LoadBalancing">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="How is the load balanced between multiple cores and/or cpus?"/>
+      </eAnnotations>
+      <eLiterals name="OnIdle"/>
+      <eLiterals name="OnThreshold" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeConsumption">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="scaling" ordered="false"
+          lowerBound="1" eType="#//schedulers/BigOClass" defaultValueLiteral="Constant"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="BigOClass">
+      <eLiterals name="Constant"/>
+      <eLiterals name="Linear" value="1"/>
+      <eLiterals name="Square" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NonPreemptive" eSuperTypes="#//schedulers/Assignment"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Preemptive" eSuperTypes="#//schedulers/Assignment">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="immediate" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quantum" ordered="false"
+          lowerBound="1" eType="#//schedulers/Quantum" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Quantum">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeSlice" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+          defaultValueLiteral="0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WaitingTime" eSuperTypes="#//schedulers/SelectionPolicy">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="What about FIFO vs. LIFO?"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Priority" eSuperTypes="#//schedulers/SelectionPolicy">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Priority implies that the static priorities are always enabled."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasDynamicPriority" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="preference" ordered="false"
+          lowerBound="1" eType="#//schedulers/Preference" defaultValueLiteral="Hard"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Preference">
+      <eLiterals name="Hard"/>
+      <eLiterals name="Soft" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PriorityType">
+      <eLiterals name="Static"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PriortyQuantums">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfQuantums" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Scheduler">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assignment" ordered="false"
+          lowerBound="1" eType="#//schedulers/Assignment" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="selectionpolicy" ordered="false"
+          lowerBound="1" eType="#//schedulers/SelectionPolicy" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timeconsumption" ordered="false"
+          lowerBound="1" eType="#//schedulers/TimeConsumption" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loadBalancing" ordered="false"
+          lowerBound="1" eType="#//schedulers/LoadBalancing" defaultValueLiteral="OnIdle"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="measurement" nsURI="http://sdq.ipd.uka.de/Capra/Measurements/1.0"
+      nsPrefix="capra.measurement">
+    <eClassifiers xsi:type="ecore:EClass" name="TimeProbe" eSuperTypes="#//measurement/ProbeAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sensorsToStart" ordered="false"
+          upperBound="-1" eType="#//measurement/AbstractTimeSpanSensor" eOpposite="#//measurement/AbstractTimeSpanSensor/startMeasurement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sensorsToStop" ordered="false"
+          upperBound="-1" eType="#//measurement/AbstractTimeSpanSensor" eOpposite="#//measurement/AbstractTimeSpanSensor/stopMeasurement"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProbeAction" abstract="true" eSuperTypes="#//core/Action"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractTimeSpanSensor" abstract="true"
+        eSuperTypes="#//measurement/Sensor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timeSpanRecorders" ordered="false"
+          upperBound="-1" eType="#//measurement/TimeSpanRecorder" containment="true"
+          eOpposite="#//measurement/TimeSpanRecorder/timeSpanSensor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stopMeasurement" ordered="false"
+          lowerBound="1" eType="#//measurement/TimeProbe" eOpposite="#//measurement/TimeProbe/sensorsToStop"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="startMeasurement" ordered="false"
+          lowerBound="1" eType="#//measurement/TimeProbe" eOpposite="#//measurement/TimeProbe/sensorsToStart"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeSpanRecorder" abstract="true"
+        eSuperTypes="#//measurement/Recorder">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timeSpanSensor" ordered="false"
+          lowerBound="1" eType="#//measurement/AbstractTimeSpanSensor" eOpposite="#//measurement/AbstractTimeSpanSensor/timeSpanRecorders"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Recorder" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="startCondition" ordered="false"
+          lowerBound="1" eType="#//measurement/Condition" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stopCondition" ordered="false"
+          lowerBound="1" eType="#//measurement/Condition" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="VisitProbe" eSuperTypes="#//measurement/ProbeAction"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StateSensor" abstract="true" eSuperTypes="#//measurement/Sensor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stateRecorder" ordered="false"
+          upperBound="-1" eType="#//measurement/StateRecorder" containment="true"
+          eOpposite="#//measurement/StateRecorder/stateSensor"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StateRecorder" abstract="true" eSuperTypes="#//measurement/Recorder">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stateSensor" ordered="false"
+          lowerBound="1" eType="#//measurement/StateSensor" eOpposite="#//measurement/StateSensor/stateRecorder"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CountingSensor" eSuperTypes="#//measurement/Sensor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countingRecorders" ordered="false"
+          upperBound="-1" eType="#//measurement/CountingRecorder" containment="true"
+          eOpposite="#//measurement/CountingRecorder/countingSensor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countVisits" ordered="false"
+          lowerBound="1" eType="#//measurement/VisitProbe"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CountingRecorder" abstract="true"
+        eSuperTypes="#//measurement/Recorder">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countingSensor" ordered="false"
+          lowerBound="1" eType="#//measurement/CountingSensor" eOpposite="#//measurement/CountingSensor/countingRecorders"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HistogramRecorder" eSuperTypes="#//measurement/TimeSpanRecorder">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="stepWidth" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+          defaultValueLiteral="1.0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FullTimeSpanRecorder" eSuperTypes="#//measurement/TimeSpanRecorder"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SteadyStateRecorder" eSuperTypes="#//measurement/StateRecorder"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FullStateRecorder" eSuperTypes="#//measurement/StateRecorder"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FinalValueRecorder" eSuperTypes="#//measurement/CountingRecorder"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GlobalTimeSpanSensor" eSuperTypes="#//measurement/AbstractTimeSpanSensor"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalTimeSpanSensor" eSuperTypes="#//measurement/AbstractTimeSpanSensor"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InterruptionTimeSpanSensor" eSuperTypes="#//measurement/LocalTimeSpanSensor #//measurement/ResourceSensor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="threshold" ordered="false"
+          lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.scheduler.configuration/model/SchedulerConfiguration.ecore#//configuration/TimeValue"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceSensor" abstract="true" eSuperTypes="#//measurement/Sensor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="observedResource" ordered="false"
+          lowerBound="1" eType="#//resources/ActiveResource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessorShareSensor" eSuperTypes="#//measurement/ResourceSensor #//measurement/StateSensor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="observedProcess" ordered="false"
+          lowerBound="1" eType="#//core/ProcessVariable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceUtilisationSensor" eSuperTypes="#//measurement/ResourceSensor #//measurement/StateSensor"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IntervalStateRecorder" eSuperTypes="#//measurement/StateRecorder">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timeInterval" ordered="false"
+          unique="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.scheduler.configuration/model/SchedulerConfiguration.ecore#//configuration/TimeValue"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="percent" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Sensor" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="extension" nsURI="http://sdq.ipd.uka.de/Capra/Extensions/1.0"
+      nsPrefix="capra.extension">
+    <eClassifiers xsi:type="ecore:EClass" name="PassiveResource" abstract="true" eSuperTypes="#//resources/ContentionResource"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AcquireAction" eSuperTypes="#//core/InstantaneousAction">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" ordered="false"
+          unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" ordered="false"
+          lowerBound="1" eType="#//extension/PassiveResource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReleaseAction" eSuperTypes="#//core/InstantaneousAction">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resource" ordered="false"
+          lowerBound="1" eType="#//extension/PassiveResource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WeakSemaphore" eSuperTypes="#//extension/PassiveResource"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StrongSemaphore" eSuperTypes="#//extension/PassiveResource"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SchedulingStrategy"/>
+  </eSubpackages>
+</ecore:EPackage>

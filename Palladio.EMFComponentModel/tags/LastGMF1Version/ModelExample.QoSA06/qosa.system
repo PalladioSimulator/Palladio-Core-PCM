@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.qosannotations="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_eXK7sHwDEduH1Ymk7_QCwA" entityName="QoSA System">
+  <childComponentContexts_ComposedStructure id="_zOCwEHjmEduuSvsux_US9A" entityName="AssCtx_WebUI">
+    <encapsulatedComponent_ChildComponentContext href="Qosa.repository#_LulPoHiEEdujPfhn5Gb-iA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_1XIjgHjmEduuSvsux_US9A" entityName="AssCtx_AudioStore">
+    <encapsulatedComponent_ChildComponentContext href="Qosa.repository#_fmGMoHiEEdujPfhn5Gb-iA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_4P6HcHjmEduuSvsux_US9A" entityName="AssCtx_EncodingAdapter">
+    <encapsulatedComponent_ChildComponentContext href="Qosa.repository#_VgKpAHiFEdujPfhn5Gb-iA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_8PwoMHjmEduuSvsux_US9A" entityName="AssCtx_OggEncoder">
+    <encapsulatedComponent_ChildComponentContext href="Qosa.repository#_FzO2EHiFEdujPfhn5Gb-iA"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_0afVEHjmEduuSvsux_US9A" outerProvidedRole_ProvidedDelegationConnector="_yGq4UHjmEduuSvsux_US9A" childComponentContext_ProvidedDelegationConnector="_zOCwEHjmEduuSvsux_US9A">
+    <innerProvidedRole_ProvidedDelegationConnector href="Qosa.repository#_NwEmQHiEEdujPfhn5Gb-iA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <requiredDelegationConnectors_ComposedStructure id="_7kjIAHjmEduuSvsux_US9A" outerRequiredRole_RequiredDelegationConnector="_wHtRQHjmEduuSvsux_US9A" childComponentContext_RequiredDelegationConnector="_4P6HcHjmEduuSvsux_US9A">
+    <innerRequiredRole_RequiredDelegationConnector href="Qosa.repository#_wE_w8HjlEduuSvsux_US9A"/>
+  </requiredDelegationConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_3LqcMHjmEduuSvsux_US9A" requiringChildComponentContext_CompositeAssemblyConnector="_zOCwEHjmEduuSvsux_US9A" providingChildComponentContext_CompositeAssemblyConnector="_1XIjgHjmEduuSvsux_US9A">
+    <providedRole_CompositeAssemblyConnector href="Qosa.repository#_g0LwYHiEEdujPfhn5Gb-iA"/>
+    <requiredRole_CompositeAssemblyConnector href="Qosa.repository#_bpX4YHiEEdujPfhn5Gb-iA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_-dec8HjmEduuSvsux_US9A" requiringChildComponentContext_CompositeAssemblyConnector="_4P6HcHjmEduuSvsux_US9A" providingChildComponentContext_CompositeAssemblyConnector="_8PwoMHjmEduuSvsux_US9A">
+    <providedRole_CompositeAssemblyConnector href="Qosa.repository#_ZZm_wHiFEdujPfhn5Gb-iA"/>
+    <requiredRole_CompositeAssemblyConnector href="Qosa.repository#_ceJu0HiFEdujPfhn5Gb-iA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_D7Wa4HjnEduuSvsux_US9A" requiringChildComponentContext_CompositeAssemblyConnector="_1XIjgHjmEduuSvsux_US9A" providingChildComponentContext_CompositeAssemblyConnector="_4P6HcHjmEduuSvsux_US9A">
+    <providedRole_CompositeAssemblyConnector href="Qosa.repository#_W-oyIHiFEdujPfhn5Gb-iA"/>
+    <requiredRole_CompositeAssemblyConnector href="Qosa.repository#_mWYNoHiEEdujPfhn5Gb-iA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_yGq4UHjmEduuSvsux_US9A">
+    <providedInterface__ProvidedRole href="Qosa.repository#_5zotAHiDEdujPfhn5Gb-iA"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <requiredRoles_InterfaceRequiringEntity id="_wHtRQHjmEduuSvsux_US9A">
+    <requiredInterface__RequiredRole href="Qosa.repository#_kmoHQHiEEdujPfhn5Gb-iA"/>
+  </requiredRoles_InterfaceRequiringEntity>
+  <qosAnnotations_System id="_O1xhEHjnEduuSvsux_US9A">
+    <specifiedExecutionTimes_QoSAnnotations xsi:type="pcm.qosannotations:SystemSpecifiedExecutionTime" specification=" file.BYTESIZE" role_SpecifiedExecutionTime="_wHtRQHjmEduuSvsux_US9A">
+      <signature_SpecifiedTimeConsumption href="Qosa.repository#//@interfaces__Repository.2/@signatures__Interface.0"/>
+    </specifiedExecutionTimes_QoSAnnotations>
+  </qosAnnotations_System>
+</pcm.system:System>

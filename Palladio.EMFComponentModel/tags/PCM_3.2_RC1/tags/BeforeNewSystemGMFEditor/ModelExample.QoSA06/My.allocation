@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_zy8_8GdLEdug3uVRVKtR_w">
+  <allocationContexts_Allocation id="AudioStore-AppServer">
+    <resourceContainer_AllocationContext href="My.resourceenvironment#Application Server"/>
+    <assemblyContext_AllocationContext href="My.system#AssCtx_AudioStore"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="Adapter-AppServer">
+    <resourceContainer_AllocationContext href="My.resourceenvironment#Application Server"/>
+    <assemblyContext_AllocationContext href="My.system#AssCtx_EncodingAdapter"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="Encoder-AppServer">
+    <resourceContainer_AllocationContext href="My.resourceenvironment#Application Server"/>
+    <assemblyContext_AllocationContext href="My.system#AssCtx_OggEncoder"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="WebUI-AppServer">
+    <resourceContainer_AllocationContext href="My.resourceenvironment#Application Server"/>
+    <assemblyContext_AllocationContext href="My.system#AssCtx_WebUI"/>
+  </allocationContexts_Allocation>
+</pcm.allocation:Allocation>

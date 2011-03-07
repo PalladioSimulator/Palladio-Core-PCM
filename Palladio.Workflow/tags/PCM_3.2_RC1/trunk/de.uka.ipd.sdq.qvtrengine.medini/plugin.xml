@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="de.uka.ipd.sdq.workflow.mdsd.qvtrengine">
+      <engine
+            factory="de.uka.ipd.sdq.qvtrengine.medini.impl.MediniQVTREngineFactory"
+            id="de.uka.ipd.sdq.workflow.mdsd.mediniqvt"
+            name="mediniQVT QVT-R Engine">
+      </engine>
+   </extension>
+
+</plugin>

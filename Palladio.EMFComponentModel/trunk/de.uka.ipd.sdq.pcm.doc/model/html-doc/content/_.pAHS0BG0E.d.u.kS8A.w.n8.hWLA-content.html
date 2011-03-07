@@ -1,0 +1,274 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>seff - UML-Dokumentation</title>
+<meta name="generator" content="IBM Rational Model Publisher">
+<meta name="description" content="Inhalt für ResourceDemandingSEFF">
+<link rel="stylesheet" type="text/css" href="WebPublish.css">
+</head>
+<body>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">Übersicht</a></td><td class="NavBarMainLink"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">seff - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#attributeSummary" title="Attribute">Attribute</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#attributeDetail" title="Attribute">Attribute</a></span></td>
+</tr>
+</table>
+<hr>
+<span class="PackageFullyQualifiedName">seff</span>
+<br>
+<span class="ElementTitle">Klasse ResourceDemandingSEFF</span>
+<p>
+<a name="documentationSection"></a>A resource demanding service effect specification (RDSEFF) is a special type of SEFF designed for performance and reliability predictions. Besides dependencies between provided and required services of a component, it additionally includes notions of resource usage, data flow, and parametric dependencies for more accurate predictions. Its control flow is hierarchically structured and can be enhanced with transition probabilities on branches and numbers of iterations on loops.</br>A ResourceDemandingSEFF is a ServiceEffectSpecification and a Resource-DemandingBehaviour at the same time inheriting from both classes. The reason for this construct lies in the fact, that ResourceDemandingBehaviours can be used recursively inside themselves to describe loop bodies or branched behaviours (explained later), and these inner behaviours should not be RDSEFFs themselves</p>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3"><a name="attributeSummary">Attribute</a></td>
+</tr>
+<tr>
+<td class="packagedElementType">&lt;Class&gt; ResourceDemandingInternalBehaviour </td><td><a title="pcm::seff::ResourceDemandingSEFF::resourceDemandingInternalBehaviours" href="#_.uO16U.bGYE.d673PT6.cW.w0K.w"><img border="0" src="../images/1090855041_icon.png" alt="resourceDemandingInternalBehaviours"></a>&nbsp;<a title="pcm::seff::ResourceDemandingSEFF::resourceDemandingInternalBehaviours" href="#_.uO16U.bGYE.d673PT6.cW.w0K.w">resourceDemandingInternalBehaviours</a></td><td></td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <img border="0" src="../images/285548010_icon.png" alt="identifier::Identifier">&nbsp;identifier::Identifier</td>
+</tr>
+<tr>
+<td><img border="0" src="../images/1090855041_icon.png" alt="id">&nbsp;id</td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <a title="pcm::seff::ServiceEffectSpecification" href="_1.qN_0JJ.xE.d.qSSI.mFLKD.kS.g-content.html"><img border="0" src="../images/285548010_icon.png" alt="pcm::seff::ServiceEffectSpecification"></a>&nbsp;<a title="pcm::seff::ServiceEffectSpecification" href="_1.qN_0JJ.xE.d.qSSI.mFLKD.kS.g-content.html">pcm::seff::ServiceEffectSpecification</a></td>
+</tr>
+<tr>
+<td><a title="pcm::seff::ServiceEffectSpecification::seffTypeID" href="_1.qN_0JJ.xE.d.qSSI.mFLKD.kS.g-content.html#_6.w.c7.kJV.rE.d.qSSI.mFLKD.kS.g"><img border="0" src="../images/1090855041_icon.png" alt="seffTypeID"></a>&nbsp;<a title="pcm::seff::ServiceEffectSpecification::seffTypeID" href="_1.qN_0JJ.xE.d.qSSI.mFLKD.kS.g-content.html#_6.w.c7.kJV.rE.d.qSSI.mFLKD.kS.g">seffTypeID</a>, <a title="pcm::seff::ServiceEffectSpecification::describedService__SEFF" href="_1.qN_0JJ.xE.d.qSSI.mFLKD.kS.g-content.html#_UST.o.wNBSE.d.q.f.l.vL.z1KCR.i.g"><img border="0" src="../images/1090855041_icon.png" alt="describedService__SEFF"></a>&nbsp;<a title="pcm::seff::ServiceEffectSpecification::describedService__SEFF" href="_1.qN_0JJ.xE.d.qSSI.mFLKD.kS.g-content.html#_UST.o.wNBSE.d.q.f.l.vL.z1KCR.i.g">describedService__SEFF</a></td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <a title="pcm::seff::ResourceDemandingBehaviour" href="_-.kKR4OKHE.d.q6I.v.zVMF.p.u.z.g-content.html"><img border="0" src="../images/285548010_icon.png" alt="pcm::seff::ResourceDemandingBehaviour"></a>&nbsp;<a title="pcm::seff::ResourceDemandingBehaviour" href="_-.kKR4OKHE.d.q6I.v.zVMF.p.u.z.g-content.html">pcm::seff::ResourceDemandingBehaviour</a></td>
+</tr>
+<tr>
+<td><a title="pcm::seff::ResourceDemandingBehaviour::steps_Behaviour" href="_-.kKR4OKHE.d.q6I.v.zVMF.p.u.z.g-content.html#_R.rAYI.eD.hE.d.q8.y.sXH3.gT.iE.g"><img border="0" src="../images/1090855041_icon.png" alt="steps_Behaviour"></a>&nbsp;<a title="pcm::seff::ResourceDemandingBehaviour::steps_Behaviour" href="_-.kKR4OKHE.d.q6I.v.zVMF.p.u.z.g-content.html#_R.rAYI.eD.hE.d.q8.y.sXH3.gT.iE.g">steps_Behaviour</a></td>
+</tr>
+</table>
+<br>
+<a name="propertiesTable">
+<p class="LargeTitle">Eigenschaften:</p>
+</a>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Classifier Behavior</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Abstract</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Active</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">ResourceDemandingSEFF</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; seff</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; seff</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Package</b></td><td class="PropertyValue"><a href="_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; seff</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::seff::ResourceDemandingSEFF</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Representation</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+<p></p>
+<table class="DetailsTable">
+<tr>
+<td class="DetailsTitle" colspan="2"><a name="attributeDetail">Details für Attribute</a></td>
+</tr>
+</table>
+<span class="ListItem">
+<br>
+<img src="../images/1090855041_icon.png" alt="">&nbsp;<a name="_.uO16U.bGYE.d673PT6.cW.w0K.w">resourceDemandingInternalBehaviours</a></span>
+<pre>Public&nbsp;&lt;Class&gt; ResourceDemandingInternalBehaviour resourceDemandingInternalBehaviours</pre>
+<dl>
+<dd></dd>
+<dt>
+<a name="attributeConstraintsTable_.uO16U.bGYE.d673PT6.cW.w0K.w"><b>Integritätsbedingungen:</b></a>
+</dt>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Aggregation</b></td><td class="PropertyValue">Composite</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association</b></td><td class="PropertyValue"><a href="_.uO16ULGYE.d673PT6.cW.w0K.w-content.html">&lt;Association&gt; A_resourceDemandingInternalBehaviours_resourceDemandingSEFF</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association End</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Class</b></td><td class="PropertyValue"><a href="_.pAHS0BG0E.d.u.kS8A.w.n8.hWLA-content.html">&lt;Class&gt; ResourceDemandingSEFF</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Datatype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Composite</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived Union</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Ordered</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Read Only</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Static</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Unique</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower</b></td><td class="PropertyValue">0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower Value</b></td><td class="PropertyValue"><a href="_.uO16U.rGYE.d673PT6.cW.w0K.w-content.html">&lt;Literal Integer&gt; 0</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Multiplicity</b></td><td class="PropertyValue">*</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">resourceDemandingInternalBehaviours</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_.pAHS0BG0E.d.u.kS8A.w.n8.hWLA-content.html">&lt;Class&gt; ResourceDemandingSEFF</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Opposite</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_.pAHS0BG0E.d.u.kS8A.w.n8.hWLA-content.html">&lt;Class&gt; ResourceDemandingSEFF</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Association</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::seff::ResourceDemandingSEFF::resourceDemandingInternalBehaviours</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Type</b></td><td class="PropertyValue"><a href="_.j.hQWQLGYE.d673PT6.cW.w0K.w-content.html">&lt;Class&gt; ResourceDemandingInternalBehaviour</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper</b></td><td class="PropertyValue">*</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper Value</b></td><td class="PropertyValue"><a href="_.uO16U7GYE.d673PT6.cW.w0K.w-content.html">&lt;Literal Unlimited Natural&gt; *</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<br>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">Übersicht</a></td><td class="NavBarMainLink"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">seff - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#attributeSummary" title="Attribute">Attribute</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#attributeDetail" title="Attribute">Attribute</a></span></td>
+</tr>
+</table>
+</body>
+</html>

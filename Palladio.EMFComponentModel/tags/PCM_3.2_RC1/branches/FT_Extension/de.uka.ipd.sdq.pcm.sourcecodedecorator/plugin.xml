@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///SourceCodeDecorator/sourcecodedecorator.ecore"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.SourcecodedecoratorPackage"
+            genModel="model/SourceCodeDecorator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="sourcecodedecorator"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.util.SourcecodedecoratorResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///SourceCodeDecorator/PCMLink.ecore"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.PCMLinkPackage"
+            genModel="model/SourceCodeDecorator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="pcmlink"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.util.PCMLinkResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///SourceCodeDecorator/loggerLink.ecore"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage"
+            genModel="model/SourceCodeDecorator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="loggerlink"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.util.LoggerlinkResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simulation Controller
+Bundle-SymbolicName: de.uka.ipd.sdq.simulation.controller;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.simulation.controller.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
+ de.uka.ipd.sdq.codegen.simucontroller;bundle-version="1.0.0",
+ de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
+ org.eclipse.debug.ui;bundle-version="3.5.2",
+ de.uka.ipd.sdq.cip;bundle-version="2.0.0",
+ de.uka.ipd.sdq.simulation;bundle-version="1.0.0",
+ de.uka.ipd.sdq.simucomframework;bundle-version="1.0.0",
+ de.uka.ipd.sdq.cip.runtime;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: de.uka.ipd.sdq.simulation.controller.runconfig

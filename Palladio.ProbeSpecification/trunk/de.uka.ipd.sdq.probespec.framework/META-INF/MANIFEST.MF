@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Probe Specification Framework Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.probespec.framework
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.probespec.framework.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.jscience;bundle-version="4.1.3",
+ de.uka.ipd.sdq.pipesandfilters.framework;bundle-version="1.0.0",
+ org.apache.log4j;bundle-version="1.2.13"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: de.uka.ipd.sdq.probespec.framework,
+ de.uka.ipd.sdq.probespec.framework.calculator,
+ de.uka.ipd.sdq.probespec.framework.concurrency,
+ de.uka.ipd.sdq.probespec.framework.exceptions,
+ de.uka.ipd.sdq.probespec.framework.garbagecollection,
+ de.uka.ipd.sdq.probespec.framework.matching,
+ de.uka.ipd.sdq.probespec.framework.probes,
+ de.uka.ipd.sdq.probespec.framework.utils
+Bundle-Vendor: sdq.ipd.uka.de

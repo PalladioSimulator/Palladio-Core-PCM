@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scheduler:SchedulerLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/scheduler/configuration/1.0" xmlns:scheduler="http://sdq.ipd.uka.de/scheduler/1.0">
+  <schedulerConfiguration id="_346S8Gt5EdyvvbyE4XoDrQ" name="Linux 2.6.22">
+    <priorityConfiguration>
+      <range highest="-20" high="-5" low="5" lowest="19"/>
+      <boostConfiguration xsi:type="DynamicPriorityBoostConfiguratioin" maxBonus="10" threshold="3">
+        <maxSleepAverage unitSpecification="ms" value="1000.0"/>
+      </boostConfiguration>
+    </priorityConfiguration>
+    <preemptionConfiguration>
+      <timesliceConfiguration xsi:type="PriorityDependentTimeSliceConfiguration">
+        <timeslice unitSpecification="ms" value="100.0"/>
+        <minTimeslice unitSpecification="ms" value="5.0"/>
+      </timesliceConfiguration>
+    </preemptionConfiguration>
+    <queueingConfiguration xsi:type="MultipleQueueConfiguration" initialInstanceSelection="PREFER_IDLE">
+      <loadBalancing balancingType="ANY_TO_THRESHOLD" preferredWaitingTime="SHORT" threshold="1.0" maxIterations="10">
+        <balancingInterval unitSpecification="ms"/>
+      </loadBalancing>
+    </queueingConfiguration>
+    <interval unitSpecification="ms" value="100.0"/>
+  </schedulerConfiguration>
+  <schedulerConfiguration id="_H-tHMGw9Edy7W-_0jjzZwQ" name="Windows XP">
+    <priorityConfiguration>
+      <range highest="15" high="9" average="8" low="6" default="8"/>
+      <boostConfiguration xsi:type="StaticPriorityBoostConfiguration">
+        <starvationBoost bonus="15"/>
+      </boostConfiguration>
+    </priorityConfiguration>
+    <preemptionConfiguration>
+      <timesliceConfiguration xsi:type="PredefinedTimeSliceConfiguration">
+        <timeslice unitSpecification="ms" value="31.5"/>
+      </timesliceConfiguration>
+    </preemptionConfiguration>
+    <queueingConfiguration xsi:type="SingleQueueConfiguration" runqueueType="SINGLE" processSelection="NEXT_RUNNABLE"/>
+    <interval unitSpecification="ms" value="31.5"/>
+  </schedulerConfiguration>
+  <schedulerConfiguration id="_YaP7MIiaEdyLRLCRvpo6jw" name="Windows 2003">
+    <priorityConfiguration>
+      <range highest="15" high="12" average="7" low="3" default="7"/>
+      <boostConfiguration xsi:type="StaticPriorityBoostConfiguration">
+        <starvationBoost bonus="15"/>
+      </boostConfiguration>
+    </priorityConfiguration>
+    <preemptionConfiguration>
+      <timesliceConfiguration xsi:type="PredefinedTimeSliceConfiguration">
+        <timeslice unitSpecification="ms" value="31.5"/>
+      </timesliceConfiguration>
+    </preemptionConfiguration>
+    <queueingConfiguration xsi:type="MultipleQueueConfiguration" runqueueType="SINGLE">
+      <loadBalancing preferredWaitingTime="SHORT" maxIterations="1">
+        <balancingInterval unitSpecification="ms"/>
+      </loadBalancing>
+    </queueingConfiguration>
+    <interval unitSpecification="ms" value="31.5"/>
+  </schedulerConfiguration>
+  <schedulerConfiguration id="_Ig5XgLR5EdyAtL0R2j8ckQ" name="HD Scheduler"/>
+</scheduler:SchedulerLibrary>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_m6hI8HjmEduuSvsux_US9A" type="Pcm" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_nRdpUXjmEduuSvsux_US9A" type="1001">
+    <styles xmi:type="notation:FontStyle" xmi:id="_nRdpUnjmEduuSvsux_US9A"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_nRdpU3jmEduuSvsux_US9A"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_nRdpVHjmEduuSvsux_US9A"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_nRdpVXjmEduuSvsux_US9A"/>
+    <element xmi:type="pcm.seff:StartAction" href="Qosa.repository#_nRdpUHjmEduuSvsux_US9A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nRdpVnjmEduuSvsux_US9A" x="30" y="82"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_nnXn4XjmEduuSvsux_US9A" type="1002">
+    <styles xmi:type="notation:FontStyle" xmi:id="_nnXn4njmEduuSvsux_US9A"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_nnXn43jmEduuSvsux_US9A"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_nnXn5HjmEduuSvsux_US9A"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_nnXn5XjmEduuSvsux_US9A"/>
+    <element xmi:type="pcm.seff:StopAction" href="Qosa.repository#_nnXn4HjmEduuSvsux_US9A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nnXn5njmEduuSvsux_US9A" x="226" y="89"/>
+  </children>
+  <styles xmi:type="notation:PageStyle" xmi:id="_m6hI8XjmEduuSvsux_US9A"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_m6hI8njmEduuSvsux_US9A"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_m6hI83jmEduuSvsux_US9A"/>
+  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="Qosa.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.1"/>
+  <edges xmi:type="notation:Edge" xmi:id="_oTB0AHjmEduuSvsux_US9A" type="3001" source="_nRdpUXjmEduuSvsux_US9A" target="_nnXn4XjmEduuSvsux_US9A">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_oTB0AXjmEduuSvsux_US9A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_oTB0AnjmEduuSvsux_US9A"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_oTB0A3jmEduuSvsux_US9A"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oTB0BHjmEduuSvsux_US9A" points="[9, -1, -164, 0]$[165, 2, -8, 3]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oTB0BXjmEduuSvsux_US9A" id="(0.775,0.8)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oTB0BnjmEduuSvsux_US9A" id="(0.2,0.6)"/>
+  </edges>
+</notation:Diagram>

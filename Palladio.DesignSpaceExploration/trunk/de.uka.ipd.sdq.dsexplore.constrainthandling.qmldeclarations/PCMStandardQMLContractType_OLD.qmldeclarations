@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QMLDeclarations:QMLDeclarations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:QMLContractType="http:///QMLContractType.ecore" xmlns:QMLDeclarations="http:///QMLDeclarations.ecore" xmlns:id="" id="_r_iVh6CrEd-s9uTaURbrKA">
+  <qmlDeclarations xsi:type="QMLContractType:QMLContractType" id="_r_iViKCrEd-s9uTaURbrKA" entityName="PCMContractType">
+    <dimensions id="_r_iViaCrEd-s9uTaURbrKA" entityName="Cost">
+      <type xsi:type="QMLContractType:DimensionTypeNumeric" id="_r_iViqCrEd-s9uTaURbrKA">
+        <relationSemantics id="_r_iVi6CrEd-s9uTaURbrKA"/>
+      </type>
+    </dimensions>
+    <dimensions id="_r_iVjKCrEd-s9uTaURbrKA" entityName="Reliability">
+      <type xsi:type="QMLContractType:DimensionTypeNumeric" id="_r_iVjaCrEd-s9uTaURbrKA">
+        <relationSemantics id="_r_iVjqCrEd-s9uTaURbrKA"/>
+      </type>
+    </dimensions>
+    <dimensions id="_r_iVj6CrEd-s9uTaURbrKA" entityName="ResponseTime">
+      <type xsi:type="QMLContractType:DimensionTypeNumeric" id="_r_iVkKCrEd-s9uTaURbrKA">
+        <relationSemantics id="_r_iVkaCrEd-s9uTaURbrKA"/>
+      </type>
+    </dimensions>
+  </qmlDeclarations>
+</QMLDeclarations:QMLDeclarations>

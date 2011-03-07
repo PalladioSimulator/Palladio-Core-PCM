@@ -1,0 +1,5258 @@
+
+{ 
+    identifier: 'id',
+    label: 'title',
+    items: [
+        {
+            title: 'Diagramme',
+            top: true,
+            id: '_DIAGRAMS_ROOT_NODE_',
+            icon: 'icon1292177930',
+            children: [
+                {_reference: '_-.b.rS0D.y.xE.d.uB5.p.x.z2U.pKVQ' },
+                {_reference: '_.oA.lJUD.y.yE.d.uB5.p.x.z2U.pKVQ' },
+                {_reference: '_.d.jTW.wJG.kE.d.uV.gYS.f.f.mI32A' },
+                {_reference: '_7.x.z.gQJG.lE.d.uV.gYS.f.f.mI32A' },
+                {_reference: '__.j.zE0E-.yE.d.u.uPYQ.nF.iB.y.bA' },
+                {_reference: '__.nXO.sE.pDE.d.y.yN.sX.l.b1.tN.s.w' },
+                {_reference: '_.h9.bJ0DZ.sE.d.u96.sQ.yPB.eXA.g' },
+                {_reference: '_.qU.sB.sD.h.wE.d.y4.w.o8LP9.z.xLA' },
+                {_reference: '_V7.s.s.cDQ_E.d.u.n4NCFP.wZ.k.sA' },
+                {_reference: '_C4.o48DREE.d.u.n4NCFP.wZ.k.sA' },
+                {_reference: '_.xD.j.wUK.z.vE.d2.uV.a.jBV.pW.nAA' },
+                {_reference: '_.vG19.oJG.yE.d.uV.gYS.f.f.mI32A' },
+                {_reference: '_.d.kTC.gEJWE.d.u.i.f.p6.rT9HRSQ' },
+                {_reference: '_P.g.s.x4C.l.dE.d.u.cD.p.u.b6.j.r.f.n.g' },
+                {_reference: '_-.u.oA0D.y.tE.d.uB5.p.x.z2U.pKVQ' },
+                {_reference: '_T.n25.gD.y.uE.d.uB5.p.x.z2U.pKVQ' },
+                {_reference: '_F.s8.oYD.y.vE.d.uB5.p.x.z2U.pKVQ' },
+                {_reference: '_.sAV.q0D.y.vE.d.uB5.p.x.z2U.pKVQ' },
+                {_reference: '_.a.o.q.w.cG.p6E.d.uK.lZ.eP.hP.eP.r.w' },
+                {_reference: '_OPNO.wJD.tE.d.u1.y.p0.uU5F.cVQ' },
+                {_reference: '_.q.qV.qUC7.oE.d.y.fA.dI.lK.m.zI9Q' },
+                {_reference: '_.lJ9HID.j9E.d.y2.j_4.z2PHNJQ' },
+                {_reference: '_4B1.zID.j9E.d.y2.j_4.z2PHNJQ' },
+                {_reference: '_.c.t.yB4LGZE.d673PT6.cW.w0K.w' },
+                {_reference: '_.aT.h.j.oP.xQE.d68D51G.rG.x7.o.w' },
+                {_reference: '_.nD.mZID.y.xE.d.uB5.p.x.z2U.pKVQ' },
+                {_reference: '_.rL.e.u.kIY.fE.d2H.z8WH.hMU28.w' },
+                {_reference: '_W.jL-8HM.kE.d.u.qAZ6.i.d.i.aT.j.w' },
+                {_reference: '_.jK-V.cL3.lE.d.yGN.bIQ-5P.h.l.g' },
+                {_reference: '_YW.l.kYD.y.sE.d.uB5.p.x.z2U.pKVQ' },
+                {_reference: '_IB.c.s.gD.y.tE.d.uB5.p.x.z2U.pKVQ' },
+                {_reference: '_.iAR.mAD.y.tE.d.uB5.p.x.z2U.pKVQ' },
+                {_reference: '_WM.aSEHP.yE.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_.cE4.r.oHSSE.d.uUY.p.h3.z.t.x_.j.g' },
+                {_reference: '_.g.vT.rUD.j-E.d.y2.j_4.z2PHNJQ' },
+                {_reference: '_910Y8KBZE.d24B.v0.x9CNK.p.g' },
+                {_reference: '_QG.r.l0HDEE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_T.h.bGAHDSE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_.m9X.dUG.c6E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_.hI.uI.sG.c7E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_B.u4.i.kG.c8E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_E7.o34NTBE.d.y-V.t.z2H2.q.vX.w' }
+            ]
+        },
+        {
+            title: 'pcm::usagemodel::Usage Model',
+            id: '_-.b.rS0D.y.xE.d.uB5.p.x.z2U.pKVQ',
+            object: '_-.b.rS0D.y.xE.d.uB5.p.x.z2U.pKVQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::usagemodel::EntryLevelSystemCall',
+            id: '_.oA.lJUD.y.yE.d.uB5.p.x.z2U.pKVQ',
+            object: '_.oA.lJUD.y.yE.d.uB5.p.x.z2U.pKVQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::usagemodel::UsageModel_UsageScenario_ScenarioBehaviour',
+            id: '_.d.jTW.wJG.kE.d.uV.gYS.f.f.mI32A',
+            object: '_.d.jTW.wJG.kE.d.uV.gYS.f.f.mI32A-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::usagemodel::ScenarioBehaviour',
+            id: '_7.x.z.gQJG.lE.d.uV.gYS.f.f.mI32A',
+            object: '_7.x.z.gQJG.lE.d.uV.gYS.f.f.mI32A-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::resourceenvironment::ResourceEnvironment',
+            id: '__.j.zE0E-.yE.d.u.uPYQ.nF.iB.y.bA',
+            object: '__.j.zE0E-.yE.d.u.uPYQ.nF.iB.y.bA-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::resourceenvironment::RandomVariableSpecifications',
+            id: '__.nXO.sE.pDE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '__.nXO.sE.pDE.d.y.yN.sX.l.b1.tN.s.w-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::resourcetype::Resources',
+            id: '_.h9.bJ0DZ.sE.d.u96.sQ.yPB.eXA.g',
+            object: '_.h9.bJ0DZ.sE.d.u96.sQ.yPB.eXA.g-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::resourcetype::Units',
+            id: '_.qU.sB.sD.h.wE.d.y4.w.o8LP9.z.xLA',
+            object: '_.qU.sB.sD.h.wE.d.y4.w.o8LP9.z.xLA-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::Package Overview I',
+            id: '_V7.s.s.cDQ_E.d.u.n4NCFP.wZ.k.sA',
+            object: '_V7.s.s.cDQ_E.d.u.n4NCFP.wZ.k.sA-content.html',
+            icon: 'icon721754505'
+        },
+	
+        {
+            title: 'pcm::Package Overview II',
+            id: '_C4.o48DREE.d.u.n4NCFP.wZ.k.sA',
+            object: '_C4.o48DREE.d.u.n4NCFP.wZ.k.sA-content.html',
+            icon: 'icon721754505'
+        },
+	
+        {
+            title: 'pcm::CoreEntityOverview',
+            id: '_.xD.j.wUK.z.vE.d2.uV.a.jBV.pW.nAA',
+            object: '_.xD.j.wUK.z.vE.d2.uV.a.jBV.pW.nAA-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::parameter::Parameter Package Overview',
+            id: '_.vG19.oJG.yE.d.uV.gYS.f.f.mI32A',
+            object: '_.vG19.oJG.yE.d.uV.gYS.f.f.mI32A-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::system::System Internals',
+            id: '_.d.kTC.gEJWE.d.u.i.f.p6.rT9HRSQ',
+            object: '_.d.kTC.gEJWE.d.u.i.f.p6.rT9HRSQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::Resource Demand',
+            id: '_P.g.s.x4C.l.dE.d.u.cD.p.u.b6.j.r.f.n.g',
+            object: '_P.g.s.x4C.l.dE.d.u.cD.p.u.b6.j.r.f.n.g-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::Actions',
+            id: '_-.u.oA0D.y.tE.d.uB5.p.x.z2U.pKVQ',
+            object: '_-.u.oA0D.y.tE.d.uB5.p.x.z2U.pKVQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::SEFF',
+            id: '_T.n25.gD.y.uE.d.uB5.p.x.z2U.pKVQ',
+            object: '_T.n25.gD.y.uE.d.uB5.p.x.z2U.pKVQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::Loop Behaviour',
+            id: '_F.s8.oYD.y.vE.d.uB5.p.x.z2U.pKVQ',
+            object: '_F.s8.oYD.y.vE.d.uB5.p.x.z2U.pKVQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::Parameter Usage',
+            id: '_.sAV.q0D.y.vE.d.uB5.p.x.z2U.pKVQ',
+            object: '_.sAV.q0D.y.vE.d.uB5.p.x.z2U.pKVQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::Branch',
+            id: '_.a.o.q.w.cG.p6E.d.uK.lZ.eP.hP.eP.r.w',
+            object: '_.a.o.q.w.cG.p6E.d.uK.lZ.eP.hP.eP.r.w-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::BehaviourOverview',
+            id: '_OPNO.wJD.tE.d.u1.y.p0.uU5F.cVQ',
+            object: '_OPNO.wJD.tE.d.u1.y.p0.uU5F.cVQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::Fork',
+            id: '_.q.qV.qUC7.oE.d.y.fA.dI.lK.m.zI9Q',
+            object: '_.q.qV.qUC7.oE.d.y.fA.dI.lK.m.zI9Q-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::ExternalCall',
+            id: '_.lJ9HID.j9E.d.y2.j_4.z2PHNJQ',
+            object: '_.lJ9HID.j9E.d.y2.j_4.z2PHNJQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::PassiveResources',
+            id: '_4B1.zID.j9E.d.y2.j_4.z2PHNJQ',
+            object: '_4B1.zID.j9E.d.y2.j_4.z2PHNJQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::InternalCall',
+            id: '_.c.t.yB4LGZE.d673PT6.cW.w0K.w',
+            object: '_.c.t.yB4LGZE.d673PT6.cW.w0K.w-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::ActionHierarchy',
+            id: '_.aT.h.j.oP.xQE.d68D51G.rG.x7.o.w',
+            object: '_.aT.h.j.oP.xQE.d68D51G.rG.x7.o.w-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::allocation::Allocation',
+            id: '_.nD.mZID.y.xE.d.uB5.p.x.z2U.pKVQ',
+            object: '_.nD.mZID.y.xE.d.uB5.p.x.z2U.pKVQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::subsystem::SubSystem',
+            id: '_.rL.e.u.kIY.fE.d2H.z8WH.hMU28.w',
+            object: '_.rL.e.u.kIY.fE.d2H.z8WH.hMU28.w-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::qosannotations::QosSpecification',
+            id: '_W.jL-8HM.kE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_W.jL-8HM.kE.d.u.qAZ6.i.d.i.aT.j.w-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::qosannotations::performance::Performance',
+            id: '_.jK-V.cL3.lE.d.yGN.bIQ-5P.h.l.g',
+            object: '_.jK-V.cL3.lE.d.yGN.bIQ-5P.h.l.g-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::repository::RepositoryTypeHierachy',
+            id: '_YW.l.kYD.y.sE.d.uB5.p.x.z2U.pKVQ',
+            object: '_YW.l.kYD.y.sE.d.uB5.p.x.z2U.pKVQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::repository::CompositeComponent',
+            id: '_IB.c.s.gD.y.tE.d.uB5.p.x.z2U.pKVQ',
+            object: '_IB.c.s.gD.y.tE.d.uB5.p.x.z2U.pKVQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::repository::Interface',
+            id: '_.iAR.mAD.y.tE.d.uB5.p.x.z2U.pKVQ',
+            object: '_.iAR.mAD.y.tE.d.uB5.p.x.z2U.pKVQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::repository::Datatype',
+            id: '_WM.aSEHP.yE.d.u.xX.f.d-1.j79QQ',
+            object: '_WM.aSEHP.yE.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::repository::RepositoryContainments',
+            id: '_.cE4.r.oHSSE.d.uUY.p.h3.z.t.x_.j.g',
+            object: '_.cE4.r.oHSSE.d.uUY.p.h3.z.t.x_.j.g-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::repository::PassiveResources',
+            id: '_.g.vT.rUD.j-E.d.y2.j_4.z2PHNJQ',
+            object: '_.g.vT.rUD.j-E.d.y2.j_4.z2PHNJQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::repository::RepositoryComponent',
+            id: '_910Y8KBZE.d24B.v0.x9CNK.p.g',
+            object: '_910Y8KBZE.d24B.v0.x9CNK.p.g-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::core::entity::Entities',
+            id: '_QG.r.l0HDEE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_QG.r.l0HDEE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::core::entity::ProvidingRequiringEntities',
+            id: '_T.h.bGAHDSE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_T.h.bGAHDSE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::core::composition::Composition',
+            id: '_.m9X.dUG.c6E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.m9X.dUG.c6E.d.uCG.aQA.x.k.cI.wA-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::core::composition::AssemblyConnector',
+            id: '_.hI.uI.sG.c7E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.hI.uI.sG.c7E.d.uCG.aQA.x.k.cI.wA-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::core::composition::Delegation',
+            id: '_B.u4.i.kG.c8E.d.uCG.aQA.x.k.cI.wA',
+            object: '_B.u4.i.kG.c8E.d.uCG.aQA.x.k.cI.wA-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'pcm::seff::performance::Performance',
+            id: '_E7.o34NTBE.d.y-V.t.z2H2.q.vX.w',
+            object: '_E7.o34NTBE.d.y-V.t.z2H2.q.vX.w-content.html',
+            icon: 'icon-2012930800'
+        },
+	
+        {
+            title: 'Modelle',
+            top: true,
+            id: '_MODELS_ROOT_NODE_',
+            icon: 'icon1292177930',
+            children: [
+                {_reference: '_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g' }
+            ]
+
+        },
+        {
+            title: 'pcm',
+            id: '_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g',
+            object: '_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html',
+            icon: 'icon1292177930',
+            children: [
+                {_reference: '_3.a.m.lYC.h8E.d.u.e7.o.eC4NTCG.g' },
+                {_reference: '_8E.oE.gC.h8E.d.u.e7.o.eC4NTCG.g' },
+                {_reference: '_B.d.lGMC.h9E.d.u.e7.o.eC4NTCG.g' },
+                {_reference: '_HSHQ.oC.h9E.d.u.e7.o.eC4NTCG.g' },
+                {_reference: '_L.aA6IC.h9E.d.u.e7.o.eC4NTCG.g' },
+                {_reference: '_V8.vSAC.h9E.d.u.e7.o.eC4NTCG.g' },
+                {_reference: '_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g' },
+                {_reference: '_.b.pE.i.sC.h9E.d.u.e7.o.eC4NTCG.g' },
+                {_reference: '_.e.z.k.v0C.h9E.d.u.e7.o.eC4NTCG.g' },
+                {_reference: '_.t6.z0.sC.h9E.d.u.e7.o.eC4NTCG.g' },
+                {_reference: '__T.b3AG.c_E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_9Y.cEYHDLE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_.w4A.l.gHDSE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_00.b-0HDSE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_U.v.c4AHDVE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_.fIC68HM.vE.d.u.qAZ6.i.d.i.aT.j.w' },
+                {_reference: '_JV.x.sAHM.wE.d.u.qAZ6.i.d.i.aT.j.w' },
+                {_reference: '_5.l.l7UHM.wE.d.u.qAZ6.i.d.i.aT.j.w' },
+                {_reference: '_.k.jC.c.kHP2E.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_.b.o.o7EJ.vPE.d.uUA.s0MFI6ZY.g' },
+                {_reference: '_8.o.xFYJ.vVE.d.uUA.s0MFI6ZY.g' },
+                {_reference: '_ZTUD.wM.jEE.d.u.u3ZJLL.oK13Q' },
+                {_reference: '_.d.l.l.w.oB.m.qE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_.l.m.aM.cB.m.qE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_.u-.oD.kB.m.rE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_.v.cSS.kD.j9E.d.y2.j_4.z2PHNJQ' },
+                {_reference: '_7K.c.tYD.j-E.d.y2.j_4.z2PHNJQ' },
+                {_reference: '_8L.kMID.j-E.d.y2.j_4.z2PHNJQ' },
+                {_reference: '_.o6.n.gEE.o6E.d.y.yN.sX.l.b1.tN.s.w' },
+                {_reference: '_Y.j.n8IE.o9E.d.y.yN.sX.l.b1.tN.s.w' },
+                {_reference: '_6Z.o.o.wE.pHE.d.y.yN.sX.l.b1.tN.s.w' },
+                {_reference: '_.o.k5G0IY.fE.d2H.z8WH.hMU28.w' }
+            ]
+        }
+		,
+        {
+            title: 'core',
+            id: '_3.a.m.lYC.h8E.d.u.e7.o.eC4NTCG.g',
+            object: '_3.a.m.lYC.h8E.d.u.e7.o.eC4NTCG.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_GIDL.sP.d.xE.d.qB_7.d.kO.s.cBPA' },
+                {_reference: '_.qLB6.kOJQE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_7.h8G.kOJRE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_.cGFK.sG.c6E.d.uCG.aQA.x.k.cI.wA' }
+            ]
+        }
+		,
+        {
+            title: 'PCMRandomVariable',
+            id: '_GIDL.sP.d.xE.d.qB_7.d.kO.s.cBPA',
+            object: '_GIDL.sP.d.xE.d.qB_7.d.kO.s.cBPA-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'entity',
+            id: '_.qLB6.kOJQE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_.qLB6.kOJQE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_.a.u_W.lWA_E.d.q.dHZ.d.hXR.xKV.g' },
+                {_reference: '_X0NSMHDEE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_XSE.tIHDSE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_.bV.g.tYHDSE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_.d.e.v.q.wHDSE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_ZF.rP.gAH.fE.d.y9.b.vY.b.dCH.dZ.w' },
+                {_reference: '_6.y.y.oAJSAE.d27_9.sKG.vE.c-Q' },
+                {_reference: '_H.mW.aEJSBE.d27_9.sKG.vE.c-Q' }
+            ]
+        }
+		,
+        {
+            title: 'Entity',
+            id: '_.a.u_W.lWA_E.d.q.dHZ.d.hXR.xKV.g',
+            object: '_.a.u_W.lWA_E.d.q.dHZ.d.hXR.xKV.g-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'NamedElement',
+            id: '_X0NSMHDEE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_X0NSMHDEE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.a.u_W.l2A_E.d.q.dHZ.d.hXR.xKV.g' }
+            ]
+        }
+		,
+        {
+            title: 'entityName',
+            id: '_.a.u_W.l2A_E.d.q.dHZ.d.hXR.xKV.g',
+            object: '_X0NSMHDEE.d.u.r9.cZ.f.t9T4NQ-content.html#_.a.u_W.l2A_E.d.q.dHZ.d.hXR.xKV.g',
+            icon: 'icon1090855041',
+            children: [
+                {_reference: '_.y.v8Y8O.f.uE.d.u3.w.qV8T.e.lBY.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.y.v8Y8O.f.uE.d.u3.w.qV8T.e.lBY.w',
+            object: '_.y.v8Y8O.f.uE.d.u3.w.qV8T.e.lBY.w-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'InterfaceProvidingEntity',
+            id: '_XSE.tIHDSE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_XSE.tIHDSE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.w4A.l.gXDSE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: 'providedRoles_InterfaceProvidingEntity',
+            id: '_.w4A.l.gXDSE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_XSE.tIHDSE.d.u.r9.cZ.f.t9T4NQ-content.html#_.w4A.l.gXDSE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'InterfaceRequiringEntity',
+            id: '_.bV.g.tYHDSE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_.bV.g.tYHDSE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_00.b-0XDSE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: 'requiredRoles_InterfaceRequiringEntity',
+            id: '_00.b-0XDSE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_.bV.g.tYHDSE.d.u.r9.cZ.f.t9T4NQ-content.html#_00.b-0XDSE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'InterfaceProvidingRequiringEntity',
+            id: '_.d.e.v.q.wHDSE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_.d.e.v.q.wHDSE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'ComposedProvidingRequiringEntity',
+            id: '_ZF.rP.gAH.fE.d.y9.b.vY.b.dCH.dZ.w',
+            object: '_ZF.rP.gAH.fE.d.y9.b.vY.b.dCH.dZ.w-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'ResourceInterfaceRequiringEntity',
+            id: '_6.y.y.oAJSAE.d27_9.sKG.vE.c-Q',
+            object: '_6.y.y.oAJSAE.d27_9.sKG.vE.c-Q-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_H.mW.aEZSBE.d27_9.sKG.vE.c-Q' }
+            ]
+        }
+		,
+        {
+            title: 'resourceRequiredRoles_ResourceInterfaceRequiringEntity',
+            id: '_H.mW.aEZSBE.d27_9.sKG.vE.c-Q',
+            object: '_6.y.y.oAJSAE.d27_9.sKG.vE.c-Q-content.html#_H.mW.aEZSBE.d27_9.sKG.vE.c-Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_H.mW.aEJSBE.d27_9.sKG.vE.c-Q',
+            object: '_H.mW.aEJSBE.d27_9.sKG.vE.c-Q-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: 'connectors',
+            id: '_7.h8G.kOJRE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_7.h8G.kOJRE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_U.k.x.k.oJQAE.d.qSSI.mFLKD.kS.g' }
+            ]
+        }
+		,
+        {
+            title: 'Connector',
+            id: '_U.k.x.k.oJQAE.d.qSSI.mFLKD.kS.g',
+            object: '_U.k.x.k.oJQAE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'composition',
+            id: '_.cGFK.sG.c6E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.cGFK.sG.c6E.d.uCG.aQA.x.k.cI.wA-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_.hE.lNAJJ7E.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.j.t-4MJJ7E.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_4.f.oMIOJRE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_E.fL.uYOJSE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_Y8J.mIOM0E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.n_-J0G.c6E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_.v.b6W8G.c6E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_3NG-4OJSE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_.w13I8OJSE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_02T.f.kOJSE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_.vUZ9QOJSE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_I.qT5EG.c7E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_.bHRS.gOM3E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.x-.r.k.kOM2E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_2.j74.cOM2E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.o.jV.r.gOM2E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.jT.y.oAOM3E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.jVZ.nAOM2E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_GK5.a4G.c8E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_G.jL_EG.c8E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '__MS7.sJR8E.d27_9.sKG.vE.c-Q' },
+                {_reference: '_.u.oZ2IJR9E.d27_9.sKG.vE.c-Q' },
+                {_reference: '_.dI8.q.wJR_E.d27_9.sKG.vE.c-Q' },
+                {_reference: '_.k.rJQ4JR_E.d27_9.sKG.vE.c-Q' }
+            ]
+        }
+		,
+        {
+            title: 'ProvidedDelegationConnector',
+            id: '_.hE.lNAJJ7E.d.qSSI.mFLKD.kS.g',
+            object: '_.hE.lNAJJ7E.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.jVZ.nA.eM2E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.o.jV.r.g.eM2E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.jT.y.oA.eM3E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_GK5.a4.m.c8E.d.uCG.aQA.x.k.cI.wA' }
+            ]
+        }
+		,
+        {
+            title: 'innerProvidedRole_ProvidedDelegationConnector',
+            id: '_.jVZ.nA.eM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.hE.lNAJJ7E.d.qSSI.mFLKD.kS.g-content.html#_.jVZ.nA.eM2E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'outerProvidedRole_ProvidedDelegationConnector',
+            id: '_.o.jV.r.g.eM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.hE.lNAJJ7E.d.qSSI.mFLKD.kS.g-content.html#_.o.jV.r.g.eM2E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'assemblyContext_ProvidedDelegationConnector',
+            id: '_.jT.y.oA.eM3E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.hE.lNAJJ7E.d.qSSI.mFLKD.kS.g-content.html#_.jT.y.oA.eM3E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'parentStructure_ProvidedDelegationConnector',
+            id: '_GK5.a4.m.c8E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.hE.lNAJJ7E.d.qSSI.mFLKD.kS.g-content.html#_GK5.a4.m.c8E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'RequiredDelegationConnector',
+            id: '_.j.t-4MJJ7E.d.qSSI.mFLKD.kS.g',
+            object: '_.j.t-4MJJ7E.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.x-.r.k.k.eM2E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_2.j74.c.eM2E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.bHRS.g.eM3E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_G.jL_E.m.c8E.d.uCG.aQA.x.k.cI.wA' }
+            ]
+        }
+		,
+        {
+            title: 'innerRequiredRole_RequiredDelegationConnector',
+            id: '_.x-.r.k.k.eM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.j.t-4MJJ7E.d.qSSI.mFLKD.kS.g-content.html#_.x-.r.k.k.eM2E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'outerRequiredRole_RequiredDelegationConnector',
+            id: '_2.j74.c.eM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.j.t-4MJJ7E.d.qSSI.mFLKD.kS.g-content.html#_2.j74.c.eM2E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'assemblyContext_RequiredDelegationConnector',
+            id: '_.bHRS.g.eM3E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.j.t-4MJJ7E.d.qSSI.mFLKD.kS.g-content.html#_.bHRS.g.eM3E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'parentStructure_RequiredDelegationConnector',
+            id: '_G.jL_E.m.c8E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.j.t-4MJJ7E.d.qSSI.mFLKD.kS.g-content.html#_G.jL_E.m.c8E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'AssemblyConnector',
+            id: '_4.f.oMIOJRE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_4.f.oMIOJRE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.vUZ9Q.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_.w13I8.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_02T.f.k.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_3NG-4.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w' },
+                {_reference: '_I.qT5E.m.c7E.d.uCG.aQA.x.k.cI.wA' }
+            ]
+        }
+		,
+        {
+            title: 'requiringAssemblyContext_AssemblyConnector',
+            id: '_.vUZ9Q.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_4.f.oMIOJRE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_.vUZ9Q.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'providingAssemblyContext_AssemblyConnector',
+            id: '_.w13I8.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_4.f.oMIOJRE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_.w13I8.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'providedRole_AssemblyConnector',
+            id: '_02T.f.k.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_4.f.oMIOJRE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_02T.f.k.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'requiredRole_AssemblyConnector',
+            id: '_3NG-4.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_4.f.oMIOJRE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_3NG-4.eJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'parentStructure_AssemblyConnector',
+            id: '_I.qT5E.m.c7E.d.uCG.aQA.x.k.cI.wA',
+            object: '_4.f.oMIOJRE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_I.qT5E.m.c7E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'AssemblyContext',
+            id: '_E.fL.uYOJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_E.fL.uYOJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_Y8J.mI.eM0E.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.v.b6W8.m.c6E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_ZT.d0.wM.jEE.d.u.u3ZJLL.oK13Q' }
+            ]
+        }
+		,
+        {
+            title: 'encapsulatedComponent_AssemblyContext',
+            id: '_Y8J.mI.eM0E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_E.fL.uYOJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_Y8J.mI.eM0E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'parentStructure_AssemblyContext',
+            id: '_.v.b6W8.m.c6E.d.uCG.aQA.x.k.cI.wA',
+            object: '_E.fL.uYOJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_.v.b6W8.m.c6E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'configParameterUsages_AssemblyContext',
+            id: '_ZT.d0.wM.jEE.d.u.u3ZJLL.oK13Q',
+            object: '_E.fL.uYOJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_ZT.d0.wM.jEE.d.u.u3ZJLL.oK13Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_Y8J.mIOM0E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_Y8J.mIOM0E.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_Y8J.mI.uM0E.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_Y8J.mI.uM0E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_Y8J.mIOM0E.d.q.aQ.sPH3.rP.nBQ-content.html#_Y8J.mI.uM0E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'ComposedStructure',
+            id: '_.n_-J0G.c6E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.n_-J0G.c6E.d.uCG.aQA.x.k.cI.wA-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.v.b6W8W.c6E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_I.qT5EW.c7E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_GK5.a4W.c8E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_G.jL_EW.c8E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_.u.o.j.nIJR9E.d27_9.sKG.vE.c-Q' }
+            ]
+        }
+		,
+        {
+            title: 'assemblyContexts_ComposedStructure',
+            id: '_.v.b6W8W.c6E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.n_-J0G.c6E.d.uCG.aQA.x.k.cI.wA-content.html#_.v.b6W8W.c6E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'assemblyConnectors_ComposedStructure',
+            id: '_I.qT5EW.c7E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.n_-J0G.c6E.d.uCG.aQA.x.k.cI.wA-content.html#_I.qT5EW.c7E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'providedDelegationConnectors_ComposedStructure',
+            id: '_GK5.a4W.c8E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.n_-J0G.c6E.d.uCG.aQA.x.k.cI.wA-content.html#_GK5.a4W.c8E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'requiredDelegationConnectors_ComposedStructure',
+            id: '_G.jL_EW.c8E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.n_-J0G.c6E.d.uCG.aQA.x.k.cI.wA-content.html#_G.jL_EW.c8E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'resourceRequiredDelegationConnectors_ComposedStructure',
+            id: '_.u.o.j.nIJR9E.d27_9.sKG.vE.c-Q',
+            object: '_.n_-J0G.c6E.d.uCG.aQA.x.k.cI.wA-content.html#_.u.o.j.nIJR9E.d27_9.sKG.vE.c-Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_.v.b6W8G.c6E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.v.b6W8G.c6E.d.uCG.aQA.x.k.cI.wA-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: '',
+            id: '_3NG-4OJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_3NG-4OJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_3NG-4.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w' }
+            ]
+        }
+		,
+        {
+            title: 'assemblyconnector',
+            id: '_3NG-4.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_3NG-4OJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_3NG-4.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'to',
+            id: '_.w13I8OJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_.w13I8OJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.w13I8.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.w13I8.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_.w13I8OJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_.w13I8.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_02T.f.kOJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_02T.f.kOJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_02T.f.k.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w' }
+            ]
+        }
+		,
+        {
+            title: 'assemblyconnector',
+            id: '_02T.f.k.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_02T.f.kOJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_02T.f.k.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'from',
+            id: '_.vUZ9QOJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_.vUZ9QOJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.vUZ9Q.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.vUZ9Q.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            object: '_.vUZ9QOJSE.d.q.x.c.r.a4.q.p.e.p.l.w-content.html#_.vUZ9Q.uJSE.d.q.x.c.r.a4.q.p.e.p.l.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_I.qT5EG.c7E.d.uCG.aQA.x.k.cI.wA',
+            object: '_I.qT5EG.c7E.d.uCG.aQA.x.k.cI.wA-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: '',
+            id: '_.bHRS.gOM3E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.bHRS.gOM3E.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.bHRS.g.uM3E.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.bHRS.g.uM3E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.bHRS.gOM3E.d.q.aQ.sPH3.rP.nBQ-content.html#_.bHRS.g.uM3E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.x-.r.k.kOM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.x-.r.k.kOM2E.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.x-.r.k.k.uM2E.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.x-.r.k.k.uM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.x-.r.k.kOM2E.d.q.aQ.sPH3.rP.nBQ-content.html#_.x-.r.k.k.uM2E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_2.j74.cOM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_2.j74.cOM2E.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_2.j74.c.uM2E.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_2.j74.c.uM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_2.j74.cOM2E.d.q.aQ.sPH3.rP.nBQ-content.html#_2.j74.c.uM2E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.o.jV.r.gOM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.o.jV.r.gOM2E.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.o.jV.r.g.uM2E.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.o.jV.r.g.uM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.o.jV.r.gOM2E.d.q.aQ.sPH3.rP.nBQ-content.html#_.o.jV.r.g.uM2E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.jT.y.oAOM3E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.jT.y.oAOM3E.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.jT.y.oA.uM3E.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.jT.y.oA.uM3E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.jT.y.oAOM3E.d.q.aQ.sPH3.rP.nBQ-content.html#_.jT.y.oA.uM3E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.jVZ.nAOM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.jVZ.nAOM2E.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.jVZ.nA.uM2E.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.jVZ.nA.uM2E.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.jVZ.nAOM2E.d.q.aQ.sPH3.rP.nBQ-content.html#_.jVZ.nA.uM2E.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_GK5.a4G.c8E.d.uCG.aQA.x.k.cI.wA',
+            object: '_GK5.a4G.c8E.d.uCG.aQA.x.k.cI.wA-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: '',
+            id: '_G.jL_EG.c8E.d.uCG.aQA.x.k.cI.wA',
+            object: '_G.jL_EG.c8E.d.uCG.aQA.x.k.cI.wA-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: 'ResourceRequiredDelegationConnector',
+            id: '__MS7.sJR8E.d27_9.sKG.vE.c-Q',
+            object: '__MS7.sJR8E.d27_9.sKG.vE.c-Q-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.u.o.j.nI5R9E.d27_9.sKG.vE.c-Q' },
+                {_reference: '_.dI8.q.wZR_E.d27_9.sKG.vE.c-Q' },
+                {_reference: '_.k.rJQ4ZR_E.d27_9.sKG.vE.c-Q' }
+            ]
+        }
+		,
+        {
+            title: 'parentStructure_ResourceRequiredDelegationConnector',
+            id: '_.u.o.j.nI5R9E.d27_9.sKG.vE.c-Q',
+            object: '__MS7.sJR8E.d27_9.sKG.vE.c-Q-content.html#_.u.o.j.nI5R9E.d27_9.sKG.vE.c-Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'innerResourceRequiredRole_ResourceRequiredDelegationConnector',
+            id: '_.dI8.q.wZR_E.d27_9.sKG.vE.c-Q',
+            object: '__MS7.sJR8E.d27_9.sKG.vE.c-Q-content.html#_.dI8.q.wZR_E.d27_9.sKG.vE.c-Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'outerResourceRequiredRole_ResourceRequiredDelegationConnector',
+            id: '_.k.rJQ4ZR_E.d27_9.sKG.vE.c-Q',
+            object: '__MS7.sJR8E.d27_9.sKG.vE.c-Q-content.html#_.k.rJQ4ZR_E.d27_9.sKG.vE.c-Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_.u.oZ2IJR9E.d27_9.sKG.vE.c-Q',
+            object: '_.u.oZ2IJR9E.d27_9.sKG.vE.c-Q-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: '',
+            id: '_.dI8.q.wJR_E.d27_9.sKG.vE.c-Q',
+            object: '_.dI8.q.wJR_E.d27_9.sKG.vE.c-Q-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.dI8.q.xJR_E.d27_9.sKG.vE.c-Q' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.dI8.q.xJR_E.d27_9.sKG.vE.c-Q',
+            object: '_.dI8.q.wJR_E.d27_9.sKG.vE.c-Q-content.html#_.dI8.q.xJR_E.d27_9.sKG.vE.c-Q',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.k.rJQ4JR_E.d27_9.sKG.vE.c-Q',
+            object: '_.k.rJQ4JR_E.d27_9.sKG.vE.c-Q-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.k.rJQ5JR_E.d27_9.sKG.vE.c-Q' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.k.rJQ5JR_E.d27_9.sKG.vE.c-Q',
+            object: '_.k.rJQ4JR_E.d27_9.sKG.vE.c-Q-content.html#_.k.rJQ5JR_E.d27_9.sKG.vE.c-Q',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'allocation',
+            id: '_8E.oE.gC.h8E.d.u.e7.o.eC4NTCG.g',
+            object: '_8E.oE.gC.h8E.d.u.e7.o.eC4NTCG.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_9.nOF.cOD7E.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_A.tO9UOM.vE.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_CO_D8OM.vE.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_0.tQB0OEAE.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: 'AllocationContext',
+            id: '_9.nOF.cOD7E.d.q8.y.sXH3.gT.iE.g',
+            object: '_9.nOF.cOD7E.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_0.tQB0.eEAE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '__T.b3AW.c_E.d.uCG.aQA.x.k.cI.wA' }
+            ]
+        }
+		,
+        {
+            title: 'resourceContainer_AllocationContext',
+            id: '_0.tQB0.eEAE.d.q8.y.sXH3.gT.iE.g',
+            object: '_9.nOF.cOD7E.d.q8.y.sXH3.gT.iE.g-content.html#_0.tQB0.eEAE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'assemblyContext_AllocationContext',
+            id: '__T.b3AW.c_E.d.uCG.aQA.x.k.cI.wA',
+            object: '_9.nOF.cOD7E.d.q8.y.sXH3.gT.iE.g-content.html#__T.b3AW.c_E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'Allocation',
+            id: '_A.tO9UOM.vE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_A.tO9UOM.vE.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_CO_D8.eM.vE.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_4KITIE-.zE.d.u.uPYQ.nF.iB.y.bA' },
+                {_reference: '_U.hR.g.kXP.fE.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: 'allocationContexts_Allocation',
+            id: '_CO_D8.eM.vE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_A.tO9UOM.vE.d.q.aQ.sPH3.rP.nBQ-content.html#_CO_D8.eM.vE.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'targetResourceEnvironment_Allocation',
+            id: '_4KITIE-.zE.d.u.uPYQ.nF.iB.y.bA',
+            object: '_A.tO9UOM.vE.d.q.aQ.sPH3.rP.nBQ-content.html#_4KITIE-.zE.d.u.uPYQ.nF.iB.y.bA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'system_Allocation',
+            id: '_U.hR.g.kXP.fE.d.u.xX.f.d-1.j79QQ',
+            object: '_A.tO9UOM.vE.d.q.aQ.sPH3.rP.nBQ-content.html#_U.hR.g.kXP.fE.d.u.xX.f.d-1.j79QQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_CO_D8OM.vE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_CO_D8OM.vE.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_CO_D8.uM.vE.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_CO_D8.uM.vE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_CO_D8OM.vE.d.q.aQ.sPH3.rP.nBQ-content.html#_CO_D8.uM.vE.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'deployedOn',
+            id: '_0.tQB0OEAE.d.q8.y.sXH3.gT.iE.g',
+            object: '_0.tQB0OEAE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_0.tQB0.uEAE.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: 'allocationcontext',
+            id: '_0.tQB0.uEAE.d.q8.y.sXH3.gT.iE.g',
+            object: '_0.tQB0OEAE.d.q8.y.sXH3.gT.iE.g-content.html#_0.tQB0.uEAE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'repository',
+            id: '_B.d.lGMC.h9E.d.u.e7.o.eC4NTCG.g',
+            object: '_B.d.lGMC.h9E.d.u.e7.o.eC4NTCG.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_9APFUOD4E.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_W.jM9.wJ.v.jE.d.qN_.b565_.mS.bQ' },
+                {_reference: '_.h.h0OUJJJE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_9C.u.bEJJIE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '__.o_5.wJJIE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.a.u_W.pWA_E.d.q.dHZ.d.hXR.xKV.g' },
+                {_reference: '_.x.tWJIJJGE.d.qI.o-.u3.cE9-DA' },
+                {_reference: '_-M7.kYJJIE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_8.b84.gJJUE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.cIR90JJJE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_4X.fF4JJGE.d.qI.o-.u3.cE9-DA' },
+                {_reference: '_TT.q.a.oJJWE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_S.dD.qMJQAE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_N.l.yR0JJWE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.m.hK5.sJJIE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_0S.k.e8JJGE.d.qI.o-.u3.cE9-DA' },
+                {_reference: '_.o.z-C.wJJIE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_7.t.lO0M.iHE.d.qX.bOPN_H.tKG.g' },
+                {_reference: '_.iUU30J.fEE.d.q.w.q.s.vROV.l.o.jA' },
+                {_reference: '_.t30.wMJ.fEE.d.q.w.q.s.vROV.l.o.jA' },
+                {_reference: '_V-.r80JJ.eE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_PU.s_YM.iIE.d.qX.bOPN_H.tKG.g' },
+                {_reference: '_6S.m8IKMYE.d.q.fKJQ-.j.d0-.uQ' },
+                {_reference: '_.l.d.sQMJJYE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.b.b.aC0J.v.jE.d.qN_.b565_.mS.bQ' },
+                {_reference: '_4.zD2.gJJ.lE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.k6.s.wUJ.cYE.d.q38OE.oBK_B.yQ' },
+                {_reference: '_.g.o_D.gJ.cYE.d.q38OE.oBK_B.yQ' },
+                {_reference: '_58.aEMJJ.lE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.u.nI.g8JJYE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_Y.uRXQJJYE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_SAZ7.oJJZE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.a.y.u.pQFO.uE.d.u.yK.f.hI.jB.d.b.tA' },
+                {_reference: '_.tK.j.o0HP.yE.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_.u.aI.aUHP.yE.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_.v.s0.xQHP.yE.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_3_.nG0HP.yE.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_A.r.t7UHP.zE.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_A9.sU.wHP2E.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_.y.jJBYHSSE.d.uUY.p.h3.z.t.x_.j.g' },
+                {_reference: '_Z_T4.gH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w' },
+                {_reference: '_.d.xT.j.cH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w' },
+                {_reference: '_.pE.wN.oH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w' },
+                {_reference: '_.lJF.vAD.j-E.d.y2.j_4.z2PHNJQ' },
+                {_reference: '_.r.tZM4E.o-E.d.y.yN.sX.l.b1.tN.s.w' },
+                {_reference: '_XT0.q.cJR_E.d27_9.sKG.vE.c-Q' },
+                {_reference: '_.c.jIL.cJSAE.d27_9.sKG.vE.c-Q' },
+                {_reference: '_.rG.a6.kKBZE.d24B.v0.x9CNK.p.g' },
+                {_reference: '_.a.fEZQKOQE.d6.kDK.m.j84.bK.s.g' },
+                {_reference: '_6.q.y54KOQE.d6.kDK.m.j84.bK.s.g' },
+                {_reference: '_8_8.zYKOQE.d6.kDK.m.j84.bK.s.g' },
+                {_reference: '_.uO16ULGYE.d673PT6.cW.w0K.w' }
+            ]
+        }
+		,
+        {
+            title: 'PassiveResource',
+            id: '_9APFUOD4E.d.q8.y.sXH3.gT.iE.g',
+            object: '_9APFUOD4E.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.r.tZM4U.o-E.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: 'capacity_PassiveResource',
+            id: '_.r.tZM4U.o-E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_9APFUOD4E.d.q8.y.sXH3.gT.iE.g-content.html#_.r.tZM4U.o-E.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ParameterModifier',
+            id: '_W.jM9.wJ.v.jE.d.qN_.b565_.mS.bQ',
+            object: '_W.jM9.wJ.v.jE.d.qN_.b565_.mS.bQ-content.html',
+            icon: 'icon-1761271776',
+            children: [
+                {_reference: '_Q2ZE.kJ.v.mE.d.qN_.b565_.mS.bQ' },
+                {_reference: '_.l.j.f.tIJ.v.jE.d.qN_.b565_.mS.bQ' },
+                {_reference: '_.o4.k.y.kJ.v.jE.d.qN_.b565_.mS.bQ' },
+                {_reference: '_.p.q.bGQJ.v.jE.d.qN_.b565_.mS.bQ' }
+            ]
+        }
+		,
+        {
+            title: 'none',
+            id: '_Q2ZE.kJ.v.mE.d.qN_.b565_.mS.bQ',
+            object: '_Q2ZE.kJ.v.mE.d.qN_.b565_.mS.bQ-content.html',
+            icon: 'icon1359289601'
+        }
+		,
+        {
+            title: 'in',
+            id: '_.l.j.f.tIJ.v.jE.d.qN_.b565_.mS.bQ',
+            object: '_.l.j.f.tIJ.v.jE.d.qN_.b565_.mS.bQ-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_.mWH.c4J.v.jE.d.qN_.b565_.mS.bQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.mWH.c4J.v.jE.d.qN_.b565_.mS.bQ',
+            object: '_.mWH.c4J.v.jE.d.qN_.b565_.mS.bQ-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'out',
+            id: '_.o4.k.y.kJ.v.jE.d.qN_.b565_.mS.bQ',
+            object: '_.o4.k.y.kJ.v.jE.d.qN_.b565_.mS.bQ-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_.pQ.u.z4J.v.jE.d.qN_.b565_.mS.bQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.pQ.u.z4J.v.jE.d.qN_.b565_.mS.bQ',
+            object: '_.pQ.u.z4J.v.jE.d.qN_.b565_.mS.bQ-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'inout',
+            id: '_.p.q.bGQJ.v.jE.d.qN_.b565_.mS.bQ',
+            object: '_.p.q.bGQJ.v.jE.d.qN_.b565_.mS.bQ-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_.p1-2AJ.v.jE.d.qN_.b565_.mS.bQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.p1-2AJ.v.jE.d.qN_.b565_.mS.bQ',
+            object: '_.p1-2AJ.v.jE.d.qN_.b565_.mS.bQ-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'Signature',
+            id: '_.h.h0OUJJJE.d.qSSI.mFLKD.kS.g',
+            object: '_.h.h0OUJJJE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_C3NF.sJJKE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_Y.uRXQZJYE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.u.nI.g8ZJYE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_SAZ7.oZJZE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.a.y.u.pQ.lO.uE.d.u.yK.f.hI.jB.d.b.tA' }
+            ]
+        }
+		,
+        {
+            title: 'serviceName',
+            id: '_C3NF.sJJKE.d.qSSI.mFLKD.kS.g',
+            object: '_.h.h0OUJJJE.d.qSSI.mFLKD.kS.g-content.html#_C3NF.sJJKE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'parameters__Signature',
+            id: '_Y.uRXQZJYE.d.qSSI.mFLKD.kS.g',
+            object: '_.h.h0OUJJJE.d.qSSI.mFLKD.kS.g-content.html#_Y.uRXQZJYE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'returntype__Signature',
+            id: '_.u.nI.g8ZJYE.d.qSSI.mFLKD.kS.g',
+            object: '_.h.h0OUJJJE.d.qSSI.mFLKD.kS.g-content.html#_.u.nI.g8ZJYE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'exceptions__Signature',
+            id: '_SAZ7.oZJZE.d.qSSI.mFLKD.kS.g',
+            object: '_.h.h0OUJJJE.d.qSSI.mFLKD.kS.g-content.html#_SAZ7.oZJZE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'interface_Signature',
+            id: '_.a.y.u.pQ.lO.uE.d.u.yK.f.hI.jB.d.b.tA',
+            object: '_.h.h0OUJJJE.d.qSSI.mFLKD.kS.g-content.html#_.a.y.u.pQ.lO.uE.d.u.yK.f.hI.jB.d.b.tA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'Role',
+            id: '_9C.u.bEJJIE.d.qSSI.mFLKD.kS.g',
+            object: '_9C.u.bEJJIE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'RequiredRole',
+            id: '__.o_5.wJJIE.d.qSSI.mFLKD.kS.g',
+            object: '__.o_5.wJJIE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_58.aEM.pJ.lE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_00.b-0.nDSE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: 'requiredInterface__RequiredRole',
+            id: '_58.aEM.pJ.lE.d.qSSI.mFLKD.kS.g',
+            object: '__.o_5.wJJIE.d.qSSI.mFLKD.kS.g-content.html#_58.aEM.pJ.lE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'requiringEntity_RequiredRole',
+            id: '_00.b-0.nDSE.d.u.r9.cZ.f.t9T4NQ',
+            object: '__.o_5.wJJIE.d.qSSI.mFLKD.kS.g-content.html#_00.b-0.nDSE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'Repository',
+            id: '_.a.u_W.pWA_E.d.q.dHZ.d.hXR.xKV.g',
+            object: '_.a.u_W.pWA_E.d.q.dHZ.d.hXR.xKV.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_M.lJ.l8J.cRE.d.q38OE.oBK_B.yQ' },
+                {_reference: '_.g.o_D.gZ.cYE.d.q38OE.oBK_B.yQ' },
+                {_reference: '_.k6.s.wUZ.cYE.d.q38OE.oBK_B.yQ' },
+                {_reference: '_.y.jJBYXSSE.d.uUY.p.h3.z.t.x_.j.g' }
+            ]
+        }
+		,
+        {
+            title: 'repositoryDescription',
+            id: '_M.lJ.l8J.cRE.d.q38OE.oBK_B.yQ',
+            object: '_.a.u_W.pWA_E.d.q.dHZ.d.hXR.xKV.g-content.html#_M.lJ.l8J.cRE.d.q38OE.oBK_B.yQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'components__Repository',
+            id: '_.g.o_D.gZ.cYE.d.q38OE.oBK_B.yQ',
+            object: '_.a.u_W.pWA_E.d.q.dHZ.d.hXR.xKV.g-content.html#_.g.o_D.gZ.cYE.d.q38OE.oBK_B.yQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'interfaces__Repository',
+            id: '_.k6.s.wUZ.cYE.d.q38OE.oBK_B.yQ',
+            object: '_.a.u_W.pWA_E.d.q.dHZ.d.hXR.xKV.g-content.html#_.k6.s.wUZ.cYE.d.q38OE.oBK_B.yQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'datatypes_Repository',
+            id: '_.y.jJBYXSSE.d.uUY.p.h3.z.t.x_.j.g',
+            object: '_.a.u_W.pWA_E.d.q.dHZ.d.hXR.xKV.g-content.html#_.y.jJBYXSSE.d.uUY.p.h3.z.t.x_.j.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ProvidesComponentType',
+            id: '_.x.tWJIJJGE.d.qI.o-.u3.cE9-DA',
+            object: '_.x.tWJIJJGE.d.qI.o-.u3.cE9-DA-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'ProvidedRole',
+            id: '_-M7.kYJJIE.d.qSSI.mFLKD.kS.g',
+            object: '_-M7.kYJJIE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_4.zD2.g.pJ.lE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.w4A.l.g.nDSE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: 'providedInterface__ProvidedRole',
+            id: '_4.zD2.g.pJ.lE.d.qSSI.mFLKD.kS.g',
+            object: '_-M7.kYJJIE.d.qSSI.mFLKD.kS.g-content.html#_4.zD2.g.pJ.lE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'providingEntity_ProvidedRole',
+            id: '_.w4A.l.g.nDSE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_-M7.kYJJIE.d.qSSI.mFLKD.kS.g-content.html#_.w4A.l.g.nDSE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'Parameter',
+            id: '_8.b84.gJJUE.d.qSSI.mFLKD.kS.g',
+            object: '_8.b84.gJJUE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.l.d.sQMZJYE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.y.gP.x.cJ.dDE.d.q.w.q.s.vROV.l.o.jA' },
+                {_reference: '_.b.b.aC0Z.v.jE.d.qN_.b565_.mS.bQ' },
+                {_reference: '_Y.uRXQ.pJYE.d.qSSI.mFLKD.kS.g' }
+            ]
+        }
+		,
+        {
+            title: 'datatype__Parameter',
+            id: '_.l.d.sQMZJYE.d.qSSI.mFLKD.kS.g',
+            object: '_8.b84.gJJUE.d.qSSI.mFLKD.kS.g-content.html#_.l.d.sQMZJYE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'parameterName',
+            id: '_.y.gP.x.cJ.dDE.d.q.w.q.s.vROV.l.o.jA',
+            object: '_8.b84.gJJUE.d.qSSI.mFLKD.kS.g-content.html#_.y.gP.x.cJ.dDE.d.q.w.q.s.vROV.l.o.jA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'modifier__Parameter',
+            id: '_.b.b.aC0Z.v.jE.d.qN_.b565_.mS.bQ',
+            object: '_8.b84.gJJUE.d.qSSI.mFLKD.kS.g-content.html#_.b.b.aC0Z.v.jE.d.qN_.b565_.mS.bQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'signature_Parameter',
+            id: '_Y.uRXQ.pJYE.d.qSSI.mFLKD.kS.g',
+            object: '_8.b84.gJJUE.d.qSSI.mFLKD.kS.g-content.html#_Y.uRXQ.pJYE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'Interface',
+            id: '_.cIR90JJJE.d.qSSI.mFLKD.kS.g',
+            object: '_.cIR90JJJE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_V-.r80ZJ.eE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_6S.m8I.aMYE.d.q.fKJQ-.j.d0-.uQ' },
+                {_reference: '_PU.zGAM.iIE.d.qX.bOPN_H.tKG.g' },
+                {_reference: '_.a.y.u.pQVO.uE.d.u.yK.f.hI.jB.d.b.tA' },
+                {_reference: '_.k6.s.wU.p.cYE.d.q38OE.oBK_B.yQ' },
+                {_reference: '_6.q.y54.aOQE.d6.kDK.m.j84.bK.s.g' }
+            ]
+        }
+		,
+        {
+            title: 'parentInterface__Interface',
+            id: '_V-.r80ZJ.eE.d.qSSI.mFLKD.kS.g',
+            object: '_.cIR90JJJE.d.qSSI.mFLKD.kS.g-content.html#_V-.r80ZJ.eE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ancestorInterfaces_Interface',
+            id: '_6S.m8I.aMYE.d.q.fKJQ-.j.d0-.uQ',
+            object: '_.cIR90JJJE.d.qSSI.mFLKD.kS.g-content.html#_6S.m8I.aMYE.d.q.fKJQ-.j.d0-.uQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'protocols__Interface',
+            id: '_PU.zGAM.iIE.d.qX.bOPN_H.tKG.g',
+            object: '_.cIR90JJJE.d.qSSI.mFLKD.kS.g-content.html#_PU.zGAM.iIE.d.qX.bOPN_H.tKG.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'signatures__Interface',
+            id: '_.a.y.u.pQVO.uE.d.u.yK.f.hI.jB.d.b.tA',
+            object: '_.cIR90JJJE.d.qSSI.mFLKD.kS.g-content.html#_.a.y.u.pQVO.uE.d.u.yK.f.hI.jB.d.b.tA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'repository_Interface',
+            id: '_.k6.s.wU.p.cYE.d.q38OE.oBK_B.yQ',
+            object: '_.cIR90JJJE.d.qSSI.mFLKD.kS.g-content.html#_.k6.s.wU.p.cYE.d.q38OE.oBK_B.yQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'requiredCharacterisations',
+            id: '_6.q.y54.aOQE.d6.kDK.m.j84.bK.s.g',
+            object: '_.cIR90JJJE.d.qSSI.mFLKD.kS.g-content.html#_6.q.y54.aOQE.d6.kDK.m.j84.bK.s.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ImplementationComponentType',
+            id: '_4X.fF4JJGE.d.qI.o-.u3.cE9-DA',
+            object: '_4X.fF4JJGE.d.qI.o-.u3.cE9-DA-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.t30.wMZ.fEE.d.q.w.q.s.vROV.l.o.jA' },
+                {_reference: '_6Z.o.o.wU.pHE.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: 'parentCompleteComponentTypes',
+            id: '_.t30.wMZ.fEE.d.q.w.q.s.vROV.l.o.jA',
+            object: '_4X.fF4JJGE.d.qI.o-.u3.cE9-DA-content.html#_.t30.wMZ.fEE.d.q.w.q.s.vROV.l.o.jA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'componentParameterUsage_ImplementationComponentType',
+            id: '_6Z.o.o.wU.pHE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_4X.fF4JJGE.d.qI.o-.u3.cE9-DA-content.html#_6Z.o.o.wU.pHE.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ExceptionType',
+            id: '_TT.q.a.oJJWE.d.qSSI.mFLKD.kS.g',
+            object: '_TT.q.a.oJJWE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.oW7.tMJ.dFE.d.q.w.q.s.vROV.l.o.jA' },
+                {_reference: '_.rFCSMJ.dFE.d.q.w.q.s.vROV.l.o.jA' }
+            ]
+        }
+		,
+        {
+            title: 'exceptionName',
+            id: '_.oW7.tMJ.dFE.d.q.w.q.s.vROV.l.o.jA',
+            object: '_TT.q.a.oJJWE.d.qSSI.mFLKD.kS.g-content.html#_.oW7.tMJ.dFE.d.q.w.q.s.vROV.l.o.jA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'exceptionMessage',
+            id: '_.rFCSMJ.dFE.d.q.w.q.s.vROV.l.o.jA',
+            object: '_TT.q.a.oJJWE.d.qSSI.mFLKD.kS.g-content.html#_.rFCSMJ.dFE.d.q.w.q.s.vROV.l.o.jA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'DelegationConnector',
+            id: '_S.dD.qMJQAE.d.qSSI.mFLKD.kS.g',
+            object: '_S.dD.qMJQAE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'DataType',
+            id: '_N.l.yR0JJWE.d.qSSI.mFLKD.kS.g',
+            object: '_N.l.yR0JJWE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.y.jJBY.nSSE.d.uUY.p.h3.z.t.x_.j.g' }
+            ]
+        }
+		,
+        {
+            title: 'repository_DataType',
+            id: '_.y.jJBY.nSSE.d.uUY.p.h3.z.t.x_.j.g',
+            object: '_N.l.yR0JJWE.d.qSSI.mFLKD.kS.g-content.html#_.y.jJBY.nSSE.d.uUY.p.h3.z.t.x_.j.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'CompositeComponent',
+            id: '_.m.hK5.sJJIE.d.qSSI.mFLKD.kS.g',
+            object: '_.m.hK5.sJJIE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'CompleteComponentType',
+            id: '_0S.k.e8JJGE.d.qI.o-.u3.cE9-DA',
+            object: '_0S.k.e8JJGE.d.qI.o-.u3.cE9-DA-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.iUU30Z.fEE.d.q.w.q.s.vROV.l.o.jA' }
+            ]
+        }
+		,
+        {
+            title: 'parentProvidesComponentTypes',
+            id: '_.iUU30Z.fEE.d.q.w.q.s.vROV.l.o.jA',
+            object: '_0S.k.e8JJGE.d.qI.o-.u3.cE9-DA-content.html#_.iUU30Z.fEE.d.q.w.q.s.vROV.l.o.jA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'BasicComponent',
+            id: '_.o.z-C.wJJIE.d.qSSI.mFLKD.kS.g',
+            object: '_.o.z-C.wJJIE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_7.t.lO0.c.iHE.d.qX.bOPN_H.tKG.g' },
+                {_reference: '_.lJF.vAT.j-E.d.y2.j_4.z2PHNJQ' }
+            ]
+        }
+		,
+        {
+            title: 'serviceEffectSpecifications__BasicComponent',
+            id: '_7.t.lO0.c.iHE.d.qX.bOPN_H.tKG.g',
+            object: '_.o.z-C.wJJIE.d.qSSI.mFLKD.kS.g-content.html#_7.t.lO0.c.iHE.d.qX.bOPN_H.tKG.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'passiveResource_BasicComponent',
+            id: '_.lJF.vAT.j-E.d.y2.j_4.z2PHNJQ',
+            object: '_.o.z-C.wJJIE.d.qSSI.mFLKD.kS.g-content.html#_.lJF.vAT.j-E.d.y2.j_4.z2PHNJQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_7.t.lO0M.iHE.d.qX.bOPN_H.tKG.g',
+            object: '_7.t.lO0M.iHE.d.qX.bOPN_H.tKG.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_7.t.lO0.s.iHE.d.qX.bOPN_H.tKG.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_7.t.lO0.s.iHE.d.qX.bOPN_H.tKG.g',
+            object: '_7.t.lO0M.iHE.d.qX.bOPN_H.tKG.g-content.html#_7.t.lO0.s.iHE.d.qX.bOPN_H.tKG.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '<<conforms>',
+            id: '_.iUU30J.fEE.d.q.w.q.s.vROV.l.o.jA',
+            object: '_.iUU30J.fEE.d.q.w.q.s.vROV.l.o.jA-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.iUU30.p.fEE.d.q.w.q.s.vROV.l.o.jA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.iUU30.p.fEE.d.q.w.q.s.vROV.l.o.jA',
+            object: '_.iUU30J.fEE.d.q.w.q.s.vROV.l.o.jA-content.html#_.iUU30.p.fEE.d.q.w.q.s.vROV.l.o.jA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '<<impl-conforms>>',
+            id: '_.t30.wMJ.fEE.d.q.w.q.s.vROV.l.o.jA',
+            object: '_.t30.wMJ.fEE.d.q.w.q.s.vROV.l.o.jA-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.t30.wM.p.fEE.d.q.w.q.s.vROV.l.o.jA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.t30.wM.p.fEE.d.q.w.q.s.vROV.l.o.jA',
+            object: '_.t30.wMJ.fEE.d.q.w.q.s.vROV.l.o.jA-content.html#_.t30.wM.p.fEE.d.q.w.q.s.vROV.l.o.jA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '<<extends2>>',
+            id: '_V-.r80JJ.eE.d.qSSI.mFLKD.kS.g',
+            object: '_V-.r80JJ.eE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_V-.r80.pJ.eE.d.qSSI.mFLKD.kS.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_V-.r80.pJ.eE.d.qSSI.mFLKD.kS.g',
+            object: '_V-.r80JJ.eE.d.qSSI.mFLKD.kS.g-content.html#_V-.r80.pJ.eE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_PU.s_YM.iIE.d.qX.bOPN_H.tKG.g',
+            object: '_PU.s_YM.iIE.d.qX.bOPN_H.tKG.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_PU.zGA.c.iIE.d.qX.bOPN_H.tKG.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_PU.zGA.c.iIE.d.qX.bOPN_H.tKG.g',
+            object: '_PU.s_YM.iIE.d.qX.bOPN_H.tKG.g-content.html#_PU.zGA.c.iIE.d.qX.bOPN_H.tKG.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_6S.m8IKMYE.d.q.fKJQ-.j.d0-.uQ',
+            object: '_6S.m8IKMYE.d.q.fKJQ-.j.d0-.uQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_6S.m8I.qMYE.d.q.fKJQ-.j.d0-.uQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_6S.m8I.qMYE.d.q.fKJQ-.j.d0-.uQ',
+            object: '_6S.m8IKMYE.d.q.fKJQ-.j.d0-.uQ-content.html#_6S.m8I.qMYE.d.q.fKJQ-.j.d0-.uQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.l.d.sQMJJYE.d.qSSI.mFLKD.kS.g',
+            object: '_.l.d.sQMJJYE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.l.d.sQM.pJYE.d.qSSI.mFLKD.kS.g' }
+            ]
+        }
+		,
+        {
+            title: '_Parameter',
+            id: '_.l.d.sQM.pJYE.d.qSSI.mFLKD.kS.g',
+            object: '_.l.d.sQMJJYE.d.qSSI.mFLKD.kS.g-content.html#_.l.d.sQM.pJYE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.b.b.aC0J.v.jE.d.qN_.b565_.mS.bQ',
+            object: '_.b.b.aC0J.v.jE.d.qN_.b565_.mS.bQ-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.b.b.aC0.p.v.jE.d.qN_.b565_.mS.bQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.b.b.aC0.p.v.jE.d.qN_.b565_.mS.bQ',
+            object: '_.b.b.aC0J.v.jE.d.qN_.b565_.mS.bQ-content.html#_.b.b.aC0.p.v.jE.d.qN_.b565_.mS.bQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_4.zD2.gJJ.lE.d.qSSI.mFLKD.kS.g',
+            object: '_4.zD2.gJJ.lE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_4.zD2.gZJ.lE.d.qSSI.mFLKD.kS.g' }
+            ]
+        }
+		,
+        {
+            title: 'providedRoles__Interface',
+            id: '_4.zD2.gZJ.lE.d.qSSI.mFLKD.kS.g',
+            object: '_4.zD2.gJJ.lE.d.qSSI.mFLKD.kS.g-content.html#_4.zD2.gZJ.lE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_.k6.s.wUJ.cYE.d.q38OE.oBK_B.yQ',
+            object: '_.k6.s.wUJ.cYE.d.q38OE.oBK_B.yQ-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: '',
+            id: '_.g.o_D.gJ.cYE.d.q38OE.oBK_B.yQ',
+            object: '_.g.o_D.gJ.cYE.d.q38OE.oBK_B.yQ-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: '',
+            id: '_58.aEMJJ.lE.d.qSSI.mFLKD.kS.g',
+            object: '_58.aEMJJ.lE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_58.aEMZJ.lE.d.qSSI.mFLKD.kS.g' }
+            ]
+        }
+		,
+        {
+            title: 'requiredRoles__Interface',
+            id: '_58.aEMZJ.lE.d.qSSI.mFLKD.kS.g',
+            object: '_58.aEMJJ.lE.d.qSSI.mFLKD.kS.g-content.html#_58.aEMZJ.lE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_.u.nI.g8JJYE.d.qSSI.mFLKD.kS.g',
+            object: '_.u.nI.g8JJYE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.u.nO.n.kJJYE.d.qSSI.mFLKD.kS.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.u.nO.n.kJJYE.d.qSSI.mFLKD.kS.g',
+            object: '_.u.nI.g8JJYE.d.qSSI.mFLKD.kS.g-content.html#_.u.nO.n.kJJYE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_Y.uRXQJJYE.d.qSSI.mFLKD.kS.g',
+            object: '_Y.uRXQJJYE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: '',
+            id: '_SAZ7.oJJZE.d.qSSI.mFLKD.kS.g',
+            object: '_SAZ7.oJJZE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_SAZ7.o.pJZE.d.qSSI.mFLKD.kS.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_SAZ7.o.pJZE.d.qSSI.mFLKD.kS.g',
+            object: '_SAZ7.oJJZE.d.qSSI.mFLKD.kS.g-content.html#_SAZ7.o.pJZE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.a.y.u.pQFO.uE.d.u.yK.f.hI.jB.d.b.tA',
+            object: '_.a.y.u.pQFO.uE.d.u.yK.f.hI.jB.d.b.tA-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: 'PrimitiveDataType',
+            id: '_.tK.j.o0HP.yE.d.u.xX.f.d-1.j79QQ',
+            object: '_.tK.j.o0HP.yE.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_N.jNA8HQ8E.d.u.u.y9.r.r.a1C.vZQ' }
+            ]
+        }
+		,
+        {
+            title: 'type',
+            id: '_N.jNA8HQ8E.d.u.u.y9.r.r.a1C.vZQ',
+            object: '_.tK.j.o0HP.yE.d.u.xX.f.d-1.j79QQ-content.html#_N.jNA8HQ8E.d.u.u.y9.r.r.a1C.vZQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'CollectionDataType',
+            id: '_.u.aI.aUHP.yE.d.u.xX.f.d-1.j79QQ',
+            object: '_.u.aI.aUHP.yE.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_A.r.t7UXP.zE.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: 'innerType_CollectionDataType',
+            id: '_A.r.t7UXP.zE.d.u.xX.f.d-1.j79QQ',
+            object: '_.u.aI.aUHP.yE.d.u.xX.f.d-1.j79QQ-content.html#_A.r.t7UXP.zE.d.u.xX.f.d-1.j79QQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'CompositeDataType',
+            id: '_.v.s0.xQHP.yE.d.u.xX.f.d-1.j79QQ',
+            object: '_.v.s0.xQHP.yE.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_3_.nG0XP.yE.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_.d.xT.j.cX.l.vE.d.u.f8.pX.q.m.h.j.n.p.w' }
+            ]
+        }
+		,
+        {
+            title: 'parentType_CompositeDataType',
+            id: '_3_.nG0XP.yE.d.u.xX.f.d-1.j79QQ',
+            object: '_.v.s0.xQHP.yE.d.u.xX.f.d-1.j79QQ-content.html#_3_.nG0XP.yE.d.u.xX.f.d-1.j79QQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'innerDeclaration_CompositeDataType',
+            id: '_.d.xT.j.cX.l.vE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_.v.s0.xQHP.yE.d.u.xX.f.d-1.j79QQ-content.html#_.d.xT.j.cX.l.vE.d.u.f8.pX.q.m.h.j.n.p.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_3_.nG0HP.yE.d.u.xX.f.d-1.j79QQ',
+            object: '_3_.nG0HP.yE.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_3_.nG0.nP.yE.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_3_.nG0.nP.yE.d.u.xX.f.d-1.j79QQ',
+            object: '_3_.nG0HP.yE.d.u.xX.f.d-1.j79QQ-content.html#_3_.nG0.nP.yE.d.u.xX.f.d-1.j79QQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_A.r.t7UHP.zE.d.u.xX.f.d-1.j79QQ',
+            object: '_A.r.t7UHP.zE.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_A.r.t7U.nP.zE.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_A.r.t7U.nP.zE.d.u.xX.f.d-1.j79QQ',
+            object: '_A.r.t7UHP.zE.d.u.xX.f.d-1.j79QQ-content.html#_A.r.t7U.nP.zE.d.u.xX.f.d-1.j79QQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'PrimitiveTypeEnum',
+            id: '_A9.sU.wHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_A9.sU.wHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon-1761271776',
+            children: [
+                {_reference: '_DW4Z.sHP2E.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_D8.bW.wHP2E.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_E.bIE8HP2E.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_FCBF0HP2E.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_F.z.f.mEHP2E.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_GP.p9.oHP2E.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_.y.tE5INF.bE.d.u.w.e8E9OS.a5.oQ' }
+            ]
+        }
+		,
+        {
+            title: 'INT',
+            id: '_DW4Z.sHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_DW4Z.sHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_D.wN.f.sHP2E.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_D.wN.f.sHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_D.wN.f.sHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'STRING',
+            id: '_D8.bW.wHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_D8.bW.wHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_EQZ.b.oHP2E.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_EQZ.b.oHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_EQZ.b.oHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'BOOL',
+            id: '_E.bIE8HP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_E.bIE8HP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_E3S.c.gHP2E.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_E3S.c.gHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_E3S.c.gHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'DOUBLE',
+            id: '_FCBF0HP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_FCBF0HP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_F.y.c.dMHP2E.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_F.y.c.dMHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_F.y.c.dMHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'CHAR',
+            id: '_F.z.f.mEHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_F.z.f.mEHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_GG.a.iEHP2E.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_GG.a.iEHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_GG.a.iEHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'BYTE',
+            id: '_GP.p9.oHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_GP.p9.oHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_G.d.p9YHP2E.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_G.d.p9YHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_G.d.p9YHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'LONG',
+            id: '_.y.tE5INF.bE.d.u.w.e8E9OS.a5.oQ',
+            object: '_.y.tE5INF.bE.d.u.w.e8E9OS.a5.oQ-content.html',
+            icon: 'icon1359289601'
+        }
+		,
+        {
+            title: '',
+            id: '_.y.jJBYHSSE.d.uUY.p.h3.z.t.x_.j.g',
+            object: '_.y.jJBYHSSE.d.uUY.p.h3.z.t.x_.j.g-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: 'InnerDeclaration',
+            id: '_Z_T4.gH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_Z_T4.gH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.pE.wN.oX.l.vE.d.u.f8.pX.q.m.h.j.n.p.w' }
+            ]
+        }
+		,
+        {
+            title: 'datatype_InnerDeclaration',
+            id: '_.pE.wN.oX.l.vE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_Z_T4.gH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w-content.html#_.pE.wN.oX.l.vE.d.u.f8.pX.q.m.h.j.n.p.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_.d.xT.j.cH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_.d.xT.j.cH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.d.xT.j.c.n.l.vE.d.u.f8.pX.q.m.h.j.n.p.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.d.xT.j.c.n.l.vE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_.d.xT.j.cH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w-content.html#_.d.xT.j.c.n.l.vE.d.u.f8.pX.q.m.h.j.n.p.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.pE.wN.oH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_.pE.wN.oH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.pE.wN.o.n.l.vE.d.u.f8.pX.q.m.h.j.n.p.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.pE.wN.o.n.l.vE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_.pE.wN.oH.l.vE.d.u.f8.pX.q.m.h.j.n.p.w-content.html#_.pE.wN.o.n.l.vE.d.u.f8.pX.q.m.h.j.n.p.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.lJF.vAD.j-E.d.y2.j_4.z2PHNJQ',
+            object: '_.lJF.vAD.j-E.d.y2.j_4.z2PHNJQ-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.lJF.vA.j.j-E.d.y2.j_4.z2PHNJQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.lJF.vA.j.j-E.d.y2.j_4.z2PHNJQ',
+            object: '_.lJF.vAD.j-E.d.y2.j_4.z2PHNJQ-content.html#_.lJF.vA.j.j-E.d.y2.j_4.z2PHNJQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.r.tZM4E.o-E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_.r.tZM4E.o-E.d.y.yN.sX.l.b1.tN.s.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.r.tZM4.k.o-E.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.r.tZM4.k.o-E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_.r.tZM4E.o-E.d.y.yN.sX.l.b1.tN.s.w-content.html#_.r.tZM4.k.o-E.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'ResourceRequiredRole',
+            id: '_XT0.q.cJR_E.d27_9.sKG.vE.c-Q',
+            object: '_XT0.q.cJR_E.d27_9.sKG.vE.c-Q-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.c.jIL.dJSAE.d27_9.sKG.vE.c-Q' },
+                {_reference: '_H.mW.aFJSBE.d27_9.sKG.vE.c-Q' }
+            ]
+        }
+		,
+        {
+            title: 'requiredInterface_ResourceRequiredRole',
+            id: '_.c.jIL.dJSAE.d27_9.sKG.vE.c-Q',
+            object: '_XT0.q.cJR_E.d27_9.sKG.vE.c-Q-content.html#_.c.jIL.dJSAE.d27_9.sKG.vE.c-Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'resourceRequiringEntity_ResourceRequiredRole',
+            id: '_H.mW.aFJSBE.d27_9.sKG.vE.c-Q',
+            object: '_XT0.q.cJR_E.d27_9.sKG.vE.c-Q-content.html#_H.mW.aFJSBE.d27_9.sKG.vE.c-Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_.c.jIL.cJSAE.d27_9.sKG.vE.c-Q',
+            object: '_.c.jIL.cJSAE.d27_9.sKG.vE.c-Q-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.c.jIL.cZSAE.d27_9.sKG.vE.c-Q' }
+            ]
+        }
+		,
+        {
+            title: 'resourceRequiredRoles_Interface',
+            id: '_.c.jIL.cZSAE.d27_9.sKG.vE.c-Q',
+            object: '_.c.jIL.cJSAE.d27_9.sKG.vE.c-Q-content.html#_.c.jIL.cZSAE.d27_9.sKG.vE.c-Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'RepositoryComponent',
+            id: '_.rG.a6.kKBZE.d24B.v0.x9CNK.p.g',
+            object: '_.rG.a6.kKBZE.d24B.v0.x9CNK.p.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.g.o_D.g.p.cYE.d.q38OE.oBK_B.yQ' }
+            ]
+        }
+		,
+        {
+            title: 'repository_RepositoryComponent',
+            id: '_.g.o_D.g.p.cYE.d.q38OE.oBK_B.yQ',
+            object: '_.rG.a6.kKBZE.d24B.v0.x9CNK.p.g-content.html#_.g.o_D.g.p.cYE.d.q38OE.oBK_B.yQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'RequiredCharacterisation',
+            id: '_.a.fEZQKOQE.d6.kDK.m.j84.bK.s.g',
+            object: '_.a.fEZQKOQE.d6.kDK.m.j84.bK.s.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.u0.p.yUKOQE.d6.kDK.m.j84.bK.s.g' },
+                {_reference: '_9AG.kYKOQE.d6.kDK.m.j84.bK.s.g' }
+            ]
+        }
+		,
+        {
+            title: 'type',
+            id: '_.u0.p.yUKOQE.d6.kDK.m.j84.bK.s.g',
+            object: '_.a.fEZQKOQE.d6.kDK.m.j84.bK.s.g-content.html#_.u0.p.yUKOQE.d6.kDK.m.j84.bK.s.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'parameter',
+            id: '_9AG.kYKOQE.d6.kDK.m.j84.bK.s.g',
+            object: '_.a.fEZQKOQE.d6.kDK.m.j84.bK.s.g-content.html#_9AG.kYKOQE.d6.kDK.m.j84.bK.s.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_6.q.y54KOQE.d6.kDK.m.j84.bK.s.g',
+            object: '_6.q.y54KOQE.d6.kDK.m.j84.bK.s.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_6.q.y55KOQE.d6.kDK.m.j84.bK.s.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_6.q.y55KOQE.d6.kDK.m.j84.bK.s.g',
+            object: '_6.q.y54KOQE.d6.kDK.m.j84.bK.s.g-content.html#_6.q.y55KOQE.d6.kDK.m.j84.bK.s.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_8_8.zYKOQE.d6.kDK.m.j84.bK.s.g',
+            object: '_8_8.zYKOQE.d6.kDK.m.j84.bK.s.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_9AG.kY.aOQE.d6.kDK.m.j84.bK.s.g' }
+            ]
+        }
+		,
+        {
+            title: 'requiredCharacterisations',
+            id: '_9AG.kY.aOQE.d6.kDK.m.j84.bK.s.g',
+            object: '_8_8.zYKOQE.d6.kDK.m.j84.bK.s.g-content.html#_9AG.kY.aOQE.d6.kDK.m.j84.bK.s.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_.uO16ULGYE.d673PT6.cW.w0K.w',
+            object: '_.uO16ULGYE.d673PT6.cW.w0K.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.uO16VLGYE.d673PT6.cW.w0K.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.uO16VLGYE.d673PT6.cW.w0K.w',
+            object: '_.uO16ULGYE.d673PT6.cW.w0K.w-content.html#_.uO16VLGYE.d673PT6.cW.w0K.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'protocol',
+            id: '_HSHQ.oC.h9E.d.u.e7.o.eC4NTCG.g',
+            object: '_HSHQ.oC.h9E.d.u.e7.o.eC4NTCG.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_.c.q.kL.gJJJE.d.qSSI.mFLKD.kS.g' }
+            ]
+        }
+		,
+        {
+            title: 'Protocol',
+            id: '_.c.q.kL.gJJJE.d.qSSI.mFLKD.kS.g',
+            object: '_.c.q.kL.gJJJE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.r.nR.g.gJV.sE.d.qSSI.mFLKD.kS.g' }
+            ]
+        }
+		,
+        {
+            title: 'protocolTypeID',
+            id: '_.r.nR.g.gJV.sE.d.qSSI.mFLKD.kS.g',
+            object: '_.c.q.kL.gJJJE.d.qSSI.mFLKD.kS.g-content.html#_.r.nR.g.gJV.sE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'resourceenvironment',
+            id: '_L.aA6IC.h9E.d.u.e7.o.eC4NTCG.g',
+            object: '_L.aA6IC.h9E.d.u.e7.o.eC4NTCG.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_4KH.sEE-.zE.d.u.uPYQ.nF.iB.y.bA' },
+                {_reference: '_M.r.dV4OQLE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.q.d.z5.sOD9E.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_.w.r.u2.gOD.nE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_X5.v.v8OM.eE.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_OSNY.gOM.fE.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_TB.c.u0OM.fE.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.dTV1YOM.fE.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.vOG.nQOM.eE.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_CP.bW.wOD.oE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_-.z.hHMOEAE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_.b.h_.sUOQLE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_X.v.tG.cOQLE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_O.y4.cMB.m.oE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_.w.uNVYB.m.sE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_E.lM9.kD.h.wE.d.y4.w.o8LP9.z.xLA' },
+                {_reference: '_HTP4MD.h.wE.d.y4.w.o8LP9.z.xLA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_4KH.sEE-.zE.d.u.uPYQ.nF.iB.y.bA',
+            object: '_4KH.sEE-.zE.d.u.uPYQ.nF.iB.y.bA-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_4KITIU-.zE.d.u.uPYQ.nF.iB.y.bA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_4KITIU-.zE.d.u.uPYQ.nF.iB.y.bA',
+            object: '_4KH.sEE-.zE.d.u.uPYQ.nF.iB.y.bA-content.html#_4KITIU-.zE.d.u.uPYQ.nF.iB.y.bA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'ResourceEnvironment',
+            id: '_M.r.dV4OQLE.d.q.eH_WIC9QR.e.w',
+            object: '_M.r.dV4OQLE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_X.v.tG.c.eQLE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.b.h_.sU.eQLE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: 'linkingResources__ResourceEnvironment',
+            id: '_X.v.tG.c.eQLE.d.q.eH_WIC9QR.e.w',
+            object: '_M.r.dV4OQLE.d.q.eH_WIC9QR.e.w-content.html#_X.v.tG.c.eQLE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'resourceContainer_ResourceEnvironment',
+            id: '_.b.h_.sU.eQLE.d.q.eH_WIC9QR.e.w',
+            object: '_M.r.dV4OQLE.d.q.eH_WIC9QR.e.w-content.html#_.b.h_.sU.eQLE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ResourceContainer',
+            id: '_.q.d.z5.sOD9E.d.q8.y.sXH3.gT.iE.g',
+            object: '_.q.d.z5.sOD9E.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_-.z.hHM.eEAE.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: 'activeResourceSpecifications_ResourceContainer',
+            id: '_-.z.hHM.eEAE.d.q8.y.sXH3.gT.iE.g',
+            object: '_.q.d.z5.sOD9E.d.q8.y.sXH3.gT.iE.g-content.html#_-.z.hHM.eEAE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ProcessingResourceSpecification',
+            id: '_.w.r.u2.gOD.nE.d.q8.y.sXH3.gT.iE.g',
+            object: '_.w.r.u2.gOD.nE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_1.l.j7QEI.xE.d6.xD.qQ.s.j.k.c.xU.g' },
+                {_reference: '_.wP.s.p0EI.xE.d6.xD.qQ.s.j.k.c.xU.g' },
+                {_reference: '_CRH.y.gB.m.tE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_CP.bW.w.eD.oE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_HTP4MT.h.wE.d.y4.w.o8LP9.z.xLA' }
+            ]
+        }
+		,
+        {
+            title: 'MTTR',
+            id: '_1.l.j7QEI.xE.d6.xD.qQ.s.j.k.c.xU.g',
+            object: '_.w.r.u2.gOD.nE.d.q8.y.sXH3.gT.iE.g-content.html#_1.l.j7QEI.xE.d6.xD.qQ.s.j.k.c.xU.g',
+            icon: 'icon1090855041',
+            children: [
+                {_reference: '_8.jR7UEI.xE.d6.xD.qQ.s.j.k.c.xU.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_8.jR7UEI.xE.d6.xD.qQ.s.j.k.c.xU.g',
+            object: '_8.jR7UEI.xE.d6.xD.qQ.s.j.k.c.xU.g-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'MTTF',
+            id: '_.wP.s.p0EI.xE.d6.xD.qQ.s.j.k.c.xU.g',
+            object: '_.w.r.u2.gOD.nE.d.q8.y.sXH3.gT.iE.g-content.html#_.wP.s.p0EI.xE.d6.xD.qQ.s.j.k.c.xU.g',
+            icon: 'icon1090855041',
+            children: [
+                {_reference: '_P.r-.q.gEI.yE.d6.xD.qQ.s.j.k.c.xU.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_P.r-.q.gEI.yE.d6.xD.qQ.s.j.k.c.xU.g',
+            object: '_P.r-.q.gEI.yE.d6.xD.qQ.s.j.k.c.xU.g-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'schedulingPolicy',
+            id: '_CRH.y.gB.m.tE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_.w.r.u2.gOD.nE.d.q8.y.sXH3.gT.iE.g-content.html#_CRH.y.gB.m.tE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'activeResourceType_ActiveResourceSpecification',
+            id: '_CP.bW.w.eD.oE.d.q8.y.sXH3.gT.iE.g',
+            object: '_.w.r.u2.gOD.nE.d.q8.y.sXH3.gT.iE.g-content.html#_CP.bW.w.eD.oE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'processingRate_ProcessingResourceSpecification',
+            id: '_HTP4MT.h.wE.d.y4.w.o8LP9.z.xLA',
+            object: '_.w.r.u2.gOD.nE.d.q8.y.sXH3.gT.iE.g-content.html#_HTP4MT.h.wE.d.y4.w.o8LP9.z.xLA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'LinkingResource',
+            id: '_X5.v.v8OM.eE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_X5.v.v8OM.eE.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.vOG.nQ.eM.eE.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.dTV1Y.eM.fE.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: 'connectedResourceContainers_LinkingResource',
+            id: '_.vOG.nQ.eM.eE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_X5.v.v8OM.eE.d.q.aQ.sPH3.rP.nBQ-content.html#_.vOG.nQ.eM.eE.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'communicationLinkResourceSpecifications_LinkingResource',
+            id: '_.dTV1Y.eM.fE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_X5.v.v8OM.eE.d.q.aQ.sPH3.rP.nBQ-content.html#_.dTV1Y.eM.fE.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'CommunicationLinkResourceSpecification',
+            id: '_OSNY.gOM.fE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_OSNY.gOM.fE.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.a8.pG.cEI.yE.d6.xD.qQ.s.j.k.c.xU.g' },
+                {_reference: '_TB.c.u0.eM.fE.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_O.y4.cMR.m.oE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_E.lM9.kT.h.wE.d.y4.w.o8LP9.z.xLA' }
+            ]
+        }
+		,
+        {
+            title: 'failureProbability',
+            id: '_.a8.pG.cEI.yE.d6.xD.qQ.s.j.k.c.xU.g',
+            object: '_OSNY.gOM.fE.d.q.aQ.sPH3.rP.nBQ-content.html#_.a8.pG.cEI.yE.d6.xD.qQ.s.j.k.c.xU.g',
+            icon: 'icon1090855041',
+            children: [
+                {_reference: '_.gQQ8MEI.yE.d6.xD.qQ.s.j.k.c.xU.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.gQQ8MEI.yE.d6.xD.qQ.s.j.k.c.xU.g',
+            object: '_.gQQ8MEI.yE.d6.xD.qQ.s.j.k.c.xU.g-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'communicationLinkResourceType_CommunicationLinkResourceSpecification',
+            id: '_TB.c.u0.eM.fE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_OSNY.gOM.fE.d.q.aQ.sPH3.rP.nBQ-content.html#_TB.c.u0.eM.fE.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'latency_CommunicationLinkResourceSpecification',
+            id: '_O.y4.cMR.m.oE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_OSNY.gOM.fE.d.q.aQ.sPH3.rP.nBQ-content.html#_O.y4.cMR.m.oE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'throughput_CommunicationLinkResourceSpecification',
+            id: '_E.lM9.kT.h.wE.d.y4.w.o8LP9.z.xLA',
+            object: '_OSNY.gOM.fE.d.q.aQ.sPH3.rP.nBQ-content.html#_E.lM9.kT.h.wE.d.y4.w.o8LP9.z.xLA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_TB.c.u0OM.fE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_TB.c.u0OM.fE.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_TB.c.u0.uM.fE.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: 'communicationlinkresourcespecification',
+            id: '_TB.c.u0.uM.fE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_TB.c.u0OM.fE.d.q.aQ.sPH3.rP.nBQ-content.html#_TB.c.u0.uM.fE.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.dTV1YOM.fE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.dTV1YOM.fE.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.dTV1Y.uM.fE.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.dTV1Y.uM.fE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.dTV1YOM.fE.d.q.aQ.sPH3.rP.nBQ-content.html#_.dTV1Y.uM.fE.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.vOG.nQOM.eE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.vOG.nQOM.eE.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.vOG.nQ.uM.eE.d.q.aQ.sPH3.rP.nBQ' }
+            ]
+        }
+		,
+        {
+            title: 'linkingresource2',
+            id: '_.vOG.nQ.uM.eE.d.q.aQ.sPH3.rP.nBQ',
+            object: '_.vOG.nQOM.eE.d.q.aQ.sPH3.rP.nBQ-content.html#_.vOG.nQ.uM.eE.d.q.aQ.sPH3.rP.nBQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_CP.bW.wOD.oE.d.q8.y.sXH3.gT.iE.g',
+            object: '_CP.bW.wOD.oE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_CP.bW.w.uD.oE.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: 'resourcespecification',
+            id: '_CP.bW.w.uD.oE.d.q8.y.sXH3.gT.iE.g',
+            object: '_CP.bW.wOD.oE.d.q8.y.sXH3.gT.iE.g-content.html#_CP.bW.w.uD.oE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'contains1',
+            id: '_-.z.hHMOEAE.d.q8.y.sXH3.gT.iE.g',
+            object: '_-.z.hHMOEAE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_-.z.hHM.uEAE.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: 'resourcecontainer',
+            id: '_-.z.hHM.uEAE.d.q8.y.sXH3.gT.iE.g',
+            object: '_-.z.hHMOEAE.d.q8.y.sXH3.gT.iE.g-content.html#_-.z.hHM.uEAE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.b.h_.sUOQLE.d.q.eH_WIC9QR.e.w',
+            object: '_.b.h_.sUOQLE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.b.iJ.dUOQLE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.b.iJ.dUOQLE.d.q.eH_WIC9QR.e.w',
+            object: '_.b.h_.sUOQLE.d.q.eH_WIC9QR.e.w-content.html#_.b.iJ.dUOQLE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_X.v.tG.cOQLE.d.q.eH_WIC9QR.e.w',
+            object: '_X.v.tG.cOQLE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_X.v.tG.c.uQLE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_X.v.tG.c.uQLE.d.q.eH_WIC9QR.e.w',
+            object: '_X.v.tG.cOQLE.d.q.eH_WIC9QR.e.w-content.html#_X.v.tG.c.uQLE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_O.y4.cMB.m.oE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_O.y4.cMB.m.oE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_O.y4.cM.h.m.oE.d.y.aJ.v.v.d.hG.gDY.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_O.y4.cM.h.m.oE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_O.y4.cMB.m.oE.d.y.aJ.v.v.d.hG.gDY.g-content.html#_O.y4.cM.h.m.oE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'SchedulingPolicy',
+            id: '_.w.uNVYB.m.sE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_.w.uNVYB.m.sE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon-1761271776',
+            children: [
+                {_reference: '_--.aE.kB.m.sE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_7.q7.h.oB.m.sE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_6W.bM0B.m.sE.d.y.aJ.v.v.d.hG.gDY.g' }
+            ]
+        }
+		,
+        {
+            title: 'DELAY',
+            id: '_--.aE.kB.m.sE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_--.aE.kB.m.sE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon1359289601'
+        }
+		,
+        {
+            title: 'PROCESSOR_SHARING',
+            id: '_7.q7.h.oB.m.sE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_7.q7.h.oB.m.sE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon1359289601'
+        }
+		,
+        {
+            title: 'FCFS',
+            id: '_6W.bM0B.m.sE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_6W.bM0B.m.sE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon1359289601'
+        }
+		,
+        {
+            title: '',
+            id: '_E.lM9.kD.h.wE.d.y4.w.o8LP9.z.xLA',
+            object: '_E.lM9.kD.h.wE.d.y4.w.o8LP9.z.xLA-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_E.lM9.k.j.h.wE.d.y4.w.o8LP9.z.xLA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_E.lM9.k.j.h.wE.d.y4.w.o8LP9.z.xLA',
+            object: '_E.lM9.kD.h.wE.d.y4.w.o8LP9.z.xLA-content.html#_E.lM9.k.j.h.wE.d.y4.w.o8LP9.z.xLA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_HTP4MD.h.wE.d.y4.w.o8LP9.z.xLA',
+            object: '_HTP4MD.h.wE.d.y4.w.o8LP9.z.xLA-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_HTP4M.j.h.wE.d.y4.w.o8LP9.z.xLA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_HTP4M.j.h.wE.d.y4.w.o8LP9.z.xLA',
+            object: '_HTP4MD.h.wE.d.y4.w.o8LP9.z.xLA-content.html#_HTP4M.j.h.wE.d.y4.w.o8LP9.z.xLA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'usagemodel',
+            id: '_V8.vSAC.h9E.d.u.e7.o.eC4NTCG.g',
+            object: '_V8.vSAC.h9E.d.u.e7.o.eC4NTCG.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_.cX8.q.oOQQE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_Y4SF0OQQE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_W.l.gK4OQQE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_5NV.sIOQRE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_4.q.xK.kOQRE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_HT.uN.cOQRE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.fJ3Y.oOQQE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_55.v.fIOQRE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.h0.hL.kOQRE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.f.fB.wUOQQE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_3ZHV.cOQRE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.lA9SYOQRE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_H.z.cG.sO.m.gE.d.q.uV.u.l9P.a8.d.qA' },
+                {_reference: '_.aT7.mYO.m.gE.d.q.uV.u.l9P.a8.d.qA' },
+                {_reference: '_.e.tD.nMOQYE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_QT1G.kOQSE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_-.d.qWQOQRE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.q.dDH.oOQRE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.aYGS.wOQQE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.iK.iUUOQQE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_JPQGAOQRE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.tW.v.xIHDFE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_KYXQ.wHDHE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_.n.t.m.s.cHDHE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_.e6KC.wH.h7E.d.u.g.j.r.u7Z.o1JW.g' },
+                {_reference: '_DX0AEI.n.qE.d.u.cP.r8SM.hB.k.pQ' },
+                {_reference: '_.f.j.m.gYI.n.qE.d.u.cP.r8SM.hB.k.pQ' },
+                {_reference: '_D.a-I.wB.m.oE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_J.k3.p.wB.m.pE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_NQ.x.u4E.o9E.d.y.yN.sX.l.b1.tN.s.w' },
+                {_reference: '_P8.zQQE.o9E.d.y.yN.sX.l.b1.tN.s.w' },
+                {_reference: '_.h.r1.d0E.o9E.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: 'Workload',
+            id: '_.cX8.q.oOQQE.d.q.eH_WIC9QR.e.w',
+            object: '_.cX8.q.oOQQE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010'
+        }
+		,
+        {
+            title: 'UsageScenario',
+            id: '_Y4SF0OQQE.d.q.eH_WIC9QR.e.w',
+            object: '_Y4SF0OQQE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.iK.iUU.eQQE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_JPQGA.eQRE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: 'workload_UsageScenario',
+            id: '_.iK.iUU.eQQE.d.q.eH_WIC9QR.e.w',
+            object: '_Y4SF0OQQE.d.q.eH_WIC9QR.e.w-content.html#_.iK.iUU.eQQE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'scenarioBehaviour_UsageScenario',
+            id: '_JPQGA.eQRE.d.q.eH_WIC9QR.e.w',
+            object: '_Y4SF0OQQE.d.q.eH_WIC9QR.e.w-content.html#_JPQGA.eQRE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'UsageModel',
+            id: '_W.l.gK4OQQE.d.q.eH_WIC9QR.e.w',
+            object: '_W.l.gK4OQQE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.aYGS.w.eQQE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_P8.zQQU.o9E.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: 'usageScenario_UsageModel',
+            id: '_.aYGS.w.eQQE.d.q.eH_WIC9QR.e.w',
+            object: '_W.l.gK4OQQE.d.q.eH_WIC9QR.e.w-content.html#_.aYGS.w.eQQE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'userData_UsageModel',
+            id: '_P8.zQQU.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_W.l.gK4OQQE.d.q.eH_WIC9QR.e.w-content.html#_P8.zQQU.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'Stop',
+            id: '_5NV.sIOQRE.d.q.eH_WIC9QR.e.w',
+            object: '_5NV.sIOQRE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'Start',
+            id: '_4.q.xK.kOQRE.d.q.eH_WIC9QR.e.w',
+            object: '_4.q.xK.kOQRE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'ScenarioBehaviour',
+            id: '_HT.uN.cOQRE.d.q.eH_WIC9QR.e.w',
+            object: '_HT.uN.cOQRE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.q.dDH.o.eQRE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: 'actions_ScenarioBehaviour',
+            id: '_.q.dDH.o.eQRE.d.q.eH_WIC9QR.e.w',
+            object: '_HT.uN.cOQRE.d.q.eH_WIC9QR.e.w-content.html#_.q.dDH.o.eQRE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'OpenWorkload',
+            id: '_.fJ3Y.oOQQE.d.q.eH_WIC9QR.e.w',
+            object: '_.fJ3Y.oOQQE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.f.j.m.gYY.n.qE.d.u.cP.r8SM.hB.k.pQ' }
+            ]
+        }
+		,
+        {
+            title: 'interArrivalTime_OpenWorkload',
+            id: '_.f.j.m.gYY.n.qE.d.u.cP.r8SM.hB.k.pQ',
+            object: '_.fJ3Y.oOQQE.d.q.eH_WIC9QR.e.w-content.html#_.f.j.m.gYY.n.qE.d.u.cP.r8SM.hB.k.pQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'Loop',
+            id: '_55.v.fIOQRE.d.q.eH_WIC9QR.e.w',
+            object: '_55.v.fIOQRE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_-.d.qWQ.eQRE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.tW.v.xIXDFE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: 'bodyBehaviour_Loop',
+            id: '_-.d.qWQ.eQRE.d.q.eH_WIC9QR.e.w',
+            object: '_55.v.fIOQRE.d.q.eH_WIC9QR.e.w-content.html#_-.d.qWQ.eQRE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'loopIteration_Loop',
+            id: '_.tW.v.xIXDFE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_55.v.fIOQRE.d.q.eH_WIC9QR.e.w-content.html#_.tW.v.xIXDFE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'EntryLevelSystemCall',
+            id: '_.h0.hL.kOQRE.d.q.eH_WIC9QR.e.w',
+            object: '_.h0.hL.kOQRE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_QT1G.k.eQSE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.e.tD.nM.eQYE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.e6KC.wX.h7E.d.u.g.j.r.u7Z.o1JW.g' },
+                {_reference: '_.u-.oD.kR.m.rE.d.y.aJ.v.v.d.hG.gDY.g' }
+            ]
+        }
+		,
+        {
+            title: 'inputParameterUsages_EntryLevelSystemCall',
+            id: '_QT1G.k.eQSE.d.q.eH_WIC9QR.e.w',
+            object: '_.h0.hL.kOQRE.d.q.eH_WIC9QR.e.w-content.html#_QT1G.k.eQSE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'providedRole_EntryLevelSystemCall',
+            id: '_.e.tD.nM.eQYE.d.q.eH_WIC9QR.e.w',
+            object: '_.h0.hL.kOQRE.d.q.eH_WIC9QR.e.w-content.html#_.e.tD.nM.eQYE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'signature_EntryLevelSystemCall',
+            id: '_.e6KC.wX.h7E.d.u.g.j.r.u7Z.o1JW.g',
+            object: '_.h0.hL.kOQRE.d.q.eH_WIC9QR.e.w-content.html#_.e6KC.wX.h7E.d.u.g.j.r.u7Z.o1JW.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'outputParameterUsages_EntryLevelSystemCall',
+            id: '_.u-.oD.kR.m.rE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_.h0.hL.kOQRE.d.q.eH_WIC9QR.e.w-content.html#_.u-.oD.kR.m.rE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ClosedWorkload',
+            id: '_.f.fB.wUOQQE.d.q.eH_WIC9QR.e.w',
+            object: '_.f.fB.wUOQQE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_1F.aC4OQQE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_DX0AEY.n.qE.d.u.cP.r8SM.hB.k.pQ' }
+            ]
+        }
+		,
+        {
+            title: 'population',
+            id: '_1F.aC4OQQE.d.q.eH_WIC9QR.e.w',
+            object: '_.f.fB.wUOQQE.d.q.eH_WIC9QR.e.w-content.html#_1F.aC4OQQE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'thinkTime_ClosedWorkload',
+            id: '_DX0AEY.n.qE.d.u.cP.r8SM.hB.k.pQ',
+            object: '_.f.fB.wUOQQE.d.q.eH_WIC9QR.e.w-content.html#_DX0AEY.n.qE.d.u.cP.r8SM.hB.k.pQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'Branch',
+            id: '_3ZHV.cOQRE.d.q.eH_WIC9QR.e.w',
+            object: '_3ZHV.cOQRE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.n.t.m.s.cXDHE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: 'branchTransitions_Branch',
+            id: '_.n.t.m.s.cXDHE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_3ZHV.cOQRE.d.q.eH_WIC9QR.e.w-content.html#_.n.t.m.s.cXDHE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'AbstractUserAction',
+            id: '_.lA9SYOQRE.d.q.eH_WIC9QR.e.w',
+            object: '_.lA9SYOQRE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_H.z.cG.s.e.m.gE.d.q.uV.u.l9P.a8.d.qA' },
+                {_reference: '_H.z.cG.s.u.m.gE.d.q.uV.u.l9P.a8.d.qA' }
+            ]
+        }
+		,
+        {
+            title: 'successor',
+            id: '_H.z.cG.s.e.m.gE.d.q.uV.u.l9P.a8.d.qA',
+            object: '_.lA9SYOQRE.d.q.eH_WIC9QR.e.w-content.html#_H.z.cG.s.e.m.gE.d.q.uV.u.l9P.a8.d.qA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'predecessor',
+            id: '_H.z.cG.s.u.m.gE.d.q.uV.u.l9P.a8.d.qA',
+            object: '_.lA9SYOQRE.d.q.eH_WIC9QR.e.w-content.html#_H.z.cG.s.u.m.gE.d.q.uV.u.l9P.a8.d.qA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_H.z.cG.sO.m.gE.d.q.uV.u.l9P.a8.d.qA',
+            object: '_H.z.cG.sO.m.gE.d.q.uV.u.l9P.a8.d.qA-content.html',
+            icon: 'icon1476731819'
+        }
+		,
+        {
+            title: '',
+            id: '_.aT7.mYO.m.gE.d.q.uV.u.l9P.a8.d.qA',
+            object: '_.aT7.mYO.m.gE.d.q.uV.u.l9P.a8.d.qA-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.aT7.mY.u.m.gE.d.q.uV.u.l9P.a8.d.qA' }
+            ]
+        }
+		,
+        {
+            title: 'branch',
+            id: '_.aT7.mY.u.m.gE.d.q.uV.u.l9P.a8.d.qA',
+            object: '_.aT7.mYO.m.gE.d.q.uV.u.l9P.a8.d.qA-content.html#_.aT7.mY.u.m.gE.d.q.uV.u.l9P.a8.d.qA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.e.tD.nMOQYE.d.q.eH_WIC9QR.e.w',
+            object: '_.e.tD.nMOQYE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.e.tD.nM.uQYE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: 'entrylevelcomponentcall',
+            id: '_.e.tD.nM.uQYE.d.q.eH_WIC9QR.e.w',
+            object: '_.e.tD.nMOQYE.d.q.eH_WIC9QR.e.w-content.html#_.e.tD.nM.uQYE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_QT1G.kOQSE.d.q.eH_WIC9QR.e.w',
+            object: '_QT1G.kOQSE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_QT1G.k.uQSE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_QT1G.k.uQSE.d.q.eH_WIC9QR.e.w',
+            object: '_QT1G.kOQSE.d.q.eH_WIC9QR.e.w-content.html#_QT1G.k.uQSE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_-.d.qWQOQRE.d.q.eH_WIC9QR.e.w',
+            object: '_-.d.qWQOQRE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_-.d.qWQ.uQRE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: 'loop',
+            id: '_-.d.qWQ.uQRE.d.q.eH_WIC9QR.e.w',
+            object: '_-.d.qWQOQRE.d.q.eH_WIC9QR.e.w-content.html#_-.d.qWQ.uQRE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.q.dDH.oOQRE.d.q.eH_WIC9QR.e.w',
+            object: '_.q.dDH.oOQRE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.q.dDH.o.uQRE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.q.dDH.o.uQRE.d.q.eH_WIC9QR.e.w',
+            object: '_.q.dDH.oOQRE.d.q.eH_WIC9QR.e.w-content.html#_.q.dDH.o.uQRE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.aYGS.wOQQE.d.q.eH_WIC9QR.e.w',
+            object: '_.aYGS.wOQQE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.aYGS.w.uQQE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.aYGS.w.uQQE.d.q.eH_WIC9QR.e.w',
+            object: '_.aYGS.wOQQE.d.q.eH_WIC9QR.e.w-content.html#_.aYGS.w.uQQE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.iK.iUUOQQE.d.q.eH_WIC9QR.e.w',
+            object: '_.iK.iUUOQQE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.iK.iUU.uQQE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: 'usageScenario_Workload',
+            id: '_.iK.iUU.uQQE.d.q.eH_WIC9QR.e.w',
+            object: '_.iK.iUUOQQE.d.q.eH_WIC9QR.e.w-content.html#_.iK.iUU.uQQE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_JPQGAOQRE.d.q.eH_WIC9QR.e.w',
+            object: '_JPQGAOQRE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_JPQGA.uQRE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: 'usagescenario',
+            id: '_JPQGA.uQRE.d.q.eH_WIC9QR.e.w',
+            object: '_JPQGAOQRE.d.q.eH_WIC9QR.e.w-content.html#_JPQGA.uQRE.d.q.eH_WIC9QR.e.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.tW.v.xIHDFE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_.tW.v.xIHDFE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.tW.v.xI.nDFE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.tW.v.xI.nDFE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_.tW.v.xIHDFE.d.u.r9.cZ.f.t9T4NQ-content.html#_.tW.v.xI.nDFE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'BranchTransition',
+            id: '_KYXQ.wHDHE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_KYXQ.wHDHE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_T.q.d.uQHDHE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_.aT7.mY.e.m.gE.d.q.uV.u.l9P.a8.d.qA' }
+            ]
+        }
+		,
+        {
+            title: 'branchProbability',
+            id: '_T.q.d.uQHDHE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_KYXQ.wHDHE.d.u.r9.cZ.f.t9T4NQ-content.html#_T.q.d.uQHDHE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'branchedBehaviour_BranchTransition',
+            id: '_.aT7.mY.e.m.gE.d.q.uV.u.l9P.a8.d.qA',
+            object: '_KYXQ.wHDHE.d.u.r9.cZ.f.t9T4NQ-content.html#_.aT7.mY.e.m.gE.d.q.uV.u.l9P.a8.d.qA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_.n.t.m.s.cHDHE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_.n.t.m.s.cHDHE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.n.t.m.s.c.nDHE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.n.t.m.s.c.nDHE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_.n.t.m.s.cHDHE.d.u.r9.cZ.f.t9T4NQ-content.html#_.n.t.m.s.c.nDHE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.e6KC.wH.h7E.d.u.g.j.r.u7Z.o1JW.g',
+            object: '_.e6KC.wH.h7E.d.u.g.j.r.u7Z.o1JW.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.e6KC.w.n.h7E.d.u.g.j.r.u7Z.o1JW.g' }
+            ]
+        }
+		,
+        {
+            title: 'entrylevelsystemcall',
+            id: '_.e6KC.w.n.h7E.d.u.g.j.r.u7Z.o1JW.g',
+            object: '_.e6KC.wH.h7E.d.u.g.j.r.u7Z.o1JW.g-content.html#_.e6KC.w.n.h7E.d.u.g.j.r.u7Z.o1JW.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_DX0AEI.n.qE.d.u.cP.r8SM.hB.k.pQ',
+            object: '_DX0AEI.n.qE.d.u.cP.r8SM.hB.k.pQ-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_DX0AE.o.n.qE.d.u.cP.r8SM.hB.k.pQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_DX0AE.o.n.qE.d.u.cP.r8SM.hB.k.pQ',
+            object: '_DX0AEI.n.qE.d.u.cP.r8SM.hB.k.pQ-content.html#_DX0AE.o.n.qE.d.u.cP.r8SM.hB.k.pQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.f.j.m.gYI.n.qE.d.u.cP.r8SM.hB.k.pQ',
+            object: '_.f.j.m.gYI.n.qE.d.u.cP.r8SM.hB.k.pQ-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.f.j.m.gY.o.n.qE.d.u.cP.r8SM.hB.k.pQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.f.j.m.gY.o.n.qE.d.u.cP.r8SM.hB.k.pQ',
+            object: '_.f.j.m.gYI.n.qE.d.u.cP.r8SM.hB.k.pQ-content.html#_.f.j.m.gY.o.n.qE.d.u.cP.r8SM.hB.k.pQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'Delay',
+            id: '_D.a-I.wB.m.oE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_D.a-I.wB.m.oE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_J.k3.p.wR.m.pE.d.y.aJ.v.v.d.hG.gDY.g' }
+            ]
+        }
+		,
+        {
+            title: 'timeSpecification_Delay',
+            id: '_J.k3.p.wR.m.pE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_D.a-I.wB.m.oE.d.y.aJ.v.v.d.hG.gDY.g-content.html#_J.k3.p.wR.m.pE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_J.k3.p.wB.m.pE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_J.k3.p.wB.m.pE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_J.k3.p.w.h.m.pE.d.y.aJ.v.v.d.hG.gDY.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_J.k3.p.w.h.m.pE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_J.k3.p.wB.m.pE.d.y.aJ.v.v.d.hG.gDY.g-content.html#_J.k3.p.w.h.m.pE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'UserData',
+            id: '_NQ.x.u4E.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_NQ.x.u4E.o9E.d.y.yN.sX.l.b1.tN.s.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_Y.j.n8IU.o9E.d.y.yN.sX.l.b1.tN.s.w' },
+                {_reference: '_.h.r1.d0U.o9E.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: 'userDataParameterUsages_UserData',
+            id: '_Y.j.n8IU.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_NQ.x.u4E.o9E.d.y.yN.sX.l.b1.tN.s.w-content.html#_Y.j.n8IU.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'assemblyContext_userData',
+            id: '_.h.r1.d0U.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_NQ.x.u4E.o9E.d.y.yN.sX.l.b1.tN.s.w-content.html#_.h.r1.d0U.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_P8.zQQE.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_P8.zQQE.o9E.d.y.yN.sX.l.b1.tN.s.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_P8.zQQ.k.o9E.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_P8.zQQ.k.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_P8.zQQE.o9E.d.y.yN.sX.l.b1.tN.s.w-content.html#_P8.zQQ.k.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.h.r1.d0E.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_.h.r1.d0E.o9E.d.y.yN.sX.l.b1.tN.s.w-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.h.r1.d0.k.o9E.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.h.r1.d0.k.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_.h.r1.d0E.o9E.d.y.yN.sX.l.b1.tN.s.w-content.html#_.h.r1.d0.k.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'seff',
+            id: '_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g',
+            object: '_XZ.bS.cC.h9E.d.u.e7.o.eC4NTCG.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_H.yJ.c.oOD.hE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_HHF.t.cOD.hE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_1.qN_0JJ.xE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.pAHS0BG0E.d.u.kS8A.w.n8.hWLA' },
+                {_reference: '_-.kKR4OKHE.d.q6I.v.zVMF.p.u.z.g' },
+                {_reference: '_DFOCYOEAE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_1.s.z.y.cOD.hE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_.xCC.s.cOD.hE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_75L1IOD.hE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_.vEMN.wOD.jE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_MW.q.oAOTDE.d.q49.q.z7R-.l1H.g' },
+                {_reference: '_6E.gL.cOD.hE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_B.f.cXYOEAE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_.k.m.n.t.kOD.hE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_6.q.n.l.sOD.gE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_.oJ1.p.cOTCE.d.q49.q.z7R-.l1H.g' },
+                {_reference: '_.fT2.x.cOD3E.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_R.c.aZ0OTDE.d.q49.q.z7R-.l1H.g' },
+                {_reference: '_YS.p44OTDE.d.q49.q.z7R-.l1H.g' },
+                {_reference: '_KF.n.z.wOD.kE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_.i6.cW8OTDE.d.q49.q.z7R-.l1H.g' },
+                {_reference: '_F.yL6.kOD.iE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_R.rAYIOD.hE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_USN.iINBSE.d.q.f.l.vL.z1KCR.i.g' },
+                {_reference: '_H.j.i.q.oHDFE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_.f0.b.z8HDLE.d.u.r9.cZ.f.t9T4NQ' },
+                {_reference: '_.w5WL.kI.n.nE.d.u.cP.r8SM.hB.k.pQ' },
+                {_reference: '_.eX2J0I.n.oE.d.u.cP.r8SM.hB.k.pQ' },
+                {_reference: '_.oV.d.p.gI.n.oE.d.u.cP.r8SM.hB.k.pQ' },
+                {_reference: '_3.t1.g.oJ.vOE.d.uUA.s0MFI6ZY.g' },
+                {_reference: '_8.o.tUYC7.oE.d.y.fA.dI.lK.m.zI9Q' },
+                {_reference: '_QUC.aEC7.qE.d.y.fA.dI.lK.m.zI9Q' },
+                {_reference: '_YSQN0C7.qE.d.y.fA.dI.lK.m.zI9Q' },
+                {_reference: '_JW8FEC7.qE.d.y.fA.dI.lK.m.zI9Q' },
+                {_reference: '_4I.i.qUD.j4E.d.y2.j_4.z2PHNJQ' },
+                {_reference: '_.aJWK.gG.c1E.d.uCG.aQA.x.k.cI.wA' },
+                {_reference: '_BZ.wF.gNTBE.d.y-V.t.z2H2.q.vX.w' },
+                {_reference: '_.hT19ILGQE.d673PT6.cW.w0K.w' },
+                {_reference: '_NN.r.q.sLGRE.d673PT6.cW.w0K.w' },
+                {_reference: '_.j.hQWQLGYE.d673PT6.cW.w0K.w' },
+                {_reference: '_QO.k5.wLG.aE.d673PT6.cW.w0K.w' }
+            ]
+        }
+		,
+        {
+            title: 'StopAction',
+            id: '_H.yJ.c.oOD.hE.d.q8.y.sXH3.gT.iE.g',
+            object: '_H.yJ.c.oOD.hE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'StartAction',
+            id: '_HHF.t.cOD.hE.d.q8.y.sXH3.gT.iE.g',
+            object: '_HHF.t.cOD.hE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'ServiceEffectSpecification',
+            id: '_1.qN_0JJ.xE.d.qSSI.mFLKD.kS.g',
+            object: '_1.qN_0JJ.xE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_6.w.c7.kJV.rE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_UST.o.wNBSE.d.q.f.l.vL.z1KCR.i.g' }
+            ]
+        }
+		,
+        {
+            title: 'seffTypeID',
+            id: '_6.w.c7.kJV.rE.d.qSSI.mFLKD.kS.g',
+            object: '_1.qN_0JJ.xE.d.qSSI.mFLKD.kS.g-content.html#_6.w.c7.kJV.rE.d.qSSI.mFLKD.kS.g',
+            icon: 'icon1090855041',
+            children: [
+                {_reference: '_4_G.p4O.f.uE.d.u3.w.qV8T.e.lBY.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_4_G.p4O.f.uE.d.u3.w.qV8T.e.lBY.w',
+            object: '_4_G.p4O.f.uE.d.u3.w.qV8T.e.lBY.w-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'describedService__SEFF',
+            id: '_UST.o.wNBSE.d.q.f.l.vL.z1KCR.i.g',
+            object: '_1.qN_0JJ.xE.d.qSSI.mFLKD.kS.g-content.html#_UST.o.wNBSE.d.q.f.l.vL.z1KCR.i.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ResourceDemandingSEFF',
+            id: '_.pAHS0BG0E.d.u.kS8A.w.n8.hWLA',
+            object: '_.pAHS0BG0E.d.u.kS8A.w.n8.hWLA-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.uO16U.bGYE.d673PT6.cW.w0K.w' }
+            ]
+        }
+		,
+        {
+            title: 'resourceDemandingInternalBehaviours',
+            id: '_.uO16U.bGYE.d673PT6.cW.w0K.w',
+            object: '_.pAHS0BG0E.d.u.kS8A.w.n8.hWLA-content.html#_.uO16U.bGYE.d673PT6.cW.w0K.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ResourceDemandingBehaviour',
+            id: '_-.kKR4OKHE.d.q6I.v.zVMF.p.u.z.g',
+            object: '_-.kKR4OKHE.d.q6I.v.zVMF.p.u.z.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_R.rAYI.eD.hE.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: 'steps_Behaviour',
+            id: '_R.rAYI.eD.hE.d.q8.y.sXH3.gT.iE.g',
+            object: '_-.kKR4OKHE.d.q6I.v.zVMF.p.u.z.g-content.html#_R.rAYI.eD.hE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ReleaseAction',
+            id: '_DFOCYOEAE.d.q8.y.sXH3.gT.iE.g',
+            object: '_DFOCYOEAE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_8L.kMIT.j-E.d.y2.j_4.z2PHNJQ' }
+            ]
+        }
+		,
+        {
+            title: 'passiveResource_ReleaseAction',
+            id: '_8L.kMIT.j-E.d.y2.j_4.z2PHNJQ',
+            object: '_DFOCYOEAE.d.q8.y.sXH3.gT.iE.g-content.html#_8L.kMIT.j-E.d.y2.j_4.z2PHNJQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'LoopAction',
+            id: '_1.s.z.y.cOD.hE.d.q8.y.sXH3.gT.iE.g',
+            object: '_1.s.z.y.cOD.hE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.aJWK.gW.c1E.d.uCG.aQA.x.k.cI.wA' }
+            ]
+        }
+		,
+        {
+            title: 'iterationCount_LoopAction',
+            id: '_.aJWK.gW.c1E.d.uCG.aQA.x.k.cI.wA',
+            object: '_1.s.z.y.cOD.hE.d.q8.y.sXH3.gT.iE.g-content.html#_.aJWK.gW.c1E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'InternalAction',
+            id: '_.xCC.s.cOD.hE.d.q8.y.sXH3.gT.iE.g',
+            object: '_.xCC.s.cOD.hE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.s.bTY.kOD.mE.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: 'failureProbability',
+            id: '_.s.bTY.kOD.mE.d.q8.y.sXH3.gT.iE.g',
+            object: '_.xCC.s.cOD.hE.d.q8.y.sXH3.gT.iE.g-content.html#_.s.bTY.kOD.mE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1090855041',
+            children: [
+                {_reference: '_CSK.w.sO.f.vE.d.u3.w.qV8T.e.lBY.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_CSK.w.sO.f.vE.d.u3.w.qV8T.e.lBY.w',
+            object: '_CSK.w.sO.f.vE.d.u3.w.qV8T.e.lBY.w-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'ForkAction',
+            id: '_75L1IOD.hE.d.q8.y.sXH3.gT.iE.g',
+            object: '_75L1IOD.hE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.i6.cW8.eTDE.d.q49.q.z7R-.l1H.g' },
+                {_reference: '_8.o.tUYS7.oE.d.y.fA.dI.lK.m.zI9Q' }
+            ]
+        }
+		,
+        {
+            title: 'asynchronousForkedBehaviours_ForkAction',
+            id: '_.i6.cW8.eTDE.d.q49.q.z7R-.l1H.g',
+            object: '_75L1IOD.hE.d.q8.y.sXH3.gT.iE.g-content.html#_.i6.cW8.eTDE.d.q49.q.z7R-.l1H.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'synchronisingBehaviours_ForkAction',
+            id: '_8.o.tUYS7.oE.d.y.fA.dI.lK.m.zI9Q',
+            object: '_75L1IOD.hE.d.q8.y.sXH3.gT.iE.g-content.html#_8.o.tUYS7.oE.d.y.fA.dI.lK.m.zI9Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ExternalCallAction',
+            id: '_.vEMN.wOD.jE.d.q8.y.sXH3.gT.iE.g',
+            object: '_.vEMN.wOD.jE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_KF.n.z.w.eD.kE.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_.v.cSS.kT.j9E.d.y2.j_4.z2PHNJQ' },
+                {_reference: '_.bO.jLAHO.kE.d6.z6.t.y.wRV.l4.h.g' }
+            ]
+        }
+		,
+        {
+            title: 'calledService_ExternalService',
+            id: '_KF.n.z.w.eD.kE.d.q8.y.sXH3.gT.iE.g',
+            object: '_.vEMN.wOD.jE.d.q8.y.sXH3.gT.iE.g-content.html#_KF.n.z.w.eD.kE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'role_ExternalService',
+            id: '_.v.cSS.kT.j9E.d.y2.j_4.z2PHNJQ',
+            object: '_.vEMN.wOD.jE.d.q8.y.sXH3.gT.iE.g-content.html#_.v.cSS.kT.j9E.d.y2.j_4.z2PHNJQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'retryCount',
+            id: '_.bO.jLAHO.kE.d6.z6.t.y.wRV.l4.h.g',
+            object: '_.vEMN.wOD.jE.d.q8.y.sXH3.gT.iE.g-content.html#_.bO.jLAHO.kE.d6.z6.t.y.wRV.l4.h.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ProbabilisticBranchTransition',
+            id: '_MW.q.oAOTDE.d.q49.q.z7R-.l1H.g',
+            object: '_MW.q.oAOTDE.d.q49.q.z7R-.l1H.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_-.b9T.sHDHE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: 'branchProbability',
+            id: '_-.b9T.sHDHE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_MW.q.oAOTDE.d.q49.q.z7R-.l1H.g-content.html#_-.b9T.sHDHE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'BranchAction',
+            id: '_6E.gL.cOD.hE.d.q8.y.sXH3.gT.iE.g',
+            object: '_6E.gL.cOD.hE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_R.c.aZ0.eTDE.d.q49.q.z7R-.l1H.g' }
+            ]
+        }
+		,
+        {
+            title: 'branches_Branch',
+            id: '_R.c.aZ0.eTDE.d.q49.q.z7R-.l1H.g',
+            object: '_6E.gL.cOD.hE.d.q8.y.sXH3.gT.iE.g-content.html#_R.c.aZ0.eTDE.d.q49.q.z7R-.l1H.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'AcquireAction',
+            id: '_B.f.cXYOEAE.d.q8.y.sXH3.gT.iE.g',
+            object: '_B.f.cXYOEAE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_7K.c.tYT.j-E.d.y2.j_4.z2PHNJQ' }
+            ]
+        }
+		,
+        {
+            title: 'passiveresource_AcquireAction',
+            id: '_7K.c.tYT.j-E.d.y2.j_4.z2PHNJQ',
+            object: '_B.f.cXYOEAE.d.q8.y.sXH3.gT.iE.g-content.html#_7K.c.tYT.j-E.d.y2.j_4.z2PHNJQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'AbstractInternalControlFlowAction',
+            id: '_.k.m.n.t.kOD.hE.d.q8.y.sXH3.gT.iE.g',
+            object: '_.k.m.n.t.kOD.hE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.fT2.x.c.eD3E.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: 'resourceDemand_Action',
+            id: '_.fT2.x.c.eD3E.d.q8.y.sXH3.gT.iE.g',
+            object: '_.k.m.n.t.kOD.hE.d.q8.y.sXH3.gT.iE.g-content.html#_.fT2.x.c.eD3E.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'AbstractAction',
+            id: '_6.q.n.l.sOD.gE.d.q8.y.sXH3.gT.iE.g',
+            object: '_6.q.n.l.sOD.gE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.oJ1.p.c.eTCE.d.q49.q.z7R-.l1H.g' },
+                {_reference: '_.oJ1.p.c.uTCE.d.q49.q.z7R-.l1H.g' }
+            ]
+        }
+		,
+        {
+            title: 'predecessor_AbstractAction',
+            id: '_.oJ1.p.c.eTCE.d.q49.q.z7R-.l1H.g',
+            object: '_6.q.n.l.sOD.gE.d.q8.y.sXH3.gT.iE.g-content.html#_.oJ1.p.c.eTCE.d.q49.q.z7R-.l1H.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'successor_AbstractAction',
+            id: '_.oJ1.p.c.uTCE.d.q49.q.z7R-.l1H.g',
+            object: '_6.q.n.l.sOD.gE.d.q8.y.sXH3.gT.iE.g-content.html#_.oJ1.p.c.uTCE.d.q49.q.z7R-.l1H.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'transition',
+            id: '_.oJ1.p.cOTCE.d.q49.q.z7R-.l1H.g',
+            object: '_.oJ1.p.cOTCE.d.q49.q.z7R-.l1H.g-content.html',
+            icon: 'icon1476731819'
+        }
+		,
+        {
+            title: '',
+            id: '_.fT2.x.cOD3E.d.q8.y.sXH3.gT.iE.g',
+            object: '_.fT2.x.cOD3E.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: '',
+            id: '_R.c.aZ0OTDE.d.q49.q.z7R-.l1H.g',
+            object: '_R.c.aZ0OTDE.d.q49.q.z7R-.l1H.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_R.c.aZ0.uTDE.d.q49.q.z7R-.l1H.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_R.c.aZ0.uTDE.d.q49.q.z7R-.l1H.g',
+            object: '_R.c.aZ0OTDE.d.q49.q.z7R-.l1H.g-content.html#_R.c.aZ0.uTDE.d.q49.q.z7R-.l1H.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_YS.p44OTDE.d.q49.q.z7R-.l1H.g',
+            object: '_YS.p44OTDE.d.q49.q.z7R-.l1H.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_YS.p44.uTDE.d.q49.q.z7R-.l1H.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_YS.p44.uTDE.d.q49.q.z7R-.l1H.g',
+            object: '_YS.p44OTDE.d.q49.q.z7R-.l1H.g-content.html#_YS.p44.uTDE.d.q49.q.z7R-.l1H.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_KF.n.z.wOD.kE.d.q8.y.sXH3.gT.iE.g',
+            object: '_KF.n.z.wOD.kE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_KF.n.z.w.uD.kE.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_KF.n.z.w.uD.kE.d.q8.y.sXH3.gT.iE.g',
+            object: '_KF.n.z.wOD.kE.d.q8.y.sXH3.gT.iE.g-content.html#_KF.n.z.w.uD.kE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.i6.cW8OTDE.d.q49.q.z7R-.l1H.g',
+            object: '_.i6.cW8OTDE.d.q49.q.z7R-.l1H.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.i6.cW8.uTDE.d.q49.q.z7R-.l1H.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.i6.cW8.uTDE.d.q49.q.z7R-.l1H.g',
+            object: '_.i6.cW8OTDE.d.q49.q.z7R-.l1H.g-content.html#_.i6.cW8.uTDE.d.q49.q.z7R-.l1H.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_F.yL6.kOD.iE.d.q8.y.sXH3.gT.iE.g',
+            object: '_F.yL6.kOD.iE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_F.yL6.k.uD.iE.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_F.yL6.k.uD.iE.d.q8.y.sXH3.gT.iE.g',
+            object: '_F.yL6.kOD.iE.d.q8.y.sXH3.gT.iE.g-content.html#_F.yL6.k.uD.iE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_R.rAYIOD.hE.d.q8.y.sXH3.gT.iE.g',
+            object: '_R.rAYIOD.hE.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_R.rAYI.uD.hE.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_R.rAYI.uD.hE.d.q8.y.sXH3.gT.iE.g',
+            object: '_R.rAYIOD.hE.d.q8.y.sXH3.gT.iE.g-content.html#_R.rAYI.uD.hE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_USN.iINBSE.d.q.f.l.vL.z1KCR.i.g',
+            object: '_USN.iINBSE.d.q.f.l.vL.z1KCR.i.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_UST.o.w.dBSE.d.q.f.l.vL.z1KCR.i.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_UST.o.w.dBSE.d.q.f.l.vL.z1KCR.i.g',
+            object: '_USN.iINBSE.d.q.f.l.vL.z1KCR.i.g-content.html#_UST.o.w.dBSE.d.q.f.l.vL.z1KCR.i.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_H.j.i.q.oHDFE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_H.j.i.q.oHDFE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_H.j.i.q.o.nDFE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_H.j.i.q.o.nDFE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_H.j.i.q.oHDFE.d.u.r9.cZ.f.t9T4NQ-content.html#_H.j.i.q.o.nDFE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'CollectionIteratorAction',
+            id: '_.f0.b.z8HDLE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_.f0.b.z8HDLE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_9Y.cEYXDLE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: 'parameter_CollectionIteratorAction',
+            id: '_9Y.cEYXDLE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_.f0.b.z8HDLE.d.u.r9.cZ.f.t9T4NQ-content.html#_9Y.cEYXDLE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'AbstractLoopAction',
+            id: '_.w5WL.kI.n.nE.d.u.cP.r8SM.hB.k.pQ',
+            object: '_.w5WL.kI.n.nE.d.u.cP.r8SM.hB.k.pQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_F.yL6.k.eD.iE.d.q8.y.sXH3.gT.iE.g' }
+            ]
+        }
+		,
+        {
+            title: 'bodyBehaviour_Loop',
+            id: '_F.yL6.k.eD.iE.d.q8.y.sXH3.gT.iE.g',
+            object: '_.w5WL.kI.n.nE.d.u.cP.r8SM.hB.k.pQ-content.html#_F.yL6.k.eD.iE.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'AbstractBranchTransition',
+            id: '_.eX2J0I.n.oE.d.u.cP.r8SM.hB.k.pQ',
+            object: '_.eX2J0I.n.oE.d.u.cP.r8SM.hB.k.pQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_YS.p44.eTDE.d.q49.q.z7R-.l1H.g' }
+            ]
+        }
+		,
+        {
+            title: 'branchBehaviour_BranchTransition',
+            id: '_YS.p44.eTDE.d.q49.q.z7R-.l1H.g',
+            object: '_.eX2J0I.n.oE.d.u.cP.r8SM.hB.k.pQ-content.html#_YS.p44.eTDE.d.q49.q.z7R-.l1H.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'GuardedBranchTransition',
+            id: '_.oV.d.p.gI.n.oE.d.u.cP.r8SM.hB.k.pQ',
+            object: '_.oV.d.p.gI.n.oE.d.u.cP.r8SM.hB.k.pQ-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_H.j.i.q.oXDFE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: 'branchCondition_GuardedBranchTransition',
+            id: '_H.j.i.q.oXDFE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_.oV.d.p.gI.n.oE.d.u.cP.r8SM.hB.k.pQ-content.html#_H.j.i.q.oXDFE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'SetVariableAction',
+            id: '_3.t1.g.oJ.vOE.d.uUA.s0MFI6ZY.g',
+            object: '_3.t1.g.oJ.vOE.d.uUA.s0MFI6ZY.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.b.o.o7EZ.vPE.d.uUA.s0MFI6ZY.g' }
+            ]
+        }
+		,
+        {
+            title: 'localVariableUsages_SetVariableAction',
+            id: '_.b.o.o7EZ.vPE.d.uUA.s0MFI6ZY.g',
+            object: '_3.t1.g.oJ.vOE.d.uUA.s0MFI6ZY.g-content.html#_.b.o.o7EZ.vPE.d.uUA.s0MFI6ZY.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_8.o.tUYC7.oE.d.y.fA.dI.lK.m.zI9Q',
+            object: '_8.o.tUYC7.oE.d.y.fA.dI.lK.m.zI9Q-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_8.o.tUY.i7.oE.d.y.fA.dI.lK.m.zI9Q' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_8.o.tUY.i7.oE.d.y.fA.dI.lK.m.zI9Q',
+            object: '_8.o.tUYC7.oE.d.y.fA.dI.lK.m.zI9Q-content.html#_8.o.tUY.i7.oE.d.y.fA.dI.lK.m.zI9Q',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'SynchronisationPoint',
+            id: '_QUC.aEC7.qE.d.y.fA.dI.lK.m.zI9Q',
+            object: '_QUC.aEC7.qE.d.y.fA.dI.lK.m.zI9Q-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_YSQN0S7.qE.d.y.fA.dI.lK.m.zI9Q' },
+                {_reference: '_JW8FES7.qE.d.y.fA.dI.lK.m.zI9Q' }
+            ]
+        }
+		,
+        {
+            title: 'synchronousForkedBehaviours_SynchronisationPoint',
+            id: '_YSQN0S7.qE.d.y.fA.dI.lK.m.zI9Q',
+            object: '_QUC.aEC7.qE.d.y.fA.dI.lK.m.zI9Q-content.html#_YSQN0S7.qE.d.y.fA.dI.lK.m.zI9Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'outputParameterUsage_SynchronisationPoint',
+            id: '_JW8FES7.qE.d.y.fA.dI.lK.m.zI9Q',
+            object: '_QUC.aEC7.qE.d.y.fA.dI.lK.m.zI9Q-content.html#_JW8FES7.qE.d.y.fA.dI.lK.m.zI9Q',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_YSQN0C7.qE.d.y.fA.dI.lK.m.zI9Q',
+            object: '_YSQN0C7.qE.d.y.fA.dI.lK.m.zI9Q-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_YSQN0.i7.qE.d.y.fA.dI.lK.m.zI9Q' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_YSQN0.i7.qE.d.y.fA.dI.lK.m.zI9Q',
+            object: '_YSQN0C7.qE.d.y.fA.dI.lK.m.zI9Q-content.html#_YSQN0.i7.qE.d.y.fA.dI.lK.m.zI9Q',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_JW8FEC7.qE.d.y.fA.dI.lK.m.zI9Q',
+            object: '_JW8FEC7.qE.d.y.fA.dI.lK.m.zI9Q-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_JW8FE.i7.qE.d.y.fA.dI.lK.m.zI9Q' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_JW8FE.i7.qE.d.y.fA.dI.lK.m.zI9Q',
+            object: '_JW8FEC7.qE.d.y.fA.dI.lK.m.zI9Q-content.html#_JW8FE.i7.qE.d.y.fA.dI.lK.m.zI9Q',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'ForkedBehaviour',
+            id: '_4I.i.qUD.j4E.d.y2.j_4.z2PHNJQ',
+            object: '_4I.i.qUD.j4E.d.y2.j_4.z2PHNJQ-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.aJWK.gG.c1E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.aJWK.gG.c1E.d.uCG.aQA.x.k.cI.wA-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.aJWK.g.m.c1E.d.uCG.aQA.x.k.cI.wA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.aJWK.g.m.c1E.d.uCG.aQA.x.k.cI.wA',
+            object: '_.aJWK.gG.c1E.d.uCG.aQA.x.k.cI.wA-content.html#_.aJWK.g.m.c1E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'performance',
+            id: '_BZ.wF.gNTBE.d.y-V.t.z2H2.q.vX.w',
+            object: '_BZ.wF.gNTBE.d.y-V.t.z2H2.q.vX.w-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_2.wRH.oE.pCE.d.y.yN.sX.l.b1.tN.s.w' },
+                {_reference: '__F.e.v.kK83E.d2.r.y.o.n4Z.s.xE.cA' }
+            ]
+        }
+		,
+        {
+            title: 'ParametricResourceDemand',
+            id: '_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g',
+            object: '_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.fT2.x.c.uD3E.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '_2.wRH.oU.pCE.d.y.yN.sX.l.b1.tN.s.w' },
+                {_reference: '__F.e.v.k.a83E.d2.r.y.o.n4Z.s.xE.cA' }
+            ]
+        }
+		,
+        {
+            title: 'action_ParametricResourceDemand',
+            id: '_.fT2.x.c.uD3E.d.q8.y.sXH3.gT.iE.g',
+            object: '_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html#_.fT2.x.c.uD3E.d.q8.y.sXH3.gT.iE.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'specification_ParametericResourceDemand',
+            id: '_2.wRH.oU.pCE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html#_2.wRH.oU.pCE.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'requiredResource_ParametricResourceDemand',
+            id: '__F.e.v.k.a83E.d2.r.y.o.n4Z.s.xE.cA',
+            object: '_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html#__F.e.v.k.a83E.d2.r.y.o.n4Z.s.xE.cA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_2.wRH.oE.pCE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_2.wRH.oE.pCE.d.y.yN.sX.l.b1.tN.s.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_2.wRH.o.k.pCE.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_2.wRH.o.k.pCE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_2.wRH.oE.pCE.d.y.yN.sX.l.b1.tN.s.w-content.html#_2.wRH.o.k.pCE.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '__F.e.v.kK83E.d2.r.y.o.n4Z.s.xE.cA',
+            object: '__F.e.v.kK83E.d2.r.y.o.n4Z.s.xE.cA-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '__F.o.g.k.a83E.d2.r.y.o.n4Z.s.xE.cA' }
+            ]
+        }
+		,
+        {
+            title: 'parametricresourcedemand',
+            id: '__F.o.g.k.a83E.d2.r.y.o.n4Z.s.xE.cA',
+            object: '__F.e.v.kK83E.d2.r.y.o.n4Z.s.xE.cA-content.html#__F.o.g.k.a83E.d2.r.y.o.n4Z.s.xE.cA',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'CallAction',
+            id: '_.hT19ILGQE.d673PT6.cW.w0K.w',
+            object: '_.hT19ILGQE.d673PT6.cW.w0K.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_8.o.xFYZ.vVE.d.uUA.s0MFI6ZY.g' },
+                {_reference: '_.k.jC.c.kXP2E.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: 'outputVariableUsages_ExternalCallAction',
+            id: '_8.o.xFYZ.vVE.d.uUA.s0MFI6ZY.g',
+            object: '_.hT19ILGQE.d673PT6.cW.w0K.w-content.html#_8.o.xFYZ.vVE.d.uUA.s0MFI6ZY.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'inputParameterUsages_ExternalCallAction',
+            id: '_.k.jC.c.kXP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_.hT19ILGQE.d673PT6.cW.w0K.w-content.html#_.k.jC.c.kXP2E.d.u.xX.f.d-1.j79QQ',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'InternalCallAction',
+            id: '_NN.r.q.sLGRE.d673PT6.cW.w0K.w',
+            object: '_NN.r.q.sLGRE.d673PT6.cW.w0K.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_QO.k5.w.bG.aE.d673PT6.cW.w0K.w' }
+            ]
+        }
+		,
+        {
+            title: 'calledResourceDemandingInternalBehaviour',
+            id: '_QO.k5.w.bG.aE.d673PT6.cW.w0K.w',
+            object: '_NN.r.q.sLGRE.d673PT6.cW.w0K.w-content.html#_QO.k5.w.bG.aE.d673PT6.cW.w0K.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ResourceDemandingInternalBehaviour',
+            id: '_.j.hQWQLGYE.d673PT6.cW.w0K.w',
+            object: '_.j.hQWQLGYE.d673PT6.cW.w0K.w-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_QO.k5.wLG.aE.d673PT6.cW.w0K.w',
+            object: '_QO.k5.wLG.aE.d673PT6.cW.w0K.w-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_QO.k5.xLG.aE.d673PT6.cW.w0K.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_QO.k5.xLG.aE.d673PT6.cW.w0K.w',
+            object: '_QO.k5.wLG.aE.d673PT6.cW.w0K.w-content.html#_QO.k5.xLG.aE.d673PT6.cW.w0K.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'resourcetype',
+            id: '_.b.pE.i.sC.h9E.d.u.e7.o.eC4NTCG.g',
+            object: '_.b.pE.i.sC.h9E.d.u.e7.o.eC4NTCG.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_F3SCEJM.nE.d.qSSI.mFLKD.kS.g' },
+                {_reference: '_.d.iS.aIOKME.d.q6I.v.zVMF.p.u.z.g' },
+                {_reference: '_.n2.nAMOD4E.d.q8.y.sXH3.gT.iE.g' },
+                {_reference: '__.z.oE.gOM.dE.d.q.aQ.sPH3.rP.nBQ' },
+                {_reference: '_.gISMAOKME.d.q6I.v.zVMF.p.u.z.g' }
+            ]
+        }
+		,
+        {
+            title: 'ResourceType',
+            id: '_F3SCEJM.nE.d.qSSI.mFLKD.kS.g',
+            object: '_F3SCEJM.nE.d.qSSI.mFLKD.kS.g-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'ResourceRepository',
+            id: '_.d.iS.aIOKME.d.q6I.v.zVMF.p.u.z.g',
+            object: '_.d.iS.aIOKME.d.q6I.v.zVMF.p.u.z.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.gISMA.eKME.d.q6I.v.zVMF.p.u.z.g' }
+            ]
+        }
+		,
+        {
+            title: 'availableResourceTypes_ResourceRepository',
+            id: '_.gISMA.eKME.d.q6I.v.zVMF.p.u.z.g',
+            object: '_.d.iS.aIOKME.d.q6I.v.zVMF.p.u.z.g-content.html#_.gISMA.eKME.d.q6I.v.zVMF.p.u.z.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'ProcessingResourceType',
+            id: '_.n2.nAMOD4E.d.q8.y.sXH3.gT.iE.g',
+            object: '_.n2.nAMOD4E.d.q8.y.sXH3.gT.iE.g-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'CommunicationLinkResourceType',
+            id: '__.z.oE.gOM.dE.d.q.aQ.sPH3.rP.nBQ',
+            object: '__.z.oE.gOM.dE.d.q.aQ.sPH3.rP.nBQ-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.gISMAOKME.d.q6I.v.zVMF.p.u.z.g',
+            object: '_.gISMAOKME.d.q6I.v.zVMF.p.u.z.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.gISMA.uKME.d.q6I.v.zVMF.p.u.z.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.gISMA.uKME.d.q6I.v.zVMF.p.u.z.g',
+            object: '_.gISMAOKME.d.q6I.v.zVMF.p.u.z.g-content.html#_.gISMA.uKME.d.q6I.v.zVMF.p.u.z.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'system',
+            id: '_.e.z.k.v0C.h9E.d.u.e7.o.eC4NTCG.g',
+            object: '_.e.z.k.v0C.h9E.d.u.e7.o.eC4NTCG.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_U.hR.g.kHP.fE.d.u.xX.f.d-1.j79QQ' },
+                {_reference: '_.aV3.r4OQVE.d.q.eH_WIC9QR.e.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_U.hR.g.kHP.fE.d.u.xX.f.d-1.j79QQ',
+            object: '_U.hR.g.kHP.fE.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_U.hR.g.k.nP.fE.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_U.hR.g.k.nP.fE.d.u.xX.f.d-1.j79QQ',
+            object: '_U.hR.g.kHP.fE.d.u.xX.f.d-1.j79QQ-content.html#_U.hR.g.k.nP.fE.d.u.xX.f.d-1.j79QQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'System',
+            id: '_.aV3.r4OQVE.d.q.eH_WIC9QR.e.w',
+            object: '_.aV3.r4OQVE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_5.l.l7UXM.wE.d.u.qAZ6.i.d.i.aT.j.w' }
+            ]
+        }
+		,
+        {
+            title: 'qosAnnotations_System',
+            id: '_5.l.l7UXM.wE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_.aV3.r4OQVE.d.q.eH_WIC9QR.e.w-content.html#_5.l.l7UXM.wE.d.u.qAZ6.i.d.i.aT.j.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'parameter',
+            id: '_.t6.z0.sC.h9E.d.u.e7.o.eC4NTCG.g',
+            object: '_.t6.z0.sC.h9E.d.u.e7.o.eC4NTCG.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_T.u.q2APIZE.d.q.qV.o.sRZM.r.xNA' },
+                {_reference: '_G.mAWYOQSE.d.q.eH_WIC9QR.e.w' },
+                {_reference: '_.wW070H.l.pE.d.u.f8.pX.q.m.h.j.n.p.w' },
+                {_reference: '_V.iY.z.gH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w' },
+                {_reference: '_-.c.q_.sH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w' },
+                {_reference: '_-J9.d.sH4NE.d.u.x.a.v.wL.jLT.h.g.g' },
+                {_reference: '_.kL.s.j.wE.pDE.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: 'VariableCharacterisationType',
+            id: '_T.u.q2APIZE.d.q.qV.o.sRZM.r.xNA',
+            object: '_T.u.q2APIZE.d.q.qV.o.sRZM.r.xNA-content.html',
+            icon: 'icon-1761271776',
+            children: [
+                {_reference: '_P.f.j.uYH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w' },
+                {_reference: '_NX9I.sH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w' },
+                {_reference: '_.a.lXBAPIZE.d.q.qV.o.sRZM.r.xNA' },
+                {_reference: '_.cSJS8PIZE.d.q.qV.o.sRZM.r.xNA' },
+                {_reference: '_.c3.sQAPIZE.d.q.qV.o.sRZM.r.xNA' }
+            ]
+        }
+		,
+        {
+            title: 'STRUCTURE',
+            id: '_P.f.j.uYH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_P.f.j.uYH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w-content.html',
+            icon: 'icon1359289601'
+        }
+		,
+        {
+            title: 'NUMBER_OF_ELEMENTS',
+            id: '_NX9I.sH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_NX9I.sH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w-content.html',
+            icon: 'icon1359289601'
+        }
+		,
+        {
+            title: 'VALUE',
+            id: '_.a.lXBAPIZE.d.q.qV.o.sRZM.r.xNA',
+            object: '_.a.lXBAPIZE.d.q.qV.o.sRZM.r.xNA-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_8T.f.v.kPIZE.d.q.qV.o.sRZM.r.xNA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_8T.f.v.kPIZE.d.q.qV.o.sRZM.r.xNA',
+            object: '_8T.f.v.kPIZE.d.q.qV.o.sRZM.r.xNA-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'BYTESIZE',
+            id: '_.cSJS8PIZE.d.q.qV.o.sRZM.r.xNA',
+            object: '_.cSJS8PIZE.d.q.qV.o.sRZM.r.xNA-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_7.e.mH4PIZE.d.q.qV.o.sRZM.r.xNA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_7.e.mH4PIZE.d.q.qV.o.sRZM.r.xNA',
+            object: '_7.e.mH4PIZE.d.q.qV.o.sRZM.r.xNA-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'TYPE',
+            id: '_.c3.sQAPIZE.d.q.qV.o.sRZM.r.xNA',
+            object: '_.c3.sQAPIZE.d.q.qV.o.sRZM.r.xNA-content.html',
+            icon: 'icon1359289601',
+            children: [
+                {_reference: '_6.s1T.wPIZE.d.q.qV.o.sRZM.r.xNA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_6.s1T.wPIZE.d.q.qV.o.sRZM.r.xNA',
+            object: '_6.s1T.wPIZE.d.q.qV.o.sRZM.r.xNA-content.html',
+            icon: 'icon1845828581'
+        }
+		,
+        {
+            title: 'VariableUsage',
+            id: '_G.mAWYOQSE.d.q.eH_WIC9QR.e.w',
+            object: '_G.mAWYOQSE.d.q.eH_WIC9QR.e.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_V.iY.z.gX.l.qE.d.u.f8.pX.q.m.h.j.n.p.w' },
+                {_reference: '_-.c.q_.sX.l.qE.d.u.f8.pX.q.m.h.j.n.p.w' }
+            ]
+        }
+		,
+        {
+            title: 'variableCharacterisation_VariableUsage',
+            id: '_V.iY.z.gX.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_G.mAWYOQSE.d.q.eH_WIC9QR.e.w-content.html#_V.iY.z.gX.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'namedReference_VariableUsage',
+            id: '_-.c.q_.sX.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_G.mAWYOQSE.d.q.eH_WIC9QR.e.w-content.html#_-.c.q_.sX.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'VariableCharacterisation',
+            id: '_.wW070H.l.pE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_.wW070H.l.pE.d.u.f8.pX.q.m.h.j.n.p.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_-Y.xM.kH.l.pE.d.u.f8.pX.q.m.h.j.n.p.w' },
+                {_reference: '_.kL.s.j.wU.pDE.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: 'type',
+            id: '_-Y.xM.kH.l.pE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_.wW070H.l.pE.d.u.f8.pX.q.m.h.j.n.p.w-content.html#_-Y.xM.kH.l.pE.d.u.f8.pX.q.m.h.j.n.p.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'specification_VariableCharacterisation',
+            id: '_.kL.s.j.wU.pDE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_.wW070H.l.pE.d.u.f8.pX.q.m.h.j.n.p.w-content.html#_.kL.s.j.wU.pDE.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_V.iY.z.gH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_V.iY.z.gH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_V.iY.z.g.n.l.qE.d.u.f8.pX.q.m.h.j.n.p.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_V.iY.z.g.n.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_V.iY.z.gH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w-content.html#_V.iY.z.g.n.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_-.c.q_.sH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_-.c.q_.sH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_-.c.q_.s.n.l.qE.d.u.f8.pX.q.m.h.j.n.p.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_-.c.q_.s.n.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            object: '_-.c.q_.sH.l.qE.d.u.f8.pX.q.m.h.j.n.p.w-content.html#_-.c.q_.s.n.l.qE.d.u.f8.pX.q.m.h.j.n.p.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'CharacterisedVariable',
+            id: '_-J9.d.sH4NE.d.u.x.a.v.wL.jLT.h.g.g',
+            object: '_-J9.d.sH4NE.d.u.x.a.v.wL.jLT.h.g.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_-.h7O8H.v.iE.d.u44.v.t.aHAH.jTA' }
+            ]
+        }
+		,
+        {
+            title: 'characterisationType',
+            id: '_-.h7O8H.v.iE.d.u44.v.t.aHAH.jTA',
+            object: '_-J9.d.sH4NE.d.u.x.a.v.wL.jLT.h.g.g-content.html#_-.h7O8H.v.iE.d.u44.v.t.aHAH.jTA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.kL.s.j.wE.pDE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_.kL.s.j.wE.pDE.d.y.yN.sX.l.b1.tN.s.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.kL.s.j.w.k.pDE.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.kL.s.j.w.k.pDE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_.kL.s.j.wE.pDE.d.y.yN.sX.l.b1.tN.s.w-content.html#_.kL.s.j.w.k.pDE.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '__T.b3AG.c_E.d.uCG.aQA.x.k.cI.wA',
+            object: '__T.b3AG.c_E.d.uCG.aQA.x.k.cI.wA-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '__T.b3A.m.c_E.d.uCG.aQA.x.k.cI.wA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '__T.b3A.m.c_E.d.uCG.aQA.x.k.cI.wA',
+            object: '__T.b3AG.c_E.d.uCG.aQA.x.k.cI.wA-content.html#__T.b3A.m.c_E.d.uCG.aQA.x.k.cI.wA',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_9Y.cEYHDLE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_9Y.cEYHDLE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_9Y.cEY.nDLE.d.u.r9.cZ.f.t9T4NQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_9Y.cEY.nDLE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_9Y.cEYHDLE.d.u.r9.cZ.f.t9T4NQ-content.html#_9Y.cEY.nDLE.d.u.r9.cZ.f.t9T4NQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.w4A.l.gHDSE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_.w4A.l.gHDSE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: '',
+            id: '_00.b-0HDSE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_00.b-0HDSE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon436543775'
+        }
+		,
+        {
+            title: 'qosannotations',
+            id: '_U.v.c4AHDVE.d.u.r9.cZ.f.t9T4NQ',
+            object: '_U.v.c4AHDVE.d.u.r9.cZ.f.t9T4NQ-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_3H.y.q.gPF7E.d.qB.t.p.n.wLNX.c.b.w' },
+                {_reference: '_.y.eK.m.oHM.lE.d.u.qAZ6.i.d.i.aT.j.w' },
+                {_reference: '_US.a.kQHM.mE.d.u.qAZ6.i.d.i.aT.j.w' },
+                {_reference: '_81.sL8B.m.pE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_E.cCSQB.m.qE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_J.w.t.h.kL3.lE.d.yGN.bIQ-5P.h.l.g' },
+                {_reference: '_JFQ8.sPF8E.d.qB.t.p.n.wLNX.c.b.w' },
+                {_reference: '_.c4V80E.pBE.d.y.yN.sX.l.b1.tN.s.w' },
+                {_reference: '_YHJJ.sL3.nE.d.yGN.bIQ-5P.h.l.g' }
+            ]
+        }
+		,
+        {
+            title: 'SpecifiedQoSAnnotation',
+            id: '_3H.y.q.gPF7E.d.qB.t.p.n.wLNX.c.b.w',
+            object: '_3H.y.q.gPF7E.d.qB.t.p.n.wLNX.c.b.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_JFQ8.s.fF8E.d.qB.t.p.n.wLNX.c.b.w' },
+                {_reference: '_.fIC68XM.vE.d.u.qAZ6.i.d.i.aT.j.w' },
+                {_reference: '_.c4V80U.pBE.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: 'signature_SpecifiedQoSAnnation',
+            id: '_JFQ8.s.fF8E.d.qB.t.p.n.wLNX.c.b.w',
+            object: '_3H.y.q.gPF7E.d.qB.t.p.n.wLNX.c.b.w-content.html#_JFQ8.s.fF8E.d.qB.t.p.n.wLNX.c.b.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'role_SpecifiedQoSAnnotation',
+            id: '_.fIC68XM.vE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_3H.y.q.gPF7E.d.qB.t.p.n.wLNX.c.b.w-content.html#_.fIC68XM.vE.d.u.qAZ6.i.d.i.aT.j.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'specification_SpecifiedExecutionTime',
+            id: '_.c4V80U.pBE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_3H.y.q.gPF7E.d.qB.t.p.n.wLNX.c.b.w-content.html#_.c4V80U.pBE.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'QoSAnnotations',
+            id: '_.y.eK.m.oHM.lE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_.y.eK.m.oHM.lE.d.u.qAZ6.i.d.i.aT.j.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_US.a.kQXM.mE.d.u.qAZ6.i.d.i.aT.j.w' },
+                {_reference: '_E.cCSQR.m.qE.d.y.aJ.v.v.d.hG.gDY.g' }
+            ]
+        }
+		,
+        {
+            title: 'specifiedQoSAnnotations_QoSAnnotations',
+            id: '_US.a.kQXM.mE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_.y.eK.m.oHM.lE.d.u.qAZ6.i.d.i.aT.j.w-content.html#_US.a.kQXM.mE.d.u.qAZ6.i.d.i.aT.j.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'specifiedOutputParameterAbstractions_QoSAnnotations',
+            id: '_E.cCSQR.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_.y.eK.m.oHM.lE.d.u.qAZ6.i.d.i.aT.j.w-content.html#_E.cCSQR.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_US.a.kQHM.mE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_US.a.kQHM.mE.d.u.qAZ6.i.d.i.aT.j.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_US.a.kQ.nM.mE.d.u.qAZ6.i.d.i.aT.j.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_US.a.kQ.nM.mE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_US.a.kQHM.mE.d.u.qAZ6.i.d.i.aT.j.w-content.html#_US.a.kQ.nM.mE.d.u.qAZ6.i.d.i.aT.j.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'SpecifiedOutputParameterAbstraction',
+            id: '_81.sL8B.m.pE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_81.sL8B.m.pE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_.d.l.l.w.oR.m.qE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_.l.m.aM.cR.m.qE.d.y.aJ.v.v.d.hG.gDY.g' },
+                {_reference: '_.o6.n.gEU.o6E.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: 'signature_SpecifiedOutputParameterAbstraction',
+            id: '_.d.l.l.w.oR.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_81.sL8B.m.pE.d.y.aJ.v.v.d.hG.gDY.g-content.html#_.d.l.l.w.oR.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'role_SpecifiedOutputParameterAbstraction',
+            id: '_.l.m.aM.cR.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_81.sL8B.m.pE.d.y.aJ.v.v.d.hG.gDY.g-content.html#_.l.m.aM.cR.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: 'expectedExternalOutputs_SpecifiedOutputParameterAbstraction',
+            id: '_.o6.n.gEU.o6E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_81.sL8B.m.pE.d.y.aJ.v.v.d.hG.gDY.g-content.html#_.o6.n.gEU.o6E.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_E.cCSQB.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_E.cCSQB.m.qE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_E.cCSQ.h.m.qE.d.y.aJ.v.v.d.hG.gDY.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_E.cCSQ.h.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_E.cCSQB.m.qE.d.y.aJ.v.v.d.hG.gDY.g-content.html#_E.cCSQ.h.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'performance',
+            id: '_J.w.t.h.kL3.lE.d.yGN.bIQ-5P.h.l.g',
+            object: '_J.w.t.h.kL3.lE.d.yGN.bIQ-5P.h.l.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '__.sH.qIHM.vE.d.u.qAZ6.i.d.i.aT.j.w' },
+                {_reference: '_DY.v.s4HM.wE.d.u.qAZ6.i.d.i.aT.j.w' }
+            ]
+        }
+		,
+        {
+            title: 'SystemSpecifiedExecutionTime',
+            id: '__.sH.qIHM.vE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '__.sH.qIHM.vE.d.u.qAZ6.i.d.i.aT.j.w-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'ComponentSpecifiedExecutionTime',
+            id: '_DY.v.s4HM.wE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_DY.v.s4HM.wE.d.u.qAZ6.i.d.i.aT.j.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_JV.x.sAXM.wE.d.u.qAZ6.i.d.i.aT.j.w' }
+            ]
+        }
+		,
+        {
+            title: 'assemblyContext_ComponentSpecifiedExecutionTime',
+            id: '_JV.x.sAXM.wE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_DY.v.s4HM.wE.d.u.qAZ6.i.d.i.aT.j.w-content.html#_JV.x.sAXM.wE.d.u.qAZ6.i.d.i.aT.j.w',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_JFQ8.sPF8E.d.qB.t.p.n.wLNX.c.b.w',
+            object: '_JFQ8.sPF8E.d.qB.t.p.n.wLNX.c.b.w-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_JFQ8.s.vF8E.d.qB.t.p.n.wLNX.c.b.w' }
+            ]
+        }
+		,
+        {
+            title: 'specifiedtimeconsumption',
+            id: '_JFQ8.s.vF8E.d.qB.t.p.n.wLNX.c.b.w',
+            object: '_JFQ8.sPF8E.d.qB.t.p.n.wLNX.c.b.w-content.html#_JFQ8.s.vF8E.d.qB.t.p.n.wLNX.c.b.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.c4V80E.pBE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_.c4V80E.pBE.d.y.yN.sX.l.b1.tN.s.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.c4V80.k.pBE.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.c4V80.k.pBE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_.c4V80E.pBE.d.y.yN.sX.l.b1.tN.s.w-content.html#_.c4V80.k.pBE.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'reliability',
+            id: '_YHJJ.sL3.nE.d.yGN.bIQ-5P.h.l.g',
+            object: '_YHJJ.sL3.nE.d.yGN.bIQ-5P.h.l.g-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_.pS3.bEHM.tE.d.u.qAZ6.i.d.i.aT.j.w' }
+            ]
+        }
+		,
+        {
+            title: 'SpecifiedFailureProbability',
+            id: '_.pS3.bEHM.tE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_.pS3.bEHM.tE.d.u.qAZ6.i.d.i.aT.j.w-content.html',
+            icon: 'icon285548010',
+            children: [
+                {_reference: '_II.j.i.cLAQE.d2.m9.r.e50.g25Z.g' }
+            ]
+        }
+		,
+        {
+            title: 'failureProbability',
+            id: '_II.j.i.cLAQE.d2.m9.r.e50.g25Z.g',
+            object: '_.pS3.bEHM.tE.d.u.qAZ6.i.d.i.aT.j.w-content.html#_II.j.i.cLAQE.d2.m9.r.e50.g25Z.g',
+            icon: 'icon1090855041'
+        }
+		,
+        {
+            title: '',
+            id: '_.fIC68HM.vE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_.fIC68HM.vE.d.u.qAZ6.i.d.i.aT.j.w-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.fIC68.nM.vE.d.u.qAZ6.i.d.i.aT.j.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.fIC68.nM.vE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_.fIC68HM.vE.d.u.qAZ6.i.d.i.aT.j.w-content.html#_.fIC68.nM.vE.d.u.qAZ6.i.d.i.aT.j.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_JV.x.sAHM.wE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_JV.x.sAHM.wE.d.u.qAZ6.i.d.i.aT.j.w-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_JV.x.sA.nM.wE.d.u.qAZ6.i.d.i.aT.j.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_JV.x.sA.nM.wE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_JV.x.sAHM.wE.d.u.qAZ6.i.d.i.aT.j.w-content.html#_JV.x.sA.nM.wE.d.u.qAZ6.i.d.i.aT.j.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_5.l.l7UHM.wE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_5.l.l7UHM.wE.d.u.qAZ6.i.d.i.aT.j.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_5.l.l7U.nM.wE.d.u.qAZ6.i.d.i.aT.j.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_5.l.l7U.nM.wE.d.u.qAZ6.i.d.i.aT.j.w',
+            object: '_5.l.l7UHM.wE.d.u.qAZ6.i.d.i.aT.j.w-content.html#_5.l.l7U.nM.wE.d.u.qAZ6.i.d.i.aT.j.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'in',
+            id: '_.k.jC.c.kHP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_.k.jC.c.kHP2E.d.u.xX.f.d-1.j79QQ-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.k.jC.c.k.nP2E.d.u.xX.f.d-1.j79QQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.k.jC.c.k.nP2E.d.u.xX.f.d-1.j79QQ',
+            object: '_.k.jC.c.kHP2E.d.u.xX.f.d-1.j79QQ-content.html#_.k.jC.c.k.nP2E.d.u.xX.f.d-1.j79QQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.b.o.o7EJ.vPE.d.uUA.s0MFI6ZY.g',
+            object: '_.b.o.o7EJ.vPE.d.uUA.s0MFI6ZY.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.b.o.o7E.p.vPE.d.uUA.s0MFI6ZY.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.b.o.o7E.p.vPE.d.uUA.s0MFI6ZY.g',
+            object: '_.b.o.o7EJ.vPE.d.uUA.s0MFI6ZY.g-content.html#_.b.o.o7E.p.vPE.d.uUA.s0MFI6ZY.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'out',
+            id: '_8.o.xFYJ.vVE.d.uUA.s0MFI6ZY.g',
+            object: '_8.o.xFYJ.vVE.d.uUA.s0MFI6ZY.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_8.o.xFY.p.vVE.d.uUA.s0MFI6ZY.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_8.o.xFY.p.vVE.d.uUA.s0MFI6ZY.g',
+            object: '_8.o.xFYJ.vVE.d.uUA.s0MFI6ZY.g-content.html#_8.o.xFY.p.vVE.d.uUA.s0MFI6ZY.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_ZTUD.wM.jEE.d.u.u3ZJLL.oK13Q',
+            object: '_ZTUD.wM.jEE.d.u.u3ZJLL.oK13Q-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_ZT.d0.w.c.jEE.d.u.u3ZJLL.oK13Q' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_ZT.d0.w.c.jEE.d.u.u3ZJLL.oK13Q',
+            object: '_ZTUD.wM.jEE.d.u.u3ZJLL.oK13Q-content.html#_ZT.d0.w.c.jEE.d.u.u3ZJLL.oK13Q',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.d.l.l.w.oB.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_.d.l.l.w.oB.m.qE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.d.l.l.w.o.h.m.qE.d.y.aJ.v.v.d.hG.gDY.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.d.l.l.w.o.h.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_.d.l.l.w.oB.m.qE.d.y.aJ.v.v.d.hG.gDY.g-content.html#_.d.l.l.w.o.h.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.l.m.aM.cB.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_.l.m.aM.cB.m.qE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.l.m.aM.c.h.m.qE.d.y.aJ.v.v.d.hG.gDY.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.l.m.aM.c.h.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_.l.m.aM.cB.m.qE.d.y.aJ.v.v.d.hG.gDY.g-content.html#_.l.m.aM.c.h.m.qE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.u-.oD.kB.m.rE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_.u-.oD.kB.m.rE.d.y.aJ.v.v.d.hG.gDY.g-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.u-.oD.k.h.m.rE.d.y.aJ.v.v.d.hG.gDY.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.u-.oD.k.h.m.rE.d.y.aJ.v.v.d.hG.gDY.g',
+            object: '_.u-.oD.kB.m.rE.d.y.aJ.v.v.d.hG.gDY.g-content.html#_.u-.oD.k.h.m.rE.d.y.aJ.v.v.d.hG.gDY.g',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.v.cSS.kD.j9E.d.y2.j_4.z2PHNJQ',
+            object: '_.v.cSS.kD.j9E.d.y2.j_4.z2PHNJQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_.v.c.cD.kD.j9E.d.y2.j_4.z2PHNJQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.v.c.cD.kD.j9E.d.y2.j_4.z2PHNJQ',
+            object: '_.v.cSS.kD.j9E.d.y2.j_4.z2PHNJQ-content.html#_.v.c.cD.kD.j9E.d.y2.j_4.z2PHNJQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_7K.c.tYD.j-E.d.y2.j_4.z2PHNJQ',
+            object: '_7K.c.tYD.j-E.d.y2.j_4.z2PHNJQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_7K.c.tY.j.j-E.d.y2.j_4.z2PHNJQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_7K.c.tY.j.j-E.d.y2.j_4.z2PHNJQ',
+            object: '_7K.c.tYD.j-E.d.y2.j_4.z2PHNJQ-content.html#_7K.c.tY.j.j-E.d.y2.j_4.z2PHNJQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_8L.kMID.j-E.d.y2.j_4.z2PHNJQ',
+            object: '_8L.kMID.j-E.d.y2.j_4.z2PHNJQ-content.html',
+            icon: 'icon-653975305',
+            children: [
+                {_reference: '_8QL.mYD.j-E.d.y2.j_4.z2PHNJQ' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_8QL.mYD.j-E.d.y2.j_4.z2PHNJQ',
+            object: '_8L.kMID.j-E.d.y2.j_4.z2PHNJQ-content.html#_8QL.mYD.j-E.d.y2.j_4.z2PHNJQ',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_.o6.n.gEE.o6E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_.o6.n.gEE.o6E.d.y.yN.sX.l.b1.tN.s.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_.o6.n.gE.k.o6E.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.o6.n.gE.k.o6E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_.o6.n.gEE.o6E.d.y.yN.sX.l.b1.tN.s.w-content.html#_.o6.n.gE.k.o6E.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_Y.j.n8IE.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_Y.j.n8IE.o9E.d.y.yN.sX.l.b1.tN.s.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_Y.j.n8I.k.o9E.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_Y.j.n8I.k.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_Y.j.n8IE.o9E.d.y.yN.sX.l.b1.tN.s.w-content.html#_Y.j.n8I.k.o9E.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: '',
+            id: '_6Z.o.o.wE.pHE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_6Z.o.o.wE.pHE.d.y.yN.sX.l.b1.tN.s.w-content.html',
+            icon: 'icon436543775',
+            children: [
+                {_reference: '_6Z.o.o.w.k.pHE.d.y.yN.sX.l.b1.tN.s.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_6Z.o.o.w.k.pHE.d.y.yN.sX.l.b1.tN.s.w',
+            object: '_6Z.o.o.wE.pHE.d.y.yN.sX.l.b1.tN.s.w-content.html#_6Z.o.o.w.k.pHE.d.y.yN.sX.l.b1.tN.s.w',
+            icon: 'icon1829048994'
+        }
+		,
+        {
+            title: 'subsystem',
+            id: '_.o.k5G0IY.fE.d2H.z8WH.hMU28.w',
+            object: '_.o.k5G0IY.fE.d2H.z8WH.hMU28.w-content.html',
+            icon: 'icon-620422818',
+            children: [
+                {_reference: '_.zDIAQIY.fE.d2H.z8WH.hMU28.w' }
+            ]
+        }
+		,
+        {
+            title: 'SubSystem',
+            id: '_.zDIAQIY.fE.d2H.z8WH.hMU28.w',
+            object: '_.zDIAQIY.fE.d2H.z8WH.hMU28.w-content.html',
+            icon: 'icon285548010',
+            children: [
+            ]
+        }
+		
+    ]
+}
+
+		

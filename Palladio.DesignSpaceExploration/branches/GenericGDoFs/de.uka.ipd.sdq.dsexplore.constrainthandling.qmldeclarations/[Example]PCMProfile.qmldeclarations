@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QMLDeclarations:QMLDeclarations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:QMLContract="http:///QMLContract.ecore" xmlns:QMLDeclarations="http:///QMLDeclarations.ecore" xmlns:QMLProfile="http:///QMLProfile.ecore" xmlns:id="" id="__FjEYJyKEd-NNcIT2kpSGQ">
+  <qmlDeclarations xsi:type="QMLProfile:SimpleQMLProfile" id="__Gb1MJyKEd-NNcIT2kpSGQ" entityName="PCMProfile" usageModel="file:/C:/Dokumente%20und%20Einstellungen/Qais/Desktop/runtime-New_configuration/PerOpteryxExample2/default.usagemodel#/">
+    <!--requirements xsi:type="QMLProfile:UsageScenarioRequirement" id="__IEz8JyKEd-NNcIT2kpSGQ" requireContract="QMLContract:SimpleQMLContract PCMConstraints.qmldeclarations#_FlvJEaCrEd-s9uTaURbrKA" usageScenario="file:/...(Path)#...(id)"/-->
+    <!-- Modify UM path & US id -->
+    <requirements xsi:type="QMLProfile:UsageScenarioRequirement" id="__IEz85yKEd-NNcIT2kpSGQ" requireContract="QMLContract:SimpleQMLContract PCMObjectives.qmldeclarations#_FqNZYaCrEd-s9uTaURbrKA" usageScenario="file:/C:/Dokumente%20und%20Einstellungen/Qais/Desktop/runtime-New_configuration/PerOpteryxExample2/default.usagemodel#_dpQO4IoiEd-pzr12s9I4Ng"/>
+  </qmlDeclarations>
+</QMLDeclarations:QMLDeclarations>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.presentation.SourcecodedecoratorModelWizardID"
+            name="%_UI_SourcecodedecoratorModelWizard_label"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.presentation.SourcecodedecoratorModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SourcecodedecoratorModelFile.gif">
+         <description>%_UI_SourcecodedecoratorModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.presentation.SourcecodedecoratorEditorID"
+            name="%_UI_SourcecodedecoratorEditor_label"
+            icon="icons/full/obj16/SourcecodedecoratorModelFile.gif"
+            extensions="sourcecodedecorator"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.presentation.SourcecodedecoratorEditor"
+            contributorClass="de.uka.ipd.sdq.pcm.sourcecodedecorator.sourcecodedecorator.presentation.SourcecodedecoratorActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.presentation.PCMLinkModelWizardID"
+            name="%_UI_PCMLinkModelWizard_label"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.presentation.PCMLinkModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PCMLinkModelFile.gif">
+         <description>%_UI_PCMLinkModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.presentation.PCMLinkEditorID"
+            name="%_UI_PCMLinkEditor_label"
+            icon="icons/full/obj16/PCMLinkModelFile.gif"
+            extensions="pcmlink"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.presentation.PCMLinkEditor"
+            contributorClass="de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLink.presentation.PCMLinkActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.presentation.LoggerlinkModelWizardID"
+            name="%_UI_LoggerlinkModelWizard_label"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.presentation.LoggerlinkModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/LoggerlinkModelFile.gif">
+         <description>%_UI_LoggerlinkModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.presentation.LoggerlinkEditorID"
+            name="%_UI_LoggerlinkEditor_label"
+            icon="icons/full/obj16/LoggerlinkModelFile.gif"
+            extensions="loggerlink"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.presentation.LoggerlinkEditor"
+            contributorClass="de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.presentation.LoggerlinkActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" modelDirectory="/de.uka.ipd.sdq.pcm.resultdecorator/src"
+    editDirectory="/de.uka.ipd.sdq.pcm.resultdecorator.edit/src" editorDirectory="/de.uka.ipd.sdq.pcm.resultdecorator.editor/src"
+    modelPluginID="de.uka.ipd.sdq.pcm.resultdecorator" modelName="Resultdecorator"
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+  </genAnnotations>
+  <foreignModel>resultdecorator.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Resultdecorator" basePackage="de.uka.ipd.sdq.pcm"
+      disposableProviderFactory="true" ecorePackage="resultdecorator.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="resultdecorator.ecore#//ResultDecoratorRepository">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//ResultDecoratorRepository/componentResults_ResultDecoratorRepository"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//ResultDecoratorRepository/utilisationResults_ResultDecoratorRepository"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//ResultDecoratorRepository/serviceResult_ResultDecoratorRepository"/>
+    </genClasses>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Repositorydecorator"
+        basePackage="de.uka.ipd.sdq.pcm.resultdecorator" resource="XML" disposableProviderFactory="true"
+        ecorePackage="resultdecorator.ecore#//repositorydecorator">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="resultdecorator.ecore#//repositorydecorator/InterfaceProvidingRequiringEntityResults">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//repositorydecorator/InterfaceProvidingRequiringEntityResults/interfaceProvidingRequiringEntity_InterfaceProvidingRequiringEntityResult"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="resultdecorator.ecore#//repositorydecorator/ComponentResult">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//repositorydecorator/ComponentResult/normalisedResourceDemand"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//repositorydecorator/ComponentResult/normalisedResponseTime"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//repositorydecorator/ComponentResult/averageResourceDemand"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//repositorydecorator/ComponentResult/meanResponseTime"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//repositorydecorator/ComponentResult/averageNumberOfSentMessages"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="resultdecorator.ecore#//repositorydecorator/AllocationContextResults">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//repositorydecorator/AllocationContextResults/allocationContext_AllocationContextResult"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="resultdecorator.ecore#//repositorydecorator/ServiceResult">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//repositorydecorator/ServiceResult/meanResponseTime"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//repositorydecorator/ServiceResult/throughput"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//repositorydecorator/ServiceResult/serviceEffectSpecification_ServiceResult"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="resultdecorator.ecore#//repositorydecorator/AllocationServiceResult">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//repositorydecorator/AllocationServiceResult/allocationContext_AllocationServiceResult"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Resourceenvironmentdecorator"
+        basePackage="de.uka.ipd.sdq.pcm.resultdecorator" resource="XML" disposableProviderFactory="true"
+        ecorePackage="resultdecorator.ecore#//resourceenvironmentdecorator">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="resultdecorator.ecore#//resourceenvironmentdecorator/LinkingResourceResults">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//resourceenvironmentdecorator/LinkingResourceResults/linkingResource_LinkingResourceResults"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="resultdecorator.ecore#//resourceenvironmentdecorator/ActiveResourceUtilisationResult">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironmentdecorator/ActiveResourceUtilisationResult/normalisedDemandedTime"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironmentdecorator/ActiveResourceUtilisationResult/demandedTime"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="resultdecorator.ecore#//resourceenvironmentdecorator/UtilisationResult">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironmentdecorator/UtilisationResult/normalisedResourceUtilisation"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironmentdecorator/UtilisationResult/normalisedWaitTime"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironmentdecorator/UtilisationResult/resourceUtilisation"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironmentdecorator/UtilisationResult/averageWaitTime"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironmentdecorator/UtilisationResult/averageQueueLength"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironmentdecorator/UtilisationResult/maxQueueLength"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="resultdecorator.ecore#//resourceenvironmentdecorator/ResourceContainerResults">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//resourceenvironmentdecorator/ResourceContainerResults/resourceContainer_ResourceContainerResults"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="resultdecorator.ecore#//resourceenvironmentdecorator/ProcessingResourceSpecificationResult">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//resourceenvironmentdecorator/ProcessingResourceSpecificationResult/processingResourceSpecification_ProcessingResourceSpecificationResult"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="resultdecorator.ecore#//resourceenvironmentdecorator/PassiveResourceResult">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//resourceenvironmentdecorator/PassiveResourceResult/passiveResource_PassiveResourceResult"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference resultdecorator.ecore#//resourceenvironmentdecorator/PassiveResourceResult/assemblyContext_PassiveResourceResult"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute resultdecorator.ecore#//resourceenvironmentdecorator/PassiveResourceResult/averageHoldingTime"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

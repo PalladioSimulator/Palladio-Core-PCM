@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_jG46EFbOEd-Vr5v41cHcBA" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_jHog8FbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jHog81bOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jHog9FbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jHog_FbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin/maxBonus"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHog_VbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHog_lbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin/threshold"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHog_1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHohAFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin/maxSleepAverage"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHohAVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHog9VbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHog9lbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHog91bOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jHog-FbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHog-VbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHog-lbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHog-1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHog8VbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/DynamicPriorityBoostConfiguratioin"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHog8lbOEd-Vr5v41cHcBA" x="1480" y="225"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHohAlbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jHohBVbOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jHohBlbOEd-Vr5v41cHcBA" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHohB1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHohCFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHohCVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jHohClbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHohC1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHohDFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHohDVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHohA1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/PriorityBoostConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHohBFbOEd-Vr5v41cHcBA" x="1500" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHohDlbOEd-Vr5v41cHcBA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_jHohEVbOEd-Vr5v41cHcBA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_jHohElbOEd-Vr5v41cHcBA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_jHohFlbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/InstanceToBalance/CURRENT"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHohF1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHohGFbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/InstanceToBalance/ALL"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHohGVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHohE1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHohFFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHohFVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHohD1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="SchedulerConfiguration.ecore#//configuration/InstanceToBalance"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHohEFbOEd-Vr5v41cHcBA" x="30" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHohGlbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jHohHVbOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jHohHlbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jHohJlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/LoadBalancing/balancingType"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHohJ1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHohKFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/LoadBalancing/preferredWaitingTime"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHohKVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHohKlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/LoadBalancing/preferredPriority"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHohK1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHohLFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/LoadBalancing/instances"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHohLVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHohLlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/LoadBalancing/threshold"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHohL1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHohMFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/LoadBalancing/maxIterations"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHohMVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHohMlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/LoadBalancing/balancingInterval"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHohM1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHohH1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHohIFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHohIVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jHohIlbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHohI1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHohJFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHohJVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHohG1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/LoadBalancing"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHohHFbOEd-Vr5v41cHcBA" x="225" y="225"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHohNFbOEd-Vr5v41cHcBA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_jHohN1bOEd-Vr5v41cHcBA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_jHohOFbOEd-Vr5v41cHcBA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_jHohPFbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/LoadBalancingType/IDLE_TO_ONE"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHohPVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHyR8FbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/LoadBalancingType/IDLE_TO_THRESHOLD"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHyR8VbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHyR8lbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/LoadBalancingType/ANY_TO_THRESHOLD"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHyR81bOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHohOVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHohOlbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHohO1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHohNVbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="SchedulerConfiguration.ecore#//configuration/LoadBalancingType"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHohNlbOEd-Vr5v41cHcBA" x="220" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHyR9FbOEd-Vr5v41cHcBA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_jHyR91bOEd-Vr5v41cHcBA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_jHyR-FbOEd-Vr5v41cHcBA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_jHyR_FbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PreferredWaitingTime/LONG"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHyR_VbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHyR_lbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PreferredWaitingTime/SHORT"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHyR_1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHyR-VbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHyR-lbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHyR-1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHyR9VbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="SchedulerConfiguration.ecore#//configuration/PreferredWaitingTime"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHyR9lbOEd-Vr5v41cHcBA" x="440" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySAFbOEd-Vr5v41cHcBA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_jHySA1bOEd-Vr5v41cHcBA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySBFbOEd-Vr5v41cHcBA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_jHySCFbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PreferredPriority/HIGHER"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySCVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySClbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PreferredPriority/LOWER"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySC1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySBVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySBlbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySB1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySAVbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="SchedulerConfiguration.ecore#//configuration/PreferredPriority"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySAlbOEd-Vr5v41cHcBA" x="650" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySDFbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jHySD1bOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySEFbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jHySGFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/MultipleQueueConfiguration/InFrontWhenBalancing"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySGVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySEVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySElbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySE1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jHySFFbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySFVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySFlbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySF1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySDVbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/MultipleQueueConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySDlbOEd-Vr5v41cHcBA" x="340" y="430"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySGlbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jHySHVbOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySHlbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jHySJlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/QueueingConfiguration/initialInstanceSelection"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySJ1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySKFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/QueueingConfiguration/runqueueType"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySKVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySH1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySIFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySIVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jHySIlbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySI1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySJFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySJVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySG1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/QueueingConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySHFbOEd-Vr5v41cHcBA" x="580" y="225"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySKlbOEd-Vr5v41cHcBA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_jHySLVbOEd-Vr5v41cHcBA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySLlbOEd-Vr5v41cHcBA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_jHySMlbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/ResourceInstanceSelection/ROUND_ROBIN"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySM1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySNFbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/ResourceInstanceSelection/PREFER_IDLE"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySNVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySL1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySMFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySMVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySK1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="SchedulerConfiguration.ecore#//configuration/ResourceInstanceSelection"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySLFbOEd-Vr5v41cHcBA" x="825" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySNlbOEd-Vr5v41cHcBA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_jHySOVbOEd-Vr5v41cHcBA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySOlbOEd-Vr5v41cHcBA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_jHySPlbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/RunQueueType/ACTIVE_AND_EXPIRED"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySP1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySQFbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/RunQueueType/SINGLE"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySQVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySO1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySPFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySPVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySN1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="SchedulerConfiguration.ecore#//configuration/RunQueueType"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySOFbOEd-Vr5v41cHcBA" x="1065" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySQlbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jHySRVbOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySRlbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_TQvJ8FzSEd-q5f1Y9vI0TQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/QuantumTimeSliceConfiguration/quanta"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_TQvJ8VzSEd-q5f1Y9vI0TQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_wNHkQFzTEd-q5f1Y9vI0TQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/QuantumTimeSliceConfiguration/minQuanta"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_wNHkQVzTEd-q5f1Y9vI0TQ"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySR1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySSFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySSVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jHySSlbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySS1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySTFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySTVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySQ1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/QuantumTimeSliceConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySRFbOEd-Vr5v41cHcBA" x="2430" y="225" width="225" height="80"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySTlbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jHySUVbOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySUlbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jHySXFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/TimeSliceConfiguration/timeslice"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySXVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySU1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySVFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySVVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jHySVlbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySV1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySWFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySWVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHyST1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/TimeSliceConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySUFbOEd-Vr5v41cHcBA" x="2615" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySXlbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jHySYVbOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySYlbOEd-Vr5v41cHcBA" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySY1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySZFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySZVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jHySZlbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySZ1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySaFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySaVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySX1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/PreemptionConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySYFbOEd-Vr5v41cHcBA" x="2015" y="225"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySalbOEd-Vr5v41cHcBA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_jHySbVbOEd-Vr5v41cHcBA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySblbOEd-Vr5v41cHcBA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_jHySclbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PriorityClass/LOWEST"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySc1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySdFbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PriorityClass/LOW"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySdVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySdlbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PriorityClass/AVERAGE"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySd1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySeFbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PriorityClass/HIGH"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySeVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySelbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PriorityClass/HIGHEST"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySe1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySfFbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PriorityClass/DEFAULT"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySfVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySb1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHyScFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHyScVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySa1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="SchedulerConfiguration.ecore#//configuration/PriorityClass"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySbFbOEd-Vr5v41cHcBA" x="1730" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySflbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jHySgVbOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySglbOEd-Vr5v41cHcBA" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySg1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHyShFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHyShVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jHyShlbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySh1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySiFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySiVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySf1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/PriorityConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySgFbOEd-Vr5v41cHcBA" x="1280" y="225"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySilbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jHySjVbOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySjlbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jHySllbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PriorityRange/highest"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySl1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySmFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PriorityRange/high"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySmVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySmlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PriorityRange/average"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySm1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySnFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PriorityRange/low"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySnVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySnlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PriorityRange/lowest"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySn1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySoFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PriorityRange/default"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySoVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySj1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySkFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySkVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jHySklbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySk1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySlFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySlVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySi1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/PriorityRange"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySjFbOEd-Vr5v41cHcBA" x="1295" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySolbOEd-Vr5v41cHcBA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_jHySpVbOEd-Vr5v41cHcBA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySplbOEd-Vr5v41cHcBA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_jHySqlbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PriorityDegradation/RESET"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySq1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jHySrFbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PriorityDegradation/SLOW_DECAY"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySrVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySp1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySqFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySqVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySo1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="SchedulerConfiguration.ecore#//configuration/PriorityDegradation"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySpFbOEd-Vr5v41cHcBA" x="1900" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySrlbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jHySsVbOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jHySslbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jHySulbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PriorityDependentTimeSliceConfiguration/minTimeslice"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jHySu1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_AcmHwVzNEd-q5f1Y9vI0TQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PriorityDependentTimeSliceConfiguration/minTimeToBeScheduled"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_AcmHwlzNEd-q5f1Y9vI0TQ"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySs1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHyStFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHyStVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jHyStlbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jHySt1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jHySuFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jHySuVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySr1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/PriorityDependentTimeSliceConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySsFbOEd-Vr5v41cHcBA" x="2715" y="225"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jHySvFbOEd-Vr5v41cHcBA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_jHySv1bOEd-Vr5v41cHcBA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_jH7b4FbOEd-Vr5v41cHcBA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_jH7b5FbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/ProcessSelection/PREFER_IDEAL_AND_LAST"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7b5VbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7b5lbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/ProcessSelection/NEXT_RUNNABLE"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7b51bOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7b4VbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7b4lbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7b41bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jHySvVbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="SchedulerConfiguration.ecore#//configuration/ProcessSelection"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jHySvlbOEd-Vr5v41cHcBA" x="2375" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jH7b6FbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jH7b61bOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jH7b7FbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jH7b9FbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/ActiveResourceConfiguration/replicas"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7b9VbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7b9lbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/ActiveResourceConfiguration/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7b91bOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7b7VbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7b7lbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7b71bOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7b8FbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7b8VbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7b8lbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7b81bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jH7b6VbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/ActiveResourceConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jH7b6lbOEd-Vr5v41cHcBA" x="1730" y="585"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jH7b-FbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jH7b-1bOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jH7b_FbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jH7cBFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PassiveResourceConfiguration/capacity"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cBVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7cBlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PassiveResourceConfiguration/type"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cB1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7cCFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PassiveResourceConfiguration/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cCVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7cClbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/PassiveResourceConfiguration/acquisitionDemand"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cC1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7b_VbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7b_lbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7b_1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7cAFbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cAVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cAlbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cA1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jH7b-VbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/PassiveResourceConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jH7b-lbOEd-Vr5v41cHcBA" x="2200" y="710"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jH7cDFbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jH7cD1bOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jH7cEFbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jH7cGFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/StaticPriorityBoost/resetTimeslice"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cGVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7cGlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/StaticPriorityBoost/bonus"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cG1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7cHFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/StaticPriorityBoost/degradation"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cHVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7cHlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/StaticPriorityBoost/timePenalty"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cH1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cEVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cElbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cE1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7cFFbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cFVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cFlbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cF1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jH7cDVbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/StaticPriorityBoost"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jH7cDlbOEd-Vr5v41cHcBA" x="2090" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jH7cIFbOEd-Vr5v41cHcBA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_jH7cI1bOEd-Vr5v41cHcBA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_jH7cJFbOEd-Vr5v41cHcBA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_jH7cKFbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PassiveResourceType/FAIR"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cKVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7cKlbOEd-Vr5v41cHcBA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="SchedulerConfiguration.ecore#//configuration/PassiveResourceType/UNFAIR"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cK1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cJVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cJlbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cJ1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jH7cIVbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="SchedulerConfiguration.ecore#//configuration/PassiveResourceType"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jH7cIlbOEd-Vr5v41cHcBA" x="2830" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jH7cLFbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jH7cL1bOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jH7cMFbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jH7cOFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/ProcessConfiguration/priority"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cOVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7cOlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/ProcessConfiguration/replicas"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cO1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7cPFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/ProcessConfiguration/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cPVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7cPlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/ProcessConfiguration/affinityList"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cP1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cMVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cMlbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cM1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7cNFbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cNVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cNlbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cN1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jH7cLVbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/ProcessConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jH7cLlbOEd-Vr5v41cHcBA" x="3035" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jH7cQFbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jH7cQ1bOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jH7cRFbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jH7cTFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/SingleQueueConfiguration/processSelection"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cTVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cRVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cRlbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cR1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7cSFbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cSVbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cSlbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cS1bOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jH7cQVbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/SingleQueueConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jH7cQlbOEd-Vr5v41cHcBA" x="625" y="430"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jH7cTlbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jH7cUVbOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jH7cUlbOEd-Vr5v41cHcBA" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cU1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cVFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cVVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7cVlbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cV1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cWFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cWVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jH7cT1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/StaticPriorityBoostConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jH7cUFbOEd-Vr5v41cHcBA" x="1755" y="225"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_jH7cWlbOEd-Vr5v41cHcBA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_jH7cXVbOEd-Vr5v41cHcBA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_jH7cXlbOEd-Vr5v41cHcBA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_jH7cZlbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cZ1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7caFbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/inFrontAfterWaiting"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7caVbOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jH7calbOEd-Vr5v41cHcBA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/Windows"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7ca1bOEd-Vr5v41cHcBA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_LQvH0VbPEd-IU60idXH16Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/interval"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_LQvH0lbPEd-IU60idXH16Q"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cX1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cYFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cYVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7cYlbOEd-Vr5v41cHcBA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_jH7cY1bOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jH7cZFbOEd-Vr5v41cHcBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jH7cZVbOEd-Vr5v41cHcBA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jH7cW1bOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jH7cXFbOEd-Vr5v41cHcBA" x="1245" y="430"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_tOSJsFzVEd-q5f1Y9vI0TQ" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_tOSJs1zVEd-q5f1Y9vI0TQ" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_tOSJtFzVEd-q5f1Y9vI0TQ" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_0_1acFzVEd-q5f1Y9vI0TQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/StarvationBoost/starvationLimit"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_0_1acVzVEd-q5f1Y9vI0TQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9WfjYFzVEd-q5f1Y9vI0TQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/StarvationBoost/boost"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9WfjYVzVEd-q5f1Y9vI0TQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_CAqMcFzWEd-q5f1Y9vI0TQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="SchedulerConfiguration.ecore#//configuration/StarvationBoost/durationInTimeslices"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_CAqMcVzWEd-q5f1Y9vI0TQ"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_tOSJtVzVEd-q5f1Y9vI0TQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_tOSJtlzVEd-q5f1Y9vI0TQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_tOSJt1zVEd-q5f1Y9vI0TQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_tOSJuFzVEd-q5f1Y9vI0TQ" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_tOSJuVzVEd-q5f1Y9vI0TQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_tOSJulzVEd-q5f1Y9vI0TQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_tOSJu1zVEd-q5f1Y9vI0TQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_tOSJsVzVEd-q5f1Y9vI0TQ" fontColor="4210752" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="SchedulerConfiguration.ecore#//configuration/StarvationBoost"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tOSJslzVEd-q5f1Y9vI0TQ" x="970" y="225" width="253" height="108"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_jG46EVbOEd-Vr5v41cHcBA"/>
+  <element xmi:type="ecore:EPackage" href="SchedulerConfiguration.ecore#//configuration"/>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7cbFbOEd-Vr5v41cHcBA" type="3003" source="_jHog8FbOEd-Vr5v41cHcBA" target="_jHohAlbOEd-Vr5v41cHcBA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7cbVbOEd-Vr5v41cHcBA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7cblbOEd-Vr5v41cHcBA"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7cb1bOEd-Vr5v41cHcBA" points="[0, 0, 0, 151]$[0, -151, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQzlbOEd-Vr5v41cHcBA" id="(0.4977168949771689,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQz1bOEd-Vr5v41cHcBA" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7ccFbOEd-Vr5v41cHcBA" type="3002" source="_jHySDFbOEd-Vr5v41cHcBA" target="_jHohGlbOEd-Vr5v41cHcBA">
+    <children xmi:type="notation:Node" xmi:id="_jH7cdFbOEd-Vr5v41cHcBA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cdVbOEd-Vr5v41cHcBA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7cdlbOEd-Vr5v41cHcBA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cd1bOEd-Vr5v41cHcBA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7ccVbOEd-Vr5v41cHcBA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7cclbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/MultipleQueueConfiguration/loadBalancing"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7cc1bOEd-Vr5v41cHcBA" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQzFbOEd-Vr5v41cHcBA" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQzVbOEd-Vr5v41cHcBA" id="(0.7736486486486487,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7ceFbOEd-Vr5v41cHcBA" type="3003" source="_jHySDFbOEd-Vr5v41cHcBA" target="_jHySGlbOEd-Vr5v41cHcBA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7ceVbOEd-Vr5v41cHcBA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7celbOEd-Vr5v41cHcBA"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7ce1bOEd-Vr5v41cHcBA" points="[0, 0, -152, 140]$[0, -30, -152, 110]$[152, -30, 0, 110]$[152, -140, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQylbOEd-Vr5v41cHcBA" id="(0.75,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQy1bOEd-Vr5v41cHcBA" id="(0.24770642201834864,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7cfFbOEd-Vr5v41cHcBA" type="3003" source="_jHySQlbOEd-Vr5v41cHcBA" target="_jHySTlbOEd-Vr5v41cHcBA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7cfVbOEd-Vr5v41cHcBA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7cflbOEd-Vr5v41cHcBA"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7cf1bOEd-Vr5v41cHcBA" points="[0, 0, -150, 144]$[0, -30, -150, 114]$[150, -30, 0, 114]$[150, -144, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQslbOEd-Vr5v41cHcBA" id="(0.49777777777777776,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQs1bOEd-Vr5v41cHcBA" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7cgFbOEd-Vr5v41cHcBA" type="3002" source="_jHySXlbOEd-Vr5v41cHcBA" target="_jHySTlbOEd-Vr5v41cHcBA">
+    <children xmi:type="notation:Node" xmi:id="_jH7chFbOEd-Vr5v41cHcBA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7chVbOEd-Vr5v41cHcBA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7chlbOEd-Vr5v41cHcBA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7ch1bOEd-Vr5v41cHcBA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7cgVbOEd-Vr5v41cHcBA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7cglbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/PreemptionConfiguration/timesliceConfiguration"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7cg1bOEd-Vr5v41cHcBA" points="[0, 0, -557, 144]$[523, -61, -34, 83]$[557, -144, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQsFbOEd-Vr5v41cHcBA" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQsVbOEd-Vr5v41cHcBA" id="(0.25,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7ciFbOEd-Vr5v41cHcBA" type="3002" source="_jHySflbOEd-Vr5v41cHcBA" target="_jHySilbOEd-Vr5v41cHcBA">
+    <children xmi:type="notation:Node" xmi:id="_jH7cjFbOEd-Vr5v41cHcBA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cjVbOEd-Vr5v41cHcBA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7cjlbOEd-Vr5v41cHcBA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cj1bOEd-Vr5v41cHcBA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7ciVbOEd-Vr5v41cHcBA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7cilbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/PriorityConfiguration/range"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7ci1bOEd-Vr5v41cHcBA" points="[0, 0, 0, 64]$[0, -64, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQxlbOEd-Vr5v41cHcBA" id="(0.49635036496350365,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQx1bOEd-Vr5v41cHcBA" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7ckFbOEd-Vr5v41cHcBA" type="3002" source="_jHySflbOEd-Vr5v41cHcBA" target="_jHohAlbOEd-Vr5v41cHcBA">
+    <children xmi:type="notation:Node" xmi:id="_jH7clFbOEd-Vr5v41cHcBA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7clVbOEd-Vr5v41cHcBA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7cllbOEd-Vr5v41cHcBA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cl1bOEd-Vr5v41cHcBA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7ckVbOEd-Vr5v41cHcBA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7cklbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/PriorityConfiguration/boostConfiguration"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7ck1bOEd-Vr5v41cHcBA" points="[0, 0, -161, 151]$[127, -61, -34, 90]$[161, -151, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQyFbOEd-Vr5v41cHcBA" id="(0.7445255474452555,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQyVbOEd-Vr5v41cHcBA" id="(0.24705882352941178,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7cmFbOEd-Vr5v41cHcBA" type="3003" source="_jHySrlbOEd-Vr5v41cHcBA" target="_jHySTlbOEd-Vr5v41cHcBA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7cmVbOEd-Vr5v41cHcBA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7cmlbOEd-Vr5v41cHcBA"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7cm1bOEd-Vr5v41cHcBA" points="[0, 0, 0, 144]$[0, -144, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQxFbOEd-Vr5v41cHcBA" id="(0.06299212598425197,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQxVbOEd-Vr5v41cHcBA" id="(0.75,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7cnFbOEd-Vr5v41cHcBA" type="3002" source="_jH7b6FbOEd-Vr5v41cHcBA" target="_jH7cWlbOEd-Vr5v41cHcBA">
+    <children xmi:type="notation:Node" xmi:id="_jH7coFbOEd-Vr5v41cHcBA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7coVbOEd-Vr5v41cHcBA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7colbOEd-Vr5v41cHcBA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7co1bOEd-Vr5v41cHcBA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7cnVbOEd-Vr5v41cHcBA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7cnlbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/ActiveResourceConfiguration/schedulerConfiguration"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7cn1bOEd-Vr5v41cHcBA" points="[0, 0, 475, 60]$[-475, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQwFbOEd-Vr5v41cHcBA" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQwVbOEd-Vr5v41cHcBA" id="(0.4975845410628019,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7cpFbOEd-Vr5v41cHcBA" type="3002" source="_jH7b-FbOEd-Vr5v41cHcBA" target="_jH7cDFbOEd-Vr5v41cHcBA">
+    <children xmi:type="notation:Node" xmi:id="_jH7cqFbOEd-Vr5v41cHcBA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cqVbOEd-Vr5v41cHcBA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7cqlbOEd-Vr5v41cHcBA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cq1bOEd-Vr5v41cHcBA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7cpVbOEd-Vr5v41cHcBA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7cplbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/PassiveResourceConfiguration/staticPriorityBoostConfiguration"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7cp1bOEd-Vr5v41cHcBA" points="[0, 0, 0, 583]$[0, -583, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQ0FbOEd-Vr5v41cHcBA" id="(0.49238578680203043,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQ0VbOEd-Vr5v41cHcBA" id="(0.9321266968325792,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7crFbOEd-Vr5v41cHcBA" type="3002" source="_jH7b-FbOEd-Vr5v41cHcBA" target="_jH7b6FbOEd-Vr5v41cHcBA">
+    <children xmi:type="notation:Node" xmi:id="_jH7csFbOEd-Vr5v41cHcBA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7csVbOEd-Vr5v41cHcBA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jH7cslbOEd-Vr5v41cHcBA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jH7cs1bOEd-Vr5v41cHcBA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7crVbOEd-Vr5v41cHcBA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7crlbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/PassiveResourceConfiguration/managingResource"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7cr1bOEd-Vr5v41cHcBA" points="[0, 0, 425, 60]$[-425, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQwlbOEd-Vr5v41cHcBA" id="(0.2436548223350254,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQw1bOEd-Vr5v41cHcBA" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jH7ctFbOEd-Vr5v41cHcBA" type="3003" source="_jH7cQFbOEd-Vr5v41cHcBA" target="_jHySGlbOEd-Vr5v41cHcBA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jH7ctVbOEd-Vr5v41cHcBA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jH7ctlbOEd-Vr5v41cHcBA"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jH7ct1bOEd-Vr5v41cHcBA" points="[0, 0, 0, 140]$[0, -140, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQvlbOEd-Vr5v41cHcBA" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQv1bOEd-Vr5v41cHcBA" id="(0.4984709480122324,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jIFM4FbOEd-Vr5v41cHcBA" type="3002" source="_jH7cTlbOEd-Vr5v41cHcBA" target="_jH7cDFbOEd-Vr5v41cHcBA">
+    <children xmi:type="notation:Node" xmi:id="_jIFM5FbOEd-Vr5v41cHcBA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jIFM5VbOEd-Vr5v41cHcBA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jIFM5lbOEd-Vr5v41cHcBA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jIFM51bOEd-Vr5v41cHcBA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jIFM4VbOEd-Vr5v41cHcBA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jIFM4lbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/StaticPriorityBoostConfiguration/starvationBoost"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jIFM41bOEd-Vr5v41cHcBA" points="[0, 0, -305, 96]$[241, -61, -64, 35]$[305, -96, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQvFbOEd-Vr5v41cHcBA" id="(0.665,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQvVbOEd-Vr5v41cHcBA" id="(0.4660633484162896,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jIFM6FbOEd-Vr5v41cHcBA" type="3003" source="_jH7cTlbOEd-Vr5v41cHcBA" target="_jHohAlbOEd-Vr5v41cHcBA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jIFM6VbOEd-Vr5v41cHcBA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jIFM6lbOEd-Vr5v41cHcBA"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jIFM61bOEd-Vr5v41cHcBA" points="[0, 0, 194, 151]$[0, -30, 194, 121]$[-194, -30, 0, 121]$[-194, -151, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQulbOEd-Vr5v41cHcBA" id="(0.33,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQu1bOEd-Vr5v41cHcBA" id="(0.7470588235294118,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jIFM7FbOEd-Vr5v41cHcBA" type="3002" source="_jH7cWlbOEd-Vr5v41cHcBA" target="_jHySflbOEd-Vr5v41cHcBA">
+    <children xmi:type="notation:Node" xmi:id="_jIFM8FbOEd-Vr5v41cHcBA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jIFM8VbOEd-Vr5v41cHcBA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jIFM8lbOEd-Vr5v41cHcBA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jIFM81bOEd-Vr5v41cHcBA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jIFM7VbOEd-Vr5v41cHcBA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jIFM7lbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/priorityConfiguration"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jIFM71bOEd-Vr5v41cHcBA" points="[0, 0, 0, 163]$[0, -163, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQtlbOEd-Vr5v41cHcBA" id="(0.4975845410628019,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQt1bOEd-Vr5v41cHcBA" id="(0.49635036496350365,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jIFM9FbOEd-Vr5v41cHcBA" type="3002" source="_jH7cWlbOEd-Vr5v41cHcBA" target="_jHySXlbOEd-Vr5v41cHcBA">
+    <children xmi:type="notation:Node" xmi:id="_jIFM-FbOEd-Vr5v41cHcBA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jIFM-VbOEd-Vr5v41cHcBA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jIFM-lbOEd-Vr5v41cHcBA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jIFM-1bOEd-Vr5v41cHcBA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jIFM9VbOEd-Vr5v41cHcBA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jIFM9lbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/preemptionConfiguration"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jIFM91bOEd-Vr5v41cHcBA" points="[0, 0, -697, 163]$[640, -61, -57, 102]$[697, -163, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQtFbOEd-Vr5v41cHcBA" id="(0.748792270531401,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQtVbOEd-Vr5v41cHcBA" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_jIFM_FbOEd-Vr5v41cHcBA" type="3002" source="_jH7cWlbOEd-Vr5v41cHcBA" target="_jHySGlbOEd-Vr5v41cHcBA">
+    <children xmi:type="notation:Node" xmi:id="_jIFNAFbOEd-Vr5v41cHcBA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jIFNAVbOEd-Vr5v41cHcBA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_jIFNAlbOEd-Vr5v41cHcBA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_jIFNA1bOEd-Vr5v41cHcBA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_jIFM_VbOEd-Vr5v41cHcBA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_jIFM_lbOEd-Vr5v41cHcBA" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/queueingConfiguration"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jIFM_1bOEd-Vr5v41cHcBA" points="[0, 0, 454, 140]$[-432, -61, 22, 79]$[-454, -140, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQuFbOEd-Vr5v41cHcBA" id="(0.1642512077294686,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jJbQuVbOEd-Vr5v41cHcBA" id="(0.7492354740061162,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_wjhnMFzVEd-q5f1Y9vI0TQ" type="3002" source="_jH7cWlbOEd-Vr5v41cHcBA" target="_tOSJsFzVEd-q5f1Y9vI0TQ">
+    <children xmi:type="notation:Node" xmi:id="_wjhnNFzVEd-q5f1Y9vI0TQ" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_wjhnNVzVEd-q5f1Y9vI0TQ" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_wjhnNlzVEd-q5f1Y9vI0TQ" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_wjhnN1zVEd-q5f1Y9vI0TQ" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_wjhnMVzVEd-q5f1Y9vI0TQ" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_wjhnMlzVEd-q5f1Y9vI0TQ" fontColor="4210752" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="SchedulerConfiguration.ecore#//configuration/SchedulerConfiguration/starvationBoost"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wjhnM1zVEd-q5f1Y9vI0TQ" points="[0, 0, 220, 97]$[-220, -97, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wjhnOFzVEd-q5f1Y9vI0TQ" id="(0.3285024154589372,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LKs5IVzhEd-4Woc65awCPg" id="(0.4980237154150198,1.0)"/>
+  </edges>
+</notation:Diagram>

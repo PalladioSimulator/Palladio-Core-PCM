@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="de.uka.ipd.sdq.pipesandfilters.framework.recorder.edp2"
+         point="de.uka.ipd.sdq.pipesandfilters.framework.recorder">
+      <recorder
+            configuration="de.uka.ipd.sdq.pipesandfilters.framework.recorder.edp2.launch.EDP2Config"
+            launchConfigTab="de.uka.ipd.sdq.pipesandfilters.framework.recorder.edp2.launch.EDP2Tab"
+            name="EDP2"
+            writeStrategy="de.uka.ipd.sdq.pipesandfilters.framework.recorder.edp2.Edp2WriteStrategy">
+      </recorder>
+   </extension>
+
+</plugin>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<taskmodel:TaskList xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" xmlns:taskmodel="http://sdq.ipd.uka.de/TaskModel/1.0" startTask_TaskList="//@task_TaskList.0">
+  <task_TaskList probabilityOfExecution="1.0">
+    <edge_Task transitionProbability="1.0" successor_Edge="//@task_TaskList.1"/>
+  </task_TaskList>
+  <task_TaskList probabilityOfExecution="1.0" failureProbability="0.0010" meanDemandedTime="2.0">
+    <repositorycomponent xsi:type="BasicComponent" href="file:/D:/code/Palladio.EMFDesignDecisionModel/trunk/PCM2TaskmodelExample/default.repository#_9PT2UKOWEd6D1ZKDqAnLPA"/>
+    <allocationcontext href="file:/D:/code/Palladio.EMFDesignDecisionModel/trunk/PCM2TaskmodelExample/default.allocation#_U78qwKOXEd6D1ZKDqAnLPA"/>
+    <edge_Task transitionProbability="1.0" successor_Edge="//@task_TaskList.2"/>
+    <abstractaction xsi:type="_1:InternalAction" href="file:/D:/code/Palladio.EMFDesignDecisionModel/trunk/PCM2TaskmodelExample/default.repository#_CKBc0KOXEd6D1ZKDqAnLPA"/>
+  </task_TaskList>
+  <task_TaskList probabilityOfExecution="1.0" failureProbability="0.0020" meanDemandedTime="10.0">
+    <repositorycomponent xsi:type="BasicComponent" href="file:/D:/code/Palladio.EMFDesignDecisionModel/trunk/PCM2TaskmodelExample/default.repository#_9PT2UKOWEd6D1ZKDqAnLPA"/>
+    <allocationcontext href="file:/D:/code/Palladio.EMFDesignDecisionModel/trunk/PCM2TaskmodelExample/default.allocation#_U78qwKOXEd6D1ZKDqAnLPA"/>
+    <abstractaction xsi:type="_1:InternalAction" href="file:/D:/code/Palladio.EMFDesignDecisionModel/trunk/PCM2TaskmodelExample/default.repository#_BsEVgKOXEd6D1ZKDqAnLPA"/>
+  </task_TaskList>
+</taskmodel:TaskList>

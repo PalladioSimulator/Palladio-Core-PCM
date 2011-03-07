@@ -1,0 +1,160 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT seff»
+«IMPORT completions»
+«IMPORT repository»
+«IMPORT reliability»
+
+// ----------------------------
+// General templates for parts of a SEFF
+// ----------------------------
+«DEFINE Action FOR AbstractAction»
+   // Unknown Action found «this.entityName»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: Abstract Action Unknown: "+this.metaType.toString()»
+«ENDDEFINE»
+
+«DEFINE Action FOR StartAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR StopAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR CollectionIteratorAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: CollectionIterationAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR LoopAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: LoopAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+
+
+«DEFINE Action FOR ExternalCallAction»
+/* ExternalCallAction - START */
+ 	{ //this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
+
+		    «EXPAND m2t_transforms::calls::Call(this,
+		       	"myContext.getRole"+this.role_ExternalService.javaName()+"().",
+		    	this.inputVariableUsages__CallAction, this.returnVariableUsage__CallReturnAction) FOR this.calledService_ExternalService»
+		    	
+	}
+/* ExternalCallAction - END */
+«ENDDEFINE»
+
+«DEFINE Action FOR RecoveryBlockAction»
+{ /* RecoveryBlockAction - START */
+	«LET this.id.javaVariableName() AS id»
+		«EXPAND InitFailureHandling(id) FOR this-»
+		«LET this.recoveryBlockAlternativeBehaviours_RecoveryBlockAction.findPrimaryAlterantive() AS primary»
+			«EXPAND PrimaryRecoveryBlockAlternative(id) FOR primary-»
+			«EXPAND NextRecoveryBlockAlternative(id) FOR primary.nextAlternative_RecoveryBlockAlternativeBehaviour-»
+		«ENDLET»	
+	// no more alternatives.
+	if(failureException_«id»!=null) { // failure occurred? 
+		throw failureException_«id»;
+	}
+	«ENDLET»
+} /* RecoveryBlockAction - END */
+«ENDDEFINE»
+
+«DEFINE PrimaryRecoveryBlockAlternative(String id) FOR RecoveryBlockAlternativeBehaviour»
+/* PrimaryRecoveryBlockAlternative - START */
+try {
+	«EXPAND m2t_transforms::java_core::Actions FOR this.steps_Behaviour.findStart()-»
+}
+	«EXPAND CatchFailureExceptions(id) FOR this.nextAlternative_RecoveryBlockAlternativeBehaviour-»
+/* PrimaryRecoveryBlockAlternative - END */
+«ENDDEFINE»
+
+«DEFINE NextRecoveryBlockAlternative(String id) FOR RecoveryBlockAlternativeBehaviour»
+«IF this!=null»
+	/* NextRecoveryBlockAlternative - START */
+	if(failureException_«id»!=null && //all other alternatives are only executed if previously there was a failure 
+		(«EXPAND CheckIfExceptionIsHandled(id) FOR this-»)) { //and the failure is handled by this alternative
+
+		try {
+			de.uka.ipd.sdq.simucomframework.exceptions.FailureException originalFailureException_«id» = failureException_«id»;
+			failureException_«id»=null; //new attempt.
+			«EXPAND m2t_transforms::java_core::Actions FOR this.steps_Behaviour.findStart()-»
+			de.uka.ipd.sdq.simucomframework.exceptions.FailureStatistics.getInstance().increaseHandledFailureCounter(originalFailureException_«id».getFailureType()); //count handled failure
+		}
+		«EXPAND CatchFailureExceptions(id) FOR this.nextAlternative_RecoveryBlockAlternativeBehaviour-»
+	}
+	/* NextRecoveryBlockAlternative - END */
+	«EXPAND NextRecoveryBlockAlternative(id) FOR this.nextAlternative_RecoveryBlockAlternativeBehaviour-»
+«ENDIF»
+«ENDDEFINE»
+
+«DEFINE CheckIfExceptionIsHandled(String id) FOR FailureHandlingEntity»
+	«IF this.failureTypes_FailureHandlingEntity.size==0» «REM» No failure types handled!«ENDREM»
+		false
+	«ELSE»
+		«FOREACH this.failureTypes_FailureHandlingEntity AS failureType SEPARATOR "||"»
+			«EXPAND CheckFailureTypeMatch(id) FOR failureType-»
+		«ENDFOREACH»
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE CheckFailureTypeMatch(String id) FOR FailureType»
+«ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: Unknown FailureType "+this.entityName»
+«ENDDEFINE»
+
+«DEFINE CheckFailureTypeMatch(String id) FOR SoftwareInducedFailureType»
+failureException_«id».getFailureType().equals("«this.javaName()»")
+«ENDDEFINE»
+
+«DEFINE CheckFailureTypeMatch(String id) FOR HardwareInducedFailureType»
+failureException_«id».getFailureType().equals("«this.processingResourceType__HardwareInducedFailureType.javaName()»")
+«ENDDEFINE»
+
+«DEFINE CheckFailureTypeMatch(String id) FOR NetworkInducedFailureType»
+failureException_«id».getFailureType().equals("«this.communicationLinkResourceType__NetworkInducedFailureType.javaName()»")
+«ENDDEFINE»
+
+«DEFINE InitFailureHandling(String id) FOR Object»
+	de.uka.ipd.sdq.simucomframework.exceptions.FailureException failureException_«id»=null;
+	int stackSize_«id»=ctx.getStack().size();
+«ENDDEFINE»
+
+«DEFINE CatchFailureExceptions(String id) FOR FailureHandlingEntity»
+	«IF this != null»
+		catch(de.uka.ipd.sdq.simucomframework.exceptions.FailureException ex) {
+			failureException_«id»=ex;
+		}
+		finally {
+			//clean up stack if exceptions was thrown
+			//remove all additional stack frames; they are invalid now
+			int stackSizeDifference=ctx.getStack().size()-stackSize_«id»;
+			for(int frameCount=0; frameCount<stackSizeDifference; ++frameCount) {
+				ctx.getStack().removeStackFrame();
+			}
+		}
+	«ELSE»
+		finally {}
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE Action FOR DelegatingExternalCallAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR InternalAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: InternalAction is a template method and must be overridden"»
+«ENDDEFINE»
+ 
+«DEFINE Action FOR BranchAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: BranchAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR AcquireAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: AquireAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR ReleaseAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff.xpt]: ReleaseAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR SetVariableAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR ForkAction»
+«ENDDEFINE»

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Probe Specification Probes Example Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.probespec.framework.probes.example
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ de.uka.ipd.sdq.probespec.framework;bundle-version="1.0.0",
+ org.jscience;bundle-version="4.1.3"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: de.uka.ipd.sdq.probespec.framework.probes.example
+Bundle-Vendor: sdq.ipd.uka.de

@@ -1,0 +1,58 @@
+<html>
+<body>
+The Pipes and Filters package is the counterpart of the PipesAndFilters ECore metamodel. It allows to store any sequence of tuples of JScience measures to a persistency framework, such as the EDP2. To influence the possibly raw measurements, e.g. incoming data from a probespec buildup, diferent filters can be connected upstream of the actual recorders in arbitrary order. This behavior is realized with a pipes and filters pattern, with the recorders serving as data sink. Furthermore it is possible to aggregate measured data using aggregation recorders. A recorder's write strategy then decides which concrete persistency framework the possibly filtered and aggregated measurements are transferred to. The filter chain and the data sinks are administrated by a pipes and filters manager class.
+
+<h1>Terminology</h1>
+<h2>Filter</h2>
+Filters can optionally be placed in any order to manipulate the incoming measurement stream before it is passed to the recorders. A filter that receives incoming data decides whether to forward it or not by defined rules. For example, a warmup filter might throw away the first N incoming measurement tuples and forward any data incoming thereafter. If not restricted by a concrete filter implementation, a filter can also have an arbitrary number of outgoing connections, so that it is also possible to split up the data stream.    
+<h2>Recorder</h2>
+A recorder is responsible of passing the measurements to a specified persistency framework. Besides raw recorders that just forward the incoming, possibly filtered data to the framework, aggregation recorders may perform any kind of aggregation before doing so. The persistency framework is defined in the write strategy of a recorder.
+
+<h1>Transformation</h1>
+
+<table border="1">
+	<tr><th>Model Element</th><th>Related Class</th></tr>
+
+	<tr><td>Filter</td><td>Filter</td></tr>
+	<tr><td>Recorder</td><td>Recorder</td></tr>
+	<tr><td>Writer</td><td>IWriteStrategy</td></tr>
+	
+</table>
+
+<h2>Example Transformation</h2>
+The code showed below is executed for the initialization of the filter chain using a pipes and filters manager. At first, the initialization of all pipe elements and writestrategy is performed:
+<pre>
+{@code
+	[do for all filters]
+1	filter = new MyFilter();
+	[loop]
+
+	[do for all writers]
+2	rawwriter = new MyWriteStrategy();
+	[loop]
+
+	[do for all recorders]
+3	recorder = new RawRecorder(rawwriter);
+	[loop]
+}
+</pre>
+Afterwards, pipes and filters manager can be initialized and the filter chain is build up.
+<pre>
+{@code
+1	manager = new PipesAndFiltersManager(firstPipeElement);
+
+	[do for all pipe elements]
+2		manager.add(element);
+	[loop]
+
+	[do for all filters]
+		[for each element in filter.getSuccessiveFilters()]
+3		manager.addConnection(filter, element);
+		[loop]
+	[loop]
+
+}
+</pre>
+The manager can now be initialized with necessary meta data. Afterwards it is able to process data.
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Debugging options for the de.uka.ipd.sdq.pcm.gmf.system plug-in
+
+# Turn on general debugging for the de.uka.ipd.sdq.pcm.gmf.system plug-in
+de.uka.ipd.sdq.pcm.gmf.system/debug=false
+
+# Turn on debugging of visualID processing
+de.uka.ipd.sdq.pcm.gmf.system/debug/visualID=true

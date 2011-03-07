@@ -1,0 +1,3 @@
+This plugin allows to run multiple preexisting Launch configurations in sequence. It appears as a new type of LaunchConfig in teh Run Dialog and lists all available SimuCom LaunchConfigs. You can select the ones you want to run. Then, all these are started in some (not definable) order. 
+
+This plugin is quite useful if you need to re-simulate a number of design alternatives after making a change to a common core model (e.g. the respository).

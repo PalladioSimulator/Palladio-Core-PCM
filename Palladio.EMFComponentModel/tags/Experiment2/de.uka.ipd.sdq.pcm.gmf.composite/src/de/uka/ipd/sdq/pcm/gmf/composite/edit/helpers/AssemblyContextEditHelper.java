@@ -1,0 +1,74 @@
+/*
+ *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
+ */
+package de.uka.ipd.sdq.pcm.gmf.composite.edit.helpers;
+
+import java.util.ArrayList;
+
+import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
+import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
+import org.eclipse.ui.PlatformUI;
+
+import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.Repository;
+
+/**
+ * @generated not
+ */
+public class AssemblyContextEditHelper extends
+		PalladioComponentModelBaseEditHelper {
+	
+	
+	@Override
+	protected ICommand getConfigureCommand(ConfigureRequest request) {
+		ProvidesComponentType resource = null;
+
+		ArrayList<Object> filterList = new ArrayList<Object>();
+		filterList.add(Repository.class);
+		filterList.add(ProvidesComponentType.class);
+
+		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+				filterList, 
+				additionalReferences,
+				request.getElementToConfigure().eResource().getResourceSet());
+		dialog.setProvidedService(ProvidesComponentType.class);
+		dialog.open();
+		if (dialog.getResult() == null)
+			return new CanceledCommand();
+		if (!(dialog.getResult() instanceof ProvidesComponentType))
+			return new CanceledCommand();
+		resource = (ProvidesComponentType) dialog.getResult();
+		
+		ICommand cmd = new SetValueCommand(
+				new SetRequest(
+						request.getElementToConfigure(), 
+						CompositionPackage.eINSTANCE.getAssemblyContext_EncapsulatedComponent_ChildComponentContext(),
+						resource));
+		
+		String allocationName = "Assembly_"+resource.getEntityName();
+		allocationName += " <"+resource.getEntityName()+">";
+
+		ICommand cmd2 = new SetValueCommand(
+				new SetRequest(
+						request.getElementToConfigure(), 
+						EntityPackage.eINSTANCE.getNamedElement_EntityName(),
+						allocationName));
+		
+		CompositeCommand cc = new CompositeCommand("Configure Assembly Context");
+		cc.add(cmd);
+		cc.add(cmd2);
+		
+		return cc;
+	}
+
+}

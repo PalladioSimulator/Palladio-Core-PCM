@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry exported="true" kind="lib" path="ch.ethz.iks.r_osgi.remote_1.0.0.RC2_v20081224-1728.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

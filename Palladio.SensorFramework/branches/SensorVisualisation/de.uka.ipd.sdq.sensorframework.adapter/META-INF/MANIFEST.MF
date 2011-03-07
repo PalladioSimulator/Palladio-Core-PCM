@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Sensorframework Adapter Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.adapter;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: de.uka.ipd.sdq.sensorframework,
+ de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes,
+ org.apache.log4j;bundle-version="1.2.13"
+Export-Package: de.uka.ipd.sdq.sensorframework.adapter

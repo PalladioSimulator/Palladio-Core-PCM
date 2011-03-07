@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_QG39sI3_Ed2gLOE4VNvlmQ" entityName="defaultRepository">
+  <components__Repository xsi:type="BasicComponent" id="_R79QAI3_Ed2gLOE4VNvlmQ" entityName="ComponentA">
+    <providedRoles_InterfaceProvidingEntity id="_35A2EI3_Ed2gLOE4VNvlmQ" entityName="InterfaceA" providedInterface__ProvidedRole="_y4jM4I3_Ed2gLOE4VNvlmQ"/>
+    <requiredRoles_InterfaceRequiringEntity id="_s4HUcI3_Ed2gLOE4VNvlmQ" entityName="InterfaceB" requiredInterface__RequiredRole="_W95f4I3_Ed2gLOE4VNvlmQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_q-898o4AEd2gLOE4VNvlmQ" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_w53dMI4AEd2gLOE4VNvlmQ" entityName="SigAStart" successor_AbstractAction="_x3m30I4AEd2gLOE4VNvlmQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_xT5t0I4AEd2gLOE4VNvlmQ" entityName="SigAStop" predecessor_AbstractAction="_x3m30I4AEd2gLOE4VNvlmQ"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_x3m30I4AEd2gLOE4VNvlmQ" entityName="mySigBCall" predecessor_AbstractAction="_w53dMI4AEd2gLOE4VNvlmQ" successor_AbstractAction="_xT5t0I4AEd2gLOE4VNvlmQ" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0" role_ExternalService="_s4HUcI3_Ed2gLOE4VNvlmQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_VwZK8I3_Ed2gLOE4VNvlmQ" entityName="ComponentB">
+    <providedRoles_InterfaceProvidingEntity id="_pt7QYI3_Ed2gLOE4VNvlmQ" entityName="InterfaceB" providedInterface__ProvidedRole="_W95f4I3_Ed2gLOE4VNvlmQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_pt7QYY3_Ed2gLOE4VNvlmQ" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_pt7QYo3_Ed2gLOE4VNvlmQ" entityName="SigBStart" successor_AbstractAction="_SrO7YI4AEd2gLOE4VNvlmQ"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_pt7QY43_Ed2gLOE4VNvlmQ" entityName="SigBStop" predecessor_AbstractAction="_SrO7YI4AEd2gLOE4VNvlmQ"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_SrO7YI4AEd2gLOE4VNvlmQ" entityName="myInternalAction" predecessor_AbstractAction="_pt7QYo3_Ed2gLOE4VNvlmQ" successor_AbstractAction="_pt7QY43_Ed2gLOE4VNvlmQ" failureProbability="0.02">
+        <resourceDemand_Action>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          <specification_ParametericResourceDemand specification="200"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository id="_W95f4I3_Ed2gLOE4VNvlmQ" entityName="InterfaceB">
+    <signatures__Interface serviceName="SignatureB">
+      <parameters__Signature parameterName="param_one">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+      <parameters__Signature parameterName="param_two">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_y4jM4I3_Ed2gLOE4VNvlmQ" entityName="InterfaceA">
+    <signatures__Interface serviceName="SignatureA">
+      <parameters__Signature parameterName="param_one">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+    </signatures__Interface>
+  </interfaces__Repository>
+</Repository>

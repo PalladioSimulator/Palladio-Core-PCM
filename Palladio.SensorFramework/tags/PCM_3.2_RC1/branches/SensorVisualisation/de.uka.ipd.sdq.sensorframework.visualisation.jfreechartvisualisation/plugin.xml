@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+      <extension
+            point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartHistogramReport"
+               icon="icons/new_chart.gif"
+               id="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartHistogramReport"
+               name="JFreeChart Histogram Viewer">
+         </editor>
+         <editor
+               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartTimeSeriesReport"
+               icon="icons/new_chart.gif"
+               id="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartTimeSeriesReport"
+               name="JFreeChart Time Series Viewer">
+         </editor>
+         <editor
+               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartPieReport"
+               icon="icons/new_chart.gif"
+               id="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartPieReport"
+               name="JFreeChart Pie Viewer">
+         </editor>
+         <editor
+               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartCDFReport"
+               icon="icons/new_chart.gif"
+               id="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartCDFReport"
+               name="JFreeChart CDF Viewer">
+         </editor>
+      </extension>
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie"
+               acceptsMultiple="false"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartPieReport"
+               displayName="JFreeChart {0} Pie Chart"
+               editorID="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartPieReport">
+         </Visualisation>
+      </extension>
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram"
+               acceptsMultiple="true"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartHistogramReport"
+               displayName="JFreeChart {0} Histogram"
+               editorID="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartHistogramReport">
+         </Visualisation>
+      </extension>
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.TimeSeries"
+               acceptsMultiple="false"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartTimeSeriesReport"
+               displayName="JFreeChart {0} TimeSeries"
+               editorID="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartTimeSeriesReport">
+         </Visualisation>
+      </extension>
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram"
+               acceptsMultiple="true"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.editor.JFreeChartCDFReport"
+               displayName="JFreeChart {0} Histogram-based CDF"
+               editorID="de.uka.ipd.sdq.simucomframework.visualisation.JFreeChartCDFReport">
+         </Visualisation>
+      </extension>
+
+</plugin>

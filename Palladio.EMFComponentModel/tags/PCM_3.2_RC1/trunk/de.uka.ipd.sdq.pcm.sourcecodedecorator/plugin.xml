@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///SourceCodeDecorator/PCMLinkRepository.ecore"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLinkRepository.PCMLinkRepositoryPackage"
+            genModel="model/SourceCodeDecorator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="pcmlinkrepository"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.PCMLinkRepository.util.PCMLinkRepositoryResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///SourceCodeDecorator/loggerLink.ecore"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.LoggerlinkPackage"
+            genModel="model/SourceCodeDecorator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="loggerlink"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.loggerlink.util.LoggerlinkResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///SourceCodeDecorator/GastPcmLink.ecore"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.GastPcmLink.GastPcmLinkPackage"
+            genModel="model/SourceCodeDecorator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="gastpcmlink"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.GastPcmLink.util.GastPcmLinkResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///SourceCodeDecorator/rawResourceDemandCounts.ecore"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.rawResourceDemandCounts.RawResourceDemandCountsPackage"
+            genModel="model/SourceCodeDecorator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="rawresourcedemandcounts"
+            class="de.uka.ipd.sdq.pcm.sourcecodedecorator.rawResourceDemandCounts.util.RawResourceDemandCountsResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

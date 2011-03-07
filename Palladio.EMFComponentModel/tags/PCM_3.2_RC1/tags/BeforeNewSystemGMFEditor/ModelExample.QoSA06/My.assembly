@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.assembly:Assembly xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.assembly="http://sdq.ipd.uka.de/PalladioComponentModel/Assembly/1.0" id="_WqyKoBsSEdutieAL11TBXw">
+  <assemblyContexts_Assembly id="WebUI_AssCtx" entityName="WebUI_AssCtx">
+    <encapsulatedComponent__AssemblyContext href="My.repository#WebUI"/>
+  </assemblyContexts_Assembly>
+  <assemblyContexts_Assembly id="AudioStore_AssCtx" entityName="AudioStore_AssCtx">
+    <encapsulatedComponent__AssemblyContext href="My.repository#AudioStore"/>
+  </assemblyContexts_Assembly>
+  <assemblyContexts_Assembly id="EncodingAdapter_AssCtx" entityName="EncodingAdapter_AssCtx">
+    <encapsulatedComponent__AssemblyContext href="My.repository#EncodingAdapter"/>
+  </assemblyContexts_Assembly>
+  <assemblyContexts_Assembly id="OggEncoder_AssCtx" entityName="OggEncoder_AssCtx">
+    <encapsulatedComponent__AssemblyContext href="My.repository#OggEncoder"/>
+  </assemblyContexts_Assembly>
+  <assemblyConnectors_Assembly id="Con_WebUI_AudioStore" entityName="Con_WebUI_AudioStore" providingContext_SystemAssemblyConnector="AudioStore_AssCtx" requiringContext_SystemAssemblyConnector="WebUI_AssCtx">
+    <providedRole_SystemAssemblyConnector href="My.repository#ProvRole_AudioStore_IAudioStore"/>
+    <requiredRole_SystemAssemblyConnector href="My.repository#Req_WebGUI_AudioStore"/>
+  </assemblyConnectors_Assembly>
+  <assemblyConnectors_Assembly id="Con_AudioStore_EncodingAdapter" entityName="Con_AudioStore_EncodingAdapter" providingContext_SystemAssemblyConnector="EncodingAdapter_AssCtx" requiringContext_SystemAssemblyConnector="AudioStore_AssCtx">
+    <providedRole_SystemAssemblyConnector href="My.repository#Prov_EncodingAdapter_IAudioDB"/>
+    <requiredRole_SystemAssemblyConnector href="My.repository#ReqRole_AudioStore_IAudioDB"/>
+  </assemblyConnectors_Assembly>
+  <assemblyConnectors_Assembly id="Con_EncodingAdapter_OggEncoder" entityName="Con_EncodingAdapter_OggEncoder" providingContext_SystemAssemblyConnector="OggEncoder_AssCtx" requiringContext_SystemAssemblyConnector="EncodingAdapter_AssCtx">
+    <providedRole_SystemAssemblyConnector href="My.repository#Prov_OggEncoder_IEncoder"/>
+    <requiredRole_SystemAssemblyConnector href="My.repository#Req_EncodingAdapter_IEncoder"/>
+  </assemblyConnectors_Assembly>
+</pcm.assembly:Assembly>

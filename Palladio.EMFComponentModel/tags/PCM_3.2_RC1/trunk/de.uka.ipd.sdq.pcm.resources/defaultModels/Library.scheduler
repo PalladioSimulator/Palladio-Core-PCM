@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scheduler:SchedulerLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/scheduler/configuration/1.0" xmlns:scheduler="http://sdq.ipd.uka.de/scheduler/1.0">
+  <schedulerConfiguration id="_346S8Gt5EdyvvbyE4XoDrQ" name="Linux 2.6.22" Windows="false" interval="100.0">
+    <priorityConfiguration>
+      <range highest="-20" high="-5" low="5" lowest="19"/>
+      <boostConfiguration xsi:type="DynamicPriorityBoostConfiguratioin" maxBonus="10" threshold="3" maxSleepAverage="1000.0"/>
+    </priorityConfiguration>
+    <preemptionConfiguration>
+      <timesliceConfiguration xsi:type="PriorityDependentTimeSliceConfiguration" timeslice="100.0" minTimeslice="5.0" minTimeToBeScheduled="11.0"/>
+    </preemptionConfiguration>
+    <queueingConfiguration xsi:type="MultipleQueueConfiguration" initialInstanceSelection="PREFER_IDLE">
+      <loadBalancing balancingType="ANY_TO_THRESHOLD" preferredWaitingTime="SHORT" threshold="1.0" maxIterations="10"/>
+    </queueingConfiguration>
+  </schedulerConfiguration>
+  <schedulerConfiguration id="_H-tHMGw9Edy7W-_0jjzZwQ" name="Windows XP" interval="31.5">
+    <priorityConfiguration>
+      <range highest="15" high="9" average="8" low="6" default="8"/>
+      <boostConfiguration xsi:type="StaticPriorityBoostConfiguration">
+        <starvationBoost bonus="15"/>
+      </boostConfiguration>
+    </priorityConfiguration>
+    <preemptionConfiguration>
+      <timesliceConfiguration xsi:type="QuantumTimeSliceConfiguration" timeslice="31.5" quanta="6" minQuanta="2"/>
+    </preemptionConfiguration>
+    <queueingConfiguration xsi:type="SingleQueueConfiguration" runqueueType="SINGLE" processSelection="NEXT_RUNNABLE"/>
+    <starvationBoost starvationLimit="4000.0" boost="20" durationInTimeslices="2"/>
+  </schedulerConfiguration>
+  <schedulerConfiguration id="_YaP7MIiaEdyLRLCRvpo6jw" name="Windows 2003" interval="31.5">
+    <priorityConfiguration>
+      <range highest="15" high="12" average="7" low="3" default="7"/>
+      <boostConfiguration xsi:type="StaticPriorityBoostConfiguration">
+        <starvationBoost bonus="15"/>
+      </boostConfiguration>
+    </priorityConfiguration>
+    <preemptionConfiguration>
+      <timesliceConfiguration xsi:type="QuantumTimeSliceConfiguration" timeslice="31.5" quanta="6" minQuanta="2"/>
+    </preemptionConfiguration>
+    <queueingConfiguration xsi:type="MultipleQueueConfiguration" runqueueType="SINGLE" InFrontWhenBalancing="false">
+      <loadBalancing preferredWaitingTime="SHORT" maxIterations="1"/>
+    </queueingConfiguration>
+  </schedulerConfiguration>
+  <schedulerConfiguration id="_Ig5XgLR5EdyAtL0R2j8ckQ" name="HD Scheduler"/>
+</scheduler:SchedulerLibrary>

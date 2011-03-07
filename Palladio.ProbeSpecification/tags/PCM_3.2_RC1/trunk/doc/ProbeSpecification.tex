@@ -1,0 +1,584 @@
+%% LaTeX-Beamer template for KIT design
+%% by Erik Burger, Christian Hammer
+%%
+%% version 1.2
+%%
+%% mostly compatible to KIT corporate design v1.2
+%% http://www.uni-karlsruhe.de/download/uka/Gestaltungsrichtlinien_komplett.pdf
+%%
+%% Problems, bugs and comments to
+%% burger@ipd.uka.de
+
+\documentclass[18pt]{beamer}
+\usetheme{kit}
+
+% remove the following line for German date style and logos
+
+% if a custom picture is to be used on the title page, copy it into the 'logos'
+% directory, in the line below, replace 'mypicture' with the 
+% filename (without extension) and uncomment the line
+
+% \renewcommand{\titleimage}{mypicture}
+
+% (picture proportions: 63 : 20, *.eps format if you use latex+dvips+ps2pdf,
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+% if you want to see BibTeX keys in the references view instead of the symbol,
+% uncomment the following line
+% \usebibitemtemplate{\insertbiblabel}
+
+% the presentation starts here
+
+\usepackage{floatflt}
+\usepackage{listings}
+
+\setcounter{tocdepth}{1}
+
+\title[Probe Specification]{Probe Specification}
+\subtitle{SDQ Lerngruppe 2010}
+\author{Philipp Merkle, Anne Martens}
+\date[04.02.10]{04. Februar 2010}
+
+\institute{Chair for Software Design and Quality}
+
+\begin{document}
+
+\AtBeginSection[]{%
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[currentsection]
+\end{frame}
+}% AtBeginSection
+
+\selectlanguage{english}
+%title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+%table of contents
+\frame{
+\frametitle{Outline}
+\tableofcontents
+}
+
+\section{Motivation}
+\subsection{Motivation -- General}
+\begin{frame}
+\frametitle{Motivation -- General}
+\begin{itemize}
+%\item Conduct simulations, benchmarks, ...
+\item Specify measuring points / track by a model
+\item Simplify measurings in simulations, benchmarks, \ldots
+\item Integrates persistence framework(s) -- soon
+%\item (Messstrecken)
+%\item Model-based (driven?) specification of measuring points / tracks
+%\begin{itemize}
+%\item Multidimensional measurements
+%\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Motivation -- SimuCom}
+\begin{frame}
+	\frametitle{Motivation -- SimuCom}
+	\begin{itemize}
+	\item Current situation
+		\begin{itemize}
+		\item Where and what to measure hard coded
+		\item Persists measurements using SensorFramework
+		\item Some things cannot be measured
+			\begin{itemize}
+			\item e.g. duration between two calls
+			\end{itemize}
+		\item What if some measurements are not needed?
+		\end{itemize}
+	\pause
+	\item SimuCom with ProbeSpecification
+		\begin{itemize}
+		\item Where and what defined by a model
+		\item Persistence: EDP2 applicable
+		\item Allows deactivation of certain measurements
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\section{Overview}
+\subsection{Overview}
+\begin{frame}
+\frametitle{Overview}
+\begin{itemize}
+\item Probe Specification
+	\begin{itemize}
+	\item Meta-Model
+		\begin{itemize}
+		\item Model specifies the measuring track
+		\end{itemize}
+	\item Framework
+		\begin{itemize}
+		\item Supports concrete measurings
+		\end{itemize}
+	\end{itemize}
+\pause
+\item Pipes-and-Filters
+	\begin{itemize}
+	\item Filtering, aggregation, persistency of measurements
+	\item Meta-Model
+		\begin{itemize}
+		\item Model specifies a filter chain
+		\end{itemize}
+	\item Framework
+		\begin{itemize}
+		\item Provides mechanism to build and use filter chains
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\subsection{Probe Specification}
+\begin{frame}
+\frametitle{Probe Specification}
+\begin{itemize}
+\item Meta-Model (EMF ECore)
+	\begin{itemize}
+	\item Models define where and what to measure %(e.g. within a PCM model)
+	\item Refers to another meta-model (e.g. PCM) containing ``measurable'' elements
+		\begin{itemize}
+		\item Measurable (PCM): UsageScenario, ExternalCallAction, EntryLevelSystemCall, ...
+		\item Condition: ECore based too %(i.e. measureable model elements inherit EObject)
+		\end{itemize}
+	%\item Annotates „measureable“ model elements (TODO)
+	%	\begin{itemize}
+	%	\item e.g. annotate ExternalSystemCall to measure response times
+	%	\end{itemize}
+	%\item Annotated elements: Must inherit EObject
+	\end{itemize}
+\pause
+\item Framework
+	\begin{itemize}
+	\item Simplifies collecting and calculating measurements %[Vereinfacht Erhebung und Verarbeitung von Messergebnissen]
+	%\item Provides abstract measurement methods (``Probes'') %Needs to be adapted to measuring environment (e.g. SimuCom)
+	\item Should support various measuring environments
+		\begin{itemize}
+		\item SimuCom, ProtoCom, \ldots
+		%\item Implement custom \emph{ProbeStrategyFactory}
+		\end{itemize}
+	%\item Extendable / Adjustable
+	%	\begin{itemize}
+	%	\item Measuring Environment (mentioned above)
+	%	\item Persistence Framework (e.g. EDP2)
+	%	\end{itemize}
+	\item Depends on Pipes-and-Filters
+		\begin{itemize}
+		\item Delegates results to persistence framework
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Pipes-and-Filters}
+\begin{frame}
+\frametitle{Pipes-and-Filters}
+\begin{itemize}
+\item Meta-Model (EMF ECore)
+	\begin{itemize}
+	\item Models define concrete filter chains
+	\end{itemize}
+\pause
+\item Framework
+	\begin{itemize} 
+	\item Provides \emph{PipesAndFiltersManager}
+		\begin{itemize}
+		\item Simplifies building filter chains
+		\item Manages data flow source $\longrightarrow$ sink
+		\end{itemize}
+	\item Works with arbitrary persistence framework
+		\begin{itemize}
+		\item SensorFramework, EDP2, \ldots
+		\item Implement custom \emph{WriteStrategy}
+		\end{itemize}
+	\item Independent of Probe Specification $\Rightarrow$ reusable!
+	\end{itemize}
+%\item Implements Pipes-and-Filters architecture style
+%\item Allows filtering
+%\item ProbeSpecification uses Pipes-and-Filters
+%\item Pipes-and-Filters independent of Probe Specification %Thus reusable
+\end{itemize}
+\end{frame}
+
+\section{Concepts}
+\subsection{Illustration}
+\begin{frame}
+\frametitle{Concepts -- Illustration}
+\begin{itemize}
+\item Szenario: Agriculture
+	\begin{itemize}
+	\item Several deployed sensor nodes which measure \emph{temperature} and \emph{humidity}
+	\item Base Station collects node data
+	\end{itemize}
+\end{itemize}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.28]{gfx/concepts_illustration.png}
+	\label{fig:mm_overview}
+\end{figure}
+\end{frame}
+
+\subsection{Probe}
+\begin{frame}
+\frametitle{Probe -- ``Messf\"uhler''}
+\begin{columns}[t]
+\column{.8\textwidth}
+%\begin{floatingfigure}[r]{0.3\textwidth}
+%   \includegraphics[scale=0.3]{gfx/illustration_probe.png}
+%\end{floatingfigure}
+\begin{itemize}
+\item Measures a single value + unit pair (JScience: ``Measure'')
+	\begin{itemize}
+	\item A measured value/unit pair is called ProbeSample
+	\end{itemize}
+\item Specifies \textbf{what} to measure, depending on probe type
+	\begin{itemize}
+	\item Knows how to take a measurement
+	\end{itemize}
+\item Probe types
+	\begin{itemize}
+	\item Current Time, CPU State, CPU Demand, \ldots
+	\end{itemize}
+\end{itemize}
+\column{.2\textwidth}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.3]{gfx/illustration_probe.png}
+\end{figure}
+\end{columns}
+\end{frame}
+
+\subsection{ProbeSet}
+\begin{frame}
+\frametitle{ProbeSet~--~``Messpunkt''}
+\begin{columns}[t]
+\column{.8\textwidth}
+%\begin{floatingfigure}[r]{0.3\textwidth}
+%   \includegraphics[scale=0.2]{gfx/illustration_probeset.png}
+%\end{floatingfigure}
+\begin{itemize}
+\item Encapsulates one or several Probes
+\item Measures a tuple of value + unit pairs
+	\begin{itemize}
+	\item Dependent on contained probes
+	\item Multidimensional measurements possible
+	\item A set of measures is called ProbeSetSample
+	\end{itemize}
+\item Specifies \textbf{where} to take a measurement 
+\item Example ProbeSet: $(Current Time, CPU State)$
+%\item	Measuring the state disregarding the time probably useless, Stichwort Auslastung (TODO)
+\end{itemize}
+\column{.2\textwidth}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.2]{gfx/illustration_probeset.png}
+\end{figure}
+\end{columns}
+\end{frame}
+
+\subsection{Calculator}
+\begin{frame}
+\frametitle{Calculator}
+\begin{itemize}
+\item Motivation: Measure (time) differences % "Main" motivation!?
+\item Input: ProbeSetSample(s)
+	\begin{itemize}
+	\item i.e. the measurements from one or several ProbeSets
+	\end{itemize}
+\item Output: The measuring result (value + unit)
+\item Example: CPUStateCalculator
+\item Trivial calculator: Pass through
+\item Calculator types
+	\begin{itemize}
+	\item Response Time, Waiting Time, CPU Demand, \ldots
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Calculator: Discussion}
+\begin{itemize}
+\item Aren't the ProbeSetSamples already results? % TODO: Is the ... not already...
+	\begin{itemize}
+	\item Consider a response time measurement
+		\begin{itemize}
+		\item 2 ProbeSets needed: At start position, at end position (e.g. of a service call)
+		\item Resulting ProbeSetSamples: $(time_{start})$, $(time_{end})$
+		\item Calculating $time_{end}-time_{start}$ produces result
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Meta-Model}
+\subsection{Overview}
+\begin{frame}
+\frametitle{Meta-Model -- Overview}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.3]{gfx/mm_overview2.png}
+	\label{fig:mm_overview}
+\end{figure}
+\begin{itemize}
+\pause
+\item Why a \emph{Position} attribute?
+	\begin{itemize}
+	\item Consider e.g. an \emph{ExternalCallAction}: Position specifies whether to measure before or after the call
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Probes}
+\begin{frame}
+\frametitle{Meta-Model -- Probes}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.3]{gfx/mm_probes.png}
+	\label{fig:mm_overview}
+\end{figure}
+\end{frame}
+
+\subsection{Calculators}
+\begin{frame}
+\frametitle{Meta-Model -- Calculators}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.3]{gfx/mm_calculators.png}
+	\label{fig:mm_overview}
+\end{figure}
+\end{frame}
+
+\subsection{Pipes-and-Filters}
+\begin{frame}
+\frametitle{Meta-Model -- Pipes-and-Filters}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.3]{gfx/mm_pipesandfilters.png}
+	\label{fig:mm_overview}
+\end{figure}
+\end{frame}
+
+\subsection{Usage Example: SimuCom}
+\begin{frame}
+\frametitle{Usage Example: SimuCom}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.2]{gfx/transformation.png}
+	\label{fig:mm_overview}
+\end{figure}
+\end{frame}
+
+\section{Framework}
+\subsection{ProbeStrategies}
+\begin{frame}
+\frametitle{ProbeStrategies}
+\begin{columns}[t]
+\column{.3\textwidth}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.3]{gfx/probeStrategies.png}
+\end{figure}
+\column{.6\textwidth}
+\begin{itemize}
+\item ProbeStrategy
+	\begin{itemize}
+	\item Concrete measuring method
+		\begin{itemize}
+		\item Wall clock time:\\{\tiny\emph{System.currentTimeMillis()}}
+		\item Simulation time:\\{\tiny\emph{SimulationControl.getCurrentSimulationTime()}}
+		\end{itemize}
+	\vspace{0.16\textheight}
+	\item Specific implementation for each measuring environment
+	\end{itemize}
+\item Different implementations for different environments
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{ProbeStrategyFactory}
+\begin{columns}[t]
+\column{.4\textwidth}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.3]{gfx/probeStrategyFactory2.png}
+	\label{fig:SequenceDiagram1}
+\end{figure}
+\column{.5\textwidth}
+\begin{itemize}
+\item ProbeStrategyFactory
+	\begin{itemize}
+	%\item Encapsulates ProbeStrategy creation
+	\item Bundles ProbeStrategies for specific measuring environments
+	\item One factory for each measuring environment
+	%\item Inherits abstract class AProbeStrategyFactory
+	%\item Creates concrete ProbeStrategies
+	%	\begin{itemize}
+	%	\item Thus: Provides a set of ProbeStrategies
+	%	\end{itemize}
+	%\item One factory for each measuring environment
+	\end{itemize}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\subsection{Blackboard}
+\begin{frame}
+\frametitle{Blackboard}
+\begin{itemize}
+\item Receives measurements
+\item Notifies calculators of new measurements
+	\begin{itemize}
+	\item Observer Pattern
+	\end{itemize}
+\item \emph{Context aware}
+	\begin{itemize}
+	\item Simulation: Which simulated user raised the measurement?
+	\item Code instrumentation: Which thread caused the measurement?
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Blackboard -- Context awareness}
+\begin{frame}
+\frametitle{Blackboard -- Context awareness}
+\begin{itemize}
+\item Implemented by framework class \emph{RequestContextID}
+	\begin{itemize}
+	\item Represents context
+	\end{itemize}
+\item Present
+	\begin{itemize}
+	\item Context represented simply by a String 
+		\begin{itemize}
+		\item e.g. \emph{UserID} or \emph{ThreadID}
+		\end{itemize}
+	\item Encapsulated by class \emph{RequestContextID}
+	\item Does not support forks
+	\end{itemize}
+\pause
+\item Planned
+	\begin{itemize}
+	\item Context represented by a \emph{stack} of Strings
+	\item Enables measuring e.g. response time within forks
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Blackboard -- Interaction}
+\begin{frame}
+\frametitle{Blackboard -- Interaction (Case 1)}
+\begin{itemize}
+\item Case 1: Unary Calculator
+\end{itemize}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.3]{gfx/SequenceDiagram1.png}
+	\label{fig:SequenceDiagram1}
+\end{figure}
+\pause
+\begin{itemize}
+\item Not depicted: \lstinline[]{addProbeSample()} and notify() has parameter \emph{ProbeSetSample}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Blackboard -- Interaction (Case 2)}
+\begin{itemize}
+\item Case 2: Binary Calculator, MeasuringEnvironment adds start ProbeSetSample to Blackboard
+\end{itemize}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.3]{gfx/SequenceDiagram3.png}
+	\label{fig:SequenceDiagram1}
+\end{figure}
+\begin{itemize}
+\pause
+\item ResponseTimeCalculator must wait for end ProbeSetSample (Case 3)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Blackboard -- Interaction (Case 3)}
+\begin{itemize}
+\item Case 3: Binary Calculator, MeasuringEnvironment adds end ProbeSetSample to Blackboard
+\end{itemize}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.3]{gfx/SequenceDiagram2.png}
+	\label{fig:SequenceDiagram1}
+\end{figure}
+\end{frame}
+
+\subsection{Blackboard -- Garbage Collection}
+\begin{frame}
+\frametitle{Blackboard -- Garbage Collection}
+\begin{itemize}
+\item Obsolete ProbeSetSamples occupies memory
+	%\begin{itemize}
+	%\item Obsolete $\Leftrightarrow$ corresponding Calculator already generated an output, based on the ProbeSetSample
+	%\end{itemize}
+\item Garbage Collection needed
+\pause
+\item Currently: Basic implementation
+	\begin{itemize}
+	\item Initial lifetime = 1 for each ProbeSetSample
+	\item Invoking \emph{getProbeSetSample()} decreases lifetime by 1
+	\item Lifetime == 0 $\Rightarrow$ Garbage
+	\end{itemize}
+\pause
+\item Desireable -- future work
+	\begin{itemize}
+	\item Get rid of side effects within \emph{getProbeSetSample()}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Demonstration}
+\begin{frame}
+\frametitle{Demonstration}
+\begin{itemize}
+\item Live Demo: Test Case ``CalculatorAndPipesTest''
+\end{itemize}
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.13]{gfx/CalculatorAndPipeTest.png}
+	\label{fig:SequenceDiagram1}
+\end{figure}
+\end{frame}
+
+\section{References}
+\begin{frame}
+\frametitle{References, Further Information}
+\begin{itemize}
+\item SPEEcl Praktikum 2009
+	\begin{itemize}
+	\item Anforderungsanalyse -- version 0.2 is final
+	\item Review Anleitung
+	\item Abschlusspr\"asentation
+	\end{itemize}
+\item Javadoc -- there are extensive package documentations
+\item All documents resides in the SVN:\\{\tiny /code/Palladio.ProbeSpecification/trunk/de.uka.ipd.sdq.probespec.framework/doc}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Omitted}
+\begin{itemize}
+\item Pipes-and-Filter
+	\begin{itemize}
+	\item PipesAndFiltersManager
+	\item Recorder: RawRecorder vs. AggregationRecorder
+	\item MetaDataInit: Provides WriteStrategies details on the measurement
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\end{document}

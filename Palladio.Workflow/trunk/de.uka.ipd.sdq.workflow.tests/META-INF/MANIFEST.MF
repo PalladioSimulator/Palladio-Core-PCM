@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Workflow Test Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.workflow.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.workflow.tests.Activator
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.debug.core,
+ org.eclipse.core.filesystem,
+ de.uka.ipd.sdq.workflow,
+ org.junit
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

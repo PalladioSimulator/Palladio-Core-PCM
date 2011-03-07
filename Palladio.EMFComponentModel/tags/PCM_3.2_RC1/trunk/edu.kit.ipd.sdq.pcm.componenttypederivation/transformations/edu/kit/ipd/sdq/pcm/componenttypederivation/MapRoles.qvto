@@ -1,0 +1,26 @@
+/* Identity mappings for the roles of a component. */
+library MapRoles;
+
+modeltype PCM uses "http://sdq.ipd.uka.de/PalladioComponentModel/4.0";
+modeltype PCM_REP uses "http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0";
+
+/* Copy provided role */
+mapping PCM_REP::ProvidedRole::ProvidedToProvided() : PCM_REP::ProvidedRole {
+	entityName := self.entityName;
+	providedInterface__ProvidedRole := self.providedInterface__ProvidedRole;
+	providingEntity_ProvidedRole := self.providingEntity_ProvidedRole;
+}
+
+/* Copy required role */
+mapping PCM_REP::RequiredRole::RequiredToRequired() : PCM_REP::RequiredRole {
+	entityName := self.entityName;
+	requiredInterface__RequiredRole := self.requiredInterface__RequiredRole;
+	requiringEntity_RequiredRole := self.requiringEntity_RequiredRole;
+}
+
+/* Copy required resource role */
+mapping PCM_REP::ResourceRequiredRole::ResourceToResource() : PCM_REP::ResourceRequiredRole {
+	entityName := self.entityName;
+	requiredInterface_ResourceRequiredRole := self.requiredInterface_ResourceRequiredRole;
+	resourceRequiringEntity_ResourceRequiredRole := self.resourceRequiringEntity_ResourceRequiredRole;	
+}

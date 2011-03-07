@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.probfunction/src"
+    modelPluginID="de.uka.ipd.sdq.probfunction" modelName="ProbabilityFunction" importerID="org.eclipse.emf.importer.ecore">
+  <foreignModel>ProbabilityFunction.ecore</foreignModel>
+  <genPackages prefix="Probfunction" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
+      ecorePackage="ProbabilityFunction.ecore#/">
+    <genClasses ecoreClass="ProbabilityFunction.ecore#//BoxedPDF">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProbabilityFunction.ecore#//BoxedPDF/samples"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ProbabilityFunction.ecore#//ProbabilityDensityFunction"/>
+    <genClasses image="false" ecoreClass="ProbabilityFunction.ecore#//ProbabilityFunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProbabilityFunction.ecore#//ProbabilityFunction/unit"/>
+    </genClasses>
+    <genClasses ecoreClass="ProbabilityFunction.ecore#//Unit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//Unit/unitName"/>
+    </genClasses>
+    <genClasses ecoreClass="ProbabilityFunction.ecore#//ContinuousSample">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//ContinuousSample/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//ContinuousSample/probability"/>
+    </genClasses>
+    <genClasses ecoreClass="ProbabilityFunction.ecore#//ProbabilityMassFunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProbabilityFunction.ecore#//ProbabilityMassFunction/samples"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//ProbabilityMassFunction/orderedDomain"/>
+    </genClasses>
+    <genClasses ecoreClass="ProbabilityFunction.ecore#//Sample">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//Sample/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//Sample/probability"/>
+    </genClasses>
+    <genClasses ecoreClass="ProbabilityFunction.ecore#//SamplePDF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//SamplePDF/distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ProbabilityFunction.ecore#//SamplePDF/values"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

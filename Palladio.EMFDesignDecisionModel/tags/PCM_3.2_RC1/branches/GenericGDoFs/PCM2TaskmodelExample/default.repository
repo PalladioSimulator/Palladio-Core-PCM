@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" xmlns:pcm.reliability="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/4.0" id="_7R2EEKOWEd6D1ZKDqAnLPA" entityName="defaultRepository">
+  <components__Repository xsi:type="BasicComponent" id="_9PT2UKOWEd6D1ZKDqAnLPA" entityName="Component1">
+    <providedRoles_InterfaceProvidingEntity xsi:type="OperationProvidedRole" id="_AzcrcKOXEd6D1ZKDqAnLPA" entityName="Provided_Interface1_Component1" providedInterface__OperationProvidedRole="_8pnIQKOWEd6D1ZKDqAnLPA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_AzcrcaOXEd6D1ZKDqAnLPA" describedService__SEFF="_jDp1ssASEd-wl4kXmaN3pQ">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_AzcrcqOXEd6D1ZKDqAnLPA" successor_AbstractAction="_CKBc0KOXEd6D1ZKDqAnLPA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_Azcrc6OXEd6D1ZKDqAnLPA" predecessor_AbstractAction="_BsEVgKOXEd6D1ZKDqAnLPA"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_BsEVgKOXEd6D1ZKDqAnLPA" entityName="action2" predecessor_AbstractAction="_CKBc0KOXEd6D1ZKDqAnLPA" successor_AbstractAction="_Azcrc6OXEd6D1ZKDqAnLPA">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="10"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+        <failureOccurrenceDescriptions_InternalAction failureProbability="0.0020" applicationFailureType_FailureOccurrenceDescription="_ocAad8ASEd-wl4kXmaN3pQ"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_CKBc0KOXEd6D1ZKDqAnLPA" entityName="action1" predecessor_AbstractAction="_AzcrcqOXEd6D1ZKDqAnLPA" successor_AbstractAction="_BsEVgKOXEd6D1ZKDqAnLPA">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="2"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+        <failureOccurrenceDescriptions_InternalAction failureProbability="0.0010" applicationFailureType_FailureOccurrenceDescription="_ocAad8ASEd-wl4kXmaN3pQ"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_74WmQKOdEd6Wld2f-l5cjw" entityName="AlternativeComponent">
+    <providedRoles_InterfaceProvidingEntity xsi:type="OperationProvidedRole" id="_9An14KOdEd6Wld2f-l5cjw" entityName="Provided_Interface1_AlternativeComponent" providedInterface__OperationProvidedRole="_8pnIQKOWEd6D1ZKDqAnLPA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_9An14aOdEd6Wld2f-l5cjw" describedService__SEFF="_jDp1ssASEd-wl4kXmaN3pQ">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_9An14qOdEd6Wld2f-l5cjw" successor_AbstractAction="_93w5QKOdEd6Wld2f-l5cjw"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_9An146OdEd6Wld2f-l5cjw" predecessor_AbstractAction="_-W5sUKOdEd6Wld2f-l5cjw"/>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_93w5QKOdEd6Wld2f-l5cjw" entityName="action1" predecessor_AbstractAction="_9An14qOdEd6Wld2f-l5cjw" successor_AbstractAction="_-W5sUKOdEd6Wld2f-l5cjw">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="3"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+        <failureOccurrenceDescriptions_InternalAction failureProbability="0.0015" applicationFailureType_FailureOccurrenceDescription="_ocAad8ASEd-wl4kXmaN3pQ"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_-W5sUKOdEd6Wld2f-l5cjw" entityName="action2" predecessor_AbstractAction="_93w5QKOdEd6Wld2f-l5cjw" successor_AbstractAction="_9An146OdEd6Wld2f-l5cjw">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="7"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+        <failureOccurrenceDescriptions_InternalAction failureProbability="0.0020" applicationFailureType_FailureOccurrenceDescription="_ocAad8ASEd-wl4kXmaN3pQ"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <failureTypes_Repository xsi:type="pcm.reliability:ApplicationFailureType" id="_ocAad8ASEd-wl4kXmaN3pQ" entityName="SWFailure"/>
+  <interfaces__Repository xsi:type="OperationInterface" id="_8pnIQKOWEd6D1ZKDqAnLPA" entityName="Interface1">
+    <signatures__OperationInterface id="_jDp1ssASEd-wl4kXmaN3pQ" entityName="service1"/>
+  </interfaces__Repository>
+</Repository>

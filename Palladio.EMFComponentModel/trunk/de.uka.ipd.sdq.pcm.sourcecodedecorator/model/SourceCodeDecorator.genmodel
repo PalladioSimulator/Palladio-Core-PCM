@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" modelDirectory="/de.uka.ipd.sdq.pcm.sourcecodedecorator/src"
+    modelPluginID="de.uka.ipd.sdq.pcm.sourcecodedecorator" modelName="SourceCodeDecorator"
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.fzi.gast/model/SissyModel.genmodel#//gast platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+  </genAnnotations>
+  <foreignModel>file:/C:/Dokumente%20und%20Einstellungen/kelsaka/Desktop/rsa-export/SourceCodeDecorator.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Sourcecodedecorator" basePackage="de.uka.ipd.sdq.pcm"
+      disposableProviderFactory="true" ecorePackage="SourceCodeDecorator.ecore#/">
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="PCMLinkRepository" resource="XML"
+        disposableProviderFactory="true" ecorePackage="SourceCodeDecorator.ecore#//PCMLinkRepository">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//PCMLinkRepository/PCMLinkRepository">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLinkRepository/PCMLinkRepository/loggingPositionLinks"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLinkRepository/PCMLinkRepository/internalActionLinks"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//PCMLinkRepository/PCMLinkRepository/inputParameterLinks"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Loggerlink" basePackage="de.uka.ipd.sdq.pcm.sourcecodedecorator"
+        resource="XML" disposableProviderFactory="true" ecorePackage="SourceCodeDecorator.ecore#//loggerlink">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//loggerlink/BeforeReturnValueLoggingPositionLink">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BeforeReturnValueLoggingPositionLink/linkedSetVariableAction"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BeforeReturnValueLoggingPositionLink/providedFunctionOfSurroundingSeff"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BeforeReturnValueLoggingPositionLink/parameterLink"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="SourceCodeDecorator.ecore#//loggerlink/OutputLoggingPositionLink"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//loggerlink/BeforeExternalCallLoggingPositionLink">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BeforeExternalCallLoggingPositionLink/linkedExternalCallAction"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BeforeExternalCallLoggingPositionLink/calledFunction"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BeforeExternalCallLoggingPositionLink/parameterLink"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//loggerlink/MethodCallLoggingPositionLink">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/MethodCallLoggingPositionLink/linkedServiceEffectSpecification"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/MethodCallLoggingPositionLink/providedFunction"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/MethodCallLoggingPositionLink/parameterLinks"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="SourceCodeDecorator.ecore#//loggerlink/InputLoggingPositionLink"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//loggerlink/AfterExternalCallLoggingPositionLink">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/AfterExternalCallLoggingPositionLink/linkedExternalCallAction"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/AfterExternalCallLoggingPositionLink/calledFunction"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/AfterExternalCallLoggingPositionLink/parameterLink"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//loggerlink/BranchLoggingPositionLink">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BranchLoggingPositionLink/linkedGuardedBranchTransition"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/BranchLoggingPositionLink/branchStatement"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//loggerlink/LoopLoggingPositionLink">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/LoopLoggingPositionLink/linkedLoopAction"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//loggerlink/LoopLoggingPositionLink/loopStatement"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//loggerlink/LoggingPositionIdLink">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//loggerlink/LoggingPositionIdLink/loggingPositionId"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="GastPcmLink" basePackage="de.uka.ipd.sdq.pcm.sourcecodedecorator"
+        resource="XML" disposableProviderFactory="true" ecorePackage="SourceCodeDecorator.ecore#//GastPcmLink">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//GastPcmLink/InternalActionLink">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//GastPcmLink/InternalActionLink/linkedInternalAction"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//GastPcmLink/InternalActionLink/internalActionStatements"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//GastPcmLink/ParameterLink">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//GastPcmLink/ParameterLink/linkedParameter"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//GastPcmLink/ParameterLink/parameter"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="RawResourceDemandCounts"
+        basePackage="de.uka.ipd.sdq.pcm.sourcecodedecorator" resource="XML" disposableProviderFactory="true"
+        ecorePackage="SourceCodeDecorator.ecore#//rawResourceDemandCounts">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//rawResourceDemandCounts/RawResourceDemandsLink">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/RawResourceDemandsLink/internalAction"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/RawResourceDemandsLink/bytecodeMonitoringRuns"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//rawResourceDemandCounts/BytecodeMonitoringRun">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/BytecodeMonitoringRun/measuredCounts"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/BytecodeMonitoringRun/inputParameterCharacterisations"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/BytecodeMonitoringRun/environmentCharacterisation"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/BytecodeMonitoringRun/rawResourceDemandsLink"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="SourceCodeDecorator.ecore#//rawResourceDemandCounts/MeasuredCount">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//rawResourceDemandCounts/MeasuredCount/count"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/MeasuredCount/signature"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/MeasuredCount/parameterValues"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//rawResourceDemandCounts/ParameterValue">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/ParameterValue/describedParameter"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/ParameterValue/measuredCharacterisationValue"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="SourceCodeDecorator.ecore#//rawResourceDemandCounts/MeasuredCharacterisationValue">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/MeasuredCharacterisationValue/requiredCharacterisation"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="SourceCodeDecorator.ecore#//rawResourceDemandCounts/EnvironmentCharacterisation">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/EnvironmentCharacterisation/bytecodeMonitoringRuns"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//rawResourceDemandCounts/RawResourceDemandsRepository">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/RawResourceDemandsRepository/bytecodeMonitoringRuns"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/RawResourceDemandsRepository/rawResourceDemandsLinks"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference SourceCodeDecorator.ecore#//rawResourceDemandCounts/RawResourceDemandsRepository/environmentCharacterisations"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//rawResourceDemandCounts/DoubleCharacterisationValue">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//rawResourceDemandCounts/DoubleCharacterisationValue/value"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//rawResourceDemandCounts/LongCharacterisationValue">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//rawResourceDemandCounts/LongCharacterisationValue/value"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="SourceCodeDecorator.ecore#//rawResourceDemandCounts/BooleanCharacterisationValue">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute SourceCodeDecorator.ecore#//rawResourceDemandCounts/BooleanCharacterisationValue/value"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

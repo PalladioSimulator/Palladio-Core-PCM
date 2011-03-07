@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspectives.ComponentDeveloperPerspective"
+            icon="icons/brick.png"
+            id="de.uka.ipd.sdq.pcmbench.componentdeveloper_perspective"
+            name="Component Developer Perspective">
+      </perspective>
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspectives.SoftwareArchitectPerspective"
+            icon="icons/package.png"
+            id="de.uka.ipd.sdq.pcmbench.softwarearchitect_perspective"
+            name="Software Architect Perspective">
+      </perspective>
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspectives.DeployerPerspective"
+            icon="icons/server.png"
+            id="de.uka.ipd.sdq.pcmbench.deployer_perspective"
+            name="Deployer Perspective">
+      </perspective>
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspectives.DomainExpertPerspective"
+            icon="icons/status_away.png"
+            id="de.uka.ipd.sdq.pcmbench.domainexpert_perspective"
+            name="Domain Expert Perspective">
+      </perspective>
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspectives.QosAnalystPerspective"
+            icon="icons/chart_bar.png"
+            id="de.uka.ipd.sdq.pcmbench.qosanalyst_perspective"
+            name="QoS Analyst Perspective">
+      </perspective>
+   </extension>
+   
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="de.uka.ipd.sdq.pcmbench.application"
+            name="Palladio Component Model Modelling Bench">
+         <property
+               name="windowImages"
+               value="icons/palladio-logo.gif">
+         </property>
+         <property
+               name="appName"
+               value="Palladio Component Model Modelling Bench">
+         </property>
+         <property
+               name="aboutText"
+               value="This ist the Palladio Component Model Modelling Bench.&#x0A;&#x0A;Wrtitten by the members of the chair of Software Design and Quality, IPD, University of Karlsruhe&#x0A;&#x0A;Copyright 2007, SDQ, IPD">
+         </property>
+         <property name="preferenceCustomization" value="plugin_customization.ini"/>
+         <property
+               name="startupForegroundColor"
+               value="0000FF">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="240,155,180,20">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="240,140,180,10">
+         </property>
+      </product>
+   </extension>
+   
+  
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewer viewerId="de.uka.ipd.sdq.pcmbench.projectview">
+         <popupMenu
+               allowsPlatformContributions="false"
+               id="de.uka.ipd.sdq.pcmbench.projectview.menu">
+            <insertionPoint
+                  name="group.new"
+                  separator="true"/>
+            <insertionPoint
+                  name="group.edit"
+                  separator="true"/>
+         </popupMenu>
+      </viewer>
+      <viewerContentBinding viewerId="de.uka.ipd.sdq.pcmbench.projectview">
+         <includes>
+            <contentExtension pattern="de.uka.ipd.sdq.pcmbench.navigator.propertiesContent"/>
+            <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*"/>
+            <contentExtension pattern="de.uka.ipd.sdq.pcmbench.navigator.filters.*"/>
+            <contentExtension pattern="org.eclipse.ui.navigator.resourceContent"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="de.uka.ipd.sdq.pcmbench.projectview">
+         <includes>
+            <actionExtension pattern="org.eclipse.ui.navigator.resources.*"/>
+         </includes>
+      </viewerActionBinding>
+      <dragAssistant
+            class="de.uka.ipd.sdq.pcmbench.navigator.DragAssistant"
+            viewerId="de.uka.ipd.sdq.pcmbench.projectview">
+      </dragAssistant>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <commonFilter
+            activeByDefault="false"
+            id="de.uka.ipd.sdq.pcmbench.navigator.filters.hideNonJavaProjects"
+            name="Hide projects without the Palladio Nature">
+         <filterExpression>
+         	<not>
+               <adapt type="org.eclipse.core.resources.IProject">
+                  <test
+                        property="org.eclipse.core.resources.projectNature"
+                        value="de.uka.ipd.sdq.pcmbench.nature"/>
+               </adapt>
+             </not>
+         </filterExpression>
+      </commonFilter>
+      <navigatorContent
+            activeByDefault="true"
+            contentProvider="de.uka.ipd.sdq.pcmbench.navigator.PCMNavigatorContentProvider"
+            icon="icons/palladio-logo.gif"
+            id="de.uka.ipd.sdq.pcmbench.navigator.propertiesContent"
+            labelProvider="de.uka.ipd.sdq.pcmbench.navigator.PCMNavigatorLabelProvider"
+            name="Palladio Modelling Projects Content"
+            priority="normal"
+            providesSaveables="true">
+         <enablement>
+            <or>
+               <instanceof value="org.eclipse.core.resources.IProject"/>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.navigator.LinkedRepositoriesNode"/>
+            </or>
+         </enablement>
+         <possibleChildren>
+            <or>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.navigator.LinkedRepositoriesNode"/>
+            </or>
+         </possibleChildren>
+         <actionProvider
+               class="de.uka.ipd.sdq.pcmbench.navigator.ChildAddMenuProvider"
+               id="de.uka.ipd.sdq.pcmbench.ChildAddMenuProvider"/>
+      </navigatorContent>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="de.uka.ipd.sdq.pcmbench.palladio_category"
+            name="Palladio Projects">
+      </category>
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_category"
+            class="de.uka.ipd.sdq.pcmbench.wizards.RepositoryProjectWizard"
+            finalPerspective="de.uka.ipd.sdq.pcmbench.componentdeveloper_perspective"
+            hasPages="true"
+            icon="icons/brick.png"
+            id="de.uka.ipd.sdq.pcmbench.repository_project_wizard"
+            name="Repository Project Wizard"
+            preferredPerspectives="de.uka.ipd.sdq.pcmbench.componentdeveloper_perspective"
+            project="true">
+      </wizard>
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_category"
+            class="de.uka.ipd.sdq.pcmbench.wizards.SystemProjectWizard"
+            finalPerspective="de.uka.ipd.sdq.pcmbench.softwarearchitect_perspective"
+            hasPages="true"
+            icon="icons/package.png"
+            id="de.uka.ipd.sdq.pcmbench.system_assembly_project_wizard"
+            name="System Assembly Project Wizard"
+            preferredPerspectives="de.uka.ipd.sdq.pcmbench.softwarearchitect_perspective"
+            project="true">
+      </wizard>
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_category"
+            class="de.uka.ipd.sdq.pcmbench.wizards.ResourceEnvironmentProjectWizard"
+            finalPerspective="de.uka.ipd.sdq.pcmbench.deployer_perspective"
+            hasPages="true"
+            icon="icons/server.png"
+            id="de.uka.ipd.sdq.pcmbench.resource_environment_project_wizard"
+            name="Resource Environment Project Wizard"
+            preferredPerspectives="de.uka.ipd.sdq.pcmbench.deployer_perspective"
+            project="true">
+      </wizard>
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_category"
+            class="de.uka.ipd.sdq.pcmbench.wizards.UsageModelProjectWizard"
+            finalPerspective="de.uka.ipd.sdq.pcmbench.domainexpert_perspective"
+            hasPages="true"
+            icon="icons/status_away.png"
+            id="de.uka.ipd.sdq.pcmbench.usage_model_project_wizard"
+            name="Usage Model Project Wizard"
+            preferredPerspectives="de.uka.ipd.sdq.pcmbench.domainexpert_perspective"
+            project="true">
+      </wizard>
+   </extension>
+   
+   
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            visible="true">
+         <run
+               class="de.uka.ipd.sdq.pcmbench.application.PCMBenchApplication">
+         </run>
+      </application>
+   </extension>
+</plugin>
