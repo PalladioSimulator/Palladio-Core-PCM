@@ -376,6 +376,9 @@ public class MarkovTransformationResult {
 						+ ":", failureTypeProbability));
 			}
 		}
+		
+		// TODO remove test code
+		new MarkovReporting(cumulatedFailureTypeProbabilities);
 	}
 
 	/**
