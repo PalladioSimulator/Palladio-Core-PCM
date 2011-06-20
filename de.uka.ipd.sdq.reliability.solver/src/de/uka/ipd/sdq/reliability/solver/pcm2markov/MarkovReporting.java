@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
 import de.uka.ipd.sdq.reliability.core.MarkovSoftwareInducedFailureType;
 
@@ -20,6 +22,12 @@ public class MarkovReporting {
 	 * physical system states.
 	 */
 	private Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities;
+	
+	/**
+	 * A logger to give detailed information about the PCM instance
+	 * transformation.
+	 */
+	private static Logger logger = Logger.getLogger(MarkovReporting.class.getName());
 
 	/**
 	 * Will store the overall failure probabilities of the components' internal actions.
@@ -68,39 +76,45 @@ public class MarkovReporting {
 		calculateExternalServiceFailureProbabilities();
 		calculateExternalServiceOperationFailureProbabilities();
 
-		System.out.println("=======================");
-		System.out.println("=== MarkovReporting ===");
-		System.out.println("=======================");
-		System.out.println();
-
-		for (MarkovFailureType failureType : this.cumulatedFailureTypeProbabilities.keySet()) {
-			System.out.println("==================================================");
-			System.out.println("Failure type name and ID: " + failureType.getName()
-					+ ", " + failureType.getId());
-			System.out.println("- Is external: " + failureType.isSystemExternal());
-			System.out.println("- Failure probability: " + cumulatedFailureTypeProbabilities.get(failureType));
-		}
-		System.out.println();
-		System.out.println();
-
+//		System.out.println("=======================");
+//		System.out.println("=== MarkovReporting ===");
+//		System.out.println("=======================");
+//		System.out.println();
+//
+//		for (MarkovFailureType failureType : this.cumulatedFailureTypeProbabilities.keySet()) {
+//			System.out.println("==================================================");
+//			System.out.println("Failure type name and ID: " + failureType.getName()
+//					+ ", " + failureType.getId());
+//			System.out.println("- Is external: " + failureType.isSystemExternal());
+//			System.out.println("- Failure probability: " + cumulatedFailureTypeProbabilities.get(failureType));
+//		}
+//		System.out.println();
+//		System.out.println();
+//
+//		printComponentsInternalActionFailureProbabilities();
+//		System.out.println();
+//
+//		printComponentsServiceFailureProbabilities();
+//		System.out.println();
+//
+//		printComponentsServiceOperationFailureProbabilities();
+//		System.out.println();
+//
+//		printExternalServiceFailureProbabilities();
+//		System.out.println();
+//
+//		printExternalServiceOperationFailureProbabilities();
+//		System.out.println();
+//
+//		System.out.println("==============================");
+//		System.out.println("=== End of MarkovReporting ===");
+//		System.out.println("==============================");
+		
 		printComponentsInternalActionFailureProbabilities();
-		System.out.println();
-
 		printComponentsServiceFailureProbabilities();
-		System.out.println();
-
 		printComponentsServiceOperationFailureProbabilities();
-		System.out.println();
-
 		printExternalServiceFailureProbabilities();
-		System.out.println();
-
 		printExternalServiceOperationFailureProbabilities();
-		System.out.println();
-
-		System.out.println("==============================");
-		System.out.println("=== End of MarkovReporting ===");
-		System.out.println("==============================");
 	}
 
 	/**
@@ -304,10 +318,14 @@ public class MarkovReporting {
 	 * Method used for printing all components' internal action failure probabilities.
 	 */
 	public void printComponentsInternalActionFailureProbabilities() {
-		System.out.println("Components' internal actions:");
-		for (FailureProbabilityAggregation aggregation : componentsInternalActionsFailureProbabilityAggregation) {
-			System.out.println("- " + aggregation.getEntityName() + " has failure probability "
-					+ aggregation.getFailureProbability() + ".");
+		logger.info("Components' internal actions:");
+		if (componentsInternalActionsFailureProbabilityAggregation.isEmpty()) {
+			logger.info(" (none)");
+		} else {
+			for (FailureProbabilityAggregation aggregation : componentsInternalActionsFailureProbabilityAggregation) {
+				logger.info("- " + aggregation.getEntityName() + " has failure probability "
+						+ aggregation.getFailureProbability() + ".");
+			}
 		}
 	}
 
@@ -315,10 +333,14 @@ public class MarkovReporting {
 	 * Method used for printing all components' service (interface) failure probabilities.
 	 */
 	public void printComponentsServiceFailureProbabilities() {
-		System.out.println("Components' services (interfaces):");
-		for (FailureProbabilityAggregation aggregation : componentsServiceFailureProbabilityAggregation) {
-			System.out.println("- " + aggregation.getEntityName() + " has failure probability "
-					+ aggregation.getFailureProbability() + ".");
+		logger.info("Components' services (interfaces):");
+		if (componentsServiceFailureProbabilityAggregation.isEmpty()) {
+			logger.info(" (none)");
+		} else {
+			for (FailureProbabilityAggregation aggregation : componentsServiceFailureProbabilityAggregation) {
+				logger.info("- " + aggregation.getEntityName() + " has failure probability "
+						+ aggregation.getFailureProbability() + ".");
+			}
 		}
 	}
 
@@ -326,10 +348,14 @@ public class MarkovReporting {
 	 * Method used for printing all components' service operation (signature) failure probabilities.
 	 */
 	public void printComponentsServiceOperationFailureProbabilities() {
-		System.out.println("Components' service operations (signatures):");
-		for (FailureProbabilityAggregation aggregation : componentsServiceOperationFailureProbabilityAggregation) {
-			System.out.println("- " + aggregation.getEntityName() + " has failure probability "
-					+ aggregation.getFailureProbability() + ".");
+		logger.info("Components' service operations (signatures):");
+		if (componentsServiceOperationFailureProbabilityAggregation.isEmpty()) {
+			logger.info(" (none)");
+		} else {
+			for (FailureProbabilityAggregation aggregation : componentsServiceOperationFailureProbabilityAggregation) {
+				logger.info("- " + aggregation.getEntityName() + " has failure probability "
+						+ aggregation.getFailureProbability() + ".");
+			}
 		}
 	}
 
@@ -337,10 +363,14 @@ public class MarkovReporting {
 	 * Method used for printing all external service (role and interface) failure probabilities.
 	 */
 	public void printExternalServiceFailureProbabilities() {
-		System.out.println("External services (roles and interfaces):");
-		for (FailureProbabilityAggregation aggregation : externalServiceFailureProbabilityAggregation) {
-			System.out.println("- " + aggregation.getEntityName() + " has failure probability "
-					+ aggregation.getFailureProbability() + ".");
+		logger.info("External services (roles and interfaces):");
+		if (externalServiceFailureProbabilityAggregation.isEmpty()) {
+			logger.info(" (none)");
+		} else {
+			for (FailureProbabilityAggregation aggregation : externalServiceFailureProbabilityAggregation) {
+				logger.info("- " + aggregation.getEntityName() + " has failure probability "
+						+ aggregation.getFailureProbability() + ".");
+			}
 		}
 	}
 
@@ -348,10 +378,14 @@ public class MarkovReporting {
 	 * Method used for printing all external service operation (signature) failure probabilities.
 	 */
 	public void printExternalServiceOperationFailureProbabilities() {
-		System.out.println("External service operations (signatures):");
-		for (FailureProbabilityAggregation aggregation : externalServiceOperationFailureProbabilityAggregation) {
-			System.out.println("- " + aggregation.getEntityName() + " has failure probability "
-					+ aggregation.getFailureProbability() + ".");
+		logger.info("External service operations (signatures):");
+		if (externalServiceOperationFailureProbabilityAggregation.isEmpty()) {
+			logger.info(" (none)");
+		} else {
+			for (FailureProbabilityAggregation aggregation : externalServiceOperationFailureProbabilityAggregation) {
+				logger.info("- " + aggregation.getEntityName() + " has failure probability "
+						+ aggregation.getFailureProbability() + ".");
+			}
 		}
 	}
 }
