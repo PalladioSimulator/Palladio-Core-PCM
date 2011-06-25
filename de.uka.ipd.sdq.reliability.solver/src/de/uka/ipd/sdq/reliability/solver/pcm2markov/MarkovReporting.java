@@ -22,7 +22,7 @@ public class MarkovReporting {
 	 * physical system states.
 	 */
 	private Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities;
-	
+
 	/**
 	 * A logger to give detailed information about the PCM instance
 	 * transformation.
@@ -30,86 +30,31 @@ public class MarkovReporting {
 	private static Logger logger = Logger.getLogger(MarkovReporting.class.getName());
 
 	/**
-	 * Will store the overall failure probabilities of the components' internal actions.
+	 * Will store the overall failure probabilities of entities (components' internal actions, their
+	 * services and service operations, external services and their operations).
 	 */
-	List<FailureProbabilityAggregation> componentsInternalActionsFailureProbabilityAggregation;
-
-	/**
-	 * Will store the overall failure probabilities of the components' services (interfaces).
-	 */
-	List<FailureProbabilityAggregation> componentsServiceFailureProbabilityAggregation;
-
-	/**
-	 * Will store the overall failure probabilities of the components' service operations (signatures).
-	 */
-	List<FailureProbabilityAggregation> componentsServiceOperationFailureProbabilityAggregation;
-
-	/**
-	 * Will store the overall failure probabilities of the external services (roles and interfaces).
-	 */
-	List<FailureProbabilityAggregation> externalServiceFailureProbabilityAggregation;
-
-	/**
-	 * Will store the overall failure probabilities of the external service operations (signatures).
-	 */
-	List<FailureProbabilityAggregation> externalServiceOperationFailureProbabilityAggregation;
+	List<FailureProbabilityAggregation> failureProbabilityAggregations;
 
 	/**
 	 * Creates a new MarkovReporting instance that is used for result aggregation according
 	 * to the given accumulated failure type probabilities.
+	 * 
 	 * @param cumulatedFailureTypeProbabilities the overall failure type probabilities,
 	 * accumulated over all considered physical system states.
 	 */
 	public MarkovReporting(Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities) {
 		this.cumulatedFailureTypeProbabilities = cumulatedFailureTypeProbabilities;
 
-		componentsInternalActionsFailureProbabilityAggregation = new ArrayList<FailureProbabilityAggregation>();
-		componentsServiceFailureProbabilityAggregation = new ArrayList<FailureProbabilityAggregation>();
-		componentsServiceOperationFailureProbabilityAggregation = new ArrayList<FailureProbabilityAggregation>();
-		externalServiceFailureProbabilityAggregation = new ArrayList<FailureProbabilityAggregation>();
-		externalServiceOperationFailureProbabilityAggregation = new ArrayList<FailureProbabilityAggregation>();
+		failureProbabilityAggregations = new ArrayList<FailureProbabilityAggregation>();
 
-		// precalculate component as well as external service failure probabilities
+		// calculate accumulated component as well as external service failure probabilities...
 		calculateComponentsInternalActionFailureProbabilities();
 		calculateComponentsServiceFailureProbabilities();
 		calculateComponentsServiceOperationFailureProbabilities();
 		calculateExternalServiceFailureProbabilities();
 		calculateExternalServiceOperationFailureProbabilities();
-
-//		System.out.println("=======================");
-//		System.out.println("=== MarkovReporting ===");
-//		System.out.println("=======================");
-//		System.out.println();
-//
-//		for (MarkovFailureType failureType : this.cumulatedFailureTypeProbabilities.keySet()) {
-//			System.out.println("==================================================");
-//			System.out.println("Failure type name and ID: " + failureType.getName()
-//					+ ", " + failureType.getId());
-//			System.out.println("- Is external: " + failureType.isSystemExternal());
-//			System.out.println("- Failure probability: " + cumulatedFailureTypeProbabilities.get(failureType));
-//		}
-//		System.out.println();
-//		System.out.println();
-//
-//		printComponentsInternalActionFailureProbabilities();
-//		System.out.println();
-//
-//		printComponentsServiceFailureProbabilities();
-//		System.out.println();
-//
-//		printComponentsServiceOperationFailureProbabilities();
-//		System.out.println();
-//
-//		printExternalServiceFailureProbabilities();
-//		System.out.println();
-//
-//		printExternalServiceOperationFailureProbabilities();
-//		System.out.println();
-//
-//		System.out.println("==============================");
-//		System.out.println("=== End of MarkovReporting ===");
-//		System.out.println("==============================");
 		
+		// ...and print those accumulated failure probabilities
 		printComponentsInternalActionFailureProbabilities();
 		printComponentsServiceFailureProbabilities();
 		printComponentsServiceOperationFailureProbabilities();
@@ -133,13 +78,16 @@ public class MarkovReporting {
 					 * probability.
 					 */
 					boolean foundEntry = false;
+					List<String> identifiers = new ArrayList<String>(1);
+					identifiers.add(softwareInducedFailureType.getComponentId());
 					for (FailureProbabilityAggregation aggregation :
-						componentsInternalActionsFailureProbabilityAggregation) {
-						if (softwareInducedFailureType.getComponentId().equals(aggregation.getEntityIdentifier())) {
+						failureProbabilityAggregations) {
+						if (aggregation.compareToIdentifier(
+								FailureProbabilityAggregationMode.COMPONENTS_INTERNAL_ACTIONS,
+								identifiers)) {
 							// this component ID is already in our data structure, therefore we do not
-							// add a new entry, but update the existing one
-							aggregation.addToFailureProbabilityBy(
-									cumulatedFailureTypeProbabilities.get(failureType));
+							// add a new entry, but update the existing one accordingly
+							aggregation.addToFailureProbabilityBy(cumulatedFailureTypeProbabilities.get(failureType));
 							foundEntry = true;
 							break;	// found and updated the entry, so we are done
 						}
@@ -147,8 +95,10 @@ public class MarkovReporting {
 					if (!foundEntry) {
 						// we did not find a fitting entry, so we add a new one and set its values
 						// accordingly
-						componentsInternalActionsFailureProbabilityAggregation.add(
-								new FailureProbabilityAggregation(softwareInducedFailureType.getComponentId(),
+						failureProbabilityAggregations.add(
+								new FailureProbabilityAggregation(
+										FailureProbabilityAggregationMode.COMPONENTS_INTERNAL_ACTIONS,
+										identifiers,
 										softwareInducedFailureType.getComponentName(),
 										cumulatedFailureTypeProbabilities.get(failureType)));
 					}
@@ -165,21 +115,18 @@ public class MarkovReporting {
 			if (!failureType.isSystemExternal()) {	// only consider (internal) components
 				if (failureType instanceof MarkovSoftwareInducedFailureType) {
 					MarkovSoftwareInducedFailureType softwareInducedFailureType = (MarkovSoftwareInducedFailureType) failureType;
-
-					/*
-					 * If the interface ID is not in our data structure, we will add a new entry to it.
-					 * If the interface ID is already in the data structure, we will not add it again,
-					 * but we will add to (the existing failure probability) the current failure type's
-					 * probability.
-					 */
 					boolean foundEntry = false;
+					List<String> identifiers = new ArrayList<String>(2);
+					identifiers.add(softwareInducedFailureType.getComponentId());
+					identifiers.add(softwareInducedFailureType.getInterfaceId());
 					for (FailureProbabilityAggregation aggregation :
-						componentsServiceFailureProbabilityAggregation) {
-						if (softwareInducedFailureType.getInterfaceId().equals(aggregation.getEntityIdentifier())) {
-							// this interface ID is already in our data structure, therefore we do not
-							// add a new entry, but update the existing one
-							aggregation.addToFailureProbabilityBy(
-									cumulatedFailureTypeProbabilities.get(failureType));
+						failureProbabilityAggregations) {
+						if (aggregation.compareToIdentifier(
+								FailureProbabilityAggregationMode.COMPONENTS_SERVICES,
+								identifiers)) {
+							// this entity is already in our data structure, therefore we do not
+							// add a new entry, but update the existing one accordingly
+							aggregation.addToFailureProbabilityBy(cumulatedFailureTypeProbabilities.get(failureType));
 							foundEntry = true;
 							break;	// found and updated the entry, so we are done
 						}
@@ -187,9 +134,11 @@ public class MarkovReporting {
 					if (!foundEntry) {
 						// we did not find a fitting entry, so we add a new one and set its values
 						// accordingly
-						componentsServiceFailureProbabilityAggregation.add(
-								new FailureProbabilityAggregation(softwareInducedFailureType.getInterfaceId(),
-										softwareInducedFailureType.getInterfaceName(),
+						failureProbabilityAggregations.add(
+								new FailureProbabilityAggregation(
+										FailureProbabilityAggregationMode.COMPONENTS_SERVICES,
+										identifiers,
+										softwareInducedFailureType.getComponentName() + "/" + softwareInducedFailureType.getInterfaceName(),
 										cumulatedFailureTypeProbabilities.get(failureType)));
 					}
 				}
@@ -205,21 +154,19 @@ public class MarkovReporting {
 			if (!failureType.isSystemExternal()) {	// only consider (internal) components
 				if (failureType instanceof MarkovSoftwareInducedFailureType) {
 					MarkovSoftwareInducedFailureType softwareInducedFailureType = (MarkovSoftwareInducedFailureType) failureType;
-
-					/*
-					 * If the signature ID is not in our data structure, we will add a new entry to it.
-					 * If the signature ID is already in the data structure, we will not add it again,
-					 * but we will add to (the existing failure probability) the current failure type's
-					 * probability.
-					 */
 					boolean foundEntry = false;
+					List<String> identifiers = new ArrayList<String>(3);
+					identifiers.add(softwareInducedFailureType.getComponentId());
+					identifiers.add(softwareInducedFailureType.getInterfaceId());
+					identifiers.add(softwareInducedFailureType.getSignatureId());
 					for (FailureProbabilityAggregation aggregation :
-						componentsServiceOperationFailureProbabilityAggregation) {
-						if (softwareInducedFailureType.getSignatureId().equals(aggregation.getEntityIdentifier())) {
-							// this signature ID is already in our data structure, therefore we do not
-							// add a new entry, but update the existing one
-							aggregation.addToFailureProbabilityBy(
-									cumulatedFailureTypeProbabilities.get(failureType));
+						failureProbabilityAggregations) {
+						if (aggregation.compareToIdentifier(
+								FailureProbabilityAggregationMode.COMPONENTS_SERVICE_OPERATIONS,
+								identifiers)) {
+							// this entity is already in our data structure, therefore we do not
+							// add a new entry, but update the existing one accordingly
+							aggregation.addToFailureProbabilityBy(cumulatedFailureTypeProbabilities.get(failureType));
 							foundEntry = true;
 							break;	// found and updated the entry, so we are done
 						}
@@ -227,9 +174,13 @@ public class MarkovReporting {
 					if (!foundEntry) {
 						// we did not find a fitting entry, so we add a new one and set its values
 						// accordingly
-						componentsServiceOperationFailureProbabilityAggregation.add(
-								new FailureProbabilityAggregation(softwareInducedFailureType.getSignatureId(),
-										softwareInducedFailureType.getSignatureName(),
+						failureProbabilityAggregations.add(
+								new FailureProbabilityAggregation(
+										FailureProbabilityAggregationMode.COMPONENTS_SERVICE_OPERATIONS,
+										identifiers,
+										softwareInducedFailureType.getComponentName() + "/"
+											+ softwareInducedFailureType.getInterfaceName() + "/"
+											+ softwareInducedFailureType.getSignatureName(),
 										cumulatedFailureTypeProbabilities.get(failureType)));
 					}
 				}
@@ -243,34 +194,35 @@ public class MarkovReporting {
 	private void calculateExternalServiceFailureProbabilities() {
 		for (MarkovFailureType failureType : cumulatedFailureTypeProbabilities.keySet()) {
 			if (failureType.isSystemExternal()) {	// only consider external services
-
-				/*
-				 * If the role ID and interface ID are not in our data structure, we will add a new entry to it.
-				 * If the role ID and interface ID are already in the data structure, we will not add it again,
-				 * but we will add to (the existing failure probability) the current failure type's
-				 * probability.
-				 */
 				boolean foundEntry = false;
-				for (FailureProbabilityAggregation aggregation :
-					externalServiceFailureProbabilityAggregation) {
-					if ((failureType.getRoleId() + failureType.getInterfaceId()).equals(
-							aggregation.getEntityIdentifier())) {
-						// this role ID and interface ID is already in our data structure, therefore
-						// we do not add a new entry, but update the existing one
-						aggregation.addToFailureProbabilityBy(
-								cumulatedFailureTypeProbabilities.get(failureType));
+				List<String> identifiers = new ArrayList<String>(2);
+				identifiers.add(failureType.getRoleId());
+				identifiers.add(failureType.getInterfaceId());
+				for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+					if (aggregation
+							.compareToIdentifier(
+									FailureProbabilityAggregationMode.EXTERNAL_SERVICES,
+									identifiers)) {
+						// this entity is already in our data structure, therefore we do not
+						// add a new entry, but update the existing one accordingly
+						aggregation
+								.addToFailureProbabilityBy(cumulatedFailureTypeProbabilities
+										.get(failureType));
 						foundEntry = true;
-						break;	// found and updated the entry, so we are done
+						break; // found and updated the entry, so we are done
 					}
 				}
 				if (!foundEntry) {
 					// we did not find a fitting entry, so we add a new one and set its values
 					// accordingly
-					externalServiceFailureProbabilityAggregation.add(
-							new FailureProbabilityAggregation(
-									(failureType.getRoleId() + failureType.getInterfaceId()),
-									failureType.getRoleName() + " / " + failureType.getInterfaceName(),	// TODO check with Franz if this is okay
-									cumulatedFailureTypeProbabilities.get(failureType)));
+					failureProbabilityAggregations
+							.add(new FailureProbabilityAggregation(
+									FailureProbabilityAggregationMode.EXTERNAL_SERVICES,
+									identifiers, failureType.getRoleName()
+											+ "/"
+											+ failureType.getInterfaceName(),
+									cumulatedFailureTypeProbabilities
+											.get(failureType)));
 				}
 			}
 		}
@@ -282,33 +234,38 @@ public class MarkovReporting {
 	private void calculateExternalServiceOperationFailureProbabilities() {
 		for (MarkovFailureType failureType : cumulatedFailureTypeProbabilities.keySet()) {
 			if (failureType.isSystemExternal()) {	// only consider external services
-
-				/*
-				 * If the signature ID is not in our data structure, we will add a new entry to it.
-				 * If the signature ID is already in the data structure, we will not add it again,
-				 * but we will add to (the existing failure probability) the current failure type's
-				 * probability.
-				 */
 				boolean foundEntry = false;
-				for (FailureProbabilityAggregation aggregation :
-					externalServiceOperationFailureProbabilityAggregation) {
-					if (failureType.getSignatureId().equals(
-							aggregation.getEntityIdentifier())) {
-						// this signature ID is already in our data structure, therefore
-						// we do not add a new entry, but update the existing one
-						aggregation.addToFailureProbabilityBy(
-								cumulatedFailureTypeProbabilities.get(failureType));
+				List<String> identifiers = new ArrayList<String>(3);
+				identifiers.add(failureType.getRoleId());
+				identifiers.add(failureType.getInterfaceId());
+				identifiers.add(failureType.getSignatureId());
+				for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+					if (aggregation
+							.compareToIdentifier(
+									FailureProbabilityAggregationMode.EXTERNAL_SERVICE_OPERATIONS,
+									identifiers)) {
+						// this entity is already in our data structure, therefore we do not
+						// add a new entry, but update the existing one accordingly
+						aggregation
+								.addToFailureProbabilityBy(cumulatedFailureTypeProbabilities
+										.get(failureType));
 						foundEntry = true;
-						break;	// found and updated the entry, so we are done
+						break; // found and updated the entry, so we are done
 					}
 				}
 				if (!foundEntry) {
 					// we did not find a fitting entry, so we add a new one and set its values
 					// accordingly
-					externalServiceOperationFailureProbabilityAggregation.add(
-							new FailureProbabilityAggregation(failureType.getSignatureId(),
-									failureType.getSignatureName(),
-									cumulatedFailureTypeProbabilities.get(failureType)));
+					failureProbabilityAggregations
+							.add(new FailureProbabilityAggregation(
+									FailureProbabilityAggregationMode.EXTERNAL_SERVICE_OPERATIONS,
+									identifiers, failureType.getRoleName()
+											+ "/"
+											+ failureType.getInterfaceName()
+											+ "/"
+											+ failureType.getSignatureName(),
+									cumulatedFailureTypeProbabilities
+											.get(failureType)));
 				}
 			}
 		}
@@ -318,14 +275,17 @@ public class MarkovReporting {
 	 * Method used for printing all components' internal action failure probabilities.
 	 */
 	public void printComponentsInternalActionFailureProbabilities() {
+		boolean hasEntries = false;
 		logger.info("Components' internal actions:");
-		if (componentsInternalActionsFailureProbabilityAggregation.isEmpty()) {
-			logger.info(" (none)");
-		} else {
-			for (FailureProbabilityAggregation aggregation : componentsInternalActionsFailureProbabilityAggregation) {
+		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+			if (aggregation.getMode() == FailureProbabilityAggregationMode.COMPONENTS_INTERNAL_ACTIONS) {
 				logger.info("- " + aggregation.getEntityName() + " has failure probability "
 						+ aggregation.getFailureProbability() + ".");
+				hasEntries = true;
 			}
+		}
+		if (!hasEntries) {
+			logger.info(" (none)");
 		}
 	}
 
@@ -333,14 +293,17 @@ public class MarkovReporting {
 	 * Method used for printing all components' service (interface) failure probabilities.
 	 */
 	public void printComponentsServiceFailureProbabilities() {
+		boolean hasEntries = false;
 		logger.info("Components' services (interfaces):");
-		if (componentsServiceFailureProbabilityAggregation.isEmpty()) {
-			logger.info(" (none)");
-		} else {
-			for (FailureProbabilityAggregation aggregation : componentsServiceFailureProbabilityAggregation) {
+		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+			if (aggregation.getMode() == FailureProbabilityAggregationMode.COMPONENTS_SERVICES) {
 				logger.info("- " + aggregation.getEntityName() + " has failure probability "
 						+ aggregation.getFailureProbability() + ".");
+				hasEntries = true;
 			}
+		}
+		if (!hasEntries) {
+			logger.info(" (none)");
 		}
 	}
 
@@ -348,14 +311,17 @@ public class MarkovReporting {
 	 * Method used for printing all components' service operation (signature) failure probabilities.
 	 */
 	public void printComponentsServiceOperationFailureProbabilities() {
+		boolean hasEntries = false;
 		logger.info("Components' service operations (signatures):");
-		if (componentsServiceOperationFailureProbabilityAggregation.isEmpty()) {
-			logger.info(" (none)");
-		} else {
-			for (FailureProbabilityAggregation aggregation : componentsServiceOperationFailureProbabilityAggregation) {
+		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+			if (aggregation.getMode() == FailureProbabilityAggregationMode.COMPONENTS_SERVICE_OPERATIONS) {
 				logger.info("- " + aggregation.getEntityName() + " has failure probability "
 						+ aggregation.getFailureProbability() + ".");
+				hasEntries = true;
 			}
+		}
+		if (!hasEntries) {
+			logger.info(" (none)");
 		}
 	}
 
@@ -363,14 +329,17 @@ public class MarkovReporting {
 	 * Method used for printing all external service (role and interface) failure probabilities.
 	 */
 	public void printExternalServiceFailureProbabilities() {
+		boolean hasEntries = false;
 		logger.info("External services (roles and interfaces):");
-		if (externalServiceFailureProbabilityAggregation.isEmpty()) {
-			logger.info(" (none)");
-		} else {
-			for (FailureProbabilityAggregation aggregation : externalServiceFailureProbabilityAggregation) {
+		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+			if (aggregation.getMode() == FailureProbabilityAggregationMode.EXTERNAL_SERVICES) {
 				logger.info("- " + aggregation.getEntityName() + " has failure probability "
 						+ aggregation.getFailureProbability() + ".");
+				hasEntries = true;
 			}
+		}
+		if (!hasEntries) {
+			logger.info(" (none)");
 		}
 	}
 
@@ -378,14 +347,17 @@ public class MarkovReporting {
 	 * Method used for printing all external service operation (signature) failure probabilities.
 	 */
 	public void printExternalServiceOperationFailureProbabilities() {
+		boolean hasEntries = false;
 		logger.info("External service operations (signatures):");
-		if (externalServiceOperationFailureProbabilityAggregation.isEmpty()) {
-			logger.info(" (none)");
-		} else {
-			for (FailureProbabilityAggregation aggregation : externalServiceOperationFailureProbabilityAggregation) {
+		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+			if (aggregation.getMode() == FailureProbabilityAggregationMode.EXTERNAL_SERVICE_OPERATIONS) {
 				logger.info("- " + aggregation.getEntityName() + " has failure probability "
 						+ aggregation.getFailureProbability() + ".");
+				hasEntries = true;
 			}
+		}
+		if (!hasEntries) {
+			logger.info(" (none)");
 		}
 	}
 }

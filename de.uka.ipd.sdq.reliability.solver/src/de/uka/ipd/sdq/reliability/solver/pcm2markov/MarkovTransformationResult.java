@@ -17,8 +17,6 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
 import de.uka.ipd.sdq.reliability.core.MarkovEvaluationType;
 import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
-import de.uka.ipd.sdq.reliability.core.MarkovHardwareInducedFailureType;
-import de.uka.ipd.sdq.reliability.core.MarkovSoftwareInducedFailureType;
 
 /**
  * Aggregates the results of a PCM2MarkovTransformation.
@@ -377,7 +375,7 @@ public class MarkovTransformationResult {
 						+ ":", failureTypeProbability));
 			}
 		}
-		
+
 		/*
 		 * If (and only if) the Markov evaluation type is set to "POINTSOFFAILURE", we will print detailed
 		 * information regarding failure probabilities of components and external services.

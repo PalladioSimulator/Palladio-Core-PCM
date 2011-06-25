@@ -15,6 +15,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -30,6 +31,7 @@ import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
 import de.uka.ipd.sdq.reliability.core.MarkovEvaluationType;
+import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
 
 /**
  * This tab page shows additional options for the PCM Solver Reliability launch.
@@ -221,6 +223,13 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 *  Radio button for points of failure.
 	 */
 	private Button radioPointsOfFailure = null;
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
+	 */
+	public Image getImage() {
+		return RunConfigImages.getConfigurationTabImage();	// TODO maybe add own icon
+	}
 
 	@Override
 	public void activated(final ILaunchConfigurationWorkingCopy workingCopy) {
@@ -519,7 +528,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		radioFailureTypes.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 
 		radioPointsOfFailure = new Button(evaluationModeGroup, SWT.RADIO);
-		radioPointsOfFailure.setText("Points of failure");
+		radioPointsOfFailure.setText("Points of failure (includes detailed reliability report)");
 		radioPointsOfFailure.setSelection(MarkovEvaluationType.POINTSOFFAILURE == MARKOV_EVALUATION_MODE);
 		radioPointsOfFailure.addListener(SWT.Selection, listener);
 		radioPointsOfFailure.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
@@ -666,7 +675,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
 	 */
 	public String getName() {
-		return "Options";
+		return "Analysis Options";
 	}
 
 	/**
