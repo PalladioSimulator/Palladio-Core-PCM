@@ -12,9 +12,9 @@ import java.util.List;
  */
 public class FailureProbabilityAggregation {
 	/**
-	 * The failure probability aggregation mode.
+	 * The failure probability aggregation type.
 	 */
-	FailureProbabilityAggregationMode failureProbabilityAggregationMode;
+	FailureAggregationType failureAggregationType;
 
 	/**
 	 * A list of identification strings that make up the entire identifier and uniquely identify this
@@ -35,14 +35,14 @@ public class FailureProbabilityAggregation {
 	/**
 	 * Creates a new failure probability aggregation instance.
 	 * 
-	 * @param failureProbabilityAggregationMode the failure probability aggregation mode of the entity
+	 * @param failureAggregationType the failure probability aggregation type of the entity
 	 * @param entityIdentifiers the entity's identification strings list
 	 * @param entityName the entity's name
 	 * @param failureProbability the failure probability of the entity
 	 */
-	public FailureProbabilityAggregation(FailureProbabilityAggregationMode failureProbabilityAggregationMode,
+	public FailureProbabilityAggregation(FailureAggregationType failureAggregationType,
 			List<String> entityIdentifiers, String entityName, double failureProbability) {
-		this.failureProbabilityAggregationMode = failureProbabilityAggregationMode;
+		this.failureAggregationType = failureAggregationType;
 		this.entityIdentifiers = new ArrayList<String>(entityIdentifiers.size());
 		for (String identifier : entityIdentifiers) {
 			this.entityIdentifiers.add(identifier);
@@ -52,16 +52,16 @@ public class FailureProbabilityAggregation {
 	}
 
 	/**
-	 * Compares this instance's failure probability aggregation mode and identification strings List
-	 * to the given mode and identification strings, respectively.
+	 * Compares this instance's failure probability aggregation type and identification strings List
+	 * to the given type and identification strings, respectively.
 	 * 
-	 * @param otherEntityMode the other entity's failure probability aggregation mode
+	 * @param otherEntityType the other entity's failure probability aggregation type
 	 * @param otherEntityIdentifiers the other entitity's identification strings List
-	 * @return <code>true</code>, if both modes and identification strings match each other, <code>false</code>
+	 * @return <code>true</code>, if both types and identification strings match each other, <code>false</code>
 	 * otherwise
 	 */
-	public boolean compareToIdentifier(FailureProbabilityAggregationMode otherEntityMode, List<String> otherEntityIdentifiers) {
-		if (failureProbabilityAggregationMode == otherEntityMode && entityIdentifiers.size() == otherEntityIdentifiers.size()) {
+	public boolean compareToIdentifier(FailureAggregationType otherEntityType, List<String> otherEntityIdentifiers) {
+		if (failureAggregationType == otherEntityType && entityIdentifiers.size() == otherEntityIdentifiers.size()) {
 			for (int i = 0; i < entityIdentifiers.size(); i++) {
 				if (entityIdentifiers.get(i).equals(otherEntityIdentifiers.get(i))) {
 					continue;
@@ -71,27 +71,27 @@ public class FailureProbabilityAggregation {
 				}
 			}
 		} else {
-			return false;	// mode and/or list size already don't match, so they're different identifiers
+			return false;	// type and/or list size already don't match, so they're different identifiers
 		}
 		return true;
 	}
 
 	/**
-	 * Returns the failure probability aggregation mode.
+	 * Returns the failure probability aggregation type.
 	 * 
-	 * @return the failure probability aggregation mode
+	 * @return the failure probability aggregation type
 	 */
-	public FailureProbabilityAggregationMode getMode() {
-		return failureProbabilityAggregationMode;
+	public FailureAggregationType getType() {
+		return failureAggregationType;
 	}
 
 	/**
-	 * Sets the failure probability aggregation mode.
+	 * Sets the failure probability aggregation type.
 	 * 
-	 * @param failureProbabilityAggregationMode the failure probability aggregation mode
+	 * @param failureAggregationType the failure probability aggregation type
 	 */
-	public void setMode(FailureProbabilityAggregationMode failureProbabilityAggregationMode) {
-		this.failureProbabilityAggregationMode = failureProbabilityAggregationMode;
+	public void setType(FailureAggregationType failureAggregationType) {
+		this.failureAggregationType = failureAggregationType;
 	}
 
 	/**

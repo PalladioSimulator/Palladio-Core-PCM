@@ -7,7 +7,7 @@ package de.uka.ipd.sdq.reliability.solver.pcm2markov;
  * @author Daniel Patejdl
  *
  */
-public enum FailureProbabilityAggregationMode {
+public enum FailureAggregationType {
 	/**
 	 * Group together components' internal actions.
 	 */

@@ -83,7 +83,7 @@ public class MarkovReporting {
 					for (FailureProbabilityAggregation aggregation :
 						failureProbabilityAggregations) {
 						if (aggregation.compareToIdentifier(
-								FailureProbabilityAggregationMode.COMPONENTS_INTERNAL_ACTIONS,
+								FailureAggregationType.COMPONENTS_INTERNAL_ACTIONS,
 								identifiers)) {
 							// this component ID is already in our data structure, therefore we do not
 							// add a new entry, but update the existing one accordingly
@@ -97,7 +97,7 @@ public class MarkovReporting {
 						// accordingly
 						failureProbabilityAggregations.add(
 								new FailureProbabilityAggregation(
-										FailureProbabilityAggregationMode.COMPONENTS_INTERNAL_ACTIONS,
+										FailureAggregationType.COMPONENTS_INTERNAL_ACTIONS,
 										identifiers,
 										softwareInducedFailureType.getComponentName(),
 										cumulatedFailureTypeProbabilities.get(failureType)));
@@ -122,7 +122,7 @@ public class MarkovReporting {
 					for (FailureProbabilityAggregation aggregation :
 						failureProbabilityAggregations) {
 						if (aggregation.compareToIdentifier(
-								FailureProbabilityAggregationMode.COMPONENTS_SERVICES,
+								FailureAggregationType.COMPONENTS_SERVICES,
 								identifiers)) {
 							// this entity is already in our data structure, therefore we do not
 							// add a new entry, but update the existing one accordingly
@@ -136,7 +136,7 @@ public class MarkovReporting {
 						// accordingly
 						failureProbabilityAggregations.add(
 								new FailureProbabilityAggregation(
-										FailureProbabilityAggregationMode.COMPONENTS_SERVICES,
+										FailureAggregationType.COMPONENTS_SERVICES,
 										identifiers,
 										softwareInducedFailureType.getComponentName() + "/" + softwareInducedFailureType.getInterfaceName(),
 										cumulatedFailureTypeProbabilities.get(failureType)));
@@ -162,7 +162,7 @@ public class MarkovReporting {
 					for (FailureProbabilityAggregation aggregation :
 						failureProbabilityAggregations) {
 						if (aggregation.compareToIdentifier(
-								FailureProbabilityAggregationMode.COMPONENTS_SERVICE_OPERATIONS,
+								FailureAggregationType.COMPONENTS_SERVICE_OPERATIONS,
 								identifiers)) {
 							// this entity is already in our data structure, therefore we do not
 							// add a new entry, but update the existing one accordingly
@@ -176,7 +176,7 @@ public class MarkovReporting {
 						// accordingly
 						failureProbabilityAggregations.add(
 								new FailureProbabilityAggregation(
-										FailureProbabilityAggregationMode.COMPONENTS_SERVICE_OPERATIONS,
+										FailureAggregationType.COMPONENTS_SERVICE_OPERATIONS,
 										identifiers,
 										softwareInducedFailureType.getComponentName() + "/"
 											+ softwareInducedFailureType.getInterfaceName() + "/"
@@ -201,7 +201,7 @@ public class MarkovReporting {
 				for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
 					if (aggregation
 							.compareToIdentifier(
-									FailureProbabilityAggregationMode.EXTERNAL_SERVICES,
+									FailureAggregationType.EXTERNAL_SERVICES,
 									identifiers)) {
 						// this entity is already in our data structure, therefore we do not
 						// add a new entry, but update the existing one accordingly
@@ -217,7 +217,7 @@ public class MarkovReporting {
 					// accordingly
 					failureProbabilityAggregations
 							.add(new FailureProbabilityAggregation(
-									FailureProbabilityAggregationMode.EXTERNAL_SERVICES,
+									FailureAggregationType.EXTERNAL_SERVICES,
 									identifiers, failureType.getRoleName()
 											+ "/"
 											+ failureType.getInterfaceName(),
@@ -242,7 +242,7 @@ public class MarkovReporting {
 				for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
 					if (aggregation
 							.compareToIdentifier(
-									FailureProbabilityAggregationMode.EXTERNAL_SERVICE_OPERATIONS,
+									FailureAggregationType.EXTERNAL_SERVICE_OPERATIONS,
 									identifiers)) {
 						// this entity is already in our data structure, therefore we do not
 						// add a new entry, but update the existing one accordingly
@@ -258,7 +258,7 @@ public class MarkovReporting {
 					// accordingly
 					failureProbabilityAggregations
 							.add(new FailureProbabilityAggregation(
-									FailureProbabilityAggregationMode.EXTERNAL_SERVICE_OPERATIONS,
+									FailureAggregationType.EXTERNAL_SERVICE_OPERATIONS,
 									identifiers, failureType.getRoleName()
 											+ "/"
 											+ failureType.getInterfaceName()
@@ -278,7 +278,7 @@ public class MarkovReporting {
 		boolean hasEntries = false;
 		logger.info("Components' internal actions:");
 		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
-			if (aggregation.getMode() == FailureProbabilityAggregationMode.COMPONENTS_INTERNAL_ACTIONS) {
+			if (aggregation.getType() == FailureAggregationType.COMPONENTS_INTERNAL_ACTIONS) {
 				logger.info("- " + aggregation.getEntityName() + " has failure probability "
 						+ aggregation.getFailureProbability() + ".");
 				hasEntries = true;
@@ -296,7 +296,7 @@ public class MarkovReporting {
 		boolean hasEntries = false;
 		logger.info("Components' services (interfaces):");
 		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
-			if (aggregation.getMode() == FailureProbabilityAggregationMode.COMPONENTS_SERVICES) {
+			if (aggregation.getType() == FailureAggregationType.COMPONENTS_SERVICES) {
 				logger.info("- " + aggregation.getEntityName() + " has failure probability "
 						+ aggregation.getFailureProbability() + ".");
 				hasEntries = true;
@@ -314,7 +314,7 @@ public class MarkovReporting {
 		boolean hasEntries = false;
 		logger.info("Components' service operations (signatures):");
 		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
-			if (aggregation.getMode() == FailureProbabilityAggregationMode.COMPONENTS_SERVICE_OPERATIONS) {
+			if (aggregation.getType() == FailureAggregationType.COMPONENTS_SERVICE_OPERATIONS) {
 				logger.info("- " + aggregation.getEntityName() + " has failure probability "
 						+ aggregation.getFailureProbability() + ".");
 				hasEntries = true;
@@ -332,7 +332,7 @@ public class MarkovReporting {
 		boolean hasEntries = false;
 		logger.info("External services (roles and interfaces):");
 		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
-			if (aggregation.getMode() == FailureProbabilityAggregationMode.EXTERNAL_SERVICES) {
+			if (aggregation.getType() == FailureAggregationType.EXTERNAL_SERVICES) {
 				logger.info("- " + aggregation.getEntityName() + " has failure probability "
 						+ aggregation.getFailureProbability() + ".");
 				hasEntries = true;
@@ -350,7 +350,7 @@ public class MarkovReporting {
 		boolean hasEntries = false;
 		logger.info("External service operations (signatures):");
 		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
-			if (aggregation.getMode() == FailureProbabilityAggregationMode.EXTERNAL_SERVICE_OPERATIONS) {
+			if (aggregation.getType() == FailureAggregationType.EXTERNAL_SERVICE_OPERATIONS) {
 				logger.info("- " + aggregation.getEntityName() + " has failure probability "
 						+ aggregation.getFailureProbability() + ".");
 				hasEntries = true;
