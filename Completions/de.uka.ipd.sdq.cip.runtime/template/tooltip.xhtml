@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <style type="text/css">
+        /* <![CDATA[ */
+            .tooltip {
+                background-color:InfoBackground;
+                color:InfoText;
+            }
+            .image{
+                float:left; 
+                margin-right:20px; 
+                margin-bottom:10px;
+            }
+            .clear{
+                clear:both;
+            }
+            .textbox p {
+           		text-indent:2em;
+            }
+            #id h3, #id p {
+					display:inline;
+				}
+            .spacer {
+            	height:20px;
+            }
+            ul {
+            	list-style-type:none;
+            	margin-left:2em;
+            }
+        /* ]]> */
+        </style>
+
+        <script type="text/javascript">
+        /* <![CDATA[ */
+
+            function getDocumentWidth() {
+                if (document.body.scrollWidth)
+                    return document.body.scrollWidth;
+                var w = document.documentElement.offsetWidth;
+                if (window.scrollMaxX)
+                    w += window.scrollMaxX;
+                return w;
+            };
+
+            function getDocumentHeight() {
+                if (document.body.scrollHeight)
+                    return document.body.scrollHeight;
+                return document.documentElement.offsetHeight;
+            };
+
+            function getDocumentSize() {
+                setBrowserSize(getDocumentWidth(),getDocumentHeight());
+            };
+		/* ]]> */
+		</script>
+		<title>tooltip</title>
+    </head>
+    <body class="tooltip" onload="getDocumentSize()">
+    	<div class="image" >
+        	<img src="{image}" alt="Scheme of Completion" width="600" height="500" />
+        </div>
+        <h2>{caption}</h2>
+        <div class="textbox" id="id">
+        	<h3>ID:</h3>
+            <p>{id}</p>
+        </div>        
+        <div class="textbox" id="description">
+           	<h3>Description:</h3>
+           	<p>{description}</p>
+        </div>
+        <div class="spacer"></div>
+        <div class="textbox" id="category">
+        	<h3>Categories:</h3>
+            <p>
+	    	    <ul>{categories}</ul>
+            </p> 
+        </div>
+        <div class="clear"></div>
+    </body>
+</html>

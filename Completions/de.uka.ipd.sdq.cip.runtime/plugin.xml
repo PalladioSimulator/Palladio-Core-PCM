@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="de.uka.ipd.sdq.cip.runtime.launchConfiguration"
+            icon="icons/completion_tab.gif"
+            id="de.uka.ipd.sdq.cip.runtime.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="de.uka.ipd.sdq.cip.runtime.runconfig.CipLaunchConfigurationDelegate"
+            id="de.uka.ipd.sdq.cip.runtime.launchConfiguration"
+            modes="run, debug"
+            name="Completions">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="de.uka.ipd.sdq.cip.runtime.runconfig.tabs.CipTabGroup"
+            id="de.uka.ipd.sdq.cip.runtime.CipTabGroup"
+            type="de.uka.ipd.sdq.cip.runtime.launchConfiguration">
+      </launchConfigurationTabGroup>
+   </extension>
+
+</plugin>
