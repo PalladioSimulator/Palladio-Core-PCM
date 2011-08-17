@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xsi:schemaLocation="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0 http://sdq.ipd.uka.de/PalladioComponentModel/4.0#//usagemodel" xmi:id="_HddehFodEeCigo30slKAcg" type="PCM Usage Model" name="default.usagemodel_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_Lr1G8FoeEeCigo30slKAcg" type="2004">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Lr1uAFoeEeCigo30slKAcg" type="5017"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Lr1uAVoeEeCigo30slKAcg" type="7012">
+      <children xmi:type="notation:Shape" xmi:id="_Lr28IFoeEeCigo30slKAcg" type="3014" fontName="Lucida Grande">
+        <children xmi:type="notation:DecorationNode" xmi:id="_Lr3jMFoeEeCigo30slKAcg" type="7013">
+          <children xmi:type="notation:Node" xmi:id="_Lr4xUFoeEeCigo30slKAcg" type="3001">
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_Lr4xUVoeEeCigo30slKAcg"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_Lr4xUloeEeCigo30slKAcg" fontName="Lucida Grande"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_Lr4xU1oeEeCigo30slKAcg"/>
+            <element xmi:type="Start" href="default.usagemodel#_HddeglodEeCigo30slKAcg"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Lr4xVFoeEeCigo30slKAcg" x="103" y="252"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_Lr4xVVoeEeCigo30slKAcg" type="3002" fontName="Lucida Grande">
+            <element xmi:type="Stop" href="default.usagemodel#_Hddeg1odEeCigo30slKAcg"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Lr4xVloeEeCigo30slKAcg" x="95" y="32"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_Ru744FoeEeCigo30slKAcg" type="3003" fontName="Lucida Grande">
+            <children xmi:type="notation:DecorationNode" xmi:id="_Ru8f8FoeEeCigo30slKAcg" type="5004"/>
+            <children xmi:type="notation:DecorationNode" xmi:id="_Ru8f8VoeEeCigo30slKAcg" type="7002">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_Ru8f8loeEeCigo30slKAcg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_Ru8f81oeEeCigo30slKAcg"/>
+            </children>
+            <element xmi:type="EntryLevelSystemCall" href="default.usagemodel#_O4poQFoeEeCigo30slKAcg"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ru744VoeEeCigo30slKAcg" x="31" y="120" width="162" height="71"/>
+          </children>
+        </children>
+        <element xmi:type="ScenarioBehaviour" href="default.usagemodel#_HddegVodEeCigo30slKAcg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Lr28IVoeEeCigo30slKAcg" width="285" height="371"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_YmGlAFoeEeCigo30slKAcg" type="3015">
+        <children xmi:type="notation:DecorationNode" xmi:id="_YmHMEFoeEeCigo30slKAcg" type="5013"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_YmHMEVoeEeCigo30slKAcg" type="5014"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_YmHMEloeEeCigo30slKAcg" type="5015"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_YmGlAVoeEeCigo30slKAcg"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_YmGlAloeEeCigo30slKAcg" fontName="Lucida Grande"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_YmGlA1oeEeCigo30slKAcg"/>
+        <element xmi:type="ClosedWorkload" href="default.usagemodel#//@usageScenario_UsageModel.0/@workload_UsageScenario"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YmGlBFoeEeCigo30slKAcg" x="296" y="2"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_Lr1G8VoeEeCigo30slKAcg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Lr1G8loeEeCigo30slKAcg" fontName="Lucida Grande"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_Lr1G81oeEeCigo30slKAcg"/>
+    <element xmi:type="UsageScenario" href="default.usagemodel#_HddegFodEeCigo30slKAcg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Lr1G9FoeEeCigo30slKAcg" width="449" height="473"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_HddehVodEeCigo30slKAcg"/>
+  <element xmi:type="UsageModel" href="default.usagemodel#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_Tj-u8FoeEeCigo30slKAcg" type="4002" source="_Lr4xUFoeEeCigo30slKAcg" target="_Ru744FoeEeCigo30slKAcg">
+    <styles xmi:type="notation:FontStyle" xmi:id="_Tj-u8VoeEeCigo30slKAcg" fontName="Lucida Grande"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Tj-u8loeEeCigo30slKAcg" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_U5XNgFoeEeCigo30slKAcg" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_U5XNgVoeEeCigo30slKAcg" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_USrA8FoeEeCigo30slKAcg" type="4002" source="_Ru744FoeEeCigo30slKAcg" target="_Lr4xVVoeEeCigo30slKAcg">
+    <styles xmi:type="notation:FontStyle" xmi:id="_USrA8VoeEeCigo30slKAcg" fontName="Lucida Grande"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_USroAFoeEeCigo30slKAcg" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_U5X0kFoeEeCigo30slKAcg" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_U5X0kVoeEeCigo30slKAcg" id="(0.5,1.0)"/>
+  </edges>
+</notation:Diagram>

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PrioritizingMediaStore Accuracy Influence Analysis Example
+Bundle-SymbolicName: de.fzi.se.accuracy.example.PrioritizingMediaStore
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: FZI Forschungszentrum Informatik
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: de.fzi.se.accuracy.tests;bundle-version="1.0.0"
