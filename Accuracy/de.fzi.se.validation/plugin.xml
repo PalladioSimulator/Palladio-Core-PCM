@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://fzi.de/PalladioComponentModel/Validation/TestBased/0.2"
+            class="de.fzi.se.validation.testbased.TestbasedPackage"
+            genModel="model/Validation.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="testbased"
+            class="de.fzi.se.validation.testbased.util.TestbasedResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://fzi.de/PalladioComponentModel/Validation/TestBased/Trace/0.2"
+            class="de.fzi.se.validation.testbased.trace.TracePackage"
+            genModel="model/Validation.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="trace"
+            class="de.fzi.se.validation.testbased.trace.util.TraceResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://fzi.de/PalladioComponentModel/Validation/TestBased/Results/0.2"
+            class="de.fzi.se.validation.testbased.results.ResultsPackage"
+            genModel="model/Validation.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="results"
+            class="de.fzi.se.validation.testbased.results.util.ResultsResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

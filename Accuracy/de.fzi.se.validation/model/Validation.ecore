@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="validation"
+    nsURI="http://fzi.de/PalladioComponentModel/Validation/0.2" nsPrefix="validation">
+  <eSubpackages name="testbased" nsURI="http://fzi.de/PalladioComponentModel/Validation/TestBased/0.2"
+      nsPrefix="testbased">
+    <eClassifiers xsi:type="ecore:EClass" name="TBValidationQuality" eSuperTypes="../../de.fzi.se.quality/model/quality.ecore#//QualityStatement ../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stopStrategy" ordered="false"
+          lowerBound="1" eType="#//testbased/TestcaseExecutionStopStrategy" containment="true"
+          eOpposite="#//testbased/TestcaseExecutionStopStrategy/validationQuality"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="generationStrategy" ordered="false"
+          lowerBound="1" eType="#//testbased/TestcaseGenerationStrategy" containment="true"
+          eOpposite="#//testbased/TestcaseGenerationStrategy/validationQuality"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="internalStateInfluenceAnalysisStrategy"
+          ordered="false" lowerBound="1" eType="#//testbased/InternalStateInfluenceAnalysisStrategy"
+          containment="true" eOpposite="#//testbased/InternalStateInfluenceAnalysisStrategy/tbValidationQuality"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="qualityAnnotations" ordered="false"
+          upperBound="-1" eType="ecore:EClass ../../de.fzi.se.quality/model/quality.ecore#//qualityannotation/QualityAnnotation">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="References the QualityAnnotations which are valid given this TBValidationQuality instance."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="internalStateInfluenceAnalysisAggregationResults"
+          ordered="false" upperBound="-1" eType="ecore:EClass ../../de.fzi.se.quality/model/quality.ecore#//qualityannotation/InternalStateInfluenceAnalysisAggregation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TestcaseExecutionStopStrategy" abstract="true"
+        eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="validationQuality" ordered="false"
+          lowerBound="1" eType="#//testbased/TBValidationQuality" eOpposite="#//testbased/TBValidationQuality/stopStrategy"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TestcaseGenerationStrategy" abstract="true"
+        eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="validationQuality" ordered="false"
+          lowerBound="1" eType="#//testbased/TBValidationQuality" eOpposite="#//testbased/TBValidationQuality/generationStrategy"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InternalStateInfluenceAnalysisStrategy"
+        abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tbValidationQuality"
+          ordered="false" lowerBound="1" eType="#//testbased/TBValidationQuality"
+          eOpposite="#//testbased/TBValidationQuality/internalStateInfluenceAnalysisStrategy"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EquidistantPartitionsRandom" eSuperTypes="#//testbased/TestcaseGenerationStrategy">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberPartitions" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberTestcases" eSuperTypes="#//testbased/TestcaseExecutionStopStrategy">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimum" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberGenerationRuns" eSuperTypes="#//testbased/TestcaseExecutionStopStrategy">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NoISIA" eSuperTypes="#//testbased/InternalStateInfluenceAnalysisStrategy"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ReuseInstanceISIA" eSuperTypes="#//testbased/InternalStateInfluenceAnalysisStrategy"/>
+    <eSubpackages name="trace" nsURI="http://fzi.de/PalladioComponentModel/Validation/TestBased/Trace/0.2"
+        nsPrefix="trace">
+      <eClassifiers xsi:type="ecore:EClass" name="ExecutionTrace" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="traceActions" upperBound="-1"
+            eType="#//testbased/trace/TraceAction" containment="true" eOpposite="#//testbased/trace/TraceAction/executionTrace"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="runProtocol" ordered="false"
+            eType="#//testbased/results/RunProtocol" eOpposite="#//testbased/results/RunProtocol/invalidTraces"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="TraceAction" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="executionTrace" ordered="false"
+            lowerBound="1" eType="#//testbased/trace/ExecutionTrace" eOpposite="#//testbased/trace/ExecutionTrace/traceActions"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ComponentParameterAssignment" eSuperTypes="#//testbased/trace/TraceAction">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="componentInstance"
+            ordered="false" lowerBound="1" eType="ecore:EClass ../../de.fzi.se.quality/model/quality.ecore#//parameters/ComponentInstance"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="InternalCall" eSuperTypes="#//testbased/trace/TraceAction">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="callInstance" ordered="false"
+            lowerBound="1" eType="ecore:EClass ../../de.fzi.se.quality/model/quality.ecore#//parameters/CallInstance"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="OutgoingBusinessCall" eSuperTypes="#//testbased/trace/TraceAction">
+        <eOperations name="CallInstancemustreferenceBusinessoperation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+            <details key="body" value="self.callInstances->forAll(call | call.parameterReference.oclIsTypeOf(Validation::Parameters::BusinessOperationReference))"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.callInstances->forAll(call | call.parameterReference.oclIsTypeOf(Validation::Parameters::BusinessOperationReference))"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="callInstance" ordered="false"
+            lowerBound="1" eType="ecore:EClass ../../de.fzi.se.quality/model/quality.ecore#//parameters/CallInstance"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="OutgoingInfrastructureCalls" eSuperTypes="#//testbased/trace/TraceAction">
+        <eOperations name="CallInstancemustreferenceInfrastructureoperation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+            <details key="body" value="self.callInstances->forAll(call | call.parameterReference.oclIsTypeOf(Validation::Parameters::InfrastructureOperationReference))&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.callInstances->forAll(call | call.parameterReference.oclIsTypeOf(Validation::Parameters::InfrastructureOperationReference))&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="callInstances" ordered="false"
+            upperBound="-1" eType="ecore:EClass ../../de.fzi.se.quality/model/quality.ecore#//parameters/CallInstance"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="OperationCall" eSuperTypes="#//testbased/trace/TraceAction">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="&lt;p>&#xD;&#xA;    Validation works for all CallInstances and is not restricted to business or infrastructure components.&#xD;&#xA;&lt;/p>&lt;br />"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="callInstance" ordered="false"
+            lowerBound="1" eType="ecore:EClass ../../de.fzi.se.quality/model/quality.ecore#//parameters/CallInstance"
+            containment="true"/>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="results" nsURI="http://fzi.de/PalladioComponentModel/Validation/TestBased/Results/0.2"
+        nsPrefix="results">
+      <eClassifiers xsi:type="ecore:EClass" name="ValidationFailureNotice" abstract="true"
+          eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="runProtocol" ordered="false"
+            eType="#//testbased/results/RunProtocol" eOpposite="#//testbased/results/RunProtocol/validationFailureNotices"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="expected" ordered="false"
+            eType="#//testbased/trace/TraceAction"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ParameterVFN" eSuperTypes="#//testbased/results/ValidationFailureNotice">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="observedValue" ordered="false"
+            eType="ecore:EClass ../../de.fzi.se.quality/model/quality.ecore#//parameters/ParameterValue"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="expectedValue" ordered="false"
+            eType="ecore:EClass ../../de.fzi.se.quality/model/quality.ecore#//parameters/ParameterValue"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="InfrastructureCallVFN" eSuperTypes="#//testbased/results/ValidationFailureNotice">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="observed" ordered="false"
+            lowerBound="1" eType="ecore:EClass ../../edu.kit.ipd.sdq.bycounter/model/ByCounter.ecore#//output/ObservedEntityExecution"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ExternalCallVFN" eSuperTypes="#//testbased/results/ValidationFailureNotice">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="observed" ordered="false"
+            lowerBound="1" eType="ecore:EClass ../../edu.kit.ipd.sdq.bycounter/model/ByCounter.ecore#//output/ObservedEntityExecution"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ExecutionTraceVFN" eSuperTypes="#//testbased/results/ValidationFailureNotice">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="executionTrace" ordered="false"
+            lowerBound="1" eType="#//testbased/trace/ExecutionTrace"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="RunProtocol" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Protocol of a validation run."/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="validationFailureNotices"
+            ordered="false" upperBound="-1" eType="#//testbased/results/ValidationFailureNotice"
+            containment="true" eOpposite="#//testbased/results/ValidationFailureNotice/runProtocol"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationTime" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="&lt;p>&#xD;&#xA;    Instant when the protocol was created.&#xD;&#xA;&lt;/p>"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="randomSeed" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="Initial seed for the random number generator. Important for reproducability as it allows to ensure that two runs of the&#xD;&#xA;same validation have the same parameters. Allows verifying the validation result."/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="validationSuccessful"
+            ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="invalidMeasurementResults"
+            ordered="false" upperBound="-1" eType="ecore:EClass ../../edu.kit.ipd.sdq.bycounter/model/ByCounter.ecore#//output/MeasurementRun"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="invalidTraces" ordered="false"
+            upperBound="-1" eType="#//testbased/trace/ExecutionTrace" containment="true"
+            eOpposite="#//testbased/trace/ExecutionTrace/runProtocol"/>
+      </eClassifiers>
+    </eSubpackages>
+  </eSubpackages>
+</ecore:EPackage>
