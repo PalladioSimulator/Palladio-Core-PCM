@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="Palladio Modeling"
+            id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category">
+      </category>
+      <wizard
+            name="Feature Config"
+            icon="icons/sample.gif"
+            category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+            class="edu.kit.ipd.sdq.completionfeaturemodel.ui.wizard.featureconfig.FeatureConfigCreationWizard"
+            id="edu.kit.ipd.sdq.completionfeaturemodel.wizard.FeatureConfigCreationWizard">
+      </wizard>
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+            class="edu.kit.ipd.sdq.completionfeaturemodel.ui.wizard.completionfeaturemodel.CompletionFeatureModelCreationWizard"
+            icon="icons/sample.gif"
+            id="edu.kit.ipd.sdq.completionfeaturemodel.wizard.CompletionFeatureModelCreationWizard"
+            name="Completion Feature Model">
+      </wizard>
+   </extension>
+
+</plugin>
