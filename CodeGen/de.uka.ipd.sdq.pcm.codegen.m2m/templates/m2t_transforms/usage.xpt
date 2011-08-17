@@ -1,0 +1,69 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT core::composition»
+«IMPORT usagemodel»
+«IMPORT core::entity»
+«IMPORT repository»
+«IMPORT allocation»
+
+//-----------------------------------
+// For a usage model generate for each
+// usage scenario a usage scenario driver
+// and finally (optionally) a main class which can be run
+// standalone
+//-----------------------------------
+«DEFINE UsageModel(Allocation a) FOR UsageModel»
+	«EXPAND UsageScenarioTM(a) FOREACH this.usageScenario_UsageModel»
+	«EXPAND MainTM FOR this»
+«ENDDEFINE» 
+
+//------------------------------------
+// Template method to generate a main
+// class which starts the usage scenarios
+// in the usage model. Can be used to 
+// generate runnable test drivers
+//------------------------------------
+«DEFINE MainTM FOR UsageModel»
+«ENDDEFINE»
+
+//------------------------------------
+// Template method to generate a class
+// implementing the usage scenario driver
+//------------------------------------
+«DEFINE UsageScenarioTM(Allocation a) FOR UsageScenario»
+«ENDDEFINE»
+
+
+//----------------------
+// Generic helper methods
+//----------------------
+«DEFINE SystemMemberVar FOR OperationProvidedRole»
+   protected «this.providedInterface__OperationProvidedRole.fqn()» «this.portMemberVar()» = null;
+«ENDDEFINE»
+
+«DEFINE SystemMemberVar FOR InfrastructureProvidedRole»
+   protected «this.providedInterface__InfrastructureProvidedRole.fqn()» «this.portMemberVar()» = null;
+«ENDDEFINE»
+
+«DEFINE UserActions FOR AbstractUserAction»
+   «EXPAND m2t_transforms::user_actions::UserAction FOR this»
+   «IF !Stop.isInstance(this)»
+      «EXPAND UserActions FOR this.successor»
+   «ENDIF»
+«ENDDEFINE»
+
+«DEFINE DummyRequiredSystemTM(System s) FOR OperationRequiredRole»
+	null 
+«ENDDEFINE»
+
+«DEFINE DummyRequiredSystemTM(System s) FOR InfrastructureRequiredRole»
+	null 
+«ENDDEFINE»
+
+«DEFINE UsageScenarioConstructorContextInit(Allocation a) FOR UsageScenario»
+	// Initialise local interface pointer pointing to system roles
+	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet() AS pr»
+		«pr.portMemberVar()» = my«pr.providingEntity_ProvidedRole.javaName()».«pr.portGetter()»();
+	«ENDFOREACH»
+«ENDDEFINE»

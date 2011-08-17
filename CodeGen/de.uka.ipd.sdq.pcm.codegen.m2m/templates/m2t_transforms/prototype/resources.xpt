@@ -1,0 +1,89 @@
+«IMPORT repository»
+«IMPORT seff::seff_performance»
+«IMPORT resourcetype»
+«IMPORT resourceenvironment»
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+// ----------------------------
+// Templates to generate simulated resources and resource environments
+// ----------------------------
+
+// Load the resource demand on a simulated resource
+«DEFINE ResourceDemand FOR ParametricResourceDemand»
+   {
+      double demand = (Double) ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class);
+
+      try {
+		String neededResource = "«this.requiredResource_ParametricResourceDemand.entityName»";
+		
+		if (neededResource.toLowerCase().contains("cpu")){
+		  de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
+		    .getStrategyFor(de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum.CPU).consume(demand);
+		} 
+		else if (neededResource.toLowerCase().contains("hdd")){
+		  de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
+		    .getStrategyFor(de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum.HDD).consume(demand);
+		} else {
+			throw new java.lang.UnsupportedOperationException("Resourcetype not yet supported in prototype");
+		}
+	  } catch (Exception e) {
+		e.printStackTrace();
+		System.exit(-1);
+	  }
+   }
+«ENDDEFINE»
+
+«DEFINE ResourceDemand FOR ResourceCall»
+	try {
+		throw new java.lang.UnsupportedOperationException("ResourceCall not yet supported in prototype");
+	} catch (Exception e) {
+		e.printStackTrace();
+		System.exit(-1);
+	}
+«ENDDEFINE»
+
+
+// ----------------------------
+// Templates for setup of the resource environment
+// Generate a class which contains the model information
+// and sets up the resource strategies accordingly
+// ----------------------------
+«DEFINE ResourceEnvironmentRoot FOR resourceenvironment::ResourceEnvironment»
+	«FILE "ResourceEnvironmentFactory.java"»
+
+		public class ResourceEnvironmentFactory extends de.uka.ipd.sdq.prototype.framework.AbstractResourceEnvironmentFactory {
+		
+			/* All resources are located on this machine, regardless of their resource container
+			 * in the model */
+			 
+			public static void setUpResources(String cpuStrategy, String hddStrategy, String calibrationPath){
+				String idContainer = de.uka.ipd.sdq.prototype.framework.AbstractAllocationFactory.getActiveContainer();
+		   		«EXPAND ResourceContainerInit FOREACH this.resourceContainer_ResourceEnvironment SEPARATOR " "»
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ResourceContainerInit FOR ResourceContainer»
+		//active Resources of container «this.javaName()» (ID=«this.id»)
+		if (idContainer.equals("«this.id»")) {
+			«EXPAND ActiveResourceAdd FOREACH this.activeResourceSpecifications_ResourceContainer»
+		}
+
+«ENDDEFINE»
+
+«DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
+	if ("«this.activeResourceType_ActiveResourceSpecification.entityName»".toLowerCase().contains("cpu")) {
+		setUpCPU(cpuStrategy, calibrationPath, de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum.MEDIUM, "«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»");
+
+	} else if ("«this.activeResourceType_ActiveResourceSpecification.entityName»".toLowerCase().contains("hdd")) { 
+		setUpHDD(hddStrategy, calibrationPath, de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum.MEDIUM, "«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»");
+		
+	}
+«ENDDEFINE»
+
+
+«DEFINE PassiveResourceInit FOR PassiveResource»
+	private java.util.concurrent.Semaphore passive_resource_«this.entityName.javaVariableName()» = new java.util.concurrent.Semaphore(«this.capacity_PassiveResource.specification», true);
+«ENDDEFINE»
