@@ -1,0 +1,187 @@
+<cruisecontrol>
+<!-- #### BELOW: PCM Eclipse 3.5 Build ################################### -->
+	<project name="PCM Eclipse 3.5 build" requiremodification="true">
+		<modificationset>
+			<!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
+			<svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+		</modificationset>
+		<schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
+			<ant buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
+		</schedule>
+		<log>
+			<merge dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/results/testresults/xml" pattern="testReport*.xml"></merge>
+		</log>
+		<labelincrementer defaultlabel="3.1" prebuildincrementer="true"></labelincrementer>
+		<publishers>
+<htmlemail buildresultsurl="https://sdqweb.ipd.kit.edu/dashboard/" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="CruiseControl Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de" skipusers="true"> 
+        <always address="sdq-dev@ira.uka.de"></always> 
+      </htmlemail>  
+      <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.2/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
+			<onsuccess>
+				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5" buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+			</onsuccess>
+			<onfailure>
+				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5" buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+			</onfailure>
+		</publishers>
+		<bootstrappers>
+			<svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder"></svnbootstrapper>
+		</bootstrappers>
+		<listeners></listeners>
+	</project>
+
+<!-- #### BELOW: generate JavaDoc for the PCM ################################### -->
+  <project name="PCM JavaDoc generation (run after successful PCM build)" requiremodification="true">
+    <modificationset>
+      <alwaysbuild username="webmaster-sdq@ipd.uka.de"></alwaysbuild>
+    </modificationset>
+    <schedule interval="86400"> <!-- in seconds; 86400: 1 day -->
+      <!-- <ant buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant> -->
+      <ant buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/build-files/postBuild.xml" target="javadoc-pcm" antworkingdir="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="true" timeout="3600"></ant>      
+    </schedule> 
+    <log>
+      <merge dir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder/results/testresults/xml" pattern="testReport*.xml"></merge>
+    </log>
+    <labelincrementer defaultlabel="1.0" prebuildincrementer="true"></labelincrementer>
+    <publishers>
+      <htmlemail buildresultsurl="https://sdqweb.ipd.kit.edu/dashboard/" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="CruiseControl Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="huber@ipd.uka.de">
+        <always address="huber@ira.uka.de"></always>
+      </htmlemail>
+      <onsuccess>
+		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/pcm-javadoc-pluginbuilder" buildfile="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onsuccess>
+    </publishers>
+    <bootstrappers>
+      <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/pcm-javadoc-pluginbuilder"></svnbootstrapper>
+    </bootstrappers>
+    <listeners></listeners>
+  </project>  
+    
+  <!-- #### BELOW: Q-ImPrESS Build ################################### -->
+  <project name="Q-ImPrESS tool chain build" requiremodification="true">
+    <modificationset>
+      <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
+	  <svn RepositoryLocation="svn://svn.forge.objectweb.org/svnroot/q-impress/" username="" password="" />	
+	  <buildstatus logdir="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.3/logs/PCM Eclipse 3.5 build/" />	  
+	  <buildstatus logdir="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.3/logs/Sissy build/" />
+    </modificationset>
+    <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
+      <ant buildfile="/home/ccontrol/svn-qimpress/eu.qimpress.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn-qimpress/eu.qimpress.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
+    </schedule>
+    <log>
+      <merge dir="/home/ccontrol/pluginbuilder/qimpress/results/testresults/xml" pattern="testReport*.xml"></merge>
+    </log>
+    <labelincrementer defaultlabel="1.0" prebuildincrementer="true"></labelincrementer>
+    <publishers>
+      <htmlemail buildresultsurl="https://sdqweb.ipd.kit.edu/dashboard/" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="CruiseControl Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de" skipusers="true">
+<!--        <always address="q-impress-commits@ow2.org"></always> -->
+        <always address="q-impress-wp4@q-impress.eu"></always>
+      </htmlemail>
+      <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.2/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
+      <onsuccess>
+		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/qimpress" buildfile="/home/ccontrol/svn-qimpress/eu.qimpress.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onsuccess>
+      <onfailure>
+      	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/qimpress" buildfile="/home/ccontrol/svn-qimpress/eu.qimpress.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onfailure>
+    </publishers>
+    <bootstrappers>
+      <svnbootstrapper username="" password="" localworkingcopy="/home/ccontrol/svn-qimpress/eu.qimpress.pluginbuilder"></svnbootstrapper>
+    </bootstrappers>
+    <listeners></listeners>
+  </project>
+
+  <!-- #### BELOW: Sissy Build ################################### -->
+  <project name="Sissy build" requiremodification="true">
+    <modificationset>
+      <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
+	  <cvs cvsroot=":pserver:anonymous@sissy.cvs.sourceforge.net:/cvsroot/sissy" module="sissybundles" />	
+	  <buildstatus logdir="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.3/logs/PCM Eclipse 3.5 build/" /> 
+    </modificationset>
+    <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
+      <ant buildfile="/home/ccontrol/sissycvs/sissybundles/de.fzi.sissy.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/sissycvs/sissybundles/de.fzi.sissy.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
+    </schedule>
+    <log> 
+      <merge dir="/home/ccontrol/pluginbuilder/sissy/results/testresults/xml" pattern="testReport*.xml"></merge>
+    </log>
+    <labelincrementer defaultlabel="0.5" prebuildincrementer="true"></labelincrementer>
+    <publishers>
+      <htmlemail buildresultsurl="https://sdqweb.ipd.kit.edu/dashboard/" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="CruiseControl Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="sbecker@ipd.uka.de" skipusers="true">
+        <always address="q-impress-fzi@q-impress.eu"></always>
+      </htmlemail>
+      <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.2/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
+      <onsuccess>
+		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/sissy" buildfile="/home/ccontrol/sissycvs/sissybundles/de.fzi.sissy.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onsuccess>
+      <onfailure>
+      	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/sissy" buildfile="/home/ccontrol/sissycvs/sissybundles/de.fzi.sissy.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onfailure>
+    </publishers>
+    <bootstrappers>
+      <cvsbootstrapper localWorkingCopy="/home/ccontrol/sissycvs/sissybundles/de.fzi.sissy.pluginbuilder"></cvsbootstrapper>
+    </bootstrappers>
+    <listeners></listeners>
+  </project>
+
+
+  <!-- #### BELOW: ByCounter Build ################################### -->
+  <project name="Palladio.ByCounter" requiremodification="true">
+    <modificationset>
+      <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
+	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio.ByCounter/trunk/de.uka.ipd.sdq.ByCounter/" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+    </modificationset>
+    <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
+      <ant buildfile="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/build.xml" target="main" antworkingdir="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
+    </schedule>
+    <log>
+      <merge file="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/test-AllTestsSuite.xml" />
+    </log>
+    <labelincrementer defaultlabel="1.0" prebuildincrementer="true"></labelincrementer>
+    <publishers>
+      <htmlemail buildresultsurl="https://sdqweb.ipd.kit.edu/dashboard/" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Cruisecontrol Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="mkuper@ipd.uka.de" skipusers="true">
+        <always address="mkuper@ipd.uka.de"></always>
+        <always address="martin.krogmann@student.kit.edu"></always>
+      </htmlemail>
+      <onsuccess>
+		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/" buildfile="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onsuccess>
+      <onfailure>
+      	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/" buildfile="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onfailure>  
+    </publishers>
+    <bootstrappers>
+      <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/"></svnbootstrapper>
+    </bootstrappers>
+    <listeners></listeners>
+  </project>
+  
+  <!-- #### BELOW: TimerMeter Build ################################### -->
+  <project name="Palladio.TimerMeter" requiremodification="true">
+    <modificationset>
+      <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
+	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio.TimerMeter/trunk/edu.kit.ipd.sdq.TimerMeter/" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+    </modificationset>
+    <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
+      <ant buildfile="/home/ccontrol/svn/code/edu.kit.ipd.sdq.TimerMeter/build.xml" target="main" antworkingdir="/home/ccontrol/svn/code/edu.kit.ipd.sdq.TimerMeter/" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
+    </schedule>
+    <labelincrementer defaultlabel="1.0" prebuildincrementer="true"></labelincrementer>
+    <publishers>
+      <htmlemail buildresultsurl="https://sdqweb.ipd.kit.edu/dashboard/" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="Cruisecontrol Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="mkuper@ipd.uka.de" skipusers="true">
+        <always address="mkuper@ipd.uka.de"></always>
+        <always address="martin.krogmann@student.kit.edu"></always>
+      </htmlemail>
+      <onsuccess>
+		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/svn/code/edu.kit.ipd.sdq.TimerMeter/" buildfile="/home/ccontrol/svn/code/edu.kit.ipd.sdq.TimerMeter/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onsuccess>
+      <onfailure>
+      	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/svn/code/edu.kit.ipd.sdq.TimerMeter/" buildfile="/home/ccontrol/svn/code/edu.kit.ipd.sdq.TimerMeter/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      </onfailure>
+    </publishers>
+    <bootstrappers>
+      <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/edu.kit.ipd.sdq.TimerMeter/"></svnbootstrapper>
+    </bootstrappers>
+    <listeners></listeners>
+  </project>
+
+
+</cruisecontrol>

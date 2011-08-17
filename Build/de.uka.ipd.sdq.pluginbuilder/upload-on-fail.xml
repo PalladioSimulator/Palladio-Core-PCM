@@ -1,0 +1,34 @@
+<project name="UpdateSite">
+
+        <taskdef resource="org/pluginbuilder/anttasks/pluginbuildertasks.properties" classpath="build-files/pluginbuilder-anttasks.jar" />
+
+        <GetHostName />
+        <property file="build_${hostname}.properties" />
+        <property file="build_local.properties" />
+        <property file="upload.properties" />
+
+	<!-- action to do for failed builds: upload logging files (txt files) -->
+
+	<target name="clean_remote">
+		<sshexec host="${uploadTargetHost}"
+				username="${uploadUsername}"
+				keyfile="/home/ccontrol/.ssh/id_rsa" 
+				passphrase="" 
+				trust="true" 
+				command="cd ${uploadTargetDir}; 
+				rm ./*.txt || true; 
+			"/>
+	</target>
+
+	<target name="upload" depends="clean_remote">
+		<scp todir="${uploadUsername}@${uploadTargetHost}:${uploadTargetDir}"
+				keyfile="/home/ccontrol/.ssh/id_rsa" 
+				passphrase="" 
+				trust="true">
+			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/">
+				<include name="*.txt" />
+			</fileset>
+	  	</scp>	
+	</target>
+
+</project>

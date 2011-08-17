@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/de.uka.ipd.sdq.pcm.diagram.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.pcm.diagram.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.pcm.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.pcm.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.pcmsolver.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.pcmsolver.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.probfunction.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.probfunction.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.sensorframework.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.sensorframework.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.sensorframework.visualisation.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.sensorframework.visualisation.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.simucom.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.simucom.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.workflow.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.workflow.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.statistics.feature_1.0.0.qualifier.jar" id="de.uka.ipd.sdq.statistics.feature" version="1.0.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.dsexplore.feature_1.0.0.jar" id="de.uka.ipd.sdq.dsexplore.feature" version="1.0.0">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.reliability.feature_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.reliability.feature" version="3.1.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.probespec.feature_2.0.0.qualifier.jar" id="de.uka.ipd.sdq.probespec.feature" version="2.0.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.dsexplore.feature_2.0.0.qualifier.jar" id="de.uka.ipd.sdq.dsexplore.feature" version="2.0.0.qualifier">
+      <category name="de.uka.ipd.sdq.pcm"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.cip.feature_1.0.0.201101251550NGT.jar" id="de.uka.ipd.sdq.cip.feature" version="1.0.0.201101251550NGT">
+      <category name="de.uka.ipd.sdq.other"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.cip.feature.source_1.0.0.201101251550NGT.jar" id="de.uka.ipd.sdq.cip.feature.source" version="1.0.0.201101251550NGT">
+      <category name="de.uka.ipd.sdq.pcm.source"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.pcm.diagram.feature.source_3.1.0.201101251550NGT.jar" id="de.uka.ipd.sdq.pcm.diagram.feature.source" version="3.1.0.201101251550NGT">
+      <category name="de.uka.ipd.sdq.pcm.source"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.pcmsolver.feature.source_3.1.0.201101251550NGT.jar" id="de.uka.ipd.sdq.pcmsolver.feature.source" version="3.1.0.201101251550NGT">
+      <category name="de.uka.ipd.sdq.pcm.source"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.probfunction.feature.source_3.1.0.201101251550NGT.jar" id="de.uka.ipd.sdq.probfunction.feature.source" version="3.1.0.201101251550NGT">
+      <category name="de.uka.ipd.sdq.pcm.source"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.sensorframework.feature.source_3.1.0.201101251550NGT.jar" id="de.uka.ipd.sdq.sensorframework.feature.source" version="3.1.0.201101251550NGT">
+      <category name="de.uka.ipd.sdq.pcm.source"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.sensorframework.visualisation.feature.source_3.1.0.201101251550NGT.jar" id="de.uka.ipd.sdq.sensorframework.visualisation.feature.source" version="3.1.0.201101251550NGT">
+      <category name="de.uka.ipd.sdq.pcm.source"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.simucom.feature.source_3.1.0.201101251550NGT.jar" id="de.uka.ipd.sdq.simucom.feature.source" version="3.1.0.201101251550NGT">
+      <category name="de.uka.ipd.sdq.pcm.source"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.statistics.feature.source_1.0.0.201101251550NGT.jar" id="de.uka.ipd.sdq.statistics.feature.source" version="1.0.0.201101251550NGT">
+      <category name="de.uka.ipd.sdq.pcm.source"/>
+   </feature>
+   <feature url="features/de.uka.ipd.sdq.workflow.feature.source_3.1.0.201101251550NGT.jar" id="de.uka.ipd.sdq.workflow.feature.source" version="3.1.0.201101251550NGT">
+      <category name="de.uka.ipd.sdq.pcm.source"/>
+   </feature>
+   <category-def name="de.uka.ipd.sdq.pcm" label="Palladio Component Model">
+      <description>
+         This category contains features of the Palladio Component Model
+      </description>
+   </category-def>
+   <category-def name="de.uka.ipd.sdq.other" label="Palladio Component Model - Other">
+      <description>
+         Features which complement the Palladio Component Model. Includes unstable features.
+      </description>
+   </category-def>
+   <category-def name="de.uka.ipd.sdq.pcm.source" label="Palladio Component Model Sources">
+      <description>
+         Source features of the Palladio component model
+      </description>
+   </category-def>
+</site>
