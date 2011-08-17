@@ -1,0 +1,14 @@
+<html>
+<body>
+This package contains various statistical estimators. There are 
+point estimators and confidence estimators, represented by the interfaces 
+{@link IPointEstimator} and {@link IConfidenceEstimator}. An estimator 
+implements one or both of them.
+<h3>How to implement a new estimator?</h3>
+If your implementation is intended to provide solely point estimation or 
+confidence estimation implement only the corresponding interface. Otherwise
+both interfaces have to be implemented. It is recommended to create a single
+class implementing both interfaces in contrast to create one class per 
+interface.
+</body>
+</html>
