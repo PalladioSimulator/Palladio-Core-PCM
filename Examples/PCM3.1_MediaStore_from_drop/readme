@@ -1,8 +1,0 @@
-This Project includes one base model of the MediaStore Example and four design variants.
-* The base Model consists of the default models (default.allocation, default.system, mediastore.repository, mediastore.resourceenvironment). 
-Additionally, it includes two different usage models which are used within all design variants.
-* Alternative 1 (EA1): has an additional DBCach component
-* Alternative 2 (EA2): substitutes the DB component with the Pooling DB Component
-* Alternative 3 (EA3): includes an additional DB server
-* Alternative 4 (EA4): has an additional encoding component in order to compress all files. 
-
