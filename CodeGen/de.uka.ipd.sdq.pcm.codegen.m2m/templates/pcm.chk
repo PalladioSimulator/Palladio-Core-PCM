@@ -1,0 +1,102 @@
+import parameter;
+import seff;
+import repository;
+import core::composition;
+import system;
+import resourceenvironment;
+import usagemodel;
+import entity;
+import stoex;
+import core::entity;
+extension m2t_transforms::pcm;
+
+context InterfaceProvidingEntity ERROR '':
+	this.id != '';
+	
+context ExternalCallAction ERROR 'A Role is needed in an external call':
+	this.role_ExternalService != null;
+	
+context VariableUsage ERROR 'LHS ID not set':
+	this.namedReference_VariableUsage != null;
+	
+context ExternalCallAction ERROR this.calledService_ExternalService.serviceName + ' Variable Reference not set':
+	!this.inputParameterUsages_ExternalCallAction.exists(vu|vu.namedReference_VariableUsage == null);
+	
+context ResourceDemandingBehaviour ERROR 'SEFF or Behaviour needs exactly one start and one stop action':
+	this.steps_Behaviour.typeSelect(StartAction).size == 1 && this.steps_Behaviour.typeSelect(StopAction).size == 1;
+	
+context ScenarioBehaviour ERROR 'User Scenario Behaviour needs exactly one start and one stop action':
+	this.actions_ScenarioBehaviour.typeSelect(Start).size == 1 && this.actions_ScenarioBehaviour.typeSelect(Stop).size == 1;
+	
+context ResourceDemandingBehaviour ERROR 'No route from start to stop action in Resource Demanding Behaviour':
+ 	this.steps_Behaviour.typeSelect(StartAction).size > 0 && this.steps_Behaviour.typeSelect(StartAction).get(0).findStopAction() != null;
+	
+context ScenarioBehaviour ERROR 'No route from start to stop action in User Scenario':
+ 		this.actions_ScenarioBehaviour.typeSelect(Start).size > 0 && this.actions_ScenarioBehaviour.typeSelect(Start).get(0).findStop() != null;
+
+context UsageScenario ERROR 'Usage Scenarios need a Workload Specification':
+	this.workload_UsageScenario != null;
+	
+context BasicComponent ERROR this.entityName +': basic component must have at least a minimal SEFF for any provided method':
+	this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.signatures__Interface.forAll(s|s.hasSEFF(this));
+	
+context ComposedStructure ERROR 'Composed Structure ' + this.entityName +': All assembly contexts of a composite structure must have unique names':
+	this.assemblyContexts_ComposedStructure.forAll(ctx1|!this.assemblyContexts_ComposedStructure.exists(ctx2|ctx1 != ctx2 && ctx1.entityName == ctx2.entityName));
+
+context ComposedProvidingRequiringEntity WARNING 'Composed Structure ' + this.entityName +': All provided roles of the composed structure must be bound to an inner provided role using a delegation connector':
+	this.providedRoles_InterfaceProvidingEntity.forAll(role|this.providedDelegationConnectors_ComposedStructure.exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector == role));
+	
+context InterfaceProvidingRequiringEntity ERROR 'Component ' + this.entityName +': All required roles of a component must have unique names':
+	this.requiredRoles_InterfaceRequiringEntity.forAll(r1|this.requiredRoles_InterfaceRequiringEntity.forAll(r2 | r1 == r2 || r1.entityName != r2.entityName));
+	
+context System ERROR 'System ' + this.entityName +': A system must contain at least one uppercase letter':
+	this.entityName != this.entityName.toLowerCase();
+	
+context AssemblyConnector ERROR 'AssemblyConnector' + this.entityName + ': The referenced ProvidedRole is not provided by the referenced AssemblyContext. Please fix either reference in the EMF editor. Note that the error is not necessarily visible in the system diagram or composite diagram':
+    this.providingAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.providedRoles_InterfaceProvidingEntity.contains(this.providedRole_AssemblyConnector);
+    
+context AssemblyConnector ERROR 'AssemblyConnector' + this.entityName + ': The referenced RequiredRole is not required by the referenced AssemblyContext. Please fix either reference in the EMF editor. Note that the error is not necessarily visible in the system diagram or composite diagram':
+    this.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent_AssemblyContext.requiredRoles_InterfaceRequiringEntity.contains(this.requiredRole_AssemblyConnector);  
+
+context AssemblyConnector ERROR 'AssemblyConnector' + this.entityName + ': The referenced Interfaces are not compatible: '+this.providedRole_AssemblyConnector.providedInterface__ProvidedRole.entityName +' and '+ this.requiredRole_AssemblyConnector.requiredInterface__RequiredRole.entityName+'. Make sure to connect the right RequiredRole and ProvidedRole in the system model.':
+	this.providedRole_AssemblyConnector.providedInterface__ProvidedRole == this.requiredRole_AssemblyConnector.requiredInterface__RequiredRole
+	|| this.providedRole_AssemblyConnector.providedInterface__ProvidedRole.ancestorInterfaces_Interface.contains(this.requiredRole_AssemblyConnector.requiredInterface__RequiredRole);
+
+context UsageScenario ERROR 'UsageScenario ' + this.entityName +': A usage scenario must contain at least one uppercase letter':
+	this.entityName != this.entityName.toLowerCase();
+
+context ClosedWorkload ERROR 'Closed Workload must have a population > 0':
+	this.population > 0;
+	
+context CommunicationLinkResourceSpecification ERROR 'No latency specified for communication resource' :
+	this.latency_CommunicationLinkResourceSpecification != null && this.latency_CommunicationLinkResourceSpecification.specification != '';
+	
+context ProcessingResourceSpecification ERROR 'Processing Rate must be set for ProcessingResourceSpecification':
+	this.processingRate_ProcessingResourceSpecification != null && this.processingRate_ProcessingResourceSpecification.specification != '';
+	
+context Repository ERROR 'Repository should contain at least one element':
+	this.components__Repository.size > 0 || this.datatypes_Repository.size > 0 || this.interfaces__Repository.size > 0 || this.failureTypes.size > 0;
+	
+context LinkingResource ERROR 'No specification for Linking Resource '+this.entityName+' given':
+	this.communicationLinkResourceSpecifications_LinkingResource != null;
+	
+context ExternalCallAction ERROR 'Role of ExternalCallAction must be a required role of the containing component':
+	this.findContainerComponent().requiredRoles_InterfaceRequiringEntity.contains(this.role_ExternalService);
+
+context ExternalCallAction ERROR 'Called Signature must be part of the called Required Interface':
+	((RequiredRole)this.role_ExternalService).requiredInterface__RequiredRole.signatures__Interface.contains(this.calledService_ExternalService);
+	
+context InterfaceProvidingRequiringEntity ERROR 'Required Roles must have unique names for Code Generation':
+	this.requiredRoles_InterfaceRequiringEntity.forAll(rr| ! this.requiredRoles_InterfaceRequiringEntity.exists(rr2|rr2 != rr && rr2.entityName == rr.entityName));
+	
+context RandomVariable ERROR 'Random variable without specification is invalid':
+	this.specification != null && this.specification != "";
+	
+context Signature ERROR 'Signature contains invalid characters, use only uppercase and lowercase alphabetical characters':
+	!(this.serviceName.contains("(") || this.serviceName.contains(")") || this.serviceName.contains(",") || this.serviceName.contains(":") || this.serviceName.contains(";"));
+	
+context InterfaceProvidingRequiringEntity ERROR 'Component ' + this.entityName +': All provided roles of a component must have unique names':
+	this.providedRoles_InterfaceProvidingEntity.forAll(r1|this.providedRoles_InterfaceProvidingEntity.forAll(r2 | r1 == r2 || r1.entityName != r2.entityName));
+	
+context UsageModel ERROR 'All usage scenarios must have unique names':
+	this.usageScenario_UsageModel.forAll(u1|this.usageScenario_UsageModel.forAll(u2 | u1 == u2 || u1.entityName != u2.entityName));
