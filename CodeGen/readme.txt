@@ -1,0 +1,1 @@
+backport of eclipse 3.5 fixes for PCM 3.1
