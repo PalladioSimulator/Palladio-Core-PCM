@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_u7dRMCLBEd-oBJTR6DNrmw" type="PCM SEFF Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_vA_RcCLBEd-oBJTR6DNrmw" type="2001">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_vA_RcSLBEd-oBJTR6DNrmw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_vA_RciLBEd-oBJTR6DNrmw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_vA_RcyLBEd-oBJTR6DNrmw"/>
+    <element xmi:type="StartAction" href="brs.repository#_7gTfQdo5EdyCSNQKlT1LxA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vA_RdCLBEd-oBJTR6DNrmw" x="35" y="25"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_vA_4gCLBEd-oBJTR6DNrmw" type="2002" fontName="Segoe UI">
+    <element xmi:type="StopAction" href="brs.repository#_7gTfQto5EdyCSNQKlT1LxA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vA_4gSLBEd-oBJTR6DNrmw" x="136"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_vA_4giLBEd-oBJTR6DNrmw" type="2005" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_vBAfkCLBEd-oBJTR6DNrmw" type="5011"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_vBAfkSLBEd-oBJTR6DNrmw" type="7011">
+      <children xmi:type="notation:Shape" xmi:id="_vBCUxCLBEd-oBJTR6DNrmw" type="3017" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_vBCUxiLBEd-oBJTR6DNrmw" type="5018"/>
+        <element xmi:type="GuardedBranchTransition" href="brs.repository#//@components__Repository.4/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vBCUxSLBEd-oBJTR6DNrmw" x="300" y="20"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_vBCUxyLBEd-oBJTR6DNrmw" type="3017" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_vBCUySLBEd-oBJTR6DNrmw" type="5018"/>
+        <element xmi:type="GuardedBranchTransition" href="brs.repository#//@components__Repository.4/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.1"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vBCUyCLBEd-oBJTR6DNrmw" x="15" y="15" width="261" height="206"/>
+      </children>
+    </children>
+    <element xmi:type="BranchAction" href="brs.repository#_P30yANo6EdyCSNQKlT1LxA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vA_4gyLBEd-oBJTR6DNrmw" y="90" width="596" height="501"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_u7dRMSLBEd-oBJTR6DNrmw"/>
+  <element xmi:type="ResourceDemandingSEFF" href="brs.repository#_7gTfQNo5EdyCSNQKlT1LxA"/>
+</notation:Diagram>

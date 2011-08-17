@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_HZJnoJSbEd-mVsWhjZHqXg" entityName="defaultRepository">
+  <components__Repository xsi:type="BasicComponent" id="_KJN7gJSbEd-mVsWhjZHqXg" entityName="FileSearch">
+    <providedRoles_InterfaceProvidingEntity xsi:type="OperationProvidedRole" id="_eCAq4JSbEd-mVsWhjZHqXg" entityName="Provided_IDesktopSearch_FileSearch" providedInterface__OperationProvidedRole="_TlJqcJSbEd-mVsWhjZHqXg"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="OperationRequiredRole" id="_z8VMUMC9Ed-_g7H4snGzBA" requiredInterface__OperationRequiredRole="_sLHTkJSbEd-mVsWhjZHqXg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_hjkT0JSgEd-mVsWhjZHqXg" describedService__SEFF="_GnNX4aDREd-ZGLNGUx3tEQ">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_h7fEkJSgEd-mVsWhjZHqXg" successor_AbstractAction="_4WkYIMSQEd-D6bWrAI7h1A"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_h7fEkZSgEd-mVsWhjZHqXg" predecessor_AbstractAction="_WCudINanEd-C1vWrfPdNJg"/>
+      <steps_Behaviour xsi:type="_1:LoopAction" id="_4WkYIMSQEd-D6bWrAI7h1A" entityName="ForEachFileChooseSize" predecessor_AbstractAction="_h7fEkJSgEd-mVsWhjZHqXg" successor_AbstractAction="_WCudINanEd-C1vWrfPdNJg">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="_1:StartAction" id="_4XVNIMSQEd-D6bWrAI7h1A" successor_AbstractAction="_H1haAOwQEd-tVaDd4vWmgg"/>
+          <steps_Behaviour xsi:type="_1:StopAction" id="_4XV0MMSQEd-D6bWrAI7h1A" predecessor_AbstractAction="_y3EpkMSQEd-D6bWrAI7h1A"/>
+          <steps_Behaviour xsi:type="_1:BranchAction" id="_y3EpkMSQEd-D6bWrAI7h1A" entityName="FileSize" predecessor_AbstractAction="_H1haAOwQEd-tVaDd4vWmgg" successor_AbstractAction="_4XV0MMSQEd-D6bWrAI7h1A">
+            <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_aTxdcMSREd-D6bWrAI7h1A" entityName="240" branchProbability="0.0053">
+              <branchBehaviour_BranchTransition>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_aTyrkMSREd-D6bWrAI7h1A" successor_AbstractAction="_DA_hMMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_aTzSoMSREd-D6bWrAI7h1A" predecessor_AbstractAction="_DA_hMMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_DA_hMMSWEd-D6bWrAI7h1A" predecessor_AbstractAction="_aTyrkMSREd-D6bWrAI7h1A" successor_AbstractAction="_aTzSoMSREd-D6bWrAI7h1A" calledService_ExternalService="_GnOmAaDREd-ZGLNGUx3tEQ" role_ExternalService="_z8VMUMC9Ed-_g7H4snGzBA">
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="1"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+                  </inputVariableUsages__CallAction>
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+                  </inputVariableUsages__CallAction>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+            </branches_Branch>
+            <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_fu-h4MSREd-D6bWrAI7h1A" entityName="396" branchProbability="0.0202">
+              <branchBehaviour_BranchTransition>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_fu_wAMSREd-D6bWrAI7h1A" successor_AbstractAction="_JHygUMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_fvAXEMSREd-D6bWrAI7h1A" predecessor_AbstractAction="_JHygUMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_JHygUMSWEd-D6bWrAI7h1A" predecessor_AbstractAction="_fu_wAMSREd-D6bWrAI7h1A" successor_AbstractAction="_fvAXEMSREd-D6bWrAI7h1A" calledService_ExternalService="_GnOmAaDREd-ZGLNGUx3tEQ" role_ExternalService="_z8VMUMC9Ed-_g7H4snGzBA">
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="2"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+                  </inputVariableUsages__CallAction>
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+                  </inputVariableUsages__CallAction>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+            </branches_Branch>
+            <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_lf6lwMSREd-D6bWrAI7h1A" entityName="768" branchProbability="0.2114">
+              <branchBehaviour_BranchTransition>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_lf7z4MSREd-D6bWrAI7h1A" successor_AbstractAction="_VAcJUMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_lf8a8MSREd-D6bWrAI7h1A" predecessor_AbstractAction="_VAcJUMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_VAcJUMSWEd-D6bWrAI7h1A" predecessor_AbstractAction="_lf7z4MSREd-D6bWrAI7h1A" successor_AbstractAction="_lf8a8MSREd-D6bWrAI7h1A" calledService_ExternalService="_GnOmAaDREd-ZGLNGUx3tEQ" role_ExternalService="_z8VMUMC9Ed-_g7H4snGzBA">
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="3"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+                  </inputVariableUsages__CallAction>
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+                  </inputVariableUsages__CallAction>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+            </branches_Branch>
+            <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_u96KMMSREd-D6bWrAI7h1A" entityName="1486" branchProbability="0.3626">
+              <branchBehaviour_BranchTransition>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_u97YUMSREd-D6bWrAI7h1A" successor_AbstractAction="_bOBF4MSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_u97YUcSREd-D6bWrAI7h1A" predecessor_AbstractAction="_bOBF4MSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_bOBF4MSWEd-D6bWrAI7h1A" predecessor_AbstractAction="_u97YUMSREd-D6bWrAI7h1A" successor_AbstractAction="_u97YUcSREd-D6bWrAI7h1A" calledService_ExternalService="_GnOmAaDREd-ZGLNGUx3tEQ" role_ExternalService="_z8VMUMC9Ed-_g7H4snGzBA">
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="4"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+                  </inputVariableUsages__CallAction>
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+                  </inputVariableUsages__CallAction>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+            </branches_Branch>
+            <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_1GbAkMSREd-D6bWrAI7h1A" entityName="2823" branchProbability="0.2472">
+              <branchBehaviour_BranchTransition>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_1GcOsMSREd-D6bWrAI7h1A" successor_AbstractAction="_jKOHcMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_1GcOscSREd-D6bWrAI7h1A" predecessor_AbstractAction="_jKOHcMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_jKOHcMSWEd-D6bWrAI7h1A" predecessor_AbstractAction="_1GcOsMSREd-D6bWrAI7h1A" successor_AbstractAction="_1GcOscSREd-D6bWrAI7h1A" calledService_ExternalService="_GnOmAaDREd-ZGLNGUx3tEQ" role_ExternalService="_z8VMUMC9Ed-_g7H4snGzBA">
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="5"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+                  </inputVariableUsages__CallAction>
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+                  </inputVariableUsages__CallAction>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+            </branches_Branch>
+            <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_43EAoMSREd-D6bWrAI7h1A" entityName="5576" branchProbability="0.1097">
+              <branchBehaviour_BranchTransition>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_43FOwMSREd-D6bWrAI7h1A" successor_AbstractAction="_okEhAMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_43F10MSREd-D6bWrAI7h1A" predecessor_AbstractAction="_okEhAMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_okEhAMSWEd-D6bWrAI7h1A" predecessor_AbstractAction="_43FOwMSREd-D6bWrAI7h1A" successor_AbstractAction="_43F10MSREd-D6bWrAI7h1A" calledService_ExternalService="_GnOmAaDREd-ZGLNGUx3tEQ" role_ExternalService="_z8VMUMC9Ed-_g7H4snGzBA">
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="6"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+                  </inputVariableUsages__CallAction>
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+                  </inputVariableUsages__CallAction>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+            </branches_Branch>
+            <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="__EiPgMSREd-D6bWrAI7h1A" entityName="10924" branchProbability="0.0357">
+              <branchBehaviour_BranchTransition>
+                <steps_Behaviour xsi:type="_1:StartAction" id="__EjdoMSREd-D6bWrAI7h1A" successor_AbstractAction="_uCMWkMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="__EjdocSREd-D6bWrAI7h1A" predecessor_AbstractAction="_uCMWkMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_uCMWkMSWEd-D6bWrAI7h1A" predecessor_AbstractAction="__EjdoMSREd-D6bWrAI7h1A" successor_AbstractAction="__EjdocSREd-D6bWrAI7h1A" calledService_ExternalService="_GnOmAaDREd-ZGLNGUx3tEQ" role_ExternalService="_z8VMUMC9Ed-_g7H4snGzBA">
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="7"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+                  </inputVariableUsages__CallAction>
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+                  </inputVariableUsages__CallAction>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+            </branches_Branch>
+            <branches_Branch xsi:type="_1:ProbabilisticBranchTransition" id="_FDSF4MSSEd-D6bWrAI7h1A" entityName="16385" branchProbability="0.0079">
+              <branchBehaviour_BranchTransition>
+                <steps_Behaviour xsi:type="_1:StartAction" id="_FDTUAMSSEd-D6bWrAI7h1A" successor_AbstractAction="_0x8zIMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:StopAction" id="_FDT7EMSSEd-D6bWrAI7h1A" predecessor_AbstractAction="_0x8zIMSWEd-D6bWrAI7h1A"/>
+                <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_0x8zIMSWEd-D6bWrAI7h1A" predecessor_AbstractAction="_FDTUAMSSEd-D6bWrAI7h1A" successor_AbstractAction="_FDT7EMSSEd-D6bWrAI7h1A" calledService_ExternalService="_GnOmAaDREd-ZGLNGUx3tEQ" role_ExternalService="_z8VMUMC9Ed-_g7H4snGzBA">
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="8"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+                  </inputVariableUsages__CallAction>
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="VALUE">
+                      <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+                  </inputVariableUsages__CallAction>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+            </branches_Branch>
+          </steps_Behaviour>
+          <steps_Behaviour xsi:type="_1:InternalAction" id="_H1haAOwQEd-tVaDd4vWmgg" entityName="Overhead" predecessor_AbstractAction="_4XVNIMSQEd-D6bWrAI7h1A" successor_AbstractAction="_y3EpkMSQEd-D6bWrAI7h1A">
+            <resourceDemand_Action>
+              <specification_ParametericResourceDemand specification="0.0027"/>
+              <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+        </bodyBehaviour_Loop>
+        <iterationCount_LoopAction specification="NumberOfFiles.VALUE"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_WCudINanEd-C1vWrfPdNJg" entityName="Search" predecessor_AbstractAction="_4WkYIMSQEd-D6bWrAI7h1A" successor_AbstractAction="_h7fEkZSgEd-mVsWhjZHqXg">
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_geClcNanEd-C1vWrfPdNJg" entityName="Birthday_UND">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_geM9gNanEd-C1vWrfPdNJg" successor_AbstractAction="_osf0oNanEd-C1vWrfPdNJg"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_geNkkNanEd-C1vWrfPdNJg" predecessor_AbstractAction="_osf0oNanEd-C1vWrfPdNJg"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_osf0oNanEd-C1vWrfPdNJg" predecessor_AbstractAction="_geM9gNanEd-C1vWrfPdNJg" successor_AbstractAction="_geNkkNanEd-C1vWrfPdNJg">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="2"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="NumberOfStrings.VALUE == 1&#xD;&#xA;"/>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_KcYIEJSbEd-mVsWhjZHqXg" entityName="Parsing">
+    <providedRoles_InterfaceProvidingEntity xsi:type="OperationProvidedRole" id="_viBlAJSbEd-mVsWhjZHqXg" entityName="Provided_IParsing_Parsing" providedInterface__OperationProvidedRole="_sLHTkJSbEd-mVsWhjZHqXg"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="OperationRequiredRole" id="_hXpUgJScEd-mVsWhjZHqXg" entityName="Required_IIndexing_Parsing" requiredInterface__OperationRequiredRole="_NLx4IJScEd-mVsWhjZHqXg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_iUKDQJSgEd-mVsWhjZHqXg" describedService__SEFF="_GnOmAaDREd-ZGLNGUx3tEQ">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_imskwJSgEd-mVsWhjZHqXg" successor_AbstractAction="_HbzNsMSYEd-D6bWrAI7h1A"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_imskwZSgEd-mVsWhjZHqXg" predecessor_AbstractAction="_HbzNsMSYEd-D6bWrAI7h1A"/>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_HbzNsMSYEd-D6bWrAI7h1A" entityName="Parse" predecessor_AbstractAction="_imskwJSgEd-mVsWhjZHqXg" successor_AbstractAction="_imskwZSgEd-mVsWhjZHqXg">
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_NZrhYMSYEd-D6bWrAI7h1A" entityName="240">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_NZt9oMSYEd-D6bWrAI7h1A" successor_AbstractAction="_ImeboMSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_NZuksMSYEd-D6bWrAI7h1A" predecessor_AbstractAction="_0C3YMMSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_ImeboMSZEd-D6bWrAI7h1A" entityName="Parse" predecessor_AbstractAction="_NZt9oMSYEd-D6bWrAI7h1A" successor_AbstractAction="_0C3YMMSZEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="8.07/37.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_0C3YMMSZEd-D6bWrAI7h1A" predecessor_AbstractAction="_ImeboMSZEd-D6bWrAI7h1A" successor_AbstractAction="_NZuksMSYEd-D6bWrAI7h1A" calledService_ExternalService="_GnP0IKDREd-ZGLNGUx3tEQ" role_ExternalService="_hXpUgJScEd-mVsWhjZHqXg">
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="1"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+              </inputVariableUsages__CallAction>
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+              </inputVariableUsages__CallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 1"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_X1PhUMSYEd-D6bWrAI7h1A" entityName="396">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_X1QvcMSYEd-D6bWrAI7h1A" successor_AbstractAction="_OSpUQMSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_X1RWgMSYEd-D6bWrAI7h1A" predecessor_AbstractAction="_17o3sMSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_OSpUQMSZEd-D6bWrAI7h1A" entityName="Parse" predecessor_AbstractAction="_X1QvcMSYEd-D6bWrAI7h1A" successor_AbstractAction="_17o3sMSZEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="27.48/140.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_17o3sMSZEd-D6bWrAI7h1A" predecessor_AbstractAction="_OSpUQMSZEd-D6bWrAI7h1A" successor_AbstractAction="_X1RWgMSYEd-D6bWrAI7h1A" calledService_ExternalService="_GnP0IKDREd-ZGLNGUx3tEQ" role_ExternalService="_hXpUgJScEd-mVsWhjZHqXg">
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="2"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+              </inputVariableUsages__CallAction>
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+              </inputVariableUsages__CallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 2"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_cmwvkMSYEd-D6bWrAI7h1A" entityName="768">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_cmykwMSYEd-D6bWrAI7h1A" successor_AbstractAction="_S2Lw4MSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_cmykwcSYEd-D6bWrAI7h1A" predecessor_AbstractAction="_5UTcoMSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_S2Lw4MSZEd-D6bWrAI7h1A" entityName="Parse" predecessor_AbstractAction="_cmykwMSYEd-D6bWrAI7h1A" successor_AbstractAction="_5UTcoMSZEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="111.30/1464.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_5UTcoMSZEd-D6bWrAI7h1A" predecessor_AbstractAction="_S2Lw4MSZEd-D6bWrAI7h1A" successor_AbstractAction="_cmykwcSYEd-D6bWrAI7h1A" calledService_ExternalService="_GnP0IKDREd-ZGLNGUx3tEQ" role_ExternalService="_hXpUgJScEd-mVsWhjZHqXg">
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="3"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+              </inputVariableUsages__CallAction>
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+              </inputVariableUsages__CallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 3"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_o1iZkMSYEd-D6bWrAI7h1A" entityName="1486">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_o1mrAMSYEd-D6bWrAI7h1A" successor_AbstractAction="_XF8V4MSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_o1nSEMSYEd-D6bWrAI7h1A" predecessor_AbstractAction="_7GYeQMSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_XF8V4MSZEd-D6bWrAI7h1A" entityName="Parse" predecessor_AbstractAction="_o1mrAMSYEd-D6bWrAI7h1A" successor_AbstractAction="_7GYeQMSZEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="182.66/2511.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_7GYeQMSZEd-D6bWrAI7h1A" predecessor_AbstractAction="_XF8V4MSZEd-D6bWrAI7h1A" successor_AbstractAction="_o1nSEMSYEd-D6bWrAI7h1A" calledService_ExternalService="_GnP0IKDREd-ZGLNGUx3tEQ" role_ExternalService="_hXpUgJScEd-mVsWhjZHqXg">
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="4"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+              </inputVariableUsages__CallAction>
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+              </inputVariableUsages__CallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 4"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_uFcM8MSYEd-D6bWrAI7h1A" entityName="2823">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_uFeCIMSYEd-D6bWrAI7h1A" successor_AbstractAction="_cFv3wMSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_uFeCIcSYEd-D6bWrAI7h1A" predecessor_AbstractAction="_-DyDgMSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_cFv3wMSZEd-D6bWrAI7h1A" entityName="Parse" predecessor_AbstractAction="_uFeCIMSYEd-D6bWrAI7h1A" successor_AbstractAction="_-DyDgMSZEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="189.03/1712.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_-DyDgMSZEd-D6bWrAI7h1A" predecessor_AbstractAction="_cFv3wMSZEd-D6bWrAI7h1A" successor_AbstractAction="_uFeCIcSYEd-D6bWrAI7h1A" calledService_ExternalService="_GnP0IKDREd-ZGLNGUx3tEQ" role_ExternalService="_hXpUgJScEd-mVsWhjZHqXg">
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="5"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+              </inputVariableUsages__CallAction>
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+              </inputVariableUsages__CallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 5"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_ztcXQMSYEd-D6bWrAI7h1A" entityName="5576">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_zteMcMSYEd-D6bWrAI7h1A" successor_AbstractAction="_gylaUMSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_ztezgMSYEd-D6bWrAI7h1A" predecessor_AbstractAction="_AEG8gMSaEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_gylaUMSZEd-D6bWrAI7h1A" entityName="Parse" predecessor_AbstractAction="_zteMcMSYEd-D6bWrAI7h1A" successor_AbstractAction="_AEG8gMSaEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="155.23/760.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_AEG8gMSaEd-D6bWrAI7h1A" predecessor_AbstractAction="_gylaUMSZEd-D6bWrAI7h1A" successor_AbstractAction="_ztezgMSYEd-D6bWrAI7h1A" calledService_ExternalService="_GnP0IKDREd-ZGLNGUx3tEQ" role_ExternalService="_hXpUgJScEd-mVsWhjZHqXg">
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="6"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+              </inputVariableUsages__CallAction>
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+              </inputVariableUsages__CallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 6"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_5xLbUMSYEd-D6bWrAI7h1A" entityName="10924">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_5xNQgMSYEd-D6bWrAI7h1A" successor_AbstractAction="_neTrcMSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_5xN3kMSYEd-D6bWrAI7h1A" predecessor_AbstractAction="_CEk_cMSaEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_neTrcMSZEd-D6bWrAI7h1A" entityName="Parse" predecessor_AbstractAction="_5xNQgMSYEd-D6bWrAI7h1A" successor_AbstractAction="_CEk_cMSaEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="88.44/247.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_CEk_cMSaEd-D6bWrAI7h1A" predecessor_AbstractAction="_neTrcMSZEd-D6bWrAI7h1A" successor_AbstractAction="_5xN3kMSYEd-D6bWrAI7h1A" calledService_ExternalService="_GnP0IKDREd-ZGLNGUx3tEQ" role_ExternalService="_hXpUgJScEd-mVsWhjZHqXg">
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="7"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+              </inputVariableUsages__CallAction>
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+              </inputVariableUsages__CallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 7"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_BLFoIMSZEd-D6bWrAI7h1A" entityName="21837">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_BLG2QMSZEd-D6bWrAI7h1A" successor_AbstractAction="_rVsMsMSZEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_BLHdUMSZEd-D6bWrAI7h1A" predecessor_AbstractAction="_EjGQUMSaEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_rVsMsMSZEd-D6bWrAI7h1A" entityName="Parse" predecessor_AbstractAction="_BLG2QMSZEd-D6bWrAI7h1A" successor_AbstractAction="_EjGQUMSaEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="44.6/55.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_EjGQUMSaEd-D6bWrAI7h1A" predecessor_AbstractAction="_rVsMsMSZEd-D6bWrAI7h1A" successor_AbstractAction="_BLHdUMSZEd-D6bWrAI7h1A" calledService_ExternalService="_GnP0IKDREd-ZGLNGUx3tEQ" role_ExternalService="_hXpUgJScEd-mVsWhjZHqXg">
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="8"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileSize"/>
+              </inputVariableUsages__CallAction>
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="NumberOfStrings.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+              </inputVariableUsages__CallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 8"/>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_KuxfoJSbEd-mVsWhjZHqXg" entityName="Indexing">
+    <providedRoles_InterfaceProvidingEntity xsi:type="OperationProvidedRole" id="_hxXcEJScEd-mVsWhjZHqXg" entityName="Provided_IIndexing_Indexing" providedInterface__OperationProvidedRole="_NLx4IJScEd-mVsWhjZHqXg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_hxsMMJScEd-mVsWhjZHqXg" describedService__SEFF="_GnP0IKDREd-ZGLNGUx3tEQ">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_hyhSoJScEd-mVsWhjZHqXg" successor_AbstractAction="_J9oswMSiEd-D6bWrAI7h1A"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_hyigwJScEd-mVsWhjZHqXg" predecessor_AbstractAction="_J9oswMSiEd-D6bWrAI7h1A"/>
+      <steps_Behaviour xsi:type="_1:BranchAction" id="_J9oswMSiEd-D6bWrAI7h1A" entityName="Index" predecessor_AbstractAction="_hyhSoJScEd-mVsWhjZHqXg" successor_AbstractAction="_hyigwJScEd-mVsWhjZHqXg">
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_N5340MSiEd-D6bWrAI7h1A">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_N55uAMSiEd-D6bWrAI7h1A" successor_AbstractAction="_hx2I0MSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_N56VEMSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_hx2I0MSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_hx2I0MSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_N55uAMSiEd-D6bWrAI7h1A" successor_AbstractAction="_N56VEMSiEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="3.6/37.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 1"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_RKOPQMSiEd-D6bWrAI7h1A">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_RKQEcMSiEd-D6bWrAI7h1A" successor_AbstractAction="_mY5zgMSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_RKQrgMSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_mY5zgMSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_mY5zgMSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_RKQEcMSiEd-D6bWrAI7h1A" successor_AbstractAction="_RKQrgMSiEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="8.74/140.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 2"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_UVtT0MSiEd-D6bWrAI7h1A">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_UVvJAMSiEd-D6bWrAI7h1A" successor_AbstractAction="_pxCM8MSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_UVvJAcSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_pxCM8MSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_pxCM8MSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_UVvJAMSiEd-D6bWrAI7h1A" successor_AbstractAction="_UVvJAcSiEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="13.22/1464.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 3"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_ViiTUMSiEd-D6bWrAI7h1A">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_VikIgMSiEd-D6bWrAI7h1A" successor_AbstractAction="_uVHcIMSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_VikvkMSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_uVHcIMSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_uVHcIMSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_VikIgMSiEd-D6bWrAI7h1A" successor_AbstractAction="_VikvkMSiEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="20.16/2511.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 4"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_XFbCYMSiEd-D6bWrAI7h1A">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_XFc3kMSiEd-D6bWrAI7h1A" successor_AbstractAction="_0gFJkMSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_XFc3kcSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_0gFJkMSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_0gFJkMSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_XFc3kMSiEd-D6bWrAI7h1A" successor_AbstractAction="_XFc3kcSiEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="25.07/1712.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 5"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_YfcwYMSiEd-D6bWrAI7h1A">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_YfelkMSiEd-D6bWrAI7h1A" successor_AbstractAction="_40lrsMSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_YffMoMSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_40lrsMSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_40lrsMSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_YfelkMSiEd-D6bWrAI7h1A" successor_AbstractAction="_YffMoMSiEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="22.11/760.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 6"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_Z7AIYMSiEd-D6bWrAI7h1A">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_Z7B9kMSiEd-D6bWrAI7h1A" successor_AbstractAction="_-bdNkMSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_Z7CkoMSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_-bdNkMSiEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_-bdNkMSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_Z7B9kMSiEd-D6bWrAI7h1A" successor_AbstractAction="_Z7CkoMSiEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="16.03/247.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 7"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="_1:GuardedBranchTransition" id="_a1rA4MSiEd-D6bWrAI7h1A">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_a1s2EMSiEd-D6bWrAI7h1A" successor_AbstractAction="_CZUxUMSjEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_a1tdIMSiEd-D6bWrAI7h1A" predecessor_AbstractAction="_CZUxUMSjEd-D6bWrAI7h1A"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_CZUxUMSjEd-D6bWrAI7h1A" predecessor_AbstractAction="_a1s2EMSiEd-D6bWrAI7h1A" successor_AbstractAction="_a1tdIMSiEd-D6bWrAI7h1A">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="11.39/55.0"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition specification="fileSize.VALUE == 8"/>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <datatypes_Repository xsi:type="CollectionDataType" id="_vUoP9pSgEd-mVsWhjZHqXg" entityName="StringList">
+    <innerType_CollectionDataType xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+  </datatypes_Repository>
+  <interfaces__Repository xsi:type="OperationInterface" id="_TlJqcJSbEd-mVsWhjZHqXg" entityName="IFileSearch">
+    <signatures__OperationInterface id="_GnNX4aDREd-ZGLNGUx3tEQ" entityName="search">
+      <parameters__OperationSignature parameterName="NumberOfFiles">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__OperationSignature>
+      <parameters__OperationSignature parameterName="NumberOfStrings">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__OperationSignature>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="OperationInterface" id="_sLHTkJSbEd-mVsWhjZHqXg" entityName="IParsing">
+    <signatures__OperationInterface id="_GnOmAaDREd-ZGLNGUx3tEQ" entityName="parseFiles">
+      <parameters__OperationSignature parameterName="fileSize">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__OperationSignature>
+      <parameters__OperationSignature parameterName="NumberOfStrings">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__OperationSignature>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="OperationInterface" id="_NLx4IJScEd-mVsWhjZHqXg" entityName="IIndexing">
+    <signatures__OperationInterface id="_GnP0IKDREd-ZGLNGUx3tEQ" entityName="index">
+      <parameters__OperationSignature parameterName="fileSize">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__OperationSignature>
+      <parameters__OperationSignature parameterName="NumberOfStrings">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__OperationSignature>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+</Repository>

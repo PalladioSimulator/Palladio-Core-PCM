@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_IbtaAM6cEd6-4s7bDNaOhA" type="allocation" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_IcmK0M6cEd6-4s7bDNaOhA" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_IcmK086cEd6-4s7bDNaOhA" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_IcmK1M6cEd6-4s7bDNaOhA" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_JVXl4M6cEd6-4s7bDNaOhA" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_JVXl486cEd6-4s7bDNaOhA" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_JVXl5M6cEd6-4s7bDNaOhA" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_JVXl4c6cEd6-4s7bDNaOhA"/>
+        <element xmi:type="AllocationContext" href="allocateSubSystemDirectly.allocation#_JEFooM6cEd6-4s7bDNaOhA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JVXl4s6cEd6-4s7bDNaOhA" x="60" y="68"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Xc-ZwM6cEd6-4s7bDNaOhA" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_Xc-Zw86cEd6-4s7bDNaOhA" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_Xc-ZxM6cEd6-4s7bDNaOhA" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_Xc-Zwc6cEd6-4s7bDNaOhA"/>
+        <element xmi:type="AllocationContext" href="allocateSubSystemDirectly.allocation#_M1yYoM6cEd6-4s7bDNaOhA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xc-Zws6cEd6-4s7bDNaOhA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Xc-Zxc6cEd6-4s7bDNaOhA" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_Xc-ZyM6cEd6-4s7bDNaOhA" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_Xc-Zyc6cEd6-4s7bDNaOhA" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_Xc-Zxs6cEd6-4s7bDNaOhA"/>
+        <element xmi:type="AllocationContext" href="allocateSubSystemDirectly.allocation#_SrDi4M6cEd6-4s7bDNaOhA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xc-Zx86cEd6-4s7bDNaOhA" x="105" y="128"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Xc-Zys6cEd6-4s7bDNaOhA" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_Xc-Zzc6cEd6-4s7bDNaOhA" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_Xc-Zzs6cEd6-4s7bDNaOhA" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_Xc-Zy86cEd6-4s7bDNaOhA"/>
+        <element xmi:type="AllocationContext" href="allocateSubSystemDirectly.allocation#_U-SJwM6cEd6-4s7bDNaOhA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Xc-ZzM6cEd6-4s7bDNaOhA" x="110" y="223"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_IcmK1c6cEd6-4s7bDNaOhA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_IcmK1s6cEd6-4s7bDNaOhA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_IcmK0c6cEd6-4s7bDNaOhA"/>
+    <element xmi:type="_1:ResourceContainer" href="My.resourceenvironment#_B0aZ0CHdEd6lJo4DCALHMw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IcmK0s6cEd6-4s7bDNaOhA" x="145" y="50" width="521" height="421"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_IbtaAc6cEd6-4s7bDNaOhA"/>
+  <element xmi:type="Allocation" href="allocateSubSystemDirectly.allocation#_CHhu4HuJEd6UQIHUrpYg0Q"/>
+</notation:Diagram>

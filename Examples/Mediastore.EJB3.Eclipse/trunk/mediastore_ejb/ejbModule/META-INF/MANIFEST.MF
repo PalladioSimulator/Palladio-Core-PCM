@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: jid3lib-0.5.4.jar 
+ de.uka.ipd.sdq.sensorframework.jar
+

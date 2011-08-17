@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" id="_9sUWINaqEd-C1vWrfPdNJg" entityName="defaultSystem">
+  <assemblyContexts_ComposedStructure id="_COIUcNarEd-C1vWrfPdNJg" entityName="Assembly_Parsing &lt;Parsing>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="desktop_suche.repository#_KcYIEJSbEd-mVsWhjZHqXg"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_C_m0sNarEd-C1vWrfPdNJg" entityName="Assembly_Indexing &lt;Indexing>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="desktop_suche.repository#_KuxfoJSbEd-mVsWhjZHqXg"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_9FC0UNdmEd-C1vWrfPdNJg" entityName="Assembly_FileSearch &lt;FileSearch>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="desktop_suche.repository#_KJN7gJSbEd-mVsWhjZHqXg"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_EvAVwNarEd-C1vWrfPdNJg" entityName="Connector Assembly_Parsing &lt;Parsing> -> Assembly_Indexing &lt;Indexing>" requiringAssemblyContext_AssemblyConnector="_COIUcNarEd-C1vWrfPdNJg" providingAssemblyContext_AssemblyConnector="_C_m0sNarEd-C1vWrfPdNJg">
+    <providedRole_AssemblyConnector href="desktop_suche.repository#_hxXcEJScEd-mVsWhjZHqXg"/>
+    <requiredRole_AssemblyConnector href="desktop_suche.repository#_hXpUgJScEd-mVsWhjZHqXg"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_jIeAwNdqEd-_77UztH7-bg" entityName="Connector Assembly_FileSearch &lt;FileSearch> -> Assembly_Parsing &lt;Parsing>" requiringAssemblyContext_AssemblyConnector="_9FC0UNdmEd-C1vWrfPdNJg" providingAssemblyContext_AssemblyConnector="_COIUcNarEd-C1vWrfPdNJg">
+    <providedRole_AssemblyConnector href="desktop_suche.repository#_viBlAJSbEd-mVsWhjZHqXg"/>
+    <requiredRole_AssemblyConnector href="desktop_suche.repository#_z8VMUMC9Ed-_g7H4snGzBA"/>
+  </assemblyConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_A5pHUNdnEd-C1vWrfPdNJg" entityName="ProvDelegation Provided_IFileSearch -> Provided_IDesktopSearch_FileSearch" outerProvidedRole_ProvidedDelegationConnector="_FouzENarEd-C1vWrfPdNJg" assemblyContext_ProvidedDelegationConnector="_9FC0UNdmEd-C1vWrfPdNJg">
+    <innerProvidedRole_ProvidedDelegationConnector href="desktop_suche.repository#_eCAq4JSbEd-mVsWhjZHqXg"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="_1:OperationProvidedRole" id="_FouzENarEd-C1vWrfPdNJg" entityName="Provided_IFileSearch">
+    <providedInterface__OperationProvidedRole href="desktop_suche.repository#_TlJqcJSbEd-mVsWhjZHqXg"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_SlCNIFFBEd2iLYgaJYxY7w" entityName="defaultAllocation">
+  <allocationContexts_Allocation id="_TGjl0FFBEd2iLYgaJYxY7w" entityName="Allocation_Assembly_WebGUI &lt;WebGUI> &lt;WebGUI>">
+    <resourceContainer_AllocationContext href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
+    <assemblyContext_AllocationContext href="EA1.system#_vXrHgFFAEd2iLYgaJYxY7w"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_ToiRgFFBEd2iLYgaJYxY7w" entityName="Allocation_Assembly_MediaStore &lt;MediaStore> &lt;MediaStore>">
+    <resourceContainer_AllocationContext href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
+    <assemblyContext_AllocationContext href="EA1.system#_1o0VcFFAEd2iLYgaJYxY7w"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_UYg88FFBEd2iLYgaJYxY7w" entityName="Allocation_Assembly_DigitalWatermarking &lt;DigitalWatermarking> &lt;DigitalWatermarking>">
+    <resourceContainer_AllocationContext href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
+    <assemblyContext_AllocationContext href="EA1.system#_5iadMFFAEd2iLYgaJYxY7w"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_VCr7UFFBEd2iLYgaJYxY7w" entityName="Allocation_Assembly_DBCache &lt;DBCache> &lt;DBCache>">
+    <resourceContainer_AllocationContext href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
+    <assemblyContext_AllocationContext href="EA1.system#_8fzbYFFAEd2iLYgaJYxY7w"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_VlGr4FFBEd2iLYgaJYxY7w" entityName="Allocation_Assembly_AudioDB &lt;AudioDB> &lt;AudioDB>">
+    <resourceContainer_AllocationContext href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
+    <assemblyContext_AllocationContext href="EA1.system#__vOkwFFAEd2iLYgaJYxY7w"/>
+  </allocationContexts_Allocation>
+  <targetResourceEnvironment_Allocation href="mediastore.resourceenvironment#/"/>
+  <system_Allocation href="EA1.system#_1pnuEFE9Ed2iLYgaJYxY7w"/>
+</Allocation>

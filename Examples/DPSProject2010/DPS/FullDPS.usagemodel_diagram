@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xsi:schemaLocation="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0 http://sdq.ipd.uka.de/PalladioComponentModel/4.0#//usagemodel http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0 http://sdq.ipd.uka.de/PalladioComponentModel/4.0#//parameter" xmi:id="_CIoLsMGqEd-A9qol-Ab2Tg" type="PCM Usage Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_X_bqcMGrEd-A9qol-Ab2Tg" type="2001" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_X_cRgMGrEd-A9qol-Ab2Tg" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_X_gi8MGrEd-A9qol-Ab2Tg" type="3001">
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_X_gi8cGrEd-A9qol-Ab2Tg"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_X_gi8sGrEd-A9qol-Ab2Tg" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_X_gi88GrEd-A9qol-Ab2Tg"/>
+        <element xmi:type="Start" href="FullDPS.usagemodel#_UPYyMMGpEd-A9qol-Ab2Tg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X_gi9MGrEd-A9qol-Ab2Tg"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_X_hKAMGrEd-A9qol-Ab2Tg" type="3003" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_X_hKAsGrEd-A9qol-Ab2Tg" type="5004"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_X_hKA8GrEd-A9qol-Ab2Tg" type="7002">
+          <children xmi:type="notation:Node" xmi:id="_LNteoNhYEd-xPqMyYJhGbA" type="3012">
+            <children xmi:type="notation:DecorationNode" xmi:id="_LNtepdhYEd-xPqMyYJhGbA" type="5012"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_LNtepthYEd-xPqMyYJhGbA" type="7011">
+              <children xmi:type="notation:Node" xmi:id="_LhevMNhYEd-xPqMyYJhGbA" type="3013">
+                <element xmi:type="_1:VariableCharacterisation" href="FullDPS.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_LhfWQNhYEd-xPqMyYJhGbA"/>
+              </children>
+              <styles xmi:type="notation:TitleStyle" xmi:id="_LNtep9hYEd-xPqMyYJhGbA" showTitle="true"/>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_LNteqNhYEd-xPqMyYJhGbA"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_LNteqdhYEd-xPqMyYJhGbA"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_LNteodhYEd-xPqMyYJhGbA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_LNteothYEd-xPqMyYJhGbA" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_LNteo9hYEd-xPqMyYJhGbA"/>
+            <element xmi:type="_1:VariableUsage" href="FullDPS.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1/@inputParameterUsages_EntryLevelSystemCall.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LNtepNhYEd-xPqMyYJhGbA"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_X_hKBMGrEd-A9qol-Ab2Tg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_X_hKBcGrEd-A9qol-Ab2Tg"/>
+        </children>
+        <element xmi:type="EntryLevelSystemCall" href="FullDPS.usagemodel#_VNMeQMGpEd-A9qol-Ab2Tg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X_hKAcGrEd-A9qol-Ab2Tg" x="120" y="84"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_X_hxEMGrEd-A9qol-Ab2Tg" type="3003" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_X_hxEsGrEd-A9qol-Ab2Tg" type="5004"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_X_iYIMGrEd-A9qol-Ab2Tg" type="7002">
+          <children xmi:type="notation:Node" xmi:id="_cP1vsMGrEd-A9qol-Ab2Tg" type="3012">
+            <children xmi:type="notation:DecorationNode" xmi:id="_cP2WwMGrEd-A9qol-Ab2Tg" type="5012"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_cP2WwcGrEd-A9qol-Ab2Tg" type="7011">
+              <children xmi:type="notation:Node" xmi:id="_c2Ug4MGrEd-A9qol-Ab2Tg" type="3013">
+                <element xmi:type="_1:VariableCharacterisation" href="FullDPS.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_c2Ug4cGrEd-A9qol-Ab2Tg"/>
+              </children>
+              <styles xmi:type="notation:TitleStyle" xmi:id="_cP2WwsGrEd-A9qol-Ab2Tg" showTitle="true"/>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_cP2Ww8GrEd-A9qol-Ab2Tg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_cP2WxMGrEd-A9qol-Ab2Tg"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_cP1vscGrEd-A9qol-Ab2Tg"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_cP1vssGrEd-A9qol-Ab2Tg" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_cP1vs8GrEd-A9qol-Ab2Tg"/>
+            <element xmi:type="_1:VariableUsage" href="FullDPS.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cP1vtMGrEd-A9qol-Ab2Tg"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_X_iYIcGrEd-A9qol-Ab2Tg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_X_iYIsGrEd-A9qol-Ab2Tg"/>
+        </children>
+        <element xmi:type="EntryLevelSystemCall" href="FullDPS.usagemodel#_aSN3UMGpEd-A9qol-Ab2Tg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X_hxEcGrEd-A9qol-Ab2Tg" x="125" y="209"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_X_iYI8GrEd-A9qol-Ab2Tg" type="3003" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_X_iYJcGrEd-A9qol-Ab2Tg" type="5004"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_X_iYJsGrEd-A9qol-Ab2Tg" type="7002">
+          <children xmi:type="notation:Node" xmi:id="_hC85YMGrEd-A9qol-Ab2Tg" type="3012">
+            <children xmi:type="notation:DecorationNode" xmi:id="_hC85ZcGrEd-A9qol-Ab2Tg" type="5012"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_hC9gcMGrEd-A9qol-Ab2Tg" type="7011">
+              <children xmi:type="notation:Node" xmi:id="_hbQrsMGrEd-A9qol-Ab2Tg" type="3013">
+                <element xmi:type="_1:VariableCharacterisation" href="FullDPS.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.3/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_hbQrscGrEd-A9qol-Ab2Tg"/>
+              </children>
+              <styles xmi:type="notation:TitleStyle" xmi:id="_hC9gccGrEd-A9qol-Ab2Tg" showTitle="true"/>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_hC9gcsGrEd-A9qol-Ab2Tg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_hC9gc8GrEd-A9qol-Ab2Tg"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_hC85YcGrEd-A9qol-Ab2Tg"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_hC85YsGrEd-A9qol-Ab2Tg" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_hC85Y8GrEd-A9qol-Ab2Tg"/>
+            <element xmi:type="_1:VariableUsage" href="FullDPS.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.3/@inputParameterUsages_EntryLevelSystemCall.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hC85ZMGrEd-A9qol-Ab2Tg"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_X_i_MMGrEd-A9qol-Ab2Tg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_X_i_McGrEd-A9qol-Ab2Tg"/>
+        </children>
+        <element xmi:type="EntryLevelSystemCall" href="FullDPS.usagemodel#_bwXQUMGpEd-A9qol-Ab2Tg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X_iYJMGrEd-A9qol-Ab2Tg" x="350" y="209"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_X_i_MsGrEd-A9qol-Ab2Tg" type="3003" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_X_i_NMGrEd-A9qol-Ab2Tg" type="5004"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_X_i_NcGrEd-A9qol-Ab2Tg" type="7002">
+          <children xmi:type="notation:Node" xmi:id="_juWvsMGrEd-A9qol-Ab2Tg" type="3012">
+            <children xmi:type="notation:DecorationNode" xmi:id="_juXWwMGrEd-A9qol-Ab2Tg" type="5012"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_juXWwcGrEd-A9qol-Ab2Tg" type="7011">
+              <children xmi:type="notation:Node" xmi:id="_kcJp0MGrEd-A9qol-Ab2Tg" type="3013">
+                <element xmi:type="_1:VariableCharacterisation" href="FullDPS.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.4/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_kcJp0cGrEd-A9qol-Ab2Tg"/>
+              </children>
+              <styles xmi:type="notation:TitleStyle" xmi:id="_juXWwsGrEd-A9qol-Ab2Tg" showTitle="true"/>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_juXWw8GrEd-A9qol-Ab2Tg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_juXWxMGrEd-A9qol-Ab2Tg"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_juWvscGrEd-A9qol-Ab2Tg"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_juWvssGrEd-A9qol-Ab2Tg" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_juWvs8GrEd-A9qol-Ab2Tg"/>
+            <element xmi:type="_1:VariableUsage" href="FullDPS.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.4/@inputParameterUsages_EntryLevelSystemCall.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_juWvtMGrEd-A9qol-Ab2Tg"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_X_i_NsGrEd-A9qol-Ab2Tg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_X_i_N8GrEd-A9qol-Ab2Tg"/>
+        </children>
+        <element xmi:type="EntryLevelSystemCall" href="FullDPS.usagemodel#_dtBxUMGpEd-A9qol-Ab2Tg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X_i_M8GrEd-A9qol-Ab2Tg" x="355" y="99"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_X_jmQMGrEd-A9qol-Ab2Tg" type="3002" fontName="Segoe UI">
+        <element xmi:type="Stop" href="FullDPS.usagemodel#_fcMo4MGpEd-A9qol-Ab2Tg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X_jmQcGrEd-A9qol-Ab2Tg" x="525" y="34"/>
+      </children>
+    </children>
+    <element xmi:type="ScenarioBehaviour" href="FullDPS.usagemodel#_Bgnl8MGpEd-A9qol-Ab2Tg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X_bqccGrEd-A9qol-Ab2Tg" width="656" height="361"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_X_cRgcGrEd-A9qol-Ab2Tg" type="2002">
+    <children xmi:type="notation:DecorationNode" xmi:id="_X_c4kMGrEd-A9qol-Ab2Tg" type="5002"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_X_c4kcGrEd-A9qol-Ab2Tg" type="5003"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_X_dfoMGrEd-A9qol-Ab2Tg" type="5009"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_X_cRgsGrEd-A9qol-Ab2Tg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_X_cRg8GrEd-A9qol-Ab2Tg" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_X_cRhMGrEd-A9qol-Ab2Tg"/>
+    <element xmi:type="ClosedWorkload" href="FullDPS.usagemodel#//@usageScenario_UsageModel.0/@workload_UsageScenario"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X_cRhcGrEd-A9qol-Ab2Tg" x="236"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_CIoLscGqEd-A9qol-Ab2Tg"/>
+  <element xmi:type="UsageScenario" href="FullDPS.usagemodel#_-voFAMGoEd-A9qol-Ab2Tg"/>
+</notation:Diagram>

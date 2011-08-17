@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" id="_2PmOgHtPEd6J8YwisObTKw" entityName="defaultSystem">
+  <assemblyContexts_ComposedStructure id="_3LM7IHtPEd6J8YwisObTKw" entityName="Assembly_Forking &lt;Forking>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="fork_3.1.repository#_U6MwEHtPEd6J8YwisObTKw"/>
+  </assemblyContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_7RT04HtPEd6J8YwisObTKw" entityName="ProvDelegation Provided_IFork -> Provided_IFork_Forking" outerProvidedRole_ProvidedDelegationConnector="_6gbxkHtPEd6J8YwisObTKw" assemblyContext_ProvidedDelegationConnector="_3LM7IHtPEd6J8YwisObTKw">
+    <innerProvidedRole_ProvidedDelegationConnector href="fork_3.1.repository#_XjnpYHtPEd6J8YwisObTKw"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_6gbxkHtPEd6J8YwisObTKw" entityName="Provided_IFork">
+    <providedInterface__ProvidedRole href="fork_3.1.repository#_VtJ3AHtPEd6J8YwisObTKw"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>

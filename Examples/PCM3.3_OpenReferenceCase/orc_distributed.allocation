@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" id="_DKLYQKpPEd2NxbWj7fSz6Q" entityName="DistributedAllocation">
+  <targetResourceEnvironment_Allocation href="orc.resourceenvironment#/"/>
+  <system_Allocation href="orc.system#_BEPbYCjTEd6TLJ6t4gnsog"/>
+  <allocationContexts_Allocation id="_FagKMKpREd2NxbWj7fSz6Q" entityName="Database">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_9iZF0apNEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_Fuol4He2Ed2mk8dKi3ngUA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_wKyHUKpUEd2NxbWj7fSz6Q" entityName="Webservices.OrderService">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_IrwGAHewEd2mk8dKi3ngUA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_zTe9oKpUEd2NxbWj7fSz6Q" entityName="Webservices.CardValidationService">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_jtQ2cHeuEd2mk8dKi3ngUA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_6ewRgKpUEd2NxbWj7fSz6Q" entityName="Webservices.PaymentDebitService">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_5weO8HeuEd2mk8dKi3ngUA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_972DcKpUEd2NxbWj7fSz6Q" entityName="Webservices.InventoryService">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_mt8gkHerEd2mk8dKi3ngUA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_BgNiEKpVEd2NxbWj7fSz6Q" entityName="Webservices.StoreInformationService">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_SkcCYHewEd2mk8dKi3ngUA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_JSUMcKpVEd2NxbWj7fSz6Q" entityName="Application.ProductDispatcher">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_-W_gcFcoEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_NTjNQKpVEd2NxbWj7fSz6Q" entityName="Application.Reporting">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_FPU0wFcqEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_QKjPkKpVEd2NxbWj7fSz6Q" entityName="Application.Store">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_3AwvMFcnEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_S0JvEKpVEd2NxbWj7fSz6Q" entityName="Data.Store">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_07dvQFcqEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_cadiAKpVEd2NxbWj7fSz6Q" entityName="Data.Enterprise">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_LoXbYFfjEd26K8JlmYJ10w"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_fogyYKpVEd2NxbWj7fSz6Q" entityName="Data.Persistence">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_jN79kFcqEd23wcZsd06DZg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_XAnQUCgIEd6eyYMzT7B7rw" entityName="Webservices.PaymentService">
+    <resourceContainer_AllocationContext href="orc.resourceenvironment#_TdHB8apUEd2NxbWj7fSz6Q"/>
+    <assemblyContext_AllocationContext href="orc.system#_JSl5ACKVEd6EO6qHYg-W9w"/>
+  </allocationContexts_Allocation>
+</allocation:Allocation>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>BRS WOSP Antipatterns</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>db11-openMore</name>
+			<type>2</type>
+			<location>D:/uka/external/2009AnneCatia/PCM_3.1_workspace/BRS/results/db11-openMore</location>
+		</link>
+		<link>
+			<name>db12-allagain</name>
+			<type>2</type>
+			<location>D:/uka/external/2009AnneCatia/PCM_3.1_workspace/BRS/results/db12-allagain</location>
+		</link>
+	</linkedResources>
+</projectDescription>

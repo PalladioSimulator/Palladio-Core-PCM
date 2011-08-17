@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<designdecision:Problem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0" xmlns:_2="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:_3="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" xmlns:designdecision="http://sdq.ipd.uka.de/DesignDecision/1.0">
+  <designdecision xsi:type="designdecision:ContinuousProcessingRateDegree" lowerBoundIncluded="false" to="20.0" from="5.0">
+    <changeableEntity xsi:type="ResourceContainer" href="brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    <processingresourcetype href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+  </designdecision>
+  <designdecision xsi:type="designdecision:ContinuousProcessingRateDegree" lowerBoundIncluded="false" to="20.0" from="5.0">
+    <changeableEntity xsi:type="ResourceContainer" href="brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    <processingresourcetype href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+  </designdecision>
+  <designdecision xsi:type="designdecision:ContinuousProcessingRateDegree" lowerBoundIncluded="false" to="20.0" from="5.0">
+    <changeableEntity xsi:type="ResourceContainer" href="brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    <processingresourcetype href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+  </designdecision>
+  <designdecision xsi:type="designdecision:ContinuousProcessingRateDegree" lowerBoundIncluded="false" to="20.0" from="5.0">
+    <changeableEntity xsi:type="ResourceContainer" href="brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    <processingresourcetype href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+  </designdecision>
+  <designdecision xsi:type="designdecision:AssembledComponentDegree">
+    <changeableEntity xsi:type="_1:AssemblyContext" href="brs.system#_N8Qq8No_EdyxgfK4Hy_RFA"/>
+    <domainOfEntities xsi:type="_2:BasicComponent" href="brs.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+    <domainOfEntities xsi:type="_2:BasicComponent" href="brs.repository#_6bAEENo5EdyCSNQKlT1LxA2"/>
+    <domainOfEntities xsi:type="_2:BasicComponent" href="brs.repository#_6bAEENo5EdyCSNQKlT1LxA3"/>
+  </designdecision>
+  <designdecision xsi:type="designdecision:AllocationDegree">
+    <changeableEntity xsi:type="_3:AllocationContext" href="brs.allocation#_SeXG8LfXEd2PvvnrNadJLQ"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+  </designdecision>
+  <designdecision xsi:type="designdecision:AllocationDegree">
+    <changeableEntity xsi:type="_3:AllocationContext" href="brs.allocation#_QVANwLfXEd2PvvnrNadJLQ"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+  </designdecision>
+  <designdecision xsi:type="designdecision:AllocationDegree">
+    <changeableEntity xsi:type="_3:AllocationContext" href="brs.allocation#_peR6cFeoEd6zR8NNmb-sJg"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    <domainOfEntities xsi:type="ResourceContainer" href="brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+  </designdecision>
+</designdecision:Problem>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xsi:schemaLocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0 http://sdq.ipd.uka.de/PalladioComponentModel/4.0#//allocation http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0 http://sdq.ipd.uka.de/PalladioComponentModel/4.0#//resourceenvironment" xmi:id="_vBpVoDq8EeCCbpF63PfiyA" type="allocation" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_vEbj4Dq8EeCCbpF63PfiyA" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_vEcyADq8EeCCbpF63PfiyA" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_vEcyATq8EeCCbpF63PfiyA" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_vEjfsDq8EeCCbpF63PfiyA" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_vEkGwDq8EeCCbpF63PfiyA" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_vEkGwTq8EeCCbpF63PfiyA" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_vEjfsTq8EeCCbpF63PfiyA" fontName="Lucida Grande"/>
+        <element xmi:type="AllocationContext" href="default.allocation#_Cdi1kFBwEd6ActLj8Gdl_A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vEjfsjq8EeCCbpF63PfiyA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_vEkGwjq8EeCCbpF63PfiyA" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_vEkt0Dq8EeCCbpF63PfiyA" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_vEkt0Tq8EeCCbpF63PfiyA" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_vEkGwzq8EeCCbpF63PfiyA" fontName="Lucida Grande"/>
+        <element xmi:type="AllocationContext" href="default.allocation#_DzYnIFBwEd6ActLj8Gdl_A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vEkGxDq8EeCCbpF63PfiyA" x="15" y="65"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_vEkt0jq8EeCCbpF63PfiyA" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_vEkt1Tq8EeCCbpF63PfiyA" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_vElU4Dq8EeCCbpF63PfiyA" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_vEkt0zq8EeCCbpF63PfiyA" fontName="Lucida Grande"/>
+        <element xmi:type="AllocationContext" href="default.allocation#_Eh89UFBwEd6ActLj8Gdl_A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vEkt1Dq8EeCCbpF63PfiyA" x="11" y="125"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_vEcyAjq8EeCCbpF63PfiyA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_vEcyAzq8EeCCbpF63PfiyA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_vEbj4Tq8EeCCbpF63PfiyA" fontName="Lucida Grande"/>
+    <element xmi:type="_1:ResourceContainer" href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vEbj4jq8EeCCbpF63PfiyA" height="389"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_IyDRQDrAEeCCbpF63PfiyA" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_IyD4UDrAEeCCbpF63PfiyA" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_IyD4UTrAEeCCbpF63PfiyA" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_vElU4Tq8EeCCbpF63PfiyA" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_vElU5Dq8EeCCbpF63PfiyA" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_vElU5Tq8EeCCbpF63PfiyA" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_vElU4jq8EeCCbpF63PfiyA" fontName="Lucida Grande"/>
+        <element xmi:type="AllocationContext" href="default.allocation#_FPL2wFBwEd6ActLj8Gdl_A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vElU4zq8EeCCbpF63PfiyA" x="6" y="143"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_IyD4UjrAEeCCbpF63PfiyA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_IyD4UzrAEeCCbpF63PfiyA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_IyDRQTrAEeCCbpF63PfiyA" fontName="Lucida Grande"/>
+    <element xmi:type="_1:ResourceContainer" href="mediastore.resourceenvironment#_tVi40Dq_EeCCbpF63PfiyA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IyDRQjrAEeCCbpF63PfiyA" x="550" width="361" height="386"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_vBpVoTq8EeCCbpF63PfiyA"/>
+  <element xmi:type="Allocation" href="default.allocation#_BuYpgFBwEd6ActLj8Gdl_A"/>
+</notation:Diagram>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ASCII"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_Mkm7gNo_EdyxgfK4Hy_RFA" entityName="defaultSystem">
+  <childComponentContexts_ComposedStructure id="_N8Qq8No_EdyxgfK4Hy_RFA" entityName="AC_Webserver">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_T00ZwNo_EdyxgfK4Hy_RFA" entityName="AC_Scheduler">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_jpoagNo4EdyCSNQKlT1LxA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_VmpjwNo_EdyxgfK4Hy_RFA" entityName="AC_ReportingEngine">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_k7K64No4EdyCSNQKlT1LxA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_cWmNkNo_EdyxgfK4Hy_RFA" entityName="AC_DB">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_sQC2sNo4EdyCSNQKlT1LxA"/>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="100000.0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="Entries"/>
+    </configParameterUsages_AssemblyContext>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_e5UB8No_EdyxgfK4Hy_RFA" entityName="AC_CacheInfo">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_nEBdwNo4EdyCSNQKlT1LxA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_OC_w7mlXEd2DzZIfE50SFg" entityName="AssCtx Middleware DBServer">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_OC_w8GlXEd2DzZIfE50SFg" entityName="AssCtx Middleware SchedulerServer">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_OC_w8mlXEd2DzZIfE50SFg" entityName="AssCtx Middleware ApplicationServer">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_OC_w9GlXEd2DzZIfE50SFg" entityName="AssCtx Middleware WebServer">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_ODSrpWlXEd2DzZIfE50SFg" entityName="CompletionComponentContext28">
+    <encapsulatedComponent_ChildComponentContext href="mis.system.intermediate.repository#_ODSromlXEd2DzZIfE50SFg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_ODmNo2lXEd2DzZIfE50SFg" entityName="CompletionComponentContext29">
+    <encapsulatedComponent_ChildComponentContext href="mis.system.intermediate.repository#_ODmNoGlXEd2DzZIfE50SFg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_ODmN7GlXEd2DzZIfE50SFg" entityName="CompletionComponentContext30">
+    <encapsulatedComponent_ChildComponentContext href="mis.system.intermediate.repository#_ODmN6WlXEd2DzZIfE50SFg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_ODvXZ2lXEd2DzZIfE50SFg" entityName="CompletionComponentContext31">
+    <encapsulatedComponent_ChildComponentContext href="mis.system.intermediate.repository#_ODvXZGlXEd2DzZIfE50SFg"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_1KaFcNo_EdyxgfK4Hy_RFA" entityName="ProvDelegation Provided_IHTTP -> Provided_IHTTP_WebServer" outerProvidedRole_ProvidedDelegationConnector="_zyc0ANo_EdyxgfK4Hy_RFA" childComponentContext_ProvidedDelegationConnector="_N8Qq8No_EdyxgfK4Hy_RFA">
+    <innerProvidedRole_ProvidedDelegationConnector href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_7gSRINo5EdyCSNQKlT1LxA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_iIwZcNo_EdyxgfK4Hy_RFA" entityName="Connector AC_ReportingEngine -> AC_CacheInfo" requiringChildComponentContext_CompositeAssemblyConnector="_VmpjwNo_EdyxgfK4Hy_RFA" providingChildComponentContext_CompositeAssemblyConnector="_e5UB8No_EdyxgfK4Hy_RFA">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_gEK9cNo9EdyxgfK4Hy_RFA"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_gXZbcNo9EdyxgfK4Hy_RFA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODSr92lXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_VmpjwNo_EdyxgfK4Hy_RFA" providingChildComponentContext_CompositeAssemblyConnector="_ODSrpWlXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODSro2lXEd2DzZIfE50SFg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_tOgNkNo5EdyCSNQKlT1LxA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODSr-GlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODSrpWlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_cWmNkNo_EdyxgfK4Hy_RFA">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_uD-dANo5EdyCSNQKlT1LxA"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODSrpGlXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODmNnGlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODSrpWlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_OC_w8mlXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODSrvmlXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODmNnWlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODSrpWlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_OC_w7mlXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODSrv2lXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODmN42lXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_N8Qq8No_EdyxgfK4Hy_RFA" providingChildComponentContext_CompositeAssemblyConnector="_ODmNo2lXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODmNoWlXEd2DzZIfE50SFg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_76rHENo5EdyCSNQKlT1LxA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODmN5GlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODmNo2lXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_Wm_OINo5EdyCSNQKlT1LxA"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODmNomlXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODmN5WlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODmNo2lXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_OC_w9GlXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODmNtmlXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODmN5mlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODmNo2lXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_OC_w8GlXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODmNt2lXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODmOK2lXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA" providingChildComponentContext_CompositeAssemblyConnector="_ODmN7GlXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODmN6mlXEd2DzZIfE50SFg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_XOHfkNo5EdyCSNQKlT1LxA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODmOLGlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODmN7GlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_VmpjwNo_EdyxgfK4Hy_RFA">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_YSFeANo5EdyCSNQKlT1LxA"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODmN62lXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODvXYGlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODmN7GlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_OC_w8GlXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODmN_2lXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODvXYWlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODmN7GlXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_OC_w8mlXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODmOAGlXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODvXuWlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_e5UB8No_EdyxgfK4Hy_RFA" providingChildComponentContext_CompositeAssemblyConnector="_ODvXZ2lXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODvXZWlXEd2DzZIfE50SFg"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_wNIh4No5EdyCSNQKlT1LxA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODvXumlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODvXZ2lXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_cWmNkNo_EdyxgfK4Hy_RFA">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_uD-dANo5EdyCSNQKlT1LxA"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODvXZmlXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODvXu2lXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODvXZ2lXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_OC_w8mlXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODvXgGlXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_ODvXvGlXEd2DzZIfE50SFg" requiringChildComponentContext_CompositeAssemblyConnector="_ODvXZ2lXEd2DzZIfE50SFg" providingChildComponentContext_CompositeAssemblyConnector="_OC_w7mlXEd2DzZIfE50SFg">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="mis.system.intermediate.repository#_ODvXgWlXEd2DzZIfE50SFg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_zyc0ANo_EdyxgfK4Hy_RFA" entityName="Provided_IHTTP">
+    <providedInterface__ProvidedRole href="file:/C:/uka/code/Palladio.Examples/trunk/MIS2008-DSE/mis.repository#_36kHoNo5EdyCSNQKlT1LxA"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>

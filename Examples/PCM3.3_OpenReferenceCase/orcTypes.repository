@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" id="_09C7MNFcEducE6dFyopUlg" entityName="ORCDataTypesRepository">
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_iNNiBnQWEd2J8bFb9TfSEQ" entityName="Tradingsystem.External.Debit"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_peNANnQSEd2J8bFb9TfSEQ" entityName="Tradingsystem.External.TransactionID"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_1GiHBtFfEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Application.Reporting.EnterpriseTO"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_yUl0xtFoEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Application.Reporting.ReportTO"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_27zmltFfEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Application.Reporting.StoreTO"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_L9RhFtIXEduF4-1MMpjBkg" entityName="Tradingsystem.Inventory.Application.Store.ComplexOrderTO"/>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_O15UBdIXEduF4-1MMpjBkg" entityName="Tradingsystem.Inventory.Application.Store.ComplexOrderTO[]" innerType_CollectionDataType="_L9RhFtIXEduF4-1MMpjBkg"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_qBPNltFfEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Application.Store.ProductAmountTO"/>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_8E94xdFfEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Application.Store.ProductAmountTO[]" innerType_CollectionDataType="_qBPNltFfEducE6dFyopUlg"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_ZxgtBtIXEduF4-1MMpjBkg" entityName="Tradingsystem.Inventory.Application.Store.ProductMovementTO"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_OFaQVtFpEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Application.Store.ProductWithStockItemTO"/>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_wVjXJdIWEduF4-1MMpjBkg" entityName="Tradingsystem.Inventory.Application.Store.ProductWithStockItemTO[]" innerType_CollectionDataType="_OFaQVtFpEducE6dFyopUlg"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_1tUGBtIWEduF4-1MMpjBkg" entityName="Tradingsystem.Inventory.Application.Store.ProductWithSupplierTO"/>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_4f1Q9dIWEduF4-1MMpjBkg" entityName="Tradingsystem.Inventory.Application.Store.ProductWithSupplierTO[]" innerType_CollectionDataType="_1tUGBtIWEduF4-1MMpjBkg"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_AS3vdtIXEduF4-1MMpjBkg" entityName="Tradingsystem.Inventory.Application.Store.ProductWithSupplierAndStockItemTO"/>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_FJanpdIXEduF4-1MMpjBkg" entityName="Tradingsystem.Inventory.Application.Store.ProductWithSupplierAndStockItemTO[]" innerType_CollectionDataType="_AS3vdtIXEduF4-1MMpjBkg"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_J-s5ptFpEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Application.Store.SaleTO"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_UfQJNtIXEduF4-1MMpjBkg" entityName="Tradingsystem.Inventory.Application.Store.StockItemTO"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_sHYtltIWEduF4-1MMpjBkg" entityName="Tradingsystem.Inventory.Application.Store.StoreWithEnterpriseTO"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_6wQEZtFmEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Enterprise.Product"/>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_4ndL5dFmEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Enterprise.Product[]" innerType_CollectionDataType="_6wQEZtFmEducE6dFyopUlg"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_HzcZdtFdEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Enterprise.ProductSupplier"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_43Fu5tFcEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Enterprise.TradingEnterprise"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_JMRpFtFnEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Store.ProductOrder"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_AQXeBtFnEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Store.StockItem"/>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_BeTQxdFnEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Store.StockItem[]" innerType_CollectionDataType="_AQXeBtFnEducE6dFyopUlg"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_tGnVBtFdEducE6dFyopUlg" entityName="Tradingsystem.Inventory.Data.Store.Store"/>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_bxQxxdFoEducE6dFyopUlg" entityName="long[]">
+    <innerType_CollectionDataType xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+  </dataTypes__Repository>
+</repository:Repository>

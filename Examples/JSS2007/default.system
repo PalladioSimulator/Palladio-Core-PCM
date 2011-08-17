@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_bKHjEP4nEdu6KOsAdhyQPA">
+  <childComponentContexts_ComposedStructure id="_jYItYP4nEdu6KOsAdhyQPA">
+    <encapsulatedComponent_ChildComponentContext href="default.repository#_M3M3EP4nEdu6KOsAdhyQPA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_nA4VsP4nEdu6KOsAdhyQPA">
+    <encapsulatedComponent_ChildComponentContext href="default.repository#_KmjDEP4nEdu6KOsAdhyQPA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_C-iTYP4oEdu6KOsAdhyQPA">
+    <encapsulatedComponent_ChildComponentContext href="default.repository#_Pt0e4P4nEdu6KOsAdhyQPA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_G72dgP4oEdu6KOsAdhyQPA">
+    <encapsulatedComponent_ChildComponentContext href="default.repository#_XEd8UP4nEdu6KOsAdhyQPA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_t0Q4kP4oEdu6KOsAdhyQPA">
+    <encapsulatedComponent_ChildComponentContext href="default.repository#_M3M3EP4nEdu6KOsAdhyQPA"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_l-6iYP4nEdu6KOsAdhyQPA" outerProvidedRole_ProvidedDelegationConnector="_hahxMP4nEdu6KOsAdhyQPA" childComponentContext_ProvidedDelegationConnector="_jYItYP4nEdu6KOsAdhyQPA">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_OKENIP4nEdu6KOsAdhyQPA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_GIOBIP4oEdu6KOsAdhyQPA" outerProvidedRole_ProvidedDelegationConnector="_ieqHsP4nEdu6KOsAdhyQPA" childComponentContext_ProvidedDelegationConnector="_C-iTYP4oEdu6KOsAdhyQPA">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_Qn_oIP4nEdu6KOsAdhyQPA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <requiredDelegationConnectors_ComposedStructure id="_srg9QP4nEdu6KOsAdhyQPA" outerRequiredRole_RequiredDelegationConnector="_fC-rAP4nEdu6KOsAdhyQPA" childComponentContext_RequiredDelegationConnector="_nA4VsP4nEdu6KOsAdhyQPA">
+    <innerRequiredRole_RequiredDelegationConnector href="default.repository#_MIYCMP4nEdu6KOsAdhyQPA"/>
+  </requiredDelegationConnectors_ComposedStructure>
+  <requiredDelegationConnectors_ComposedStructure id="_tNEyMP4nEdu6KOsAdhyQPA" outerRequiredRole_RequiredDelegationConnector="_gBzDsP4nEdu6KOsAdhyQPA" childComponentContext_RequiredDelegationConnector="_nA4VsP4nEdu6KOsAdhyQPA">
+    <innerRequiredRole_RequiredDelegationConnector href="default.repository#_McR1oP4nEdu6KOsAdhyQPA"/>
+  </requiredDelegationConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_wWokIP4nEdu6KOsAdhyQPA" requiringChildComponentContext_CompositeAssemblyConnector="_jYItYP4nEdu6KOsAdhyQPA" providingChildComponentContext_CompositeAssemblyConnector="_nA4VsP4nEdu6KOsAdhyQPA">
+    <providedRole_CompositeAssemblyConnector href="default.repository#_LotqsP4nEdu6KOsAdhyQPA"/>
+    <requiredRole_CompositeAssemblyConnector href="default.repository#_NwgdoP4nEdu6KOsAdhyQPA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_xUF1cP4oEdu6KOsAdhyQPA" requiringChildComponentContext_CompositeAssemblyConnector="_C-iTYP4oEdu6KOsAdhyQPA" providingChildComponentContext_CompositeAssemblyConnector="_t0Q4kP4oEdu6KOsAdhyQPA">
+    <providedRole_CompositeAssemblyConnector href="default.repository#_OKENIP4nEdu6KOsAdhyQPA"/>
+    <requiredRole_CompositeAssemblyConnector href="default.repository#_Ux-8UP4nEdu6KOsAdhyQPA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_x9D58P4oEdu6KOsAdhyQPA" requiringChildComponentContext_CompositeAssemblyConnector="_t0Q4kP4oEdu6KOsAdhyQPA" providingChildComponentContext_CompositeAssemblyConnector="_G72dgP4oEdu6KOsAdhyQPA">
+    <providedRole_CompositeAssemblyConnector href="default.repository#_YRbesP4nEdu6KOsAdhyQPA"/>
+    <requiredRole_CompositeAssemblyConnector href="default.repository#_NwgdoP4nEdu6KOsAdhyQPA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_hahxMP4nEdu6KOsAdhyQPA">
+    <providedInterface__ProvidedRole href="default.repository#_EZVS4P4nEdu6KOsAdhyQPA"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity id="_ieqHsP4nEdu6KOsAdhyQPA">
+    <providedInterface__ProvidedRole href="default.repository#_PJ5ScP4nEdu6KOsAdhyQPA"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <requiredRoles_InterfaceRequiringEntity id="_fC-rAP4nEdu6KOsAdhyQPA">
+    <requiredInterface__RequiredRole href="default.repository#_IojsYP4nEdu6KOsAdhyQPA"/>
+  </requiredRoles_InterfaceRequiringEntity>
+  <requiredRoles_InterfaceRequiringEntity id="_gBzDsP4nEdu6KOsAdhyQPA">
+    <requiredInterface__RequiredRole href="default.repository#_JlQlMP4nEdu6KOsAdhyQPA"/>
+  </requiredRoles_InterfaceRequiringEntity>
+</pcm.system:System>
