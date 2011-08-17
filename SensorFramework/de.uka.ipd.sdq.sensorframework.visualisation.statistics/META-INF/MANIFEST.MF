@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Statistics Visualisation
+Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.visualisation.statistics;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.sensorframework.visualisation.statistics.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.uka.ipd.sdq.sensorframework.visualisation;bundle-version="1.0.0",
+ de.uka.ipd.sdq.sensorframework;bundle-version="1.1.0",
+ org.eclipse.ui.views.properties.tabbed;bundle-version="3.5.0",
+ de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation;bundle-version="1.0.0",
+ de.uka.ipd.sdq.statistics;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: sdq.ipd.uka.de
