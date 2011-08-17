@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cost:CostRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:cost="http://sdq.ipd.uka.de/CostModel/1.0">
+  <cost xsi:type="cost:ComponentCost" componentInitialCost="2.0">
+    <repositoryComponent xsi:type="BasicComponent" href="default.repository#_9PT2UKOWEd6D1ZKDqAnLPA"/>
+  </cost>
+  <cost xsi:type="cost:ComponentCost" componentInitialCost="3.0">
+    <repositoryComponent xsi:type="BasicComponent" href="default.repository#_74WmQKOdEd6Wld2f-l5cjw"/>
+  </cost>
+  <cost xsi:type="cost:FixedProcessingResourceCost" fixedInitialCost="1.0">
+    <processingresourcespecification href="My.resourceenvironment#//@resourceContainer_ResourceEnvironment.0/@activeResourceSpecifications_ResourceContainer.0"/>
+  </cost>
+  <cost xsi:type="cost:FixedProcessingResourceCost" fixedInitialCost="2.0">
+    <processingresourcespecification href="My.resourceenvironment#//@resourceContainer_ResourceEnvironment.1/@activeResourceSpecifications_ResourceContainer.0"/>
+  </cost>
+</cost:CostRepository>
