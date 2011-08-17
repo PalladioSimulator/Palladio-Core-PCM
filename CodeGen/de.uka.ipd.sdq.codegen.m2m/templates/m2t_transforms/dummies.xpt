@@ -1,0 +1,30 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+
+«DEFINE DummyComponent(System s) FOR RequiredRole»
+	«FILE (s.implementationPackage()+"."+this.fqnDummyComponent()).fqnToDirectoryPath()+".java"»
+		package «s.implementationPackage()».«this.fqnDummyComponentPackage()»;
+		«EXPAND m2t_transforms::java_core::Import FOR this.requiredInterface__RequiredRole»
+		«EXPAND m2t_transforms::java_core::ImportsTM FOR this»   
+		
+		public class «this.dummyComponentName()» 
+		implements «this.requiredInterface__RequiredRole.javaName()» {
+			«EXPAND DummyMethod(s,this) FOREACH this.requiredInterface__RequiredRole.signatures__Interface»
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE DummyMethod(System s, RequiredRole r) FOR Signature»
+	public «EXPAND m2t_transforms::java_core::Signature FOR this» {
+		«EXPAND DummyMethodBodyTM(s,r) FOR this»
+	}
+«ENDDEFINE»
+
+«DEFINE DummyMethodBodyTM(System s,RequiredRole r) FOR Signature»
+	// No implementation provided yet
+«ENDDEFINE»
