@@ -1,0 +1,39 @@
+<h2>PCM Optimisation: PerOpteryx</h2>
+Optimise a given PCM instance within certain degrees of freedom. Click Help button below for more detail.
+
+<h3>Model File Tab</h3>
+Configure the PCM instance to optimise in the "Model files" tab as usual. 
+
+<h3>DSE Options Tab</h3>
+The DSE Options tab lets you configure the optimisation. Specify a maximum number of iterations and a number of individuals per iteration here. Additionally, you can adjust the crossover rate for the genetic algorithm. 
+
+<h4>Choose Search Algorithm</h4>
+You can choose the search strategy here. Select evolutionary optimisation, random search or a rule based search (based on the tactics specified in the Tactics tab).
+
+If you choose rule-based search here, make sure to enable some tactics on the Tactics tab.  
+
+<h4>Predefined Instances</h4>
+Next, you can define a starting population in the &quot;Predefined instances&quot; field. A .csv file is expected. it has to have the same format as the optimisation results file (thus, run the optimisation first if you are not sure how they look like). You can, however, omit the objective values in the predefined candidates. 
+
+<p>If you type the string &quot;random&quot; in this field, you will start a random search with &quot;number of iterations&quot; times &quot;number of individuals per iteration&quot; candidates. 
+
+<p>If you specify predefined candidates and set the maximum number of iterations to 0, then the tool will evaluate all candidates specified in the file, regardless of the specified &quot;number of individuals per iteration&quot;. 
+
+<h4>Degrees of Freedom</h4>
+The default run first determines the possible degrees of freedom and writes them in a .designdecision file. You can also predefine the degrees of freedoms to consider in a .designdecision file, and check the option &quot;Only optimise, using pre-existing design decisions&quot; in the DSE Options tab. Similarly, you can only let the tool determine the available degrees of freedom without optimising by checking &quot;Only determine design decisions, do not optimise&quot;.
+
+<p>You can also specify a custom name for the .designdecision file in the DSE Options tab. The default name is &lt;name of your launch config&gt;.designdecision, and the file is put in the same folder as you specified allocation model.
+
+<h3>Analysis Methods</h3>
+Choose the quality attributes to be optimised for in the analysis method tabs. You can configure each analysis method as usual.</description>
+
+<h3>Tactics</h3>
+PerOpteryx can try to use performance domain knowledge to make the search faster. Choose here which tactics should be used during the evolutionary search or during the rule-based search. 
+
+<h3>Common</h3>
+You can define the verboseness of the output here. Some more settings might be supported by Eclipse here. 
+
+<h3>Results</h3>
+The tool created a folder "PerOpteryx_results" in the same folder as your allocation. Here, you find the results for each iteration as csv files. 
+
+<p>The first colums contain the results for your selected quality attributes (currently, mean response time, probability of failure on demand, and/or cost). If confidence values are available for the result, the confidence intervals are added in the next few columns. Finally, the genome of the candidate is contained in the last columns.  
