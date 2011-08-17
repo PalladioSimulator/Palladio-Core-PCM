@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Statistics
+Bundle-SymbolicName: de.uka.ipd.sdq.statistics
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.statistics.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.apache.log4j;bundle-version="1.2.13"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: de.uka.ipd.sdq.statistics,
+ de.uka.ipd.sdq.statistics.estimation,
+ de.uka.ipd.sdq.statistics.independence
+Import-Package: umontreal.iro.lecuyer.probdist
+Bundle-Vendor: sdq.ipd.uka.de
