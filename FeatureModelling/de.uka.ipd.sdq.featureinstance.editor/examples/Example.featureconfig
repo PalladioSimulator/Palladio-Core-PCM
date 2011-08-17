@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de.uka.ipd.sdq:Configuration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:de.uka.ipd.sdq="http://sdq.ipd.uka.de/FeatureConfig/2.0" name="Example Configuration">
+  <defaultConfig referencedObject="/"/>
+  <configOverrides>
+    <referencedObject href="Example.featuremodel#/"/>
+    <confignode configState="SELECTED">
+      <origin href="Example.featuremodel#//@rootFeature/@childrelation/@optionalChildren.0"/>
+    </confignode>
+    <confignode configState="ELIMINATED">
+      <origin href="Example.featuremodel#//@rootFeature/@childrelation/@mandatoryChildren.0/@childrelation/@children.0"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin href="Example.featuremodel#//@rootFeature/@childrelation/@mandatoryChildren.0"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin href="Example.featuremodel#//@rootFeature"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin href="Example.featuremodel#//@rootFeature/@childrelation/@mandatoryChildren.0/@childrelation/@children.1"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin href="Example.featuremodel#//@rootFeature/@childrelation/@mandatoryChildren.0/@childrelation/@children.2"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin href="Example.featuremodel#//@rootFeature/@childrelation/@mandatoryChildren.1"/>
+    </confignode>
+    <confignode configState="SELECTED">
+      <origin href="Example.featuremodel#//@rootFeature/@childrelation/@optionalChildren.1"/>
+    </confignode>
+  </configOverrides>
+</de.uka.ipd.sdq:Configuration>
