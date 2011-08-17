@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="de.uka.ipd.sdq.pcm.pcm2taskmodel.runconfig.PCM2TaskModelLaunchConfigurationDelegate"
+            id="de.uka.ipd.sdq.pcm.pcm2taskmodel"
+            modes="run"
+            name="PCM2Taskmodel"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="de.uka.ipd.sdq.pcm.pcm2taskmodel.runconfig.PCM2TaskModelTabGroup"
+            description="Transformation PCM 2 Task Model"
+            id="de.uka.ipd.sdq.dsexplore.DSETabGroup"
+            type="de.uka.ipd.sdq.pcm.pcm2taskmodel">
+      </launchConfigurationTabGroup>
+   </extension>
+
+</plugin>
