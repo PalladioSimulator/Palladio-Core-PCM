@@ -1,0 +1,40 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT core::composition»
+«IMPORT usagemodel»
+«IMPORT core::entity»
+«IMPORT repository»
+
+«DEFINE DummyComponent(System s) FOR OperationRequiredRole»
+	«FILE (s.implementationPackage()+"."+this.fqnDummyComponent()).fqnToDirectoryPath()+".java"»
+		package «s.implementationPackage()».«this.fqnDummyComponentPackage()»;
+				
+		public class «this.dummyComponentName()» 
+		implements «this.requiredInterface__OperationRequiredRole.fqn()» {
+			private static org.apache.log4j.Logger logger = 
+				org.apache.log4j.Logger.getLogger(«this.dummyComponentName()».class.getName());
+			«EXPAND DummyComponentPortHelperMethodTM FOR this.requiredInterface__OperationRequiredRole»
+			«EXPAND DummyMethod(s,this) FOREACH this.requiredInterface__OperationRequiredRole.signatures__OperationInterface»
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE DummyComponentPortHelperMethodTM FOR OperationInterface»
+«REM»can stay empty«ENDREM»
+«ENDDEFINE»
+
+«DEFINE DummyMethod(System s, OperationRequiredRole r) FOR OperationSignature»
+	public «EXPAND m2t_transforms::java_core::OperationSignature FOR this» {
+		«EXPAND DummyMethodBodyTM(s,r) FOR this»
+	}
+«ENDDEFINE»
+
+//---------------------------------------------
+// Template method to generate code for the body
+// of dummy components attached to the unbound
+// system required roles
+//---------------------------------------------
+«DEFINE DummyMethodBodyTM(System s,RequiredRole r) FOR Signature»
+	// No implementation provided yet
+«ENDDEFINE»

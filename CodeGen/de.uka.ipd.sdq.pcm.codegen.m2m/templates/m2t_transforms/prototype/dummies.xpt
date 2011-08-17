@@ -1,0 +1,22 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+
+//-------------------------------
+// In the simulation, generate a time delay
+// according to the specification in the QoS
+// annotations of the system
+//-------------------------------
+«DEFINE DummyMethodBody(System s,OperationRequiredRole r) FOR OperationSignature»
+	«LET s.qosAnnotations_System.specifiedQoSAnnotations_QoSAnnotations.select(spet|spet.role_SpecifiedQoSAnnotation==r && spet.signature_SpecifiedQoSAnnation==this) AS annotations»
+		«IF annotations.size == 1»
+			double delay = (Double)ctx.evaluate("«annotations.get(0).specification_SpecifiedExecutionTime.specification.javaString()»");
+			// TODO: Maybe improve this... Because of context switches, etc...
+			Thread.sleep(demand);
+		«ENDIF»
+	«ENDLET»
+«ENDDEFINE»
