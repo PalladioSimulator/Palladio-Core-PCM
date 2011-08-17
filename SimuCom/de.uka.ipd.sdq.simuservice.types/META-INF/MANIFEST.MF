@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Type definitions for the simulation service
+Bundle-SymbolicName: de.uka.ipd.sdq.simuservice.types
+Bundle-Version: 2.0.0.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: de.uka.ipd.sdq.simuservice.types
