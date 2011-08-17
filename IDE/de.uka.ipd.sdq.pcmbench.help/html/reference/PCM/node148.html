@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Structure</TITLE>
+<META NAME="description" CONTENT="Structure">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node149.html">
+<LINK REL="previous" HREF="node147.html">
+<LINK REL="up" HREF="node146.html">
+<LINK REL="next" HREF="node149.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2695"
+  HREF="node149.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2689"
+  HREF="node146.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2683"
+  HREF="node147.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2691"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2693"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2696"
+  HREF="node149.html">Related Work</A>
+<B> Up:</B> <A NAME="tex2html2690"
+  HREF="node146.html">Usage Model</A>
+<B> Previous:</B> <A NAME="tex2html2684"
+  HREF="node147.html">Example</A>
+ &nbsp; <B>  <A NAME="tex2html2692"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2694"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00452200000000000000">
+Structure</A>
+</H3>
+The meta model for usage modelling in the PCM is described with more detail in the following (see Figure&nbsp;<A HREF="#fig:um1">3.34</A>). A <I>usage model</I> consists of a number of usage scenarios. Each usage scenario is intended to model a use case of the system and the frequency of executing it. Thus, a usage scenario contains a <TT>Workload</TT> to model execution frequency and a <TT>ScenarioBehaviour</TT> to model a use case. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:um1"></A><A NAME="3025"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.34:</STRONG>
+Usage Model: Scenario and Workload</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">		<IMG
+  WIDTH="631" HEIGHT="214" ALIGN="BOTTOM" BORDER="0"
+ SRC="./UsageModel1.gif"
+ ALT="Image UsageModel1">
+	</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Modelling <I>workloads</I><A NAME="3029"></A> in the PCM is aligned with performance models such as queueing networks [<A
+ HREF="node177.html#lazowska1984a">35</A>] or stochastic process algebras [] as well as the UML SPT profile [<A
+ HREF="node177.html#OMG2005c">36</A>]. Therefore, open and closed workloads can be specified. An open workload models an unbounded (thus open) number of users entering the system with a specific inter-arrival time as a random variable (e.g., a new customer arrives each 0.5 seconds) and leaving the system after executing their scenario. A closed workload models a bounded (thus closed) number of users entering the system, executing their scenario, and then re-entering the system after a given think time, which can be specified as a random variable (see Section&nbsp;<A HREF="node35.html#sec:Random_Variables">2.6</A>). 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:um2"></A><A NAME="3036"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.35:</STRONG>
+Usage Model: Scenario Behaviour</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">		<IMG
+  WIDTH="608" HEIGHT="359" ALIGN="BOTTOM" BORDER="0"
+ SRC="./UsageModel2.gif"
+ ALT="Image UsageModel2">
+	</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Modelling <I>scenario behaviours</I><A NAME="3040"></A> in the PCM (Figure&nbsp;<A HREF="#fig:um2">3.35</A>) is similar to modelling resource demanding behaviours in SEFFs (see Section&nbsp;<A HREF="node118.html#sec:ComponentDeveloper:ServiceEffectSpecification">3.2.9</A>). However, SEFFs contain notions of resource usage, while the language for usage scenarios is reduced to concepts familiar to domain experts, and does not refer to resources. 
+
+<P>
+<TT>ScenarioBehaviour</TT>s contain a number of user <I>actions</I>. Within a scenario behaviour, the flow of actions can be described as follows: Each <TT>AbstractUserActions</TT> references at most one predecessor and one successor. <TT>StartActions</TT> initiate a scenario behaviour and contain only a successor, while <TT>StopActions</TT> end a scenario behaviour and contain only a predecessor. Notice, that the start and stop actions in the example above (Figure&nbsp;<A HREF="node147.html#fig:um_example">3.33</A>) follow this pattern. 
+
+<P>
+<I>Loops</I> can be modelled to describe user actions that are repeated multiple times (e.g., searching for an item in a online store by repeatedly entering search terms, or repeatedly checking the latest status of an online auction). Loops over user service invocations are modelled with <TT>LoopActions</TT>, which are attributed with the number of iterations and contain inner <TT>ScenarioBehaviours</TT> to model loop bodies. These loop bodies may consist of multiple actions or even nested loops themselves. In the example (Figure&nbsp;<A HREF="node147.html#fig:um_example">3.33</A>), the browse action is called within a loop three times. It is additionally possible to specify the number of loop iterations with a probabilty distribution instead of a constant value to allow more fine-grained modelling (see Section&nbsp;<A HREF="node35.html#sec:Random_Variables">2.6</A>).
+
+<P>
+Notice that the chain of user actions in a scenario behaviour must not contain cycles to model loops, i.e., an action referencing another action as its successor <I>and</I> predecessor. Instead, loops always have to be modelled explicitly with loop actions. This explicit modelling eases the later analyses, as it arranges actions hierarchically in a tree structure, which can be analysed by standard tree traversal algorithms. 
+
+<P>
+Most often, users have multiple choices to continue their interaction with the system. For such cases, the usage model offers <I>branch</I> actions, which are able to split the user control flow with an XOR-semantic and allow different successors to a single user action. A probability of executing each branch transition can be specified. In the example (Figure&nbsp;<A HREF="node147.html#fig:um_example">3.33</A>), users first log in to the system and then have the choice to either search the shop with a probability of 40% or browse in the shop's catalog with a probability of 60%. <TT>BranchTransitions</TT> contain inner <TT>ScenarioBehaviours</TT> to model the content of a branch. With this kind of modelling, additional merge actions for reconnecting two branches are not needed, as the control flow continues with the successor of the branch actions once the end action of the the branched behaviour is reached. Forks of user behaviour (i.e., splitting the flow with an AND-semantic) are not allowed so far, as it is assumed that a single user only executes the services of the same system subsequently but not concurrently.
+
+<P>
+Besides these control flow constructs, actual service invocations to the architecture are modelled by <TT>EntryLevelSystemCalls</TT>. They refer to services in system provided roles (see Section&nbsp;<A HREF="node134.html#sec:Software_Assembler:System_Roles">3.3.6</A>), which are connected to component services directly visible to the users. Inner component services, which are only called by other components cannot be referenced from the usage model.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2695"
+  HREF="node149.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2689"
+  HREF="node146.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2683"
+  HREF="node147.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2691"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2693"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2696"
+  HREF="node149.html">Related Work</A>
+<B> Up:</B> <A NAME="tex2html2690"
+  HREF="node146.html">Usage Model</A>
+<B> Previous:</B> <A NAME="tex2html2684"
+  HREF="node147.html">Example</A>
+ &nbsp; <B>  <A NAME="tex2html2692"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2694"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>
