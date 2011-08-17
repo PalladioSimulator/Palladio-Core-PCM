@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_3Sgb8FcmEd23wcZsd06DZg" entityName="ServiceOrientedRetailSolution">
+  <childComponentContexts_ComposedStructure id="_3AwvMFcnEd23wcZsd06DZg" entityName="Application.Store">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_6tZA5dCmEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_-W_gcFcoEd23wcZsd06DZg" entityName="Application.ProductDispatcher">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_XDTf09CiEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_FPU0wFcqEd23wcZsd06DZg" entityName="Application.Reporting">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_URW_1dCmEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_jN79kFcqEd23wcZsd06DZg" entityName="Data.Persistence">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_B8esgNChEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_07dvQFcqEd23wcZsd06DZg" entityName="Data.Store">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_C7qRkNChEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_LoXbYFfjEd26K8JlmYJ10w" entityName="Data.Enterprise">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_-3VggNCgEduC9O_qbthgAg"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_mt8gkHerEd2mk8dKi3ngUA" entityName="Webservices.InventoryService">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_0VO1kHONEd2SyK0Shg_o9Q"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_jtQ2cHeuEd2mk8dKi3ngUA" entityName="Webservices.CardValidationService">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_Yf1akHQSEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_5weO8HeuEd2mk8dKi3ngUA" entityName="Webservices.PaymentDebitService">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_MwxOkHQWEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_IrwGAHewEd2mk8dKi3ngUA" entityName="Webservices.OrderService">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_pquxkHQYEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_SkcCYHewEd2mk8dKi3ngUA" entityName="Webservices.StoreInformationService">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_ttcZEHQYEd2J8bFb9TfSEQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_Fuol4He2Ed2mk8dKi3ngUA" entityName="Database">
+    <encapsulatedComponent_ChildComponentContext href="orc.repository#_erx1YHe1Ed2mk8dKi3ngUA"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_lBKZMHesEd2mk8dKi3ngUA" entityName="InventoryServiceIf" outerProvidedRole_ProvidedDelegationConnector="_g52lkHesEd2mk8dKi3ngUA" childComponentContext_ProvidedDelegationConnector="_mt8gkHerEd2mk8dKi3ngUA">
+    <innerProvidedRole_ProvidedDelegationConnector href="orc.repository#_Sx598HOPEd2SyK0Shg_o9Q"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_O-3GAHe0Ed2mk8dKi3ngUA" entityName="CardValidationServiceIf" outerProvidedRole_ProvidedDelegationConnector="_LO9s0He0Ed2mk8dKi3ngUA" childComponentContext_ProvidedDelegationConnector="_jtQ2cHeuEd2mk8dKi3ngUA">
+    <innerProvidedRole_ProvidedDelegationConnector href="orc.repository#_E9Bs0HQTEd2J8bFb9TfSEQ"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_Vry4EHe0Ed2mk8dKi3ngUA" entityName="PaymentDebitServiceIf" outerProvidedRole_ProvidedDelegationConnector="_ScK6YHe0Ed2mk8dKi3ngUA" childComponentContext_ProvidedDelegationConnector="_5weO8HeuEd2mk8dKi3ngUA">
+    <innerProvidedRole_ProvidedDelegationConnector href="orc.repository#_WOIg4HQWEd2J8bFb9TfSEQ"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_e3TlYHe0Ed2mk8dKi3ngUA" entityName="StoreInformationServiceIf" outerProvidedRole_ProvidedDelegationConnector="_Z5eZcHe0Ed2mk8dKi3ngUA" childComponentContext_ProvidedDelegationConnector="_SkcCYHewEd2mk8dKi3ngUA">
+    <innerProvidedRole_ProvidedDelegationConnector href="orc.repository#_9iTY8HQYEd2J8bFb9TfSEQ"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_nVt8IHe0Ed2mk8dKi3ngUA" entityName="OrderServiceIf" outerProvidedRole_ProvidedDelegationConnector="_iDOHwHe0Ed2mk8dKi3ngUA" childComponentContext_ProvidedDelegationConnector="_IrwGAHewEd2mk8dKi3ngUA">
+    <innerProvidedRole_ProvidedDelegationConnector href="orc.repository#_-I--cHQYEd2J8bFb9TfSEQ"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <requiredDelegationConnectors_ComposedStructure id="_x2XQYHe0Ed2mk8dKi3ngUA" entityName="BankIf" outerRequiredRole_RequiredDelegationConnector="_tFlpAHe0Ed2mk8dKi3ngUA" childComponentContext_RequiredDelegationConnector="_jtQ2cHeuEd2mk8dKi3ngUA">
+    <innerRequiredRole_RequiredDelegationConnector href="orc.repository#_cLcgQHetEd2mk8dKi3ngUA"/>
+  </requiredDelegationConnectors_ComposedStructure>
+  <requiredDelegationConnectors_ComposedStructure id="_0AHLIHe0Ed2mk8dKi3ngUA" entityName="BankIf" outerRequiredRole_RequiredDelegationConnector="_tFlpAHe0Ed2mk8dKi3ngUA" childComponentContext_RequiredDelegationConnector="_5weO8HeuEd2mk8dKi3ngUA">
+    <innerRequiredRole_RequiredDelegationConnector href="orc.repository#_TnXJ4HeuEd2mk8dKi3ngUA"/>
+  </requiredDelegationConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_GBNaIFcpEd23wcZsd06DZg" entityName="StoreIf" requiringChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_8phWYNCmEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_AXZsESDlEdyyNLPIIGbfMQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_RgKJsFcpEd23wcZsd06DZg" entityName="ProductDispatcherIf" requiringChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_gMw-sNCiEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_IpnV8dItEduQ7qbNANXHPw"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_GTRIkFcrEd23wcZsd06DZg" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_jN79kFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_bT0IMNChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_jJt4AdCiEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_J8QBcFcrEd23wcZsd06DZg" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_FPU0wFcqEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_jN79kFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_bT0IMNChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_lmx-EdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_SmvFUFcrEd23wcZsd06DZg" entityName="StoreQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_07dvQFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_OmzqENChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_kzNlYdCiEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_U0q8gFcrEd23wcZsd06DZg" entityName="StoreQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_FPU0wFcqEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_07dvQFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_OmzqENChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_t5HAodCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_S_0xIFfjEd26K8JlmYJ10w" entityName="EnterpriseQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_FPU0wFcqEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_LoXbYFfjEd26K8JlmYJ10w">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_d1Mf0NChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_b-BUEdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_U9sMAFfjEd26K8JlmYJ10w" entityName="EnterpriseQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_-W_gcFcoEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_LoXbYFfjEd26K8JlmYJ10w">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_d1Mf0NChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_h-Kq4dCiEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_5Gd9gHXeEd2KlMDMHgOgLw" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_jN79kFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_bT0IMNChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_0k7YYdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_FBF8cHXfEd2KlMDMHgOgLw" entityName="StoreQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_07dvQFcqEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_OmzqENChEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_4OSEsdCnEduC9O_qbthgAg"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_XwDvgHesEd2mk8dKi3ngUA" entityName="StoreIf" requiringChildComponentContext_CompositeAssemblyConnector="_mt8gkHerEd2mk8dKi3ngUA" providingChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_8phWYNCmEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_UQUbcXQ5Ed2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_bbKIQHesEd2mk8dKi3ngUA" entityName="CashDeskConnectorIf" requiringChildComponentContext_CompositeAssemblyConnector="_mt8gkHerEd2mk8dKi3ngUA" providingChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#__f6UsNCmEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_ppoiYXQ5Ed2J8bFb9TfSEQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_f2aj4HeyEd2mk8dKi3ngUA" entityName="StoreIf" requiringChildComponentContext_CompositeAssemblyConnector="_SkcCYHewEd2mk8dKi3ngUA" providingChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_8phWYNCmEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_wwXq8XevEd2mk8dKi3ngUA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_i6Z5UHeyEd2mk8dKi3ngUA" entityName="StorIf" requiringChildComponentContext_CompositeAssemblyConnector="_IrwGAHewEd2mk8dKi3ngUA" providingChildComponentContext_CompositeAssemblyConnector="_3AwvMFcnEd23wcZsd06DZg">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_8phWYNCmEduC9O_qbthgAg"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_s-YnEXevEd2mk8dKi3ngUA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_L3JcQHe2Ed2mk8dKi3ngUA" entityName="Database" requiringChildComponentContext_CompositeAssemblyConnector="_LoXbYFfjEd26K8JlmYJ10w" providingChildComponentContext_CompositeAssemblyConnector="_Fuol4He2Ed2mk8dKi3ngUA">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_ozQbsHe1Ed2mk8dKi3ngUA"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_uiIDAHe1Ed2mk8dKi3ngUA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_OtL1QHe2Ed2mk8dKi3ngUA" entityName="Database" requiringChildComponentContext_CompositeAssemblyConnector="_07dvQFcqEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_Fuol4He2Ed2mk8dKi3ngUA">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_ozQbsHe1Ed2mk8dKi3ngUA"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_rR7dkHe1Ed2mk8dKi3ngUA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_TBgKIHe2Ed2mk8dKi3ngUA" entityName="Database" requiringChildComponentContext_CompositeAssemblyConnector="_jN79kFcqEd23wcZsd06DZg" providingChildComponentContext_CompositeAssemblyConnector="_Fuol4He2Ed2mk8dKi3ngUA">
+    <providedRole_CompositeAssemblyConnector href="orc.repository#_ozQbsHe1Ed2mk8dKi3ngUA"/>
+    <requiredRole_CompositeAssemblyConnector href="orc.repository#_yJqxcHe1Ed2mk8dKi3ngUA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_g52lkHesEd2mk8dKi3ngUA" entityName="InventoryServiceIf">
+    <providedInterface__ProvidedRole href="orc.repository#_GtTjoHOPEd2SyK0Shg_o9Q"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity id="_LO9s0He0Ed2mk8dKi3ngUA" entityName="CardValidationServiceIf">
+    <providedInterface__ProvidedRole href="orc.repository#_dtsmkHQSEd2J8bFb9TfSEQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity id="_ScK6YHe0Ed2mk8dKi3ngUA" entityName="PaymentDebitServiceIf">
+    <providedInterface__ProvidedRole href="orc.repository#_OcfJgHQWEd2J8bFb9TfSEQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity id="_Z5eZcHe0Ed2mk8dKi3ngUA" entityName="StoreInformationServiceIf">
+    <providedInterface__ProvidedRole href="orc.repository#_5gB2UHQYEd2J8bFb9TfSEQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity id="_iDOHwHe0Ed2mk8dKi3ngUA" entityName="OrderServiceIf">
+    <providedInterface__ProvidedRole href="orc.repository#_2exEwHQYEd2J8bFb9TfSEQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <requiredRoles_InterfaceRequiringEntity id="_tFlpAHe0Ed2mk8dKi3ngUA" entityName="BankIf">
+    <requiredInterface__RequiredRole href="orc.repository#_Yh_GQHetEd2mk8dKi3ngUA"/>
+  </requiredRoles_InterfaceRequiringEntity>
+</System>
