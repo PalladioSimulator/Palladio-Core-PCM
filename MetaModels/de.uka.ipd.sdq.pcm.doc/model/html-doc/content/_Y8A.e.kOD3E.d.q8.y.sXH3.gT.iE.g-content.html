@@ -1,0 +1,495 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>performance - UML-Dokumentation</title>
+<meta name="generator" content="IBM Rational Model Publisher">
+<meta name="description" content="Inhalt für ParametricResourceDemand">
+<link rel="stylesheet" type="text/css" href="WebPublish.css">
+</head>
+<body>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">Übersicht</a></td><td class="NavBarMainLink"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_BZ.wF.gNTBE.d.y-V.t.z2H2.q.vX.w-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">performance - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#attributeSummary" title="Attribute">Attribute</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#attributeDetail" title="Attribute">Attribute</a></span></td>
+</tr>
+</table>
+<hr>
+<span class="PackageFullyQualifiedName">seff::performance</span>
+<br>
+<span class="ElementTitle">Klasse ParametricResourceDemand</span>
+<p>
+<a name="documentationSection"></a>TODO (Überarbeitung durch MH)</br>Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.</br>The demand’s unit is equal for all ProcessingResourceSpecifications referencing</br>the same ProcessingResourceType. It can for example be ”WorkUnits”</br>for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-</br>Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20</br>MB/s), which analysis tools use to compute an actual timing value in seconds. They</br>use this timing value for example as the service demand on a service center in a queueing</br>network or the firing delay of a transition in a Petri net. As multiple component services</br>might request processing on the same resource, these analytical or simulation models</br>allow determining the waiting delay induced by this contention effect.</br>Besides this parameterisation over different resource environments, Parametric-</br>ResourceDemands also parameterise over the usage profile. For this, the stochastic expression</br>specifying the resource demand can contain references to the service’s input</br>parameters or the component parameters. Upon evaluating the resource demand, analysis</br>tools use the current characterisation of the referenced input or component parameter</br>and substitute the reference with this characterisation in the stochastic expression.</br>Solving the stochastic expression, which can be a function involving arithmetic operators</br>(Chapter 3.3.6), then yields a constant or probability function for the resource demand.</br>As an example for solving the parameterisation over resource environment and usage</br>profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It</br>might include a CPU demand specification of n2􀀀&#56320;2000WorkUnits derived from complexity</br>theory (n2) and empirical measurements (2000). In this case n refers to the length of</br>the list the algorithm shall sort, which is an input parameter of the service. If the current</br>characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools</br>derive 1002 􀀀&#56320; 2000  12000 WorkUnits from the specification, thus resolving the usage</br>profile dependency. If the CPU ProcessingResourceSpecification the service’s</br>126</br>4.3. Resource Demanding Service Effect Specification</br>component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis</br>tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the</br>specification, thus resolving the resource environment dependency.</br>The stochastic expression for a ParametricResourceDemand depends on the implementation</br>of the service. Component developers can specify it using complexity theory,</br>estimations, or measurements. However, how to get data to define such expressions</br>accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann</br>[Kro07] present approaches for measuring resource demands in dependency to input parameters.</br>Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to</br>establish resource demands independent from concrete resources. For the scope of this</br>thesis, it is assumed that these methods have been applied and an accurate specification</br>of the ParametricResourceDemand is available.</p>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3"><a name="attributeSummary">Attribute</a></td>
+</tr>
+<tr>
+<td class="packagedElementType">&lt;Class&gt; AbstractInternalControlFlowAction </td><td><a title="pcm::seff::performance::ParametricResourceDemand::action_ParametricResourceDemand" href="#_.fT2.x.c.uD3E.d.q8.y.sXH3.gT.iE.g"><img border="0" src="../images/1090855041_icon.png" alt="action_ParametricResourceDemand"></a>&nbsp;<a title="pcm::seff::performance::ParametricResourceDemand::action_ParametricResourceDemand" href="#_.fT2.x.c.uD3E.d.q8.y.sXH3.gT.iE.g">action_ParametricResourceDemand</a></td><td></td>
+</tr>
+<tr>
+<td class="packagedElementType">&lt;Class&gt; PCMRandomVariable </td><td><a title="pcm::seff::performance::ParametricResourceDemand::specification_ParametericResourceDemand" href="#_2.wRH.oU.pCE.d.y.yN.sX.l.b1.tN.s.w"><img border="0" src="../images/1090855041_icon.png" alt="specification_ParametericResourceDemand"></a>&nbsp;<a title="pcm::seff::performance::ParametricResourceDemand::specification_ParametericResourceDemand" href="#_2.wRH.oU.pCE.d.y.yN.sX.l.b1.tN.s.w">specification_ParametericResourceDemand</a></td><td></td>
+</tr>
+<tr>
+<td class="packagedElementType">&lt;Class&gt; ProcessingResourceType </td><td><a title="pcm::seff::performance::ParametricResourceDemand::requiredResource_ParametricResourceDemand" href="#__F.e.v.k.a83E.d2.r.y.o.n4Z.s.xE.cA"><img border="0" src="../images/1090855041_icon.png" alt="requiredResource_ParametricResourceDemand"></a>&nbsp;<a title="pcm::seff::performance::ParametricResourceDemand::requiredResource_ParametricResourceDemand" href="#__F.e.v.k.a83E.d2.r.y.o.n4Z.s.xE.cA">requiredResource_ParametricResourceDemand</a></td><td></td>
+</tr>
+</table>
+<br>
+<a name="propertiesTable">
+<p class="LargeTitle">Eigenschaften:</p>
+</a>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Classifier Behavior</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Abstract</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Active</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">ParametricResourceDemand</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_BZ.wF.gNTBE.d.y-V.t.z2H2.q.vX.w-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; performance</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_BZ.wF.gNTBE.d.y-V.t.z2H2.q.vX.w-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; performance</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Package</b></td><td class="PropertyValue"><a href="_BZ.wF.gNTBE.d.y-V.t.z2H2.q.vX.w-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; performance</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::seff::performance::ParametricResourceDemand</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Representation</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+<p></p>
+<table class="DetailsTable">
+<tr>
+<td class="DetailsTitle" colspan="2"><a name="attributeDetail">Details für Attribute</a></td>
+</tr>
+</table>
+<span class="ListItem">
+<br>
+<img src="../images/1090855041_icon.png" alt="">&nbsp;<a name="_.fT2.x.c.uD3E.d.q8.y.sXH3.gT.iE.g">action_ParametricResourceDemand</a></span>
+<pre>Public&nbsp;&lt;Class&gt; AbstractInternalControlFlowAction action_ParametricResourceDemand</pre>
+<dl>
+<dd></dd>
+<dt>
+<a name="attributeConstraintsTable_.fT2.x.c.uD3E.d.q8.y.sXH3.gT.iE.g"><b>Integritätsbedingungen:</b></a>
+</dt>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Aggregation</b></td><td class="PropertyValue">None</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association</b></td><td class="PropertyValue"><a href="_.fT2.x.cOD3E.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Association&gt; A_resourceDemand_Action_action_ParametricResourceDemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association End</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Class</b></td><td class="PropertyValue"><a href="_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Class&gt; ParametricResourceDemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Datatype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Composite</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived Union</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Ordered</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Read Only</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Static</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Unique</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Multiplicity</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">action_ParametricResourceDemand</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Class&gt; ParametricResourceDemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Opposite</b></td><td class="PropertyValue"><a href="_.k.m.n.t.kOD.hE.d.q8.y.sXH3.gT.iE.g-content.html#_.fT2.x.c.eD3E.d.q8.y.sXH3.gT.iE.g">&lt;Property&gt; resourceDemand_Action : ParametricResourceDemand [0..*]</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Class&gt; ParametricResourceDemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Association</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::seff::performance::ParametricResourceDemand::action_ParametricResourceDemand</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Type</b></td><td class="PropertyValue"><a href="_.k.m.n.t.kOD.hE.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Class&gt; AbstractInternalControlFlowAction</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<span class="ListItem">
+<br>
+<img src="../images/1090855041_icon.png" alt="">&nbsp;<a name="__F.e.v.k.a83E.d2.r.y.o.n4Z.s.xE.cA">requiredResource_ParametricResourceDemand</a></span>
+<pre>Public&nbsp;&lt;Class&gt; ProcessingResourceType requiredResource_ParametricResourceDemand</pre>
+<dl>
+<dd></dd>
+<dt>
+<a name="attributeConstraintsTable__F.e.v.k.a83E.d2.r.y.o.n4Z.s.xE.cA"><b>Integritätsbedingungen:</b></a>
+</dt>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Aggregation</b></td><td class="PropertyValue">None</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association</b></td><td class="PropertyValue"><a href="__F.e.v.kK83E.d2.r.y.o.n4Z.s.xE.cA-content.html">&lt;Association&gt; A_requiredResource_ParametricResourceDemand_parametricresourcedemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association End</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Class</b></td><td class="PropertyValue"><a href="_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Class&gt; ParametricResourceDemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Datatype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Composite</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived Union</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Ordered</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Read Only</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Static</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Unique</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower Value</b></td><td class="PropertyValue"><a href="__F.e.v.k.q83E.d2.r.y.o.n4Z.s.xE.cA-content.html">&lt;Literal Integer&gt; 1</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Multiplicity</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">requiredResource_ParametricResourceDemand</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Class&gt; ParametricResourceDemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Opposite</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Class&gt; ParametricResourceDemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Association</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::seff::performance::ParametricResourceDemand::requiredResource_ParametricResourceDemand</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Type</b></td><td class="PropertyValue"><a href="_.n2.nAMOD4E.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Class&gt; ProcessingResourceType</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper Value</b></td><td class="PropertyValue"><a href="__F.o.g.kK83E.d2.r.y.o.n4Z.s.xE.cA-content.html">&lt;Literal Unlimited Natural&gt; 1</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<span class="ListItem">
+<br>
+<img src="../images/1090855041_icon.png" alt="">&nbsp;<a name="_2.wRH.oU.pCE.d.y.yN.sX.l.b1.tN.s.w">specification_ParametericResourceDemand</a></span>
+<pre>Public&nbsp;&lt;Class&gt; PCMRandomVariable specification_ParametericResourceDemand</pre>
+<dl>
+<dd></dd>
+<dt>
+<a name="attributeConstraintsTable_2.wRH.oU.pCE.d.y.yN.sX.l.b1.tN.s.w"><b>Integritätsbedingungen:</b></a>
+</dt>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Aggregation</b></td><td class="PropertyValue">Composite</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association</b></td><td class="PropertyValue"><a href="_2.wRH.oE.pCE.d.y.yN.sX.l.b1.tN.s.w-content.html">&lt;Association&gt; A_specification_ParametericResourceDemand_parametricResourceDemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association End</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Class</b></td><td class="PropertyValue"><a href="_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Class&gt; ParametricResourceDemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Datatype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Composite</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived Union</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Ordered</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Read Only</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Static</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Unique</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower Value</b></td><td class="PropertyValue"><a href="_2.wRH.o0.pCE.d.y.yN.sX.l.b1.tN.s.w-content.html">&lt;Literal Integer&gt; 1</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Multiplicity</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">specification_ParametericResourceDemand</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Class&gt; ParametricResourceDemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Opposite</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_Y8A.e.kOD3E.d.q8.y.sXH3.gT.iE.g-content.html">&lt;Class&gt; ParametricResourceDemand</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Association</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::seff::performance::ParametricResourceDemand::specification_ParametericResourceDemand</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Type</b></td><td class="PropertyValue"><a href="_GIDL.sP.d.xE.d.qB_7.d.kO.s.cBPA-content.html">&lt;Class&gt; PCMRandomVariable</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper Value</b></td><td class="PropertyValue"><a href="_2.wRH.pE.pCE.d.y.yN.sX.l.b1.tN.s.w-content.html">&lt;Literal Unlimited Natural&gt; 1</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<br>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">Übersicht</a></td><td class="NavBarMainLink"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_BZ.wF.gNTBE.d.y-V.t.z2H2.q.vX.w-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">performance - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#attributeSummary" title="Attribute">Attribute</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#attributeDetail" title="Attribute">Attribute</a></span></td>
+</tr>
+</table>
+</body>
+</html>
