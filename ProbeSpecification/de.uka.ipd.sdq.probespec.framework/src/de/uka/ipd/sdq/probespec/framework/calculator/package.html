@@ -1,0 +1,19 @@
+<html>
+<body>
+The Calculators combine or turn ProbeSetSamples into result tuples and passes them to the Pipes-and-Filters chain.
+ <p>
+They are notified if a new ProbeSetSample is added to the blackboard (by an observer pattern). Then they combine ProbeSetSamples (e.g. calculates the difference) or select the needed ProbeSamples from the ProbeSetSample. Afterwards they combine these information to a so called result tuple and pass it to the Pipes-and-Filters chain.
+<p>
+A Calculator also adds semantic information to the result tuple. E.g. a ResponseTimeCalculator holds describing information about the result tuple (e.g. description, name, scale,...). Without this information this Calculator would just return an undescribed time difference.
+<p>
+<b>Notice</b> that the concept of the calculators - especially for the unary - is necessary when one ProbeSet can be used within several Calculators. For now the model only allows a one to one relation between Calculator and ProbeSet (Composition).
+ 
+<h1>Calculator - RSA models</h1>
+<img src="doc-files/rsa-calc.png">
+
+<p>
+The picture above shows the meta model of the Calculator concept. Each leaf entity is implemented in this framework and inherits from the abstract Calculator class. The layer with "UnaryCalculator" and "BinaryCalculator" is not mapped to the framework (just one level of inheritance).  
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://sdq.ipd.uka.de/PipesAndFilters/0.1"
+            class="de.uka.ipd.sdq.pipesandfilters.pipesandfiltersPackage"
+            genModel="model/pipesandfilters.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="pipesandfilters"
+            class="de.uka.ipd.sdq.pipesandfilters.util.pipesandfiltersResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

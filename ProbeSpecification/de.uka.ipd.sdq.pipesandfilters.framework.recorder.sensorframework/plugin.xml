@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework"
+         point="de.uka.ipd.sdq.pipesandfilters.framework.recorder">
+      <recorder
+            configuration="de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.launch.SensorFrameworkConfig"
+            launchConfigTab="de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.launch.SensorFrameworkTab"
+            name="SensorFramework"
+            writeStrategy="de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.SensorFrameworkWriteStrategy">
+      </recorder>
+   </extension>
+
+</plugin>
