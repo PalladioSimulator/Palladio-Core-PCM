@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Persistence="http:///schemas/Persistence/_akLFsBJlEdyX68LUGTZ_jw/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/Persistence/_akLFsBJlEdyX68LUGTZ_jw/1 Persistence.profile.uml#_akgc4BJlEdyX68LUGTZ_jw">
+  <uml:Model xmi:id="_c8pf4a0WEdu-BsqEvw9tEg" name="SensorFactory">
+    <packageImport xmi:id="_c8pf660WEdu-BsqEvw9tEg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:id="_c8pf760WEdu-BsqEvw9tEg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_c8pf8K0WEdu-BsqEvw9tEg" name="de.uka.ipd.sdq.sensorfactory.entities">
+      <packagedElement xmi:type="uml:Class" xmi:id="_c8pf8a0WEdu-BsqEvw9tEg" name="Measurement" isAbstract="true">
+        <ownedAttribute xmi:id="_c8pf9K0WEdu-BsqEvw9tEg" name="measurementID">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_c8pf960WEdu-BsqEvw9tEg" name="eventTime">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_c8pf-K0WEdu-BsqEvw9tEg" name="Sensor" isAbstract="true">
+        <ownedAttribute xmi:id="_c8pf-60WEdu-BsqEvw9tEg" name="sensorName">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_c8pf_K0WEdu-BsqEvw9tEg" name="sensorID" visibility="protected">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_c8pf_60WEdu-BsqEvw9tEg" memberEnd="_c8pgAK0WEdu-BsqEvw9tEg _c8pgCq0WEdu-BsqEvw9tEg">
+        <ownedEnd xmi:id="_c8pgAK0WEdu-BsqEvw9tEg" type="_c8pgBa0WEdu-BsqEvw9tEg" association="_c8pf_60WEdu-BsqEvw9tEg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_c8pgAa0WEdu-BsqEvw9tEg" name="TimeSpanSensor">
+        <generalization xmi:id="_c8pgBK0WEdu-BsqEvw9tEg" general="_c8pf-K0WEdu-BsqEvw9tEg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_c8pgBa0WEdu-BsqEvw9tEg" name="TimeSpanMeasurement">
+        <generalization xmi:id="_c8pgCK0WEdu-BsqEvw9tEg" general="_c8pf8a0WEdu-BsqEvw9tEg"/>
+        <ownedAttribute xmi:id="_c8pgCa0WEdu-BsqEvw9tEg" name="timeSpan">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_c8pgCq0WEdu-BsqEvw9tEg" name="sensor" type="_c8pgAa0WEdu-BsqEvw9tEg" association="_c8pf_60WEdu-BsqEvw9tEg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_c8pgC60WEdu-BsqEvw9tEg" name="StateSensor">
+        <generalization xmi:id="_c8pgDq0WEdu-BsqEvw9tEg" general="_c8pf-K0WEdu-BsqEvw9tEg"/>
+        <ownedAttribute xmi:id="_c8pgD60WEdu-BsqEvw9tEg" name="sensorState" type="_c8zQ0q0WEdu-BsqEvw9tEg" aggregation="composite" association="_c8zQ2a0WEdu-BsqEvw9tEg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8pgEK0WEdu-BsqEvw9tEg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c8zQ0K0WEdu-BsqEvw9tEg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_c8zQ0a0WEdu-BsqEvw9tEg" name="initialState" visibility="private" type="_c8zQ0q0WEdu-BsqEvw9tEg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_c8zQ0q0WEdu-BsqEvw9tEg" name="State">
+        <ownedAttribute xmi:id="_c8zQ1a0WEdu-BsqEvw9tEg" name="stateID" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_c8zQ2K0WEdu-BsqEvw9tEg" name="stateLiteral" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_c8zQ2a0WEdu-BsqEvw9tEg" memberEnd="_c8pgD60WEdu-BsqEvw9tEg _c8zQ2q0WEdu-BsqEvw9tEg">
+        <ownedEnd xmi:id="_c8zQ2q0WEdu-BsqEvw9tEg" visibility="private" type="_c8pgC60WEdu-BsqEvw9tEg" association="_c8zQ2a0WEdu-BsqEvw9tEg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_c8zQ260WEdu-BsqEvw9tEg" name="StateMeasurement">
+        <generalization xmi:id="_c8zQ3q0WEdu-BsqEvw9tEg" general="_c8pf8a0WEdu-BsqEvw9tEg"/>
+        <ownedAttribute xmi:id="_c8zQ360WEdu-BsqEvw9tEg" name="sensorState" type="_c8zQ0q0WEdu-BsqEvw9tEg" association="_c8zQ460WEdu-BsqEvw9tEg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8zQ4K0WEdu-BsqEvw9tEg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c8zQ4a0WEdu-BsqEvw9tEg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_c8zQ4q0WEdu-BsqEvw9tEg" name="sensor" type="_c8pgC60WEdu-BsqEvw9tEg" association="_c8zQ5a0WEdu-BsqEvw9tEg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_c8zQ460WEdu-BsqEvw9tEg" memberEnd="_c8zQ360WEdu-BsqEvw9tEg _c8zQ5K0WEdu-BsqEvw9tEg">
+        <ownedEnd xmi:id="_c8zQ5K0WEdu-BsqEvw9tEg" visibility="private" type="_c8zQ260WEdu-BsqEvw9tEg" association="_c8zQ460WEdu-BsqEvw9tEg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_c8zQ5a0WEdu-BsqEvw9tEg" memberEnd="_c8zQ5q0WEdu-BsqEvw9tEg _c8zQ4q0WEdu-BsqEvw9tEg">
+        <ownedEnd xmi:id="_c8zQ5q0WEdu-BsqEvw9tEg" type="_c8zQ260WEdu-BsqEvw9tEg" association="_c8zQ5a0WEdu-BsqEvw9tEg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8zQ560WEdu-BsqEvw9tEg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c8zQ6K0WEdu-BsqEvw9tEg" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_c8zQ6a0WEdu-BsqEvw9tEg" name="Experiment">
+        <ownedAttribute xmi:id="_c8zQ7K0WEdu-BsqEvw9tEg" name="sensor" type="_c8pf-K0WEdu-BsqEvw9tEg" aggregation="composite" association="_c8zQ9q0WEdu-BsqEvw9tEg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8zQ7a0WEdu-BsqEvw9tEg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c8zQ7q0WEdu-BsqEvw9tEg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_c8zQ760WEdu-BsqEvw9tEg" name="experimentID" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_c8zQ8q0WEdu-BsqEvw9tEg" name="experimentName" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_c8zQ860WEdu-BsqEvw9tEg" name="experimentRun" type="_c8zQ-K0WEdu-BsqEvw9tEg" aggregation="composite" association="_c8zRDK0WEdu-BsqEvw9tEg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8zQ9K0WEdu-BsqEvw9tEg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c8zQ9a0WEdu-BsqEvw9tEg"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_c8zQ9q0WEdu-BsqEvw9tEg" memberEnd="_c8zQ7K0WEdu-BsqEvw9tEg _c8zQ960WEdu-BsqEvw9tEg">
+        <ownedEnd xmi:id="_c8zQ960WEdu-BsqEvw9tEg" visibility="private" type="_c8zQ6a0WEdu-BsqEvw9tEg" association="_c8zQ9q0WEdu-BsqEvw9tEg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_c8zQ-K0WEdu-BsqEvw9tEg" name="ExperimentRun">
+        <ownedAttribute xmi:id="_c8zQ-60WEdu-BsqEvw9tEg" name="measurement" type="_c8pf8a0WEdu-BsqEvw9tEg" aggregation="composite" association="_c8zRCq0WEdu-BsqEvw9tEg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8zQ_K0WEdu-BsqEvw9tEg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c8zQ_a0WEdu-BsqEvw9tEg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_c8zQ_q0WEdu-BsqEvw9tEg" name="experimentDateTime">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8zQ_60WEdu-BsqEvw9tEg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c8zRAK0WEdu-BsqEvw9tEg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_c8zRAa0WEdu-BsqEvw9tEg" name="experimentRunID" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="_c8zRBK0WEdu-BsqEvw9tEg" name="getMeasurementsOfSensor">
+          <ownedParameter xmi:id="_c8zRBa0WEdu-BsqEvw9tEg" name="result" type="__vYk0BAEEdy3LYyDXUTCbw" direction="return">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8zRBq0WEdu-BsqEvw9tEg" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c8zRB60WEdu-BsqEvw9tEg" value="1"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_c8zRCa0WEdu-BsqEvw9tEg" name="sensor" type="_c8pf-K0WEdu-BsqEvw9tEg" effect="read"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8zRCK0WEdu-BsqEvw9tEg" value="*"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_c8zRCq0WEdu-BsqEvw9tEg" memberEnd="_c8zQ-60WEdu-BsqEvw9tEg _c8zRC60WEdu-BsqEvw9tEg">
+        <ownedEnd xmi:id="_c8zRC60WEdu-BsqEvw9tEg" visibility="private" type="_c8zQ-K0WEdu-BsqEvw9tEg" association="_c8zRCq0WEdu-BsqEvw9tEg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_c8zRDK0WEdu-BsqEvw9tEg" memberEnd="_c8zQ860WEdu-BsqEvw9tEg _c8zRDa0WEdu-BsqEvw9tEg">
+        <ownedEnd xmi:id="_c8zRDa0WEdu-BsqEvw9tEg" name="experiment" type="_c8zQ6a0WEdu-BsqEvw9tEg" association="_c8zRDK0WEdu-BsqEvw9tEg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="__vYk0BAEEdy3LYyDXUTCbw" name="SensorAndMeasurements">
+        <ownedAttribute xmi:id="_Z5urABB3EdyX68LUGTZ_jw" name="measurement" type="_c8pf8a0WEdu-BsqEvw9tEg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dezUQBB3EdyX68LUGTZ_jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cQr7UBB3EdyX68LUGTZ_jw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_ip3q8BB3EdyX68LUGTZ_jw" name="sensor" type="_c8pf-K0WEdu-BsqEvw9tEg"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_c8zRDq0WEdu-BsqEvw9tEg" name="SensorFramework">
+      <ownedOperation xmi:id="_c8zRD60WEdu-BsqEvw9tEg" name="init"/>
+    </packagedElement>
+    <profileApplication xmi:id="_c8pf4q0WEdu-BsqEvw9tEg">
+      <eAnnotations xmi:id="_c8pf460WEdu-BsqEvw9tEg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#__LeIQK86Edih9-GG5afQ0g"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_c8pf5a0WEdu-BsqEvw9tEg">
+      <eAnnotations xmi:id="_c8pf5q0WEdu-BsqEvw9tEg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_JtpGgK87Edih9-GG5afQ0g"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_c8pf6K0WEdu-BsqEvw9tEg">
+      <eAnnotations xmi:id="_c8pf6a0WEdu-BsqEvw9tEg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_QHin0K87Edih9-GG5afQ0g"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_c8pf7K0WEdu-BsqEvw9tEg">
+      <eAnnotations xmi:id="_c8pf7a0WEdu-BsqEvw9tEg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="Persistence.profile.uml#_akgc4BJlEdyX68LUGTZ_jw"/>
+      </eAnnotations>
+      <appliedProfile href="Persistence.profile.uml#_CpkoQYRuEdu0HNZg8bM6sQ"/>
+    </profileApplication>
+  </uml:Model>
+  <Persistence:Entity xmi:id="_c8pf860WEdu-BsqEvw9tEg" tableName="" base_Class="_c8pf8a0WEdu-BsqEvw9tEg"/>
+  <Persistence:Key xmi:id="_c8pf9q0WEdu-BsqEvw9tEg" columnName="" nullable="" length="" precision="" base_Property="_c8pf9K0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8pf-q0WEdu-BsqEvw9tEg" tableName="" base_Class="_c8pf-K0WEdu-BsqEvw9tEg"/>
+  <Persistence:Key xmi:id="_c8pf_q0WEdu-BsqEvw9tEg" columnName="" nullable="" length="" precision="" base_Property="_c8pf_K0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8pgA60WEdu-BsqEvw9tEg" tableName="" base_Class="_c8pgAa0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8pgB60WEdu-BsqEvw9tEg" tableName="" base_Class="_c8pgBa0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8pgDa0WEdu-BsqEvw9tEg" tableName="" base_Class="_c8pgC60WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8zQ1K0WEdu-BsqEvw9tEg" tableName="" base_Class="_c8zQ0q0WEdu-BsqEvw9tEg"/>
+  <Persistence:Key xmi:id="_c8zQ160WEdu-BsqEvw9tEg" columnName="" nullable="" length="" precision="" base_Property="_c8zQ1a0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8zQ3a0WEdu-BsqEvw9tEg" tableName="" base_Class="_c8zQ260WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8zQ660WEdu-BsqEvw9tEg" tableName="" base_Class="_c8zQ6a0WEdu-BsqEvw9tEg"/>
+  <Persistence:Key xmi:id="_c8zQ8a0WEdu-BsqEvw9tEg" columnName="" nullable="" length="" precision="" base_Property="_c8zQ760WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8zQ-q0WEdu-BsqEvw9tEg" tableName="" base_Class="_c8zQ-K0WEdu-BsqEvw9tEg"/>
+  <Persistence:Key xmi:id="_c8zRA60WEdu-BsqEvw9tEg" columnName="" nullable="" length="" precision="" base_Property="_c8zRAa0WEdu-BsqEvw9tEg"/>
+  <Persistence:Findable xmi:id="_S825kBJmEdyX68LUGTZ_jw" base_Property="_c8zQ8q0WEdu-BsqEvw9tEg"/>
+  <Persistence:Findable xmi:id="_5ci5UBJrEdyX68LUGTZ_jw" base_Property="_c8pf-60WEdu-BsqEvw9tEg"/>
+  <Persistence:Findable xmi:id="_VCru4BJsEdyX68LUGTZ_jw" base_Property="_c8zQ2K0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_N7mMsBcoEdyS6-njFe3_vg" base_Class="__vYk0BAEEdy3LYyDXUTCbw"/>
+</xmi:XMI>
