@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="editors" size="824,493" id="de.uka.ipd.sdq.edp2.visualization.editors" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303533312D313030302064652E756B612E6970642E7364712E656470322E76697375616C697A6174696F6E2F526F6C616E642052696368746572">
+  <children xsi:type="editmodel:ClassEditModel" name="ScatterPlotInput" location="65,167" size="144,67" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput" runTimeClassModel="getSource()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="80,18">
+      <children xsi:type="editmodel:MethodEditModel" name="getSource" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput#getSource()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput@input+de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor@" source="//@children.0" target="//@children.1" targetEnd="//@children.0/@sourceConnections.0/@children.2" label="//@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="input" location="144,33" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput@input+de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor@|de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput#input" attachSource="true" multiplicityLabel="//@children.0/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.0/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" ~ input" location="216,179" size="35,14" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="216,207" size="18,14" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,60" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput@input+de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor@|de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor#" roleLabel="//@children.0/@sourceConnections.0/@children.2/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="323,179" size="0,14" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataSink&lt;-de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput" source="//@children.0" target="//@children.2" targetEnd="//@children.0/@sourceConnections.1/@children.1" sourceEnd="//@children.0/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="72,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="91,57"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0" name="ScatterPlotEditor" location="330,140" size="193,121" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor" runTimeClassModel="updateInput(),updateChart(),init(Lorg.eclipse.ui.IEditorSite;Lorg.eclipse.ui.IEditorInput;),updateInput(Lorg.eclipse.ui.IEditorInput;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="170,72">
+      <children xsi:type="editmodel:MethodEditModel" name="init" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor#init(Lorg.eclipse.ui.IEditorSite;Lorg.eclipse.ui.IEditorInput;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateChart" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor#updateChart()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateInput" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor#updateInput(Lorg.eclipse.ui.IEditorInput;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateInput" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor#updateInput()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.0/@sourceConnections.1" name="IDataSink" location="46,60" size="182,57" id="de.uka.ipd.sdq.edp2.visualization/IDataSink">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" showScope="InPackage" properties="wireOptions=4;Product=eUML2;displayOptions=1"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+</editmodel:ClassDiagramEditModel>

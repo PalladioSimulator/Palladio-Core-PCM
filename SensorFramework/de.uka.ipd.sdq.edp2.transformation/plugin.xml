@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="de.uka.ipd.sdq.edp2.visualization.adapter">
+      <adapter
+            class="de.uka.ipd.sdq.edp2.transformation.adapter.HistogramFrequencyAdapter"
+            factory="de.uka.ipd.sdq.edp2.transformation.adapter.HistogramFrequencyAdapterFactory"
+            wizard="de.uka.ipd.sdq.edp2.transformation.adapter.HistogramFrequencyAdapterWizard">
+      </adapter>
+   </extension>
+
+</plugin>

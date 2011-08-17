@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="visualization" name="Visualization" schema="schema/de.uka.ipd.sdq.edp2.visualization.exsd"/>
+   <extension-point id="adapter" name="Adapter" schema="schema/de.uka.ipd.sdq.edp2.adapter.exsd"/>
+   <extension-point id="filter" name="Filter" schema="schema/de.uka.ipd.sdq.edp2.filter.exsd"/>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotEditor"
+            default="false"
+            id="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlot"
+            name="ScatterPlotEditor">
+      </editor>
+      <editor
+            class="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditor"
+            default="false"
+            id="de.uka.ipd.sdq.edp2.visualization.editors.PieChart"
+            name="PieChartEditor">
+      </editor>
+      <editor
+            class="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditor"
+            default="false"
+            id="de.uka.ipd.sdq.edp2.visualization.editors.Histogram"
+            name="HistogramEditor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.elementFactories">
+      <factory
+            class="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInputFactory"
+            id="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInputFactory">
+      </factory>
+      <factory
+            class="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditorInputFactory"
+            id="de.uka.ipd.sdq.edp2.visualization.editors.PieChartInputFactory">
+      </factory>
+      <factory
+            class="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInputFactory"
+            id="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInputFactory">
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+      <propertyContributor
+            contributorId="de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor"
+            labelProvider="de.uka.ipd.sdq.edp2.visualization.properties.EditorLabelProvider"
+            typeMapper="de.uka.ipd.sdq.edp2.visualization.properties.PropertyTypeMapper">
+         <propertyCategory category="sample"/>
+      </propertyContributor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+      <propertyTabs
+            contributorId="de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor">
+         <propertyTab
+               category="sample"
+               id="de.uka.ipd.sdq.edp2.visualization.propertyTabFilter"
+               label="Filter &amp; Adapter">
+         </propertyTab>
+         <propertyTab
+               afterTab="de.uka.ipd.sdq.edp2.visualization.propertyTabAdapter"
+               category="sample"
+               id="de.uka.ipd.sdq.edp2.visualization.propertyTabDisplay"
+               label="Display">
+         </propertyTab>
+      </propertyTabs>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views.properties.tabbed.propertySections">
+      <propertySections
+            contributorId="de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor">
+         <propertySection
+               class="de.uka.ipd.sdq.edp2.visualization.properties.sections.FiltersPropertySection"
+               
+               id="de.uka.ipd.sdq.edp2.visualization.propertySectionFilter"
+               tab="de.uka.ipd.sdq.edp2.visualization.propertyTabFilter">
+         </propertySection>
+          <propertySection
+                class="de.uka.ipd.sdq.edp2.visualization.properties.sections.DisplayPropertySection"
+                id="de.uka.ipd.sdq.edp2.visualization.propertySectionDisplay"
+                tab="de.uka.ipd.sdq.edp2.visualization.propertyTabDisplay">
+         </propertySection>
+         
+      </propertySections>
+   </extension>
+   <extension
+         point="de.uka.ipd.sdq.edp2.visualization.filter">
+      <filter
+            class="de.uka.ipd.sdq.edp2.visualization.filter.WarmupFilter"
+            factory="de.uka.ipd.sdq.edp2.visualization.filter.WarmupFilterFactory"
+            wizard="de.uka.ipd.sdq.edp2.visualization.filter.WarmupFilterWizard">
+      </filter>
+   </extension>
+
+</plugin>

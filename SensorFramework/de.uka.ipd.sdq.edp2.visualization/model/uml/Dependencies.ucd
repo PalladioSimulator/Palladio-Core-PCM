@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="Dependencies" size="1374,859" id="." metadata="uml2-1.0" initialized="true" scrolledX="25" tag="1000" key="32303037303533312D313030302064652E756B612E6970642E7364712E656470322E76697375616C697A6174696F6E2F526F6C616E642052696368746572">
+  <children xsi:type="editmodel:PackageEditModel" name="de.uka.ipd.sdq.edp2.visualization.editors" location="930,160" size="436,316" id="de.uka.ipd.sdq.edp2.visualization.editors">
+    <children xsi:type="editmodel:ClassEditModel" name="PieChartEditor" location="239,70" size="134,29" id="de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditor" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="org.eclipse.ui.part/EditorPart&lt;-de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditor" source="//@children.0/@children.0" target="//@children.0/@children.2/@sourceConnections.0" targetEnd="//@children.0/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="67,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="23,43"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditorInput@input+de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditor@" source="//@children.0/@children.0" target="//@children.0/@children.1" targetEnd="//@children.0/@children.0/@sourceConnections.1/@children.2" label="//@children.0/@children.0/@sourceConnections.1/@children.0" sourceEnd="//@children.0/@children.0/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+        <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="0,19" id="de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditorInput@input+de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditor@|de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditor#" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" name="input" location="156,0" id="de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditorInput@input+de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditor@|de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditorInput#input" multiplicityLabel="//@children.0/@children.0/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.0/@children.0/@sourceConnections.1/@children.2/@children.0" navigable="true">
+          <children xsi:type="editmodel:LabelEditModel" name=" - input" location="1089,371" size="33,14" anchorKind="LastPart"/>
+          <children xsi:type="editmodel:LabelEditModel" name="0..1" location="1136,371" size="18,14" anchorKind="LastPart"/>
+        </children>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@children.0/@sourceConnections.1" name="PieChartEditorInput" location="20,232" size="166,29" id="de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditorInput" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataSink&lt;-de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditorInput" source="//@children.0/@children.1" target="//@children.4/@children.0/@sourceConnections.0" targetEnd="//@children.0/@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="83,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="103,32"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" name="ScatterPlotEditor" location="58,71" size="149,29" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.0/@children.0/@sourceConnections.0" autoLocated="true" id="org.eclipse.ui.part/EditorPart&lt;-de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor" source="//@children.0/@children.2" target="//@children.6" targetEnd="//@children.0/@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="74,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="54,43" anchorKind="FixedAtEdge"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput@input+de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor@" source="//@children.0/@children.2" target="//@children.0/@children.3" targetEnd="//@children.0/@children.2/@sourceConnections.1/@children.2" label="//@children.0/@children.2/@sourceConnections.1/@children.0" sourceEnd="//@children.0/@children.2/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+        <children xsi:type="editmodel:WireLabelEditModel" size="0,14" anchorKind="MiddlePart"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="149,19" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput@input+de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor@|de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor#" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" name="input" location="10,0" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput@input+de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor@|de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput#input" multiplicityLabel="//@children.0/@children.2/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.0/@children.2/@sourceConnections.1/@children.2/@children.0" navigable="true">
+          <children xsi:type="editmodel:LabelEditModel" name=" ~ input" location="1186,371" size="35,14" anchorKind="LastPart"/>
+          <children xsi:type="editmodel:LabelEditModel" name="0..1" location="1154,371" size="18,14" anchorKind="LastPart"/>
+        </children>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@children.2/@sourceConnections.1" name="ScatterPlotInput" location="216,232" size="144,29" id="de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataSink&lt;-de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput" source="//@children.0/@children.3" target="//@children.4/@children.0/@sourceConnections.0" targetEnd="//@children.0/@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="72,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="103,37"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" name="de.uka.ipd.sdq.edp2.visualization.datasource" location="0,190" size="352,209" id="de.uka.ipd.sdq.edp2.visualization.datasource">
+    <children xsi:type="editmodel:ClassEditModel" name="EDP2Source" location="153,143" size="120,29" id="de.uka.ipd.sdq.edp2.visualization.datasource/EDP2Source" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataSource&lt;-de.uka.ipd.sdq.edp2.visualization.datasource/EDP2Source" source="//@children.1/@children.0" target="//@children.4/@children.0/@sourceConnections.1" targetEnd="//@children.1/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="60,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="39,29"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" name="de.uka.ipd.sdq.edp2.visualization.filter" location="375,585" size="353,140" id="de.uka.ipd.sdq.edp2.visualization.filter">
+    <children xsi:type="editmodel:ClassEditModel" name="TeardownFilter" location="43,75" size="139,29" id="de.uka.ipd.sdq.edp2.visualization.filter/TeardownFilter" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IFilter&lt;-de.uka.ipd.sdq.edp2.visualization.filter/TeardownFilter" source="//@children.2/@children.0" target="//@children.2/@children.1/@sourceConnections.0" targetEnd="//@children.2/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="69,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="31,29"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" name="WarmupFilter" location="215,76" size="129,29" id="de.uka.ipd.sdq.edp2.visualization.filter/WarmupFilter" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.2/@children.0/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IFilter&lt;-de.uka.ipd.sdq.edp2.visualization.filter/WarmupFilter" source="//@children.2/@children.1" target="//@children.4/@children.3" targetEnd="//@children.2/@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="64,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="39,29" anchorKind="FixedAtEdge"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" name="de.uka.ipd.sdq.edp2.visualization.properties.sections" location="855,600" size="412,108" id="de.uka.ipd.sdq.edp2.visualization.properties.sections">
+    <children xsi:type="editmodel:ClassEditModel" name="FiltersPropertySection" location="97,52" size="183,29" id="de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="org.eclipse.ui.views.properties.tabbed/AbstractPropertySection&lt;-de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection" source="//@children.3/@children.0" target="//@children.5" targetEnd="//@children.3/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="91,0" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="113,43"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" name="de.uka.ipd.sdq.edp2.visualization" location="390,64" size="556,467" id="de.uka.ipd.sdq.edp2.visualization">
+    <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@children.1/@sourceConnections.0" name="AbstractTransformation" location="171,276" size="189,29" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.0/@children.1/@sourceConnections.0 //@children.0/@children.3/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataSink&lt;-de.uka.ipd.sdq.edp2.visualization/AbstractTransformation" source="//@children.4/@children.0" target="//@children.4/@children.2" targetEnd="//@children.4/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="94,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="51,43" anchorKind="FixedAtEdge"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.1/@children.0/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataSource&lt;-de.uka.ipd.sdq.edp2.visualization/AbstractTransformation" source="//@children.4/@children.0" target="//@children.4/@children.8" targetEnd="//@children.4/@children.0/@sourceConnections.1/@children.1" sourceEnd="//@children.4/@children.0/@sourceConnections.1/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="94,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="60,29" anchorKind="FixedAtEdge"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" name="IAdapter" location="316,359" size="96,29" id="de.uka.ipd.sdq.edp2.visualization/IAdapter" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.4/@children.3/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation&lt;-de.uka.ipd.sdq.edp2.visualization/IAdapter" source="//@children.4/@children.1" target="//@children.4/@children.0" targetEnd="//@children.4/@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="48,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="94,29" anchorKind="FixedAtEdge"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@children.0/@sourceConnections.0" name="IDataSink" location="319,171" size="103,43" id="de.uka.ipd.sdq.edp2.visualization/IDataSink" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.4/@children.8/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataFlow&lt;-de.uka.ipd.sdq.edp2.visualization/IDataSink" source="//@children.4/@children.2" target="//@children.4/@children.5" targetEnd="//@children.4/@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="51,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="53,43" anchorKind="FixedAtEdge"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="org.eclipse.ui/IEditorInput&lt;-de.uka.ipd.sdq.edp2.visualization/IDataSink" source="//@children.4/@children.2" target="//@children.4/@children.6" targetEnd="//@children.4/@children.2/@sourceConnections.1/@children.1" sourceEnd="//@children.4/@children.2/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="75,0" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="23,57"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="java.util/Observer&lt;-de.uka.ipd.sdq.edp2.visualization/IDataSink" source="//@children.4/@children.2" target="//@children.4/@children.7" targetEnd="//@children.4/@children.2/@sourceConnections.2/@children.1" sourceEnd="//@children.4/@children.2/@sourceConnections.2/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="103,18" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="0,38"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@children.1/@sourceConnections.0" name="IFilter" location="139,362" size="79,29" id="de.uka.ipd.sdq.edp2.visualization/IFilter" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation&lt;-de.uka.ipd.sdq.edp2.visualization/IFilter" source="//@children.4/@children.3" target="//@children.4/@children.1/@sourceConnections.0" targetEnd="//@children.4/@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="39,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="104,29"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@children.8/@sourceConnections.1" name="Observable" location="38,78" size="114,43" id="java.util/Observable">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@children.2/@sourceConnections.0" name="IDataFlow" location="207,45" size="106,43" id="de.uka.ipd.sdq.edp2.visualization/IDataFlow">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@children.2/@sourceConnections.1" name="IEditorInput" location="424,68" size="115,57" id="org.eclipse.ui/IEditorInput">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@children.2/@sourceConnections.2" name="Observer" location="443,151" size="99,57" id="java.util/Observer">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@children.0/@sourceConnections.1" name="IDataSource" location="96,176" size="120,29" id="de.uka.ipd.sdq.edp2.visualization/IDataSource">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataFlow&lt;-de.uka.ipd.sdq.edp2.visualization/IDataSource" source="//@children.4/@children.8" target="//@children.4/@children.2/@sourceConnections.0" targetEnd="//@children.4/@children.8/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@children.8/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="60,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="1,0"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="java.util/Observable&lt;-de.uka.ipd.sdq.edp2.visualization/IDataSource" source="//@children.4/@children.8" target="//@children.4/@children.4" targetEnd="//@children.4/@children.8/@sourceConnections.1/@children.1" sourceEnd="//@children.4/@children.8/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="27,0" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="85,43"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+    </children>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@children.0/@sourceConnections.0" name="AbstractPropertySection" location="930,525" size="208,43" id="org.eclipse.ui.views.properties.tabbed/AbstractPropertySection">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@children.2/@sourceConnections.0" name="EditorPart" location="1080,60" size="109,43" id="org.eclipse.ui.part/EditorPart">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=4;Product=eUML2;displayOptions=1"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+</editmodel:ClassDiagramEditModel>

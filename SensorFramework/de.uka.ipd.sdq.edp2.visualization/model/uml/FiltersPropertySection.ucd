@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="FiltersPropertySection" size="829,498" id="de.uka.ipd.sdq.edp2.visualization.properties.sections" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303533312D313030302064652E756B612E6970642E7364712E656470322E76697375616C697A6174696F6E2F526F6C616E642052696368746572">
+  <children xsi:type="editmodel:ClassEditModel" name="FiltersPropertySection" location="45,45" size="331,193" id="de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection" runTimeClassModel="filtersTable,filterCounter,filtersList,createLayout(Lorg.eclipse.swt.widgets.Composite;),updateProperties(Ljava.lang.String;Ljava.lang.Object;),updateFilterList(),refreshPropertiesTable(),createControls(Lorg.eclipse.swt.widgets.Composite;Lorg.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="104,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="filtersList" id="de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection#filtersList"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="filterCounter" id="de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection#filterCounter"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="filtersTable" id="de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection#filtersTable"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="308,90">
+      <children xsi:type="editmodel:MethodEditModel" name="createControls" id="de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection#createControls(Lorg.eclipse.swt.widgets.Composite;Lorg.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createLayout" id="de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection#createLayout(Lorg.eclipse.swt.widgets.Composite;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateFilterList" id="de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection#updateFilterList()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="refreshPropertiesTable" id="de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection#refreshPropertiesTable()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateProperties" id="de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection#updateProperties(Ljava.lang.String;Ljava.lang.Object;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" properties="open=de.uka.ipd.sdq.edp2.visualization.properties.sections/FiltersPropertySection;wireOptions=2;Product=eUML2;displayOptions=1"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+</editmodel:ClassDiagramEditModel>

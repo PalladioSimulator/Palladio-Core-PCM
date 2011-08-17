@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="visualization-package-classes-with-realations " id="{UMLID=_LVjDI3-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization}" metadata="uml2-1.0" initialized="true" zoom="0.5" scrolledX="-173" scrolledY="-23" tag="10" key="32303037303632392064652E756B612E6970642E7364712E656470322E76697375616C697A6174696F6E">
+  <children xsi:type="editmodel:InterfaceEditModel" name="IPersistable" location="262,0" size="114,61" timstampe="27" id="{UMLID=_NWV2MH-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IPersistable}" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.11/@sourceConnections.0 //@children.12/@sourceConnections.0 //@children.13/@sourceConnections.0" name="IVisualization" location="675,258" size="126,61" timstampe="35" id="{UMLID=_Nt-TEH-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IVisualization}" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_NuHdA3-oEeC6FtGTjyRxbA}" source="//@children.1" target="//@children.18" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="63,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="126,79"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="Activator" location="-210,0" size="110,160" timstampe="27" stereotype="" id="{UMLID=_OiaAsH-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/Activator}" runTimeClassModel="getDefault(),stop(Lorg.osgi.framework.BundleContext;),PLUGIN_ID,start(Lorg.osgi.framework.BundleContext;),Activator(),plugin">
+    <children xsi:type="editmodel:CompartmentEditModel" size="80,41">
+      <children xsi:type="editmodel:AttributeEditModel" name="PLUGIN_ID" size="80,16" id="{UMLID=_OjaGQH-oEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="plugin" size="63,21" id="{UMLID=_OjaGQn-oEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="89,72">
+      <children xsi:type="editmodel:MethodEditModel" name="Activator" size="84,16" id="{UMLID=_OjjQMX-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/Activator#Activator()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="start" size="62,16" id="{UMLID=_Oj1kEH-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/Activator#start(Lorg.osgi.framework.BundleContext;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="stop" size="61,16" id="{UMLID=_OjjQNX-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/Activator#stop(Lorg.osgi.framework.BundleContext;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDefault" size="89,16" id="{UMLID=_OjjQMn-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/Activator#getDefault()}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_OmIqIH-oEeC6FtGTjyRxbA}" source="//@children.2" target="//@children.2" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="plugin" location="0,10" id="{UMLID=_OjaGQn-oEeC6FtGTjyRxbA}" anchorKind="FixedAtEdge" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.2/@sourceConnections.0/@children.1/@children.2" orderingLabel="//@children.2/@sourceConnections.0/@children.1/@children.0" scopeKind="1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="{order}" location="-251,17" size="34,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="-223,-11" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- plugin" location="-252,31" size="35,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="10,0" id="{UMLID=_OmIqIX-oEeC6FtGTjyRxbA}" anchorKind="FixedAtEdge" multiplicityLabel="//@children.2/@sourceConnections.0/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="-193,-21" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.5/@sourceConnections.1 //@children.16/@sourceConnections.0 //@children.17/@sourceConnections.0" name="IDataSink" location="329,425" size="132,133" timstampe="52" id="{UMLID=_Nx2GcH-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSink}" runTimeClassModel="canAccept(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),setSource(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getMetricRoles(),getSource()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="111,72">
+      <children xsi:type="editmodel:MethodEditModel" name="getSource" size="90,16" id="{UMLID=_N1R09X-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSink#getSource()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSource" size="90,16" id="{UMLID=_N1R0-H-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSink#setSource(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricRoles" size="111,16" id="{UMLID=_N0tNMH-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSink#getMetricRoles()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="canAccept" size="93,16" id="{UMLID=_Ny_V8H-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSink#canAccept(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_Nx2Gcn-oEeC6FtGTjyRxbA}" source="//@children.3" target="//@children.4/@sourceConnections.0" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="66,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,30"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_Ws9DcH-sEeC6FtGTjyRxbA}" source="//@children.3" target="//@children.15" targetEnd="//@children.3/@sourceConnections.1/@children.2" label="//@children.3/@sourceConnections.1/@children.0" sourceEnd="//@children.3/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="sink" location="0,66" id="{UMLID=_Wgt-QH-sEeC6FtGTjyRxbA}" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.1/@children.1/@children.0" roleLabel="//@children.3/@sourceConnections.1/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="316,498" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- sink" location="296,470" size="26,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="210,113" id="{UMLID=_Ws9DcX-sEeC6FtGTjyRxbA}" multiplicityLabel="//@children.3/@sourceConnections.1/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="-120,470" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_49Z04n-sEeC6FtGTjyRxbA}" source="//@children.3" target="//@children.14" targetEnd="//@children.3/@sourceConnections.2/@children.2" label="//@children.3/@sourceConnections.2/@children.0" sourceEnd="//@children.3/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="sink" location="84,133" id="{UMLID=_4tqvxX-sEeC6FtGTjyRxbA}" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.2/@children.1/@children.0" roleLabel="//@children.3/@sourceConnections.2/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="420,565" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- sink" location="380,565" size="26,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,159" id="{UMLID=_49Z043-sEeC6FtGTjyRxbA}" multiplicityLabel="//@children.3/@sourceConnections.2/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="623,1384" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.5/@sourceConnections.0 //@children.15/@sourceConnections.0" name="IDataSource" location="-28,335" size="193,313" timstampe="53" id="{UMLID=_NzRp0H-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource}" runTimeClassModel="setSink(Lde.uka.ipd.sdq.edp2.visualization.IDataSink;),getMetricDescriptions(),getOutputMD(),getRepositoryURI(),getMeasurementsRange(),getExperimentGroup(),getExperimentRun(),getSink(),getRepository(),getRawMeasurementsUUID(),getMeasure(),getExperimentSetting(),getOutput(),getMeasurement()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="172,252">
+      <children xsi:type="editmodel:MethodEditModel" name="getOutputMD" location="17,51" size="102,16" id="{UMLID=_N84RxH-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getOutputMD()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSink" size="75,16" id="{UMLID=_Oah3EX-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getSink()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSink" size="75,16" id="{UMLID=_Oa0K8H-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#setSink(Lde.uka.ipd.sdq.edp2.visualization.IDataSink;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutput" size="87,16" id="{UMLID=_N8lW0H-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getOutput()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRepository" size="107,16" id="{UMLID=_Oa0K9n-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getRepository()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentGroup" size="138,16" id="{UMLID=_OaPjNn-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getExperimentGroup()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentSetting" size="141,16" id="{UMLID=_OarBAX-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getExperimentSetting()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentRun" size="127,16" id="{UMLID=_ObPowX-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getExperimentRun()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasurement" size="120,16" id="{UMLID=_Oah3FH-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getMeasurement()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasurementsRange" location="22,226" size="157,16" id="{UMLID=_OXFhgX-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getMeasurementsRange()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRepositoryURI" size="123,16" id="{UMLID=_OaGZQX-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getRepositoryURI()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRawMeasurementsUUID" size="172,16" id="{UMLID=_Oa0K83-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getRawMeasurementsUUID()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasure" size="97,16" id="{UMLID=_OaYtIX-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getMeasure()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricDescriptions" size="144,16" id="{UMLID=_ObGe0X-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataSource#getMetricDescriptions()}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.3/@sourceConnections.0" size="2,1" autoLocated="true" id="{UMLID=_N6uVoX-oEeC6FtGTjyRxbA}" source="//@children.4" target="//@children.6" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="96,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="52,61" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_EdeioH-pEeC6FtGTjyRxbA}" source="//@children.4" target="//@children.17" targetEnd="//@children.4/@sourceConnections.1/@children.2" label="//@children.4/@sourceConnections.1/@children.0" sourceEnd="//@children.4/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="source" location="193,242" id="{UMLID=_EQugEH-pEeC6FtGTjyRxbA}" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.1/@children.1/@children.0" roleLabel="//@children.4/@sourceConnections.1/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="172,591" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- source" location="172,556" size="41,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,117" id="{UMLID=_EdeioX-pEeC6FtGTjyRxbA}" multiplicityLabel="//@children.4/@sourceConnections.1/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1037,1370" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_E3iocH-pEeC6FtGTjyRxbA}" source="//@children.4" target="//@children.13" targetEnd="//@children.4/@sourceConnections.2/@children.2" label="//@children.4/@sourceConnections.2/@children.0" sourceEnd="//@children.4/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="source" location="193,120" id="{UMLID=_EuqZQH-pEeC6FtGTjyRxbA}" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.2/@children.1/@children.0" roleLabel="//@children.4/@sourceConnections.2/@children.1/@children.1" navigable="true" flags="4">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="172,462" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="# source" location="172,434" size="43,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,91" id="{UMLID=_E3iocX-pEeC6FtGTjyRxbA}" multiplicityLabel="//@children.4/@sourceConnections.2/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1471,434" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_49Z04H-sEeC6FtGTjyRxbA}" source="//@children.4" target="//@children.14" targetEnd="//@children.4/@sourceConnections.3/@children.2" label="//@children.4/@sourceConnections.3/@children.0" sourceEnd="//@children.4/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="source" location="179,313" id="{UMLID=_4t1H0n-sEeC6FtGTjyRxbA}" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.3/@children.1/@children.0" roleLabel="//@children.4/@sourceConnections.3/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="165,655" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- source" location="103,655" size="41,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,343" id="{UMLID=_49Z04X-sEeC6FtGTjyRxbA}" multiplicityLabel="//@children.4/@sourceConnections.3/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="623,1568" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_D7zY8H-pEeC6FtGTjyRxbA}" source="//@children.4" target="//@children.16" targetEnd="//@children.4/@sourceConnections.4/@children.2" label="//@children.4/@sourceConnections.4/@children.0" sourceEnd="//@children.4/@sourceConnections.4/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="source" location="193,197" id="{UMLID=_DxowUH-pEeC6FtGTjyRxbA}" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.4/@children.1/@children.0" roleLabel="//@children.4/@sourceConnections.4/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="172,539" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- source" location="172,511" size="41,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,156" id="{UMLID=_D7zY8X-pEeC6FtGTjyRxbA}" multiplicityLabel="//@children.4/@sourceConnections.4/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1079,933" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.7/@sourceConnections.0 //@children.21/@sourceConnections.0" name="IDataTransformation" location="114,732" size="169,79" timstampe="62" id="{UMLID=_N4lAkH-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataTransformation}" runTimeClassModel="transformData()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="109,18">
+      <children xsi:type="editmodel:MethodEditModel" name="transformData" size="109,16" id="{UMLID=_N43UcH-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataTransformation#transformData()}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_N4uKgH-oEeC6FtGTjyRxbA}" source="//@children.5" target="//@children.4" targetEnd="//@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="25,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="167,313"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_N4uKgX-oEeC6FtGTjyRxbA}" source="//@children.5" target="//@children.3" targetEnd="//@children.5/@sourceConnections.1/@children.1" sourceEnd="//@children.5/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="159,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,123"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@sourceConnections.0" name="IDataFlow" location="171,224" size="104,61" timstampe="78" id="{UMLID=_NwRZIH-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IDataFlow}" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_NwjtA3-oEeC6FtGTjyRxbA}" source="//@children.6" target="//@children.8" targetEnd="//@children.6/@sourceConnections.0/@children.1" sourceEnd="//@children.6/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="51,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="232,79"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_NwajEn-oEeC6FtGTjyRxbA}" source="//@children.6" target="//@children.9" targetEnd="//@children.6/@sourceConnections.1/@children.1" sourceEnd="//@children.6/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="104,10" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="29,79"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.14/@sourceConnections.0" name="IFilter" location="364,877" size="85,61" timstampe="36" id="{UMLID=_N6Aj8X-oEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization/IFilter}" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_N6S30H-oEeC6FtGTjyRxbA}" source="//@children.7" target="//@children.5" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,10" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="159,79"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.6/@sourceConnections.0" name="IAdaptable" location="-10,59" size="284,79" id="{UMLID=_NwjtAH-oEeC6FtGTjyRxbA}" runTimeClassModel="getAdapter(Ljava.lang.Class;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="94,18">
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapter" size="94,16" id="{UMLID=_O2CHUH-oEeC6FtGTjyRxbA,JavaID=org.eclipse.core.runtime/IAdaptable#getAdapter(Ljava.lang.Class;)}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.6/@sourceConnections.1" name="IPersistableElement" location="314,129" size="268,79" id="{UMLID=_NwajEH-oEeC6FtGTjyRxbA}" runTimeClassModel="getFactoryId()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="100,18">
+      <children xsi:type="editmodel:MethodEditModel" name="getFactoryId" location="36,55" size="100,16" id="{UMLID=_O1vzcH-oEeC6FtGTjyRxbA,JavaID=org.eclipse.ui/IPersistableElement#getFactoryId()}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.18/@sourceConnections.0" size="2,1" autoLocated="true" id="{UMLID=_O1dfkX-oEeC6FtGTjyRxbA}" source="//@children.9" target="//@children.10" targetEnd="//@children.9/@sourceConnections.0/@children.1" sourceEnd="//@children.9/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="134,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="108,79" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.9/@sourceConnections.0" name="IPersistable" location="485,0" size="216,79" id="{UMLID=_Oyviw3-oEeC6FtGTjyRxbA}" runTimeClassModel="saveState(Lorg.eclipse.ui.IMemento;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="89,18">
+      <children xsi:type="editmodel:MethodEditModel" name="saveState" size="89,16" id="{UMLID=_oKH5EIEZEeCnOf8bMgfN0w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="PieChartEditor" location="1358,770" size="183,340" timstampe="84" stereotype="" id="{UMLID=_D_rMUH-pEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditor}" runTimeClassModel="doSave(Lorg.eclipse.core.runtime.IProgressMonitor;),isDirty(),doSaveAs(),restoreState(Lorg.eclipse.ui.IMemento;),setFocus(),EDITOR_ID,createChart(Lorg.eclipse.ui.IEditorInput;),init(Lorg.eclipse.ui.IEditorSite;Lorg.eclipse.ui.IEditorInput;),getContributorId(),input,getAdapter(Ljava.lang.Class;),propertySheetPage,isSaveAsAllowed(),getPropertySheetPage(),saveState(Lorg.eclipse.ui.IMemento;),createPartControl(Lorg.eclipse.swt.widgets.Composite;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="122,59">
+      <children xsi:type="editmodel:AttributeEditModel" name="EDITOR_ID" size="80,16" id="{UMLID=_EAiH8n-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="propertySheetPage" size="122,16" id="{UMLID=_EAiH9H-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="input" size="58,21" id="{UMLID=_EAiH8H-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="148,234">
+      <children xsi:type="editmodel:MethodEditModel" name="restoreState" size="100,16" id="{UMLID=_EBGvtX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveState" size="89,16" id="{UMLID=_EA9lxn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getContributorId" size="116,16" id="{UMLID=_EA9lwn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="doSave" size="77,16" id="{UMLID=_EBiNhH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="doSaveAs" size="91,16" id="{UMLID=_EBiNgH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="init" size="53,16" id="{UMLID=_EBP5pX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isDirty" size="70,16" id="{UMLID=_EBiNgX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isSaveAsAllowed" size="127,16" id="{UMLID=_EBGvsn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createPartControl" size="124,16" id="{UMLID=_EA0b13-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createChart" size="97,16" id="{UMLID=_EArR4n-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setFocus" size="85,16" id="{UMLID=_EA9lxX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapter" size="94,16" id="{UMLID=_EBP5oH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPropertySheetPage" size="148,16" id="{UMLID=_EA0b0X-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:InterfaceRealizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_D_0WQX-pEeC6FtGTjyRxbA}" source="//@children.11" target="//@children.1" targetEnd="//@children.11/@sourceConnections.0/@children.2" label="//@children.11/@sourceConnections.0/@children.0" sourceEnd="//@children.11/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,87" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="97,61"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_EJIDQH-pEeC6FtGTjyRxbA}" source="//@children.11" target="//@children.16" targetEnd="//@children.11/@sourceConnections.1/@children.2" label="//@children.11/@sourceConnections.1/@children.0" sourceEnd="//@children.11/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,169" id="{UMLID=_EJIDQX-pEeC6FtGTjyRxbA}" attachSource="true" multiplicityLabel="//@children.11/@sourceConnections.1/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1345,918" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="input" location="215,169" id="{UMLID=_EAiH8H-pEeC6FtGTjyRxbA}" multiplicityLabel="//@children.11/@sourceConnections.1/@children.2/@children.0" roleLabel="//@children.11/@sourceConnections.1/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1314,946" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- input" location="1314,918" size="30,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_D_0WQH-pEeC6FtGTjyRxbA}" source="//@children.11" target="//@children.19" targetEnd="//@children.11/@sourceConnections.2/@children.1" sourceEnd="//@children.11/@sourceConnections.2/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="237,407"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ScatterPlotEditor" location="1344,1257" size="198,322" timstampe="21" stereotype="" id="{UMLID=_C_ED4H-pEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotEditor}" runTimeClassModel="doSave(Lorg.eclipse.core.runtime.IProgressMonitor;),isDirty(),doSaveAs(),restoreState(Lorg.eclipse.ui.IMemento;),setFocus(),EDITOR_ID,createChart(Lorg.eclipse.ui.IEditorInput;),init(Lorg.eclipse.ui.IEditorSite;Lorg.eclipse.ui.IEditorInput;),getContributorId(),ScatterPlotEditor(),input,getAdapter(Ljava.lang.Class;),isSaveAsAllowed(),saveState(Lorg.eclipse.ui.IMemento;),createPartControl(Lorg.eclipse.swt.widgets.Composite;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="80,41">
+      <children xsi:type="editmodel:AttributeEditModel" name="EDITOR_ID" size="80,16" id="{UMLID=_DAyiMn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="input" size="58,21" id="{UMLID=_DApYQH-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="127,234">
+      <children xsi:type="editmodel:MethodEditModel" name="ScatterPlotEditor" size="119,16" id="{UMLID=_DcAelX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="doSave" size="77,16" id="{UMLID=_DcSycn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="doSaveAs" size="91,16" id="{UMLID=_DcJohn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="init" size="53,16" id="{UMLID=_Dcb8YH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isDirty" size="70,16" id="{UMLID=_DcJogH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isSaveAsAllowed" size="127,16" id="{UMLID=_DfTDIn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveState" size="89,16" id="{UMLID=_DcJoh3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setFocus" size="85,16" id="{UMLID=_DfcNEH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="restoreState" size="100,16" id="{UMLID=_DcJog3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createPartControl" size="124,16" id="{UMLID=_DbuKsH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="createChart" size="97,16" id="{UMLID=_DAyiNX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapter" size="94,16" id="{UMLID=_DcAekH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getContributorId" size="116,16" id="{UMLID=_Db3Uon-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:InterfaceRealizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_C_fhsH-pEeC6FtGTjyRxbA}" source="//@children.12" target="//@children.1" targetEnd="//@children.12/@sourceConnections.0/@children.2" label="//@children.12/@sourceConnections.0/@children.0" sourceEnd="//@children.12/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,2" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="82,61"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_DlmfcH-pEeC6FtGTjyRxbA}" source="//@children.12" target="//@children.17" targetEnd="//@children.12/@sourceConnections.1/@children.2" label="//@children.12/@sourceConnections.1/@children.0" sourceEnd="//@children.12/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,160" id="{UMLID=_DlmfcX-pEeC6FtGTjyRxbA}" attachSource="true" multiplicityLabel="//@children.12/@sourceConnections.1/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1331,1396" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="input" location="193,171" id="{UMLID=_DApYQH-pEeC6FtGTjyRxbA}" multiplicityLabel="//@children.12/@sourceConnections.1/@children.2/@children.0" roleLabel="//@children.12/@sourceConnections.1/@children.2/@children.1" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1250,1424" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="input" location="1250,1396" size="23,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.2" name="StatisticsText" location="1484,364" size="185,183" timstampe="17" stereotype="" id="{UMLID=_EthJwH-pEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization.editors/StatisticsText}" runTimeClassModel="getContributorId(),source,roles,printStoredMeasurements(),restoreState(Lorg.eclipse.ui.IMemento;),output(),saveState(Lorg.eclipse.ui.IMemento;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,46">
+      <children xsi:type="editmodel:AttributeEditModel" name="source" size="69,21" id="{UMLID=_EuqZQH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="roles" size="59,21" id="{UMLID=_EuzjMH-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="164,90">
+      <children xsi:type="editmodel:MethodEditModel" name="output" size="70,16" id="{UMLID=_Eu8tIn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="printStoredMeasurements" size="164,16" id="{UMLID=_EvF3E3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="restoreState" size="100,16" id="{UMLID=_EvF3Fn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveState" size="89,16" id="{UMLID=_EuzjMn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getContributorId" size="116,16" id="{UMLID=_EvF3EH-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:InterfaceRealizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_EtzdoH-pEeC6FtGTjyRxbA}" source="//@children.13" target="//@children.1" targetEnd="//@children.13/@sourceConnections.0/@children.2" label="//@children.13/@sourceConnections.0/@children.0" sourceEnd="//@children.13/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,73" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="126,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.2 //@children.4/@sourceConnections.3" name="WarmupFilter" location="636,1218" size="206,1075" timstampe="507" stereotype="" id="{UMLID=_4nnLEX-sEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization.filter/WarmupFilter}" runTimeClassModel="setSink(Lde.uka.ipd.sdq.edp2.visualization.IDataSink;),getExperimentGroup(),getDroppedValues(),getName(),experimentSetting,getOutputMD(),sink,WarmupFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getMetricRoles(),exists(),getExperimentRun(),experimentGroup,getRepository(),measurements,getToolTipText(),measurementsRange,getAdapter(Ljava.lang.Class;),getImageDescriptor(),getFactoryId(),dataSeries,setSource(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),setDroppedValuesPercentage(F),getDroppedValuesPercentage(),measure,subsumedMetricDescriptions,getRepositoryURI(),droppedValues,setDroppedValues(I),transformData(),getPersistable(),metricDescription,getSink(),repositoryURI,getExperimentSetting(),repository,logger,rawMeasurementsUUID,getMeasurement(),saveState(Lorg.eclipse.ui.IMemento;),getMetricDescriptions(),experimentRun,getMeasurementsRange(),getSource(),canAccept(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),update(Ljava.util.Observable;Ljava.lang.Object;),getRawMeasurementsUUID(),getMeasure(),source,WarmupFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;IF),getOutput(),droppedValuesPercentage">
+    <children xsi:type="editmodel:CompartmentEditModel" size="185,366">
+      <children xsi:type="editmodel:AttributeEditModel" name="logger" size="59,16" id="{UMLID=_4t6AUX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="source" size="69,21" id="{UMLID=_4t1H0n-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sink" size="54,21" id="{UMLID=_4tqvxX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dataSeries" size="87,21" id="{UMLID=_4tl3QH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="repository" size="84,21" id="{UMLID=_4t1H1H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="metricDescription" size="118,21" id="{UMLID=_4twPUn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="measurementsRange" size="137,21" id="{UMLID=_4t1H1n-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentGroup" size="118,21" id="{UMLID=_4twPUH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="measurements" size="106,21" id="{UMLID=_4twPVn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentRun" size="107,21" id="{UMLID=_4tqvwX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentSetting" size="121,21" id="{UMLID=_4t6AU3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rawMeasurementsUUID" size="143,16" id="{UMLID=_4t6AVX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="repositoryURI" size="94,16" id="{UMLID=_4t1H0H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="droppedValues" size="103,16" id="{UMLID=_4tqvw3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="droppedValuesPercentage" size="185,16" id="{UMLID=_4tqvx3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="measure" size="77,21" id="{UMLID=_4tl3Qn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="subsumedMetricDescriptions" size="174,21" id="{UMLID=_4tl3RH-sEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="185,662">
+      <children xsi:type="editmodel:MethodEditModel" name="WarmupFilter" size="103,16" id="{UMLID=_4uNiUn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutput" size="87,16" id="{UMLID=_4u_lcH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutputMD" size="102,16" id="{UMLID=_4uIp03-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRepository" size="113,21" id="{UMLID=_4uTB4X-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSink" size="81,21" id="{UMLID=_4u6s8n-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSink" size="81,21" id="{UMLID=_4t-41n-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFactoryId" size="100,16" id="{UMLID=_4uIp1n-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveState" size="89,16" id="{UMLID=_4uhrZ3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapter" size="94,16" id="{UMLID=_4vJWcn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="canAccept" size="93,16" id="{UMLID=_4t6AV3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricRoles" size="111,16" id="{UMLID=_4u_ldn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSource" size="96,21" id="{UMLID=_4uhrZH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSource" size="96,21" id="{UMLID=_4t-42X-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="update" size="73,16" id="{UMLID=_4uTB5H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="transformData" size="109,16" id="{UMLID=_4uTB4H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="exists" size="69,16" id="{UMLID=_4vEd9H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getImageDescriptor" size="133,16" id="{UMLID=_4vEd93-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getName" size="82,16" id="{UMLID=_4vYnB3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPersistable" size="108,16" id="{UMLID=_4u_lc3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getToolTipText" size="110,16" id="{UMLID=_4t-403-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentGroup" size="144,21" id="{UMLID=_4uIp2X-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentRun" size="133,21" id="{UMLID=_4uIp0H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentSetting" size="147,21" id="{UMLID=_4t-43H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasurement" size="120,16" id="{UMLID=_4u10cn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasurementsRange" size="163,21" id="{UMLID=_4uNiVX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRawMeasurementsUUID" size="172,16" id="{UMLID=_4vYnBH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRepositoryURI" size="123,16" id="{UMLID=_4u10dX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasure" size="103,21" id="{UMLID=_4uIp3H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricDescriptions" size="144,16" id="{UMLID=_4vEd8X-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="WarmupFilter" size="103,16" id="{UMLID=_29PD8IU-EeC11YmEEIlv4g}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDroppedValues" size="130,16" id="{UMLID=_29VKkoU-EeC11YmEEIlv4g}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDroppedValuesPercentage" size="185,16" id="{UMLID=_29bRMIU-EeC11YmEEIlv4g}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDroppedValues" size="130,16" id="{UMLID=_29bRM4U-EeC11YmEEIlv4g}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDroppedValuesPercentage" size="185,16" id="{UMLID=_29hX0YU-EeC11YmEEIlv4g}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:InterfaceRealizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_4oAMoH-sEeC6FtGTjyRxbA}" source="//@children.14" target="//@children.7" targetEnd="//@children.14/@sourceConnections.0/@children.2" label="//@children.14/@sourceConnections.0/@children.0" sourceEnd="//@children.14/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,275" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="54,61"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.1" name="EDP2Source" location="-336,378" size="209,880" timstampe="20" stereotype="" id="{UMLID=_Wer98H-sEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization.datasource/EDP2Source}" runTimeClassModel="setSink(Lde.uka.ipd.sdq.edp2.visualization.IDataSink;),dataSeries,measure,subsumedMetricDescriptions,experimentGroupURI,getRepositoryURI(),getExperimentGroup(),closeRepository(),EDP2Source(Ljava.lang.String;Ljava.lang.String;),metricDescription,getSink(),repositoryURI,getExperimentSetting(),repository,logger,experimentSetting,rawMeasurementsUUID,getMeasurement(),saveState(Lorg.eclipse.ui.IMemento;),openRepository(),getMetricDescriptions(),getOutputMD(),experimentRun,getMeasurementsRange(),sink,experimentGroup,getExperimentRun(),EDP2Source(),EDP2Source(Lde.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;),getRepository(),findRawMeasurementsByUUID(Ljava.lang.String;),measurements,getRawMeasurementsUUID(),getMeasure(),measurementsRange,getAdapter(Ljava.lang.Class;),getExperimentGroupUUID(),experimentGroupUUID,repositoryUUID,getOutput(),getFactoryId()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="174,361">
+      <children xsi:type="editmodel:AttributeEditModel" name="logger" size="59,16" id="{UMLID=_Wg0E5n-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rawMeasurementsUUID" size="143,16" id="{UMLID=_Wg6Lgn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentGroupURI" size="128,16" id="{UMLID=_Wgn3pX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="repositoryURI" size="94,16" id="{UMLID=_Wgt-SX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentGroupUUID" size="135,16" id="{UMLID=_Wg6LgH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="repositoryUUID" size="101,16" id="{UMLID=_Wg6LhH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sink" size="54,21" id="{UMLID=_Wgt-QH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dataSeries" size="87,21" id="{UMLID=_WghJ8H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="repository" size="84,21" id="{UMLID=_Wgt-S3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="metricDescription" size="118,21" id="{UMLID=_Wgt-RX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="measurementsRange" size="137,21" id="{UMLID=_Wg0E5H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentGroup" size="118,21" id="{UMLID=_Wgt-Q3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="measurements" size="106,21" id="{UMLID=_Wgt-R3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentRun" size="107,21" id="{UMLID=_Wgn3qH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentSetting" size="121,21" id="{UMLID=_Wg0E6X-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="measure" size="77,21" id="{UMLID=_Wgn3oX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="subsumedMetricDescriptions" size="174,21" id="{UMLID=_Wgn3o3-sEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="188,472">
+      <children xsi:type="editmodel:MethodEditModel" name="EDP2Source" size="100,16" id="{UMLID=_WhSmA3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="EDP2Source" size="100,16" id="{UMLID=_WhGYw3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="EDP2Source" size="100,16" id="{UMLID=_WhASJn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutput" size="87,16" id="{UMLID=_Whlg9n-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutputMD" size="102,16" id="{UMLID=_WhASIH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRepository" size="113,21" id="{UMLID=_Wh301n-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSink" size="81,21" id="{UMLID=_Whlg83-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSink" size="81,21" id="{UMLID=_Whlg8H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapter" size="94,16" id="{UMLID=_WhYsoX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="openRepository" size="116,16" id="{UMLID=_WhxuNn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="closeRepository" size="118,16" id="{UMLID=_WhfaV3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveState" size="89,16" id="{UMLID=_WhMfYn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRawMeasurementsUUID" size="172,16" id="{UMLID=_WhxuMH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRepositoryURI" size="123,16" id="{UMLID=_WhfaVH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentGroupUUID" size="161,16" id="{UMLID=_WhSmBH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFactoryId" size="100,16" id="{UMLID=_WhrnlX-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="findRawMeasurementsByUUID" size="188,16" id="{UMLID=_Wh97eH-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentGroup" size="144,21" id="{UMLID=_Wh97cn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentRun" size="133,21" id="{UMLID=_Whrnkn-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentSetting" size="147,21" id="{UMLID=_Wh3003-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasurement" size="120,16" id="{UMLID=_WhxuM3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasurementsRange" size="163,21" id="{UMLID=_Wh300H-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasure" size="103,21" id="{UMLID=_WhASI3-sEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricDescriptions" size="144,16" id="{UMLID=_Wh97dX-sEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:InterfaceRealizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_We4yQH-sEeC6FtGTjyRxbA}" source="//@children.15" target="//@children.4" targetEnd="//@children.15/@sourceConnections.0/@children.2" label="//@children.15/@sourceConnections.0/@children.0" sourceEnd="//@children.15/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="210,134" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="1,177"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.4 //@children.11/@sourceConnections.1" name="PieChartEditorInput" location="1092,770" size="215,404" timstampe="19" stereotype="" id="{UMLID=_Do5rEH-pEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization.editors/PieChartEditorInput}" runTimeClassModel="setSource(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getMetricRoles(),exists(),PieChartEditorInput(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),updateDataset(),getPersistable(),getSource(),canAccept(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getName(),update(Ljava.util.Observable;Ljava.lang.Object;),getToolTipText(),source,dataset,getAdapter(Ljava.lang.Class;),setDataset(L/jfreechart-1.org.jfree.data.general.DefaultPieDataset;),getImageDescriptor(),getFactoryId(),getDataset(),saveState(Lorg.eclipse.ui.IMemento;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,41">
+      <children xsi:type="editmodel:AttributeEditModel" name="source" size="69,21" id="{UMLID=_DxowUH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dataset" size="65,16" id="{UMLID=_DxowU3-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="133,316">
+      <children xsi:type="editmodel:MethodEditModel" name="getDataset" size="92,16" id="{UMLID=_Dyo14n-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDataset" size="92,16" id="{UMLID=_DyWiBn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="PieChartEditorInput" size="130,16" id="{UMLID=_Dxx6Sn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateDataset" size="110,16" id="{UMLID=_DyWiBX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="canAccept" size="93,16" id="{UMLID=_DzETs3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricRoles" size="111,16" id="{UMLID=_Dyx_2H-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSource" size="96,21" id="{UMLID=_Dyo15X-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSource" size="96,21" id="{UMLID=_DzNdoX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFactoryId" size="100,16" id="{UMLID=_Dxx6TX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveState" size="89,16" id="{UMLID=_Dyfr8X-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapter" size="94,16" id="{UMLID=_Dx7EMn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="update" size="73,16" id="{UMLID=_DyEOJ3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="exists" size="69,16" id="{UMLID=_Dyx_1X-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getImageDescriptor" size="133,16" id="{UMLID=_Dxx6Q3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getName" size="82,16" id="{UMLID=_DyEOJH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPersistable" size="108,16" id="{UMLID=_Dyx_0n-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getToolTipText" size="110,16" id="{UMLID=_Dxx6R3-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:InterfaceRealizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_DwNM8H-pEeC6FtGTjyRxbA}" source="//@children.16" target="//@children.3" targetEnd="//@children.16/@sourceConnections.0/@children.2" label="//@children.16/@sourceConnections.0/@children.0" sourceEnd="//@children.16/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,138" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="132,105"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.1 //@children.12/@sourceConnections.1" name="ScatterPlotInput" location="1050,1246" size="193,404" timstampe="20" stereotype="" id="{UMLID=_DAyiMH-pEeC6FtGTjyRxbA,JavaID=de.uka.ipd.sdq.edp2.visualization.editors/ScatterPlotInput}" runTimeClassModel="setSource(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),ScatterPlotInput(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),exists(),getMetricRoles(),updateDataset(),getPersistable(),getSource(),canAccept(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getName(),update(Ljava.util.Observable;Ljava.lang.Object;),getToolTipText(),source,dataset,setDataset(L/jfreechart-1.org.jfree.data.xy.DefaultTableXYDataset;),getAdapter(Ljava.lang.Class;),getImageDescriptor(),getFactoryId(),getDataset(),saveState(Lorg.eclipse.ui.IMemento;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="69,41">
+      <children xsi:type="editmodel:AttributeEditModel" name="source" size="69,21" id="{UMLID=_EQugEH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dataset" size="65,16" id="{UMLID=_EQugEn-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="133,316">
+      <children xsi:type="editmodel:MethodEditModel" name="ScatterPlotInput" size="115,16" id="{UMLID=_ESTNZ3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateDataset" size="110,16" id="{UMLID=_ERAz8H-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="canAccept" size="93,16" id="{UMLID=_ESTNYn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricRoles" size="111,16" id="{UMLID=_ERJ95H-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSource" size="96,21" id="{UMLID=_ERcRwn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSource" size="96,21" id="{UMLID=_ER3vl3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFactoryId" size="100,16" id="{UMLID=_ER3vlH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveState" size="89,16" id="{UMLID=_EScXUX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapter" size="94,16" id="{UMLID=_ERAz8X-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="update" size="73,16" id="{UMLID=_ERlbsX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="exists" size="69,16" id="{UMLID=_ESKDeH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getImageDescriptor" size="133,16" id="{UMLID=_EQ3qCX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getName" size="82,16" id="{UMLID=_EQ3qBn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPersistable" size="108,16" id="{UMLID=_EQ3qA3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getToolTipText" size="110,16" id="{UMLID=_ESKDdX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDataset" size="92,16" id="{UMLID=_ESKDcn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDataset" size="92,16" id="{UMLID=_ESA5gX-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:InterfaceRealizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_EO230H-pEeC6FtGTjyRxbA}" source="//@children.17" target="//@children.3" targetEnd="//@children.17/@sourceConnections.0/@children.2" label="//@children.17/@sourceConnections.0/@children.0" sourceEnd="//@children.17/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,80" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="119,133"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.0" name="IPersistableEditor" location="612,129" size="253,79" id="{UMLID=_NuHdAH-oEeC6FtGTjyRxbA}" runTimeClassModel="restoreState(Lorg.eclipse.ui.IMemento;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="100,18">
+      <children xsi:type="editmodel:MethodEditModel" name="restoreState" size="100,16" id="{UMLID=_O0UQEH-oEeC6FtGTjyRxbA,JavaID=org.eclipse.ui/IPersistableEditor#restoreState(Lorg.eclipse.ui.IMemento;)}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_OyvixX-oEeC6FtGTjyRxbA}" source="//@children.18" target="//@children.9/@sourceConnections.0" targetEnd="//@children.18/@sourceConnections.0/@children.1" sourceEnd="//@children.18/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="126,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="205,79"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.11/@sourceConnections.2" name="EditorPart" location="1121,207" size="238,407" stereotype="" id="{UMLID=_C_WXwX-pEeC6FtGTjyRxbA}" runTimeClassModel="isSaveOnCloseNeeded(),setInput(Lorg.eclipse.ui.IEditorInput;),setDefaultPartName(),doSave(Lorg.eclipse.core.runtime.IProgressMonitor;),isDirty(),doSaveAs(),editorInput,getTitleToolTip(),setPartName(Ljava.lang.String;),init(Lorg.eclipse.ui.IEditorSite;Lorg.eclipse.ui.IEditorInput;),setContentDescription(Ljava.lang.String;),setInputWithNotify(Lorg.eclipse.ui.IEditorInput;),getEditorSite(),isSaveAsAllowed(),setDefaultTitle(),checkSite(Lorg.eclipse.ui.IWorkbenchPartSite;),compatibilityTitleListener,EditorPart(),setInitializationData(Lorg.eclipse.core.runtime.IConfigurationElement;Ljava.lang.String;Ljava.lang.Object;),getEditorInput()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="145,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="editorInput" size="79,16" id="{UMLID=_FKc9YH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="compatibilityTitleListener" size="145,16" id="{UMLID=_FKmHUX-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="151,324">
+      <children xsi:type="editmodel:MethodEditModel" name="EditorPart" size="86,16" id="{UMLID=_FKvRRH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="doSave" size="77,16" id="{UMLID=_FLBlJ3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="doSaveAs" size="91,16" id="{UMLID=_FLKvH3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getEditorInput" size="105,16" id="{UMLID=_FLBlJH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getEditorSite" size="100,16" id="{UMLID=_FLdC8H-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getTitleToolTip" size="108,16" id="{UMLID=_FLKvEH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="init" size="53,16" id="{UMLID=_FKvRRX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isDirty" size="70,16" id="{UMLID=_FLKvHH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isSaveAsAllowed" size="127,16" id="{UMLID=_FLKvFn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isSaveOnCloseNeeded" size="151,16" id="{UMLID=_FKmHVX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setInput" size="78,16" id="{UMLID=_FKvRQX-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setInputWithNotify" size="127,16" id="{UMLID=_FLKvIH-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setContentDescription" size="146,16" id="{UMLID=_FLdC9H-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setPartName" size="101,16" id="{UMLID=_FLKvE3-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setInitializationData" size="131,16" id="{UMLID=_FKvRSn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDefaultPartName" size="135,16" id="{UMLID=_FLBlKn-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDefaultTitle" size="108,16" id="{UMLID=_FLdC83-pEeC6FtGTjyRxbA}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="checkSite" size="87,16" id="{UMLID=_FLKvGX-pEeC6FtGTjyRxbA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:InterfaceRealizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_FJ4VoX-pEeC6FtGTjyRxbA}" source="//@children.19" target="//@children.20" targetEnd="//@children.19/@sourceConnections.0/@children.2" label="//@children.19/@sourceConnections.0/@children.0" sourceEnd="//@children.19/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,61" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="168,151"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.19/@sourceConnections.0" name="IEditorPart" location="826,-36" size="209,151" id="{UMLID=_FJvLs3-pEeC6FtGTjyRxbA}" runTimeClassModel="PROP_INPUT,getEditorSite(),PROP_DIRTY,init(Lorg.eclipse.ui.IEditorSite;Lorg.eclipse.ui.IEditorInput;),getEditorInput()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="92,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="PROP_DIRTY" size="92,16" id="{UMLID=_Oj7ocoU_EeC11YmEEIlv4g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="PROP_INPUT" size="90,16" id="{UMLID=_Oj7ocIU_EeC11YmEEIlv4g}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="105,54">
+      <children xsi:type="editmodel:MethodEditModel" name="getEditorInput" size="105,16" id="{UMLID=_OkBvEIU_EeC11YmEEIlv4g}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getEditorSite" size="100,16" id="{UMLID=_OkBvE4U_EeC11YmEEIlv4g}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="init" size="53,16" id="{UMLID=_OkH1soU_EeC11YmEEIlv4g}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.22/@sourceConnections.0 //@children.23/@sourceConnections.0" name="IAdapter" location="69,862" size="94,61" timstampe="6" id="{UMLID=_zheZgIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization/IAdapter}" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:InterfaceRealizationEditModel" autoLocated="true" source="//@children.21" target="//@children.5" targetEnd="//@children.21/@sourceConnections.0/@children.1" sourceEnd="//@children.21/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="69,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="24,79"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="HistogramFrequencyAdapter" location="-102,1109" size="278,863" timstampe="4" stereotype="" id="{UMLID=_zrUSAIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter}" runTimeClassModel="setSink(Lde.uka.ipd.sdq.edp2.visualization.IDataSink;),dataSeries,setSource(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getRepositoryURI(),getExperimentGroup(),getPersistable(),transformData(),getSink(),metricDescription,getName(),repositoryURI,getExperimentSetting(),repository,logger,experimentSetting,rawMeasurementsUUID,getMeasurement(),saveState(Lorg.eclipse.ui.IMemento;),getMetricDescriptions(),getOutputMD(),experimentRun,getMeasurementsRange(),exists(),sink,getMetricRoles(),experimentGroup,getExperimentRun(),getSource(),canAccept(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getRepository(),update(Ljava.util.Observable;Ljava.lang.Object;),measurements,getRawMeasurementsUUID(),getToolTipText(),getMeasure(),source,measurementsRange,getAdapter(Ljava.lang.Class;),getImageDescriptor(),HistogramFrequencyAdapter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getOutput(),getFactoryId()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="143,284">
+      <children xsi:type="editmodel:AttributeEditModel" name="logger" size="59,16" id="{UMLID=_zy9LHIbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="source" size="69,21" id="{UMLID=_zy9LFYbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sink" size="54,21" id="{UMLID=_zy3Ec4bEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dataSeries" size="87,21" id="{UMLID=_zykwkIbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="repository" size="84,21" id="{UMLID=_zy9LF4bEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="metricDescription" size="118,21" id="{UMLID=_zy3Ed4bEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="measurementsRange" size="137,21" id="{UMLID=_zy9LGobEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentGroup" size="118,21" id="{UMLID=_zy3EdYbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="measurements" size="106,21" id="{UMLID=_zy9LEYbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentRun" size="107,21" id="{UMLID=_zy3EcYbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentSetting" size="121,21" id="{UMLID=_zzDRsobEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rawMeasurementsUUID" size="143,16" id="{UMLID=_zzDRtIbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="repositoryURI" size="94,16" id="{UMLID=_zy9LE4bEEeCeu4gwu_64wQ}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="179,532">
+      <children xsi:type="editmodel:MethodEditModel" name="HistogramFrequencyAdapter" size="179,16" id="{UMLID=_zzbsMYbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#HistogramFrequencyAdapter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="transformData" size="109,16" id="{UMLID=_zzbsMIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#transformData()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentGroup" size="138,16" id="{UMLID=_zzJYUIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getExperimentGroup()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentRun" size="127,16" id="{UMLID=_z1VwsYbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getExperimentRun()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentSetting" size="141,16" id="{UMLID=_zzVlkIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getExperimentSetting()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasure" size="97,16" id="{UMLID=_z0e1EIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getMeasure()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasurement" size="120,16" id="{UMLID=_z0e1E4bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getMeasurement()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasurementsRange" size="157,16" id="{UMLID=_z0Sn0obEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getMeasurementsRange()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricDescriptions" size="144,16" id="{UMLID=_zzPe84bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getMetricDescriptions()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutput" size="87,16" id="{UMLID=_zzbsNIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getOutput()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutputMD" size="102,16" id="{UMLID=_z1PqFIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getOutputMD()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRawMeasurementsUUID" size="172,16" id="{UMLID=_zzVlk4bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getRawMeasurementsUUID()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRepository" size="107,16" id="{UMLID=_z0Yud4bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getRepository()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRepositoryURI" size="123,16" id="{UMLID=_zzuAEIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getRepositoryURI()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSink" size="75,16" id="{UMLID=_zzn5cobEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getSink()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSink" size="81,21" id="{UMLID=_z0MhNYbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#setSink(Lde.uka.ipd.sdq.edp2.visualization.IDataSink;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFactoryId" size="100,16" id="{UMLID=_z0YudIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getFactoryId()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveState" size="89,16" id="{UMLID=_z0e1FobEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#saveState(Lorg.eclipse.ui.IMemento;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapter" size="94,16" id="{UMLID=_zz0GsobEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getAdapter(Ljava.lang.Class;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="canAccept" size="93,16" id="{UMLID=_z0MhMIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#canAccept(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricRoles" size="111,16" id="{UMLID=_zzJYU4bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getMetricRoles()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSource" size="90,16" id="{UMLID=_z0GalYbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getSource()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSource" size="96,21" id="{UMLID=_zzn5dYbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#setSource(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="update" size="73,16" id="{UMLID=_z09WMIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#update(Ljava.util.Observable;Ljava.lang.Object;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="exists" size="69,16" id="{UMLID=_z0GamIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#exists()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getImageDescriptor" size="133,16" id="{UMLID=_z0YucIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getImageDescriptor()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getName" size="82,16" id="{UMLID=_z0GakobEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getName()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPersistable" size="108,16" id="{UMLID=_zzhy0YbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getPersistable()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getToolTipText" size="110,16" id="{UMLID=_z0MhOIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/HistogramFrequencyAdapter#getToolTipText()}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:InterfaceRealizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_zryzIIbEEeCeu4gwu_64wQ}" source="//@children.22" target="//@children.21" targetEnd="//@children.22/@sourceConnections.0/@children.2" label="//@children.22/@sourceConnections.0/@children.0" sourceEnd="//@children.22/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="217,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="46,61"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MeanValueAdapter" location="222,1259" size="219,863" timstampe="4" stereotype="" id="{UMLID=_097JYIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter}" runTimeClassModel="setSink(Lde.uka.ipd.sdq.edp2.visualization.IDataSink;),MeanValueAdapter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),dataSeries,setSource(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getRepositoryURI(),getExperimentGroup(),getPersistable(),transformData(),metricDescription,getSink(),getName(),repositoryURI,repository,getExperimentSetting(),logger,experimentSetting,rawMeasurementsUUID,getMeasurement(),saveState(Lorg.eclipse.ui.IMemento;),getMetricDescriptions(),getOutputMD(),experimentRun,getMeasurementsRange(),exists(),getMetricRoles(),sink,experimentGroup,getExperimentRun(),getSource(),update(Ljava.util.Observable;Ljava.lang.Object;),canAccept(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getRepository(),measurements,getRawMeasurementsUUID(),getToolTipText(),getMeasure(),source,measurementsRange,getAdapter(Ljava.lang.Class;),getImageDescriptor(),getOutput(),getFactoryId()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="143,284">
+      <children xsi:type="editmodel:AttributeEditModel" name="logger" size="59,16" id="{UMLID=_1DLc04bEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="source" size="69,21" id="{UMLID=_1DFWNIbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sink" size="54,21" id="{UMLID=_1C_Pk4bEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dataSeries" size="87,21" id="{UMLID=_1C5I8IbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="repository" size="84,21" id="{UMLID=_1DFWNobEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="metricDescription" size="118,21" id="{UMLID=_1C_Pl4bEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="measurementsRange" size="137,21" id="{UMLID=_1DLc0YbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentGroup" size="118,21" id="{UMLID=_1C_PlYbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="measurements" size="106,21" id="{UMLID=_1DFWMIbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentRun" size="107,21" id="{UMLID=_1C_PkYbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="experimentSetting" size="121,21" id="{UMLID=_1DRjcYbEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rawMeasurementsUUID" size="143,16" id="{UMLID=_1DRjc4bEEeCeu4gwu_64wQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="repositoryURI" size="94,16" id="{UMLID=_1DFWMobEEeCeu4gwu_64wQ}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="172,532">
+      <children xsi:type="editmodel:MethodEditModel" name="MeanValueAdapter" size="133,16" id="{UMLID=_1D8R04bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#MeanValueAdapter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="transformData" size="109,16" id="{UMLID=_1Eay9obEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#transformData()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentGroup" size="138,16" id="{UMLID=_1FX1MIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getExperimentGroup()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentRun" size="127,16" id="{UMLID=_1Eay84bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getExperimentRun()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getExperimentSetting" size="141,16" id="{UMLID=_1D8R0IbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getExperimentSetting()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasure" size="97,16" id="{UMLID=_1EUsU4bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getMeasure()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasurement" size="120,16" id="{UMLID=_1DXqEIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getMeasurement()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasurementsRange" size="157,16" id="{UMLID=_1E_asYbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getMeasurementsRange()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricDescriptions" size="144,16" id="{UMLID=_1EzNdYbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getMetricDescriptions()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutput" size="87,16" id="{UMLID=_1ECYcobEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getOutput()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutputMD" size="102,16" id="{UMLID=_1EzNeIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getOutputMD()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRawMeasurementsUUID" size="172,16" id="{UMLID=_1EOlsobEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getRawMeasurementsUUID()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRepository" size="107,16" id="{UMLID=_1FFhUYbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getRepository()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getRepositoryURI" size="123,16" id="{UMLID=_1FX1M4bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getRepositoryURI()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSink" size="75,16" id="{UMLID=_1FRukYbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getSink()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSink" size="81,21" id="{UMLID=_1EUsUIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#setSink(Lde.uka.ipd.sdq.edp2.visualization.IDataSink;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getFactoryId" size="100,16" id="{UMLID=_1EUsVobEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getFactoryId()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveState" size="89,16" id="{UMLID=_1ECYeIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#saveState(Lorg.eclipse.ui.IMemento;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapter" size="94,16" id="{UMLID=_1Eay94bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getAdapter(Ljava.lang.Class;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="canAccept" size="93,16" id="{UMLID=_1DXqE4bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#canAccept(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricRoles" size="111,16" id="{UMLID=_1FLn84bEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getMetricRoles()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getSource" size="90,16" id="{UMLID=_1E_atIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getSource()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setSource" size="96,21" id="{UMLID=_1EzNcobEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#setSource(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="update" size="73,16" id="{UMLID=_1Dj3UobEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#update(Ljava.util.Observable;Ljava.lang.Object;)}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="exists" size="69,16" id="{UMLID=_1DdwtIbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#exists()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getImageDescriptor" size="133,16" id="{UMLID=_1FLn8IbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getImageDescriptor()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getName" size="82,16" id="{UMLID=_1Eay8IbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getName()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPersistable" size="108,16" id="{UMLID=_1DdwsYbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getPersistable()}"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getToolTipText" size="110,16" id="{UMLID=_1ECYdYbEEeCeu4gwu_64wQ,JavaID=de.uka.ipd.sdq.edp2.visualization.adapter/MeanValueAdapter#getToolTipText()}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:InterfaceRealizationEditModel" size="2,1" autoLocated="true" id="{UMLID=_0-Tj4IbEEeCeu4gwu_64wQ}" source="//@children.23" target="//@children.21" targetEnd="//@children.23/@sourceConnections.0/@children.2" label="//@children.23/@sourceConnections.0/@children.0" sourceEnd="//@children.23/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,26" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="55,61"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="4" showScope="InPackage" properties="wireOptions=1"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="14,14" gridOrigin="-336,252" rulerUnit="cm" gridShow="true">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" shortPackageNameFormat="true" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showMethods="true" showAttributes="true" showLiterlas="true" showInnerEntity="true"/>
+</editmodel:ClassDiagramEditModel>

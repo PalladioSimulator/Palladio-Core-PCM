@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="visualization" size="1209,986" id="de.uka.ipd.sdq.edp2.visualization" metadata="uml2-1.0" initialized="true" scrolledY="224" tag="1000" key="32303037303533312D313030302064652E756B612E6970642E7364712E656470322E76697375616C697A6174696F6E2F526F6C616E642052696368746572">
+  <children xsi:type="editmodel:InterfaceEditModel" name="IVisualization" location="912,135" size="128,43" id="de.uka.ipd.sdq.edp2.visualization/IVisualization" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="FactoryConnector" location="912,225" size="164,103" id="de.uka.ipd.sdq.edp2.visualization/FactoryConnector" runTimeClassModel="getAdapterList(),getAdapter(Ljava.lang.Object;Ljava.lang.Class;),getAdapterFactoryMap()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="141,54">
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapter" id="de.uka.ipd.sdq.edp2.visualization/FactoryConnector#getAdapter(Ljava.lang.Object;Ljava.lang.Class;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapterFactoryMap" id="de.uka.ipd.sdq.edp2.visualization/FactoryConnector#getAdapterFactoryMap()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapterList" id="de.uka.ipd.sdq.edp2.visualization/FactoryConnector#getAdapterList()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Activator" location="943,474" size="127,139" id="de.uka.ipd.sdq.edp2.visualization/Activator" runTimeClassModel="getDefault(),pLUGIN_ID,stop(Lorg.osgi.framework.BundleContext;),Activator(),start(Lorg.osgi.framework.BundleContext;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="104,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="pLUGIN_ID" id="de.uka.ipd.sdq.edp2.visualization/Activator#pLUGIN_ID"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="79,72">
+      <children xsi:type="editmodel:MethodEditModel" name="Activator" id="de.uka.ipd.sdq.edp2.visualization/Activator#Activator()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDefault" id="de.uka.ipd.sdq.edp2.visualization/Activator#getDefault()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="start" id="de.uka.ipd.sdq.edp2.visualization/Activator#start(Lorg.osgi.framework.BundleContext;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="stop" id="de.uka.ipd.sdq.edp2.visualization/Activator#stop(Lorg.osgi.framework.BundleContext;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="FactoryAdapter" location="937,345" size="139,85" id="de.uka.ipd.sdq.edp2.visualization/FactoryAdapter" runTimeClassModel="getAdapterList(),getAdapter(Ljava.lang.Object;Ljava.lang.Class;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="101,36">
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapter" id="de.uka.ipd.sdq.edp2.visualization/FactoryAdapter#getAdapter(Ljava.lang.Object;Ljava.lang.Class;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getAdapterList" id="de.uka.ipd.sdq.edp2.visualization/FactoryAdapter#getAdapterList()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.1" name="IDataSource" location="171,180" size="216,193" id="de.uka.ipd.sdq.edp2.visualization/IDataSource" runTimeClassModel="IDataSource(),repositoryURI,getMeasure(),getOutputMD(),rawMeasurementsUUID,properties,getOutput(),getMeasurement()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="193,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="properties" location="-8,26" id="de.uka.ipd.sdq.edp2.visualization/IDataSource#properties"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rawMeasurementsUUID" id="de.uka.ipd.sdq.edp2.visualization/IDataSource#rawMeasurementsUUID"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="repositoryURI" id="de.uka.ipd.sdq.edp2.visualization/IDataSource#repositoryURI"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="110,90">
+      <children xsi:type="editmodel:MethodEditModel" name="IDataSource" id="de.uka.ipd.sdq.edp2.visualization/IDataSource#IDataSource()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasure" id="de.uka.ipd.sdq.edp2.visualization/IDataSource#getMeasure()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMeasurement" id="de.uka.ipd.sdq.edp2.visualization/IDataSource#getMeasurement()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutput" id="de.uka.ipd.sdq.edp2.visualization/IDataSource#getOutput()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOutputMD" id="de.uka.ipd.sdq.edp2.visualization/IDataSource#getOutputMD()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.8/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataFlow&lt;-de.uka.ipd.sdq.edp2.visualization/IDataSource" source="//@children.4" target="//@children.6" targetEnd="//@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="108,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="53,43" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataSource-Standard::Derive->java.util/Observable" source="//@children.4" target="//@children.10" targetEnd="//@children.4/@sourceConnections.1/@children.2" label="//@children.4/@sourceConnections.1/@children.0" sourceEnd="//@children.4/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="43,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,8" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="105,34"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="java.util/Observable&lt;-de.uka.ipd.sdq.edp2.visualization/IDataSource" source="//@children.4" target="//@children.10" targetEnd="//@children.4/@sourceConnections.2/@children.1" sourceEnd="//@children.4/@sourceConnections.2/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,12" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="90,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="IAdapter" location="255,612" size="96,85" id="de.uka.ipd.sdq.edp2.visualization/IAdapter" runTimeClassModel="IAdapter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),IAdapter()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="71,36">
+      <children xsi:type="editmodel:MethodEditModel" name="IAdapter" location="6,37" id="de.uka.ipd.sdq.edp2.visualization/IAdapter#IAdapter()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="IAdapter" location="5,68" id="de.uka.ipd.sdq.edp2.visualization/IAdapter#IAdapter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.9/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation&lt;-de.uka.ipd.sdq.edp2.visualization/IAdapter" source="//@children.5" target="//@children.7" targetEnd="//@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="48,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="94,174" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@sourceConnections.0" name="IDataFlow" location="330,70" size="106,43" id="de.uka.ipd.sdq.edp2.visualization/IDataFlow" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.0" name="AbstractTransformation" location="300,405" size="189,175" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation" runTimeClassModel="getToolTipText(),AbstractTransformation(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getProperties(),exists(),AbstractTransformation(),getPersistable(),transformData()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="145,126">
+      <children xsi:type="editmodel:MethodEditModel" name="AbstractTransformation" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation#AbstractTransformation(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="AbstractTransformation" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation#AbstractTransformation()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="exists" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation#exists()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPersistable" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation#getPersistable()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getToolTipText" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation#getToolTipText()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="transformData" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation#transformData()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getProperties" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation#getProperties()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataSink&lt;-de.uka.ipd.sdq.edp2.visualization/AbstractTransformation" source="//@children.7" target="//@children.8" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="154,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="34,99"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" id="de.uka.ipd.sdq.edp2.visualization/IDataSource&lt;-de.uka.ipd.sdq.edp2.visualization/AbstractTransformation" source="//@children.7" target="//@children.4" targetEnd="//@children.7/@sourceConnections.1/@children.1" sourceEnd="//@children.7/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="32,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="161,193"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.7/@sourceConnections.0" name="IDataSink" location="420,195" size="124,99" id="de.uka.ipd.sdq.edp2.visualization/IDataSink" runTimeClassModel="canAccept(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),getMetricRoles()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="101,36">
+      <children xsi:type="editmodel:MethodEditModel" name="canAccept" id="de.uka.ipd.sdq.edp2.visualization/IDataSink#canAccept(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMetricRoles" id="de.uka.ipd.sdq.edp2.visualization/IDataSink#getMetricRoles()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataFlow&lt;-de.uka.ipd.sdq.edp2.visualization/IDataSink" source="//@children.8" target="//@children.4/@sourceConnections.0" targetEnd="//@children.8/@sourceConnections.0/@children.1" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="62,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IDataSink-Standard::Derive->java.util/Observer" source="//@children.8" target="//@children.11" targetEnd="//@children.8/@sourceConnections.1/@children.2" label="//@children.8/@sourceConnections.1/@children.0" sourceEnd="//@children.8/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Derive»" size="43,14" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="124,8" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,49"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="java.util/Observer&lt;-de.uka.ipd.sdq.edp2.visualization/IDataSink" source="//@children.8" target="//@children.11" targetEnd="//@children.8/@sourceConnections.2/@children.1" sourceEnd="//@children.8/@sourceConnections.2/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="109,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,52"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="IFilter" location="442,612" size="79,85" id="de.uka.ipd.sdq.edp2.visualization/IFilter" runTimeClassModel="IFilter(),IFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="55,36">
+      <children xsi:type="editmodel:MethodEditModel" name="IFilter" id="de.uka.ipd.sdq.edp2.visualization/IFilter#IFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="IFilter" id="de.uka.ipd.sdq.edp2.visualization/IFilter#IFilter()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/AbstractTransformation&lt;-de.uka.ipd.sdq.edp2.visualization/IFilter" source="//@children.9" target="//@children.5/@sourceConnections.0" targetEnd="//@children.9/@sourceConnections.0/@children.1" sourceEnd="//@children.9/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="39,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.1 //@children.4/@sourceConnections.2" name="Observable" location="0,154" size="114,43" id="java.util/Observable" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.8/@sourceConnections.1 //@children.8/@sourceConnections.2" name="Observer" location="630,154" size="99,57" id="java.util/Observer" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" level="-1" showScope="InPackage" properties="wireOptions=1;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

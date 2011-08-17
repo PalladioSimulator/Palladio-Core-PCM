@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="filter" size="1098,477" id="de.uka.ipd.sdq.edp2.visualization.filter" metadata="uml2-1.0" initialized="true" tag="1000" key="32303037303533312D313030302064652E756B612E6970642E7364712E656470322E76697375616C697A6174696F6E2F526F6C616E642052696368746572">
+  <children xsi:type="editmodel:ClassEditModel" name="TeardownFilter" location="299,285" size="484,139" id="de.uka.ipd.sdq.edp2.visualization.filter/TeardownFilter" runTimeClassModel="update(Ljava.util.Observable;Ljava.lang.Object;),TeardownFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;),TeardownFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;IF),setProperties(Ljava.util.HashMap;),getProperties()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="461,90">
+      <children xsi:type="editmodel:MethodEditModel" name="TeardownFilter" id="de.uka.ipd.sdq.edp2.visualization.filter/TeardownFilter#TeardownFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="TeardownFilter" id="de.uka.ipd.sdq.edp2.visualization.filter/TeardownFilter#TeardownFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;IF)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getProperties" id="de.uka.ipd.sdq.edp2.visualization.filter/TeardownFilter#getProperties()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setProperties" id="de.uka.ipd.sdq.edp2.visualization.filter/TeardownFilter#setProperties(Ljava.util.HashMap;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="update" id="de.uka.ipd.sdq.edp2.visualization.filter/TeardownFilter#update(Ljava.util.Observable;Ljava.lang.Object;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IFilter&lt;-de.uka.ipd.sdq.edp2.visualization.filter/TeardownFilter" source="//@children.0" target="//@children.1/@sourceConnections.0" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="242,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="15,43"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="WarmupFilter" location="45,120" size="474,139" id="de.uka.ipd.sdq.edp2.visualization.filter/WarmupFilter" runTimeClassModel="update(Ljava.util.Observable;Ljava.lang.Object;),setProperties(Ljava.util.HashMap;),WarmupFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;IF),getProperties(),WarmupFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="451,90">
+      <children xsi:type="editmodel:MethodEditModel" name="WarmupFilter" id="de.uka.ipd.sdq.edp2.visualization.filter/WarmupFilter#WarmupFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="WarmupFilter" id="de.uka.ipd.sdq.edp2.visualization.filter/WarmupFilter#WarmupFilter(Lde.uka.ipd.sdq.edp2.visualization.IDataSource;IF)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getProperties" id="de.uka.ipd.sdq.edp2.visualization.filter/WarmupFilter#getProperties()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setProperties" id="de.uka.ipd.sdq.edp2.visualization.filter/WarmupFilter#setProperties(Ljava.util.HashMap;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="update" id="de.uka.ipd.sdq.edp2.visualization.filter/WarmupFilter#update(Ljava.util.Observable;Ljava.lang.Object;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.0/@sourceConnections.0" autoLocated="true" id="de.uka.ipd.sdq.edp2.visualization/IFilter&lt;-de.uka.ipd.sdq.edp2.visualization.filter/WarmupFilter" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="237,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="91,43" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0" name="IFilter" location="450,15" size="182,43" id="de.uka.ipd.sdq.edp2.visualization/IFilter">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" showScope="InPackage" properties="wireOptions=4;Product=eUML2;displayOptions=1"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3"/>
+</editmodel:ClassDiagramEditModel>
