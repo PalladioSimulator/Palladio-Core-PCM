@@ -1,0 +1,34 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+«DEFINE StartResponseTimeMeasurement FOR String»
+	// (OLD) Start a response time measurement
+	//double startTime«this.javaVariableName()» = ctx.getModel().getSimulationControl().getCurrentSimulationTime();
+	
+	// Take current time
+	de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().getSampleBlackboard().addSample(
+		de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils.buildProbeSetSample(
+			de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().getProbeStrategyRegistry().getProbeStrategy(
+				de.uka.ipd.sdq.probespec.framework.ProbeType.CURRENT_TIME, null).takeSample(
+					"start«this»", ctx.getModel().getSimulationControl()),
+						ctx.getThread().getRequestContext(), "«this»", de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().obtainProbeSetId("start«this»")));
+«ENDDEFINE»
+
+«DEFINE EndResponseTimeMeasurement FOR String»
+	// (OLD) Stop the response time measurement
+	//ctx.getModel().getCurrentExperimentRun().addTimeSpanMeasurement(
+	//		de.uka.ipd.sdq.simucomframework.sensors.SensorHelper.createOrReuseTimeSensor(
+	//			ctx.getModel().getDAOFactory(),
+	//			ctx.getModel().getExperimentDatastore(),
+	//			"Response Time of «this»"),
+	//		ctx.getModel().getSimulationControl().getCurrentSimulationTime(),
+	//		ctx.getModel().getSimulationControl().getCurrentSimulationTime()-startTime«this.javaVariableName()»);
+			
+	// Take current time
+	de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().getSampleBlackboard().addSample(
+		de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils.buildProbeSetSample(
+			de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().getProbeStrategyRegistry().getProbeStrategy(
+				de.uka.ipd.sdq.probespec.framework.ProbeType.CURRENT_TIME, null).takeSample(
+					"end«this»", ctx.getModel().getSimulationControl()),
+						ctx.getThread().getRequestContext(), "«this»", de.uka.ipd.sdq.probespec.framework.ProbeSpecContext.instance().obtainProbeSetId("end«this»")));
+«ENDDEFINE»
