@@ -1,0 +1,693 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>usagemodel - UML-Dokumentation</title>
+<meta name="generator" content="IBM Rational Model Publisher">
+<meta name="description" content="Inhalt f&uuml;r ScenarioBehaviour">
+<link href="WebPublish.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">&Uuml;bersicht</a></td><td class="NavBarMainLink"><a href="_1198111488967104869100117101711110167478846771103-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_868118836567104969100117101711110167478846771103-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">usagemodel - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#attributeSummary" title="Attribute">Attribute</a></span><span class="BookMarkElements"><a href="#constraintsTable" title="Integrit&auml;tsbedingungen">Integrit&auml;tsbedingungen</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#attributeDetail" title="Attribute">Attribute</a></span></td>
+</tr>
+</table>
+<hr>
+<span class="PackageFullyQualifiedName">usagemodel</span>
+<br>
+<span class="ElementTitle">KlasseScenarioBehaviour</span>
+<p>
+<a name="documentationSection"></a>A ScenarioBehaviour specifies possible sequences of executing services provided by the system.</br>It contains a set of AbstractUserActions, each referencing a predecessor and successor (except the</br>first and last action), thereby forming a sequence of actions. </br></br>See the AbstractAction documentation for why it is advantageous</br>to model control flow in this way, as the same principle is used in the RDSEFF language. </br></br>Concrete user actions of the usage model are:</br>- Branch</br>- Loop</br>- EntryLevelSystemCall</br>- Delay</br>- Start </br>- Stop</br></br>So far, ScenarioBehaviours do not include forks in the user flow (i.e., splitting the flow with an</br>AND semantic), as it is assumed that users always act sequentially.</br></br>As there are no random variables depending on other variables in the</br>usage model, there are no equivalent actions to GuardedBranchTransitions or CollectionIteratorActions.</br></p>
+<p></p>
+<table border="1" class="SummaryTable">
+<tr>
+<td colspan="3" class="SummaryTitle"><a name="attributeSummary">Attribute</a></td>
+</tr>
+<tr>
+<td class="packagedElementType">&lt;Class&gt; AbstractUserAction </td><td><a title="pcm::usagemodel::ScenarioBehaviour::actions_ScenarioBehaviour" href="#_113100687211110181826910011310172_87736798182101119"><img border="0" src="../images/1065748141_icon.jpeg" alt="actions_ScenarioBehaviour"></a>&nbsp;<a title="pcm::usagemodel::ScenarioBehaviour::actions_ScenarioBehaviour" href="#_113100687211110181826910011310172_87736798182101119">actions_ScenarioBehaviour</a></td><td></td>
+</tr>
+<tr>
+<td class="packagedElementType">&lt;Class&gt; UsageScenario </td><td><a title="pcm::usagemodel::ScenarioBehaviour::usageScenario_SenarioBehaviour" href="#_748081716511781826910011310172_87736798182101119"><img border="0" src="../images/151593617_icon.jpeg" alt="usageScenario_SenarioBehaviour"></a>&nbsp;<a title="pcm::usagemodel::ScenarioBehaviour::usageScenario_SenarioBehaviour" href="#_748081716511781826910011310172_87736798182101119">usageScenario_SenarioBehaviour</a></td><td></td>
+</tr>
+<tr>
+<td class="packagedElementType">&lt;Class&gt; BranchTransition </td><td><a title="pcm::usagemodel::ScenarioBehaviour::branchTransition_ScenarioBehaviour" href="#_9784710989117109103691001131178611710898097810011365"><img border="0" src="../images/151593617_icon.jpeg" alt="branchTransition_ScenarioBehaviour"></a>&nbsp;<a title="pcm::usagemodel::ScenarioBehaviour::branchTransition_ScenarioBehaviour" href="#_9784710989117109103691001131178611710898097810011365">branchTransition_ScenarioBehaviour</a></td><td></td>
+</tr>
+<tr>
+<td class="packagedElementType">&lt;Class&gt; Loop </td><td><a title="pcm::usagemodel::ScenarioBehaviour::loop_ScenarioBehaviour" href="#_-100113878111781826910011310172_87736798182101119"><img border="0" src="../images/151593617_icon.jpeg" alt="loop_ScenarioBehaviour"></a>&nbsp;<a title="pcm::usagemodel::ScenarioBehaviour::loop_ScenarioBehaviour" href="#_-100113878111781826910011310172_87736798182101119">loop_ScenarioBehaviour</a></td><td></td>
+</tr>
+</table>
+<p></p>
+<table border="1" class="SummaryTable">
+<tr>
+<td colspan="3" class="SummaryTitle"><a name="MISSING_L10N_KEY">!!TableHeading.InheritedAttributes!!</a><img border="0" src="../images/1156191769_icon.jpeg" alt="pcm::core::entity::Entity">&nbsp;pcm::core::entity::Entity</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</table>
+<p></p>
+<table border="1" class="SummaryTable">
+<tr>
+<td colspan="3" class="SummaryTitle"><a name="MISSING_L10N_KEY">!!TableHeading.InheritedAttributes!!</a><img border="0" src="../images/1156191769_icon.jpeg" alt="identifier::Identifier">&nbsp;identifier::Identifier</td>
+</tr>
+<tr>
+<td><img border="0" src="../images/1065748141_icon.jpeg" alt="id">&nbsp;id</td>
+</tr>
+</table>
+<p></p>
+<table border="1" class="SummaryTable">
+<tr>
+<td colspan="3" class="SummaryTitle"><a name="MISSING_L10N_KEY">!!TableHeading.InheritedAttributes!!</a><img border="0" src="../images/1156191769_icon.jpeg" alt="pcm::core::entity::NamedElement">&nbsp;pcm::core::entity::NamedElement</td>
+</tr>
+<tr>
+<td><img border="0" src="../images/1065748141_icon.jpeg" alt="entityName">&nbsp;entityName</td>
+</tr>
+</table>
+<p></p>
+<table border="1" class="SummaryTable">
+<tr>
+<td colspan="3" class="SummaryTitle"><a name="MISSING_L10N_KEY">!!TableHeading.InheritedOperations!!</a><img border="0" src="../images/1156191769_icon.jpeg" alt="pcm::core::entity::Entity">&nbsp;pcm::core::entity::Entity</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</table>
+<p></p>
+<table border="1" class="SummaryTable">
+<tr>
+<td colspan="3" class="SummaryTitle"><a name="MISSING_L10N_KEY">!!TableHeading.InheritedOperations!!</a><img border="0" src="../images/1156191769_icon.jpeg" alt="identifier::Identifier">&nbsp;identifier::Identifier</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</table>
+<p></p>
+<table border="1" class="SummaryTable">
+<tr>
+<td colspan="3" class="SummaryTitle"><a name="MISSING_L10N_KEY">!!TableHeading.InheritedOperations!!</a><img border="0" src="../images/1156191769_icon.jpeg" alt="pcm::core::entity::NamedElement">&nbsp;pcm::core::entity::NamedElement</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</table>
+<br>
+<a name="propertiesTable">
+<p class="LargeTitle">Eigenschaften:</p>
+</a>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Classifier Behavior</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Abstract</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Active</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; usagemodel</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; usagemodel</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Package</b></td><td class="PropertyValue">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; usagemodel</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::usagemodel::ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Representation</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+<p></p>
+<table class="DetailsTable">
+<tr>
+<td colspan="2" class="DetailsTitle"><a name="attributeDetail">Details f&uuml;r Attribute</a></td>
+</tr>
+</table>
+<span class="ListItem">
+<br>
+<img src="../images/1065748141_icon.jpeg" alt="">&nbsp;<a name="_113100687211110181826910011310172_87736798182101119">actions_ScenarioBehaviour</a></span>
+<pre>Public&nbsp;&lt;Class&gt; AbstractUserAction actions_ScenarioBehaviour</pre>
+<dl>
+<dd></dd>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Aggregation</b></td><td class="PropertyValue">Composite</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association</b></td><td class="PropertyValue">&lt;Association&gt; A_actions_ScenarioBehaviour_scenarioBehaviour_AbstractUserAction</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association End</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Class</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Datatype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Composite</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived Union</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Ordered</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Read Only</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Static</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Unique</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower</b></td><td class="PropertyValue">0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower Value</b></td><td class="PropertyValue">&lt;Literal Integer&gt; 0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Multiplicity</b></td><td class="PropertyValue">*</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">actions_ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Opposite</b></td><td class="PropertyValue">&lt;Property&gt; scenarioBehaviour_AbstractUserAction : ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Association</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::usagemodel::ScenarioBehaviour::actions_ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Type</b></td><td class="PropertyValue">&lt;Class&gt; AbstractUserAction</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper</b></td><td class="PropertyValue">*</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper Value</b></td><td class="PropertyValue">&lt;Literal Unlimited Natural&gt; *</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<span class="ListItem">
+<br>
+<img src="../images/151593617_icon.jpeg" alt="">&nbsp;<a name="_9784710989117109103691001131178611710898097810011365">branchTransition_ScenarioBehaviour</a></span>
+<pre>Private&nbsp;&lt;Class&gt; BranchTransition branchTransition_ScenarioBehaviour</pre>
+<dl>
+<dd></dd>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Aggregation</b></td><td class="PropertyValue">None</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association</b></td><td class="PropertyValue">&lt;Association&gt; A_branchedBehaviour_BranchTransition_branchTransition_ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association End</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Class</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Datatype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Composite</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived Union</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Ordered</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Read Only</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Static</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Unique</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower</b></td><td class="PropertyValue">0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower Value</b></td><td class="PropertyValue">&lt;Literal Integer&gt; 0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Multiplicity</b></td><td class="PropertyValue">0..1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">branchTransition_ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Opposite</b></td><td class="PropertyValue">&lt;Property&gt; branchedBehaviour_BranchTransition : ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Association</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::usagemodel::ScenarioBehaviour::branchTransition_ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Type</b></td><td class="PropertyValue">&lt;Class&gt; BranchTransition</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper Value</b></td><td class="PropertyValue">&lt;Literal Unlimited Natural&gt; 1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Private</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<span class="ListItem">
+<br>
+<img src="../images/151593617_icon.jpeg" alt="">&nbsp;<a name="_-100113878111781826910011310172_87736798182101119">loop_ScenarioBehaviour</a></span>
+<pre>Private&nbsp;&lt;Class&gt; Loop loop_ScenarioBehaviour</pre>
+<dl>
+<dd></dd>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Aggregation</b></td><td class="PropertyValue">None</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association</b></td><td class="PropertyValue">&lt;Association&gt; A_bodyBehaviour_Loop_loop_ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association End</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Class</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Datatype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Composite</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived Union</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Ordered</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Read Only</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Static</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Unique</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower</b></td><td class="PropertyValue">0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower Value</b></td><td class="PropertyValue">&lt;Literal Integer&gt; 0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Multiplicity</b></td><td class="PropertyValue">0..1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">loop_ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Opposite</b></td><td class="PropertyValue">&lt;Property&gt; bodyBehaviour_Loop : ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Association</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::usagemodel::ScenarioBehaviour::loop_ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Type</b></td><td class="PropertyValue">&lt;Class&gt; Loop</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper Value</b></td><td class="PropertyValue">&lt;Literal Unlimited Natural&gt; 1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Private</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<span class="ListItem">
+<br>
+<img src="../images/151593617_icon.jpeg" alt="">&nbsp;<a name="_748081716511781826910011310172_87736798182101119">usageScenario_SenarioBehaviour</a></span>
+<pre>Private&nbsp;&lt;Class&gt; UsageScenario usageScenario_SenarioBehaviour</pre>
+<dl>
+<dd></dd>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Aggregation</b></td><td class="PropertyValue">None</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association</b></td><td class="PropertyValue">&lt;Association&gt; A_scenarioBehaviour_UsageScenario_usageScenario_SenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association End</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Class</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Datatype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Composite</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived Union</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Ordered</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Read Only</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Static</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Unique</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower</b></td><td class="PropertyValue">0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower Value</b></td><td class="PropertyValue">&lt;Literal Integer&gt; 0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Multiplicity</b></td><td class="PropertyValue">0..1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">usageScenario_SenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Opposite</b></td><td class="PropertyValue">&lt;Property&gt; scenarioBehaviour_UsageScenario : ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue">&lt;Class&gt; ScenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Association</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::usagemodel::ScenarioBehaviour::usageScenario_SenarioBehaviour</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Type</b></td><td class="PropertyValue">&lt;Class&gt; UsageScenario</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper</b></td><td class="PropertyValue">1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper Value</b></td><td class="PropertyValue">&lt;Literal Unlimited Natural&gt; 1</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Private</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p></p>
+<table border="1" class="DetailsTable">
+<tr>
+<td colspan="2" class="DetailsTitle"><a name="constraintsTable">Integrit&auml;tsbedingungen</a></td>
+</tr>
+<p>
+<tr class="ClassTableEntry">
+<td>Exactly one start</td><td>self.actions_ScenarioBehaviour-&gt;select(s|s.oclIsTypeOf(Start))-&gt;size() = 1</td>
+</tr>
+</p>
+<p>
+<tr class="ClassTableEntry">
+<td>Exactly one stop</td><td>self.actions_ScenarioBehaviour-&gt;select(s|s.oclIsTypeOf(Stop))-&gt;size() = 1</td>
+</tr>
+</p>
+<p>
+<tr class="ClassTableEntry">
+<td>Each user action except Start and Stop must have a predecessor and successor</td><td>not self.actions_ScenarioBehaviour-&gt;select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))-&gt;exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour-&gt;select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))-&gt;exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())</td>
+</tr>
+</p>
+</table>
+<hr>
+<br>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">&Uuml;bersicht</a></td><td class="NavBarMainLink"><a href="_1198111488967104869100117101711110167478846771103-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_868118836567104969100117101711110167478846771103-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">usagemodel - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#attributeSummary" title="Attribute">Attribute</a></span><span class="BookMarkElements"><a href="#constraintsTable" title="Integrit&auml;tsbedingungen">Integrit&auml;tsbedingungen</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#attributeDetail" title="Attribute">Attribute</a></span></td>
+</tr>
+</table>
+</body>
+</html>

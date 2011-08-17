@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<workflow> 
+
+	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup">
+		<registerGeneratedEPackage value="org.eclipse.uml2.uml.UMLPackage"/>
+		<platformUri value="../" /> 
+	</bean>
+    
+	<bean class="org.eclipse.xtend.typesystem.uml2.Setup" standardUML2Setup="true"/>		
+
+	<component class="org.eclipse.emf.mwe.utils.Reader"> 
+		<uri value="model/identifier.uml"/> 
+		<modelSlot value="model1"/> 
+	</component>
+	
+	<component class="org.eclipse.emf.mwe.utils.Reader"> 
+		<uri value="model/pcm.uml"/> 
+		<modelSlot value="model2"/> 
+	</component>  
+	
+	<component class="org.eclipse.emf.mwe.utils.Reader"> 
+		<uri value="model/stoex.uml"/> 
+		<modelSlot value="model3"/> 
+	</component>
+
+	<component class="org.eclipse.emf.mwe.utils.Reader"> 
+		<uri value="model/ProbabilityFunction.uml"/> 
+		<modelSlot value="model4"/> 
+	</component>	
+
+	<component class="org.eclipse.emf.mwe.utils.Reader"> 
+		<uri value="model/Units.uml"/> 
+		<modelSlot value="model5"/> 
+	</component>
+
+	<component id="dirCleaner" 
+		class="org.eclipse.emf.mwe.utils.DirectoryCleaner" 		
+		directory="src-gen"/>
+		
+	<component id="dirCleaner" 
+		class="org.eclipse.emf.mwe.utils.DirectoryCleaner" 		
+		directory="src-gen/pcm-images"/>
+		
+	<component id="generator" class="org.eclipse.xpand2.Generator" 
+		skipOnErrors="true"> 
+		<fileEncoding value="ISO-8859-1"/>
+		
+		<metaModel class="org.eclipse.xtend.typesystem.emf.EmfMetaModel"> 
+			<metaModelPackage  value="org.eclipse.emf.ecore.EcorePackage"/> 
+		</metaModel>   
+		<metaModel class="org.eclipse.xtend.typesystem.uml2.UML2MetaModel">	
+			<!-- <profile value="model/Default.profile.uml"/>		
+			<profile value="model/Deployment.profile.uml"/>
+			<profile value="model/ProfileBase.profile.uml"/> -->
+		</metaModel> 		
+		<expand value="template::Root::Root FOR {model1,model2,model3,model4,model5}"/>
+		
+		<outlet path="src-gen/" append="true" /> 
+		<outlet name='MAN' path='src-man/' overwrite='false'/>
+	</component>
+	
+</workflow> 
