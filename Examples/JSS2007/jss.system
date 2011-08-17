@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_ipLSoPvXEduJffuVvDC1iA">
-  <childComponentContexts_ComposedStructure id="_2BnG8PvXEduJffuVvDC1iA">
-    <encapsulatedComponent_ChildComponentContext href="jss.repository#_qbIZkPlGEduS7MhpizGF9A"/>
-  </childComponentContexts_ComposedStructure>
-</pcm.system:System>
