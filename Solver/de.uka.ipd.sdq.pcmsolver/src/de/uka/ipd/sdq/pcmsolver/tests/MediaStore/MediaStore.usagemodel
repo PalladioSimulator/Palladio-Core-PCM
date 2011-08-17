@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
+  <usageScenario_UsageModel id="_KOGcwKYVEduWZfldHy3B1Q" entityName="DownloadFiles">
+    <workload_UsageScenario xsi:type="pcm.usagemodel:ClosedWorkload" population="10">
+      <thinkTime_ClosedWorkload specification="0.1"/>
+    </workload_UsageScenario>
+    <scenarioBehaviour_UsageScenario id="_gBOngaY5EdudtvdezBq5JQ">
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" id="_92fbUUmxEdyex4e3F-xYhA" successor="_KzaaYIH9Edy4BaNnHs5yKw"/>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Branch" id="_KzaaYIH9Edy4BaNnHs5yKw" successor="_7zI6U4IWEdy4BaNnHs5yKw" predecessor="_92fbUUmxEdyex4e3F-xYhA">
+        <branchTransitions_Branch branchProbability="0.4">
+          <branchedBehaviour_BranchTransition id="_QzY_0IH9Edy4BaNnHs5yKw">
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" id="_Qza1AIH9Edy4BaNnHs5yKw" successor="_W6XlIIH9Edy4BaNnHs5yKw"/>
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" id="_QzbcEIH9Edy4BaNnHs5yKw" predecessor="_W6XlIIH9Edy4BaNnHs5yKw"/>
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Delay" id="_W6XlIIH9Edy4BaNnHs5yKw" successor="_QzbcEIH9Edy4BaNnHs5yKw" predecessor="_Qza1AIH9Edy4BaNnHs5yKw">
+              <timeSpecification_Delay specification="3"/>
+            </actions_ScenarioBehaviour>
+          </branchedBehaviour_BranchTransition>
+        </branchTransitions_Branch>
+        <branchTransitions_Branch branchProbability="0.6">
+          <branchedBehaviour_BranchTransition id="_Rc4BsIH9Edy4BaNnHs5yKw">
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" id="_Rc4owIH9Edy4BaNnHs5yKw" successor="_fs05RYH9Edy4BaNnHs5yKw"/>
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" id="_Rc4owYH9Edy4BaNnHs5yKw" predecessor="_fs05RYH9Edy4BaNnHs5yKw"/>
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Delay" id="_fs05RYH9Edy4BaNnHs5yKw" successor="_Rc4owYH9Edy4BaNnHs5yKw" predecessor="_Rc4owIH9Edy4BaNnHs5yKw">
+              <timeSpecification_Delay specification="4"/>
+            </actions_ScenarioBehaviour>
+          </branchedBehaviour_BranchTransition>
+        </branchTransitions_Branch>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:EntryLevelSystemCall" id="_7zI6U4IWEdy4BaNnHs5yKw" successor="_PUfY4IH9Edy4BaNnHs5yKw" predecessor="_KzaaYIH9Edy4BaNnHs5yKw">
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="IntPMF[ (0;0.0) (10;0.2) (11;0.2) (12;0.2) (13;0.2) (14;0.2) ]"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="desiredFiles"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <providedRole_EntryLevelSystemCall href="MediaStore.system#_alLOUKYUEduWZfldHy3B1Q"/>
+        <signature_EntryLevelSystemCall href="MediaStore.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" id="_PUfY4IH9Edy4BaNnHs5yKw" predecessor="_7zI6U4IWEdy4BaNnHs5yKw"/>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+</pcm.usagemodel:UsageModel>
