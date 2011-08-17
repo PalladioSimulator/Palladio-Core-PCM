@@ -1,0 +1,98 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+«IMPORT repository»
+«IMPORT core::entity»
+«IMPORT system»
+«IMPORT pcm::subsystem»
+«IMPORT core::composition»
+
+// Generate code for a single repository
+// This means:
+// - Generate all Interfaces
+// - Generate all components
+// - Generate all datatypes (POJO only)
+«DEFINE Root FOR Repository»
+   «EXPAND InterfaceFile FOREACH this.interfaces__Repository.typeSelect(OperationInterface)»
+   «EXPAND InterfaceFile FOREACH this.interfaces__Repository.typeSelect(InfrastructureInterface)»
+   «EXPAND ComponentRoot FOREACH this.components__Repository»
+«ENDDEFINE»
+
+
+«DEFINE InterfaceFile FOR OperationInterface»
+   «FILE this.getFileName() INTERFACES»
+      «EXPAND InterfaceHeader FOR this»
+
+      {
+	  	«EXPAND InterfaceHelperMethodsDeclarationTM FOR this»
+	   	«EXPAND m2t_transforms::java_core::OperationSignature FOREACH this.signatures__OperationInterface SEPARATOR ";"»;
+      }
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE InterfaceFile FOR InfrastructureInterface»
+   «FILE this.getFileName() INTERFACES»
+      «EXPAND InterfaceHeader FOR this»
+            
+      {
+	  	«EXPAND InterfaceHelperMethodsDeclarationTM FOR this»
+	   	«EXPAND m2t_transforms::java_core::InfrastructureSignature FOREACH this.infrastructureSignatures__InfrastructureInterface SEPARATOR ";"»;
+      }
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE InterfaceHeader FOR OperationInterface»
+   package «this.repository__Interface.basePackageName()»;
+            
+   public interface «this.javaName()»
+«ENDDEFINE»
+
+«DEFINE InterfaceHeader FOR InfrastructureInterface»
+   package «this.repository__Interface.basePackageName()»;
+            
+   public interface «this.javaName()»
+«ENDDEFINE»
+
+«DEFINE InterfaceHelperMethodsDeclarationTM FOR OperationInterface»
+«REM»Can stay empty.«ENDREM»
+«ENDDEFINE»
+
+«DEFINE InterfaceHelperMethodsDeclarationTM FOR InfrastructureInterface»
+«REM»Can stay empty.«ENDREM»
+«ENDDEFINE»
+
+«DEFINE ComponentRoot FOR RepositoryComponent»
+  «REM»FIXME: There seems to be a bug in xPand 0.7.2 that calls this template for SubSystems 
+  (It should call ComponentRoot FOR SubSystem). See Bug 523. Revisit this again when a new XPand is available. 
+  Note: it does not even work to compare IF this.metaType == subsystem::SubSystem, because it cannot find the 
+  type subsystem::SubSystem at runtime. «ENDREM»
+  «IF ""+this.metaType == "pcm::subsystem::SubSystem"»
+    «ERROR "OAW GENERATION ERROR [m2t_transforms/repository.xpt]: Caught wrongly expanded SubSystem "+this.entityName +"(type "+this.metaType+") in DEFINE ComponentRoot FOR RepositoryComponent."»
+    «EXPAND CompositeComponentRoot FOR (pcm::subsystem::SubSystem)this»
+  «ELSE»
+    «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
+  «ENDIF»
+«ENDDEFINE»
+
+
+«DEFINE ComponentRoot FOR CompositeComponent»
+   «EXPAND CompositeComponentRoot FOR this»
+«ENDDEFINE»
+
+«DEFINE ComponentRoot FOR SubSystem»
+   «EXPAND CompositeComponentRoot FOR this»
+«ENDDEFINE»
+
+«DEFINE CompositeComponentRoot FOR ComposedProvidingRequiringEntity»
+	«REM»Handles CompositeComponents and SubSystems«ENDREM»
+   	«FILE this.getFileName()»
+		«EXPAND m2t_transforms::composed_structure::ComposedStructureStart FOR this»
+	    «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+		«EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+		«EXPAND m2t_transforms::composed_structure::ComposedStructureEnd FOR this»
+	«ENDFILE»
+	«REM»
+	I guess this line is generating additional overhead, the components inside a CC should be generated already
+	«EXPAND m2t_transforms::repository::ComponentRoot FOREACH this.assemblyContexts_ComposedStructure.encapsulatedComponent_AssemblyContext»
+	«ENDREM»
+«ENDDEFINE»

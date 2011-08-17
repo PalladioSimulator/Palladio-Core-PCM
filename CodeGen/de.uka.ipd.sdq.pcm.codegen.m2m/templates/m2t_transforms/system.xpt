@@ -1,0 +1,26 @@
+«EXTENSION m2t_transforms::java_names»
+«IMPORT system»
+«IMPORT core::composition»
+
+«DEFINE Root FOR System»
+   «EXPAND m2t_transforms::completions::ExpandCompletions FOR this»
+   «FILE this.getFileName()»
+      «EXPAND System FOR this»
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE System FOR System»
+	«EXPAND m2t_transforms::composed_structure::ComposedStructureStart FOR this»
+    «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+	«EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+	«EXPAND SystemInnerAdditionsTM FOR this»
+	«EXPAND m2t_transforms::composed_structure::ComposedStructureEnd FOR this»
+	«EXPAND SystemAdditionsTM FOR this»
+«ENDDEFINE»
+
+«DEFINE SystemInnerAdditionsTM FOR System»
+«ENDDEFINE»
+
+«DEFINE SystemAdditionsTM FOR System»
+«ENDDEFINE»
+

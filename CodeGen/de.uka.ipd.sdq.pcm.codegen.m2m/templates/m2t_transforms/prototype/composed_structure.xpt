@@ -1,0 +1,166 @@
+«IMPORT core::composition»
+«IMPORT core::entity»
+«IMPORT repository»
+«IMPORT system»
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+
+«DEFINE Constructor FOR ComposedProvidingRequiringEntity»
+
+    «REM»Create constructor without closing curly brace«ENDREM»
+	«EXPAND m2t_transforms::composed_structure::ComposedPREConstructorStartTM FOR this»
+		
+		«REM»This is still inside the constructor.«ENDREM»
+		logger.info("Creating composed structure «this.entityName»");
+		
+		«IF System.isInstance(this)»
+		try {
+			java.rmi.registry.LocateRegistry.getRegistry();
+		} catch (java.rmi.RemoteException e) {
+			e.printStackTrace();
+		}
+		«ENDIF»	
+		
+		«EXPAND AllChildMemberVarInit FOR this»
+	      
+		«IF InterfaceProvidingEntity.isInstance(this)»
+			/* And finally, my ports */
+			try{
+			«EXPAND m2t_transforms::composed_structure::PortInit(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole)»
+			}catch(java.rmi.RemoteException e){
+			  e.printStackTrace();
+			}
+			
+			«EXPAND m2t_transforms::composed_structure::PortInit(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole)»
+		«ENDIF»
+	} «REM»End constructor «ENDREM»
+«ENDDEFINE»
+
+«DEFINE ComposedPREConstructorStartTM FOR ComposedProvidingRequiringEntity»
+   public «this.className()»(String ip) throws java.rmi.RemoteException {
+«ENDDEFINE»
+
+«DEFINE AllChildMemberVarInit FOR ComposedProvidingRequiringEntity»
+	«IF System.isInstance(this)»
+	if (de.uka.ipd.sdq.prototype.framework.RmiRegistry.LOCALHOST.equals(ip)) 
+	«ENDIF»
+	{
+		«EXPAND ChildMemberStartMain FOREACH this.assemblyContexts__ComposedStructure»
+	}
+
+	while (true) {
+		try {
+		«EXPAND ChildMemberVarInit FOREACH this.assemblyContexts__ComposedStructure»
+		} catch (java.net.MalformedURLException e) {
+			e.printStackTrace();
+		} catch (java.rmi.RemoteException e) {
+			logger.info("RMI registry not found");
+			
+			try {
+				Thread.sleep(3000);
+				continue;
+			} catch (InterruptedException e2) {
+				logger.error("Error while waiting for registry", e2);
+				System.exit(-1);
+			}
+
+		} catch (java.rmi.NotBoundException e) {
+			logger.info("Subcomponent missing: " + e.getMessage());
+
+			try {
+				Thread.sleep(3000);
+				continue;
+			} catch (InterruptedException e2) {
+				logger.error("Error while waiting for child components", e2);
+				System.exit(-1);
+			}
+		} 
+		break;
+	}
+«ENDDEFINE»
+
+«DEFINE ChildMemberStartMain FOR AssemblyContext»
+	«this.encapsulatedComponent__AssemblyContext.fqn()».main(new String[] {ip});
+«ENDDEFINE»
+
+«DEFINE ChildMemberVarInit FOR AssemblyContext»
+	«REM» my«this.javaName()» = new «this.encapsulatedComponent__AssemblyContext.fqn()»(); «ENDREM»
+	my«this.javaName()» = («this.encapsulatedComponent__AssemblyContext.fqnInterface()»)java.rmi.Naming.lookup("//" + ip + "/«this.encapsulatedComponent__AssemblyContext.javaName()»");
+«ENDDEFINE»
+
+«DEFINE ChildInitTM(ComposedStructure s) FOR AssemblyContext»
+    
+  «IF BasicComponent.isInstance(this.encapsulatedComponent__AssemblyContext)»
+	//Initialise Component Parameters
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> componentStackFrame = 
+		new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
+	«FOREACH this.configParameterUsages__AssemblyContext AS pu»
+		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+			componentStackFrame.addValue("«pu.parameterUsageLHS()+'.'+vc.type.toString()»",
+			   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",
+			   	new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>()));
+		«ENDFOREACH»
+	«ENDFOREACH»
+		
+	my«this.javaName()».setComponentFrame(componentStackFrame);
+  «ENDIF»
+«ENDDEFINE»
+ 
+«DEFINE InnerImplementation FOR ComposedStructure»
+      // Composed child components member variables
+      «EXPAND m2t_transforms::composed_structure::ChildMemberVar FOREACH this.assemblyContexts__ComposedStructure»
+            
+      /**
+      * Inner Structure initialisation
+      */
+      private void initInnerComponents() {
+
+		  try{
+		  /* First, initialise composite child structures */
+		  «FOREACH this.assemblyContexts__ComposedStructure.select(c|ComposedStructure.isInstance(c.encapsulatedComponent__AssemblyContext)) AS child»
+			  init«child.javaName()»();
+		  «ENDFOREACH»
+		  /* Then initialise basic components */
+		  
+		  «FOREACH this.assemblyContexts__ComposedStructure.select(c|!ComposedStructure.isInstance(c.encapsulatedComponent__AssemblyContext)) AS child»
+			  init«child.javaName()»();
+		  «ENDFOREACH»
+		  }catch(java.rmi.RemoteException e)
+    	  {
+    		  e.getStackTrace();
+    	  }
+      }
+
+      «EXPAND Init(this) FOREACH this.assemblyContexts__ComposedStructure»
+      /**
+      * Inner Structure initialisation end
+      */
+«ENDDEFINE»
+
+«DEFINE Init(ComposedStructure s) FOR AssemblyContext»
+   private void init«this.javaName()»() throws java.rmi.RemoteException{
+      «this.encapsulatedComponent__AssemblyContext.fqnContext()» context = new «this.encapsulatedComponent__AssemblyContext.fqnContext()»(
+         «EXPAND m2t_transforms::composed_structure::PortQuery(s,this) FOREACH this.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.typeSelect(OperationRequiredRole) SEPARATOR ","»
+         «IF this.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.typeSelect(InfrastructureRequiredRole).size > 0»
+         	«IF this.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.typeSelect(OperationRequiredRole).size > 0»,
+         	«ENDIF»
+         	«EXPAND m2t_transforms::composed_structure::PortQuery(s,this) FOREACH this.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.typeSelect(InfrastructureRequiredRole) SEPARATOR ","»
+     	«ENDIF»
+      );
+      «EXPAND m2t_transforms::composed_structure::ChildInitTM(s) FOR this»
+      my«this.javaName()».setContext(context);
+   }
+«ENDDEFINE»
+
+«DEFINE ComposedStructureStart FOR ComposedProvidingRequiringEntity»
+   package «this.implementationPackage()»;
+  
+  
+   public class «this.className()» extends java.rmi.server.UnicastRemoteObject implements «this.fqnInterface()», java.io.Serializable  
+   {
+		private static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(«this.className()».class.getName());
+	  «EXPAND Constructor FOR this»		
+      «EXPAND m2t_transforms::composed_structure::InnerImplementation FOR this»
+«ENDDEFINE»
