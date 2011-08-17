@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xsi:schemaLocation="http:///schemas/Default/1 Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw http://www.eclipse.org/uml2/schemas/Ecore/3 pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w">
+  <uml:Model xmi:id="_JkoyAaHbEd6ASLxhsPqiGA" name="TaskModel">
+    <ownedComment xmi:id="_gZnO8LDfEd6LaLMWCgMGdQ" annotatedElement="_JkoyAaHbEd6ASLxhsPqiGA">
+      <body>This is the documentation for the Task and Probabilities metamodel that is the interface for the PerOpteryx metaheuristic optimisation based on the Palladio Component Model to the analytic multicriteria optimisation of Polimi. &#xD;
+&#xD;
+This package contains all metamodel elements. The TaskList is the root model element and contains a Task and Probabilities model. &#xD;
+&#xD;
+The main class is the Task. It represents a single resource-demanding action in the software. It is derived from actions in the PCM SEFF and can be used for tasks in the optimisation of Polimi. &#xD;
+&#xD;
+Tasks are connected to each other by Edges. Each Task can have multiple outgoing Edges. The set of outgoing Edges is modelled with the edge_Task containment association of the Task. Each Edge points to one successor Task. &#xD;
+&#xD;
+See the Alternative class for details how to specify alternatives. &#xD;
+&#xD;
+See the description of the model elements for a detailed description of the attributes. </body>
+    </ownedComment>
+    <packageImport xmi:id="_JkoyBaHbEd6ASLxhsPqiGA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:id="_3RIwAKHbEd6ASLxhsPqiGA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_LCgeMKHbEd6ASLxhsPqiGA" name="Task">
+      <ownedComment xmi:id="_m4W7YLDcEd6LaLMWCgMGdQ" annotatedElement="_LCgeMKHbEd6ASLxhsPqiGA">
+        <body>Representation of a task in the performance model. </body>
+      </ownedComment>
+      <ownedRule xmi:id="_XtGm8KObEd6eq4iOENa9wA" name="sumOfProbabilitiesMustBeOne" constrainedElement="_LCgeMKHbEd6ASLxhsPqiGA">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_XtGm8aObEd6eq4iOENa9wA" name="sumOfProbabilitiesMustBeOne">
+          <language>OCL</language>
+          <body>self.edge_Task->collect(e|e.transitionProbability)->sum()=1 or self.edge_Task->isEmpty() </body>
+        </specification>
+      </ownedRule>
+      <ownedAttribute xmi:id="_Dv-4cCbeEeCuL5al9lyKoQ" name="name" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_MDVCAKHbEd6ASLxhsPqiGA" name="probabilityOfExecution" visibility="public">
+        <ownedComment xmi:id="_rwCcALDcEd6LaLMWCgMGdQ" annotatedElement="_MDVCAKHbEd6ASLxhsPqiGA">
+          <body>Gives the overall probability of execution, which can be derived from the transition probability of the edges leading to this Task. </body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_PCzq4KHbEd6ASLxhsPqiGA" name="failureProbability" visibility="public">
+        <ownedComment xmi:id="_vzDlgLDcEd6LaLMWCgMGdQ" annotatedElement="_PCzq4KHbEd6ASLxhsPqiGA">
+          <body>The software failure probability of this task. This does not take into account hardware failures. </body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_RWx4oKHbEd6ASLxhsPqiGA" name="meanDemandedTime" visibility="public">
+        <ownedComment xmi:id="_z_ABgLDcEd6LaLMWCgMGdQ" annotatedElement="_RWx4oKHbEd6ASLxhsPqiGA">
+          <body>The mean demanded time that this task demands from the CPU it is deployed on. </body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_3MsfcaHcEd6ASLxhsPqiGA" name="repositorycomponent" visibility="public" association="_3MsfcKHcEd6ASLxhsPqiGA">
+        <ownedComment xmi:id="_DbRBkLDlEd6XDa9JyFGB5Q" annotatedElement="_3MsfcaHcEd6ASLxhsPqiGA">
+          <body>The PCM component that this Task derives from. This association is needed to determine which tasks can be deployed on which hardware nodes (servers, ResourceContainers). The design decision model defines the allocation of components only. With this link, you can derive the allocation of tasks. Also, this link is needed to map the results of the optmisation back to the PCM model later. Results that allocate two Tasks belonging to the same PCM component to different servers is not valid in the PCM. </body>
+        </ownedComment>
+        <type xmi:type="uml:Class" href="pcm.uml#_rGa6kKBZEd24Bv0x9CNKpg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_lrQzkaHdEd6ASLxhsPqiGA" name="allocationcontext" visibility="public" association="_lrQzkKHdEd6ASLxhsPqiGA">
+        <ownedComment xmi:id="_BtpCILDlEd6XDa9JyFGB5Q" annotatedElement="_lrQzkaHdEd6ASLxhsPqiGA">
+          <body>This association points to the AllocationContext of this Task the PCM model. Using it, you can determine the ResourceContainer (i.e. hardware node, the server) that this Task is deployed on. Use myTask.getAllocationcontext.getResourceContainer_AllocationContext to retrieve the hardware node. </body>
+        </ownedComment>
+        <type xmi:type="uml:Class" href="pcm.uml#_9nOFcOD7Edq8ysXH3gTiEg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lrQzk6HdEd6ASLxhsPqiGA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lrQzkqHdEd6ASLxhsPqiGA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Rvex8KObEd6eq4iOENa9wA" name="edge_Task" visibility="public" type="_zv_xUKOYEd6eq4iOENa9wA" aggregation="composite" association="_RvVA8KObEd6eq4iOENa9wA">
+        <ownedComment xmi:id="__zRnMLDkEd6XDa9JyFGB5Q" annotatedElement="_Rvex8KObEd6eq4iOENa9wA">
+          <body>The outgoing Edges of this Task. </body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Rvex8qObEd6eq4iOENa9wA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Rvex8aObEd6eq4iOENa9wA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_g16eMaOeEd6eq4iOENa9wA" name="abstractaction" visibility="public" association="_g16eMKOeEd6eq4iOENa9wA">
+        <ownedComment xmi:id="_CavYsLDlEd6XDa9JyFGB5Q" annotatedElement="_g16eMaOeEd6eq4iOENa9wA">
+          <body>The SEFF action that this Task was transformed from. </body>
+        </ownedComment>
+        <type xmi:type="uml:Class" href="pcm.uml#_6qnlsODgEdq8ysXH3gTiEg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g16eM6OeEd6eq4iOENa9wA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g16eMqOeEd6eq4iOENa9wA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_3MsfcKHcEd6ASLxhsPqiGA" memberEnd="_3MsfcaHcEd6ASLxhsPqiGA _3MsfcqHcEd6ASLxhsPqiGA">
+      <ownedEnd xmi:id="_3MsfcqHcEd6ASLxhsPqiGA" name="" visibility="private" type="_LCgeMKHbEd6ASLxhsPqiGA" association="_3MsfcKHcEd6ASLxhsPqiGA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__QR7YaHcEd6ASLxhsPqiGA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__QR7YKHcEd6ASLxhsPqiGA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_lrQzkKHdEd6ASLxhsPqiGA" memberEnd="_lrQzkaHdEd6ASLxhsPqiGA _lrQzlKHdEd6ASLxhsPqiGA">
+      <ownedEnd xmi:id="_lrQzlKHdEd6ASLxhsPqiGA" name="" visibility="private" type="_LCgeMKHbEd6ASLxhsPqiGA" association="_lrQzkKHdEd6ASLxhsPqiGA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lrQzlqHdEd6ASLxhsPqiGA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lrQzlaHdEd6ASLxhsPqiGA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_AT5BcKNyEd6eq4iOENa9wA" name="TaskList">
+      <ownedComment xmi:id="_ulIkYLDdEd6LaLMWCgMGdQ" annotatedElement="_AT5BcKNyEd6eq4iOENa9wA">
+        <body>The root model element that contains all Tasks of this model. Additionally, it contains a set of Alternatives, that contain AlternativeTasks to model component selection options. </body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_BmTEgaNyEd6eq4iOENa9wA" name="task_TaskList" visibility="public" type="_LCgeMKHbEd6ASLxhsPqiGA" aggregation="composite" association="_BmTEgKNyEd6eq4iOENa9wA">
+        <ownedComment xmi:id="_AwOXoLDlEd6XDa9JyFGB5Q" annotatedElement="_BmTEgaNyEd6eq4iOENa9wA">
+          <body>The set of Tasks in the model. </body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BmTEg6NyEd6eq4iOENa9wA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BmTEgqNyEd6eq4iOENa9wA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_NC6sgbGOEd6moe-uIL_C5w" name="startTask_TaskList" visibility="public" type="_LCgeMKHbEd6ASLxhsPqiGA" association="_NC6sgLGOEd6moe-uIL_C5w">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NC6sg7GOEd6moe-uIL_C5w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NC6sgrGOEd6moe-uIL_C5w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_5vObAbGdEd6moe-uIL_C5w" name="alternative_TaskList" visibility="private" type="_38q4QLGdEd6moe-uIL_C5w" aggregation="composite" association="_5vObALGdEd6moe-uIL_C5w">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5vObA7GdEd6moe-uIL_C5w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5vObArGdEd6moe-uIL_C5w"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_BmTEgKNyEd6eq4iOENa9wA" memberEnd="_BmTEgaNyEd6eq4iOENa9wA _BmTEhKNyEd6eq4iOENa9wA">
+      <ownedEnd xmi:id="_BmTEhKNyEd6eq4iOENa9wA" name="" visibility="private" type="_AT5BcKNyEd6eq4iOENa9wA" association="_BmTEgKNyEd6eq4iOENa9wA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_zv_xUKOYEd6eq4iOENa9wA" name="Edge">
+      <ownedComment xmi:id="_Hkjr0LDdEd6LaLMWCgMGdQ" annotatedElement="_zv_xUKOYEd6eq4iOENa9wA">
+        <body>An Edge connects two Tasks. Each Task has a set of Edges, that themselves point to one successor Task each. For example, for a task with three successor tasks, you have three Edges, each pointing to one of the successors. &#xD;
+&#xD;
+Loops in the PCM might be unrolled into &quot;branches&quot; in this model with adjusted transition probabilities. </body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_0XMUMKOYEd6eq4iOENa9wA" name="transitionProbability" visibility="public">
+        <ownedComment xmi:id="_PyCDkLDdEd6LaLMWCgMGdQ" annotatedElement="_0XMUMKOYEd6eq4iOENa9wA">
+          <body>The transition probability of this Task. The transition probabilities of all Edges exiting one Task usually sum up to 1. If they do not, this is an implicit stop task, i.e. the control flow ends here with the remaining probability. TODO: Add OCL that sum of probabilities must not be larger than 1. </body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6B4mIaOYEd6eq4iOENa9wA" name="successor_Edge" visibility="public" type="_LCgeMKHbEd6ASLxhsPqiGA" association="_6B4mIKOYEd6eq4iOENa9wA">
+        <ownedComment xmi:id="_-5_OwbDkEd6XDa9JyFGB5Q" annotatedElement="_6B4mIaOYEd6eq4iOENa9wA">
+          <body>This association points to the successor Task of this Edge. </body>
+        </ownedComment>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6B4mI6OYEd6eq4iOENa9wA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6B4mIqOYEd6eq4iOENa9wA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_6B4mIKOYEd6eq4iOENa9wA" memberEnd="_6B4mIaOYEd6eq4iOENa9wA _6B4mJKOYEd6eq4iOENa9wA">
+      <ownedEnd xmi:id="_6B4mJKOYEd6eq4iOENa9wA" name="" visibility="private" type="_zv_xUKOYEd6eq4iOENa9wA" association="_6B4mIKOYEd6eq4iOENa9wA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6B4mJqOYEd6eq4iOENa9wA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6B4mJaOYEd6eq4iOENa9wA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_RvVA8KObEd6eq4iOENa9wA" memberEnd="_Rvex8KObEd6eq4iOENa9wA _Rvex86ObEd6eq4iOENa9wA">
+      <ownedEnd xmi:id="_Rvex86ObEd6eq4iOENa9wA" name="" visibility="private" type="_LCgeMKHbEd6ASLxhsPqiGA" association="_RvVA8KObEd6eq4iOENa9wA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_g16eMKOeEd6eq4iOENa9wA" memberEnd="_g16eMaOeEd6eq4iOENa9wA _g16eNKOeEd6eq4iOENa9wA">
+      <ownedEnd xmi:id="_g16eNKOeEd6eq4iOENa9wA" name="" visibility="private" type="_LCgeMKHbEd6ASLxhsPqiGA" association="_g16eMKOeEd6eq4iOENa9wA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g16eNqOeEd6eq4iOENa9wA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g16eNaOeEd6eq4iOENa9wA"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Evy_wLGOEd6moe-uIL_C5w" name="AlternativeTask">
+      <ownedComment xmi:id="_NLbS0LGPEd6moe-uIL_C5w" annotatedElement="_Evy_wLGOEd6moe-uIL_C5w">
+        <body>To model the exchange of components, we need a mapping from an AlternativeTask (e.g. A') to the original Task it can replace (e.g. A). Note that AlternativeTasks may have different a probability of execution than their original Task. Additionally, they specify their own Edges. &#xD;
+&#xD;
+The mapping is derived from the degrees of freedom during the transformation. </body>
+      </ownedComment>
+      <generalization xmi:id="_F7ORELGOEd6moe-uIL_C5w" general="_LCgeMKHbEd6ASLxhsPqiGA"/>
+      <ownedAttribute xmi:id="_Gu_3YLGOEd6moe-uIL_C5w" name="task_AlternativeTask" visibility="public" type="_LCgeMKHbEd6ASLxhsPqiGA" association="_Gus8cLGOEd6moe-uIL_C5w">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Gu_3YrGOEd6moe-uIL_C5w" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Gu_3YbGOEd6moe-uIL_C5w"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Gus8cLGOEd6moe-uIL_C5w" name="alternativeTo" memberEnd="_Gu_3YLGOEd6moe-uIL_C5w _Gu_3Y7GOEd6moe-uIL_C5w">
+      <ownedEnd xmi:id="_Gu_3Y7GOEd6moe-uIL_C5w" name="" visibility="private" type="_Evy_wLGOEd6moe-uIL_C5w" association="_Gus8cLGOEd6moe-uIL_C5w">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GvJoYbGOEd6moe-uIL_C5w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GvJoYLGOEd6moe-uIL_C5w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_NC6sgLGOEd6moe-uIL_C5w" memberEnd="_NC6sgbGOEd6moe-uIL_C5w _NC6shLGOEd6moe-uIL_C5w">
+      <ownedEnd xmi:id="_NC6shLGOEd6moe-uIL_C5w" name="" visibility="private" type="_AT5BcKNyEd6eq4iOENa9wA" association="_NC6sgLGOEd6moe-uIL_C5w">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NC6shrGOEd6moe-uIL_C5w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NC6shbGOEd6moe-uIL_C5w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_xH3joLGdEd6moe-uIL_C5w" memberEnd="_xIBUoLGdEd6moe-uIL_C5w _xIBUo7GdEd6moe-uIL_C5w">
+      <ownedEnd xmi:id="_xIBUo7GdEd6moe-uIL_C5w" name="" visibility="private" type="_38q4QLGdEd6moe-uIL_C5w" association="_xH3joLGdEd6moe-uIL_C5w">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xIBUpbGdEd6moe-uIL_C5w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xIBUpLGdEd6moe-uIL_C5w"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_38q4QLGdEd6moe-uIL_C5w" name="Alternative">
+      <ownedComment xmi:id="_MKyRMLG7Ed6moe-uIL_C5w" annotatedElement="_38q4QLGdEd6moe-uIL_C5w">
+        <body>One Alternative contains all AlternativeTasks that together represent a component selection. </body>
+      </ownedComment>
+      <ownedAttribute xmi:id="_xIBUoLGdEd6moe-uIL_C5w" name="alternativetasks_Alternative" visibility="public" type="_Evy_wLGOEd6moe-uIL_C5w" aggregation="composite" association="_xH3joLGdEd6moe-uIL_C5w">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xIBUorGdEd6moe-uIL_C5w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xIBUobGdEd6moe-uIL_C5w" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_5vObALGdEd6moe-uIL_C5w" memberEnd="_5vObAbGdEd6moe-uIL_C5w _5vObBLGdEd6moe-uIL_C5w">
+      <ownedEnd xmi:id="_5vObBLGdEd6moe-uIL_C5w" name="" visibility="private" type="_AT5BcKNyEd6eq4iOENa9wA" association="_5vObALGdEd6moe-uIL_C5w">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5vXk8bGdEd6moe-uIL_C5w" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5vXk8LGdEd6moe-uIL_C5w"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:id="_JkoyBqHbEd6ASLxhsPqiGA">
+      <eAnnotations xmi:id="_JkoyB6HbEd6ASLxhsPqiGA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_JkoyCKHbEd6ASLxhsPqiGA">
+      <eAnnotations xmi:id="_JkoyCaHbEd6ASLxhsPqiGA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw"/>
+      </eAnnotations>
+      <appliedProfile href="Default.profile.uml#_a_S3wNWLEdiy4IqP8whjFA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_JkoyCqHbEd6ASLxhsPqiGA">
+      <eAnnotations xmi:id="_JkoyC6HbEd6ASLxhsPqiGA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="Deployment.profile.uml#_IrdAUMmBEdqBcN1R6EvWUw"/>
+      </eAnnotations>
+      <appliedProfile href="Deployment.profile.uml#_vjbuwOvHEdiDX5bji0iVSA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_At0s4KHcEd6ASLxhsPqiGA">
+      <eAnnotations xmi:id="_AuRY0KHcEd6ASLxhsPqiGA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Ecore:EPackage xmi:id="_Csoi8KHcEd6ASLxhsPqiGA" base_Package="_JkoyAaHbEd6ASLxhsPqiGA" packageName="taskmodel" nsPrefix="taskmodel" nsURI="http://sdq.ipd.uka.de/TaskModel/1.0" basePackage="de.uka.ipd.sdq.pcm" prefix="taskmodel"/>
+  <Default:Documentation xmi:id="_m_DZQLDcEd6LaLMWCgMGdQ" base_Comment="_m4W7YLDcEd6LaLMWCgMGdQ"/>
+  <Default:Documentation xmi:id="_rwMNALDcEd6LaLMWCgMGdQ" base_Comment="_rwCcALDcEd6LaLMWCgMGdQ"/>
+  <Default:Documentation xmi:id="_vzNWgLDcEd6LaLMWCgMGdQ" base_Comment="_vzDlgLDcEd6LaLMWCgMGdQ"/>
+  <Default:Documentation xmi:id="_z_JLcLDcEd6LaLMWCgMGdQ" base_Comment="_z_ABgLDcEd6LaLMWCgMGdQ"/>
+  <Default:Documentation xmi:id="_Hkjr0bDdEd6LaLMWCgMGdQ" base_Comment="_Hkjr0LDdEd6LaLMWCgMGdQ"/>
+  <Default:Documentation xmi:id="_PyLNgLDdEd6LaLMWCgMGdQ" base_Comment="_PyCDkLDdEd6LaLMWCgMGdQ"/>
+  <Default:Documentation xmi:id="_ulRuULDdEd6LaLMWCgMGdQ" base_Comment="_ulIkYLDdEd6LaLMWCgMGdQ"/>
+  <Default:Documentation xmi:id="_gZt8oLDfEd6LaLMWCgMGdQ" base_Comment="_gZnO8LDfEd6LaLMWCgMGdQ"/>
+  <Default:Documentation xmi:id="_-6HxoLDkEd6XDa9JyFGB5Q" base_Comment="_-5_OwbDkEd6XDa9JyFGB5Q"/>
+  <Default:Documentation xmi:id="__zYU4LDkEd6XDa9JyFGB5Q" base_Comment="__zRnMLDkEd6XDa9JyFGB5Q"/>
+  <Default:Documentation xmi:id="_AwVFULDlEd6XDa9JyFGB5Q" base_Comment="_AwOXoLDlEd6XDa9JyFGB5Q"/>
+  <Default:Documentation xmi:id="_BtvIwLDlEd6XDa9JyFGB5Q" base_Comment="_BtpCILDlEd6XDa9JyFGB5Q"/>
+  <Default:Documentation xmi:id="_Ca04QLDlEd6XDa9JyFGB5Q" base_Comment="_CavYsLDlEd6XDa9JyFGB5Q"/>
+  <Default:Documentation xmi:id="_DbWhILDlEd6XDa9JyFGB5Q" base_Comment="_DbRBkLDlEd6XDa9JyFGB5Q"/>
+  <Default:Documentation xmi:id="_NLbS0bGPEd6moe-uIL_C5w" base_Comment="_NLbS0LGPEd6moe-uIL_C5w"/>
+  <Default:Documentation xmi:id="_MKyRMbG7Ed6moe-uIL_C5w" base_Comment="_MKyRMLG7Ed6moe-uIL_C5w"/>
+</xmi:XMI>

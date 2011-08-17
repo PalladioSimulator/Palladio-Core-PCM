@@ -1,0 +1,1848 @@
+
+{ 
+    identifier: 'id',
+    label: 'title',
+    items: [
+        {
+            title: 'Diagrams',
+            top: true,
+            id: '_DIAGRAMS_ROOT_NODE_',
+            icon: 'icon587540785',
+            children: [
+                {_reference: '_.dY.c.fAS3.yE.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_.nUN84C34E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_OG6K.cC35E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_.i.oF.e.wC4VE.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_P.n.sJ.oSSWE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_S.e.tVMC0JE.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_Y.y4.pAC0JE.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_.i0MC8C0WE.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_RL.u_M.v.z.oE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_T7W.w.sP.z0E.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_.a.b.k8.cP.z0E.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_.m7X-AFBDE.d6.lLNQ.qY.t_KP.w' },
+                {_reference: '_.iO.m_EM6WE.d6.jQ-Z.tIY.x53A' },
+                {_reference: '_I.tQ.bYBNYE.d-H.cN.f.n.a0.f.n7.g' },
+                {_reference: '_9.uA.wIB.p.pE.d-DP.u.nS.q.q.pZQQ' },
+                {_reference: '_F.y3Q.sOZ.oE.d-.jJ-P2.mRD.oSA' },
+                {_reference: '_Q.r7.n0B.m0E.eC.y.m.q.sKFY.q-AA' },
+                {_reference: '_.k7Z.h4P7FE.d-I0.aX6E.m3.k2A' }
+            ]
+        },
+        {
+            title: 'DesignDecision::QualityProperties::QualityProperties',
+            id: '_.dY.c.fAS3.yE.eCCDMF.bLB.j3.c.g',
+            object: '_.dY.c.fAS3.yE.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon-704302066'
+        },
+	
+        {
+            title: 'DesignDecision::QualityProperties::EvaluatedCandidate',
+            id: '_.nUN84C34E.eCCDMF.bLB.j3.c.g',
+            object: '_.nUN84C34E.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::QualityProperties::WithResultDecoratorForPerformance',
+            id: '_OG6K.cC35E.eCCDMF.bLB.j3.c.g',
+            object: '_OG6K.cC35E.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::QualityProperties::QualityPrediction',
+            id: '_.i.oF.e.wC4VE.eCCDMF.bLB.j3.c.g',
+            object: '_.i.oF.e.wC4VE.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::GDoF::Generic Degree of Freedom',
+            id: '_P.n.sJ.oSSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_P.n.sJ.oSSWE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon-704302066'
+        },
+	
+        {
+            title: 'DesignDecision::GDoF::Generic Degree of Freedom with OCL',
+            id: '_S.e.tVMC0JE.eCCDMF.bLB.j3.c.g',
+            object: '_S.e.tVMC0JE.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon-704302066'
+        },
+	
+        {
+            title: 'DesignDecision::GDoF::Generic Degree of Freedom OCL',
+            id: '_Y.y4.pAC0JE.eCCDMF.bLB.j3.c.g',
+            object: '_Y.y4.pAC0JE.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon-704302066'
+        },
+	
+        {
+            title: 'DesignDecision::GDoF::Generic Degree of Freedom and Instance',
+            id: '_.i0MC8C0WE.eCCDMF.bLB.j3.c.g',
+            object: '_.i0MC8C0WE.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon-704302066'
+        },
+	
+        {
+            title: 'DesignDecision::confusing overview',
+            id: '_RL.u_M.v.z.oE.d2.sB.a2P.oI_L.qA',
+            object: '_RL.u_M.v.z.oE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::Decision and Choice',
+            id: '_T7W.w.sP.z0E.d2.sB.a2P.oI_L.qA',
+            object: '_T7W.w.sP.z0E.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::ProcessingRateDegree',
+            id: '_.a.b.k8.cP.z0E.d2.sB.a2P.oI_L.qA',
+            object: '_.a.b.k8.cP.z0E.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::AssembledComponentDegree',
+            id: '_.m7X-AFBDE.d6.lLNQ.qY.t_KP.w',
+            object: '_.m7X-AFBDE.d6.lLNQ.qY.t_KP.w-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::Inheritance of Degrees',
+            id: '_.iO.m_EM6WE.d6.jQ-Z.tIY.x53A',
+            object: '_.iO.m_EM6WE.d6.jQ-Z.tIY.x53A-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::Choices',
+            id: '_I.tQ.bYBNYE.d-H.cN.f.n.a0.f.n7.g',
+            object: '_I.tQ.bYBNYE.d-H.cN.f.n.a0.f.n7.g-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::Small Decision Overview',
+            id: '_9.uA.wIB.p.pE.d-DP.u.nS.q.q.pZQQ',
+            object: '_9.uA.wIB.p.pE.d-DP.u.nS.q.q.pZQQ-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::MOF Decision Overview',
+            id: '_F.y3Q.sOZ.oE.d-.jJ-P2.mRD.oSA',
+            object: '_F.y3Q.sOZ.oE.d-.jJ-P2.mRD.oSA-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::PCM Decision Overview',
+            id: '_Q.r7.n0B.m0E.eC.y.m.q.sKFY.q-AA',
+            object: '_Q.r7.n0B.m0E.eC.y.m.q.sKFY.q-AA-content.html',
+            icon: 'icon1107626590'
+        },
+	
+        {
+            title: 'DesignDecision::resourcerepository::ResourceRepository diagram',
+            id: '_.k7Z.h4P7FE.d-I0.aX6E.m3.k2A',
+            object: '_.k7Z.h4P7FE.d-I0.aX6E.m3.k2A-content.html',
+            icon: 'icon-704302066'
+        },
+	
+        {
+            title: 'Models',
+            top: true,
+            id: '_MODELS_ROOT_NODE_',
+            icon: 'icon587540785',
+            children: [
+                {_reference: '_RL.u_MP.z.oE.d2.sB.a2P.oI_L.qA' }
+            ]
+
+        },
+        {
+            title: 'DesignDecision',
+            id: '_RL.u_MP.z.oE.d2.sB.a2P.oI_L.qA',
+            object: '_RL.u_MP.z.oE.d2.sB.a2P.oI_L.qA-top-summary.html',
+            icon: 'icon587540785',
+            children: [
+                {_reference: '_.k.h.i9UP.z.oE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_BHSO.sP.z.pE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_C.r1K.oP.z.pE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_2.oE.y8P.z.qE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_3H9M4P.z.qE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_.eHYO4P.z.rE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_OCDU.oP.z.sE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_6AUSYP.z.wE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_DV.kK.gP.z.xE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_F.h.sD0P.z.xE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_BBE.i4P.z.yE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_CC-.r0P.z.yE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_R-R1.cP.z.zE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_.aLDC.kP.z.zE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_7.d.tWEP.z.zE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_9BB.i8P.z.zE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_V.q_Y.cKH.eE.d6ASL.x.h.sP.q.iGA' },
+                {_reference: '_XXUXYKH.eE.d6ASL.x.h.sP.q.iGA' },
+                {_reference: '_.m.xL.dUKH.eE.d6ASL.x.h.sP.q.iGA' },
+                {_reference: '_.oQ.s.vUKH.eE.d6ASL.x.h.sP.q.iGA' },
+                {_reference: '_.u.n.f5UKH.eE.d6ASL.x.h.sP.q.iGA' },
+                {_reference: '_E.bZ9ALD.yE.d6XD.a9J.yFGB5Q' },
+                {_reference: '_.aB49QLD.yE.d6XD.a9J.yFGB5Q' },
+                {_reference: '_SUNW.gLELE.d6XD.a9J.yFGB5Q' },
+                {_reference: '_N.v8.tIM3TE.d6M.b.eRXR.wI.g2A' },
+                {_reference: '_YD5CIM3TE.d6M.b.eRXR.wI.g2A' },
+                {_reference: '_.g9V.vEM3TE.d6M.b.eRXR.wI.g2A' },
+                {_reference: '_SIT.i.kM3VE.d6M.b.eRXR.wI.g2A' },
+                {_reference: '_YB.u0EM3VE.d6M.b.eRXR.wI.g2A' },
+                {_reference: '_.x.x60.oM3VE.d6M.b.eRXR.wI.g2A' },
+                {_reference: '_0.w.f.e.kM3VE.d6M.b.eRXR.wI.g2A' },
+                {_reference: '_6SC.b.kM3VE.d6M.b.eRXR.wI.g2A' },
+                {_reference: '_D.f.qE0EF.dE.d-8BK.c.v5M.hV.wA' },
+                {_reference: '_IB12.kEF.dE.d-8BK.c.v5M.hV.wA' },
+                {_reference: '_LSJE.oLUXE.d-.iB5E5ZP.m7E.g' },
+                {_reference: '_X4.z.qMLUXE.d-.iB5E5ZP.m7E.g' },
+                {_reference: '_E.n.l.b.sLUYE.d-.iB5E5ZP.m7E.g' },
+                {_reference: '_G4.dSILUYE.d-.iB5E5ZP.m7E.g' },
+                {_reference: '_14.kQALW7E.d-.iB5E5ZP.m7E.g' },
+                {_reference: '_.k6P.rUP7FE.d-I0.aX6E.m3.k2A' },
+                {_reference: '_.gQH.sQB.m.lE.eC.y.m.q.sKFY.q-AA' },
+                {_reference: '_.mC.r.g.wB.m.lE.eC.y.m.q.sKFY.q-AA' },
+                {_reference: '_V.hE6MB.m.mE.eC.y.m.q.sKFY.q-AA' },
+                {_reference: '_C.z.d.uEB.m.yE.eC.y.m.q.sKFY.q-AA' },
+                {_reference: '_.mJ9.h.kB.m.yE.eC.y.m.q.sKFY.q-AA' },
+                {_reference: '_RBF.jAB.m1E.eC.y.m.q.sKFY.q-AA' },
+                {_reference: '_.rK.r.d.cB.o2E.eC.y.m.q.sKFY.q-AA' },
+                {_reference: '_.uF.mW.cB.o2E.eC.y.m.q.sKFY.q-AA' },
+                {_reference: '_.v-S9.cB.o2E.eC.y.m.q.sKFY.q-AA' },
+                {_reference: '_P.n.l.b8CSWE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_1NB.xACVLE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.dYZ.b.sC3.yE.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_.rBT5.sC34E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_.l.c5MUE.r.rE.eC.gHJIR5A.m.n.z.w' },
+                {_reference: '_2.eD.nQE.r.rE.eC.gHJIR5A.m.n.z.w' },
+                {_reference: '_EH6.vME.r.sE.eC.gHJIR5A.m.n.z.w' },
+                {_reference: '_.x4HH.wLO.iE.eC5.aY.z3.xO.a.e.vA' },
+                {_reference: '_M_.g.t.sM.c9E.eCA.i.qH.xI6.x.y.a.g' },
+                {_reference: '_-.lI.q.oM.dDE.eCAU.r8T.wC.w8QA' }
+            ]
+        }
+		,
+        {
+            title: 'DegreeOfFreedomInstance',
+            id: '_.k.h.i9UP.z.oE.d2.sB.a2P.oI_L.qA',
+            object: '_.k.h.i9UP.z.oE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_SUP.y.wLELE.d6XD.a9J.yFGB5Q' },
+                {_reference: '_1ND.mMCVLE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: 'primaryChanged',
+            id: '_SUP.y.wLELE.d6XD.a9J.yFGB5Q',
+            object: '_.k.h.i9UP.z.oE.d2.sB.a2P.oI_L.qA-content.html#_SUP.y.wLELE.d6XD.a9J.yFGB5Q',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'dof',
+            id: '_1ND.mMCVLE.eC.hWKM.qI1.k.kW.w',
+            object: '_.k.h.i9UP.z.oE.d2.sB.a2P.oI_L.qA-content.html#_1ND.mMCVLE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'Choice',
+            id: '_BHSO.sP.z.pE.d2.sB.a2P.oI_L.qA',
+            object: '_BHSO.sP.z.pE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_M.e.s.u.cCVRE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.t7W7MCVAE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_C.r1K.o.f.z.pE.d2.sB.a2P.oI_L.qA' }
+            ]
+        }
+		,
+        {
+            title: 'value',
+            id: '_M.e.s.u.cCVRE.eC.hWKM.qI1.k.kW.w',
+            object: '_BHSO.sP.z.pE.d2.sB.a2P.oI_L.qA-content.html#_M.e.s.u.cCVRE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'isActive',
+            id: '_.t7W7MCVAE.eC.hWKM.qI1.k.kW.w',
+            object: '_BHSO.sP.z.pE.d2.sB.a2P.oI_L.qA-content.html#_.t7W7MCVAE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'degreeOfFreedomInstance',
+            id: '_C.r1K.o.f.z.pE.d2.sB.a2P.oI_L.qA',
+            object: '_BHSO.sP.z.pE.d2.sB.a2P.oI_L.qA-content.html#_C.r1K.o.f.z.pE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_C.r1K.oP.z.pE.d2.sB.a2P.oI_L.qA',
+            object: '_C.r1K.oP.z.pE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_C.r1K.o.v.z.pE.d2.sB.a2P.oI_L.qA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_C.r1K.o.v.z.pE.d2.sB.a2P.oI_L.qA',
+            object: '_C.r1K.oP.z.pE.d2.sB.a2P.oI_L.qA-content.html#_C.r1K.o.v.z.pE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'RangeDegree',
+            id: '_2.oE.y8P.z.qE.d2.sB.a2P.oI_L.qA',
+            object: '_2.oE.y8P.z.qE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.cYG.l.cP.z.yE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_.aS.gK4P.z.yE.d2.sB.a2P.oI_L.qA' }
+            ]
+        }
+		,
+        {
+            title: 'upperBoundIncluded',
+            id: '_.cYG.l.cP.z.yE.d2.sB.a2P.oI_L.qA',
+            object: '_2.oE.y8P.z.qE.d2.sB.a2P.oI_L.qA-content.html#_.cYG.l.cP.z.yE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'lowerBoundIncluded',
+            id: '_.aS.gK4P.z.yE.d2.sB.a2P.oI_L.qA',
+            object: '_2.oE.y8P.z.qE.d2.sB.a2P.oI_L.qA-content.html#_.aS.gK4P.z.yE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'ClassDegree',
+            id: '_3H9M4P.z.qE.d2.sB.a2P.oI_L.qA',
+            object: '_3H9M4P.z.qE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.aB6.y.cLD.yE.d6XD.a9J.yFGB5Q' }
+            ]
+        }
+		,
+        {
+            title: 'classDesignOptions',
+            id: '_.aB6.y.cLD.yE.d6XD.a9J.yFGB5Q',
+            object: '_3H9M4P.z.qE.d2.sB.a2P.oI_L.qA-content.html#_.aB6.y.cLD.yE.d6XD.a9J.yFGB5Q',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'ClassChoice',
+            id: '_.eHYO4P.z.rE.d2.sB.a2P.oI_L.qA',
+            object: '_.eHYO4P.z.rE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_E.b.eO.cLD.yE.d6XD.a9J.yFGB5Q' }
+            ]
+        }
+		,
+        {
+            title: 'chosenValue',
+            id: '_E.b.eO.cLD.yE.d6XD.a9J.yFGB5Q',
+            object: '_.eHYO4P.z.rE.d2.sB.a2P.oI_L.qA-content.html#_E.b.eO.cLD.yE.d6XD.a9J.yFGB5Q',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'ContinousRangeChoice',
+            id: '_OCDU.oP.z.sE.d2.sB.a2P.oI_L.qA',
+            object: '_OCDU.oP.z.sE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_8.n.m.oQP.z.xE.d2.sB.a2P.oI_L.qA' }
+            ]
+        }
+		,
+        {
+            title: 'chosenValue',
+            id: '_8.n.m.oQP.z.xE.d2.sB.a2P.oI_L.qA',
+            object: '_OCDU.oP.z.sE.d2.sB.a2P.oI_L.qA-content.html#_8.n.m.oQP.z.xE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'ContinuousProcessingRateDegree',
+            id: '_6AUSYP.z.wE.d2.sB.a2P.oI_L.qA',
+            object: '_6AUSYP.z.wE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'AllocationDegree',
+            id: '_DV.kK.gP.z.xE.d2.sB.a2P.oI_L.qA',
+            object: '_DV.kK.gP.z.xE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'AssembledComponentDegree',
+            id: '_F.h.sD0P.z.xE.d2.sB.a2P.oI_L.qA',
+            object: '_F.h.sD0P.z.xE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'DiscreteRangeDegree',
+            id: '_BBE.i4P.z.yE.d2.sB.a2P.oI_L.qA',
+            object: '_BBE.i4P.z.yE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_XB.oQAP.z.yE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_WK41QP.z.yE.d2.sB.a2P.oI_L.qA' }
+            ]
+        }
+		,
+        {
+            title: 'to',
+            id: '_XB.oQAP.z.yE.d2.sB.a2P.oI_L.qA',
+            object: '_BBE.i4P.z.yE.d2.sB.a2P.oI_L.qA-content.html#_XB.oQAP.z.yE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'from',
+            id: '_WK41QP.z.yE.d2.sB.a2P.oI_L.qA',
+            object: '_BBE.i4P.z.yE.d2.sB.a2P.oI_L.qA-content.html#_WK41QP.z.yE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'ContinuousRangeDegree',
+            id: '_CC-.r0P.z.yE.d2.sB.a2P.oI_L.qA',
+            object: '_CC-.r0P.z.yE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.hQWG.wP.z.yE.d2.sB.a2P.oI_L.qA' },
+                {_reference: '_.f5I.cMP.z.yE.d2.sB.a2P.oI_L.qA' }
+            ]
+        }
+		,
+        {
+            title: 'to',
+            id: '_.hQWG.wP.z.yE.d2.sB.a2P.oI_L.qA',
+            object: '_CC-.r0P.z.yE.d2.sB.a2P.oI_L.qA-content.html#_.hQWG.wP.z.yE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'from',
+            id: '_.f5I.cMP.z.yE.d2.sB.a2P.oI_L.qA',
+            object: '_CC-.r0P.z.yE.d2.sB.a2P.oI_L.qA-content.html#_.f5I.cMP.z.yE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'DiscreteRangeChoice',
+            id: '_R-R1.cP.z.zE.d2.sB.a2P.oI_L.qA',
+            object: '_R-R1.cP.z.zE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_U.u.q5.cP.z.zE.d2.sB.a2P.oI_L.qA' }
+            ]
+        }
+		,
+        {
+            title: 'chosenValue',
+            id: '_U.u.q5.cP.z.zE.d2.sB.a2P.oI_L.qA',
+            object: '_R-R1.cP.z.zE.d2.sB.a2P.oI_L.qA-content.html#_U.u.q5.cP.z.zE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'ResourceContainerReplicationDegree',
+            id: '_.aLDC.kP.z.zE.d2.sB.a2P.oI_L.qA',
+            object: '_.aLDC.kP.z.zE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'DecisionSpace',
+            id: '_7.d.tWEP.z.zE.d2.sB.a2P.oI_L.qA',
+            object: '_7.d.tWEP.z.zE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_9BB.i8.f.z.zE.d2.sB.a2P.oI_L.qA' }
+            ]
+        }
+		,
+        {
+            title: 'degreesOfFreedom',
+            id: '_9BB.i8.f.z.zE.d2.sB.a2P.oI_L.qA',
+            object: '_7.d.tWEP.z.zE.d2.sB.a2P.oI_L.qA-content.html#_9BB.i8.f.z.zE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_9BB.i8P.z.zE.d2.sB.a2P.oI_L.qA',
+            object: '_9BB.i8P.z.zE.d2.sB.a2P.oI_L.qA-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_9BB.i9P.z.zE.d2.sB.a2P.oI_L.qA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_9BB.i9P.z.zE.d2.sB.a2P.oI_L.qA',
+            object: '_9BB.i8P.z.zE.d2.sB.a2P.oI_L.qA-content.html#_9BB.i9P.z.zE.d2.sB.a2P.oI_L.qA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'Candidate',
+            id: '_V.q_Y.cKH.eE.d6ASL.x.h.sP.q.iGA',
+            object: '_V.q_Y.cKH.eE.d6ASL.x.h.sP.q.iGA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_XXUXY.aH.eE.d6ASL.x.h.sP.q.iGA' },
+                {_reference: '_.rBV.u4C34E.eCCDMF.bLB.j3.c.g' }
+            ]
+        }
+		,
+        {
+            title: 'choices',
+            id: '_XXUXY.aH.eE.d6ASL.x.h.sP.q.iGA',
+            object: '_V.q_Y.cKH.eE.d6ASL.x.h.sP.q.iGA-content.html#_XXUXY.aH.eE.d6ASL.x.h.sP.q.iGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'qualityProperty',
+            id: '_.rBV.u4C34E.eCCDMF.bLB.j3.c.g',
+            object: '_V.q_Y.cKH.eE.d6ASL.x.h.sP.q.iGA-content.html#_.rBV.u4C34E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: '',
+            id: '_XXUXYKH.eE.d6ASL.x.h.sP.q.iGA',
+            object: '_XXUXYKH.eE.d6ASL.x.h.sP.q.iGA-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_XXUXZKH.eE.d6ASL.x.h.sP.q.iGA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_XXUXZKH.eE.d6ASL.x.h.sP.q.iGA',
+            object: '_XXUXYKH.eE.d6ASL.x.h.sP.q.iGA-content.html#_XXUXZKH.eE.d6ASL.x.h.sP.q.iGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'Candidates',
+            id: '_.m.xL.dUKH.eE.d6ASL.x.h.sP.q.iGA',
+            object: '_.m.xL.dUKH.eE.d6ASL.x.h.sP.q.iGA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.oQ.s.vU.aH.eE.d6ASL.x.h.sP.q.iGA' },
+                {_reference: '_.u.n.f5U.aH.eE.d6ASL.x.h.sP.q.iGA' }
+            ]
+        }
+		,
+        {
+            title: 'candidate',
+            id: '_.oQ.s.vU.aH.eE.d6ASL.x.h.sP.q.iGA',
+            object: '_.m.xL.dUKH.eE.d6ASL.x.h.sP.q.iGA-content.html#_.oQ.s.vU.aH.eE.d6ASL.x.h.sP.q.iGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'problem',
+            id: '_.u.n.f5U.aH.eE.d6ASL.x.h.sP.q.iGA',
+            object: '_.m.xL.dUKH.eE.d6ASL.x.h.sP.q.iGA-content.html#_.u.n.f5U.aH.eE.d6ASL.x.h.sP.q.iGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.oQ.s.vUKH.eE.d6ASL.x.h.sP.q.iGA',
+            object: '_.oQ.s.vUKH.eE.d6ASL.x.h.sP.q.iGA-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_.oQ2.gUKH.eE.d6ASL.x.h.sP.q.iGA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.oQ2.gUKH.eE.d6ASL.x.h.sP.q.iGA',
+            object: '_.oQ.s.vUKH.eE.d6ASL.x.h.sP.q.iGA-content.html#_.oQ2.gUKH.eE.d6ASL.x.h.sP.q.iGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.u.n.f5UKH.eE.d6ASL.x.h.sP.q.iGA',
+            object: '_.u.n.f5UKH.eE.d6ASL.x.h.sP.q.iGA-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_.u.n.f5VKH.eE.d6ASL.x.h.sP.q.iGA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.u.n.f5VKH.eE.d6ASL.x.h.sP.q.iGA',
+            object: '_.u.n.f5UKH.eE.d6ASL.x.h.sP.q.iGA-content.html#_.u.n.f5VKH.eE.d6ASL.x.h.sP.q.iGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_E.bZ9ALD.yE.d6XD.a9J.yFGB5Q',
+            object: '_E.bZ9ALD.yE.d6XD.a9J.yFGB5Q-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_E.b.kVELD.yE.d6XD.a9J.yFGB5Q' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_E.b.kVELD.yE.d6XD.a9J.yFGB5Q',
+            object: '_E.bZ9ALD.yE.d6XD.a9J.yFGB5Q-content.html#_E.b.kVELD.yE.d6XD.a9J.yFGB5Q',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.aB49QLD.yE.d6XD.a9J.yFGB5Q',
+            object: '_.aB49QLD.yE.d6XD.a9J.yFGB5Q-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_.aB-.c0LD.yE.d6XD.a9J.yFGB5Q' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.aB-.c0LD.yE.d6XD.a9J.yFGB5Q',
+            object: '_.aB49QLD.yE.d6XD.a9J.yFGB5Q-content.html#_.aB-.c0LD.yE.d6XD.a9J.yFGB5Q',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_SUNW.gLELE.d6XD.a9J.yFGB5Q',
+            object: '_SUNW.gLELE.d6XD.a9J.yFGB5Q-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_SUS2ELELE.d6XD.a9J.yFGB5Q' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_SUS2ELELE.d6XD.a9J.yFGB5Q',
+            object: '_SUNW.gLELE.d6XD.a9J.yFGB5Q-content.html#_SUS2ELELE.d6XD.a9J.yFGB5Q',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'FeatureConfigDegree',
+            id: '_N.v8.tIM3TE.d6M.b.eRXR.wI.g2A',
+            object: '_N.v8.tIM3TE.d6M.b.eRXR.wI.g2A-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'FeatureGroupDegree',
+            id: '_YD5CIM3TE.d6M.b.eRXR.wI.g2A',
+            object: '_YD5CIM3TE.d6M.b.eRXR.wI.g2A-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_YB.w.pQM3VE.d6M.b.eRXR.wI.g2A' },
+                {_reference: '_0.w.h60M3VE.d6M.b.eRXR.wI.g2A' }
+            ]
+        }
+		,
+        {
+            title: 'featuregroup',
+            id: '_YB.w.pQM3VE.d6M.b.eRXR.wI.g2A',
+            object: '_YD5CIM3TE.d6M.b.eRXR.wI.g2A-content.html#_YB.w.pQM3VE.d6M.b.eRXR.wI.g2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'domainOfFeatureConfigCombinations',
+            id: '_0.w.h60M3VE.d6M.b.eRXR.wI.g2A',
+            object: '_YD5CIM3TE.d6M.b.eRXR.wI.g2A-content.html#_0.w.h60M3VE.d6M.b.eRXR.wI.g2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'OptionalFeatureDegree',
+            id: '_.g9V.vEM3TE.d6M.b.eRXR.wI.g2A',
+            object: '_.g9V.vEM3TE.d6M.b.eRXR.wI.g2A-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_SIV-0M3VE.d6M.b.eRXR.wI.g2A' }
+            ]
+        }
+		,
+        {
+            title: 'simple',
+            id: '_SIV-0M3VE.d6M.b.eRXR.wI.g2A',
+            object: '_.g9V.vEM3TE.d6M.b.eRXR.wI.g2A-content.html#_SIV-0M3VE.d6M.b.eRXR.wI.g2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_SIT.i.kM3VE.d6M.b.eRXR.wI.g2A',
+            object: '_SIT.i.kM3VE.d6M.b.eRXR.wI.g2A-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_SIZCIM3VE.d6M.b.eRXR.wI.g2A' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_SIZCIM3VE.d6M.b.eRXR.wI.g2A',
+            object: '_SIT.i.kM3VE.d6M.b.eRXR.wI.g2A-content.html#_SIZCIM3VE.d6M.b.eRXR.wI.g2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_YB.u0EM3VE.d6M.b.eRXR.wI.g2A',
+            object: '_YB.u0EM3VE.d6M.b.eRXR.wI.g2A-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_YB.z.s.kM3VE.d6M.b.eRXR.wI.g2A' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_YB.z.s.kM3VE.d6M.b.eRXR.wI.g2A',
+            object: '_YB.u0EM3VE.d6M.b.eRXR.wI.g2A-content.html#_YB.z.s.kM3VE.d6M.b.eRXR.wI.g2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'FeatureSubset',
+            id: '_.x.x60.oM3VE.d6M.b.eRXR.wI.g2A',
+            object: '_.x.x60.oM3VE.d6M.b.eRXR.wI.g2A-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_6SEQ.wM3VE.d6M.b.eRXR.wI.g2A' }
+            ]
+        }
+		,
+        {
+            title: 'feature',
+            id: '_6SEQ.wM3VE.d6M.b.eRXR.wI.g2A',
+            object: '_.x.x60.oM3VE.d6M.b.eRXR.wI.g2A-content.html#_6SEQ.wM3VE.d6M.b.eRXR.wI.g2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_0.w.f.e.kM3VE.d6M.b.eRXR.wI.g2A',
+            object: '_0.w.f.e.kM3VE.d6M.b.eRXR.wI.g2A-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_0.w.k-IM3VE.d6M.b.eRXR.wI.g2A' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_0.w.k-IM3VE.d6M.b.eRXR.wI.g2A',
+            object: '_0.w.f.e.kM3VE.d6M.b.eRXR.wI.g2A-content.html#_0.w.k-IM3VE.d6M.b.eRXR.wI.g2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_6SC.b.kM3VE.d6M.b.eRXR.wI.g2A',
+            object: '_6SC.b.kM3VE.d6M.b.eRXR.wI.g2A-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_6SHUEM3VE.d6M.b.eRXR.wI.g2A' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_6SHUEM3VE.d6M.b.eRXR.wI.g2A',
+            object: '_6SC.b.kM3VE.d6M.b.eRXR.wI.g2A-content.html#_6SHUEM3VE.d6M.b.eRXR.wI.g2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'ProcessingResourceDegree',
+            id: '_D.f.qE0EF.dE.d-8BK.c.v5M.hV.wA',
+            object: '_D.f.qE0EF.dE.d-8BK.c.v5M.hV.wA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.v7.c.g8B.o6E.eC.y.m.q.sKFY.q-AA' }
+            ]
+        }
+		,
+        {
+            title: 'processingresourcetype',
+            id: '_.v7.c.g8B.o6E.eC.y.m.q.sKFY.q-AA',
+            object: '_D.f.qE0EF.dE.d-8BK.c.v5M.hV.wA-content.html#_.v7.c.g8B.o6E.eC.y.m.q.sKFY.q-AA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'DiscreteProcessingRateDegree',
+            id: '_IB12.kEF.dE.d-8BK.c.v5M.hV.wA',
+            object: '_IB12.kEF.dE.d-8BK.c.v5M.hV.wA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_K6.i.iAEF.dE.d-8BK.c.v5M.hV.wA' }
+            ]
+        }
+		,
+        {
+            title: 'numberOfSteps',
+            id: '_K6.i.iAEF.dE.d-8BK.c.v5M.hV.wA',
+            object: '_IB12.kEF.dE.d-8BK.c.v5M.hV.wA-content.html#_K6.i.iAEF.dE.d-8BK.c.v5M.hV.wA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'CapacityDegree',
+            id: '_LSJE.oLUXE.d-.iB5E5ZP.m7E.g',
+            object: '_LSJE.oLUXE.d-.iB5E5ZP.m7E.g-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'SchedulingPolicyDegree',
+            id: '_X4.z.qMLUXE.d-.iB5E5ZP.m7E.g',
+            object: '_X4.z.qMLUXE.d-.iB5E5ZP.m7E.g-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_14.m.sQLW7E.d-.iB5E5ZP.m7E.g' }
+            ]
+        }
+		,
+        {
+            title: 'domainOfAllowedSchedulingPolicies',
+            id: '_14.m.sQLW7E.d-.iB5E5ZP.m7E.g',
+            object: '_X4.z.qMLUXE.d-.iB5E5ZP.m7E.g-content.html#_14.m.sQLW7E.d-.iB5E5ZP.m7E.g',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'EnumDegree',
+            id: '_E.n.l.b.sLUYE.d-.iB5E5ZP.m7E.g',
+            object: '_E.n.l.b.sLUYE.d-.iB5E5ZP.m7E.g-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.l.dBIIE.r.rE.eC.gHJIR5A.m.n.z.w' }
+            ]
+        }
+		,
+        {
+            title: 'enumeration',
+            id: '_.l.dBIIE.r.rE.eC.gHJIR5A.m.n.z.w',
+            object: '_E.n.l.b.sLUYE.d-.iB5E5ZP.m7E.g-content.html#_.l.dBIIE.r.rE.eC.gHJIR5A.m.n.z.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'SchedulingPolicyChoice',
+            id: '_G4.dSILUYE.d-.iB5E5ZP.m7E.g',
+            object: '_G4.dSILUYE.d-.iB5E5ZP.m7E.g-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_P.a.l.rQLUYE.d-.iB5E5ZP.m7E.g' }
+            ]
+        }
+		,
+        {
+            title: 'chosenValue',
+            id: '_P.a.l.rQLUYE.d-.iB5E5ZP.m7E.g',
+            object: '_G4.dSILUYE.d-.iB5E5ZP.m7E.g-content.html#_P.a.l.rQLUYE.d-.iB5E5ZP.m7E.g',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: '',
+            id: '_14.kQALW7E.d-.iB5E5ZP.m7E.g',
+            object: '_14.kQALW7E.d-.iB5E5ZP.m7E.g-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_1461ULW7E.d-.iB5E5ZP.m7E.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_1461ULW7E.d-.iB5E5ZP.m7E.g',
+            object: '_14.kQALW7E.d-.iB5E5ZP.m7E.g-content.html#_1461ULW7E.d-.iB5E5ZP.m7E.g',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'resourcerepository',
+            id: '_.k6P.rUP7FE.d-I0.aX6E.m3.k2A',
+            object: '_.k6P.rUP7FE.d-I0.aX6E.m3.k2A-content.html',
+            icon: 'icon-1576717915',
+            children: [
+                {_reference: '_.uJ.c.l0P7FE.d-I0.aX6E.m3.k2A' },
+                {_reference: '_.v.tS-MP7FE.d-I0.aX6E.m3.k2A' },
+                {_reference: '_A.c.o.d8P71E.d-I0.aX6E.m3.k2A' },
+                {_reference: '_NO.m.fIP72E.d-I0.aX6E.m3.k2A' },
+                {_reference: '_R.uW.n8P72E.d-I0.aX6E.m3.k2A' }
+            ]
+        }
+		,
+        {
+            title: 'ResourceDescriptionRepository',
+            id: '_.uJ.c.l0P7FE.d-I0.aX6E.m3.k2A',
+            object: '_.uJ.c.l0P7FE.d-I0.aX6E.m3.k2A-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.v.tW.o.kP7FE.d-I0.aX6E.m3.k2A' }
+            ]
+        }
+		,
+        {
+            title: 'availableProcessingResources_ResourceRepository',
+            id: '_.v.tW.o.kP7FE.d-I0.aX6E.m3.k2A',
+            object: '_.uJ.c.l0P7FE.d-I0.aX6E.m3.k2A-content.html#_.v.tW.o.kP7FE.d-I0.aX6E.m3.k2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.v.tS-MP7FE.d-I0.aX6E.m3.k2A',
+            object: '_.v.tS-MP7FE.d-I0.aX6E.m3.k2A-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_.v.t.q.x.oP7FE.d-I0.aX6E.m3.k2A' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.v.t.q.x.oP7FE.d-I0.aX6E.m3.k2A',
+            object: '_.v.tS-MP7FE.d-I0.aX6E.m3.k2A-content.html#_.v.t.q.x.oP7FE.d-I0.aX6E.m3.k2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'ResourceDescription',
+            id: '_A.c.o.d8P71E.d-I0.aX6E.m3.k2A',
+            object: '_A.c.o.d8P71E.d-I0.aX6E.m3.k2A-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_NO.o7YP72E.d-I0.aX6E.m3.k2A' },
+                {_reference: '_R.uY.dIP72E.d-I0.aX6E.m3.k2A' }
+            ]
+        }
+		,
+        {
+            title: 'fixedProcessingResourceCost_ResourceDescription',
+            id: '_NO.o7YP72E.d-I0.aX6E.m3.k2A',
+            object: '_A.c.o.d8P71E.d-I0.aX6E.m3.k2A-content.html#_NO.o7YP72E.d-I0.aX6E.m3.k2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'processingResourceSpecification_ResourceDescription',
+            id: '_R.uY.dIP72E.d-I0.aX6E.m3.k2A',
+            object: '_A.c.o.d8P71E.d-I0.aX6E.m3.k2A-content.html#_R.uY.dIP72E.d-I0.aX6E.m3.k2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_NO.m.fIP72E.d-I0.aX6E.m3.k2A',
+            object: '_NO.m.fIP72E.d-I0.aX6E.m3.k2A-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_NO.r-.sP72E.d-I0.aX6E.m3.k2A' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_NO.r-.sP72E.d-I0.aX6E.m3.k2A',
+            object: '_NO.m.fIP72E.d-I0.aX6E.m3.k2A-content.html#_NO.r-.sP72E.d-I0.aX6E.m3.k2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_R.uW.n8P72E.d-I0.aX6E.m3.k2A',
+            object: '_R.uW.n8P72E.d-I0.aX6E.m3.k2A-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_R.u.cH.gP72E.d-I0.aX6E.m3.k2A' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_R.u.cH.gP72E.d-I0.aX6E.m3.k2A',
+            object: '_R.uW.n8P72E.d-I0.aX6E.m3.k2A-content.html#_R.u.cH.gP72E.d-I0.aX6E.m3.k2A',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'ClassAsReferenceDegree',
+            id: '_.gQH.sQB.m.lE.eC.y.m.q.sKFY.q-AA',
+            object: '_.gQH.sQB.m.lE.eC.y.m.q.sKFY.q-AA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'ClassWithCopyDegree',
+            id: '_.mC.r.g.wB.m.lE.eC.y.m.q.sKFY.q-AA',
+            object: '_.mC.r.g.wB.m.lE.eC.y.m.q.sKFY.q-AA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'ResourceSelectionDegree',
+            id: '_V.hE6MB.m.mE.eC.y.m.q.sKFY.q-AA',
+            object: '_V.hE6MB.m.mE.eC.y.m.q.sKFY.q-AA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'UnorderedDegree',
+            id: '_C.z.d.uEB.m.yE.eC.y.m.q.sKFY.q-AA',
+            object: '_C.z.d.uEB.m.yE.eC.y.m.q.sKFY.q-AA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'DataTypeDegree',
+            id: '_.mJ9.h.kB.m.yE.eC.y.m.q.sKFY.q-AA',
+            object: '_.mJ9.h.kB.m.yE.eC.y.m.q.sKFY.q-AA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'StringSetDegree',
+            id: '_RBF.jAB.m1E.eC.y.m.q.sKFY.q-AA',
+            object: '_RBF.jAB.m1E.eC.y.m.q.sKFY.q-AA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_T.eNF.sB.m1E.eC.y.m.q.sKFY.q-AA' }
+            ]
+        }
+		,
+        {
+            title: 'stringValues',
+            id: '_T.eNF.sB.m1E.eC.y.m.q.sKFY.q-AA',
+            object: '_RBF.jAB.m1E.eC.y.m.q.sKFY.q-AA-content.html#_T.eNF.sB.m1E.eC.y.m.q.sKFY.q-AA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'DiscreteComponentParamDegree',
+            id: '_.rK.r.d.cB.o2E.eC.y.m.q.sKFY.q-AA',
+            object: '_.rK.r.d.cB.o2E.eC.y.m.q.sKFY.q-AA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'ContinuousComponentParamDegree',
+            id: '_.uF.mW.cB.o2E.eC.y.m.q.sKFY.q-AA',
+            object: '_.uF.mW.cB.o2E.eC.y.m.q.sKFY.q-AA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'StringComponentParamDegree',
+            id: '_.v-S9.cB.o2E.eC.y.m.q.sKFY.q-AA',
+            object: '_.v-S9.cB.o2E.eC.y.m.q.sKFY.q-AA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'GDoF',
+            id: '_P.n.l.b8CSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_P.n.l.b8CSWE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon-1576717915',
+            children: [
+                {_reference: '_U.fR.j.oCSWE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_W.f.h.kICSWE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.i.x.qEICSWE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.qKM_ACSWE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.t.uHK.oCSWE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_1.yK.g.oCSWE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_25E.h.gCS.aE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.bXRAECS.fE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.e.hSFACS.fE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.sEOF.kCS.fE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.t.m.kCECS.fE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.i0.w44CVOE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.h9.aF8C.r.nE.eCM.v.q9.tQ.wTZGA' },
+                {_reference: '_.kM-U0C.r.nE.eCM.v.q9.tQ.wTZGA' },
+                {_reference: '_.o.zGLYC.r.nE.eCM.v.q9.tQ.wTZGA' },
+                {_reference: '_.r.o1CYC.r.nE.eCM.v.q9.tQ.wTZGA' },
+                {_reference: '_.xZC.t.gC.r.nE.eCM.v.q9.tQ.wTZGA' },
+                {_reference: '_SHC38C.r.sE.eCM.v.q9.tQ.wTZGA' },
+                {_reference: '_V.g.j.x.cC.r.sE.eCM.v.q9.tQ.wTZGA' },
+                {_reference: '_.cNU.kYC.r.sE.eCM.v.q9.tQ.wTZGA' },
+                {_reference: '_.l.h1.f4C.r.wE.eCM.v.q9.tQ.wTZGA' }
+            ]
+        }
+		,
+        {
+            title: 'DegreeOfFreedom',
+            id: '_U.fR.j.oCSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_U.fR.j.oCSWE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.k3.n6.sC.r.vE.eCM.v.q9.tQ.wTZGA' },
+                {_reference: '_.i.x.t.u.gCSWE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.t.uI_0CSWE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.bXS1QCS.fE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.i0.y.uECVOE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: 'name',
+            id: '_.k3.n6.sC.r.vE.eCM.v.q9.tQ.wTZGA',
+            object: '_U.fR.j.oCSWE.eC.hWKM.qI1.k.kW.w-content.html#_.k3.n6.sC.r.vE.eCM.v.q9.tQ.wTZGA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'addedElements',
+            id: '_.i.x.t.u.gCSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_U.fR.j.oCSWE.eC.hWKM.qI1.k.kW.w-content.html#_.i.x.t.u.gCSWE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'changeableElementDescriptions',
+            id: '_.t.uI_0CSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_U.fR.j.oCSWE.eC.hWKM.qI1.k.kW.w-content.html#_.t.uI_0CSWE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'interactionConstraints',
+            id: '_.bXS1QCS.fE.eC.hWKM.qI1.k.kW.w',
+            object: '_U.fR.j.oCSWE.eC.hWKM.qI1.k.kW.w-content.html#_.bXS1QCS.fE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'primaryChangeable',
+            id: '_.i0.y.uECVOE.eC.hWKM.qI1.k.kW.w',
+            object: '_U.fR.j.oCSWE.eC.hWKM.qI1.k.kW.w-content.html#_.i0.y.uECVOE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'ChangeableElementDescription',
+            id: '_W.f.h.kICSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_W.f.h.kICSWE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.qKONICSWE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_25GW.sCS.aE.eC.hWKM.qI1.k.kW.w' },
+                {_reference: '_.e.hT6MCS.fE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: 'changeable',
+            id: '_.qKONICSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_W.f.h.kICSWE.eC.hWKM.qI1.k.kW.w-content.html#_.qKONICSWE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'valueRule',
+            id: '_25GW.sCS.aE.eC.hWKM.qI1.k.kW.w',
+            object: '_W.f.h.kICSWE.eC.hWKM.qI1.k.kW.w-content.html#_25GW.sCS.aE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'selectionRule',
+            id: '_.e.hT6MCS.fE.eC.hWKM.qI1.k.kW.w',
+            object: '_W.f.h.kICSWE.eC.hWKM.qI1.k.kW.w-content.html#_.e.hT6MCS.fE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.i.x.qEICSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_.i.x.qEICSWE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_.i.x.zOECSWE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.i.x.zOECSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_.i.x.qEICSWE.eC.hWKM.qI1.k.kW.w-content.html#_.i.x.zOECSWE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.qKM_ACSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_.qKM_ACSWE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_.qKQCUCSWE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.qKQCUCSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_.qKM_ACSWE.eC.hWKM.qI1.k.kW.w-content.html#_.qKQCUCSWE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.t.uHK.oCSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_.t.uHK.oCSWE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_.t.uM.qMCSWE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.t.uM.qMCSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_.t.uHK.oCSWE.eC.hWKM.qI1.k.kW.w-content.html#_.t.uM.qMCSWE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'OCLRule',
+            id: '_1.yK.g.oCSWE.eC.hWKM.qI1.k.kW.w',
+            object: '_1.yK.g.oCSWE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.gCB.h4C.r.oE.eCM.v.q9.tQ.wTZGA' },
+                {_reference: '_.cNU.kYS.r.sE.eCM.v.q9.tQ.wTZGA' }
+            ]
+        }
+		,
+        {
+            title: 'mainOclQuery',
+            id: '_.gCB.h4C.r.oE.eCM.v.q9.tQ.wTZGA',
+            object: '_1.yK.g.oCSWE.eC.hWKM.qI1.k.kW.w-content.html#_.gCB.h4C.r.oE.eCM.v.q9.tQ.wTZGA',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'helperDefinition',
+            id: '_.cNU.kYS.r.sE.eCM.v.q9.tQ.wTZGA',
+            object: '_1.yK.g.oCSWE.eC.hWKM.qI1.k.kW.w-content.html#_.cNU.kYS.r.sE.eCM.v.q9.tQ.wTZGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_25E.h.gCS.aE.eC.hWKM.qI1.k.kW.w',
+            object: '_25E.h.gCS.aE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_25J.aACS.aE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_25J.aACS.aE.eC.hWKM.qI1.k.kW.w',
+            object: '_25E.h.gCS.aE.eC.hWKM.qI1.k.kW.w-content.html#_25J.aACS.aE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.bXRAECS.fE.eC.hWKM.qI1.k.kW.w',
+            object: '_.bXRAECS.fE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_.bXV4.kCS.fE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.bXV4.kCS.fE.eC.hWKM.qI1.k.kW.w',
+            object: '_.bXRAECS.fE.eC.hWKM.qI1.k.kW.w-content.html#_.bXV4.kCS.fE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.e.hSFACS.fE.eC.hWKM.qI1.k.kW.w',
+            object: '_.e.hSFACS.fE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_.e.hW9.gCS.fE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.e.hW9.gCS.fE.eC.hWKM.qI1.k.kW.w',
+            object: '_.e.hSFACS.fE.eC.hWKM.qI1.k.kW.w-content.html#_.e.hW9.gCS.fE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'DoFRepository',
+            id: '_.sEOF.kCS.fE.eC.hWKM.qI1.k.kW.w',
+            object: '_.sEOF.kCS.fE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.t.m.l3QCS.fE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: 'dofs',
+            id: '_.t.m.l3QCS.fE.eC.hWKM.qI1.k.kW.w',
+            object: '_.sEOF.kCS.fE.eC.hWKM.qI1.k.kW.w-content.html#_.t.m.l3QCS.fE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.t.m.kCECS.fE.eC.hWKM.qI1.k.kW.w',
+            object: '_.t.m.kCECS.fE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_.t.m.oT.gCS.fE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.t.m.oT.gCS.fE.eC.hWKM.qI1.k.kW.w',
+            object: '_.t.m.kCECS.fE.eC.hWKM.qI1.k.kW.w-content.html#_.t.m.oT.gCS.fE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.i0.w44CVOE.eC.hWKM.qI1.k.kW.w',
+            object: '_.i0.w44CVOE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_.i01KUCVOE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.i01KUCVOE.eC.hWKM.qI1.k.kW.w',
+            object: '_.i0.w44CVOE.eC.hWKM.qI1.k.kW.w-content.html#_.i01KUCVOE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'InstanceSelectionRule',
+            id: '_.h9.aF8C.r.nE.eCM.v.q9.tQ.wTZGA',
+            object: '_.h9.aF8C.r.nE.eCM.v.q9.tQ.wTZGA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.kNRP.wC.r.nE.eCM.v.q9.tQ.wTZGA' }
+            ]
+        }
+		,
+        {
+            title: 'contextInstance',
+            id: '_.kNRP.wC.r.nE.eCM.v.q9.tQ.wTZGA',
+            object: '_.h9.aF8C.r.nE.eCM.v.q9.tQ.wTZGA-content.html#_.kNRP.wC.r.nE.eCM.v.q9.tQ.wTZGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.kM-U0C.r.nE.eCM.v.q9.tQ.wTZGA',
+            object: '_.kM-U0C.r.nE.eCM.v.q9.tQ.wTZGA-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_.kN.bA.wC.r.nE.eCM.v.q9.tQ.wTZGA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.kN.bA.wC.r.nE.eCM.v.q9.tQ.wTZGA',
+            object: '_.kM-U0C.r.nE.eCM.v.q9.tQ.wTZGA-content.html#_.kN.bA.wC.r.nE.eCM.v.q9.tQ.wTZGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'SelectionRule',
+            id: '_.o.zGLYC.r.nE.eCM.v.q9.tQ.wTZGA',
+            object: '_.o.zGLYC.r.nE.eCM.v.q9.tQ.wTZGA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'StaticSelectionRule',
+            id: '_.r.o1CYC.r.nE.eCM.v.q9.tQ.wTZGA',
+            object: '_.r.o1CYC.r.nE.eCM.v.q9.tQ.wTZGA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.xZC.t.gC.r.nE.eCM.v.q9.tQ.wTZGA',
+            object: '_.xZC.t.gC.r.nE.eCM.v.q9.tQ.wTZGA-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_.xZL3.cS.r.nE.eCM.v.q9.tQ.wTZGA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.xZL3.cS.r.nE.eCM.v.q9.tQ.wTZGA',
+            object: '_.xZC.t.gC.r.nE.eCM.v.q9.tQ.wTZGA-content.html#_.xZL3.cS.r.nE.eCM.v.q9.tQ.wTZGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'HelperOCLDefinition',
+            id: '_SHC38C.r.sE.eCM.v.q9.tQ.wTZGA',
+            object: '_SHC38C.r.sE.eCM.v.q9.tQ.wTZGA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'StaticContextRule',
+            id: '_V.g.j.x.cC.r.sE.eCM.v.q9.tQ.wTZGA',
+            object: '_V.g.j.x.cC.r.sE.eCM.v.q9.tQ.wTZGA-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.xZC.t.gS.r.nE.eCM.v.q9.tQ.wTZGA' }
+            ]
+        }
+		,
+        {
+            title: 'contextClass',
+            id: '_.xZC.t.gS.r.nE.eCM.v.q9.tQ.wTZGA',
+            object: '_V.g.j.x.cC.r.sE.eCM.v.q9.tQ.wTZGA-content.html#_.xZC.t.gS.r.nE.eCM.v.q9.tQ.wTZGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.cNU.kYC.r.sE.eCM.v.q9.tQ.wTZGA',
+            object: '_.cNU.kYC.r.sE.eCM.v.q9.tQ.wTZGA-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_.cNU.kZC.r.sE.eCM.v.q9.tQ.wTZGA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.cNU.kZC.r.sE.eCM.v.q9.tQ.wTZGA',
+            object: '_.cNU.kYC.r.sE.eCM.v.q9.tQ.wTZGA-content.html#_.cNU.kZC.r.sE.eCM.v.q9.tQ.wTZGA',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'ValueRule',
+            id: '_.l.h1.f4C.r.wE.eCM.v.q9.tQ.wTZGA',
+            object: '_.l.h1.f4C.r.wE.eCM.v.q9.tQ.wTZGA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_1NB.xACVLE.eC.hWKM.qI1.k.kW.w',
+            object: '_1NB.xACVLE.eC.hWKM.qI1.k.kW.w-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_1N.k.j.kCVLE.eC.hWKM.qI1.k.kW.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_1N.k.j.kCVLE.eC.hWKM.qI1.k.kW.w',
+            object: '_1NB.xACVLE.eC.hWKM.qI1.k.kW.w-content.html#_1N.k.j.kCVLE.eC.hWKM.qI1.k.kW.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'QualityProperties',
+            id: '_.dYZ.b.sC3.yE.eCCDMF.bLB.j3.c.g',
+            object: '_.dYZ.b.sC3.yE.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon-1576717915',
+            children: [
+                {_reference: '_.s.c.yO.oC33E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_S.u.l.dAC31E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_.t6.x2.oC33E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_293A.sC33E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_4.b66IC33E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_.n.uW.e.sC35E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_680CMC36E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_N.rF.fMC37E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_.mV.q.j.wC4VE.eCCDMF.bLB.j3.c.g' }
+            ]
+        }
+		,
+        {
+            title: 'NumericQualityProperty',
+            id: '_.s.c.yO.oC33E.eCCDMF.bLB.j3.c.g',
+            object: '_.s.c.yO.oC33E.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_.n.uYT4C35E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_N.rHUYC37E.eCCDMF.bLB.j3.c.g' }
+            ]
+        }
+		,
+        {
+            title: 'resultDecoratorRepository',
+            id: '_.n.uYT4C35E.eCCDMF.bLB.j3.c.g',
+            object: '_.s.c.yO.oC33E.eCCDMF.bLB.j3.c.g-content.html#_.n.uYT4C35E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'confidenceInterval',
+            id: '_N.rHUYC37E.eCCDMF.bLB.j3.c.g',
+            object: '_.s.c.yO.oC33E.eCCDMF.bLB.j3.c.g-content.html#_N.rHUYC37E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'QualityProperty',
+            id: '_S.u.l.dAC31E.eCCDMF.bLB.j3.c.g',
+            object: '_S.u.l.dAC31E.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_R_TN.wC34E.eCCDMF.bLB.j3.c.g' }
+            ]
+        }
+		,
+        {
+            title: 'qualityValue',
+            id: '_R_TN.wC34E.eCCDMF.bLB.j3.c.g',
+            object: '_S.u.l.dAC31E.eCCDMF.bLB.j3.c.g-content.html#_R_TN.wC34E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'ElementQualityProperty',
+            id: '_.t6.x2.oC33E.eCCDMF.bLB.j3.c.g',
+            object: '_.t6.x2.oC33E.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'IntegerQualityProperty',
+            id: '_293A.sC33E.eCCDMF.bLB.j3.c.g',
+            object: '_293A.sC33E.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_7_.o4.gC33E.eCCDMF.bLB.j3.c.g' }
+            ]
+        }
+		,
+        {
+            title: 'value',
+            id: '_7_.o4.gC33E.eCCDMF.bLB.j3.c.g',
+            object: '_293A.sC33E.eCCDMF.bLB.j3.c.g-content.html#_7_.o4.gC33E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'DoubleQualityProperty',
+            id: '_4.b66IC33E.eCCDMF.bLB.j3.c.g',
+            object: '_4.b66IC33E.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_CM.t.e.wC34E.eCCDMF.bLB.j3.c.g' }
+            ]
+        }
+		,
+        {
+            title: 'value',
+            id: '_CM.t.e.wC34E.eCCDMF.bLB.j3.c.g',
+            object: '_4.b66IC33E.eCCDMF.bLB.j3.c.g-content.html#_CM.t.e.wC34E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: '',
+            id: '_.n.uW.e.sC35E.eCCDMF.bLB.j3.c.g',
+            object: '_.n.uW.e.sC35E.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_.n.u.a.wIC35E.eCCDMF.bLB.j3.c.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.n.u.a.wIC35E.eCCDMF.bLB.j3.c.g',
+            object: '_.n.uW.e.sC35E.eCCDMF.bLB.j3.c.g-content.html#_.n.u.a.wIC35E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'ConfidenceInterval',
+            id: '_680CMC36E.eCCDMF.bLB.j3.c.g',
+            object: '_680CMC36E.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_E.m.o.cIC37E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_EAQY.oC37E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_C.oE.d.sC37E.eCCDMF.bLB.j3.c.g' },
+                {_reference: '_B.f.g6MC37E.eCCDMF.bLB.j3.c.g' }
+            ]
+        }
+		,
+        {
+            title: 'confidenceLevel',
+            id: '_E.m.o.cIC37E.eCCDMF.bLB.j3.c.g',
+            object: '_680CMC36E.eCCDMF.bLB.j3.c.g-content.html#_E.m.o.cIC37E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'mean',
+            id: '_EAQY.oC37E.eCCDMF.bLB.j3.c.g',
+            object: '_680CMC36E.eCCDMF.bLB.j3.c.g-content.html#_EAQY.oC37E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'upperBound',
+            id: '_C.oE.d.sC37E.eCCDMF.bLB.j3.c.g',
+            object: '_680CMC36E.eCCDMF.bLB.j3.c.g-content.html#_C.oE.d.sC37E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: 'lowerBound',
+            id: '_B.f.g6MC37E.eCCDMF.bLB.j3.c.g',
+            object: '_680CMC36E.eCCDMF.bLB.j3.c.g-content.html#_B.f.g6MC37E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon1476737044'
+        }
+		,
+        {
+            title: '',
+            id: '_N.rF.fMC37E.eCCDMF.bLB.j3.c.g',
+            object: '_N.rF.fMC37E.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_N.rJ.w.oC37E.eCCDMF.bLB.j3.c.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_N.rJ.w.oC37E.eCCDMF.bLB.j3.c.g',
+            object: '_N.rF.fMC37E.eCCDMF.bLB.j3.c.g-content.html#_N.rJ.w.oC37E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'QualityPrediction',
+            id: '_.mV.q.j.wC4VE.eCCDMF.bLB.j3.c.g',
+            object: '_.mV.q.j.wC4VE.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon-1425728447',
+            children: [
+                {_reference: '_B.wN0YC4WE.eCCDMF.bLB.j3.c.g' }
+            ]
+        }
+		,
+        {
+            title: 'evaluate',
+            id: '_B.wN0YC4WE.eCCDMF.bLB.j3.c.g',
+            object: '_.mV.q.j.wC4VE.eCCDMF.bLB.j3.c.g-content.html#_B.wN0YC4WE.eCCDMF.bLB.j3.c.g',
+            icon: 'icon1778731364'
+        }
+		,
+        {
+            title: '',
+            id: '_.rBT5.sC34E.eCCDMF.bLB.j3.c.g',
+            object: '_.rBT5.sC34E.eCCDMF.bLB.j3.c.g-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_.rBYLIC34E.eCCDMF.bLB.j3.c.g' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.rBYLIC34E.eCCDMF.bLB.j3.c.g',
+            object: '_.rBT5.sC34E.eCCDMF.bLB.j3.c.g-content.html#_.rBYLIC34E.eCCDMF.bLB.j3.c.g',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_.l.c5MUE.r.rE.eC.gHJIR5A.m.n.z.w',
+            object: '_.l.c5MUE.r.rE.eC.gHJIR5A.m.n.z.w-content.html',
+            icon: 'icon1208302520',
+            children: [
+                {_reference: '_.l.dG.n.sE.r.rE.eC.gHJIR5A.m.n.z.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_.l.dG.n.sE.r.rE.eC.gHJIR5A.m.n.z.w',
+            object: '_.l.c5MUE.r.rE.eC.gHJIR5A.m.n.z.w-content.html#_.l.dG.n.sE.r.rE.eC.gHJIR5A.m.n.z.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'UnorderedPrimitiveDegree',
+            id: '_2.eD.nQE.r.rE.eC.gHJIR5A.m.n.z.w',
+            object: '_2.eD.nQE.r.rE.eC.gHJIR5A.m.n.z.w-content.html',
+            icon: 'icon990189814',
+            children: [
+                {_reference: '_EH9L.cE.r.sE.eC.gHJIR5A.m.n.z.w' }
+            ]
+        }
+		,
+        {
+            title: 'primitiveValues',
+            id: '_EH9L.cE.r.sE.eC.gHJIR5A.m.n.z.w',
+            object: '_2.eD.nQE.r.rE.eC.gHJIR5A.m.n.z.w-content.html#_EH9L.cE.r.sE.eC.gHJIR5A.m.n.z.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: '',
+            id: '_EH6.vME.r.sE.eC.gHJIR5A.m.n.z.w',
+            object: '_EH6.vME.r.sE.eC.gHJIR5A.m.n.z.w-content.html',
+            icon: 'icon1661289013',
+            children: [
+                {_reference: '_EH_.n.sE.r.sE.eC.gHJIR5A.m.n.z.w' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_EH_.n.sE.r.sE.eC.gHJIR5A.m.n.z.w',
+            object: '_EH6.vME.r.sE.eC.gHJIR5A.m.n.z.w-content.html#_EH_.n.sE.r.sE.eC.gHJIR5A.m.n.z.w',
+            icon: 'icon-1476050937'
+        }
+		,
+        {
+            title: 'NumberOfCoresDegree',
+            id: '_.x4HH.wLO.iE.eC5.aY.z3.xO.a.e.vA',
+            object: '_.x4HH.wLO.iE.eC5.aY.z3.xO.a.e.vA-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'ProcessingRateDegree',
+            id: '_M_.g.t.sM.c9E.eCA.i.qH.xI6.x.y.a.g',
+            object: '_M_.g.t.sM.c9E.eCA.i.qH.xI6.x.y.a.g-content.html',
+            icon: 'icon990189814',
+            children: [
+            ]
+        }
+		,
+        {
+            title: 'InstanceSpecification1',
+            id: '_-.lI.q.oM.dDE.eCAU.r8T.wC.w8QA',
+            object: '_-.lI.q.oM.dDE.eCAU.r8T.wC.w8QA-content.html',
+            icon: 'icon-1593499544',
+            children: [
+                {_reference: '_-.lWGAM.dDE.eCAU.r8T.wC.w8QA' }
+            ]
+        }
+		,
+        {
+            title: '',
+            id: '_-.lWGAM.dDE.eCAU.r8T.wC.w8QA',
+            object: '_-.lWGAM.dDE.eCAU.r8T.wC.w8QA-content.html',
+            icon: 'icon-1476050937'
+        }
+		
+    ]
+}
+
+		

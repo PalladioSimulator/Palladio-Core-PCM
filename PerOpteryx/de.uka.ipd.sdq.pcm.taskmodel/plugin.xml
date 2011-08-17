@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://sdq.ipd.uka.de/TaskModel/1.0"
+            class="de.uka.ipd.sdq.pcm.taskmodel.taskmodelPackage"
+            genModel="models/taskmodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="taskmodel"
+            class="de.uka.ipd.sdq.pcm.taskmodel.util.taskmodelResourceFactoryImpl"/>
+   </extension>
+
+</plugin>
