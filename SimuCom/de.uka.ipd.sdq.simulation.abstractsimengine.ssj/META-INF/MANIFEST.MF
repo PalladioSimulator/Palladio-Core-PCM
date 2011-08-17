@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SSJ Simulation Engine
+Bundle-SymbolicName: de.uka.ipd.sdq.simulation.abstractsimengine.ssj;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: ca.umontreal.iro.lecuyer.ssj,
+ org.apache.log4j,
+ org.apache.commons.javaflow;bundle-version="1.0.0",
+ de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0"
+Bundle-ClassPath: lib/javaflow.jar,
+ .
+Export-Package: de.uka.ipd.sdq.simulation.abstractsimengine.ssj
