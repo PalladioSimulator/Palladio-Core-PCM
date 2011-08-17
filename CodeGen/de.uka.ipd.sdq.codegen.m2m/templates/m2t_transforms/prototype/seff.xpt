@@ -1,0 +1,16 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT seff»
+
+// ----------------------------
+// POJO templates for parts of a SEFF
+// ----------------------------
+«DEFINE Action FOR AquireAction»
+	// Aquire «this.resourceType_Aquire.entityName»
+	// TODO: Implement code to get the resource
+«ENDDEFINE»
+
+«DEFINE Action FOR ReleaseAction»
+	// Release «this.resourceType_Release.entityName»
+	// TODO: Implement code to release the resource
+«ENDDEFINE»

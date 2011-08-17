@@ -1,0 +1,56 @@
+import parameter;
+import seff;
+import repository;
+import composition;
+import system;
+import resourceenvironment;
+import usagemodel;
+extension m2t_transforms::pcm;
+
+context VariableUsage ERROR 'LHS ID not set':
+	this.namedReference_VariableUsage != null;
+	
+context ExternalCallAction ERROR this.calledService_ExternalService.serviceName + ' Variable Reference not set':
+	!this.parameterUsage_ExternalCallAction.exists(vu|vu.namedReference_VariableUsage == null);
+	
+context ResourceDemandingBehaviour ERROR 'SEFF or Behaviour needs exactly one start and one stop action':
+	this.steps_Behaviour.typeSelect(StartAction).size == 1 && this.steps_Behaviour.typeSelect(StopAction).size == 1;
+	
+context ScenarioBehaviour ERROR 'User Scenario Behaviour needs exactly one start and one stop action':
+	this.actions_ScenarioBehaviour.typeSelect(Start).size == 1 && this.actions_ScenarioBehaviour.typeSelect(Stop).size == 1;
+	
+context ResourceDemandingBehaviour ERROR 'No route from start to stop action in Resource Demanding Behaviour':
+ 	this.steps_Behaviour.typeSelect(StartAction).get(0).findStopAction() != null;
+	
+context ScenarioBehaviour ERROR 'No route from start to stop action in User Scenario':
+ 	this.actions_ScenarioBehaviour.typeSelect(Start).get(0).findStop() != null;
+
+context UsageScenario ERROR 'Usage Scenarios need a Workload Specification':
+	this.workload_UsageScenario != null;
+	
+context BasicComponent ERROR this.entityName +': basic component must have at least a minimal SEFF for any provided method':
+	this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.signatures__Interface.forAll(s|s.hasSEFF(this));
+	
+context ComposedStructure ERROR 'Composed Structure ' + this.entityName +': All assembly contexts of a composite structure must have unique names':
+	this.childComponentContexts_ComposedStructure.forAll(ctx1|!this.childComponentContexts_ComposedStructure.exists(ctx2|ctx1 != ctx2 && ctx1.entityName == ctx2.entityName));
+	
+context System ERROR 'System ' + this.entityName +': A system must contain at least one uppercase letter':
+	this.entityName != this.entityName.toLowerCase();
+
+context UsageScenario ERROR 'System ' + this.entityName +': A usage scenario must contain at least one uppercase letter':
+	this.entityName != this.entityName.toLowerCase();
+
+context ClosedWorkload ERROR 'Closed Workload must have a population > 0':
+	this.population > 0;
+	
+context CommunicationLinkResourceSpecification ERROR 'No latency specified for communication resource' :
+	this.linkLatency != null && this.linkLatency != '';
+	
+context ProcessingResourceSpecification ERROR 'Processing Rate must be > 0 for ProcessingResourceSpecification':
+	this.processingRate > 0;
+	
+context Repository ERROR 'Repository should contain at least one component':
+	this.components__Repository.size > 0;
+	
+context LinkingResource ERROR 'No specification for Linking Resource '+this.entityName+' given':
+	this.communicationLinkResourceSpecifications_LinkingResource != null;
