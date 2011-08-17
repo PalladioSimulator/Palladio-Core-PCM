@@ -1,0 +1,24 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<title>Task and Probabilities Metamodel</title>
+<link type="text/css" rel="stylesheet" href="content/WebPublish.css">
+</head>
+<body>
+<img alt="" src="Palladio-Logo01EN.png"><p align="right">06.02.2010 21:47:11</p>
+<p align="right">
+<i>Anne Martens</i>
+</p>
+<p class="LargeTitle">Task and Probabilities Metamodel</p>
+<table cellpadding="10" border="0">
+<tr>
+<td nowrap>
+<p>
+<a href="content/_8276117_7780122111691002115669728011173_7611365_root.html">DesignDecision</a>
+</p>
+</td><td>The DesignDecisions metamodel represents degrees of freedom that can be exploited for optimisation.</br></br>The core idea is each degree of freedom can be represented by a DegreeOfFreedom element. Each DegreeOfFreedom has two parts: It links a model element that is the changeable entity in this DegreeOfFreedom, and it specifies a Domain of possible values that the model element can take. </br></br>The actual making of a decision is represented in the Choice element. For a specific candidate architecture, one Choice for each DegreeOfFreedom in the Problem as to be made. The Choice contains a reference to the DegreeOfFreedom that it decides and a reference to a value from the DegreeOfFreedom's Domain that represent the selected value.  See the diagram "Design and Choice" for an overview of DegreeOfFreedom, Domain and Choice.</br></br>All of the above mentioned elements are abstract and are subclassed for the different generic degrees of freedom. For example, the degree of freedom of "component allocation" is represented in the AllocationDegree. See the documentation of each subclass of design decision for details. The diagram AssembledComponentDegree visualises the subclassing for the example degree of freedom of "component selection". </br></br></td>
+</tr>
+</table>
+</body>
+</html>

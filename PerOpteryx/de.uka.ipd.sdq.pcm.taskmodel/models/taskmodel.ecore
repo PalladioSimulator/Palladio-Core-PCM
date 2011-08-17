@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="taskmodel"
+    nsURI="http://sdq.ipd.uka.de/TaskModel/1.0" nsPrefix="taskmodel">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="This is the documentation for the Task and Probabilities metamodel that is the interface for the PerOpteryx metaheuristic optimisation based on the Palladio Component Model to the analytic multicriteria optimisation of Polimi. &#xD;&#xA;&#xD;&#xA;This package contains all metamodel elements. The TaskList is the root model element and contains a Task and Probabilities model. &#xD;&#xA;&#xD;&#xA;The main class is the Task. It represents a single resource-demanding action in the software. It is derived from actions in the PCM SEFF and can be used for tasks in the optimisation of Polimi. &#xD;&#xA;&#xD;&#xA;Tasks are connected to each other by Edges. Each Task can have multiple outgoing Edges. The set of outgoing Edges is modelled with the edge_Task containment association of the Task. Each Edge points to one successor Task. &#xD;&#xA;&#xD;&#xA;See the Alternative class for details how to specify alternatives. &#xD;&#xA;&#xD;&#xA;See the description of the model elements for a detailed description of the attributes. "/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Task">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Representation of a task in the performance model. "/>
+    </eAnnotations>
+    <eOperations name="sumOfProbabilitiesMustBeOne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="self.edge_Task->collect(e|e.transitionProbability)->sum()=1 or self.edge_Task->isEmpty() "/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The cache of context-specific information."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="probabilityOfExecution"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Gives the overall probability of execution, which can be derived from the transition probability of the edges leading to this Task. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureProbability" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The software failure probability of this task. This does not take into account hardware failures. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="meanDemandedTime" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The mean demanded time that this task demands from the CPU it is deployed on. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repositorycomponent" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/RepositoryComponent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The PCM component that this Task derives from. This association is needed to determine which tasks can be deployed on which hardware nodes (servers, ResourceContainers). The design decision model defines the allocation of components only. With this link, you can derive the allocation of tasks. Also, this link is needed to map the results of the optmisation back to the PCM model later. Results that allocate two Tasks belonging to the same PCM component to different servers is not valid in the PCM. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocationcontext" ordered="false"
+        eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//allocation/AllocationContext">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This association points to the AllocationContext of this Task the PCM model. Using it, you can determine the ResourceContainer (i.e. hardware node, the server) that this Task is deployed on. Use myTask.getAllocationcontext.getResourceContainer_AllocationContext to retrieve the hardware node. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edge_Task" ordered="false"
+        upperBound="-1" eType="#//Edge" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The outgoing Edges of this Task. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abstractaction" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/AbstractAction">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The SEFF action that this Task was transformed from. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Edge">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An Edge connects two Tasks. Each Task has a set of Edges, that themselves point to one successor Task each. For example, for a task with three successor tasks, you have three Edges, each pointing to one of the successors. &#xD;&#xA;&#xD;&#xA;Loops in the PCM might be unrolled into &quot;branches&quot; in this model with adjusted transition probabilities. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transitionProbability"
+        ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The transition probability of this Task. The transition probabilities of all Edges exiting one Task usually sum up to 1. If they do not, this is an implicit stop task, i.e. the control flow ends here with the remaining probability. TODO: Add OCL that sum of probabilities must not be larger than 1. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successor_Edge" ordered="false"
+        lowerBound="1" eType="#//Task">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This association points to the successor Task of this Edge. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskList">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The root model element that contains all Tasks of this model. Additionally, it contains a set of Alternatives, that contain AlternativeTasks to model component selection options. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task_TaskList" ordered="false"
+        upperBound="-1" eType="#//Task" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The set of Tasks in the model. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startTask_TaskList" ordered="false"
+        eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alternative_TaskList" ordered="false"
+        upperBound="-1" eType="#//Alternative" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Alternative">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="One Alternative contains all AlternativeTasks that together represent a component selection. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alternativetasks_Alternative"
+        ordered="false" lowerBound="1" upperBound="-1" eType="#//AlternativeTask"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AlternativeTask" eSuperTypes="#//Task">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="To model the exchange of components, we need a mapping from an AlternativeTask (e.g. A') to the original Task it can replace (e.g. A). Note that AlternativeTasks may have different a probability of execution than their original Task. Additionally, they specify their own Edges. &#xD;&#xA;&#xD;&#xA;The mapping is derived from the degrees of freedom during the transformation. "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task_AlternativeTask" ordered="false"
+        eType="#//Task"/>
+  </eClassifiers>
+</ecore:EPackage>
