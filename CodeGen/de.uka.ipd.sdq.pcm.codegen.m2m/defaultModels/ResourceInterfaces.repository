@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0" id="_wAAEULJPEd2fubW_lvKw1w" entityName="ResourceInterfaces" repositoryDescription="This repository contains some default resource interfaces. The resources defined in Palladio.resourcetype make use of these interfaces.">
+  <interfaces__Repository xsi:type="_1:ResourceInterface" id="_9GyUb7JPEd2fubW_lvKw1w" entityName="ICpu">
+    <resourceServices_ResourceInterface serviceName="process"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="_1:ResourceInterface" id="_Gh15lrJQEd2fubW_lvKw1w" entityName="IHdd">
+    <resourceServices_ResourceInterface serviceName="read"/>
+    <resourceServices_ResourceInterface serviceName="write"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="_1:ResourceInterface" id="_dkJXQdNwEd2_dM80-WIC0Q" entityName="IJvm">
+    <resourceServices_ResourceInterface serviceName="iadd"/>
+    <resourceServices_ResourceInterface serviceName="imul"/>
+  </interfaces__Repository>
+</Repository>

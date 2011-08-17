@@ -1,0 +1,199 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT resourcetype»
+«IMPORT seff»
+«IMPORT system»
+«IMPORT core::entity»
+«IMPORT completions»
+
+«DEFINE ClassHeader FOR RepositoryComponent»
+public class «this.javaName()»
+«ENDDEFINE»
+
+«DEFINE Signature FOR Signature»
+   «EXPAND ReturnTypeTM FOR this»
+   «this.javaSignature()»
+   ( «EXPAND ParameterListTM FOR this» )
+«ENDDEFINE»
+
+«DEFINE ResourceService FOR ResourceService»
+   «EXPAND ReturnTypeTM FOR this»
+   «this.javaResourceService()»
+   ( «EXPAND ParameterListTM FOR this» )
+«ENDDEFINE»
+
+«DEFINE ReturnType FOR Signature»
+   «IF this.returntype__Signature != null»
+      «EXPAND m2t_transforms::datatypes::DataType FOR this.returntype__Signature»
+   «ELSE»
+      void
+   «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ReturnTypeTM FOR Signature»
+	«ERROR "ReturnTypeTM must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ReturnTypeTM FOR ResourceService»
+	«ERROR "ReturnTypeTM must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ParameterListTM FOR Signature»
+   «ERROR "ParameterListTemplate method must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ParameterListTM FOR ResourceService»
+   «ERROR "ParameterListTemplate method must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ParameterUsageListTM FOR Signature»
+   «ERROR "ParameterUsageTemplate method must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ParameterUsageListTM FOR ResourceService»
+   «ERROR "ParameterUsageTemplate method must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Parameter FOR Parameter»
+   «IF this.datatype__Parameter != null»
+      «EXPAND m2t_transforms::datatypes::DataType FOR this.datatype__Parameter»
+   «ELSE»
+      void
+   «ENDIF»
+   «this.parameterName»
+«ENDDEFINE»
+
+«DEFINE ParameterUse FOR Parameter»
+   «this.parameterName»
+«ENDDEFINE»
+
+//-----
+// Generate method implementations by traversing the SEFF
+«DEFINE ComponentService(RepositoryComponent component) FOR ProvidedRole»
+	«IF Interface.isInstance(this.providedInterface__ProvidedRole)»
+	«EXPAND ComponentService(component) FOREACH ((Interface)this.providedInterface__ProvidedRole).signatures__Interface»
+«ENDIF»
+«IF ResourceInterface.isInstance(this.providedInterface__ProvidedRole)»
+	«EXPAND ComponentService(component) FOREACH ((ResourceInterface)this.providedInterface__ProvidedRole).resourceServices_ResourceInterface»
+«ENDIF»
+«ENDDEFINE»
+
+«DEFINE ComponentService FOR ServiceEffectSpecification»
+	«ERROR "Unknown Service Effect Specification found!"»
+«ENDDEFINE»
+
+«DEFINE ComponentServiceSignature FOR ProvidedRole»
+«IF Interface.isInstance(this.providedInterface__ProvidedRole)»
+	«EXPAND ComponentServiceSignature FOREACH ((Interface)this.providedInterface__ProvidedRole).signatures__Interface SEPARATOR ";"»;
+«ENDIF»
+«IF ResourceInterface.isInstance(this.providedInterface__ProvidedRole)»
+	«EXPAND ComponentServiceSignature FOREACH ((ResourceInterface)this.providedInterface__ProvidedRole).resourceServices_ResourceInterface SEPARATOR ";"»;
+«ENDIF»
+«ENDDEFINE»
+
+«DEFINE ComponentServiceSignature FOR Signature»
+	«EXPAND ReturnTypeTM FOR this»
+      «this.interface_Signature.javaName().toFirstLower()»_«this.javaSignature()»
+         («EXPAND ParameterListTM FOR this»)
+«ENDDEFINE»
+
+«DEFINE ComponentServiceSignature FOR ResourceService»
+	«EXPAND ReturnTypeTM FOR this»
+      «this.resourceInterface_ResourceService.javaName().toFirstLower()»_«this.javaResourceService()»
+          («EXPAND ParameterListTM FOR this»)
+«ENDDEFINE»
+
+«DEFINE ComponentService(RepositoryComponent component) FOR Signature»
+   public «EXPAND ComponentServiceSignature FOR this»
+   { 
+      «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface_Signature.id DISABLE»
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+	      «EXPAND Actions FOR seff.steps_Behaviour.findStart()»      
+    	«ENDLET»
+   	  «ENDIF»
+   	  «ENDPROTECT»
+   }   
+«ENDDEFINE»
+
+«DEFINE ComponentService(RepositoryComponent component) FOR ResourceService»
+   public «EXPAND ComponentServiceSignature FOR this»
+   { 
+      «PROTECT CSTART '/*' CEND '*/' ID this.javaResourceService() + "_" + component.id + "_" + this.resourceInterface_ResourceService.id DISABLE»
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+	      «EXPAND Actions FOR seff.steps_Behaviour.findStart()»      
+    	«ENDLET»
+   	  «ENDIF»
+   	  «ENDPROTECT»
+   }   
+«ENDDEFINE»
+
+«DEFINE Actions FOR AbstractAction»
+   «EXPAND m2t_transforms::seff::Action FOR this»
+   «IF !StopAction.isInstance(this)»
+      «EXPAND Actions FOR this.successor_AbstractAction»
+   «ENDIF»
+«ENDDEFINE»
+//-----
+
+//-----
+// Polymorphic switch to generate different thing for {Basic,Complete and Provides}-Types and for
+// ComposedStructure
+«DEFINE ComponentImplementation FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE ComponentImplementation FOR ImplementationComponentType»
+   «FILE this.getFileName()»
+	   «EXPAND ComponentImplementationInterface FOR this»
+	   package «this.implementationPackage()»;
+	      
+	   «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
+	   «EXPAND SuperClassesTM FOR this»
+	   implements «this.fqnInterface()»
+	   {
+	   	  «EXPAND ComponentConstructorTM FOR this» 
+	      «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+	      «EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+	      «EXPAND m2t_transforms::resource_context_pattern::RequiredResourceInterfaces FOR this»
+	      «EXPAND InnerImplementation FOR this»
+		  «EXPAND SpecificImplementationPartTM FOR this»
+	   }
+	   «EXPAND ComponentImplementationChildClassTM FOR this»
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ComponentImplementationInterface FOR InterfaceProvidingEntity»
+	«FILE this.fqnInterface().fqnToDirectoryPath()+'.java'»
+		package «this.implementationPackage()»;
+	      
+		public interface «this.interfaceName()»
+	    {
+	   		«EXPAND ComponentServiceSignature FOREACH this.providedRoles_InterfaceProvidingEntity»
+	    }
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ComponentImplementationChildClassTM FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE SpecificImplementationPartTM FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE SuperClassesTM FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR BasicComponent»
+	«EXPAND ComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR CompositeComponent»
+«ENDDEFINE»
+///-----
+
+«DEFINE ComponentConstructorTM FOR RepositoryComponent»
+«ENDDEFINE»

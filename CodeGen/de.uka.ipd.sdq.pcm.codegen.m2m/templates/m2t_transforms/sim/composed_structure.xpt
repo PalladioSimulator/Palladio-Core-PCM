@@ -1,0 +1,23 @@
+«IMPORT system»
+«IMPORT core::composition»
+«IMPORT repository»
+«IMPORT core::entities»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::java_names»
+ 
+«DEFINE ChildInitTM(ComposedStructure s) FOR AssemblyContext»
+
+	//Initialise Component Parameters
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> componentStackFrame = 
+		new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
+	«FOREACH this.configParameterUsages_AssemblyContext AS pu»
+		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+			componentStackFrame.addValue("«pu.parameterUsageLHS()+'.'+vc.type.toString()»",
+			   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",
+			   	new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>()));
+		«ENDFOREACH»
+	«ENDFOREACH»
+	
+	my«this.javaName()».setComponentFrame(componentStackFrame);
+«ENDDEFINE»
+ 
