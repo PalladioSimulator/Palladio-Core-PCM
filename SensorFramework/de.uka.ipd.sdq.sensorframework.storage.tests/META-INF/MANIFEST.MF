@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Storage Tests Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.storage.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: de.uka.ipd.sdq.sensorframework.storage,
+ org.junit
