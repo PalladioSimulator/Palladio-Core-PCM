@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="de.uka.ipd.sdq.simulation.controller.runconfig.EventSimWorkflowLauncher"
+            id="de.uka.ipd.sdq.simulation.controller.eventSimLaunchConfigType"
+            modes="run, debug"
+            name="EventSim"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="de.uka.ipd.sdq.simulation.controller.eventSimLaunchConfigType"
+            icon="icons/clock.png"
+            id="de.uka.ipd.sdq.simucontroller.eventSimImage">
+      </launchConfigurationTypeImage>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="de.uka.ipd.sdq.simulation.controller.runconfig.EventSimTabGroup"
+            id="de.uka.ipd.sdq.simulation.controller.eventSimTabGroup"
+            type="de.uka.ipd.sdq.simulation.controller.eventSimLaunchConfigType">
+      </launchConfigurationTabGroup>
+   </extension>
+
+</plugin>
