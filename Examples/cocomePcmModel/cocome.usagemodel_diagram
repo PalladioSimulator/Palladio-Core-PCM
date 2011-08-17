@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_dcIfkldBEd23wcZsd06DZg" type="PCM Usage Model" name="cocome.usagemodel_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_ddxeUFdBEd23wcZsd06DZg" type="2001">
+    <children xmi:type="notation:Node" xmi:id="_ddxeU1dBEd23wcZsd06DZg" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_ddxeVldBEd23wcZsd06DZg" type="3001">
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_ddxeV1dBEd23wcZsd06DZg" fontName="Segoe UI"/>
+        <element xmi:type="Start" href="cocome.usagemodel#_dcIfkFdBEd23wcZsd06DZg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ddxeWFdBEd23wcZsd06DZg" x="259" y="6"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ddxeWVdBEd23wcZsd06DZg" type="3002">
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_ddxeWldBEd23wcZsd06DZg" fontName="Segoe UI"/>
+        <element xmi:type="Stop" href="cocome.usagemodel#_dcIfkVdBEd23wcZsd06DZg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ddxeW1dBEd23wcZsd06DZg" x="271" y="210"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_30kL4FdBEd23wcZsd06DZg" type="3003">
+        <children xmi:type="notation:Node" xmi:id="_30kL41dBEd23wcZsd06DZg" type="5004"/>
+        <children xmi:type="notation:Node" xmi:id="_30kL5FdBEd23wcZsd06DZg" type="7002">
+          <children xmi:type="notation:Node" xmi:id="_DTqscFdCEd23wcZsd06DZg" type="3011">
+            <children xmi:type="notation:Node" xmi:id="_DTqsc1dCEd23wcZsd06DZg" type="5011"/>
+            <children xmi:type="notation:Node" xmi:id="_DTz2YFdCEd23wcZsd06DZg" type="7010">
+              <children xmi:type="notation:Node" xmi:id="_EhUyYFdCEd23wcZsd06DZg" type="3006">
+                <element xmi:type="_1:VariableCharacterisation" href="cocome.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_EhUyYVdCEd23wcZsd06DZg"/>
+              </children>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_DTz2YVdCEd23wcZsd06DZg"/>
+              <styles xmi:type="notation:TitleStyle" xmi:id="_DTz2YldCEd23wcZsd06DZg" showTitle="true"/>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_DTz2Y1dCEd23wcZsd06DZg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_DTz2ZFdCEd23wcZsd06DZg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_DTqscVdCEd23wcZsd06DZg" fontName="Segoe UI"/>
+            <element xmi:type="_1:VariableUsage" href="cocome.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DTqscldCEd23wcZsd06DZg"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_30kL5VdBEd23wcZsd06DZg"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_30kL5ldBEd23wcZsd06DZg"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_30kL4VdBEd23wcZsd06DZg" fontName="Segoe UI"/>
+        <element xmi:type="EntryLevelSystemCall" href="cocome.usagemodel#_0Aut4FdBEd23wcZsd06DZg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_30kL4ldBEd23wcZsd06DZg" x="7" y="66" width="481" height="109"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ddxeVFdBEd23wcZsd06DZg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ddxeVVdBEd23wcZsd06DZg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_ddxeUVdBEd23wcZsd06DZg" fontName="Segoe UI"/>
+    <element xmi:type="ScenarioBehaviour" href="cocome.usagemodel#_db-ukFdBEd23wcZsd06DZg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ddxeUldBEd23wcZsd06DZg" width="505" height="265"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_vqOnsFdBEd23wcZsd06DZg" type="2003">
+    <children xmi:type="notation:Node" xmi:id="_vqOns1dBEd23wcZsd06DZg" type="5010"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_vqOnsVdBEd23wcZsd06DZg" fontName="Segoe UI"/>
+    <element xmi:type="OpenWorkload" href="cocome.usagemodel#//@usageScenario_UsageModel.0/@workload_UsageScenario"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vqOnsldBEd23wcZsd06DZg" y="-72" width="217" height="53"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_dcIfk1dBEd23wcZsd06DZg"/>
+  <element xmi:type="UsageScenario" href="cocome.usagemodel#_dbY4sFdBEd23wcZsd06DZg"/>
+  <edges xmi:type="notation:Edge" xmi:id="__aUcUFdBEd23wcZsd06DZg" type="4002" source="_ddxeVldBEd23wcZsd06DZg" target="_30kL4FdBEd23wcZsd06DZg">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="__aUcUVdBEd23wcZsd06DZg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__aUcUldBEd23wcZsd06DZg" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__aUcU1dBEd23wcZsd06DZg" points="[1, 10, -19, -143]$[24, 146, 4, -7]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__admQFdBEd23wcZsd06DZg" id="(0.5543478,0.13207547)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Aa4hcFdCEd23wcZsd06DZg" type="4002" source="_30kL4FdBEd23wcZsd06DZg" target="_ddxeWVdBEd23wcZsd06DZg">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_Aa4hcVdCEd23wcZsd06DZg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Aa4hcldCEd23wcZsd06DZg" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Aa4hc1dCEd23wcZsd06DZg" points="[1, 4, -39, -115]$[40, 119, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Aa4hdFdCEd23wcZsd06DZg" id="(0.5869565,0.9245283)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Aa4hdVdCEd23wcZsd06DZg" id="(0.26666668,0.0)"/>
+  </edges>
+</notation:Diagram>

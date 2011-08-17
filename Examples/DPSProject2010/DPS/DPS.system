@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" id="_OrST4KPCEd-_HvNPo5EbwA" entityName="IPUSystem">
+  <assemblyContexts_ComposedStructure id="_QyvIkKPCEd-_HvNPo5EbwA" entityName="Assembly_DPS &lt;DPS>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="DPS.repository#_4MEL8JP2Ed-mVsWhjZHqXg"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_acG2kKPCEd-_HvNPo5EbwA" entityName="Assembly_DataLayer &lt;DataLayer>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="DPS.repository#_7tjVsJP2Ed-mVsWhjZHqXg"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_bvlQoKPCEd-_HvNPo5EbwA" entityName="Assembly_GyroDataRetrieval &lt;GyroDataRetrieval>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="DPS.repository#_mr6GMKPAEd-_HvNPo5EbwA"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_gYVkcKPCEd-_HvNPo5EbwA" entityName="Assembly_GPSDataRetrieval &lt;GPSDataRetrieval>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="DPS.repository#_pNIs0KPAEd-_HvNPo5EbwA"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_i-1soKPCEd-_HvNPo5EbwA" entityName="Assembly_YoungDataRetrieval &lt;YoungDataRetrieval>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="DPS.repository#_rhZOcKPAEd-_HvNPo5EbwA"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_V6V3YKPJEd-_HvNPo5EbwA" entityName="Connector Assembly_DPS &lt;DPS> -> Assembly_DataLayer &lt;DataLayer>" requiringAssemblyContext_AssemblyConnector="_QyvIkKPCEd-_HvNPo5EbwA" providingAssemblyContext_AssemblyConnector="_acG2kKPCEd-_HvNPo5EbwA">
+    <providedRole_AssemblyConnector href="DPS.repository#_Hp7BEJP3Ed-mVsWhjZHqXg"/>
+    <requiredRole_AssemblyConnector href="DPS.repository#_NsXJUKPJEd-_HvNPo5EbwA"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_fU4qgMGqEd-A9qol-Ab2Tg" entityName="Connector Assembly_GyroDataRetrieval &lt;GyroDataRetrieval> -> Assembly_DataLayer &lt;DataLayer>" requiringAssemblyContext_AssemblyConnector="_bvlQoKPCEd-_HvNPo5EbwA" providingAssemblyContext_AssemblyConnector="_acG2kKPCEd-_HvNPo5EbwA">
+    <providedRole_AssemblyConnector href="DPS.repository#_Hp7BEJP3Ed-mVsWhjZHqXg"/>
+    <requiredRole_AssemblyConnector href="DPS.repository#_bp4_cMGqEd-A9qol-Ab2Tg"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_f4-PAMGqEd-A9qol-Ab2Tg" entityName="Connector Assembly_GPSDataRetrieval &lt;GPSDataRetrieval> -> Assembly_DataLayer &lt;DataLayer>" requiringAssemblyContext_AssemblyConnector="_gYVkcKPCEd-_HvNPo5EbwA" providingAssemblyContext_AssemblyConnector="_acG2kKPCEd-_HvNPo5EbwA">
+    <providedRole_AssemblyConnector href="DPS.repository#_Hp7BEJP3Ed-mVsWhjZHqXg"/>
+    <requiredRole_AssemblyConnector href="DPS.repository#_cOux4MGqEd-A9qol-Ab2Tg"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_ga_W8MGqEd-A9qol-Ab2Tg" entityName="Connector Assembly_YoungDataRetrieval &lt;YoungDataRetrieval> -> Assembly_DataLayer &lt;DataLayer>" requiringAssemblyContext_AssemblyConnector="_i-1soKPCEd-_HvNPo5EbwA" providingAssemblyContext_AssemblyConnector="_acG2kKPCEd-_HvNPo5EbwA">
+    <providedRole_AssemblyConnector href="DPS.repository#_Hp7BEJP3Ed-mVsWhjZHqXg"/>
+    <requiredRole_AssemblyConnector href="DPS.repository#_cmYc4MGqEd-A9qol-Ab2Tg"/>
+  </assemblyConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_rlmuIKPCEd-_HvNPo5EbwA" entityName="ProvDelegation Provided_IDPS -> Provided_IDPS_DPS" outerProvidedRole_ProvidedDelegationConnector="_peEZ4KPCEd-_HvNPo5EbwA" assemblyContext_ProvidedDelegationConnector="_QyvIkKPCEd-_HvNPo5EbwA">
+    <innerProvidedRole_ProvidedDelegationConnector href="DPS.repository#_GkuTkJP3Ed-mVsWhjZHqXg"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_wbZYYKPCEd-_HvNPo5EbwA" entityName="ProvDelegation Provided_IDR -> aName" outerProvidedRole_ProvidedDelegationConnector="_tD54IKPCEd-_HvNPo5EbwA" assemblyContext_ProvidedDelegationConnector="_bvlQoKPCEd-_HvNPo5EbwA">
+    <innerProvidedRole_ProvidedDelegationConnector href="DPS.repository#_vCR7QKPAEd-_HvNPo5EbwA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_xHHcoKPHEd-_HvNPo5EbwA" entityName="ProvDelegation GPSProvided_IDR -> aName" outerProvidedRole_ProvidedDelegationConnector="_t1DO8KPHEd-_HvNPo5EbwA" assemblyContext_ProvidedDelegationConnector="_gYVkcKPCEd-_HvNPo5EbwA">
+    <innerProvidedRole_ProvidedDelegationConnector href="DPS.repository#_vstYUKPAEd-_HvNPo5EbwA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_0Ref0KPHEd-_HvNPo5EbwA" entityName="ProvDelegation YoungProvided_IDR -> aName" outerProvidedRole_ProvidedDelegationConnector="_x2FbcKPHEd-_HvNPo5EbwA" assemblyContext_ProvidedDelegationConnector="_i-1soKPCEd-_HvNPo5EbwA">
+    <innerProvidedRole_ProvidedDelegationConnector href="DPS.repository#_wMcoUKPAEd-_HvNPo5EbwA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_Pq_q4KRmEd-snq1WfmbtcQ" entityName="ProvDelegation Provided_IDL -> Provided_IDL_DataLayer" outerProvidedRole_ProvidedDelegationConnector="_NY0z8KRmEd-snq1WfmbtcQ" assemblyContext_ProvidedDelegationConnector="_acG2kKPCEd-_HvNPo5EbwA">
+    <innerProvidedRole_ProvidedDelegationConnector href="DPS.repository#_Hp7BEJP3Ed-mVsWhjZHqXg"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="_1:OperationProvidedRole" id="_peEZ4KPCEd-_HvNPo5EbwA" entityName="Provided_IDPS">
+    <providedInterface__OperationProvidedRole href="DPS.repository#_B5c3QJP3Ed-mVsWhjZHqXg"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="_1:OperationProvidedRole" id="_tD54IKPCEd-_HvNPo5EbwA" entityName="GyroProvided_IDR">
+    <providedInterface__OperationProvidedRole href="DPS.repository#_DHDS0JP3Ed-mVsWhjZHqXg"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="_1:OperationProvidedRole" id="_t1DO8KPHEd-_HvNPo5EbwA" entityName="GPSProvided_IDR">
+    <providedInterface__OperationProvidedRole href="DPS.repository#_DHDS0JP3Ed-mVsWhjZHqXg"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="_1:OperationProvidedRole" id="_x2FbcKPHEd-_HvNPo5EbwA" entityName="YoungProvided_IDR">
+    <providedInterface__OperationProvidedRole href="DPS.repository#_DHDS0JP3Ed-mVsWhjZHqXg"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="_1:OperationProvidedRole" id="_NY0z8KRmEd-snq1WfmbtcQ" entityName="Provided_IDL">
+    <providedInterface__OperationProvidedRole href="DPS.repository#_D9iO4JP3Ed-mVsWhjZHqXg"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>

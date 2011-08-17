@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="de.uka.ipd.sdq.dsexplore.launchDSE">
+<stringAttribute key="Decrease processing rate factor" value="0.2"/>
+<stringAttribute key="Increase processing rate factor" value="0.2"/>
+<stringAttribute key="Maximum number of resource containers" value=""/>
+<stringAttribute key="Minimum number of resource containers" value=""/>
+<stringAttribute key="Number of candidates per allocation level" value=""/>
+<stringAttribute key="Proceesing rate threshold for low utilisation" value="0.25"/>
+<stringAttribute key="Processing rate threshold for high utilisation" value="0.75"/>
+<stringAttribute key="Reallocation threshold for utilisation difference" value="0.4"/>
+<stringAttribute key="Server consolidation threshold for low utilisation" value="0.3"/>
+<stringAttribute key="Server expansion maximum number of reallocations" value="3"/>
+<stringAttribute key="Server expansion threshold for high utilisation" value="0.8"/>
+<booleanAttribute key="Use processing rate heuristic" value="false"/>
+<booleanAttribute key="Use reallocation heuristic" value="false"/>
+<booleanAttribute key="Use server consolidation heuristic" value="false"/>
+<booleanAttribute key="Use server expansion heuristic" value="false"/>
+<booleanAttribute key="Use starting population heuristic" value="false"/>
+<stringAttribute key="Weight of processing rate heuristic" value="0.1"/>
+<stringAttribute key="Weight of reallocation heuristic" value="1"/>
+<stringAttribute key="Weight of server consolidation heuristic" value="1"/>
+<stringAttribute key="Weight of server expansion heuristic" value="0.5"/>
+<stringAttribute key="allCandidates" value=""/>
+<stringAttribute key="allocationFile" value="C:\heuristiken\ws3\brs\brs.allocation"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.cost" value="Cost Analysis"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.performance" value="LQN Solver Analysis"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.reliability" value="none"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.security" value="none"/>
+<stringAttribute key="archiveCandidates" value=""/>
+<stringAttribute key="blocks" value=""/>
+<stringAttribute key="cacheInstances" value="C:\heuristiken\paper\data\results brs 2\Eingabepopulationen\evaluation cache\evaluation cache 2010-07-06.csv"/>
+<booleanAttribute key="clear" value="true"/>
+<stringAttribute key="confidenceHalfWidth" value="10"/>
+<stringAttribute key="confidenceLevel" value="95"/>
+<stringAttribute key="confidenceModelElementName" value=""/>
+<stringAttribute key="confidenceModelElementURI" value=""/>
+<stringAttribute key="convValue" value="1e-003"/>
+<stringAttribute key="costFile" value="C:\heuristiken\brs\brs.cost"/>
+<stringAttribute key="crossover rate" value="0.75"/>
+<intAttribute key="datasourceID" value="-1"/>
+<mapAttribute key="de.uka.ipd.sdq.cip.completion">
+<mapEntry key="de.uka.ipd.sdq.cip.threadpool" value="false;;"/>
+<mapEntry key="de.uka.ipd.sdq.cip.messagingannotation" value="false;;"/>
+<mapEntry key="de.uka.ipd.sdq.cip.pubsubannotation" value="false;;"/>
+</mapAttribute>
+<booleanAttribute key="de.uka.ipd.sdq.cip.revalidate" value="false"/>
+<intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="2"/>
+<stringAttribute key="designDecisionFile" value="C:\heuristiken\brs\brs.designdecision"/>
+<booleanAttribute key="designDecisionsOnly" value="false"/>
+<stringAttribute key="experimentRun" value="MyRun"/>
+<stringAttribute key="featureConfig" value="pathmap://PCM_MODELS/ConnectorConfig.featureconfig"/>
+<stringAttribute key="indivPerGeneration" value="20"/>
+<stringAttribute key="itLimit" value="50"/>
+<stringAttribute key="lqnsOutputDir" value="C:\heuristiken\ws3\brs\lqns-output"/>
+<stringAttribute key="lqsimOutputDir" value="C:\heuristiken\ws3\brs\lqns-output"/>
+<stringAttribute key="lqsimoutput" value="XML Output"/>
+<booleanAttribute key="markovStatistics" value="false"/>
+<intAttribute key="maxDomain" value="256"/>
+<stringAttribute key="maxIterations" value="200"/>
+<stringAttribute key="maximum" value=""/>
+<stringAttribute key="maximumMeasurementCount" value="10000"/>
+<stringAttribute key="minimum" value=""/>
+<stringAttribute key="mwRepositoryFile" value="pathmap://PCM_MODELS/Glassfish.repository"/>
+<booleanAttribute key="optimisationOnly" value="true"/>
+<stringAttribute key="outpath" value="de.uka.ipd.sdq.codegen.simucominstance"/>
+<stringAttribute key="output" value="XML Output"/>
+<stringAttribute key="predefinedInstances" value="C:\heuristiken\paper\data\results brs 2\Eingabepopulationen\run4 allCandidates0_2010-03-02-220326.csv"/>
+<stringAttribute key="printInt" value="10"/>
+<stringAttribute key="psQuantum" value="0.001"/>
+<stringAttribute key="runTime" value=""/>
+<stringAttribute key="samplingDist" value="1.0"/>
+<stringAttribute key="search method" value="Evolutionary search"/>
+<booleanAttribute key="sensitivityActive" value="false"/>
+<stringAttribute key="simTime" value="150000"/>
+<booleanAttribute key="simulateFailures" value="false"/>
+<booleanAttribute key="simulateLinkingResources" value="false"/>
+<booleanAttribute key="singleResults" value="false"/>
+<stringAttribute key="solver" value="LQNS (Layered Queueing Network Solver)"/>
+<stringAttribute key="stepwidth" value=""/>
+<stringAttribute key="strengthenResource_increaseFactor" value="1.1"/>
+<stringAttribute key="strengthenResource_threshold" value="0.7"/>
+<stringAttribute key="temporaryModelsPath" value=""/>
+<stringAttribute key="underCoeff" value="0.5"/>
+<stringAttribute key="usageFile" value="C:\heuristiken\ws3\brs\brs.usagemodel"/>
+<booleanAttribute key="use heuristics in PerOpteryx" value="true"/>
+<booleanAttribute key="useConfidenceStopCondition" value="false"/>
+<stringAttribute key="variable" value="NO ELEMENT SELECTED"/>
+<booleanAttribute key="verboseLogging" value="false"/>
+</launchConfiguration>

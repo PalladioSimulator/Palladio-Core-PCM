@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_yvpTUN1AEduyyPV1EeYaOQ" entityName="ConcurSystem">
+  <childComponentContexts_ComposedStructure id="_13BT8N1AEduyyPV1EeYaOQ">
+    <encapsulatedComponent_ChildComponentContext href="default.repository#_ZTukgN0-EduyyPV1EeYaOQ"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_4VqgoN1AEduyyPV1EeYaOQ" outerProvidedRole_ProvidedDelegationConnector="_3JN7oN1AEduyyPV1EeYaOQ" childComponentContext_ProvidedDelegationConnector="_13BT8N1AEduyyPV1EeYaOQ">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_exmicN0-EduyyPV1EeYaOQ"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_3JN7oN1AEduyyPV1EeYaOQ">
+    <providedInterface__ProvidedRole href="default.repository#_YbGTYN0-EduyyPV1EeYaOQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+</pcm.system:System>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_Ui6YgM-xEd6714bWySnHDQ" type="allocation" name="default-allocateSubsystemDirectly.allocation_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_UlcIEM-xEd6714bWySnHDQ" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_UlcvIM-xEd6714bWySnHDQ" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_UlcvIc-xEd6714bWySnHDQ" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_VkfKQM-xEd6714bWySnHDQ" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_VkfxUM-xEd6714bWySnHDQ" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_VkfxUc-xEd6714bWySnHDQ" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_VkfKQc-xEd6714bWySnHDQ" fontName="Segoe UI"/>
+        <element xmi:type="AllocationContext" href="default-allocateSubsystemDirectly.allocation#_VIJzkM-xEd6714bWySnHDQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VkfKQs-xEd6714bWySnHDQ" x="92" y="78"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_UlcvIs-xEd6714bWySnHDQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_UlcvI8-xEd6714bWySnHDQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_UlcIEc-xEd6714bWySnHDQ" fontName="Segoe UI"/>
+    <element xmi:type="_1:ResourceContainer" href="My.resourceenvironment#_B0aZ0CHdEd6lJo4DCALHMw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UlcIEs-xEd6714bWySnHDQ" width="506" height="301"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_Ui6Ygc-xEd6714bWySnHDQ"/>
+  <element xmi:type="Allocation" href="default-allocateSubsystemDirectly.allocation#_Uis9IM-xEd6714bWySnHDQ"/>
+</notation:Diagram>

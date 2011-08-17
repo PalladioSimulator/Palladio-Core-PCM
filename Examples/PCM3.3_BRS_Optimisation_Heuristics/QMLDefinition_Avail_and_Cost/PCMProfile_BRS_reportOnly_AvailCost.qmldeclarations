@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QMLDeclarations:QMLDeclarations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:QMLContract="http:///QMLContract.ecore" xmlns:QMLDeclarations="http:///QMLDeclarations.ecore" xmlns:QMLProfile="http:///QMLProfile.ecore" xmlns:identifier="http://sdq.ipd.uka.de/Identifier/1.0" identifier:id="__FjEYJyKEd-NNcIT2kpSGQ">
+  <qmlDeclarations xsi:type="QMLProfile:SimpleQMLProfile" identifier:id="__Gb1MJyKEd-NNcIT2kpGSQ" entityName="PCMProfile" usageModel="../reportOnly.usagemodel#/">
+    <requirements xsi:type="QMLProfile:UsageScenarioRequirement" identifier:id="__IEz85yKEd-NNcIT2kpGQS" requireContract="QMLContract:SimpleQMLContract PCMObjectives.qmldeclarations#_FqNZYaCrEd-s9uTaURbrKA" usageScenario="../reportOnly.usagemodel#_TpjAIAj4EeCIV8x9GplqHg"/>
+  </qmlDeclarations>
+</QMLDeclarations:QMLDeclarations>

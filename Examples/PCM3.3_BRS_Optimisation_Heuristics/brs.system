@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_Mkm7gNo_EdyxgfK4Hy_RFA" entityName="Business_Reporting_System">
+  <assemblyContexts_ComposedStructure id="_N8Qq8No_EdyxgfK4Hy_RFA" entityName="AC_Webserver">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_T00ZwNo_EdyxgfK4Hy_RFA" entityName="AC_Scheduler">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_jpoagNo4EdyCSNQKlT1LxA"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_VmpjwNo_EdyxgfK4Hy_RFA" entityName="AC_CoreOnlineEngine">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:CompositeComponent" href="brs.repository#_P48uoGo2Ed631pecjlFspw"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_cWmNkNo_EdyxgfK4Hy_RFA" entityName="AC_Database">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_sQC2sNo4EdyCSNQKlT1LxA"/>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="100000.0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="Entries"/>
+    </configParameterUsages_AssemblyContext>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_e5UB8No_EdyxgfK4Hy_RFA" entityName="AC_Cache">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_nEBdwNo4EdyCSNQKlT1LxA"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_YH_kEFeoEd6zR8NNmb-sJg" entityName="AC_GraphicalReporting &lt;GraphicalReporting>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_LP3icFelEd6zR8NNmb-sJg"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_iR-r0FeoEd6zR8NNmb-sJg" entityName="AC_OnlineReporting &lt;OnlineReporting>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_M0cTkFelEd6zR8NNmb-sJg"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_cmDYoFhJEd6UHd_VhJH9SQ" entityName="AC_UserManagement &lt;UserManagement>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_NeaygFhGEd6UHd_VhJH9SQ"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_Gnz2UHqQEd6uqIqMUZizUw" entityName="Assembly_CoreGraphicEngine &lt;CoreReportingEngine2>">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:CompositeComponent" href="brs.repository#_wrGucHqPEd6uqIqMUZizUw"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_eiDYgNo_EdyxgfK4Hy_RFA" entityName="Connector AC_ReportingEngine -> AC_DB" requiringAssemblyContext_AssemblyConnector="_VmpjwNo_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_cWmNkNo_EdyxgfK4Hy_RFA">
+    <providedRole_AssemblyConnector href="brs.repository#_uD-dANo5EdyCSNQKlT1LxA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_YDMzQGo2Ed631pecjlFspw"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_iIwZcNo_EdyxgfK4Hy_RFA" entityName="Connector AC_ReportingEngine -> AC_CacheInfo" requiringAssemblyContext_AssemblyConnector="_VmpjwNo_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_e5UB8No_EdyxgfK4Hy_RFA">
+    <providedRole_AssemblyConnector href="brs.repository#_gEK9cNo9EdyxgfK4Hy_RFA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_XlnfYGo2Ed631pecjlFspw"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_itFOgNo_EdyxgfK4Hy_RFA" entityName="Connector AC_CacheInfo -> AC_DB" requiringAssemblyContext_AssemblyConnector="_e5UB8No_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_cWmNkNo_EdyxgfK4Hy_RFA">
+    <providedRole_AssemblyConnector href="brs.repository#_uD-dANo5EdyCSNQKlT1LxA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_wNIh4No5EdyCSNQKlT1LxA"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_Q6ZZYMSGEd2CxsWT-lM9kQ" entityName="Connector AC_Webserver -> AC_Scheduler" requiringAssemblyContext_AssemblyConnector="_N8Qq8No_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA">
+    <providedRole_AssemblyConnector href="brs.repository#_Wm_OINo5EdyCSNQKlT1LxA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_76rHENo5EdyCSNQKlT1LxA"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_ecj5cFeoEd6zR8NNmb-sJg" entityName="Connector AC_Scheduler -> Assembly_GraphicalReporting &lt;GraphicalReporting>" requiringAssemblyContext_AssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_YH_kEFeoEd6zR8NNmb-sJg">
+    <providedRole_AssemblyConnector href="brs.repository#_QM9ukFelEd6zR8NNmb-sJg"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_8cgw8FemEd6zR8NNmb-sJg"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_kBloQFeoEd6zR8NNmb-sJg" entityName="Connector AC_Scheduler -> Assembly_OnlineReporting &lt;OnlineReporting>" requiringAssemblyContext_AssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_iR-r0FeoEd6zR8NNmb-sJg">
+    <providedRole_AssemblyConnector href="brs.repository#_TnQrMFelEd6zR8NNmb-sJg"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_XOHfkNo5EdyCSNQKlT1LxA"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_l10mAFeoEd6zR8NNmb-sJg" entityName="Connector Assembly_OnlineReporting &lt;OnlineReporting> -> AC_ReportingEngine" requiringAssemblyContext_AssemblyConnector="_iR-r0FeoEd6zR8NNmb-sJg" providingAssemblyContext_AssemblyConnector="_VmpjwNo_EdyxgfK4Hy_RFA">
+    <providedRole_AssemblyConnector href="brs.repository#_XKu6MGo2Ed631pecjlFspw"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_URR4kFelEd6zR8NNmb-sJg"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_ec0F8FhJEd6UHd_VhJH9SQ" entityName="Connector AC_Scheduler -> Assembly_UserManagement &lt;UserManagement>" requiringAssemblyContext_AssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_cmDYoFhJEd6UHd_VhJH9SQ">
+    <providedRole_AssemblyConnector href="brs.repository#_O7tP4FhGEd6UHd_VhJH9SQ"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_3tnYoFhFEd6UHd_VhJH9SQ"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_JmTnwHqQEd6uqIqMUZizUw" entityName="Connector Assembly_GraphicalReporting &lt;GraphicalReporting> -> Assembly_CoreReportingEngine2_gr &lt;CoreReportingEngine2>" requiringAssemblyContext_AssemblyConnector="_YH_kEFeoEd6zR8NNmb-sJg" providingAssemblyContext_AssemblyConnector="_Gnz2UHqQEd6uqIqMUZizUw">
+    <providedRole_AssemblyConnector href="brs.repository#_y8ErgHqPEd6uqIqMUZizUw"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_TNCNUFelEd6zR8NNmb-sJg"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_KgFIYHqQEd6uqIqMUZizUw" entityName="Connector Assembly_CoreReportingEngine2_gr &lt;CoreReportingEngine2> -> AC_CacheInfo" requiringAssemblyContext_AssemblyConnector="_Gnz2UHqQEd6uqIqMUZizUw" providingAssemblyContext_AssemblyConnector="_e5UB8No_EdyxgfK4Hy_RFA">
+    <providedRole_AssemblyConnector href="brs.repository#_gEK9cNo9EdyxgfK4Hy_RFA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_16uN8HqPEd6uqIqMUZizUw"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_K-F6EHqQEd6uqIqMUZizUw" entityName="Connector Assembly_CoreReportingEngine2_gr &lt;CoreReportingEngine2> -> AC_DB" requiringAssemblyContext_AssemblyConnector="_Gnz2UHqQEd6uqIqMUZizUw" providingAssemblyContext_AssemblyConnector="_cWmNkNo_EdyxgfK4Hy_RFA">
+    <providedRole_AssemblyConnector href="brs.repository#_uD-dANo5EdyCSNQKlT1LxA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_03FmsHqPEd6uqIqMUZizUw"/>
+  </assemblyConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_Fc1jsLcOEd2_9rSHIHHezA" entityName="ProvDelegation Provided_IHTTP -> Provided_IHTTP_WebServer" outerProvidedRole_ProvidedDelegationConnector="_zyc0ANo_EdyxgfK4Hy_RFA" assemblyContext_ProvidedDelegationConnector="_N8Qq8No_EdyxgfK4Hy_RFA">
+    <innerProvidedRole_ProvidedDelegationConnector href="brs.repository#_7gSRINo5EdyCSNQKlT1LxA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_RsJe0FekEd6zR8NNmb-sJg" entityName="ProvDelegation Provided_IAdmin -> Provided_IAdmin_ReportingEngine" outerProvidedRole_ProvidedDelegationConnector="_QgwCsFekEd6zR8NNmb-sJg" assemblyContext_ProvidedDelegationConnector="_VmpjwNo_EdyxgfK4Hy_RFA">
+    <innerProvidedRole_ProvidedDelegationConnector href="brs.repository#_WjvysGo2Ed631pecjlFspw"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="_1:OperationProvidedRole" id="_zyc0ANo_EdyxgfK4Hy_RFA" entityName="Provided_IHTTP">
+    <providedInterface__OperationProvidedRole href="brs.repository#_36kHoNo5EdyCSNQKlT1LxA"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="_1:OperationProvidedRole" id="_QgwCsFekEd6zR8NNmb-sJg" entityName="Provided_IAdmin">
+    <providedInterface__OperationProvidedRole href="brs.repository#_MeXLUFekEd6zR8NNmb-sJg"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>

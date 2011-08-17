@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ASCII"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" type="CompositeModel" measurementUnit="Pixel">
+  <children type="2001">
+    <children type="5002"/>
+    <children type="7001">
+      <children type="3002">
+        <children type="5004"/>
+        <styles xsi:type="notation:FontStyle"/>
+        <styles xsi:type="notation:DescriptionStyle"/>
+        <styles xsi:type="notation:FillStyle"/>
+        <styles xsi:type="notation:LineStyle"/>
+        <element href="EA3.system#_GGpnIEptEd2Hr_k89rmpmQ"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="26" y="122" width="207" height="93"/>
+      </children>
+      <children type="3002">
+        <children type="5004"/>
+        <children type="3001">
+          <children type="5001">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <styles xsi:type="notation:FontStyle"/>
+          <styles xsi:type="notation:DescriptionStyle"/>
+          <styles xsi:type="notation:FillStyle"/>
+          <styles xsi:type="notation:LineStyle"/>
+          <element href="mediastore.repository#__EO3IBpZEdyxqpPYxT_m3w"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children type="3004">
+          <children type="5005">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <styles xsi:type="notation:FontStyle"/>
+          <styles xsi:type="notation:DescriptionStyle"/>
+          <styles xsi:type="notation:FillStyle"/>
+          <styles xsi:type="notation:LineStyle"/>
+          <element href="mediastore.repository#__rkj8BpZEdyxqpPYxT_m3w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="24" y="96"/>
+        </children>
+        <children type="3004">
+          <children type="5005">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <styles xsi:type="notation:FontStyle"/>
+          <styles xsi:type="notation:DescriptionStyle"/>
+          <styles xsi:type="notation:FillStyle"/>
+          <styles xsi:type="notation:LineStyle"/>
+          <element href="mediastore.repository#_ACOwcBpaEdyxqpPYxT_m3w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="24" y="-29"/>
+        </children>
+        <styles xsi:type="notation:FontStyle"/>
+        <styles xsi:type="notation:DescriptionStyle"/>
+        <styles xsi:type="notation:FillStyle"/>
+        <styles xsi:type="notation:LineStyle"/>
+        <element href="EA3.system#_-i_L8EptEd2Hr_k89rmpmQ"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="364" y="122" width="157" height="97"/>
+      </children>
+      <children type="3002">
+        <children type="5004"/>
+        <styles xsi:type="notation:FontStyle"/>
+        <styles xsi:type="notation:DescriptionStyle"/>
+        <styles xsi:type="notation:FillStyle"/>
+        <styles xsi:type="notation:LineStyle"/>
+        <element href="EA3.system#_UB6ysEpuEd2Hr_k89rmpmQ"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="424" y="290" width="265" height="61"/>
+      </children>
+      <children type="3002">
+        <children type="5004"/>
+        <styles xsi:type="notation:FontStyle"/>
+        <styles xsi:type="notation:DescriptionStyle"/>
+        <styles xsi:type="notation:FillStyle"/>
+        <styles xsi:type="notation:LineStyle"/>
+        <element href="EA3.system#_Xx-j8EpuEd2Hr_k89rmpmQ"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="436" y="14" width="229" height="56"/>
+      </children>
+      <styles xsi:type="notation:SortingStyle"/>
+      <styles xsi:type="notation:FilteringStyle"/>
+    </children>
+    <styles xsi:type="notation:FontStyle"/>
+    <styles xsi:type="notation:DescriptionStyle"/>
+    <styles xsi:type="notation:FillStyle"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <layoutConstraint xsi:type="notation:Bounds" width="721" height="493"/>
+  </children>
+  <styles xsi:type="notation:PageStyle"/>
+  <styles xsi:type="notation:GuideStyle"/>
+  <styles xsi:type="notation:DescriptionStyle"/>
+  <element href="EA3.system#_1k0MgEpsEd2Hr_k89rmpmQ"/>
+</notation:Diagram>

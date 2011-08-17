@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_Mkm7gNo_EdyxgfK4Hy_RFA" entityName="Business_Reporting_System">
+  <assemblyContexts_ComposedStructure id="_N8Qq8No_EdyxgfK4Hy_RFA" entityName="AC_Webserver">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_T00ZwNo_EdyxgfK4Hy_RFA" entityName="AC_Scheduler">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_jpoagNo4EdyCSNQKlT1LxA"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_cWmNkNo_EdyxgfK4Hy_RFA" entityName="AC1_DB">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_sQC2sNo4EdyCSNQKlT1LxA"/>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="100000.0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="Entries"/>
+    </configParameterUsages_AssemblyContext>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_CAsP4EVLEd6KA7GFQHGCjQ" entityName="AC2_DB">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:BasicComponent" href="brs.repository#_sQC2sNo4EdyCSNQKlT1LxA"/>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="100000.0"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="Entries"/>
+    </configParameterUsages_AssemblyContext>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_YzXG4FaYEd6HqahvVj4WQQ" entityName="AC1_ReportingServer">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:CompositeComponent" href="brs.repository#_yqG34FaXEd6HqahvVj4WQQ"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_TAT0sFi9Ed63I7LJSYv-tA" entityName="AC2_ReportingServer">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:CompositeComponent" href="brs.repository#_yqG34FaXEd6HqahvVj4WQQ"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_ME-dcFjBEd6PI5QcJ-So1g" entityName="AC3_ReportingServer">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:CompositeComponent" href="brs.repository#_yqG34FaXEd6HqahvVj4WQQ"/>
+  </assemblyContexts_ComposedStructure>
+  <assemblyContexts_ComposedStructure id="_XrploFjBEd6PI5QcJ-So1g" entityName="AC4_ReportingServer">
+    <encapsulatedComponent_AssemblyContext xsi:type="_1:CompositeComponent" href="brs.repository#_yqG34FaXEd6HqahvVj4WQQ"/>
+  </assemblyContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_Fc1jsLcOEd2_9rSHIHHezA" entityName="ProvDelegation Provided_IHTTP -> Provided_IHTTP_WebServer" outerProvidedRole_ProvidedDelegationConnector="_zyc0ANo_EdyxgfK4Hy_RFA" assemblyContext_ProvidedDelegationConnector="_N8Qq8No_EdyxgfK4Hy_RFA">
+    <innerProvidedRole_ProvidedDelegationConnector href="brs.repository#_7gSRINo5EdyCSNQKlT1LxA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_Q6ZZYMSGEd2CxsWT-lM9kQ" entityName="Connector AC_Webserver -> AC_Scheduler" requiringAssemblyContext_AssemblyConnector="_N8Qq8No_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA">
+    <providedRole_AssemblyConnector href="brs.repository#_Wm_OINo5EdyCSNQKlT1LxA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_76rHENo5EdyCSNQKlT1LxA"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_fKBG8FaYEd6HqahvVj4WQQ" entityName="Connector AC_Scheduler -> AC1_ReportingServer" requiringAssemblyContext_AssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_YzXG4FaYEd6HqahvVj4WQQ">
+    <providedRole_AssemblyConnector href="brs.repository#_7mKM4FaXEd6HqahvVj4WQQ"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_XOHfkNo5EdyCSNQKlT1LxA"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_ftCUcFaYEd6HqahvVj4WQQ" entityName="Connector AC1_ReportingServer -> AC1_DB" requiringAssemblyContext_AssemblyConnector="_YzXG4FaYEd6HqahvVj4WQQ" providingAssemblyContext_AssemblyConnector="_cWmNkNo_EdyxgfK4Hy_RFA">
+    <providedRole_AssemblyConnector href="brs.repository#_uD-dANo5EdyCSNQKlT1LxA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_8Stw4FaXEd6HqahvVj4WQQ"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_VuD0YFi9Ed63I7LJSYv-tA" entityName="Connector AC_Scheduler -> AC2_ReportingServer" requiringAssemblyContext_AssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_TAT0sFi9Ed63I7LJSYv-tA">
+    <providedRole_AssemblyConnector href="brs.repository#_7mKM4FaXEd6HqahvVj4WQQ"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_7BsloEUXEd6HAbOR56wSfA"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_Won_MFi9Ed63I7LJSYv-tA" entityName="Connector AC2_ReportingServer -> AC1_DB" requiringAssemblyContext_AssemblyConnector="_TAT0sFi9Ed63I7LJSYv-tA" providingAssemblyContext_AssemblyConnector="_cWmNkNo_EdyxgfK4Hy_RFA">
+    <providedRole_AssemblyConnector href="brs.repository#_uD-dANo5EdyCSNQKlT1LxA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_8Stw4FaXEd6HqahvVj4WQQ"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_OV0esFjBEd6PI5QcJ-So1g" entityName="Connector AC_Scheduler -> AC3_ReportingServer" requiringAssemblyContext_AssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_ME-dcFjBEd6PI5QcJ-So1g">
+    <providedRole_AssemblyConnector href="brs.repository#_7mKM4FaXEd6HqahvVj4WQQ"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_YDYD8EVLEd6KA7GFQHGCjQ"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_O00H0FjBEd6PI5QcJ-So1g" entityName="Connector AC3_ReportingServer -> AC2_DB" requiringAssemblyContext_AssemblyConnector="_ME-dcFjBEd6PI5QcJ-So1g" providingAssemblyContext_AssemblyConnector="_CAsP4EVLEd6KA7GFQHGCjQ">
+    <providedRole_AssemblyConnector href="brs.repository#_uD-dANo5EdyCSNQKlT1LxA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_8Stw4FaXEd6HqahvVj4WQQ"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_Zo-N8FjBEd6PI5QcJ-So1g" entityName="Connector AC_Scheduler -> AC4_ReportingServer" requiringAssemblyContext_AssemblyConnector="_T00ZwNo_EdyxgfK4Hy_RFA" providingAssemblyContext_AssemblyConnector="_XrploFjBEd6PI5QcJ-So1g">
+    <providedRole_AssemblyConnector href="brs.repository#_7mKM4FaXEd6HqahvVj4WQQ"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_ZBXWMEVLEd6KA7GFQHGCjQ"/>
+  </assemblyConnectors_ComposedStructure>
+  <assemblyConnectors_ComposedStructure id="_aCTT8FjBEd6PI5QcJ-So1g" entityName="Connector AC4_ReportingServer -> AC2_DB" requiringAssemblyContext_AssemblyConnector="_XrploFjBEd6PI5QcJ-So1g" providingAssemblyContext_AssemblyConnector="_CAsP4EVLEd6KA7GFQHGCjQ">
+    <providedRole_AssemblyConnector href="brs.repository#_uD-dANo5EdyCSNQKlT1LxA"/>
+    <requiredRole_AssemblyConnector href="brs.repository#_8Stw4FaXEd6HqahvVj4WQQ"/>
+  </assemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_zyc0ANo_EdyxgfK4Hy_RFA" entityName="Provided_IHTTP">
+    <providedInterface__ProvidedRole href="brs.repository#_36kHoNo5EdyCSNQKlT1LxA"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>

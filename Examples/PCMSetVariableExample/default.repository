@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_u_u7gP_8Edu5_5tCZjPAAA" entityName="SetVariableRepository">
+  <components__Repository xsi:type="BasicComponent" id="_V3B8QP_9Edu5_5tCZjPAAA" entityName="Client">
+    <providedRoles_InterfaceProvidingEntity id="_XfHUYP_9Edu5_5tCZjPAAA" entityName="Provided_IProvided_Client" providedInterface__ProvidedRole="_3YdhAP_8Edu5_5tCZjPAAA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_X8oW0P_9Edu5_5tCZjPAAA" entityName="Required_IProvidedServer_Client" requiredInterface__RequiredRole="_Gy09QP_9Edu5_5tCZjPAAA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_XfJwoP_9Edu5_5tCZjPAAA" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_Xfz38P_9Edu5_5tCZjPAAA" successor_AbstractAction="_tjfKgP_9Edu5_5tCZjPAAA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_Xf27QP_9Edu5_5tCZjPAAA" predecessor_AbstractAction="_5jeKkP_9Edu5_5tCZjPAAA"/>
+      <steps_Behaviour xsi:type="_1:ExternalCallAction" id="_tjfKgP_9Edu5_5tCZjPAAA" predecessor_AbstractAction="_Xfz38P_9Edu5_5tCZjPAAA" successor_AbstractAction="_5jeKkP_9Edu5_5tCZjPAAA" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
+        <outputVariableUsages_ExternalCallAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="RETURN.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="localVar"/>
+        </outputVariableUsages_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="_1:InternalAction" id="_5jeKkP_9Edu5_5tCZjPAAA" entityName="demand" predecessor_AbstractAction="_tjfKgP_9Edu5_5tCZjPAAA" successor_AbstractAction="_Xf27QP_9Edu5_5tCZjPAAA">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="1"/>
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#cpu"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="BasicComponent" id="_YSvJsP_9Edu5_5tCZjPAAA" entityName="Server">
+    <providedRoles_InterfaceProvidingEntity id="_ZJr_0P_9Edu5_5tCZjPAAA" entityName="Provided_IProvidedServer_Server" providedInterface__ProvidedRole="_Gy09QP_9Edu5_5tCZjPAAA"/>
+    <componentParameterUsage_ImplementationComponentType>
+      <variableCharacterisation_VariableUsage type="VALUE">
+        <specification_VariableCharacterisation specification="3"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="param"/>
+    </componentParameterUsage_ImplementationComponentType>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_ZJsm4P_9Edu5_5tCZjPAAA" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_ZJtN8P_9Edu5_5tCZjPAAA" successor_AbstractAction="_bwktEP_-Edu5_5tCZjPAAA"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_ZJt1AP_9Edu5_5tCZjPAAA" predecessor_AbstractAction="_bwktEP_-Edu5_5tCZjPAAA"/>
+      <steps_Behaviour xsi:type="_1:SetVariableAction" id="_bwktEP_-Edu5_5tCZjPAAA" predecessor_AbstractAction="_ZJtN8P_9Edu5_5tCZjPAAA" successor_AbstractAction="_ZJt1AP_9Edu5_5tCZjPAAA">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="param.VALUE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="CompositeComponent" id="_REAeYAYtEdywPJFHUqResg" entityName="test">
+    <providedDelegationConnectors_ComposedStructure id="_L9OhEAZJEdyIptAqfF6SLA" innerProvidedRole_ProvidedDelegationConnector="_XfHUYP_9Edu5_5tCZjPAAA" outerProvidedRole_ProvidedDelegationConnector="_QaPZkAY2EdywPJFHUqResg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_P0r60AZJEdyIptAqfF6SLA" innerRequiredRole_RequiredDelegationConnector="_X8oW0P_9Edu5_5tCZjPAAA" outerRequiredRole_RequiredDelegationConnector="_KL8rUAY2EdywPJFHUqResg"/>
+    <providedRoles_InterfaceProvidingEntity id="_QaPZkAY2EdywPJFHUqResg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_KL8rUAY2EdywPJFHUqResg" requiredInterface__RequiredRole="_3YdhAP_8Edu5_5tCZjPAAA"/>
+  </components__Repository>
+  <interfaces__Repository id="_3YdhAP_8Edu5_5tCZjPAAA" entityName="IProvided">
+    <signatures__Interface serviceName="setVariableClient">
+      <parameters__Signature parameterName="aParam">
+        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+      <parameters__Signature datatype__Parameter="_uui3luWtEd6cudwjDV3IIw" parameterName="aCollection"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_Gy09QP_9Edu5_5tCZjPAAA" entityName="IProvidedServer">
+    <signatures__Interface serviceName="serverService" returntype__Signature="_uui3luWtEd6cudwjDV3IIw"/>
+  </interfaces__Repository>
+  <datatypes_Repository xsi:type="CollectionDataType" id="_uui3luWtEd6cudwjDV3IIw" entityName="aCollectionType">
+    <innerType_CollectionDataType xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+  </datatypes_Repository>
+</Repository>

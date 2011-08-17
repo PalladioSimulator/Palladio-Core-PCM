@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_aGSnsHJ1Ed2efr_U4e1c6Q" entityName="defaultSystem">
+  <childComponentContexts_ComposedStructure id="_bNOakHJ1Ed2efr_U4e1c6Q" entityName="Assembly_HardDiskModel &lt;HardDiskModel>">
+    <encapsulatedComponent_ChildComponentContext href="default.repository#_us3fkHJ0Ed2efr_U4e1c6Q"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_H85_cHKAEd21xbSoKmYJrg" entityName="ProvDelegation Provided_IHardDiskAccess -> Provided_IHardDiskAccess_aName" outerProvidedRole_ProvidedDelegationConnector="_eVfzEHJ1Ed2efr_U4e1c6Q" childComponentContext_ProvidedDelegationConnector="_bNOakHJ1Ed2efr_U4e1c6Q">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_A9RU0HJ1Ed2efr_U4e1c6Q"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_eVfzEHJ1Ed2efr_U4e1c6Q" entityName="Provided_IHardDiskAccess">
+    <providedInterface__ProvidedRole href="default.repository#_vfrckHJ0Ed2efr_U4e1c6Q"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>

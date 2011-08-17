@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" id="_J3vPYLfXEd2PvvnrNadJLQ" entityName="BRS allocation">
+  <allocationContexts_Allocation id="_PZQ-QLfXEd2PvvnrNadJLQ" entityName="Allocation_AC_Webserver &lt;WebServer>">
+    <resourceContainer_AllocationContext href="brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    <assemblyContext_AllocationContext href="brs.system#_N8Qq8No_EdyxgfK4Hy_RFA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_QVANwLfXEd2PvvnrNadJLQ" entityName="Allocation_AC_Scheduler &lt;Scheduler>">
+    <resourceContainer_AllocationContext href="brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    <assemblyContext_AllocationContext href="brs.system#_T00ZwNo_EdyxgfK4Hy_RFA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_Q-kvMLfXEd2PvvnrNadJLQ" entityName="Allocation_AC_DB &lt;DB>">
+    <resourceContainer_AllocationContext href="brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    <assemblyContext_AllocationContext href="brs.system#_cWmNkNo_EdyxgfK4Hy_RFA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_RwLyULfXEd2PvvnrNadJLQ" entityName="Allocation_AC_ReportingEngine &lt;ReportingEngine>">
+    <resourceContainer_AllocationContext href="brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    <assemblyContext_AllocationContext href="brs.system#_VmpjwNo_EdyxgfK4Hy_RFA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_SeXG8LfXEd2PvvnrNadJLQ" entityName="Allocation_AC_CacheInfo &lt;CacheInfo>">
+    <resourceContainer_AllocationContext href="brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    <assemblyContext_AllocationContext href="brs.system#_e5UB8No_EdyxgfK4Hy_RFA"/>
+  </allocationContexts_Allocation>
+  <targetResourceEnvironment_Allocation href="brs.resourceenvironment#/"/>
+  <system_Allocation href="brs.system#_Mkm7gNo_EdyxgfK4Hy_RFA"/>
+</Allocation>

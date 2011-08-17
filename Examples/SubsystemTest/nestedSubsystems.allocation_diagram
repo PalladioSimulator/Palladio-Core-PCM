@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_50xSUX2oEd6u9Md61yj-5Q" type="allocation" name="nestedSubsystems.allocation_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_52sk8H2oEd6u9Md61yj-5Q" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_52sk832oEd6u9Md61yj-5Q" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_52sk9H2oEd6u9Md61yj-5Q" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_52sk9X2oEd6u9Md61yj-5Q"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_52sk9n2oEd6u9Md61yj-5Q"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_52sk8X2oEd6u9Md61yj-5Q"/>
+    <element xmi:type="ResourceContainer" href="My.resourceenvironment#_B0aZ0CHdEd6lJo4DCALHMw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_52sk8n2oEd6u9Md61yj-5Q" width="281" height="201"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_50xSUn2oEd6u9Md61yj-5Q"/>
+  <element xmi:type="_1:Allocation" href="nestedSubsystems.allocation#_50xSUH2oEd6u9Md61yj-5Q"/>
+</notation:Diagram>

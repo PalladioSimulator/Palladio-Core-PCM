@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_SlCNIVFBEd2iLYgaJYxY7w" type="allocation" name="EA1.allocation_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_SmOf8FFBEd2iLYgaJYxY7w" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_SmOf81FBEd2iLYgaJYxY7w" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_SmOf9FFBEd2iLYgaJYxY7w" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_TX2KIFFBEd2iLYgaJYxY7w" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_TX2KI1FBEd2iLYgaJYxY7w" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_TX2KJFFBEd2iLYgaJYxY7w" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_TX2KIVFBEd2iLYgaJYxY7w"/>
+        <element xmi:type="AllocationContext" href="EA1.allocation#_TGjl0FFBEd2iLYgaJYxY7w"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TX2KIlFBEd2iLYgaJYxY7w" x="127" y="170"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_UAEnwFFBEd2iLYgaJYxY7w" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_UAEnw1FBEd2iLYgaJYxY7w" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_UAEnxFFBEd2iLYgaJYxY7w" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_UAEnwVFBEd2iLYgaJYxY7w"/>
+        <element xmi:type="AllocationContext" href="EA1.allocation#_ToiRgFFBEd2iLYgaJYxY7w"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UAEnwlFBEd2iLYgaJYxY7w" x="83" y="93"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_UvnOUFFBEd2iLYgaJYxY7w" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_UvnOU1FBEd2iLYgaJYxY7w" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_UvnOVFFBEd2iLYgaJYxY7w" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_UvnOUVFBEd2iLYgaJYxY7w"/>
+        <element xmi:type="AllocationContext" href="EA1.allocation#_UYg88FFBEd2iLYgaJYxY7w"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UvnOUlFBEd2iLYgaJYxY7w" x="83" y="272"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_VSob0FFBEd2iLYgaJYxY7w" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_VSob01FBEd2iLYgaJYxY7w" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_VSob1FFBEd2iLYgaJYxY7w" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_VSob0VFBEd2iLYgaJYxY7w"/>
+        <element xmi:type="AllocationContext" href="EA1.allocation#_VCr7UFFBEd2iLYgaJYxY7w"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VSob0lFBEd2iLYgaJYxY7w" x="26" y="226"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Vyg1wFFBEd2iLYgaJYxY7w" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_Vyg1w1FBEd2iLYgaJYxY7w" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_Vyg1xFFBEd2iLYgaJYxY7w" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_Vyg1wVFBEd2iLYgaJYxY7w"/>
+        <element xmi:type="AllocationContext" href="EA1.allocation#_VlGr4FFBEd2iLYgaJYxY7w"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Vyg1wlFBEd2iLYgaJYxY7w" x="140" y="47"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_SmOf9VFBEd2iLYgaJYxY7w"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_SmOf9lFBEd2iLYgaJYxY7w"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_SmOf8VFBEd2iLYgaJYxY7w"/>
+    <element xmi:type="_1:ResourceContainer" href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SmOf8lFBEd2iLYgaJYxY7w" width="505" height="481"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_SlCNIlFBEd2iLYgaJYxY7w"/>
+  <element xmi:type="Allocation" href="EA1.allocation#_SlCNIFFBEd2iLYgaJYxY7w"/>
+</notation:Diagram>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/Performance/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xsi:schemaLocation="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0 http://sdq.ipd.uka.de/PalladioComponentModel/4.0#//seff http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/Performance/1.0 http://sdq.ipd.uka.de/PalladioComponentModel/4.0#//seff/performance" xmi:id="_T4K3gCigEeCxO_9MozM6LA" type="PCM SEFF Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_T7n0ICigEeCxO_9MozM6LA" type="2001">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_T7n0ISigEeCxO_9MozM6LA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_T7n0IiigEeCxO_9MozM6LA" fontName="Lucida Grande"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_T7n0IyigEeCxO_9MozM6LA"/>
+    <element xmi:type="StartAction" href="default.repository#_xYTKACifEeCxO_9MozM6LA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T7n0JCigEeCxO_9MozM6LA" x="5" y="90"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_T7pCQCigEeCxO_9MozM6LA" type="2002" fontName="Lucida Grande">
+    <element xmi:type="StopAction" href="default.repository#_xYTxECifEeCxO_9MozM6LA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T7pCQSigEeCxO_9MozM6LA"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_UXQnQCigEeCxO_9MozM6LA" type="2006" fontName="Lucida Grande">
+    <children xmi:type="notation:DecorationNode" xmi:id="_UXQnQiigEeCxO_9MozM6LA" type="5012"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_UXQnQyigEeCxO_9MozM6LA" type="7012">
+      <children xmi:type="notation:Node" xmi:id="_WAHbcCigEeCxO_9MozM6LA" type="3031">
+        <element xmi:type="_1:ParametricResourceDemand" href="default.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_WAHbcSigEeCxO_9MozM6LA"/>
+      </children>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_UXQnRCigEeCxO_9MozM6LA" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_UXQnRSigEeCxO_9MozM6LA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_UXQnRiigEeCxO_9MozM6LA"/>
+    </children>
+    <element xmi:type="InternalAction" href="default.repository#_UXNj8CigEeCxO_9MozM6LA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UXQnQSigEeCxO_9MozM6LA" x="130" y="71"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_T4K3gSigEeCxO_9MozM6LA"/>
+  <element xmi:type="ResourceDemandingSEFF" href="default.repository#_xYRU0CifEeCxO_9MozM6LA"/>
+  <edges xmi:type="notation:Connector" xmi:id="_XBxFsCigEeCxO_9MozM6LA" type="4001" source="_T7n0ICigEeCxO_9MozM6LA" target="_UXQnQCigEeCxO_9MozM6LA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_XBxFsSigEeCxO_9MozM6LA" fontName="Lucida Grande"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XBxFsiigEeCxO_9MozM6LA" points="[9, -1, -123, 5]$[115, -12, -17, -6]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XB0JACigEeCxO_9MozM6LA" id="(0.19101123595505617,0.359375)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_Xh3iECigEeCxO_9MozM6LA" type="4001" source="_UXQnQCigEeCxO_9MozM6LA" target="_T7pCQCigEeCxO_9MozM6LA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_Xh3iESigEeCxO_9MozM6LA" fontName="Lucida Grande"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Xh3iEiigEeCxO_9MozM6LA" points="[-16, -7, 126, 56]$[-158, -64, -16, -1]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Xh7McCigEeCxO_9MozM6LA" id="(0.30337078651685395,0.109375)"/>
+  </edges>
+</notation:Diagram>

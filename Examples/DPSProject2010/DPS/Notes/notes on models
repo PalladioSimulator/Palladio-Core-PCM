@@ -1,0 +1,12 @@
+Notes on model
+
+- used time unit: microseconds
+
+Notes on analysis for paper
+- Used analysis: SimuCom
+- Maximum Simulation Time (needs to be high if microsec are simulated): 150000000
+- Maximum Number of measurements: 10000000
+- 
+
+TODO Anne: Find our about lognormal, it it stddev?
+- to fix. simucom soll stdev nehmen

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="de.uka.ipd.sdq.dsexplore.launchDSE">
+<booleanAttribute key="Activate Elapsed Time Criterion" value="false"/>
+<booleanAttribute key="Activate Insignificant Pareto Front Change" value="false"/>
+<booleanAttribute key="Activate Insignificant Set Quality Improvement" value="false"/>
+<booleanAttribute key="Activate Maximum number of generation" value="true"/>
+<booleanAttribute key="Activate Minimal Quality Criteria Value" value="false"/>
+<booleanAttribute key="Activate No New Pareto Optimal Candidates" value="false"/>
+<booleanAttribute key="Activate Pareto Optimal Set Stability" value="false"/>
+<booleanAttribute key="Activate a Given Pareto Front Is reached" value="false"/>
+<booleanAttribute key="Activate composed Criteria" value="false"/>
+<stringAttribute key="Composed Criteria Expression" value=""/>
+<stringAttribute key="Configured Objectives with averages" value=""/>
+<stringAttribute key="Configured objectives with values" value=""/>
+<booleanAttribute key="Consider QML bounds" value="false"/>
+<stringAttribute key="Decrease processing rate factor" value="0.2"/>
+<stringAttribute key="Evaluation Mode" value="EXACT_NUMBER"/>
+<intAttribute key="Exact number of survivors" value="1"/>
+<stringAttribute key="Increase processing rate factor" value="0.2"/>
+<intAttribute key="Iterations without new Pareto optimal candidates" value="1"/>
+<intAttribute key="Maximum Number Of Generations" value="2000"/>
+<stringAttribute key="Maximum number of resource containers" value="9"/>
+<intAttribute key="Minimum iterations to survive" value="2"/>
+<stringAttribute key="Minimum number of resource containers" value="6"/>
+<intAttribute key="Minimum percentage improvement" value="9"/>
+<stringAttribute key="Number of candidates per allocation level" value="5"/>
+<intAttribute key="Number of candidates to conform" value="1"/>
+<intAttribute key="Number of the n-x generation" value="1"/>
+<intAttribute key="Number of the n-x generation for front" value="2"/>
+<stringAttribute key="Path to the pareto front description file" value=""/>
+<intAttribute key="Percentage number of survivors" value="1"/>
+<intAttribute key="Percentages to cover" value="1"/>
+<stringAttribute key="Proceesing rate threshold for low utilisation" value="0.25"/>
+<stringAttribute key="Processing rate threshold for high utilisation" value="0.75"/>
+<stringAttribute key="Reallocation threshold for utilisation difference" value="0.4"/>
+<booleanAttribute key="Run in comparision mode" value="false"/>
+<stringAttribute key="SREOutputDir" value="D:\Programme\eclipse\eclipse-galileo-PCMnightly"/>
+<booleanAttribute key="SREUseInputModel" value="false"/>
+<stringAttribute key="Server consolidation threshold for low utilisation" value="0.3"/>
+<stringAttribute key="Server expansion maximum number of reallocations" value="3"/>
+<stringAttribute key="Server expansion threshold for high utilisation" value="0.8"/>
+<booleanAttribute key="Stop on initial failure" value="false"/>
+<intAttribute key="Time in minutes" value="1"/>
+<stringAttribute key="Type of the measured time" value="USER_TIME"/>
+<booleanAttribute key="Use Termination Criteria" value="true"/>
+<booleanAttribute key="Use antipattern knowledge" value="false"/>
+<booleanAttribute key="Use processing rate heuristic" value="false"/>
+<booleanAttribute key="Use reallocation heuristic" value="false"/>
+<booleanAttribute key="Use server consolidation heuristic" value="false"/>
+<booleanAttribute key="Use server expansion heuristic" value="false"/>
+<booleanAttribute key="Use starting population heuristic" value="false"/>
+<stringAttribute key="Weight of processing rate heuristic" value="0.1"/>
+<stringAttribute key="Weight of reallocation heuristic" value="1"/>
+<stringAttribute key="Weight of server consolidation heuristic" value="1"/>
+<stringAttribute key="Weight of server expansion heuristic" value="0.5"/>
+<stringAttribute key="allCandidates" value=""/>
+<stringAttribute key="allocationFile" value="D:\code\Palladio.Examples_trunk\PCM3.3_BRS_Optimisation_Heuristics\brs.allocation"/>
+<stringAttribute key="analysisMethod_r_iViqCrEd-s9uTaURbrKA" value="Cost Analysis"/>
+<stringAttribute key="analysisMethod_r_iVjaCrEd-s9uTaURbrKA" value="Reliability Solver Analysis"/>
+<stringAttribute key="analysisMethod_r_iVkKCrEd-s9uTaURbrKA" value="LQN Solver Analysis"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.cost" value="Cost Analysis"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.performance" value="LQN Solver Analysis"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.reliability" value="Reliability Solver Analysis"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.security" value="none"/>
+<stringAttribute key="archiveCandidates" value=""/>
+<stringAttribute key="blocks" value=""/>
+<stringAttribute key="cacheInstances" value=""/>
+<booleanAttribute key="clear" value="false"/>
+<listAttribute key="completion.config"/>
+<booleanAttribute key="completion.plugin.delete" value="true"/>
+<stringAttribute key="completion.plugin.id" value="de.uka.ipd.sdq.cip.generated"/>
+<booleanAttribute key="completion.qvt.verbose.logging" value="false"/>
+<stringAttribute key="confidenceHalfWidth" value="10"/>
+<stringAttribute key="confidenceLevel" value="95"/>
+<stringAttribute key="confidenceModelElementName" value=""/>
+<stringAttribute key="confidenceModelElementURI" value=""/>
+<stringAttribute key="convValue" value="1e-003"/>
+<stringAttribute key="costFile" value="D:\code\Palladio.Examples_trunk\PCM3.3_BRS_Optimisation_Heuristics\brs.cost"/>
+<stringAttribute key="crossover rate" value="0.9"/>
+<intAttribute key="datasourceID" value="0"/>
+<mapAttribute key="de.uka.ipd.sdq.cip.completion">
+<mapEntry key="de.uka.ipd.sdq.cip.threadpool" value="false;;"/>
+<mapEntry key="de.uka.ipd.sdq.cip.messagingannotation" value="false;;"/>
+<mapEntry key="de.uka.ipd.sdq.cip.pubsubannotation" value="false;;"/>
+</mapAttribute>
+<booleanAttribute key="de.uka.ipd.sdq.cip.revalidate" value="false"/>
+<intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="3"/>
+<stringAttribute key="designDecisionFile" value="D:\code\Palladio.Examples_trunk\PCM3.3_BRS_Optimisation_Heuristics\brs.designdecision"/>
+<booleanAttribute key="designDecisionsOnly" value="false"/>
+<stringAttribute key="eventMiddlewareRepositoryFile" value="pathmap://PCM_MODELS/default_event_middleware.repository"/>
+<stringAttribute key="experimentRun" value="MyRun"/>
+<stringAttribute key="featureConfig" value="pathmap://PCM_MODELS/ConnectorConfig.featureconfig"/>
+<stringAttribute key="fixedSeed0" value="0"/>
+<stringAttribute key="fixedSeed1" value="1"/>
+<stringAttribute key="fixedSeed2" value="2"/>
+<stringAttribute key="fixedSeed3" value="3"/>
+<stringAttribute key="fixedSeed4" value="4"/>
+<stringAttribute key="fixedSeed5" value="5"/>
+<stringAttribute key="indivPerGeneration" value="20"/>
+<stringAttribute key="itLimit" value="50"/>
+<booleanAttribute key="iterationOverPhysicalSystemStatesEnabled" value="true"/>
+<stringAttribute key="logFile" value="D:\ws\ws-antipatterns\log.txt"/>
+<stringAttribute key="lqnsOutputDir" value="D:\code\Palladio.Examples_trunk\PCM3.3_BRS_Optimisation_Heuristics\lqnresults"/>
+<stringAttribute key="lqsimOutputDir" value="D:\code\Palladio.Examples_trunk\PCM3.3_BRS_Optimisation_Heuristics\lqnresults"/>
+<stringAttribute key="lqsimoutput" value="XML Output"/>
+<stringAttribute key="markovModelFile" value=""/>
+<booleanAttribute key="markovModelReduction" value="true"/>
+<booleanAttribute key="markovModelStorageEnabled" value="false"/>
+<booleanAttribute key="markovModelTracesEnabled" value="false"/>
+<booleanAttribute key="markovStatistics" value="false"/>
+<intAttribute key="maxDomain" value="256"/>
+<stringAttribute key="maxIterations" value="2"/>
+<stringAttribute key="maximum" value=""/>
+<stringAttribute key="maximumMeasurementCount" value="10"/>
+<stringAttribute key="minimum" value=""/>
+<stringAttribute key="mwRepositoryFile" value="pathmap://PCM_MODELS/Glassfish.repository"/>
+<intAttribute key="numberOfEvaluatedSystemStates" value="1"/>
+<booleanAttribute key="numberOfEvaluatedSystemStatesEnabled" value="false"/>
+<intAttribute key="numberOfExactDecimalPlaces" value="1"/>
+<booleanAttribute key="numberOfExactDecimalPlacesEnabled" value="false"/>
+<booleanAttribute key="optimisationOnly" value="true"/>
+<stringAttribute key="outpath" value="de.uka.ipd.sdq.codegen.simucominstance"/>
+<stringAttribute key="output" value="XML Output"/>
+<stringAttribute key="persistenceFramework" value="SensorFramework"/>
+<stringAttribute key="predefinedInstances" value=""/>
+<stringAttribute key="printInt" value="10"/>
+<stringAttribute key="psQuantum" value="0.001"/>
+<stringAttribute key="qmlDefinitionFile" value="D:\code\Palladio.Examples_trunk\PCM3.3_BRS_Optimisation_Heuristics\QMLDefinition_1_NoCon\PCMProfile_BRS_reportOnly_NoCon.qmldeclarations"/>
+<stringAttribute key="runTime" value=""/>
+<stringAttribute key="samplingDist" value="1.0"/>
+<stringAttribute key="search method" value="Evolutionary search"/>
+<booleanAttribute key="sensitivityActive" value="false"/>
+<stringAttribute key="simTime" value="150000"/>
+<booleanAttribute key="simulateFailures" value="false"/>
+<booleanAttribute key="simulateLinkingResources" value="false"/>
+<booleanAttribute key="singleResults" value="false"/>
+<stringAttribute key="solver" value="LQNS (Layered Queueing Network Solver)"/>
+<intAttribute key="solvingTimeLimit" value="1"/>
+<booleanAttribute key="solvingTimeLimitEnabled" value="false"/>
+<stringAttribute key="stepwidth" value=""/>
+<booleanAttribute key="store results as EMF" value="false"/>
+<stringAttribute key="strengthenResource_increaseFactor" value="1.1"/>
+<stringAttribute key="strengthenResource_threshold" value="0.7"/>
+<stringAttribute key="temporaryModelsPath" value=""/>
+<stringAttribute key="underCoeff" value="0.5"/>
+<stringAttribute key="usageFile" value="D:\code\Palladio.Examples_trunk\PCM3.3_BRS_Optimisation_Heuristics\reportOnly.usagemodel"/>
+<booleanAttribute key="use heuristics in PerOpteryx" value="true"/>
+<booleanAttribute key="useConfidenceStopCondition" value="false"/>
+<booleanAttribute key="useFixedSeed" value="false"/>
+<stringAttribute key="variable" value="NO ELEMENT SELECTED"/>
+<booleanAttribute key="verboseLogging" value="false"/>
+</launchConfiguration>

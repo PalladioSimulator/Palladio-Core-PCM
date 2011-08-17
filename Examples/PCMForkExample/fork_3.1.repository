@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" id="_Ue7JUHtPEd6J8YwisObTKw" entityName="defaultRepository">
+  <components__Repository xsi:type="BasicComponent" id="_U6MwEHtPEd6J8YwisObTKw" entityName="Forking">
+    <providedRoles_InterfaceProvidingEntity id="_XjnpYHtPEd6J8YwisObTKw" entityName="Provided_IFork_Forking" providedInterface__ProvidedRole="_VtJ3AHtPEd6J8YwisObTKw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_XkOGUHtPEd6J8YwisObTKw" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="_1:StartAction" id="_XkOGUXtPEd6J8YwisObTKw" successor_AbstractAction="_Y0YtsHtPEd6J8YwisObTKw"/>
+      <steps_Behaviour xsi:type="_1:StopAction" id="_XkOGUntPEd6J8YwisObTKw" predecessor_AbstractAction="_Y0YtsHtPEd6J8YwisObTKw"/>
+      <steps_Behaviour xsi:type="_1:ForkAction" id="_Y0YtsHtPEd6J8YwisObTKw" entityName="fork" predecessor_AbstractAction="_XkOGUXtPEd6J8YwisObTKw" successor_AbstractAction="_XkOGUntPEd6J8YwisObTKw">
+        <asynchronousForkedBehaviours_ForkAction>
+          <steps_Behaviour xsi:type="_1:StartAction" id="_a-OIAHtPEd6J8YwisObTKw" successor_AbstractAction="_cdSuEHtPEd6J8YwisObTKw"/>
+          <steps_Behaviour xsi:type="_1:StopAction" id="_a-OIAXtPEd6J8YwisObTKw" predecessor_AbstractAction="_cdSuEHtPEd6J8YwisObTKw"/>
+          <steps_Behaviour xsi:type="_1:InternalAction" id="_cdSuEHtPEd6J8YwisObTKw" entityName="calc1" predecessor_AbstractAction="_a-OIAHtPEd6J8YwisObTKw" successor_AbstractAction="_a-OIAXtPEd6J8YwisObTKw">
+            <resourceDemand_Action>
+              <specification_ParametericResourceDemand specification="1"/>
+              <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+        </asynchronousForkedBehaviours_ForkAction>
+        <asynchronousForkedBehaviours_ForkAction>
+          <steps_Behaviour xsi:type="_1:StartAction" id="_bzaqoHtPEd6J8YwisObTKw" successor_AbstractAction="_ep9Z8HtPEd6J8YwisObTKw"/>
+          <steps_Behaviour xsi:type="_1:StopAction" id="_bzaqoXtPEd6J8YwisObTKw" predecessor_AbstractAction="_ep9Z8HtPEd6J8YwisObTKw"/>
+          <steps_Behaviour xsi:type="_1:InternalAction" id="_ep9Z8HtPEd6J8YwisObTKw" entityName="hdd" predecessor_AbstractAction="_bzaqoHtPEd6J8YwisObTKw" successor_AbstractAction="_bzaqoXtPEd6J8YwisObTKw">
+            <resourceDemand_Action>
+              <specification_ParametericResourceDemand specification="1"/>
+              <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+        </asynchronousForkedBehaviours_ForkAction>
+        <synchronisingBehaviours_ForkAction>
+          <synchronousForkedBehaviours_SynchronisationPoint>
+            <steps_Behaviour xsi:type="_1:StopAction" id="_pmKo0HtPEd6J8YwisObTKw" predecessor_AbstractAction="_rhshZHtPEd6J8YwisObTKw"/>
+            <steps_Behaviour xsi:type="_1:StartAction" id="_q8SuQXtPEd6J8YwisObTKw" successor_AbstractAction="_rhshZHtPEd6J8YwisObTKw"/>
+            <steps_Behaviour xsi:type="_1:InternalAction" id="_rhshZHtPEd6J8YwisObTKw" entityName="wait" predecessor_AbstractAction="_q8SuQXtPEd6J8YwisObTKw" successor_AbstractAction="_pmKo0HtPEd6J8YwisObTKw">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="1.1"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_nvHX4KkREdyEA_b89s7q9w"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </synchronousForkedBehaviours_SynchronisationPoint>
+        </synchronisingBehaviours_ForkAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository id="_VtJ3AHtPEd6J8YwisObTKw" entityName="IFork">
+    <signatures__Interface serviceName="fork"/>
+  </interfaces__Repository>
+</Repository>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_jcl1cJ7QEd6Y0ZIX-BIknQ" type="PCM Usage Model" name="default_c4.usagemodel_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_jdyIQJ7QEd6Y0ZIX-BIknQ" type="2001">
+    <children xmi:type="notation:Node" xmi:id="_jdyIQ57QEd6Y0ZIX-BIknQ" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_jd75QJ7QEd6Y0ZIX-BIknQ" type="3001">
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_jd75QZ7QEd6Y0ZIX-BIknQ"/>
+        <element xmi:type="Start" href="default_c4.usagemodel#_jcJJgp7QEd6Y0ZIX-BIknQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jd75Qp7QEd6Y0ZIX-BIknQ" x="23" y="54"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_jd75Q57QEd6Y0ZIX-BIknQ" type="3002">
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_jd75RJ7QEd6Y0ZIX-BIknQ"/>
+        <element xmi:type="Stop" href="default_c4.usagemodel#_jcJJg57QEd6Y0ZIX-BIknQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jd75RZ7QEd6Y0ZIX-BIknQ" x="268" y="64"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_m4iX4J7QEd6Y0ZIX-BIknQ" type="3003">
+        <children xmi:type="notation:Node" xmi:id="_m4iX457QEd6Y0ZIX-BIknQ" type="5004"/>
+        <children xmi:type="notation:Node" xmi:id="_m4iX5J7QEd6Y0ZIX-BIknQ" type="7002">
+          <children xmi:type="notation:Node" xmi:id="_pIBuQJ7QEd6Y0ZIX-BIknQ" type="3012">
+            <children xmi:type="notation:Node" xmi:id="_pIBuQ57QEd6Y0ZIX-BIknQ" type="5012"/>
+            <children xmi:type="notation:Node" xmi:id="_pIBuRJ7QEd6Y0ZIX-BIknQ" type="7011">
+              <children xmi:type="notation:Node" xmi:id="_plPOsJ7QEd6Y0ZIX-BIknQ" type="3013">
+                <element xmi:type="_1:VariableCharacterisation" href="default_c4.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0/@variableCharacterisation_VariableUsage.0"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_plPOsZ7QEd6Y0ZIX-BIknQ"/>
+              </children>
+              <styles xmi:type="notation:DrawerStyle" xmi:id="_pIBuRZ7QEd6Y0ZIX-BIknQ"/>
+              <styles xmi:type="notation:TitleStyle" xmi:id="_pIBuRp7QEd6Y0ZIX-BIknQ" showTitle="true"/>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_pIBuR57QEd6Y0ZIX-BIknQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_pIBuSJ7QEd6Y0ZIX-BIknQ"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_pIBuQZ7QEd6Y0ZIX-BIknQ"/>
+            <element xmi:type="_1:VariableUsage" href="default_c4.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pIBuQp7QEd6Y0ZIX-BIknQ"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_m4iX5Z7QEd6Y0ZIX-BIknQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_m4iX5p7QEd6Y0ZIX-BIknQ"/>
+        </children>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_m4iX4Z7QEd6Y0ZIX-BIknQ"/>
+        <element xmi:type="EntryLevelSystemCall" href="default_c4.usagemodel#_luxTcJ7QEd6Y0ZIX-BIknQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_m4iX4p7QEd6Y0ZIX-BIknQ" x="95" y="29"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_jdyIRJ7QEd6Y0ZIX-BIknQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_jdyIRZ7QEd6Y0ZIX-BIknQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_jdyIQZ7QEd6Y0ZIX-BIknQ"/>
+    <element xmi:type="ScenarioBehaviour" href="default_c4.usagemodel#_jcJJgZ7QEd6Y0ZIX-BIknQ"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jdyIQp7QEd6Y0ZIX-BIknQ" x="5" width="391" height="221"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_kF3b8J7QEd6Y0ZIX-BIknQ" type="2003">
+    <children xmi:type="notation:Node" xmi:id="_kF3b857QEd6Y0ZIX-BIknQ" type="5010"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_kF3b8Z7QEd6Y0ZIX-BIknQ"/>
+    <element xmi:type="OpenWorkload" href="default_c4.usagemodel#//@usageScenario_UsageModel.0/@workload_UsageScenario"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kF3b8p7QEd6Y0ZIX-BIknQ" x="435" y="61"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_jcl1cZ7QEd6Y0ZIX-BIknQ"/>
+  <element xmi:type="UsageScenario" href="default_c4.usagemodel#_jcJJgJ7QEd6Y0ZIX-BIknQ"/>
+  <edges xmi:type="notation:Edge" xmi:id="_wh43wJ7QEd6Y0ZIX-BIknQ" type="4002" source="_jd75QJ7QEd6Y0ZIX-BIknQ" target="_m4iX4J7QEd6Y0ZIX-BIknQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_wh43wZ7QEd6Y0ZIX-BIknQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_wh43wp7QEd6Y0ZIX-BIknQ"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wh43w57QEd6Y0ZIX-BIknQ" points="[10, 6, -230, -179]$[284, 139, 44, -46]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_w-f7QJ7QEd6Y0ZIX-BIknQ" type="4002" source="_m4iX4J7QEd6Y0ZIX-BIknQ" target="_jd75Q57QEd6Y0ZIX-BIknQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_w-f7QZ7QEd6Y0ZIX-BIknQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_w-f7Qp7QEd6Y0ZIX-BIknQ"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_w-f7Q57QEd6Y0ZIX-BIknQ" points="[-25, -14, 188, 116]$[-218, -123, -5, 7]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_w-f7RJ7QEd6Y0ZIX-BIknQ" id="(0.37226278,0.16129032)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_w-f7RZ7QEd6Y0ZIX-BIknQ" id="(0.33333334,0.76666665)"/>
+  </edges>
+</notation:Diagram>

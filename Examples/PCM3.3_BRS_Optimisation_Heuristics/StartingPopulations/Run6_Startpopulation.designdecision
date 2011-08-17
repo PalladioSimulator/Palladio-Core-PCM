@@ -1,0 +1,1384 @@
+<?xml version="1.0" encoding="ASCII"?>
+<designdecision:Candidates xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" xmlns:designdecision="http://sdq.ipd.uka.de/DesignDecision/1.0">
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.0">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.0">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.0">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.0">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.0">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.0">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.0">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.0">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.0">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.745433902625573">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.544761515305746">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.373973269710042">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="7.714583285448933">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.213584651747723">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.43805006135832">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="17.5730047281748">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.487556915912194">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="16.96855218750391">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA3"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.74214416663344">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.07198775904016">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="8.874881989802637">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.99127160653055">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.194967648341496">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.202886080324602">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="14.658594050323277">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.013535611688718">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.06122876334907">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.014802522707022">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.475448195344867">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="12.332858837267166">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.794372414514095">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.606936750141415">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.763662421611524">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="5.727781741007138">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.021319774829514">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="8.316970108912178">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA3"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="16.263599989845225">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="17.08408501782364">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.911118976582962">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="13.608466898543371">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="7.4748762002681195">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="7.28614894779025">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="8.54842710392431">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.517457539002814">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.931398988757465">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="5.1361514708259755">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="16.87733850600894">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.761946722638417">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.890221617918481">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.326756437928433">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="8.67576000845468">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="12.568049239957137">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.800819311987105">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="6.95822800892798">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="5.406256557887029">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="14.778261294520142">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="13.313769643894107">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="12.865064924759498">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.057129038473875">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.205775060108145">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="6.9425188985864414">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.851614653426743">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.45136047310678">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA2"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.396964397174617">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.424123104895028">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.714040437360246">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.445609311454486">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.405353035291427">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.485939139042385">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.326863198514005">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="13.661828424944947">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="8.644852498591911">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA3"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="13.780429021482142">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.991239157230407">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="5.941357253901693">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="14.092951780598268">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="6.857067506471223">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.277445548032823">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="14.440535545802518">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="8.920680708010751">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="8.927990337882324">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA2"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="16.193191868986638">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.536594035377368">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.837026468015555">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="5.88487644097784">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.100537855645069">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.463993567258688">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.217655870933697">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="7.546255696817882">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.020445658809939">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="13.639762015712655">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="5.060196350543724">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.029880710106248">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.526270087577956">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="17.12843929231338">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.009132210543642">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="8.577201526874353">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.802951197489623">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="8.00716045855808">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="13.18433886038649">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="16.877061649672818">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="14.687711719753665">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.184171278649433">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.154235807285353">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="12.224347292993109">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.966730219720796">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="14.780061067069296">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="13.956459186553193">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="17.85551190003698">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.470038120174705">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="17.863742384313333">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="7.515936137085869">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="5.834646863364082">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.662710672920202">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="6.20429638776446">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.96148993216799">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="8.060632816881476">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA2"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="12.807651662604403">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="14.843644105265419">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="12.697474717165608">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.512684524011643">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.37037106144175">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="5.977561857750306">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.765837700002542">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="17.88774119874742">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.83931783122067">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA3"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.032047848708377">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.849677214844966">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="6.546867719387484">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.745854895625747">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.55156283389622">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.448236416586067">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.929109647371938">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.9120175760011">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.80639878143677">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA3"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="17.11774136456228">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="5.358157129717546">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.584672992872168">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.492299893744171">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.268403738547413">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="17.39474890399557">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.620465446842575">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.96123200740865">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.385554872431264">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA2"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="13.694264728709078">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="6.618373211686675">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.188005267654106">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="7.248474027626007">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.607027146523956">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.465423485118562">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="16.83838581748702">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.724296082397373">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.17323474546302">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA3"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.104511671177725">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.326295216027177">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.429666938625564">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="7.3181188952764185">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="12.974171081737058">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.886434009955149">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="5.209091475158079">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="6.7641712655312425">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="19.186653077702978">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA2"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="13.054754122899665">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="12.683778218094183">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.875729934615478">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="10.977276334304825">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="7.458024510932504">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="17.076187922464342">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="6.017068313089295">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.662441901945">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="13.434895570988639">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA3"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_8-cpgNo_EdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PQNu8SYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_IwYkwSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+  </candidate>
+  <candidate>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="11.360019907256387">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.0"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="8.015013648523057">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.1"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="17.08045204930218">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.2"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="9.95791402578127">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.3"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="5.446207872072331">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.4"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="15.932376193701293">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.5"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="17.53957479097791">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.6"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="13.19679195198121">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.7"/>
+    </choice>
+    <choice xsi:type="designdecision:ContinousRangeChoice" chosenValue="18.340557128237496">
+      <degreeOfFreedom xsi:type="designdecision:ContinuousProcessingRateDegree" href="../brs.designdecision#//@designdecision.8"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AssembledComponentDegree" href="../brs.designdecision#//@designdecision.9"/>
+      <entity xsi:type="BasicComponent" href="../brs.repository#_6bAEENo5EdyCSNQKlT1LxA2"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.10"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.11"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QgPzcSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.12"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.13"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_EX6xcdpAEdyxgfK4Hy_RFA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.14"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_PwyscSYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.15"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.16"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.17"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_QEbaISYYEd-qOJxMJOMJYA"/>
+    </choice>
+    <choice xsi:type="designdecision:EnumerationChoice">
+      <degreeOfFreedom xsi:type="designdecision:AllocationDegree" href="../brs.designdecision#//@designdecision.18"/>
+      <entity xsi:type="_1:ResourceContainer" href="../brs.resourceenvironment#_U2Nv4dpAEdyxgfK4Hy_RFA"/>
+    </choice>
+  </candidate>
+  <problem href="../brs.designdecision#/"/>
+</designdecision:Candidates>

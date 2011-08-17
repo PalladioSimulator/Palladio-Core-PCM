@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QMLDeclarations:QMLDeclarations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:QMLContract="http:///QMLContract.ecore" xmlns:QMLDeclarations="http:///QMLDeclarations.ecore" xmlns:identifier="http://sdq.ipd.uka.de/Identifier/1.0" identifier:id="_FqNZYKCrEd-s9uTaURbrKA">
+  <qmlDeclarations xsi:type="QMLContract:SimpleQMLContract" identifier:id="_FqNZYaCrEd-s9uTaURbrKA" entityName="PCMObjectives" contractType="PCMStandardQMLContractType.qmldeclarations#_r_iViKCrEd-s9uTaURbrKA">
+    <criteria xsi:type="QMLContract:Objective" identifier:id="_FqNZY6CrEd-s9uTaURbrKA" dimension="Dimension_cost.qmlcontracttype#_r_iViqCrEd-s9uTaURbrKA">
+      <aspects xsi:type="QMLContract:Value" identifier:id="_FqNZZaCrEd-s9uTaURbrKA">
+        <aspectRequirement xsi:type="QMLContract:Goal" identifier:id="_VBVeId3lEd-pRd8BnI2KpA">
+          <aspectRequirementLiteral xsi:type="QMLContract:NumericLiteral" identifier:id="_VZeRUN3lEd-pRd8BnI2KpA" value="3000.0"/>
+        </aspectRequirement>
+      </aspects>
+    </criteria>
+    <criteria xsi:type="QMLContract:Objective" identifier:id="_FqNZZqCrEd-s9uTaURbrKA" dimension="Dimension_responsetime.qmlcontracttype#_r_iVkKCrEd-s9uTaURbrKA">
+      <aspects xsi:type="QMLContract:Mean" identifier:id="_FqNZa6CrEd-s9uTaURbrKA">
+        <aspectRequirement xsi:type="QMLContract:Goal" identifier:id="_X50HId3lEd-pRd8BnI2KpA">
+          <aspectRequirementLiteral xsi:type="QMLContract:NumericLiteral" identifier:id="_YGB-MN3lEd-pRd8BnI2KpA" value="5.0"/>
+        </aspectRequirement>
+      </aspects>
+    </criteria>
+    <criteria xsi:type="QMLContract:Objective" identifier:id="_FqNZaaCrEd-s9uTaURbrKA" dimension="Dimension_pofod.qmlcontracttype#_r_iVjaCrEd-s9uTaURbrKA">
+      <aspects xsi:type="QMLContract:Value" identifier:id="_FqNZaKCrEd-s9uTaURbrKA">
+        <aspectRequirement xsi:type="QMLContract:Goal" identifier:id="_ZyW9Id3lEd-pRd8BnI2KpA">
+          <aspectRequirementLiteral xsi:type="QMLContract:NumericLiteral" identifier:id="_ck4IEN3lEd-pRd8BnI2KpA" value="0.00175"/>
+        </aspectRequirement>
+      </aspects>
+    </criteria>
+  </qmlDeclarations>
+</QMLDeclarations:QMLDeclarations>

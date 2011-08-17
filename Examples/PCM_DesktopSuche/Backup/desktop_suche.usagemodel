@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
+  <usageScenario_UsageModel id="_JWq2kMSmEd-D6bWrAI7h1A" entityName="defaultUsageScenario">
+    <scenarioBehaviour_UsageScenario id="_JWq2kcSmEd-D6bWrAI7h1A" entityName="defaultUsageScenarioBehaviour">
+      <actions_ScenarioBehaviour xsi:type="Start" id="_JWq2ksSmEd-D6bWrAI7h1A" successor="_LFPRMMSmEd-D6bWrAI7h1A"/>
+      <actions_ScenarioBehaviour xsi:type="Stop" id="_JWq2k8SmEd-D6bWrAI7h1A" predecessor="_LFPRMMSmEd-D6bWrAI7h1A"/>
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_LFPRMMSmEd-D6bWrAI7h1A" successor="_JWq2k8SmEd-D6bWrAI7h1A" predecessor="_JWq2ksSmEd-D6bWrAI7h1A">
+        <providedRole_EntryLevelSystemCall href="desktop_suche.system#_FouzENarEd-C1vWrfPdNJg"/>
+        <operationSignature__EntryLevelSystemCall href="desktop_suche.repository#_GnNX4aDREd-ZGLNGUx3tEQ"/>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="6926"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfFiles"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="1"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfStrings"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+    <workload_UsageScenario xsi:type="ClosedWorkload" population="1">
+      <thinkTime_ClosedWorkload specification="3.0"/>
+    </workload_UsageScenario>
+  </usageScenario_UsageModel>
+</UsageModel>

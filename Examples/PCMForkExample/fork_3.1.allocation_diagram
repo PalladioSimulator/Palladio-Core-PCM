@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_goDo4XtQEd6J8YwisObTKw" type="allocation" name="fork_3.1.allocation_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_grohUHtQEd6J8YwisObTKw" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_grohU3tQEd6J8YwisObTKw" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_grohVHtQEd6J8YwisObTKw" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_h37VUHtQEd6J8YwisObTKw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_h37VU3tQEd6J8YwisObTKw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_h37VVHtQEd6J8YwisObTKw" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_h37VUXtQEd6J8YwisObTKw"/>
+        <element xmi:type="AllocationContext" href="fork_3.1.allocation#_hg1D8HtQEd6J8YwisObTKw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h37VUntQEd6J8YwisObTKw" x="20" y="46"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_grohVXtQEd6J8YwisObTKw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_grohVntQEd6J8YwisObTKw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_grohUXtQEd6J8YwisObTKw"/>
+    <element xmi:type="_1:ResourceContainer" href="fork_3.1.resourceenvironment#_ATCCUXtQEd6J8YwisObTKw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_grohUntQEd6J8YwisObTKw" width="226" height="221"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_goDo4ntQEd6J8YwisObTKw"/>
+  <element xmi:type="Allocation" href="fork_3.1.allocation#_goDo4HtQEd6J8YwisObTKw"/>
+</notation:Diagram>

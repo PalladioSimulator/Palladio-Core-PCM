@@ -1,0 +1,31 @@
+Hi Lucia,
+
+hier sind die Messergebnisse für die einzelnen Teile der Desktopsuche:
+
+		        	   Lesen		 Index aktual.	Gesamt	Wörter	Dateien	 Kilobytes
+Nur-Lesen:		   6980ms	   -              7710ms	-		    50883		 760086
+Analyisieren: 	 51325ms	 12683ms 		    64736ms	2315731	50883		 760086
+
+Lesegeschwindigkeit :	
+
+Nur-Lesen:		760086 / 6,980 = 108895 KByte/s (ca. 106 MByte/s) ~ liest und nichts, abhanging von menge von files und datei grosse
+Analysieren:	760086 / 51,325 = 14809 KByte/s (ca. 14 MByte/s) ~ liest und terms sammeln
+
+Index:
+
+Dauer einer Einfügeoperation (per ein term): 	12683ms / 2315731 = 0,0055546175 (= 5,5546175 us)
++ muss ich liste fur referenzen zu dateien erstellen und das wuerde noch langer dauern ~ 2us
+
+CPU quadCore 2.4GHz 
+HDD 140MB/s
+OS Win7 64b
+Mem 4GB
+
+IntPMF[(1;0.15)(2;0.45)(3;0.20)(4;0.1)(5;0.1)]
+
+
+Bis später,
+
+David
+
+link und pasword fur nightly-build schicken 

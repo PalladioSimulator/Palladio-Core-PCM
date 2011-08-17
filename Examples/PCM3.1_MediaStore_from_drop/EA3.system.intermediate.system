@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_1k0MgEpsEd2Hr_k89rmpmQ" entityName="MediaStoreSystem">
+  <childComponentContexts_ComposedStructure id="_GGpnIEptEd2Hr_k89rmpmQ" entityName="Assembly_WebGUI &lt;WebGUI>">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_q5WkIBpXEdyxqpPYxT_m3w"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_-i_L8EptEd2Hr_k89rmpmQ" entityName="Assembly_MediaStore &lt;MediaStore>">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_rzeDABpXEdyxqpPYxT_m3w"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_UB6ysEpuEd2Hr_k89rmpmQ" entityName="Assembly_AudioDB &lt;AudioDB>">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_tJKDkBpXEdyxqpPYxT_m3w"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_Xx-j8EpuEd2Hr_k89rmpmQ" entityName="Assembly_DigitalWatermarking &lt;DigitalWatermarking>">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_t663sBpXEdyxqpPYxT_m3w"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="__GOz8JkyEd2WAdDnbdqm1A" entityName="AssCtx Middleware AppServer">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="__GOz8pkyEd2WAdDnbdqm1A" entityName="AssCtx Middleware DBServer">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="__JN2g5kyEd2WAdDnbdqm1A" entityName="CompletionComponentContext0">
+    <encapsulatedComponent_ChildComponentContext href="EA3.system.intermediate.repository#__JN2gJkyEd2WAdDnbdqm1A"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_53powEpuEd2Hr_k89rmpmQ" entityName="ProvDelegation Provided_IHTTP -> Provided_IHTTP_WebGUI" outerProvidedRole_ProvidedDelegationConnector="_qR3msEpuEd2Hr_k89rmpmQ" childComponentContext_ProvidedDelegationConnector="_GGpnIEptEd2Hr_k89rmpmQ">
+    <innerProvidedRole_ProvidedDelegationConnector href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_-BBGoBpZEdyxqpPYxT_m3w"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_gb2j0EpuEd2Hr_k89rmpmQ" entityName="Connector Assembly_WebGUI &lt;WebGUI> -> Assembly_MediaStore &lt;MediaStore>" requiringChildComponentContext_CompositeAssemblyConnector="_GGpnIEptEd2Hr_k89rmpmQ" providingChildComponentContext_CompositeAssemblyConnector="_-i_L8EptEd2Hr_k89rmpmQ">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#__EO3IBpZEdyxqpPYxT_m3w"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_-uB9oBpZEdyxqpPYxT_m3w"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_lz60sEpuEd2Hr_k89rmpmQ" entityName="Connector Assembly_MediaStore &lt;MediaStore> -> Assembly_DigitalWatermarking &lt;DigitalWatermarking>" requiringChildComponentContext_CompositeAssemblyConnector="_-i_L8EptEd2Hr_k89rmpmQ" providingChildComponentContext_CompositeAssemblyConnector="_Xx-j8EpuEd2Hr_k89rmpmQ">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_A1yUUBpaEdyxqpPYxT_m3w"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_ACOwcBpaEdyxqpPYxT_m3w"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="__KQYdZkyEd2WAdDnbdqm1A" requiringChildComponentContext_CompositeAssemblyConnector="_-i_L8EptEd2Hr_k89rmpmQ" providingChildComponentContext_CompositeAssemblyConnector="__JN2g5kyEd2WAdDnbdqm1A">
+    <providedRole_CompositeAssemblyConnector href="EA3.system.intermediate.repository#__JN2gZkyEd2WAdDnbdqm1A"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#__rkj8BpZEdyxqpPYxT_m3w"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="__KQYdpkyEd2WAdDnbdqm1A" requiringChildComponentContext_CompositeAssemblyConnector="__JN2g5kyEd2WAdDnbdqm1A" providingChildComponentContext_CompositeAssemblyConnector="_UB6ysEpuEd2Hr_k89rmpmQ">
+    <providedRole_CompositeAssemblyConnector href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_cPQgoCAdEdyCN4c4qwaGfQ"/>
+    <requiredRole_CompositeAssemblyConnector href="EA3.system.intermediate.repository#__JN2gpkyEd2WAdDnbdqm1A"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="__K2OMJkyEd2WAdDnbdqm1A" requiringChildComponentContext_CompositeAssemblyConnector="__JN2g5kyEd2WAdDnbdqm1A" providingChildComponentContext_CompositeAssemblyConnector="__GOz8JkyEd2WAdDnbdqm1A">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="EA3.system.intermediate.repository#__JzscpkyEd2WAdDnbdqm1A"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="__K2OMZkyEd2WAdDnbdqm1A" requiringChildComponentContext_CompositeAssemblyConnector="__JN2g5kyEd2WAdDnbdqm1A" providingChildComponentContext_CompositeAssemblyConnector="__GOz8pkyEd2WAdDnbdqm1A">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="EA3.system.intermediate.repository#__Jzsc5kyEd2WAdDnbdqm1A"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_qR3msEpuEd2Hr_k89rmpmQ" entityName="Provided_IHTTP">
+    <providedInterface__ProvidedRole href="file:/C:/JavaWorkspace/MediaStore/mediastore.repository#_wflM0BpXEdyxqpPYxT_m3w"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>

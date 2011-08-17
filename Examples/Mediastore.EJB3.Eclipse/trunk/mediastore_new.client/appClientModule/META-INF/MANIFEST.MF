@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: mediastore_ejbClient.jar 
+ de.uka.ipd.sdq.prototype.framework.jar 
+ de.uka.ipd.sdq.sensorframework.jar
+Main-Class: Main
+

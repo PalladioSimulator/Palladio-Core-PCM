@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
+  <usageScenario_UsageModel id="_34FRQEChEd6q29tt-yPsyw" entityName="InventoryService_bookSale">
+    <workload_UsageScenario xsi:type="ClosedWorkload" population="1">
+      <thinkTime_ClosedWorkload specification="Exp(1000.0)"/>
+    </workload_UsageScenario>
+    <scenarioBehaviour_UsageScenario id="_34FRQUChEd6q29tt-yPsyw" entityName="defaultUsageScenarioBehaviour">
+      <actions_ScenarioBehaviour xsi:type="Start" id="_34FRQkChEd6q29tt-yPsyw" successor="_5PtLgEChEd6q29tt-yPsyw"/>
+      <actions_ScenarioBehaviour xsi:type="Stop" id="_34FRQ0ChEd6q29tt-yPsyw" predecessor="_5PtLgEChEd6q29tt-yPsyw"/>
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_5PtLgEChEd6q29tt-yPsyw" successor="_34FRQ0ChEd6q29tt-yPsyw" predecessor="_34FRQkChEd6q29tt-yPsyw">
+        <inputParameterUsages_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="IntPMF[ (1;0.3) (5;0.4) (10;0.3) ]"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="saleTO"/>
+        </inputParameterUsages_EntryLevelSystemCall>
+        <providedRole_EntryLevelSystemCall href="orc.system#_g52lkHesEd2mk8dKi3ngUA"/>
+        <signature_EntryLevelSystemCall href="orc.repository#//@interfaces__Repository.8/@signatures__Interface.4"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+  <usageScenario_UsageModel id="_mvHHoEPiEd6DEq6nKpZLVA" entityName="InventoryService_getProductDetails">
+    <workload_UsageScenario xsi:type="ClosedWorkload" population="1">
+      <thinkTime_ClosedWorkload specification="Exp(1000.0)"/>
+    </workload_UsageScenario>
+    <scenarioBehaviour_UsageScenario id="_vIJ2MEPiEd6DEq6nKpZLVA" entityName="GetProductDetailsBehavior">
+      <actions_ScenarioBehaviour xsi:type="Start" id="_6ghcoUPiEd6DEq6nKpZLVA" entityName="UsageStart" successor="_8CuPM0PiEd6DEq6nKpZLVA"/>
+      <actions_ScenarioBehaviour xsi:type="Stop" id="_7Qp5EEPiEd6DEq6nKpZLVA" entityName="UsageStop" predecessor="_8CuPM0PiEd6DEq6nKpZLVA"/>
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_8CuPM0PiEd6DEq6nKpZLVA" entityName="UsageCall" successor="_7Qp5EEPiEd6DEq6nKpZLVA" predecessor="_6ghcoUPiEd6DEq6nKpZLVA">
+        <providedRole_EntryLevelSystemCall href="orc.system#_g52lkHesEd2mk8dKi3ngUA"/>
+        <signature_EntryLevelSystemCall href="orc.repository#//@interfaces__Repository.8/@signatures__Interface.5"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+  <usageScenario_UsageModel id="_py6P0EPiEd6DEq6nKpZLVA" entityName="PaymentService_handlePayment">
+    <workload_UsageScenario xsi:type="ClosedWorkload" population="1">
+      <thinkTime_ClosedWorkload specification="Exp(1000.0)"/>
+    </workload_UsageScenario>
+    <scenarioBehaviour_UsageScenario id="_zkA9gEPiEd6DEq6nKpZLVA" entityName="HandlePaymentBehavior">
+      <actions_ScenarioBehaviour xsi:type="Stop" id="_bm3ycEPjEd6DEq6nKpZLVA" entityName="UsageStop" predecessor="_chlHM0PjEd6DEq6nKpZLVA"/>
+      <actions_ScenarioBehaviour xsi:type="Start" id="_cJvO8UPjEd6DEq6nKpZLVA" entityName="UsageStart" successor="_chlHM0PjEd6DEq6nKpZLVA"/>
+      <actions_ScenarioBehaviour xsi:type="EntryLevelSystemCall" id="_chlHM0PjEd6DEq6nKpZLVA" entityName="UsageCall" successor="_bm3ycEPjEd6DEq6nKpZLVA" predecessor="_cJvO8UPjEd6DEq6nKpZLVA">
+        <providedRole_EntryLevelSystemCall href="orc.system#_a6SIcCKVEd6EO6qHYg-W9w"/>
+        <signature_EntryLevelSystemCall href="orc.repository#//@interfaces__Repository.14/@signatures__Interface.0"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+</UsageModel>

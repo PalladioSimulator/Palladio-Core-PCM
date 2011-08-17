@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" type="CompositeModel" name="desktop_suche.system_diagram" measurementUnit="Pixel">
+  <children type="2001">
+    <children type="5002"/>
+    <children type="7001">
+      <children type="3002">
+        <children type="5004"/>
+        <children type="3001">
+          <children type="5001">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+          <styles xsi:type="notation:DescriptionStyle"/>
+          <styles xsi:type="notation:FillStyle"/>
+          <styles xsi:type="notation:LineStyle"/>
+          <element href="desktop_suche.repository#_eCAq4JSbEd-mVsWhjZHqXg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+        <styles xsi:type="notation:DescriptionStyle"/>
+        <styles xsi:type="notation:FillStyle"/>
+        <styles xsi:type="notation:LineStyle"/>
+        <element href="desktop_suche.system#_8R10oJSdEd-mVsWhjZHqXg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="149" y="50" width="272" height="34"/>
+      </children>
+      <children type="3002">
+        <children type="5004"/>
+        <children type="3001">
+          <children type="5001">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+          <styles xsi:type="notation:DescriptionStyle"/>
+          <styles xsi:type="notation:FillStyle"/>
+          <styles xsi:type="notation:LineStyle"/>
+          <element href="desktop_suche.repository#_viBlAJSbEd-mVsWhjZHqXg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children type="3004">
+          <children type="5005">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+          <styles xsi:type="notation:DescriptionStyle"/>
+          <styles xsi:type="notation:FillStyle"/>
+          <styles xsi:type="notation:LineStyle"/>
+          <element href="desktop_suche.repository#_hXpUgJScEd-mVsWhjZHqXg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+        <styles xsi:type="notation:DescriptionStyle"/>
+        <styles xsi:type="notation:FillStyle"/>
+        <styles xsi:type="notation:LineStyle"/>
+        <element href="desktop_suche.system#__owGEJSdEd-mVsWhjZHqXg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="110" y="133" width="182" height="47"/>
+      </children>
+      <children type="3002">
+        <children type="5004"/>
+        <children type="3001">
+          <children type="5001">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+          <styles xsi:type="notation:DescriptionStyle"/>
+          <styles xsi:type="notation:FillStyle"/>
+          <styles xsi:type="notation:LineStyle"/>
+          <element href="desktop_suche.repository#_hxXcEJScEd-mVsWhjZHqXg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+        <styles xsi:type="notation:DescriptionStyle"/>
+        <styles xsi:type="notation:FillStyle"/>
+        <styles xsi:type="notation:LineStyle"/>
+        <element href="desktop_suche.system#_BR1jwJSeEd-mVsWhjZHqXg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="290" y="273" width="195" height="75"/>
+      </children>
+      <styles xsi:type="notation:SortingStyle"/>
+      <styles xsi:type="notation:FilteringStyle"/>
+    </children>
+    <children type="3003">
+      <children type="5003">
+        <layoutConstraint xsi:type="notation:Location" y="5"/>
+      </children>
+      <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+      <styles xsi:type="notation:DescriptionStyle"/>
+      <styles xsi:type="notation:FillStyle"/>
+      <styles xsi:type="notation:LineStyle"/>
+      <element href="desktop_suche.system#_GFeR4JSeEd-mVsWhjZHqXg"/>
+      <layoutConstraint xsi:type="notation:Bounds" x="-59" y="100"/>
+    </children>
+    <children type="3003">
+      <children type="5003">
+        <layoutConstraint xsi:type="notation:Location" y="5"/>
+      </children>
+      <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+      <styles xsi:type="notation:DescriptionStyle"/>
+      <styles xsi:type="notation:FillStyle"/>
+      <styles xsi:type="notation:LineStyle"/>
+      <element href="desktop_suche.system#_I0hSEJSeEd-mVsWhjZHqXg"/>
+      <layoutConstraint xsi:type="notation:Bounds"/>
+    </children>
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <styles xsi:type="notation:DescriptionStyle"/>
+    <styles xsi:type="notation:FillStyle"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <layoutConstraint xsi:type="notation:Bounds" width="536" height="476"/>
+  </children>
+  <styles xsi:type="notation:PageStyle"/>
+  <styles xsi:type="notation:GuideStyle"/>
+  <styles xsi:type="notation:DescriptionStyle"/>
+  <element href="desktop_suche.system#_iVC7cJSdEd-mVsWhjZHqXg"/>
+  <edges type="4001" source="//@children.0/@children.1/@children.1/@children.2" target="//@children.0/@children.1/@children.2/@children.1">
+    <styles xsi:type="notation:RoutingStyle"/>
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <element href="desktop_suche.system#_FIly4JSeEd-mVsWhjZHqXg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -14, -97]$[14, 89, -7, -8]"/>
+  </edges>
+  <edges type="4003" source="//@children.0/@children.2" target="//@children.0/@children.1/@children.0/@children.1">
+    <styles xsi:type="notation:RoutingStyle"/>
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <element href="desktop_suche.system#_HnEngJSeEd-mVsWhjZHqXg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -139, 153]$[168, -155, -1, -2]"/>
+  </edges>
+  <edges type="4003" source="//@children.0/@children.3" target="//@children.0/@children.1/@children.1/@children.1">
+    <styles xsi:type="notation:RoutingStyle"/>
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <styles xsi:type="notation:LineStyle"/>
+    <element href="desktop_suche.system#_J5WzMJSeEd-mVsWhjZHqXg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -100, 57]$[34, 0, -96, 57]$[116, -54, -14, 3]"/>
+  </edges>
+</notation:Diagram>

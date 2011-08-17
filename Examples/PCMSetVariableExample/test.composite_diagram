@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_DWHYgOWuEd6cudwjDV3IIw" type="CompositeModel" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_DYc60OWuEd6cudwjDV3IIw" type="2001">
+    <children xmi:type="notation:Node" xmi:id="_DYdh4OWuEd6cudwjDV3IIw" type="5002"/>
+    <children xmi:type="notation:Node" xmi:id="_DYkPkOWuEd6cudwjDV3IIw" type="7001">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_DYkPkeWuEd6cudwjDV3IIw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_DYkPkuWuEd6cudwjDV3IIw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_DYc60eWuEd6cudwjDV3IIw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_DYc60uWuEd6cudwjDV3IIw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_DYc60-WuEd6cudwjDV3IIw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_DYc61OWuEd6cudwjDV3IIw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DYc61eWuEd6cudwjDV3IIw" x="115" y="80" width="381" height="271"/>
+  </children>
+  <styles xmi:type="notation:PageStyle" xmi:id="_DWHYgeWuEd6cudwjDV3IIw"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_DWHYguWuEd6cudwjDV3IIw"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_DWHYg-WuEd6cudwjDV3IIw"/>
+  <element xmi:type="CompositeComponent" href="default.repository#_REAeYAYtEdywPJFHUqResg"/>
+</notation:Diagram>

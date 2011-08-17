@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
+<stringAttribute key="allocationFile" value="C:\pcm_demo\workspace\cocome_orc\OpenReferenceCase\orc.allocation"/>
+<booleanAttribute key="clear" value="true"/>
+<intAttribute key="componentLookup" value="0"/>
+<intAttribute key="datasourceID" value="1"/>
+<stringAttribute key="experimentRun" value="1 User"/>
+<stringAttribute key="featureConfig" value="pathmap://PCM_MODELS/ConnectorConfig.featureconfig"/>
+<stringAttribute key="maximum" value=""/>
+<stringAttribute key="maximumMeasurementCount" value="-1"/>
+<stringAttribute key="minimum" value=""/>
+<stringAttribute key="mwRepositoryFile" value="pathmap://PCM_MODELS/Glassfish.repository"/>
+<stringAttribute key="outpath" value="de.uka.ipd.sdq.codegen.simucominstance"/>
+<stringAttribute key="repositoryFile" value="C:\pcm_demo\workspace\cocome_orc\OpenReferenceCase\orc.repository"/>
+<stringAttribute key="resourceEnvironmentFile" value="C:\pcm_demo\workspace\cocome_orc\OpenReferenceCase\orc.resourceenvironment"/>
+<stringAttribute key="resourceTypeFile" value="pathmap://PCM_MODELS/Palladio.resourcetype"/>
+<booleanAttribute key="respectLinkingResources" value="true"/>
+<stringAttribute key="simTime" value="1000000"/>
+<booleanAttribute key="simulateFailures" value="true"/>
+<booleanAttribute key="simulateLinkingResources" value="false"/>
+<stringAttribute key="stepwidth" value=""/>
+<stringAttribute key="systemFile" value="C:\pcm_demo\workspace\cocome_orc\OpenReferenceCase\orc.system"/>
+<stringAttribute key="usageFile" value="C:\pcm_demo\workspace\cocome_orc\OpenReferenceCase\orc.usagemodel"/>
+<stringAttribute key="variable" value=""/>
+<booleanAttribute key="verboseLogging" value="false"/>
+</launchConfiguration>

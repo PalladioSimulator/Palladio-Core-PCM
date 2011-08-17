@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_BdXLEL7dEd2kX61k-KLj7w" entityName="minimumSystem">
+  <childComponentContexts_ComposedStructure id="_C-0WwL7dEd2kX61k-KLj7w" entityName="Assembly_myComponent &lt;myComponent>">
+    <encapsulatedComponent_ChildComponentContext href="file:/C:/ws-pcm-3/PCM_Minimum_Project_3.0/minimum.repository#_i2KYQL7cEd2kX61k-KLj7w"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_zCavAL7dEd2kX61k-KLj7w" entityName="AssCtx Middleware myServer">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_K713sL7dEd2kX61k-KLj7w" entityName="ProvDelegation Provided_myInterface -> Provided_myInterface_myComponent" outerProvidedRole_ProvidedDelegationConnector="_InugAL7dEd2kX61k-KLj7w" childComponentContext_ProvidedDelegationConnector="_C-0WwL7dEd2kX61k-KLj7w">
+    <innerProvidedRole_ProvidedDelegationConnector href="file:/C:/ws-pcm-3/PCM_Minimum_Project_3.0/minimum.repository#_kbCrYL7cEd2kX61k-KLj7w"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <requiredDelegationConnectors_ComposedStructure id="_KUWZ4L7dEd2kX61k-KLj7w" entityName="ReqDelegation Required_myInterface_myComponent -> Required_myInterface" outerRequiredRole_RequiredDelegationConnector="_JYmjUL7dEd2kX61k-KLj7w" childComponentContext_RequiredDelegationConnector="_C-0WwL7dEd2kX61k-KLj7w">
+    <innerRequiredRole_RequiredDelegationConnector href="file:/C:/ws-pcm-3/PCM_Minimum_Project_3.0/minimum.repository#_k-Wz0L7cEd2kX61k-KLj7w"/>
+  </requiredDelegationConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_InugAL7dEd2kX61k-KLj7w" entityName="Provided_myInterface">
+    <providedInterface__ProvidedRole href="file:/C:/ws-pcm-3/PCM_Minimum_Project_3.0/minimum.repository#_fyDuEL7cEd2kX61k-KLj7w"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <requiredRoles_InterfaceRequiringEntity id="_JYmjUL7dEd2kX61k-KLj7w" entityName="Required_myInterface">
+    <requiredInterface__RequiredRole href="file:/C:/ws-pcm-3/PCM_Minimum_Project_3.0/minimum.repository#_fyDuEL7cEd2kX61k-KLj7w"/>
+  </requiredRoles_InterfaceRequiringEntity>
+</System>

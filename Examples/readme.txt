@@ -1,0 +1,2 @@
+HardDiskModelExample	a PCM model instance which models concurrent write access on a hard disk
+UsingByCounter			a Java Eclipse Project which shows how to use ByCounter (see ../../Palladio.ByCounter for details)

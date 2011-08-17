@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_uz_HQO96EdyzDp8AKfFBlg" entityName="teamCRM_Allocation">
+  <allocationContexts_Allocation id="_p7vJoO-gEdyOK6Elhl05eA" entityName="AllCtx_BusinessLogicImpl">
+    <resourceContainer_AllocationContext href="EIMServer.resourceenvironment#_qQNqceVQEdyoTq75d0UHCA"/>
+    <assemblyContext_AllocationContext href="EIMServer.system#_RdMXIO-gEdyOK6Elhl05eA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_iZvZwAPWEd2cfI3E5cHHgA" entityName="Allocation_AssCtx_TeamcrmDB">
+    <resourceContainer_AllocationContext href="EIMServer.resourceenvironment#_9jQoceVQEdyoTq75d0UHCA"/>
+    <assemblyContext_AllocationContext href="EIMServer.system#_X5ZfYADUEd2Kv4FanKW1Lg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_ulzjwCmCEd2eZ-r3ZLeMjw" entityName="AssCtx_PersistenceLayerImpl">
+    <resourceContainer_AllocationContext href="EIMServer.resourceenvironment#_qQNqceVQEdyoTq75d0UHCA"/>
+    <assemblyContext_AllocationContext href="EIMServer.system#_hpHgUCmBEd2eZ-r3ZLeMjw"/>
+  </allocationContexts_Allocation>
+  <targetResourceEnvironment_Allocation href="EIMServer.resourceenvironment#/"/>
+  <system_Allocation href="EIMServer.system#_blfO4O92EdyzDp8AKfFBlg"/>
+</Allocation>

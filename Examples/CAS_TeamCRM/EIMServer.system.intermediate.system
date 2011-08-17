@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ASCII"?>
+<System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_blfO4O92EdyzDp8AKfFBlg" entityName="CAS teamCRM Softwaresystem">
+  <childComponentContexts_ComposedStructure id="_RdMXIO-gEdyOK6Elhl05eA" entityName="AssCtx_BusinessLogicImpl">
+    <encapsulatedComponent_ChildComponentContext href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_mAu-kO-eEdyOK6Elhl05eA"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_X5ZfYADUEd2Kv4FanKW1Lg" entityName="AssCtx_TeamcrmDBImpl">
+    <encapsulatedComponent_ChildComponentContext href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_ZndOkADSEd2Kv4FanKW1Lg"/>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="5000"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StoredAddresses"/>
+    </configParameterUsages_AssemblyContext>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="40000"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StoredAppointments"/>
+    </configParameterUsages_AssemblyContext>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="40000"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StoredTodos"/>
+    </configParameterUsages_AssemblyContext>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="Trunc(DoublePDF[ (40.0; 0.05000000) (80.0; 0.20000000) (120.0; 0.30000000) (160.0; 0.40000000) ])"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundAppointments"/>
+    </configParameterUsages_AssemblyContext>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="Trunc(DoublePDF[ (40.0; 0.05000000) (80.0; 0.20000000) (120.0; 0.30000000) (160.0; 0.40000000) ])"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundTodos"/>
+    </configParameterUsages_AssemblyContext>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="Trunc(DoublePDF[ (20.0; 0.05000000) (40.0; 0.20000000) (80.0; 0.30000000) (120.0; 0.40000000) ])"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundAddresses"/>
+    </configParameterUsages_AssemblyContext>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="25"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StoredUsers"/>
+    </configParameterUsages_AssemblyContext>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="121"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="AddressFields"/>
+    </configParameterUsages_AssemblyContext>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="51"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="AppointmentFields"/>
+    </configParameterUsages_AssemblyContext>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="77"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="TodoFields"/>
+    </configParameterUsages_AssemblyContext>
+    <configParameterUsages_AssemblyContext>
+      <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+        <specification_VariableCharacterisation specification="IntPMF[ (1;0.3) (2;0.3) (3;0.4) ]"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="FoundORel"/>
+    </configParameterUsages_AssemblyContext>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_hpHgUCmBEd2eZ-r3ZLeMjw" entityName="AssCtx_PersistenceLayerImpl">
+    <encapsulatedComponent_ChildComponentContext href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_vDx2ACl-Ed2eZ-r3ZLeMjw"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_orJbDESQEd2YqN90Pw-V6Q" entityName="AssCtx Middleware EIM Server">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_orJbDkSQEd2YqN90Pw-V6Q" entityName="AssCtx Middleware TeamCRM DB">
+    <encapsulatedComponent_ChildComponentContext href="pathmap://PCM_MODELS/Glassfish.repository#_26-3Q4X1EdyWta7nHuXiHQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_osCy6ESQEd2YqN90Pw-V6Q" entityName="CompletionComponentContext3">
+    <encapsulatedComponent_ChildComponentContext href="EIMServer.system.intermediate.repository#_osCy5USQEd2YqN90Pw-V6Q"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_bhqswO-gEdyOK6Elhl05eA" entityName="ProvDelegation IEIMInterface -> Provided_IEIMWebServiceInterface_CommanPattern" outerProvidedRole_ProvidedDelegationConnector="_sXiz0O-XEdyOK6Elhl05eA" childComponentContext_ProvidedDelegationConnector="_RdMXIO-gEdyOK6Elhl05eA">
+    <innerProvidedRole_ProvidedDelegationConnector href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_uetQcO-eEdyOK6Elhl05eA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mlLKoCmBEd2eZ-r3ZLeMjw" entityName="Connector AssCtx_BusinessLogicImpl -> Assembly_PersistenceLayerImpl &lt;PersistenceLayerImpl>" requiringChildComponentContext_CompositeAssemblyConnector="_RdMXIO-gEdyOK6Elhl05eA" providingChildComponentContext_CompositeAssemblyConnector="_hpHgUCmBEd2eZ-r3ZLeMjw">
+    <providedRole_CompositeAssemblyConnector href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_MYnMkCmAEd2eZ-r3ZLeMjw"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_wR5sYO-eEdyOK6Elhl05eA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_osCzTkSQEd2YqN90Pw-V6Q" requiringChildComponentContext_CompositeAssemblyConnector="_hpHgUCmBEd2eZ-r3ZLeMjw" providingChildComponentContext_CompositeAssemblyConnector="_osCy6ESQEd2YqN90Pw-V6Q">
+    <providedRole_CompositeAssemblyConnector href="EIMServer.system.intermediate.repository#_osCy5kSQEd2YqN90Pw-V6Q"/>
+    <requiredRole_CompositeAssemblyConnector href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_46TkUCmAEd2eZ-r3ZLeMjw"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_osCzT0SQEd2YqN90Pw-V6Q" requiringChildComponentContext_CompositeAssemblyConnector="_osCy6ESQEd2YqN90Pw-V6Q" providingChildComponentContext_CompositeAssemblyConnector="_X5ZfYADUEd2Kv4FanKW1Lg">
+    <providedRole_CompositeAssemblyConnector href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_fB6FEADSEd2Kv4FanKW1Lg"/>
+    <requiredRole_CompositeAssemblyConnector href="EIMServer.system.intermediate.repository#_osCy50SQEd2YqN90Pw-V6Q"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_otFUsESQEd2YqN90Pw-V6Q" requiringChildComponentContext_CompositeAssemblyConnector="_osCy6ESQEd2YqN90Pw-V6Q" providingChildComponentContext_CompositeAssemblyConnector="_orJbDESQEd2YqN90Pw-V6Q">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="EIMServer.system.intermediate.repository#_osCzB0SQEd2YqN90Pw-V6Q"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_otFUsUSQEd2YqN90Pw-V6Q" requiringChildComponentContext_CompositeAssemblyConnector="_osCy6ESQEd2YqN90Pw-V6Q" providingChildComponentContext_CompositeAssemblyConnector="_orJbDkSQEd2YqN90Pw-V6Q">
+    <providedRole_CompositeAssemblyConnector href="pathmap://PCM_MODELS/Glassfish.repository#_WQM_QIcKEdyZxaUslMevFQ"/>
+    <requiredRole_CompositeAssemblyConnector href="EIMServer.system.intermediate.repository#_osCzCESQEd2YqN90Pw-V6Q"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_sXiz0O-XEdyOK6Elhl05eA" entityName="IEIMInterface">
+    <providedInterface__ProvidedRole href="file:/D:/hiwi/workspase_progressmonitor/EIMServer_PCMModele/EIMServer.repository#_megXkOBnEdygUashqViyTg"/>
+  </providedRoles_InterfaceProvidingEntity>
+</System>
