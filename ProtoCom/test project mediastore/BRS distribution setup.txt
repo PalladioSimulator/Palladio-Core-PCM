@@ -1,0 +1,62 @@
+Realised distribution as explained in https://glassfish.dev.java.net/javaee5/ejb/EJB_FAQ.html#cross-appserverremoteref
+
+********* Final setup: **********
+
+On Anne's machine: 
+Webserver, CoreOnlineEngine, Cache, OnlineReporting, UserManagement
+
+On Heiko's server 1
+Scheduler, Database, CoreGraphicEngine
+
+On Heiko's server 2:
+GraphicalReporting
+
+********* Initial setup: ********
+
+On Anne's machine: 
+Webserver, CoreOnlineEngine, Cache, OnlineReporting, UserManagement
+
+On Heiko's server 
+Scheduler, Database, CoreGraphicEngine, GraphicalReporting
+
+Requires the following remote accesses:
+
+Anne: 
+Webserver Context -> Scheduler Port
+(CoreOnlineEngine Context -> Database Port: no, composite)
+CRESingleMessageAdapter Context -> Database Port (ATTENTION: SAME INTERFACE)
+Cache Context -> Database Port
+
+Heiko: 
+Scheduler Context -> Online Reporting Port
+Scheduler Context -> User Management Port
+(CoreGraphicEngine -> Cache Composite)
+InnerCoreReportingEngine -> CacheInfo 
+
+
+== Setup third server ==
+H:\Protocom\Glassfish\glassfishv3\bin>asadmin create-domain --adminport 4849 domain2
+Enter admin user name [Enter to accept default "admin" / no password]>
+Using port 4849 for Admin.
+Default port 8080 for HTTP Instance is in use. Using 50323
+Default port 7676 for JMS is in use. Using 50324
+Default port 3700 for IIOP is in use. Using 50325
+Default port 8181 for HTTP_SSL is in use. Using 50326
+Default port 3820 for IIOP_SSL is in use. Using 50327
+Default port 3920 for IIOP_MUTUALAUTH is in use. Using 50328
+Default port 8686 for JMX_ADMIN is in use. Using 50329
+Default port 6666 for OSGI_SHELL is in use. Using 50330
+The file in given locale [de_DE] at: [H:\Protocom\Glassfish\glassfishv3\glassfis
+h\lib\templates\locales\de_DE\index.html] could not be found. Using default (en_
+US) index.html instead.
+Distinguished Name of the self-signed X.509 Server Certificate is:
+[CN=koziolek-PC,OU=GlassFish,O=Oracle Corporation,L=Santa Clara,ST=California,C=
+US]
+No domain initializers found, bypassing customization step
+Domain domain2 created.
+Domain domain2 admin port is 4849.
+Domain domain2 allows admin login as user "admin" with no password.
+Command create-domain executed successfully.
+
+
+

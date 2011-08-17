@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE sun-ejb-jar PUBLIC "-//Sun Microsystems, Inc.//
+DTD GlassFish Application Server 3.0 EJB 3.1//EN"
+"http://www.sun.com/software/appserver/dtds/sun-ejb-jar_3_0-0.dtd">
+<sun-ejb-jar>
+	<enterprise-beans>
+		<ejb>
+			<ejb-name>Scheduler_Context__YNP1cKSKEd-ujcVHnT0lvg</ejb-name>
+			<ejb-ref>
+				<ejb-ref-name>ejb/IOnlineReport</ejb-ref-name>
+				<jndi-name>corbaname:iiop:koziolek-pc:50325#brs_repository.IOnlineReport</jndi-name>
+			</ejb-ref>
+			<ejb-ref>
+				<ejb-ref-name>ejb/IGraphicalReport</ejb-ref-name>
+				<jndi-name>corbaname:iiop:martens-pc:3700#brs_repository.IGraphicalReport</jndi-name>
+			</ejb-ref>			
+		</ejb>
+		<ejb>
+			<ejb-name>IAdminStub_Context__QSVU8FE_EeCAJIcLKkksgA</ejb-name>
+			<ejb-ref>
+				<ejb-ref-name>ejb/IAdmin</ejb-ref-name>
+				<jndi-name>corbaname:iiop:koziolek-pc:50325#brs_repository.IAdmin</jndi-name>
+			</ejb-ref>
+		</ejb>
+	</enterprise-beans>
+</sun-ejb-jar>
