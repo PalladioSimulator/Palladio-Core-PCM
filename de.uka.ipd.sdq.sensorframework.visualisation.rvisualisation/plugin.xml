@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
+               acceptsMultiple="true"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.TimeSeriesHtmlReportView"
+               displayName="R Time Sensor Report"
+               editorID="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.TimeSeriesHtmlView">
+         </Visualisation>
+      </extension>
+      <extension
+            point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.TimeSeriesHtmlReportView"
+               icon="icons/sample.gif"
+               id="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.TimeSeriesHtmlView"
+               name="R Time Sensor Report">
+         </editor>
+      </extension>
+
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.sensorframework.entities.StateSensor"
+               acceptsMultiple="true"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.FailureOccurrenceListReportView"
+               displayName="Failure Occurrence List R Report"
+               editorID="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.FailureOccurrenceListView">
+         </Visualisation>
+      </extension>
+      <extension
+            point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.FailureOccurrenceListReportView"
+               icon="icons/sample.gif"
+               id="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.FailureOccurrenceListView"
+               name="Failure Occurrence List R Report">
+         </editor>
+      </extension>
+      
+      <extension point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.sensorframework.entities.StateSensor"
+               acceptsMultiple="true"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.FailureOccurrenceBarReportView"
+               displayName="Failure Barplot R Report"
+               editorID="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.FailureOccurrenceBarView">
+         </Visualisation>
+      </extension>
+      <extension point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.FailureOccurrenceBarReportView"
+               icon="icons/sample.gif"
+               id="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.FailureOccurrenceBarView"
+               name="Failure Barplot R Report">
+         </editor>
+      </extension>
+      
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
+               acceptsMultiple="true"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DemandTimeHtmlReportView"
+               displayName="R Total Demand Report"
+               editorID="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DemandTimeHtmlView">
+         </Visualisation>
+      </extension>
+      <extension
+            point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DemandTimeHtmlReportView"
+               icon="icons/sample.gif"
+               id="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DemandTimeHtmlView"
+               name="R Total Demand Report">
+         </editor>
+      </extension>
+            
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor"
+               acceptsMultiple="true"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DistributionComparisonHtmlReportView"
+               displayName="R Distribution Comparison Report"
+               editorID="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DistributionComparisonHtmlView">
+         </Visualisation>
+      </extension>
+      <extension point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DistributionComparisonHtmlReportView"
+               icon="icons/sample.gif"
+               id="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.views.DistributionComparisonHtmlView"
+               name="R Distribution Comparison Report">
+         </editor>
+      </extension>
+
+
+</plugin>
