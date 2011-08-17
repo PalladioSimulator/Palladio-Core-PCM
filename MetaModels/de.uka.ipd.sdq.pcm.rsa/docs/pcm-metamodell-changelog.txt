@@ -1,0 +1,70 @@
+//////////////////////////////////////////////////////
+// PCM Meta Modell Changelog                        //
+// Meta Model Changes in descanding chronical order //
+//////////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////
+// Date: 2010-05-07
+// Author: Benjamin Klatt
+///////////////////////////////////////
+
+
+// New Diagrams for the modeling of the event infrastructures
+repository::InterfacesAndSignatures added
+seff::EmitEventAction added
+core::composition::AssemblyEventConnector
+
+// Modell changes for event infrastructures
+repository:Interface -> removed ancestorInterfaces_Interface association to itself
+repository:MethodInterface added and extends relationship to Interface added
+repository:MethodSignature added and extends relationship to Signature added
+repository:Interface <>-> Signature moved to MethodInterface <>-> MethodSignature and aligned to naming conventions ("interface__MethodSignature" instead of "interface_Signature" and "signatures__MethodInterface" instead of "signatures__Interface")
+repository:Signature extends relationship to Entity added and Attribut serviceName removed
+repository:Signature <>-> Variable moved to MethodSignature <>-> Variable and aligned to naming conventions ("methodSignature__Variable" instead of "signature_Parameter" and "variables__MethodSignature" instead of "parameters__Signature")
+repository:Signature changed to abstract = true
+repository:Interface changed to abstract = true
+repository:Signature -> DataType (returnType) moved to MethodSignature <>-> DataType and aligned to naming conventions ("returnType__MethodSignature" instead of "returntype__Signature")
+repository:EventType class created and extends relatonship to Signature added
+repository:EventGroup class created and extends relatonship to Interface added
+repository:EventGroup 1 <>-> * EventType added
+repository:EventType 0..1 -> 1 Variable added
+repository:ProvidedRole -> Interface moved to ProvidedRole -> MethodInterface, navigatable in both directions, and aligned to naming conventions ("providedRoles__MethodInterface" instead of "providedRoles__Interface") 
+repository:RequiredRole -> Interface moved to RequiredRole -> MethodInterface, navigatable in both directions, and aligned to naming conventions ("requiredRoles__MethodInterface" instead of "requiredRoles__Interface") 
+repository:SinkRole with extension relationship to Role added
+repository:SourceRole with extension relationship to Role added
+repository:SourceRole * -> 1 EventGroup added
+repository:SinkRole * -> 1 EventGroup added
+seff:ExternalCallAction -> Signature assoziation moved to ExternalCallAction -> MethodSignature
+seff:EmitEventAction added and extending AbstractAction
+seff:EmitEventAction * -> 1 EventType
+seff:EmitEventAction * -> 1 EventSource
+seff:EmitEventAction (0..1)<>-> * SetVariable added
+core::composition::AssemblyEventConnector extending Connector added
+core::composition::AssemblyEventConnector -> SinkRole added
+core::composition::AssemblyEventConnector -> SourceRole added
+core::composition::AssemblyEventConnector (0..1)->1 AssemblyContext (sinkAssemblyContext__AssemblyEventConnector) added
+core::composition::AssemblyEventConnector (0..1)->1 AssemblyContext (sourceAssemblyContext__AssemblyEventConnector) added
+core::composition::AssemblyConnector -to-> AssemblyContext (0..1)->(1) instead of (1)->(1)
+core::composition::AssemblyConnector -from-> AssemblyContext (0..1)->(1) instead of (1)->(1)
+core::composition::ComposedStructure <>-> AssemblyEventConnector added
+
+// modell corrections
+parameter::Variable rolled back the abstract = true attribute to false
+
+// Adoptations for Resources and Infrastructures (not related to events)
+repository:ResourceInterface added and extends relationship to Interface added
+repository:ResourceSignature added and extends relationship to Signature added
+repository:InfrastructureInterface added and extends relationship to Interface added
+repository:InfrastructureSignature added and extends relationship to Signature added
+repository:Variable -> DataType renamed assoziation end dataType_Variable to dataType__Variable
+repository:MethodSignature -> DataType renamed assoziation end returntype__Signature to returnType__MethodSignature
+repository:MethodSignature assoziation to Variables changed from (1)<>->(*) to (0..1)<>->(*)
+repository:ResourceSignature (0..1)<>->(1) Variables added
+repository:InfrastructureSignature (0..1)<>->(*) Variables added
+
+// Adopted OCL Constraints
+repository::Interface OCL Constraint "SignaturesHaveToBeUniqueForAnInterface" moved to MethodInterface and variables fixed
+seff::ExternalCallAction OCL Constraint "SignatureBelongsToRole" variable fixed
+repository:OCL Constraint: "Parameter Names Have To Be Unique For A Signature" moved from Signature to MethodSignature and names adopted as well as parameterName to entityName
