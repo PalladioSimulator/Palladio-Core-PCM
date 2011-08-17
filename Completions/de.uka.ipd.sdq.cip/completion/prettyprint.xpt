@@ -1,0 +1,89 @@
+«IMPORT QVTBase»
+«IMPORT QVTRelation»
+«IMPORT QVTTemplate»
+«IMPORT ecore»
+«IMPORT ocl::ecore»
+«IMPORT ocl::expressions»
+«IMPORT ocl::types»
+«IMPORT ocl::utilities»
+«IMPORT ocl»
+
+«EXTENSION template::util»
+
+«DEFINE trafo FOR QVTRelation::RelationalTransformation»
+«FILE name + ".qvt"-»
+transformation «name» («FOREACH modelParameter AS mp SEPARATOR ', '»«mp.name»: «mp.usedPackage.first().name»«ENDFOREACH») {
+«EXPAND rule FOREACH rule»
+«EXPAND query FOREACH eOperations»
+}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE rule FOR QVTBase::Rule»«ENDDEFINE»
+
+«DEFINE rule FOR QVTRelation::Relation»
+	«IF isTopLevel»top «ENDIF»relation «name» {
+«EXPAND variable FOREACH variable-»
+«EXPAND domain FOREACH domain-»
+«IF when != null-»
+«IF !when.predicate.isEmpty-»
+		when {«FOREACH when.predicate AS p»
+			«EXPAND expression FOR p.conditionExpression»;«ENDFOREACH»
+		}
+«ENDIF-»
+«ENDIF-»
+«IF where != null-»
+«IF !where.predicate.isEmpty-»
+		where {«FOREACH where.predicate AS p»
+			«EXPAND expression FOR p.conditionExpression»;«ENDFOREACH»
+		}
+«ENDIF-»
+«ENDIF-»
+	}
+«ENDDEFINE»
+
+«DEFINE variable FOR ocl::ecore::Variable-»
+«IF name.startsWith('local_')-»
+		«name» : «fullName(eType)»;
+«ENDIF-»
+«ENDDEFINE»
+
+«DEFINE query FOR ecore::EOperation»«ENDDEFINE»
+
+«DEFINE query FOR QVTBase::Function»
+	query «name»(«FOREACH eParameters AS p SEPARATOR ', '»«p.name»: «p.eType.name»«ENDFOREACH»): «eType.name» {
+		«EXPAND expression FOR queryExpression»
+	}
+«ENDDEFINE»
+
+«DEFINE domain FOR QVTBase::Domain»«ENDDEFINE»
+«DEFINE domain FOR QVTRelation::RelationDomain»
+		«IF isCheckable»checkonly«ENDIF»«IF isEnforceable»enforce«ENDIF» domain «typedModel.name» «EXPAND expression FOR pattern.templateExpression»;
+«ENDDEFINE»
+
+«DEFINE expression FOR ocl::ecore::OCLExpression»«ENDDEFINE»
+
+«DEFINE expression FOR QVTTemplate::ObjectTemplateExp-»
+«bindsTo.name»:«fullName(eType)»{
+			«FOREACH part AS p»«p.referredProperty.name» = «EXPAND expression FOR p.value»«ENDFOREACH-»
+		}«ENDDEFINE»
+
+«DEFINE expression FOR QVTTemplate::TemplateExp»«ENDDEFINE»
+
+«DEFINE expression FOR QVTRelation::RelationCallExp»«referredRelation.name»(«EXPAND expression FOREACH argument SEPARATOR ', '»)«ENDDEFINE»
+
+«DEFINE opname FOR ecore::EOperation»«name»«ENDDEFINE»
+
+«DEFINE expression FOR ocl::ecore::OperationCallExp-»
+«IF referredOperation.name == "not"-»
+		not «EXPAND expression FOR source -»
+«ELSEIF referredOperation.name == "="-»
+		«EXPAND expression FOR argument.first()» = «EXPAND expression FOR argument.last()-»
+«ELSE-»
+		«referredOperation.name»(«EXPAND expression FOREACH argument SEPARATOR ', '»)
+«ENDIF-»
+«ENDDEFINE»
+
+
+
+«DEFINE expression FOR ocl::ecore::VariableExp»«referredVariable.name»«ENDDEFINE»

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="de.uka.ipd.sdq.cip.Completion">
+      <Completion
+            id="de.uka.ipd.sdq.cip.copypcm"
+            name="CopyPcm"
+            qvtscript="CopyPcm/Copypcm.qvt">
+         <Description>
+            Copy a PCM instance
+         </Description>
+         <Group
+               name="de.uka.ipd.sdq.cip.completions.CopyPCM">
+         </Group>
+         <Category
+               name="PlainCompletion">
+         </Category>
+      </Completion>
+      <Completion
+            id="de.uka.ipd.sdq.cip.completions.events2ClassicPCM"
+            name="Events2ClassicPCM"
+            qvtscript="events2ClassicPCM/transformation.qvto">
+         <Description>
+            Description body text
+         </Description>
+         <Group
+               name="de.uka.ipd.sdq.cip.completions.events2ClassicPCMGroup">
+         </Group>
+         <Category
+               name="QVTO">
+         </Category>
+         <Category
+               name="PlainCompletion">
+         </Category>
+      </Completion>
+   </extension>
+
+</plugin>

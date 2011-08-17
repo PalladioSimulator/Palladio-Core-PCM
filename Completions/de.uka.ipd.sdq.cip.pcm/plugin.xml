@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension
+         point="de.uka.ipd.sdq.cip.CompletionCategory">
+      <Category
+            id="ComponentCompletion"
+            name="Component Completion">
+      </Category>
+      <Category
+            id="ConnectorCompletion"
+            name="Connector Completion">
+      </Category>
+      <Category
+            id="InfrastructurCompletion"
+            name="Infrastructur Completion">
+      </Category>
+   </extension>
+</plugin>

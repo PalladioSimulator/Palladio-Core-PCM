@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="Completion" name="Completion" schema="schema/Completion.exsd"/>
+   <extension-point id="CompletionCategory" name="Completion Category" schema="schema/CompletionCategory.exsd"/>
+   <extension-point id="CompletionGroup" name="Completion Group" schema="schema/CompletionGroup.exsd"/>
+   <extension
+         point="de.uka.ipd.sdq.cip.CompletionCategory">
+      <Category
+            id="HOTCompletion"
+            name="HOTCompletion">
+      </Category>
+      <Category
+            id="MarkCompletion"
+            name="MarkCompletion">
+      </Category>
+      <Category
+            id="PlainCompletion"
+            name="PlainCompletion">
+      </Category>
+      <Category
+            id="QVTO"
+            name="QVTO">
+      </Category>
+      <Category
+            id="QVTR"
+            name="QVTR">
+      </Category>
+   </extension>
+
+</plugin>
