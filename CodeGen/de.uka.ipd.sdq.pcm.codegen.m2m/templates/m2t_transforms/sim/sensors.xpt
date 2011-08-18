@@ -1,5 +1,5 @@
 «EXTENSION m2t_transforms::java_names»
-«EXTENSION m2t_transforms::pcmÂ»
+«EXTENSION m2t_transforms::pcm»
 
 «DEFINE StartResponseTimeMeasurement FOR String»
 	// Take current time
