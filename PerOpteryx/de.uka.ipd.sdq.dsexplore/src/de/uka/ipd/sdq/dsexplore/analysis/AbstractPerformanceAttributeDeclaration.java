@@ -14,16 +14,19 @@ public abstract class AbstractPerformanceAttributeDeclaration implements IAnalys
 
 	protected Dimension responseTimeDimension;
 	protected Dimension throughputDimension;
+	protected Dimension maxUtilizationDimension;
 	
 	public static final String[] qualityAttributes = {
 			QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_RESPONSETIME_DEFINITION_PATH,
-			QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_THROUGHPUT_DEFINITION_PATH };
+			QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_THROUGHPUT_DEFINITION_PATH,
+			QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_MAX_UTIL_DEFINITION_PATH};
 
 	public AbstractPerformanceAttributeDeclaration() {
 		super();
 		QMLDimensionReader reader = new QMLDimensionReader();
 		responseTimeDimension = reader.getDimension(qualityAttributes[0]);
 		throughputDimension = reader.getDimension(qualityAttributes[1]);
+		maxUtilizationDimension = reader.getDimension(qualityAttributes[2]);
 	}
 
 	@Override
@@ -32,6 +35,7 @@ public abstract class AbstractPerformanceAttributeDeclaration implements IAnalys
 		List<Dimension> dimensionList = new ArrayList<Dimension>(2);
 		dimensionList.add(responseTimeDimension);
 		dimensionList.add(throughputDimension);
+		dimensionList.add(maxUtilizationDimension);
 	
 		return dimensionList;
 	}
@@ -50,6 +54,8 @@ public abstract class AbstractPerformanceAttributeDeclaration implements IAnalys
 		return this.throughputDimension;
 	}
 	
-	
+	public Dimension getMaxUtilization() {
+		return this.maxUtilizationDimension;
+	}
 
 }

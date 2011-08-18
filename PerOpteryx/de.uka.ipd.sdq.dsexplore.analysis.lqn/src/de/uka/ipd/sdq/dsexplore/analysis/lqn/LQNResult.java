@@ -54,6 +54,8 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 	
 	protected double meanResponseTime;
 	protected double throughput;
+	protected double maxUtilization;
+	
 	protected double squaredCoeffVariance = 1;
 	
 	private ResultDecoratorRepository results;
@@ -61,6 +63,8 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 	private Map<Criterion, EvaluationAspectWithContext> objectiveToAspects;
 
 	private LQNQualityAttributeDeclaration qualityAttributeInfo;
+
+	
 
 	public LQNResult(PCMInstance pcm, LqnModelType model,
 			UsageScenarioBasedCriterion criterion, Map<Criterion, EvaluationAspectWithContext> objectiveToAspect,
@@ -76,12 +80,34 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 			this.throughput = retrieveThroughputForUsageScenario(pcm, model, criterion);
 			
 			this.results =  retrieveResults(pcm, model);
+			
+			this.maxUtilization = retrieveMaxUtilization(pcm, model, this.results, "CPU");
+			
 		} catch (ParseException ex) {
 			throw new AnalysisFailedException("Failed to parse string value.",
 					ex);
 		}
 	}
 	
+	private double retrieveMaxUtilization(PCMInstance pcm, LqnModelType model,
+			ResultDecoratorRepository results2, String resourceTypeDescription) {
+		double maxUtil = 0;
+		for (UtilisationResult utilResult : results2.getUtilisationResults_ResultDecoratorRepository()) {
+			if (utilResult instanceof ProcessingResourceSpecificationResult){
+				ProcessingResourceSpecificationResult procResult = (ProcessingResourceSpecificationResult) utilResult;
+				// check resource type
+				if (procResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult().getActiveResourceType_ActiveResourceSpecification().getEntityName().contains(resourceTypeDescription)){
+					if (maxUtil < procResult.getResourceUtilisation()){
+						maxUtil = procResult.getResourceUtilisation();
+					}
+				}
+				
+			}
+			
+		}
+		return maxUtil;
+	}
+
 	/**
 	 * pcm must be the current candidate's PCM model. 
 	 * 
@@ -388,18 +414,19 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 
 				// TODO: Can we really assume there is only one task?
 				TaskType task = processor.getTask().get(0);
-				OutputResultType outputResult = task.getResultTask().get(0);
-
-				double responseTime = 0.0;
-
-				responseTime = LQNUtils.getResponseTimeOfSubActivities(task);
-
-				if (outputResult.getSquaredCoeffVariation() != null) {
-					this.squaredCoeffVariance = LQNUtils
-							.convertStringToDouble((String) outputResult
-									.getSquaredCoeffVariation());
-				} else
-					this.squaredCoeffVariance = 1;
+				
+				double responseTime = Double.NaN;
+				
+				if (task.getResultTask().size() > 0){
+					OutputResultType outputResult = task.getResultTask().get(0);
+					responseTime = LQNUtils.getResponseTimeOfSubActivities(task);
+					
+					if (outputResult.getSquaredCoeffVariation() != null) {
+						this.squaredCoeffVariance = LQNUtils
+								.convertStringToDouble((String) outputResult
+										.getSquaredCoeffVariation());
+					} 
+				}
 
 				return responseTime;
 				
@@ -497,6 +524,8 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 				return this.getMeanValue();
 			} else if (EcoreUtil.equals(aspect.getDimension(), this.qualityAttributeInfo.getThroughput())){
 				return this.getThroughput();
+			}  else if (EcoreUtil.equals(aspect.getDimension(), this.qualityAttributeInfo.getMaxUtilization())){
+				return this.getMaxUtilisation();
 			}
 		} 
 		
@@ -513,6 +542,10 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 	
 	public double getThroughput() {
 		return throughput;
+	}
+	
+	public double getMaxUtilisation(){
+		return this.maxUtilization;
 	}
 	
 	/* (non-Javadoc)

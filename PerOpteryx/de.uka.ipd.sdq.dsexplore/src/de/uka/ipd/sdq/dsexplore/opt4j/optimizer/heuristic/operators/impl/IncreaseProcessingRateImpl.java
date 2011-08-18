@@ -16,6 +16,8 @@ import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
 import de.uka.ipd.sdq.dsexplore.qml.handling.QMLConstantsContainer;
 import de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousProcessingRateDegree;
+import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
+import de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresDegree;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.ProcessingResourceSpecificationResult;
@@ -54,7 +56,8 @@ public class IncreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 	public IncreaseProcessingRateImpl(Copy<Genotype> copy, DSEIndividualBuilder individualBuilder, DSEWorkflowConfiguration configuration) {
 		super(copy, individualBuilder, configuration, new String[] {
 				QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_RESPONSETIME_DEFINITION_PATH,
-				QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_THROUGHPUT_DEFINITION_PATH});
+				QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_THROUGHPUT_DEFINITION_PATH,
+				QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_MAX_UTIL_DEFINITION_PATH});
 		// set config
 		setHeuristicWeight(configuration.getProcessingRateWeight());
 		increaseProcessingRateFactor = configuration.getProcessingRateIncreaseFactor();
@@ -108,17 +111,23 @@ public class IncreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 	public List<TacticsResultCandidate> getHeuristicCandidates(DSEIndividual individual, UtilisationResultCacheAndHelper resultCache) {
 		List<TacticsResultCandidate> candidates = new ArrayList<TacticsResultCandidate>(); // return value
 		/*
-		 * 1. Get maximum utilisation 2. Copy current genotype 3. Find
-		 * processing resource by iterating through genotype and change
-		 * processing rate 4. Add candidate to result collection
+		 * 1. Get maximum utilisation 
+		 * 2. Copy current genotype 
+		 * 3. Find processing resource by iterating through genotype and change
+		 * processing rate and one with increased number of cores, if possible. 
+		 * 4. Add candidate to result collection
 		 */
 		// for all used resource types
 		Set<ResourceType> resourceTypes = resultCache.getResourceTypes(individual); 
 
 		for (ResourceType resourceType : resourceTypes) {
+			
+			if (resourceType.getEntityName().equals("DELAY")){
+				continue;
+			}
 
 			if (doesMatchHighUtilisation(individual, resultCache, resourceType)) {
-				addNewCandidateWithIncreasedProcessingRate(individual, candidates, resultCache, resourceType);
+				addNewCandidatesWithIncreasedProcessingRateOrCores(individual, candidates, resultCache, resourceType);
 			}
 
 		}
@@ -130,7 +139,7 @@ public class IncreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 	 * @param candidates
 	 * @param resourceType 
 	 */
-	private void addNewCandidateWithIncreasedProcessingRate(DSEIndividual individual,
+	private void addNewCandidatesWithIncreasedProcessingRateOrCores(DSEIndividual individual,
 			Collection<TacticsResultCandidate> candidates,
 			UtilisationResultCacheAndHelper resultsCache, ResourceType resourceType) {
 		// 1. Get maximum utilisation
@@ -138,7 +147,11 @@ public class IncreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 		ProcessingResourceSpecification maxUtilProcessingResource = maxUtilisationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult();
 		addNewProcRateCandidate(individual, candidates, maxUtilisationResult,
 				maxUtilProcessingResource);
+		addNewNumberOfCoresCandidate(individual, candidates, maxUtilisationResult,
+				maxUtilProcessingResource);
 	}
+
+
 
 
 
@@ -187,6 +200,13 @@ public class IncreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 		
 		// return weight but at most 1 and at least 0. 
 		return Math.min(1, Math.max(0, (utilisationResult.getResourceUtilisation() - thresholdHighUtilisation) / (1.0 - thresholdHighUtilisation)));
+	}
+
+	@Override
+	protected int getUpdatedNumberOfCores(DiscreteRangeChoice discreteChoice,
+			NumberOfCoresDegree numberOfCoresDegree) {
+		return Math.min(discreteChoice.getChosenValue() + 1 ,
+				numberOfCoresDegree.isUpperBoundIncluded() ? numberOfCoresDegree.getTo() : numberOfCoresDegree.getTo() - 1);
 	}
 
 

@@ -16,6 +16,8 @@ import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
 import de.uka.ipd.sdq.dsexplore.qml.handling.QMLConstantsContainer;
 import de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousProcessingRateDegree;
+import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
+import de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresDegree;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.ProcessingResourceSpecificationResult;
@@ -84,6 +86,10 @@ public class DecreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 		Set<ResourceType> resourceTypes = resultCache.getResourceTypes(individual); 
 
 		for (ResourceType resourceType : resourceTypes) {
+			
+			if (resourceType.getEntityName().equals("DELAY")){
+				continue;
+			}
 
 			if (doesMatchLowUtilisation(individual, resultCache, resourceType)) {
 				addNewCandidateWithDecreasedProcessingRate(individual, candidates, resultCache);
@@ -166,6 +172,13 @@ public class DecreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 			return 0;
 		}
 		return Math.min(1, Math.max(thresholdLowUtilisation - utilisationResult.getResourceUtilisation() / thresholdLowUtilisation, 0.0));
+	}
+
+	@Override
+	protected int getUpdatedNumberOfCores(DiscreteRangeChoice discreteChoice,
+			NumberOfCoresDegree numberOfCoresDegree) {
+		return Math.max(discreteChoice.getChosenValue() -1 ,
+				numberOfCoresDegree.isLowerBoundIncluded() ? numberOfCoresDegree.getFrom() : numberOfCoresDegree.getFrom() + 1);
 	}
 
 }

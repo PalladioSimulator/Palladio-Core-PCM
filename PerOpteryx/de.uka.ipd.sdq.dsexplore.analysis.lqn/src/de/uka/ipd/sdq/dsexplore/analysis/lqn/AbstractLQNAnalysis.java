@@ -31,6 +31,7 @@ import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedInfeasi
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedObjective;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedSatisfactionConstraint;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.reader.PCMDeclarationsReader;
+import de.uka.ipd.sdq.dsexplore.qml.profile.QMLProfile.EntryLevelSystemCallRequirement;
 import de.uka.ipd.sdq.dsexplore.qml.profile.QMLProfile.UsageScenarioRequirement;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
@@ -256,71 +257,88 @@ public abstract class AbstractLQNAnalysis implements IAnalysis {
 		for (Iterator<EvaluationAspectWithContext> iterator = responseTimeAspect.iterator(); iterator.hasNext();) {
 			EvaluationAspectWithContext aspectContext = iterator
 					.next();
-			
-			if(aspectContext.getRequirement() instanceof UsageScenarioRequirement) {  
-				
-						//handle possible aspects here
-						if (canEvaluateAspect(aspectContext.getEvaluationAspect(), aspectContext.getDimension())) {
-							
-							if(((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario() == null) {
-								//The criterion refers to EVERY US since none is explicitly specified
-								for (Iterator<UsageScenario> iterator2 = scenarios.iterator(); iterator2.hasNext();) {
-									UsageScenario usageScenario = (UsageScenario) iterator2
-											.next();
-									
-									//FIXME: hardcoded usage scenario selection
-									String scenName = usageScenario.getEntityName();
-									if (scenName.contains("AlarmRetrieve") 
-											|| scenName.contains("Wrapper")
-											|| scenName.contains("HistoryRetrieve")){
-										continue;
-									}
-									
-									if(aspectContext.getCriterion() instanceof de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Constraint) {
-										UsageScenarioBasedInfeasibilityConstraint c = 
-											reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, usageScenario);
-										
-										criteriaList.add(c);
-										criterionToAspect.put(c, aspectContext);
-									} else {
-										//instanceof Objective
-										Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, usageScenario);
-										criteriaList.add(o);
-										criterionToAspect.put(o, aspectContext); 
-										
-										UsageScenarioBasedSatisfactionConstraint c = 
-												reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, usageScenario); 
-										criteriaList.add(c);
-										criterionToAspect.put(c, aspectContext);
-									}
-								}
-							} else {
-								if(aspectContext.getCriterion() instanceof de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Constraint) {
-									UsageScenarioBasedInfeasibilityConstraint c = 
-										reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, ((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario());
-									criteriaList.add(c);
-									criterionToAspect.put(c, aspectContext);
-								} else {
-									//instanceof Objective
-									Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, ((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario());
-									criteriaList.add(o);
-									criterionToAspect.put(o, aspectContext);
-									
-									UsageScenarioBasedSatisfactionConstraint c = 
-											reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, 
-											((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario());
-									criteriaList.add(c);
-									criterionToAspect.put(c, aspectContext);
-								}
+			//handle possible aspects here
+			if (canEvaluateAspect(aspectContext.getEvaluationAspect(), aspectContext.getDimension())) {
+
+				if(aspectContext.getRequirement() instanceof UsageScenarioRequirement) {  
+
+					if(((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario() == null) {
+						//The criterion refers to EVERY US since none is explicitly specified
+						for (Iterator<UsageScenario> iterator2 = scenarios.iterator(); iterator2.hasNext();) {
+							UsageScenario usageScenario = (UsageScenario) iterator2
+							.next();
+
+							//FIXME: hardcoded usage scenario selection
+							String scenName = usageScenario.getEntityName();
+							if (scenName.contains("AlarmRetrieve") 
+									|| scenName.contains("Wrapper")
+									|| scenName.contains("HistoryRetrieve")){
+								continue;
 							}
-							
+
+							if(aspectContext.getCriterion() instanceof de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Constraint) {
+								UsageScenarioBasedInfeasibilityConstraint c = 
+									reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, usageScenario);
+
+								criteriaList.add(c);
+								criterionToAspect.put(c, aspectContext);
+							} else {
+								//instanceof Objective
+								Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, usageScenario);
+								criteriaList.add(o);
+								criterionToAspect.put(o, aspectContext); 
+
+								UsageScenarioBasedSatisfactionConstraint c = 
+									reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, usageScenario); 
+								criteriaList.add(c);
+								criterionToAspect.put(c, aspectContext);
+							}
+						}
+					} else {
+						if(aspectContext.getCriterion() instanceof de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Constraint) {
+							UsageScenarioBasedInfeasibilityConstraint c = 
+								reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, ((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario());
+							criteriaList.add(c);
+							criterionToAspect.put(c, aspectContext);
 						} else {
-							//XXX: This should never be the case if the optimization is started with the LaunchConfig the aspect is checked there as well
-							throw new RuntimeException("Evaluation aspect not supported("+aspectContext.getEvaluationAspect()+")!");
-						}			
-				
+							//instanceof Objective
+							Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, ((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario());
+							criteriaList.add(o);
+							criterionToAspect.put(o, aspectContext);
+
+							UsageScenarioBasedSatisfactionConstraint c = 
+								reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, 
+										((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario());
+							criteriaList.add(c);
+							criterionToAspect.put(c, aspectContext);
+						}
+					}
+
+//				} else if (aspectContext.getRequirement() instanceof EntryLevelSystemCallRequirement) {
+//					if(aspectContext.getCriterion() instanceof de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Constraint) {
+//						UsageScenarioBasedInfeasibilityConstraint c = 
+//							reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, ((EntryLevelSystemCallRequirement)aspectContext.getRequirement()).getEntryLevelSystemCall());
+//						criteriaList.add(c);
+//						criterionToAspect.put(c, aspectContext);
+//					} else {
+//						//instanceof Objective
+//						Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, ((EntryLevelSystemCallRequirement)aspectContext.getRequirement()).getEntryLevelSystemCall());
+//						criteriaList.add(o);
+//						criterionToAspect.put(o, aspectContext);
+//
+//						UsageScenarioBasedSatisfactionConstraint c = 
+//							reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, 
+//									((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario());
+//						criteriaList.add(c);
+//						criterionToAspect.put(c, aspectContext);
+//					}
+
+				} else {
+					throw new RuntimeException("Unsupported Requirement!");
+				}
 			} else {
-				throw new RuntimeException("Unsupported Requirement!");
+				//XXX: This should never be the case if the optimization is started with the LaunchConfig the aspect is checked there as well
+				throw new RuntimeException("Evaluation aspect not supported("+aspectContext.getEvaluationAspect()+")!");
 			}
 		}
 	}

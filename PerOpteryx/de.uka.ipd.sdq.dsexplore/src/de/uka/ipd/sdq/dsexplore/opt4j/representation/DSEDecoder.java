@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.opt4j.core.problem.Decoder;
@@ -39,11 +40,13 @@ import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
+import de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule;
 import de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingResourceDegree;
 import de.uka.ipd.sdq.pcm.designdecision.RangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
+import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
@@ -160,6 +163,27 @@ public class DSEDecoder implements Decoder<DesignDecisionGenotype, PCMPhenotype>
 		}
 		
 		server.setNumberOfReplicas_ResourceContainer(numberOfServers);
+		
+		if (designDecision instanceof ResourceContainerReplicationDegreeWithComponentChange){
+			List<ExchangeComponentRule> exchangeComponentRules = ((ResourceContainerReplicationDegreeWithComponentChange)designDecision).getExchangeComponentRule();
+			int index = numberOfServers - designDecision.getFrom();
+			for (ExchangeComponentRule exchangeComponentRule : exchangeComponentRules) {
+				if (index >= 0 && index < exchangeComponentRule.getRepositoryComponent().size()){
+					RepositoryComponent repoCompToUse = exchangeComponentRule.getRepositoryComponent().get(index);
+					AssemblyContext assemblyContextToChange = exchangeComponentRule.getAllocationContext().getAssemblyContext_AllocationContext();
+					RepositoryComponent currentComponent = assemblyContextToChange.getEncapsulatedComponent__AssemblyContext();
+					
+					//Do not replace component if it is already assembled.  
+					if (!EMFHelper.checkIdentity(currentComponent, repoCompToUse)){
+						AlternativeComponent.getInstance().applyChange(assemblyContextToChange, repoCompToUse);
+					}
+				} else {
+					throw new ChoiceOutOfBoundsException(discreteChoice, "Looking for index "+index+"in RepositoryComponents of ResourceContainerReplicationDegreeWithComponentChange degree for number of servers "+numberOfServers+", but no such component available");
+				}
+					
+			}
+
+		}
 		
 		// old replication way of creating new allocation contexts
 //		PCMInstance pcm = Opt4JStarter.getProblem().getInitialInstance();
