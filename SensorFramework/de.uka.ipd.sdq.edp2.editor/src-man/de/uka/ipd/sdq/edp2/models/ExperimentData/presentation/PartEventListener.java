@@ -3,19 +3,37 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.presentation;
 
-import org.eclipse.ui.IPartListener2;
-import org.eclipse.ui.IWorkbenchPartReference;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IPartListener2;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchPartReference;
+import org.eclipse.ui.part.EditorPart;
+
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
+import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
+import de.uka.ipd.sdq.edp2.models.Repository.Repository;
+import de.uka.ipd.sdq.edp2.visualization.IDataFlow;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
+import de.uka.ipd.sdq.edp2.visualization.filter.WarmupFilter;
 
 /**
  * @author Dominik Ernst
  *
  */
 public class PartEventListener implements IPartListener2 {
+	
+	/**
+	 * Logger for this class
+	 */
+	private final static Logger logger = Logger.getLogger(PartEventListener.class
+			.getCanonicalName());
 
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IPartListener2#partActivated(org.eclipse.ui.IWorkbenchPartReference)
 	 */
@@ -39,11 +57,33 @@ public class PartEventListener implements IPartListener2 {
 	 */
 	@Override
 	public void partClosed(IWorkbenchPartReference partRef) {
-		if (partRef instanceof AbstractEditor){
-			AbstractEditor editor = (AbstractEditor)partRef;
+		logger.log(Level.INFO, "partClosed of Part is called");
+		IEditorPart part = (IEditorPart) partRef.getPart(false);
+		if (partRef.getPart(false) instanceof AbstractEditor){
+			logger.log(Level.INFO, "closed Editor is an AbstractEditor");
+			AbstractEditor editor = (AbstractEditor)part;
 			IDataSink input = (IDataSink)editor.getEditorInput();
-			//TODO close repository of EDP2Source
-
+			IDataFlow flow = input.getSource();
+			
+			/*while (flow != null) {
+				flow = ((IDataSink)flow).getSource();
+			}
+			
+			if (flow != null){*/
+				for (Repository repo : RepositoryManager.getCentralRepository().getAvailableRepositories()){
+					if (repo.canClose()){
+						try {
+							repo.close();
+							logger.log(Level.INFO, "Repository with UUID "+repo.getUuid()+" closed");
+						} catch (DataNotAccessibleException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+				//TODO close repository of EDP2Source
+			//}
+			
 		}
 
 	}
