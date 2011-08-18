@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.pcm.cost.helper;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.pcm.cost.ProcessingResourceCost;
 import de.uka.ipd.sdq.pcm.cost.ScalarFunction;
 import de.uka.ipd.sdq.pcm.cost.VariableProcessingResourceCost;
 import de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator;
@@ -21,7 +22,6 @@ public class CostUtil {
 	
 	private static final String PROCESSING_RATE_VARIABLE = "procRate.VALUE";
 	private static final String NUMBER_OF_CORES_VARIABLE = "numberOfReplicas.VALUE";
-	private static final String NUMBER_OF_SERVERS = "numberOfServerReplicas.VALUE";
 	
 	private CostStoExCache stoExCache;
 
@@ -64,6 +64,11 @@ public class CostUtil {
 		return 0.0;
 	}
 	
+	/**
+	 * Return the total operating costs (function evaluation times number of server replicas) 
+	 * @param varCost
+	 * @return
+	 */
 	public double getOperatingCost(
 			VariableProcessingResourceCost varCost) {
 		double functionValue = solveFunctionExpression(
@@ -87,7 +92,6 @@ public class CostUtil {
 		SimulatedStackframe<Object> stackframe = new SimulatedStackframe<Object>();
 		stackframe.addValue(PROCESSING_RATE_VARIABLE, processingRate);
 		stackframe.addValue(NUMBER_OF_CORES_VARIABLE, numberOfCores);
-		stackframe.addValue(NUMBER_OF_SERVERS, numberOfServers);
 		
 		try {
 			//Term parsedExpression = scalarFunction.getTerm();
@@ -99,7 +103,7 @@ public class CostUtil {
 
 			PCMStoExEvaluationVisitor visitor = new PCMStoExEvaluationVisitor(stoExEntry,stackframe,VariableMode.RETURN_DEFAULT_ON_NOT_FOUND,randomGenerator);
 			Object number = visitor.doSwitch(parsedExpression);
-			return toDoubleOrZero(number);
+			return toDoubleOrZero(number) * numberOfServers;
 		} catch (RuntimeException e){
 			logger.warn("Error when evaluating processing rate cost function: "+e.getMessage());
 			e.printStackTrace();
@@ -108,6 +112,11 @@ public class CostUtil {
 	}
 
 
+	/**
+	 * Return the total initial costs (function evaluation times number of server replicas)
+	 * @param varCost
+	 * @return
+	 */
 	public double getInitialCost(
 			VariableProcessingResourceCost varCost) {
 		double functionValue = solveFunctionExpression(
@@ -139,7 +148,7 @@ public class CostUtil {
 		return 0;
 	}
 	
-	private int getNumberOfServers(VariableProcessingResourceCost varCost){
+	public int getNumberOfServers(ProcessingResourceCost varCost){
 		if (varCost.getProcessingresourcespecification() != null){
 			return varCost.getProcessingresourcespecification().getResourceContainer_ProcessingResourceSpecification().getNumberOfReplicas_ResourceContainer();
 		}

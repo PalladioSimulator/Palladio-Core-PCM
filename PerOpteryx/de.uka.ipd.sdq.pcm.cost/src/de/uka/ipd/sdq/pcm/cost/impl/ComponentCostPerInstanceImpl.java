@@ -190,7 +190,7 @@ public class ComponentCostPerInstanceImpl extends ComponentCostImpl implements C
 			for (AllocationContext allocationContext : allocationContexts) {
 				if (allocationContext.getAssemblyContext_AllocationContext().getEncapsulatedComponent__AssemblyContext().getId()
 						.equals(this.getRepositoryComponent().getId())){
-					numberOfInstances ++;
+					numberOfInstances = numberOfInstances + allocationContext.getResourceContainer_AllocationContext().getNumberOfReplicas_ResourceContainer();
 				}
 			}
 		} else {

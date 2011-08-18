@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.cost.impl;
 
 import de.uka.ipd.sdq.pcm.cost.FixedProcessingResourceCost;
 import de.uka.ipd.sdq.pcm.cost.costPackage;
+import de.uka.ipd.sdq.pcm.cost.helper.CostUtil;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 
@@ -225,7 +226,7 @@ public class FixedProcessingResourceCostImpl extends ProcessingResourceCostImpl 
 	 */
 	@Override
 	public double getOperatingCost() {
-		return this.getFixedOperatingCost();
+		return this.getFixedOperatingCost() * CostUtil.getInstance().getNumberOfServers(this);
 	}
 
 	/**
@@ -235,7 +236,7 @@ public class FixedProcessingResourceCostImpl extends ProcessingResourceCostImpl 
 	 */
 	@Override
 	public double getInitialCost() {
-		return this.getFixedInitialCost();
+		return this.getFixedInitialCost() * CostUtil.getInstance().getNumberOfServers(this);
 	}
 
 	@Override
