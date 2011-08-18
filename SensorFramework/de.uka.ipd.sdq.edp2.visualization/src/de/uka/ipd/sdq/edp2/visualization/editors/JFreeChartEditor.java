@@ -24,6 +24,8 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.experimental.chart.swt.ChartComposite;
+
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualization;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 
@@ -48,11 +50,24 @@ public abstract class JFreeChartEditor extends AbstractEditor {
 	 * @param input this editors Input
 	 * @return a new {@link JFreeChart}.
 	 */
-	protected abstract JFreeChart createChart(IEditorInput input);
-	/**
-	 * Method, which describes the updating process of the current chart.
-	 */
-	public abstract void updateChart();
-
+	protected abstract JFreeChart createChart(IDataSink input);
 	
+	/**
+	 * Method, which describes the default updating process of the current chart.
+	 */
+	public void updateChart() {
+		JFreeChart chart = createChart(input);
+		chartContainer.setChart(chart);
+		chartContainer.forceRedraw();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor#changeInput(org.eclipse.ui.IEditorInput)
+	 */
+	public void changeInput(IEditorInput newInput) {
+		setInput(input);
+		updateChart();
+	}
+
 }

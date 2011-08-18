@@ -24,6 +24,8 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.experimental.chart.swt.ChartComposite;
+
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualization;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 
@@ -44,12 +46,20 @@ public abstract class AbstractEditor extends EditorPart implements
 	public static final String EDITOR_ID = "de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor";
 
 	/** The input for this Editor. */
-	protected IEditorInput input;
+	protected IDataSink input;
 	/** Reference on the current {@link TabbedPropertySheetPage}. */
 	protected TabbedPropertySheetPage propertySheetPage;
 
 	/** Default, empty constructor. */
 	public AbstractEditor() {
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.part.EditorPart#getEditorInput()
+	 */
+	@Override
+	public IDataSink getEditorInput() {
+		return (IDataSink)super.getEditorInput();
 	}
 
 	/*
@@ -85,32 +95,52 @@ public abstract class AbstractEditor extends EditorPart implements
 	public void init(IEditorSite site, IEditorInput input)
 			throws PartInitException {
 		setSite(site);
-		this.input = input;
+		this.input = (IDataSink)input;
 		setInput(input);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.ui.part.EditorPart#isDirty()
+	 */
 	@Override
 	public boolean isDirty() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.ui.part.EditorPart#isSaveAsAllowed()
+	 */
 	@Override
 	public boolean isSaveAsAllowed() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.ui.IPersistable#saveState(org.eclipse.ui.IMemento)
+	 */
 	public void saveState(IMemento memento) {
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.ui.part.WorkbenchPart#setFocus()
+	 */
 	@Override
 	public void setFocus() {
 		// TODO Auto-generated method stub
 
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.ui.IPersistableEditor#restoreState(org.eclipse.ui.IMemento)
+	 */
 	public void restoreState(IMemento memento) {
 
 	}

@@ -24,6 +24,8 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.experimental.chart.swt.ChartComposite;
+
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualization;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 
@@ -58,39 +60,17 @@ public class ScatterPlotEditor extends JFreeChartEditor {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor#updateChart()
-	 */
-	public void updateChart() {
-		JFreeChart chart = createChart(input);
-		chartContainer.setChart(chart);
-		chartContainer.forceRedraw();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor#changeInput(org.eclipse.ui.IEditorInput)
-	 */
-	public void changeInput(IEditorInput newInput) {
-
-		if (newInput instanceof ScatterPlotInput) {
-			this.input = (ScatterPlotInput) newInput;
-		}
-		setInput(input);
-		updateChart();
-
-	}
-
-	/*
-	 * (non-Javadoc)
 	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor#createChart(org.eclipse.ui.IEditorInput)
 	 */
-	protected JFreeChart createChart(IEditorInput input) {
+	protected JFreeChart createChart(IDataSink input) {
 		if (input instanceof ScatterPlotInput) {
+			ScatterPlotInput scatterPlotInput = (ScatterPlotInput) input;
+			scatterPlotInput.updateDataset();
 			JFreeChart chart = ChartFactory.createScatterPlot(
-					((ScatterPlotInput) input).getName(),
-					((ScatterPlotInput) input).getLabelXScale(),
-					((ScatterPlotInput) input).getLabelYScale(),
-					((ScatterPlotInput) input).getDataset(),
+					scatterPlotInput.getName(),
+					scatterPlotInput.getLabelXScale(),
+					scatterPlotInput.getLabelYScale(),
+					scatterPlotInput.getDataset(),
 					PlotOrientation.VERTICAL, true, true, false);
 
 			return chart;

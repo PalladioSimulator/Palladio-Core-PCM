@@ -33,6 +33,7 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
+import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
@@ -41,7 +42,9 @@ import de.uka.ipd.sdq.edp2.visualization.IAdapter;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IFilter;
+import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput;
@@ -54,7 +57,7 @@ import de.uka.ipd.sdq.edp2.visualization.wizards.FilterWizard;
  * GUI controls for Properties for {@link IFilter}. Used to display and edit
  * properties in Eclipse Properties View if an Visualization Editor is selected.
  * 
- * @author Roland Richter
+ * @author Roland Richter, Dominik Ernst
  * 
  */
 public class FiltersPropertySection extends AbstractPropertySection {
@@ -75,6 +78,11 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 * selected in the filtersList
 	 */
 	private Table filtersTable;
+	
+	/**
+	 * The current editor which is an {@link ITabbedPropertySheetPageContributor}.
+	 */
+	private AbstractEditor editor;
 
 	/**
 	 * Create the look and items of the properties. It is called, if one of the
@@ -89,22 +97,29 @@ public class FiltersPropertySection extends AbstractPropertySection {
 
 		Composite composite = getWidgetFactory()
 				.createFlatFormComposite(parent);
-		// set the input, what is actual selected in the workbench
-		setInput(Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActivePart(),
+		
+		//properties view is only visible for abstract editors, so no type check is necessary
+		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
+		.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		
+		// set the input to what is actually selected in the editor
+		setInput(editor, Activator.getDefault().getWorkbench()
+						.getActiveWorkbenchWindow().getSelectionService()
+						.getSelection(editor.getSite().getId()));
+		/*setInput(editor,
 				Activator.getDefault().getWorkbench()
 						.getActiveWorkbenchWindow().getSelectionService()
 						.getSelection(
 								Activator.getDefault().getWorkbench()
 										.getActiveWorkbenchWindow()
 										.getPartService()
-										.getActivePartReference().getId()));
+										.getActivePartReference().getId()));*/
 
 		// get the input from the chart
-		IEditorInput input = null;
+		/*IEditorInput input = null;
 		input = Activator.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor()
-				.getEditorInput();
+				.getEditorInput();*/
 		// init the layout
 		createLayout(composite);
 
@@ -115,8 +130,12 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		// init the contents of the filters group
 		initFiltersListAndTable(filtersGroup);
 
+		Group warumUpConfigGroup = createWarmupConfigurationGroup(composite);
+		generatePropertieSectionForWarmup(warumUpConfigGroup);
+		Group teardownConfigGroup = createTeardownConfigurationGroup(composite);
+		generatePropertieSectionForTeardown(teardownConfigGroup);
 		// set the properties for every editor
-		if (input instanceof ScatterPlotInput) {
+		/*if (input instanceof ScatterPlotInput) {
 			Group warumUpConfigGroup = createWarmupConfigurationGroup(composite);
 			generatePropertieSectionForWarmup(warumUpConfigGroup);
 			Group teardownConfigGroup = createTeardownConfigurationGroup(composite);
@@ -128,7 +147,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		}
 		if (input instanceof HistogramEditorInput) {
 
-		}
+		}*/
 
 		final Button buttonAdapter = new Button(composite, SWT.PUSH);
 		buttonAdapter.setText("Add new Adapter..");
@@ -201,7 +220,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		// init the filters list with select listener
 		filtersList = new List(parentGroup, SWT.BORDER | SWT.SINGLE
 				| SWT.V_SCROLL);
-		filtersList.setLayoutData(new RowData(120, 80));
+		filtersList.setLayoutData(new RowData(140, 100));
 		filtersList.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -230,7 +249,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		TableViewer filtersTableViewer = new TableViewer(filtersTable);
 		TableViewerColumn labelColumn = new TableViewerColumn(
 				filtersTableViewer, SWT.NONE);
-		labelColumn.getColumn().setText("Attribute");
+		labelColumn.getColumn().setText("Property");
 		TableViewerColumn valueColumn = new TableViewerColumn(
 				filtersTableViewer, SWT.NONE);
 		valueColumn.getColumn().setText("Value");
@@ -325,13 +344,11 @@ public class FiltersPropertySection extends AbstractPropertySection {
 			public void handleEvent(Event event) {
 				logger.log(Level.INFO, "new warmup filter");
 				WarmupFilter newWarmupFilter = null;
-				// get the active editor
-				ScatterPlotEditor editor = (ScatterPlotEditor) Activator
-						.getDefault().getWorkbench().getActiveWorkbenchWindow()
-						.getActivePage().getActiveEditor();
-				// get the input of the editor
-				ScatterPlotInput input = (ScatterPlotInput) editor
-						.getEditorInput();
+				
+				// get the active editor's input (can only be an AbstractEditor)
+				IDataSink input = editor.getEditorInput();
+				
+				//create a new warmup filter with the source of the editors former input
 				if (kindOfValues.getSelectionIndex() == 0) {
 					newWarmupFilter = new WarmupFilter(input.getSource(),
 							Integer.parseInt(txtDroppedValuesPercentage
@@ -343,8 +360,11 @@ public class FiltersPropertySection extends AbstractPropertySection {
 									.getText()));
 				}
 				logger.log(Level.INFO, "update editor input begin");
-				input = new ScatterPlotInput(newWarmupFilter);
-				editor.changeInput(input);
+				input.setSource(newWarmupFilter);
+				if (editor instanceof JFreeChartEditor){
+					((JFreeChartEditor)editor).updateChart();
+				}
+				//editor.changeInput(input);
 				editor.setFocus();
 				logger.log(Level.INFO, "update editor input end");
 				updateFilterList();
@@ -466,7 +486,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		data.height = 125;
 
 		Group filtersGroup = getWidgetFactory().createGroup(composite,
-				"Applied filters");
+				"Current Transformations");
 		RowLayout rl = new RowLayout(SWT.HORIZONTAL);
 		rl.spacing = 15;
 		filtersGroup.setLayout(rl);
@@ -571,14 +591,11 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	private void updateProperties(String key, Object value) {
 		logger.log(Level.INFO, "update property '" + key + "' : '" + value
 				+ "'");
-		// get the active editor
-		ScatterPlotEditor editor = (ScatterPlotEditor) Activator.getDefault()
-				.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-				.getActiveEditor();
+		
 		// get the input of the editor
-		ScatterPlotInput input = (ScatterPlotInput) editor.getEditorInput();
-
-		if (input.getSource() instanceof IFilter) {
+		IDataSink input = editor.getEditorInput();
+		
+		if (input instanceof IFilter) {
 			int selectedItem = filtersList.getSelectionIndex();
 			IFilter tempData = (IFilter) input.getSource();
 
@@ -594,7 +611,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 
 			// update the editor
 			logger.log(Level.INFO, "update editor input begin");
-			editor.updateChart();
+			((JFreeChartEditor) editor).updateChart();
 			editor.setFocus();
 			logger.log(Level.INFO, "update editor input end");
 		}

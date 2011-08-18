@@ -24,6 +24,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.IntervalXYDataset;
 import org.jfree.experimental.chart.swt.ChartComposite;
 
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualization;
 
 /**
@@ -59,7 +60,7 @@ public class HistogramEditor extends JFreeChartEditor {
 	 * (non-Javadoc)
 	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor#createChart(org.eclipse.ui.IEditorInput)
 	 */
-	protected JFreeChart createChart(IEditorInput input) {
+	protected JFreeChart createChart(IDataSink input) {
 		if (input instanceof HistogramEditorInput) {
 			JFreeChart chart = ChartFactory.createHistogram("Histogram Test",
 					input.getToolTipText(), "Frequency",
@@ -69,25 +70,5 @@ public class HistogramEditor extends JFreeChartEditor {
 			return chart;
 		}
 		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor#changeInput(org.eclipse.ui.IEditorInput)
-	 */
-	@Override
-	public void changeInput(IEditorInput input) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor#updateChart()
-	 */
-	@Override
-	public void updateChart() {
-		// TODO Auto-generated method stub
-		
 	}
 }
