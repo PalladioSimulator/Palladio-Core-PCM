@@ -12213,6 +12213,12 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_hTwOEBEdq8ysXH3gTiEg"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_biJdUOQLEdqeH_WIC9QRew" name="resourceEnvironment_ResourceContainer" visibility="public" type="_MrdV4OQLEdqeH_WIC9QRew" association="_bh_sUOQLEdqeH_WIC9QRew"/>
+        <ownedAttribute xmi:id="_QGeZMMfuEeC9M6n9JKFGgw" name="numberOfReplicas_ResourceContainer" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_XE_qgMfuEeC9M6n9JKFGgw" value="1">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </defaultValue>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_wru2gODnEdq8ysXH3gTiEg" name="ProcessingResourceSpecification">
         <ownedComment xmi:id="_M3vwcPxPEd68D51GrGx7ow" annotatedElement="_wru2gODnEdq8ysXH3gTiEg">

@@ -1005,7 +1005,7 @@ If we have FixedProcessingResourceCost for certain types of, for example, CPUs, 
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_0plHUMErEeCNYv8Us5NlPQ" name="ProcessingResourceCost" isAbstract="true">
       <generalization xmi:id="_3WwfQMErEeCNYv8Us5NlPQ" general="_2_wUsPhsEd23O5YGd3Oe8g"/>
-      <ownedAttribute xmi:id="_LDFDoPhuEd23O5YGd3Oe8g" name="processingresourcespecification" visibility="private" association="_LC7SoPhuEd23O5YGd3Oe8g">
+      <ownedAttribute xmi:id="_LDFDoPhuEd23O5YGd3Oe8g" name="processingresourcespecification" visibility="public" association="_LC7SoPhuEd23O5YGd3Oe8g">
         <type xmi:type="uml:Class" href="pcm.emx#_wru2gODnEdq8ysXH3gTiEg?pcm/resourceenvironment/ProcessingResourceSpecification?"/>
       </ownedAttribute>
     </packagedElement>
