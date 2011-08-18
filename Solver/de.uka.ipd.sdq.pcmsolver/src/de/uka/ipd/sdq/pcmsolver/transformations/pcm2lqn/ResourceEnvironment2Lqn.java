@@ -54,7 +54,11 @@ public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 			
 			ProcessorType pt = lqnBuilder.addProcessor(id);
 			pt.setSpeedFactor("1");
-			pt.setScheduling(SchedulingType.FCFS);
+			// make the link a delay resource, i.e. no contention. This makes more sense for the latency. 
+			// Change this maybe when throughput is handled.
+			// pt.setScheduling(SchedulingType.FCFS);
+			pt.setScheduling(SchedulingType.INF);
+			logger.warn("Note that the latency of linking resources is currently analysed as a delay resource, so no contention effects can occur. Contact the developers if this does not suit your needs.");
 			
 			TaskType tt = lqnBuilder.addTask(id, pt);
 			
@@ -77,6 +81,8 @@ public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 				apt.setHostDemandMean(""+throughputSpeedFactor);
 				
 				//TODO: each external call can create a new entry here with the demand (compare internal actions)
+				// When doing this, split the link processor and make one FCFS or PS, because if latency should remain INF (i.e. Delay, see above). 
+				logger.warn("Throughput of linking resources is not supported by PCM2LQN yet.");
 			
 			}
 			if (latencyVariable != null){
