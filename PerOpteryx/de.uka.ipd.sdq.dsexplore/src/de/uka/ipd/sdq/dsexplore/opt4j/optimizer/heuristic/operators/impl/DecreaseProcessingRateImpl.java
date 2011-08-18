@@ -92,7 +92,7 @@ public class DecreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 			}
 
 			if (doesMatchLowUtilisation(individual, resultCache, resourceType)) {
-				addNewCandidateWithDecreasedProcessingRate(individual, candidates, resultCache);
+				addNewCandidateWithDecreasedProcessingRate(individual, candidates, resultCache, resourceType);
 			}
 		}
 		return candidates;
@@ -141,12 +141,13 @@ public class DecreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 	 * TODO: Find the highest utilisation among those resources that can be modified.  
 	 * @param individual
 	 * @param candidates
+	 * @param resourceType 
 	 */
 	private void addNewCandidateWithDecreasedProcessingRate(DSEIndividual individual,
 			Collection<TacticsResultCandidate> candidates,
-			UtilisationResultCacheAndHelper resultsCache) {
+			UtilisationResultCacheAndHelper resultsCache, ResourceType resourceType) {
 		// 1. Get minimum utilisation
-		ProcessingResourceSpecificationResult minUtilisationResult = resultsCache.getMinProcUtilisationResult(individual);
+		ProcessingResourceSpecificationResult minUtilisationResult = resultsCache.getMinProcUtilisationResult(individual, resourceType);
 		ProcessingResourceSpecification minUtilProcessingResource = minUtilisationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult();
 		addNewProcRateCandidate(individual, candidates, minUtilisationResult,
 				minUtilProcessingResource);
