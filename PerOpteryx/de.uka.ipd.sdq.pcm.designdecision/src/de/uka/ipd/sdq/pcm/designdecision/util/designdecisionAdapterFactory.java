@@ -224,6 +224,14 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 				return createNumberOfCoresDegreeAdapter();
 			}
 			@Override
+			public Adapter caseResourceContainerReplicationDegreeWithComponentChange(ResourceContainerReplicationDegreeWithComponentChange object) {
+				return createResourceContainerReplicationDegreeWithComponentChangeAdapter();
+			}
+			@Override
+			public Adapter caseExchangeComponentRule(ExchangeComponentRule object) {
+				return createExchangeComponentRuleAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -772,6 +780,34 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNumberOfCoresDegreeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange <em>Resource Container Replication Degree With Component Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange
+	 * @generated
+	 */
+	public Adapter createResourceContainerReplicationDegreeWithComponentChangeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule <em>Exchange Component Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule
+	 * @generated
+	 */
+	public Adapter createExchangeComponentRuleAdapter() {
 		return null;
 	}
 

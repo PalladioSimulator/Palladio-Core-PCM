@@ -278,6 +278,24 @@ public interface designdecisionFactory extends EFactory {
 	NumberOfCoresDegree createNumberOfCoresDegree();
 
 	/**
+	 * Returns a new object of class '<em>Resource Container Replication Degree With Component Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Container Replication Degree With Component Change</em>'.
+	 * @generated
+	 */
+	ResourceContainerReplicationDegreeWithComponentChange createResourceContainerReplicationDegreeWithComponentChange();
+
+	/**
+	 * Returns a new object of class '<em>Exchange Component Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Exchange Component Rule</em>'.
+	 * @generated
+	 */
+	ExchangeComponentRule createExchangeComponentRule();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

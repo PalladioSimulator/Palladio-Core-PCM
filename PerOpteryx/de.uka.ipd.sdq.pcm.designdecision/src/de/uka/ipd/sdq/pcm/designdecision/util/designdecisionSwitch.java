@@ -404,6 +404,23 @@ public class designdecisionSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE: {
+				ResourceContainerReplicationDegreeWithComponentChange resourceContainerReplicationDegreeWithComponentChange = (ResourceContainerReplicationDegreeWithComponentChange)theEObject;
+				T result = caseResourceContainerReplicationDegreeWithComponentChange(resourceContainerReplicationDegreeWithComponentChange);
+				if (result == null) result = caseResourceContainerReplicationDegree(resourceContainerReplicationDegreeWithComponentChange);
+				if (result == null) result = caseDiscreteRangeDegree(resourceContainerReplicationDegreeWithComponentChange);
+				if (result == null) result = caseRangeDegree(resourceContainerReplicationDegreeWithComponentChange);
+				if (result == null) result = caseDataTypeDegree(resourceContainerReplicationDegreeWithComponentChange);
+				if (result == null) result = caseDegreeOfFreedomInstance(resourceContainerReplicationDegreeWithComponentChange);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case designdecisionPackage.EXCHANGE_COMPONENT_RULE: {
+				ExchangeComponentRule exchangeComponentRule = (ExchangeComponentRule)theEObject;
+				T result = caseExchangeComponentRule(exchangeComponentRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -975,6 +992,36 @@ public class designdecisionSwitch<T> {
 	 * @generated
 	 */
 	public T caseNumberOfCoresDegree(NumberOfCoresDegree object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Container Replication Degree With Component Change</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Container Replication Degree With Component Change</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceContainerReplicationDegreeWithComponentChange(ResourceContainerReplicationDegreeWithComponentChange object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Exchange Component Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Exchange Component Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExchangeComponentRule(ExchangeComponentRule object) {
 		return null;
 	}
 

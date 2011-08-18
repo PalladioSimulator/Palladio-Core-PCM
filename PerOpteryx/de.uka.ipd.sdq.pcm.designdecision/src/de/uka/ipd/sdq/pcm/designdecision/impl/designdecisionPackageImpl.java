@@ -39,6 +39,7 @@ import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.EnumDegree;
 
+import de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule;
 import de.uka.ipd.sdq.pcm.designdecision.FeatureConfigDegree;
 import de.uka.ipd.sdq.pcm.designdecision.FeatureGroupDegree;
 import de.uka.ipd.sdq.pcm.designdecision.FeatureSubset;
@@ -56,6 +57,7 @@ import de.uka.ipd.sdq.pcm.designdecision.QualityProperties.QualityPropertiesPack
 import de.uka.ipd.sdq.pcm.designdecision.QualityProperties.impl.QualityPropertiesPackageImpl;
 import de.uka.ipd.sdq.pcm.designdecision.RangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
+import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceSelectionDegree;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree;
@@ -374,6 +376,20 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * @generated
 	 */
 	private EClass numberOfCoresDegreeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resourceContainerReplicationDegreeWithComponentChangeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass exchangeComponentRuleEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1078,6 +1094,51 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getResourceContainerReplicationDegreeWithComponentChange() {
+		return resourceContainerReplicationDegreeWithComponentChangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResourceContainerReplicationDegreeWithComponentChange_ExchangeComponentRule() {
+		return (EReference)resourceContainerReplicationDegreeWithComponentChangeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExchangeComponentRule() {
+		return exchangeComponentRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExchangeComponentRule_RepositoryComponent() {
+		return (EReference)exchangeComponentRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExchangeComponentRule_AllocationContext() {
+		return (EReference)exchangeComponentRuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public designdecisionFactory getdesigndecisionFactory() {
 		return (designdecisionFactory)getEFactoryInstance();
 	}
@@ -1206,6 +1267,13 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		createEReference(unorderedPrimitiveDegreeEClass, UNORDERED_PRIMITIVE_DEGREE__PRIMITIVE_VALUES);
 
 		numberOfCoresDegreeEClass = createEClass(NUMBER_OF_CORES_DEGREE);
+
+		resourceContainerReplicationDegreeWithComponentChangeEClass = createEClass(RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE);
+		createEReference(resourceContainerReplicationDegreeWithComponentChangeEClass, RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE__EXCHANGE_COMPONENT_RULE);
+
+		exchangeComponentRuleEClass = createEClass(EXCHANGE_COMPONENT_RULE);
+		createEReference(exchangeComponentRuleEClass, EXCHANGE_COMPONENT_RULE__REPOSITORY_COMPONENT);
+		createEReference(exchangeComponentRuleEClass, EXCHANGE_COMPONENT_RULE__ALLOCATION_CONTEXT);
 	}
 
 	/**
@@ -1239,6 +1307,8 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
 		featuremodelPackage thefeaturemodelPackage = (featuremodelPackage)EPackage.Registry.INSTANCE.getEPackage(featuremodelPackage.eNS_URI);
 		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI);
+		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
+		AllocationPackage theAllocationPackage = (AllocationPackage)EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theGDoFPackage);
@@ -1287,6 +1357,7 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		unorderedPrimitiveDegreeEClass.getESuperTypes().add(this.getUnorderedDegree());
 		numberOfCoresDegreeEClass.getESuperTypes().add(this.getDiscreteRangeDegree());
 		numberOfCoresDegreeEClass.getESuperTypes().add(this.getProcessingResourceDegree());
+		resourceContainerReplicationDegreeWithComponentChangeEClass.getESuperTypes().add(this.getResourceContainerReplicationDegree());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(degreeOfFreedomInstanceEClass, DegreeOfFreedomInstance.class, "DegreeOfFreedomInstance", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1403,6 +1474,13 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		initEReference(getUnorderedPrimitiveDegree_PrimitiveValues(), theEcorePackage.getEDataType(), null, "primitiveValues", null, 1, -1, UnorderedPrimitiveDegree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(numberOfCoresDegreeEClass, NumberOfCoresDegree.class, "NumberOfCoresDegree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(resourceContainerReplicationDegreeWithComponentChangeEClass, ResourceContainerReplicationDegreeWithComponentChange.class, "ResourceContainerReplicationDegreeWithComponentChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResourceContainerReplicationDegreeWithComponentChange_ExchangeComponentRule(), this.getExchangeComponentRule(), null, "exchangeComponentRule", null, 0, -1, ResourceContainerReplicationDegreeWithComponentChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(exchangeComponentRuleEClass, ExchangeComponentRule.class, "ExchangeComponentRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExchangeComponentRule_RepositoryComponent(), theRepositoryPackage.getRepositoryComponent(), null, "repositoryComponent", null, 1, -1, ExchangeComponentRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getExchangeComponentRule_AllocationContext(), theAllocationPackage.getAllocationContext(), null, "allocationContext", null, 0, 1, ExchangeComponentRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -934,6 +934,10 @@ The constraint is realised wth a closure over the AssemblyContext contained in a
         </ownedAttribute>
         <ownedAttribute xmi:id="_lJFvAjj-Edy2j_4z2PHNJQ" name="basicComponent_PassiveResource" visibility="public" type="_oz-CwJJIEdqSSImFLKDkSg" association="_lJFvADj-Edy2j_4z2PHNJQ"/>
         <ownedAttribute xmi:id="_WbmzAEveEeCDNbvXrFXPgQ" name="resourceTimeoutFailureType__PassiveResource" visibility="public" type="_8RpdAEvcEeCDNbvXrFXPgQ" association="_WbgFUEveEeCDNbvXrFXPgQ">
+          <ownedComment xmi:id="_UAJtcMcSEeCDdOneIPKwaw" annotatedElement="_WbmzAEveEeCDNbvXrFXPgQ">
+            <body>The&amp;nbsp;failure type that represents a timeout&amp;nbsp;failure of an acquiring action for this passive resource&amp;nbsp;(see the&#xD;
+documentation of the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further information).</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WboBIUveEeCDNbvXrFXPgQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WboBIEveEeCDNbvXrFXPgQ"/>
         </ownedAttribute>
@@ -1762,6 +1766,12 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_hTwOEBEdq8ysXH3gTiEg"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_biJdUOQLEdqeH_WIC9QRew" name="resourceEnvironment_ResourceContainer" visibility="public" type="_MrdV4OQLEdqeH_WIC9QRew" association="_bh_sUOQLEdqeH_WIC9QRew"/>
+        <ownedAttribute xmi:id="_QGeZMMfuEeC9M6n9JKFGgw" name="numberOfReplicas_ResourceContainer" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_XE_qgMfuEeC9M6n9JKFGgw" value="1">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </defaultValue>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_wru2gODnEdq8ysXH3gTiEg" name="ProcessingResourceSpecification">
         <ownedComment xmi:id="_M3vwcPxPEd68D51GrGx7ow" annotatedElement="_wru2gODnEdq8ysXH3gTiEg">
@@ -2689,9 +2699,16 @@ Although a probabilistic choice at a branch usually does not happen in a compute
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_BfcXYOEAEdq8ysXH3gTiEg" name="AcquireAction">
         <ownedComment xmi:id="_EbM-sKdDEd2mBdDaN9hoZQ" annotatedElement="_BfcXYOEAEdq8ysXH3gTiEg">
-          <body>In an RDSEFF, component developers can specify an AcquireAction, which references a passive resource types. Once analysis tools execute this action, they decrease the amount of items available from the referenced passive resource type by one, if at least one item is available. If none item is available, because other, concurrently executed requests have acquired all of them, analysis tools enqueue the current request (first-come&#xD;
-first-serve scheduling policy) and block it’s further execution.&#xD;
-Acquisition and release of passive resources happen instantaneously and do not consume any time except for waiting delays before actual acquisition. Resource locking may introduce deadlocks when simulating the model, however, for performance analysis with the PCM it is assumed that no deadlocks occur. Otherwise, the model first needs to be fixed accordingly before carrying out the performance prediction.</body>
+          <body>&lt;p>&#xD;
+    In&amp;nbsp;an&amp;nbsp;RDSEFF,&amp;nbsp;component&amp;nbsp;developers&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;an&amp;nbsp;AcquireAction,&amp;nbsp;which&amp;nbsp;references&amp;nbsp;a&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;types.&amp;nbsp;Once&amp;nbsp;analysis&amp;nbsp;tools&amp;nbsp;execute&amp;nbsp;this&amp;nbsp;action,&amp;nbsp;they&amp;nbsp;decrease&amp;nbsp;the&amp;nbsp;amount&amp;nbsp;of&amp;nbsp;items&amp;nbsp;available&amp;nbsp;from&amp;nbsp;the&amp;nbsp;referenced&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;type&amp;nbsp;by&amp;nbsp;one,&amp;nbsp;if&amp;nbsp;at&amp;nbsp;least&amp;nbsp;one&amp;nbsp;item&amp;nbsp;is&amp;nbsp;available.&amp;nbsp;If&amp;nbsp;none&amp;nbsp;item&amp;nbsp;is&amp;nbsp;available,&amp;nbsp;because&amp;nbsp;other,&amp;nbsp;concurrently&amp;nbsp;executed&amp;nbsp;requests&amp;nbsp;have&amp;nbsp;acquired&amp;nbsp;all&amp;nbsp;of&amp;nbsp;them,&amp;nbsp;analysis&amp;nbsp;tools&amp;nbsp;enqueue&amp;nbsp;the&amp;nbsp;current&amp;nbsp;request&amp;nbsp;(first-come-first-serve&amp;nbsp;scheduling&amp;nbsp;policy)&amp;nbsp;and&amp;nbsp;block&amp;nbsp;it’s&amp;nbsp;further&amp;nbsp;execution.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    Acquisition&amp;nbsp;and&amp;nbsp;release&amp;nbsp;of&amp;nbsp;passive&amp;nbsp;resources&amp;nbsp;happen&amp;nbsp;instantaneously&amp;nbsp;and&amp;nbsp;do&amp;nbsp;not&amp;nbsp;consume&amp;nbsp;any&amp;nbsp;time&amp;nbsp;except&amp;nbsp;for&amp;nbsp;waiting&amp;nbsp;delays&amp;nbsp;before&amp;nbsp;actual&amp;nbsp;acquisition.&amp;nbsp;Resource&amp;nbsp;locking&amp;nbsp;may&amp;nbsp;introduce&amp;nbsp;deadlocks&amp;nbsp;when&amp;nbsp;simulating&amp;nbsp;the&amp;nbsp;model,&amp;nbsp;however,&amp;nbsp;for&amp;nbsp;performance&amp;nbsp;analysis&amp;nbsp;with&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;it&amp;nbsp;is&amp;nbsp;assumed&amp;nbsp;that&amp;nbsp;no&amp;nbsp;deadlocks&amp;nbsp;occur.&amp;nbsp;Otherwise,&amp;nbsp;the&amp;nbsp;model&amp;nbsp;first&amp;nbsp;needs&amp;nbsp;to&amp;nbsp;be&amp;nbsp;fixed&amp;nbsp;accordingly&amp;nbsp;before&amp;nbsp;carrying&amp;nbsp;out&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;prediction.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    A reliability-related extension is the timeout mechanism that may be associated to an AcquireAction through the&#xD;
+    &quot;timeout&quot; and &quot;timeoutValue&quot; attributes. See the documentation of the &quot;timeout&quot; attribute for further information.&#xD;
+&lt;/p></body>
         </ownedComment>
         <ownedRule xmi:id="_omUe8EjIEeC8peuLOyIDAg" name="TimeoutValueOfAcquireActionMustNotBeNegative" constrainedElement="_BfcXYOEAEdq8ysXH3gTiEg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_omVtEEjIEeC8peuLOyIDAg">
@@ -2706,18 +2723,36 @@ Acquisition and release of passive resources happen instantaneously and do not c
         </ownedAttribute>
         <ownedAttribute xmi:id="_XN1JIEjIEeC8peuLOyIDAg" name="timeout" visibility="public">
           <ownedComment xmi:id="_7wMcYEjUEeC8peuLOyIDAg" annotatedElement="_XN1JIEjIEeC8peuLOyIDAg">
-            <body>Indicates if the AcquireAction has a timeout. If yes, any acquiring thread waits no longer than the duration specified in&#xD;
-&quot;timeoutValue&quot;. If the maximum waiting time is reached, the thread is removed from the waiting queue and cancelled by a&#xD;
-timeout failure. The simulation considers timeouts and throws timeout failures only if the &quot;simulate failures&quot; option is&#xD;
-activated. As any failure-on-demand occurrence, timeout failures can be handled by RecoveryBlockActions at a higher level&#xD;
-in the caller hierarchy.</body>
+            <body>&lt;p>&#xD;
+    Indicates&amp;nbsp;if&amp;nbsp;the&amp;nbsp;AcquireAction&amp;nbsp;has&amp;nbsp;a&amp;nbsp;timeout.&amp;nbsp;If&amp;nbsp;yes, a simulation through&#xD;
+    SimuCom with the &quot;simulate failures&quot; option switched on will consider the timeout as follows:&#xD;
+    Any&amp;nbsp;acquiring&amp;nbsp;thread&amp;nbsp;waits&amp;nbsp;no&amp;nbsp;longer&amp;nbsp;than&amp;nbsp;the&amp;nbsp;duration&amp;nbsp;specified&amp;nbsp;in&#xD;
+    &quot;timeoutValue&quot;.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;maximum&amp;nbsp;waiting&amp;nbsp;time&amp;nbsp;is&amp;nbsp;reached,&amp;nbsp;the&amp;nbsp;thread&amp;nbsp;is&amp;nbsp;removed&amp;nbsp;from&amp;nbsp;the&amp;nbsp;waiting&amp;nbsp;queue&amp;nbsp;and&amp;nbsp;cancelled&amp;nbsp;by&amp;nbsp;a&#xD;
+    timeout&amp;nbsp;failure.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    The reliability Markov analysis does not consider AcquireAction timeouts.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    As&amp;nbsp;any&amp;nbsp;failure-on-demand&amp;nbsp;occurrence,&amp;nbsp;timeout&amp;nbsp;failures&amp;nbsp;can&amp;nbsp;be&amp;nbsp;handled&amp;nbsp;by&amp;nbsp;&quot;RecoveryBlockActions&quot;&amp;nbsp;at&amp;nbsp;any&amp;nbsp;higher&amp;nbsp;level&#xD;
+    in&amp;nbsp;the&amp;nbsp;caller&amp;nbsp;hierarchy. To achieve this, the modeller must specify a &quot;ResourceTimeoutFailureType&quot;&#xD;
+    pointing to the &quot;PassiveResource&quot; that the AcquireAction is related to. The specified &quot;ResourceTimeoutFailureType&quot; can&#xD;
+    then be added to the list of handled failure types of any &quot;RecoveryBlockAlternativeBehaviour&quot;.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    Please notice the following limitation of the current implementation of timeout handling: Timeouts are only considered&#xD;
+    by SimuCom if the executing software component is allocated to a resource container with an operating system set to&#xD;
+    &quot;ABSTRACT&quot; (i.e. no specific OS schedulers are supported). The timeout handling implementation can be found in&#xD;
+    de.uka.ipd.sdq.simucomframework.resources.SimSimpleFairPassiveResource.&#xD;
+&lt;/p></body>
           </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_bqXl4EjIEeC8peuLOyIDAg" name="timeoutValue" visibility="public">
           <ownedComment xmi:id="_BXxI4EjVEeC8peuLOyIDAg" annotatedElement="_bqXl4EjIEeC8peuLOyIDAg">
             <body>&lt;p>&#xD;
-    Specifies a timeout value, in case the AcquireAction has a timeout (as specified through the &quot;timeout&quot; attribute).&#xD;
+    Specifies a timeout value, in case the AcquireAction has a timeout (see the documentation of the &quot;timeout&quot; attribute&#xD;
+    for further information).&#xD;
 &lt;/p></body>
           </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
@@ -3819,6 +3854,10 @@ Example: To model a layered architecture, of which each layer is potentially spl
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_US8TsCZKEeCvwZ8FxCt6_A" memberEnd="_UTDocCZKEeCvwZ8FxCt6_A _UToQMCZKEeCvwZ8FxCt6_A"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_nfvZICbhEeCXDOePdmjSXQ" name="InternalFailureOccurrenceDescription">
+        <ownedComment xmi:id="_eZG6wMcREeCDdOneIPKwaw" annotatedElement="_nfvZICbhEeCXDOePdmjSXQ">
+          <body>Special&amp;nbsp;case&amp;nbsp;of&amp;nbsp;a&amp;nbsp;FailureOccurenceDescription&amp;nbsp;specifying the software-induced failure potential of&#xD;
+InternalActions.</body>
+        </ownedComment>
         <ownedRule xmi:id="_OB38QE1wEeC6J7U_daCwAg" name="NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription" constrainedElement="_nfvZICbhEeCXDOePdmjSXQ">
           <ownedComment xmi:id="_gCY7YE1wEeC6J7U_daCwAg" annotatedElement="_OB38QE1wEeC6J7U_daCwAg">
             <body>ResourceTimeoutFailures are software-induced failure types, but are not annotated to InternalActions (they are only meant&#xD;
@@ -3840,6 +3879,10 @@ for passive resource timeouts).</body>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_q29zoCbhEeCXDOePdmjSXQ" name="ExternalFailureOccurrenceDescription">
+        <ownedComment xmi:id="_Tn9FUMcREeCDdOneIPKwaw" annotatedElement="_q29zoCbhEeCXDOePdmjSXQ">
+          <body>Special&amp;nbsp;case&amp;nbsp;of&amp;nbsp;a&amp;nbsp;FailureOccurenceDescription&amp;nbsp;specifying&amp;nbsp;the&amp;nbsp;failure&amp;nbsp;potential&amp;nbsp;of&amp;nbsp;system-external&amp;nbsp;calls.&amp;nbsp;Can&amp;nbsp;relate&amp;nbsp;to&#xD;
+any FailureType.</body>
+        </ownedComment>
         <ownedRule xmi:id="_0st1YE1wEeC6J7U_daCwAg" name="NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription" constrainedElement="_nfvZICbhEeCXDOePdmjSXQ">
           <ownedComment xmi:id="_0st1YU1wEeC6J7U_daCwAg" annotatedElement="_0st1YE1wEeC6J7U_daCwAg">
             <body>ResourceTimeoutFailures&amp;nbsp;are&amp;nbsp;software-induced&amp;nbsp;failure&amp;nbsp;types,&amp;nbsp;but&amp;nbsp;are&amp;nbsp;not&amp;nbsp;annotated&amp;nbsp;to&amp;nbsp;system-external&#xD;
@@ -3869,8 +3912,18 @@ for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).</body>
         </ownedEnd>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_8RpdAEvcEeCDNbvXrFXPgQ" name="ResourceTimeoutFailureType">
+        <ownedComment xmi:id="_14TJEMcREeCDdOneIPKwaw" annotatedElement="_8RpdAEvcEeCDNbvXrFXPgQ">
+          <body>&lt;p>&#xD;
+    Type definition for a timeout failure-on-demand related to an AcquireAction for a certain PassiveResource (see the&#xD;
+    documentation of the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further information).&#xD;
+&lt;/p></body>
+        </ownedComment>
         <generalization xmi:id="_Gi970EvdEeCDNbvXrFXPgQ" general="_azCrUDqEEd-LPs9iafFs9w"/>
         <ownedAttribute xmi:id="_WbjIoEveEeCDNbvXrFXPgQ" name="passiveResource__ResourceTimeoutFailureType" visibility="public" type="_9APFUOD4Edq8ysXH3gTiEg" association="_WbgFUEveEeCDNbvXrFXPgQ">
+          <ownedComment xmi:id="_-FGLYMcREeCDdOneIPKwaw" annotatedElement="_WbjIoEveEeCDNbvXrFXPgQ">
+            <body>The passive resource&amp;nbsp;whose&amp;nbsp;acquiring timeout is represented by this failure type&amp;nbsp;(see the documentation of&#xD;
+the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further information).</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WbkWwUveEeCDNbvXrFXPgQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WbkWwEveEeCDNbvXrFXPgQ" value="1"/>
         </ownedAttribute>
@@ -4180,4 +4233,9 @@ for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).</body>
   <Default:Documentation xmi:id="_gHBjwE1wEeC6J7U_daCwAg" base_Comment="_gCY7YE1wEeC6J7U_daCwAg"/>
   <Default:Documentation xmi:id="_0sw4sE1wEeC6J7U_daCwAg" base_Comment="_0st1YU1wEeC6J7U_daCwAg"/>
   <Default:Documentation xmi:id="_zvgawXsZEeC4F76ww26DWA" base_Comment="_zvgawHsZEeC4F76ww26DWA"/>
+  <Default:Documentation xmi:id="_ToB90McREeCDdOneIPKwaw" base_Comment="_Tn9FUMcREeCDdOneIPKwaw"/>
+  <Default:Documentation xmi:id="_eZJXAMcREeCDdOneIPKwaw" base_Comment="_eZG6wMcREeCDdOneIPKwaw"/>
+  <Default:Documentation xmi:id="_14U-QMcREeCDdOneIPKwaw" base_Comment="_14TJEMcREeCDdOneIPKwaw"/>
+  <Default:Documentation xmi:id="_-FLq8McREeCDdOneIPKwaw" base_Comment="_-FGLYMcREeCDdOneIPKwaw"/>
+  <Default:Documentation xmi:id="_UALioMcSEeCDdOneIPKwaw" base_Comment="_UAJtcMcSEeCDdOneIPKwaw"/>
 </xmi:XMI>

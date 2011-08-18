@@ -761,6 +761,47 @@ This query defines which instances of \function{changeableContainer}{$p_i$} are 
     <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_-lIqoMdDEeCAUr8TwCw8QA" name="InstanceSpecification1" classifier="_2eDnQErrEeCgHJIR5Amnzw">
       <slot xmi:id="_-lWGAMdDEeCAUr8TwCw8QA" definingFeature="_EH9LcErsEeCgHJIR5Amnzw"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_fWt5AMgCEeC9M6n9JKFGgw" name="ResourceContainerReplicationDegreeWithComponentChange">
+      <ownedComment xmi:id="_eNRvQMgDEeC9M6n9JKFGgw" annotatedElement="_fWt5AMgCEeC9M6n9JKFGgw">
+        <body>Resource Replication, but for each replication level the i-th referenced RepositoryComponent is put into the referenced&#xD;
+allocation context, if fitting.</body>
+      </ownedComment>
+      <generalization xmi:id="_igGEwMgCEeC9M6n9JKFGgw" general="_aLDCkPzzEd2sBa2PoI_LqA"/>
+      <ownedAttribute xmi:id="_EIavIMgXEeC9M6n9JKFGgw" name="exchangeComponentRule" visibility="private" type="_BvM1AMgXEeC9M6n9JKFGgw" aggregation="composite" association="_EIKQcMgXEeC9M6n9JKFGgw">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EJYYcMgXEeC9M6n9JKFGgw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EJXxYMgXEeC9M6n9JKFGgw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_gD9kEMgDEeC9M6n9JKFGgw" memberEnd="_gEAAUMgDEeC9M6n9JKFGgw _gEQfAMgDEeC9M6n9JKFGgw">
+      <ownedEnd xmi:id="_gEQfAMgDEeC9M6n9JKFGgw" name="" visibility="private" type="_BvM1AMgXEeC9M6n9JKFGgw" association="_gD9kEMgDEeC9M6n9JKFGgw">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gESUMMgDEeC9M6n9JKFGgw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gERtIMgDEeC9M6n9JKFGgw"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_BvM1AMgXEeC9M6n9JKFGgw" name="ExchangeComponentRule">
+      <ownedAttribute xmi:id="_gEAAUMgDEeC9M6n9JKFGgw" name="repositoryComponent" visibility="private" association="_gD9kEMgDEeC9M6n9JKFGgw">
+        <type xmi:type="uml:Class" href="pcm.uml#_rGa6kKBZEd24Bv0x9CNKpg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gECckMgDEeC9M6n9JKFGgw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gEB1gMgDEeC9M6n9JKFGgw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ImgEAMgXEeC9M6n9JKFGgw" name="allocationContext" visibility="private" association="_Ime14MgXEeC9M6n9JKFGgw">
+        <type xmi:type="uml:Class" href="pcm.uml#_9nOFcOD7Edq8ysXH3gTiEg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ImgrEcgXEeC9M6n9JKFGgw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ImgrEMgXEeC9M6n9JKFGgw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_EIKQcMgXEeC9M6n9JKFGgw" memberEnd="_EIavIMgXEeC9M6n9JKFGgw _EJlz0MgXEeC9M6n9JKFGgw">
+      <ownedEnd xmi:id="_EJlz0MgXEeC9M6n9JKFGgw" name="" visibility="private" type="_fWt5AMgCEeC9M6n9JKFGgw" association="_EIKQcMgXEeC9M6n9JKFGgw">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EJwy8MgXEeC9M6n9JKFGgw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EJwL4MgXEeC9M6n9JKFGgw" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Ime14MgXEeC9M6n9JKFGgw" memberEnd="_ImgEAMgXEeC9M6n9JKFGgw _ImhSIMgXEeC9M6n9JKFGgw">
+      <ownedEnd xmi:id="_ImhSIMgXEeC9M6n9JKFGgw" name="" visibility="private" type="_BvM1AMgXEeC9M6n9JKFGgw" association="_Ime14MgXEeC9M6n9JKFGgw">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Imh5McgXEeC9M6n9JKFGgw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Imh5MMgXEeC9M6n9JKFGgw"/>
+      </ownedEnd>
+    </packagedElement>
     <profileApplication xmi:id="_RLu_NfzoEd2sBa2PoI_LqA">
       <eAnnotations xmi:id="_RLu_NvzoEd2sBa2PoI_LqA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
@@ -827,4 +868,5 @@ This query defines which instances of \function{changeableContainer}{$p_i$} are 
   <Default:Documentation xmi:id="_UNMhUC37EeCCDMFbLBj3cg" base_Comment="_UNJeAC37EeCCDMFbLBj3cg"/>
   <Default:Documentation xmi:id="_XRRWUC37EeCCDMFbLBj3cg" base_Comment="_XROTAC37EeCCDMFbLBj3cg"/>
   <Default:Documentation xmi:id="_kFgd0C37EeCCDMFbLBj3cg" base_Comment="_kFdagC37EeCCDMFbLBj3cg"/>
+  <Default:Documentation xmi:id="_eNUykMgDEeC9M6n9JKFGgw" base_Comment="_eNRvQMgDEeC9M6n9JKFGgw"/>
 </xmi:XMI>

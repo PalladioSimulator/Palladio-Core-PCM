@@ -720,6 +720,52 @@ public class designdecisionItemProviderAdapterFactory extends designdecisionAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceContainerReplicationDegreeWithComponentChangeItemProvider resourceContainerReplicationDegreeWithComponentChangeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceContainerReplicationDegreeWithComponentChangeAdapter() {
+		if (resourceContainerReplicationDegreeWithComponentChangeItemProvider == null) {
+			resourceContainerReplicationDegreeWithComponentChangeItemProvider = new ResourceContainerReplicationDegreeWithComponentChangeItemProvider(this);
+		}
+
+		return resourceContainerReplicationDegreeWithComponentChangeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExchangeComponentRuleItemProvider exchangeComponentRuleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExchangeComponentRuleAdapter() {
+		if (exchangeComponentRuleItemProvider == null) {
+			exchangeComponentRuleItemProvider = new ExchangeComponentRuleItemProvider(this);
+		}
+
+		return exchangeComponentRuleItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -846,6 +892,8 @@ public class designdecisionItemProviderAdapterFactory extends designdecisionAdap
 		if (stringComponentParamDegreeItemProvider != null) stringComponentParamDegreeItemProvider.dispose();
 		if (unorderedPrimitiveDegreeItemProvider != null) unorderedPrimitiveDegreeItemProvider.dispose();
 		if (numberOfCoresDegreeItemProvider != null) numberOfCoresDegreeItemProvider.dispose();
+		if (resourceContainerReplicationDegreeWithComponentChangeItemProvider != null) resourceContainerReplicationDegreeWithComponentChangeItemProvider.dispose();
+		if (exchangeComponentRuleItemProvider != null) exchangeComponentRuleItemProvider.dispose();
 	}
 
 }

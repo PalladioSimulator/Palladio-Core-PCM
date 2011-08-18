@@ -173,6 +173,10 @@ public class designdecisionValidator extends EObjectValidator {
 				return validateUnorderedPrimitiveDegree((UnorderedPrimitiveDegree)value, diagnostics, context);
 			case designdecisionPackage.NUMBER_OF_CORES_DEGREE:
 				return validateNumberOfCoresDegree((NumberOfCoresDegree)value, diagnostics, context);
+			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE:
+				return validateResourceContainerReplicationDegreeWithComponentChange((ResourceContainerReplicationDegreeWithComponentChange)value, diagnostics, context);
+			case designdecisionPackage.EXCHANGE_COMPONENT_RULE:
+				return validateExchangeComponentRule((ExchangeComponentRule)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -536,6 +540,24 @@ public class designdecisionValidator extends EObjectValidator {
 	 */
 	public boolean validateNumberOfCoresDegree(NumberOfCoresDegree numberOfCoresDegree, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(numberOfCoresDegree, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceContainerReplicationDegreeWithComponentChange(ResourceContainerReplicationDegreeWithComponentChange resourceContainerReplicationDegreeWithComponentChange, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(resourceContainerReplicationDegreeWithComponentChange, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateExchangeComponentRule(ExchangeComponentRule exchangeComponentRule, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(exchangeComponentRule, diagnostics, context);
 	}
 
 	/**

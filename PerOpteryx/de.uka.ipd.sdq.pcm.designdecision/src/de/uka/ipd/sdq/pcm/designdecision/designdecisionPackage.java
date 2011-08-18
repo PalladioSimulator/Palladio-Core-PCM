@@ -2047,6 +2047,127 @@ public interface designdecisionPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDegreeWithComponentChangeImpl <em>Resource Container Replication Degree With Component Change</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDegreeWithComponentChangeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceContainerReplicationDegreeWithComponentChange()
+	 * @generated
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE = 38;
+
+	/**
+	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE__PRIMARY_CHANGED = RESOURCE_CONTAINER_REPLICATION_DEGREE__PRIMARY_CHANGED;
+
+	/**
+	 * The feature id for the '<em><b>Dof</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE__DOF = RESOURCE_CONTAINER_REPLICATION_DEGREE__DOF;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bound Included</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE__UPPER_BOUND_INCLUDED = RESOURCE_CONTAINER_REPLICATION_DEGREE__UPPER_BOUND_INCLUDED;
+
+	/**
+	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE__LOWER_BOUND_INCLUDED = RESOURCE_CONTAINER_REPLICATION_DEGREE__LOWER_BOUND_INCLUDED;
+
+	/**
+	 * The feature id for the '<em><b>To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE__TO = RESOURCE_CONTAINER_REPLICATION_DEGREE__TO;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE__FROM = RESOURCE_CONTAINER_REPLICATION_DEGREE__FROM;
+
+	/**
+	 * The feature id for the '<em><b>Exchange Component Rule</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE__EXCHANGE_COMPONENT_RULE = RESOURCE_CONTAINER_REPLICATION_DEGREE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Resource Container Replication Degree With Component Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE_FEATURE_COUNT = RESOURCE_CONTAINER_REPLICATION_DEGREE_FEATURE_COUNT + 1;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ExchangeComponentRuleImpl <em>Exchange Component Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ExchangeComponentRuleImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getExchangeComponentRule()
+	 * @generated
+	 */
+	int EXCHANGE_COMPONENT_RULE = 39;
+
+	/**
+	 * The feature id for the '<em><b>Repository Component</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCHANGE_COMPONENT_RULE__REPOSITORY_COMPONENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Allocation Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCHANGE_COMPONENT_RULE__ALLOCATION_CONTEXT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Exchange Component Rule</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCHANGE_COMPONENT_RULE_FEATURE_COUNT = 2;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance <em>Degree Of Freedom Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2757,6 +2878,59 @@ public interface designdecisionPackage extends EPackage {
 	EClass getNumberOfCoresDegree();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange <em>Resource Container Replication Degree With Component Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Container Replication Degree With Component Change</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange
+	 * @generated
+	 */
+	EClass getResourceContainerReplicationDegreeWithComponentChange();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange#getExchangeComponentRule <em>Exchange Component Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Exchange Component Rule</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange#getExchangeComponentRule()
+	 * @see #getResourceContainerReplicationDegreeWithComponentChange()
+	 * @generated
+	 */
+	EReference getResourceContainerReplicationDegreeWithComponentChange_ExchangeComponentRule();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule <em>Exchange Component Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Exchange Component Rule</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule
+	 * @generated
+	 */
+	EClass getExchangeComponentRule();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule#getRepositoryComponent <em>Repository Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Repository Component</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule#getRepositoryComponent()
+	 * @see #getExchangeComponentRule()
+	 * @generated
+	 */
+	EReference getExchangeComponentRule_RepositoryComponent();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule#getAllocationContext <em>Allocation Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Allocation Context</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule#getAllocationContext()
+	 * @see #getExchangeComponentRule()
+	 * @generated
+	 */
+	EReference getExchangeComponentRule_AllocationContext();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3397,6 +3571,50 @@ public interface designdecisionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NUMBER_OF_CORES_DEGREE = eINSTANCE.getNumberOfCoresDegree();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDegreeWithComponentChangeImpl <em>Resource Container Replication Degree With Component Change</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ResourceContainerReplicationDegreeWithComponentChangeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceContainerReplicationDegreeWithComponentChange()
+		 * @generated
+		 */
+		EClass RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE = eINSTANCE.getResourceContainerReplicationDegreeWithComponentChange();
+
+		/**
+		 * The meta object literal for the '<em><b>Exchange Component Rule</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE__EXCHANGE_COMPONENT_RULE = eINSTANCE.getResourceContainerReplicationDegreeWithComponentChange_ExchangeComponentRule();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ExchangeComponentRuleImpl <em>Exchange Component Rule</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.ExchangeComponentRuleImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getExchangeComponentRule()
+		 * @generated
+		 */
+		EClass EXCHANGE_COMPONENT_RULE = eINSTANCE.getExchangeComponentRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Repository Component</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXCHANGE_COMPONENT_RULE__REPOSITORY_COMPONENT = eINSTANCE.getExchangeComponentRule_RepositoryComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Allocation Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXCHANGE_COMPONENT_RULE__ALLOCATION_CONTEXT = eINSTANCE.getExchangeComponentRule_AllocationContext();
 
 	}
 

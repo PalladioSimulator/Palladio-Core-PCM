@@ -136,6 +136,16 @@
           createChild="true" ecoreFeature="ecore:EReference designdecision.ecore#//UnorderedPrimitiveDegree/primitiveValues"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//NumberOfCoresDegree"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ResourceContainerReplicationDegreeWithComponentChange">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference designdecision.ecore#//ResourceContainerReplicationDegreeWithComponentChange/exchangeComponentRule"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ExchangeComponentRule">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//ExchangeComponentRule/repositoryComponent"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//ExchangeComponentRule/allocationContext"/>
+    </genClasses>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="GDoF" basePackage="de.uka.ipd.sdq.pcm.designdecision"
         disposableProviderFactory="true" ecorePackage="designdecision.ecore#//GDoF">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//GDoF/ChangeableElementDescription">

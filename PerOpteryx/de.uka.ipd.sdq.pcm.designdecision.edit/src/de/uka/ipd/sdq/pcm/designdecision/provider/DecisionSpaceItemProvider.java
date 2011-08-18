@@ -250,6 +250,11 @@ public class DecisionSpaceItemProvider
 			(createChildParameter
 				(designdecisionPackage.Literals.DECISION_SPACE__DEGREES_OF_FREEDOM,
 				 designdecisionFactory.eINSTANCE.createNumberOfCoresDegree()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(designdecisionPackage.Literals.DECISION_SPACE__DEGREES_OF_FREEDOM,
+				 designdecisionFactory.eINSTANCE.createResourceContainerReplicationDegreeWithComponentChange()));
 	}
 
 	/**

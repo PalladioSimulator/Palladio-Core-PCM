@@ -88,6 +88,8 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 			case designdecisionPackage.STRING_COMPONENT_PARAM_DEGREE: return createStringComponentParamDegree();
 			case designdecisionPackage.UNORDERED_PRIMITIVE_DEGREE: return createUnorderedPrimitiveDegree();
 			case designdecisionPackage.NUMBER_OF_CORES_DEGREE: return createNumberOfCoresDegree();
+			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE: return createResourceContainerReplicationDegreeWithComponentChange();
+			case designdecisionPackage.EXCHANGE_COMPONENT_RULE: return createExchangeComponentRule();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -371,6 +373,26 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	public NumberOfCoresDegree createNumberOfCoresDegree() {
 		NumberOfCoresDegreeImpl numberOfCoresDegree = new NumberOfCoresDegreeImpl();
 		return numberOfCoresDegree;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceContainerReplicationDegreeWithComponentChange createResourceContainerReplicationDegreeWithComponentChange() {
+		ResourceContainerReplicationDegreeWithComponentChangeImpl resourceContainerReplicationDegreeWithComponentChange = new ResourceContainerReplicationDegreeWithComponentChangeImpl();
+		return resourceContainerReplicationDegreeWithComponentChange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExchangeComponentRule createExchangeComponentRule() {
+		ExchangeComponentRuleImpl exchangeComponentRule = new ExchangeComponentRuleImpl();
+		return exchangeComponentRule;
 	}
 
 	/**
