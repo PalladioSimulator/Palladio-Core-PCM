@@ -28,6 +28,7 @@ import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
+import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 import de.uka.ipd.sdq.edp2.visualization.util.PersistenceTag;
@@ -103,6 +104,7 @@ public class HistogramEditorInput implements IDataSink, ISelection {
 
 		dataset.addSeries((source.getProperties().get(PersistenceTag.DATA_SERIES_INDEX.getID()).toString()),
 				values, Integer.parseInt((String) (source.getProperties().get(PersistenceTag.NUMBER_OF_BINS.getID()))));
+		
 
 	}
 

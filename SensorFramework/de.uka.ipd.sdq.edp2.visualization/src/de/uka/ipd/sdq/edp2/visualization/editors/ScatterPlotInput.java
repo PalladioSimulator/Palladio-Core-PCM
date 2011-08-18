@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.measure.Measure;
 import javax.xml.transform.Source;
@@ -24,9 +25,11 @@ import org.jfree.data.xy.XYSeries;
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
+import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
+import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2SourceFactory;
@@ -37,6 +40,12 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2SourceFactory;
  * @author Dominik Ernst, Roland Richter
  */
 public class ScatterPlotInput implements IDataSink, ISelection {
+
+	/**
+	 * Logger for this class.
+	 */
+	private final static Logger logger = Logger
+			.getLogger(ScatterPlotInput.class.getCanonicalName());
 
 	private IDataSource source;
 	private DefaultTableXYDataset dataset;
@@ -58,6 +67,9 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 	 */
 	@SuppressWarnings("unchecked")
 	public void updateDataset() {
+
+		logger.log(Level.INFO, "Editor input updateDataSet begin");
+		
 		DefaultTableXYDataset dataset = new DefaultTableXYDataset();
 		this.setDataset(dataset);
 		ArrayList<OrdinalMeasurementsDao<Measure>> list = new ArrayList<OrdinalMeasurementsDao<Measure>>();
@@ -83,8 +95,10 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 		dataset.addSeries(testSeries);
 
 		// set the name and the description
-		setName(source.getOriginalMeasurementsRange().getMeasurements().getExperimentRun().getExperimentSetting().getDescription());
-		setToolTipText(source.getMeasurementsRange().getMeasurements().getMeasure().getMetric().getTextualDescription());
+		setName(source.getOriginalMeasurementsRange().getMeasurements()
+				.getExperimentRun().getExperimentSetting().getDescription());
+		setToolTipText(source.getMeasurementsRange().getMeasurements()
+				.getMeasure().getMetric().getTextualDescription());
 
 		// label data series according to metric definitions
 		MetricSetDescription md = (MetricSetDescription) getSource()
@@ -95,8 +109,9 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 				+ ((Measure) list1.get(0)).getUnit() + ")");
 		setLabelYScale(md.getSubsumedMetrics().get(1).getName() + " ( "
 				+ ((Measure) list2.get(0)).getUnit() + ")");
-
-
+		
+		logger.log(Level.INFO, "Editor input updateDataSet end");
+		
 	}
 
 	/*
@@ -126,12 +141,14 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#setSource(de.uka.ipd.sdq.edp2.visualization.IDataSource)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataSink#setSource(de.uka.ipd.sdq.
+	 * edp2.visualization.IDataSource)
 	 */
 	@Override
 	public void setSource(IDataSource source) {
 		this.source = source;
-		updateDataset();
 	}
 
 	/*
@@ -296,17 +313,19 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 		return dataset;
 	}
 
-
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.jface.viewers.ISelection#isEmpty()
 	 */
 	@Override
 	public boolean isEmpty() {
 		return false;
 	}
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getSource()
 	 */
 	@Override
@@ -323,7 +342,7 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
