@@ -238,14 +238,6 @@ litigation.
          version="0.0.0"/>
 
    <includes
-         id="de.uka.ipd.sdq.simulation.abstractsimengine.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uka.ipd.sdq.simulation.abstractsimengine.ssj.feature"
-         version="0.0.0"/>
-
-   <includes
          id="de.uka.ipd.sdq.statistics.feature"
          version="0.0.0"/>
 

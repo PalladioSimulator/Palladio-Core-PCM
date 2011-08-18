@@ -11,3 +11,4 @@ Require-Bundle: ca.umontreal.iro.lecuyer.ssj,
 Bundle-ClassPath: lib/javaflow.jar,
  .
 Export-Package: de.uka.ipd.sdq.simulation.abstractsimengine.ssj
+Bundle-ActivationPolicy: lazy

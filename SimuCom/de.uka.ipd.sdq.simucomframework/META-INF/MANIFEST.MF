@@ -41,3 +41,4 @@ Require-Bundle: de.uka.ipd.sdq.simucomframework.variables,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: umontreal.iro.lecuyer.probdist,
  umontreal.iro.lecuyer.rng
+Bundle-ActivationPolicy: lazy

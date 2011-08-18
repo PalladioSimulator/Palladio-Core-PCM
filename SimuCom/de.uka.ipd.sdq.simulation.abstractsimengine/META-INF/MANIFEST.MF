@@ -7,3 +7,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.simulation.abstractsimengine
 Require-Bundle: org.apache.log4j
 Bundle-Vendor: sdq.ipd.kit.edu
+Bundle-ActivationPolicy: lazy
