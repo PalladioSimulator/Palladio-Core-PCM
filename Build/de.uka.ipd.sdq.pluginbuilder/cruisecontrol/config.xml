@@ -3,7 +3,9 @@
 	<project name="PCM Eclipse 3.5 build" requiremodification="true">
 		<modificationset>
 			<!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
-			<svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+			<svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk" username="cruisecontrol" password="obREaglAkEmhaDwl" />
+			<svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/ThirdPartyWrapper/trunk" username="cruisecontrol" password="obREaglAkEmhaDwl" />
+			<svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/WorkflowEngine/trunk" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
 		</modificationset>
 		<schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
 			<ant buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
@@ -187,7 +189,7 @@
   <project name="Workflow Engine" requiremodification="true">
     <modificationset>
       <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
-	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/WorkflowEngine" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/WorkflowEngine/trunk" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
     </modificationset>
     <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
       <ant buildfile="/home/ccontrol/svn/code/workflowEngine/de.uka.ipd.sdq.workflow.pluginbuilder/build.xml" target="main" antworkingdir="/home/ccontrol/svn/code/workflowEngine/de.uka.ipd.sdq.workflow.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
@@ -214,7 +216,9 @@
   <project name="Palladio Ginpex" requiremodification="true">
     <modificationset>
       <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
-	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/Ginpex/" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/Ginpex/" username="cruisecontrol" password="obREaglAkEmhaDwl" />
+	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/ThirdPartyWrapper/trunk" username="cruisecontrol" password="obREaglAkEmhaDwl" />
+	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/WorkflowEngine/trunk" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
     </modificationset>
     <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
       <ant buildfile="/home/ccontrol/svn/code/ginpex/edu.kit.ipd.sdq.ginpex.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/ginpex/edu.kit.ipd.sdq.ginpex.pluginbuilder/" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
