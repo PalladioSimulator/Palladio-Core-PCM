@@ -6,7 +6,7 @@
 			<svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
 		</modificationset>
 		<schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
-			<ant buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
+			<ant buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
 		</schedule>
 		<log>
 			<merge dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/results/testresults/xml" pattern="testReport*.xml"></merge>
@@ -18,14 +18,14 @@
       </htmlemail>  
       <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.2/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
 			<onsuccess>
-				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5" buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5" buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
 			</onsuccess>
 			<onfailure>
-				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5" buildfile="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5" buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
 			</onfailure>
 		</publishers>
 		<bootstrappers>
-			<svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/Palladio.PluginBuilder/trunk/de.uka.ipd.sdq.pluginbuilder"></svnbootstrapper>
+			<svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder"></svnbootstrapper>
 		</bootstrappers>
 		<listeners></listeners>
 	</project>
@@ -128,7 +128,7 @@
   <project name="Palladio.ByCounter" requiremodification="true">
     <modificationset>
       <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
-	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio.ByCounter/trunk/de.uka.ipd.sdq.ByCounter/" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/BySuite/Palladio.ByCounter/trunk/de.uka.ipd.sdq.ByCounter/" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
     </modificationset>
     <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
       <ant buildfile="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/build.xml" target="main" antworkingdir="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
@@ -159,7 +159,7 @@
   <project name="Palladio.TimerMeter" requiremodification="true">
     <modificationset>
       <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
-	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio.TimerMeter/trunk/edu.kit.ipd.sdq.TimerMeter/" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/TimerMeter/trunk/edu.kit.ipd.sdq.TimerMeter/" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
     </modificationset>
     <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
       <ant buildfile="/home/ccontrol/svn/code/edu.kit.ipd.sdq.TimerMeter/build.xml" target="main" antworkingdir="/home/ccontrol/svn/code/edu.kit.ipd.sdq.TimerMeter/" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
@@ -190,7 +190,7 @@
 	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
     </modificationset>
     <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
-      <ant buildfile="/home/ccontrol/svn/code/Palladio.Workflow/trunk/de.uka.ipd.sdq.workflow.pluginbuilder/build.xml" target="main" antworkingdir="/home/ccontrol/svn/code/Palladio.Workflow/trunk/de.uka.ipd.sdq.workflow.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
+      <ant buildfile="/home/ccontrol/svn/code/WorkflowEngine/trunk/de.uka.ipd.sdq.workflow.pluginbuilder/build.xml" target="main" antworkingdir="/home/ccontrol/svn/code/WorkflowEngine/trunk/de.uka.ipd.sdq.workflow.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
     </schedule>
     <labelincrementer defaultlabel="1.0" prebuildincrementer="true"></labelincrementer>
     <publishers>
@@ -198,14 +198,14 @@
         <always address="palladio-dev@ira.uka.de"></always> 
       </htmlemail>
       <onsuccess>
-		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.workflow.pluginbuilder" buildfile="/home/ccontrol/svn/code/Palladio.Workflow/trunk/de.uka.ipd.sdq.workflow.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.workflow.pluginbuilder" buildfile="/home/ccontrol/svn/code/WorkflowEngine/trunk/de.uka.ipd.sdq.workflow.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
       </onsuccess>
       <onfailure>
-      	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.workflow.pluginbuilder" buildfile="/home/ccontrol/svn/code/Palladio.Workflow/trunk/de.uka.ipd.sdq.workflow.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+      	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.workflow.pluginbuilder" buildfile="/home/ccontrol/svn/code/WorkflowEngine/trunk/de.uka.ipd.sdq.workflow.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
       </onfailure>
     </publishers>
     <bootstrappers>
-      <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/Palladio.Workflow/trunk/de.uka.ipd.sdq.workflow.pluginbuilder"></svnbootstrapper>
+      <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/WorkflowEngine/trunk/de.uka.ipd.sdq.workflow.pluginbuilder"></svnbootstrapper>
     </bootstrappers>
     <listeners></listeners>
   </project>
