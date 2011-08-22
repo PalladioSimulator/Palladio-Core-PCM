@@ -20,6 +20,7 @@
 
 			@Override
 			protected void initialiseThreads(
+					de.uka.ipd.sdq.sensorframework.entities.Experiment exp,
 					de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun)
 			{
 				«FOREACH this.usageScenario_UsageModel AS us»
@@ -152,7 +153,7 @@
 «ENDDEFINE»
 
 «DEFINE WorkloadDriver(UsageScenario u) FOR OpenWorkload»
-   this.threads.add(new «u.javaName()»Thread(expRun, runProps));
+   this.threads.add(new «u.javaName()»Thread(exp, expRun, runProps));
 «ENDDEFINE»
 
 «DEFINE WorkloadDriverClass(UsageScenario u) FOR OpenWorkload»
