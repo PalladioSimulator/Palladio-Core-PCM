@@ -18,6 +18,7 @@ public abstract class AbstractAllocationFactory
 	private static HashMap<String, Collection<Class<?>>> containerIdToComponents = new HashMap<String, Collection<Class<?>>>();
 
 	private static String activeContainer;
+	private static boolean localMode;
 	
 	/**
 	 * Stores a tuple of container ID, name and one component
@@ -102,8 +103,26 @@ public abstract class AbstractAllocationFactory
 		activeContainer = containerId;
 	}
 	
+	/**
+	 * Returns the container of this current component.
+	 * FIXME: Also returns the FIRST container if local mode is active, since 
+	 * 		  no container has been (and can not be) chosen for this hardware node.
+	 * @return
+	 */
 	public static String getActiveContainer() {
-		return activeContainer;
+		if (!localMode) {
+			return activeContainer;
+		} else {
+			return containerIdToName.entrySet().iterator().next().getKey();
+		}
+	}
+
+	public static void setLocalMode(boolean localMode) {
+		AbstractAllocationFactory.localMode = localMode;
+	}
+
+	public static boolean isLocalMode() {
+		return localMode;
 	}
 
 

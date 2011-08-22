@@ -4,7 +4,6 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 
 /**
@@ -28,7 +27,7 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 	protected boolean shouldContinue = true;
 	protected Runnable usageScenario;
 
-	private TimeSpanSensor overallTimeSpanSensor;
+	private TimeSpanSensor timeSpanSensor;
 	
 	static {
 		/** 
@@ -43,7 +42,7 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 	 * with -u option, or is 1000 as the default. 
 	 * 
 	 * @param expRun
-	 * @param overallTimeSpanSensor
+	 * @param timeSpanSensor
 	 * @param runProps
 	 */
 	public AbstractScenarioThread (
@@ -54,21 +53,8 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 	{
 		this.usageScenario = getScenarioRunner(runProps);
 		this.experimentRun = expRun;
-		
-		Boolean found = false;
-		for(Sensor sens : exp.getSensors())
-		{
-			if(sens.getSensorName().equals(scenarioName))
-			{
-				this.overallTimeSpanSensor = (TimeSpanSensor)sens;
-				found = true;
-				break;
-			}
-		}
-		if(!found)
-		{
-			this.overallTimeSpanSensor = exp.addTimeSpanSensor(scenarioName);
-		}
+		this.timeSpanSensor = AbstractMain.createOrReuseTimeSpanSensor(scenarioName);
+
 		
 		if (runProps.hasOption("m"))
 		{
@@ -113,7 +99,7 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 		long now = System.nanoTime();
 		double measuredTimeSpan = (now - start) / Math.pow(10, 9);
 		
-		experimentRun.addTimeSpanMeasurement(overallTimeSpanSensor, 
+		experimentRun.addTimeSpanMeasurement(timeSpanSensor, 
 				now / Math.pow(10, 9), measuredTimeSpan);
 		logger.debug("Finished my scenario");
 		

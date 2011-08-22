@@ -44,7 +44,7 @@ public class AbstractResourceEnvironmentFactory {
 		IDemandStrategy strategy = getStrategy(usedStrategy, cpuStrategies, cpuStrategiesClasses);
 
 		if (strategy == null) {
-			logger.error("CPU strategy " + (usedStrategy == null ? "" : usedStrategy) + " not found. Using Fibonacci instead");
+			logger.warn("CPU strategy " + (usedStrategy == null ? "" : usedStrategy) + " not found. Using Fibonacci instead");
 			strategy = new FibonacciDemand();
 		}
 
@@ -60,7 +60,7 @@ public class AbstractResourceEnvironmentFactory {
 		IDemandStrategy strategy = getStrategy(usedStrategy, cpuStrategies, cpuStrategiesClasses);;
 		
 		if (strategy == null) {
-			logger.error("HDD strategy " + (usedStrategy == null ? "" : usedStrategy) + " not found. Using LargeChunks instead");
+			logger.warn("HDD strategy " + (usedStrategy == null ? "" : usedStrategy) + " not found. Using LargeChunks instead");
 			strategy = new de.uka.ipd.sdq.measurement.strategies.activeresource.hdd.ReadLargeChunksDemand();
 		}
 

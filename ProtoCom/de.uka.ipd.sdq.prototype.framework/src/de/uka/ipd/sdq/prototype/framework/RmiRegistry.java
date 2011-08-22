@@ -47,7 +47,7 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 			
 		} catch (MalformedURLException e) {		
 		} catch (NotBoundException e) {
-			logger.error("Starting RMI binding service");
+			logger.info("Starting RMI binding service");
 			
 			try {
 				Naming.bind(PCM_RMI_REGISTRY, this);

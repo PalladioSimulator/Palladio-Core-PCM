@@ -215,7 +215,7 @@ public abstract class AbstractMain {
 	
 	private void showMenuItems()
 	{
-		System.out.println("1: Start everything in local mode");
+		System.out.println("1: Start everything in local mode (hardware container #1 is used, only for testing purpose!)");
 		System.out.println("2: RmiRegistry");
 		System.out.println("3: Usage Scenarios");
 		
@@ -245,6 +245,8 @@ public abstract class AbstractMain {
 			// Start everything in local mode
 			logger.debug("Start: Start everything in local mode");
 			RmiRegistry.startRegistry();
+			AbstractAllocationFactory.setLocalMode(true);
+			setupResources();
 			startDefaultMain();
 		}
 		else if(itemId == 2)
