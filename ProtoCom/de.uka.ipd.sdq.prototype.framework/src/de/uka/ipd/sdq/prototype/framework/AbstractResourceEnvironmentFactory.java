@@ -71,4 +71,11 @@ public class AbstractResourceEnvironmentFactory {
 		de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum.HDD, strategy);
 	}
 	
+	public static void performDelay(double delay) {
+		try {
+			Thread.sleep(Math.round(delay));
+		} catch (InterruptedException e) {
+			logger.error("Interrupted while performing a delay", e);
+		}
+	}
 }
