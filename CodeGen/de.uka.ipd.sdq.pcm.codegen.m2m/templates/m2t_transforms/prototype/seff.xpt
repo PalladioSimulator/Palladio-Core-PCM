@@ -15,7 +15,7 @@
 		passive_resource_«this.passiveresource_AcquireAction.entityName.javaVariableName()».acquire();
 	} catch (InterruptedException e) {
 		logger.error("Should never happen: Acquire of semaphore «this.passiveresource_AcquireAction.entityName.javaString()» interrupted");
-		System.exit(-1);
+		java.lang.System.exit(-1);
 	}
 	
 «ENDDEFINE»

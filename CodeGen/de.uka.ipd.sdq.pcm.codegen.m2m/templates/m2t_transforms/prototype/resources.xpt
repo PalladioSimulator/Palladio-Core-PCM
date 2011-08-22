@@ -43,7 +43,7 @@
 		throw new java.lang.UnsupportedOperationException("ResourceCall not yet supported in prototype");
 	} catch (Exception e) {
 		e.printStackTrace();
-		System.exit(-1);
+		java.lang.System.exit(-1);
 	}
 «ENDDEFINE»
 
