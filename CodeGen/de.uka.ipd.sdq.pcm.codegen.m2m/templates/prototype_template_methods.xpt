@@ -216,7 +216,7 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::user_actions::UserAction FOR Branch»
-	«EXPAND m2t_transforms::sim::user_actions::UserAction FOR this»
+	«EXPAND m2t_transforms::prototype::user_actions::UserAction FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::prototype::usage::UsageScenarioAdditionsTM FOR UsageScenario»
