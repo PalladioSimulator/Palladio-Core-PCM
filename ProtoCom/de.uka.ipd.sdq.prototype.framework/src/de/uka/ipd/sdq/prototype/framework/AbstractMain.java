@@ -22,6 +22,7 @@ import org.apache.log4j.PatternLayout;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum;
 import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
+import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
@@ -124,7 +125,7 @@ public abstract class AbstractMain {
 		// init threads if configuration is active server (not -P) or only
 		// warmup requested.
 		if (!runProps.hasOption('P') || runProps.hasOption('W')) {
-			initialiseThreads(expRun);
+			initialiseThreads(exp, expRun);
 		}
 
 		// run measurements if the configuration is neither passive nor warmup
@@ -495,7 +496,7 @@ public abstract class AbstractMain {
 	}
 	
 	/** Initialise threads and perform warmup, if requested. */
-	protected abstract void initialiseThreads(ExperimentRun expRun);
+	protected abstract void initialiseThreads(Experiment exp, ExperimentRun expRun);
 
 	public static ExperimentRun getLatestExperimentRun() {
 		Collection<ExperimentRun> runs = AbstractMain.exp.getExperimentRuns();
