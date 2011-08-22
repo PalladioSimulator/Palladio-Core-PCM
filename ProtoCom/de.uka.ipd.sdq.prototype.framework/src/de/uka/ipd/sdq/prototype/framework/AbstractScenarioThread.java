@@ -2,7 +2,9 @@ package de.uka.ipd.sdq.prototype.framework;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorframework.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 
 /**
@@ -45,22 +47,42 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 	 * @param runProps
 	 */
 	public AbstractScenarioThread (
+			Experiment exp,
 			ExperimentRun expRun,
-			TimeSpanSensor overallTimeSpanSensor, RunProperties runProps) {
+			String scenarioName,
+			RunProperties runProps) 
+	{
 		this.usageScenario = getScenarioRunner(runProps);
 		this.experimentRun = expRun;
-		this.overallTimeSpanSensor = overallTimeSpanSensor;
 		
-		if (runProps.hasOption("m")){
+		Boolean found = false;
+		for(Sensor sens : exp.getSensors())
+		{
+			if(sens.getSensorName().equals(scenarioName))
+			{
+				this.overallTimeSpanSensor = (TimeSpanSensor)sens;
+				found = true;
+				break;
+			}
+		}
+		if(!found)
+		{
+			this.overallTimeSpanSensor = exp.addTimeSpanSensor(scenarioName);
+		}
+		
+		if (runProps.hasOption("m"))
+		{
 			maxMeasurementCount = Integer.parseInt(runProps.getOptionValue('m'));
 		}
 		
 		int warmupRuns = 1000;
-		if (runProps.hasOption("u")){
+		if (runProps.hasOption("u"))
+		{
 			warmupRuns = Integer.parseInt(runProps.getOptionValue('u'));
 		}
 		logger.info("Warmup - Cyles: "+warmupRuns);
-		for (int i=0; i<warmupRuns; i++){
+		for (int i=0; i<warmupRuns; i++)
+		{
 			logger.info("Warmup started, cycle: "+i);
 			usageScenario.run();
 		}

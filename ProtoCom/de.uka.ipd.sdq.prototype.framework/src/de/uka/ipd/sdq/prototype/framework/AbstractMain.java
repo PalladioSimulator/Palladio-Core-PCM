@@ -124,8 +124,7 @@ public abstract class AbstractMain {
 		// init threads if configuration is active server (not -P) or only
 		// warmup requested.
 		if (!runProps.hasOption('P') || runProps.hasOption('W')) {
-			TimeSpanSensor tss = exp.addTimeSpanSensor("Scenario overall defaultUsageScenario");
-			initialiseThreads(expRun, tss);
+			initialiseThreads(expRun);
 		}
 
 		// run measurements if the configuration is neither passive nor warmup
@@ -496,7 +495,7 @@ public abstract class AbstractMain {
 	}
 	
 	/** Initialise threads and perform warmup, if requested. */
-	protected abstract void initialiseThreads(ExperimentRun expRun, TimeSpanSensor tss);
+	protected abstract void initialiseThreads(ExperimentRun expRun);
 
 	public static ExperimentRun getLatestExperimentRun() {
 		Collection<ExperimentRun> runs = AbstractMain.exp.getExperimentRuns();

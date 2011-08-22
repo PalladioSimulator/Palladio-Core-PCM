@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.prototype.framework;
 
+import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 
 public abstract class AbstractOpenScenarioThread extends AbstractScenarioThread {
@@ -9,10 +9,11 @@ public abstract class AbstractOpenScenarioThread extends AbstractScenarioThread 
 	private RunProperties runProps;
 	private String interarrivalTime;
 
-	public AbstractOpenScenarioThread(ExperimentRun expRun,
-			TimeSpanSensor overallTimeSpanSensor, RunProperties runProps, 
+	public AbstractOpenScenarioThread(Experiment exp,
+			ExperimentRun expRun,
+			String scenarioName, RunProperties runProps, 
 			String interarrivalTimeInSec) {
-		super(expRun, overallTimeSpanSensor, runProps);
+		super(exp, expRun, scenarioName, runProps);
 		this.runProps = runProps;
 		this.interarrivalTime = interarrivalTimeInSec;
 

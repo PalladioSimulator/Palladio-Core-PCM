@@ -1,13 +1,16 @@
 package de.uka.ipd.sdq.prototype.framework;
 
+import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 
 public abstract class AbstractClosedScenarioThread extends AbstractScenarioThread {
 
-	public AbstractClosedScenarioThread(ExperimentRun expRun,
-			TimeSpanSensor overallTimeSpanSensor, RunProperties runProps) {
-		super(expRun, overallTimeSpanSensor, runProps);
+	public AbstractClosedScenarioThread(
+			Experiment exp,
+			ExperimentRun expRun,
+			String scenarioName, 
+			RunProperties runProps) {
+		super(exp, expRun, scenarioName, runProps);
 		
 	}
 
