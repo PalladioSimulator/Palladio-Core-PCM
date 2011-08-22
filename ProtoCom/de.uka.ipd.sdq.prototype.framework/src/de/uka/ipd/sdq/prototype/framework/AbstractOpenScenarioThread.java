@@ -23,7 +23,7 @@ public abstract class AbstractOpenScenarioThread extends AbstractScenarioThread 
 	protected void runAndMeasureUsageScenarioIteration() {
 
 		// TODO Lots of threads created here. Check if this is needed. (lehrig)
-		Thread thread = new Thread(new java.lang.Runnable() {
+		new Thread() {
 			public void run() {
 
 				Runnable us = getScenarioRunner(runProps);
@@ -34,8 +34,7 @@ public abstract class AbstractOpenScenarioThread extends AbstractScenarioThread 
 				logger.debug("Finished my scenario");
 
 			}
-		});
-		thread.start();
+		}.start();
 
 		try {
 			

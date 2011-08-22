@@ -18,7 +18,7 @@ public abstract class AbstractAllocationFactory
 	private static HashMap<String, Collection<Class<?>>> containerIdToComponents = new HashMap<String, Collection<Class<?>>>();
 
 	private static String activeContainer;
-	private static boolean localMode;
+	private static boolean localMode = false;
 	
 	/**
 	 * Stores a tuple of container ID, name and one component

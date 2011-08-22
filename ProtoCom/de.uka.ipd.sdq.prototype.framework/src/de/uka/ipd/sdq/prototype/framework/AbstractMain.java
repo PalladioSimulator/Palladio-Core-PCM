@@ -146,6 +146,9 @@ public abstract class AbstractMain {
 				writeResultsAndClose(datasource);
 			}
 		}
+		
+		// close all running threads
+		System.exit(0);
 	}
 
 	private void startDefaultMain() {
@@ -306,14 +309,6 @@ public abstract class AbstractMain {
 		return new String[]{};
 	}
 
-	/**
-	 * This stops all currently running measurements. Use this to stop
-	 * measurements when this server is passive.
-	 */
-	public static void stopMeasurements() {
-		writeResultsAndClose(datasource);
-	}
-
 	private static void writeResultsAndClose(IDAOFactory datasource) {
 		logger.info("Storing results...");
 		datasource.createExperimentDAO().storeAll();
@@ -324,8 +319,7 @@ public abstract class AbstractMain {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			logger.error("Failed to persist measurements",e);
-			e.printStackTrace();
+			logger.error("Failed to persist measurements", e);
 			System.exit(-1);
 		}
 	}
