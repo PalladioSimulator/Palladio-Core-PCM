@@ -14,23 +14,27 @@
    {
       double demand = (Double) ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class);
 
+«REM» Should be unnecessary by now
       try {
-		String neededResource = "«this.requiredResource_ParametricResourceDemand.entityName»";
+«ENDREM»
+	«IF this.requiredResource_ParametricResourceDemand.entityName.toLowerCase().matches("cpu")»
+		de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
+	    	.getStrategyFor(de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum.CPU).consume(demand);
+	«ELSEIF this.requiredResource_ParametricResourceDemand.entityName.toLowerCase().matches("hdd")»
+		de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
+	    	.getStrategyFor(de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum.HDD).consume(demand);
+	«ELSEIF this.requiredResource_ParametricResourceDemand.entityName.toLowerCase().matches("delay")»
+		de.uka.ipd.sdq.prototype.framework.AbstractResourceEnvironmentFactory.performDelay(demand);
+	«ELSE»
+		throw new java.lang.UnsupportedOperationException("Resourcetype not yet supported in prototype");
+	«ENDIF»
 		
-		if (neededResource.toLowerCase().contains("cpu")){
-		  de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
-		    .getStrategyFor(de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum.CPU).consume(demand);
-		} 
-		else if (neededResource.toLowerCase().contains("hdd")){
-		  de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
-		    .getStrategyFor(de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum.HDD).consume(demand);
-		} else {
-			throw new java.lang.UnsupportedOperationException("Resourcetype not yet supported in prototype");
-		}
+«REM» Should be unnecessary by now
 	  } catch (Exception e) {
 		e.printStackTrace();
 		System.exit(-1);
 	  }
+«ENDREM»
    }
 «ENDDEFINE»
 
@@ -74,13 +78,11 @@
 «ENDDEFINE»
 
 «DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
-	if ("«this.activeResourceType_ActiveResourceSpecification.entityName»".toLowerCase().contains("cpu")) {
+	«IF this.activeResourceType_ActiveResourceSpecification.entityName.toLowerCase().contains("cpu")»
 		setUpCPU(cpuStrategy, calibrationPath, accuracy, "«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»");
-
-	} else if ("«this.activeResourceType_ActiveResourceSpecification.entityName»".toLowerCase().contains("hdd")) { 
+	«ELSEIF this.activeResourceType_ActiveResourceSpecification.entityName.toLowerCase().contains("hdd")» 
 		setUpHDD(hddStrategy, calibrationPath, accuracy, "«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»");
-		
-	}
+	«ENDIF»
 «ENDDEFINE»
 
 
