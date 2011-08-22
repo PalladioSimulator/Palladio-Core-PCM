@@ -46,7 +46,9 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		this.addJob(new ValidatePCMModelsJob(configuration));
 		
 		// 3. Create new Eclipse plugin project
-		this.addJob(new CreatePluginProjectJob(configuration));
+		// We do NOT perform this step anymore. It causes PCM to delete and generate the
+		// plugin project twice! [zolynski]
+		//this.addJob(new CreatePluginProjectJob(configuration));
 
 		// 4. Generate the plugin's code using oAW
 		this.addJob(new TransformPCMToCodeJob(configuration));
