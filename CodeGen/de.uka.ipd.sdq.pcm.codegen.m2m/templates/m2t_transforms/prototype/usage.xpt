@@ -20,8 +20,7 @@
 
 			@Override
 			protected void initialiseThreads(
-					de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun,
-					de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor timeSensor)
+					de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun)
 			{
 				«FOREACH this.usageScenario_UsageModel AS us»
 					«EXPAND WorkloadDriver(us) FOR us.workload_UsageScenario»
@@ -153,18 +152,18 @@
 «ENDDEFINE»
 
 «DEFINE WorkloadDriver(UsageScenario u) FOR OpenWorkload»
-   this.threads.add(new «u.javaName()»Thread(expRun, timeSensor, runProps));
+   this.threads.add(new «u.javaName()»Thread(expRun, runProps));
 «ENDDEFINE»
 
 «DEFINE WorkloadDriverClass(UsageScenario u) FOR OpenWorkload»
 class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractOpenScenarioThread {
 
 	public «u.javaName()»Thread(
+			de.uka.ipd.sdq.sensorframework.entities.Experiment exp,
 			de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun,
-			de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor timeSensor,
 			de.uka.ipd.sdq.prototype.framework.RunProperties runProps)
 	{
-		super(expRun,timeSensor,runProps,"«this.interArrivalTime_OpenWorkload.specification.specificationString()»");
+		super(exp, expRun, "Response Time of «u.entityName»",runProps,"«this.interArrivalTime_OpenWorkload.specification.specificationString()»");
 	}
 
 	@Override
@@ -185,7 +184,7 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractOp
 			count = (Integer)runProps.getOptionObject("c");
 		}
 		for (int i = 0; i < count; i++) {
-			threads.add(new «u.javaName()»Thread(expRun, timeSensor, runProps));
+			threads.add(new «u.javaName()»Thread(exp, expRun, runProps));
 		}
 	}
 «ENDDEFINE»
@@ -194,11 +193,11 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractOp
 class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractClosedScenarioThread {
 	
 	public «u.javaName()»Thread(
+			de.uka.ipd.sdq.sensorframework.entities.Experiment exp,
 			de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun,
-			de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor timeSensor,
 			de.uka.ipd.sdq.prototype.framework.RunProperties runProps)
 	{
-		super(expRun,timeSensor,runProps);
+		super(exp, expRun, "Response Time of «u.entityName»",runProps);
 	}
 
 	@Override
