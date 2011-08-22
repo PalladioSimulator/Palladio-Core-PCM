@@ -540,7 +540,7 @@ public class DSEDecoder implements Decoder<DesignDecisionGenotype, PCMPhenotype>
 			String decisionString) {
 		List<Entity> entities = new ArrayList<Entity>();
 		for (EObject entity : designDecision.getClassDesignOptions()) {
-			if (entities instanceof Entity){
+			if (entity instanceof Entity){
 				entities.add((Entity) entity);
 			}
 		}
