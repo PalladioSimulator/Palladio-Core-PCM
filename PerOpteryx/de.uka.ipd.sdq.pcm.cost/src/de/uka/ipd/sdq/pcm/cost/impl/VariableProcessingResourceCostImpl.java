@@ -343,7 +343,7 @@ public class VariableProcessingResourceCostImpl extends VariableCostImpl impleme
 	 */
 	@Override
 	public double getOperatingCost() {
-		return CostUtil.getInstance().getOperatingCost(this);
+		return CostUtil.getInstance().getOperatingCost(this) * CostUtil.getInstance().getNumberOfServers(this);
 	}
 
 	/**
@@ -353,7 +353,7 @@ public class VariableProcessingResourceCostImpl extends VariableCostImpl impleme
 	 */
 	@Override
 	public double getInitialCost() {
-		return CostUtil.getInstance().getInitialCost(this);
+		return CostUtil.getInstance().getInitialCost(this) * CostUtil.getInstance().getNumberOfServers(this);
 	}
 
 
