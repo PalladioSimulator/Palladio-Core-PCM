@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum;
 
 /**
- * Reads large chunks of data up to MAX_FILE_SIZE Byte (default 8 MB) from a
+ * Reads large chunks of data up to MAX_FILE_SIZE Byte (default 3 MB) from a
  * predefined hard disk drive. The existing hard disk drive must comply with the
  * processing rate given. Thus, the processing rate is ignored during
  * initialisation.
@@ -87,8 +87,7 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 	@Override
 	protected void run(long load) {
 		logger.debug("Consume HDD demand of: " + load);
-		try 
-		{
+		try	{
 			long remainingLoad = load;
 			do {
 				FileInputStream fis = new FileInputStream(nextFile());
@@ -172,7 +171,7 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 
 		// The strategy could not be initialised as there are no files to read
 		// -> try to create files
-		if (this.files.size() == 0) {
+		if (this.files.isEmpty()) {
 			try {
 				writeTestFiles();
 				logger.debug("Wrote files to be read.");

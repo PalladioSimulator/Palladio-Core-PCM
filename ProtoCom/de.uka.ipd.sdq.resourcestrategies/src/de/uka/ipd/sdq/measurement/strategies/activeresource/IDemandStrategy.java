@@ -45,7 +45,7 @@ public interface IDemandStrategy {
 	void consume(double demand);
 	
 	/**
-	 * Do not use default properties, but set properties from extern.
+	 * Do not use default properties, but set properties externally.
 	 * @param properties
 	 */
 	void setProperties(Properties properties);
