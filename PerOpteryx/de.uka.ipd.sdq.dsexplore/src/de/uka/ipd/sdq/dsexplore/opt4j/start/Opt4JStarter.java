@@ -57,6 +57,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEMutateModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEProblem;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.GivenInstanceModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.RuleBasedSearchModule;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedObjective;
 import de.uka.ipd.sdq.pcm.cost.CostRepository;
@@ -106,7 +107,7 @@ public class Opt4JStarter {
 		modules.add(dseModule);
 
 		addOptimisationModules(dseConfig.getMaxIterations(), dseConfig,
-				modules, blackboard);
+				modules);
 
 		addPopulationModule(modules);
 		
@@ -317,13 +318,15 @@ public class Opt4JStarter {
 		
 	private static void addOptimisationModules(int maxIterations,
 			DSEWorkflowConfiguration config,
-			Collection<Module> modules, MDSDBlackboard blackboard) throws CoreException {
+			Collection<Module> modules) throws CoreException {
 		
 		int individualsPerGeneration = config.getIndividualsPerGeneration();
 		double crossoverRate = config.getCrossoverRate();
 		
-		
-		if (config.isRuleBasedSearch()){
+		if (config.getMaxIterations() == 0 && config.hasPredefinedInstances()){
+			GivenInstanceModule givenInstanceModule = new GivenInstanceModule();
+			modules.add(givenInstanceModule);
+		} else if (config.isRuleBasedSearch()){
 			RuleBasedSearchModule rbModule = new RuleBasedSearchModule();
 			rbModule.setGenerations(maxIterations);
 			rbModule.setFullSearch(config.isFullRuleBasedSearch());

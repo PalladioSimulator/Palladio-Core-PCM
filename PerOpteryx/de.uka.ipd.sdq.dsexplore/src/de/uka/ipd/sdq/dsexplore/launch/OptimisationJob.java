@@ -10,10 +10,9 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.helper.GenotypeReader;
 import de.uka.ipd.sdq.dsexplore.opt4j.genotype.DesignDecisionGenotype;
+import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.PredefinedInstanceEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
-import de.uka.ipd.sdq.dsexplore.opt4j.start.GivenInstanceEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
-import de.uka.ipd.sdq.dsexplore.opt4j.start.PredefinedInstanceEvaluator;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.IJob;
@@ -72,33 +71,19 @@ public class OptimisationJob implements IJob, IBlackboardInteractingJob<MDSDBlac
 	    }
 	    
 		//TODO: extract this in a Builder?
-	    if (this.dseConfig.isOptimise()){
-	    	if (this.dseConfig.getMaxIterations() == 0 && dseConfig.hasPredefinedInstances()){
-	    		//Only evaluate given instances
-	    		PredefinedInstanceEvaluator gie = new GivenInstanceEvaluator(this.dseConfig,Opt4JStarter.getProblem().getEMFProblem(), blackboard);
-	    		gie.start();
-	    		List<Exception> exceptions = Opt4JStarter.getDSEEvaluator().getExceptionList();
-				if (exceptions.size() > 0){
-					logger.warn("Errors occured during evaluation.");
-					for (Exception exception : exceptions) {
-						exception.printStackTrace();
-					}
-				}
+	    if (this.dseConfig.isOptimise()){//use predefined instances as initial population
+	    	List<DesignDecisionGenotype> genotypes = GenotypeReader.getGenotypes(this.dseConfig.getPredefinedInstancesFileName(), this.blackboard);
 
-	    	} else {
-	    		//use predefined instances as initial population
-	    		List<DesignDecisionGenotype> genotypes = GenotypeReader.getGenotypes(this.dseConfig.getPredefinedInstancesFileName(), this.blackboard);
-	    		
-	    		//read in all candidates file if there and add to cache
-	    		List<DesignDecisionGenotype> allCandidates = GenotypeReader.getGenotypes(this.dseConfig.getPredefinedAllCandidatesFileName(), this.blackboard);
-	    		
-	    		// read in archive candidates file if there and add to cache. 
-	    		// Need to add them to Opt4J archive to ensure a proper continuation of an evolutionary search.
-	    		// The addition is done by Opt4JStarter (see below)
-	    		List<DesignDecisionGenotype> archiveCandidates = GenotypeReader.getGenotypes(this.dseConfig.getArchiveCandidateFileName(), this.blackboard);
-	    		
-	    		Opt4JStarter.runOpt4JWithPopulation(this.dseConfig, monitor, genotypes, allCandidates, archiveCandidates);
-	    	}
+	    	//read in all candidates file if there and add to cache
+	    	List<DesignDecisionGenotype> allCandidates = GenotypeReader.getGenotypes(this.dseConfig.getPredefinedAllCandidatesFileName(), this.blackboard);
+
+	    	// read in archive candidates file if there and add to cache. 
+	    	// Need to add them to Opt4J archive to ensure a proper continuation of an evolutionary search.
+	    	// The addition is done by Opt4JStarter (see below)
+	    	List<DesignDecisionGenotype> archiveCandidates = GenotypeReader.getGenotypes(this.dseConfig.getArchiveCandidateFileName(), this.blackboard);
+
+	    	Opt4JStarter.runOpt4JWithPopulation(this.dseConfig, monitor, genotypes, allCandidates, archiveCandidates);
+
 	    }
 		} catch (CoreException e){
 			throw new JobFailedException(e);
