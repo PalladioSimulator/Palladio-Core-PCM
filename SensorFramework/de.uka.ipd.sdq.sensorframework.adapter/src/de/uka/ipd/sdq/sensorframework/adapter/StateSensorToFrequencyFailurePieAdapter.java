@@ -33,14 +33,14 @@ public class StateSensorToFrequencyFailurePieAdapter extends
 	protected double calculateFractions(final HashMap<String, Double> fractions) {
 		for (State state : ((StateSensor) samInformation.getSensor())
 				.getSensorStates()) {
-			if (state.getStateLiteral() != "Success") {
+			if (!state.getStateLiteral().equals("Success")) {
 				fractions.put(state.getStateLiteral(), 0.0);
 			}
 		}
 		int failureCounter = 0;
 		for (Measurement m : samInformation.getMeasurements()) {
 			StateMeasurement sm = (StateMeasurement) m;
-			if(sm.getSensorState().getStateLiteral() == "Success"){
+			if(sm.getSensorState().getStateLiteral().equals("Success")){
 				continue;
 			}
 			failureCounter++;
