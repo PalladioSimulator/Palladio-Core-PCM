@@ -65,7 +65,7 @@ public class CostUtil {
 	}
 	
 	/**
-	 * Return the total operating costs (function evaluation times number of server replicas) 
+	 * Return the operating costs for one server instance (function value for one server without considering the number of server replicas)
 	 * @param varCost
 	 * @return
 	 */
@@ -79,6 +79,12 @@ public class CostUtil {
 	}
 
 
+	/**
+	 * Get function value for one server instance. No replication of servers is considered yet. 
+	 * @param varCost
+	 * @param scalarFunction
+	 * @return
+	 */
 	private double solveFunctionExpression(
 			VariableProcessingResourceCost varCost,
 			ScalarFunction scalarFunction) {
@@ -87,7 +93,6 @@ public class CostUtil {
 		}
 		double processingRate = getProcessingRate(varCost);
 		int numberOfCores = getNumberOfReplicas(varCost);
-		int numberOfServers = getNumberOfServers(varCost);
 		String specification = scalarFunction.getSpecification();
 		SimulatedStackframe<Object> stackframe = new SimulatedStackframe<Object>();
 		stackframe.addValue(PROCESSING_RATE_VARIABLE, processingRate);
@@ -103,7 +108,7 @@ public class CostUtil {
 
 			PCMStoExEvaluationVisitor visitor = new PCMStoExEvaluationVisitor(stoExEntry,stackframe,VariableMode.RETURN_DEFAULT_ON_NOT_FOUND,randomGenerator);
 			Object number = visitor.doSwitch(parsedExpression);
-			return toDoubleOrZero(number) * numberOfServers;
+			return toDoubleOrZero(number);
 		} catch (RuntimeException e){
 			logger.warn("Error when evaluating processing rate cost function: "+e.getMessage());
 			e.printStackTrace();
@@ -113,7 +118,7 @@ public class CostUtil {
 
 
 	/**
-	 * Return the total initial costs (function evaluation times number of server replicas)
+	 * Return the initial costs for one server instance (function value for one server without considering the number of server replicas)
 	 * @param varCost
 	 * @return
 	 */
