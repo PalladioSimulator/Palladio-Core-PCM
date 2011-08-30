@@ -198,11 +198,11 @@ public class CostEvaluator implements IAnalysis{
 			// fix links between model elements (maybe this is not needed anymore...)
 			if (cost instanceof ComponentCostPerInstance){
 				((ComponentCostPerInstance) cost).setAllocation(pcmInstance.getAllocation());
-			} else 	if (VariableProcessingResourceCost.class.isInstance(cost)) {
+			} else 	if (ProcessingResourceCost.class.isInstance(cost)) {
 				
-				VariableProcessingResourceCost varCost = (VariableProcessingResourceCost)cost; 
+				ProcessingResourceCost varCost = (ProcessingResourceCost)cost; 
 
-				ProcessingResourceSpecification old_prs = ((VariableProcessingResourceCost) cost)
+				ProcessingResourceSpecification old_prs = ((ProcessingResourceCost) cost)
 						.getProcessingresourcespecification();
 				ResourceContainer old_rc = (ResourceContainer) old_prs
 						.eContainer();
