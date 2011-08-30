@@ -4,6 +4,7 @@ import java.util.Date;
 
 import de.uka.ipd.sdq.pipesandfilters.framework.MetaDataInit;
 import de.uka.ipd.sdq.pipesandfilters.framework.PipesAndFiltersManager;
+import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.ExecutionResultMetaDataInit;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.SensorFrameworkMetaDataInit;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.launch.SensorFrameworkConfig;
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
@@ -15,6 +16,7 @@ import de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory;
 import de.uka.ipd.sdq.probespec.framework.calculator.ResponseTimeCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.StateCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.WaitingTimeCalculator;
+import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
@@ -181,9 +183,24 @@ public class CalculatorFactory implements ICalculatorFactory {
 	}
 
     @Override
-    public ExecutionResultCalculator buildExecutionResultCalculator(String calculatorName, Integer probeSetID) {
-        // TODO Auto-generated method stub
-        return null;
+    public ExecutionResultCalculator buildExecutionResultCalculator(String calculatorName, Integer probeSetId) {
+
+        // Initialize calculator
+        ExecutionResultCalculator calculator = new ExecutionResultCalculator(model.getProbeSpecContext(), probeSetId);
+
+        // Initialize metadata
+        MetaDataInit metaData = new ExecutionResultMetaDataInit(calculator.getMeasurementMetrics(),
+                (SensorFrameworkConfig) model.getConfiguration().getRecorderConfig(), FailureStatistics.getInstance()
+                        .getExecutionResultTypes());
+        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
+        metaData.setExperimentRunName(experimentRunName);
+        metaData.setMeasurementName("Execution result of " + calculatorName);
+        metaData.setMetricName("Execution Time"); // TODO Hard coded value!
+
+        PipesAndFiltersManager pipeManager = dataSink.setupDataSink(calculator, metaData);
+        model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
+
+        return calculator;
     }
 	
 }
