@@ -13,12 +13,12 @@ public class test {
 		Logger.getRootLogger().setLevel(Level.INFO);
 		
 		AbstractDemandStrategy theStrategy;
-		theStrategy = new ReadLargeChunksDemand();
-		theStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1000,"/Users/snowball/Documents/proto_calib");
-		theStrategy.watchConsume(5);
-		theStrategy.watchConsume(50);
-		theStrategy.watchConsume(500);
-		theStrategy.watchConsume(5000);
+//		theStrategy = new ReadLargeChunksDemand();
+//		theStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1000,"/Users/snowball/Documents/proto_calib");
+//		theStrategy.watchConsume(5);
+//		theStrategy.watchConsume(50);
+//		theStrategy.watchConsume(500);
+//		theStrategy.watchConsume(5000);
 
 		for (DegreeOfAccuracyEnum degree : DegreeOfAccuracyEnum.values()) {
 			theStrategy = new FibonacciDemand();

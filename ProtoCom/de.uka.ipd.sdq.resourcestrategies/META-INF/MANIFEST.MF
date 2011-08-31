@@ -5,7 +5,8 @@ Bundle-SymbolicName: de.uka.ipd.sdq.resourcestrategies
 Bundle-Version: 1.0.0
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.apache.log4j,
- uc.ac.ucl.ee.flanagan
+ uc.ac.ucl.ee.flanagan,
+ org.jscience
 Export-Package: de.uka.ipd.sdq.measurement.strategies.activeresource,
  de.uka.ipd.sdq.measurement.strategies.activeresource.cpu,
  de.uka.ipd.sdq.measurement.strategies.activeresource.hdd,

@@ -70,9 +70,9 @@ public class SortArrayDemand extends AbstractDemandStrategy {
 	}
 	
 	@Override
-	protected String getCalibrationFileName(DegreeOfAccuracyEnum degree) {
-		return loadCalibrationPath() + getName() + "_"
-				+ MAX_BIT_POSITION + "_" + ARRAY_SIZE + "_" + degree.name() + ".ser";
+	protected String getCalibrationFileName() {
+		return getCalibrationPath() + getName() + "_"
+				+ DEFAULT_CALIBRATION_TABLE_SIZE + "_" + ARRAY_SIZE + "_" + this.degreeOfAccuracy.name() + ".ser";
 	}
 	
 	@Override

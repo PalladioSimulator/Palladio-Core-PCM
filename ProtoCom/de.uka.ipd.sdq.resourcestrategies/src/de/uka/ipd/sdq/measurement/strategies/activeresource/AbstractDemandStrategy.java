@@ -12,26 +12,59 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import javax.measure.quantity.DataRate;
+import javax.measure.quantity.Dimensionless;
+import javax.measure.quantity.Duration;
+import javax.measure.quantity.Quantity;
+import javax.measure.unit.BaseUnit;
+import javax.measure.unit.NonSI;
+import javax.measure.unit.ProductUnit;
+import javax.measure.unit.SI;
+import javax.measure.unit.Unit;
 
+import org.apache.log4j.Logger;
+import org.jscience.mathematics.number.Number;
+import org.jscience.physics.amount.Amount;
+
+/**
+ * Struct to represent a single entry in the calibration table of 
+ * the load generators. It is a tuple <TargetTime, Parameter>
+ * @author Steffen Becker, Thomas Zolynski
+ *
+ */
 class CalibrationEntry implements Serializable {
 	private static final long serialVersionUID = -1969713798721640687L;
 	
-	final private int bitPosition;
+	final private Amount<Duration> targetTime;
 	final private long parameter;
 	
-	public CalibrationEntry(int bitPosition, long parameter) {
+	/**
+	 * Constructor
+	 * @param targetTime The time (in ms) which the workload generator should run and generate load for the given parameter
+	 * @param parameter The load generator's parameter for which the algorithm runs targetTime milliseconds
+	 */
+	public CalibrationEntry(Amount<Duration> targetTime, long parameter) {
 		super();
-		this.bitPosition = bitPosition;
+		this.targetTime = targetTime;
 		this.parameter = parameter;
 	}
 	
-	public int getBitPosition() {
-		return bitPosition;
+	/**
+	 * @return Target time in ms
+	 */
+	public Amount<Duration> getTargetTime() {
+		return targetTime;
 	}
 	
+	/**
+	 * @return Algorithm's parameter for which the algorithm runs target time milliseconds
+	 */
 	public long getParameter() {
 		return parameter;
+	}
+	
+	public String toString() {
+		return AbstractDemandStrategy.formatDuration(targetTime) + "\t | \t" + parameter;
 	}
 }
 
@@ -44,15 +77,33 @@ class CalibrationEntry implements Serializable {
  *       In Performance Evaluation: Metrics, Models and Benchmarks (SIPEW 2008), volume 5119 of Lecture Notes in Computer Science, pages 79-98. 
  *       Springer-Verlag Berlin Heidelberg, 2008.
  * 
- * @author Tobias Denker, Anne Koziolek, Steffen Becker
+ * @author Tobias Denker, Anne Koziolek, Steffen Becker, Thomas Zolynski
  */
 public abstract class AbstractDemandStrategy implements IDemandStrategy {
+	
+	private static final int RIGHT_ENDPOINT = 1;
+
+	private static final int LEFT_ENDPOINT = 0;
+
+	public static final Unit<Work> WORKUNITS = new BaseUnit<Work>("WU");
+	public interface Work extends Quantity {
+		public static final Unit<Work> UNIT = WORKUNITS;
+	}
+	
+	public interface ProcessingRate extends Quantity {
+		public static final Unit<ProcessingRate> UNIT = new ProductUnit<ProcessingRate>(Work.UNIT.divide(SI.SECOND));
+	}
+	
+	public static final String CALIBRATION_PATH_CONFIG_KEY = "CalibrationPath";
 
 	private static final int MIN_CALIBRATION_CYCLES = 5;
 
-	protected static final int MAX_BIT_POSITION = 11;
+	/**
+	 * Default number of tuples <targetTime, parameter> to store in the calibration table
+	 */
+	protected static final int DEFAULT_CALIBRATION_TABLE_SIZE = 11;
 
-	private static final int ONE_MILLISECOND = 1;
+	private static final Amount<Duration> ONE_MILLISECOND = Amount.valueOf(1,SI.MILLI(SI.SECOND));
 
 	private static final int DEFAULT_ACCURACY = 8;
 
@@ -66,19 +117,16 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	
 	private Properties properties;
 
-	private int accuracy;
-	private double processingRate;
+	private Amount<ProcessingRate> processingRate;
 	protected CalibrationEntry[] calibrationTable;
 	private String configFileName = null;
+
+	protected DegreeOfAccuracyEnum degreeOfAccuracy;
 	private static Logger logger = Logger.getLogger(AbstractDemandStrategy.class.getName());
 
-	private static String CONFIG_PATH = "/conf/";
+	private static final String CONFIG_PATH = "./conf/";
 
 	// define constants
-	private static final String LOGGER_CONFIG = "CPULogger.properties";
-	private static final String CPU_CONFIG = "CPUConfig.properties";
-	private static final int MILLION = 1000000;
-	private static final double THOUSAND = 1.0E3;
 	private static final int[] CALIBRATION_CYCLES = { 1024, 512, 256, 128, 64, 50, 40, 30, 25, 20, 15, 10 };
 
 	/** Amount of outlier when calculating the mean. elements/OUTLIER_RATE of lowest and highest values are discarded */
@@ -105,18 +153,6 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		this.high = high;
 		this.defaultIterationCount = iterationCount; 
 		this.warmUpCycles = warmups;
-		
-		InputStream fis = getClass().getResourceAsStream(getLoggerConfig());
-		Properties prop = new Properties();
-		if (fis != null) {
-			try {
-				prop.load(fis);
-				org.apache.log4j.PropertyConfigurator.configure(prop);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
 	}
 	
 	/**
@@ -126,9 +162,9 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	public void initializeStrategy(DegreeOfAccuracyEnum degree, double initProcessingRate) {
 		logger.info("Initialising " + getName() + " " + getStrategysResource().name() + "  strategy with accuracy "+degree.name());
 		
-		this.accuracy = getAccuracyValue(degree);
-		this.processingRate = initProcessingRate;
-		this.configFileName = getCalibrationFileName(degree);
+		this.degreeOfAccuracy = degree;
+		this.processingRate = Amount.valueOf(initProcessingRate,ProcessingRate.UNIT);
+		this.configFileName = getCalibrationFileName();
 
 		CalibrationEntry[] loadedCalibration = loadCalibration();
 
@@ -136,57 +172,130 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 			calibrationTable = loadedCalibration;
 
 		} else {
-
 			calibrate();
-			logger.info("Saving calibration to '" + configFileName + "'");
 		}
 		logger.debug(getName() + " " + getStrategysResource().name() + " strategy initialised");
 	}
 
 	/**
-	 * Create a new calibration table for this host
+	 * @see IDemandStrategy#initializeStrategy(DegreeOfAccuracyEnum, double, String)
+	 */
+	@Override
+	public void initializeStrategy(DegreeOfAccuracyEnum degreeOfAccuracy, double processingRate, String calibrationPath) {
+		Properties props = new Properties();
+		props.setProperty(CALIBRATION_PATH_CONFIG_KEY, calibrationPath);
+		setProperties(props);
+		
+		initializeStrategy(degreeOfAccuracy, processingRate);
+	}
+
+	/**
+	 * @see IDemandStrategy#setProperties(Properties)
+	 */
+	@Override
+	public void setProperties(Properties properties) {
+		this.properties = properties;
+	}
+
+	/**
+	 * @see IDemandStrategy#consume(double)
+	 */
+	@Override
+	public void consume(double demand) {
+		if (calibrationTable == null) {
+			logger.fatal("No calibration found - STRATEGY HAS TO BE INITIALIZED FIRST!");
+			throw new RuntimeException("No calibration found - STRATEGY HAS TO BE INITIALIZED FIRST!");
+		}
+	
+		Amount<Work> demandedWork = Amount.valueOf(demand,Work.UNIT);
+		Amount<Duration> millisec = demandedWork.divide(processingRate).to(SI.SECOND);
+		if (logger.isDebugEnabled()) {
+			logger.debug("Consume called, demand is : " + demandedWork + ", " + millisec);
+		}
+		
+		long[] factors = fillTimeFrame(millisec);
+	
+		for (int i = 0; i < factors.length; i++) {
+			long loopCount = factors[i];
+			for (int j = 0; j < loopCount; j++) {
+				run(calibrationTable[i].getParameter());
+			}
+		}
+		logger.debug("Demand consumed");
+	}
+
+	/**
+	 * Template method to return the real hardware resource type simulated by this strategy
+	 * @see de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy#getStrategysResource()
+	 */
+	public abstract ResourceTypeEnum getStrategysResource();
+
+	/**
+	 * Template method to return the name of this strategy
+	 * @see de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy#getName()
+	 */
+	public abstract String getName();
+
+	/** Returns the name of the file used to store the calibration table
+	 * Filename depends on paramters of this class
+	 * @return The calibration table file name
+	 */
+	protected String getCalibrationFileName() {
+		return getCalibrationPath() + getName() + "_"
+				+ DEFAULT_CALIBRATION_TABLE_SIZE + "_" + this.degreeOfAccuracy.name() + ".ser";
+	}
+
+	/**
+	 * Query the calibration path from the properties of this object
+	 * @return The file system path used to load and store the calibration data, or the current workingn directory if it is not set
+	 */
+	protected String getCalibrationPath() {
+		String result = null;
+		
+		// Test whether properties have been set externally
+		if (properties != null) {
+			result = properties.getProperty(CALIBRATION_PATH_CONFIG_KEY);
+			if ((result != null) && (!result.equals(""))) {
+				return result + "/";
+			}
+		}
+		
+		return CONFIG_PATH;
+	}
+
+	/**
+	 * Template method. This starts running the strategy with the parameter load
+	 * @param load Complexity parameter. Algorithm should take longer if parameter is larger,
+	 * i.e., ideally run(a) < run(b) <==> a < b
+	 */
+	protected abstract void run(long load);
+
+	/**
+	 * Create a new calibration table for this host by measuring the execution times of
+	 * our algorithm and creating an according calibration table
 	 */
 	private void calibrate() {
-		
-		this.calibrationTable = new CalibrationEntry[MAX_BIT_POSITION];
+		this.calibrationTable = new CalibrationEntry[DEFAULT_CALIBRATION_TABLE_SIZE];
 		
 		for (int i = 0; i < warmUpCycles; i++) {
 			run(defaultIterationCount);
 		}
 
 		logger.info("The timetable with the corresponding parameters:");
-		for (int i = 0; i < MAX_BIT_POSITION; i++) {
-			int power = 1 << i;
-			long parameter = getRoot(power);
+		for (int i = 0; i < DEFAULT_CALIBRATION_TABLE_SIZE; i++) {
+			Amount<Duration> targetTime = Amount.valueOf(1 << i,SI.MILLI(SI.SECOND));
+			long parameter = getRoot(targetTime);
 			
-			if (i > 2) { 
-				power = (int)recalibrate(parameter, i);
+			if (i > 2) { //TODO: Why 2?
+				//TODO: This is smart, but absolutely not maintainable...
+				targetTime = recalibrate(parameter, i);
 			}
 			
-			calibrationTable[i] = new CalibrationEntry(power, parameter);
-			logger.info(power + " | " + parameter);
+			calibrationTable[i] = new CalibrationEntry(targetTime, parameter);
+			logger.info(calibrationTable[i]);
 		}
 		saveCalibration();
 	}
-
-	protected String getCalibrationFileName(DegreeOfAccuracyEnum degree) {
-		return loadCalibrationPath() + getName() + "_"
-				+ MAX_BIT_POSITION + "_" + degree.name() + ".ser";
-	}
-	
-	/**
-	 * @see IDemandStrategy#initializeStrategy(DegreeOfAccuracyEnum, double, String)
-	 */
-	@Override
-	public void initializeStrategy(DegreeOfAccuracyEnum degreeOfAccuracy,
-			double processingRate, String calibrationPath) {
-		Properties props = new Properties();
-		props.setProperty("CalibrationPath", calibrationPath);
-		setProperties(props);
-		
-		initializeStrategy(degreeOfAccuracy, processingRate);
-	}
-
 
 	/**
 	 * Iteratively approximates the best input value to reach a specified execution time.
@@ -198,13 +307,29 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * @param targetTime	target time in milliseconds
 	 * @return exec_alg^(-1)(targetTime)
 	 */
-	private long getRoot(int targetTime) {
+	private long getRoot(Amount<Duration> targetTime) {
+		final int numberOfRepetitions = 2; // TODO: Why 2? Configurable?
+		return getRoot(targetTime, numberOfRepetitions);
+	}
+	
+	/**
+	 * Iteratively approximates the best input value to reach a specified execution time.
+	 * Let the result of this method be parameter. Then this method determines a parameter, 
+	 * s.t. exec_alg(parameter) = targetTime 
+	 * 
+	 * The accepted tolerance is one millisecond.
+	 * 
+	 * @param targetTime	target time in milliseconds
+	 * @param numberOfRepetitions number of times the algorithm determines the root. This is needed 
+	 * 						as the function is only approximated by running measurements
+	 * @return exec_alg^(-1)(targetTime)
+	 */
+	private long getRoot(Amount<Duration> targetTime, int numberOfRepetitions) {
 		// approximated parameters
-		long[] targetParameter = new long[2];
+		long[] targetParameter = new long[numberOfRepetitions];
 
 		// run a couple of times and calculate mean
-		for (int i = 0; i < targetParameter.length; i++) {
-
+		for (int i = 0; i < numberOfRepetitions; i++) {
 			targetParameter[i] = getRootOnce(targetTime);
 		}
 		return mean(targetParameter);
@@ -216,40 +341,61 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * @param targetTime
 	 * @return root
 	 */
-	private long getRootOnce(int targetTime) {
-		long n_left = 0; 
-		long n_right = initialiseNRight(targetTime);
-		long f_n_left = calcRunTimeFunction(n_left, targetTime);
-		long f_n_right = calcRunTimeFunction(n_right, targetTime);
-
-		if (!hasRoot(f_n_left, f_n_right) || f_n_left > f_n_right) { 
-			logger.error("PROBLEM: y(x0) > 0 && y(x1) > 0 => special algorithm"
+	private long getRootOnce(Amount<Duration> targetTime) {
+		long[] intervalEndpoints = new long[2];
+		Amount<Duration>[] intervalFunctionValues = new Amount[2];
+	    initialiseInterval(targetTime,intervalEndpoints,intervalFunctionValues);
+		if (!hasRoot(intervalFunctionValues[LEFT_ENDPOINT], intervalFunctionValues[RIGHT_ENDPOINT]) || intervalFunctionValues[LEFT_ENDPOINT].isGreaterThan(intervalFunctionValues[RIGHT_ENDPOINT])) { 
+			logger.error("PROBLEM: No root found. Special algorithm"
 							+ " without monotonically increasing load !?!");
-			throw new RuntimeException("PROBLEM: y(x0) > 0 && y(x1) > 0 => special algorithm"
+			logger.error("f_n_left = "+intervalFunctionValues[LEFT_ENDPOINT]);
+			logger.error("f_n_right = " +intervalFunctionValues[RIGHT_ENDPOINT]);
+			throw new RuntimeException("PROBLEM: No root found. Special algorithm"
 					+ " without monotonically increasing load !?!");
 		} 
 		
-		while (Math.abs(n_right - n_left) > ONE_MILLISECOND) {
-			long intervalMedian = (n_left + n_right) / 2;
-			long f_n_median = calcRunTimeFunction(intervalMedian, targetTime);
-			if (hasSameSign(f_n_left, f_n_median)) {
-				n_left = intervalMedian;
+		logger.debug("--- Running bisection method ----");
+		Amount<Duration> epsilon = getEpsilon(targetTime);
+		while (Math.abs(intervalEndpoints[LEFT_ENDPOINT]-intervalEndpoints[RIGHT_ENDPOINT]) > 2 && 
+				intervalFunctionValues[RIGHT_ENDPOINT].minus(intervalFunctionValues[LEFT_ENDPOINT]).abs().isLargerThan(epsilon)) {
+			if (logger.isDebugEnabled()) {
+				logger.debug("["+intervalEndpoints[LEFT_ENDPOINT]+", "+intervalEndpoints[RIGHT_ENDPOINT]+"] --> "+
+						"["+formatDuration(intervalFunctionValues[LEFT_ENDPOINT])+", "+formatDuration(intervalFunctionValues[RIGHT_ENDPOINT])+"]");
+			}
+			long intervalMedian = (intervalEndpoints[LEFT_ENDPOINT] + intervalEndpoints[RIGHT_ENDPOINT]) / 2;
+			Amount<Duration> f_n_median = calcRunTimeFunction(intervalMedian, targetTime);
+			if (hasSameSign(intervalFunctionValues[LEFT_ENDPOINT].getEstimatedValue(), f_n_median.getEstimatedValue())) {
+				intervalEndpoints[LEFT_ENDPOINT] = intervalMedian;
+				intervalFunctionValues[LEFT_ENDPOINT] = f_n_median;
 			} else {
-				n_right = intervalMedian;
+				intervalEndpoints[RIGHT_ENDPOINT] = intervalMedian;
+				intervalFunctionValues[RIGHT_ENDPOINT] = f_n_median;
 			}
 		}
-		return (n_left + n_right) / 2;
+		return (intervalEndpoints[LEFT_ENDPOINT] + intervalEndpoints[RIGHT_ENDPOINT]) / 2;
 	
 	}
 
-	private boolean hasSameSign(long a, long b) {
+	private Amount<Duration> getEpsilon(Amount<Duration> targetTime) {
+		Amount<Duration> result = targetTime.times(0.01d);
+		if (result.to(SI.MILLI(SI.SECOND)).isGreaterThan(ONE_MILLISECOND))
+			return ONE_MILLISECOND;
+		return result;
+	}
+
+	/**
+	 * @param a
+	 * @param b
+	 * @return true if a and b have the same sign
+	 */
+	private boolean hasSameSign(double a, double b) {
 		return a * b > 0;
 	}
 
 	
-	private long recalibrate(long parameter, int index) {
+	private Amount<Duration> recalibrate(long parameter, int index) {
 		int cycles = CALIBRATION_CYCLES[index];
-		return getRunTime(parameter, cycles) / MILLION;
+		return getRunTime(parameter, Amount.valueOf(cycles,SI.MILLI(SI.SECOND)));
 	}
 	
 	/**
@@ -258,18 +404,32 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * @param targetTime
 	 * @return n_right with f(n_right) > 0
 	 */
-	private long initialiseNRight(int targetTime) {
-		long n_right = 0; int z = 0;
+	private void initialiseInterval(Amount<Duration> targetTime, long[] intervalEndpoints, Amount<Duration>[] intervalFunctionValues) {
+		if (logger.isDebugEnabled()){
+			logger.debug("Find inital interval for target time "+formatDuration(targetTime));
+		}
+		long z = 0;
 		do {
-			n_right = defaultIterationCount * (1 << z);
-			z++;
-		} while (calcRunTimeFunction(n_right, targetTime) < MILLION);
-
-		return n_right;
+			intervalEndpoints[LEFT_ENDPOINT] = intervalEndpoints[RIGHT_ENDPOINT];
+			intervalFunctionValues[LEFT_ENDPOINT] = intervalFunctionValues[RIGHT_ENDPOINT];
+			intervalEndpoints[RIGHT_ENDPOINT] = z * defaultIterationCount; 
+			intervalFunctionValues[RIGHT_ENDPOINT] = calcRunTimeFunction(intervalEndpoints[RIGHT_ENDPOINT], targetTime);
+			z = z == 0 ? 1 : z << 1;
+			if (logger.isDebugEnabled()) {
+				logger.debug("["+intervalEndpoints[LEFT_ENDPOINT]+", "+intervalEndpoints[RIGHT_ENDPOINT]+"] --> "+
+						"["+formatDuration(intervalFunctionValues[LEFT_ENDPOINT])+", "+formatDuration(intervalFunctionValues[RIGHT_ENDPOINT])+"]");
+			}
+		} while (intervalFunctionValues[RIGHT_ENDPOINT].isLessThan(Amount.valueOf(0L, SI.SECOND)));
 	}
 
-	private boolean hasRoot(long f_n_left, long f_n_right) {
-		return (!hasSameSign(f_n_left, f_n_right));
+	/**
+	 * Checks whether there is a root (Nullstelle) between the two function values
+	 * @param f_n_left Left interval end point function value
+	 * @param f_n_right Right interval end point function value
+	 * @return true if there is a root between the two function values
+	 */
+	private boolean hasRoot(Amount<Duration> f_n_left, Amount<Duration> f_n_right) {
+		return (!hasSameSign(f_n_left.getEstimatedValue(), f_n_right.getEstimatedValue()));
 	}
 
 
@@ -281,8 +441,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * @param targetTime
 	 * @return
 	 */
-	private long calcRunTimeFunction(long parameter, int targetTime) {
-		return getRunTime(parameter, targetTime) - targetTime * MILLION;
+	private Amount<Duration> calcRunTimeFunction(long parameter, Amount<Duration> targetTime) {
+		return getRunTime(parameter, targetTime).minus(targetTime);
 	}
 
 	/**
@@ -295,8 +455,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * @param targetTime	target time (used to determine approximation accuracy, s.a.)
 	 * @return approximated run time in nanoseconds, i.e., exec_alg(parameter)
 	 */
-	private long getRunTime(long parameter, int targetTime) {
-		int cycles = getCalibrationCycles(accuracy + DEFAULT_ACCURACY, targetTime);
+	private Amount<Duration> getRunTime(long parameter, Amount<Duration> targetTime) {
+		int cycles = getCalibrationCycles(getAccuracyValue(), targetTime);
 
 		long[] approximation = new long[cycles];
 		
@@ -311,7 +471,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		
 		long mean = mean(approximation);
 		logger.debug("Mean time for parameter " + parameter + " is " + mean);
-		return mean;
+		return Amount.valueOf(mean,SI.NANO(SI.SECOND));
 	}
 
 	/**
@@ -345,50 +505,52 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * @param targetTime
 	 * @return
 	 */
-	private int getCalibrationCycles(int exponent, int targetTime) {
-		int threshold = 1 << exponent;
+	private int getCalibrationCycles(int exponent, Amount<Duration> targetTime) {
+		Amount<Duration> threshold = Amount.valueOf(1 << exponent,SI.MILLI(SI.SECOND));
 	
-		assert(((int) Math.pow(2, exponent)) - threshold == 0);
-
-		return Math.max(threshold / targetTime, MIN_CALIBRATION_CYCLES);
+		return Math.max((int)Math.floor(threshold.divide(targetTime).getEstimatedValue()), MIN_CALIBRATION_CYCLES);
 	}
 
 	/**
 	 * Maps an accuracy (LOW, MEDIUM, HIGH) to the values specified during the 
 	 * configuration (in the constructor).
 	 * 
-	 * @param accuracy	LOW, MEDIUM or HIGH
 	 * @return			accuracy modifier
 	 */
-	private int getAccuracyValue(DegreeOfAccuracyEnum accuracy) {
-		switch(accuracy) {
+	private int getAccuracyValue() {
+		int result = DEFAULT_ACCURACY;
+		
+		switch(this.degreeOfAccuracy) {
 		case HIGH:
-			return high;
+			result += high;
+			break;
 		case MEDIUM:
-			return medium;
+			result += medium;
+			break;
 		case LOW:
-			return low;
+			result += low;
+			break;
+		default:
+			throw new IllegalArgumentException("Unsupported degree of accuracy");
 		}
-		throw new IllegalArgumentException("Unsupported degree of accuracy");
+		return result;
 	}
 
 	/**
-	 * Saves calibration to config file 
-	 * 
-	 * @param calibrationData
+	 * Saves calibration to config file. Config file uses a Java object stream to serialise the 
+	 * callibration table. 
 	 */
 	private void saveCalibration() {
+		logger.info("Saving calibration to '" + configFileName + "'");
 		OutputStream fos = null;
-
 		try {
 			fos = new FileOutputStream(configFileName);
 			
 			ObjectOutputStream o = new ObjectOutputStream(fos);
 			o.writeObject(calibrationTable);
-			
+
 		} catch (IOException e) {
 			logger.error("Error while writing calibration data", e);
-			
 		} finally {
 			try {
 				fos.close();
@@ -399,7 +561,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
 	/**
 	 * Loads calibration from config file
-	 * @return
+	 * @return The loaded calibration file or null if the file could not be loaded
 	 */
 	private CalibrationEntry[] loadCalibration() {
 		File configFile = new File(configFileName);
@@ -420,6 +582,9 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 			} catch (ClassNotFoundException e) {
 				logger.error("Error while reading " + configFileName, e);
 
+			} catch (Exception e) {
+				logger.error("Error while reading " + configFileName, e);
+
 			} finally {
 				try {
 					fis.close();
@@ -435,58 +600,29 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	}
 	
 	/**
-	 * @see IDemandStrategy#setProperties(Properties)
+	 * Computes a vector of (scaling) factors for each entry in the 
+	 * calibration table. These factors give the number of repetitions 
+	 * of each of the calibration entries to reach a given target time.  
+	 * Use greedy strategy to fill time frame with smaller run times
+	 * 
+	 * @param millisec The target time to factorise
+	 * @return An array of scaling factors for the calibration table entries
 	 */
-	@Override
-	public void setProperties(Properties properties) {
-		this.properties = properties;
-	}
+	private long[] fillTimeFrame(Amount<Duration> millisec) {
+		long[] result = new long[DEFAULT_CALIBRATION_TABLE_SIZE];
+		Amount<Duration> sum = millisec;
 
-	/**
-	 * Loads configFileName from CPU_CONFIG_PATH
-	 * @return
-	 */
-	protected String loadCalibrationPath() {
-		String result = null;
-		
-		// Test whether properties have been set externally
-		if (properties != null) {
-			result = properties.getProperty("CalibrationPath");
-			if ((result != null) && (!result.equals(""))) {
-				return result + "/";
+		for (int i = DEFAULT_CALIBRATION_TABLE_SIZE - 1; i >= 0; i--) {
+			result[i] = (long) Math.floor(((Amount<Dimensionless>) (sum.divide(calibrationTable[i].getTargetTime())).to(Unit.ONE)).getEstimatedValue());
+			if (result[i] >= 1) {
+				sum = sum.minus(calibrationTable[i].getTargetTime().times(result[i]));
+			}
+			if (logger.isTraceEnabled()) {
+				logger.trace(formatDuration(calibrationTable[i].getTargetTime()) + " | "
+						    + calibrationTable[i].getParameter() + " | " + result[i] + "|" + formatDuration(sum));
 			}
 		}
-
-
-		try {
-			Properties p1 = new Properties();
-			InputStream fis = getClass().getResourceAsStream(getCpuConfig());
-			//FileInputStream fis = new FileInputStream(new File(getCpuConfig()));
-			p1.load(fis);
-			result = p1.getProperty("CalibrationPath");
-		} catch (IOException e) {
-			System.err.println(e);
-		}
-		return result + "/";
-	}
-
-	/**
-	 * @see IDemandStrategy#consume(double)
-	 */
-	@Override
-	public void consume(double demand) {
-		long millisec = (long) (demand / processingRate * THOUSAND);
-		logger.debug("Consume called, demand is : " + demand + ", " + millisec + "ms");
-		
-		long[] factor = fillTimeFrame(millisec);
-
-		for (int i = 0; i < factor.length; i++) {
-			long l = factor[i];
-			for (int j = 0; j < l; j++) {
-				run(calibrationTable[i].getParameter());
-			}
-		}
-		logger.debug("Demand consumed");
+		return result;
 	}
 
 	/**
@@ -495,71 +631,38 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 */
 	@Deprecated
 	public void watchConsume(double demand) {
-		long millisec = (long) (demand / processingRate * THOUSAND);
-
-		logger.info("The timetable with the specific factors:");
-		long[] factor = fillTimeFrame(millisec);
-
-		logger.info("Request issued to consume " + demand + " abstract units");
-		logger.info("Expected duration is " + millisec + "ms");
-		long theTime = System.nanoTime();
-		for (int h = 0; h < 10; h++) {
-			for (int i = 0; i < factor.length; i++) {
-				long l = factor[i];
-				for (int j = 0; j < l; j++) {
-					run(calibrationTable[i].getParameter());
-				}
-			}
-		}
-		theTime = (System.nanoTime() - theTime) / 10 / MILLION;
-		logger.info("Demand of "+millisec+"ms consumed at an average value of " + theTime
-				+ "ms. Abs. difference is "+Math.abs(millisec-theTime)+"ms");
-	}
-
-	/**
-	 * Use greedy strategy to fill time frame with smaller run times
-	 * 
-	 * @param millisec
-	 * @return
-	 */
-	private long[] fillTimeFrame(long millisec) {
-		// checks whether strategy has already been initialized
+		final int repetitionCount = 10;
 		if (calibrationTable == null) {
 			logger.fatal("No calibration found - STRATEGY HAS TO BE INITIALIZED FIRST!");
-			System.exit(-1);
-			return null;
-			
-		} else {
-			long[] result = new long[MAX_BIT_POSITION];
-			long sum = millisec;
-
-			for (int i = MAX_BIT_POSITION; i > 0; i--) {
-				result[i - 1] = (long) (sum / calibrationTable[i - 1].getBitPosition());
-				if (result[i - 1] >= 1) {
-					sum = sum - calibrationTable[i - 1].getBitPosition() * result[i - 1];
-				}
-				logger.trace(calibrationTable[i - 1].getBitPosition() + " | "
-						+ calibrationTable[i - 1].getParameter() + " | " + result[i - 1]);
-			}
-			return result;
+			throw new RuntimeException("No calibration found - STRATEGY HAS TO BE INITIALIZED FIRST!");
 		}
+
+		Amount<Work> demandedWork = Amount.valueOf(demand,Work.UNIT);
+		Amount<Duration> expectedTime = demandedWork.divide(processingRate).to(SI.SECOND);
+		logger.info("Request issued to consume " + demandedWork);
+		logger.info("Expected duration is " + formatDuration(expectedTime));
+		long theTime = System.nanoTime();
+	
+		for (int h = 0; h < repetitionCount; h++) {
+			consume(demand);
+		}
+		Amount<Duration> measuredTime = Amount.valueOf((System.nanoTime() - theTime) / repetitionCount,SI.NANO(SI.SECOND));
+		logger.info("Demand of "+formatDuration(expectedTime)+" consumed at an average value of " + formatDuration(measuredTime)
+				+ ". Abs. difference is "+formatDuration(measuredTime.minus(expectedTime).abs()));
 	}
-
-	private String getLoggerConfig() {
-		return CONFIG_PATH + LOGGER_CONFIG;
+	
+	@SuppressWarnings("unchecked")
+	public static String formatDuration(Amount<Duration> t) {
+		if (t == null)
+			return "null";
+		
+		Unit<Duration>[] units = new Unit[] {SI.NANO(SI.SECOND), SI.MICRO(SI.SECOND), SI.MILLI(SI.SECOND), SI.SECOND, NonSI.MINUTE, NonSI.HOUR};
+		for (Unit<Duration> u : units) {
+			double value = t.to(u).getEstimatedValue();
+			if (Math.abs(value) < 1000) {
+				return value + " " + u;
+			}
+		}
+		return t.toText().toString();
 	}
-
-	private String getCpuConfig() {
-		return CONFIG_PATH + CPU_CONFIG;
-	}
-
-	public static void setConfigPath(String path) {
-		CONFIG_PATH = new File(path).getAbsolutePath();
-	}
-
-	protected abstract void run(long load);
-
-	public abstract ResourceTypeEnum getStrategysResource();
-
-	public abstract String getName();
 }
