@@ -72,19 +72,40 @@ public class MarkovReporting {
 		failureProbabilityAggregations = new ArrayList<FailureProbabilityAggregation>();
 
 		// calculate accumulated component as well as external service failure
-		// probabilities...
+		// probabilities
 		calculateComponentsInternalActionFailureProbabilities();
 		calculateComponentsServiceFailureProbabilities();
 		calculateComponentsServiceOperationFailureProbabilities();
 		calculateExternalServiceFailureProbabilities();
 		calculateExternalServiceOperationFailureProbabilities();
+	}
 
-		// ...and print those accumulated failure probabilities
+	/**
+	 * Prints the accumulated failure probabilities.
+	 */
+	public void print() {
 		printComponentsInternalActionFailureProbabilities();
 		printComponentsServiceFailureProbabilities();
 		printComponentsServiceOperationFailureProbabilities();
 		printExternalServiceFailureProbabilities();
 		printExternalServiceOperationFailureProbabilities();
+	}
+
+	/**
+	 * Gets the accumulated failure probabilities as textual representation, i.e.,
+	 * as list of strings.
+	 * @return a list of strings containing the accumulated failure probabilities
+	 */
+	public List<String> getTextualResults() {
+		List<String> resultList = new ArrayList<String>();
+
+		resultList.addAll(getComponentsInternalActionFailureProbabilitiesAsStringList());
+		resultList.addAll(getComponentsServiceFailureProbabilitiesAsStringList());
+		resultList.addAll(getComponentsServiceOperationFailureProbabilitiesAsStringList());
+		resultList.addAll(getExternalServiceFailureProbabilitiesAsStringList());
+		resultList.addAll(getExternalServiceOperationFailureProbabilitiesAsStringList());
+
+		return resultList;
 	}
 
 	/**
@@ -467,5 +488,165 @@ public class MarkovReporting {
 		if (!hasEntries) {
 			logger.info(" (none)");
 		}
+	}
+
+	/**
+	 * Gets all components' internal action failure probabilities as list of strings.
+	 * @return the components' internal action failure probabilities as list of strings
+	 */
+	public List<String> getComponentsInternalActionFailureProbabilitiesAsStringList() {
+		boolean hasEntries = false;
+		List<String> resultList = new ArrayList<String>();
+
+		resultList.add("Component failure probabilities:");
+		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+			if (aggregation.getType() == FailureAggregationType.COMPONENTS_INTERNAL_ACTIONS) {
+				if (doApproximate) {
+					MarkovResultApproximation approximation = new MarkovResultApproximation(
+							aggregation.getFailureProbability(),
+							aggregation.getFailureProbability() + 1 - cumulatedPhysicalStateProbability);
+					resultList.add(String.format("- %1$-3s %2$." + (approximation.getAccuracy() + 1) + "f - %3$."
+							+ (approximation.getAccuracy() + 1) + "f", aggregation.getEntityName() + ":",
+							approximation.getAdjustedLowerBound(), approximation.getAdjustedUpperBound()));
+				} else {
+					resultList.add(String.format("- %1$-3s %2$.11f", aggregation.getEntityName() + ":",
+							aggregation.getFailureProbability()));
+				}
+				hasEntries = true;
+			}
+		}
+		if (!hasEntries) {
+			resultList.add(" (none)");
+		}
+
+		return resultList;
+	}
+
+	/**
+	 * Gets all components' service (interface) failure probabilities as list of strings.
+	 * @return the components' service (interface) failure probabilities as list of strings
+	 */
+	public List<String> getComponentsServiceFailureProbabilitiesAsStringList() {
+		boolean hasEntries = false;
+		List<String> resultList = new ArrayList<String>();
+
+		resultList.add("Component service failure probabilities:");
+		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+			if (aggregation.getType() == FailureAggregationType.COMPONENTS_SERVICES) {
+				if (doApproximate) {
+					MarkovResultApproximation approximation = new MarkovResultApproximation(
+							aggregation.getFailureProbability(),
+							aggregation.getFailureProbability() + 1 - cumulatedPhysicalStateProbability);
+					resultList.add(String.format("- %1$-3s %2$." + approximation.getAccuracy() + 1 + "f - %3$."
+							+ approximation.getAccuracy() + 1 + "f", aggregation.getEntityName() + ":",
+							approximation.getAdjustedLowerBound(), approximation.getAdjustedUpperBound()));
+				} else {
+					resultList.add(String.format("- %1$-3s %2$.11f", aggregation.getEntityName() + ":",
+							aggregation.getFailureProbability()));
+				}
+				hasEntries = true;
+			}
+		}
+		if (!hasEntries) {
+			resultList.add(" (none)");
+		}
+
+		return resultList;
+	}
+
+	/**
+	 * Gets all components' service operation (signature) failure probabilities as list of strings.
+	 * @return the components' service operation (signature) failure probabilities as list of strings
+	 */
+	public List<String> getComponentsServiceOperationFailureProbabilitiesAsStringList() {
+		boolean hasEntries = false;
+		List<String> resultList = new ArrayList<String>();
+
+		resultList.add("Component operation failure probabilities:");
+		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+			if (aggregation.getType() == FailureAggregationType.COMPONENTS_SERVICE_OPERATIONS) {
+				if (doApproximate) {
+					MarkovResultApproximation approximation = new MarkovResultApproximation(
+							aggregation.getFailureProbability(),
+							aggregation.getFailureProbability() + 1 - cumulatedPhysicalStateProbability);
+					resultList.add(String.format("- %1$-3s %2$." + approximation.getAccuracy() + 1 + "f - %3$."
+							+ approximation.getAccuracy() + 1 + "f", aggregation.getEntityName() + ":",
+							approximation.getAdjustedLowerBound(), approximation.getAdjustedUpperBound()));
+				} else {
+					resultList.add(String.format("- %1$-3s %2$.11f", aggregation.getEntityName() + ":",
+							aggregation.getFailureProbability()));
+				}
+				hasEntries = true;
+			}
+		}
+		if (!hasEntries) {
+			resultList.add(" (none)");
+		}
+
+		return resultList;
+	}
+
+	/**
+	 * Gets all external service (role and interface) failure probabilities as list of strings.
+	 * @return the external service (role and interface) failure probabilities as list of strings
+	 */
+	public List<String> getExternalServiceFailureProbabilitiesAsStringList() {
+		boolean hasEntries = false;
+		List<String> resultList = new ArrayList<String>();
+
+		resultList.add("External service failure probabilities:");
+		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+			if (aggregation.getType() == FailureAggregationType.EXTERNAL_SERVICES) {
+				if (doApproximate) {
+					MarkovResultApproximation approximation = new MarkovResultApproximation(
+							aggregation.getFailureProbability(),
+							aggregation.getFailureProbability() + 1 - cumulatedPhysicalStateProbability);
+					resultList.add(String.format("- %1$-3s %2$." + approximation.getAccuracy() + 1 + "f - %3$."
+							+ approximation.getAccuracy() + 1 + "f", aggregation.getEntityName() + ":",
+							approximation.getAdjustedLowerBound(), approximation.getAdjustedUpperBound()));
+				} else {
+					resultList.add(String.format("- %1$-3s %2$.11f", aggregation.getEntityName() + ":",
+							aggregation.getFailureProbability()));
+				}
+				hasEntries = true;
+			}
+		}
+		if (!hasEntries) {
+			resultList.add(" (none)");
+		}
+
+		return resultList;
+	}
+
+	/**
+	 * Gets all external service operation (signature) failure probabilities as list of strings.
+	 * @return the external service operation (signature) failure probabilities as list of strings
+	 */
+	public List<String> getExternalServiceOperationFailureProbabilitiesAsStringList() {
+		boolean hasEntries = false;
+		List<String> resultList = new ArrayList<String>();
+
+		resultList.add("External service failure probabilities:");
+		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+			if (aggregation.getType() == FailureAggregationType.EXTERNAL_SERVICE_OPERATIONS) {
+				if (doApproximate) {
+					MarkovResultApproximation approximation = new MarkovResultApproximation(
+							aggregation.getFailureProbability(),
+							aggregation.getFailureProbability() + 1 - cumulatedPhysicalStateProbability);
+					resultList.add(String.format("- %1$-3s %2$." + approximation.getAccuracy() + 1 + "f - %3$."
+							+ approximation.getAccuracy() + 1 + "f", aggregation.getEntityName() + ":",
+							approximation.getAdjustedLowerBound(), approximation.getAdjustedUpperBound()));
+				} else {
+					resultList.add(String.format("- %1$-3s %2$.11f", aggregation.getEntityName() + ":",
+							aggregation.getFailureProbability()));
+				}
+				hasEntries = true;
+			}
+		}
+		if (!hasEntries) {
+			resultList.add(" (none)");
+		}
+
+		return resultList;
 	}
 }

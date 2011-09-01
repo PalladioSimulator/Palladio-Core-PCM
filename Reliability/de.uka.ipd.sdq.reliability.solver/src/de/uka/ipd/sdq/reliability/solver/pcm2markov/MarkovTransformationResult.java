@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -374,7 +375,7 @@ public class MarkovTransformationResult {
 		if (MarkovEvaluationType.valueOf(configuration
 				.getMarkovEvaluationMode()) == MarkovEvaluationType.POINTSOFFAILURE) {
 			new MarkovReporting(cumulatedFailureTypeProbabilities,
-					cumulatedPhysicalStateProbability, doApproximate); // detailed
+					cumulatedPhysicalStateProbability, doApproximate).print(); // detailed
 			// failure
 			// probabilities
 			// report
@@ -470,5 +471,68 @@ public class MarkovTransformationResult {
 
 		// Return the result:
 		return resultString.toString();
+	}
+
+	/**
+	 * Returns the results of the Markov transformation as string list.
+	 * @return results of the Markov transformation as string list
+	 */
+	public List<String> getTextualResults(final boolean approximate) {
+		List<String> resultsList = new ArrayList<String>();
+
+		resultsList.add("Reliability results for UsageScenario \""
+				+ scenario.getEntityName() + "\" <" + scenario.getId() + ">:");
+
+		// Only approximate if there are really physical system states left that
+		// have not been evaluated:
+		boolean doApproximate = (configuration
+				.isIterationOverPhysicalSystemStatesEnabled())
+				&& approximate
+				&& (physicalStateEvaluationCount < Math.pow(markovSource
+						.getUnreliableResourceDescriptors().size(), 2));
+
+		// Add success probability:
+		if (doApproximate) {
+			MarkovResultApproximation approximation =
+				new MarkovResultApproximation(cumulatedSuccessProbability,
+					cumulatedSuccessProbability + (1.0 - cumulatedPhysicalStateProbability));
+			int places = approximation.getAccuracy() + 1;
+			resultsList.add(String.format("%1$-3s %2$." + places + "f - %3$."
+					+ places + "f", "Success probability:", approximation.getAdjustedLowerBound(),
+					approximation.getAdjustedUpperBound()));
+		} else {
+			resultsList.add(String.format("%1$-3s %2$.11f", "Success probability:",
+					cumulatedSuccessProbability));
+		}
+
+		// Add all failure probabilities:
+		for (MarkovFailureType failureType : getFailureTypesSorted()) {
+			double failureTypeProbability = getFailureTypeProbability(failureType);
+			if (doApproximate) {
+				MarkovResultApproximation approximation = new MarkovResultApproximation(
+						failureTypeProbability,
+						failureTypeProbability + (1.0 - cumulatedPhysicalStateProbability));
+				int places = approximation.getAccuracy() + 1;
+				resultsList.add(String.format("%1$-3s %2$." + places + "f - %3$."
+						+ places + "f", failureType.getName() + ":", failureTypeProbability,
+						failureTypeProbability + (1.0 - cumulatedPhysicalStateProbability)));
+			} else {
+				resultsList.add(String.format("%1$-3s %2$.11f", failureType.getName() + ":",
+						failureTypeProbability));
+			}
+		}
+
+		/*
+		 * If (and only if) the Markov evaluation type is set to
+		 * "POINTSOFFAILURE", we will add detailed information regarding
+		 * failure probabilities of components and external services.
+		 */
+		if (MarkovEvaluationType.valueOf(configuration
+				.getMarkovEvaluationMode()) == MarkovEvaluationType.POINTSOFFAILURE) {
+			resultsList.addAll(new MarkovReporting(cumulatedFailureTypeProbabilities,
+					cumulatedPhysicalStateProbability, doApproximate).getTextualResults());
+		}
+
+		return resultsList;
 	}
 }

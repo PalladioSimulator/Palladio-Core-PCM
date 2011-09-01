@@ -3,6 +3,11 @@ package de.uka.ipd.sdq.reliability.solver.pcm2markov;
 import java.util.Arrays;
 import java.util.List;
 
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
 import de.uka.ipd.sdq.pcmsolver.transformations.EMFHelper;
@@ -117,6 +122,28 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 				configuration, markovSensitivity);
 		if (configuration.isMarkovModelStorageEnabled()) {
 			storeTransformedModel(configuration.getMarkovModelFile());
+		}
+		showResults();
+	}
+
+	/**
+	 * Shows the Markov transformation results in the workbench editor of the target instance.
+	 */
+	private void showResults() {
+		if (markovResults != null) {
+			Display.getDefault().asyncExec(new Runnable() {
+				public void run() {
+					IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+					if(page != null) {
+						try {
+							page.openEditor(new MarkovResultEditorInput(markovResults),
+									"de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovResultEditor");
+						} catch (PartInitException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			});
 		}
 	}
 

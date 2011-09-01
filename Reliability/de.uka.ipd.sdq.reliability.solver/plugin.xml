@@ -46,4 +46,13 @@
        </action>
     </objectContribution>
  </extension>
+   <extension point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovResultEditor"
+               extensions="markovresult"
+               icon="icons/relsolver.ico"
+               id="de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovResultEditor"
+               name="Markov Result Editor">
+         </editor>
+   </extension>
 </plugin>
