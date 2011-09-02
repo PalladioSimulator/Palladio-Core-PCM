@@ -124,6 +124,32 @@ public class MarkovTransformationResult {
 	}
 
 	/**
+	 * Gets the overall failure type probabilities, accumulated over all considered
+	 * physical system states.
+	 * @return the overall failure type probabilities
+	 */
+	public Map<MarkovFailureType, Double> getCumulatedFailureTypeProbabilities() {
+		return cumulatedFailureTypeProbabilities;
+	}
+
+	/**
+	 * Gets the overall physical state probability, accumulated over all considered
+	 * physical system states.
+	 * @return the overall physical state probability
+	 */
+	public double getCumulatedPhysicalStateProbability() {
+		return cumulatedPhysicalStateProbability;
+	}
+
+	/**
+	 * Gets the usage scenario which has been evaluated
+	 * @return the usage scenario
+	 */
+	public UsageScenario getScenario() {
+		return scenario;
+	}
+
+	/**
 	 * Adds the results of the evaluation of a single physical system state
 	 * during the PCM2Markov transformation.
 	 * 
@@ -328,6 +354,7 @@ public class MarkovTransformationResult {
 	 *            indicates if an approximation scheme shall be used for
 	 *            printing of probabilities.
 	 */
+	@Deprecated
 	public void print(final boolean approximate) {
 
 		// Start result printing:
@@ -477,6 +504,7 @@ public class MarkovTransformationResult {
 	 * Returns the results of the Markov transformation as string list.
 	 * @return results of the Markov transformation as string list
 	 */
+	@Deprecated
 	public List<String> getTextualResults(final boolean approximate) {
 		List<String> resultsList = new ArrayList<String>();
 
