@@ -96,11 +96,11 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 	private static long calculateDefaultNumberOfFiles()
 	{
 		long ramSize = SystemResourcesUtil.getTotalPhysicalMemorySize();
-		long number = (ramSize/DEFAULT_NUMBER_OF_FILES);
+		long number = (ramSize/DEFAULT_MAX_FILE_SIZE);
 		// increase number by 10% to assure RAM size < Sum of file sizes
-		number = (long)(number*1.1);
+		number = (long)(number*1.1f);
 		
-		long neededSize = number*DEFAULT_NUMBER_OF_FILES;
+		long neededSize = number*DEFAULT_MAX_FILE_SIZE;
 		long tmpSize = SystemResourcesUtil.getFreeTempDirectorySize();
 		if(neededSize > tmpSize)
 		{
