@@ -224,6 +224,7 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 		{
 			logger.error("The required storage space for calibration exceeds the free space in " 
 					+ SystemResourcesUtil.TEMP_DIR.getAbsolutePath());
+			System.exit(-1);
 		}
 		
 		File childFile;
