@@ -159,6 +159,8 @@
   
    public class «this.className()» extends java.rmi.server.UnicastRemoteObject implements «this.fqnInterface()», java.io.Serializable  
    {
+   		private static final long serialVersionUID = 1L;
+   
 		private static org.apache.log4j.Logger logger = 
 			org.apache.log4j.Logger.getLogger(«this.className()».class.getName());
 	  «EXPAND Constructor FOR this»		

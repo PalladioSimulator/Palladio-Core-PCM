@@ -24,7 +24,7 @@
 		de.uka.ipd.sdq.prototype.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
 	    	.getStrategyFor(de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum.HDD).consume(demand);
 	«ELSEIF this.requiredResource_ParametricResourceDemand.entityName.toLowerCase().matches("delay")»
-		de.uka.ipd.sdq.prototype.framework.AbstractResourceEnvironmentFactory.performDelay(demand);
+		de.uka.ipd.sdq.prototype.framework.AbstractResourceEnvironment.performDelay(demand);
 	«ELSE»
 		throw new java.lang.UnsupportedOperationException("Resourcetype not yet supported in prototype");
 	«ENDIF»
@@ -56,13 +56,13 @@
 «DEFINE ResourceEnvironmentRoot FOR resourceenvironment::ResourceEnvironment»
 	«FILE "ResourceEnvironmentFactory.java"»
 
-		public class ResourceEnvironmentFactory extends de.uka.ipd.sdq.prototype.framework.AbstractResourceEnvironmentFactory {
+		public class ResourceEnvironmentFactory extends de.uka.ipd.sdq.prototype.framework.AbstractResourceEnvironment {
 		
 			/* All resources are located on this machine, regardless of their resource container
 			 * in the model */
 			 
 			public static void setUpResources(String cpuStrategy, String hddStrategy, String calibrationPath, de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum accuracy){
-				String idContainer = de.uka.ipd.sdq.prototype.framework.AbstractAllocationFactory.getActiveContainer();
+				String idContainer = de.uka.ipd.sdq.prototype.framework.AbstractAllocationStorage.getActiveContainer();
 		   		«EXPAND ResourceContainerInit FOREACH this.resourceContainer_ResourceEnvironment SEPARATOR " "»
 			}
 		}

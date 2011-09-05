@@ -4,9 +4,9 @@
 
 
 «DEFINE AllocationRoot FOR allocation::Allocation»
-	«FILE "AllocationFactory.java"»
+	«FILE "AllocationStorage.java"»
 	
-		public class AllocationFactory extends de.uka.ipd.sdq.prototype.framework.AbstractAllocationFactory
+		public class AllocationStorage extends de.uka.ipd.sdq.prototype.framework.AbstractAllocationStorage
 		{
 	
 			public void initContainerTemplate()

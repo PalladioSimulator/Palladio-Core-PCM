@@ -55,8 +55,8 @@
 			}
 			
 			@Override
-			protected void initAllocationFactory() {
-				AllocationFactory.initSingleton(new AllocationFactory());
+			protected void initAllocationStorage() {
+				AllocationStorage.initSingleton(new AllocationStorage());
 			}
 			
 			/**
