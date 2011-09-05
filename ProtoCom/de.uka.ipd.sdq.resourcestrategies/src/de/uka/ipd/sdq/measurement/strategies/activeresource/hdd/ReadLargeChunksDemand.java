@@ -186,7 +186,7 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 				writeTestFiles();
 				logger.info("Wrote files to be read.");
 			} catch (IOException e) {
-				logger.error("Failed creating files for HDD strategy",e);
+				logger.error("Failed creating files for HDD strategy. Maybe missing permission?", e);
 				System.exit(-1);
 			}
 		} else if (fileDirectory.isDirectory()) {

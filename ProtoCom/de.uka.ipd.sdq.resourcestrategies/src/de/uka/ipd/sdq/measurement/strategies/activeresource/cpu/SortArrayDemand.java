@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 import de.uka.ipd.sdq.measurement.strategies.activeresource.AbstractDemandStrategy;
-import de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum;
+import de.uka.ipd.sdq.measurement.strategies.activeresource.CalibrationTable;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum;
 
 public class SortArrayDemand extends AbstractDemandStrategy {
@@ -72,7 +72,7 @@ public class SortArrayDemand extends AbstractDemandStrategy {
 	@Override
 	protected String getCalibrationFileName() {
 		return getCalibrationPath() + getName() + "_"
-				+ DEFAULT_CALIBRATION_TABLE_SIZE + "_" + ARRAY_SIZE + "_" + this.degreeOfAccuracy.name() + ".ser";
+				+ CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE + "_" + ARRAY_SIZE + "_" + this.degreeOfAccuracy.name() + ".ser";
 	}
 	
 	@Override

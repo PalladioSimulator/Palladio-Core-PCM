@@ -39,6 +39,11 @@ import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
  */
 public abstract class AbstractMain {
 
+	/** 
+	 * Suffix for ProtoCom sensors, as seen in the diagrams 
+	 */
+	private static final String PROTOCOM_SENSOR_SUFFIX = " (ProtoCom)";
+
 	/**
 	 * Root logger of the whole application. Changing its configuration impacts all log output.
 	 */
@@ -98,7 +103,6 @@ public abstract class AbstractMain {
 			}
 			else 
 			{
-				// invoke method
 				invokeMethod(mainMethod, new String[]{});
 			}
 		} else {
@@ -491,7 +495,9 @@ public abstract class AbstractMain {
 		return accuracy;
 	}
 	
-	/** Initialise threads and perform warmup, if requested. */
+	/** 
+	 * Initialise threads and perform warmup, if requested. 
+	 */
 	protected abstract void initialiseThreads(Experiment exp, ExperimentRun expRun);
 
 	public static ExperimentRun getLatestExperimentRun() {
@@ -527,15 +533,22 @@ public abstract class AbstractMain {
 
 		Collection<Sensor> existingSesors = AbstractMain.exp.getSensors();
 		for (Sensor sensor : existingSesors) {
-			if (sensor instanceof TimeSpanSensor && sensor.getSensorName().equals(sensorName)) {
+			if (sensor instanceof TimeSpanSensor && sensor.getSensorName().equals(sensorName + PROTOCOM_SENSOR_SUFFIX)) {
 				return (TimeSpanSensor) sensor;
 			}
 		}
 
-		TimeSpanSensor tss = AbstractMain.exp.addTimeSpanSensor(sensorName);
+		TimeSpanSensor tss = AbstractMain.exp.addTimeSpanSensor(sensorName + PROTOCOM_SENSOR_SUFFIX);
 		return tss;
 	}
 
+	/**
+	 * Takes a measurement (from start time till current time) on the given sensor
+	 * 
+	 * @param start						start time
+	 * @param experimentRun				
+	 * @param overallTimeSpanSensor		sensor
+	 */
 	protected void takeMeasurement(long start, ExperimentRun experimentRun, TimeSpanSensor overallTimeSpanSensor) {
 
 		long now = System.nanoTime();

@@ -1,14 +1,6 @@
 package de.uka.ipd.sdq.measurement.strategies.activeresource;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -23,49 +15,6 @@ import javax.measure.unit.Unit;
 
 import org.apache.log4j.Logger;
 import org.jscience.physics.amount.Amount;
-
-/**
- * Struct to represent a single entry in the calibration table of 
- * the load generators. It is a tuple <TargetTime, Parameter>
- * @author Steffen Becker, Thomas Zolynski
- *
- */
-class CalibrationEntry implements Serializable {
-	private static final long serialVersionUID = -1969713798721640687L;
-	
-	final private Amount<Duration> targetTime;
-	final private long parameter;
-	
-	/**
-	 * Constructor
-	 * @param targetTime The time (in ms) which the workload generator should run and generate load for the given parameter
-	 * @param parameter The load generator's parameter for which the algorithm runs targetTime milliseconds
-	 */
-	public CalibrationEntry(Amount<Duration> targetTime, long parameter) {
-		super();
-		this.targetTime = targetTime;
-		this.parameter = parameter;
-	}
-	
-	/**
-	 * @return Target time in ms
-	 */
-	public Amount<Duration> getTargetTime() {
-		return targetTime;
-	}
-	
-	/**
-	 * @return Algorithm's parameter for which the algorithm runs target time milliseconds
-	 */
-	public long getParameter() {
-		return parameter;
-	}
-	
-	public String toString() {
-		return AbstractDemandStrategy.formatDuration(targetTime) + "\t | \t" + parameter;
-	}
-}
-
 
 /**
  * Abstract superclass of all active demand strategies.
@@ -96,11 +45,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
 	private static final int MIN_CALIBRATION_CYCLES = 5;
 
-	/**
-	 * Default number of tuples <targetTime, parameter> to store in the calibration table
-	 */
-	protected static final int DEFAULT_CALIBRATION_TABLE_SIZE = 11;
-
+	private CalibrationTable calibrationTable; 
+	
 	private static final Amount<Duration> ONE_MILLISECOND = Amount.valueOf(1,SI.MILLI(SI.SECOND));
 
 	private static final int DEFAULT_ACCURACY = 8;
@@ -116,8 +62,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	private Properties properties;
 
 	private Amount<ProcessingRate> processingRate;
-	protected CalibrationEntry[] calibrationTable;
-	private String configFileName = null;
+
+	private File configFile = null;
 
 	protected DegreeOfAccuracyEnum degreeOfAccuracy;
 	private static Logger logger = Logger.getLogger(AbstractDemandStrategy.class.getName());
@@ -162,9 +108,9 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		
 		this.degreeOfAccuracy = degree;
 		this.processingRate = Amount.valueOf(initProcessingRate,ProcessingRate.UNIT);
-		this.configFileName = getCalibrationFileName();
+		this.configFile = new File(getCalibrationFileName());
 
-		CalibrationEntry[] loadedCalibration = loadCalibration();
+		CalibrationTable loadedCalibration = CalibrationTable.load(configFile);
 
 		if (loadedCalibration != null) {
 			calibrationTable = loadedCalibration;
@@ -216,7 +162,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		for (int i = 0; i < factors.length; i++) {
 			long loopCount = factors[i];
 			for (int j = 0; j < loopCount; j++) {
-				run(calibrationTable[i].getParameter());
+				run(calibrationTable.getEntry(i).getParameter());
 			}
 		}
 		logger.debug("Demand consumed");
@@ -240,12 +186,12 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 */
 	protected String getCalibrationFileName() {
 		return getCalibrationPath() + getName() + "_"
-				+ DEFAULT_CALIBRATION_TABLE_SIZE + "_" + this.degreeOfAccuracy.name() + ".ser";
+				+ CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE + "_" + this.degreeOfAccuracy.name() + ".ser";
 	}
 
 	/**
 	 * Query the calibration path from the properties of this object
-	 * @return The file system path used to load and store the calibration data, or the current workingn directory if it is not set
+	 * @return The file system path used to load and store the calibration data, or the current working directory if it is not set
 	 */
 	protected String getCalibrationPath() {
 		String result = null;
@@ -273,14 +219,14 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * our algorithm and creating an according calibration table
 	 */
 	private void calibrate() {
-		this.calibrationTable = new CalibrationEntry[DEFAULT_CALIBRATION_TABLE_SIZE];
+		this.calibrationTable = new CalibrationTable();
 		
 		for (int i = 0; i < warmUpCycles; i++) {
 			run(defaultIterationCount);
 		}
 
 		logger.info("The timetable with the corresponding parameters:");
-		for (int i = 0; i < DEFAULT_CALIBRATION_TABLE_SIZE; i++) {
+		for (int i = 0; i < calibrationTable.size(); i++) {
 			Amount<Duration> targetTime = Amount.valueOf(1 << i,SI.MILLI(SI.SECOND));
 			long parameter = getRoot(targetTime);
 			
@@ -289,10 +235,10 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 				targetTime = recalibrate(parameter, i);
 			}
 			
-			calibrationTable[i] = new CalibrationEntry(targetTime, parameter);
-			logger.info(calibrationTable[i]);
+			calibrationTable.addEntry(i, targetTime, parameter);
+			logger.info(calibrationTable.getEntry(i));
 		}
-		saveCalibration();
+		calibrationTable.save(configFile);
 	}
 
 	/**
@@ -533,69 +479,6 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		}
 		return result;
 	}
-
-	/**
-	 * Saves calibration to config file. Config file uses a Java object stream to serialise the 
-	 * callibration table. 
-	 */
-	private void saveCalibration() {
-		logger.info("Saving calibration to '" + configFileName + "'");
-		OutputStream fos = null;
-		try {
-			fos = new FileOutputStream(configFileName);
-			
-			ObjectOutputStream o = new ObjectOutputStream(fos);
-			o.writeObject(calibrationTable);
-
-		} catch (IOException e) {
-			logger.error("Error while writing calibration data", e);
-		} finally {
-			try {
-				fos.close();
-			} catch (Exception e) {
-			}
-		}
-	}
-
-	/**
-	 * Loads calibration from config file
-	 * @return The loaded calibration file or null if the file could not be loaded
-	 */
-	private CalibrationEntry[] loadCalibration() {
-		File configFile = new File(configFileName);
-		CalibrationEntry[] calibrationData = null;
-		
-		// tests whether the calibration file exists and can be loaded
-		if (configFile.exists()) {
-			logger.debug("Loaded calibration from '" + configFileName + "'");
-
-			InputStream fis = null;
-			try {
-				fis = new FileInputStream(configFileName);
-				ObjectInputStream o = new ObjectInputStream(fis);
-				calibrationData = (CalibrationEntry[]) o.readObject();
-			} catch (IOException e) {
-				logger.error("Error while loading " + configFileName, e);
-				
-			} catch (ClassNotFoundException e) {
-				logger.error("Error while reading " + configFileName, e);
-
-			} catch (Exception e) {
-				logger.error("Error while reading " + configFileName, e);
-
-			} finally {
-				try {
-					fis.close();
-				} catch (Exception e) {
-				}
-			}
-			
-		} else {
-			logger.debug(configFileName + " not existing yet");
-		}
-		
-		return calibrationData;
-	}
 	
 	/**
 	 * Computes a vector of (scaling) factors for each entry in the 
@@ -607,17 +490,19 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * @return An array of scaling factors for the calibration table entries
 	 */
 	private long[] fillTimeFrame(Amount<Duration> millisec) {
-		long[] result = new long[DEFAULT_CALIBRATION_TABLE_SIZE];
+		long[] result = new long[CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE];
 		Amount<Duration> sum = millisec;
 
-		for (int i = DEFAULT_CALIBRATION_TABLE_SIZE - 1; i >= 0; i--) {
-			result[i] = (long) Math.floor(((Amount<Dimensionless>) (sum.divide(calibrationTable[i].getTargetTime())).to(Unit.ONE)).getEstimatedValue());
+		for (int i = CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE - 1; i >= 0; i--) {
+			CalibrationEntry calibrationEntry = calibrationTable.getEntry(i);
+			
+			result[i] = (long) Math.floor(((Amount<Dimensionless>) (sum.divide(calibrationEntry.getTargetTime())).to(Unit.ONE)).getEstimatedValue());
 			if (result[i] >= 1) {
-				sum = sum.minus(calibrationTable[i].getTargetTime().times(result[i]));
+				sum = sum.minus(calibrationEntry.getTargetTime().times(result[i]));
 			}
 			if (logger.isTraceEnabled()) {
-				logger.trace(formatDuration(calibrationTable[i].getTargetTime()) + " | "
-						    + calibrationTable[i].getParameter() + " | " + result[i] + "|" + formatDuration(sum));
+				logger.trace(formatDuration(calibrationEntry.getTargetTime()) + " | "
+						    + calibrationEntry.getParameter() + " | " + result[i] + "|" + formatDuration(sum));
 			}
 		}
 		return result;
