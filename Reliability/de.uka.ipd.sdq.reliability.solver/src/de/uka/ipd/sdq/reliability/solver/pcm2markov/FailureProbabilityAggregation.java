@@ -23,9 +23,9 @@ public class FailureProbabilityAggregation {
 	private List<String> entityIdentifiers;
 
 	/**
-	 * The entity's name.
+	 * The entity's name parts. The entity's name is made up of its single parts.
 	 */
-	private String entityName;
+	private List<String> entityNameParts;
 
 	/**
 	 * The aggregated failure probability of the entity.
@@ -37,17 +37,17 @@ public class FailureProbabilityAggregation {
 	 * 
 	 * @param failureAggregationType the failure probability aggregation type of the entity
 	 * @param entityIdentifiers the entity's identification strings list
-	 * @param entityName the entity's name
+	 * @param entityNameParts the entity's name parts; the entity's name is made up of its single parts
 	 * @param failureProbability the failure probability of the entity
 	 */
 	public FailureProbabilityAggregation(FailureAggregationType failureAggregationType,
-			List<String> entityIdentifiers, String entityName, double failureProbability) {
+			List<String> entityIdentifiers, List<String> entityNameParts, double failureProbability) {
 		this.failureAggregationType = failureAggregationType;
 		this.entityIdentifiers = new ArrayList<String>(entityIdentifiers.size());
 		for (String identifier : entityIdentifiers) {
 			this.entityIdentifiers.add(identifier);
 		}
-		this.entityName = entityName;
+		this.entityNameParts = new ArrayList<String>(entityNameParts);
 		this.failureProbability = failureProbability;
 	}
 
@@ -113,21 +113,21 @@ public class FailureProbabilityAggregation {
 	}
 
 	/**
-	 * Retrieves the name of the entity.
+	 * Retrieves the name parts of the entity. The entity's name is made up of its single parts.
 	 * 
-	 * @return the name of the entity
+	 * @return the name parts of the entity
 	 */
-	public String getEntityName() {
-		return entityName;
+	public List<String> getEntityNameParts() {
+		return entityNameParts;
 	}
 
 	/**
-	 * Sets the name of the entity.
+	 * Sets the name parts of the entity. The entity's name is made up of its single parts.
 	 * 
-	 * @param entityName the name of the entity
+	 * @param entityNameParts the name parts of the entity
 	 */
-	public void setEntityName(String entityName) {
-		this.entityName = entityName;
+	public void setEntityNameParts(List<String> entityNameParts) {
+		this.entityNameParts = entityNameParts;
 	}
 
 	/**
@@ -140,7 +140,7 @@ public class FailureProbabilityAggregation {
 	}
 
 	/**
-	 * Sets the entity's aggregated failure probability
+	 * Sets the entity's aggregated failure probability.
 	 * 
 	 * @param failureProbability the entity's aggregated failure probability
 	 */

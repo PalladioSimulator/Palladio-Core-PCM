@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.reliability.solver.pcm2markov;
  *
  */
 public abstract class MarkovReportItem {
-
 	/**
 	 * The scenario's name
 	 */
@@ -68,5 +67,4 @@ public abstract class MarkovReportItem {
 	public double getSuccessProbability() {
 		return successProbability;
 	}
-
 }

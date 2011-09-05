@@ -394,19 +394,19 @@ public class MarkovTransformationResult {
 			}
 		}
 
-		/*
-		 * If (and only if) the Markov evaluation type is set to
-		 * "POINTSOFFAILURE", we will print detailed information regarding
-		 * failure probabilities of components and external services.
-		 */
-		if (MarkovEvaluationType.valueOf(configuration
-				.getMarkovEvaluationMode()) == MarkovEvaluationType.POINTSOFFAILURE) {
-			new MarkovReporting(cumulatedFailureTypeProbabilities,
-					cumulatedPhysicalStateProbability, doApproximate).print(); // detailed
-			// failure
-			// probabilities
-			// report
-		}
+//		/*
+//		 * If (and only if) the Markov evaluation type is set to
+//		 * "POINTSOFFAILURE", we will print detailed information regarding
+//		 * failure probabilities of components and external services.
+//		 */
+//		if (MarkovEvaluationType.valueOf(configuration
+//				.getMarkovEvaluationMode()) == MarkovEvaluationType.POINTSOFFAILURE) {
+//			new MarkovReporting(cumulatedFailureTypeProbabilities,
+//					cumulatedPhysicalStateProbability, doApproximate).print(); // detailed
+//			// failure
+//			// probabilities
+//			// report
+//		}
 	}
 
 	/**
@@ -550,16 +550,16 @@ public class MarkovTransformationResult {
 			}
 		}
 
-		/*
-		 * If (and only if) the Markov evaluation type is set to
-		 * "POINTSOFFAILURE", we will add detailed information regarding
-		 * failure probabilities of components and external services.
-		 */
-		if (MarkovEvaluationType.valueOf(configuration
-				.getMarkovEvaluationMode()) == MarkovEvaluationType.POINTSOFFAILURE) {
-			resultsList.addAll(new MarkovReporting(cumulatedFailureTypeProbabilities,
-					cumulatedPhysicalStateProbability, doApproximate).getTextualResults());
-		}
+//		/*
+//		 * If (and only if) the Markov evaluation type is set to
+//		 * "POINTSOFFAILURE", we will add detailed information regarding
+//		 * failure probabilities of components and external services.
+//		 */
+//		if (MarkovEvaluationType.valueOf(configuration
+//				.getMarkovEvaluationMode()) == MarkovEvaluationType.POINTSOFFAILURE) {
+//			resultsList.addAll(new MarkovReporting(cumulatedFailureTypeProbabilities,
+//					cumulatedPhysicalStateProbability, doApproximate).getTextualResults());
+//		}
 
 		return resultsList;
 	}

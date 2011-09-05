@@ -50,7 +50,7 @@ public class MarkovResultEditor extends EditorPart {
 		Browser browser = new Browser(parent, SWT.BORDER);
 		if (input != null) {
 			if (input instanceof MarkovResultEditorInput) {
-				// get the Markov transformation results
+				// get Markov transformation results
 				List<MarkovTransformationResult> markovResults = ((MarkovResultEditorInput) input).getMarkovResults();
 				// generate HTML code using those results as data source
 				MarkovHtmlGenerator htmlGenerator = new MarkovHtmlGenerator(new MarkovReporting(markovResults));
