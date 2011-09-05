@@ -12,7 +12,6 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Properties;
 
-import javax.measure.quantity.DataRate;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.quantity.Duration;
 import javax.measure.quantity.Quantity;
@@ -23,7 +22,6 @@ import javax.measure.unit.SI;
 import javax.measure.unit.Unit;
 
 import org.apache.log4j.Logger;
-import org.jscience.mathematics.number.Number;
 import org.jscience.physics.amount.Amount;
 
 /**

@@ -15,6 +15,7 @@ import de.uka.ipd.sdq.measurement.strategies.activeresource.AbstractDemandStrate
 import de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum;
+import de.uka.ipd.sdq.measurement.strategies.system.SystemResourcesUtil;
 
 /**
  * Reads large chunks of data up to MAX_FILE_SIZE Byte (default 3 MB) from a
@@ -51,7 +52,7 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 	private static final int DEFAULT_MAX_FILE_SIZE = 3 * 1000 * 1000; // 3 MB
 
 	/**
-	 * Maximum number of files to include into the callibration
+	 * Maximum number of files to include into the calibration
 	 */
 	private final int numberOfFiles;
 	private static final int DEFAULT_NUMBER_OF_FILES = 1000;
@@ -69,17 +70,13 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 	private static final Logger logger = Logger
 			.getLogger(ReadLargeChunksDemand.class.getName());
 
-	// use systems tmp directory. due to inconsistencies between different
-	// systems a file separator is added.
-	protected static final String ACTIVE_RESOURCE_TEMP_DIR = System.getProperty("java.io.tmpdir") + System.getProperty("file.separator");
-
 	public ReadLargeChunksDemand() {
-		this(ACTIVE_RESOURCE_TEMP_DIR, DEFAULT_NUMBER_OF_FILES, DEFAULT_MAX_FILE_SIZE);
+		this(SystemResourcesUtil.TEMP_DIR, DEFAULT_NUMBER_OF_FILES, DEFAULT_MAX_FILE_SIZE);
 	}
 
-	public ReadLargeChunksDemand(String path, int numberOfFiles, int maxFileSize) {
+	public ReadLargeChunksDemand(File path, int numberOfFiles, int maxFileSize) {
 		super(-2,0,2,100,10);
-		this.fileDirectory = new File(path);
+		this.fileDirectory = path;
 		this.numberOfFiles = numberOfFiles;
 		this.maxFileSize = maxFileSize;
 	}
