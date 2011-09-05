@@ -18,10 +18,8 @@ import de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum;
 import de.uka.ipd.sdq.measurement.strategies.system.SystemResourcesUtil;
 
 /**
- * Reads large chunks of data up to MAX_FILE_SIZE Byte (default 3 MB) from a
- * predefined hard disk drive. The existing hard disk drive must comply with the
- * processing rate given. Thus, the processing rate is ignored during
- * initialisation.
+ * Reads large chunks of data up to MAX_FILE_SIZE Byte (default 8 MB) from a
+ * predefined hard disk drive. 
  * 
  * During initialisation, it is checked whether there is a directory
  * fileDirectory. If yes, it is used to read data from the hard disk drive. If
@@ -29,22 +27,21 @@ import de.uka.ipd.sdq.measurement.strategies.system.SystemResourcesUtil;
  * are written. The files size is maxFileSize.
  * 
  * It is recommended to restart the application or even the whole machine if the
- * files are written during intialisation.
+ * files are written during initialisation.
  * 
  * To avoid caching effects, each consume reads from another file until all
  * files of the list are read. Then, the first file is read again.
  * 
+ *         TODO: Initialisation of the HD, variable file sizes, <s>variable number
+ *         of files</s>, scattered reads, writes, variable file sizes.
  * 
- * @author Anne
+ * @author Anne, Sebastian Lehrig
  * 
- *         TODO: Initialisation of the HD, variable file sizes, variable number
- *         of files, scattered reads, writes, variable file sizes.
  * 
  */
 public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 		IDemandStrategy {
 
-	/* Configuration */
 	/**
 	 * Maximum size of files to be created or searched
 	 */
@@ -90,7 +87,7 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 	 * 
 	 * RAM size < Sum of file sizes
 	 * 
-	 * @return System dependend number of files for calibration. 
+	 * @return System dependent number of files for calibration. 
 	 */
 	private static long calculateDefaultNumberOfFiles()
 	{

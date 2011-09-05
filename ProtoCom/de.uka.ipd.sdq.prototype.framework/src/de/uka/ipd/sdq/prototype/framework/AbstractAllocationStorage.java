@@ -10,9 +10,9 @@ import java.util.Map.Entry;
  * 
  * @author zolynski
  */
-public abstract class AbstractAllocationFactory 
+public abstract class AbstractAllocationStorage 
 {
-	protected static AbstractAllocationFactory singleton;
+	protected static AbstractAllocationStorage singleton;
 	
 	private static Map<String, String> containerIdToName = new HashMap<String, String>();
 	private static HashMap<String, Collection<Class<?>>> containerIdToComponents = new HashMap<String, Collection<Class<?>>>();
@@ -95,7 +95,7 @@ public abstract class AbstractAllocationFactory
 		singleton.initContainerTemplate();
 	}
 	
-	public static void initSingleton(AbstractAllocationFactory instance) {
+	public static void initSingleton(AbstractAllocationStorage instance) {
 		singleton = instance;
 	}
 
@@ -118,7 +118,7 @@ public abstract class AbstractAllocationFactory
 	}
 
 	public static void setLocalMode(boolean localMode) {
-		AbstractAllocationFactory.localMode = localMode;
+		AbstractAllocationStorage.localMode = localMode;
 	}
 
 	public static boolean isLocalMode() {

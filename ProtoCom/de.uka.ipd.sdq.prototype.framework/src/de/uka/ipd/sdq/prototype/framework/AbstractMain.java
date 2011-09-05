@@ -75,8 +75,8 @@ public abstract class AbstractMain {
 		logger.info("Command line read. Logging initialised. Protocom starts its workflow now...");
 	
 		logger.info("Reading allocation configuration. Callibrating container if needed");
-		initAllocationFactory();
-		AbstractAllocationFactory.initContainer();
+		initAllocationStorage();
+		AbstractAllocationStorage.initContainer();
 		
 		DefaultRandomGenerator randomGen = new DefaultRandomGenerator();
 		if (runProps.hasOption('E')) {
@@ -162,7 +162,7 @@ public abstract class AbstractMain {
 		initMeasurement();
 	}
 
-	protected abstract void initAllocationFactory();
+	protected abstract void initAllocationStorage();
 
 	private void invokeMethod(Method method, String[] params) {
 		try {
@@ -237,7 +237,7 @@ public abstract class AbstractMain {
 		}
 		
 		// container
-		Collection<String> containers = AbstractAllocationFactory.getContainerNames();
+		Collection<String> containers = AbstractAllocationStorage.getContainerNames();
 		for(String container : containers)
 		{
 			System.out.println(i+": Container "+container);
@@ -252,7 +252,7 @@ public abstract class AbstractMain {
 			// Start everything in local mode
 			logger.debug("Start: Start everything in local mode");
 			RmiRegistry.startRegistry();
-			AbstractAllocationFactory.setLocalMode(true);
+			AbstractAllocationStorage.setLocalMode(true);
 			setupResources();
 			startDefaultMain();
 		}
@@ -285,14 +285,14 @@ public abstract class AbstractMain {
 			}
 			
 			// container
-			Collection<String> containers = AbstractAllocationFactory.getContainerIds();
+			Collection<String> containers = AbstractAllocationStorage.getContainerIds();
 			for(String containerId : containers)
 			{
 				if(itemId == i)
 				{
-					logger.debug("Start: Container "+AbstractAllocationFactory.getContainerName(containerId));
-					Collection<Class<?>> components = AbstractAllocationFactory.getComponents(containerId);
-					AbstractAllocationFactory.setActiveContainer(containerId);
+					logger.debug("Start: Container "+AbstractAllocationStorage.getContainerName(containerId));
+					Collection<Class<?>> components = AbstractAllocationStorage.getComponents(containerId);
+					AbstractAllocationStorage.setActiveContainer(containerId);
 					setupResources();
 					
 					for(Class<?> component : components)
@@ -549,11 +549,20 @@ public abstract class AbstractMain {
 	 * @param experimentRun				
 	 * @param overallTimeSpanSensor		sensor
 	 */
-	protected void takeMeasurement(long start, ExperimentRun experimentRun, TimeSpanSensor overallTimeSpanSensor) {
+	public static void takeMeasurement(long start, ExperimentRun experimentRun, TimeSpanSensor overallTimeSpanSensor) {
 
 		long now = System.nanoTime();
 		double measuredTimeSpan = (now - start) / Math.pow(10, 9);
 
 		experimentRun.addTimeSpanMeasurement(overallTimeSpanSensor, now / Math.pow(10, 9), measuredTimeSpan);
+	}
+
+	/**
+	 * Restored this from an older version.
+	 * Will be changed eventually.
+	 * @return
+	 */
+	public static long takeStartTimeForInnerMeasurement() {
+		return System.nanoTime();
 	}
 }
