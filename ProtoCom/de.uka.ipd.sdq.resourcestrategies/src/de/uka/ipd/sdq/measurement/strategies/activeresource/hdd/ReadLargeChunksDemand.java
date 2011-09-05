@@ -55,7 +55,6 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 	 * Maximum number of files to include into the calibration
 	 */
 	private final long numberOfFiles;
-	private static final long DEFAULT_NUMBER_OF_FILES = calculateDefaultNumberOfFiles();
 
 	/**
 	 * Root directory from where the files will be read
@@ -71,15 +70,15 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 			.getLogger(ReadLargeChunksDemand.class.getName());
 
 	public ReadLargeChunksDemand() {
-		this(SystemResourcesUtil.TEMP_DIR, DEFAULT_NUMBER_OF_FILES, DEFAULT_MAX_FILE_SIZE);
+		this(SystemResourcesUtil.TEMP_DIR, DEFAULT_MAX_FILE_SIZE);
 	}
 
-	public ReadLargeChunksDemand(File path, long numberOfFiles, int maxFileSize)
+	public ReadLargeChunksDemand(File path, int maxFileSize)
 	{
 		super(-2,0,2,100,10);
 		this.fileDirectory = path;
-		this.numberOfFiles = numberOfFiles;
 		this.maxFileSize = maxFileSize;
+		this.numberOfFiles = calculateDefaultNumberOfFiles();
 	}
 
 	/**
@@ -97,16 +96,9 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 	{
 		long ramSize = SystemResourcesUtil.getTotalPhysicalMemorySize();
 		long number = (ramSize/DEFAULT_MAX_FILE_SIZE);
+		
 		// increase number by 10% to assure RAM size < Sum of file sizes
 		number = (long)(number*1.1f);
-		
-		long neededSize = number*DEFAULT_MAX_FILE_SIZE;
-		long tmpSize = SystemResourcesUtil.getFreeTempDirectorySize();
-		if(neededSize > tmpSize)
-		{
-			logger.error("The required storage space for calibration exceeds the free space in " 
-					+ SystemResourcesUtil.TEMP_DIR.getAbsolutePath());
-		}
 		
 		return number;
 	}
@@ -226,9 +218,15 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements
 	}
 
 	private boolean writeTestFiles() throws IOException {
-
+		long neededSize = this.numberOfFiles*DEFAULT_MAX_FILE_SIZE;
+		long tmpSize = SystemResourcesUtil.getFreeTempDirectorySize();
+		if(neededSize > tmpSize)
+		{
+			logger.error("The required storage space for calibration exceeds the free space in " 
+					+ SystemResourcesUtil.TEMP_DIR.getAbsolutePath());
+		}
+		
 		File childFile;
-
 		for (int i = 0; i < this.numberOfFiles; i++) {
 			childFile = new File(fileDirectory, "file" + i);
 			childFile.createNewFile();
