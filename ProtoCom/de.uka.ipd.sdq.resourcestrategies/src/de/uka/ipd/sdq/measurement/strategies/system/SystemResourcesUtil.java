@@ -20,7 +20,7 @@ public final class SystemResourcesUtil {
 	 * Sun's implementation of OperatingSystemMXBean is used. 
 	 * Eclipse is not very fond of this import (Forbidden references), so you might have to
 	 * change your preferences (Java -> Compiler -> Errors/Warnings -> Forbidden references)
-	 * */
+	 */
 	private static final com.sun.management.OperatingSystemMXBean os = (com.sun.management.OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
 
 	/**
