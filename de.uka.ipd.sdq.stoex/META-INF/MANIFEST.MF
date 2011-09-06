@@ -24,6 +24,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  org.junit4,
  de.uka.ipd.sdq.units;visibility:=reexport,
- org.antlr;bundle-version="3.2.0"
+ org.antlr.runtime;bundle-version="3.2.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

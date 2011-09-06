@@ -5,7 +5,6 @@ Bundle-SymbolicName: de.uka.ipd.sdq.pcm.stochasticexpressions.tests
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: de.uka.ipd.sdq.pcm.stochasticexpressions,
- org.antlr,
  de.uka.ipd.sdq.stoex,
  de.uka.ipd.sdq.stoex.analyser,
  org.junit,
