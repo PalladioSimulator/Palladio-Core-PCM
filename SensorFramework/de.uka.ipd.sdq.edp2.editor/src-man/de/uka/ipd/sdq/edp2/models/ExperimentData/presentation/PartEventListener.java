@@ -46,29 +46,6 @@ public class PartEventListener implements IPartListener2 {
 	public void partActivated(IWorkbenchPartReference partRef) {
 		IWorkbenchPart part = partRef.getPart(false);
 		logger.log(Level.INFO, "Part activation detected for: "+ part.getTitle());
-		IEditorPart editorPart = null;
-		if (part instanceof IEditorPart)
-			editorPart = (IEditorPart) part;
-		if (editorPart instanceof AbstractEditor) {
-			AbstractEditor editor = (AbstractEditor) editorPart;
-			IDataSink input = (IDataSink) editor.getEditorInput();
-			Repository originalRepo = input.getSource()
-					.getOriginalMeasurementsRange().getMeasurements()
-					.getExperimentRun().getExperimentSetting()
-					.getExperimentGroup().getRepository();
-
-			try {
-				if (originalRepo.canOpen()) {
-					originalRepo.open();
-					logger.log(Level.INFO, "Repository with UUID "
-							+ originalRepo.getUuid() + " opened");
-				}
-			} catch (DataNotAccessibleException e) {
-				logger.log(Level.SEVERE,
-						"Original repository could not be opened!");
-
-			}
-		}
 
 	}
 
@@ -94,36 +71,6 @@ public class PartEventListener implements IPartListener2 {
 	public void partClosed(IWorkbenchPartReference partRef) {
 		IWorkbenchPart part = partRef.getPart(false);
 		logger.log(Level.INFO, "Part closing detected for: "+ part.getTitle());
-		IEditorPart editorPart = null;
-		if (part instanceof IEditorPart)
-			editorPart = (IEditorPart) part;
-		if (editorPart instanceof AbstractEditor) {
-			AbstractEditor editor = (AbstractEditor) editorPart;
-			IDataSink input = (IDataSink) editor.getEditorInput();
-			IDataFlow flow = input.getSource();
-
-			/*
-			 * while (flow != null) { flow = ((IDataSink)flow).getSource(); }
-			 * 
-			 * if (flow != null){
-			 */
-
-			for (Repository repo : RepositoryManager.getCentralRepository()
-					.getAvailableRepositories()) {
-				if (repo.canClose()) {
-					try {
-						repo.close();
-						logger.log(Level.INFO, "Repository with UUID "
-								+ repo.getUuid() + " closed");
-					} catch (DataNotAccessibleException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
-
-		}
-
 	}
 
 	/**
@@ -137,17 +84,6 @@ public class PartEventListener implements IPartListener2 {
 	public void partDeactivated(IWorkbenchPartReference partRef) {
 		IWorkbenchPart part = partRef.getPart(false);
 		logger.log(Level.INFO, "Part deactivation detected for: "+ part.getTitle());
-		IEditorPart editorPart = null;
-		if (part instanceof IEditorPart)
-			editorPart = (IEditorPart) part;
-		if (editorPart instanceof AbstractEditor) {
-			AbstractEditor editor = (AbstractEditor) editorPart;
-			IDataSink input = (IDataSink) editor.getEditorInput();
-			Repository originalRepo = input.getSource()
-					.getOriginalMeasurementsRange().getMeasurements()
-					.getExperimentRun().getExperimentSetting()
-					.getExperimentGroup().getRepository();
-		}
 	}
 
 	/*

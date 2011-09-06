@@ -75,6 +75,8 @@ public class ScatterPlotEditor extends JFreeChartEditor {
 
 			return chart;
 		}
+		//FIXME check where closing is appropriate?
+		closeOriginalRepository();
 		return null;
 	}
 

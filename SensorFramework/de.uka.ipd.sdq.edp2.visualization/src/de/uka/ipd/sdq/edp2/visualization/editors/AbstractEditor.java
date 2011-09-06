@@ -25,6 +25,9 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.experimental.chart.swt.ChartComposite;
 
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
+import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
+import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualization;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
@@ -218,5 +221,18 @@ public abstract class AbstractEditor extends EditorPart implements
 	 *            the new {@link IEditorInput}.
 	 */
 	public abstract void changeInput(IEditorInput input);
+	
+	/**
+	 * Method that closes the Repository of the original Data. This method should be called every time
+	 * an editor input is updated.
+	 */
+	public void closeOriginalRepository(){
+		Repository originalRepo = getEditorInput().getSource().getOriginalMeasurementsRange().getMeasurements().getExperimentRun().getExperimentSetting().getExperimentGroup().getRepository();
+		try {
+			MeasurementsUtility.ensureClosedRepository(originalRepo);
+		} catch (DataNotAccessibleException e) {
+			logger.log(Level.SEVERE, "Original repository could not be closed. Data might be corrupted.");
+		}
+	}
 
 }

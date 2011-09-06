@@ -78,7 +78,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 						IEditorPart editor = page
 								.openEditor(input,
 										"de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlot");
-						//page.addPartListener(new PartEventListener());
+						page.addPartListener(new PartEventListener());
 					} catch (PartInitException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
