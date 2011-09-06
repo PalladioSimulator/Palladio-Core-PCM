@@ -261,7 +261,6 @@ litigation.
       <import plugin="ca.umontreal.iro.lecuyer.ssj"/>
       <import plugin="de.uka.ipd.sdq.probfunction.math"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
-      <import plugin="org.antlr" version="3.2.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.ui"/>
       <import plugin="org.eclipse.jdt.core"/>
       <import plugin="org.eclipse.jdt.launching"/>
@@ -327,6 +326,7 @@ litigation.
       <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.statistics"/>
       <import plugin="de.uka.ipd.sdq.reliability.core"/>
+      <import plugin="org.antlr.runtime"/>
    </requires>
 
    <plugin
