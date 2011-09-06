@@ -17,7 +17,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.spa.resourcemodel,
  de.uka.ipd.sdq.pcm,
- org.antlr,
  org.eclipse.emf.ecore.xmi,
  de.uka.ipd.sdq.stoex
 Eclipse-LazyStart: true

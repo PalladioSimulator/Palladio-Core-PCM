@@ -89,8 +89,10 @@
 
                 <!-- fetch binary plugins from ORBIT project -->
                 <echo message="Fetching ORBIT plugins" />
-                <get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20090529135407/bundles/org.apache.log4j_1.2.13.v200903072027.jar"
-                        dest="${buildDirectory}/plugins/org.apache.log4j_1.2.13.v200903072027.jar" /> 
+		        <get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20090529135407/bundles/org.apache.log4j_1.2.13.v200903072027.jar"
+        	        dest="${buildDirectory}/plugins/org.apache.log4j_1.2.13.v200903072027.jar" /> 
+        		<get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/plugins/org.antlr.runtime_3.2.0.v201101311130.jar"
+                	dest="${buildDirectory}/plugins/org.antlr.runtime_3.2.0.v201101311130.jar" /> 
 
 		<antcall target="replaceVersions"/>		
 	</target>

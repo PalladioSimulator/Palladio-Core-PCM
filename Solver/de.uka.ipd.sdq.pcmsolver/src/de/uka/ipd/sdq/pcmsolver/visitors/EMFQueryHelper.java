@@ -3,12 +3,13 @@ package de.uka.ipd.sdq.pcmsolver.visitors;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ocl.helper.HelperUtil;
-import org.eclipse.emf.ocl.helper.IOCLHelper;
-import org.eclipse.emf.ocl.helper.OCLParsingException;
-import org.eclipse.emf.ocl.parser.EcoreEnvironmentFactory;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.OCL;
+import org.eclipse.ocl.ecore.OCL.Query;
+import org.eclipse.ocl.ecore.OCLExpression;
 
 public class EMFQueryHelper {
 	
@@ -22,25 +23,24 @@ public class EMFQueryHelper {
 		}
 		return o;
 	}
-	
+
+	protected static final OCL EOCL_ENV = OCL.newInstance();
+
 	public static EObject executeOCLQuery(EObject context, String query)
 	{
-		IOCLHelper helper = HelperUtil.createOCLHelper(
-				new EcoreEnvironmentFactory(EPackage.Registry.INSTANCE));
-			
+		OCL.Helper helper = EOCL_ENV.createOCLHelper(); 
+		helper.setContext(context.eClass());
+
 		// set our helper's context object to parse against it
-		helper.setContext(context);
 	   
 		Object result = null;
-	    try
-	    {
-		    result = helper.evaluate(context,query);
-	    }
-	    catch(OCLParsingException ex)
-	    {
-	    	System.out.println(ex.getMessage());
-	    	throw new RuntimeException(ex);
-	    }
+	    try {
+			OCLExpression oclQuery = helper.createQuery(query);
+			result = EOCL_ENV.evaluate(context, oclQuery);
+		} catch (ParserException e) {
+	    	System.out.println("Query failed "+query);
+	    	throw new RuntimeException(e);
+		}
 	    if (result == null)
 	    {
 	    	System.out.println("Query resulted in an empty result :-( "+query);

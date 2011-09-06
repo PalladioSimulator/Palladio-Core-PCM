@@ -11,7 +11,6 @@ Export-Package: de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.probfunction.math.impl,
  de.uka.ipd.sdq.probfunction.math.util
 Require-Bundle: uc.ac.ucl.ee.flanagan,
- org.antlr,
  org.junit4,
  de.uka.ipd.sdq.probfunction,
  de.uka.ipd.sdq.stoex,

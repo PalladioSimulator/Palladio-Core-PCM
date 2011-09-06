@@ -1,1 +1,2 @@
 plugin@org.apache.log4j,1.2.13=GET,http://download.eclipse.org/tools/orbit/downloads/drops/S20090911225403/bundles/org.apache.log4j_1.2.13.v200903072027.jar
+plugin@org.antlr.runtime,3.2.0=GET,http://www.eclipse.org/downloads/download.php?r=1&file=/tools/orbit/downloads/drops/R20110523182458/repository/plugins/org.antlr.runtime_3.2.0.v201101311130.jar
