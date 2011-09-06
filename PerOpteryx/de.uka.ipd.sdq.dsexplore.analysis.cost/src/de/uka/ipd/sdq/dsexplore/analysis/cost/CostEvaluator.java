@@ -28,6 +28,9 @@ import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer.QualityAttribute;
 import de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.EvaluationAspect;
 import de.uka.ipd.sdq.dsexplore.qml.contracttype.QMLContractType.Dimension;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.EvaluationAspectWithContext;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.InfeasibilityConstraintBuilder;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.ObjectiveBuilder;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.SatisfactionConstraintBuilder;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.reader.PCMDeclarationsReader;
 import de.uka.ipd.sdq.dsexplore.qml.profile.QMLProfile.UsageScenarioRequirement;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
@@ -389,16 +392,16 @@ public class CostEvaluator implements IAnalysis{
 						if (canEvaluateAspect(aspectContext.getEvaluationAspect(), aspectContext.getDimension())) { 
 							
 							if(aspectContext.getCriterion() instanceof de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Constraint) {
-								Constraint c = reader.translateEvalAspectToInfeasibilityConstraint(aspectContext);
+								Constraint c = reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, new InfeasibilityConstraintBuilder());
 								constraints.add(c);
 								constraintToAspect.put(c, aspectContext);
 							} else {
 								//instanceof Objective
-								Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext);
+								Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, new ObjectiveBuilder());
 								objectives.add(o);
 								objectiveToAspect.put(o, aspectContext);
 								
-								Constraint c = reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o); 
+								Constraint c = reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, new SatisfactionConstraintBuilder()); 
 								constraints.add(c);
 								constraintToAspect.put(c, aspectContext);
 							}

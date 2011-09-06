@@ -13,6 +13,7 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.dsexplore.qml.handling,
  de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures,
+ de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder,
  de.uka.ipd.sdq.dsexplore.qml.pcm.reader,
  de.uka.ipd.sdq.dsexplore.qml.reader
 Bundle-Vendor: sdq.ipd.uka.de

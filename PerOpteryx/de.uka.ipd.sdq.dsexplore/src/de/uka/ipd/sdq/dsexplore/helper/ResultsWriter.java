@@ -32,6 +32,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEDecoder;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEObjectives;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.EntryLevelSystemCallCriterion;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.EvaluationAspectWithContext;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedCriterion;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.reader.PCMDeclarationsReader;
@@ -652,6 +653,8 @@ public class ResultsWriter {
 		String name = qmlCriterion.getDimension().getEntityName();
 		if (criterion instanceof UsageScenarioBasedCriterion){
 			name += ":"+((UsageScenarioBasedCriterion)criterion).getUsageScenario().getEntityName();
+		} else if (criterion instanceof EntryLevelSystemCallCriterion){
+			name += ":"+((EntryLevelSystemCallCriterion)criterion).getEntryLevelSystemCall().getEntityName();
 		}
 		return name;
 	}

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.EqualityHelper;
 
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
@@ -18,10 +18,10 @@ import de.uka.ipd.sdq.pcm.designdecision.Candidate;
 import de.uka.ipd.sdq.pcm.designdecision.Candidates;
 import de.uka.ipd.sdq.pcm.designdecision.CapacityDegree;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
-import de.uka.ipd.sdq.pcm.designdecision.DecisionSpace;
-import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
 import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
+import de.uka.ipd.sdq.pcm.designdecision.DecisionSpace;
+import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
 import de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingResourceDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
@@ -204,9 +204,15 @@ public class FixDesignDecisionReferenceSwitch extends designdecisionSwitch<EObje
 
 	@Override
 	public EObject caseDecisionSpace(DecisionSpace object) {
-		for (DegreeOfFreedomInstance dd : object.getDegreesOfFreedom()) {
-			doSwitch(dd);
-		};
+		
+		try {
+			for (DegreeOfFreedomInstance dd : object.getDegreesOfFreedom()) {
+				doSwitch(dd);
+			};
+		} catch (ClassCastException e){
+			logger.error("Class cast exception when visiting .designdecision model. Please check your model for validity using the Ecore tree editor. References might be broken.");
+			throw e;
+		}
 		return object;
 	}
 

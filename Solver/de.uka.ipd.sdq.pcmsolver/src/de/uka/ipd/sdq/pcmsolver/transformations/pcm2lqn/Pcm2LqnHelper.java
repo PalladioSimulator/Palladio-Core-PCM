@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.Loop;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
@@ -46,6 +47,9 @@ public class Pcm2LqnHelper {
 	 * Takes into account the {@link AssemblyContext} hierarchy of 
 	 * model elements and the {@link AllocationContext}, so that 
 	 * different component instances will get different ids. 
+	 * 
+	 * If changing this method, take care to change other methods of this
+	 * class accordingly, e.g. {@link #getIdForEntryLevelSystemCall(EntryLevelSystemCall)}.
 	 * 
 	 * @param object
 	 * @param cw
@@ -99,6 +103,8 @@ public class Pcm2LqnHelper {
 		
 		return shortenID(id);
 	}
+	
+
 
 	private static String shortenID(String id) {
 		if (shortenIds && id.length() > 50){
@@ -183,6 +189,12 @@ public class Pcm2LqnHelper {
 		+ "_" + passiveResource.getEntityName() 
 		//+ "_" + getNumberForId(passiveResource)
 		+ "_" + assCtx.getId());
+	}
+	
+	public static String getIdForEntryLevelSystemCall(EntryLevelSystemCall call){
+		String className = getClassName(call);
+		String id = className  + call.getId();
+		return shortenID(id);
 	}
 
 	/**

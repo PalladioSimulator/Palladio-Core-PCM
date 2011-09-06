@@ -227,7 +227,7 @@ public class UsageModel2Lqn extends UsagemodelSwitch<String> {
 	@Override
 	public String caseEntryLevelSystemCall(EntryLevelSystemCall object) {
 
-		String id = Pcm2LqnHelper.getId(object, myContextWrapper);
+		String id = Pcm2LqnHelper.getIdForEntryLevelSystemCall(object);
 
 		List<ContextWrapper> contextWrapperList= myContextWrapper.getContextWrapperFor(object);
 

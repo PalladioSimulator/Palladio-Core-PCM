@@ -8,7 +8,6 @@ import LqnCore.LqnModelType;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IStatisticAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.EvaluationAspectWithContext;
-import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedCriterion;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.statistics.estimation.ConfidenceInterval;
 
@@ -22,7 +21,7 @@ public class LQNSolverAnalysisResult extends LQNResult implements IStatisticAnal
 	
 
 	public LQNSolverAnalysisResult(LqnModelType model, PCMInstance pcm, 
-			UsageScenarioBasedCriterion criterion, Map<Criterion, EvaluationAspectWithContext> objectiveToAspect,
+			Criterion criterion, Map<Criterion, EvaluationAspectWithContext> objectiveToAspect,
 			LQNQualityAttributeDeclaration qualityAttributeInfo) throws AnalysisFailedException {
 
 		super(pcm, model, criterion, objectiveToAspect, qualityAttributeInfo);
