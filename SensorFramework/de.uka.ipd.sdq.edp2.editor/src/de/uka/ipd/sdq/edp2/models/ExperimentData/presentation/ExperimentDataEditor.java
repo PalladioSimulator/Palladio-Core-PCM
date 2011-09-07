@@ -18,6 +18,8 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -143,6 +145,8 @@ public class ExperimentDataEditor
 	 * TODO Change to final package location
 	 */
 	public static final String PROPERTIES_CONTRIBUTOR = "de.uka.ipd.sdq.edp2.tabbed.properties";
+
+	private static final Logger logger = Logger.getLogger(ExperimentDataEditor.class.getCanonicalName());
 	
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.

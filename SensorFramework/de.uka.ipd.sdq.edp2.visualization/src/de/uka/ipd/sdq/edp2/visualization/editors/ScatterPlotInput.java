@@ -111,7 +111,6 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 				+ ((Measure) list2.get(0)).getUnit() + ")");
 		
 		logger.log(Level.INFO, "Editor input updateDataSet end");
-		
 	}
 
 	/*
