@@ -91,8 +91,12 @@
                 <echo message="Fetching ORBIT plugins" />
 		        <get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20090529135407/bundles/org.apache.log4j_1.2.13.v200903072027.jar"
         	        dest="${buildDirectory}/plugins/org.apache.log4j_1.2.13.v200903072027.jar" /> 
-        		<get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/plugins/org.antlr.runtime_3.2.0.v201101311130.jar"
-                	dest="${buildDirectory}/plugins/org.antlr.runtime_3.2.0.v201101311130.jar" /> 
+				<get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/plugins/org.antlr.runtime_3.2.0.v201101311130.jar"
+		        	dest="${buildDirectory}/plugins/org.antlr.runtime_3.2.0.v201101311130.jar" /> 
+				<get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/plugins/org.sat4j.core_2.1.0.v20090520.jar"
+		        	dest="${buildDirectory}/plugins/org.sat4j.core_2.1.0.v20090520.jar" /> 
+				<get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/plugins/org.sat4j.pb_2.1.0.v20090520.jar"
+		        	dest="${buildDirectory}/plugins/org.sat4j.pb_2.1.0.v20090520.jar" /> 
 
 		<antcall target="replaceVersions"/>		
 	</target>
