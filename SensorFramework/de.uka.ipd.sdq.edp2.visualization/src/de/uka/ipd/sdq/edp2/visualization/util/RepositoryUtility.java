@@ -80,12 +80,17 @@ public class RepositoryUtility {
 			.initializeLocalDirectoryRepository(new File(LOCAL_REPO_URI));
 
 	/**
+	 * One-time initialization is done here.
+	 */
+	public RepositoryUtility(){
+		RepositoryManager.addRepository(RepositoryManager
+				.getCentralRepository(), LOCAL_REPO);
+	}
+	/**
 	 * 
 	 * @return The URI (String) to the static local repository.
 	 */
 	public static String getDefaultLocalRepositoryURI() {
-		RepositoryManager.addRepository(RepositoryManager
-				.getCentralRepository(), LOCAL_REPO);
 		return LOCAL_REPO_URI;
 	}
 

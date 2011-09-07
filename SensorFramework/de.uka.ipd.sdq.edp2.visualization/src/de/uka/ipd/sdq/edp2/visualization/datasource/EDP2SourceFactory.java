@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.edp2.visualization.datasource;
 
 import java.util.HashMap;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -22,10 +23,6 @@ public class EDP2SourceFactory extends ElementFactory {
 	 */
 	private static final String FACTORY_ID = "de.uka.ipd.sdq.edp2.editor.EDP2SourceFactory";
 	/**
-	 * Name of the managed element.
-	 */
-	private static final String ELEMENT_NAME = "EDP2Source";
-	/**
 	 * Logger for this class.
 	 */
 	private final static Logger logger = Logger
@@ -39,22 +36,19 @@ public class EDP2SourceFactory extends ElementFactory {
 	 */
 	@Override
 	public IAdaptable createElement(IMemento memento) {
+		// specific element is created and default properties are retrieved
 		EDP2Source source = new EDP2Source();
-		memento = memento.getChild(ELEMENT_NAME);
-	
-		HashMap<String, Object> restoredProperties = new HashMap<String, Object>();
-		for (Object key : source.getProperties().keySet()){
-			restoredProperties.put(key.toString(), memento.getString(key.toString()));
-		}
-		source.setProperties(restoredProperties);
+		HashMap<String, Object> restoredProperties = source.getProperties();
+		// default properties are overridden with persisted properties from the
+		// memento and are set for the restored element
+		source.setProperties(overrideFromMemento(memento, restoredProperties));
 		return source;
 	}
-	
+
 	/**
 	 * @return this factory's ID.
 	 */
 	public static String getFactoryId() {
 		return FACTORY_ID;
 	}
-
 }

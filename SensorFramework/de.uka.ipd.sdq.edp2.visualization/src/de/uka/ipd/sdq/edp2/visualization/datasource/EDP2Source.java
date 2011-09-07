@@ -74,11 +74,11 @@ public class EDP2Source extends IDataSource {
 	 * URI ({@link String}) of the {@link Repository} ({@link #repository}).
 	 */
 	private String repositoryURI;
-
 	/**
 	 * Default constructor.
 	 */
 	public EDP2Source(){
+		super();
 	}
 	
 	/**
@@ -177,7 +177,16 @@ public class EDP2Source extends IDataSource {
 								.getMeasurementsRanges()) {
 							if (range.getRawMeasurements().getUuid().equals(
 									rmUUID)) {
-								measurementsRange = range;
+								originalMeasurementsRange = range;
+								ExperimentGroup copyOfExpGroup = RepositoryUtility.copyExperimentGroup(group, RepositoryUtility.getDefaultLocalRepository());
+								ExperimentSetting copyOfExpSetting = RepositoryUtility.copyExperimentSetting(setting, copyOfExpGroup);
+								ExperimentRun copyOfExperimentRun = RepositoryUtility.copyExperimentRun(run, copyOfExpSetting);
+								MetricDescription copyOfMetric = RepositoryUtility.copyMetricDescription(range.getMeasurements().getMeasure().getMetric(), RepositoryUtility.getDefaultLocalRepository());
+								Edp2Measure copyOfMeasure = RepositoryUtility.copyEdp2Measure(range.getMeasurements().getMeasure(), copyOfMetric, copyOfExpGroup, copyOfExpSetting);
+								Measurements copyOfMeasurements = RepositoryUtility.copyMeasurements(copyOfMeasure, copyOfMetric, copyOfExperimentRun);
+								MeasurementsRange copyOfMeasurementsRange = RepositoryUtility.copyMeasurementsRange(range, copyOfMeasurements);
+								RepositoryUtility.copyRawMeasurements(range.getRawMeasurements(), copyOfMeasurementsRange);
+								measurementsRange = copyOfMeasurementsRange;
 							}
 						}
 					}
@@ -185,12 +194,12 @@ public class EDP2Source extends IDataSource {
 			}
 		}
 		if (measurementsRange == null) {
-			logger.log(Level.SEVERE, "No RawMeasurements found!");
+			logger.log(Level.SEVERE, "MeasurementsRange is null -> No RawMeasurements found!");
 			throw new RuntimeException();
 		}
-		this.originalMeasurementsRange = measurementsRange;
 		this.dataSeries = measurementsRange.getRawMeasurements()
 				.getDataSeries();
+		closeRepository();
 	}
 
 	/**

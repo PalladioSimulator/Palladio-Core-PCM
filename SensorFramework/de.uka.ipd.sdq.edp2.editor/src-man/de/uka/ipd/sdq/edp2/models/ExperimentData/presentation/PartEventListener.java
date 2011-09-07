@@ -45,7 +45,7 @@ public class PartEventListener implements IPartListener2 {
 	@Override
 	public void partActivated(IWorkbenchPartReference partRef) {
 		IWorkbenchPart part = partRef.getPart(false);
-		logger.log(Level.INFO, "Part activation detected for: "+ part.getTitle());
+		//logger.log(Level.INFO, "Part activation detected for: "+ part.getTitle());
 
 	}
 
@@ -70,7 +70,7 @@ public class PartEventListener implements IPartListener2 {
 	@Override
 	public void partClosed(IWorkbenchPartReference partRef) {
 		IWorkbenchPart part = partRef.getPart(false);
-		logger.log(Level.INFO, "Part closing detected for: "+ part.getTitle());
+		//logger.log(Level.INFO, "Part closing detected for: "+ part.getTitle());
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class PartEventListener implements IPartListener2 {
 	@Override
 	public void partDeactivated(IWorkbenchPartReference partRef) {
 		IWorkbenchPart part = partRef.getPart(false);
-		logger.log(Level.INFO, "Part deactivation detected for: "+ part.getTitle());
+		//logger.log(Level.INFO, "Part deactivation detected for: "+ part.getTitle());
 	}
 
 	/*

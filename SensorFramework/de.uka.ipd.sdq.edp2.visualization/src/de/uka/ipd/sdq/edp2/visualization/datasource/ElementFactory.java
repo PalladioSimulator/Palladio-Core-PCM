@@ -42,11 +42,11 @@ public abstract class ElementFactory implements IElementFactory {
 	 * The name of the source element under which an elements' source is
 	 * persisted in an {@link IMemento}.
 	 */
-	private final static String SOURCE_KEY = "source";
+	protected final static String SOURCE_KEY = "source";
 	/**
 	 * Key for retrieving an element's name from its properties.
 	 */
-	private final static String ELEMENT_KEY = "elementName";
+	protected final static String ELEMENT_KEY = "elementName";
 	/**
 	 * This factory's ID as it must be used when referenced in an extension.
 	 */
@@ -71,31 +71,19 @@ public abstract class ElementFactory implements IElementFactory {
 	 * 
 	 */
 	public static void saveState(IMemento memento, IDataFlow input) {
-		logger.log(Level.INFO, "savestate ElementFactory");
+		// get name of element to be persisted from its properties
 		HashMap<String, Object> props = input.getProperties();
 		String elementName = props.get(ELEMENT_KEY).toString();
+		// create a new node in the memento named after the element
 		memento.createChild(elementName);
 		memento = memento.getChild(elementName);
+		// save all properties TODO elements name is both as an attribute and
+		// xml-element's name persisted
 		for (String key : props.keySet()) {
 			memento.putString(key, props.get(key).toString());
 		}
-
-		/*if (props.get(ELEMENT_KEY).equals("EDP2Source")) {
-			logger.log(Level.INFO, "Currently persisted element is a EDP2Source");
-			try {
-				Repository repository = RepositoryManager
-						.initializeLocalDirectoryRepository(new File(
-								((EDP2Source) input).getRepositoryURI()));
-				RepositoryManager.addRepository(RepositoryManager
-						.getCentralRepository(), repository);
-				MeasurementsUtility.ensureClosedRepository(repository);
-				logger.log(Level.INFO, "Repository of EDP2Source successfully closed");
-			} catch (DataNotAccessibleException e) {
-				logger.log(Level.SEVERE,
-								"Repository could not be closed. Data might be corrupted.");
-			}
-		}*/
-
+		// if the input is a sink, there are further elements that must be
+		// persisted
 		IDataSink sinkInput = null;
 		if (input instanceof IDataSink) {
 			logger.log(Level.INFO,
@@ -105,6 +93,28 @@ public abstract class ElementFactory implements IElementFactory {
 					.getCanonicalName());
 			sinkInput.getSource().saveState(memento);
 		}
+	}
+
+	/**
+	 * Method used during restoration of persisted elements. It is the same for
+	 * all implementations of {@link IDataFlow}.
+	 * 
+	 * @param memento
+	 *            the {@link IMemento} from which the properties are read
+	 * @param propertiesToOverride
+	 *            the properties in which the values are to be replaced
+	 * @return the properties-{@link HashMap} with restored values
+	 */
+	protected HashMap<String, Object> overrideFromMemento(IMemento memento,
+			HashMap<String, Object> propertiesToOverride) {
+		memento = memento.getChild(propertiesToOverride.get(ELEMENT_KEY)
+				.toString());
+		for (Object key : propertiesToOverride.keySet()) {
+			logger.log(Level.INFO, key.toString());
+			propertiesToOverride.put(key.toString(), memento.getString(key
+					.toString()));
+		}
+		return propertiesToOverride;
 	}
 
 }

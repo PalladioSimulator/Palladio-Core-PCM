@@ -47,6 +47,8 @@ public class HistogramEditorInput implements IDataSink, ISelection {
 	 * The specific type of {@link Dataset}.
 	 */
 	private HistogramDataset dataset;
+	
+	protected HashMap<String, Object> properties;
 	/**
 	 * Logger for this class
 	 */

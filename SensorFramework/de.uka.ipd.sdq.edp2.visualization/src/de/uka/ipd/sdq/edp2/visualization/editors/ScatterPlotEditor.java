@@ -68,8 +68,8 @@ public class ScatterPlotEditor extends JFreeChartEditor {
 			scatterPlotInput.updateDataset();
 			JFreeChart chart = ChartFactory.createScatterPlot(
 					scatterPlotInput.getName(),
-					scatterPlotInput.getLabelXScale(),
-					scatterPlotInput.getLabelYScale(),
+					"x-Label",
+					"y-Label",
 					scatterPlotInput.getDataset(),
 					PlotOrientation.VERTICAL, true, true, false);
 

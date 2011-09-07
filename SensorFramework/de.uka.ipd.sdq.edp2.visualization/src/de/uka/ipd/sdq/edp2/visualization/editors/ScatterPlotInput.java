@@ -39,26 +39,29 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2SourceFactory;
  * 
  * @author Dominik Ernst, Roland Richter
  */
-public class ScatterPlotInput implements IDataSink, ISelection {
+public class ScatterPlotInput extends JFreeChartEditorInput {
 
+	/**
+	 * Name constant, which is used to identify this class in properties.
+	 */
+	private static final String ELEMENT_NAME = "ScatterPlotInput";
 	/**
 	 * Logger for this class.
 	 */
 	private final static Logger logger = Logger
 			.getLogger(ScatterPlotInput.class.getCanonicalName());
 
-	private IDataSource source;
 	private DefaultTableXYDataset dataset;
-	private String name;
-	private String toolTipText;
-	private String labelXScale;
-	private String labelYScale;
 
+	public ScatterPlotInput(){
+		super();
+	}
+	
 	public ScatterPlotInput(IDataSource source) {
-		setSource(source);
-		source.addObserver(this);
+		super(source);
 		updateDataset();
 	}
+	
 
 	/**
 	 * Retrieves actual measurements from repository and assigns them to the
@@ -77,9 +80,9 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 			list.add(MeasurementsUtility.getOrdinalMeasurementsDao(data));
 		}
 		OrdinalMeasurementsDao<Measure> omdSeries1 = MeasurementsUtility
-				.getOrdinalMeasurementsDao(source.getOutput().get(0));
+				.getOrdinalMeasurementsDao(getSource().getOutput().get(0));
 		OrdinalMeasurementsDao<Measure> omdSeries2 = MeasurementsUtility
-				.getOrdinalMeasurementsDao(source.getOutput().get(1));
+				.getOrdinalMeasurementsDao(getSource().getOutput().get(1));
 		List<Measure> list1 = omdSeries1.getMeasurements();
 
 		List<Measure> list2 = omdSeries2.getMeasurements();
@@ -94,10 +97,10 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 
 		dataset.addSeries(testSeries);
 
-		// set the name and the description
-		setName(source.getOriginalMeasurementsRange().getMeasurements()
+		// set the title
+		setTitle(getSource().getOriginalMeasurementsRange().getMeasurements()
 				.getExperimentRun().getExperimentSetting().getDescription());
-		setToolTipText(source.getMeasurementsRange().getMeasurements()
+		/*setToolTipText(getSource().getMeasurementsRange().getMeasurements()
 				.getMeasure().getMetric().getTextualDescription());
 
 		// label data series according to metric definitions
@@ -109,7 +112,7 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 				+ ((Measure) list1.get(0)).getUnit() + ")");
 		setLabelYScale(md.getSubsumedMetrics().get(1).getName() + " ( "
 				+ ((Measure) list2.get(0)).getUnit() + ")");
-		
+		*/
 		logger.log(Level.INFO, "Editor input updateDataSet end");
 	}
 
@@ -138,17 +141,6 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 		return null;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.uka.ipd.sdq.edp2.visualization.IDataSink#setSource(de.uka.ipd.sdq.
-	 * edp2.visualization.IDataSource)
-	 */
-	@Override
-	public void setSource(IDataSource source) {
-		this.source = source;
-	}
 
 	/*
 	 * (non-Javadoc)
@@ -193,51 +185,6 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 	public void update(Observable arg0, Object arg1) {
 		updateDataset();
 
-		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#exists()
-	 */
-	@Override
-	public boolean exists() {
-		// TODO Auto-generated method stub
-		return source != null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
-	 */
-	@Override
-	public ImageDescriptor getImageDescriptor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getName()
-	 */
-	/**
-	 * @return the attribute {@link ScatterPlotInput#name}
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name
-	 *            set the attribute {@link ScatterPlotInput#name}.
-	 */
-	private void setName(String name) {
-		this.name = name;
 	}
 
 	/*
@@ -251,50 +198,6 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 	}
 
 	/**
-	 * Has to be implemented, @see org.eclipse.ui.IEditorInput#getToolTipText()
-	 * 
-	 * @return gets the attribute {@link ScatterPlotInput#toolTipText}
-	 */
-	@Override
-	public String getToolTipText() {
-		return toolTipText;
-	}
-
-	/**
-	 * @param toolTipText
-	 */
-	private void setToolTipText(String toolTipText) {
-		this.toolTipText = toolTipText;
-	}
-
-	/**
-	 * @return the attribute {@link ScatterPlotInput#labelXScale}
-	 */
-	public String getLabelXScale() {
-		return labelXScale;
-	}
-
-	/**
-	 * @param labelXScale
-	 */
-	private void setLabelXScale(String labelXScale) {
-		this.labelXScale = labelXScale;
-	}
-
-	/**
-	 * @return the attribute {@link ScatterPlotInput#labelYScale}
-	 */
-	public String getLabelYScale() {
-		return labelYScale;
-	}
-
-	/**
-	 * @param labelYScale
-	 *            set the attribute {@link #labelYScale} new
-	 */
-	private void setLabelYScale(String labelYScale) {
-		this.labelYScale = labelYScale;
-	}
 
 	/**
 	 * @param dataset
@@ -322,26 +225,16 @@ public class ScatterPlotInput implements IDataSink, ISelection {
 		return false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getSource()
-	 */
-	@Override
-	public IDataSource getSource() {
-		return source;
-	}
-
 	@Override
 	public HashMap<String, Object> getProperties() {
-		// TODO Auto-generated method stub
-		return null;
+		properties.put(ELEMENT_KEY, ELEMENT_NAME);
+		properties.put(SOURCE_KEY, getSource());
+		return properties;
 	}
 
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
-		// TODO Auto-generated method stub
-
+		properties.put(SOURCE_KEY, newProperties.get(SOURCE_KEY));
 	}
 
 }

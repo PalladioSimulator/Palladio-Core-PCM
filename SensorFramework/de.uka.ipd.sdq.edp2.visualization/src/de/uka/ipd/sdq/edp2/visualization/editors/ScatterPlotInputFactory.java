@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -10,7 +11,9 @@ import org.eclipse.ui.IPersistableEditor;
 import org.eclipse.ui.IPersistableElement;
 
 import de.uka.ipd.sdq.edp2.visualization.FactoryAdapter;
+import de.uka.ipd.sdq.edp2.visualization.FactoryConnector;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 import de.uka.ipd.sdq.edp2.visualization.util.PersistenceTag;
 
 /**
@@ -20,7 +23,7 @@ import de.uka.ipd.sdq.edp2.visualization.util.PersistenceTag;
  * @author Dominik Ernst
  * 
  */
-public class ScatterPlotInputFactory implements IElementFactory {
+public class ScatterPlotInputFactory extends ElementFactory {
 
 	private static Logger logger = Logger
 			.getLogger(ScatterPlotInputFactory.class.getCanonicalName());
@@ -40,47 +43,29 @@ public class ScatterPlotInputFactory implements IElementFactory {
 	 *         {@link IDataSource}
 	 */
 	public IAdaptable createElement(IMemento memento) {
-		// TODO Here should be a factory for all DataFlow elements
-		FactoryAdapter factoryAdapter = new FactoryAdapter();
-		Object sourceFactory = null;
-		try {
-			sourceFactory = factoryAdapter.getAdapter(Class.forName(memento
-					.getString(PersistenceTag.SOURCE.getID())),
-					IElementFactory.class);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return new ScatterPlotInput(
-				(IDataSource) ((IElementFactory) sourceFactory)
+		ScatterPlotInput scatterPlotInput = new ScatterPlotInput();
+		
+		HashMap<String, Object> restoredProperties = scatterPlotInput.getProperties();
+		//default properties are overridden with persisted properties from the memento
+		restoredProperties = overrideFromMemento(memento, restoredProperties);
+		//properties are set for the restored element
+		scatterPlotInput.setProperties(restoredProperties);
+		
+		
+		FactoryConnector factoryConnector = new FactoryConnector();
+		Object sourceFactory = factoryConnector.getAdapter(restoredProperties.get(SOURCE_KEY).toString(),
+				IElementFactory.class);
+		
+		scatterPlotInput.setSource((IDataSource) ((IElementFactory) sourceFactory)
 						.createElement(memento));
-
+		scatterPlotInput.updateDataset();
+		
+		return scatterPlotInput;
 	}
-
 	/**
-	 * 
 	 * @return this factory's ID.
 	 */
 	public static String getFactoryId() {
 		return FACTORY_ID;
 	}
-
-	/**
-	 * Method for writing the current instance of {@link ScatterPlotInput} to
-	 * the memento.
-	 * 
-	 * @param memento
-	 *            Reference to the memento, passed as a parameter by the
-	 *            {@link IPersistableElement#saveState(IMemento)} method in
-	 *            {@link ScatterPlotInput}
-	 * @param input
-	 *            Reference to the calling instance of {@link ScatterPlotInput}.
-	 */
-	public static void saveState(IMemento memento, ScatterPlotInput input) {
-		memento.putString(PersistenceTag.SOURCE.getID(), input.getSource()
-				.getClass().getCanonicalName());
-		input.getSource().saveState(memento);
-		logger.log(Level.INFO, "saveState()");
-	}
-
 }
