@@ -66,18 +66,23 @@ public class FiltersPropertySection extends AbstractPropertySection {
 			.getLogger(FiltersPropertySection.class.getCanonicalName());
 
 	/**
-	 * A list which contains the filters, which are applied
+	 * A list which contains the applied transformations
 	 */
-	private List filtersList;
+	private List list;
 	/**
-	 * A simple counter for the lists
+	 * A simple counter for the list
 	 */
-	private int filterCounter = 0;
+	private int counter = 0;
 	/**
 	 * The attributes table. It shows the attributes for the filter which is
 	 * selected in the filtersList
 	 */
-	private Table filtersTable;
+	private Table transformationTable;
+	
+	/**
+	 * Viewer for the table containing the list of transformations.
+	 */
+	private TableViewer transformationTableViewer;
 	
 	/**
 	 * The current editor which is an {@link ITabbedPropertySheetPageContributor}.
@@ -92,7 +97,6 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	public void createControls(Composite parent,
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
 
-		logger.log(Level.INFO, "createControls");
 		super.createControls(parent, aTabbedPropertySheetPage);
 
 		Composite composite = getWidgetFactory()
@@ -106,48 +110,18 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		setInput(editor, Activator.getDefault().getWorkbench()
 						.getActiveWorkbenchWindow().getSelectionService()
 						.getSelection(editor.getSite().getId()));
-		/*setInput(editor,
-				Activator.getDefault().getWorkbench()
-						.getActiveWorkbenchWindow().getSelectionService()
-						.getSelection(
-								Activator.getDefault().getWorkbench()
-										.getActiveWorkbenchWindow()
-										.getPartService()
-										.getActivePartReference().getId()));*/
-
-		// get the input from the chart
-		/*IEditorInput input = null;
-		input = Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor()
-				.getEditorInput();*/
-		// init the layout
+		
+		// initialize the layout
 		createLayout(composite);
 
-		// generate the group for the applied filters
-		Group filtersGroup;
-		filtersGroup = createApppliedFiltersGroup(composite);
+		// generate the group for the applied transformations
+		Group transformationGroup = createTransformationGroup(composite);
 
-		// init the contents of the filters group
-		initFiltersListAndTable(filtersGroup);
+		// initialize the contents of the group
+		initTransformationTable(transformationGroup);
 
 		Group warumUpConfigGroup = createWarmupConfigurationGroup(composite);
 		generatePropertieSectionForWarmup(warumUpConfigGroup);
-		Group teardownConfigGroup = createTeardownConfigurationGroup(composite);
-		generatePropertieSectionForTeardown(teardownConfigGroup);
-		// set the properties for every editor
-		/*if (input instanceof ScatterPlotInput) {
-			Group warumUpConfigGroup = createWarmupConfigurationGroup(composite);
-			generatePropertieSectionForWarmup(warumUpConfigGroup);
-			Group teardownConfigGroup = createTeardownConfigurationGroup(composite);
-			generatePropertieSectionForTeardown(teardownConfigGroup);
-
-		}
-		if (input instanceof PieChartEditorInput) {
-
-		}
-		if (input instanceof HistogramEditorInput) {
-
-		}*/
 
 		final Button buttonAdapter = new Button(composite, SWT.PUSH);
 		buttonAdapter.setText("Add new Adapter..");
@@ -216,12 +190,12 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 * @param parentGroup
 	 *            the parent GUI Object
 	 */
-	private void initFiltersListAndTable(Group parentGroup) {
-		// init the filters list with select listener
-		filtersList = new List(parentGroup, SWT.BORDER | SWT.SINGLE
+	private void initTransformationTable(Group parentGroup) {
+		// initialize the list of transformations with a selection listener
+		list = new List(parentGroup, SWT.BORDER | SWT.SINGLE
 				| SWT.V_SCROLL);
-		filtersList.setLayoutData(new RowData(140, 100));
-		filtersList.addSelectionListener(new SelectionListener() {
+		list.setLayoutData(new RowData(140, 100));
+		list.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				refreshPropertiesTable();
@@ -233,45 +207,47 @@ public class FiltersPropertySection extends AbstractPropertySection {
 			}
 		});
 
-		// init the table, which show the parameters for filters
-		filtersTable = new Table(parentGroup, SWT.SINGLE | SWT.BORDER
+		// initialize the table, which shows the properties of transformations
+		transformationTable = new Table(parentGroup, SWT.SINGLE | SWT.BORDER
 				| SWT.V_SCROLL | SWT.FULL_SELECTION);
 
-		filtersTable.setLinesVisible(true);
-		filtersTable.setHeaderVisible(true);
+		transformationTable.setLinesVisible(true);
+		transformationTable.setHeaderVisible(true);
 		// set width and hight from the table
-		filtersTable.setLayoutData(new RowData(250, 100));
+		transformationTable.setLayoutData(new RowData(250, 150));
 		// set the weight of the table columns
 		TableLayout tableLayout = new TableLayout();
+		tableLayout.addColumnData(new ColumnWeightData(2));
 		tableLayout.addColumnData(new ColumnWeightData(1));
-		tableLayout.addColumnData(new ColumnWeightData(1));
-		filtersTable.setLayout(tableLayout);
-		TableViewer filtersTableViewer = new TableViewer(filtersTable);
+		transformationTable.setLayout(tableLayout);
+		
+		transformationTableViewer = new TableViewer(transformationTable);
 		TableViewerColumn labelColumn = new TableViewerColumn(
-				filtersTableViewer, SWT.NONE);
+				transformationTableViewer, SWT.NONE);
 		labelColumn.getColumn().setText("Property");
+		
 		TableViewerColumn valueColumn = new TableViewerColumn(
-				filtersTableViewer, SWT.NONE);
+				transformationTableViewer, SWT.NONE);
 		valueColumn.getColumn().setText("Value");
 
 		// the editor for the cells
-		final TableEditor editor = new TableEditor(filtersTable);
+		final TableEditor editor = new TableEditor(transformationTable);
 		editor.horizontalAlignment = SWT.LEFT;
 		editor.grabHorizontal = true;
-		filtersTable.addListener(SWT.MouseDown, new Listener() {
+		transformationTable.addListener(SWT.MouseDown, new Listener() {
 			public void handleEvent(Event event) {
-				Rectangle clientArea = filtersTable.getClientArea();
+				Rectangle clientArea = transformationTable.getClientArea();
 				Point pt = new Point(event.x, event.y);
-				int index = filtersTable.getTopIndex();
-				while (index < filtersTable.getItemCount()) {
+				int index = transformationTable.getTopIndex();
+				while (index < transformationTable.getItemCount()) {
 					boolean visible = false;
-					final TableItem item = filtersTable.getItem(index);
+					final TableItem item = transformationTable.getItem(index);
 
 					// look if the mouse event is in an editable cell
 					Rectangle rect = item.getBounds(1);
 					if (rect.contains(pt)) {
 						final int column = 1;
-						final Text text = new Text(filtersTable, SWT.NONE);
+						final Text text = new Text(transformationTable, SWT.NONE);
 						Listener textListener = new Listener() {
 							public void handleEvent(final Event e) {
 								switch (e.type) {
@@ -473,14 +449,13 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	}
 
 	/**
-	 * Creates and configures the layout of the group for the applied filters
-	 * configurations.
+	 * Creates and configures the layout of the group for showing the currently applied transformations.
 	 * 
 	 * @param composite
 	 *            the parent GUI Object
 	 * @return the GUI Group for the group applied filters
 	 */
-	private Group createApppliedFiltersGroup(Composite composite) {
+	private Group createTransformationGroup(Composite composite) {
 		RowData data = new RowData();
 		data.width = 450;
 		data.height = 125;
@@ -536,8 +511,8 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		if (input.getSource() instanceof IFilter) {
 			logger.log(Level.INFO, "input.getSource() is a IFilter");
 			String name = ((IFilter) input.getSource()).getName();
-			filtersList.add(name + " (" + filterCounter + ")");
-			filterCounter++;
+			list.add(name + " (" + counter + ")");
+			counter++;
 		}
 
 	}
@@ -547,29 +522,24 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 * properties of the selected filter in the list.
 	 */
 	private void refreshPropertiesTable() {
-		// get the active editor
-		ScatterPlotEditor editor = (ScatterPlotEditor) Activator.getDefault()
-				.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-				.getActiveEditor();
-		// get the input of the editor
-		ScatterPlotInput input = (ScatterPlotInput) editor.getEditorInput();
-
-		if (input.getSource() instanceof IFilter) {
-			filtersTable.clearAll();
-			filtersTable.setItemCount(0);
-			int selectedItem = filtersList.getSelectionIndex();
+		IDataSink editorInput = editor.getEditorInput();
+		if (editorInput.getSource() instanceof IFilter) {
+			transformationTable.clearAll();
+			transformationTable.setItemCount(0);
+			int selectedItem = list.getSelectionIndex();
 			HashMap<String, Object> map = null;
-			IFilter tempData = (IFilter) input.getSource();
+			
+			IFilter tempData = (IFilter) editorInput.getSource();
 
 			// iterate to the element until the element is reached
-			for (int i = 1; i < filtersList.getItemCount() - selectedItem; i++) {
+			for (int i = 1; i < list.getItemCount() - selectedItem; i++) {
 				tempData = (IFilter) tempData.getSource();
 			}
 			// now in tempData is the selected filter
 			map = tempData.getProperties();
 			// in
 			for (Object key : map.keySet()) {
-				TableItem item = new TableItem(filtersTable, SWT.NONE);
+				TableItem item = new TableItem(transformationTable, SWT.NONE);
 				item.setText(0, String.valueOf(key));
 				item.setText(1, String.valueOf(map.get(key)));
 
@@ -596,11 +566,11 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		IDataSink input = editor.getEditorInput();
 		
 		if (input instanceof IFilter) {
-			int selectedItem = filtersList.getSelectionIndex();
+			int selectedItem = list.getSelectionIndex();
 			IFilter tempData = (IFilter) input.getSource();
 
 			// iterate to the element until the element is reached
-			for (int i = 1; i < filtersList.getItemCount() - selectedItem; i++) {
+			for (int i = 1; i < list.getItemCount() - selectedItem; i++) {
 				tempData = (IFilter) tempData.getSource();
 			}
 			// now in tempData is the selected filter

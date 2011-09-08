@@ -27,6 +27,7 @@ public interface IDataFlow extends IPersistableElement, IAdaptable {
 
 	/**
 	 * Sets the attributes of the source to the specified {@link HashMap}.
+	 * Must contain a combination of ELEMENT_KEY and ELEMENT_NAME, which are type-specific.
 	 * 
 	 * @param newProperties the
 	 *            new set of properties.

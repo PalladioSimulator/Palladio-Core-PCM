@@ -39,8 +39,11 @@ import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
  * @author Dominik Ernst, Roland Richter
  * 
  */
-public class WarmupFilter extends IFilter implements IExecutableExtension{
+public class WarmupFilter extends IFilter {
 
+	private final static String ELEMENT_NAME = "WarmupFilter";
+	private final static String DROPPED_VALUES_ABS_KEY = "droppedValuesAbsolute";
+	private final static String DROPPED_VALUES_REL_KEY = "droppedValuesRelative";
 	/**
 	 * Logger for this class
 	 */
@@ -48,16 +51,18 @@ public class WarmupFilter extends IFilter implements IExecutableExtension{
 			.getCanonicalName());
 
 	/**
-	 * The number of values dropped by this {@link WarmupFilter} (as an absolute number).
-	 * TODO change to long and adapt using classes to work with long values,too.
+	 * The number of values dropped by this {@link WarmupFilter} (as an absolute
+	 * number). TODO change to long and adapt using classes to work with long
+	 * values,too.
 	 */
 	private int droppedValues = 0;
 	/**
-	 * The number of values dropped by this {@link WarmupFilter} (in percentage).
-	 * TODO maybe change to double for easier compatibility and no typecasting?
+	 * The number of values dropped by this {@link WarmupFilter} (in
+	 * percentage). TODO maybe change to double for easier compatibility and no
+	 * typecasting?
 	 */
 	private float droppedValuesPercentage = 0.0f;
-	
+
 	public int getDroppedValues() {
 		return droppedValues;
 	}
@@ -74,21 +79,27 @@ public class WarmupFilter extends IFilter implements IExecutableExtension{
 		this.droppedValuesPercentage = droppedValuesPercentage;
 	}
 
-	public WarmupFilter(){};
-	
+	public WarmupFilter() {
+	};
+
 	public WarmupFilter(IDataSource source) {
 		super(source);
 		transformData();
 	}
-	
+
 	/**
-	 * Constructor for restoring of a {@link WarmupFilter} by the a Factory (used for persistence).
-	 * @param source the attached {@link IDataSource}
-	 * @param droppedValues number of values dropped as an absolute value
-	 * @param droppedValuesPercentage number of values dropped in percentage
+	 * Constructor for restoring of a {@link WarmupFilter} by the a Factory
+	 * (used for persistence).
+	 * 
+	 * @param source
+	 *            the attached {@link IDataSource}
+	 * @param droppedValues
+	 *            number of values dropped as an absolute value
+	 * @param droppedValuesPercentage
+	 *            number of values dropped in percentage
 	 */
 	public WarmupFilter(IDataSource source, int droppedValues,
-			float droppedValuesPercentage) {		
+			float droppedValuesPercentage) {
 		super(source);
 		source.addObserver(this);
 		setDroppedValues(droppedValues);
@@ -98,15 +109,17 @@ public class WarmupFilter extends IFilter implements IExecutableExtension{
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.ui.IPersistableElement#getFactoryId()
 	 */
 	@Override
 	public String getFactoryId() {
 		return WarmupFilterFactory.getFactoryId();
 	}
-	
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.ui.IPersistable#saveState(org.eclipse.ui.IMemento)
 	 */
 	@Override
@@ -114,18 +127,23 @@ public class WarmupFilter extends IFilter implements IExecutableExtension{
 		WarmupFilterFactory.saveState(memento, this);
 		logger.log(Level.INFO, "saveState()");
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#canAccept(de.uka.ipd.sdq.edp2.visualization.IDataSource)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataSink#canAccept(de.uka.ipd.sdq.
+	 * edp2.visualization.IDataSource)
 	 */
 	@Override
 	public boolean canAccept(IDataSource source) {
 		// TODO Auto-generated method stub
 		return true;
 	}
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getMetricRoles()
 	 */
 	@Override
@@ -136,7 +154,9 @@ public class WarmupFilter extends IFilter implements IExecutableExtension{
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.AbstractTransformation#transformData()
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.AbstractTransformation#transformData()
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -144,17 +164,25 @@ public class WarmupFilter extends IFilter implements IExecutableExtension{
 		logger.log(Level.INFO, "warmup filter transform begin");
 
 		// metrics remain untouched
-		MetricDescription metricDescription = RepositoryUtility.copyMetricDescriptionSilent(source.getMeasurementsRange().getMeasurements().getMeasure().getMetric());
-		// create RawMeasurements and finish copying/setting of required references
-		Edp2Measure edp2measure = RepositoryUtility.createEdp2Measure(source.getMeasurementsRange().getMeasurements().getMeasure(), metricDescription);
-		//create a new Measurements object
-		Measurements measurements = RepositoryUtility.createMeasurements(edp2measure);
-		//copy measurementsRange from source using the new measurements
+		MetricDescription metricDescription = RepositoryUtility
+				.copyMetricDescriptionSilent(source.getMeasurementsRange()
+						.getMeasurements().getMeasure().getMetric());
+		// create RawMeasurements and finish copying/setting of required
+		// references
+		Edp2Measure edp2measure = RepositoryUtility.createEdp2Measure(source
+				.getMeasurementsRange().getMeasurements().getMeasure(),
+				metricDescription);
+		// create a new Measurements object
+		Measurements measurements = RepositoryUtility
+				.createMeasurements(edp2measure);
+		// copy measurementsRange from source using the new measurements
 		measurementsRange = RepositoryUtility.copyMeasurementsRange(source
 				.getMeasurementsRange(), measurements);
-		
-		//create new RawMeasurements, connected to the new measurements via the measurementsRange
-		RawMeasurements rawMeasurements = RepositoryUtility.createRawMeasurements(measurementsRange);
+
+		// create new RawMeasurements, connected to the new measurements via the
+		// measurementsRange
+		RawMeasurements rawMeasurements = RepositoryUtility
+				.createRawMeasurements(measurementsRange);
 
 		// copy only relevant measurements
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
@@ -169,13 +197,14 @@ public class WarmupFilter extends IFilter implements IExecutableExtension{
 		/**
 		 * filter droppedValues: if @code{droppedValues} = 0 don't throw values;
 		 */
-		int droppedValuesTemp=0;
+		int droppedValuesTemp = 0;
 		if (droppedValuesPercentage > 0) {
 			droppedValuesTemp = (int) (droppedValuesPercentage
 					* listOfMeasures.get(0).size() / 100);
 		} else if (droppedValues > 0) {
-			droppedValuesTemp =  droppedValues;
-			//droppedValuesPercentage = (float) (Math.floor(10000* droppedValues / listOfMeasures.get(0).size()) / 100);
+			droppedValuesTemp = droppedValues;
+			// droppedValuesPercentage = (float) (Math.floor(10000*
+			// droppedValues / listOfMeasures.get(0).size()) / 100);
 		}
 		MeasurementsUtility.createDAOsForRawMeasurements(rawMeasurements);
 		for (int i = droppedValuesTemp; i < listOfMeasures.get(0).size(); i++) {
@@ -186,25 +215,16 @@ public class WarmupFilter extends IFilter implements IExecutableExtension{
 			}
 			MeasurementsUtility.storeMeasurement(measurements, measurement);
 		}
-		
+
 		dataSeries = rawMeasurements.getDataSeries();
-		
+
 		logger.log(Level.INFO, "warmup filter transform end");
 
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
-	 */
-	@Override
-	public ImageDescriptor getImageDescriptor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	/*
-	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.ui.IEditorInput#getName()
 	 */
 	@Override
@@ -214,38 +234,36 @@ public class WarmupFilter extends IFilter implements IExecutableExtension{
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataTransformation#getProperties()
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataTransformation#getProperties()
 	 */
 	@Override
-	public HashMap<String,Object> getProperties(){		
-		HashMap<String,Object> map = new HashMap<String,Object>();
-		map.put("droppedValues", getDroppedValues());
-		map.put("droppedValuesPercentage", getDroppedValuesPercentage());
-		return map;
+	public HashMap<String, Object> getProperties() {
+		properties.put(ELEMENT_KEY, ELEMENT_NAME);
+		properties.put(DROPPED_VALUES_ABS_KEY, getDroppedValues());
+		properties.put(DROPPED_VALUES_REL_KEY, getDroppedValuesPercentage());
+		return properties;
 	}
+
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataTransformation#getProperties()
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataTransformation#getProperties()
 	 */
 	public void setProperties(HashMap<String, Object> map) {
-		for(Object key : map.keySet()){
-			if((key.toString()).equals("droppedValues")){
-				setDroppedValues(Integer.parseInt(map.get(key).toString()));
-				setDroppedValuesPercentage(0.0f);
-			}
-			if((key.toString()).equals("droppedValuesPercentage")){
-				setDroppedValues(0);
-				setDroppedValuesPercentage(Float.parseFloat(map.get(key).toString()));
-				
-			}
-		}
-		transformData();
-		setChanged();
-		notifyObservers();
-		
+		setDroppedValues(Integer.parseInt(map.get(DROPPED_VALUES_ABS_KEY)
+				.toString()));
+		setDroppedValuesPercentage(Float.parseFloat(map.get(
+				DROPPED_VALUES_REL_KEY).toString()));
+		properties.put(DROPPED_VALUES_ABS_KEY, getDroppedValues());
+		properties.put(DROPPED_VALUES_REL_KEY, getDroppedValuesPercentage());
 	}
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
 	 */
 	@Override
@@ -255,8 +273,8 @@ public class WarmupFilter extends IFilter implements IExecutableExtension{
 	}
 
 	/**
-	 * Update this filter, if the observed {@link Observable} changed and notify observers
-	 * in case there are any registered ones.
+	 * Update this filter, if the observed {@link Observable} changed and notify
+	 * observers in case there are any registered ones.
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
@@ -267,12 +285,22 @@ public class WarmupFilter extends IFilter implements IExecutableExtension{
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.core.runtime.IExecutableExtension#setInitializationData(org.eclipse.core.runtime.IConfigurationElement, java.lang.String, java.lang.Object)
+	 * 
+	 * @see
+	 * org.eclipse.core.runtime.IExecutableExtension#setInitializationData(org
+	 * .eclipse.core.runtime.IConfigurationElement, java.lang.String,
+	 * java.lang.Object)
 	 */
 	@Override
 	public void setInitializationData(IConfigurationElement config,
 			String propertyName, Object data) throws CoreException {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public ImageDescriptor getImageDescriptor() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -98,8 +98,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		dataset.addSeries(testSeries);
 
 		// set the title
-		setTitle(getSource().getOriginalMeasurementsRange().getMeasurements()
-				.getExperimentRun().getExperimentSetting().getDescription());
+		setTitle("ScatterPlotTitle");
 		/*setToolTipText(getSource().getMeasurementsRange().getMeasurements()
 				.getMeasure().getMetric().getTextualDescription());
 
