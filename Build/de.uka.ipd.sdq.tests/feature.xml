@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uka.ipd.sdq.tests"
-      label="PCM Tests Feature"
-      version="3.1.0.qualifier"
+      label="%label"
+      version="3.3.0.qualifier"
       provider-name="sdq.ipd.uka.de">
 
    <description url="http://www.example.com/description">
@@ -22,16 +22,21 @@
    </url>
 
    <requires>
+      <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
+      <import plugin="de.uka.ipd.sdq.stoex"/>
+      <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
       <import plugin="org.junit"/>
+      <import plugin="de.uka.ipd.sdq.pcm"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.variables"/>
       <import plugin="org.apache.log4j"/>
       <import plugin="de.uka.ipd.sdq.sensorframework"/>
       <import plugin="de.uka.ipd.sdq.sensorframework.storage"/>
-      <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
-      <import plugin="org.antlr"/>
-      <import plugin="de.uka.ipd.sdq.stoex"/>
-      <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
-      <import plugin="de.uka.ipd.sdq.pcm"/>
+      <import plugin="de.uka.ipd.sdq.simucomframework" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.core.filesystem"/>
+      <import plugin="de.uka.ipd.sdq.workflow"/>
    </requires>
 
    <plugin
