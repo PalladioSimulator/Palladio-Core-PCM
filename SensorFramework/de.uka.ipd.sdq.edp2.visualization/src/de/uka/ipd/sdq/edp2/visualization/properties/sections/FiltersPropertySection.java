@@ -165,11 +165,12 @@ public class FiltersPropertySection extends AbstractPropertySection {
 					((JFreeChartEditor) editor).updateChart();
 				}
 				editor.setFocus();
-				updateFilterList();
+				updateTransformationsList();
 			}
 		};
 		buttonAdapter.addListener(SWT.Selection, btnListener);
 		buttonFilter.addListener(SWT.Selection, btnListener);
+		updateTransformationsList();
 
 	}
 
@@ -205,7 +206,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	private void initTransformationTable(Group parentGroup) {
 		// initialize the list of transformations with a selection listener
 		list = new List(parentGroup, SWT.BORDER | SWT.SINGLE | SWT.V_SCROLL);
-		list.setLayoutData(new RowData(140, 100));
+		list.setLayoutData(new RowData(140, 140));
 		list.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -225,7 +226,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		transformationTable.setLinesVisible(true);
 		transformationTable.setHeaderVisible(true);
 		// set width and hight from the table
-		transformationTable.setLayoutData(new RowData(250, 100));
+		transformationTable.setLayoutData(new RowData(250, 123));
 		// set the weight of the table columns
 		TableLayout tableLayout = new TableLayout();
 		tableLayout.addColumnData(new ColumnWeightData(2));
@@ -305,163 +306,6 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	}
 
 	/**
-	 * Generates the properties section for a new {@link WarmupFilter}.
-	 * 
-	 * @param group
-	 *            the parent GUI Object
-	 */
-	private void generatePropertieSectionForWarmup(Group group) {
-
-		// add a selectable label
-		String[] items = new String[2];
-		items[0] = "dropped values";
-		items[1] = "dropped values in percentage";
-		final CCombo kindOfValues = getWidgetFactory().createCCombo(group,
-				SWT.BORDER);
-		kindOfValues.setItems(items);
-		kindOfValues.setEditable(false);
-		// add a texfield
-		final Text txtDroppedValuesPercentage;
-		txtDroppedValuesPercentage = getWidgetFactory().createText(group, "",
-				SWT.BORDER);
-		txtDroppedValuesPercentage.setTextLimit(20);
-		// Add a Button
-		Button newFilterButton = getWidgetFactory().createButton(group,
-				"Add Warmupfilter", SWT.PUSH);
-		newFilterButton.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event event) {
-				logger.log(Level.INFO, "new warmup filter");
-				WarmupFilter newWarmupFilter = null;
-
-				// get the active editor's input (can only be an AbstractEditor)
-				IDataSink input = editor.getEditorInput();
-
-				// create a new warmup filter with the source of the editors
-				// former input
-				if (kindOfValues.getSelectionIndex() == 0) {
-					newWarmupFilter = new WarmupFilter(input.getSource(),
-							Integer.parseInt(txtDroppedValuesPercentage
-									.getText()), 0);
-
-				} else {
-					newWarmupFilter = new WarmupFilter(input.getSource(), 0,
-							Float.parseFloat(txtDroppedValuesPercentage
-									.getText()));
-				}
-				logger.log(Level.INFO, "update editor input begin");
-				input.setSource(newWarmupFilter);
-				if (editor instanceof JFreeChartEditor) {
-					((JFreeChartEditor) editor).updateChart();
-				}
-				// editor.changeInput(input);
-				editor.setFocus();
-				logger.log(Level.INFO, "update editor input end");
-				updateFilterList();
-
-			}
-		});
-
-	}
-
-	/**
-	 * Creates and configures the layout of the group for the new WarumupFilter
-	 * configurations.
-	 * 
-	 * @param composite
-	 *            the parent GUI Object
-	 * @return the GUI Group for the group Warmup Filter
-	 */
-	private Group createWarmupConfigurationGroup(Composite composite) {
-		RowData data = new RowData();
-		data.width = 400;
-		data.height = 50;
-
-		Group warmUpGroup = getWidgetFactory().createGroup(composite,
-				"Warmup Filter");
-		warmUpGroup.setLayout(new RowLayout());
-		warmUpGroup.setLayoutData(data);
-		return warmUpGroup;
-	}
-
-	/**
-	 * To generate the properties section for a new {@link TeardownFilter}.
-	 * 
-	 * @param group
-	 *            the parent GUI Object
-	 */
-	private void generatePropertieSectionForTeardown(Group group) {
-		// add a selectable label
-		String[] items = new String[2];
-		items[0] = "dropped values";
-		items[1] = "dropped values in percentage";
-		final CCombo kindOfValues = getWidgetFactory().createCCombo(group,
-				SWT.BORDER);
-		kindOfValues.setItems(items);
-		kindOfValues.setEditable(false);
-		// add a textfield
-		final Text txtDroppedValuesPercentage;
-		txtDroppedValuesPercentage = getWidgetFactory().createText(group, "",
-				SWT.BORDER);
-		txtDroppedValuesPercentage.setTextLimit(20);
-		// add a button
-		Button newFilterButton = getWidgetFactory().createButton(group,
-				"Add Teardownfilter", SWT.PUSH);
-		newFilterButton.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event event) {
-				logger.log(Level.INFO, "new teardown filter");
-				TeardownFilter newTeardownFilter = null;
-				// get the active editor
-				ScatterPlotEditor editor = (ScatterPlotEditor) Activator
-						.getDefault().getWorkbench().getActiveWorkbenchWindow()
-						.getActivePage().getActiveEditor();
-				// get the input of the editor
-				ScatterPlotInput input = (ScatterPlotInput) editor
-						.getEditorInput();
-
-				if (kindOfValues.getSelectionIndex() == 0) {
-					newTeardownFilter = new TeardownFilter(input.getSource(),
-							Integer.parseInt(txtDroppedValuesPercentage
-									.getText()), 0);
-
-				} else {
-					newTeardownFilter = new TeardownFilter(input.getSource(),
-							0, Float.parseFloat(txtDroppedValuesPercentage
-									.getText()));
-				}
-
-				logger.log(Level.INFO, "update editor input begin");
-				input = new ScatterPlotInput(newTeardownFilter);
-				editor.changeInput(input);
-				editor.setFocus();
-				logger.log(Level.INFO, "update editor input end");
-				updateFilterList();
-
-			}
-		});
-
-	}
-
-	/**
-	 * Creates and configures the layout of the group for the new TeardownFilter
-	 * configurations.
-	 * 
-	 * @param composite
-	 *            the parent GUI Object
-	 * @return the GUI Group for the group Teardown Filter
-	 */
-	private Group createTeardownConfigurationGroup(Composite composite) {
-		RowData data = new RowData();
-		data.width = 400;
-		data.height = 50;
-
-		Group tearDownGroup = getWidgetFactory().createGroup(composite,
-				"Teardown Filter");
-		tearDownGroup.setLayout(new RowLayout());
-		tearDownGroup.setLayoutData(data);
-		return tearDownGroup;
-	}
-
-	/**
 	 * Creates and configures the layout of the group for showing the currently
 	 * applied transformations.
 	 * 
@@ -471,8 +315,8 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 */
 	private Group createTransformationGroup(Composite composite) {
 		RowData data = new RowData();
-		data.width = 600;
-		data.height = 150;
+		data.width = 550;
+		data.height = 155;
 
 		Group filtersGroup = getWidgetFactory().createGroup(composite,
 				"Current Transformations");
@@ -502,10 +346,6 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 *         caled for the return value.
 	 */
 	public IDataSource getSource() {
-		// get the active editor
-		IEditorPart editor = Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		// get the input of the editor
 		IDataSink input = (IDataSink) editor.getEditorInput();
 		return input.getSource();
 	}
@@ -516,16 +356,27 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 * have to be called. Before it is called, the input of the editor had to be
 	 * changed to the new input.
 	 */
-	public void updateFilterList() {
-		logger.log(Level.INFO, "updateFiltersList");
+	public void updateTransformationsList() {
 
-		ScatterPlotInput input = (ScatterPlotInput) editor.getEditorInput();
-		if (input.getSource() instanceof IFilter) {
-			logger.log(Level.INFO, "input.getSource() is a IFilter");
-			String name = ((IFilter) input.getSource()).getName();
-			list.add(name + " (" + counter + ")");
+		AbstractTransformation transformation = null;
+		
+		list.removeAll();
+		counter=0;
+
+		// check if there are any transformations at all
+		if (getSource() instanceof AbstractTransformation) {
+			transformation = (AbstractTransformation) getSource();
+			list.add(transformation.getName());
 			counter++;
+			// iterate over remaining transformations
+			while (transformation.getSource() instanceof AbstractTransformation) {
+				transformation = (AbstractTransformation) transformation
+				.getSource();
+				list.add(transformation.getName());
+				counter++;
+			}
 		}
+		logger.log(Level.INFO, "Number of transformations: "+counter);
 
 	}
 
@@ -534,23 +385,23 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 * properties of the selected filter in the list.
 	 */
 	private void refreshPropertiesTable() {
-		IDataSink editorInput = editor.getEditorInput();
+		//clear the table
 		transformationTable.clearAll();
 		transformationTable.setItemCount(0);
-
-		AbstractTransformation selectedTransformation = null;
+		
+		//get the index of the selected transformation
+		AbstractTransformation selectedTransformation = (AbstractTransformation) getSource();
 		int selection = list.getSelectionIndex();
-
-		while (counter - selection > 0) {
-			selection++;
-			selectedTransformation = (AbstractTransformation) editorInput
-					.getSource();
+		int i = 1;
+		
+		//iterate to the selected item over the editor inputs source-chain
+		while (i < counter - selection) {
+			i++;
+			selectedTransformation = (AbstractTransformation) selectedTransformation.getSource();
 		}
 		// now in tempData is the selected filter
 		HashMap<String, Object> properties = selectedTransformation
 				.getProperties();
-		logger.log(Level.INFO, "Selected Transformation is a "
-				+ properties.get(NAME_KEY));
 
 		for (Object key : properties.keySet()) {
 			TableItem item = new TableItem(transformationTable, SWT.NONE);

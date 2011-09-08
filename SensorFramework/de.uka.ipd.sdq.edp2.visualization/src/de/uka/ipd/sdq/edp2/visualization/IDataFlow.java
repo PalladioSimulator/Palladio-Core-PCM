@@ -33,4 +33,10 @@ public interface IDataFlow extends IPersistableElement, IAdaptable {
 	 *            new set of properties.
 	 */
 	public abstract void setProperties(HashMap<String, Object> newProperties);
+	
+	/**
+	 * Method which delivers the name of an {@link IDataFlow} element.
+	 * @return the name as a {@link String}
+	 */
+	public abstract String getName();
 }

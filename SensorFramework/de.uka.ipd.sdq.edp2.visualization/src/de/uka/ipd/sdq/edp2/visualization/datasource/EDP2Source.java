@@ -277,4 +277,9 @@ public class EDP2Source extends IDataSource {
 		findRawMeasurementsByUUID(rawMeasurementsUUID);
 	}
 
+	@Override
+	public String getName() {
+		return ELEMENT_NAME;
+	}
+
 }
