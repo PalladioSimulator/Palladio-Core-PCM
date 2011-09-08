@@ -100,7 +100,6 @@ public class TeardownFilter extends IFilter {
 	public TeardownFilter(IDataSource source, int droppedValues,
 			float droppedValuesPercentage) {
 		super(source);
-		source.addObserver(this);
 		setDroppedValues(droppedValues);
 		setDroppedValuesPercentage(droppedValuesPercentage);
 		transformData();

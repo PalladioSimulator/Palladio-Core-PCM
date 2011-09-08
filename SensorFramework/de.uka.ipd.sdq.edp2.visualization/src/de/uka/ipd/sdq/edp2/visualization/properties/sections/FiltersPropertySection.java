@@ -425,24 +425,25 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		logger.log(Level.INFO, "update property '" + key + "' : '" + value
 				+ "'");
 
-		// get the input of the editor
-		IDataSink editorInput = editor.getEditorInput();
-
-		AbstractTransformation selectedTransformation = null;
+		//get the index of the selected transformation
+		AbstractTransformation selectedTransformation = (AbstractTransformation) getSource();
 		int selection = list.getSelectionIndex();
-
-		while (counter - selection > 0) {
-			selection++;
-			selectedTransformation = (AbstractTransformation) editorInput
-					.getSource();
+		int i = 1;
+		
+		//iterate to the selected item over the editor inputs source-chain
+		while (i < counter - selection) {
+			i++;
+			selectedTransformation = (AbstractTransformation) selectedTransformation.getSource();
 		}
 
-		HashMap<String, Object> newProperties = new HashMap<String, Object>();
+		HashMap<String, Object> newProperties = selectedTransformation.getProperties();
 		newProperties.put(key, value);
 		selectedTransformation.setProperties(newProperties);
+		selectedTransformation.transformData();
 
 		((JFreeChartEditor) editor).updateChart();
 		editor.setFocus();
+		refreshPropertiesTable();
 
 	}
 

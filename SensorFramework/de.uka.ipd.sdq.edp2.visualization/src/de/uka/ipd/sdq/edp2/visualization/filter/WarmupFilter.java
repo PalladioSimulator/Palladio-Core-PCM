@@ -69,6 +69,7 @@ public class WarmupFilter extends IFilter {
 
 	public void setDroppedValues(int droppedValues) {
 		this.droppedValues = droppedValues;
+		this.droppedValuesPercentage = 0.0f;
 	}
 
 	public float getDroppedValuesPercentage() {
@@ -77,6 +78,7 @@ public class WarmupFilter extends IFilter {
 
 	public void setDroppedValuesPercentage(float droppedValuesPercentage) {
 		this.droppedValuesPercentage = droppedValuesPercentage;
+		this.droppedValues = 0;
 	}
 
 	public WarmupFilter() {
@@ -101,7 +103,6 @@ public class WarmupFilter extends IFilter {
 	public WarmupFilter(IDataSource source, int droppedValues,
 			float droppedValuesPercentage) {
 		super(source);
-		source.addObserver(this);
 		setDroppedValues(droppedValues);
 		setDroppedValuesPercentage(droppedValuesPercentage);
 		transformData();
@@ -217,6 +218,9 @@ public class WarmupFilter extends IFilter {
 		}
 
 		dataSeries = rawMeasurements.getDataSeries();
+
+		setChanged();
+		notifyObservers();
 
 		logger.log(Level.INFO, "warmup filter transform end");
 

@@ -50,7 +50,9 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	 */
 	@Override
 	public void setSource(IDataSource source) {
+		if (this.source != null) getSource().deleteObserver(this);
 		this.source = source;
+		source.addObserver(this);
 	}
 
 	/* (non-Javadoc)
