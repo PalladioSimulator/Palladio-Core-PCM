@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="de.uka.ipd.sdq.tests"
+      id="de.uka.ipd.sdq.tests.feature"
       label="%label"
       version="3.3.0.qualifier"
       provider-name="sdq.ipd.uka.de">
