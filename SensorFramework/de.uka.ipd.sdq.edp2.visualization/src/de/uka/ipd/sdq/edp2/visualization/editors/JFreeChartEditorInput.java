@@ -22,10 +22,6 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	 * Key under which this class' name is stored in the properties.
 	 */
 	protected static final String ELEMENT_KEY = "elementName";
-	/**
-	 * Name constant, which is used to reference the source in the properties.
-	 */
-	protected static final String SOURCE_KEY = "source";
 	
 	protected HashMap<String, Object> properties;
 	private IDataSource source;

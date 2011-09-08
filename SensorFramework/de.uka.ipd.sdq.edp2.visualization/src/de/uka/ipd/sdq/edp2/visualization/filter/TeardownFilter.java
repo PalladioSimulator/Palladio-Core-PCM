@@ -15,6 +15,8 @@ import javax.measure.quantity.Duration;
 import javax.measure.unit.SI;
 import javax.measure.unit.Unit;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IMemento;
@@ -232,6 +234,13 @@ public class TeardownFilter extends IFilter {
 		transformData();
 		setChanged();
 		notifyObservers();
+	}
+
+	@Override
+	public void setInitializationData(IConfigurationElement config,
+			String propertyName, Object data) throws CoreException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

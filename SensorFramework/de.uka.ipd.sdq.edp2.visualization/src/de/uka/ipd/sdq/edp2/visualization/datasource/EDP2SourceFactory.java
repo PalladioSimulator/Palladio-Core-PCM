@@ -40,8 +40,12 @@ public class EDP2SourceFactory extends ElementFactory {
 		EDP2Source source = new EDP2Source();
 		HashMap<String, Object> restoredProperties = source.getProperties();
 		// default properties are overridden with persisted properties from the
-		// memento and are set for the restored element
-		source.setProperties(overrideFromMemento(memento, restoredProperties));
+		// memento
+		memento = memento.getChild(restoredProperties.get(ELEMENT_KEY)
+				.toString());
+		overrideFromMemento(memento, restoredProperties);
+		//properties are set for the restored element
+		source.setProperties(restoredProperties);
 		return source;
 	}
 

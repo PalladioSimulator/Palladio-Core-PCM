@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
+import java.util.HashMap;
 import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -10,6 +11,7 @@ import org.eclipse.ui.IPersistableElement;
 
 import de.uka.ipd.sdq.edp2.visualization.FactoryConnector;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 import de.uka.ipd.sdq.edp2.visualization.util.PersistenceTag;
 
 /**
@@ -19,7 +21,7 @@ import de.uka.ipd.sdq.edp2.visualization.util.PersistenceTag;
  * @author ernst
  * 
  */
-public class HistogramEditorInputFactory implements IElementFactory {
+public class HistogramEditorInputFactory extends ElementFactory {
 
 	private static Logger logger = Logger
 			.getLogger(HistogramEditorInputFactory.class.getCanonicalName());
@@ -39,40 +41,34 @@ public class HistogramEditorInputFactory implements IElementFactory {
 	 *         {@link IDataSource}
 	 */
 	public IAdaptable createElement(IMemento memento) {
-		// TODO Here should be a factory for all DataFlow elements
+		HistogramEditorInput histogramInput = new HistogramEditorInput();
+		
+		HashMap<String, Object> restoredProperties = histogramInput.getProperties();
+		memento = memento.getChild(restoredProperties.get(ELEMENT_KEY)
+				.toString());
+		//default properties are overridden with persisted properties from the memento
+		overrideFromMemento(memento, restoredProperties);
+		//properties are set for the restored element
+		histogramInput.setProperties(restoredProperties);
+		
 		FactoryConnector factoryConnector = new FactoryConnector();
-		Object sourceFactory = factoryConnector.getAdapter(memento
-				.getString(PersistenceTag.SOURCE.getID()),
+		Object sourceFactory = factoryConnector.getAdapter(memento.getString(SOURCE_KEY),
 				IElementFactory.class);
-		return new HistogramEditorInput(
-				(IDataSource) ((IElementFactory) sourceFactory)
-						.createElement(memento));
+		
+		IDataSource createdSource = (IDataSource) ((IElementFactory) sourceFactory)
+		.createElement(memento);
+		
+		createdSource.addObserver(histogramInput);
+		histogramInput.setSource(createdSource);
+		histogramInput.updateDataset();
+		
+		return histogramInput;
 	}
-
 	/**
-	 * 
 	 * @return this factory's ID.
 	 */
 	public static String getFactoryId() {
 		return FACTORY_ID;
-	}
-
-	/**
-	 * Method for writing the current instance of {@link HistogramEditorInput}
-	 * to the memento.
-	 * 
-	 * @param memento
-	 *            Reference to the memento, passed as a parameter by the
-	 *            {@link IPersistableElement#saveState(IMemento)} method in
-	 *            {@link HistogramEditorInput}
-	 * @param input
-	 *            Reference to the calling instance of
-	 *            {@link HistogramEditorInput}.
-	 */
-	public static void saveState(IMemento memento, HistogramEditorInput input) {
-		memento.putString(PersistenceTag.SOURCE.getID(), input.getSource()
-				.getClass().getCanonicalName());
-		input.getSource().saveState(memento);
 	}
 
 }

@@ -228,13 +228,11 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	@Override
 	public HashMap<String, Object> getProperties() {
 		properties.put(ELEMENT_KEY, ELEMENT_NAME);
-		properties.put(SOURCE_KEY, getSource());
 		return properties;
 	}
 
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
-		properties.put(SOURCE_KEY, newProperties.get(SOURCE_KEY));
 	}
 
 }

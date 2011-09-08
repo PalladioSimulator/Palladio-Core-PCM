@@ -15,8 +15,8 @@ public enum PersistenceTag {
 	RAW_MEASUREMENTS ("rawMeasurementsUUID", "String"),
 	DROPPED_VALUES_ABS ("droppedValuesAbsolute", "Integer"),
 	DROPPED_VALUES_REL ("droppedValuesRelative", "Float"),
-	DATA_SERIES_INDEX ("selectedDataSeries","Integer"),
-	NUMBER_OF_BINS ("numberBins","Integer")
+	DATA_SERIES_INDEX ("dataSeriesIndex","Integer"),
+	NUMBER_OF_BINS ("numberOfBins","Integer")
 	;
 	
 	

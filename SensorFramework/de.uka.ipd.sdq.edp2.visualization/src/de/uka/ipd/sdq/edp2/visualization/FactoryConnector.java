@@ -84,7 +84,7 @@ public class FactoryConnector implements IAdapterFactory {
 		
 		// check if the special case holds, i.e. the previous element in the
 		// chain is the EDP2Source
-		if (adaptableObject.equals(EDP2Source.class.getCanonicalName()))
+		if (adaptableObject.toString().equals(EDP2Source.class.getCanonicalName()))
 			resultingFactory = new EDP2SourceFactory();
 
 		return resultingFactory;

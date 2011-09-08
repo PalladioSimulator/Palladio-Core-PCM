@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.edp2.visualization;
 
+import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.ui.IPersistableElement;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
@@ -10,13 +11,16 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
  * @author Dominik Ernst, Roland Richter
  */
 public abstract class AbstractTransformation extends IDataSource implements
-		IDataSink {
+		IDataSink, IExecutableExtension {
 
 	/**
 	 * The previous element in a chain of {@link IDataFlow} elements.
 	 */
 	protected IDataSource source;
-
+	/**
+	 * Key under which this class' name is stored in the properties.
+	 */
+	protected static final String ELEMENT_KEY = "elementName";
 	/**
 	 * Default, empty constructor.
 	 */

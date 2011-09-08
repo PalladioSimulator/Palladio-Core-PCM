@@ -46,18 +46,22 @@ public class ScatterPlotInputFactory extends ElementFactory {
 		ScatterPlotInput scatterPlotInput = new ScatterPlotInput();
 		
 		HashMap<String, Object> restoredProperties = scatterPlotInput.getProperties();
+		memento = memento.getChild(restoredProperties.get(ELEMENT_KEY)
+				.toString());
 		//default properties are overridden with persisted properties from the memento
-		restoredProperties = overrideFromMemento(memento, restoredProperties);
+		overrideFromMemento(memento, restoredProperties);
 		//properties are set for the restored element
 		scatterPlotInput.setProperties(restoredProperties);
 		
-		
 		FactoryConnector factoryConnector = new FactoryConnector();
-		Object sourceFactory = factoryConnector.getAdapter(restoredProperties.get(SOURCE_KEY).toString(),
+		Object sourceFactory = factoryConnector.getAdapter(memento.getString(SOURCE_KEY),
 				IElementFactory.class);
 		
-		scatterPlotInput.setSource((IDataSource) ((IElementFactory) sourceFactory)
-						.createElement(memento));
+		IDataSource createdSource = (IDataSource) ((IElementFactory) sourceFactory)
+		.createElement(memento);
+		
+		createdSource.addObserver(scatterPlotInput);
+		scatterPlotInput.setSource(createdSource);
 		scatterPlotInput.updateDataset();
 		
 		return scatterPlotInput;

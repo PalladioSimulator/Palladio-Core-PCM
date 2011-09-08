@@ -37,18 +37,16 @@ import de.uka.ipd.sdq.edp2.visualization.util.PersistenceTag;
  * @author Dominik Ernst
  * 
  */
-public class HistogramEditorInput implements IDataSink, ISelection {
-
+public class HistogramEditorInput extends JFreeChartEditorInput {
+	
 	/**
-	 * The source of this {@link IDataSink}
+	 * Name constant, which is used to identify this class in properties.
 	 */
-	private IDataSource source;
+	private static final String ELEMENT_NAME = "HistogramEditorInput";
 	/**
 	 * The specific type of {@link Dataset}.
 	 */
 	private HistogramDataset dataset;
-	
-	protected HashMap<String, Object> properties;
 	/**
 	 * Logger for this class
 	 */
@@ -69,14 +67,19 @@ public class HistogramEditorInput implements IDataSink, ISelection {
 	public void setDataset(HistogramDataset dataset) {
 		this.dataset = dataset;
 	}
-
+	/**
+	 * 
+	 */
+	public HistogramEditorInput(){
+		super();
+	}
 	/**
 	 * Constructor, with reference on the source. Automatically initiates an update of
 	 * the {@link #dataset}.
 	 * @param source
 	 */
 	public HistogramEditorInput(IDataSource source) {
-		this.source = source;
+		super(source);
 		updateDataset();
 	}
 
@@ -89,7 +92,7 @@ public class HistogramEditorInput implements IDataSink, ISelection {
 		
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
-		for (DataSeries series : source.getOutput()) {
+		for (DataSeries series : getSource().getOutput()) {
 			listOfDaos.add(MeasurementsUtility
 					.getOrdinalMeasurementsDao(series));
 		}
@@ -104,9 +107,13 @@ public class HistogramEditorInput implements IDataSink, ISelection {
 					listOfMeasures.get(0).get(i).getUnit());
 		}
 
-		dataset.addSeries((source.getProperties().get(PersistenceTag.DATA_SERIES_INDEX.getID()).toString()),
-				values, Integer.parseInt((String) (source.getProperties().get(PersistenceTag.NUMBER_OF_BINS.getID()))));
-		
+		//source must be a HistogramAdapter
+		//TODO change so that the adapter doesn't have to be the direct predecessor
+		//FIXME shouldn't use PersistenceTag, but must get the number of bins
+		dataset.addSeries(0,
+				values, Integer.parseInt((String) (getSource().getProperties().get(PersistenceTag.NUMBER_OF_BINS.getID()))));
+		//set the title
+		setTitle("Histogram");
 
 	}
 
@@ -133,30 +140,6 @@ public class HistogramEditorInput implements IDataSink, ISelection {
 	public ArrayList<MetricDescription> getMetricRoles() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.uka.ipd.sdq.edp2.models.ExperimentData.presentation.IDataSink#getSource
-	 * ()
-	 */
-	@Override
-	public IDataSource getSource() {
-		return source;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.uka.ipd.sdq.edp2.models.ExperimentData.presentation.IDataSink#setSource
-	 * (de.uka.ipd.sdq.edp2.models.ExperimentData.presentation.IDataSource)
-	 */
-	@Override
-	public void setSource(IDataSource source) {
-		this.source = source;
 	}
 
 	/*
@@ -198,60 +181,6 @@ public class HistogramEditorInput implements IDataSink, ISelection {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#exists()
-	 */
-	@Override
-	public boolean exists() {
-		// TODO Auto-generated method stub
-		return source != null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
-	 */
-	@Override
-	public ImageDescriptor getImageDescriptor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getName()
-	 */
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return "someName";
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getPersistable()
-	 */
-	@Override
-	public IPersistableElement getPersistable() {
-		return this;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getToolTipText()
-	 */
-	@Override
-	public String getToolTipText() {
-		return source.getMeasurementsRange().getMeasurements().getMeasure().getMetric().getName();
 	}
 
 	/*
@@ -268,10 +197,9 @@ public class HistogramEditorInput implements IDataSink, ISelection {
 	 * (non-Javadoc)
 	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#getProperties()
 	 */
-	@Override
 	public HashMap<String, Object> getProperties() {
-		// TODO Auto-generated method stub
-		return null;
+		properties.put(ELEMENT_KEY, ELEMENT_NAME);
+		return properties;
 	}
 
 	/*
@@ -281,7 +209,6 @@ public class HistogramEditorInput implements IDataSink, ISelection {
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
 		// TODO Auto-generated method stub
-		
 	}
 
 }

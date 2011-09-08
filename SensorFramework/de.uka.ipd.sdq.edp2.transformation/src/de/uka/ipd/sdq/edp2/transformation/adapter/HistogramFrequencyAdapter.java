@@ -37,9 +37,19 @@ import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
  * @author Dominik Ernst
  * 
  */
-public class HistogramFrequencyAdapter extends IAdapter implements
-		IExecutableExtension {
+public class HistogramFrequencyAdapter extends IAdapter {
 
+	/**
+	 * Name constant, which is used to identify this class in properties.
+	 */
+	private final static String ELEMENT_NAME = "HistogramFrequencyAdapter";
+	
+	/**
+	 * Keys for persistence of properties
+	 */
+	private final static String DATA_SERIES_KEY = "dataSeriesIndex";
+	private final static String NUMBER_BINS_KEY = "numberOfBins";
+	
 	/**
 	 * Logger for this class.
 	 */
@@ -56,16 +66,20 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 	 */
 	private int numberOfBins;
 	/**
-	 * Size of each interval. TODO implement functionality to set the interval size individually?
+	 * Size of each interval. TODO implement functionality to set the interval
+	 * size individually?
 	 */
 	private int[] intervalWidth;
 
 	public HistogramFrequencyAdapter() {
 	}
-	
+
 	/**
-	 * Constructor, which sets default values for the {@link HistogramFrequencyAdapter}'s variables.
-	 * @param source the attached {@link IDataSource}
+	 * Constructor, which sets default values for the
+	 * {@link HistogramFrequencyAdapter}'s variables.
+	 * 
+	 * @param source
+	 *            the attached {@link IDataSource}
 	 */
 	public HistogramFrequencyAdapter(IDataSource source) {
 		super(source);
@@ -75,11 +89,16 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 	}
 
 	/**
-	 * Constructor for predefined assignment of values to a newly created object's variables,
-	 * used for persistence.
-	 * @param source the attached {@link IDataSource}
-	 * @param dataSeriesIndex the index of the {@link DataSeries} to be displayed in the histogram
-	 * @param numberOfBins the number of intervals
+	 * Constructor for predefined assignment of values to a newly created
+	 * object's variables, used for persistence.
+	 * 
+	 * @param source
+	 *            the attached {@link IDataSource}
+	 * @param dataSeriesIndex
+	 *            the index of the {@link DataSeries} to be displayed in the
+	 *            histogram
+	 * @param numberOfBins
+	 *            the number of intervals
 	 */
 	public HistogramFrequencyAdapter(IDataSource source, int dataSeriesIndex,
 			int numberOfBins) {
@@ -88,11 +107,14 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 		this.dataSeriesIndex = dataSeriesIndex;
 		transformData();
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.AbstractTransformation#transformData()
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.AbstractTransformation#transformData()
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void transformData() {
 		logger.log(Level.INFO, "transformation BEGIN");
@@ -123,8 +145,8 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 				.getOrdinalMeasurementsDao(source.getOutput().get(
 						dataSeriesIndex));
 		List<Measure> listOfMeasures = daoForSelectedSeries.getMeasurements();
-		//TODO sort data in ascending order
-		//Collections.sort(listOfMeasures);
+		// TODO sort data in ascending order
+		// Collections.sort(listOfMeasures);
 
 		// copy all values of the selected data series to the local measurements
 		MeasurementsUtility.createDAOsForRawMeasurements(rawMeasurements);
@@ -143,24 +165,27 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.ui.IPersistableElement#getFactoryId()
 	 */
 	@Override
 	public String getFactoryId() {
 		return HistogramFrequencyAdapterFactory.getFactoryId();
 	}
-	
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.ui.IPersistable#saveState(org.eclipse.ui.IMemento)
 	 */
 	@Override
 	public void saveState(IMemento memento) {
 		HistogramFrequencyAdapterFactory.saveState(memento, this);
 	}
-	
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
 	 */
 	@Override
@@ -168,10 +193,13 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#canAccept(de.uka.ipd.sdq.edp2.visualization.IDataSource)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataSink#canAccept(de.uka.ipd.sdq.
+	 * edp2.visualization.IDataSource)
 	 */
 	@Override
 	public boolean canAccept(IDataSource source) {
@@ -181,6 +209,7 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getMetricRoles()
 	 */
 	@Override
@@ -188,9 +217,10 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
 	@Override
@@ -201,6 +231,7 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.ui.IEditorInput#getName()
 	 */
 	@Override
@@ -210,14 +241,16 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#getProperties()
 	 */
 	@Override
 	public HashMap<String, Object> getProperties() {
-		properties.put(PersistenceTag.DATA_SERIES_INDEX.getID(),
+		properties.put(ELEMENT_KEY, ELEMENT_NAME);
+		properties.put(DATA_SERIES_KEY,
 				dataSeriesIndex);
 		properties
-				.put(PersistenceTag.NUMBER_OF_BINS.getID(), "" + numberOfBins);
+				.put(NUMBER_BINS_KEY, "" + numberOfBins);
 		return properties;
 	}
 
@@ -239,7 +272,11 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.core.runtime.IExecutableExtension#setInitializationData(org.eclipse.core.runtime.IConfigurationElement, java.lang.String, java.lang.Object)
+	 * 
+	 * @see
+	 * org.eclipse.core.runtime.IExecutableExtension#setInitializationData(org
+	 * .eclipse.core.runtime.IConfigurationElement, java.lang.String,
+	 * java.lang.Object)
 	 */
 	@Override
 	public void setInitializationData(IConfigurationElement config,
@@ -247,19 +284,28 @@ public class HistogramFrequencyAdapter extends IAdapter implements
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#setProperties(java.util.HashMap)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataFlow#setProperties(java.util.HashMap
+	 * )
 	 */
 	@Override
 	public void setProperties(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
-
+		setNumberOfBins(
+				Integer.parseInt(map.get(NUMBER_BINS_KEY).toString()));
+		setDataSeriesIndex(Integer.parseInt(map.get(DATA_SERIES_KEY).toString()));
+		
+		properties.put(DATA_SERIES_KEY, getDataSeriesIndex());
+		properties.put(NUMBER_BINS_KEY, getNumberOfBins());
+		
 	}
-	
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
 	 */
 	@Override

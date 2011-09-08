@@ -77,6 +77,8 @@ public abstract class ElementFactory implements IElementFactory {
 		// create a new node in the memento named after the element
 		memento.createChild(elementName);
 		memento = memento.getChild(elementName);
+		
+		props.remove(ELEMENT_KEY);
 		// save all properties TODO elements name is both as an attribute and
 		// xml-element's name persisted
 		for (String key : props.keySet()) {
@@ -86,8 +88,6 @@ public abstract class ElementFactory implements IElementFactory {
 		// persisted
 		IDataSink sinkInput = null;
 		if (input instanceof IDataSink) {
-			logger.log(Level.INFO,
-					"found a sink, continueing savestate for sink");
 			sinkInput = (IDataSink) input;
 			memento.putString(SOURCE_KEY, sinkInput.getSource().getClass()
 					.getCanonicalName());
@@ -103,18 +103,14 @@ public abstract class ElementFactory implements IElementFactory {
 	 *            the {@link IMemento} from which the properties are read
 	 * @param propertiesToOverride
 	 *            the properties in which the values are to be replaced
-	 * @return the properties-{@link HashMap} with restored values
 	 */
-	protected HashMap<String, Object> overrideFromMemento(IMemento memento,
+	protected static void overrideFromMemento(IMemento memento,
 			HashMap<String, Object> propertiesToOverride) {
-		memento = memento.getChild(propertiesToOverride.get(ELEMENT_KEY)
-				.toString());
+		
 		for (Object key : propertiesToOverride.keySet()) {
-			logger.log(Level.INFO, key.toString());
 			propertiesToOverride.put(key.toString(), memento.getString(key
 					.toString()));
 		}
-		return propertiesToOverride;
 	}
 
 }
