@@ -22,7 +22,7 @@ public class WarmupFilterSettingsPage extends WizardPage implements Listener {
 
 	private final static String PAGE_NAME = "Warmup Filter Settings";
 
-	private final static double DEFAULT_DROPPED = 10;
+	private final static float DEFAULT_DROPPED = 10.0f;
 
 	private static final Logger logger = Logger
 			.getLogger(WarmupFilterSettingsPage.class.getCanonicalName());
@@ -31,26 +31,28 @@ public class WarmupFilterSettingsPage extends WizardPage implements Listener {
 	IStatus numberStatus;
 	Text droppedAbsText;
 	Text droppedPerText;
-	double droppedValuesPercentage;
-	long droppedValuesAbsolute;
+	float droppedValuesPercentage;
+	int droppedValuesAbsolute;
 	long numberOfMeasurements;
 	Status statusOK;
 
 	public WarmupFilterSettingsPage(IDataSource source) {
 		super(PAGE_NAME);
 		this.source = source;
-		setDescription("Choose the settings for the Histogram.");
+		setDescription("Choose the settings for the Warmup Filter.");
 		setDroppedValuesPercentage(DEFAULT_DROPPED);
 		statusOK = new Status(IStatus.OK, "not_used", 0, "", null);
 		numberStatus = statusOK;
 	}
 
-	private void setDroppedValuesPercentage(double droppedValuesPercentage) {
-		// TODO Auto-generated method stub
+	private void setDroppedValuesPercentage(float droppedValuesPercentage) {
+		this.droppedValuesPercentage = droppedValuesPercentage;
+		this.droppedValuesAbsolute = 0;
 	}
 
-	private void setDroppedValuesAbsolute(long droppedValuesAbsolute) {
-		// TODO Auto-generated method stub
+	private void setDroppedValuesAbsolute(int droppedValuesAbsolute) {
+		this.droppedValuesAbsolute = droppedValuesAbsolute;
+		this.droppedValuesPercentage = 0.0f;
 	}
 
 	/*
@@ -64,9 +66,9 @@ public class WarmupFilterSettingsPage extends WizardPage implements Listener {
 	public void handleEvent(Event event) {
 		numberStatus = statusOK;
 		if (event.widget == droppedAbsText) {
-			long temp = 0;
+			int temp = 0;
 			try {
-				temp = Long.parseLong(droppedAbsText.getText());
+				temp = Integer.parseInt(droppedAbsText.getText());
 			} catch (NumberFormatException nfe) {
 				numberStatus = new Status(IStatus.ERROR, "not_used", 0,
 						"Not a valid number.", null);
@@ -83,9 +85,9 @@ public class WarmupFilterSettingsPage extends WizardPage implements Listener {
 			}
 		}
 		if (event.widget == droppedPerText) {
-			double temp = 0;
+			float temp = 0;
 			try {
-				temp = Double.parseDouble(droppedPerText.getText());
+				temp = Float.parseFloat(droppedPerText.getText());
 			} catch (NumberFormatException nfe) {
 				numberStatus = new Status(IStatus.ERROR, "not_used", 0,
 						"Not a valid number.", null);
@@ -119,7 +121,7 @@ public class WarmupFilterSettingsPage extends WizardPage implements Listener {
 		// create the composite to hold the widgets
 		GridData gd;
 		Composite composite = new Composite(parent, SWT.NONE);
-
+		setControl(composite);
 		// set the layout of the composite
 		GridLayout gl = new GridLayout();
 		int ncol = 2;
@@ -212,7 +214,7 @@ public class WarmupFilterSettingsPage extends WizardPage implements Listener {
 
 	public WarmupFilter getFilter() {
 		// TODO Auto-generated method stub
-		return null;
+		return new WarmupFilter(source, droppedValuesAbsolute, droppedValuesPercentage);
 	}
 
 }

@@ -117,7 +117,6 @@ public class WarmupFilterWizard extends Wizard implements
 			SelectFilterPage selectFilterPage) {
 		this.source = source;
 		this.callingWizardPage = selectFilterPage;
-
 	}
 
 }

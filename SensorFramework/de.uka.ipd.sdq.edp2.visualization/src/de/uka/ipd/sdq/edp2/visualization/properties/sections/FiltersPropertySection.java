@@ -62,8 +62,10 @@ import de.uka.ipd.sdq.edp2.visualization.wizards.FilterWizard;
  */
 public class FiltersPropertySection extends AbstractPropertySection {
 	/** logger */
-	private static Logger logger = Logger
+	private final static Logger logger = Logger
 			.getLogger(FiltersPropertySection.class.getCanonicalName());
+
+	private final static String NAME_KEY = "elementName";
 
 	/**
 	 * A list which contains the applied transformations
@@ -78,14 +80,15 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 * selected in the filtersList
 	 */
 	private Table transformationTable;
-	
+
 	/**
 	 * Viewer for the table containing the list of transformations.
 	 */
 	private TableViewer transformationTableViewer;
-	
+
 	/**
-	 * The current editor which is an {@link ITabbedPropertySheetPageContributor}.
+	 * The current editor which is an
+	 * {@link ITabbedPropertySheetPageContributor}.
 	 */
 	private AbstractEditor editor;
 
@@ -101,16 +104,17 @@ public class FiltersPropertySection extends AbstractPropertySection {
 
 		Composite composite = getWidgetFactory()
 				.createFlatFormComposite(parent);
-		
-		//properties view is only visible for abstract editors, so no type check is necessary
+
+		// properties view is only visible for abstract editors, so no type
+		// check is necessary
 		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
-		.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+
 		// set the input to what is actually selected in the editor
 		setInput(editor, Activator.getDefault().getWorkbench()
-						.getActiveWorkbenchWindow().getSelectionService()
-						.getSelection(editor.getSite().getId()));
-		
+				.getActiveWorkbenchWindow().getSelectionService().getSelection(
+						editor.getSite().getId()));
+
 		// initialize the layout
 		createLayout(composite);
 
@@ -119,9 +123,6 @@ public class FiltersPropertySection extends AbstractPropertySection {
 
 		// initialize the contents of the group
 		initTransformationTable(transformationGroup);
-
-		Group warumUpConfigGroup = createWarmupConfigurationGroup(composite);
-		generatePropertieSectionForWarmup(warumUpConfigGroup);
 
 		final Button buttonAdapter = new Button(composite, SWT.PUSH);
 		buttonAdapter.setText("Add new Adapter..");
@@ -134,6 +135,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 
 			@Override
 			public void handleEvent(Event event) {
+				IDataSink input = editor.getEditorInput();
 				if (event.widget == buttonAdapter) {
 					AdapterWizard wizard = new AdapterWizard(getSource());
 					IAdapter adapter = null;
@@ -141,8 +143,10 @@ public class FiltersPropertySection extends AbstractPropertySection {
 							.getDefault().getWorkbench()
 							.getActiveWorkbenchWindow().getShell(), wizard);
 					wdialog.open();
-					if (wdialog.getReturnCode() == Window.OK)
+					if (wdialog.getReturnCode() == Window.OK) {
 						adapter = wizard.getAdapter();
+						input.setSource(adapter);
+					}
 
 				} else if (event.widget == buttonFilter) {
 					FilterWizard wizard = new FilterWizard(getSource());
@@ -151,9 +155,17 @@ public class FiltersPropertySection extends AbstractPropertySection {
 							.getDefault().getWorkbench()
 							.getActiveWorkbenchWindow().getShell(), wizard);
 					wdialog.open();
-					if (wdialog.getReturnCode() == Window.OK)
+					if (wdialog.getReturnCode() == Window.OK) {
 						filter = wizard.getFilter();
+						input.setSource(filter);
+					}
 				}
+
+				if (editor instanceof JFreeChartEditor) {
+					((JFreeChartEditor) editor).updateChart();
+				}
+				editor.setFocus();
+				updateFilterList();
 			}
 		};
 		buttonAdapter.addListener(SWT.Selection, btnListener);
@@ -192,8 +204,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 */
 	private void initTransformationTable(Group parentGroup) {
 		// initialize the list of transformations with a selection listener
-		list = new List(parentGroup, SWT.BORDER | SWT.SINGLE
-				| SWT.V_SCROLL);
+		list = new List(parentGroup, SWT.BORDER | SWT.SINGLE | SWT.V_SCROLL);
 		list.setLayoutData(new RowData(140, 100));
 		list.addSelectionListener(new SelectionListener() {
 			@Override
@@ -214,18 +225,18 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		transformationTable.setLinesVisible(true);
 		transformationTable.setHeaderVisible(true);
 		// set width and hight from the table
-		transformationTable.setLayoutData(new RowData(250, 150));
+		transformationTable.setLayoutData(new RowData(250, 100));
 		// set the weight of the table columns
 		TableLayout tableLayout = new TableLayout();
 		tableLayout.addColumnData(new ColumnWeightData(2));
 		tableLayout.addColumnData(new ColumnWeightData(1));
 		transformationTable.setLayout(tableLayout);
-		
+
 		transformationTableViewer = new TableViewer(transformationTable);
 		TableViewerColumn labelColumn = new TableViewerColumn(
 				transformationTableViewer, SWT.NONE);
 		labelColumn.getColumn().setText("Property");
-		
+
 		TableViewerColumn valueColumn = new TableViewerColumn(
 				transformationTableViewer, SWT.NONE);
 		valueColumn.getColumn().setText("Value");
@@ -247,7 +258,8 @@ public class FiltersPropertySection extends AbstractPropertySection {
 					Rectangle rect = item.getBounds(1);
 					if (rect.contains(pt)) {
 						final int column = 1;
-						final Text text = new Text(transformationTable, SWT.NONE);
+						final Text text = new Text(transformationTable,
+								SWT.NONE);
 						Listener textListener = new Listener() {
 							public void handleEvent(final Event e) {
 								switch (e.type) {
@@ -320,11 +332,12 @@ public class FiltersPropertySection extends AbstractPropertySection {
 			public void handleEvent(Event event) {
 				logger.log(Level.INFO, "new warmup filter");
 				WarmupFilter newWarmupFilter = null;
-				
+
 				// get the active editor's input (can only be an AbstractEditor)
 				IDataSink input = editor.getEditorInput();
-				
-				//create a new warmup filter with the source of the editors former input
+
+				// create a new warmup filter with the source of the editors
+				// former input
 				if (kindOfValues.getSelectionIndex() == 0) {
 					newWarmupFilter = new WarmupFilter(input.getSource(),
 							Integer.parseInt(txtDroppedValuesPercentage
@@ -337,10 +350,10 @@ public class FiltersPropertySection extends AbstractPropertySection {
 				}
 				logger.log(Level.INFO, "update editor input begin");
 				input.setSource(newWarmupFilter);
-				if (editor instanceof JFreeChartEditor){
-					((JFreeChartEditor)editor).updateChart();
+				if (editor instanceof JFreeChartEditor) {
+					((JFreeChartEditor) editor).updateChart();
 				}
-				//editor.changeInput(input);
+				// editor.changeInput(input);
 				editor.setFocus();
 				logger.log(Level.INFO, "update editor input end");
 				updateFilterList();
@@ -449,7 +462,8 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	}
 
 	/**
-	 * Creates and configures the layout of the group for showing the currently applied transformations.
+	 * Creates and configures the layout of the group for showing the currently
+	 * applied transformations.
 	 * 
 	 * @param composite
 	 *            the parent GUI Object
@@ -457,8 +471,8 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 */
 	private Group createTransformationGroup(Composite composite) {
 		RowData data = new RowData();
-		data.width = 450;
-		data.height = 125;
+		data.width = 600;
+		data.height = 150;
 
 		Group filtersGroup = getWidgetFactory().createGroup(composite,
 				"Current Transformations");
@@ -504,9 +518,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 */
 	public void updateFilterList() {
 		logger.log(Level.INFO, "updateFiltersList");
-		ScatterPlotEditor editor = (ScatterPlotEditor) Activator.getDefault()
-				.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-				.getActiveEditor();
+
 		ScatterPlotInput input = (ScatterPlotInput) editor.getEditorInput();
 		if (input.getSource() instanceof IFilter) {
 			logger.log(Level.INFO, "input.getSource() is a IFilter");
@@ -523,27 +535,27 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 */
 	private void refreshPropertiesTable() {
 		IDataSink editorInput = editor.getEditorInput();
-		if (editorInput.getSource() instanceof IFilter) {
-			transformationTable.clearAll();
-			transformationTable.setItemCount(0);
-			int selectedItem = list.getSelectionIndex();
-			HashMap<String, Object> map = null;
-			
-			IFilter tempData = (IFilter) editorInput.getSource();
+		transformationTable.clearAll();
+		transformationTable.setItemCount(0);
 
-			// iterate to the element until the element is reached
-			for (int i = 1; i < list.getItemCount() - selectedItem; i++) {
-				tempData = (IFilter) tempData.getSource();
-			}
-			// now in tempData is the selected filter
-			map = tempData.getProperties();
-			// in
-			for (Object key : map.keySet()) {
-				TableItem item = new TableItem(transformationTable, SWT.NONE);
-				item.setText(0, String.valueOf(key));
-				item.setText(1, String.valueOf(map.get(key)));
+		AbstractTransformation selectedTransformation = null;
+		int selection = list.getSelectionIndex();
 
-			}
+		while (counter - selection > 0) {
+			selection++;
+			selectedTransformation = (AbstractTransformation) editorInput
+					.getSource();
+		}
+		// now in tempData is the selected filter
+		HashMap<String, Object> properties = selectedTransformation
+				.getProperties();
+		logger.log(Level.INFO, "Selected Transformation is a "
+				+ properties.get(NAME_KEY));
+
+		for (Object key : properties.keySet()) {
+			TableItem item = new TableItem(transformationTable, SWT.NONE);
+			item.setText(0, String.valueOf(key));
+			item.setText(1, String.valueOf(properties.get(key)));
 		}
 
 	}
@@ -561,30 +573,25 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	private void updateProperties(String key, Object value) {
 		logger.log(Level.INFO, "update property '" + key + "' : '" + value
 				+ "'");
-		
+
 		// get the input of the editor
-		IDataSink input = editor.getEditorInput();
-		
-		if (input instanceof IFilter) {
-			int selectedItem = list.getSelectionIndex();
-			IFilter tempData = (IFilter) input.getSource();
+		IDataSink editorInput = editor.getEditorInput();
 
-			// iterate to the element until the element is reached
-			for (int i = 1; i < list.getItemCount() - selectedItem; i++) {
-				tempData = (IFilter) tempData.getSource();
-			}
-			// now in tempData is the selected filter
-			// set the properties
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put(key, value);
-			tempData.setProperties(map);
+		AbstractTransformation selectedTransformation = null;
+		int selection = list.getSelectionIndex();
 
-			// update the editor
-			logger.log(Level.INFO, "update editor input begin");
-			((JFreeChartEditor) editor).updateChart();
-			editor.setFocus();
-			logger.log(Level.INFO, "update editor input end");
+		while (counter - selection > 0) {
+			selection++;
+			selectedTransformation = (AbstractTransformation) editorInput
+					.getSource();
 		}
+
+		HashMap<String, Object> newProperties = new HashMap<String, Object>();
+		newProperties.put(key, value);
+		selectedTransformation.setProperties(newProperties);
+
+		((JFreeChartEditor) editor).updateChart();
+		editor.setFocus();
 
 	}
 
