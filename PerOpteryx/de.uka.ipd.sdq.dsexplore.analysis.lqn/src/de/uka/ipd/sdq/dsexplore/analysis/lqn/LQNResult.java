@@ -415,37 +415,41 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 	 * @throws AnalysisFailedException
 	 */
 	private double retrieveResponseTimeForUsageScenario(PCMInstance pcm, LqnModelType model, UsageScenarioBasedCriterion criterion) throws ParseException, AnalysisFailedException {
-	
+
 		ProcessorType processor = getUsageScenarioProcessor(pcm, model,	criterion.getUsageScenario());
-		
+
 		if (processor != null) {
 
 			if (processor.getTask() != null && processor.getTask().size() > 0) {
 
 				// TODO: Can we really assume there is only one task?
 				TaskType task = processor.getTask().get(0);
-				
-				double responseTime = Double.NaN;
-				
-				if (task.getResultTask().size() > 0){
-					OutputResultType outputResult = task.getResultTask().get(0);
-					responseTime = LQNUtils.getResponseTimeOfSubActivities(task);
-					
-					if (outputResult.getSquaredCoeffVariation() != null) {
-						this.squaredCoeffVariance = LQNUtils
-								.convertStringToDouble((String) outputResult
-										.getSquaredCoeffVariation());
-					} 
+
+				if (task != null){
+					double responseTime = Double.NaN;
+
+					if (task.getResultTask().size() > 0){
+						OutputResultType outputResult = task.getResultTask().get(0);
+
+						if (outputResult != null)
+							responseTime = LQNUtils.getResponseTimeOfSubActivities(task);
+
+						if (outputResult.getSquaredCoeffVariation() != null) {
+							this.squaredCoeffVariance = LQNUtils
+							.convertStringToDouble((String) outputResult
+									.getSquaredCoeffVariation());
+						} 
+						return responseTime;
+					}
 				}
 
-				return responseTime;
-				
-			} else {
-				logger.warn("No task or empty task for processor "
-					+ processor.getName()
-					+ ". Cannot determine response time, using NaN. Check your models or the LQNResult code.");
+
 			}
-		} 
+		}
+		logger.warn("No task or empty task for processor "
+				+ processor.getName()
+				+ ". Cannot determine response time, using NaN. Check your models or the LQNResult code.");
+
 		return Double.NaN;
 
 	}
@@ -466,13 +470,11 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 					return LQNUtils.convertStringToDouble((String) entryLevelCallActivityResult.getServiceTime());
 				}
 				
-			} else {
-				logger.warn("No task or empty task for processor or empty activity results"
-						+ usageScenarioProcessor.getName()
-						+ ". Cannot determine response time, using NaN. Check your models or the LQNResult code.");
-			}
+			} 
 		}
-		
+		logger.warn("No task or empty task for processor or empty activity results"
+				+ usageScenarioProcessor.getName()
+				+ ". Cannot determine response time, using NaN. Check your models or the LQNResult code.");
 		return Double.NaN;
 	}
 
@@ -530,12 +532,17 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 		if (processor.getTask() != null && processor.getTask().size() > 0) {
 			
 			TaskType usageScenarioTask = processor.getTask().get(0);
-			OutputResultType outputResult = usageScenarioTask.getResultTask().get(0);
-			return LQNUtils.convertStringToDouble((String)outputResult.getThroughput());
-			
+			if (usageScenarioTask != null && usageScenarioTask.getResultTask().size()>0){
+				OutputResultType outputResult = usageScenarioTask.getResultTask().get(0);
+				if (outputResult != null){
+					return LQNUtils.convertStringToDouble((String)outputResult.getThroughput());
+				}
+			}
 			
 		}
-		
+		logger.warn("No task or empty task for processor or empty activity results"
+				+ processor.getName()
+				+ ". Cannot determine throughput, using NaN. Check your models or the LQNResult code.");
 		return Double.NaN;
 		
 	}
@@ -555,12 +562,11 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 					return LQNUtils.convertStringToDouble((String) entryLevelCallActivityResult.getThroughput());
 				}
 				
-			} else {
-				logger.warn("No task or empty task for processor or empty activity results"
-						+ usageScenarioProcessor.getName()
-						+ ". Cannot determine response time, using NaN. Check your models or the LQNResult code.");
-			}
+			} 
 		}
+		logger.warn("No task or empty task for processor or empty activity results"
+				+ usageScenarioProcessor.getName()
+				+ ". Cannot determine throughput, using NaN. Check your models or the LQNResult code.");
 		
 		return Double.NaN;
 	}

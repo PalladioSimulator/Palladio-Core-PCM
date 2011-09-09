@@ -604,9 +604,10 @@ public class GenotypeReader {
 		// If there were unrecognised headline entries (entries that are not before the genotype and that do 
 		// not contain the Substring Util, throw an exception
 		if (headlineArray.length - startIndexOfGenotype - numberOfUtilColumns > orderedDesignDecisions.size())
-			throw ExceptionHelper.createNewCoreException("Not all design decisions in the file were recognised. Check your file."
-					+ "Design decisions from index "+startIndexOfGenotype+" to index "+(headlineArray.length - numberOfUtilColumns -1)
-					+ ", but expected "+orderedDesignDecisions.size()+ "decision: "+orderedDesignDecisions.toString());
+			throw ExceptionHelper.createNewCoreException("Not all design decisions in the file were recognised. Check your file.\n"
+					+ " Design decisions from index "+startIndexOfGenotype+" to index "+(headlineArray.length - numberOfUtilColumns -1)
+					+ ", but expected "+orderedDesignDecisions.size()+ " decisions.\n These decisions are expected: "+orderedDesignDecisions.toString()
+					+ "\n Make sure that you provided a designdecision file that matches the predefined candidates (i.e. there is a decision for each column in the predefined candidates files).");
 		
 		//set the internal design decisions to the same order
 		problem.getDesignDecisions().clear();

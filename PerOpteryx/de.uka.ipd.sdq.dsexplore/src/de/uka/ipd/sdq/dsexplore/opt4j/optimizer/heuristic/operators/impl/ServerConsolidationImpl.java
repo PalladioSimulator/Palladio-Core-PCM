@@ -187,6 +187,8 @@ public class ServerConsolidationImpl extends AbstractTactic {
 						if (newContainer != null){
 							reallocateChoice.setChosenValue(newContainer);
 						} else {
+							// this component cannot be put to the chosen container...
+							// TODO: then put this component to another server instead of just giving up...
 							i--; // will terminate at some point because list componentAllocationToRChoices is also reduced. 
 						}
 						logger.debug("Reallocate component "+reallocateChoice.getDegreeOfFreedomInstance().getPrimaryChanged()+" to server "+targetContainer);
