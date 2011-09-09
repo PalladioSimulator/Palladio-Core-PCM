@@ -500,8 +500,8 @@ litigation.
       <import plugin="org.junit"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.ocl.ecore"/>
-      <import plugin="org.sat4j.core" version="2.1.0"/>
-      <import plugin="org.sat4j.pb" version="2.1.0"/>
+      <import plugin="org.sat4j.core" version="2.1.0" match="equivalent"/>
+      <import plugin="org.sat4j.pb" version="2.1.0" match="equivalent"/>
    </requires>
 
    <plugin
