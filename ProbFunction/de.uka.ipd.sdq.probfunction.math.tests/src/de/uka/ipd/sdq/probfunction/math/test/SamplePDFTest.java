@@ -10,7 +10,6 @@ import java.util.List;
 
 import junit.framework.Assert;
 import junit.framework.JUnit4TestAdapter;
-import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,6 @@ import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnitNameNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnitNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
-import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 
 /**
  * @author Ihssane

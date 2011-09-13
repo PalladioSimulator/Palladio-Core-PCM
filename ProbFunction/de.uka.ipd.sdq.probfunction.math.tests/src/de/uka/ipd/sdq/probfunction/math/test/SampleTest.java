@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.probfunction.math.test;
 
 import junit.framework.Assert;
-import junit.framework.TestCase;
 
 import org.junit.Test;
 

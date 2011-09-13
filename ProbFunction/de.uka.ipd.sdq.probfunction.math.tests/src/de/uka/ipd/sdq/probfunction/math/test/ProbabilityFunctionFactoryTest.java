@@ -18,7 +18,6 @@ import de.uka.ipd.sdq.probfunction.ContinuousSample;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.Sample;
-import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
@@ -39,7 +38,6 @@ import de.uka.ipd.sdq.probfunction.math.impl.ExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.math.impl.GammaDistribution;
 import de.uka.ipd.sdq.probfunction.math.impl.LognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
-import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 
 /**
  * @author Ihssane
