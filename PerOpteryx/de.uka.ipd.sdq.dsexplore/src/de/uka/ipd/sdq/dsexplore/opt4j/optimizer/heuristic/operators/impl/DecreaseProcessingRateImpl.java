@@ -5,9 +5,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+import javax.management.RuntimeErrorException;
+
 import org.opt4j.core.problem.Genotype;
 import org.opt4j.operator.copy.Copy;
 
+import de.uka.ipd.sdq.dsexplore.exception.InvalidChoiceForDegreeException;
 import de.uka.ipd.sdq.dsexplore.launch.DSEWorkflowConfiguration;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticsResultCandidate;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.UtilisationResultCacheAndHelper;
@@ -17,6 +20,8 @@ import de.uka.ipd.sdq.dsexplore.qml.handling.QMLConstantsContainer;
 import de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousProcessingRateDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
+import de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsListDegree;
+import de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresDegree;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
@@ -174,12 +179,34 @@ public class DecreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 		}
 		return Math.min(1, Math.max(thresholdLowUtilisation - utilisationResult.getResourceUtilisation() / thresholdLowUtilisation, 0.0));
 	}
+	
+	
 
 	@Override
 	protected int getUpdatedNumberOfCores(DiscreteRangeChoice discreteChoice,
 			NumberOfCoresDegree numberOfCoresDegree) {
-		return Math.max(discreteChoice.getChosenValue() -1 ,
-				numberOfCoresDegree.isLowerBoundIncluded() ? numberOfCoresDegree.getFrom() : numberOfCoresDegree.getFrom() + 1);
+		if (numberOfCoresDegree instanceof NumberOfCoresAsRangeDegree){
+			NumberOfCoresAsRangeDegree asRangeDegree = (NumberOfCoresAsRangeDegree)numberOfCoresDegree;
+			return Math.max(discreteChoice.getChosenValue() -1 ,
+					asRangeDegree.isLowerBoundIncluded() ? asRangeDegree.getFrom() : asRangeDegree.getFrom() + 1);
+		} else if (numberOfCoresDegree instanceof NumberOfCoresAsListDegree){
+			NumberOfCoresAsListDegree asListDegree = (NumberOfCoresAsListDegree)numberOfCoresDegree;
+			// find next smallest integer after the current one. Do not assume that the list is ordered, although it should be
+			int nextSmallestInteger = Integer.MIN_VALUE;
+			int currentValue = discreteChoice.getChosenValue();
+			for (Integer value : asListDegree.getListOfIntegers()) {
+				if (value < currentValue && value >= nextSmallestInteger){
+					nextSmallestInteger = value;
+				}
+			}
+			if (nextSmallestInteger != Integer.MIN_VALUE){
+				return nextSmallestInteger;
+			} else {
+				// no smaller value available (assuming min-int is not in the set of values...) 
+				return currentValue;
+			}
+		} else throw new RuntimeException("Unknown degree of freedom "+numberOfCoresDegree.getClass().getName()+", please adjust "+this.getClass().getName());
+		
 	}
 
 }

@@ -17,6 +17,8 @@ import de.uka.ipd.sdq.dsexplore.qml.handling.QMLConstantsContainer;
 import de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousProcessingRateDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
+import de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsListDegree;
+import de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresDegree;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
@@ -205,8 +207,30 @@ public class IncreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 	@Override
 	protected int getUpdatedNumberOfCores(DiscreteRangeChoice discreteChoice,
 			NumberOfCoresDegree numberOfCoresDegree) {
-		return Math.min(discreteChoice.getChosenValue() + 1 ,
-				numberOfCoresDegree.isUpperBoundIncluded() ? numberOfCoresDegree.getTo() : numberOfCoresDegree.getTo() - 1);
+
+		if (numberOfCoresDegree instanceof NumberOfCoresAsRangeDegree){
+			NumberOfCoresAsRangeDegree asRangeDegree = (NumberOfCoresAsRangeDegree)numberOfCoresDegree;
+			return Math.min(discreteChoice.getChosenValue() + 1 ,
+					asRangeDegree.isUpperBoundIncluded() ? asRangeDegree.getTo() : asRangeDegree.getTo() - 1);
+
+		} else if (numberOfCoresDegree instanceof NumberOfCoresAsListDegree){
+			NumberOfCoresAsListDegree asListDegree = (NumberOfCoresAsListDegree)numberOfCoresDegree;
+			// find next smallest integer after the current one. Do not assume that the list is ordered, although it should be
+			int nextLargestInteger = Integer.MAX_VALUE;
+			int currentValue = discreteChoice.getChosenValue();
+			for (Integer value : asListDegree.getListOfIntegers()) {
+				if (value > currentValue && value <= nextLargestInteger){
+					nextLargestInteger = value;
+				}
+			}
+			if (nextLargestInteger != Integer.MAX_VALUE){
+				return nextLargestInteger;
+			} else {
+				// no larger value available (assuming max-int is not in the set of values...) 
+				return currentValue;
+			}
+		} else throw new RuntimeException("Unknown degree of freedom "+numberOfCoresDegree.getClass().getName()+", please adjust "+this.getClass().getName());
+
 	}
 
 

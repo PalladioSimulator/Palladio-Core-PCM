@@ -25,6 +25,7 @@ import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
+import de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree;
 import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
@@ -164,6 +165,11 @@ public class MutateDesignDecisionGenotype implements Mutate<DesignDecisionGenoty
 			DiscreteRangeDegree discDegree = (DiscreteRangeDegree) degree;
 			int newValue = mutateInteger(choice.getChosenValue(), discDegree.getFrom(), discDegree.getTo());
 			choice.setChosenValue(newValue);
+		} else if (degree instanceof OrderedIntegerDegree){
+			OrderedIntegerDegree orderedIntegerDegree = (OrderedIntegerDegree) degree;
+			int currentIndex = orderedIntegerDegree.getListOfIntegers().indexOf(new Integer(choice.getChosenValue()));
+			int randomIndex = mutateInteger(currentIndex, 0,orderedIntegerDegree.getListOfIntegers().size()-1);
+			choice.setChosenValue(orderedIntegerDegree.getListOfIntegers().get(randomIndex));
 		} else throw new InvalidChoiceForDegreeException(choice);
 		
 	}

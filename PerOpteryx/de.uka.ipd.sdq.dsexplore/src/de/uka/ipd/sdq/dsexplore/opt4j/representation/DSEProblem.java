@@ -30,6 +30,7 @@ import de.uka.ipd.sdq.pcm.designdecision.ContinuousProcessingRateDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DecisionSpace;
 import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
+import de.uka.ipd.sdq.pcm.designdecision.DiscreteDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteProcessingRateDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree;
@@ -208,8 +209,8 @@ public class DSEProblem {
 				schedChoice.setChosenValue(policy);
 				genotype.add(schedChoice);
 				
-			} else if (dd instanceof DiscreteRangeDegree){
-				DiscreteRangeDegree degree = (DiscreteRangeDegree)dd;
+			} else if (dd instanceof DiscreteDegree){
+				DiscreteDegree degree = (DiscreteDegree)dd;
 				
 				DiscreteRangeChoice choice = this.designDecisionFactory.createDiscreteRangeChoice();
 				choice.setDegreeOfFreedomInstance(degree);
