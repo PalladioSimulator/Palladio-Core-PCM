@@ -228,7 +228,9 @@ litigation.
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.junit4"/>
+      <import plugin="ca.umontreal.iro.lecuyer.ssj" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.stoex" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.antlr" version="3.2.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -287,13 +289,6 @@ litigation.
 
    <plugin
          id="de.uka.ipd.sdq.stoex.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.probfunction.math.tests"
          download-size="0"
          install-size="0"
          version="0.0.0"

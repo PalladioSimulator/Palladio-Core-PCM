@@ -11,9 +11,8 @@ Export-Package: de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.probfunction.math.impl,
  de.uka.ipd.sdq.probfunction.math.util
 Require-Bundle: uc.ac.ucl.ee.flanagan,
- org.junit4,
  de.uka.ipd.sdq.probfunction,
- de.uka.ipd.sdq.stoex,
- ca.umontreal.iro.lecuyer.ssj;bundle-version="2.0.0";visibility:=reexport
+ ca.umontreal.iro.lecuyer.ssj;bundle-version="2.0.0";visibility:=reexport,
+ de.uka.ipd.sdq.stoex;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
