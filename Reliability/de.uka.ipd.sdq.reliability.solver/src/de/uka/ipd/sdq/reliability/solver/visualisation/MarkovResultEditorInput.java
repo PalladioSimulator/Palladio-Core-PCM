@@ -1,10 +1,12 @@
-package de.uka.ipd.sdq.reliability.solver.pcm2markov;
+package de.uka.ipd.sdq.reliability.solver.visualisation;
 
 import java.util.List;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
+
+import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
 
 /**
  * Class that is responsible for displaying Markov transformation results

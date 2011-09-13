@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.reliability.solver.pcm2markov;
+package de.uka.ipd.sdq.reliability.solver.visualisation;
 
 import java.util.List;
 
@@ -10,6 +10,9 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorPart;
+
+import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
+import de.uka.ipd.sdq.reliability.solver.reporting.MarkovReporting;
 
 public class MarkovResultEditor extends EditorPart {
 

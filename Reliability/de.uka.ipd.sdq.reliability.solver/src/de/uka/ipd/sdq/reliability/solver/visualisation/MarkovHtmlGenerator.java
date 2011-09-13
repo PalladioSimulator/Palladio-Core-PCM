@@ -1,6 +1,11 @@
-package de.uka.ipd.sdq.reliability.solver.pcm2markov;
+package de.uka.ipd.sdq.reliability.solver.visualisation;
 
 import java.util.List;
+
+import de.uka.ipd.sdq.reliability.solver.reporting.MarkovReportItem;
+import de.uka.ipd.sdq.reliability.solver.reporting.MarkovReportListItem;
+import de.uka.ipd.sdq.reliability.solver.reporting.MarkovReportTableItem;
+import de.uka.ipd.sdq.reliability.solver.reporting.MarkovReporting;
 
 /**
  * Class that is responsible for generating HTML code (lists and tables)
@@ -43,6 +48,7 @@ public class MarkovHtmlGenerator {
 
 			// does the current item represent a list or a table?
 			if (item instanceof MarkovReportListItem) {
+				// we have a list item, so we will create HTML lists
 				MarkovReportListItem listItem = (MarkovReportListItem) item;
 				htmlCode.append("<ul>");
 				List<List<String>> entries = listItem.getEntries();
@@ -56,9 +62,30 @@ public class MarkovHtmlGenerator {
 				}
 				htmlCode.append("</ul>");
 			} else if (item instanceof MarkovReportTableItem) {
-				// we have table, so we will create an HTML table
+				// we have table item, so we will create HTML tables
 				MarkovReportTableItem tableItem = (MarkovReportTableItem) item;
-				// TODO
+				int numberOfTables = tableItem.getTables().size();
+				for (int i = 0; i < numberOfTables; i++) {
+					htmlCode.append("<br />");
+					htmlCode.append("<b>" + tableItem.getTableNames().get(i) + ":</b><br />");
+					htmlCode.append("<table border=\"1\" style=\"margin-left: 5mm; margin-top: 1mm;\">");
+					// create header row
+					htmlCode.append("<tr>");
+					for (String headerEntry : tableItem.getHeaderRows().get(i)) {
+						htmlCode.append("<th>" + headerEntry + "</th>");
+					}
+					htmlCode.append("</tr>");
+					// create table data rows
+					for (List<String> row : tableItem.getTables().get(i)) {
+						htmlCode.append("<tr>");
+						for (String entry : row) {
+							htmlCode.append("<td>" + entry + "</td>");
+						}
+						htmlCode.append("</tr>");
+					}
+					// finish table HTML code
+					htmlCode.append("</table>");
+				}
 			}
 		}
 

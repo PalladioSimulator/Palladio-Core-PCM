@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.reliability.solver.pcm2markov;
+package de.uka.ipd.sdq.reliability.solver.reporting;
 
 /**
  * Abstract class that is responsible for generating abstract output formats (e.g. lists, tables)

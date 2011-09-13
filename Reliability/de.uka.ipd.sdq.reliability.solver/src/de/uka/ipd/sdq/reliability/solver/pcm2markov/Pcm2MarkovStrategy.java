@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.reliability.solver.sensitivity.MultiSensitivity;
 import de.uka.ipd.sdq.reliability.solver.sensitivity.NetworkSensitivity;
 import de.uka.ipd.sdq.reliability.solver.sensitivity.ResourceMTTRSensitivity;
 import de.uka.ipd.sdq.reliability.solver.sensitivity.SoftwareSensitivity;
+import de.uka.ipd.sdq.reliability.solver.visualisation.MarkovResultEditorInput;
 
 /**
  * This class performs a transformation from a PCM instance to a Markov Chain
