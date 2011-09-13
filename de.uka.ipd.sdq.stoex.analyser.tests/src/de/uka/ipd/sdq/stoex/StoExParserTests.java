@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.stoex.parser.test;
+package de.uka.ipd.sdq.stoex;
 
 
 
