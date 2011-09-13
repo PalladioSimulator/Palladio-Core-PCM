@@ -1,11 +1,13 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.impl;
 
+import java.awt.image.ReplicateScaleFilter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import org.eclipse.emf.ecore.EObject;
 import org.opt4j.core.problem.Genotype;
 import org.opt4j.operator.copy.Copy;
 
@@ -21,6 +23,8 @@ import de.uka.ipd.sdq.pcm.designdecision.AllocationDegree;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
 import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
+import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
+import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.ProcessingResourceSpecificationResult;
@@ -59,7 +63,8 @@ public class ServerExpansionImpl extends AbstractTactic {
 		super(copy, individualBuilder, configuration, 
 				new String[] {
 					QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_RESPONSETIME_DEFINITION_PATH,
-					QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_THROUGHPUT_DEFINITION_PATH});
+					QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_THROUGHPUT_DEFINITION_PATH,
+					QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_MAX_UTIL_DEFINITION_PATH});
 		// set config
 		setHeuristicWeight(configuration.getServerExpansionWeight());
 		maxNumberOfReplacements = configuration.getServerExpansionMaxNumberOfReplacements();
@@ -102,54 +107,116 @@ public class ServerExpansionImpl extends AbstractTactic {
 			/*
 			 * 1. Find max utilised resource
 			 * 2. copy genotype
-			 * 3. Get a new (unused) target resource container
-			 * 4. Reallocate components to target resource container
+			 * 3. If increasing of the server multiplicity is allowed: 
+			 *    - increase server multiplicity
+			 *    else classic expansion
+			 *    - Get a new (unused) target resource container
+			 *    - Reallocate components to target resource container
 			 */
 			// 1. Find max utilised resource
 			ProcessingResourceSpecificationResult maxUtilisationResult = this.resultInterpretationHelper.getMaxProcUtilisationResult(individual);
 			// 2. copy genotype
-			TacticsResultCandidate candidate = individualBuilder.buildCandidate(copy.copy(individual.getGenotype()), individual);
 			ProcessingResourceSpecification maxProcessingResourceSpec = ((ProcessingResourceSpecificationResultImpl) maxUtilisationResult)
 					.getProcessingResourceSpecification_ProcessingResourceSpecificationResult();
 			ResourceContainer resourceContainer = ((ResourceContainer) maxProcessingResourceSpec.eContainer());
 
-			// 3. Get a new (unused) target resource container
-			ResourceContainer targetResourceContainer = getRandomUnusedResourceContainer(individual);
+			// server multiplicity
+			createServerMultiplicityExpansionCandidates(individual, candidates,
+					maxUtilisationResult, resourceContainer);
 			
-			// 4. reallocate components
-			// 4a Iterate through AllocationDegrees and find the choices for this container
-			List<ClassChoice> componentsAllocatedHere = new LinkedList<ClassChoice>();
-			for (Choice choice : candidate.getGenotype()) {
-				if (choice instanceof ClassChoice) {
-					ClassChoice ClassChoice = (ClassChoice)choice;
-					if (ClassChoice.getDegreeOfFreedomInstance() instanceof AllocationDegree) {
-						if (EMFHelper.checkIdentity(ClassChoice.getChosenValue(), resourceContainer)) {
-							componentsAllocatedHere.add(ClassChoice);
+			// classic expansion
+			createClassicServerExpansionCandidates(individual, candidates,
+					maxUtilisationResult, resourceContainer);
+			
+			
+		}
+		return candidates;
+	}
 
-						}
+	private void createServerMultiplicityExpansionCandidates(
+			DSEIndividual individual, List<TacticsResultCandidate> candidates,
+			ProcessingResourceSpecificationResult maxUtilisationResult,
+			ResourceContainer resourceContainer) {
+		
+		TacticsResultCandidate candidate = individualBuilder.buildCandidate(copy.copy(individual.getGenotype()), individual);
+		
+		
+		// check whether changing the multiplicity is allowed
+		for (Choice choice : candidate.getGenotype()){
+			if (choice instanceof DiscreteRangeChoice && choice.getDegreeOfFreedomInstance() instanceof ResourceContainerReplicationDegree){
+				ResourceContainerReplicationDegree replDegree = (ResourceContainerReplicationDegree)choice.getDegreeOfFreedomInstance();
+				if (EMFHelper.checkIdentity(replDegree.getPrimaryChanged(), resourceContainer)){
+					// replChoice is the choice of the server multiplicity for this resourceContainer
+					
+					DiscreteRangeChoice discreteChoice = (DiscreteRangeChoice)choice; 
+					// check whether more replicas are allowed
+					if (discreteChoice.getChosenValue() < (replDegree.isUpperBoundIncluded() ? replDegree.getTo() : replDegree.getTo() - 1)){
+						
+						discreteChoice.setChosenValue(discreteChoice.getChosenValue() + 1);
+						
+						candidate.setCandidateWeight(getCandidateWeight(maxUtilisationResult));
+						candidate.setHeuristic(this);
+						candidates.add(candidate);
+						increaseCounterOfGeneratedCandidates();
+						
 					}
 				}
 			}
-			
-			// 4b reallocate half of the found components, but not more than this.maxNumberOfReplacements
-			int halfOfFoundComponents = componentsAllocatedHere.size() / 2;
-			int reallocateAtMost = halfOfFoundComponents > maxNumberOfReplacements ? maxNumberOfReplacements : halfOfFoundComponents;
-			for (int i = 0; i < reallocateAtMost; i++){ 
-				ClassChoice ClassChoice = componentsAllocatedHere.get(this.generator.nextInt(componentsAllocatedHere.size()));
-				// Reallocate this component to target resource container
-				ClassChoice.setChosenValue(
-						EMFHelper.retrieveEntityByID(
-								((ClassDegree)ClassChoice.getDegreeOfFreedomInstance()).getClassDesignOptions(),
-								targetResourceContainer));
-				componentsAllocatedHere.remove(ClassChoice);
+		}
+		
+		
+		
+		// change multiplicity
+		
+	}
+
+	private void createClassicServerExpansionCandidates(
+			DSEIndividual individual, List<TacticsResultCandidate> candidates,
+			ProcessingResourceSpecificationResult maxUtilisationResult,
+			ResourceContainer resourceContainer) {
+		
+		TacticsResultCandidate candidate = individualBuilder.buildCandidate(copy.copy(individual.getGenotype()), individual);
+				
+		// 3. Get a new (unused) target resource container
+		// TODO: Must be one that some components of the current container can actually be moved to. This is 
+		// not considered yet, and in these cases the generated candidate will be identical to its parent.
+		ResourceContainer targetResourceContainer = getRandomUnusedResourceContainer(individual);
+		
+		// 4. reallocate components
+		// 4a Iterate through AllocationDegrees and find the choices for this container
+		List<ClassChoice> componentsAllocatedHere = new LinkedList<ClassChoice>();
+		for (Choice choice : candidate.getGenotype()) {
+			if (choice instanceof ClassChoice) {
+				ClassChoice ClassChoice = (ClassChoice)choice;
+				if (ClassChoice.getDegreeOfFreedomInstance() instanceof AllocationDegree) {
+					if (EMFHelper.checkIdentity(ClassChoice.getChosenValue(), resourceContainer)) {
+						componentsAllocatedHere.add(ClassChoice);
+
+					}
+				}
+			}
+		}
+		
+		// 4b reallocate half of the found components, but not more than this.maxNumberOfReplacements
+		int halfOfFoundComponents = componentsAllocatedHere.size() / 2;
+		int reallocateAtMost = halfOfFoundComponents > maxNumberOfReplacements ? maxNumberOfReplacements : halfOfFoundComponents;
+		for (int i = 0; i < reallocateAtMost && componentsAllocatedHere.size() > 0; i++){ 
+			ClassChoice classChoice = componentsAllocatedHere.get(this.generator.nextInt(componentsAllocatedHere.size()));
+			// Reallocate this component to target resource container
+			EObject targetResourceContainerInMemory = EMFHelper.retrieveEntityByID(((ClassDegree)classChoice.getDegreeOfFreedomInstance()).getClassDesignOptions(),	targetResourceContainer);
+			if (targetResourceContainerInMemory != null){
+				classChoice.setChosenValue(targetResourceContainerInMemory);
+			} else {
+				i--; // cannot loop endlessly as the list componentsAllocatedHere is reduced, too
 			}
 			
-			candidate.setCandidateWeight(getCandidateWeight(maxUtilisationResult));
-			candidate.setHeuristic(this);
-			candidates.add(candidate);
-			increaseCounterOfGeneratedCandidates();
+			componentsAllocatedHere.remove(classChoice);
 		}
-		return candidates;
+		
+		candidate.setCandidateWeight(getCandidateWeight(maxUtilisationResult));
+		candidate.setHeuristic(this);
+		candidates.add(candidate);
+		increaseCounterOfGeneratedCandidates();
 	}
 	
 

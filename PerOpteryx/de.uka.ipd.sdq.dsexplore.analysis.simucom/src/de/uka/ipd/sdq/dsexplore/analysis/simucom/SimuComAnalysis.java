@@ -15,7 +15,9 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchManager;
 import org.opt4j.core.Criterion;
+import org.opt4j.core.InfeasibilityConstraint;
 import org.opt4j.core.Objective;
+import org.opt4j.core.SatisfactionConstraint;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowLauncher;
@@ -35,6 +37,9 @@ import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.EvaluationAspectWithConte
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedInfeasibilityConstraint;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedObjective;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedSatisfactionConstraint;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.UsageScenarioBasedInfeasibilityConstraintBuilder;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.UsageScenarioBasedObjectiveBuilder;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.UsageScenarioBasedSatisfactionConstraintBuilder;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.reader.PCMDeclarationsReader;
 import de.uka.ipd.sdq.dsexplore.qml.profile.QMLProfile.UsageScenarioRequirement;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
@@ -465,38 +470,48 @@ private IStatisticAnalysisResult findExperimentRunAndCreateResult(
 									UsageScenario usageScenario = (UsageScenario) iterator2
 											.next();
 									if(aspectContext.getCriterion() instanceof de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Constraint) {
-										UsageScenarioBasedInfeasibilityConstraint c = 
-											reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, usageScenario);
+										UsageScenarioBasedInfeasibilityConstraintBuilder builder = new UsageScenarioBasedInfeasibilityConstraintBuilder(usageScenario);
+										InfeasibilityConstraint c = 
+											reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, builder);
 										
 										criteriaList.add(c);
 										criterionToAspect.put(c, aspectContext);
 									} else {
 										//instanceof Objective
-										Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, usageScenario);
+										UsageScenarioBasedObjectiveBuilder objectiveBuilder = new UsageScenarioBasedObjectiveBuilder(usageScenario);
+										Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, objectiveBuilder);
 										criteriaList.add(o);
 										criterionToAspect.put(o, aspectContext);
 										
-										UsageScenarioBasedSatisfactionConstraint c = 
-											reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, usageScenario);								
+										UsageScenarioBasedSatisfactionConstraintBuilder builder = new UsageScenarioBasedSatisfactionConstraintBuilder(usageScenario);
+										SatisfactionConstraint c = 
+											reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, builder);								
 										criteriaList.add(c);
 										criterionToAspect.put(c, aspectContext);
 									}
 								}
 							} else {
+								UsageScenario usageScenario = ((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario();
+								
 								if(aspectContext.getCriterion() instanceof de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Constraint) {
-									UsageScenarioBasedInfeasibilityConstraint c = 
-										reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, ((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario());
+									
+									UsageScenarioBasedInfeasibilityConstraintBuilder builder = new UsageScenarioBasedInfeasibilityConstraintBuilder(usageScenario);
+									InfeasibilityConstraint c = 
+										reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, builder);
 									criteriaList.add(c);
 									criterionToAspect.put(c, aspectContext);
 								} else {
 								//instanceof Objective
-									Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, ((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario());
+									
+									UsageScenarioBasedObjectiveBuilder objectiveBuilder = new UsageScenarioBasedObjectiveBuilder(usageScenario);
+									Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, objectiveBuilder);
 									criteriaList.add(o);
 									criterionToAspect.put(o, aspectContext);
 									
-									UsageScenarioBasedSatisfactionConstraint c = 
-										reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, 
-											((UsageScenarioRequirement)aspectContext.getRequirement()).getUsageScenario());		
+									UsageScenarioBasedSatisfactionConstraintBuilder builder = new UsageScenarioBasedSatisfactionConstraintBuilder(usageScenario);
+									
+									SatisfactionConstraint c = 
+										reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, builder);		
 									criteriaList.add(c);
 									criterionToAspect.put(c, aspectContext);
 								}

@@ -31,6 +31,9 @@ public class LQNQualityAttributeDeclaration extends AbstractPerformanceAttribute
 		if(EcoreUtil.equals(dimension, this.throughputDimension) && aspect instanceof Mean) {
 			return true;
 		}
+		if(EcoreUtil.equals(dimension, this.maxUtilizationDimension) && aspect instanceof Mean) {
+			return true;
+		}
 		return false;
 	}
 

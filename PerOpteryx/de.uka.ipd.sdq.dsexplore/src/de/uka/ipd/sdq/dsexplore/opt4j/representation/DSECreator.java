@@ -15,10 +15,12 @@ import de.uka.ipd.sdq.pcm.designdecision.Choice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
+import de.uka.ipd.sdq.pcm.designdecision.DiscreteDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
+import de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
@@ -70,15 +72,21 @@ public class DSECreator implements Creator<DesignDecisionGenotype> {
 	}
 
 
-	private int createIntegerValue(DiscreteRangeDegree discDegree) {
+	private int createIntegerValue(DiscreteDegree discDegree) {
 
-		int range = discDegree.getTo() - discDegree.getFrom();
-		if (!discDegree.isLowerBoundIncluded()) range--;
-		if (!discDegree.isUpperBoundIncluded()) range--;
-		//random.nextInt creates a random value between 0 <= x < param. I want one 0 <= x <= range. Thus, I add  1  
-		int value = discDegree.getFrom() + this.random.nextInt(range+1);
-		return value;
-
+		if (discDegree instanceof DiscreteRangeDegree){
+			DiscreteRangeDegree dicRangeDegree = (DiscreteRangeDegree)discDegree;
+			int range = dicRangeDegree.getTo() - dicRangeDegree.getFrom();
+			if (!dicRangeDegree.isLowerBoundIncluded()) range--;
+			if (!dicRangeDegree.isUpperBoundIncluded()) range--;
+			//random.nextInt creates a random value between 0 <= x < param. I want one 0 <= x <= range. Thus, I add  1  
+			int value = dicRangeDegree.getFrom() + this.random.nextInt(range+1);
+			return value;
+		} else if (discDegree instanceof OrderedIntegerDegree){
+			OrderedIntegerDegree orderedIntegerDegree = (OrderedIntegerDegree) discDegree;
+			int randomIndex = this.random.nextInt(orderedIntegerDegree.getListOfIntegers().size());
+			return orderedIntegerDegree.getListOfIntegers().get(randomIndex);
+		} else throw new RuntimeException("Unknown degree "+discDegree.getClass().getName());
 
 	}
 
@@ -104,9 +112,9 @@ public class DSECreator implements Creator<DesignDecisionGenotype> {
 	public Choice createRandomChoice(DegreeOfFreedomInstance degree) {
 		designdecisionFactory factory = designdecisionFactoryImpl.init();
 		Choice choice;
-		if (degree instanceof DiscreteRangeDegree){
+		if (degree instanceof DiscreteDegree){
 			DiscreteRangeChoice discChoice = factory.createDiscreteRangeChoice() ;
-			discChoice.setChosenValue(createIntegerValue((DiscreteRangeDegree)degree));
+			discChoice.setChosenValue(createIntegerValue((DiscreteDegree)degree));
 			choice = discChoice;
 		} else if (degree instanceof ContinuousRangeDegree){
 			ContinousRangeChoice contChoice = factory.createContinousRangeChoice();

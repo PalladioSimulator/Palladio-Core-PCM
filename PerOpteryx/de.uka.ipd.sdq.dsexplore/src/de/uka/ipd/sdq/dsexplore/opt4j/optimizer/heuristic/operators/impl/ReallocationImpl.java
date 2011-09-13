@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import org.eclipse.emf.ecore.EObject;
 import org.opt4j.core.problem.Genotype;
 import org.opt4j.operator.copy.Copy;
 
@@ -112,8 +113,18 @@ public class ReallocationImpl extends AbstractTactic {
 				if (choice instanceof ClassChoice) {
 					ClassChoice classChoice = (ClassChoice)choice;
 					if (classChoice.getDegreeOfFreedomInstance() instanceof AllocationDegree) {
+						AllocationDegree allocationDegree = (AllocationDegree)classChoice.getDegreeOfFreedomInstance();
 						if (EMFHelper.checkIdentity(classChoice.getChosenValue(), sourceResourceContainer)) {
-							potentiallyReallocatedComponents.add(classChoice);
+							// check whether this component may be allocated to the minimum one
+							// XXX: Consider several servers with high or low utilization, as there is not necessarily a component that may be allocated from the highest to the lowest. Also consider second highest / lowest if none for the highest can be found. 
+							for (EObject designOption : allocationDegree.getClassDesignOptions()) {
+								if (EMFHelper.checkIdentity(targetResourceContainer, designOption)) {
+									// this degree of freedom allows to allocate to the target container, 
+									// so its component is a possible one to reallocate.  
+									potentiallyReallocatedComponents.add(classChoice);
+									break;
+								}
+							}
 						}
 					}
 				}

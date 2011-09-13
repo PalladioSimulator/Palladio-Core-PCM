@@ -38,6 +38,10 @@ public class ChoiceOutOfBoundsException extends RuntimeException {
 	public ChoiceOutOfBoundsException(DiscreteRangeChoice discreteChoice) {
 		super("Chosen value "+discreteChoice.getChosenValue()+" of choice "+discreteChoice.getClass().getSimpleName()+" does not exist in domain of degree "+DegreeOfFreedomHelper.getDegreeDescription(discreteChoice.getDegreeOfFreedomInstance())+" of type "+discreteChoice.getDegreeOfFreedomInstance().getClass().getSimpleName());
 	}
+	
+	public ChoiceOutOfBoundsException(DiscreteRangeChoice discreteChoice, String message) {
+		super("Chosen value "+discreteChoice.getChosenValue()+" of choice "+discreteChoice.getClass().getSimpleName()+" does not exist in domain of degree "+DegreeOfFreedomHelper.getDegreeDescription(discreteChoice.getDegreeOfFreedomInstance())+" of type "+discreteChoice.getDegreeOfFreedomInstance().getClass().getSimpleName()+". Details: "+message);
+	}
 
 
 }

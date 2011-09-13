@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -91,12 +93,10 @@ public class GenotypeReader {
 			return Collections.emptyList();
 		} 
 		
-		File file = new File(filename);
-
 		if (filename.contains("csv")) {
 			try {
 
-				List<DSEIndividual> individuals = readInPrettyPrintedIndividuals(getReaderFor(file), blackboard);
+				List<DSEIndividual> individuals = readInPrettyPrintedIndividuals(getReaderFor(filename), blackboard);
 				List<DesignDecisionGenotype> results = new ArrayList<DesignDecisionGenotype>(
 						individuals.size());
 				for (DSEIndividual individual : individuals) {
@@ -126,12 +126,11 @@ public class GenotypeReader {
 	 * @throws CoreException
 	 */
 	public static List<DSEIndividual> getIndividuals(String filename, MDSDBlackboard blackboard) throws CoreException{
-		File file = new File(filename);
 		
 		if (filename.contains("csv")) {
 	    try {
 	    	
-	    	List<DSEIndividual> individuals = readInPrettyPrintedIndividuals(getReaderFor(file), blackboard);
+	    	List<DSEIndividual> individuals = readInPrettyPrintedIndividuals(getReaderFor(filename), blackboard);
 	        return individuals;
 	        
 	      } catch( Exception ex ) {
@@ -160,11 +159,10 @@ public class GenotypeReader {
 	 * @throws CoreException
 	 */
 	public static List<DSEObjectives> getObjectives (String filename) throws CoreException{
-		File file = new File(filename);
 		
 	    try {
 	    	
-	    	List<DSEObjectives> results = readInPrettyPrintedObjectives(getReaderFor(file));
+	    	List<DSEObjectives> results = readInPrettyPrintedObjectives(getReaderFor(filename));
 	        
 	        return results;
 	        
@@ -240,7 +238,19 @@ public class GenotypeReader {
 		return results;
 	}
 
-	private static BufferedReader getReaderFor(File file) throws FileNotFoundException {
+	private static BufferedReader getReaderFor(String path) throws FileNotFoundException {
+		// if this is a platform URL, first resolve it to an absolute path
+		if (path.startsWith("platform:")){
+			try {
+				URL solvedURL = FileLocator.resolve(new URL(path));
+				path =  solvedURL.getPath();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			} 
+		} 
+		File file = new File(path);
+
     	InputStreamReader ir = new InputStreamReader(
                 new FileInputStream( file ) );
         BufferedReader in = new BufferedReader(ir);
@@ -594,9 +604,10 @@ public class GenotypeReader {
 		// If there were unrecognised headline entries (entries that are not before the genotype and that do 
 		// not contain the Substring Util, throw an exception
 		if (headlineArray.length - startIndexOfGenotype - numberOfUtilColumns > orderedDesignDecisions.size())
-			throw ExceptionHelper.createNewCoreException("Not all design decisions in the file were recognised. Check your file."
-					+ "Design decisions from index "+startIndexOfGenotype+" to index "+(headlineArray.length - numberOfUtilColumns -1)
-					+ ", but expected "+orderedDesignDecisions.size()+ "decision: "+orderedDesignDecisions.toString());
+			throw ExceptionHelper.createNewCoreException("Not all design decisions in the file were recognised. Check your file.\n"
+					+ " Design decisions from index "+startIndexOfGenotype+" to index "+(headlineArray.length - numberOfUtilColumns -1)
+					+ ", but expected "+orderedDesignDecisions.size()+ " decisions.\n These decisions are expected: "+orderedDesignDecisions.toString()
+					+ "\n Make sure that you provided a designdecision file that matches the predefined candidates (i.e. there is a decision for each column in the predefined candidates files).");
 		
 		//set the internal design decisions to the same order
 		problem.getDesignDecisions().clear();

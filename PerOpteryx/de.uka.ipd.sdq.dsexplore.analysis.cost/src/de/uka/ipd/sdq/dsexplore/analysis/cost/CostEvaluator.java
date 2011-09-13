@@ -11,6 +11,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.opt4j.core.Constraint;
 import org.opt4j.core.Criterion;
@@ -27,10 +28,14 @@ import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer.QualityAttribute;
 import de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.EvaluationAspect;
 import de.uka.ipd.sdq.dsexplore.qml.contracttype.QMLContractType.Dimension;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.EvaluationAspectWithContext;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.InfeasibilityConstraintBuilder;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.ObjectiveBuilder;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.SatisfactionConstraintBuilder;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.reader.PCMDeclarationsReader;
 import de.uka.ipd.sdq.dsexplore.qml.profile.QMLProfile.UsageScenarioRequirement;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.cost.ComponentCostPerInstance;
 import de.uka.ipd.sdq.pcm.cost.ComponentCostPerType;
 import de.uka.ipd.sdq.pcm.cost.Cost;
@@ -109,8 +114,12 @@ public class CostEvaluator implements IAnalysis{
 		} else if (cost instanceof ComponentCostPerType){
 			ComponentCostPerType cc = (ComponentCostPerType)cost;
 			RepositoryComponent rc = cc.getRepositoryComponent();
-			List<AssemblyContext> asctx = pcmInstance.getSystem().getAssemblyContexts__ComposedStructure();
-			//TODO: also retrieve inner assembly contexts of deployed composite components. Cost currently need to be specified separately. 
+			//List<AssemblyContext> asctx = pcmInstance.getSystem().getAssemblyContexts__ComposedStructure();
+			//TODO: also retrieve inner assembly contexts of deployed composite components. Cost currently need to be specified separately.
+			
+			List<AssemblyContext> asctx =  getAllContainedAssemblyContexts(pcmInstance.getSystem().getAssemblyContexts__ComposedStructure());
+			
+			
 			for (AssemblyContext assemblyContext : asctx) {
 				if (EMFHelper.checkIdentity(assemblyContext.getEncapsulatedComponent__AssemblyContext(), rc)){
 					return true;
@@ -123,6 +132,24 @@ public class CostEvaluator implements IAnalysis{
 			return checkWhetherResourceContainerIsUsed(pcmInstance, rc);
 		} else 
 			return true;
+	}
+
+	/** 
+	 * Get all contained ones recursively
+	 * @param assemblyContextsComposedStructure
+	 * @return
+	 */
+	private List<AssemblyContext> getAllContainedAssemblyContexts(
+			EList<AssemblyContext> assemblyContextsComposedStructure) {
+		List<AssemblyContext> list = new ArrayList<AssemblyContext>();
+		list.addAll(assemblyContextsComposedStructure);
+		for (AssemblyContext assemblyContext : assemblyContextsComposedStructure) {
+			if (assemblyContext.getEncapsulatedComponent__AssemblyContext() instanceof ComposedStructure){
+				ComposedStructure composite = (ComposedStructure)assemblyContext.getEncapsulatedComponent__AssemblyContext();
+				list.addAll(getAllContainedAssemblyContexts(composite.getAssemblyContexts__ComposedStructure()));
+			}
+		}
+		return list;
 	}
 
 	private boolean checkWhetherResourceContainerIsUsed(PCMInstance pcmInstance,
@@ -365,16 +392,16 @@ public class CostEvaluator implements IAnalysis{
 						if (canEvaluateAspect(aspectContext.getEvaluationAspect(), aspectContext.getDimension())) { 
 							
 							if(aspectContext.getCriterion() instanceof de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Constraint) {
-								Constraint c = reader.translateEvalAspectToInfeasibilityConstraint(aspectContext);
+								Constraint c = reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, new InfeasibilityConstraintBuilder());
 								constraints.add(c);
 								constraintToAspect.put(c, aspectContext);
 							} else {
 								//instanceof Objective
-								Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext);
+								Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, new ObjectiveBuilder());
 								objectives.add(o);
 								objectiveToAspect.put(o, aspectContext);
 								
-								Constraint c = reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o); 
+								Constraint c = reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, new SatisfactionConstraintBuilder()); 
 								constraints.add(c);
 								constraintToAspect.put(c, aspectContext);
 							}

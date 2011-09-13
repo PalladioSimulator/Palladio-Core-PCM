@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+import org.eclipse.emf.ecore.EObject;
 import org.opt4j.core.problem.Genotype;
 import org.opt4j.operator.copy.Copy;
 
@@ -180,10 +181,16 @@ public class ServerConsolidationImpl extends AbstractTactic {
 					for (int i = 0; i < numberOfComponentsToDeployHere && componentAllocationToRChoices.size() > 0; i++) {
 						ClassChoice reallocateChoice = componentAllocationToRChoices.get(generator.nextInt(componentAllocationToRChoices.size()));
 						componentAllocationToRChoices.remove(reallocateChoice);
-						reallocateChoice.setChosenValue(
-								EMFHelper.retrieveEntityByID(
-										((ClassDegree)reallocateChoice.getDegreeOfFreedomInstance()).getClassDesignOptions(),
-										targetContainer));
+						EObject newContainer = EMFHelper.retrieveEntityByID(
+								((ClassDegree)reallocateChoice.getDegreeOfFreedomInstance()).getClassDesignOptions(),
+								targetContainer);
+						if (newContainer != null){
+							reallocateChoice.setChosenValue(newContainer);
+						} else {
+							// this component cannot be put to the chosen container...
+							// TODO: then put this component to another server instead of just giving up...
+							i--; // will terminate at some point because list componentAllocationToRChoices is also reduced. 
+						}
 						logger.debug("Reallocate component "+reallocateChoice.getDegreeOfFreedomInstance().getPrimaryChanged()+" to server "+targetContainer);
 					}
 					if (componentAllocationToRChoices.size() == 0 )

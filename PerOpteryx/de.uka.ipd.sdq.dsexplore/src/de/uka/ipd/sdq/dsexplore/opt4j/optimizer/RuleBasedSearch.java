@@ -100,8 +100,6 @@ public class RuleBasedSearch extends AbstractOptimizer {
 					throw new RuntimeException("Encountered a non-DSEIndividual in rule based search that I cannot handle. Aborting.");
 				}
 				
-
-				
 			}
 			
 			//remove duplicates

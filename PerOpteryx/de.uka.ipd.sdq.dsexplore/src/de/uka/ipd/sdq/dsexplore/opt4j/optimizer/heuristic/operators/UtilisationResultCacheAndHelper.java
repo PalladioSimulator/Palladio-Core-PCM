@@ -168,7 +168,8 @@ public class UtilisationResultCacheAndHelper {
 
 	private boolean checkResourceType(ProcessingResourceSpecificationResult procUtilisationResult, ResourceType resourceType) {
 		return resourceType != null 
-			? EMFHelper.checkIdentity(procUtilisationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult().getActiveResourceType_ActiveResourceSpecification(),resourceType) 
+			? (EMFHelper.checkIdentity(procUtilisationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult().getActiveResourceType_ActiveResourceSpecification(),resourceType)
+					&& 	!resourceType.getEntityName().equals("DELAY"))
 				: true;
 	}
 
@@ -225,7 +226,7 @@ public class UtilisationResultCacheAndHelper {
 						// only look at used servers
 						if (EMFHelper.contains(this.getAvailableResourceContainers(individual), procUtilisationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult().getResourceContainer_ProcessingResourceSpecification())
 								// and has matching resource type if resource type is not null
-								&& resourceType != null ? EMFHelper.checkIdentity(procUtilisationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult().getActiveResourceType_ActiveResourceSpecification(),resourceType) : true ){
+								&& checkResourceType(procUtilisationResult, resourceType) ){
 							if (maxUtilisationResult == null || maxUtilisationResult.getResourceUtilisation() < procUtilisationResult.getResourceUtilisation()) {
 								maxUtilisationResult = procUtilisationResult;
 							}

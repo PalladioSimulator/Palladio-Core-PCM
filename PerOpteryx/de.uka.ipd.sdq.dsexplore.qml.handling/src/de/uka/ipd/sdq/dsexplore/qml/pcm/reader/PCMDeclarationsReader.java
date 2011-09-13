@@ -27,9 +27,9 @@ import de.uka.ipd.sdq.dsexplore.qml.contracttype.QMLContractType.QMLContractType
 import de.uka.ipd.sdq.dsexplore.qml.declarations.QMLDeclarations.QMLDeclarations;
 import de.uka.ipd.sdq.dsexplore.qml.handling.QMLConstantsContainer;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.EvaluationAspectWithContext;
-import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedInfeasibilityConstraint;
-import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedObjective;
-import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedSatisfactionConstraint;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.InfeasibilityConstraintBuilder;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.ObjectiveBuilder;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.SatisfactionConstraintBuilder;
 import de.uka.ipd.sdq.dsexplore.qml.profile.QMLProfile.Requirement;
 import de.uka.ipd.sdq.dsexplore.qml.profile.QMLProfile.SimpleQMLProfile;
 import de.uka.ipd.sdq.dsexplore.qml.reader.QMLDeclarationsReader;
@@ -204,13 +204,13 @@ public class PCMDeclarationsReader {
 	 * won't be reversible otherwise.
 	 */
 	
-	public org.opt4j.core.InfeasibilityConstraint translateEvalAspectToInfeasibilityConstraint(EvaluationAspectWithContext aspectContext) {
+	public org.opt4j.core.InfeasibilityConstraint translateEvalAspectToInfeasibilityConstraint(EvaluationAspectWithContext aspectContext, InfeasibilityConstraintBuilder builder) {
 		EvaluationAspect aspect = aspectContext.getEvaluationAspect();
 		org.opt4j.core.InfeasibilityConstraint constraint;
 		if(aspect.getAspectRequirement() instanceof Restriction){		
 			if (((Restriction)aspect.getAspectRequirement()).getOperator() == EnumOperator.LESS) { 		
 				if (((Restriction)aspect.getAspectRequirement()).getAspectRequirementLiteral() instanceof NumericLiteral) {
-					constraint = new org.opt4j.core.InfeasibilityConstraint(aspect.getId(), 
+					constraint = builder.createInfeasibilityConstraint(aspect.getId(), 
 							Direction.less, 
 							((NumericLiteral)((Restriction)aspect.getAspectRequirement()).getAspectRequirementLiteral()).getValue());
 				} else {
@@ -229,94 +229,19 @@ public class PCMDeclarationsReader {
 		return constraint;
 	}
 	
-	public UsageScenarioBasedInfeasibilityConstraint translateEvalAspectToInfeasibilityConstraint(EvaluationAspectWithContext aspectContext, UsageScenario usageScenario) {
+	public SatisfactionConstraint translateEvalAspectToSatisfactionConstraint(EvaluationAspectWithContext aspectContext, org.opt4j.core.Objective objective, SatisfactionConstraintBuilder builder){
 		EvaluationAspect aspect = aspectContext.getEvaluationAspect();
-		UsageScenarioBasedInfeasibilityConstraint constraint;
-		if(aspect.getAspectRequirement() instanceof Restriction){		
-			if (((Restriction)aspect.getAspectRequirement()).getOperator() == EnumOperator.LESS) { 		
-				if (((Restriction)aspect.getAspectRequirement()).getAspectRequirementLiteral() instanceof NumericLiteral) {
-					constraint = new UsageScenarioBasedInfeasibilityConstraint(aspect.getId()+":"+usageScenario.getEntityName(), 
-							Direction.less, 
-							((NumericLiteral)((Restriction)aspect.getAspectRequirement()).getAspectRequirementLiteral()).getValue(), usageScenario);
-				} else {
-					//TODO: Handle Enums and Sets
-					throw new RuntimeException("Unsupported Constraint literal in aspect. Only numeric literals are supported so far.");
-				}
-			} else {
-				// TODO: Extend and remove Exception
-				throw new RuntimeException("Unsupported constraint operator in aspect. Only LESS (<) supported so far.");
-			}
-		} else {
-			throw new RuntimeException("Aspect must have aspect requirement of type Restriction to derive InfeasibilityConstraint.");
-		}
-		
-		retranslationMap.put(constraint.getName(), aspectContext);
-		return constraint;
-	}
-	
-	public UsageScenarioBasedSatisfactionConstraint translateEvalAspectToSatisfactionConstraint(EvaluationAspectWithContext aspectContext, org.opt4j.core.Objective objective, UsageScenario usageScenario){
-		EvaluationAspect aspect = aspectContext.getEvaluationAspect();
-		UsageScenarioBasedSatisfactionConstraint constraint;
+		SatisfactionConstraint constraint = null;
 		if (((Goal)aspect.getAspectRequirement()) == null) {
 			if(objective.getSign() == Sign.MIN) {
-				constraint = new UsageScenarioBasedSatisfactionConstraint(
-						aspect.getId()+":"+usageScenario.getEntityName(), 
-						Direction.less, 
-						Double.NEGATIVE_INFINITY, 
-						objective,
-						usageScenario);
-			} else {
-				//Sign == MAX
-				constraint = new UsageScenarioBasedSatisfactionConstraint(
-						aspect.getId()+":"+usageScenario.getEntityName(), 
-						Direction.greater, 
-						Double.POSITIVE_INFINITY, 
-						objective,
-						usageScenario);
-			}
-		} else if(aspect.getAspectRequirement() instanceof Goal){			
-			if (((Goal)aspect.getAspectRequirement()).getAspectRequirementLiteral() instanceof NumericLiteral) {
-				if(objective.getSign() == Sign.MIN) {
-					constraint = new UsageScenarioBasedSatisfactionConstraint(
-							aspect.getId()+":"+usageScenario.getEntityName(), 
-							Direction.less, 
-							((NumericLiteral)((Goal)aspect.getAspectRequirement()).getAspectRequirementLiteral()).getValue(), 
-							objective,
-							usageScenario);
-				} else {
-					//Sign == MAX
-					constraint = new UsageScenarioBasedSatisfactionConstraint(
-							aspect.getId()+":"+usageScenario.getEntityName(), 
-							Direction.greater, 
-							((NumericLiteral)((Goal)aspect.getAspectRequirement()).getAspectRequirementLiteral()).getValue(), 
-							objective,
-							usageScenario);
-				}
-			} else {
-				//TODO: Handle Enums and Sets
-				throw new RuntimeException("Unsupported Goal literal in aspect. Only numeric literals supported in Goal aspect requirements so far.");
-			}
-		} else {
-			throw new RuntimeException("Aspect must have aspect requirement of type Goal to derive SatisfactionConstraint!");
-		}
-		
-		retranslationMap.put(constraint.getName(), aspectContext);
-		return constraint;
-	}
-	
-	public SatisfactionConstraint translateEvalAspectToSatisfactionConstraint(EvaluationAspectWithContext aspectContext, org.opt4j.core.Objective objective){
-		EvaluationAspect aspect = aspectContext.getEvaluationAspect();
-		SatisfactionConstraint constraint;
-		if (((Goal)aspect.getAspectRequirement()) == null) {
-			if(objective.getSign() == Sign.MIN) {
-				constraint = new SatisfactionConstraint(
+				constraint = builder.createSatisfactionConstraint(
 						aspect.getId(), 
 						Direction.less, 
 						Double.NEGATIVE_INFINITY, 
 						objective);
 			} else {
 				//Sign == MAX
-				constraint = new SatisfactionConstraint(
+				constraint = builder.createSatisfactionConstraint(
 						aspect.getId(), 
 						Direction.greater, 
 						Double.POSITIVE_INFINITY, 
@@ -325,14 +250,14 @@ public class PCMDeclarationsReader {
 		} else if(aspect.getAspectRequirement() instanceof Goal){			
 			if (((Goal)aspect.getAspectRequirement()).getAspectRequirementLiteral() instanceof NumericLiteral) {
 				if(objective.getSign() == Sign.MIN) {
-					constraint = new SatisfactionConstraint(
+					constraint = builder.createSatisfactionConstraint(
 							aspect.getId(), 
 							Direction.less, 
 							((NumericLiteral)((Goal)aspect.getAspectRequirement()).getAspectRequirementLiteral()).getValue(), 
 							objective);
 				} else {
 					//Sign == MAX
-					constraint = new SatisfactionConstraint(
+					constraint = builder.createSatisfactionConstraint(
 							aspect.getId(), 
 							Direction.greater, 
 							((NumericLiteral)((Goal)aspect.getAspectRequirement()).getAspectRequirementLiteral()).getValue(), 
@@ -350,33 +275,20 @@ public class PCMDeclarationsReader {
 		return constraint;
 	}
 	
-	public org.opt4j.core.Objective translateEvalAspectToObjective(String qualityAttribute, EvaluationAspectWithContext aspectContext) {
+	public org.opt4j.core.Objective translateEvalAspectToObjective(String qualityAttribute, EvaluationAspectWithContext aspectContext, ObjectiveBuilder builder) {
 		//Make sure, the aspect IS an objective
 		org.opt4j.core.Objective objective;
 		if(aspectContext.getDimension().getType().getRelationSemantics().getRelSem() == EnumRelationSemantics.DECREASING) {
-			objective = new org.opt4j.core.Objective(qualityAttribute, org.opt4j.core.Objective.Sign.MIN);
+			objective = builder.createObjective(qualityAttribute, org.opt4j.core.Objective.Sign.MIN);
 		} else {
 			//INCREASING
-			objective = new org.opt4j.core.Objective(qualityAttribute, org.opt4j.core.Objective.Sign.MAX);
+			objective = builder.createObjective(qualityAttribute, org.opt4j.core.Objective.Sign.MAX);
 		}
 		
 		retranslationMap.put(objective.getName(), aspectContext);
 		return objective;
 	}
 	
-	public UsageScenarioBasedObjective translateEvalAspectToObjective(String qualityAttribute, EvaluationAspectWithContext aspectContext, UsageScenario usageScenario){
-		//Make sure, the aspect IS an objective
-		UsageScenarioBasedObjective objective;
-		if(aspectContext.getDimension().getType().getRelationSemantics().getRelSem() == EnumRelationSemantics.DECREASING) {
-			objective = new UsageScenarioBasedObjective(qualityAttribute+":"+usageScenario.getEntityName(), org.opt4j.core.Objective.Sign.MIN, usageScenario);
-		} else {
-			//INCREASING
-			objective = new UsageScenarioBasedObjective(qualityAttribute+":"+usageScenario.getEntityName(), org.opt4j.core.Objective.Sign.MAX, usageScenario);
-		}
-		
-		retranslationMap.put(objective.getName(), aspectContext);
-		return objective;
-	}
 	
 	/*
 	 * Static method for global uniqueness of retranslationMap. Otherwise one 

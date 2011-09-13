@@ -1,19 +1,11 @@
 package de.uka.ipd.sdq.dsexplore.analysis.lqn;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import org.eclipse.core.runtime.CoreException;
+import org.opt4j.core.Criterion;
 
 import LqnCore.LqnModelType;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
-import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedCriterion;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
 
@@ -66,7 +58,7 @@ public class LQNSolverAnalysis extends AbstractLQNAnalysis {
 	
 	@Override
 	protected ILQNResult retrieveResult(PCMInstance pcm,
-			LqnModelType model,UsageScenarioBasedCriterion criterion) throws AnalysisFailedException {
+			LqnModelType model, Criterion criterion) throws AnalysisFailedException {
 		ILQNResult result;
 		if (hasConverged){
 			result = new LQNSolverAnalysisResult(model, pcm, criterion, this.criterionToAspect, this.lQNQualityAttribute);

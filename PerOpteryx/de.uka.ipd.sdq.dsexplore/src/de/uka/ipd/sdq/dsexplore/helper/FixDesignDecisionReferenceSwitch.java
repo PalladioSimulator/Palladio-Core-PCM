@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.EqualityHelper;
 
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
@@ -17,12 +18,14 @@ import de.uka.ipd.sdq.pcm.designdecision.Candidate;
 import de.uka.ipd.sdq.pcm.designdecision.Candidates;
 import de.uka.ipd.sdq.pcm.designdecision.CapacityDegree;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
-import de.uka.ipd.sdq.pcm.designdecision.DecisionSpace;
-import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
 import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
+import de.uka.ipd.sdq.pcm.designdecision.DecisionSpace;
+import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
+import de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingResourceDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
+import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange;
 import de.uka.ipd.sdq.pcm.designdecision.util.designdecisionSwitch;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
@@ -62,17 +65,17 @@ public class FixDesignDecisionReferenceSwitch extends designdecisionSwitch<EObje
 	protected static Logger logger = Logger
 		.getLogger(FixDesignDecisionReferenceSwitch.class.getName());
 
-	public void fixEntitiesForDomain(ClassDegree degree, List<Entity> memoryEntityList) {
+	public void fixEntitiesForDomain(List<EObject> eListToUpdate, List<Entity> memoryEntityList) {
 
 		List<Entity> newList = new ArrayList<Entity>();
 		
-		for (EObject entity : degree.getClassDesignOptions()) {
+		for (EObject entity : eListToUpdate) {
 			Entity rightOne = EMFHelper.retrieveEntityByID(memoryEntityList, entity);
 			newList.add(rightOne);
 		}
 
-		degree.getClassDesignOptions().clear();
-		degree.getClassDesignOptions().addAll(newList);
+		eListToUpdate.clear();
+		eListToUpdate.addAll(newList);
 	}
 
 	private PCMInstance initialInstance;
@@ -97,7 +100,7 @@ public class FixDesignDecisionReferenceSwitch extends designdecisionSwitch<EObje
 		List<Entity> allCurrentServers = new ArrayList<Entity>();
 		allCurrentServers.addAll(this.initialInstance.getResourceEnvironment().getResourceContainer_ResourceEnvironment());
 		
-		fixEntitiesForDomain(object, allCurrentServers);
+		fixEntitiesForDomain(object.getClassDesignOptions(), allCurrentServers);
 		
 		return object;
 	}
@@ -193,7 +196,7 @@ public class FixDesignDecisionReferenceSwitch extends designdecisionSwitch<EObje
 			allCurrentComponents.addAll(repository.getComponents__Repository());
 		}
 		
-		fixEntitiesForDomain(object, allCurrentComponents);
+		fixEntitiesForDomain(object.getClassDesignOptions(), allCurrentComponents);
 
 		return object;
 	}
@@ -201,9 +204,15 @@ public class FixDesignDecisionReferenceSwitch extends designdecisionSwitch<EObje
 
 	@Override
 	public EObject caseDecisionSpace(DecisionSpace object) {
-		for (DegreeOfFreedomInstance dd : object.getDegreesOfFreedom()) {
-			doSwitch(dd);
-		};
+		
+		try {
+			for (DegreeOfFreedomInstance dd : object.getDegreesOfFreedom()) {
+				doSwitch(dd);
+			};
+		} catch (ClassCastException e){
+			logger.error("Class cast exception when visiting .designdecision model. Please check your model for validity using the Ecore tree editor. References might be broken.");
+			throw e;
+		}
 		return object;
 	}
 
@@ -275,6 +284,41 @@ public class FixDesignDecisionReferenceSwitch extends designdecisionSwitch<EObje
 		
 		return object;
 	}
+
+	@Override
+	public EObject caseResourceContainerReplicationDegreeWithComponentChange(
+			ResourceContainerReplicationDegreeWithComponentChange object) {
+		
+		caseResourceContainerReplicationDegree(object);
+		
+		for (ExchangeComponentRule rule : object.getExchangeComponentRule()) {
+			String id = rule.getAllocationContext().getId();
+			
+			List<AllocationContext> acs = this.initialInstance.getAllocation().getAllocationContexts_Allocation();
+			AllocationContext rightOne = (AllocationContext)EMFHelper.retrieveEntityByID(acs, id);
+			rule.setAllocationContext(rightOne);
+			
+			List<Entity> allCurrentComponents = new ArrayList<Entity>();
+			List<Repository> repositories = this.initialInstance.getRepositories();
+			for (Repository repository : repositories) {
+				allCurrentComponents.addAll(repository.getComponents__Repository());
+			}
+			
+			List<RepositoryComponent> newList = new ArrayList<RepositoryComponent>();
+			
+			for (RepositoryComponent entity : rule.getRepositoryComponent()) {
+				RepositoryComponent rightOne2 = (RepositoryComponent)EMFHelper.retrieveEntityByID(allCurrentComponents, entity);
+				newList.add(rightOne2);
+			}
+
+			rule.getRepositoryComponent().clear();
+			rule.getRepositoryComponent().addAll(newList);
+		}
+		
+		return object; 
+	}
+	
+	
 	
 	
 

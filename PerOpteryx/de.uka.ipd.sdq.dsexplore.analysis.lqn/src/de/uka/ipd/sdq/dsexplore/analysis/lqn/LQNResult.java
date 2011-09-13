@@ -8,9 +8,12 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.opt4j.core.Criterion;
 
+import LqnCore.ActivityDefType;
 import LqnCore.ActivityPhasesType;
 import LqnCore.EntryType;
 import LqnCore.LqnModelType;
@@ -20,6 +23,7 @@ import LqnCore.TaskType;
 import de.uka.ipd.sdq.dsexplore.analysis.AbstractPerformanceAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.analysis.AnalysisFailedException;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
+import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.EntryLevelSystemCallCriterion;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.EvaluationAspectWithContext;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedCriterion;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
@@ -54,6 +58,8 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 	
 	protected double meanResponseTime;
 	protected double throughput;
+	protected double maxUtilization;
+	
 	protected double squaredCoeffVariance = 1;
 	
 	private ResultDecoratorRepository results;
@@ -62,8 +68,10 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 
 	private LQNQualityAttributeDeclaration qualityAttributeInfo;
 
+	
+
 	public LQNResult(PCMInstance pcm, LqnModelType model,
-			UsageScenarioBasedCriterion criterion, Map<Criterion, EvaluationAspectWithContext> objectiveToAspect,
+			Criterion criterion, Map<Criterion, EvaluationAspectWithContext> objectiveToAspect,
 			LQNQualityAttributeDeclaration qualityAttributeInfo) throws AnalysisFailedException {
 		super(pcm);
 		try{
@@ -71,17 +79,45 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 			this.objectiveToAspects = objectiveToAspect;
 			this.qualityAttributeInfo = qualityAttributeInfo;
 			
-			this.meanResponseTime = retrieveResponseTimeForUsageScenario(pcm, model,criterion);
-			
-			this.throughput = retrieveThroughputForUsageScenario(pcm, model, criterion);
+			if (criterion instanceof UsageScenarioBasedCriterion){
+				this.meanResponseTime = retrieveResponseTimeForUsageScenario(pcm, model,(UsageScenarioBasedCriterion)criterion);
+				this.throughput = retrieveThroughputForUsageScenario(pcm, model, (UsageScenarioBasedCriterion)criterion);
+			} else if (criterion instanceof EntryLevelSystemCallCriterion){
+				this.meanResponseTime = retrieveResponseTimeForEntryLevelSystemCall(pcm, model,(EntryLevelSystemCallCriterion)criterion);
+				this.throughput = retrieveThroughputForEntryLevelSystemCall(pcm, model, (EntryLevelSystemCallCriterion)criterion);
+			} else {
+				throw new AnalysisFailedException("Unknown criterion type "+criterion.getClass().getName());
+			}
 			
 			this.results =  retrieveResults(pcm, model);
+			
+			this.maxUtilization = retrieveMaxUtilization(pcm, model, this.results, "CPU");
+			
 		} catch (ParseException ex) {
 			throw new AnalysisFailedException("Failed to parse string value.",
 					ex);
 		}
 	}
 	
+	private double retrieveMaxUtilization(PCMInstance pcm, LqnModelType model,
+			ResultDecoratorRepository results2, String resourceTypeDescription) {
+		double maxUtil = 0;
+		for (UtilisationResult utilResult : results2.getUtilisationResults_ResultDecoratorRepository()) {
+			if (utilResult instanceof ProcessingResourceSpecificationResult){
+				ProcessingResourceSpecificationResult procResult = (ProcessingResourceSpecificationResult) utilResult;
+				// check resource type
+				if (procResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult().getActiveResourceType_ActiveResourceSpecification().getEntityName().contains(resourceTypeDescription)){
+					if (maxUtil < procResult.getResourceUtilisation()){
+						maxUtil = procResult.getResourceUtilisation();
+					}
+				}
+				
+			}
+			
+		}
+		return maxUtil;
+	}
+
 	/**
 	 * pcm must be the current candidate's PCM model. 
 	 * 
@@ -375,38 +411,104 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 	 * @throws AnalysisFailedException
 	 */
 	private double retrieveResponseTimeForUsageScenario(PCMInstance pcm, LqnModelType model, UsageScenarioBasedCriterion criterion) throws ParseException, AnalysisFailedException {
-	
-		ProcessorType processor = getUsageScenarioProcessor(pcm, model,	criterion);
-		
+
+		ProcessorType processor = getUsageScenarioProcessor(pcm, model,	criterion.getUsageScenario());
+
 		if (processor != null) {
 
 			if (processor.getTask() != null && processor.getTask().size() > 0) {
 
 				// TODO: Can we really assume there is only one task?
 				TaskType task = processor.getTask().get(0);
-				OutputResultType outputResult = task.getResultTask().get(0);
 
-				double responseTime = 0.0;
+				if (task != null){
+					double responseTime = Double.NaN;
 
-				responseTime = LQNUtils.getResponseTimeOfSubActivities(task);
+					if (task.getResultTask().size() > 0){
+						OutputResultType outputResult = task.getResultTask().get(0);
 
-				if (outputResult.getSquaredCoeffVariation() != null) {
-					this.squaredCoeffVariance = LQNUtils
+						if (outputResult != null)
+							responseTime = LQNUtils.getResponseTimeOfSubActivities(task);
+
+						if (outputResult.getSquaredCoeffVariation() != null) {
+							this.squaredCoeffVariance = LQNUtils
 							.convertStringToDouble((String) outputResult
 									.getSquaredCoeffVariation());
-				} else
-					this.squaredCoeffVariance = 1;
+						} 
+						return responseTime;
+					}
+				}
 
-				return responseTime;
-				
-			} else {
-				logger.warn("No task or empty task for processor "
-					+ processor.getName()
-					+ ". Cannot determine response time, using NaN. Check your models or the LQNResult code.");
+
 			}
-		} 
+		}
+		logger.warn("No task or empty task for processor "
+				+ processor.getName()
+				+ ". Cannot determine response time, using NaN. Check your models or the LQNResult code.");
+
 		return Double.NaN;
 
+	}
+	
+	private double retrieveResponseTimeForEntryLevelSystemCall(PCMInstance pcm,
+			LqnModelType model, EntryLevelSystemCallCriterion criterion) throws AnalysisFailedException, ParseException {
+		
+		ProcessorType usageScenarioProcessor = getUsageScenarioProcessor(pcm, model, criterion);
+		
+		if (usageScenarioProcessor != null) {
+
+			if (usageScenarioProcessor.getTask() != null && usageScenarioProcessor.getTask().size() > 0) {
+
+				OutputResultType entryLevelCallActivityResult =  getResultActivityForEntryLevelSystemCall(
+						criterion, usageScenarioProcessor);
+				
+				if (entryLevelCallActivityResult != null){
+					return LQNUtils.convertStringToDouble((String) entryLevelCallActivityResult.getServiceTime());
+				}
+				
+			} 
+		}
+		logger.warn("No task or empty task for processor or empty activity results"
+				+ usageScenarioProcessor.getName()
+				+ ". Cannot determine response time, using NaN. Check your models or the LQNResult code.");
+		return Double.NaN;
+	}
+
+	private OutputResultType getResultActivityForEntryLevelSystemCall(
+			EntryLevelSystemCallCriterion criterion,
+			ProcessorType usageScenarioProcessor) {
+		// TODO: Can we really assume there is only one task?
+		TaskType task = usageScenarioProcessor.getTask().get(0);
+		
+		String entryLevelCallId = Pcm2LqnHelper.getIdForEntryLevelSystemCall(criterion.getEntryLevelSystemCall());
+		TreeIterator<Object> allProcessorContentIterator = EcoreUtil.getAllContents(task.getTaskActivities().getActivity(), true);
+		OutputResultType activity = findActivityForEntryLevelCallById(entryLevelCallId,
+				allProcessorContentIterator);
+		
+		if (activity == null){
+
+			// the activity might be contained in another processor, e.g. a usage scenario loop processor. 
+			TreeIterator<Object> allContentIterator = EcoreUtil.getAllContents(usageScenarioProcessor.eContainer(), true);
+			activity = findActivityForEntryLevelCallById(entryLevelCallId, allContentIterator);
+		}
+		
+		return activity;
+	}
+
+	private OutputResultType findActivityForEntryLevelCallById(String entryLevelCallId,
+			TreeIterator<Object> allProcessorContentIterator) {
+		while (allProcessorContentIterator.hasNext()) {
+			Object object = allProcessorContentIterator.next();
+			
+			if (object instanceof ActivityDefType && ((ActivityDefType)object).getName().equals(entryLevelCallId)){
+				// this is the entry level system call
+				OutputResultType activityResult = ((ActivityDefType)object).getResultActivity().get(0);
+				if (activityResult != null){
+					return activityResult;
+				}
+			}
+		};
+		return null;
 	}
 	
 	/**
@@ -426,19 +528,49 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 		if (processor.getTask() != null && processor.getTask().size() > 0) {
 			
 			TaskType usageScenarioTask = processor.getTask().get(0);
-			OutputResultType outputResult = usageScenarioTask.getResultTask().get(0);
-			return LQNUtils.convertStringToDouble((String)outputResult.getThroughput());
-			
+			if (usageScenarioTask != null && usageScenarioTask.getResultTask().size()>0){
+				OutputResultType outputResult = usageScenarioTask.getResultTask().get(0);
+				if (outputResult != null){
+					return LQNUtils.convertStringToDouble((String)outputResult.getThroughput());
+				}
+			}
 			
 		}
-		
+		logger.warn("No task or empty task for processor or empty activity results"
+				+ processor.getName()
+				+ ". Cannot determine throughput, using NaN. Check your models or the LQNResult code.");
 		return Double.NaN;
 		
 	}
+	
+	private double retrieveThroughputForEntryLevelSystemCall(PCMInstance pcm,
+			LqnModelType model, EntryLevelSystemCallCriterion criterion) throws AnalysisFailedException, ParseException {
+		ProcessorType usageScenarioProcessor = getUsageScenarioProcessor(pcm, model,	criterion);
+		
+		if (usageScenarioProcessor != null) {
 
+			if (usageScenarioProcessor.getTask() != null && usageScenarioProcessor.getTask().size() > 0) {
+
+				OutputResultType entryLevelCallActivityResult =  getResultActivityForEntryLevelSystemCall(
+						criterion, usageScenarioProcessor);
+				
+				if (entryLevelCallActivityResult != null){
+					return LQNUtils.convertStringToDouble((String) entryLevelCallActivityResult.getThroughput());
+				}
+				
+			} 
+		}
+		logger.warn("No task or empty task for processor or empty activity results"
+				+ usageScenarioProcessor.getName()
+				+ ". Cannot determine throughput, using NaN. Check your models or the LQNResult code.");
+		
+		return Double.NaN;
+	}
+	
+	
 	private ProcessorType getUsageScenarioProcessor(PCMInstance pcm,
 			LqnModelType model, UsageScenarioBasedCriterion criterion)
-			throws AnalysisFailedException {
+	throws AnalysisFailedException {
 		UsageScenario currentUsageScenaro = null;
 		List<UsageScenario> scenarios = pcm.getUsageModel().getUsageScenario_UsageModel();
 		for (UsageScenario usageScenario : scenarios) {
@@ -447,13 +579,60 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 			currentUsageScenaro = usageScenario;
 			break;
 		}
+		return getUsageScenarioProcessor(pcm, model, currentUsageScenaro);
+	}
+	
+	private ProcessorType getUsageScenarioProcessor(PCMInstance pcm,
+			LqnModelType model, EntryLevelSystemCallCriterion criterion)
+	throws AnalysisFailedException {
+		UsageScenario currentUsageScenaro = null;
+		List<UsageScenario> scenarios = pcm.getUsageModel().getUsageScenario_UsageModel();
+		UsageScenario scenarioToLookFor = getUsageScenarioOfEObject(criterion.getEntryLevelSystemCall());
+		for (UsageScenario usageScenario : scenarios) {
+			if (usageScenario.getId().equals(scenarioToLookFor.getId())){
+				currentUsageScenaro = usageScenario;
+				break;
+			}
+		}
+		return getUsageScenarioProcessor(pcm, model, currentUsageScenaro);
+	}
+
+	private UsageScenario getUsageScenarioOfEObject(
+			EObject object) {
+		EObject container = object.eContainer();
+		if (container instanceof UsageScenario){
+			return (UsageScenario)container;
+		} else {
+			if (container != null){
+				return getUsageScenarioOfEObject(container);
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Get usage scenario processor for a given {@link UsageScenario}. I am not sure here, 
+	 * but maybe we have to be careful and  
+	 * the {@link UsageScenario} must be the one from the actual PCM model that has been analyzed, 
+	 * not the one referenced from the Criterion. These may differ if they have been loaded 
+	 * separately several Java objects may represent the same model objects.  
+	 * @param pcm
+	 * @param model
+	 * @param currentUsageScenaro
+	 * @return
+	 * @throws AnalysisFailedException
+	 */
+	private ProcessorType getUsageScenarioProcessor(PCMInstance pcm,
+			LqnModelType model, UsageScenario currentUsageScenaro)
+			throws AnalysisFailedException {
+
 		if (currentUsageScenaro == null){
 			throw new AnalysisFailedException("Could not analyse LQN results, because the usage scenario from references QML Criterion is not contained in this PCM model's usage model.");
 		}
 		
 		// Retrieve the usage scenario's name used within the result
 		// Remove the number from the id as that may have changed(?) XXX 
-		String scenarioName = Pcm2LqnHelper.getIdForUsageScenario(criterion.getUsageScenario());
+		String scenarioName = Pcm2LqnHelper.getIdForUsageScenario(currentUsageScenaro);
 		scenarioName = scenarioName.substring(0, scenarioName.lastIndexOf("_")); 
 		// \\d stands for a digital number.
 		String processorNameRegex = scenarioName + "_\\d+_Processor"; // see class LqnBuilder#getProcessorTypeFromModel(String)
@@ -493,6 +672,8 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 				return this.getMeanValue();
 			} else if (EcoreUtil.equals(aspect.getDimension(), this.qualityAttributeInfo.getThroughput())){
 				return this.getThroughput();
+			}  else if (EcoreUtil.equals(aspect.getDimension(), this.qualityAttributeInfo.getMaxUtilization())){
+				return this.getMaxUtilisation();
 			}
 		} 
 		
@@ -509,6 +690,10 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 	
 	public double getThroughput() {
 		return throughput;
+	}
+	
+	public double getMaxUtilisation(){
+		return this.maxUtilization;
 	}
 	
 	/* (non-Javadoc)
