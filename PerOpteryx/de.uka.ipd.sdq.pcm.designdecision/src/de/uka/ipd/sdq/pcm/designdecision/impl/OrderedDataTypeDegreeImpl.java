@@ -6,27 +6,27 @@
  */
 package de.uka.ipd.sdq.pcm.designdecision.impl;
 
-import de.uka.ipd.sdq.pcm.designdecision.ClassWithCopyDegree;
+import de.uka.ipd.sdq.pcm.designdecision.OrderedDataTypeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Class With Copy Degree</b></em>'.
+ * An implementation of the model object '<em><b>Ordered Data Type Degree</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public abstract class ClassWithCopyDegreeImpl extends ClassDegreeImpl implements ClassWithCopyDegree {
+public abstract class OrderedDataTypeDegreeImpl extends DataTypeDegreeImpl implements OrderedDataTypeDegree {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ClassWithCopyDegreeImpl() {
+	protected OrderedDataTypeDegreeImpl() {
 		super();
 	}
 
@@ -37,7 +37,7 @@ public abstract class ClassWithCopyDegreeImpl extends ClassDegreeImpl implements
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return designdecisionPackage.Literals.CLASS_WITH_COPY_DEGREE;
+		return designdecisionPackage.Literals.ORDERED_DATA_TYPE_DEGREE;
 	}
 
-} //ClassWithCopyDegreeImpl
+} //OrderedDataTypeDegreeImpl

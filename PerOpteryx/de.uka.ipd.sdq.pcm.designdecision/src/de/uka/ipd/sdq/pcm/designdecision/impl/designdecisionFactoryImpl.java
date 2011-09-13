@@ -79,17 +79,16 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 			case designdecisionPackage.DISCRETE_PROCESSING_RATE_DEGREE: return createDiscreteProcessingRateDegree();
 			case designdecisionPackage.CAPACITY_DEGREE: return createCapacityDegree();
 			case designdecisionPackage.SCHEDULING_POLICY_DEGREE: return createSchedulingPolicyDegree();
-			case designdecisionPackage.ENUM_DEGREE: return createEnumDegree();
 			case designdecisionPackage.SCHEDULING_POLICY_CHOICE: return createSchedulingPolicyChoice();
-			case designdecisionPackage.CLASS_WITH_COPY_DEGREE: return createClassWithCopyDegree();
 			case designdecisionPackage.RESOURCE_SELECTION_DEGREE: return createResourceSelectionDegree();
 			case designdecisionPackage.DISCRETE_COMPONENT_PARAM_DEGREE: return createDiscreteComponentParamDegree();
 			case designdecisionPackage.CONTINUOUS_COMPONENT_PARAM_DEGREE: return createContinuousComponentParamDegree();
 			case designdecisionPackage.STRING_COMPONENT_PARAM_DEGREE: return createStringComponentParamDegree();
-			case designdecisionPackage.UNORDERED_PRIMITIVE_DEGREE: return createUnorderedPrimitiveDegree();
-			case designdecisionPackage.NUMBER_OF_CORES_DEGREE: return createNumberOfCoresDegree();
+			case designdecisionPackage.NUMBER_OF_CORES_AS_RANGE_DEGREE: return createNumberOfCoresAsRangeDegree();
 			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE: return createResourceContainerReplicationDegreeWithComponentChange();
 			case designdecisionPackage.EXCHANGE_COMPONENT_RULE: return createExchangeComponentRule();
+			case designdecisionPackage.ORDERED_INTEGER_DEGREE: return createOrderedIntegerDegree();
+			case designdecisionPackage.NUMBER_OF_CORES_AS_LIST_DEGREE: return createNumberOfCoresAsListDegree();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -290,29 +289,9 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnumDegree createEnumDegree() {
-		EnumDegreeImpl enumDegree = new EnumDegreeImpl();
-		return enumDegree;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SchedulingPolicyChoice createSchedulingPolicyChoice() {
 		SchedulingPolicyChoiceImpl schedulingPolicyChoice = new SchedulingPolicyChoiceImpl();
 		return schedulingPolicyChoice;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ClassWithCopyDegree createClassWithCopyDegree() {
-		ClassWithCopyDegreeImpl classWithCopyDegree = new ClassWithCopyDegreeImpl();
-		return classWithCopyDegree;
 	}
 
 	/**
@@ -360,19 +339,9 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnorderedPrimitiveDegree createUnorderedPrimitiveDegree() {
-		UnorderedPrimitiveDegreeImpl unorderedPrimitiveDegree = new UnorderedPrimitiveDegreeImpl();
-		return unorderedPrimitiveDegree;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NumberOfCoresDegree createNumberOfCoresDegree() {
-		NumberOfCoresDegreeImpl numberOfCoresDegree = new NumberOfCoresDegreeImpl();
-		return numberOfCoresDegree;
+	public NumberOfCoresAsRangeDegree createNumberOfCoresAsRangeDegree() {
+		NumberOfCoresAsRangeDegreeImpl numberOfCoresAsRangeDegree = new NumberOfCoresAsRangeDegreeImpl();
+		return numberOfCoresAsRangeDegree;
 	}
 
 	/**
@@ -393,6 +362,26 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	public ExchangeComponentRule createExchangeComponentRule() {
 		ExchangeComponentRuleImpl exchangeComponentRule = new ExchangeComponentRuleImpl();
 		return exchangeComponentRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OrderedIntegerDegree createOrderedIntegerDegree() {
+		OrderedIntegerDegreeImpl orderedIntegerDegree = new OrderedIntegerDegreeImpl();
+		return orderedIntegerDegree;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NumberOfCoresAsListDegree createNumberOfCoresAsListDegree() {
+		NumberOfCoresAsListDegreeImpl numberOfCoresAsListDegree = new NumberOfCoresAsListDegreeImpl();
+		return numberOfCoresAsListDegree;
 	}
 
 	/**

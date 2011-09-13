@@ -19,13 +19,6 @@
         <ownedLiteral xmi:id="_EFN1knFYEd-lZcW72c0mrA" name="increasing" classifier="_EFN1kHFYEd-lZcW72c0mrA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_EFXmlHFYEd-lZcW72c0mrA" name="DimensionTypeSet">
-        <ownedComment xmi:id="_2fF2gC32EeCCDMFbLBj3cg" annotatedElement="_EFXmlHFYEd-lZcW72c0mrA">
-          <body>The dimension's domain are all possible subsets of the specified elements. &#xD;
-&#xD;
-For example, if the list elements contains the values A and B, the domain is {}, {A}, {B}, {A,B}. &#xD;
-&#xD;
-See page 12, Frolund et al., QML: A Language for Quality of Service Specification, 1998, TR HP Labs. </body>
-        </ownedComment>
         <ownedRule xmi:id="_sv5QwHFeEd-lZcW72c0mrA" name="ORDER_can_only_exist_with_RELATIONSEMANTICS" constrainedElement="_EFXmlHFYEd-lZcW72c0mrA">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_sv5QwXFeEd-lZcW72c0mrA">
             <language>OCL</language>
@@ -43,11 +36,6 @@ See page 12, Frolund et al., QML: A Language for Quality of Service Specificatio
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_EFgwgHFYEd-lZcW72c0mrA" name="DimensionTypeEnum">
-        <ownedComment xmi:id="__u51AC32EeCCDMFbLBj3cg" annotatedElement="_EFgwgHFYEd-lZcW72c0mrA">
-          <body>The dimension's domain are the specified elements. &#xD;
-&#xD;
-See page 13, Frolund et al., QML: A Language for Quality of Service Specification, 1998, TR HP Labs. </body>
-        </ownedComment>
         <ownedRule xmi:id="_1fKRgHFfEd-lZcW72c0mrA" name="ORDER_can_only_exist_with_RELATIONSEMANTICS_and_vice_versa" constrainedElement="_EFgwgHFYEd-lZcW72c0mrA">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_1fKRgXFfEd-lZcW72c0mrA">
             <language>OCL</language>
@@ -104,12 +92,6 @@ A&amp;nbsp;domain&amp;nbsp;is&amp;nbsp;increasing,&amp;nbsp;if&amp;nbsp;bigger&a
         <ownedAttribute xmi:id="_EFgwmXFYEd-lZcW72c0mrA" name="relSem" visibility="public" type="_EFN1kHFYEd-lZcW72c0mrA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_EFgwmnFYEd-lZcW72c0mrA" name="DimensionTypeNumeric">
-        <ownedComment xmi:id="_eGamAC33EeCCDMFbLBj3cg" annotatedElement="_EFgwmnFYEd-lZcW72c0mrA">
-          <body>This class represents a numeric domain. In extension to standard QML, this class also supports integer values. &#xD;
-This dimension type comes with a natural order and thus does not define an additional order. &#xD;
-&#xD;
-See page 13, Frolund et al., QML: A Language for Quality of Service Specification, 1998, TR HP Labs. </body>
-        </ownedComment>
         <ownedRule xmi:id="_MNjCIIQxEd-hiY3tPR0xwA" name="NUMERICDIMENSIONTYPE_must_have_RELATIONSEMANTICS" constrainedElement="_EFgwmnFYEd-lZcW72c0mrA">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_MNjCIYQxEd-hiY3tPR0xwA">
             <language>OCL</language>
@@ -306,7 +288,7 @@ particular&amp;nbsp;QoS&amp;nbsp;aspect.</body>
       </profileApplication>
       <profileApplication xmi:id="_II97sHFUEd-K1JnZdTXajA">
         <eAnnotations xmi:id="_II97sXFUEd-K1JnZdTXajA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-          <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
+          <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
         </eAnnotations>
         <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
       </profileApplication>
@@ -369,7 +351,7 @@ particular&amp;nbsp;QoS&amp;nbsp;aspect.</body>
       </profileApplication>
       <profileApplication xmi:id="_B7UpgHFbEd-lZcW72c0mrA">
         <eAnnotations xmi:id="_B7UpgXFbEd-lZcW72c0mrA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-          <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
+          <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
         </eAnnotations>
         <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
       </profileApplication>
@@ -528,7 +510,7 @@ particular&amp;nbsp;QoS&amp;nbsp;aspect.</body>
       </profileApplication>
       <profileApplication xmi:id="_VIq3YHKIEd-sRp2Jjo1m4w">
         <eAnnotations xmi:id="_VIq3YXKIEd-sRp2Jjo1m4w" source="http://www.eclipse.org/uml2/2.0.0/UML">
-          <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
+          <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
         </eAnnotations>
         <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
       </profileApplication>
@@ -878,7 +860,7 @@ It can be a simple definition or a refinement of another contract.</body>
       </profileApplication>
       <profileApplication xmi:id="_bhvz0HGMEd-uYvKWFT6mbA">
         <eAnnotations xmi:id="_bhvz0XGMEd-uYvKWFT6mbA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-          <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
+          <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
         </eAnnotations>
         <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
       </profileApplication>
@@ -903,7 +885,7 @@ It can be a simple definition or a refinement of another contract.</body>
     </profileApplication>
     <profileApplication xmi:id="_w-VPYMJYEd-NOc_1phc-TA">
       <eAnnotations xmi:id="_w-fAYMJYEd-NOc_1phc-TA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_vy-HUYinEdqtvbnfB2L_5w"/>
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
       </eAnnotations>
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
@@ -975,7 +957,4 @@ It can be a simple definition or a refinement of another contract.</body>
   <Ecore:EClass xmi:id="_ELVEoXFYEd-lZcW72c0mrA" base_Class="_EFgwi3FYEd-lZcW72c0mrA"/>
   <Ecore:EClass xmi:id="_ELVEoHFYEd-lZcW72c0mrA" base_Class="_EFgwgHFYEd-lZcW72c0mrA"/>
   <Ecore:EPackage xmi:id="_JJyfgHFUEd-K1JnZdTXajA" base_Package="_B7tIM3FUEd-K1JnZdTXajA" packageName="contracttype" nsPrefix="contracttype" nsURI="http:/sdq.ipd.uka.de/QMLContractType/1.0" basePackage="de.uka.ipd.sdq.dsexplore.qml" prefix="contracttype"/>
-  <Default:Documentation xmi:id="_2fKH8C32EeCCDMFbLBj3cg" base_Comment="_2fF2gC32EeCCDMFbLBj3cg"/>
-  <Default:Documentation xmi:id="__u-GcC32EeCCDMFbLBj3cg" base_Comment="__u51AC32EeCCDMFbLBj3cg"/>
-  <Default:Documentation xmi:id="_eGeQYC33EeCCDMFbLBj3cg" base_Comment="_eGamAC33EeCCDMFbLBj3cg"/>
 </xmi:XMI>

@@ -20,7 +20,7 @@ package de.uka.ipd.sdq.pcm.designdecision;
  *
  *
  * @see de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage#getClassWithCopyDegree()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ClassWithCopyDegree extends ClassDegree {

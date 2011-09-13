@@ -142,6 +142,7 @@ TODO OCL: The domainOfEntities must only contain RepositoryComponents.  The chan
 TODO OCL: from must be smaller that to. </body>
       </ownedComment>
       <generalization xmi:id="_C3WIAPzyEd2sBa2PoI_LqA" general="_2oEy8PzqEd2sBa2PoI_LqA"/>
+      <generalization xmi:id="_c-e4sN4vEeC1gLGNJBSMtA" general="_bB1l0N4vEeC1gLGNJBSMtA"/>
       <ownedAttribute xmi:id="_XBoQAPzyEd2sBa2PoI_LqA" name="to" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
       </ownedAttribute>
@@ -356,7 +357,7 @@ If PCM is changed, put AssemblyContext as changeable entity and add a ref to Pas
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14n6YLW7Ed-iB5E5ZPm7Eg"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_EnlbsLUYEd-iB5E5ZPm7Eg" name="EnumDegree">
+    <packagedElement xmi:type="uml:Class" xmi:id="_EnlbsLUYEd-iB5E5ZPm7Eg" name="EnumDegree" isAbstract="true">
       <ownedComment xmi:id="_LlU3YLW8Ed-iB5E5ZPm7Eg" annotatedElement="_EnlbsLUYEd-iB5E5ZPm7Eg">
         <body>Construct to model a special type of enumerated degree of freedom where the domain of values is a subset of an enumeration in the metamodel. Each concrete subclass of EnumDegree must model the domain explicitly (refer to the concrete Enum to choose from). &#xD;
 &#xD;
@@ -425,7 +426,7 @@ This class is actually superflous as it does not add any properties to its subcl
       </ownedComment>
       <generalization xmi:id="_jraHYBmlEeCymqsKFYq-AA" general="_3H9M4PzqEd2sBa2PoI_LqA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_mCrgwBmlEeCymqsKFYq-AA" name="ClassWithCopyDegree">
+    <packagedElement xmi:type="uml:Class" xmi:id="_mCrgwBmlEeCymqsKFYq-AA" name="ClassWithCopyDegree" isAbstract="true">
       <ownedComment xmi:id="_NIA9gBmmEeCymqsKFYq-AA" annotatedElement="_mCrgwBmlEeCymqsKFYq-AA">
         <body>DoFs of this type are updated by copying a one of the Entities in the domainOfEntities.&#xD;
 &#xD;
@@ -737,30 +738,17 @@ This query defines which instances of \function{changeableContainer}{$p_i$} are 
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldJD8ErrEeCgHJIR5Amnzw"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_2eDnQErrEeCgHJIR5Amnzw" name="UnorderedPrimitiveDegree">
+    <packagedElement xmi:type="uml:Class" xmi:id="_2eDnQErrEeCgHJIR5Amnzw" name="UnorderedPrimitiveDegree" isAbstract="true">
       <generalization xmi:id="_Gq5pUErsEeCgHJIR5Amnzw" general="_CzduEBmyEeCymqsKFYq-AA"/>
-      <ownedAttribute xmi:id="_EH9LcErsEeCgHJIR5Amnzw" name="primitiveValues" visibility="private" aggregation="composite" association="_EH6vMErsEeCgHJIR5Amnzw">
-        <type xmi:type="uml:Class" href="Ecore.uml#_SeWjasX_EduPJbEsMYXjUQ"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EH-ZkUrsEeCgHJIR5Amnzw" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EH-ZkErsEeCgHJIR5Amnzw" value="1"/>
-      </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_EH6vMErsEeCgHJIR5Amnzw" memberEnd="_EH9LcErsEeCgHJIR5Amnzw _EH_nsErsEeCgHJIR5Amnzw">
-      <ownedEnd xmi:id="_EH_nsErsEeCgHJIR5Amnzw" name="" visibility="private" type="_2eDnQErrEeCgHJIR5Amnzw" association="_EH6vMErsEeCgHJIR5Amnzw">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EIAOwUrsEeCgHJIR5Amnzw" value="1"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EIAOwErsEeCgHJIR5Amnzw" value="1"/>
-      </ownedEnd>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_x4HHwLOiEeC5aYz3xOaevA" name="NumberOfCoresDegree">
+    <packagedElement xmi:type="uml:Class" xmi:id="_x4HHwLOiEeC5aYz3xOaevA" name="NumberOfCoresAsRangeDegree">
       <generalization xmi:id="_zAu8sLOiEeC5aYz3xOaevA" general="_BBEi4PzyEd2sBa2PoI_LqA"/>
-      <generalization xmi:id="_0zsIELOiEeC5aYz3xOaevA" general="_DfqE0EFdEd-8BKcv5MhVwA"/>
+      <generalization xmi:id="_SoH7IN4qEeC1gLGNJBSMtA" general="_TwwXIN4qEeC1gLGNJBSMtA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_M_gtsMc9EeCAiqHxI6xyag" name="ProcessingRateDegree" isAbstract="true">
       <generalization xmi:id="_Olnv4Mc9EeCAiqHxI6xyag" general="_DfqE0EFdEd-8BKcv5MhVwA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_-lIqoMdDEeCAUr8TwCw8QA" name="InstanceSpecification1" classifier="_2eDnQErrEeCgHJIR5Amnzw">
-      <slot xmi:id="_-lWGAMdDEeCAUr8TwCw8QA" definingFeature="_EH9LcErsEeCgHJIR5Amnzw"/>
-    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_-lIqoMdDEeCAUr8TwCw8QA" name="InstanceSpecification1" classifier="_2eDnQErrEeCgHJIR5Amnzw"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_fWt5AMgCEeC9M6n9JKFGgw" name="ResourceContainerReplicationDegreeWithComponentChange">
       <ownedComment xmi:id="_eNRvQMgDEeC9M6n9JKFGgw" annotatedElement="_fWt5AMgCEeC9M6n9JKFGgw">
         <body>Resource Replication, but for each replication level the i-th referenced RepositoryComponent is put into the referenced&#xD;
@@ -801,6 +789,28 @@ allocation context, if fitting.</body>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Imh5McgXEeC9M6n9JKFGgw" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Imh5MMgXEeC9M6n9JKFGgw"/>
       </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_xGr2sN4nEeC1gLGNJBSMtA" name="OrderedDataTypeDegree" isAbstract="true">
+      <generalization xmi:id="_8MSnQN4pEeC1gLGNJBSMtA" general="_mJ9hkBmyEeCymqsKFYq-AA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_9RYR8N4nEeC1gLGNJBSMtA" name="OrderedIntegerDegree">
+      <generalization xmi:id="_DLF3UN4oEeC1gLGNJBSMtA" general="_xGr2sN4nEeC1gLGNJBSMtA"/>
+      <generalization xmi:id="_d7vyMN4vEeC1gLGNJBSMtA" general="_bB1l0N4vEeC1gLGNJBSMtA"/>
+      <ownedAttribute xmi:id="_9gdk4N4pEeC1gLGNJBSMtA" name="listOfIntegers" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__kM-QN4pEeC1gLGNJBSMtA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__kMXMN4pEeC1gLGNJBSMtA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Oo5sgN4qEeC1gLGNJBSMtA" name="NumberOfCoresAsListDegree">
+      <generalization xmi:id="_V6GCMN4qEeC1gLGNJBSMtA" general="_TwwXIN4qEeC1gLGNJBSMtA"/>
+      <generalization xmi:id="_YWucsN4qEeC1gLGNJBSMtA" general="_9RYR8N4nEeC1gLGNJBSMtA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_TwwXIN4qEeC1gLGNJBSMtA" name="NumberOfCoresDegree" isAbstract="true">
+      <generalization xmi:id="_0zsIELOiEeC5aYz3xOaevA" general="_DfqE0EFdEd-8BKcv5MhVwA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_bB1l0N4vEeC1gLGNJBSMtA" name="DiscreteDegree" isAbstract="true">
+      <generalization xmi:id="_dX9vsN4vEeC1gLGNJBSMtA" general="_mJ9hkBmyEeCymqsKFYq-AA"/>
     </packagedElement>
     <profileApplication xmi:id="_RLu_NfzoEd2sBa2PoI_LqA">
       <eAnnotations xmi:id="_RLu_NvzoEd2sBa2PoI_LqA" source="http://www.eclipse.org/uml2/2.0.0/UML">

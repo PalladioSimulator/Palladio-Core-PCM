@@ -30,7 +30,7 @@ package de.uka.ipd.sdq.pcm.designdecision;
  * @model
  * @generated
  */
-public interface DiscreteRangeDegree extends RangeDegree {
+public interface DiscreteRangeDegree extends RangeDegree, DiscreteDegree {
 	/**
 	 * Returns the value of the '<em><b>To</b></em>' attribute.
 	 * <!-- begin-user-doc -->

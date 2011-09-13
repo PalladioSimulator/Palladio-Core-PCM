@@ -132,6 +132,10 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 				return createDiscreteRangeDegreeAdapter();
 			}
 			@Override
+			public Adapter caseDiscreteDegree(DiscreteDegree object) {
+				return createDiscreteDegreeAdapter();
+			}
+			@Override
 			public Adapter caseDiscreteRangeChoice(DiscreteRangeChoice object) {
 				return createDiscreteRangeChoiceAdapter();
 			}
@@ -220,6 +224,10 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 				return createUnorderedPrimitiveDegreeAdapter();
 			}
 			@Override
+			public Adapter caseNumberOfCoresAsRangeDegree(NumberOfCoresAsRangeDegree object) {
+				return createNumberOfCoresAsRangeDegreeAdapter();
+			}
+			@Override
 			public Adapter caseNumberOfCoresDegree(NumberOfCoresDegree object) {
 				return createNumberOfCoresDegreeAdapter();
 			}
@@ -230,6 +238,18 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseExchangeComponentRule(ExchangeComponentRule object) {
 				return createExchangeComponentRuleAdapter();
+			}
+			@Override
+			public Adapter caseOrderedDataTypeDegree(OrderedDataTypeDegree object) {
+				return createOrderedDataTypeDegreeAdapter();
+			}
+			@Override
+			public Adapter caseOrderedIntegerDegree(OrderedIntegerDegree object) {
+				return createOrderedIntegerDegreeAdapter();
+			}
+			@Override
+			public Adapter caseNumberOfCoresAsListDegree(NumberOfCoresAsListDegree object) {
+				return createNumberOfCoresAsListDegreeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -458,6 +478,20 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDiscreteRangeDegreeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteDegree <em>Discrete Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteDegree
+	 * @generated
+	 */
+	public Adapter createDiscreteDegreeAdapter() {
 		return null;
 	}
 
@@ -770,6 +804,20 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsRangeDegree <em>Number Of Cores As Range Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsRangeDegree
+	 * @generated
+	 */
+	public Adapter createNumberOfCoresAsRangeDegreeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresDegree <em>Number Of Cores Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -808,6 +856,48 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExchangeComponentRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.OrderedDataTypeDegree <em>Ordered Data Type Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.OrderedDataTypeDegree
+	 * @generated
+	 */
+	public Adapter createOrderedDataTypeDegreeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree <em>Ordered Integer Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree
+	 * @generated
+	 */
+	public Adapter createOrderedIntegerDegreeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsListDegree <em>Number Of Cores As List Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsListDegree
+	 * @generated
+	 */
+	public Adapter createNumberOfCoresAsListDegreeAdapter() {
 		return null;
 	}
 

@@ -127,6 +127,8 @@ public class designdecisionValidator extends EObjectValidator {
 				return validateAssembledComponentDegree((AssembledComponentDegree)value, diagnostics, context);
 			case designdecisionPackage.DISCRETE_RANGE_DEGREE:
 				return validateDiscreteRangeDegree((DiscreteRangeDegree)value, diagnostics, context);
+			case designdecisionPackage.DISCRETE_DEGREE:
+				return validateDiscreteDegree((DiscreteDegree)value, diagnostics, context);
 			case designdecisionPackage.DISCRETE_RANGE_CHOICE:
 				return validateDiscreteRangeChoice((DiscreteRangeChoice)value, diagnostics, context);
 			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_DEGREE:
@@ -171,12 +173,20 @@ public class designdecisionValidator extends EObjectValidator {
 				return validateStringComponentParamDegree((StringComponentParamDegree)value, diagnostics, context);
 			case designdecisionPackage.UNORDERED_PRIMITIVE_DEGREE:
 				return validateUnorderedPrimitiveDegree((UnorderedPrimitiveDegree)value, diagnostics, context);
+			case designdecisionPackage.NUMBER_OF_CORES_AS_RANGE_DEGREE:
+				return validateNumberOfCoresAsRangeDegree((NumberOfCoresAsRangeDegree)value, diagnostics, context);
 			case designdecisionPackage.NUMBER_OF_CORES_DEGREE:
 				return validateNumberOfCoresDegree((NumberOfCoresDegree)value, diagnostics, context);
 			case designdecisionPackage.RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE:
 				return validateResourceContainerReplicationDegreeWithComponentChange((ResourceContainerReplicationDegreeWithComponentChange)value, diagnostics, context);
 			case designdecisionPackage.EXCHANGE_COMPONENT_RULE:
 				return validateExchangeComponentRule((ExchangeComponentRule)value, diagnostics, context);
+			case designdecisionPackage.ORDERED_DATA_TYPE_DEGREE:
+				return validateOrderedDataTypeDegree((OrderedDataTypeDegree)value, diagnostics, context);
+			case designdecisionPackage.ORDERED_INTEGER_DEGREE:
+				return validateOrderedIntegerDegree((OrderedIntegerDegree)value, diagnostics, context);
+			case designdecisionPackage.NUMBER_OF_CORES_AS_LIST_DEGREE:
+				return validateNumberOfCoresAsListDegree((NumberOfCoresAsListDegree)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -315,6 +325,15 @@ public class designdecisionValidator extends EObjectValidator {
 	 */
 	public boolean validateDiscreteRangeDegree(DiscreteRangeDegree discreteRangeDegree, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(discreteRangeDegree, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDiscreteDegree(DiscreteDegree discreteDegree, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(discreteDegree, diagnostics, context);
 	}
 
 	/**
@@ -538,6 +557,15 @@ public class designdecisionValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateNumberOfCoresAsRangeDegree(NumberOfCoresAsRangeDegree numberOfCoresAsRangeDegree, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(numberOfCoresAsRangeDegree, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateNumberOfCoresDegree(NumberOfCoresDegree numberOfCoresDegree, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(numberOfCoresDegree, diagnostics, context);
 	}
@@ -558,6 +586,33 @@ public class designdecisionValidator extends EObjectValidator {
 	 */
 	public boolean validateExchangeComponentRule(ExchangeComponentRule exchangeComponentRule, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(exchangeComponentRule, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateOrderedDataTypeDegree(OrderedDataTypeDegree orderedDataTypeDegree, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(orderedDataTypeDegree, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateOrderedIntegerDegree(OrderedIntegerDegree orderedIntegerDegree, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(orderedIntegerDegree, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNumberOfCoresAsListDegree(NumberOfCoresAsListDegree numberOfCoresAsListDegree, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(numberOfCoresAsListDegree, diagnostics, context);
 	}
 
 	/**

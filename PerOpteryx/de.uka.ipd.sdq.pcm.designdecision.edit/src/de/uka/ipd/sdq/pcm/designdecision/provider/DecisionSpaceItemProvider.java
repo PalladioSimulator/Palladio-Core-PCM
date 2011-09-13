@@ -209,17 +209,7 @@ public class DecisionSpaceItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(designdecisionPackage.Literals.DECISION_SPACE__DEGREES_OF_FREEDOM,
-				 designdecisionFactory.eINSTANCE.createEnumDegree()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(designdecisionPackage.Literals.DECISION_SPACE__DEGREES_OF_FREEDOM,
 				 designdecisionFactory.eINSTANCE.createSchedulingPolicyDegree()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(designdecisionPackage.Literals.DECISION_SPACE__DEGREES_OF_FREEDOM,
-				 designdecisionFactory.eINSTANCE.createClassWithCopyDegree()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -244,17 +234,22 @@ public class DecisionSpaceItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(designdecisionPackage.Literals.DECISION_SPACE__DEGREES_OF_FREEDOM,
-				 designdecisionFactory.eINSTANCE.createUnorderedPrimitiveDegree()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(designdecisionPackage.Literals.DECISION_SPACE__DEGREES_OF_FREEDOM,
-				 designdecisionFactory.eINSTANCE.createNumberOfCoresDegree()));
+				 designdecisionFactory.eINSTANCE.createNumberOfCoresAsRangeDegree()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(designdecisionPackage.Literals.DECISION_SPACE__DEGREES_OF_FREEDOM,
 				 designdecisionFactory.eINSTANCE.createResourceContainerReplicationDegreeWithComponentChange()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(designdecisionPackage.Literals.DECISION_SPACE__DEGREES_OF_FREEDOM,
+				 designdecisionFactory.eINSTANCE.createOrderedIntegerDegree()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(designdecisionPackage.Literals.DECISION_SPACE__DEGREES_OF_FREEDOM,
+				 designdecisionFactory.eINSTANCE.createNumberOfCoresAsListDegree()));
 	}
 
 	/**

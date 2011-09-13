@@ -102,7 +102,7 @@
       <details key="documentation" value="AssembledComponentDegree represents a component selection degree of freedom. It refers to an AssemblyContext as changeableEntity, which is the place in the software architecture in which different component implementations can be used (also called component frame in other component models). The domain is a set of RepositoryComponents that can be put in the AssemblyContext, i.e. in the defined place in the architecture. &#xD;&#xA;&#xD;&#xA;TODO OCL: The domainOfEntities must only contain RepositoryComponents.  The changeableEntity must be an AssemblyContext."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DiscreteRangeDegree" eSuperTypes="#//RangeDegree">
+  <eClassifiers xsi:type="ecore:EClass" name="DiscreteRangeDegree" eSuperTypes="#//RangeDegree #//DiscreteDegree">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This class represents DegreeOfFreedoms that have a range of integer values as their domain. The set of possile values of the degree of freedom is defined as the integer interval between &quot;from&quot; and &quot;to&quot;.&#xD;&#xA;&#xD;&#xA;TODO OCL: from must be smaller that to. "/>
     </eAnnotations>
@@ -111,6 +111,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DiscreteDegree" abstract="true" eSuperTypes="#//DataTypeDegree"/>
   <eClassifiers xsi:type="ecore:EClass" name="DiscreteRangeChoice" eSuperTypes="#//Choice">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The DiscreteRangeChoice represents a choice for a DegreeOfFreedom with an integer range. &#xD;&#xA;&#xD;&#xA;TODO constraint:  The degreeOfFreedom of this Choice must be an DiscreteRangeDegree"/>
@@ -207,7 +208,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="domainOfAllowedSchedulingPolicies"
         ordered="false" upperBound="-1" eType="ecore:EEnum ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/SchedulingPolicy"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnumDegree" eSuperTypes="#//UnorderedDegree">
+  <eClassifiers xsi:type="ecore:EClass" name="EnumDegree" abstract="true" eSuperTypes="#//UnorderedDegree">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Construct to model a special type of enumerated degree of freedom where the domain of values is a subset of an enumeration in the metamodel. Each concrete subclass of EnumDegree must model the domain explicitly (refer to the concrete Enum to choose from). &#xD;&#xA;&#xD;&#xA;This class is actually superflous as it does not add any properties to its subclasses. It is just used to conceptually group this type of degree of freedom. Maybe it can be used to implement some OCL checks (with reflection?). "/>
     </eAnnotations>
@@ -219,7 +220,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="chosenValue" ordered="false"
         lowerBound="1" eType="ecore:EEnum ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/SchedulingPolicy"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassWithCopyDegree" eSuperTypes="#//ClassDegree">
+  <eClassifiers xsi:type="ecore:EClass" name="ClassWithCopyDegree" abstract="true"
+      eSuperTypes="#//ClassDegree">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="DoFs of this type are updated by copying a one of the Entities in the domainOfEntities.&#xD;&#xA;&#xD;&#xA;"/>
     </eAnnotations>
@@ -232,12 +234,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="DiscreteComponentParamDegree" eSuperTypes="#//DiscreteRangeDegree"/>
   <eClassifiers xsi:type="ecore:EClass" name="ContinuousComponentParamDegree" eSuperTypes="#//ContinuousRangeDegree"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringComponentParamDegree" eSuperTypes="#//StringSetDegree"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UnorderedPrimitiveDegree" eSuperTypes="#//UnorderedDegree">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveValues" ordered="false"
-        lowerBound="1" upperBound="-1" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDataType"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumberOfCoresDegree" eSuperTypes="#//DiscreteRangeDegree #//ProcessingResourceDegree"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnorderedPrimitiveDegree" abstract="true"
+      eSuperTypes="#//UnorderedDegree"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberOfCoresAsRangeDegree" eSuperTypes="#//DiscreteRangeDegree #//NumberOfCoresDegree"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberOfCoresDegree" abstract="true"
+      eSuperTypes="#//ProcessingResourceDegree"/>
   <eClassifiers xsi:type="ecore:EClass" name="ResourceContainerReplicationDegreeWithComponentChange"
       eSuperTypes="#//ResourceContainerReplicationDegree">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -252,6 +253,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext" ordered="false"
         eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//allocation/AllocationContext"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrderedDataTypeDegree" abstract="true"
+      eSuperTypes="#//DataTypeDegree"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OrderedIntegerDegree" eSuperTypes="#//DiscreteDegree #//OrderedDataTypeDegree">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="listOfIntegers" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberOfCoresAsListDegree" eSuperTypes="#//NumberOfCoresDegree #//OrderedIntegerDegree"/>
   <eSubpackages name="GDoF" nsURI="http:///DesignDecision/GDoF.ecore" nsPrefix="DesignDecision.GDoF">
     <eClassifiers xsi:type="ecore:EClass" name="ChangeableElementDescription">
       <eStructuralFeatures xsi:type="ecore:EReference" name="changeable" ordered="false"

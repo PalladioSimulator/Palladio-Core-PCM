@@ -833,6 +833,43 @@ public interface designdecisionPackage extends EPackage {
 	int DISCRETE_RANGE_DEGREE_FEATURE_COUNT = RANGE_DEGREE_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteDegreeImpl <em>Discrete Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteDegree()
+	 * @generated
+	 */
+	int DISCRETE_DEGREE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_DEGREE__PRIMARY_CHANGED = DATA_TYPE_DEGREE__PRIMARY_CHANGED;
+
+	/**
+	 * The feature id for the '<em><b>Dof</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_DEGREE__DOF = DATA_TYPE_DEGREE__DOF;
+
+	/**
+	 * The number of structural features of the '<em>Discrete Degree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCRETE_DEGREE_FEATURE_COUNT = DATA_TYPE_DEGREE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteRangeChoiceImpl <em>Discrete Range Choice</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -840,7 +877,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteRangeChoice()
 	 * @generated
 	 */
-	int DISCRETE_RANGE_CHOICE = 15;
+	int DISCRETE_RANGE_CHOICE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Is Active</b></em>' attribute.
@@ -886,7 +923,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceContainerReplicationDegree()
 	 * @generated
 	 */
-	int RESOURCE_CONTAINER_REPLICATION_DEGREE = 16;
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -959,7 +996,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDecisionSpace()
 	 * @generated
 	 */
-	int DECISION_SPACE = 17;
+	int DECISION_SPACE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Degrees Of Freedom</b></em>' containment reference list.
@@ -987,7 +1024,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getCandidate()
 	 * @generated
 	 */
-	int CANDIDATE = 18;
+	int CANDIDATE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Choices</b></em>' containment reference list.
@@ -1024,7 +1061,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getCandidates()
 	 * @generated
 	 */
-	int CANDIDATES = 19;
+	int CANDIDATES = 20;
 
 	/**
 	 * The feature id for the '<em><b>Candidate</b></em>' containment reference list.
@@ -1062,7 +1099,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getFeatureConfigDegree()
 	 * @generated
 	 */
-	int FEATURE_CONFIG_DEGREE = 20;
+	int FEATURE_CONFIG_DEGREE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1099,7 +1136,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getFeatureGroupDegree()
 	 * @generated
 	 */
-	int FEATURE_GROUP_DEGREE = 21;
+	int FEATURE_GROUP_DEGREE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1154,7 +1191,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getFeatureSubset()
 	 * @generated
 	 */
-	int FEATURE_SUBSET = 22;
+	int FEATURE_SUBSET = 23;
 
 	/**
 	 * The feature id for the '<em><b>Feature</b></em>' reference list.
@@ -1182,7 +1219,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getOptionalFeatureDegree()
 	 * @generated
 	 */
-	int OPTIONAL_FEATURE_DEGREE = 23;
+	int OPTIONAL_FEATURE_DEGREE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1228,7 +1265,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteProcessingRateDegree()
 	 * @generated
 	 */
-	int DISCRETE_PROCESSING_RATE_DEGREE = 24;
+	int DISCRETE_PROCESSING_RATE_DEGREE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1319,7 +1356,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getCapacityDegree()
 	 * @generated
 	 */
-	int CAPACITY_DEGREE = 25;
+	int CAPACITY_DEGREE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1392,7 +1429,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getUnorderedDegree()
 	 * @generated
 	 */
-	int UNORDERED_DEGREE = 28;
+	int UNORDERED_DEGREE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1429,7 +1466,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getEnumDegree()
 	 * @generated
 	 */
-	int ENUM_DEGREE = 27;
+	int ENUM_DEGREE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1466,7 +1503,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getSchedulingPolicyDegree()
 	 * @generated
 	 */
-	int SCHEDULING_POLICY_DEGREE = 26;
+	int SCHEDULING_POLICY_DEGREE = 27;
 
 	/**
 	 * The number of structural features of the '<em>Enum Degree</em>' class.
@@ -1539,7 +1576,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getSchedulingPolicyChoice()
 	 * @generated
 	 */
-	int SCHEDULING_POLICY_CHOICE = 29;
+	int SCHEDULING_POLICY_CHOICE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Is Active</b></em>' attribute.
@@ -1586,7 +1623,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getClassWithCopyDegree()
 	 * @generated
 	 */
-	int CLASS_WITH_COPY_DEGREE = 30;
+	int CLASS_WITH_COPY_DEGREE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1632,7 +1669,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceSelectionDegree()
 	 * @generated
 	 */
-	int RESOURCE_SELECTION_DEGREE = 31;
+	int RESOURCE_SELECTION_DEGREE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1687,7 +1724,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getStringSetDegree()
 	 * @generated
 	 */
-	int STRING_SET_DEGREE = 32;
+	int STRING_SET_DEGREE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1733,7 +1770,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteComponentParamDegree()
 	 * @generated
 	 */
-	int DISCRETE_COMPONENT_PARAM_DEGREE = 33;
+	int DISCRETE_COMPONENT_PARAM_DEGREE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1806,7 +1843,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getContinuousComponentParamDegree()
 	 * @generated
 	 */
-	int CONTINUOUS_COMPONENT_PARAM_DEGREE = 34;
+	int CONTINUOUS_COMPONENT_PARAM_DEGREE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1879,7 +1916,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getStringComponentParamDegree()
 	 * @generated
 	 */
-	int STRING_COMPONENT_PARAM_DEGREE = 35;
+	int STRING_COMPONENT_PARAM_DEGREE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1925,7 +1962,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getUnorderedPrimitiveDegree()
 	 * @generated
 	 */
-	int UNORDERED_PRIMITIVE_DEGREE = 36;
+	int UNORDERED_PRIMITIVE_DEGREE = 37;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1946,22 +1983,95 @@ public interface designdecisionPackage extends EPackage {
 	int UNORDERED_PRIMITIVE_DEGREE__DOF = UNORDERED_DEGREE__DOF;
 
 	/**
-	 * The feature id for the '<em><b>Primitive Values</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNORDERED_PRIMITIVE_DEGREE__PRIMITIVE_VALUES = UNORDERED_DEGREE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Unordered Primitive Degree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNORDERED_PRIMITIVE_DEGREE_FEATURE_COUNT = UNORDERED_DEGREE_FEATURE_COUNT + 1;
+	int UNORDERED_PRIMITIVE_DEGREE_FEATURE_COUNT = UNORDERED_DEGREE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.NumberOfCoresAsRangeDegreeImpl <em>Number Of Cores As Range Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.NumberOfCoresAsRangeDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getNumberOfCoresAsRangeDegree()
+	 * @generated
+	 */
+	int NUMBER_OF_CORES_AS_RANGE_DEGREE = 38;
+
+	/**
+	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_RANGE_DEGREE__PRIMARY_CHANGED = DISCRETE_RANGE_DEGREE__PRIMARY_CHANGED;
+
+	/**
+	 * The feature id for the '<em><b>Dof</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_RANGE_DEGREE__DOF = DISCRETE_RANGE_DEGREE__DOF;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bound Included</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_RANGE_DEGREE__UPPER_BOUND_INCLUDED = DISCRETE_RANGE_DEGREE__UPPER_BOUND_INCLUDED;
+
+	/**
+	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_RANGE_DEGREE__LOWER_BOUND_INCLUDED = DISCRETE_RANGE_DEGREE__LOWER_BOUND_INCLUDED;
+
+	/**
+	 * The feature id for the '<em><b>To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_RANGE_DEGREE__TO = DISCRETE_RANGE_DEGREE__TO;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_RANGE_DEGREE__FROM = DISCRETE_RANGE_DEGREE__FROM;
+
+	/**
+	 * The feature id for the '<em><b>Processingresourcetype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_RANGE_DEGREE__PROCESSINGRESOURCETYPE = DISCRETE_RANGE_DEGREE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Number Of Cores As Range Degree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_RANGE_DEGREE_FEATURE_COUNT = DISCRETE_RANGE_DEGREE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.NumberOfCoresDegreeImpl <em>Number Of Cores Degree</em>}' class.
@@ -1971,7 +2081,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getNumberOfCoresDegree()
 	 * @generated
 	 */
-	int NUMBER_OF_CORES_DEGREE = 37;
+	int NUMBER_OF_CORES_DEGREE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1980,7 +2090,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OF_CORES_DEGREE__PRIMARY_CHANGED = DISCRETE_RANGE_DEGREE__PRIMARY_CHANGED;
+	int NUMBER_OF_CORES_DEGREE__PRIMARY_CHANGED = PROCESSING_RESOURCE_DEGREE__PRIMARY_CHANGED;
 
 	/**
 	 * The feature id for the '<em><b>Dof</b></em>' reference.
@@ -1989,43 +2099,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OF_CORES_DEGREE__DOF = DISCRETE_RANGE_DEGREE__DOF;
-
-	/**
-	 * The feature id for the '<em><b>Upper Bound Included</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OF_CORES_DEGREE__UPPER_BOUND_INCLUDED = DISCRETE_RANGE_DEGREE__UPPER_BOUND_INCLUDED;
-
-	/**
-	 * The feature id for the '<em><b>Lower Bound Included</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OF_CORES_DEGREE__LOWER_BOUND_INCLUDED = DISCRETE_RANGE_DEGREE__LOWER_BOUND_INCLUDED;
-
-	/**
-	 * The feature id for the '<em><b>To</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OF_CORES_DEGREE__TO = DISCRETE_RANGE_DEGREE__TO;
-
-	/**
-	 * The feature id for the '<em><b>From</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OF_CORES_DEGREE__FROM = DISCRETE_RANGE_DEGREE__FROM;
+	int NUMBER_OF_CORES_DEGREE__DOF = PROCESSING_RESOURCE_DEGREE__DOF;
 
 	/**
 	 * The feature id for the '<em><b>Processingresourcetype</b></em>' reference.
@@ -2034,7 +2108,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OF_CORES_DEGREE__PROCESSINGRESOURCETYPE = DISCRETE_RANGE_DEGREE_FEATURE_COUNT + 0;
+	int NUMBER_OF_CORES_DEGREE__PROCESSINGRESOURCETYPE = PROCESSING_RESOURCE_DEGREE__PROCESSINGRESOURCETYPE;
 
 	/**
 	 * The number of structural features of the '<em>Number Of Cores Degree</em>' class.
@@ -2043,7 +2117,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OF_CORES_DEGREE_FEATURE_COUNT = DISCRETE_RANGE_DEGREE_FEATURE_COUNT + 1;
+	int NUMBER_OF_CORES_DEGREE_FEATURE_COUNT = PROCESSING_RESOURCE_DEGREE_FEATURE_COUNT + 0;
 
 
 	/**
@@ -2054,7 +2128,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceContainerReplicationDegreeWithComponentChange()
 	 * @generated
 	 */
-	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE = 38;
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE = 40;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -2137,7 +2211,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getExchangeComponentRule()
 	 * @generated
 	 */
-	int EXCHANGE_COMPONENT_RULE = 39;
+	int EXCHANGE_COMPONENT_RULE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Repository Component</b></em>' reference list.
@@ -2165,6 +2239,145 @@ public interface designdecisionPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXCHANGE_COMPONENT_RULE_FEATURE_COUNT = 2;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.OrderedDataTypeDegreeImpl <em>Ordered Data Type Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.OrderedDataTypeDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getOrderedDataTypeDegree()
+	 * @generated
+	 */
+	int ORDERED_DATA_TYPE_DEGREE = 42;
+
+	/**
+	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORDERED_DATA_TYPE_DEGREE__PRIMARY_CHANGED = DATA_TYPE_DEGREE__PRIMARY_CHANGED;
+
+	/**
+	 * The feature id for the '<em><b>Dof</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORDERED_DATA_TYPE_DEGREE__DOF = DATA_TYPE_DEGREE__DOF;
+
+	/**
+	 * The number of structural features of the '<em>Ordered Data Type Degree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORDERED_DATA_TYPE_DEGREE_FEATURE_COUNT = DATA_TYPE_DEGREE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.OrderedIntegerDegreeImpl <em>Ordered Integer Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.OrderedIntegerDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getOrderedIntegerDegree()
+	 * @generated
+	 */
+	int ORDERED_INTEGER_DEGREE = 43;
+
+	/**
+	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORDERED_INTEGER_DEGREE__PRIMARY_CHANGED = DISCRETE_DEGREE__PRIMARY_CHANGED;
+
+	/**
+	 * The feature id for the '<em><b>Dof</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORDERED_INTEGER_DEGREE__DOF = DISCRETE_DEGREE__DOF;
+
+	/**
+	 * The feature id for the '<em><b>List Of Integers</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORDERED_INTEGER_DEGREE__LIST_OF_INTEGERS = DISCRETE_DEGREE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ordered Integer Degree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORDERED_INTEGER_DEGREE_FEATURE_COUNT = DISCRETE_DEGREE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.NumberOfCoresAsListDegreeImpl <em>Number Of Cores As List Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.NumberOfCoresAsListDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getNumberOfCoresAsListDegree()
+	 * @generated
+	 */
+	int NUMBER_OF_CORES_AS_LIST_DEGREE = 44;
+
+	/**
+	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_LIST_DEGREE__PRIMARY_CHANGED = NUMBER_OF_CORES_DEGREE__PRIMARY_CHANGED;
+
+	/**
+	 * The feature id for the '<em><b>Dof</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_LIST_DEGREE__DOF = NUMBER_OF_CORES_DEGREE__DOF;
+
+	/**
+	 * The feature id for the '<em><b>Processingresourcetype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_LIST_DEGREE__PROCESSINGRESOURCETYPE = NUMBER_OF_CORES_DEGREE__PROCESSINGRESOURCETYPE;
+
+	/**
+	 * The feature id for the '<em><b>List Of Integers</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_LIST_DEGREE__LIST_OF_INTEGERS = NUMBER_OF_CORES_DEGREE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Number Of Cores As List Degree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OF_CORES_AS_LIST_DEGREE_FEATURE_COUNT = NUMBER_OF_CORES_DEGREE_FEATURE_COUNT + 1;
 
 
 	/**
@@ -2470,6 +2683,16 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDiscreteRangeDegree_From();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteDegree <em>Discrete Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Discrete Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.DiscreteDegree
+	 * @generated
+	 */
+	EClass getDiscreteDegree();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice <em>Discrete Range Choice</em>}'.
@@ -2857,15 +3080,14 @@ public interface designdecisionPackage extends EPackage {
 	EClass getUnorderedPrimitiveDegree();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.designdecision.UnorderedPrimitiveDegree#getPrimitiveValues <em>Primitive Values</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsRangeDegree <em>Number Of Cores As Range Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Primitive Values</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.UnorderedPrimitiveDegree#getPrimitiveValues()
-	 * @see #getUnorderedPrimitiveDegree()
+	 * @return the meta object for class '<em>Number Of Cores As Range Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsRangeDegree
 	 * @generated
 	 */
-	EReference getUnorderedPrimitiveDegree_PrimitiveValues();
+	EClass getNumberOfCoresAsRangeDegree();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresDegree <em>Number Of Cores Degree</em>}'.
@@ -2929,6 +3151,47 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getExchangeComponentRule_AllocationContext();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.OrderedDataTypeDegree <em>Ordered Data Type Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ordered Data Type Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.OrderedDataTypeDegree
+	 * @generated
+	 */
+	EClass getOrderedDataTypeDegree();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree <em>Ordered Integer Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ordered Integer Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree
+	 * @generated
+	 */
+	EClass getOrderedIntegerDegree();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree#getListOfIntegers <em>List Of Integers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>List Of Integers</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree#getListOfIntegers()
+	 * @see #getOrderedIntegerDegree()
+	 * @generated
+	 */
+	EAttribute getOrderedIntegerDegree_ListOfIntegers();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsListDegree <em>Number Of Cores As List Degree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Number Of Cores As List Degree</em>'.
+	 * @see de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresAsListDegree
+	 * @generated
+	 */
+	EClass getNumberOfCoresAsListDegree();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3213,6 +3476,16 @@ public interface designdecisionPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DISCRETE_RANGE_DEGREE__FROM = eINSTANCE.getDiscreteRangeDegree_From();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteDegreeImpl <em>Discrete Degree</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteDegree()
+		 * @generated
+		 */
+		EClass DISCRETE_DEGREE = eINSTANCE.getDiscreteDegree();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.DiscreteRangeChoiceImpl <em>Discrete Range Choice</em>}' class.
@@ -3555,12 +3828,14 @@ public interface designdecisionPackage extends EPackage {
 		EClass UNORDERED_PRIMITIVE_DEGREE = eINSTANCE.getUnorderedPrimitiveDegree();
 
 		/**
-		 * The meta object literal for the '<em><b>Primitive Values</b></em>' containment reference list feature.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.NumberOfCoresAsRangeDegreeImpl <em>Number Of Cores As Range Degree</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.NumberOfCoresAsRangeDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getNumberOfCoresAsRangeDegree()
 		 * @generated
 		 */
-		EReference UNORDERED_PRIMITIVE_DEGREE__PRIMITIVE_VALUES = eINSTANCE.getUnorderedPrimitiveDegree_PrimitiveValues();
+		EClass NUMBER_OF_CORES_AS_RANGE_DEGREE = eINSTANCE.getNumberOfCoresAsRangeDegree();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.NumberOfCoresDegreeImpl <em>Number Of Cores Degree</em>}' class.
@@ -3615,6 +3890,44 @@ public interface designdecisionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EXCHANGE_COMPONENT_RULE__ALLOCATION_CONTEXT = eINSTANCE.getExchangeComponentRule_AllocationContext();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.OrderedDataTypeDegreeImpl <em>Ordered Data Type Degree</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.OrderedDataTypeDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getOrderedDataTypeDegree()
+		 * @generated
+		 */
+		EClass ORDERED_DATA_TYPE_DEGREE = eINSTANCE.getOrderedDataTypeDegree();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.OrderedIntegerDegreeImpl <em>Ordered Integer Degree</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.OrderedIntegerDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getOrderedIntegerDegree()
+		 * @generated
+		 */
+		EClass ORDERED_INTEGER_DEGREE = eINSTANCE.getOrderedIntegerDegree();
+
+		/**
+		 * The meta object literal for the '<em><b>List Of Integers</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ORDERED_INTEGER_DEGREE__LIST_OF_INTEGERS = eINSTANCE.getOrderedIntegerDegree_ListOfIntegers();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.NumberOfCoresAsListDegreeImpl <em>Number Of Cores As List Degree</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.NumberOfCoresAsListDegreeImpl
+		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getNumberOfCoresAsListDegree()
+		 * @generated
+		 */
+		EClass NUMBER_OF_CORES_AS_LIST_DEGREE = eINSTANCE.getNumberOfCoresAsListDegree();
 
 	}
 

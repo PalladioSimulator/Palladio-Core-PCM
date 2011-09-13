@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EEnum;
  * </p>
  *
  * @see de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage#getEnumDegree()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface EnumDegree extends UnorderedDegree {

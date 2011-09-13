@@ -14,8 +14,8 @@ package de.uka.ipd.sdq.pcm.designdecision;
  *
  *
  * @see de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage#getNumberOfCoresDegree()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface NumberOfCoresDegree extends DiscreteRangeDegree, ProcessingResourceDegree {
+public interface NumberOfCoresDegree extends ProcessingResourceDegree {
 } // NumberOfCoresDegree

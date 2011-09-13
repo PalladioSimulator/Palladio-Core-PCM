@@ -69,6 +69,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//DiscreteRangeDegree/to"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//DiscreteRangeDegree/from"/>
     </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//DiscreteDegree"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//DiscreteRangeChoice">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//DiscreteRangeChoice/chosenValue"/>
     </genClasses>
@@ -131,10 +132,8 @@
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//DiscreteComponentParamDegree"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ContinuousComponentParamDegree"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//StringComponentParamDegree"/>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//UnorderedPrimitiveDegree">
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference designdecision.ecore#//UnorderedPrimitiveDegree/primitiveValues"/>
-    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//UnorderedPrimitiveDegree"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//NumberOfCoresAsRangeDegree"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//NumberOfCoresDegree"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ResourceContainerReplicationDegreeWithComponentChange">
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -146,6 +145,11 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//ExchangeComponentRule/allocationContext"/>
     </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//OrderedDataTypeDegree"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//OrderedIntegerDegree">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//OrderedIntegerDegree/listOfIntegers"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//NumberOfCoresAsListDegree"/>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="GDoF" basePackage="de.uka.ipd.sdq.pcm.designdecision"
         disposableProviderFactory="true" ecorePackage="designdecision.ecore#//GDoF">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//GDoF/ChangeableElementDescription">

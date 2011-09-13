@@ -201,8 +201,17 @@ public class designdecisionSwitch<T> {
 				DiscreteRangeDegree discreteRangeDegree = (DiscreteRangeDegree)theEObject;
 				T result = caseDiscreteRangeDegree(discreteRangeDegree);
 				if (result == null) result = caseRangeDegree(discreteRangeDegree);
+				if (result == null) result = caseDiscreteDegree(discreteRangeDegree);
 				if (result == null) result = caseDataTypeDegree(discreteRangeDegree);
 				if (result == null) result = caseDegreeOfFreedomInstance(discreteRangeDegree);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case designdecisionPackage.DISCRETE_DEGREE: {
+				DiscreteDegree discreteDegree = (DiscreteDegree)theEObject;
+				T result = caseDiscreteDegree(discreteDegree);
+				if (result == null) result = caseDataTypeDegree(discreteDegree);
+				if (result == null) result = caseDegreeOfFreedomInstance(discreteDegree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -218,6 +227,7 @@ public class designdecisionSwitch<T> {
 				T result = caseResourceContainerReplicationDegree(resourceContainerReplicationDegree);
 				if (result == null) result = caseDiscreteRangeDegree(resourceContainerReplicationDegree);
 				if (result == null) result = caseRangeDegree(resourceContainerReplicationDegree);
+				if (result == null) result = caseDiscreteDegree(resourceContainerReplicationDegree);
 				if (result == null) result = caseDataTypeDegree(resourceContainerReplicationDegree);
 				if (result == null) result = caseDegreeOfFreedomInstance(resourceContainerReplicationDegree);
 				if (result == null) result = defaultCase(theEObject);
@@ -276,6 +286,7 @@ public class designdecisionSwitch<T> {
 				if (result == null) result = caseDiscreteRangeDegree(discreteProcessingRateDegree);
 				if (result == null) result = caseProcessingRateDegree(discreteProcessingRateDegree);
 				if (result == null) result = caseRangeDegree(discreteProcessingRateDegree);
+				if (result == null) result = caseDiscreteDegree(discreteProcessingRateDegree);
 				if (result == null) result = caseProcessingResourceDegree(discreteProcessingRateDegree);
 				if (result == null) result = caseDataTypeDegree(discreteProcessingRateDegree);
 				if (result == null) result = caseDegreeOfFreedomInstance(discreteProcessingRateDegree);
@@ -287,6 +298,7 @@ public class designdecisionSwitch<T> {
 				T result = caseCapacityDegree(capacityDegree);
 				if (result == null) result = caseDiscreteRangeDegree(capacityDegree);
 				if (result == null) result = caseRangeDegree(capacityDegree);
+				if (result == null) result = caseDiscreteDegree(capacityDegree);
 				if (result == null) result = caseDataTypeDegree(capacityDegree);
 				if (result == null) result = caseDegreeOfFreedomInstance(capacityDegree);
 				if (result == null) result = defaultCase(theEObject);
@@ -359,6 +371,7 @@ public class designdecisionSwitch<T> {
 				T result = caseDiscreteComponentParamDegree(discreteComponentParamDegree);
 				if (result == null) result = caseDiscreteRangeDegree(discreteComponentParamDegree);
 				if (result == null) result = caseRangeDegree(discreteComponentParamDegree);
+				if (result == null) result = caseDiscreteDegree(discreteComponentParamDegree);
 				if (result == null) result = caseDataTypeDegree(discreteComponentParamDegree);
 				if (result == null) result = caseDegreeOfFreedomInstance(discreteComponentParamDegree);
 				if (result == null) result = defaultCase(theEObject);
@@ -393,13 +406,23 @@ public class designdecisionSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case designdecisionPackage.NUMBER_OF_CORES_AS_RANGE_DEGREE: {
+				NumberOfCoresAsRangeDegree numberOfCoresAsRangeDegree = (NumberOfCoresAsRangeDegree)theEObject;
+				T result = caseNumberOfCoresAsRangeDegree(numberOfCoresAsRangeDegree);
+				if (result == null) result = caseDiscreteRangeDegree(numberOfCoresAsRangeDegree);
+				if (result == null) result = caseNumberOfCoresDegree(numberOfCoresAsRangeDegree);
+				if (result == null) result = caseRangeDegree(numberOfCoresAsRangeDegree);
+				if (result == null) result = caseDiscreteDegree(numberOfCoresAsRangeDegree);
+				if (result == null) result = caseProcessingResourceDegree(numberOfCoresAsRangeDegree);
+				if (result == null) result = caseDataTypeDegree(numberOfCoresAsRangeDegree);
+				if (result == null) result = caseDegreeOfFreedomInstance(numberOfCoresAsRangeDegree);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case designdecisionPackage.NUMBER_OF_CORES_DEGREE: {
 				NumberOfCoresDegree numberOfCoresDegree = (NumberOfCoresDegree)theEObject;
 				T result = caseNumberOfCoresDegree(numberOfCoresDegree);
-				if (result == null) result = caseDiscreteRangeDegree(numberOfCoresDegree);
 				if (result == null) result = caseProcessingResourceDegree(numberOfCoresDegree);
-				if (result == null) result = caseRangeDegree(numberOfCoresDegree);
-				if (result == null) result = caseDataTypeDegree(numberOfCoresDegree);
 				if (result == null) result = caseDegreeOfFreedomInstance(numberOfCoresDegree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -410,6 +433,7 @@ public class designdecisionSwitch<T> {
 				if (result == null) result = caseResourceContainerReplicationDegree(resourceContainerReplicationDegreeWithComponentChange);
 				if (result == null) result = caseDiscreteRangeDegree(resourceContainerReplicationDegreeWithComponentChange);
 				if (result == null) result = caseRangeDegree(resourceContainerReplicationDegreeWithComponentChange);
+				if (result == null) result = caseDiscreteDegree(resourceContainerReplicationDegreeWithComponentChange);
 				if (result == null) result = caseDataTypeDegree(resourceContainerReplicationDegreeWithComponentChange);
 				if (result == null) result = caseDegreeOfFreedomInstance(resourceContainerReplicationDegreeWithComponentChange);
 				if (result == null) result = defaultCase(theEObject);
@@ -418,6 +442,37 @@ public class designdecisionSwitch<T> {
 			case designdecisionPackage.EXCHANGE_COMPONENT_RULE: {
 				ExchangeComponentRule exchangeComponentRule = (ExchangeComponentRule)theEObject;
 				T result = caseExchangeComponentRule(exchangeComponentRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case designdecisionPackage.ORDERED_DATA_TYPE_DEGREE: {
+				OrderedDataTypeDegree orderedDataTypeDegree = (OrderedDataTypeDegree)theEObject;
+				T result = caseOrderedDataTypeDegree(orderedDataTypeDegree);
+				if (result == null) result = caseDataTypeDegree(orderedDataTypeDegree);
+				if (result == null) result = caseDegreeOfFreedomInstance(orderedDataTypeDegree);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case designdecisionPackage.ORDERED_INTEGER_DEGREE: {
+				OrderedIntegerDegree orderedIntegerDegree = (OrderedIntegerDegree)theEObject;
+				T result = caseOrderedIntegerDegree(orderedIntegerDegree);
+				if (result == null) result = caseDiscreteDegree(orderedIntegerDegree);
+				if (result == null) result = caseOrderedDataTypeDegree(orderedIntegerDegree);
+				if (result == null) result = caseDataTypeDegree(orderedIntegerDegree);
+				if (result == null) result = caseDegreeOfFreedomInstance(orderedIntegerDegree);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case designdecisionPackage.NUMBER_OF_CORES_AS_LIST_DEGREE: {
+				NumberOfCoresAsListDegree numberOfCoresAsListDegree = (NumberOfCoresAsListDegree)theEObject;
+				T result = caseNumberOfCoresAsListDegree(numberOfCoresAsListDegree);
+				if (result == null) result = caseNumberOfCoresDegree(numberOfCoresAsListDegree);
+				if (result == null) result = caseOrderedIntegerDegree(numberOfCoresAsListDegree);
+				if (result == null) result = caseProcessingResourceDegree(numberOfCoresAsListDegree);
+				if (result == null) result = caseDiscreteDegree(numberOfCoresAsListDegree);
+				if (result == null) result = caseOrderedDataTypeDegree(numberOfCoresAsListDegree);
+				if (result == null) result = caseDataTypeDegree(numberOfCoresAsListDegree);
+				if (result == null) result = caseDegreeOfFreedomInstance(numberOfCoresAsListDegree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -647,6 +702,21 @@ public class designdecisionSwitch<T> {
 	 * @generated
 	 */
 	public T caseDiscreteRangeDegree(DiscreteRangeDegree object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Discrete Degree</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Discrete Degree</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDiscreteDegree(DiscreteDegree object) {
 		return null;
 	}
 
@@ -981,6 +1051,21 @@ public class designdecisionSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Number Of Cores As Range Degree</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Number Of Cores As Range Degree</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNumberOfCoresAsRangeDegree(NumberOfCoresAsRangeDegree object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Number Of Cores Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1022,6 +1107,51 @@ public class designdecisionSwitch<T> {
 	 * @generated
 	 */
 	public T caseExchangeComponentRule(ExchangeComponentRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ordered Data Type Degree</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ordered Data Type Degree</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrderedDataTypeDegree(OrderedDataTypeDegree object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ordered Integer Degree</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ordered Integer Degree</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrderedIntegerDegree(OrderedIntegerDegree object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Number Of Cores As List Degree</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Number Of Cores As List Degree</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNumberOfCoresAsListDegree(NumberOfCoresAsListDegree object) {
 		return null;
 	}
 

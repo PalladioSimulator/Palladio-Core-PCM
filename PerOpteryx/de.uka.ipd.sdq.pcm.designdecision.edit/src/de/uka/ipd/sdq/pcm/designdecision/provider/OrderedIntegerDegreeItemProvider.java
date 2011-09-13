@@ -7,8 +7,7 @@
 package de.uka.ipd.sdq.pcm.designdecision.provider;
 
 
-
-import de.uka.ipd.sdq.pcm.designdecision.UnorderedPrimitiveDegree;
+import de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 
 import java.util.Collection;
@@ -17,25 +16,24 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.UnorderedPrimitiveDegree} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class UnorderedPrimitiveDegreeItemProvider
-	extends UnorderedDegreeItemProvider
+public class OrderedIntegerDegreeItemProvider
+	extends DiscreteDegreeItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -48,7 +46,7 @@ public class UnorderedPrimitiveDegreeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnorderedPrimitiveDegreeItemProvider(AdapterFactory adapterFactory) {
+	public OrderedIntegerDegreeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,19 +61,42 @@ public class UnorderedPrimitiveDegreeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addListOfIntegersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns UnorderedPrimitiveDegree.gif.
+	 * This adds a property descriptor for the List Of Integers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addListOfIntegersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OrderedIntegerDegree_listOfIntegers_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OrderedIntegerDegree_listOfIntegers_feature", "_UI_OrderedIntegerDegree_type"),
+				 designdecisionPackage.Literals.ORDERED_INTEGER_DEGREE__LIST_OF_INTEGERS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns OrderedIntegerDegree.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/UnorderedPrimitiveDegree"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OrderedIntegerDegree"));
 	}
 
 	/**
@@ -86,7 +107,7 @@ public class UnorderedPrimitiveDegreeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_UnorderedPrimitiveDegree_type");
+		return getString("_UI_OrderedIntegerDegree_type");
 	}
 
 	/**
@@ -99,6 +120,12 @@ public class UnorderedPrimitiveDegreeItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(OrderedIntegerDegree.class)) {
+			case designdecisionPackage.ORDERED_INTEGER_DEGREE__LIST_OF_INTEGERS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

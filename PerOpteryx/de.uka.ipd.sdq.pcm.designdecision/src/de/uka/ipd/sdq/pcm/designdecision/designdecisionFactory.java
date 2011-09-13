@@ -197,15 +197,6 @@ public interface designdecisionFactory extends EFactory {
 	SchedulingPolicyDegree createSchedulingPolicyDegree();
 
 	/**
-	 * Returns a new object of class '<em>Enum Degree</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enum Degree</em>'.
-	 * @generated
-	 */
-	EnumDegree createEnumDegree();
-
-	/**
 	 * Returns a new object of class '<em>Scheduling Policy Choice</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -213,15 +204,6 @@ public interface designdecisionFactory extends EFactory {
 	 * @generated
 	 */
 	SchedulingPolicyChoice createSchedulingPolicyChoice();
-
-	/**
-	 * Returns a new object of class '<em>Class With Copy Degree</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Class With Copy Degree</em>'.
-	 * @generated
-	 */
-	ClassWithCopyDegree createClassWithCopyDegree();
 
 	/**
 	 * Returns a new object of class '<em>Resource Selection Degree</em>'.
@@ -260,22 +242,13 @@ public interface designdecisionFactory extends EFactory {
 	StringComponentParamDegree createStringComponentParamDegree();
 
 	/**
-	 * Returns a new object of class '<em>Unordered Primitive Degree</em>'.
+	 * Returns a new object of class '<em>Number Of Cores As Range Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unordered Primitive Degree</em>'.
+	 * @return a new object of class '<em>Number Of Cores As Range Degree</em>'.
 	 * @generated
 	 */
-	UnorderedPrimitiveDegree createUnorderedPrimitiveDegree();
-
-	/**
-	 * Returns a new object of class '<em>Number Of Cores Degree</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Number Of Cores Degree</em>'.
-	 * @generated
-	 */
-	NumberOfCoresDegree createNumberOfCoresDegree();
+	NumberOfCoresAsRangeDegree createNumberOfCoresAsRangeDegree();
 
 	/**
 	 * Returns a new object of class '<em>Resource Container Replication Degree With Component Change</em>'.
@@ -294,6 +267,24 @@ public interface designdecisionFactory extends EFactory {
 	 * @generated
 	 */
 	ExchangeComponentRule createExchangeComponentRule();
+
+	/**
+	 * Returns a new object of class '<em>Ordered Integer Degree</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ordered Integer Degree</em>'.
+	 * @generated
+	 */
+	OrderedIntegerDegree createOrderedIntegerDegree();
+
+	/**
+	 * Returns a new object of class '<em>Number Of Cores As List Degree</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number Of Cores As List Degree</em>'.
+	 * @generated
+	 */
+	NumberOfCoresAsListDegree createNumberOfCoresAsListDegree();
 
 	/**
 	 * Returns the package supported by this factory.

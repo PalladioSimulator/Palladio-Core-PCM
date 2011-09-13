@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class NumberOfCoresDegreeItemProvider
-	extends DiscreteRangeDegreeItemProvider
+	extends ProcessingResourceDegreeItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -59,31 +59,8 @@ public class NumberOfCoresDegreeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addProcessingresourcetypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Processingresourcetype feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addProcessingresourcetypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ProcessingResourceDegree_processingresourcetype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessingResourceDegree_processingresourcetype_feature", "_UI_ProcessingResourceDegree_type"),
-				 designdecisionPackage.Literals.PROCESSING_RESOURCE_DEGREE__PROCESSINGRESOURCETYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -105,8 +82,7 @@ public class NumberOfCoresDegreeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		NumberOfCoresDegree numberOfCoresDegree = (NumberOfCoresDegree)object;
-		return getString("_UI_NumberOfCoresDegree_type") + " " + numberOfCoresDegree.isUpperBoundIncluded();
+		return getString("_UI_NumberOfCoresDegree_type");
 	}
 
 	/**

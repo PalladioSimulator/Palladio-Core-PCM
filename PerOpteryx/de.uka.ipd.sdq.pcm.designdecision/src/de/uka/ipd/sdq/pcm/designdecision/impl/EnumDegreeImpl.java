@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EnumDegreeImpl extends UnorderedDegreeImpl implements EnumDegree {
+public abstract class EnumDegreeImpl extends UnorderedDegreeImpl implements EnumDegree {
 	/**
 	 * The cached value of the '{@link #getEnumeration() <em>Enumeration</em>}' reference.
 	 * <!-- begin-user-doc -->

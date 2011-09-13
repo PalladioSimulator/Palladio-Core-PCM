@@ -24,25 +24,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * An implementation of the model object '<em><b>Number Of Cores Degree</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are implemented:
- * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.designdecision.impl.NumberOfCoresDegreeImpl#getProcessingresourcetype <em>Processingresourcetype</em>}</li>
- * </ul>
  * </p>
  *
  * @generated
  */
-public class NumberOfCoresDegreeImpl extends DiscreteRangeDegreeImpl implements NumberOfCoresDegree {
-	/**
-	 * The cached value of the '{@link #getProcessingresourcetype() <em>Processingresourcetype</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProcessingresourcetype()
-	 * @generated
-	 * @ordered
-	 */
-	protected ProcessingResourceType processingresourcetype;
-
+public abstract class NumberOfCoresDegreeImpl extends ProcessingResourceDegreeImpl implements NumberOfCoresDegree {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,135 +46,6 @@ public class NumberOfCoresDegreeImpl extends DiscreteRangeDegreeImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return designdecisionPackage.Literals.NUMBER_OF_CORES_DEGREE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessingResourceType getProcessingresourcetype() {
-		if (processingresourcetype != null && processingresourcetype.eIsProxy()) {
-			InternalEObject oldProcessingresourcetype = (InternalEObject)processingresourcetype;
-			processingresourcetype = (ProcessingResourceType)eResolveProxy(oldProcessingresourcetype);
-			if (processingresourcetype != oldProcessingresourcetype) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, designdecisionPackage.NUMBER_OF_CORES_DEGREE__PROCESSINGRESOURCETYPE, oldProcessingresourcetype, processingresourcetype));
-			}
-		}
-		return processingresourcetype;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProcessingResourceType basicGetProcessingresourcetype() {
-		return processingresourcetype;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProcessingresourcetype(ProcessingResourceType newProcessingresourcetype) {
-		ProcessingResourceType oldProcessingresourcetype = processingresourcetype;
-		processingresourcetype = newProcessingresourcetype;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, designdecisionPackage.NUMBER_OF_CORES_DEGREE__PROCESSINGRESOURCETYPE, oldProcessingresourcetype, processingresourcetype));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case designdecisionPackage.NUMBER_OF_CORES_DEGREE__PROCESSINGRESOURCETYPE:
-				if (resolve) return getProcessingresourcetype();
-				return basicGetProcessingresourcetype();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case designdecisionPackage.NUMBER_OF_CORES_DEGREE__PROCESSINGRESOURCETYPE:
-				setProcessingresourcetype((ProcessingResourceType)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case designdecisionPackage.NUMBER_OF_CORES_DEGREE__PROCESSINGRESOURCETYPE:
-				setProcessingresourcetype((ProcessingResourceType)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case designdecisionPackage.NUMBER_OF_CORES_DEGREE__PROCESSINGRESOURCETYPE:
-				return processingresourcetype != null;
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ProcessingResourceDegree.class) {
-			switch (derivedFeatureID) {
-				case designdecisionPackage.NUMBER_OF_CORES_DEGREE__PROCESSINGRESOURCETYPE: return designdecisionPackage.PROCESSING_RESOURCE_DEGREE__PROCESSINGRESOURCETYPE;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ProcessingResourceDegree.class) {
-			switch (baseFeatureID) {
-				case designdecisionPackage.PROCESSING_RESOURCE_DEGREE__PROCESSINGRESOURCETYPE: return designdecisionPackage.NUMBER_OF_CORES_DEGREE__PROCESSINGRESOURCETYPE;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //NumberOfCoresDegreeImpl
