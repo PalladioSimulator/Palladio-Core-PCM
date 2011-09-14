@@ -311,11 +311,4 @@ litigation.
          version="0.0.0"
          unpack="false"/>
 
-   <plugin
-         id="de.uka.ipd.sdq.stoex.analyser"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
 </feature>
