@@ -6,6 +6,7 @@
 	<property file="build_${hostname}.properties" />
 	<property file="build_local.properties" />
 	<property file="upload.properties" />
+	<property file="build-files/automatedTests/run-tests.properties" />
 	
 	<target name="clean_remote">
 		<sshexec host="${uploadTargetHost}"
@@ -49,13 +50,13 @@
 				passphrase="Yu6eSpuw" 
 				trust="true">
 		    <fileset dir="${buildDirectory}/results/testresults/html"/>
-	  </scp>
-		<scp todir="${uploadUsername}@${uploadTargetHost}:${uploadTargetDir}"
-				keyfile="/home/ccontrol/.ssh/id_dsa" 
-				passphrase="" 
-				trust="true">
-		    <fileset dir="${buildDirectory}/results/testresults/coverage"/>
-	  	</scp>
+		</scp>
+		
+		<condition property="copycoverage">
+			<equals arg1="${pluginbuilder.is.runcoverage}" arg2="true" />
+		</condition>
+		<antcall target="copy_coverage" />
+
 	  	<sshexec host="${uploadTargetHost}"
 				username="${uploadUsername}"
 				keyfile="/home/ccontrol/.ssh/id_dsa" 
@@ -77,5 +78,12 @@
 		</copy>
 		<!-- <touch file="${copyTargetDir}/../pcm-trigger/touch"></touch> -->
 	</target>
-	
+	<target name="copy_coverage" if="copycoverage">
+		<scp todir="${uploadUsername}@${uploadTargetHost}:${uploadTargetDir}"
+			keyfile="/home/ccontrol/.ssh/id_dsa" 
+			passphrase="" 
+			trust="true">
+		    <fileset dir="${buildDirectory}/results/testresults/coverage"/> 
+		</scp>
+	</target>	
 </project>
