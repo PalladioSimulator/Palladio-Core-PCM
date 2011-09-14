@@ -10,7 +10,7 @@
       <param name="target" value="features"/>
       <param name="element.id" value="de.uka.ipd.sdq.probfunction.feature"/>
       <param name="project.name" value="/de.uka.ipd.sdq.probfunction.feature"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/ProbFunction"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/branches/PCMIndigoMigration"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
@@ -40,7 +40,7 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.stoex"/>
       <param name="project.name" value="/de.uka.ipd.sdq.stoex"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/StoEx"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/branches/PCMIndigoMigration"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
@@ -167,12 +167,6 @@
       <param name="element.id" value="de.uka.ipd.sdq.branding"/>
       <param name="project.name" value="/de.uka.ipd.sdq.branding"/>
       <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/IDE"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.stoex"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.stoex"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/StoEx"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
