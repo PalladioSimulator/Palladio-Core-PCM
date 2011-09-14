@@ -231,6 +231,10 @@ litigation.
       <import plugin="ca.umontreal.iro.lecuyer.ssj" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.stoex" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.antlr" version="3.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
    </requires>
 
    <plugin
@@ -299,5 +303,12 @@ litigation.
          download-size="0"
          install-size="0"
          version="0.0.0"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.units.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
