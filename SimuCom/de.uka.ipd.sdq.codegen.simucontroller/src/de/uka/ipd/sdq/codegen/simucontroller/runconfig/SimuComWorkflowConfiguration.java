@@ -3,8 +3,10 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.workflow.launchconfig.extension.ExtendibleJobConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.AccuracyInfluenceAnalysisState;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.SensitivityAnalysisConfiguration;
@@ -12,15 +14,37 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.SensitivityAnalysisConfiguration;
 /**
  */
 public class SimuComWorkflowConfiguration extends
-		AbstractPCMCompletionWorkflowRunConfiguration implements Cloneable {
+		AbstractPCMCompletionWorkflowRunConfiguration implements Cloneable, ExtendibleJobConfiguration {
 	/** Logger for this class. */
 	private static final Logger logger = Logger.getLogger(SimuComWorkflowConfiguration.class);
+
+    /** The mode of the current launch (run/debug). */
+    private String mode = null;
+
+    /** The configuration of the current launch to work with. */
+    private ILaunchConfiguration launchConfiguration = null;
 
 	private SimuComConfig simuComConfig = null;
 	private boolean simulateLinkingResources;
 	private boolean simulateFailures;
 
 	private String featureConfigFile;
+	
+	
+	/**
+	 * Constructor requiring to set the ILaunchConfiguration and mode this configuration is running in.
+	 * This is necessary to realize the extendability of the simucom workflow with additional jobs
+	 * using the extension points provided by the palladio workflow engine.
+	 * 
+	 * @param launchConfiguration The launch configuration object to be provided to the extending jobs.
+	 * @param mode The mode of the workflow currently runs in (run/debug)
+	 */
+	public SimuComWorkflowConfiguration(ILaunchConfiguration launchConfiguration,String mode) {
+        this.launchConfiguration = launchConfiguration;
+        this.mode = mode;
+	}
+	
+	
 
 	public SimuComConfig getSimuComConfiguration() {
 		return simuComConfig;
@@ -145,4 +169,24 @@ public class SimuComWorkflowConfiguration extends
 		}
 		return config;
 	}
+
+    /**
+     * Get the mode of the current launch.
+     * 
+     * @return the mode
+     */
+    @Override
+    public String getMode() {
+        return mode;
+    }
+
+    /**
+     * Get the configuration of the current launch.
+     * 
+     * @return the launchConfiguration
+     */
+    @Override
+    public ILaunchConfiguration getLaunchConfiguration() {
+        return launchConfiguration;
+    }
 }

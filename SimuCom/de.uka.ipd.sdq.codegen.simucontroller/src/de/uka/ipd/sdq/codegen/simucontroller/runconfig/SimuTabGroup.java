@@ -7,6 +7,7 @@ import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
 import de.uka.ipd.sdq.cip.runtime.runconfig.tabs.CipCompletionTab;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.WorkflowHooks;
 import de.uka.ipd.sdq.workflow.launchconfig.extension.ExtendableTabGroup;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.FileNamesInputTab;
 
@@ -16,18 +17,21 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.FileNamesInputTab;
  * @author Roman Andrej
  */
 public class SimuTabGroup extends ExtendableTabGroup {
+    
+    /** The id of the workflow extending configuration tabs have to register for. */
+    public static String WORKFLOW_ID = "workflow.extension.simucom";
 
-	public List<ILaunchConfigurationTab> getTabs(String mode) { 
-		List<ILaunchConfigurationTab> tabs = new ArrayList<ILaunchConfigurationTab>();
-		tabs.add(new FileNamesInputTab());// Default tab
-		tabs.add(new SimuComConfigurationTab());
-		tabs.add(new SimuConfigurationTab());
-		tabs.add(new FeatureOptionsTab());
-		tabs.add(new CipCompletionTab());
-		return tabs;
-	}
-	
-	protected String getWorkflowId() {
-		return "workflow.extension.simucom";
-	}
+    @Override
+    public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
+        List<ILaunchConfigurationTab> tabs = new ArrayList<ILaunchConfigurationTab>();
+        for (String workflowExtensionPointId : WorkflowHooks.getAllWorkflowHookIDs()) {
+            tabs.addAll(createExtensionTabs(dialog, mode, workflowExtensionPointId));
+        }
+        tabs.add(new FileNamesInputTab());// Default tab
+        tabs.add(new SimuComConfigurationTab());
+        tabs.add(new SimuConfigurationTab());
+        tabs.add(new FeatureOptionsTab());
+        tabs.add(new CipCompletionTab());
+        setTabs(tabs.toArray(new ILaunchConfigurationTab[] {}));
+    }
 }

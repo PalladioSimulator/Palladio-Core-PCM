@@ -6,7 +6,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComConfigExtension;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration;
-import de.uka.ipd.sdq.workflow.launchconfig.extension.AbstractExtendableWorkflowConfigurationBuilder;
+import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowConfigurationBuilder;
 import de.uka.ipd.sdq.workflow.launchconfig.extension.ExtensionHelper;
 import de.uka.ipd.sdq.workflow.launchconfig.extension.WorkflowExtension;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflow
 import de.uka.ipd.sdq.workflow.pcm.runconfig.SensitivityAnalysisConfiguration;
 
 public class SimuComLaunchConfigurationBasedConfigBuilder
-extends AbstractExtendableWorkflowConfigurationBuilder {
+extends AbstractWorkflowConfigurationBuilder {
 
 	public SimuComLaunchConfigurationBasedConfigBuilder(
 			ILaunchConfiguration configuration, String mode) throws CoreException {
@@ -22,7 +22,7 @@ extends AbstractExtendableWorkflowConfigurationBuilder {
 	}
 
 	@Override
-	public void fillConfigurationInternal(AbstractWorkflowBasedRunConfiguration configuration) throws CoreException {
+	public void fillConfiguration(AbstractWorkflowBasedRunConfiguration configuration) throws CoreException {
 		SimuComWorkflowConfiguration config = (SimuComWorkflowConfiguration) configuration;
 
 		config.setCodeGenerationAdvicesFile(CodeGenerationAdvice.SIMULATION);

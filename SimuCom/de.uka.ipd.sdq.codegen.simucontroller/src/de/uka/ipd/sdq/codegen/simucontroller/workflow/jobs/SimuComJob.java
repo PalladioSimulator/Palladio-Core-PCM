@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.ValidatePCMModelsJob;
  * @author Steffen
  */
 public class SimuComJob extends AbstractExtendableJob<MDSDBlackboard> {
+    
 
 	private IDebugListener debugListener = null;
 
@@ -50,7 +51,7 @@ public class SimuComJob extends AbstractExtendableJob<MDSDBlackboard> {
 		// 2. Validate PCM Models
 		this.addJob(new ValidatePCMModelsJob(configuration));
 		
-		handleJobExtensions(0,50);
+		handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_LOAD_VALIDATE,configuration);
 
 		// -- Stage Model modification
 		// 3.1 Modification for AccuracyInfluenceAnalysis
@@ -92,7 +93,7 @@ public class SimuComJob extends AbstractExtendableJob<MDSDBlackboard> {
 		IJobWithResult<byte[]> buildBundleJob = new BuildPluginJarJob(configuration);
 		this.addJob(buildBundleJob);
 		
-		handleJobExtensions(50,100);
+		handleJobExtensions(WorkflowHooks.WORKFLOW_ID_BEFORE_DOCK,configuration);
 
 		// 12. Transfer the JAR to a free simulation dock and simulate it
 		this.addJob(new TransferSimulationBundleToDock(configuration, debugListener, buildBundleJob));
