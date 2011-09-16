@@ -12238,6 +12238,24 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             <body>0.0</body>
           </defaultValue>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_-svE0OAYEeCp4tHWeolwKw" name="requiredByContainer" visibility="public">
+          <ownedComment xmi:id="_Mh1-AOAaEeCp4tHWeolwKw" annotatedElement="_-svE0OAYEeCp4tHWeolwKw">
+            <body>&lt;p>&#xD;
+    This attribute controls the handling of the resource&amp;nbsp;by the&amp;nbsp;reliability prediction.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    If set to TRUE, the unavailability of the resource automatically leads to the unavailability of the surrounding&#xD;
+    resource container. Every attempt to execute a SEFF on an unavailable resource container leads to a corresponding&#xD;
+    resource failure.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    If set to FALSE, the unavailability of the resource does not make the container unavailable. An attempt to execute a&#xD;
+    SEFF on a container with an unavailable resource leads to a resource failure ONLY IF the SEFF contains an&#xD;
+    InternalAction that accesses&amp;nbsp;the resource.&#xD;
+&lt;/p></body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+        </ownedAttribute>
         <ownedAttribute xmi:id="_CRHygBmtEdyaJvvdhGgDYg" name="schedulingPolicy" visibility="private" type="_wuNVYBmsEdyaJvvdhGgDYg">
           <defaultValue xmi:type="uml:InstanceValue" xmi:id="_vJiw8DXPEd-zYP5X4Q3jLQ" name="FCFS" type="_wuNVYBmsEdyaJvvdhGgDYg" instance="_6WbM0BmsEdyaJvvdhGgDYg"/>
         </ownedAttribute>
@@ -26604,4 +26622,6 @@ the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further i
   <Default:Documentation xmi:id="_14U-QMcREeCDdOneIPKwaw" base_Comment="_14TJEMcREeCDdOneIPKwaw"/>
   <Default:Documentation xmi:id="_-FLq8McREeCDdOneIPKwaw" base_Comment="_-FGLYMcREeCDdOneIPKwaw"/>
   <Default:Documentation xmi:id="_UALioMcSEeCDdOneIPKwaw" base_Comment="_UAJtcMcSEeCDdOneIPKwaw"/>
+  <Ecore:EAttribute xmi:id="_egua4OAZEeCp4tHWeolwKw" base_Property="_-svE0OAYEeCp4tHWeolwKw"/>
+  <Default:Documentation xmi:id="_MkUDMOAaEeCp4tHWeolwKw" base_Comment="_Mh1-AOAaEeCp4tHWeolwKw"/>
 </xmi:XMI>

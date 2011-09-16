@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.subsystem.impl;
 
+import de.uka.ipd.sdq.pcm.subsystem.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;

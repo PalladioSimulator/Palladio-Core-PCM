@@ -17,9 +17,16 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * In an RDSEFF, component developers can specify an AcquireAction, which references a passive resource types. Once analysis tools execute this action, they decrease the amount of items available from the referenced passive resource type by one, if at least one item is available. If none item is available, because other, concurrently executed requests have acquired all of them, analysis tools enqueue the current request (first-come
- * first-serve scheduling policy) and block it’s further execution.
- * Acquisition and release of passive resources happen instantaneously and do not consume any time except for waiting delays before actual acquisition. Resource locking may introduce deadlocks when simulating the model, however, for performance analysis with the PCM it is assumed that no deadlocks occur. Otherwise, the model first needs to be fixed accordingly before carrying out the performance prediction.
+ * <p>
+ *     In&nbsp;an&nbsp;RDSEFF,&nbsp;component&nbsp;developers&nbsp;can&nbsp;specify&nbsp;an&nbsp;AcquireAction,&nbsp;which&nbsp;references&nbsp;a&nbsp;passive&nbsp;resource&nbsp;types.&nbsp;Once&nbsp;analysis&nbsp;tools&nbsp;execute&nbsp;this&nbsp;action,&nbsp;they&nbsp;decrease&nbsp;the&nbsp;amount&nbsp;of&nbsp;items&nbsp;available&nbsp;from&nbsp;the&nbsp;referenced&nbsp;passive&nbsp;resource&nbsp;type&nbsp;by&nbsp;one,&nbsp;if&nbsp;at&nbsp;least&nbsp;one&nbsp;item&nbsp;is&nbsp;available.&nbsp;If&nbsp;none&nbsp;item&nbsp;is&nbsp;available,&nbsp;because&nbsp;other,&nbsp;concurrently&nbsp;executed&nbsp;requests&nbsp;have&nbsp;acquired&nbsp;all&nbsp;of&nbsp;them,&nbsp;analysis&nbsp;tools&nbsp;enqueue&nbsp;the&nbsp;current&nbsp;request&nbsp;(first-come-first-serve&nbsp;scheduling&nbsp;policy)&nbsp;and&nbsp;block&nbsp;itís&nbsp;further&nbsp;execution.
+ * </p>
+ * <p>
+ *     Acquisition&nbsp;and&nbsp;release&nbsp;of&nbsp;passive&nbsp;resources&nbsp;happen&nbsp;instantaneously&nbsp;and&nbsp;do&nbsp;not&nbsp;consume&nbsp;any&nbsp;time&nbsp;except&nbsp;for&nbsp;waiting&nbsp;delays&nbsp;before&nbsp;actual&nbsp;acquisition.&nbsp;Resource&nbsp;locking&nbsp;may&nbsp;introduce&nbsp;deadlocks&nbsp;when&nbsp;simulating&nbsp;the&nbsp;model,&nbsp;however,&nbsp;for&nbsp;performance&nbsp;analysis&nbsp;with&nbsp;the&nbsp;PCM&nbsp;it&nbsp;is&nbsp;assumed&nbsp;that&nbsp;no&nbsp;deadlocks&nbsp;occur.&nbsp;Otherwise,&nbsp;the&nbsp;model&nbsp;first&nbsp;needs&nbsp;to&nbsp;be&nbsp;fixed&nbsp;accordingly&nbsp;before&nbsp;carrying&nbsp;out&nbsp;the&nbsp;performance&nbsp;prediction.
+ * </p>
+ * <p>
+ *     A reliability-related extension is the timeout mechanism that may be associated to an AcquireAction through the
+ *     "timeout" and "timeoutValue" attributes. See the documentation of the "timeout" attribute for further information.
+ * </p>
  * <!-- end-model-doc -->
  *
  * <p>
@@ -78,11 +85,28 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates if the AcquireAction has a timeout. If yes, any acquiring thread waits no longer than the duration specified in
-	 * "timeoutValue". If the maximum waiting time is reached, the thread is removed from the waiting queue and cancelled by a
-	 * timeout failure. The simulation considers timeouts and throws timeout failures only if the "simulate failures" option is
-	 * activated. As any failure-on-demand occurrence, timeout failures can be handled by RecoveryBlockActions at a higher level
-	 * in the caller hierarchy.
+	 * <p>
+	 *     Indicates&nbsp;if&nbsp;the&nbsp;AcquireAction&nbsp;has&nbsp;a&nbsp;timeout.&nbsp;If&nbsp;yes, a simulation through
+	 *     SimuCom with the "simulate failures" option switched on will consider the timeout as follows:
+	 *     Any&nbsp;acquiring&nbsp;thread&nbsp;waits&nbsp;no&nbsp;longer&nbsp;than&nbsp;the&nbsp;duration&nbsp;specified&nbsp;in
+	 *     "timeoutValue".&nbsp;If&nbsp;the&nbsp;maximum&nbsp;waiting&nbsp;time&nbsp;is&nbsp;reached,&nbsp;the&nbsp;thread&nbsp;is&nbsp;removed&nbsp;from&nbsp;the&nbsp;waiting&nbsp;queue&nbsp;and&nbsp;cancelled&nbsp;by&nbsp;a
+	 *     timeout&nbsp;failure.
+	 * </p>
+	 * <p>
+	 *     The reliability Markov analysis does not consider AcquireAction timeouts.
+	 * </p>
+	 * <p>
+	 *     As&nbsp;any&nbsp;failure-on-demand&nbsp;occurrence,&nbsp;timeout&nbsp;failures&nbsp;can&nbsp;be&nbsp;handled&nbsp;by&nbsp;"RecoveryBlockActions"&nbsp;at&nbsp;any&nbsp;higher&nbsp;level
+	 *     in&nbsp;the&nbsp;caller&nbsp;hierarchy. To achieve this, the modeller must specify a "ResourceTimeoutFailureType"
+	 *     pointing to the "PassiveResource" that the AcquireAction is related to. The specified "ResourceTimeoutFailureType" can
+	 *     then be added to the list of handled failure types of any "RecoveryBlockAlternativeBehaviour".
+	 * </p>
+	 * <p>
+	 *     Please notice the following limitation of the current implementation of timeout handling: Timeouts are only considered
+	 *     by SimuCom if the executing software component is allocated to a resource container with an operating system set to
+	 *     "ABSTRACT" (i.e. no specific OS schedulers are supported). The timeout handling implementation can be found in
+	 *     de.uka.ipd.sdq.simucomframework.resources.SimSimpleFairPassiveResource.
+	 * </p>
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Timeout</em>' attribute.
 	 * @see #setTimeout(boolean)
@@ -112,7 +136,8 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * <p>
-	 *     Specifies a timeout value, in case the AcquireAction has a timeout (as specified through the "timeout" attribute).
+	 *     Specifies a timeout value, in case the AcquireAction has a timeout (see the documentation of the "timeout" attribute
+	 *     for further information).
 	 * </p>
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Timeout Value</em>' attribute.

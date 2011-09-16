@@ -73,6 +73,7 @@ public class ProcessingResourceSpecificationItemProvider
 
 			addMTTRPropertyDescriptor(object);
 			addMTTFPropertyDescriptor(object);
+			addRequiredByContainerPropertyDescriptor(object);
 			addSchedulingPolicyPropertyDescriptor(object);
 			addActiveResourceType_ActiveResourceSpecificationPropertyDescriptor(object);
 			addNumberOfReplicasPropertyDescriptor(object);
@@ -120,6 +121,28 @@ public class ProcessingResourceSpecificationItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Required By Container feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequiredByContainerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProcessingResourceSpecification_requiredByContainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessingResourceSpecification_requiredByContainer_feature", "_UI_ProcessingResourceSpecification_type"),
+				 ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -257,6 +280,7 @@ public class ProcessingResourceSpecificationItemProvider
 		switch (notification.getFeatureID(ProcessingResourceSpecification.class)) {
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER:
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

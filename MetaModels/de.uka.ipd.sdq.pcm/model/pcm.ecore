@@ -146,7 +146,7 @@
             <details key="body" value="self.providedRoles_InterfaceProvidingEntity->forAll(role|self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).&#xA;self.providedRoles_InterfaceProvidingEntity->forAll(role|self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))&#xD;&#xA;&#xD;&#xA;"/>
+            <details key="documentation" value="This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->forAll(role|self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -427,7 +427,7 @@
             <details key="body" value="self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. &#xA;self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. &#xD;&#xA;self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -450,7 +450,7 @@
             <details key="body" value="self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. &#xA;self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. &#xD;&#xA;self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -472,7 +472,7 @@
             <details key="body" value="self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The Interfaces references by this Connector must match. This means that either &#xD;&#xA;1) the referenced providedRole and the referenced requiredRole refer to the same Interface (first part of the expression) or 2)  the Interface A referenced by the providedRole is a subtype of the Interface B referenced by the requiredRole as transitively defined by the parentInterface__Interface property. That means that either Interface A is the parentInterface__Interface of Interface B, or there is a set of Interfaces &#xA;self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole"/>
+            <details key="documentation" value="The Interfaces references by this Connector must match. This means that either &#xD;&#xA;1) the referenced providedRole and the referenced requiredRole refer to the same Interface (first part of the expression) or 2)  the Interface A referenced by the providedRole is a subtype of the Interface B referenced by the requiredRole as transitively defined by the parentInterface__Interface property. That means that either Interface A is the parentInterface__Interface of Interface B, or there is a set of Interfaces &#xD;&#xA;self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -998,7 +998,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="basicComponent_PassiveResource"
           ordered="false" lowerBound="1" eType="#//repository/BasicComponent" eOpposite="#//repository/BasicComponent/passiveResource_BasicComponent"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceTimeoutFailureType__PassiveResource"
-          ordered="false" eType="#//reliability/ResourceTimeoutFailureType" eOpposite="#//reliability/ResourceTimeoutFailureType/passiveResource__ResourceTimeoutFailureType"/>
+          ordered="false" eType="#//reliability/ResourceTimeoutFailureType" eOpposite="#//reliability/ResourceTimeoutFailureType/passiveResource__ResourceTimeoutFailureType">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The&amp;nbsp;failure type that represents a timeout&amp;nbsp;failure of an acquiring action for this passive resource&amp;nbsp;(see the&#xD;&#xA;documentation of the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further information)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BasicComponent" eSuperTypes="#//repository/ImplementationComponentType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2016,13 +2020,16 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InternalFailureOccurrenceDescription"
         eSuperTypes="#//reliability/FailureOccurrenceDescription">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Special&amp;nbsp;case&amp;nbsp;of&amp;nbsp;a&amp;nbsp;FailureOccurenceDescription&amp;nbsp;specifying the software-induced failure potential of&#xD;&#xA;InternalActions."/>
+      </eAnnotations>
       <eOperations name="NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="ResourceTimeoutFailures are software-induced failure types, but are not annotated to InternalActions (they are only meant&#xD;&#xA;for passive resource timeouts).&#xA;not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
+          <details key="documentation" value="ResourceTimeoutFailures are software-induced failure types, but are not annotated to InternalActions (they are only meant&#xD;&#xA;for passive resource timeouts).&#xD;&#xA;not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2078,13 +2085,16 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExternalFailureOccurrenceDescription"
         eSuperTypes="#//reliability/FailureOccurrenceDescription">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Special&amp;nbsp;case&amp;nbsp;of&amp;nbsp;a&amp;nbsp;FailureOccurenceDescription&amp;nbsp;specifying&amp;nbsp;the&amp;nbsp;failure&amp;nbsp;potential&amp;nbsp;of&amp;nbsp;system-external&amp;nbsp;calls.&amp;nbsp;Can&amp;nbsp;relate&amp;nbsp;to&#xD;&#xA;any FailureType."/>
+      </eAnnotations>
       <eOperations name="NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="ResourceTimeoutFailures&amp;nbsp;are&amp;nbsp;software-induced&amp;nbsp;failure&amp;nbsp;types,&amp;nbsp;but&amp;nbsp;are&amp;nbsp;not&amp;nbsp;annotated&amp;nbsp;to&amp;nbsp;system-external&#xD;&#xA;calls&amp;nbsp;(they&amp;nbsp;are&amp;nbsp;only&amp;nbsp;meant&lt;br />&#xD;&#xA;for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).&#xA;not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
+          <details key="documentation" value="ResourceTimeoutFailures&amp;nbsp;are&amp;nbsp;software-induced&amp;nbsp;failure&amp;nbsp;types,&amp;nbsp;but&amp;nbsp;are&amp;nbsp;not&amp;nbsp;annotated&amp;nbsp;to&amp;nbsp;system-external&#xD;&#xA;calls&amp;nbsp;(they&amp;nbsp;are&amp;nbsp;only&amp;nbsp;meant&lt;br />&#xD;&#xA;for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).&#xD;&#xA;not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2108,8 +2118,15 @@
           ordered="false" lowerBound="1" eType="#//reliability/FailureType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceTimeoutFailureType" eSuperTypes="#//reliability/SoftwareInducedFailureType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;p>&#xD;&#xA;    Type definition for a timeout failure-on-demand related to an AcquireAction for a certain PassiveResource (see the&#xD;&#xA;    documentation of the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further information).&#xD;&#xA;&lt;/p>"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource__ResourceTimeoutFailureType"
-          ordered="false" lowerBound="1" eType="#//repository/PassiveResource" eOpposite="#//repository/PassiveResource/resourceTimeoutFailureType__PassiveResource"/>
+          ordered="false" lowerBound="1" eType="#//repository/PassiveResource" eOpposite="#//repository/PassiveResource/resourceTimeoutFailureType__PassiveResource">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The passive resource&amp;nbsp;whose&amp;nbsp;acquiring timeout is represented by this failure type&amp;nbsp;(see the documentation of&#xD;&#xA;the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further information)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FailureType" abstract="true" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2470,7 +2487,7 @@
           <details key="body" value="self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="&lt;pre id=&quot;comment_text_0&quot; class=&quot;bz_comment_text&quot;>&#xD;&#xA;check if the signature&#xD;&#xA;(declared in calledService_ExternalService attribute) belongs to the role&#xD;&#xA;(declared in role_ExternalService attribute)&#xD;&#xA;&lt;/pre>&#xA;self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)"/>
+          <details key="documentation" value="&lt;pre id=&quot;comment_text_0&quot; class=&quot;bz_comment_text&quot;>&#xD;&#xA;check if the signature&#xD;&#xA;(declared in calledService_ExternalService attribute) belongs to the role&#xD;&#xA;(declared in role_ExternalService attribute)&#xD;&#xA;&lt;/pre>&#xD;&#xA;self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2516,7 +2533,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AcquireAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="In an RDSEFF, component developers can specify an AcquireAction, which references a passive resource types. Once analysis tools execute this action, they decrease the amount of items available from the referenced passive resource type by one, if at least one item is available. If none item is available, because other, concurrently executed requests have acquired all of them, analysis tools enqueue the current request (first-come&#xD;&#xA;first-serve scheduling policy) and block it’s further execution.&#xD;&#xA;Acquisition and release of passive resources happen instantaneously and do not consume any time except for waiting delays before actual acquisition. Resource locking may introduce deadlocks when simulating the model, however, for performance analysis with the PCM it is assumed that no deadlocks occur. Otherwise, the model first needs to be fixed accordingly before carrying out the performance prediction."/>
+        <details key="documentation" value="&lt;p>&#xD;&#xA;    In&amp;nbsp;an&amp;nbsp;RDSEFF,&amp;nbsp;component&amp;nbsp;developers&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;an&amp;nbsp;AcquireAction,&amp;nbsp;which&amp;nbsp;references&amp;nbsp;a&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;types.&amp;nbsp;Once&amp;nbsp;analysis&amp;nbsp;tools&amp;nbsp;execute&amp;nbsp;this&amp;nbsp;action,&amp;nbsp;they&amp;nbsp;decrease&amp;nbsp;the&amp;nbsp;amount&amp;nbsp;of&amp;nbsp;items&amp;nbsp;available&amp;nbsp;from&amp;nbsp;the&amp;nbsp;referenced&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;type&amp;nbsp;by&amp;nbsp;one,&amp;nbsp;if&amp;nbsp;at&amp;nbsp;least&amp;nbsp;one&amp;nbsp;item&amp;nbsp;is&amp;nbsp;available.&amp;nbsp;If&amp;nbsp;none&amp;nbsp;item&amp;nbsp;is&amp;nbsp;available,&amp;nbsp;because&amp;nbsp;other,&amp;nbsp;concurrently&amp;nbsp;executed&amp;nbsp;requests&amp;nbsp;have&amp;nbsp;acquired&amp;nbsp;all&amp;nbsp;of&amp;nbsp;them,&amp;nbsp;analysis&amp;nbsp;tools&amp;nbsp;enqueue&amp;nbsp;the&amp;nbsp;current&amp;nbsp;request&amp;nbsp;(first-come-first-serve&amp;nbsp;scheduling&amp;nbsp;policy)&amp;nbsp;and&amp;nbsp;block&amp;nbsp;it’s&amp;nbsp;further&amp;nbsp;execution.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    Acquisition&amp;nbsp;and&amp;nbsp;release&amp;nbsp;of&amp;nbsp;passive&amp;nbsp;resources&amp;nbsp;happen&amp;nbsp;instantaneously&amp;nbsp;and&amp;nbsp;do&amp;nbsp;not&amp;nbsp;consume&amp;nbsp;any&amp;nbsp;time&amp;nbsp;except&amp;nbsp;for&amp;nbsp;waiting&amp;nbsp;delays&amp;nbsp;before&amp;nbsp;actual&amp;nbsp;acquisition.&amp;nbsp;Resource&amp;nbsp;locking&amp;nbsp;may&amp;nbsp;introduce&amp;nbsp;deadlocks&amp;nbsp;when&amp;nbsp;simulating&amp;nbsp;the&amp;nbsp;model,&amp;nbsp;however,&amp;nbsp;for&amp;nbsp;performance&amp;nbsp;analysis&amp;nbsp;with&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;it&amp;nbsp;is&amp;nbsp;assumed&amp;nbsp;that&amp;nbsp;no&amp;nbsp;deadlocks&amp;nbsp;occur.&amp;nbsp;Otherwise,&amp;nbsp;the&amp;nbsp;model&amp;nbsp;first&amp;nbsp;needs&amp;nbsp;to&amp;nbsp;be&amp;nbsp;fixed&amp;nbsp;accordingly&amp;nbsp;before&amp;nbsp;carrying&amp;nbsp;out&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;prediction.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    A reliability-related extension is the timeout mechanism that may be associated to an AcquireAction through the&#xD;&#xA;    &quot;timeout&quot; and &quot;timeoutValue&quot; attributes. See the documentation of the &quot;timeout&quot; attribute for further information.&#xD;&#xA;&lt;/p>"/>
       </eAnnotations>
       <eOperations name="TimeoutValueOfAcquireActionMustNotBeNegative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
@@ -2545,13 +2562,13 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Indicates if the AcquireAction has a timeout. If yes, any acquiring thread waits no longer than the duration specified in&#xD;&#xA;&quot;timeoutValue&quot;. If the maximum waiting time is reached, the thread is removed from the waiting queue and cancelled by a&#xD;&#xA;timeout failure. The simulation considers timeouts and throws timeout failures only if the &quot;simulate failures&quot; option is&#xD;&#xA;activated. As any failure-on-demand occurrence, timeout failures can be handled by RecoveryBlockActions at a higher level&#xD;&#xA;in the caller hierarchy."/>
+          <details key="documentation" value="&lt;p>&#xD;&#xA;    Indicates&amp;nbsp;if&amp;nbsp;the&amp;nbsp;AcquireAction&amp;nbsp;has&amp;nbsp;a&amp;nbsp;timeout.&amp;nbsp;If&amp;nbsp;yes, a simulation through&#xD;&#xA;    SimuCom with the &quot;simulate failures&quot; option switched on will consider the timeout as follows:&#xD;&#xA;    Any&amp;nbsp;acquiring&amp;nbsp;thread&amp;nbsp;waits&amp;nbsp;no&amp;nbsp;longer&amp;nbsp;than&amp;nbsp;the&amp;nbsp;duration&amp;nbsp;specified&amp;nbsp;in&#xD;&#xA;    &quot;timeoutValue&quot;.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;maximum&amp;nbsp;waiting&amp;nbsp;time&amp;nbsp;is&amp;nbsp;reached,&amp;nbsp;the&amp;nbsp;thread&amp;nbsp;is&amp;nbsp;removed&amp;nbsp;from&amp;nbsp;the&amp;nbsp;waiting&amp;nbsp;queue&amp;nbsp;and&amp;nbsp;cancelled&amp;nbsp;by&amp;nbsp;a&#xD;&#xA;    timeout&amp;nbsp;failure.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    The reliability Markov analysis does not consider AcquireAction timeouts.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    As&amp;nbsp;any&amp;nbsp;failure-on-demand&amp;nbsp;occurrence,&amp;nbsp;timeout&amp;nbsp;failures&amp;nbsp;can&amp;nbsp;be&amp;nbsp;handled&amp;nbsp;by&amp;nbsp;&quot;RecoveryBlockActions&quot;&amp;nbsp;at&amp;nbsp;any&amp;nbsp;higher&amp;nbsp;level&#xD;&#xA;    in&amp;nbsp;the&amp;nbsp;caller&amp;nbsp;hierarchy. To achieve this, the modeller must specify a &quot;ResourceTimeoutFailureType&quot;&#xD;&#xA;    pointing to the &quot;PassiveResource&quot; that the AcquireAction is related to. The specified &quot;ResourceTimeoutFailureType&quot; can&#xD;&#xA;    then be added to the list of handled failure types of any &quot;RecoveryBlockAlternativeBehaviour&quot;.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    Please notice the following limitation of the current implementation of timeout handling: Timeouts are only considered&#xD;&#xA;    by SimuCom if the executing software component is allocated to a resource container with an operating system set to&#xD;&#xA;    &quot;ABSTRACT&quot; (i.e. no specific OS schedulers are supported). The timeout handling implementation can be found in&#xD;&#xA;    de.uka.ipd.sdq.simucomframework.resources.SimSimpleFairPassiveResource.&#xD;&#xA;&lt;/p>"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeoutValue" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="&lt;p>&#xD;&#xA;    Specifies a timeout value, in case the AcquireAction has a timeout (as specified through the &quot;timeout&quot; attribute).&#xD;&#xA;&lt;/p>"/>
+          <details key="documentation" value="&lt;p>&#xD;&#xA;    Specifies a timeout value, in case the AcquireAction has a timeout (see the documentation of the &quot;timeout&quot; attribute&#xD;&#xA;    for further information).&#xD;&#xA;&lt;/p>"/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
@@ -3102,6 +3119,12 @@
           <details key="documentation" value="The Mean Time To Failure (MTTF) of a physical resource is the expected timespan from the start of its usage until breakdown."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredByContainer"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="&lt;p>&#xD;&#xA;    This attribute controls the handling of the resource&amp;nbsp;by the&amp;nbsp;reliability prediction.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    If set to TRUE, the unavailability of the resource automatically leads to the unavailability of the surrounding&#xD;&#xA;    resource container. Every attempt to execute a SEFF on an unavailable resource container leads to a corresponding&#xD;&#xA;    resource failure.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    If set to FALSE, the unavailability of the resource does not make the container unavailable. An attempt to execute a&#xD;&#xA;    SEFF on a container with an unavailable resource leads to a resource failure ONLY IF the SEFF contains an&#xD;&#xA;    InternalAction that accesses&amp;nbsp;the resource.&#xD;&#xA;&lt;/p>"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedulingPolicy" ordered="false"
           lowerBound="1" eType="#//resourceenvironment/SchedulingPolicy" defaultValueLiteral="FCFS"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceType_ActiveResourceSpecification"
@@ -3215,7 +3238,7 @@
           <details key="body" value="-- Get all AssemblyContexts used by this system, that is &#xD;&#xA;-- 1) the AssemblyContexts directly used in the system and &#xD;&#xA;self.system_Allocation.assemblyContexts__ComposedStructure&#xD;&#xA;-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,&#xD;&#xA;-- we need to get those AssemblyContexts too: Thus, we use a closure here&#xD;&#xA;->union(self.system_Allocation.assemblyContexts__ComposedStructure->closure(&#xD;&#xA;encapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)&#xD;&#xA;.assemblyContexts__ComposedStructure))&#xD;&#xA;--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated &#xD;&#xA;--and if yes, if they are allocated.&#xD;&#xA;->forAll(assemblyCtx|&#xD;&#xA;--AssemblyContexts that contain SubSystems do not need to be allocated&#xD;&#xA;assemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or&#xD;&#xA;--All others need to be allocated. &#xD;&#xA;self.allocationContexts_Allocation->select(allocationCtx|&#xD;&#xA;allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Each Assembly of BasicComponents and CompositeComponents used in the referenced System must be allocated. &#xD;&#xA;&#xD;&#xA;Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocated. If it is not allocated, all BasicComponents and CompositeComponents contained in this SubSystem (also transitively over several nested and not-allocated SubSystems) need to be allocated. &#xD;&#xA;&#xD;&#xA;The constraint is realised wth a closure over the AssemblyContext contained in a ComposedStructure. &#xA;-- Get all AssemblyContexts used by this system, that is &#xD;&#xA;-- 1) the AssemblyContexts directly used in the system and &#xD;&#xA;self.system_Allocation.assemblyContexts__ComposedStructure&#xD;&#xA;-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,&#xD;&#xA;-- we need to get those AssemblyContexts too: Thus, we use a closure here&#xD;&#xA;->union(self.system_Allocation.assemblyContexts__ComposedStructure->closure(&#xD;&#xA;encapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)&#xD;&#xA;.assemblyContexts__ComposedStructure))&#xD;&#xA;--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated &#xD;&#xA;--and if yes, if they are allocated.&#xD;&#xA;->forAll(assemblyCtx|&#xD;&#xA;--AssemblyContexts that contain SubSystems do not need to be allocated&#xD;&#xA;assemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or&#xD;&#xA;--All others need to be allocated. &#xD;&#xA;self.allocationContexts_Allocation->select(allocationCtx|&#xD;&#xA;allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)"/>
+          <details key="documentation" value="Each Assembly of BasicComponents and CompositeComponents used in the referenced System must be allocated. &#xD;&#xA;&#xD;&#xA;Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocated. If it is not allocated, all BasicComponents and CompositeComponents contained in this SubSystem (also transitively over several nested and not-allocated SubSystems) need to be allocated. &#xD;&#xA;&#xD;&#xA;The constraint is realised wth a closure over the AssemblyContext contained in a ComposedStructure. &#xD;&#xA;-- Get all AssemblyContexts used by this system, that is &#xD;&#xA;-- 1) the AssemblyContexts directly used in the system and &#xD;&#xA;self.system_Allocation.assemblyContexts__ComposedStructure&#xD;&#xA;-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,&#xD;&#xA;-- we need to get those AssemblyContexts too: Thus, we use a closure here&#xD;&#xA;->union(self.system_Allocation.assemblyContexts__ComposedStructure->closure(&#xD;&#xA;encapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)&#xD;&#xA;.assemblyContexts__ComposedStructure))&#xD;&#xA;--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated &#xD;&#xA;--and if yes, if they are allocated.&#xD;&#xA;->forAll(assemblyCtx|&#xD;&#xA;--AssemblyContexts that contain SubSystems do not need to be allocated&#xD;&#xA;assemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or&#xD;&#xA;--All others need to be allocated. &#xD;&#xA;self.allocationContexts_Allocation->select(allocationCtx|&#xD;&#xA;allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

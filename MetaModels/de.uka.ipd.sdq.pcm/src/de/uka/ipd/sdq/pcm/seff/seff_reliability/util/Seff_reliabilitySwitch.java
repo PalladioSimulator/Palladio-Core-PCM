@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.*;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour;

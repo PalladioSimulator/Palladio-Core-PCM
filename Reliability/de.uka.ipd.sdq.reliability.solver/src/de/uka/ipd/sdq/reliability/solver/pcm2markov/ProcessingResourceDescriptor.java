@@ -32,6 +32,12 @@ public class ProcessingResourceDescriptor {
 	private MarkovResourceState currentState;
 
 	/**
+	 * Indicates if unavailability of this resource leads to unavailability of
+	 * the surrounding resource container.
+	 */
+	private boolean requiredByContainer;
+
+	/**
 	 * The probabilities of each resource state.
 	 */
 	private HashMap<MarkovResourceState, Double> stateProbabilities = new HashMap<MarkovResourceState, Double>();
@@ -50,12 +56,11 @@ public class ProcessingResourceDescriptor {
 		setStateProbability(MarkovResourceState.OK, 1.0);
 		setStateProbability(MarkovResourceState.NA, 0.0);
 
-		// Set a default current state:
+		// Set default values:
 		setCurrentState(MarkovResourceState.OK);
-
-		// Set default names:
 		setContainerId(NOTSPECIFIED);
 		setContainerName(NOTSPECIFIED);
+		setRequiredByContainer(false);
 
 		// Set type information:
 		type = new MarkovResourceType();
@@ -68,6 +73,15 @@ public class ProcessingResourceDescriptor {
 	 */
 	public MarkovResourceState getCurrentState() {
 		return currentState;
+	}
+
+	/**
+	 * Returns the default state of this resource.
+	 * 
+	 * @return the default state
+	 */
+	public MarkovResourceState getDefaultState() {
+		return MarkovResourceState.OK;
 	}
 
 	/**
@@ -106,6 +120,16 @@ public class ProcessingResourceDescriptor {
 	 */
 	public MarkovResourceType getType() {
 		return type;
+	}
+
+	/**
+	 * Retrieves the availability relation to the surrounding resource
+	 * container.
+	 * 
+	 * @return the availability relation to the surrounding resource container
+	 */
+	public boolean isRequiredByContainer() {
+		return requiredByContainer;
 	}
 
 	/**
@@ -159,6 +183,17 @@ public class ProcessingResourceDescriptor {
 	}
 
 	/**
+	 * Sets the availability relation to the surrounding resource container.
+	 * 
+	 * @param requiredByContainer
+	 *            the availability relation to the surrounding resource
+	 *            container
+	 */
+	public void setRequiredByContainer(final boolean requiredByContainer) {
+		this.requiredByContainer = requiredByContainer;
+	}
+
+	/**
 	 * Sets a probability for a given resource state.
 	 * 
 	 * @param state
@@ -182,13 +217,5 @@ public class ProcessingResourceDescriptor {
 		} else {
 			currentState = MarkovResourceState.OK;
 		}
-	}
-
-	/**
-	 * Returns the default state of this resource.
-	 * @return the default state
-	 */
-	public MarkovResourceState getDefaultState() {
-		return MarkovResourceState.OK;
 	}
 }

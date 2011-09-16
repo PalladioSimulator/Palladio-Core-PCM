@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.reliability.*;
 import de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription;
 import de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription;
 import de.uka.ipd.sdq.pcm.reliability.FailureType;

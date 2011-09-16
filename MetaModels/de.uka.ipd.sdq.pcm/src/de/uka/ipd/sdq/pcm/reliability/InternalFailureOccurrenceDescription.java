@@ -16,6 +16,11 @@ import de.uka.ipd.sdq.pcm.seff.InternalAction;
  * A representation of the model object '<em><b>Internal Failure Occurrence Description</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Special&nbsp;case&nbsp;of&nbsp;a&nbsp;FailureOccurenceDescription&nbsp;specifying the software-induced failure potential of
+ * InternalActions.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

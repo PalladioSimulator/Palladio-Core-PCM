@@ -19,6 +19,8 @@ import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
@@ -420,62 +422,13 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 			// A system external call might fail according to
 			// FailureOccurrenceDescriptions given as
 			// SpecifiedReliabilityAnnotations to the system:
-			List<ExternalFailureOccurrenceDescription> rawFailureDescriptions = contextWrapper
-					.getFailureOccurrenceDescriptionsForSystemExternalCall(externalCallAction);
-			List<FailureDescription> resultFailureDescriptions = new ArrayList<FailureDescription>();
-			for (ExternalFailureOccurrenceDescription description : rawFailureDescriptions) {
-				Role role = description
-						.getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription()
-						.getRole_SpecifiedQoSAnnotation();
-				Signature signature = description
-						.getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription()
-						.getSignature_SpecifiedQoSAnnation();
-				FailureType failureType = description
-						.getFailureType__ExternalFailureOccurrenceDescription();
-				FailureDescription newFailureDescription = null;
-				if (failureType instanceof SoftwareInducedFailureType) {
-					newFailureDescription = new FailureDescription(
-							MarkovSoftwareInducedFailureType
-									.createExternalFailureType(evaluationType,
-											failureType.getId(), signature
-													.getId(), role.getId()),
-							description.getFailureProbability());
-				} else if (failureType instanceof HardwareInducedFailureType) {
-					newFailureDescription = new FailureDescription(
-							MarkovHardwareInducedFailureType
-									.createExternalFailureType(
-											evaluationType,
-											((HardwareInducedFailureType) failureType)
-													.getProcessingResourceType__HardwareInducedFailureType()
-													.getId(),
-											signature.getId(), role.getId()),
-							description.getFailureProbability());
-				} else if (failureType instanceof NetworkInducedFailureType) {
-					newFailureDescription = new FailureDescription(
-							MarkovNetworkInducedFailureType
-									.createExternalFailureType(
-											evaluationType,
-											((NetworkInducedFailureType) failureType)
-													.getCommunicationLinkResourceType__NetworkInducedFailureType()
-													.getId(),
-											signature.getId(), role.getId()),
-							description.getFailureProbability());
-				}
-				addFailureDescription(resultFailureDescriptions,
-						newFailureDescription);
-			}
-			if (resultFailureDescriptions.size() > 0) {
-				resultChain = markovBuilder.initBasicMarkovChainWithFailures(
-						prefixes, resultFailureDescriptions);
-			} else {
-				resultChain = markovBuilder.initBasicMarkovChain(prefixes);
-			}
+			resultChain = caseExternalCallActionOutsideSystem(externalCallAction);
 
 		} else {
 
 			// If the call is not system external, build a Markov chain that
 			// reflects the service-providing behaviour of the call:
-			resultChain = createExternalCallActionChain(externalCallAction);
+			resultChain = caseExternalCallActionInsideSystem(externalCallAction);
 		}
 
 		// If a retry policy has been specified for this external call,
@@ -586,53 +539,16 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		prefixes.add(name);
 		logger.debug("Visit InternalAction: " + name);
 
-		// Retrieve descriptors for the resources required by this internal
-		// action:
-		List<ProcessingResourceDescriptor> descriptors = getResourceDescriptors(internalAction);
-
 		// Check for the requested type of analysis:
 		MarkovChain resultChain = null;
 		if (simplifiedStateHandling) {
-
-			// Simplified state handling: iterate over all resource states
-			// like a branch.
-			ArrayList<Double> stateProbabilities = new ArrayList<Double>();
-			ArrayList<MarkovChain> stateChains = new ArrayList<MarkovChain>();
-			ArrayList<String> prefixesCopy = new ArrayList<String>();
-			prefixesCopy.addAll(prefixes);
-			prefixes.clear();
-			for (long i = 0; i < Math.pow(2, descriptors.size()); i++) {
-				setResourceState(descriptors, i);
-				stateProbabilities
-						.add(getResourceStateProbability(descriptors));
-				stateChains.add(caseInternalActionForResourceState(
-						internalAction, descriptors));
-			}
-			prefixes.addAll(prefixesCopy);
-
-			// Initialize the aggregate Markov chain representing the branch:
-			resultChain = markovBuilder.initBranchMarkovChain(prefixes,
-					stateProbabilities);
-
-			// Incorporate the specific Markov chains into the aggregate one:
-			ArrayList<State> statesToReplace = new ArrayList<State>();
-			for (int i = 0; i < resultChain.getStates().size(); i++) {
-				if (resultChain.getStates().get(i).getType().equals(
-						StateType.DEFAULT)) {
-					statesToReplace.add(resultChain.getStates().get(i));
-				}
-			}
-			for (int i = 0; i < statesToReplace.size(); i++) {
-				markovBuilder.incorporateMarkovChain(resultChain, stateChains
-						.get(i), statesToReplace.get(i), optimize, true);
-			}
-
+			// Simplified state handling; iterate over all resource states like
+			// a branch:
+			resultChain = caseInternalActionForIteratedResourceStates(internalAction);
 		} else {
-
 			// Full state handling; internal action is evaluated
 			// only once (for the current resource state):
-			resultChain = caseInternalActionForResourceState(internalAction,
-					descriptors);
+			resultChain = caseInternalActionForResourceState(internalAction);
 		}
 
 		// Naming:
@@ -724,8 +640,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	}
 
 	/**
-	 * In the case of a ResourceDemandingBehaviour, the Chain of Actions is
-	 * traversed to build an associated Markov Chain.
+	 * Evaluates a resource demanding behaviour by considering all actions in
+	 * the behaviour. Returns a corresponding Markov chain.
 	 * 
 	 * @param behaviour
 	 *            the ResourceDemandingBehaviour
@@ -768,8 +684,9 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	}
 
 	/**
-	 * All Actions in the ResourceDemandingSEFF are traversed to build an
-	 * associated Markov Chain.
+	 * Evaluates a resource demanding SEFF. In addition to the behavioural
+	 * evaluation, also the availability of the executing resource container is
+	 * checked. Returns a corresponding Markov chain.
 	 * 
 	 * @param seff
 	 *            the ResourceDemandingSEFF
@@ -782,32 +699,33 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// Logging & naming:
 		logger.debug("Visit ResourceDemandingSEFF: [" + seff.getId() + "]");
 
-		// Go through the chain of actions that constitute this RDSEFF. Each
-		// action is expected to create its own specific Markov Chain:
-		ArrayList<AbstractAction> actions = new ArrayList<AbstractAction>();
-		ArrayList<MarkovChain> chains = new ArrayList<MarkovChain>();
-		AbstractAction action = (StartAction) EMFQueryHelper.getObjectByType(seff
-				.getSteps_Behaviour(), StartAction.class);
-		while (action != null) {
-			MarkovChain specificMarkovChain = (MarkovChain) doSwitch(action);
-			actions.add(action);
-			chains.add(specificMarkovChain);
-			action = action.getSuccessor_AbstractAction();
-		}
-
-		// Initialize a new aggregate Markov Chain that has one state for each
-		// action of the action chain:
+		// Consider both the execution of the SEFF itself and the possibility
+		// that the executing resource container is unavailable:
 		ArrayList<State> states = new ArrayList<State>();
+		ArrayList<String> names = new ArrayList<String>();
+		names.add("ContainerAvailability");
+		names.add("ServiceExecution");
 		MarkovChain aggregateMarkovChain = markovBuilder
-				.initBehaviourMarkovChainByAction(prefixes, actions, states);
+				.initSequentialMarkovChain(prefixes, names, states);
 
-		// Incorporate the specific Chains into the aggregate Chain:
-		for (int i = 0; i < actions.size(); i++) {
-			markovBuilder.incorporateMarkovChain(aggregateMarkovChain, chains
-					.get(i), states.get(i), optimize, false);
-		}
+		// Model both aspects with an own specific Markov chain:
+		prefixes.add(names.get(0));
+		ResourceContainer container = contextWrapper.getAllCtx()
+				.getResourceContainer_AllocationContext();
+		MarkovChain containerAvailabilityMarkovChain = caseContainerAvailability(container);
+		prefixes.remove(prefixes.size() - 1);
+		prefixes.add(names.get(1));
+		MarkovChain innerMarkovChain = caseResourceDemandingBehaviour(seff);
+		prefixes.remove(prefixes.size() - 1);
 
-		// Return the resulting Markov Chain:
+		// Incorporate all steps into the aggregate chain:
+		markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
+				containerAvailabilityMarkovChain, states.get(0), optimize,
+				false);
+		markovBuilder.incorporateMarkovChain(aggregateMarkovChain,
+				innerMarkovChain, states.get(1), optimize, false);
+
+		// Return the result:
 		return aggregateMarkovChain;
 	}
 
@@ -922,80 +840,26 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	}
 
 	/**
-	 * Evaluates an internal action for one specific resource state and returns
-	 * the resulting Markov chain.
+	 * Evaluates the availability of a resource container. Returns a
+	 * corresponding Markov chain.
 	 * 
-	 * @param internalAction
-	 *            the internal action
 	 * @param descriptors
-	 *            the list of resources required by the internal action
+	 *            the list of required resources and their states
 	 * @return the resulting Markov chain
 	 */
-	private MarkovChain caseInternalActionForResourceState(
-			final InternalAction internalAction,
-			final List<ProcessingResourceDescriptor> descriptors) {
+	private MarkovChain caseContainerAvailability(
+			final ResourceContainer container) {
 
-		// List all possibilities of failure of this internal action:
-		List<FailureDescription> failureDescriptions = new ArrayList<FailureDescription>();
-		FailureDescription newFailureDescription = null;
-
-		// Check if any of the processing resources used by this internal action
-		// is currently broken down:
-		for (ProcessingResourceDescriptor descriptor : descriptors) {
-
-			// Get the current state of the resource:
-			MarkovResourceState state = descriptor.getCurrentState();
-			if (state == null) {
-				logger.error("Resource state no set for "
-						+ descriptor.getType().getName()
-						+ " resource demand. Assume resource state = OK.");
-				continue;
-			}
-
-			// If the resource is broken down, the internal action fails with
-			// 100% probability:
-			if (state.equals(MarkovResourceState.NA)) {
-				newFailureDescription = new FailureDescription(
-						MarkovHardwareInducedFailureType
-								.createInternalFailureType(evaluationType,
-										descriptor.getResourceContainerId(),
-										descriptor.getType().getId()), 1.0);
-				addFailureDescription(failureDescriptions,
-						newFailureDescription);
-				continue;
-			}
-		}
-
+		// Check for the requested type of analysis:
 		MarkovChain resultChain = null;
-		if (failureDescriptions.isEmpty()) {
-
-			// If all required resources are available, build a Markov chain
-			// that reflects the potential application failures:
-			for (InternalFailureOccurrenceDescription description : internalAction
-					.getInternalFailureOccurrenceDescriptions__InternalAction()) {
-				newFailureDescription = new FailureDescription(
-						MarkovSoftwareInducedFailureType
-								.createInternalFailureType(
-										evaluationType,
-										description
-												.getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
-												.getId(), internalAction
-												.getId()), description
-								.getFailureProbability());
-				addFailureDescription(failureDescriptions,
-						newFailureDescription);
-			}
-
-			// Build the Markov chain:
-			resultChain = markovBuilder.initBasicMarkovChainWithFailures(
-					prefixes, failureDescriptions);
+		if (simplifiedStateHandling) {
+			// Simplified state handling; iterate over all resource states like
+			// a branch:
+			resultChain = caseContainerAvailabilityForIteratedResourceStates(container);
 		} else {
-
-			// If there are unavailable resources, build a Markov chain
-			// that reflects each unavailable resource:
-			resultChain = markovBuilder.initResourceFailureMarkovChain(
-					prefixes, failureDescriptions);
-
+			// Full state handling; container availability is evaluated
+			// only once (for the current resource state):
+			resultChain = caseContainerAvailabilityForResourceState(container);
 		}
 
 		// Return the result:
@@ -1003,14 +867,97 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	}
 
 	/**
-	 * An ExternalCallAction returns the Markov Chain of the executing
-	 * behaviour, or a trivial Markov Chain if it is a SystemExternalCall.
+	 * Evaluates the availability of a resource container through iteration over
+	 * the possible states of its required resources. Returns a corresponding
+	 * Markov chain.
+	 * 
+	 * @param container
+	 *            the resource container
+	 * @return the resulting Markov chain
+	 */
+	private MarkovChain caseContainerAvailabilityForIteratedResourceStates(
+			final ResourceContainer container) {
+
+		// Create the result chain:
+		MarkovChain resultChain;
+
+		// Retrieve descriptors for the resources required by the container:
+		List<ProcessingResourceDescriptor> descriptors = getResourceDescriptors(container, true);
+
+		// Create the state probabilities and specific state chains:
+		ArrayList<Double> stateProbabilities = new ArrayList<Double>();
+		ArrayList<MarkovChain> stateChains = new ArrayList<MarkovChain>();
+		ArrayList<String> prefixesCopy = new ArrayList<String>();
+		prefixesCopy.addAll(prefixes);
+		prefixes.clear();
+		for (long i = 0; i < Math.pow(2, descriptors.size()); i++) {
+			setResourceState(descriptors, i);
+			stateProbabilities.add(getResourceStateProbability(descriptors));
+			stateChains
+					.add(caseContainerAvailabilityForResourceState(container));
+		}
+		prefixes.addAll(prefixesCopy);
+
+		// Initialize the aggregate Markov chain representing the branch:
+		resultChain = markovBuilder.initBranchMarkovChain(prefixes,
+				stateProbabilities);
+
+		// Incorporate the specific Markov chains into the aggregate one:
+		ArrayList<State> statesToReplace = new ArrayList<State>();
+		for (int i = 0; i < resultChain.getStates().size(); i++) {
+			if (resultChain.getStates().get(i).getType().equals(
+					StateType.DEFAULT)) {
+				statesToReplace.add(resultChain.getStates().get(i));
+			}
+		}
+		for (int i = 0; i < statesToReplace.size(); i++) {
+			markovBuilder.incorporateMarkovChain(resultChain, stateChains
+					.get(i), statesToReplace.get(i), optimize, true);
+		}
+
+		// Return the result:
+		return resultChain;
+	}
+
+	/**
+	 * Evaluates the availability of a resource container. Returns a
+	 * corresponding Markov chain.
+	 * 
+	 * @param descriptors
+	 *            the list of required resources and their states
+	 * @return the resulting Markov chain
+	 */
+	private MarkovChain caseContainerAvailabilityForResourceState(
+			final ResourceContainer container) {
+
+		// Retrieve the resource failure descriptions:
+		List<ProcessingResourceDescriptor> descriptors = getResourceDescriptors(container, true);
+		List<FailureDescription> failureDescriptions = getFailureDescriptionsForResourceState(descriptors);
+
+		MarkovChain resultChain = null;
+		if (failureDescriptions.isEmpty()) {
+			// All resource available:
+			resultChain = markovBuilder.initBasicMarkovChain(prefixes);
+		} else {
+			// If there are unavailable resources, build a Markov chain
+			// that reflects each unavailable resource:
+			resultChain = markovBuilder.initResourceFailureMarkovChain(
+					prefixes, failureDescriptions);
+		}
+
+		// Return the result:
+		return resultChain;
+	}
+
+	/**
+	 * Evaluates an external call action that does not leave the system
+	 * boundaries. Returns a corresponding Markov chain.
 	 * 
 	 * @param call
 	 *            the ExternalCallAction
 	 * @return the resulting Markov Chain.
 	 */
-	private MarkovChain createExternalCallActionChain(
+	private MarkovChain caseExternalCallActionInsideSystem(
 			final ExternalCallAction call) {
 
 		// Get a reference to the executing SEFF:
@@ -1022,13 +969,21 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// the old one and restore it after generating the new one:
 		ContextWrapper originalContextWrapper = (ContextWrapper) contextWrapper
 				.clone();
-		
-		List<ContextWrapper> contextWrapperList = contextWrapper.getContextWrapperFor(call);
-		//FIXME: The Reliability solver does not support replication yet
-		if (contextWrapperList.size() > 1){
-			logger.error("The Reliability solver only supports one AllocationContext per AssemblyContext. Picking one of the called Allocation contexts for call "+call.getEntityName()+" "+call.getId()+" ignoring the others. Results will be inaccurate.");
-		} else if (contextWrapperList.size() == 0){
-			throw new RuntimeException("Internal Error: Could not create a Context Wrapper for call "+call.getEntityName()+" " +call.getId());
+		List<ContextWrapper> contextWrapperList = contextWrapper
+				.getContextWrapperFor(call);
+
+		// FIXME: The Reliability solver does not support replication yet
+		if (contextWrapperList.size() > 1) {
+			logger
+					.error("The Reliability solver only supports one AllocationContext per AssemblyContext. Picking one of the called Allocation contexts for call "
+							+ call.getEntityName()
+							+ " "
+							+ call.getId()
+							+ " ignoring the others. Results will be inaccurate.");
+		} else if (contextWrapperList.size() == 0) {
+			throw new RuntimeException(
+					"Internal Error: Could not create a Context Wrapper for call "
+							+ call.getEntityName() + " " + call.getId());
 		}
 		ContextWrapper newContextWrapper = contextWrapperList.get(0);
 		contextWrapper = originalContextWrapper;
@@ -1053,7 +1008,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 
 			// The call can be modeled as a behavior with three steps: the
 			// sending of the message, the remote execution, and the message
-			// return. All of these steps can fail.
+			// return. All of these steps contribute a potential for failure:
 			ArrayList<State> states = new ArrayList<State>();
 			ArrayList<String> names = new ArrayList<String>();
 			names.add("MessageTransfer(1)");
@@ -1062,28 +1017,13 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 			MarkovChain aggregateMarkovChain = markovBuilder
 					.initSequentialMarkovChain(prefixes, names, states);
 
-			// Reflect the communication link failure probability:
-			List<FailureDescription> descriptions = new ArrayList<FailureDescription>();
-			descriptions
-					.add(new FailureDescription(
-							MarkovNetworkInducedFailureType
-									.createInternalFailureType(
-											evaluationType,
-											commLink
-													.getLinkingResource_CommunicationLinkResourceSpecification(),
-											commLink
-													.getCommunicationLinkResourceType_CommunicationLinkResourceSpecification()),
-							commLink.getFailureProbability()));
-
-			// The first and third steps can be modeled like an Internal
+			// The first and last steps can be modeled like an Internal
 			// Action which either fails or succeeds:
 			prefixes.add(names.get(0));
-			MarkovChain messagingMarkovChain = markovBuilder
-					.initBasicMarkovChainWithFailures(prefixes, descriptions);
+			MarkovChain messagingMarkovChain = caseMessageTransfer(commLink);
 			prefixes.remove(prefixes.size() - 1);
 			prefixes.add(names.get(2));
-			MarkovChain returnMarkovChain = markovBuilder
-					.initBasicMarkovChainWithFailures(prefixes, descriptions);
+			MarkovChain returnMarkovChain = caseMessageTransfer(commLink);
 			prefixes.remove(prefixes.size() - 1);
 
 			// The second step is the already computed inner Markov Chain.
@@ -1108,6 +1048,258 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 
 		// Return the result:
 		return resultChain;
+	}
+
+	/**
+	 * Evaluates an external call action that leaves the system boundaries.
+	 * Returns a corresponding Markov chain.
+	 * 
+	 * @param externalCallAction
+	 * @return the resulting Markov chain
+	 */
+	private MarkovChain caseExternalCallActionOutsideSystem(
+			final ExternalCallAction externalCallAction) {
+
+		// Create the result chain:
+		MarkovChain resultChain;
+
+		// Get the raw failure occurrence descriptions of the system-external
+		// call:
+		List<ExternalFailureOccurrenceDescription> rawFailureDescriptions = contextWrapper
+				.getFailureOccurrenceDescriptionsForSystemExternalCall(externalCallAction);
+
+		// Retrieve the failure descriptions list:
+		List<FailureDescription> resultFailureDescriptions = new ArrayList<FailureDescription>();
+		for (ExternalFailureOccurrenceDescription description : rawFailureDescriptions) {
+			Role role = description
+					.getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription()
+					.getRole_SpecifiedQoSAnnotation();
+			Signature signature = description
+					.getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription()
+					.getSignature_SpecifiedQoSAnnation();
+			FailureType failureType = description
+					.getFailureType__ExternalFailureOccurrenceDescription();
+			FailureDescription newFailureDescription = null;
+			if (failureType instanceof SoftwareInducedFailureType) {
+				newFailureDescription = new FailureDescription(
+						MarkovSoftwareInducedFailureType
+								.createExternalFailureType(evaluationType,
+										failureType.getId(), signature.getId(),
+										role.getId()), description
+								.getFailureProbability());
+			} else if (failureType instanceof HardwareInducedFailureType) {
+				newFailureDescription = new FailureDescription(
+						MarkovHardwareInducedFailureType
+								.createExternalFailureType(
+										evaluationType,
+										((HardwareInducedFailureType) failureType)
+												.getProcessingResourceType__HardwareInducedFailureType()
+												.getId(), signature.getId(),
+										role.getId()), description
+								.getFailureProbability());
+			} else if (failureType instanceof NetworkInducedFailureType) {
+				newFailureDescription = new FailureDescription(
+						MarkovNetworkInducedFailureType
+								.createExternalFailureType(
+										evaluationType,
+										((NetworkInducedFailureType) failureType)
+												.getCommunicationLinkResourceType__NetworkInducedFailureType()
+												.getId(), signature.getId(),
+										role.getId()), description
+								.getFailureProbability());
+			}
+			addFailureDescription(resultFailureDescriptions,
+					newFailureDescription);
+		}
+
+		// Check if failure descriptions exist for the system-external call:
+		if (resultFailureDescriptions.size() > 0) {
+			// Create a chain that reflects the existing failure descriptions:
+			resultChain = markovBuilder.initBasicMarkovChainWithFailures(
+					prefixes, resultFailureDescriptions);
+		} else {
+			// Create a basic chain:
+			resultChain = markovBuilder.initBasicMarkovChain(prefixes);
+		}
+
+		// Return the result:
+		return resultChain;
+	}
+
+	/**
+	 * Evaluates an internal action through iteration over the possible states
+	 * of its required resources. Returns a corresponding Markov chain.
+	 * 
+	 * @param internalAction
+	 *            the internal action
+	 * @return the resulting Markov chain
+	 */
+	private MarkovChain caseInternalActionForIteratedResourceStates(
+			final InternalAction internalAction) {
+
+		// Create the result chain:
+		MarkovChain resultChain;
+
+		// Retrieve descriptors for the resources required by this internal
+		// action:
+		List<ProcessingResourceDescriptor> descriptors = getResourceDescriptors(internalAction);
+
+		// Create the state probabilities and specific state chains:
+		ArrayList<Double> stateProbabilities = new ArrayList<Double>();
+		ArrayList<MarkovChain> stateChains = new ArrayList<MarkovChain>();
+		ArrayList<String> prefixesCopy = new ArrayList<String>();
+		prefixesCopy.addAll(prefixes);
+		prefixes.clear();
+		for (long i = 0; i < Math.pow(2, descriptors.size()); i++) {
+			setResourceState(descriptors, i);
+			stateProbabilities.add(getResourceStateProbability(descriptors));
+			stateChains.add(caseInternalActionForResourceState(internalAction));
+		}
+		prefixes.addAll(prefixesCopy);
+
+		// Initialize the aggregate Markov chain representing the branch:
+		resultChain = markovBuilder.initBranchMarkovChain(prefixes,
+				stateProbabilities);
+
+		// Incorporate the specific Markov chains into the aggregate one:
+		ArrayList<State> statesToReplace = new ArrayList<State>();
+		for (int i = 0; i < resultChain.getStates().size(); i++) {
+			if (resultChain.getStates().get(i).getType().equals(
+					StateType.DEFAULT)) {
+				statesToReplace.add(resultChain.getStates().get(i));
+			}
+		}
+		for (int i = 0; i < statesToReplace.size(); i++) {
+			markovBuilder.incorporateMarkovChain(resultChain, stateChains
+					.get(i), statesToReplace.get(i), optimize, true);
+		}
+
+		// Return the result:
+		return resultChain;
+	}
+
+	/**
+	 * Evaluates an internal action for one specific resource state and returns
+	 * the resulting Markov chain.
+	 * 
+	 * @param internalAction
+	 *            the internal action
+	 * @return the resulting Markov chain
+	 */
+	private MarkovChain caseInternalActionForResourceState(
+			final InternalAction internalAction) {
+
+		// Retrieve descriptors for the resources required by this internal
+		// action:
+		List<ProcessingResourceDescriptor> descriptors = getResourceDescriptors(internalAction);
+
+		// Retrieve the resource failure descriptions:
+		List<FailureDescription> failureDescriptions = getFailureDescriptionsForResourceState(descriptors);
+
+		MarkovChain resultChain = null;
+		if (failureDescriptions.isEmpty()) {
+
+			// If all required resources are available, build a Markov chain
+			// that reflects the potential application failures:
+			failureDescriptions = getInternalActionSoftwareFailureDescriptions(internalAction);
+
+			// Build the Markov chain:
+			resultChain = markovBuilder.initBasicMarkovChainWithFailures(
+					prefixes, failureDescriptions);
+		} else {
+
+			// If there are unavailable resources, build a Markov chain
+			// that reflects each unavailable resource:
+			resultChain = markovBuilder.initResourceFailureMarkovChain(
+					prefixes, failureDescriptions);
+		}
+
+		// Return the result:
+		return resultChain;
+	}
+
+	/**
+	 * Evaluates a message transfer over a communication link. Returns a
+	 * corresponding Markov chain.
+	 * 
+	 * @param commLink
+	 *            the communication link
+	 * @return the resulting Markov chain
+	 */
+	private MarkovChain caseMessageTransfer(
+			CommunicationLinkResourceSpecification commLink) {
+		List<FailureDescription> commFailureDescriptions = getFailureDescriptionsForCommunicationLink(commLink);
+		MarkovChain messagingMarkovChain = markovBuilder
+				.initBasicMarkovChainWithFailures(prefixes,
+						commFailureDescriptions);
+		return messagingMarkovChain;
+	}
+
+	/**
+	 * Retrieves a list of failureDescriptions for a communication link.
+	 * 
+	 * @param commLink
+	 *            the communication link
+	 * @return the list of failure descriptions
+	 */
+	private List<FailureDescription> getFailureDescriptionsForCommunicationLink(
+			CommunicationLinkResourceSpecification commLink) {
+		List<FailureDescription> commFailureDescriptions = new ArrayList<FailureDescription>();
+		commFailureDescriptions
+				.add(new FailureDescription(
+						MarkovNetworkInducedFailureType
+								.createInternalFailureType(
+										evaluationType,
+										commLink
+												.getLinkingResource_CommunicationLinkResourceSpecification(),
+										commLink
+												.getCommunicationLinkResourceType_CommunicationLinkResourceSpecification()),
+						commLink.getFailureProbability()));
+		return commFailureDescriptions;
+	}
+
+	/**
+	 * Retrieves a list of failure descriptions for resource unavailability
+	 * failures under a given resource state.
+	 * 
+	 * @param descriptors
+	 *            the list of resources and their states
+	 * @return the list of failure descriptions
+	 */
+	private List<FailureDescription> getFailureDescriptionsForResourceState(
+			final List<ProcessingResourceDescriptor> descriptors) {
+
+		// List all possible unavailability failures:
+		List<FailureDescription> failureDescriptions = new ArrayList<FailureDescription>();
+		FailureDescription newFailureDescription = null;
+
+		// Check if any of the resources is unavailable:
+		for (ProcessingResourceDescriptor descriptor : descriptors) {
+
+			// Get the current state of the resource:
+			MarkovResourceState state = descriptor.getCurrentState();
+			if (state == null) {
+				logger.error("Resource state no set for "
+						+ descriptor.getType().getName()
+						+ " resource demand. Assume resource state = OK.");
+				continue;
+			}
+
+			// If the resource is unavailable, create a corresponding
+			// failure description:
+			if (state.equals(MarkovResourceState.NA)) {
+				newFailureDescription = new FailureDescription(
+						MarkovHardwareInducedFailureType
+								.createInternalFailureType(evaluationType,
+										descriptor.getResourceContainerId(),
+										descriptor.getType().getId()), 1.0);
+				addFailureDescription(failureDescriptions,
+						newFailureDescription);
+			}
+		}
+
+		// Return the result:
+		return failureDescriptions;
 	}
 
 	/**
@@ -1144,6 +1336,40 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	}
 
 	/**
+	 * Retrieves a list of software failure descriptions for a given internal
+	 * action.
+	 * 
+	 * @param internalAction
+	 *            the internal action
+	 * @return the list of software failure descriptions
+	 */
+	private List<FailureDescription> getInternalActionSoftwareFailureDescriptions(
+			final InternalAction internalAction) {
+
+		// List all possible software failures:
+		List<FailureDescription> failureDescriptions = new ArrayList<FailureDescription>();
+		FailureDescription newFailureDescription = null;
+
+		// Go through all failure occurrence descriptions of the internal
+		// action:
+		for (InternalFailureOccurrenceDescription description : internalAction
+				.getInternalFailureOccurrenceDescriptions__InternalAction()) {
+			newFailureDescription = new FailureDescription(
+					MarkovSoftwareInducedFailureType
+							.createInternalFailureType(
+									evaluationType,
+									description
+											.getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
+											.getId(), internalAction.getId()),
+					description.getFailureProbability());
+			addFailureDescription(failureDescriptions, newFailureDescription);
+		}
+
+		// Return the result:
+		return failureDescriptions;
+	}
+
+	/**
 	 * Retrieves the list of required physical resources of a given internal
 	 * action.
 	 * 
@@ -1177,6 +1403,54 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 						+ demand.getRequiredResource_ParametricResourceDemand()
 								.getEntityName()
 						+ " resource demand. Assume resource state = OK.");
+				continue;
+			}
+
+			// Add the descriptor to the list:
+			resultList.add(descriptor);
+		}
+
+		// Return the result:
+		return resultList;
+	}
+
+	/**
+	 * Retrieves the list of physical resources contained within the given
+	 * resource container.
+	 * 
+	 * @param resourceContainer
+	 *            the resource container
+	 * @param searchForRequiredResources
+	 *            if set to TRUE, only the resources required by this container will be returned
+	 * @return the resulting list of resources
+	 */
+	private List<ProcessingResourceDescriptor> getResourceDescriptors(
+			final ResourceContainer resourceContainer,
+			final boolean searchForRequiredResources) {
+
+		// Create the resource list:
+		ArrayList<ProcessingResourceDescriptor> resultList = new ArrayList<ProcessingResourceDescriptor>();
+
+		// Go through the list of specified resources:
+		for (ProcessingResourceSpecification resource : resourceContainer
+				.getActiveResourceSpecifications_ResourceContainer()) {
+			
+			// Check if this is a required resource:
+			if(searchForRequiredResources && !resource.isRequiredByContainer()){
+				continue;
+			}
+
+			// Get the descriptor that corresponds to the specified resource:
+			ProcessingResourceDescriptor descriptor = transformationState
+					.getDescriptor(resource);
+			if (descriptor == null) {
+				logger
+						.error("Missing resource description for resource "
+								+ resource
+										.getActiveResourceType_ActiveResourceSpecification()
+										.getEntityName() + " in container "
+								+ resourceContainer.getEntityName()
+								+ ". Assume resource state = OK.");
 				continue;
 			}
 

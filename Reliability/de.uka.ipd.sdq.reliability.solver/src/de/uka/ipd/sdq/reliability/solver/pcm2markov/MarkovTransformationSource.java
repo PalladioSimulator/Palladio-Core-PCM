@@ -66,83 +66,6 @@ public class MarkovTransformationSource {
 	}
 
 	/**
-	 * Retrieves a resource descriptor corresponding to the given resource
-	 * demand.
-	 * 
-	 * @param demand
-	 *            the resource demand
-	 * @param contextWrapper
-	 *            a contextWrapper providing a link to the actual resource
-	 * @return the descriptor; NULL if no corresponding descriptor could be
-	 *         found
-	 */
-	public ProcessingResourceDescriptor getDescriptor(
-			final ParametricResourceDemand demand,
-			final ContextWrapper contextWrapper) {
-
-		// Map the resource demand to a concrete resource:
-		ProcessingResourceSpecification resource = contextWrapper
-				.getConcreteProcessingResource(demand);
-		if (resource == null) {
-			return null;
-		}
-
-		// Get the IDs of the resource type and resource container:
-		String resourceTypeId = resource
-				.getActiveResourceType_ActiveResourceSpecification().getId();
-		String containerId = contextWrapper.getAllCtx()
-				.getResourceContainer_AllocationContext().getId();
-
-		// Search for the right descriptor:
-		for (ProcessingResourceDescriptor descriptor : resourceDescriptors) {
-
-			// Compare the IDs to those of the descriptor:
-			if ((descriptor.getType().getId().equals(resourceTypeId))
-					&& (descriptor.getResourceContainerId().equals(containerId))) {
-				return descriptor;
-			}
-		}
-
-		// No descriptor found:
-		return null;
-	}
-
-	/**
-	 * Retrieves the PCM instance.
-	 * 
-	 * @return the PCM instance
-	 */
-	public PCMInstance getModel() {
-		return model;
-	}
-
-	/**
-	 * Returns a list of resource descriptors whose resources can fail, i.e.,
-	 * whose N/A state probability is greater than 0.
-	 * 
-	 * @return the list of resource descriptors whose resources can fail, i.e.,
-	 *         whose N/A state probability is greater than 0
-	 */
-	public List<ProcessingResourceDescriptor> getUnreliableResourceDescriptors() {
-		return unreliableResourceDescriptors;
-	}
-
-	/**
-	 * Prints the current permutation for debugging purposes.
-	 * 
-	 * @param descriptors
-	 *            the list of resource descriptors
-	 */
-	public void printCurrentResourceStates() {
-		for (int i = 0; i < unreliableResourceDescriptors.size(); i++) {
-			System.out.print(unreliableResourceDescriptors.get(i)
-					.getCurrentState() == MarkovResourceState.OK ? "1"
-					: "0");
-		}
-		System.out.println();
-	}
-
-	/**
 	 * Builds a list of resource descriptors based on the given PCM instance.
 	 * 
 	 * @param sort
@@ -202,6 +125,7 @@ public class MarkovTransformationSource {
 				descriptor.setId(type.getId());
 				descriptor.setContainerName(container.getEntityName());
 				descriptor.setName(type.getEntityName());
+				descriptor.setRequiredByContainer(resource.isRequiredByContainer());
 				descriptor.setStateProbability(MarkovResourceState.OK,
 						resourceMTTF / (resourceMTTF + resourceMTTR));
 				descriptor.setStateProbability(MarkovResourceState.NA,
@@ -240,6 +164,119 @@ public class MarkovTransformationSource {
 		}
 
 		return unreliableResourceDescriptorsList;
+	}
+
+	/**
+	 * Retrieves a resource descriptor corresponding to the given resource
+	 * demand.
+	 * 
+	 * @param demand
+	 *            the resource demand
+	 * @param contextWrapper
+	 *            a contextWrapper providing a link to the actual resource
+	 * @return the descriptor; NULL if no corresponding descriptor could be
+	 *         found
+	 */
+	public ProcessingResourceDescriptor getDescriptor(
+			final ParametricResourceDemand demand,
+			final ContextWrapper contextWrapper) {
+
+		// Map the resource demand to a concrete resource:
+		ProcessingResourceSpecification resource = contextWrapper
+				.getConcreteProcessingResource(demand);
+		if (resource == null) {
+			return null;
+		}
+
+		// Get the IDs of the resource type and resource container:
+		String resourceTypeId = resource
+				.getActiveResourceType_ActiveResourceSpecification().getId();
+		String containerId = contextWrapper.getAllCtx()
+				.getResourceContainer_AllocationContext().getId();
+
+		// Search for the right descriptor:
+		for (ProcessingResourceDescriptor descriptor : resourceDescriptors) {
+
+			// Compare the IDs to those of the descriptor:
+			if ((descriptor.getType().getId().equals(resourceTypeId))
+					&& (descriptor.getResourceContainerId().equals(containerId))) {
+				return descriptor;
+			}
+		}
+
+		// No descriptor found:
+		return null;
+	}
+
+	/**
+	 * Retrieves a resource descriptor corresponding to the given processing
+	 * resource specification.
+	 * 
+	 * @param resource
+	 *            the processing resource specification
+	 * @return the descriptor; NULL if no corresponding descriptor could be
+	 *         found
+	 */
+	public ProcessingResourceDescriptor getDescriptor(
+			final ProcessingResourceSpecification resource) {
+
+		// Search for the right descriptor:
+		for (ProcessingResourceDescriptor descriptor : resourceDescriptors) {
+
+			// Compare the IDs to those of the descriptor:
+			if (descriptor
+					.getResourceContainerId()
+					.equals(
+							resource
+									.getResourceContainer_ProcessingResourceSpecification()
+									.getId())
+					&& descriptor
+							.getType()
+							.getId()
+							.equals(
+									resource
+											.getActiveResourceType_ActiveResourceSpecification()
+											.getId())) {
+				return descriptor;
+			}
+		}
+
+		// No descriptor found:
+		return null;
+	}
+
+	/**
+	 * Retrieves the PCM instance.
+	 * 
+	 * @return the PCM instance
+	 */
+	public PCMInstance getModel() {
+		return model;
+	}
+
+	/**
+	 * Returns a list of resource descriptors whose resources can fail, i.e.,
+	 * whose N/A state probability is greater than 0.
+	 * 
+	 * @return the list of resource descriptors whose resources can fail, i.e.,
+	 *         whose N/A state probability is greater than 0
+	 */
+	public List<ProcessingResourceDescriptor> getUnreliableResourceDescriptors() {
+		return unreliableResourceDescriptors;
+	}
+
+	/**
+	 * Prints the current permutation for debugging purposes.
+	 * 
+	 * @param descriptors
+	 *            the list of resource descriptors
+	 */
+	public void printCurrentResourceStates() {
+		for (int i = 0; i < unreliableResourceDescriptors.size(); i++) {
+			System.out.print(unreliableResourceDescriptors.get(i)
+					.getCurrentState() == MarkovResourceState.OK ? "1" : "0");
+		}
+		System.out.println();
 	}
 
 	/**

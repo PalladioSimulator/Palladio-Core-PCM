@@ -24,6 +24,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR <em>MTTR</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF <em>MTTF</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#isRequiredByContainer <em>Required By Container</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
@@ -95,6 +96,43 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * @generated
 	 */
 	void setMTTF(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Required By Container</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * <p>
+	 *     This attribute controls the handling of the resource&nbsp;by the&nbsp;reliability prediction.
+	 * </p>
+	 * <p>
+	 *     If set to TRUE, the unavailability of the resource automatically leads to the unavailability of the surrounding
+	 *     resource container. Every attempt to execute a SEFF on an unavailable resource container leads to a corresponding
+	 *     resource failure.
+	 * </p>
+	 * <p>
+	 *     If set to FALSE, the unavailability of the resource does not make the container unavailable. An attempt to execute a
+	 *     SEFF on a container with an unavailable resource leads to a resource failure ONLY IF the SEFF contains an
+	 *     InternalAction that accesses&nbsp;the resource.
+	 * </p>
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Required By Container</em>' attribute.
+	 * @see #setRequiredByContainer(boolean)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_RequiredByContainer()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	boolean isRequiredByContainer();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#isRequiredByContainer <em>Required By Container</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Required By Container</em>' attribute.
+	 * @see #isRequiredByContainer()
+	 * @generated
+	 */
+	void setRequiredByContainer(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Scheduling Policy</b></em>' attribute.

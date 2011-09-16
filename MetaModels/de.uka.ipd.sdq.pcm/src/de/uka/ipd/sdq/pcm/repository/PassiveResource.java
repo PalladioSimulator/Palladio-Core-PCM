@@ -103,6 +103,10 @@ public interface PassiveResource extends Entity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The&nbsp;failure type that represents a timeout&nbsp;failure of an acquiring action for this passive resource&nbsp;(see the
+	 * documentation of the "timeout" attribute of the "AcquireAction" for further information).
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Resource Timeout Failure Type Passive Resource</em>' reference.
 	 * @see #setResourceTimeoutFailureType__PassiveResource(ResourceTimeoutFailureType)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getPassiveResource_ResourceTimeoutFailureType__PassiveResource()

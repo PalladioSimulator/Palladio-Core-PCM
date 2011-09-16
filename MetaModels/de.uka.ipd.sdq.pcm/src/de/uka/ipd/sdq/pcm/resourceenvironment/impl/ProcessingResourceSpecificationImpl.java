@@ -30,6 +30,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getMTTR <em>MTTR</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getMTTF <em>MTTF</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#isRequiredByContainer <em>Required By Container</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
@@ -87,6 +88,26 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @ordered
 	 */
 	protected double mttf = MTTF_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isRequiredByContainer() <em>Required By Container</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequiredByContainer()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REQUIRED_BY_CONTAINER_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRequiredByContainer() <em>Required By Container</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequiredByContainer()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean requiredByContainer = REQUIRED_BY_CONTAINER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}' attribute.
@@ -207,6 +228,27 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 		mttf = newMTTF;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF, oldMTTF, mttf));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isRequiredByContainer() {
+		return requiredByContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequiredByContainer(boolean newRequiredByContainer) {
+		boolean oldRequiredByContainer = requiredByContainer;
+		requiredByContainer = newRequiredByContainer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER, oldRequiredByContainer, requiredByContainer));
 	}
 
 	/**
@@ -435,6 +477,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				return getMTTR();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
 				return getMTTF();
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER:
+				return isRequiredByContainer();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				return getSchedulingPolicy();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
@@ -463,6 +507,9 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
 				setMTTF((Double)newValue);
+				return;
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER:
+				setRequiredByContainer((Boolean)newValue);
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				setSchedulingPolicy((SchedulingPolicy)newValue);
@@ -497,6 +544,9 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
 				setMTTF(MTTF_EDEFAULT);
 				return;
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER:
+				setRequiredByContainer(REQUIRED_BY_CONTAINER_EDEFAULT);
+				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				setSchedulingPolicy(SCHEDULING_POLICY_EDEFAULT);
 				return;
@@ -528,6 +578,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				return mttr != MTTR_EDEFAULT;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
 				return mttf != MTTF_EDEFAULT;
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER:
+				return requiredByContainer != REQUIRED_BY_CONTAINER_EDEFAULT;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 				return schedulingPolicy != SCHEDULING_POLICY_EDEFAULT;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
@@ -556,6 +608,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 		result.append(mttr);
 		result.append(", MTTF: ");
 		result.append(mttf);
+		result.append(", requiredByContainer: ");
+		result.append(requiredByContainer);
 		result.append(", schedulingPolicy: ");
 		result.append(schedulingPolicy);
 		result.append(", numberOfReplicas: ");

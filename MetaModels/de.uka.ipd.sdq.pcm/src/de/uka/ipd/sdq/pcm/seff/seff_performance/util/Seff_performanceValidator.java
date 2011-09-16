@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.seff_performance.util;
 
+import de.uka.ipd.sdq.pcm.seff.seff_performance.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
