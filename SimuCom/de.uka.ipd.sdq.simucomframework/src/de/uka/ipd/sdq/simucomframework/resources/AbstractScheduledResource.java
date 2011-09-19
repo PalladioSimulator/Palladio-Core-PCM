@@ -27,8 +27,8 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntity;
  * @author Steffen Becker
  * 
  */
-public abstract class AbstractScheduledResource extends AbstractSimEntity<SimuComModel> implements
-		IActiveResourceStateSensor {
+public abstract class AbstractScheduledResource extends
+		AbstractSimEntity<SimuComModel> implements IActiveResourceStateSensor {
 
 	public final static double EPSILON = Math.pow(10, -9);
 
@@ -46,6 +46,8 @@ public abstract class AbstractScheduledResource extends AbstractSimEntity<SimuCo
 	protected double mttr = 0.0;
 	protected boolean canBeUnavailable = false;
 	protected boolean isAvailable = true;
+	protected boolean requiredByContainer = false;
+
 	protected ResourceFailedEvent failedEvent;
 	protected ResourceRepairedEvent repairedEvent;
 
@@ -71,13 +73,14 @@ public abstract class AbstractScheduledResource extends AbstractSimEntity<SimuCo
 	public AbstractScheduledResource(SimuComModel myModel, String typeID,
 			String resourceContainerID, String resourceTypeID,
 			String description, SchedulingStrategy strategy,
-			int numberOfInstances) {
+			int numberOfInstances, boolean requiredByContainer) {
 		super(myModel, typeID);
 		this.description = description;
 		this.numberOfInstances = numberOfInstances;
 		this.schedulingStrategy = strategy;
 		this.resourceTypeID = resourceTypeID;
 		this.resourceContainerID = resourceContainerID;
+		this.requiredByContainer = requiredByContainer;
 
 		logger.info("Creating Simulated Active Resource: " + this.getName());
 
@@ -104,7 +107,8 @@ public abstract class AbstractScheduledResource extends AbstractSimEntity<SimuCo
 	 * @return the {@link IActiveResource} resource to use as determined by the
 	 *         subclasses.
 	 */
-	protected abstract IActiveResource createActiveResource(SimuComModel simuComModel);
+	protected abstract IActiveResource createActiveResource(
+			SimuComModel simuComModel);
 
 	/**
 	 * Called by client of this resource to make the resource simulate resource
@@ -181,6 +185,23 @@ public abstract class AbstractScheduledResource extends AbstractSimEntity<SimuCo
 		String status = (this.isAvailable) ? "available" : "unavailable";
 		logger.debug("Resource " + this.getName() + " " + status
 				+ " at sim time " + time);
+	}
+
+	/**
+	 * Retrieves the current availability status of this resource.
+	 * 
+	 * @return TRUE if the resource is available; FALSE otherwise
+	 */
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+
+	/**
+	 * Asks if a processing resource is required by its surrounding container.
+	 * @return TRUE if resource is required; FALSE otherwise
+	 */
+	public boolean isRequiredByContainer() {
+		return requiredByContainer;
 	}
 
 	/**

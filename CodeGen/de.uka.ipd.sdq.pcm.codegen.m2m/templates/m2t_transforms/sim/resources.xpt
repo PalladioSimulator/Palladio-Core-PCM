@@ -160,7 +160,8 @@
 		«this.MTTR»,
 		"TODO: unit!",
 		«EXPAND SchedulingStrategy(((ResourceContainer)this.eContainer)) FOR this»,
-		«this.numberOfReplicas»);
+		«this.numberOfReplicas»,
+		«this.requiredByContainer»);
 «ENDDEFINE»
 
 «DEFINE SchedulingStrategy(ResourceContainer container) FOR ProcessingResourceSpecification»

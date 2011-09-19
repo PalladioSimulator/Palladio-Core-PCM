@@ -1,7 +1,10 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -79,10 +82,27 @@ public abstract class AbstractSimulatedResourceContainer {
 	}
 
 	/**
-	 * @return All active resources in this resource container
+	 * Retrieves all active resources in this resource container.
+	 * @return all active resources
 	 */
 	public Collection<AbstractScheduledResource> getActiveResources() {
 		return activeResources.values();
+	}
+	
+	/**
+	 * Retrieves all active resources in this resource container which are currently unavailable.
+	 * @return all unavailable active resources
+	 */
+	public List<AbstractScheduledResource> getFailedResources() {
+		List<AbstractScheduledResource> resultList = new ArrayList<AbstractScheduledResource>();
+		Iterator<AbstractScheduledResource> iterator = getActiveResources().iterator();
+		while(iterator.hasNext()){
+			AbstractScheduledResource resource = iterator.next();
+			if(!resource.isAvailable() && resource.isRequiredByContainer()){
+				resultList.add(resource);
+			}
+		}
+		return resultList;
 	}
 
 	/**

@@ -39,9 +39,11 @@ public class ScheduledResource extends AbstractScheduledResource {
 			Double mttf,
 			Double mttr,
 			SchedulingStrategy strategy,
-			int numberOfCores) {
+			int numberOfCores,
+			boolean requiredByContainer) {
 		super(myModel, typeID, resourceContainerID, resourceTypeID,
-				description, strategy, numberOfCores);
+				description, strategy, numberOfCores,
+				requiredByContainer);
 		this.processingRate = processingRate;
 
 		// Reliability Stuff.

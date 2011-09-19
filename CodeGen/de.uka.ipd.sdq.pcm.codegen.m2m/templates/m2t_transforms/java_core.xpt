@@ -85,7 +85,8 @@ public class «this.javaName()»
 
 «DEFINE ComponentService(RepositoryComponent component) FOR OperationSignature»
    public «EXPAND ComponentServiceSignature FOR this»
-   { 
+   {
+   	  «EXPAND ContainerAvailabilityCheckTM FOR this» 
       «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLE»
    	  «IF this.hasSEFF(component)»
    	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
@@ -210,4 +211,7 @@ public class «this.javaName()»
 ///-----
 
 «DEFINE ComponentConstructorTM FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE ContainerAvailabilityCheckTM FOR OperationSignature»
 «ENDDEFINE»

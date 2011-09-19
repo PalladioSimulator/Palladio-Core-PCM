@@ -58,13 +58,31 @@ public class SimulatedResourceContainer extends
 		return r;
 	}
 
-	public void addActiveResource(String typeID, String[] providedInterfaceIds, String resourceContainerID,
-			String resourceTypeID, String description, String processingRate,
-			Double mttf, Double mttr, String units,
-			SchedulingStrategy strategy, int numberOfReplicas) {
-		ScheduledResource r = new ScheduledResource(myModel, typeID,
-				resourceContainerID, resourceTypeID, description,
-				processingRate, mttf, mttr, strategy, numberOfReplicas);
+	public void addActiveResource(
+			String typeID,
+			String[] providedInterfaceIds,
+			String resourceContainerID,
+			String resourceTypeID,
+			String description,
+			String processingRate,
+			Double mttf,
+			Double mttr,
+			String units,
+			SchedulingStrategy strategy,
+			int numberOfReplicas,
+			boolean requiredByContainer){
+		ScheduledResource r = new ScheduledResource(
+				myModel,
+				typeID,
+				resourceContainerID,
+				resourceTypeID,
+				description,
+				processingRate,
+				mttf,
+				mttr,
+				strategy,
+				numberOfReplicas,
+				requiredByContainer);
 		activeResources.put(typeID, r);
 		
 		// Currently, resources can also be looked up by the provided interface id

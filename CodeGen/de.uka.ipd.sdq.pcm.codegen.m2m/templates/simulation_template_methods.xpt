@@ -291,4 +291,12 @@
 
 «AROUND m2t_transforms::sim::java_core::InitCalculatorsTM FOR RepositoryComponent»
 	«EXPAND m2t_transforms::sim::calculators::SetupCalculators FOR this»
-«ENDAROUND» 
+«ENDAROUND»
+
+//-----------------------------
+// Resource Container Availability TM
+//-----------------------------
+
+«AROUND m2t_transforms::java_core::ContainerAvailabilityCheckTM FOR OperationSignature»
+	«EXPAND m2t_transforms::sim::java_core::ContainerAvailabilityCheckTM FOR this»
+«ENDAROUND»

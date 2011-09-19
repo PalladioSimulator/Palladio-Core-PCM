@@ -42,7 +42,7 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 			String description, String d, String latencySpec,
 			Double failureProbability) {
 		super(simuComModel, typeID, resourceContainerID, resourceTypeID,
-				description, SchedulingStrategy.FCFS, 1);
+				description, SchedulingStrategy.FCFS, 1, false);
 		this.id = id;
 		this.latencySpec = latencySpec;
 		this.throughput = d;
