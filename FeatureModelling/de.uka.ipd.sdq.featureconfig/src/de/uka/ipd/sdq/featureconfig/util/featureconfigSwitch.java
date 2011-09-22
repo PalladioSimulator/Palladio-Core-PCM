@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.featureconfig.util;
 
+import de.uka.ipd.sdq.featureconfig.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -139,6 +140,15 @@ public class featureconfigSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case featureconfigPackage.STRING_ATTRIBUTE_VALUE: {
+				StringAttributeValue stringAttributeValue = (StringAttributeValue)theEObject;
+				T result = caseStringAttributeValue(stringAttributeValue);
+				if (result == null) result = caseAttributeValue(stringAttributeValue);
+				if (result == null) result = caseNamedElement(stringAttributeValue);
+				if (result == null) result = caseIdentifier(stringAttributeValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -230,6 +240,21 @@ public class featureconfigSwitch<T> {
 	 * @generated
 	 */
 	public T caseDoubleAttributeValue(DoubleAttributeValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Attribute Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStringAttributeValue(StringAttributeValue object) {
 		return null;
 	}
 

@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.featureconfig.util;
 
+import de.uka.ipd.sdq.featureconfig.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -59,12 +60,20 @@ public class featureconfigValidator extends EObjectValidator {
 	public static final int CONFIG_NODE__CONFIG_CARDINALITY_INVALID = 1;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Check Multiplicity Of Feature Group' of 'Config Node'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int CONFIG_NODE__CHECK_MULTIPLICITY_OF_FEATURE_GROUP = 2;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Root Is Feature Model' of 'Feature Config'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int FEATURE_CONFIG__ROOT_IS_FEATURE_MODEL = 2;
+	public static final int FEATURE_CONFIG__ROOT_IS_FEATURE_MODEL = 3;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Attribute Value Is Defined In Feature And Equals Type Integer' of 'Integer Attribute Value'.
@@ -72,7 +81,7 @@ public class featureconfigValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int INTEGER_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_INTEGER = 3;
+	public static final int INTEGER_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_INTEGER = 4;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Attribute Value Is Defined In Feature And Equals Type Double' of 'Double Attribute Value'.
@@ -80,7 +89,15 @@ public class featureconfigValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int DOUBLE_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_DOUBLE = 4;
+	public static final int DOUBLE_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_DOUBLE = 5;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Attribute Value Is Defined In Feature And Equals Type String' of 'String Attribute Value'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int STRING_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_STRING = 6;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -88,7 +105,7 @@ public class featureconfigValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 4;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 6;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -149,6 +166,8 @@ public class featureconfigValidator extends EObjectValidator {
 				return validateIntegerAttributeValue((IntegerAttributeValue)value, diagnostics, context);
 			case featureconfigPackage.DOUBLE_ATTRIBUTE_VALUE:
 				return validateDoubleAttributeValue((DoubleAttributeValue)value, diagnostics, context);
+			case featureconfigPackage.STRING_ATTRIBUTE_VALUE:
+				return validateStringAttributeValue((StringAttributeValue)value, diagnostics, context);
 			case featureconfigPackage.CONFIG_STATE:
 				return validateConfigState((ConfigState)value, diagnostics, context);
 			case featureconfigPackage.FEATURE_CONFIG_STATE:
@@ -172,6 +191,7 @@ public class featureconfigValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validateConfigNode_ConfigCardinalityInvalid(configNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validateConfigNode_CheckMultiplicityOfFeatureGroup(configNode, diagnostics, context);
 		return result;
 	}
 
@@ -183,6 +203,16 @@ public class featureconfigValidator extends EObjectValidator {
 	 */
 	public boolean validateConfigNode_ConfigCardinalityInvalid(ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return configNode.ConfigCardinalityInvalid(diagnostics, context);
+	}
+
+	/**
+	 * Validates the CheckMultiplicityOfFeatureGroup constraint of '<em>Config Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConfigNode_CheckMultiplicityOfFeatureGroup(ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return configNode.CheckMultiplicityOfFeatureGroup(diagnostics, context);
 	}
 
 	/**
@@ -292,6 +322,34 @@ public class featureconfigValidator extends EObjectValidator {
 	 */
 	public boolean validateDoubleAttributeValue_AttributeValueIsDefinedInFeatureAndEqualsTypeDouble(DoubleAttributeValue doubleAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return doubleAttributeValue.AttributeValueIsDefinedInFeatureAndEqualsTypeDouble(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStringAttributeValue(StringAttributeValue stringAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(stringAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(stringAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(stringAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(stringAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(stringAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(stringAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(stringAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(stringAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validateStringAttributeValue_AttributeValueIsDefinedInFeatureAndEqualsTypeString(stringAttributeValue, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the AttributeValueIsDefinedInFeatureAndEqualsTypeString constraint of '<em>String Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStringAttributeValue_AttributeValueIsDefinedInFeatureAndEqualsTypeString(StringAttributeValue stringAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return stringAttributeValue.AttributeValueIsDefinedInFeatureAndEqualsTypeString(diagnostics, context);
 	}
 
 	/**

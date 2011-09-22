@@ -87,6 +87,7 @@ public interface FeatureGroup extends ChildRelation {
 	/**
 	 * Returns the value of the '<em><b>Children</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.featuremodel.Feature}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.featuremodel.Feature#getFeaturegroup <em>Featuregroup</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Children</em>' containment reference list isn't clear,
@@ -95,7 +96,8 @@ public interface FeatureGroup extends ChildRelation {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Children</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getFeatureGroup_Children()
-	 * @model containment="true" lower="2" ordered="false"
+	 * @see de.uka.ipd.sdq.featuremodel.Feature#getFeaturegroup
+	 * @model opposite="featuregroup" containment="true" lower="2" ordered="false"
 	 * @generated
 	 */
 	EList<Feature> getChildren();

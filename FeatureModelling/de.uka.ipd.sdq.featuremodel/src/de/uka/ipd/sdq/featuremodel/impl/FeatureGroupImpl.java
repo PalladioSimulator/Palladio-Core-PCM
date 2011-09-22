@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -165,7 +166,7 @@ public class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup 
 	 */
 	public EList<Feature> getChildren() {
 		if (children == null) {
-			children = new EObjectContainmentEList<Feature>(Feature.class, this, featuremodelPackage.FEATURE_GROUP__CHILDREN);
+			children = new EObjectContainmentWithInverseEList<Feature>(Feature.class, this, featuremodelPackage.FEATURE_GROUP__CHILDREN, featuremodelPackage.FEATURE__FEATUREGROUP);
 		}
 		return children;
 	}
@@ -376,6 +377,21 @@ public class FeatureGroupImpl extends ChildRelationImpl implements FeatureGroup 
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case featuremodelPackage.FEATURE_GROUP__CHILDREN:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildren()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

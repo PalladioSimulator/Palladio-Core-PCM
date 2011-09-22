@@ -163,6 +163,11 @@ public class FeatureItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(featuremodelPackage.Literals.FEATURE__ATTRIBUTES,
+				 featuremodelFactory.eINSTANCE.createStringAttribute()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(featuremodelPackage.Literals.FEATURE__CHILDRELATION,
 				 featuremodelFactory.eINSTANCE.createSimple()));
 

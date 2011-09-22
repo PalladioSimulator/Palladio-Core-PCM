@@ -55,7 +55,7 @@ public interface FeatureConfig extends EObject {
 	 * @return the value of the '<em>Feature Config State</em>' attribute.
 	 * @see de.uka.ipd.sdq.featureconfig.FeatureConfigState
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_FeatureConfigState()
-	 * @model default="NOT_SET" required="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
+	 * @model default="NOT_SET" required="true" changeable="false" volatile="true" derived="true" ordered="false"
 	 * @generated
 	 */
 	FeatureConfigState getFeatureConfigState();
@@ -87,7 +87,7 @@ public interface FeatureConfig extends EObject {
 	 * @return the value of the '<em>Annotated Element</em>' reference.
 	 * @see #setAnnotatedElement(EObject)
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_AnnotatedElement()
-	 * @model required="true" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	EObject getAnnotatedElement();

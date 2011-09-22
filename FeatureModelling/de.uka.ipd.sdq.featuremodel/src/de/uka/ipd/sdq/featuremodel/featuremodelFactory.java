@@ -98,6 +98,15 @@ public interface featuremodelFactory extends EFactory {
 	DoubleAttribute createDoubleAttribute();
 
 	/**
+	 * Returns a new object of class '<em>String Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Attribute</em>'.
+	 * @generated
+	 */
+	StringAttribute createStringAttribute();
+
+	/**
 	 * Returns a new object of class '<em>Required Constraint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

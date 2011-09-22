@@ -130,4 +130,17 @@ public interface ConfigNode extends EObject {
 	 */
 	boolean ConfigCardinalityInvalid(DiagnosticChain diagnostics, Map<Object, Object> context);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.origin.featuregroup->isEmpty() implies (self.origin.featuregroup.children->size() <=  self.origin.featuregroup.max and self.origin.featuregroup.children->size() >=  self.origin.featuregroup.min)
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.origin.featuregroup->isEmpty() implies (self.origin.featuregroup.children->size() <=  self.origin.featuregroup.max and self.origin.featuregroup.children->size() >=  self.origin.featuregroup.min)'"
+	 * @generated
+	 */
+	boolean CheckMultiplicityOfFeatureGroup(DiagnosticChain diagnostics, Map<Object, Object> context);
+
 } // ConfigNode

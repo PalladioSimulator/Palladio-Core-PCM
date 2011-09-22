@@ -71,6 +71,15 @@ public interface featureconfigFactory extends EFactory {
 	DoubleAttributeValue createDoubleAttributeValue();
 
 	/**
+	 * Returns a new object of class '<em>String Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Attribute Value</em>'.
+	 * @generated
+	 */
+	StringAttributeValue createStringAttributeValue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

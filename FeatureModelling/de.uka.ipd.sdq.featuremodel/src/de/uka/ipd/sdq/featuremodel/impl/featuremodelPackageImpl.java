@@ -33,6 +33,7 @@ import de.uka.ipd.sdq.featuremodel.NamedElement;
 import de.uka.ipd.sdq.featuremodel.ProhibitsConstraint;
 import de.uka.ipd.sdq.featuremodel.RequiredConstraint;
 import de.uka.ipd.sdq.featuremodel.Simple;
+import de.uka.ipd.sdq.featuremodel.StringAttribute;
 import de.uka.ipd.sdq.featuremodel.featuremodelFactory;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
@@ -128,6 +129,13 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * @generated
 	 */
 	private EClass doubleAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringAttributeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -274,6 +282,15 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 */
 	public EReference getFeature_SimpleOptional() {
 		return (EReference)featureEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFeature_Featuregroup() {
+		return (EReference)featureEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -515,6 +532,24 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getStringAttribute() {
+		return stringAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringAttribute_DefaultValue() {
+		return (EAttribute)stringAttributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIntervalRange() {
 		return intervalRangeEClass;
 	}
@@ -633,6 +668,7 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		createEReference(featureEClass, FEATURE__CHILDRELATION);
 		createEReference(featureEClass, FEATURE__SIMPLE_MANDATORY);
 		createEReference(featureEClass, FEATURE__SIMPLE_OPTIONAL);
+		createEReference(featureEClass, FEATURE__FEATUREGROUP);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -683,6 +719,9 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		doubleAttributeEClass = createEClass(DOUBLE_ATTRIBUTE);
 		createEAttribute(doubleAttributeEClass, DOUBLE_ATTRIBUTE__DEFAULT_VALUE);
 
+		stringAttributeEClass = createEClass(STRING_ATTRIBUTE);
+		createEAttribute(stringAttributeEClass, STRING_ATTRIBUTE__DEFAULT_VALUE);
+
 		// Create enums
 		attributeTypesEEnum = createEEnum(ATTRIBUTE_TYPES);
 	}
@@ -732,6 +771,7 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		continousIntervalRangeEClass.getESuperTypes().add(this.getIntervalRange());
 		integerAttributeEClass.getESuperTypes().add(this.getAttribute());
 		doubleAttributeEClass.getESuperTypes().add(this.getAttribute());
+		stringAttributeEClass.getESuperTypes().add(this.getAttribute());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -739,6 +779,7 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		initEReference(getFeature_Childrelation(), this.getChildRelation(), null, "childrelation", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getFeature_SimpleMandatory(), this.getSimple(), this.getSimple_MandatoryChildren(), "simpleMandatory", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getFeature_SimpleOptional(), this.getSimple(), this.getSimple_OptionalChildren(), "simpleOptional", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFeature_Featuregroup(), this.getFeatureGroup(), this.getFeatureGroup_Children(), "featuregroup", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		EOperation op = addEOperation(featureEClass, ecorePackage.getEBoolean(), "EachAttributeNameDefinedJustOnce", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -777,7 +818,7 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		initEClass(featureGroupEClass, FeatureGroup.class, "FeatureGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFeatureGroup_Min(), ecorePackage.getEInt(), "min", "1", 1, 1, FeatureGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getFeatureGroup_Max(), ecorePackage.getEInt(), "max", "1", 1, 1, FeatureGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getFeatureGroup_Children(), this.getFeature(), null, "children", null, 2, -1, FeatureGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFeatureGroup_Children(), this.getFeature(), this.getFeature_Featuregroup(), "children", null, 2, -1, FeatureGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(featureGroupEClass, ecorePackage.getEBoolean(), "XORorORImpliesChildrenAreMandatory", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -842,6 +883,9 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 
 		initEClass(doubleAttributeEClass, DoubleAttribute.class, "DoubleAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDoubleAttribute_DefaultValue(), ecorePackage.getEDouble(), "defaultValue", null, 1, 1, DoubleAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(stringAttributeEClass, StringAttribute.class, "StringAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 1, 1, StringAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(attributeTypesEEnum, AttributeTypes.class, "AttributeTypes");

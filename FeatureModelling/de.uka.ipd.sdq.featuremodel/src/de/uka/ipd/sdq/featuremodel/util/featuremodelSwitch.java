@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.featuremodel.util;
 
+import de.uka.ipd.sdq.featuremodel.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -218,6 +219,15 @@ public class featuremodelSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case featuremodelPackage.STRING_ATTRIBUTE: {
+				StringAttribute stringAttribute = (StringAttribute)theEObject;
+				T result = caseStringAttribute(stringAttribute);
+				if (result == null) result = caseAttribute(stringAttribute);
+				if (result == null) result = caseNamedElement(stringAttribute);
+				if (result == null) result = caseIdentifier(stringAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -309,6 +319,21 @@ public class featuremodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseDoubleAttribute(DoubleAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>String Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>String Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStringAttribute(StringAttribute object) {
 		return null;
 	}
 

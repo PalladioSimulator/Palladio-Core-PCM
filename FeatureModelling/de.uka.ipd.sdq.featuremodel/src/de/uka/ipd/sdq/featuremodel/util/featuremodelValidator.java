@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.featuremodel.util;
 
+import de.uka.ipd.sdq.featuremodel.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -191,6 +192,8 @@ public class featuremodelValidator extends EObjectValidator {
 				return validateIntegerAttribute((IntegerAttribute)value, diagnostics, context);
 			case featuremodelPackage.DOUBLE_ATTRIBUTE:
 				return validateDoubleAttribute((DoubleAttribute)value, diagnostics, context);
+			case featuremodelPackage.STRING_ATTRIBUTE:
+				return validateStringAttribute((StringAttribute)value, diagnostics, context);
 			case featuremodelPackage.ATTRIBUTE_TYPES:
 				return validateAttributeTypes((AttributeTypes)value, diagnostics, context);
 			default:
@@ -300,6 +303,23 @@ public class featuremodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(doubleAttribute, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(doubleAttribute, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(doubleAttribute, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStringAttribute(StringAttribute stringAttribute, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(stringAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(stringAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(stringAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(stringAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(stringAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(stringAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(stringAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(stringAttribute, diagnostics, context);
 		return result;
 	}
 

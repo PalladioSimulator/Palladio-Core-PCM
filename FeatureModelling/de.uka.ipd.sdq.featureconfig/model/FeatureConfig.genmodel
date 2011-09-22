@@ -22,7 +22,7 @@
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
     <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
   </genAnnotations>
-  <foreignModel>file:/D:/Documents/hiwi/ChristophKurrat/trunk/rational_export/FeatureConfig.uml</foreignModel>
+  <foreignModel>file:/C:/111/FeatureConfig.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="featureconfig" basePackage="de.uka.ipd.sdq"
       disposableProviderFactory="true" ecorePackage="featureconfig.ecore#/">
     <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="featureconfig.ecore#//ConfigState">
@@ -44,6 +44,10 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featureconfig.ecore#//ConfigNode/ConfigCardinalityInvalid">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//ConfigNode/ConfigCardinalityInvalid/diagnostics"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//ConfigNode/ConfigCardinalityInvalid/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featureconfig.ecore#//ConfigNode/CheckMultiplicityOfFeatureGroup">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//ConfigNode/CheckMultiplicityOfFeatureGroup/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//ConfigNode/CheckMultiplicityOfFeatureGroup/context"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="featureconfig.ecore#//AttributeValue">
@@ -84,6 +88,12 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featureconfig.ecore#//DoubleAttributeValue/AttributeValueIsDefinedInFeatureAndEqualsTypeDouble">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//DoubleAttributeValue/AttributeValueIsDefinedInFeatureAndEqualsTypeDouble/diagnostics"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//DoubleAttributeValue/AttributeValueIsDefinedInFeatureAndEqualsTypeDouble/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featureconfig.ecore#//StringAttributeValue">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featureconfig.ecore#//StringAttributeValue/AttributeValueIsDefinedInFeatureAndEqualsTypeString">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//StringAttributeValue/AttributeValueIsDefinedInFeatureAndEqualsTypeString/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featureconfig.ecore#//StringAttributeValue/AttributeValueIsDefinedInFeatureAndEqualsTypeString/context"/>
       </genOperations>
     </genClasses>
   </genPackages>

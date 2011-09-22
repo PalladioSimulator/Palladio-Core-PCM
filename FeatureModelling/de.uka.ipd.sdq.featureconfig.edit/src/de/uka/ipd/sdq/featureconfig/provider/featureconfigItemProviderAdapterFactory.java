@@ -190,6 +190,29 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featureconfig.StringAttributeValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringAttributeValueItemProvider stringAttributeValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featureconfig.StringAttributeValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringAttributeValueAdapter() {
+		if (stringAttributeValueItemProvider == null) {
+			stringAttributeValueItemProvider = new StringAttributeValueItemProvider(this);
+		}
+
+		return stringAttributeValueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,6 +316,7 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 		if (configurationItemProvider != null) configurationItemProvider.dispose();
 		if (integerAttributeValueItemProvider != null) integerAttributeValueItemProvider.dispose();
 		if (doubleAttributeValueItemProvider != null) doubleAttributeValueItemProvider.dispose();
+		if (stringAttributeValueItemProvider != null) stringAttributeValueItemProvider.dispose();
 	}
 
 }

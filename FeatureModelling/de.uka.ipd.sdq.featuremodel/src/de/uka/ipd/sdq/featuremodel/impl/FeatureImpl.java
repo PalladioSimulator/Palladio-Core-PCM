@@ -30,6 +30,7 @@ import org.eclipse.ocl.ecore.OCL;
 import de.uka.ipd.sdq.featuremodel.Attribute;
 import de.uka.ipd.sdq.featuremodel.ChildRelation;
 import de.uka.ipd.sdq.featuremodel.Feature;
+import de.uka.ipd.sdq.featuremodel.FeatureGroup;
 import de.uka.ipd.sdq.featuremodel.Simple;
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
@@ -44,6 +45,7 @@ import de.uka.ipd.sdq.featuremodel.util.featuremodelValidator;
  *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureImpl#getChildrelation <em>Childrelation</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureImpl#getSimpleMandatory <em>Simple Mandatory</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureImpl#getSimpleOptional <em>Simple Optional</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featuremodel.impl.FeatureImpl#getFeaturegroup <em>Featuregroup</em>}</li>
  * </ul>
  * </p>
  *
@@ -217,6 +219,47 @@ public class FeatureImpl extends NamedElementImpl implements Feature {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureGroup getFeaturegroup() {
+		if (eContainerFeatureID() != featuremodelPackage.FEATURE__FEATUREGROUP) return null;
+		return (FeatureGroup)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFeaturegroup(FeatureGroup newFeaturegroup, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newFeaturegroup, featuremodelPackage.FEATURE__FEATUREGROUP, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFeaturegroup(FeatureGroup newFeaturegroup) {
+		if (newFeaturegroup != eInternalContainer() || (eContainerFeatureID() != featuremodelPackage.FEATURE__FEATUREGROUP && newFeaturegroup != null)) {
+			if (EcoreUtil.isAncestor(this, newFeaturegroup))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newFeaturegroup != null)
+				msgs = ((InternalEObject)newFeaturegroup).eInverseAdd(this, featuremodelPackage.FEATURE_GROUP__CHILDREN, FeatureGroup.class, msgs);
+			msgs = basicSetFeaturegroup(newFeaturegroup, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, featuremodelPackage.FEATURE__FEATUREGROUP, newFeaturegroup, newFeaturegroup));
+	}
+
+	/**
 	 * The cached OCL expression body for the '{@link #EachAttributeNameDefinedJustOnce(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Each Attribute Name Defined Just Once</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -285,6 +328,10 @@ public class FeatureImpl extends NamedElementImpl implements Feature {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetSimpleOptional((Simple)otherEnd, msgs);
+			case featuremodelPackage.FEATURE__FEATUREGROUP:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetFeaturegroup((FeatureGroup)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -305,6 +352,8 @@ public class FeatureImpl extends NamedElementImpl implements Feature {
 				return basicSetSimpleMandatory(null, msgs);
 			case featuremodelPackage.FEATURE__SIMPLE_OPTIONAL:
 				return basicSetSimpleOptional(null, msgs);
+			case featuremodelPackage.FEATURE__FEATUREGROUP:
+				return basicSetFeaturegroup(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -321,6 +370,8 @@ public class FeatureImpl extends NamedElementImpl implements Feature {
 				return eInternalContainer().eInverseRemove(this, featuremodelPackage.SIMPLE__MANDATORY_CHILDREN, Simple.class, msgs);
 			case featuremodelPackage.FEATURE__SIMPLE_OPTIONAL:
 				return eInternalContainer().eInverseRemove(this, featuremodelPackage.SIMPLE__OPTIONAL_CHILDREN, Simple.class, msgs);
+			case featuremodelPackage.FEATURE__FEATUREGROUP:
+				return eInternalContainer().eInverseRemove(this, featuremodelPackage.FEATURE_GROUP__CHILDREN, FeatureGroup.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -340,6 +391,8 @@ public class FeatureImpl extends NamedElementImpl implements Feature {
 				return getSimpleMandatory();
 			case featuremodelPackage.FEATURE__SIMPLE_OPTIONAL:
 				return getSimpleOptional();
+			case featuremodelPackage.FEATURE__FEATUREGROUP:
+				return getFeaturegroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -365,6 +418,9 @@ public class FeatureImpl extends NamedElementImpl implements Feature {
 			case featuremodelPackage.FEATURE__SIMPLE_OPTIONAL:
 				setSimpleOptional((Simple)newValue);
 				return;
+			case featuremodelPackage.FEATURE__FEATUREGROUP:
+				setFeaturegroup((FeatureGroup)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -388,6 +444,9 @@ public class FeatureImpl extends NamedElementImpl implements Feature {
 			case featuremodelPackage.FEATURE__SIMPLE_OPTIONAL:
 				setSimpleOptional((Simple)null);
 				return;
+			case featuremodelPackage.FEATURE__FEATUREGROUP:
+				setFeaturegroup((FeatureGroup)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -407,6 +466,8 @@ public class FeatureImpl extends NamedElementImpl implements Feature {
 				return getSimpleMandatory() != null;
 			case featuremodelPackage.FEATURE__SIMPLE_OPTIONAL:
 				return getSimpleOptional() != null;
+			case featuremodelPackage.FEATURE__FEATUREGROUP:
+				return getFeaturegroup() != null;
 		}
 		return super.eIsSet(featureID);
 	}

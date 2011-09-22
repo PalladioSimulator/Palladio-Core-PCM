@@ -164,13 +164,22 @@ public interface featuremodelPackage extends EPackage {
 	int FEATURE__SIMPLE_OPTIONAL = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Featuregroup</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__FEATUREGROUP = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int FEATURE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -834,6 +843,61 @@ public interface featuremodelPackage extends EPackage {
 	int DOUBLE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.StringAttributeImpl <em>String Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featuremodel.impl.StringAttributeImpl
+	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getStringAttribute()
+	 * @generated
+	 */
+	int STRING_ATTRIBUTE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE__ID = ATTRIBUTE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE__NAME = ATTRIBUTE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Range</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE__RANGE = ATTRIBUTE__RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE__DEFAULT_VALUE = ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>String Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.AttributeTypes <em>Attribute Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -841,7 +905,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getAttributeTypes()
 	 * @generated
 	 */
-	int ATTRIBUTE_TYPES = 15;
+	int ATTRIBUTE_TYPES = 16;
 
 
 	/**
@@ -897,6 +961,17 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getFeature_SimpleOptional();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.featuremodel.Feature#getFeaturegroup <em>Featuregroup</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Featuregroup</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.Feature#getFeaturegroup()
+	 * @see #getFeature()
+	 * @generated
+	 */
+	EReference getFeature_Featuregroup();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.NamedElement <em>Named Element</em>}'.
@@ -991,6 +1066,27 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDoubleAttribute_DefaultValue();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.StringAttribute <em>String Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Attribute</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.StringAttribute
+	 * @generated
+	 */
+	EClass getStringAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.featuremodel.StringAttribute#getDefaultValue <em>Default Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Value</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.StringAttribute#getDefaultValue()
+	 * @see #getStringAttribute()
+	 * @generated
+	 */
+	EAttribute getStringAttribute_DefaultValue();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.IntervalRange <em>Interval Range</em>}'.
@@ -1344,6 +1440,14 @@ public interface featuremodelPackage extends EPackage {
 		EReference FEATURE__SIMPLE_OPTIONAL = eINSTANCE.getFeature_SimpleOptional();
 
 		/**
+		 * The meta object literal for the '<em><b>Featuregroup</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEATURE__FEATUREGROUP = eINSTANCE.getFeature_Featuregroup();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1424,6 +1528,24 @@ public interface featuremodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOUBLE_ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getDoubleAttribute_DefaultValue();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.StringAttributeImpl <em>String Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.featuremodel.impl.StringAttributeImpl
+		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getStringAttribute()
+		 * @generated
+		 */
+		EClass STRING_ATTRIBUTE = eINSTANCE.getStringAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getStringAttribute_DefaultValue();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.IntervalRangeImpl <em>Interval Range</em>}' class.

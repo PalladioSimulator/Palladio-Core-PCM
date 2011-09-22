@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.featuremodel.util;
 
+import de.uka.ipd.sdq.featuremodel.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -146,6 +147,10 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 				return createDoubleAttributeAdapter();
 			}
 			@Override
+			public Adapter caseStringAttribute(StringAttribute object) {
+				return createStringAttributeAdapter();
+			}
+			@Override
 			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
@@ -250,6 +255,20 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDoubleAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featuremodel.StringAttribute <em>String Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.featuremodel.StringAttribute
+	 * @generated
+	 */
+	public Adapter createStringAttributeAdapter() {
 		return null;
 	}
 

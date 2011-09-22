@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uka.ipd.sdq.featuremodel.Feature#getChildrelation <em>Childrelation</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.Feature#getSimpleMandatory <em>Simple Mandatory</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.featuremodel.Feature#getSimpleOptional <em>Simple Optional</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.featuremodel.Feature#getFeaturegroup <em>Featuregroup</em>}</li>
  * </ul>
  * </p>
  *
@@ -128,6 +129,34 @@ public interface Feature extends NamedElement {
 	 * @generated
 	 */
 	void setSimpleOptional(Simple value);
+
+	/**
+	 * Returns the value of the '<em><b>Featuregroup</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.featuremodel.FeatureGroup#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Featuregroup</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Featuregroup</em>' container reference.
+	 * @see #setFeaturegroup(FeatureGroup)
+	 * @see de.uka.ipd.sdq.featuremodel.featuremodelPackage#getFeature_Featuregroup()
+	 * @see de.uka.ipd.sdq.featuremodel.FeatureGroup#getChildren
+	 * @model opposite="children" transient="false" ordered="false"
+	 * @generated
+	 */
+	FeatureGroup getFeaturegroup();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.featuremodel.Feature#getFeaturegroup <em>Featuregroup</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Featuregroup</em>' container reference.
+	 * @see #getFeaturegroup()
+	 * @generated
+	 */
+	void setFeaturegroup(FeatureGroup value);
 
 	/**
 	 * <!-- begin-user-doc -->

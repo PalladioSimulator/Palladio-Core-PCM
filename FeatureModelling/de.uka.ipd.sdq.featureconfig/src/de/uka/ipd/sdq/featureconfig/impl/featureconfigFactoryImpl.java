@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.featureconfig.impl;
 
+import de.uka.ipd.sdq.featureconfig.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -72,6 +73,7 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 			case featureconfigPackage.CONFIGURATION: return createConfiguration();
 			case featureconfigPackage.INTEGER_ATTRIBUTE_VALUE: return createIntegerAttributeValue();
 			case featureconfigPackage.DOUBLE_ATTRIBUTE_VALUE: return createDoubleAttributeValue();
+			case featureconfigPackage.STRING_ATTRIBUTE_VALUE: return createStringAttributeValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -159,6 +161,16 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	public DoubleAttributeValue createDoubleAttributeValue() {
 		DoubleAttributeValueImpl doubleAttributeValue = new DoubleAttributeValueImpl();
 		return doubleAttributeValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StringAttributeValue createStringAttributeValue() {
+		StringAttributeValueImpl stringAttributeValue = new StringAttributeValueImpl();
+		return stringAttributeValue;
 	}
 
 	/**

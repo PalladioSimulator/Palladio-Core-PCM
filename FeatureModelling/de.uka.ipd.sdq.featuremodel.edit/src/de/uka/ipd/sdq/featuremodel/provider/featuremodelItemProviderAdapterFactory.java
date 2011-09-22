@@ -305,6 +305,29 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.StringAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringAttributeItemProvider stringAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.StringAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringAttributeAdapter() {
+		if (stringAttributeItemProvider == null) {
+			stringAttributeItemProvider = new StringAttributeItemProvider(this);
+		}
+
+		return stringAttributeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -413,6 +436,7 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 		if (continousIntervalRangeItemProvider != null) continousIntervalRangeItemProvider.dispose();
 		if (integerAttributeItemProvider != null) integerAttributeItemProvider.dispose();
 		if (doubleAttributeItemProvider != null) doubleAttributeItemProvider.dispose();
+		if (stringAttributeItemProvider != null) stringAttributeItemProvider.dispose();
 	}
 
 }

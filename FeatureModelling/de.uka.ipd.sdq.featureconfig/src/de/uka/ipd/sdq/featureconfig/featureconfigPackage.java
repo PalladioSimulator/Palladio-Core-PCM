@@ -388,6 +388,61 @@ public interface featureconfigPackage extends EPackage {
 	int DOUBLE_ATTRIBUTE_VALUE_FEATURE_COUNT = ATTRIBUTE_VALUE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.impl.StringAttributeValueImpl <em>String Attribute Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featureconfig.impl.StringAttributeValueImpl
+	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getStringAttributeValue()
+	 * @generated
+	 */
+	int STRING_ATTRIBUTE_VALUE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE_VALUE__ID = ATTRIBUTE_VALUE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE_VALUE__NAME = ATTRIBUTE_VALUE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE_VALUE__VALUE = ATTRIBUTE_VALUE__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Confignode</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE_VALUE__CONFIGNODE = ATTRIBUTE_VALUE__CONFIGNODE;
+
+	/**
+	 * The number of structural features of the '<em>String Attribute Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_ATTRIBUTE_VALUE_FEATURE_COUNT = ATTRIBUTE_VALUE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.ConfigState <em>Config State</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -395,7 +450,7 @@ public interface featureconfigPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getConfigState()
 	 * @generated
 	 */
-	int CONFIG_STATE = 6;
+	int CONFIG_STATE = 7;
 
 
 	/**
@@ -406,7 +461,7 @@ public interface featureconfigPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getFeatureConfigState()
 	 * @generated
 	 */
-	int FEATURE_CONFIG_STATE = 7;
+	int FEATURE_CONFIG_STATE = 8;
 
 
 	/**
@@ -589,6 +644,16 @@ public interface featureconfigPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDoubleAttributeValue();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featureconfig.StringAttributeValue <em>String Attribute Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Attribute Value</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.StringAttributeValue
+	 * @generated
+	 */
+	EClass getStringAttributeValue();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.featureconfig.Configuration#getDefaultConfig <em>Default Config</em>}'.
@@ -801,6 +866,16 @@ public interface featureconfigPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DOUBLE_ATTRIBUTE_VALUE = eINSTANCE.getDoubleAttributeValue();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.impl.StringAttributeValueImpl <em>String Attribute Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.featureconfig.impl.StringAttributeValueImpl
+		 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getStringAttributeValue()
+		 * @generated
+		 */
+		EClass STRING_ATTRIBUTE_VALUE = eINSTANCE.getStringAttributeValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Default Config</b></em>' containment reference feature.

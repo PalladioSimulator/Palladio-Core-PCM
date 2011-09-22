@@ -25,6 +25,7 @@ import de.uka.ipd.sdq.featureconfig.DoubleAttributeValue;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.featureconfig.FeatureConfigState;
 import de.uka.ipd.sdq.featureconfig.IntegerAttributeValue;
+import de.uka.ipd.sdq.featureconfig.StringAttributeValue;
 import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
 import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
 import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
@@ -78,6 +79,13 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 	 * @generated
 	 */
 	private EClass doubleAttributeValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringAttributeValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -324,6 +332,15 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getStringAttributeValue() {
+		return stringAttributeValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getConfiguration_DefaultConfig() {
 		return (EReference)configurationEClass.getEStructuralFeatures().get(0);
 	}
@@ -408,6 +425,8 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 
 		doubleAttributeValueEClass = createEClass(DOUBLE_ATTRIBUTE_VALUE);
 
+		stringAttributeValueEClass = createEClass(STRING_ATTRIBUTE_VALUE);
+
 		// Create enums
 		configStateEEnum = createEEnum(CONFIG_STATE);
 		featureConfigStateEEnum = createEEnum(FEATURE_CONFIG_STATE);
@@ -448,6 +467,7 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 		attributeValueEClass.getESuperTypes().add(thefeaturemodelPackage.getNamedElement());
 		integerAttributeValueEClass.getESuperTypes().add(this.getAttributeValue());
 		doubleAttributeValueEClass.getESuperTypes().add(this.getAttributeValue());
+		stringAttributeValueEClass.getESuperTypes().add(this.getAttributeValue());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(configNodeEClass, ConfigNode.class, "ConfigNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -464,14 +484,23 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(configNodeEClass, ecorePackage.getEBoolean(), "CheckMultiplicityOfFeatureGroup", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(attributeValueEClass, AttributeValue.class, "AttributeValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttributeValue_Value(), theEcorePackage.getEString(), "value", null, 1, 1, AttributeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getAttributeValue_Confignode(), this.getConfigNode(), this.getConfigNode_Attributevalue(), "confignode", null, 1, 1, AttributeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(featureConfigEClass, FeatureConfig.class, "FeatureConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFeatureConfig_FeatureConfigState(), this.getFeatureConfigState(), "featureConfigState", "NOT_SET", 1, 1, FeatureConfig.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getFeatureConfig_FeatureConfigState(), this.getFeatureConfigState(), "featureConfigState", "NOT_SET", 1, 1, FeatureConfig.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getFeatureConfig_Confignode(), this.getConfigNode(), null, "confignode", null, 0, -1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getFeatureConfig_AnnotatedElement(), theEcorePackage.getEObject(), null, "annotatedElement", null, 1, 1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFeatureConfig_AnnotatedElement(), theEcorePackage.getEObject(), null, "annotatedElement", null, 0, 1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getFeatureConfig_ConfigurationOverrides(), this.getConfiguration(), this.getConfiguration_ConfigOverrides(), "configurationOverrides", null, 0, 1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getFeatureConfig_ConfigurationDefault(), this.getConfiguration(), this.getConfiguration_DefaultConfig(), "configurationDefault", null, 0, 1, FeatureConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -505,6 +534,17 @@ public class featureconfigPackageImpl extends EPackageImpl implements featurecon
 		initEClass(doubleAttributeValueEClass, DoubleAttributeValue.class, "DoubleAttributeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(doubleAttributeValueEClass, ecorePackage.getEBoolean(), "AttributeValueIsDefinedInFeatureAndEqualsTypeDouble", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(stringAttributeValueEClass, StringAttributeValue.class, "StringAttributeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(stringAttributeValueEClass, ecorePackage.getEBoolean(), "AttributeValueIsDefinedInFeatureAndEqualsTypeString", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());

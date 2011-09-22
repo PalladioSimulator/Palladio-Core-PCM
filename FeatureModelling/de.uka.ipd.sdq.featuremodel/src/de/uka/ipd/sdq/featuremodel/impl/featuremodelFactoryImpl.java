@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.featuremodel.impl;
 
+import de.uka.ipd.sdq.featuremodel.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -81,6 +82,7 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 			case featuremodelPackage.CONTINOUS_INTERVAL_RANGE: return createContinousIntervalRange();
 			case featuremodelPackage.INTEGER_ATTRIBUTE: return createIntegerAttribute();
 			case featuremodelPackage.DOUBLE_ATTRIBUTE: return createDoubleAttribute();
+			case featuremodelPackage.STRING_ATTRIBUTE: return createStringAttribute();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -194,6 +196,16 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	public DoubleAttribute createDoubleAttribute() {
 		DoubleAttributeImpl doubleAttribute = new DoubleAttributeImpl();
 		return doubleAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StringAttribute createStringAttribute() {
+		StringAttributeImpl stringAttribute = new StringAttributeImpl();
+		return stringAttribute;
 	}
 
 	/**

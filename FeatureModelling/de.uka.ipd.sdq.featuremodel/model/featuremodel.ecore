@@ -34,6 +34,8 @@
         eType="#//Simple" eOpposite="#//Simple/mandatoryChildren"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="simpleOptional" ordered="false"
         eType="#//Simple" eOpposite="#//Simple/optionalChildren"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="featuregroup" ordered="false"
+        eType="#//FeatureGroup" eOpposite="#//FeatureGroup/children"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
@@ -172,7 +174,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" ordered="false"
-        lowerBound="2" upperBound="-1" eType="#//Feature" containment="true"/>
+        lowerBound="2" upperBound="-1" eType="#//Feature" containment="true" eOpposite="#//Feature/featuregroup"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FeatureDiagram" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rootFeature" ordered="false"
@@ -216,5 +218,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="DoubleAttribute" eSuperTypes="#//Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringAttribute" eSuperTypes="#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
