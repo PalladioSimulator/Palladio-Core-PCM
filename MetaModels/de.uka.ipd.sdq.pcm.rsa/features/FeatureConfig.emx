@@ -254,6 +254,28 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Zf19IXctEeCD3b1oyrExdQ" fontName="Segoe UI" fillColor="13356031" lineColor="8421631" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Zf19InctEeCD3b1oyrExdQ" x="15557" y="-2144"/>
         </children>
+        <children xmi:id="_kLaeQOUmEeC5x7HepwhVXw" element="_kLUXoOUmEeC5x7HepwhVXw">
+          <children xmi:id="_kLaeQ-UmEeC5x7HepwhVXw" type="ImageCompartment">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_kLaeROUmEeC5x7HepwhVXw" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_kLaeReUmEeC5x7HepwhVXw" type="Stereotype"/>
+          <children xmi:id="_kLaeRuUmEeC5x7HepwhVXw" type="Name"/>
+          <children xmi:id="_kLaeR-UmEeC5x7HepwhVXw" type="Parent"/>
+          <children xmi:id="_kLaeSOUmEeC5x7HepwhVXw" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kLaeSeUmEeC5x7HepwhVXw"/>
+          </children>
+          <children xmi:id="_kLaeSuUmEeC5x7HepwhVXw" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kLaeS-UmEeC5x7HepwhVXw"/>
+          </children>
+          <children xmi:id="_kLaeTOUmEeC5x7HepwhVXw" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kLaeTeUmEeC5x7HepwhVXw"/>
+          </children>
+          <children xmi:id="_kLaeTuUmEeC5x7HepwhVXw" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_kLaeT-UmEeC5x7HepwhVXw"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_kLaeQeUmEeC5x7HepwhVXw" fontName="Segoe UI" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kLaeQuUmEeC5x7HepwhVXw" x="40153" y="4868"/>
+        </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_9QxvwXvxEdyOhKBWyuRGig"/>
         <element xsi:nil="true"/>
         <edges xmi:id="_JR1G0HvyEdyOhKBWyuRGig" element="_JRjaAHvyEdyOhKBWyuRGig" source="__AxtwHvxEdyOhKBWyuRGig" target="_tPMpIIMGEd2EZ-q5ZcFTEQ">
@@ -594,6 +616,15 @@
           <element xsi:nil="true"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZgO-snctEeCD3b1oyrExdQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
         </edges>
+        <edges xmi:id="_lUKPAeUmEeC5x7HepwhVXw" element="_lUKPAOUmEeC5x7HepwhVXw" source="_kLaeQOUmEeC5x7HepwhVXw" target="_PrG4YMcnEd6uiptR6cqsUw">
+          <children xmi:id="_lUKPBOUmEeC5x7HepwhVXw" type="NameLabel">
+            <children xmi:id="_lUQVoOUmEeC5x7HepwhVXw" type="Stereotype"/>
+            <children xmi:id="_lUQVoeUmEeC5x7HepwhVXw" type="Name"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lUKPBeUmEeC5x7HepwhVXw" y="-149"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_lUKPAuUmEeC5x7HepwhVXw" fontName="Segoe UI" lineWidth="1" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lUKPA-UmEeC5x7HepwhVXw" points="[-93, -22, 723, 168]$[-892, -213, -76, -23]"/>
+        </edges>
       </contents>
     </eAnnotations>
     <ownedComment xmi:id="_h5My8KwTEd2RCOCuXmp_aA" annotatedElement="_wDpnIHvxEdyOhKBWyuRGig">
@@ -672,7 +703,7 @@ aka NULL, not set, do not override</body>
       <ownedAttribute xmi:id="_d0XF0CxjEd-fSpCH--lS1g" name="annotatedElement" visibility="private" association="_d0UpkCxjEd-fSpCH--lS1g">
         <type xmi:type="uml:Class" href="Ecore.emx#_SeWijsX_EduPJbEsMYXjUQ?Ecore/EObject?"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_d0Y7ACxjEd-fSpCH--lS1g" value="1"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d0YT8CxjEd-fSpCH--lS1g" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d0YT8CxjEd-fSpCH--lS1g"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_TxaAEHweEdyOhKBWyuRGig" name="configurationOverrides" visibility="private" type="_JTpAsHweEdyOhKBWyuRGig" association="_TxWVsHweEdyOhKBWyuRGig">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yl5WIMe9Ed6HwLqReLKGsQ" value="1"/>
@@ -743,6 +774,14 @@ aka NULL, not set, do not override</body>
       <ownedLiteral xmi:id="_FyWjMMcqEd6uiptR6cqsUw" name="DEFAULT"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_d0UpkCxjEd-fSpCH--lS1g" memberEnd="_d0XF0CxjEd-fSpCH--lS1g _d0aJICxjEd-fSpCH--lS1g">
+      <ownedComment xmi:id="_v2mvgOUlEeC5x7HepwhVXw" annotatedElement="_d0UpkCxjEd-fSpCH--lS1g">
+        <body>&lt;p>&#xD;
+    The annotatedElement reference can be used to refer to an external object holding arbitrary configuration data.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    For example, a complex matrix can be encoded in an external model and be used inside a FeatureConfig.&#xD;
+&lt;/p></body>
+      </ownedComment>
       <ownedEnd xmi:id="_d0aJICxjEd-fSpCH--lS1g" name="" visibility="private" type="_2-grAHvyEdyOhKBWyuRGig" association="_d0UpkCxjEd-fSpCH--lS1g">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_d0b-USxjEd-fSpCH--lS1g" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d0b-UCxjEd-fSpCH--lS1g"/>
@@ -765,6 +804,15 @@ aka NULL, not set, do not override</body>
         </specification>
       </ownedRule>
       <generalization xmi:id="_VvEO8EI2Ed-TiaMuXLH3qw" general="_PmyZEMcnEd6uiptR6cqsUw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_kLUXoOUmEeC5x7HepwhVXw" name="StringAttributeValue">
+      <ownedRule xmi:id="_rIEHUOUmEeC5x7HepwhVXw" name="AttributeValueIsDefinedInFeatureAndEqualsTypeString" constrainedElement="_kLUXoOUmEeC5x7HepwhVXw">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_rIEHUeUmEeC5x7HepwhVXw">
+          <language>OCL</language>
+          <body>self.confignode.origin.attributes->one(a | a.name = self.name)&#xD;&#xA; and&#xD;&#xA; self.confignode.origin.attributes->any(a | a.name = self.name).oclIsTypeOf(featuremodel::StringAttribute)</body>
+        </specification>
+      </ownedRule>
+      <generalization xmi:id="_lUKPAOUmEeC5x7HepwhVXw" general="_PmyZEMcnEd6uiptR6cqsUw"/>
     </packagedElement>
     <profileApplication xmi:id="_wDqOMnvxEdyOhKBWyuRGig">
       <eAnnotations xmi:id="_wDqOM3vxEdyOhKBWyuRGig" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -799,4 +847,5 @@ aka NULL, not set, do not override</body>
   <Default:Documentation xmi:id="_h5Wj8KwTEd2RCOCuXmp_aA" base_Comment="_h5My8KwTEd2RCOCuXmp_aA"/>
   <Default:Documentation xmi:id="_2fdzUCYxEd-we6LrevsdoA" base_Comment="_2fb-ICYxEd-we6LrevsdoA"/>
   <Default:Documentation xmi:id="_IphI8CYyEd-we6LrevsdoA" base_Comment="_IpfTwCYyEd-we6LrevsdoA"/>
+  <Default:Documentation xmi:id="_v2y8wOUlEeC5x7HepwhVXw" base_Comment="_v2mvgOUlEeC5x7HepwhVXw"/>
 </xmi:XMI>
