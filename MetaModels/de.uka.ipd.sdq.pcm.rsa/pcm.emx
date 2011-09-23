@@ -11941,6 +11941,55 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_c5MlokoqEeC1S_cnb630Xw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nqLb8EoqEeC1S_cnb630Xw" id="(0.38176826,0.02739726)"/>
           </edges>
+          <edges xmi:id="_lIEW8OK5EeCAjtHM2JahWQ" element="_lHM0QOK5EeCAjtHM2JahWQ" source="_CpwwME-zEduuPYQnFiBybA" target="_CpwwME-zEduuPYQnFiBybA">
+            <children xmi:id="_lIIBUOK5EeCAjtHM2JahWQ" type="NameLabel">
+              <children xmi:id="_lIIoYOK5EeCAjtHM2JahWQ" type="Stereotype"/>
+              <children xmi:id="_lIIoYeK5EeCAjtHM2JahWQ" type="Name"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lIIBUeK5EeCAjtHM2JahWQ" y="-149"/>
+            </children>
+            <children xmi:id="_lIJPcOK5EeCAjtHM2JahWQ" type="ToMultiplicityLabel" element="_lHa2sOK5EeCAjtHM2JahWQ">
+              <children xmi:id="_lIKdkOK5EeCAjtHM2JahWQ" type="ToMultiplicity"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lIJPceK5EeCAjtHM2JahWQ" y="317"/>
+            </children>
+            <children xmi:id="_lIKdkeK5EeCAjtHM2JahWQ" type="ToRoleLabel" element="_lHa2sOK5EeCAjtHM2JahWQ">
+              <children xmi:id="_lILEoOK5EeCAjtHM2JahWQ" type="ToRole"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lIKdkuK5EeCAjtHM2JahWQ" y="-318"/>
+            </children>
+            <children xmi:id="_lILrsOK5EeCAjtHM2JahWQ" type="FromMultiplicityLabel" element="_lHTh8OK5EeCAjtHM2JahWQ">
+              <children xmi:id="_lILrsuK5EeCAjtHM2JahWQ" type="FromMultiplicity"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lILrseK5EeCAjtHM2JahWQ" x="-1192" y="-243"/>
+            </children>
+            <children xmi:id="_lIMSwOK5EeCAjtHM2JahWQ" type="FromRoleLabel" element="_lHTh8OK5EeCAjtHM2JahWQ">
+              <children xmi:id="_lIMSwuK5EeCAjtHM2JahWQ" type="FromRole"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lIMSweK5EeCAjtHM2JahWQ" x="1796" y="-341"/>
+            </children>
+            <children xmi:id="_lIM50OK5EeCAjtHM2JahWQ" type="ToQualifierLabel" element="_lHa2sOK5EeCAjtHM2JahWQ">
+              <children xmi:id="_lIM50uK5EeCAjtHM2JahWQ" type="QualifierCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_lIM50-K5EeCAjtHM2JahWQ"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lIM50eK5EeCAjtHM2JahWQ" y="-149"/>
+            </children>
+            <children xmi:id="_lIM51OK5EeCAjtHM2JahWQ" type="FromQualifierLabel" element="_lHTh8OK5EeCAjtHM2JahWQ">
+              <children xmi:id="_lINg4OK5EeCAjtHM2JahWQ" type="QualifierCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_lINg4eK5EeCAjtHM2JahWQ"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lIM51eK5EeCAjtHM2JahWQ" y="-149"/>
+            </children>
+            <children xmi:id="_lINg4uK5EeCAjtHM2JahWQ" type="ToConstraintLabel" element="_lHa2sOK5EeCAjtHM2JahWQ">
+              <children xmi:id="_lINg5OK5EeCAjtHM2JahWQ" type="ToConstraintCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_lINg5eK5EeCAjtHM2JahWQ"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lINg4-K5EeCAjtHM2JahWQ" y="846"/>
+            </children>
+            <children xmi:id="_lINg5uK5EeCAjtHM2JahWQ" type="FromConstraintLabel" element="_lHTh8OK5EeCAjtHM2JahWQ">
+              <children xmi:id="_lIOH8OK5EeCAjtHM2JahWQ" type="FromConstraintCompartment">
+                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_lIOH8eK5EeCAjtHM2JahWQ"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_lINg5-K5EeCAjtHM2JahWQ" y="846"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_lIEW8eK5EeCAjtHM2JahWQ" fontName="Segoe UI" lineWidth="1" showStereotype="Text"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lIEW8uK5EeCAjtHM2JahWQ" points="[-4920, 362, -4920, 362]$[-9922, 730, -9922, 730]$[-9922, -540, -9922, -540]$[-4920, -268, -4920, -268]"/>
+          </edges>
         </contents>
         <contents xmi:type="notation:Diagram" xmi:id="__nXOsEpDEdyyNsXlb1tNsw" type="Class" element="_LaA6ICh9Edue7oeC4NTCGg" name="CommunicationLinkResourceSpecification">
           <children xmi:id="_EGfscEpEEdyyNsXlb1tNsw" element="_wru2gODnEdq8ysXH3gTiEg">
@@ -12212,7 +12261,18 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_hTweEBEdq8ysXH3gTiEg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_hTwOEBEdq8ysXH3gTiEg"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_biJdUOQLEdqeH_WIC9QRew" name="resourceEnvironment_ResourceContainer" visibility="public" type="_MrdV4OQLEdqeH_WIC9QRew" association="_bh_sUOQLEdqeH_WIC9QRew"/>
+        <ownedAttribute xmi:id="_biJdUOQLEdqeH_WIC9QRew" name="resourceEnvironment_ResourceContainer" visibility="public" type="_MrdV4OQLEdqeH_WIC9QRew" association="_bh_sUOQLEdqeH_WIC9QRew">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jg49wOK5EeCAjtHM2JahWQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jg0sUOK5EeCAjtHM2JahWQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_lHTh8OK5EeCAjtHM2JahWQ" name="nestedResourceContainers__ResourceContainer" visibility="public" type="_qdz5sOD9Edq8ysXH3gTiEg" aggregation="composite" association="_lHM0QOK5EeCAjtHM2JahWQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lHWlQOK5EeCAjtHM2JahWQ" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lHV-MOK5EeCAjtHM2JahWQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_lHa2sOK5EeCAjtHM2JahWQ" name="parentResourceContainer__ResourceContainer" visibility="public" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_lHM0QOK5EeCAjtHM2JahWQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lHbdweK5EeCAjtHM2JahWQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lHbdwOK5EeCAjtHM2JahWQ"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_wru2gODnEdq8ysXH3gTiEg" name="ProcessingResourceSpecification">
         <ownedComment xmi:id="_M3vwcPxPEd68D51GrGx7ow" annotatedElement="_wru2gODnEdq8ysXH3gTiEg">
@@ -12381,6 +12441,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <ownedLiteral xmi:id="_zhP1YDN8Ed-oDbJSXOQA-w" name="WINDOWS_2003" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
         <ownedLiteral xmi:id="_x1p2QDN8Ed-oDbJSXOQA-w" name="ABSTRACT" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_lHM0QOK5EeCAjtHM2JahWQ" memberEnd="_lHTh8OK5EeCAjtHM2JahWQ _lHa2sOK5EeCAjtHM2JahWQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_V8vSACh9Edue7oeC4NTCGg" name="usagemodel">
       <eAnnotations xmi:id="_V8vSASh9Edue7oeC4NTCGg" source="uml2.diagrams">
