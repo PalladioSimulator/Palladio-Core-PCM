@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
@@ -16,9 +19,12 @@ public class SimulatedResourceContainer extends
 
 	private SchedulingStrategy operatingSystem;
 	private AbstractScheduledResource managingResource = null;
+	private SimulatedResourceContainer parentResourceContainer = null;
+	private List<SimulatedResourceContainer> nestedResourceContainers = null;
 
 	public SimulatedResourceContainer(SimuComModel myModel, String containerID) {
 		super(myModel, containerID);
+		nestedResourceContainers = new ArrayList<SimulatedResourceContainer>();
 	}
 
 	public IPassiveResource createPassiveResource(String name,
@@ -56,6 +62,24 @@ public class SimulatedResourceContainer extends
 		CalculatorHelper.setupHoldTimeCalculator(r, this.myModel); 
 		
 		return r;
+	}
+	
+	public void addNestedResourceContainer(String nestedResourceContainerId) {
+		AbstractSimulatedResourceContainer resourceContainer = myModel.getResourceRegistry().getResourceContainer(nestedResourceContainerId);
+		if ((resourceContainer == null) || (!(resourceContainer instanceof SimulatedResourceContainer))) {
+			throw new RuntimeException(
+					"Could not initialize resouce container " + this.myContainerID + ": Nested resource container " + nestedResourceContainerId + " is not available.");
+		}
+		nestedResourceContainers.add((SimulatedResourceContainer)resourceContainer);
+	}
+	
+	public void setParentResourceContainer(String parentResourceContainerId) {
+		AbstractSimulatedResourceContainer resourceContainer = myModel.getResourceRegistry().getResourceContainer(parentResourceContainerId);
+		if ((resourceContainer == null) || (!(resourceContainer instanceof SimulatedResourceContainer))) {
+			throw new RuntimeException(
+					"Could not initialize resouce container " + this.myContainerID + ": Parent resource container " + parentResourceContainerId + " is not available.");
+		}
+		parentResourceContainer = (SimulatedResourceContainer)resourceContainer;
 	}
 
 	public void addActiveResource(

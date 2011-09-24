@@ -19,9 +19,9 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  * <!-- begin-model-doc -->
  * TODO (Überarbeitung durch MH)
  * Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.
- * The demand’s unit is equal for all ProcessingResourceSpecifications referencing
- * the same ProcessingResourceType. It can for example be ”WorkUnits”
- * for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-
+ * The demand?s unit is equal for all ProcessingResourceSpecifications referencing
+ * the same ProcessingResourceType. It can for example be ?WorkUnits?
+ * for CPUs [Smi02] or ?BytesRead? for hard disks. Each ProcessingResource-
  * Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20
  * MB/s), which analysis tools use to compute an actual timing value in seconds. They
  * use this timing value for example as the service demand on a service center in a queueing
@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  * allow determining the waiting delay induced by this contention effect.
  * Besides this parameterisation over different resource environments, Parametric-
  * ResourceDemands also parameterise over the usage profile. For this, the stochastic expression
- * specifying the resource demand can contain references to the service’s input
+ * specifying the resource demand can contain references to the service?s input
  * parameters or the component parameters. Upon evaluating the resource demand, analysis
  * tools use the current characterisation of the referenced input or component parameter
  * and substitute the reference with this characterisation in the stochastic expression.
@@ -41,9 +41,9 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  * might include a CPU demand specification of n2A?2000WorkUnits derived from complexity
  * theory (n2) and empirical measurements (2000). In this case n refers to the length of
  * the list the algorithm shall sort, which is an input parameter of the service. If the current
- * characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools
+ * characterisation of the list?s length is 100 (as the modelled usage profile), analysis tools
  * derive 1002 A? 2000  12000 WorkUnits from the specification, thus resolving the usage
- * profile dependency. If the CPU ProcessingResourceSpecification the service’s
+ * profile dependency. If the CPU ProcessingResourceSpecification the service?s
  * 126
  * 4.3. Resource Demanding Service Effect Specification
  * component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis

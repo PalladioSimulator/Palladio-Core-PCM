@@ -3089,8 +3089,12 @@
           ordered="false" upperBound="-1" eType="#//resourceenvironment/ProcessingResourceSpecification"
           containment="true" eOpposite="#//resourceenvironment/ProcessingResourceSpecification/resourceContainer_ProcessingResourceSpecification"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceEnvironment_ResourceContainer"
-          ordered="false" lowerBound="1" eType="#//resourceenvironment/ResourceEnvironment"
-          eOpposite="#//resourceenvironment/ResourceEnvironment/resourceContainer_ResourceEnvironment"/>
+          ordered="false" eType="#//resourceenvironment/ResourceEnvironment" eOpposite="#//resourceenvironment/ResourceEnvironment/resourceContainer_ResourceEnvironment"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nestedResourceContainers__ResourceContainer"
+          ordered="false" upperBound="-1" eType="#//resourceenvironment/ResourceContainer"
+          containment="true" eOpposite="#//resourceenvironment/ResourceContainer/parentResourceContainer__ResourceContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentResourceContainer__ResourceContainer"
+          ordered="false" eType="#//resourceenvironment/ResourceContainer" eOpposite="#//resourceenvironment/ResourceContainer/nestedResourceContainers__ResourceContainer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ContainerOperatingSystem">
       <eLiterals name="WINDOWS_VISTA"/>

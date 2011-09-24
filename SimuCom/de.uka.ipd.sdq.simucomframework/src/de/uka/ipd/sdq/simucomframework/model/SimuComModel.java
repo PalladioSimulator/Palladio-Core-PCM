@@ -204,7 +204,11 @@ public class SimuComModel implements ISimulationModel<SimuComModel> {
     public void initialiseResourceContainer(IResourceContainerFactory resourceContainerFactory) {
         for (String id : resourceContainerFactory.getResourceContainerIDList()) {
             SimulatedResourceContainer rc = (SimulatedResourceContainer) resourceRegistry.createResourceContainer(id);
-            resourceContainerFactory.fillResourceContainer(rc);
+            resourceContainerFactory.fillResourceContainerWithResources(rc);
+        }
+        for (String id : resourceContainerFactory.getResourceContainerIDList()) {
+        	SimulatedResourceContainer rc = (SimulatedResourceContainer) resourceRegistry.getResourceContainer(id);
+        	resourceContainerFactory.fillResourceContainerWithNestedResourceContainers(rc);
         }
         for (String id : resourceContainerFactory.getLinkingResourceContainerIDList()) {
             SimulatedLinkingResourceContainer rc = (SimulatedLinkingResourceContainer) resourceRegistry.createLinkingResourceContainer(id);

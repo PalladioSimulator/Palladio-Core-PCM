@@ -82,26 +82,26 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  * -
  * System&nbsp;service&nbsp;invocations&nbsp;can&nbsp;be&nbsp;enhanced&nbsp;with&nbsp;characterisations&nbsp;of&nbsp;parameters&nbsp;values.<br />
  * <br />
- * [31]&nbsp;Object&nbsp;Management&nbsp;Group&nbsp;(OMG),&nbsp;“UML&nbsp;Profile&nbsp;for&nbsp;Schedulability,&nbsp;Performance&nbsp;and&nbsp;Time,”<br />
+ * [31]&nbsp;Object&nbsp;Management&nbsp;Group&nbsp;(OMG),&nbsp;?UML&nbsp;Profile&nbsp;for&nbsp;Schedulability,&nbsp;Performance&nbsp;and&nbsp;Time,?<br />
  * http://www.omg.org/cgi-bin/doc?formal/2005-01-02,&nbsp;January&nbsp;2005.<br />
  * <br />
- * [34]&nbsp;James&nbsp;A.&nbsp;Whittaker&nbsp;and&nbsp;Michael&nbsp;G.&nbsp;Thomason,&nbsp;“A&nbsp;Markov&nbsp;chain&nbsp;model&nbsp;for&nbsp;statistical&nbsp;software<br />
- * testing,”&nbsp;IEEE&nbsp;Transactions&nbsp;on&nbsp;Software&nbsp;Engineering,&nbsp;vol.&nbsp;20,&nbsp;no.&nbsp;10,&nbsp;pp.&nbsp;812–824,&nbsp;Oct.&nbsp;1994.<br />
+ * [34]&nbsp;James&nbsp;A.&nbsp;Whittaker&nbsp;and&nbsp;Michael&nbsp;G.&nbsp;Thomason,&nbsp;?A&nbsp;Markov&nbsp;chain&nbsp;model&nbsp;for&nbsp;statistical&nbsp;software<br />
+ * testing,?&nbsp;IEEE&nbsp;Transactions&nbsp;on&nbsp;Software&nbsp;Engineering,&nbsp;vol.&nbsp;20,&nbsp;no.&nbsp;10,&nbsp;pp.&nbsp;812?824,&nbsp;Oct.&nbsp;1994.<br />
  * <br />
- * [78]&nbsp;V.&nbsp;Grassi,&nbsp;R.&nbsp;Mirandola,&nbsp;and&nbsp;A.&nbsp;Sabetta,&nbsp;“From&nbsp;design&nbsp;to&nbsp;analysis&nbsp;models:&nbsp;a&nbsp;kernel&nbsp;language<br />
- * for&nbsp;performance&nbsp;and&nbsp;reliability&nbsp;analysis&nbsp;of&nbsp;component-based&nbsp;systems,”&nbsp;in&nbsp;Proc.&nbsp;5th&nbsp;International<br />
- * Workshop&nbsp;on&nbsp;Software&nbsp;and&nbsp;Performance&nbsp;(WOSP&nbsp;’05).&nbsp;New&nbsp;York,&nbsp;NY,&nbsp;USA:&nbsp;ACM&nbsp;Press,&nbsp;2005,<br />
- * pp.&nbsp;25–36.<br />
+ * [78]&nbsp;V.&nbsp;Grassi,&nbsp;R.&nbsp;Mirandola,&nbsp;and&nbsp;A.&nbsp;Sabetta,&nbsp;?From&nbsp;design&nbsp;to&nbsp;analysis&nbsp;models:&nbsp;a&nbsp;kernel&nbsp;language<br />
+ * for&nbsp;performance&nbsp;and&nbsp;reliability&nbsp;analysis&nbsp;of&nbsp;component-based&nbsp;systems,?&nbsp;in&nbsp;Proc.&nbsp;5th&nbsp;International<br />
+ * Workshop&nbsp;on&nbsp;Software&nbsp;and&nbsp;Performance&nbsp;(WOSP&nbsp;?05).&nbsp;New&nbsp;York,&nbsp;NY,&nbsp;USA:&nbsp;ACM&nbsp;Press,&nbsp;2005,<br />
+ * pp.&nbsp;25?36.<br />
  * <br />
- * [162]&nbsp;D.&nbsp;B.&nbsp;Petriu&nbsp;and&nbsp;M.&nbsp;Woodside,&nbsp;“A&nbsp;metamodel&nbsp;for&nbsp;generating&nbsp;performance&nbsp;models&nbsp;from&nbsp;UML&nbsp;designs,”<br />
+ * [162]&nbsp;D.&nbsp;B.&nbsp;Petriu&nbsp;and&nbsp;M.&nbsp;Woodside,&nbsp;?A&nbsp;metamodel&nbsp;for&nbsp;generating&nbsp;performance&nbsp;models&nbsp;from&nbsp;UML&nbsp;designs,?<br />
  * in&nbsp;UML&nbsp;2004&nbsp;-&nbsp;The&nbsp;Unified&nbsp;Modeling&nbsp;Language.&nbsp;Model&nbsp;Languages&nbsp;and&nbsp;Applications.&nbsp;7th<br />
  * International&nbsp;Conference,&nbsp;Lisbon,&nbsp;Portugal,&nbsp;October&nbsp;11-15,&nbsp;2004,&nbsp;Proceedings,&nbsp;ser.&nbsp;LNCS,&nbsp;T.&nbsp;Baar,<br />
- * A.&nbsp;Strohmeier,&nbsp;A.&nbsp;Moreira,&nbsp;and&nbsp;S.&nbsp;J.&nbsp;Mellor,&nbsp;Eds.,&nbsp;vol.&nbsp;3273.&nbsp;Springer,&nbsp;2004,&nbsp;pp.&nbsp;41–53.<br />
+ * A.&nbsp;Strohmeier,&nbsp;A.&nbsp;Moreira,&nbsp;and&nbsp;S.&nbsp;J.&nbsp;Mellor,&nbsp;Eds.,&nbsp;vol.&nbsp;3273.&nbsp;Springer,&nbsp;2004,&nbsp;pp.&nbsp;41?53.<br />
  * <br />
- * [187]&nbsp;C.&nbsp;U.&nbsp;Smith,&nbsp;C.&nbsp;M.&nbsp;Llado,&nbsp;V.&nbsp;Cortellessa,&nbsp;A.&nbsp;D.&nbsp;Marco,&nbsp;and&nbsp;L.&nbsp;G.&nbsp;Williams,&nbsp;“From&nbsp;UML&nbsp;models<br />
- * to&nbsp;software&nbsp;performance&nbsp;results:&nbsp;an&nbsp;SPE&nbsp;process&nbsp;based&nbsp;on&nbsp;XML&nbsp;interchange&nbsp;formats,”&nbsp;in&nbsp;Proc.&nbsp;5th<br />
- * international&nbsp;workshop&nbsp;on&nbsp;Software&nbsp;and&nbsp;performance&nbsp;(WOSP’05).&nbsp;New&nbsp;York,&nbsp;NY,&nbsp;USA:&nbsp;ACM<br />
- * Press,&nbsp;2005,&nbsp;pp.&nbsp;87–98.<br />
+ * [187]&nbsp;C.&nbsp;U.&nbsp;Smith,&nbsp;C.&nbsp;M.&nbsp;Llado,&nbsp;V.&nbsp;Cortellessa,&nbsp;A.&nbsp;D.&nbsp;Marco,&nbsp;and&nbsp;L.&nbsp;G.&nbsp;Williams,&nbsp;?From&nbsp;UML&nbsp;models<br />
+ * to&nbsp;software&nbsp;performance&nbsp;results:&nbsp;an&nbsp;SPE&nbsp;process&nbsp;based&nbsp;on&nbsp;XML&nbsp;interchange&nbsp;formats,?&nbsp;in&nbsp;Proc.&nbsp;5th<br />
+ * international&nbsp;workshop&nbsp;on&nbsp;Software&nbsp;and&nbsp;performance&nbsp;(WOSP?05).&nbsp;New&nbsp;York,&nbsp;NY,&nbsp;USA:&nbsp;ACM<br />
+ * Press,&nbsp;2005,&nbsp;pp.&nbsp;87?98.<br />
  * <br />
  * <br />
  * <br />

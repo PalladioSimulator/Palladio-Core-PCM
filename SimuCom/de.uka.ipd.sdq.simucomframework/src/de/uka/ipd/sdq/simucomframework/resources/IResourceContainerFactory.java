@@ -19,7 +19,14 @@ public interface IResourceContainerFactory {
 	 * should be set up
 	 * @param container The container to fill with active resources
 	 */
-	void fillResourceContainer(SimulatedResourceContainer container);
+	void fillResourceContainerWithResources(SimulatedResourceContainer container);
+	
+	/**
+	 * Called by the framework to indicate that the given resource container
+	 * should be set up
+	 * @param container The container to fill with active resources
+	 */
+	void fillResourceContainerWithNestedResourceContainers(SimulatedResourceContainer container);
 
 	/**
 	 * @return A list of IDs of linking resources existing in the resource
