@@ -7,17 +7,21 @@ import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
+import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl;
 import de.uka.ipd.sdq.workflow.IJob;
 import de.uka.ipd.sdq.workflow.IJobWithResult;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
+import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.launchconfig.extension.AbstractExtendableJob;
+import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 
 /**
  * Installs a Plug-In from the specified location string with use a bundeles
  * context.The context is used to grant access to other methods so that this
  * bundle can interact with the Framework.
  */
-public class TransferSimulationBundleToDock implements IJob {
+public class TransferSimulationBundleToDock extends AbstractExtendableJob<MDSDBlackboard> {
 
 	/**
 	 * This job's parent job which creates a JAR archive of the simulation bundle 
@@ -43,9 +47,12 @@ public class TransferSimulationBundleToDock implements IJob {
 		this.myConfig = configuration;
 		this.debugListener = debugListener;
 		this.isDebug = configuration.isDebug();
+		handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_DOCK,configuration);
 	}
 
-	public void execute(IProgressMonitor monitor) throws JobFailedException {
+	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
+		
+		
 		assert (myCreatePluginProjectJob != null);
 
 		try {
@@ -54,6 +61,22 @@ public class TransferSimulationBundleToDock implements IJob {
 			if (isDebug) {
 				debugListener.simulationStartsInDock(dock);
 			}
+			simService.load(
+					myConfig.getSimuComConfiguration(),
+					myCreatePluginProjectJob.getResult(),
+					dock.isRemote());
+			
+			// Execute extension jobs first
+			// TODO: don't call this here. Put TransferSimulationBundleToDock job logic into a separate job that is nested in a OrderPreservingCompositeJob
+			// together with the extension jobs
+			for (IJob extensionJob : myJobs) {
+				if (extensionJob instanceof AbstractSimuComExtensionJob) {
+					((AbstractSimuComExtensionJob)extensionJob).setSimuComModel(((SimulationDockServiceImpl)simService).getSimuComModel());
+				}
+			}
+			super.execute(monitor);
+			
+			
 			simService.simulate(
 					myConfig.getSimuComConfiguration(),
 					myCreatePluginProjectJob.getResult(),

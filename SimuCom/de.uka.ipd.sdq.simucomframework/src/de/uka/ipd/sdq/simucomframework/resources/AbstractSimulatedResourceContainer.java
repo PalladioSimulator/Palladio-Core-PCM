@@ -90,6 +90,14 @@ public abstract class AbstractSimulatedResourceContainer {
 	}
 	
 	/**
+	 * Retrieves the HashMap with all all active resources in this resource container.
+	 * @return all active resources
+	 */
+	public HashMap<String, AbstractScheduledResource> getAllActiveResources() {
+		return activeResources;
+	}
+	
+	/**
 	 * Retrieves all active resources in this resource container which are currently unavailable.
 	 * @return all unavailable active resources
 	 */

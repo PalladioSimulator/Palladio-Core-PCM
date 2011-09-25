@@ -13,6 +13,16 @@ import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
  * @author Steffen Becker
  */
 public interface ISimulationControl {
+	
+	/** Prepare a simulation run
+     * @param config The configuration object which sets many simulation parameters like stop conditions, storage location, etc.
+     * @param statusObserver An observer which gets notifications on the simulation progress
+     * @param useOwnSensorstorage If true, the simulation uses an own, temporary result store instead of the sensorfactory
+     * storage passed in the simulation parameter object. Use this for remote simulation docks which do not have access to the
+     * local sensor factory storages
+     * 
+     */
+    public void prepareSimulation(SimuComConfig config, IStatusObserver statusObserver, boolean useOwnSensorstorage);
 
     /** Start a simulation run
      * @param config The configuration object which sets many simulation parameters like stop conditions, storage location, etc.

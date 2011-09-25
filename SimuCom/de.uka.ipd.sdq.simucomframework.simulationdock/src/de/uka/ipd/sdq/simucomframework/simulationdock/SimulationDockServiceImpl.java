@@ -18,9 +18,12 @@ import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 import org.osgi.util.tracker.ServiceTracker;
 
+import de.uka.ipd.sdq.simucomframework.AbstractMain;
 import de.uka.ipd.sdq.simucomframework.AbstractSimulationConfig;
 import de.uka.ipd.sdq.simucomframework.ISimulationControl;
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComResult;
+import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 
 public class SimulationDockServiceImpl implements SimulationDockService {
@@ -54,8 +57,8 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		eventService.close();
 		super.finalize();
 	}
-
-	public void simulate(AbstractSimulationConfig config, byte[] simulationBundle, boolean isRemoteRun) {
+	
+	public void load(AbstractSimulationConfig config, byte[] simulationBundle, boolean isRemoteRun) {
 		sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_BUSY");
 
 		if (config.isDebug()) {
@@ -66,8 +69,23 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 
 		ensurePluginLoaded(context, "org.eclipse.equinox.event");
 		unloadPluginIfExists(context, "de.uka.ipd.sdq.codegen.simucominstance");
+
 		try {
-			loadAndSimulateBundle(config, simulationBundle, eventAdmin, isRemoteRun);
+			loadBundle(config, simulationBundle, eventAdmin, isRemoteRun);
+		} catch (Exception e) {
+			unloadPluginIfExists(context, "de.uka.ipd.sdq.codegen.simucominstance");
+			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_IDLE");
+			throw new RuntimeException("Simulation preparation failed",e);
+		} finally {
+			
+		}
+	}
+	
+
+	public void simulate(AbstractSimulationConfig config, byte[] simulationBundle, boolean isRemoteRun) {
+		
+		try {
+			simulateBundle(config, simulationBundle, eventAdmin, isRemoteRun);
 		} catch (Exception e) {
 			throw new RuntimeException("Simulation failed",e);
 		} finally {
@@ -75,17 +93,54 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_IDLE");
 		}
 	}
-
-	private void loadAndSimulateBundle(AbstractSimulationConfig config,
+	
+	Bundle simulationBundleRef = null;
+	private DispatchingSimulationObserver simulationObservers = null;
+	long simulationStartTime = -1;
+	
+	private void loadBundle(AbstractSimulationConfig config,
 			byte[] simulationBundle, EventAdmin eventAdmin, boolean isRemoteRun) {
 		String bundleLocation = persistBundleInTempDir(simulationBundle);
-		Bundle simulationBundleRef = null;
 		try {
 			simulationBundleRef = context.installBundle(new File(bundleLocation).toURI().toString());
 			simulationBundleRef.start();
 			
-			simulate(config, simulationBundleRef, eventAdmin, isRemoteRun);
 		} catch (BundleException e) {
+			throw new RuntimeException("OSGi failure",e);
+		}
+		ServiceReference[] services = simulationBundleRef.getRegisteredServices();
+		assert services.length == 1;
+		
+		service = new ServiceTracker(context,services[0],null);
+		service.open();
+		try {
+			simulationObservers = new DispatchingSimulationObserver();
+			simulationObservers.addObserver(new SimulationProgressReportingObserver(config,eventAdmin,this));
+			if (debugObserver != null) {
+				simulationObservers.addObserver(debugObserver);
+			}
+			
+			simulationStartTime = System.nanoTime();
+			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STARTED");
+			((ISimulationControl)service.getService()).prepareSimulation(
+					(SimuComConfig)config, simulationObservers, isRemoteRun);
+		} catch (Exception ex) {
+			throw new RuntimeException(ex);
+		}
+	}
+	
+	public SimuComModel getSimuComModel() {
+		if (service != null) {
+			return ((AbstractMain)service.getService()).getModel();
+		}
+		return null;
+	}
+
+	private void simulateBundle(AbstractSimulationConfig config,
+			byte[] simulationBundle, EventAdmin eventAdmin, boolean isRemoteRun) {
+		try {
+			simulate(config, simulationBundleRef, eventAdmin, isRemoteRun);
+		} catch (Exception e) {
 			throw new RuntimeException("OSGi failure",e);
 		} finally {
 			if (simulationBundleRef != null) {
@@ -99,24 +154,11 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 				}
 			}
 		}
+		
 	}
 
 	private void simulate(final AbstractSimulationConfig config, Bundle simulationBundleRef, final EventAdmin eventAdmin, boolean isRemoteRun) {
-		ServiceReference[] services = simulationBundleRef.getRegisteredServices();
-		assert services.length == 1;
-		long start = -1;
-		
-		service = new ServiceTracker(context,services[0],null);
-		service.open();
 		try {
-			DispatchingSimulationObserver simulationObservers = new DispatchingSimulationObserver();
-			simulationObservers.addObserver(new SimulationProgressReportingObserver(config,eventAdmin,this));
-			if (debugObserver != null) {
-				simulationObservers.addObserver(debugObserver);
-			}
-			
-			start = System.nanoTime();
-			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STARTED");
 			SimuComResult result = ((ISimulationControl)service.getService()).startSimulation(
 					config, simulationObservers, isRemoteRun);
 			
@@ -128,7 +170,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		} finally {
 			service.close();
 			Hashtable<String, Object> eventData = new Hashtable<String, Object>();
-			eventData.put(SIMTIME_TOTAL, System.nanoTime()-start);
+			eventData.put(SIMTIME_TOTAL, System.nanoTime()-simulationStartTime);
 			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STOPPED",eventData);
 		}
 	}

@@ -39,7 +39,7 @@ public interface IActiveResource {
 	 */
 	public abstract String getName();
 
-	public abstract void stop();
+	public abstract void stop(); 
 
 	public abstract void registerProcess(IRunningProcess runningProcess);
 	

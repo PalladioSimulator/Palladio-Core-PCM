@@ -36,9 +36,18 @@ public class ResourceRegistry {
 			SimulatedResourceContainer container = new SimulatedResourceContainer(
 					myModel,
 					containerID);
-			resourceContainerHash.put(containerID, container);
+			addResourceContainer(container);
 		}
 		return resourceContainerHash.get(containerID);
+	}
+	
+	/**
+	 * Add a PCM ResourceContainer
+	 * @param container the resource container to add
+	 */
+	public void addResourceContainer(SimulatedResourceContainer container) {
+		assert(!resourceContainerHash.containsKey(container.getResourceContainerID()));
+		resourceContainerHash.put(container.getResourceContainerID(), container);
 	}
 
 	/**
@@ -78,6 +87,22 @@ public class ResourceRegistry {
 			String resourceContainerID) {
 		assert containsResourceContainer(resourceContainerID);
 		return resourceContainerHash.get(resourceContainerID);
+	}
+	
+	/**
+	 * Retrieve the resource container with the given ID
+	 * @param resourceContainerID ID of the container to retrieve. The container
+	 * must exist in this registry
+	 * @return The queried resource container
+	 */
+	public AbstractSimulatedResourceContainer removeResourceContainerFromRegistry(
+			String resourceContainerID) {
+		AbstractSimulatedResourceContainer container = null;
+		if (containsResourceContainer(resourceContainerID)) {
+			container = resourceContainerHash.get(resourceContainerID);
+			resourceContainerHash.remove(resourceContainerID);
+		}
+		return container; 
 	}
 
 	/**

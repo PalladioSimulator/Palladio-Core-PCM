@@ -24,12 +24,12 @@ public class SimuTabGroup extends ExtendableTabGroup {
     @Override
     public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
         List<ILaunchConfigurationTab> tabs = new ArrayList<ILaunchConfigurationTab>();
-        for (String workflowExtensionPointId : WorkflowHooks.getAllWorkflowHookIDs()) {
-            tabs.addAll(createExtensionTabs(dialog, mode, workflowExtensionPointId));
-        }
         tabs.add(new FileNamesInputTab());// Default tab
         tabs.add(new SimuComConfigurationTab());
         tabs.add(new SimuConfigurationTab());
+        for (String workflowExtensionPointId : WorkflowHooks.getAllWorkflowHookIDs()) {
+            tabs.addAll(createExtensionTabs(dialog, mode, workflowExtensionPointId));
+        }
         tabs.add(new FeatureOptionsTab());
         tabs.add(new CipCompletionTab());
         setTabs(tabs.toArray(new ILaunchConfigurationTab[] {}));

@@ -17,19 +17,18 @@ import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 /**
  * Base class for simulation instances. It contains a generic simulation start
  * and stop logic as well as basic error handling mechanisms.
- *
+ * 
  * The code generated for each SimuCom instance contains the class
  * main.SimuComControl that inherits from this one and provides the missing
  * information.
- *
+ * 
  * Excerpt from main.SimuComControl: public class SimuComControl extends
  * de.uka.ipd.sdq.simucomframework.AbstractMain
- *
+ * 
  * @author Steffen Becker
- *
+ * 
  */
-public abstract class AbstractMain implements
-		de.uka.ipd.sdq.simucomframework.ISimulationControl,
+public abstract class AbstractMain implements de.uka.ipd.sdq.simucomframework.ISimulationControl,
 		org.osgi.framework.BundleActivator {
 
 	// Service registry entry for registering this object in Eclipse's service
@@ -39,24 +38,21 @@ public abstract class AbstractMain implements
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext
 	 * )
 	 */
 	@SuppressWarnings("unchecked")
-	public void start(org.osgi.framework.BundleContext context)
-			throws Exception {
+	public void start(org.osgi.framework.BundleContext context) throws Exception {
 		// register the service
-		serviceRegistryEntry = context
-				.registerService(
-						de.uka.ipd.sdq.simucomframework.ISimulationControl.class
-								.getName(), this, new java.util.Hashtable());
+		serviceRegistryEntry = context.registerService(de.uka.ipd.sdq.simucomframework.ISimulationControl.class
+				.getName(), this, new java.util.Hashtable());
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see
 	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
@@ -66,13 +62,12 @@ public abstract class AbstractMain implements
 
 	private SimuComModel model = null;
 	private SimuComStatus simuComStatus;
-	private static Logger logger = Logger.getLogger(AbstractMain.class
-			.getName());
+	private static Logger logger = Logger.getLogger(AbstractMain.class.getName());
 
 	/**
 	 * Run a simulation using the given configuration and report to the given
 	 * observer
-	 *
+	 * 
 	 * @param statusObserver
 	 *            Observer to notify about the simulation's progress
 	 * @param config
@@ -82,36 +77,24 @@ public abstract class AbstractMain implements
 	 *            local sensorframework
 	 * @return A status code indicating success or failure of the simulation
 	 */
-	protected SimuComResult run(final IStatusObserver statusObserver,
-			SimuComConfig config, boolean isRemoteRun) {
-		initializeLogger(config);
+	protected SimuComResult run(final IStatusObserver statusObserver, SimuComConfig config, boolean isRemoteRun) {
+
 		logger.info("Starting Simulation");
 
 		final long SIM_STOP_TIME = config.getSimuTime();
 
-		model = SimuComFactory
-				.getSimuComModel(config, getStatus(), isRemoteRun);
-
-		model.initialiseResourceContainer(getResourceContainerFactory());
-		model.setUsageScenarios(getWorkloads(config));
 		model.getSimulationControl().addTimeObserver(new Observer() {
 
 			public void update(Observable clock, Object data) {
-				int timePercent = (int) (model.getSimulationControl()
-						.getCurrentSimulationTime() * 100 / SIM_STOP_TIME);
-				int measurementsPercent = (int) (model
-						.getMainMeasurementsCount() * 100 / model.getConfig()
+				int timePercent = (int) (model.getSimulationControl().getCurrentSimulationTime() * 100 / SIM_STOP_TIME);
+				int measurementsPercent = (int) (model.getMainMeasurementsCount() * 100 / model.getConfig()
 						.getMaxMeasurementsCount());
-				statusObserver.updateStatus(
-						timePercent < measurementsPercent ? measurementsPercent
-								: timePercent, model.getSimulationControl()
-								.getCurrentSimulationTime(), model
-								.getMainMeasurementsCount());
+				statusObserver.updateStatus(timePercent < measurementsPercent ? measurementsPercent : timePercent,
+						model.getSimulationControl().getCurrentSimulationTime(), model.getMainMeasurementsCount());
 			}
 
 		});
 		getStatus().setCurrentSimulationTime(0);
-		setupCalculators(config);
 		double simRealTime = ExperimentRunner.run(model, SIM_STOP_TIME);
 		model.getProbeSpecContext().finish();
 		// check if there are accuracy influence analysis issues
@@ -121,8 +104,7 @@ public abstract class AbstractMain implements
 			DisplayIssuesDialog.showDialogSync(runner);
 		}
 
-		logger.info("Simulation stopped. It took "
-				+ (simRealTime / Math.pow(10, 9))
+		logger.info("Simulation stopped. It took " + (simRealTime / Math.pow(10, 9))
 				+ " seconds real time to terminate");
 
 		// TODO
@@ -134,10 +116,10 @@ public abstract class AbstractMain implements
 
 	/**
 	 * TODO: Where to put this code?
-	 *
+	 * 
 	 * If a sensitivity analysis has been conducted we need to store the current
 	 * parameter values.
-	 *
+	 * 
 	 * @param descriptor
 	 * @param run
 	 */
@@ -170,13 +152,12 @@ public abstract class AbstractMain implements
 
 	/**
 	 * Setup log4j
-	 *
+	 * 
 	 * @param config
 	 *            SimuCom config which is queried for the logging settings
 	 */
 	private void initializeLogger(SimuComConfig config) {
-		Logger simuComLogger = Logger
-				.getLogger("de.uka.ipd.sdq.simucomframework");
+		Logger simuComLogger = Logger.getLogger("de.uka.ipd.sdq.simucomframework");
 		if (config.getVerboseLogging())
 			// Set to Level.ALL if verbose logging is enabled,
 			simuComLogger.setLevel(Level.ALL);
@@ -208,7 +189,7 @@ public abstract class AbstractMain implements
 	/**
 	 * @return The simucom model used in this simulation run
 	 */
-	protected SimuComModel getModel() {
+	public SimuComModel getModel() {
 		return model;
 	}
 
@@ -222,7 +203,24 @@ public abstract class AbstractMain implements
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.simucomframework.ISimuComControl#startSimulation(de.uka
+	 * .ipd.sdq.simucomframework.SimuComConfig,
+	 * de.uka.ipd.sdq.simucomframework.IStatusObserver, boolean)
+	 */
+	public void prepareSimulation(SimuComConfig config, de.uka.ipd.sdq.simucomframework.IStatusObserver observer,
+			boolean isRemoteRun) {
+		model = SimuComFactory.getSimuComModel(config, getStatus(), isRemoteRun);
+
+		model.initialiseResourceContainer(getResourceContainerFactory());
+		model.setUsageScenarios(getWorkloads(config));
+		setupCalculators(config);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see
 	 * de.uka.ipd.sdq.simucomframework.ISimuComControl#startSimulation(de.uka
 	 * .ipd.sdq.simucomframework.SimuComConfig,
@@ -230,14 +228,13 @@ public abstract class AbstractMain implements
 	 */
 	public de.uka.ipd.sdq.simucomframework.SimuComResult startSimulation(
 			de.uka.ipd.sdq.simucomframework.AbstractSimulationConfig config,
-			de.uka.ipd.sdq.simucomframework.IStatusObserver observer,
-			boolean isRemoteRun) {
-		return run(observer, (SimuComConfig)config, isRemoteRun);
+			de.uka.ipd.sdq.simucomframework.IStatusObserver observer, boolean isRemoteRun) {
+		return run(observer, (SimuComConfig) config, isRemoteRun);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see de.uka.ipd.sdq.simucomframework.ISimuComControl#stopSimulation()
 	 */
 	public void stopSimulation() {
@@ -248,7 +245,7 @@ public abstract class AbstractMain implements
 	 * Template method pattern. Child classes have to implement this to return
 	 * workload drivers to use in the simulation. The workload drivers are used
 	 * to generate the simulated users.
-	 *
+	 * 
 	 * @param config
 	 *            the simulation configuration data
 	 * @return Workload drivers to use in the simulation run
@@ -258,7 +255,7 @@ public abstract class AbstractMain implements
 	/**
 	 * Template method to return a factory which can be used to instanciate the
 	 * simulated resource environment.
-	 *
+	 * 
 	 * @return A factory which is used to create the simulated resource
 	 *         environment
 	 */
@@ -267,7 +264,7 @@ public abstract class AbstractMain implements
 	/**
 	 * Template method. Child classes implement this method to set up
 	 * {@link Calculator}s before the simulation begins.
-	 *
+	 * 
 	 * @param config
 	 *            the simulation configuration data
 	 */
@@ -275,17 +272,14 @@ public abstract class AbstractMain implements
 
 	/*
 	 * (non-Javadoc)
-	 *
+	 * 
 	 * @see de.uka.ipd.sdq.simucomframework.ISimuComControl#getStatus()
 	 */
 	public SimuComStatus getStatus() {
 		if (this.simuComStatus == null) {
-			this.simuComStatus = SimucomstatusFactory.eINSTANCE
-					.createSimuComStatus();
-			this.simuComStatus.setProcessStatus(SimucomstatusFactory.eINSTANCE
-					.createSimulatedProcesses());
-			this.simuComStatus.setResourceStatus(SimucomstatusFactory.eINSTANCE
-					.createSimulatedResources());
+			this.simuComStatus = SimucomstatusFactory.eINSTANCE.createSimuComStatus();
+			this.simuComStatus.setProcessStatus(SimucomstatusFactory.eINSTANCE.createSimulatedProcesses());
+			this.simuComStatus.setResourceStatus(SimucomstatusFactory.eINSTANCE.createSimulatedResources());
 		}
 		return this.simuComStatus;
 	}
