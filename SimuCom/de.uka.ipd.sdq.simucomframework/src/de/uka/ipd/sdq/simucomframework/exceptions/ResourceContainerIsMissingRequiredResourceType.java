@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.simucomframework.exceptions;
 
 public class ResourceContainerIsMissingRequiredResourceType extends RuntimeException {
 	
+	private String typeID = null;
+	
 	/**
 	 * 
 	 */
@@ -10,6 +12,11 @@ public class ResourceContainerIsMissingRequiredResourceType extends RuntimeExcep
 	public ResourceContainerIsMissingRequiredResourceType(String typeID){
 		super("ResourceContainer is missing resource required "+
 				"by a Component running on it. ID of missing resource "+typeID);
+		this.typeID = typeID;
+	}
+	
+	public String getTypeID(){
+		return typeID;
 	}
 
 }

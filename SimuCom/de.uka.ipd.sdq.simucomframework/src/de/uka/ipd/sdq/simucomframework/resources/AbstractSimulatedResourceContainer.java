@@ -52,8 +52,6 @@ public abstract class AbstractSimulatedResourceContainer {
 	public void loadActiveResource(SimuComSimProcess requestingProcess, String typeID, double demand) {
 		AbstractScheduledResource resource = activeResources.get(typeID);
 		if (resource == null) {
-			logger.error("Resource container is missing a resource which was attempted to be loaded"+
-					" by a component. ID of resource type was: "+typeID);
 			throw new ResourceContainerIsMissingRequiredResourceType(typeID);
 		}
 		resource.consumeResource(requestingProcess, 1, demand);
@@ -74,8 +72,6 @@ public abstract class AbstractSimulatedResourceContainer {
 			resource = activeResources.get(typeID);
 		}
 		if (resource == null) {
-			logger.error("Resource container is missing a resource which was attempted to be loaded"+
-					" by a component. ID of resource type was: "+typeID);
 			throw new ResourceContainerIsMissingRequiredResourceType(typeID);
 		}
 		resource.consumeResource(requestingProcess, resourceServiceID, demand);

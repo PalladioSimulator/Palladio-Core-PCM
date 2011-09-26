@@ -12,6 +12,8 @@ import de.uka.ipd.sdq.scheduler.priority.update.DecayToBaseUpdate;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimFairPassiveResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimUnfairPassiveResource;
+import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
+import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class SimulatedResourceContainer extends
@@ -19,8 +21,8 @@ public class SimulatedResourceContainer extends
 
 	private SchedulingStrategy operatingSystem;
 	private AbstractScheduledResource managingResource = null;
-	private SimulatedResourceContainer parentResourceContainer = null;
-	private List<SimulatedResourceContainer> nestedResourceContainers = null;
+	protected SimulatedResourceContainer parentResourceContainer = null;
+	protected List<SimulatedResourceContainer> nestedResourceContainers = null;
 
 	public SimulatedResourceContainer(SimuComModel myModel, String containerID) {
 		super(myModel, containerID);
@@ -62,6 +64,14 @@ public class SimulatedResourceContainer extends
 		CalculatorHelper.setupHoldTimeCalculator(r, this.myModel); 
 		
 		return r;
+	}
+	
+	public List<SimulatedResourceContainer> getNestedResourceContainers() {
+		return nestedResourceContainers;
+	}
+	
+	public SimulatedResourceContainer getParentResourceContainer() {
+		return parentResourceContainer;
 	}
 	
 	public void addNestedResourceContainer(String nestedResourceContainerId) {
@@ -187,4 +197,62 @@ public class SimulatedResourceContainer extends
 		return new SimSimpleFairPassiveResource(myModel, capacity, name,
 				passiveResourceID, assemblyContextID, combinedID);
 	}
+	
+	/**
+	 * Demand processing of a resource demand by a given type of active resources.
+	 * If the resource container has no own resources, look in parent resource container.
+	 * @param requestingProcess The thread requesting the processing of a resouce demand
+	 * @param typeID ID of the resource type to which the demand is directed. Same as the
+	 * PCM resource type IDs
+	 * @param demand The demand in units processable by the resource. The resource is
+	 * responsible itself for converting this demand into time spans
+	 */
+	public void loadActiveResource(SimuComSimProcess requestingProcess, String typeID, double demand) {
+		try {
+			super.loadActiveResource(requestingProcess, typeID, demand);
+		} catch (ResourceContainerIsMissingRequiredResourceType e) {
+			if (parentResourceContainer == null) {
+				logger.error("Resource container is missing a resource which was attempted to be loaded"+
+						" by a component and has no parent Resource Container to look in. ID of resource type was: "+typeID);
+				throw new ResourceContainerIsMissingRequiredResourceType(typeID);
+			} else {
+				parentResourceContainer.loadActiveResource(requestingProcess, typeID, demand);
+			}
+		}
+	}
+	
+	/**
+	 * Demand processing of a resource demand by a given type of active resource and a resource interface operation.
+	 * If the resource container has no own resources, look in parent resource container.
+	 * @param requestingProcess The thread requesting the processing of a resource demand
+	 * @param typeID ID of the resource provided interface to which the demand is directed.
+	 * @param resourceServiceID the id of the resource service to be called.
+	 * @param demand The demand in units processable by the resource. The resource is
+	 * responsible itself for converting this demand into time spans
+	 */
+	public void loadActiveResource(SimuComSimProcess requestingProcess, String providedInterfaceID, int resourceServiceID, double demand) {
+		try {
+			super.loadActiveResource(requestingProcess, providedInterfaceID, resourceServiceID, demand);
+		} catch (ResourceContainerIsMissingRequiredResourceType e) {
+			if (parentResourceContainer == null) {
+				logger.error("Resource container is missing a resource which was attempted to be loaded"+
+						" by a component and has no parent Resource Container to look in. ID of resource type was: "+e.getTypeID());
+				throw new ResourceContainerIsMissingRequiredResourceType(e.getTypeID());
+			} else {
+				parentResourceContainer.loadActiveResource(requestingProcess, providedInterfaceID, resourceServiceID, demand);
+			}
+		}
+	}
+	
+
+	public AbstractScheduledResource getResourceInResourceContainerOrParentResourceContainer(String resourceTypeID) {
+		AbstractScheduledResource resource = activeResources.get(resourceTypeID);
+		if (resource == null) {
+			if (parentResourceContainer != null) {
+				return parentResourceContainer.getResourceInResourceContainerOrParentResourceContainer(resourceTypeID);
+			}
+		}
+		return resource;
+	}
+	
 }
