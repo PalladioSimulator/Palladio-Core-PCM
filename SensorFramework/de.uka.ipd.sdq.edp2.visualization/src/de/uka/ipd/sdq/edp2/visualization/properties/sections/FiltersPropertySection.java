@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TableLayout;
@@ -32,6 +33,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
@@ -105,10 +107,19 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		Composite composite = getWidgetFactory()
 				.createFlatFormComposite(parent);
 
-		// properties view is only visible for abstract editors, so no type
-		// check is necessary
-		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		try {
+			// properties view is only visible for abstract editors, so no type
+			// check is necessary
+			editor = (AbstractEditor) Activator.getDefault().getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage()
+					.getActiveEditor();
+			// NPE may happen if the properties view is restored or opened while
+			// the editor is still or already closed
+		} catch (NullPointerException npe) {
+			logger.log(Level.SEVERE,
+					"Tried to open properties view without an active editor!");
+			throw new RuntimeException();
+		}
 
 		// set the input to what is actually selected in the editor
 		setInput(editor, Activator.getDefault().getWorkbench()
@@ -145,7 +156,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 					wdialog.open();
 					if (wdialog.getReturnCode() == Window.OK) {
 						adapter = wizard.getAdapter();
-						input.setSource(adapter);
+						handleSemanticChange(adapter);
 					}
 
 				} else if (event.widget == buttonFilter) {
@@ -172,6 +183,34 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		buttonFilter.addListener(SWT.Selection, btnListener);
 		updateTransformationsList();
 
+	}
+
+	private void handleSemanticChange(IAdapter adapter) {
+		// TODO perform actual check on compatible editors for new input.
+		boolean result = MessageDialog
+				.openQuestion(
+						Activator.getDefault().getWorkbench()
+								.getActiveWorkbenchWindow().getShell(),
+						"Semantics of Data Changed",
+						"The applied data transformation cannot be displayed in the current editor."
+								+ "It will be closed and a new Editor is opened. Do you want to proceed?");
+
+		IDataSink newInput = new HistogramEditorInput(adapter);
+		Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage().closeEditor(editor, false);
+		try {
+			editor = (AbstractEditor) Activator
+					.getDefault()
+					.getWorkbench()
+					.getActiveWorkbenchWindow()
+					.getActivePage()
+					.openEditor(newInput,
+							"de.uka.ipd.sdq.edp2.visualization.editors.Histogram");
+
+		} catch (PartInitException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -226,7 +265,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		transformationTable.setLinesVisible(true);
 		transformationTable.setHeaderVisible(true);
 		// set width and hight from the table
-		transformationTable.setLayoutData(new RowData(250, 123));
+		transformationTable.setLayoutData(new RowData(275, 123));
 		// set the weight of the table columns
 		TableLayout tableLayout = new TableLayout();
 		tableLayout.addColumnData(new ColumnWeightData(2));
@@ -346,7 +385,9 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 *         caled for the return value.
 	 */
 	public IDataSource getSource() {
-		IDataSink input = (IDataSink) editor.getEditorInput();
+		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		IDataSink input = editor.getEditorInput();
 		return input.getSource();
 	}
 
@@ -359,9 +400,9 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	public void updateTransformationsList() {
 
 		AbstractTransformation transformation = null;
-		
+
 		list.removeAll();
-		counter=0;
+		counter = 0;
 
 		// check if there are any transformations at all
 		if (getSource() instanceof AbstractTransformation) {
@@ -371,12 +412,12 @@ public class FiltersPropertySection extends AbstractPropertySection {
 			// iterate over remaining transformations
 			while (transformation.getSource() instanceof AbstractTransformation) {
 				transformation = (AbstractTransformation) transformation
-				.getSource();
+						.getSource();
 				list.add(transformation.getName());
 				counter++;
 			}
 		}
-		logger.log(Level.INFO, "Number of transformations: "+counter);
+		logger.log(Level.INFO, "Number of transformations: " + counter);
 
 	}
 
@@ -385,19 +426,20 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 * properties of the selected filter in the list.
 	 */
 	private void refreshPropertiesTable() {
-		//clear the table
+		// clear the table
 		transformationTable.clearAll();
 		transformationTable.setItemCount(0);
-		
-		//get the index of the selected transformation
+
+		// get the index of the selected transformation
 		AbstractTransformation selectedTransformation = (AbstractTransformation) getSource();
 		int selection = list.getSelectionIndex();
-		int i = 1;
-		
-		//iterate to the selected item over the editor inputs source-chain
-		while (i < counter - selection) {
+		int i = 0;
+
+		// iterate to the selected item over the editor inputs source-chain
+		while (i < selection) {
 			i++;
-			selectedTransformation = (AbstractTransformation) selectedTransformation.getSource();
+			selectedTransformation = (AbstractTransformation) selectedTransformation
+					.getSource();
 		}
 		// now in tempData is the selected filter
 		HashMap<String, Object> properties = selectedTransformation
@@ -425,18 +467,20 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		logger.log(Level.INFO, "update property '" + key + "' : '" + value
 				+ "'");
 
-		//get the index of the selected transformation
+		// get the index of the selected transformation
 		AbstractTransformation selectedTransformation = (AbstractTransformation) getSource();
 		int selection = list.getSelectionIndex();
-		int i = 1;
-		
-		//iterate to the selected item over the editor inputs source-chain
-		while (i < counter - selection) {
+		int i = 0;
+
+		// iterate to the selected item over the editor inputs source-chain
+		while (i < selection) {
 			i++;
-			selectedTransformation = (AbstractTransformation) selectedTransformation.getSource();
+			selectedTransformation = (AbstractTransformation) selectedTransformation
+					.getSource();
 		}
 
-		HashMap<String, Object> newProperties = selectedTransformation.getProperties();
+		HashMap<String, Object> newProperties = selectedTransformation
+				.getProperties();
 		newProperties.put(key, value);
 		selectedTransformation.setProperties(newProperties);
 		selectedTransformation.transformData();
@@ -445,6 +489,16 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		editor.setFocus();
 		refreshPropertiesTable();
 
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#refresh()
+	 */
+	public void refresh() {
+		updateTransformationsList();
 	}
 
 }

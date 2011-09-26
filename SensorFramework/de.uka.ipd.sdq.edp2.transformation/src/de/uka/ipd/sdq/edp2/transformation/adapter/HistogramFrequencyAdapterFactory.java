@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.edp2.transformation.adapter;
 
 import java.util.HashMap;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -51,6 +52,8 @@ public class HistogramFrequencyAdapterFactory extends ElementFactory {
 		
 		IDataSource createdSource = (IDataSource) ((IElementFactory) sourceFactory)
 		.createElement(memento);
+		
+		logger.log(Level.INFO, "Created source of HistoGramFrequencyAdapter: "+createdSource.toString());
 		
 		createdSource.addObserver(histogramAdapter);
 		histogramAdapter.setSource(createdSource);

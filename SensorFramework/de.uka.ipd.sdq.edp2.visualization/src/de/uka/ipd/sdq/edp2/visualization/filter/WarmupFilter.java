@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
@@ -138,7 +139,6 @@ public class WarmupFilter extends IFilter {
 	 */
 	@Override
 	public boolean canAccept(IDataSource source) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -149,8 +149,11 @@ public class WarmupFilter extends IFilter {
 	 */
 	@Override
 	public ArrayList<MetricDescription> getMetricRoles() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<MetricDescription> roles = new ArrayList<MetricDescription>();
+		MetricDescription nonTextual = ExperimentDataFactory.eINSTANCE.createNumericalBaseMetricDescription();
+		roles.add(nonTextual);
+		
+		return roles;
 	}
 
 	/*

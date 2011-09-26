@@ -48,6 +48,8 @@ public class WarmupFilterFactory extends ElementFactory{
 		IDataSource createdSource = (IDataSource) ((IElementFactory) sourceFactory)
 		.createElement(memento);
 		
+		logger.log(Level.INFO, "Created source of WarmupFilter: "+createdSource.toString());
+		
 		createdSource.addObserver(filter);
 		filter.setSource(createdSource);
 		filter.transformData();

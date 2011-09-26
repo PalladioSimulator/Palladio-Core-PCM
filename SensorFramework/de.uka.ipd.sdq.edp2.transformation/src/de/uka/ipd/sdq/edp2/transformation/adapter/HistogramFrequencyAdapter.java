@@ -159,6 +159,9 @@ public class HistogramFrequencyAdapter extends IAdapter {
 
 		// important: set the reference of the dataSeries
 		this.dataSeries = rawMeasurements.getDataSeries();
+		
+		setChanged();
+		notifyObservers();
 
 		logger.log(Level.INFO, "transformation END");
 	}
@@ -225,8 +228,7 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 */
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-
+		transformData();
 	}
 
 	/*

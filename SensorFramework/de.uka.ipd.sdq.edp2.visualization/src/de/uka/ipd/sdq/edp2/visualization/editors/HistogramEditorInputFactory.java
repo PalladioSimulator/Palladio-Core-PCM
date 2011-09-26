@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
 import java.util.HashMap;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -57,6 +58,8 @@ public class HistogramEditorInputFactory extends ElementFactory {
 		
 		IDataSource createdSource = (IDataSource) ((IElementFactory) sourceFactory)
 		.createElement(memento);
+		
+		logger.log(Level.INFO, "Created source of EditorInput: "+createdSource.toString());
 		
 		createdSource.addObserver(histogramInput);
 		histogramInput.setSource(createdSource);
