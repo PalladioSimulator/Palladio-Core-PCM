@@ -195,21 +195,23 @@ public class FiltersPropertySection extends AbstractPropertySection {
 						"The applied data transformation cannot be displayed in the current editor."
 								+ "It will be closed and a new Editor is opened. Do you want to proceed?");
 
-		IDataSink newInput = new HistogramEditorInput(adapter);
-		Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
-				.getActivePage().closeEditor(editor, false);
-		try {
-			editor = (AbstractEditor) Activator
-					.getDefault()
-					.getWorkbench()
-					.getActiveWorkbenchWindow()
-					.getActivePage()
-					.openEditor(newInput,
-							"de.uka.ipd.sdq.edp2.visualization.editors.Histogram");
+		if (result) {
+			IDataSink newInput = new HistogramEditorInput(adapter);
+			Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
+					.getActivePage().closeEditor(editor, false);
+			try {
+				editor = (AbstractEditor) Activator
+						.getDefault()
+						.getWorkbench()
+						.getActiveWorkbenchWindow()
+						.getActivePage()
+						.openEditor(newInput,
+								"de.uka.ipd.sdq.edp2.visualization.editors.Histogram");
 
-		} catch (PartInitException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			} catch (PartInitException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -245,7 +247,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	private void initTransformationTable(Group parentGroup) {
 		// initialize the list of transformations with a selection listener
 		list = new List(parentGroup, SWT.BORDER | SWT.SINGLE | SWT.V_SCROLL);
-		list.setLayoutData(new RowData(140, 140));
+		list.setLayoutData(new RowData(175, 140));
 		list.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -265,7 +267,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		transformationTable.setLinesVisible(true);
 		transformationTable.setHeaderVisible(true);
 		// set width and hight from the table
-		transformationTable.setLayoutData(new RowData(275, 123));
+		transformationTable.setLayoutData(new RowData(250, 123));
 		// set the weight of the table columns
 		TableLayout tableLayout = new TableLayout();
 		tableLayout.addColumnData(new ColumnWeightData(2));
@@ -401,23 +403,26 @@ public class FiltersPropertySection extends AbstractPropertySection {
 
 		AbstractTransformation transformation = null;
 
-		list.removeAll();
-		counter = 0;
+		if (!list.isDisposed()) {
+			list.removeAll();
 
-		// check if there are any transformations at all
-		if (getSource() instanceof AbstractTransformation) {
-			transformation = (AbstractTransformation) getSource();
-			list.add(transformation.getName());
-			counter++;
-			// iterate over remaining transformations
-			while (transformation.getSource() instanceof AbstractTransformation) {
-				transformation = (AbstractTransformation) transformation
-						.getSource();
+			counter = 0;
+
+			// check if there are any transformations at all
+			if (getSource() instanceof AbstractTransformation) {
+				transformation = (AbstractTransformation) getSource();
 				list.add(transformation.getName());
 				counter++;
+				// iterate over remaining transformations
+				while (transformation.getSource() instanceof AbstractTransformation) {
+					transformation = (AbstractTransformation) transformation
+							.getSource();
+					list.add(transformation.getName());
+					counter++;
+				}
 			}
+			logger.log(Level.INFO, "Number of transformations: " + counter);
 		}
-		logger.log(Level.INFO, "Number of transformations: " + counter);
 
 	}
 
@@ -435,16 +440,22 @@ public class FiltersPropertySection extends AbstractPropertySection {
 		int selection = list.getSelectionIndex();
 		int i = 0;
 
-		// iterate to the selected item over the editor inputs source-chain
+		// iterate to the selected item over the editor input's source-chain
 		while (i < selection) {
 			i++;
 			selectedTransformation = (AbstractTransformation) selectedTransformation
 					.getSource();
 		}
-		// now in tempData is the selected filter
+
+		// retrieve the properties of the selected transformation
 		HashMap<String, Object> properties = selectedTransformation
 				.getProperties();
 
+		// list of properties should not contain the element's identifier
+		// (cannot and must not be modified)
+		properties.remove("elementName");
+
+		// write property key-value-pairs into table
 		for (Object key : properties.keySet()) {
 			TableItem item = new TableItem(transformationTable, SWT.NONE);
 			item.setText(0, String.valueOf(key));
@@ -479,6 +490,7 @@ public class FiltersPropertySection extends AbstractPropertySection {
 					.getSource();
 		}
 
+		//get properties for keys and old values
 		HashMap<String, Object> newProperties = selectedTransformation
 				.getProperties();
 		newProperties.put(key, value);

@@ -43,7 +43,7 @@ public class ScatterPlotEditor extends JFreeChartEditor {
 	/**
 	 * This editor's title.
 	 */
-	private final static String EDITOR_NAME = "Scatterplot Editor";
+	private final static String EDITOR_NAME = "Scatterplot";
 	
 	/**
 	 * creates the components in this editor. It is called if a new Scatter Plot

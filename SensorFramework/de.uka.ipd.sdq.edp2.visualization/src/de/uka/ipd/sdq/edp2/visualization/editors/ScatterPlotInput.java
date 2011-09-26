@@ -53,6 +53,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 	private DefaultTableXYDataset dataset;
 
+
 	public ScatterPlotInput(){
 		super();
 	}
@@ -228,6 +229,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	@Override
 	public HashMap<String, Object> getProperties() {
 		properties.put(ELEMENT_KEY, ELEMENT_NAME);
+		properties.put(TITLE_KEY, getTitle());
 		return properties;
 	}
 

@@ -23,6 +23,11 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	 */
 	protected static final String ELEMENT_KEY = "elementName";
 	
+	/**
+	 * Key under which this editor's title is stored in the properties.
+	 */
+	protected static final String TITLE_KEY = "editorTitle";
+	
 	protected HashMap<String, Object> properties;
 	private IDataSource source;
 	private String title;
