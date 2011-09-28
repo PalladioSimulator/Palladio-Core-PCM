@@ -31,7 +31,7 @@
 			@Override
 			protected void setupResources()
 			{	
-				ResourceEnvironmentFactory.setUpResources(runProps.getOptionValue('H'), runProps.getOptionValue('p'), runProps.getOptionValue('s'), getAccuracy());
+				ResourceEnvironmentFactory.setUpResources(runProps.getOptionValue('p'), runProps.getOptionValue('H'), runProps.getOptionValue('s'), getAccuracy());
 			}
 			
 			@Override
