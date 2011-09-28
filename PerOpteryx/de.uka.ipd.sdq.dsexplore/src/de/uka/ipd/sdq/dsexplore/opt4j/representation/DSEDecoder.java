@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,6 +36,7 @@ import de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousProcessingRateDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
+import de.uka.ipd.sdq.pcm.designdecision.DiscreteDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteProcessingRateDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree;
@@ -42,6 +44,7 @@ import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule;
 import de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresDegree;
+import de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingResourceDegree;
 import de.uka.ipd.sdq.pcm.designdecision.RangeDegree;
@@ -457,7 +460,7 @@ public class DSEDecoder implements Decoder<DesignDecisionGenotype, PCMPhenotype>
 		} else if (choice instanceof SchedulingPolicyChoice){
 			result = ((SchedulingPolicyChoice)choice).getChosenValue().getLiteral();
 		} else {
-			logger.warn("There was an unrecognised design decision "+designDecision.getClass());
+			logger.warn("There was an unrecognised choice "+designDecision.getClass());
 		}
 		return result;
 	}
@@ -494,12 +497,22 @@ public class DSEDecoder implements Decoder<DesignDecisionGenotype, PCMPhenotype>
 			ContinousRangeChoice contChoice = factory.createContinousRangeChoice();
 			contChoice.setChosenValue(d);
 			choice = contChoice;
-		} else if (designDecision instanceof DiscreteRangeDegree){
-			DiscreteRangeDegree discDegree = (DiscreteRangeDegree) designDecision;
+		} else if (designDecision instanceof DiscreteDegree){
+			DiscreteDegree discDegree = (DiscreteDegree) designDecision;
 			int i = Integer.parseInt(decisionString);
-			if (!validRange(i, discDegree, discDegree.getFrom(), discDegree.getTo())){
-				throw ExceptionHelper.createNewCoreException("Error: Value "+i+"\" is not a valid value for degree "+designDecision+" "+DegreeOfFreedomHelper.getDegreeDescription(designDecision));
+			
+			if (designDecision instanceof DiscreteRangeDegree){
+			DiscreteRangeDegree discRangeDegree = (DiscreteRangeDegree) designDecision;
+				if (!validRange(i, discRangeDegree, discRangeDegree.getFrom(), discRangeDegree.getTo())){
+					throw ExceptionHelper.createNewCoreException("Error: Value "+i+"\" is not a valid value for degree "+designDecision+" "+DegreeOfFreedomHelper.getDegreeDescription(designDecision));
+				}
+			} else if (designDecision instanceof OrderedIntegerDegree){
+				OrderedIntegerDegree ordIntDegree = (OrderedIntegerDegree)designDecision;
+				if (!validValue(i, ordIntDegree, ordIntDegree.getListOfIntegers())){
+					throw ExceptionHelper.createNewCoreException("Error: Value "+i+"\" is not a valid value for degree "+designDecision+" "+DegreeOfFreedomHelper.getDegreeDescription(designDecision));
+				}
 			}
+			
 			DiscreteRangeChoice discChoice = factory.createDiscreteRangeChoice();
 			discChoice.setChosenValue(i);
 			choice = discChoice;
@@ -524,11 +537,21 @@ public class DSEDecoder implements Decoder<DesignDecisionGenotype, PCMPhenotype>
 			schedChoice.setChosenValue(chosenPolicy);
 			choice = schedChoice;
 		} else {
-			logger.warn("There was an unrecognised design decision "+designDecision.getClass());
+			logger.warn("There was an unrecognised design decision "+designDecision.getClass()+ " when reading in choices.");
 			return null;
 		}
 		choice.setDegreeOfFreedomInstance(designDecision);
 		return choice;
+	}
+
+	private static boolean validValue(int i, OrderedIntegerDegree ordIntDegree,
+			EList<Integer> listOfIntegers) {
+		for (Integer integer : listOfIntegers) {
+			if (i == integer){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private static boolean validRange(double value, RangeDegree designDecision, double from,

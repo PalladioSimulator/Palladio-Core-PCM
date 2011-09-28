@@ -96,6 +96,7 @@ public abstract class AbstractProcessingRateTactic extends AbstractTactic {
 					int newNumberOfCores = getUpdatedNumberOfCores(discreteChoice, numberOfCoresDegree);
 					// check whether number of cores can be increased
 					if (newNumberOfCores != discreteChoice.getChosenValue()){
+						discreteChoice.setChosenValue(newNumberOfCores);
 						finalizeAndAddCandidate(candidates, maxUtilisationResult,
 								candidate);
 						break;

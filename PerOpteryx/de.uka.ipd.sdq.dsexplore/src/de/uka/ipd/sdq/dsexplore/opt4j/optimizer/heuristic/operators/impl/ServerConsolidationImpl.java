@@ -170,7 +170,7 @@ public class ServerConsolidationImpl extends AbstractTactic {
 				ResourceContainer targetContainer = processingResourceSpecificationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult().getResourceContainer_ProcessingResourceSpecification();
 				if (targetContainer != identifiedContainer
 						&& EMFHelper.contains(resultCache.getAvailableResourceContainers(individual), targetContainer) // only deploy to allowed containers
-						&& !EMFHelper.contains(resultCache.getUnusedAvailableResourceContainers(individual), targetContainer)// new container must be used already 
+						&& !EMFHelper.contains(resultCache.getUnusedResourceContainers(individual), targetContainer)// new container must be used already 
 						&& EMFHelper.checkIdentity( // and the PR result must be about the same resource type. 
 								processingResourceSpecificationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult().getActiveResourceType_ActiveResourceSpecification(),
 								minUtilisationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult().getActiveResourceType_ActiveResourceSpecification())){

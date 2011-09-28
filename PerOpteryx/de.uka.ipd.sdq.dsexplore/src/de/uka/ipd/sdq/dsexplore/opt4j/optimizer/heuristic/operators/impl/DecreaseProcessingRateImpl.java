@@ -156,6 +156,8 @@ public class DecreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 		ProcessingResourceSpecification minUtilProcessingResource = minUtilisationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult();
 		addNewProcRateCandidate(individual, candidates, minUtilisationResult,
 				minUtilProcessingResource);
+		addNewNumberOfCoresCandidate(individual, candidates, minUtilisationResult,
+				minUtilProcessingResource);
 	}
 	
 	@Override
@@ -195,7 +197,7 @@ public class DecreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 			int nextSmallestInteger = Integer.MIN_VALUE;
 			int currentValue = discreteChoice.getChosenValue();
 			for (Integer value : asListDegree.getListOfIntegers()) {
-				if (value < currentValue && value >= nextSmallestInteger){
+				if (value < currentValue && value > nextSmallestInteger){
 					nextSmallestInteger = value;
 				}
 			}

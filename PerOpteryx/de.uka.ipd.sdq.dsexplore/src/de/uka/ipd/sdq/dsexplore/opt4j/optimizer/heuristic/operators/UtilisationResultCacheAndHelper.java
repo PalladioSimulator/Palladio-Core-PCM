@@ -8,15 +8,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.opt4j.core.Objective;
 
+import de.uka.ipd.sdq.dsexplore.analysis.PCMPhenotype;
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.genotype.DesignDecisionGenotype;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEObjectives;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.designdecision.AllocationDegree;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
@@ -47,6 +50,7 @@ public class UtilisationResultCacheAndHelper {
 	
 	private Collection<ResourceContainer> unusedAvailableResourceContainers;
 	private Collection<ResourceContainer> availableResourceContainer;
+	private Collection<ResourceContainer> unusedResourceContainers;
 	
 	// maps must permit null values, as resource type is null if any resource in meant. 
 	private Map<ResourceType, ProcessingResourceSpecificationResult> minProcResultMap = new HashMap<ResourceType, ProcessingResourceSpecificationResult>();
@@ -54,6 +58,7 @@ public class UtilisationResultCacheAndHelper {
 	
 	private LinkingResourceResults maxLinkResult;
 	private Set<ResourceType> resourceTypes;
+
 
 	/**
 	 * Get all resource containers that are available in the design decisions but that have no components.
@@ -67,6 +72,15 @@ public class UtilisationResultCacheAndHelper {
 		}
 		return this.unusedAvailableResourceContainers;
 	}
+	
+	public Collection<ResourceContainer> getUnusedResourceContainers(DSEIndividual individual) {
+		if (this.unusedResourceContainers == null){
+			this.unusedResourceContainers = determineUnusedResourceContainers(individual);
+		}
+		return this.unusedResourceContainers;
+	}
+	
+	
 	
 	/**
 	 * Return all {@link ResourceContainer}s available in the design decisions.   
@@ -104,6 +118,12 @@ public class UtilisationResultCacheAndHelper {
 	}
 
 
+	/**
+	 * Determine the resource containers that are not used in the current genome (they may be used in the PCM model if 
+	 * some unchangeable components are allocated to them).  
+	 * @param individual
+	 * @return
+	 */
 	private Collection<ResourceContainer> determineUnusedAvailableResourceContainers(DSEIndividual individual) {
 
 		DesignDecisionGenotype genotype = individual.getGenotype();
@@ -118,7 +138,32 @@ public class UtilisationResultCacheAndHelper {
 				unusedResourceContainers.remove(classChoice.getChosenValue());
 			}
 		}
+		
 		return unusedResourceContainers;
+	}
+	
+	/**
+	 * Determine the ResourceContainers that are not used in the current PCM model (based on the individual's phenotype).
+	 * @param individual
+	 * @return
+	 */
+	public Collection<ResourceContainer> determineUnusedResourceContainers(DSEIndividual individual) {
+		// also check the allocation model for other AllocationContexts that may not be changed by PerOpteryx. 
+		List<ResourceContainer> allModelContainers = ((PCMPhenotype)individual.getPhenotype()).getPCMInstance().getResourceEnvironment().getResourceContainer_ResourceEnvironment();
+		// create a new list to modify so that not the list in the model is changed. 
+		List<ResourceContainer> allContainers = new ArrayList<ResourceContainer>(allModelContainers.size());
+		allContainers.addAll(allModelContainers);
+		Set<ResourceContainer> usedContainers = new HashSet<ResourceContainer>();
+
+		for (AllocationContext allocContext : ((PCMPhenotype)individual.getPhenotype()).getPCMInstance().getAllocation().getAllocationContexts_Allocation()){
+			for (ResourceContainer resourceContainer : allContainers) {
+				if (EMFHelper.checkIdentity(allocContext.getResourceContainer_AllocationContext(), resourceContainer)){
+					usedContainers.add(resourceContainer);
+				}
+			}
+		}
+		allContainers.removeAll(usedContainers);
+		return allContainers;
 	}
 	
 	public ProcessingResourceSpecificationResult getMinProcUtilisationResult(DSEIndividual individual) {
@@ -146,7 +191,7 @@ public class UtilisationResultCacheAndHelper {
 						// only look at used servers
 						if (EMFHelper.contains(this.getAvailableResourceContainers(individual),
 								procUtilisationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult().getResourceContainer_ProcessingResourceSpecification())
-								&& !EMFHelper.contains(this.getUnusedAvailableResourceContainers(individual),
+								&& !EMFHelper.contains(this.getUnusedResourceContainers(individual),
 										procUtilisationResult.getProcessingResourceSpecification_ProcessingResourceSpecificationResult().getResourceContainer_ProcessingResourceSpecification() )
 								// and has matching resource type if resource type is not null
 								&& checkResourceType(procUtilisationResult, resourceType)){
