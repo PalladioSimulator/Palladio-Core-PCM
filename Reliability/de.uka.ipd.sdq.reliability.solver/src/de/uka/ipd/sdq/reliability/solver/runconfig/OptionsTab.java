@@ -9,6 +9,7 @@ import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.ModifyEvent;
@@ -16,6 +17,7 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -228,7 +230,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
 	public Image getImage() {
-		return RunConfigImages.getConfigurationTabImage();	// TODO maybe add own icon
+		return RunConfigImages.getOptionsTabImage();
 	}
 
 	@Override
@@ -265,17 +267,28 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 			}
 		};
 
-		// Create a new Composite to hold the page's controls:
-		final Composite container = new Composite(parent, SWT.NONE);
+		// Create a new Composite to hold the page's controls.
+		// The composite will show scroll bars if the size of
+		// the dialog decreases below the minimum size of the
+		// contained controls:
+		ScrolledComposite container = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL);
+		container.setExpandHorizontal(true);
+		container.setExpandVertical(true);
+		Composite contentContainer = new Composite(container, SWT.NONE);
+		container.setContent(contentContainer);
+		GridLayout layout = new GridLayout();
+		contentContainer.setLayout(layout);
+		
+		// Sets the scrolled composite to be the displayed
+		// top-level control in this tab:
 		setControl(container);
-		container.setLayout(new GridLayout());
 
 		// Create a new GridLayout for the stop conditions Group:
 		final GridLayout stopConditionsLayout = new GridLayout();
-		stopConditionsLayout.numColumns = /* 3 */2;
+		stopConditionsLayout.numColumns = 2;
 
 		// Create the logging Group with the verbose logging check box:
-		final Group stopConditionsGroup = new Group(container, SWT.NONE);
+		final Group stopConditionsGroup = new Group(contentContainer, SWT.NONE);
 		stopConditionsGroup.setLayout(stopConditionsLayout);
 		stopConditionsGroup.setText("Stop Conditions");
 		stopConditionsGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
@@ -303,7 +316,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		spinnerNumberOfEvaluatedSystemStates
 				.setEnabled(NUMBER_OF_EVALUATED_SYSTEM_STATES_ENABLED);
 		spinnerNumberOfEvaluatedSystemStates.setLayoutData(new GridData(
-				SWT.FILL, SWT.CENTER, false, false, /* 2 */1, 1));
+				SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		spinnerNumberOfEvaluatedSystemStates.addListener(SWT.Selection,
 				listener);
 		spinnerNumberOfEvaluatedSystemStates.addModifyListener(modifyListener);
@@ -330,7 +343,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		spinnerNumberOfExactDecimalPlaces
 				.setEnabled(NUMBER_OF_EXACT_DECIMAL_PLACES_ENABLED);
 		spinnerNumberOfExactDecimalPlaces.setLayoutData(new GridData(SWT.FILL,
-				SWT.CENTER, false, false, /* 2 */1, 1));
+				SWT.CENTER, false, false, 1, 1));
 		spinnerNumberOfExactDecimalPlaces.addListener(SWT.Selection, listener);
 		spinnerNumberOfExactDecimalPlaces.addModifyListener(modifyListener);
 
@@ -349,7 +362,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		spinnerSolvingTimeLimit.setSelection(SOLVING_TIME_LIMIT);
 		spinnerSolvingTimeLimit.setEnabled(SOLVING_TIME_LIMIT_ENABLED);
 		spinnerSolvingTimeLimit.setLayoutData(new GridData(SWT.FILL,
-				SWT.CENTER, false, false, /* 2 */1, 1));
+				SWT.CENTER, false, false, 1, 1));
 		spinnerSolvingTimeLimit.addListener(SWT.Selection, listener);
 		spinnerSolvingTimeLimit.addModifyListener(modifyListener);
 
@@ -359,7 +372,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		markovTransformationLayout.numColumns = 4;
 
 		// Create the Markov transformation Group
-		Group markovTransformationGroup = new Group(container, SWT.NONE);
+		Group markovTransformationGroup = new Group(contentContainer, SWT.NONE);
 		markovTransformationGroup.setLayout(markovTransformationLayout);
 		markovTransformationGroup.setText("Markov Transformation");
 		markovTransformationGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -502,7 +515,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		
 		// Create evaluation mode Group
 		final GridLayout evaluationModeLayout = new GridLayout();
-		final Group evaluationModeGroup = new Group(container, SWT.NONE);
+		final Group evaluationModeGroup = new Group(contentContainer, SWT.NONE);
 		evaluationModeGroup.setLayout(evaluationModeLayout);
 		evaluationModeGroup.setText("Evaluation Mode");
 		evaluationModeGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -538,7 +551,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		loggingLayout.numColumns = 4;
 
 		// Create the logging Group with the verbose logging check box:
-		final Group loggingGroup = new Group(container, SWT.NONE);
+		final Group loggingGroup = new Group(contentContainer, SWT.NONE);
 		loggingGroup.setLayout(loggingLayout);
 		loggingGroup.setText("Logging");
 		loggingGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
@@ -661,6 +674,13 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 					}
 
 				});
+		
+		// After all internal controls have been created,
+		// calculate the minimal size of the contentContainer.
+		// Scrollbars will be shown if the dialog size decreases
+		// below the calculated min size:
+		container.setMinSize(contentContainer.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+		
 	}
 
 	@Override

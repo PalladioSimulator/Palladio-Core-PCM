@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.reliability.solver.reporting;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
 
@@ -21,29 +22,29 @@ import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
  * 
  */
 public class MarkovReporting {
-	/**
-	 * Overall failure type probabilities, accumulated over all considered
-	 * physical system states.
-	 */
-	private Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities;
-
-	/**
-	 * Overall physical state probability, accumulated over all considered
-	 * physical system states.
-	 */
-	private double cumulatedPhysicalStateProbability;
-
+//	/**
+//	 * Overall failure type probabilities, accumulated over all considered
+//	 * physical system states.
+//	 */
+//	private Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities;
+//
+//	/**
+//	 * Overall physical state probability, accumulated over all considered
+//	 * physical system states.
+//	 */
+//	private double cumulatedPhysicalStateProbability;
+//
 //	/**
 //	 * Whether result approximation is enabled or not.
 //	 */
 //	private boolean doApproximate;
-
-	/**
-	 * A logger to give detailed information about the PCM instance
-	 * transformation.
-	 */
-	private static Logger logger = Logger.getLogger(MarkovReporting.class
-			.getName());
+//
+//	/**
+//	 * A logger to give detailed information about the PCM instance
+//	 * transformation.
+//	 */
+//	private static Logger logger = Logger.getLogger(MarkovReporting.class
+//			.getName());
 
 	/**
 	 * List of aggregated results of a PCM2MarkovTransformation
@@ -110,7 +111,6 @@ public class MarkovReporting {
 		createMarkovReportItems();
 	}
 
-	// TODO remove duplicate code
 	/**
 	 * Consider all Markov transformation results: For each such result we will
 	 * calculate the probabilities of interest, and then enclose them in a MarkovResultItem
@@ -120,241 +120,157 @@ public class MarkovReporting {
 		Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities = null;
 		double cumulatedPhysicalStateProbability = 0;
 		// TODO consider "doApproximate" functionality (use cumulatedPhysicalStateProbability for this)
+
+		/**
+		 * Create table-style output format.
+		 */
 		UsageScenario scenario = null;
-		boolean isList = false;	// TODO proper "list or table" functionality; for now, assume lists
 		MarkovReportItem markovReportItem = null;
-		if (isList) {
+		for (MarkovTransformationResult markovResult : markovResults) {
+			cumulatedFailureTypeProbabilities = markovResult
+					.getCumulatedFailureTypeProbabilities();
+			cumulatedPhysicalStateProbability = markovResult
+					.getCumulatedPhysicalStateProbability();
+			scenario = markovResult.getScenario();
+
 			/**
-			 * Create list-style output format.
+			 * Create a new Markov report item using the data of this scenario.
 			 */
-			for (MarkovTransformationResult markovResult : markovResults) {
-				cumulatedFailureTypeProbabilities = markovResult
-						.getCumulatedFailureTypeProbabilities();
-				cumulatedPhysicalStateProbability = markovResult
-						.getCumulatedPhysicalStateProbability();
-				scenario = markovResult.getScenario();
+			markovReportItem = new MarkovReportItem(scenario
+					.getEntityName(), scenario.getId(), markovResult
+					.getSuccessProbability());
 
-				/**
-				 * Create a new Markov report item using the data of this scenario.
-				 */
-				markovReportItem = new MarkovReportListItem(scenario
-						.getEntityName(), scenario.getId(), markovResult
-						.getSuccessProbability());
-
-				/**
-				 * Calculate accumulated failure probabilities.
-				 */
-				calculateComponentsInternalActionFailureProbabilities(cumulatedFailureTypeProbabilities);
-				calculateComponentsServiceFailureProbabilities(cumulatedFailureTypeProbabilities);
-				calculateComponentsServiceOperationFailureProbabilities(cumulatedFailureTypeProbabilities);
-				calculateExternalServiceFailureProbabilities(cumulatedFailureTypeProbabilities);
-				calculateExternalServiceOperationFailureProbabilities(cumulatedFailureTypeProbabilities);
-
-				/**
-				 * Insert calculated failure probabilities into report.
-				 */
-				List<String> componentsInternalActionFailureProbabilitiesLines = new ArrayList<String>();
-				List<String> componentsServiceFailureProbabilitiesLines = new ArrayList<String>();
-				List<String> componentsServiceOperationFailureProbabilitiesLines = new ArrayList<String>();
-				List<String> externalServiceFailureProbabilitiesLines = new ArrayList<String>();
-				List<String> externalServiceOperationFailureProbabilitiesLines = new ArrayList<String>();
-				componentsInternalActionFailureProbabilitiesLines
-						.add("Component failure probabilities:");
-				componentsServiceFailureProbabilitiesLines
-						.add("Component service failure probabilities:");
-				componentsServiceOperationFailureProbabilitiesLines
-						.add("Component operation failure probabilities:");
-				externalServiceFailureProbabilitiesLines
-						.add("External service failure probabilities:");
-				externalServiceOperationFailureProbabilitiesLines
-						.add("External operation failure probabilities:");
-				for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
-					String entityName = "";
-					for (String namePart : aggregation.getEntityNameParts()) {
-						entityName += namePart + "/";
-					}
-					entityName = entityName.substring(0,
-							entityName.length() - 1); // remove last "/"	TODO better solution?
-					switch (aggregation.getType()) {
-					case COMPONENTS_INTERNAL_ACTIONS:
-						componentsInternalActionFailureProbabilitiesLines
-								.add(entityName + ": "
-										+ aggregation.getFailureProbability());
-						break;
-					case COMPONENTS_SERVICES:
-						componentsServiceFailureProbabilitiesLines
-								.add(entityName + ": "
-										+ aggregation.getFailureProbability());
-						break;
-					case COMPONENTS_SERVICE_OPERATIONS:
-						componentsServiceOperationFailureProbabilitiesLines
-								.add(entityName + ": "
-										+ aggregation.getFailureProbability());
-						break;
-					case EXTERNAL_SERVICES:
-						externalServiceFailureProbabilitiesLines.add(entityName
-								+ ": " + aggregation.getFailureProbability());
-						break;
-					case EXTERNAL_SERVICE_OPERATIONS:
-						externalServiceOperationFailureProbabilitiesLines
-								.add(entityName + ": "
-										+ aggregation.getFailureProbability());
-						break;
-					default:
-						break;
-					}
-				}
-				((MarkovReportListItem) markovReportItem)
-						.addEntry(componentsInternalActionFailureProbabilitiesLines);
-				((MarkovReportListItem) markovReportItem)
-						.addEntry(componentsServiceFailureProbabilitiesLines);
-				((MarkovReportListItem) markovReportItem)
-						.addEntry(componentsServiceOperationFailureProbabilitiesLines);
-				((MarkovReportListItem) markovReportItem)
-						.addEntry(externalServiceFailureProbabilitiesLines);
-				((MarkovReportListItem) markovReportItem)
-						.addEntry(externalServiceOperationFailureProbabilitiesLines);
-			}
-		} else {
 			/**
-			 * Create table-style output format.
+			 * Create failure overview tables first
 			 */
-			for (MarkovTransformationResult markovResult : markovResults) {
-				cumulatedFailureTypeProbabilities = markovResult
-						.getCumulatedFailureTypeProbabilities();
-				cumulatedPhysicalStateProbability = markovResult
-						.getCumulatedPhysicalStateProbability();
-				scenario = markovResult.getScenario();
-
-				/**
-				 * Create a new Markov report item using the data of this scenario.
-				 */
-				markovReportItem = new MarkovReportTableItem(scenario
-						.getEntityName(), scenario.getId(), markovResult
-						.getSuccessProbability());
-
-				/**
-				 * Calculate accumulated failure probabilities.
-				 */
-				calculateComponentsInternalActionFailureProbabilities(cumulatedFailureTypeProbabilities);
-				calculateComponentsServiceFailureProbabilities(cumulatedFailureTypeProbabilities);
-				calculateComponentsServiceOperationFailureProbabilities(cumulatedFailureTypeProbabilities);
-				calculateExternalServiceFailureProbabilities(cumulatedFailureTypeProbabilities);
-				calculateExternalServiceOperationFailureProbabilities(cumulatedFailureTypeProbabilities);
-
-				/**
-				 * Insert calculated failure probabilities into report...
-				 */
-				// componentsInternalActionFailureProbabilities
-				((MarkovReportTableItem) markovReportItem).addTableName("Component failure probabilities");
-				List<String> componentsInternalActionFailureProbabilitiesTableHeaderRow = new ArrayList<String>(2);
-				componentsInternalActionFailureProbabilitiesTableHeaderRow.add("Component Name");
-				componentsInternalActionFailureProbabilitiesTableHeaderRow.add("Failure Probability");
-				((MarkovReportTableItem) markovReportItem).addHeaderRow(componentsInternalActionFailureProbabilitiesTableHeaderRow);
-				List<List<String>> componentsInternalActionFailureProbabilitiesTable = new ArrayList<List<String>>();
-
-				// componentsServiceFailureProbabilities
-				((MarkovReportTableItem) markovReportItem).addTableName("Component service failure probabilities");
-				List<String> componentsServiceFailureProbabilitiesTableHeaderRow = new ArrayList<String>(3);
-				componentsServiceFailureProbabilitiesTableHeaderRow.add("Component Name");
-				componentsServiceFailureProbabilitiesTableHeaderRow.add("Interface Name");
-				componentsServiceFailureProbabilitiesTableHeaderRow.add("Failure Probability");
-				((MarkovReportTableItem) markovReportItem).addHeaderRow(componentsServiceFailureProbabilitiesTableHeaderRow);
-				List<List<String>> componentsServiceFailureProbabilitiesTable = new ArrayList<List<String>>();
-
-				// componentsServiceOperationFailureProbabilities
-				((MarkovReportTableItem) markovReportItem).addTableName("Component operation failure probabilities");
-				List<String> componentsServiceOperationFailureProbabilitiesTableHeaderRow = new ArrayList<String>(4);
-				componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Component Name");
-				componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Interface Name");
-				componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Signature Name");
-				componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Failure Probability");
-				((MarkovReportTableItem) markovReportItem).addHeaderRow(componentsServiceOperationFailureProbabilitiesTableHeaderRow);
-				List<List<String>> componentsServiceOperationFailureProbabilitiesTable = new ArrayList<List<String>>();
-
-				// externalServiceFailureProbabilities
-				((MarkovReportTableItem) markovReportItem).addTableName("External service failure probabilities");
-				List<String> externalServiceFailureProbabilitiesTableHeaderRow = new ArrayList<String>(3);
-				externalServiceFailureProbabilitiesTableHeaderRow.add("Role Name");
-				externalServiceFailureProbabilitiesTableHeaderRow.add("Interface Name");
-				externalServiceFailureProbabilitiesTableHeaderRow.add("Failure Probability");
-				((MarkovReportTableItem) markovReportItem).addHeaderRow(externalServiceFailureProbabilitiesTableHeaderRow);
-				List<List<String>> externalServiceFailureProbabilitiesTable = new ArrayList<List<String>>();
-
-				// externalServiceOperationFailureProbabilities
-				((MarkovReportTableItem) markovReportItem).addTableName("External operation failure probabilities");
-				List<String> externalServiceOperationFailureProbabilitiesTableHeaderRow = new ArrayList<String>(4);
-				externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Role Name");
-				externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Interface Name");
-				externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Signature Name");
-				externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Failure Probability");
-				((MarkovReportTableItem) markovReportItem).addHeaderRow(externalServiceOperationFailureProbabilitiesTableHeaderRow);
-				List<List<String>> externalServiceOperationFailureProbabilitiesTable = new ArrayList<List<String>>();
-
-				/**
-				 * ... by creating a table row for each failure probability aggregation, and adding
-				 * this row to the according table.
-				 */
-				for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
-					switch (aggregation.getType()) {
-					case COMPONENTS_INTERNAL_ACTIONS:
-						List<String> componentsInternalActionFailureProbabilitiesTableRow = new ArrayList<String>(
-								componentsInternalActionFailureProbabilitiesTableHeaderRow.size());	// create new row
-						for (String entityNamePart : aggregation.getEntityNameParts()) {	// add name parts to row; one column per name part
-							componentsInternalActionFailureProbabilitiesTableRow.add(entityNamePart);
-						}
-						componentsInternalActionFailureProbabilitiesTableRow.add(Double.toString(aggregation.getFailureProbability()));	// also add failure probability to this row
-						componentsInternalActionFailureProbabilitiesTable.add(componentsInternalActionFailureProbabilitiesTableRow);	// insert row into table
-						break;
-					case COMPONENTS_SERVICES:
-						List<String> componentsServiceFailureProbabilitiesTableRow = new ArrayList<String>(
-								componentsServiceFailureProbabilitiesTableHeaderRow.size());	// create new row
-						for (String entityNamePart : aggregation.getEntityNameParts()) {	// add name parts to row; one column per name part
-							componentsServiceFailureProbabilitiesTableRow.add(entityNamePart);
-						}
-						componentsServiceFailureProbabilitiesTableRow.add(Double.toString(aggregation.getFailureProbability()));	// also add failure probability to this row
-						componentsServiceFailureProbabilitiesTable.add(componentsServiceFailureProbabilitiesTableRow);	// insert row into table
-						break;
-					case COMPONENTS_SERVICE_OPERATIONS:
-						List<String> componentsServiceOperationFailureProbabilitiesTableRow = new ArrayList<String>(
-								componentsServiceOperationFailureProbabilitiesTableHeaderRow.size());	// create new row
-						for (String entityNamePart : aggregation.getEntityNameParts()) {	// add name parts to row; one column per name part
-							componentsServiceOperationFailureProbabilitiesTableRow.add(entityNamePart);
-						}
-						componentsServiceOperationFailureProbabilitiesTableRow.add(Double.toString(aggregation.getFailureProbability()));	// also add failure probability to this row
-						componentsServiceOperationFailureProbabilitiesTable.add(componentsServiceOperationFailureProbabilitiesTableRow);	// insert row into table
-						break;
-					case EXTERNAL_SERVICES:
-						List<String> externalServiceFailureProbabilitiesTableRow = new ArrayList<String>(
-								externalServiceFailureProbabilitiesTableHeaderRow.size());	// create new row
-						for (String entityNamePart : aggregation.getEntityNameParts()) {	// add name parts to row; one column per name part
-							externalServiceFailureProbabilitiesTableRow.add(entityNamePart);
-						}
-						externalServiceFailureProbabilitiesTableRow.add(Double.toString(aggregation.getFailureProbability()));	// also add failure probability to this row
-						externalServiceFailureProbabilitiesTable.add(externalServiceFailureProbabilitiesTableRow);	// insert row into table
-						break;
-					case EXTERNAL_SERVICE_OPERATIONS:
-						List<String> externalServiceOperationFailureProbabilitiesTableRow = new ArrayList<String>(
-								externalServiceOperationFailureProbabilitiesTableHeaderRow.size());	// create new row
-						for (String entityNamePart : aggregation.getEntityNameParts()) {	// add name parts to row; one column per name part
-							externalServiceOperationFailureProbabilitiesTableRow.add(entityNamePart);
-						}
-						externalServiceOperationFailureProbabilitiesTableRow.add(Double.toString(aggregation.getFailureProbability()));	// also add failure probability to this row
-						externalServiceOperationFailureProbabilitiesTable.add(externalServiceOperationFailureProbabilitiesTableRow);	// insert row into table
-						break;
-					default:
-						break;
-					}
-				}
-				/**
-				 * Finally, add the table to our report item.
-				 */
-				((MarkovReportTableItem) markovReportItem).addTable(componentsInternalActionFailureProbabilitiesTable);
-				((MarkovReportTableItem) markovReportItem).addTable(componentsServiceFailureProbabilitiesTable);
-				((MarkovReportTableItem) markovReportItem).addTable(componentsServiceOperationFailureProbabilitiesTable);
-				((MarkovReportTableItem) markovReportItem).addTable(externalServiceFailureProbabilitiesTable);
-				((MarkovReportTableItem) markovReportItem).addTable(externalServiceOperationFailureProbabilitiesTable);
+			// TODO improve output
+			TreeSet<MarkovFailureType> failureTypesSorted = markovResult.getFailureTypesSorted();
+			MarkovReportingTable table = new MarkovReportingTable("Failure Type Overview");
+			List<String> headerRow = new ArrayList<String>(2);
+			headerRow.add("Failure Type Name");
+			headerRow.add("Failure Probability");
+			table.setHeaderRow(headerRow);
+			for (MarkovFailureType failureType : failureTypesSorted) {
+				double failureProbability = markovResult.getFailureTypeProbability(failureType);
+				List<String> row = new ArrayList<String>(2);
+				row.add(failureType.getName());
+				row.add(Double.toString(failureProbability));
+				table.addRow(row);
 			}
+			markovReportItem.addTable(table);
+
+			/**
+			 * Calculate accumulated failure probabilities.
+			 */
+			calculateComponentsInternalActionFailureProbabilities(cumulatedFailureTypeProbabilities);
+			calculateComponentsServiceFailureProbabilities(cumulatedFailureTypeProbabilities);
+			calculateComponentsServiceOperationFailureProbabilities(cumulatedFailureTypeProbabilities);
+			calculateExternalServiceFailureProbabilities(cumulatedFailureTypeProbabilities);
+			calculateExternalServiceOperationFailureProbabilities(cumulatedFailureTypeProbabilities);
+
+			/**
+			 * Insert calculated failure probabilities into report...
+			 */
+			// componentsInternalActionFailureProbabilities
+			MarkovReportingTable componentsInternalActionFailureProbabilitiesTable = new MarkovReportingTable("Component failure probabilities");
+			List<String> componentsInternalActionFailureProbabilitiesTableHeaderRow = new ArrayList<String>(3);
+			componentsInternalActionFailureProbabilitiesTableHeaderRow.add("Component Name");
+			componentsInternalActionFailureProbabilitiesTableHeaderRow.add("Failure Probability");
+			componentsInternalActionFailureProbabilitiesTable.setHeaderRow(componentsInternalActionFailureProbabilitiesTableHeaderRow);
+
+			// componentsServiceFailureProbabilities
+			MarkovReportingTable componentsServiceFailureProbabilitiesTable = new MarkovReportingTable("Component service failure probabilities");
+			List<String> componentsServiceFailureProbabilitiesTableHeaderRow = new ArrayList<String>(3);
+			componentsServiceFailureProbabilitiesTableHeaderRow.add("Component Name");
+			componentsServiceFailureProbabilitiesTableHeaderRow.add("Interface Name");
+			componentsServiceFailureProbabilitiesTableHeaderRow.add("Failure Probability");
+			componentsServiceFailureProbabilitiesTable.setHeaderRow(componentsServiceFailureProbabilitiesTableHeaderRow);
+
+			// componentsServiceOperationFailureProbabilities
+			MarkovReportingTable componentsServiceOperationFailureProbabilitiesTable = new MarkovReportingTable("Component operation failure probabilities");
+			List<String> componentsServiceOperationFailureProbabilitiesTableHeaderRow = new ArrayList<String>(4);
+			componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Component Name");
+			componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Interface Name");
+			componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Signature Name");
+			componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Failure Probability");
+			componentsServiceOperationFailureProbabilitiesTable.setHeaderRow(componentsServiceOperationFailureProbabilitiesTableHeaderRow);
+
+			// externalServiceFailureProbabilities
+			MarkovReportingTable externalServiceFailureProbabilitiesTable = new MarkovReportingTable("External service failure probabilities");
+			List<String> externalServiceFailureProbabilitiesTableHeaderRow = new ArrayList<String>(4);
+			externalServiceFailureProbabilitiesTableHeaderRow.add("Role Name");
+			externalServiceFailureProbabilitiesTableHeaderRow.add("Interface Name");
+			externalServiceFailureProbabilitiesTableHeaderRow.add("Failure Probability");
+			externalServiceFailureProbabilitiesTable.setHeaderRow(externalServiceFailureProbabilitiesTableHeaderRow);
+
+			// externalServiceOperationFailureProbabilities
+			MarkovReportingTable externalServiceOperationFailureProbabilitiesTable = new MarkovReportingTable("External operation failure probabilities");
+			List<String> externalServiceOperationFailureProbabilitiesTableHeaderRow = new ArrayList<String>(4);
+			externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Role Name");
+			externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Interface Name");
+			externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Signature Name");
+			externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Failure Probability");
+			externalServiceOperationFailureProbabilitiesTable.setHeaderRow(externalServiceOperationFailureProbabilitiesTableHeaderRow);
+
+			/**
+			 * ... by creating a table row for each failure probability aggregation, and adding
+			 * this row to the according table.
+			 */
+			for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+				switch (aggregation.getType()) {
+				case COMPONENTS_INTERNAL_ACTIONS:
+					List<String> componentsInternalActionFailureProbabilitiesTableRow = new ArrayList<String>(componentsInternalActionFailureProbabilitiesTableHeaderRow.size());	// create new row
+					for (String entityNamePart : aggregation.getEntityNameParts()) {	// add name parts to row; one column per name part
+						componentsInternalActionFailureProbabilitiesTableRow.add(entityNamePart);
+					}
+					componentsInternalActionFailureProbabilitiesTableRow.add(Double.toString(aggregation.getFailureProbability()));	// also add failure probability to this row
+					componentsInternalActionFailureProbabilitiesTable.addRow(componentsInternalActionFailureProbabilitiesTableRow);	// insert row into table
+					break;
+				case COMPONENTS_SERVICES:
+					List<String> componentsServicesFailureProbabilitiesTableRow = new ArrayList<String>(componentsServiceFailureProbabilitiesTableHeaderRow.size());	// create new row
+					for (String entityNamePart : aggregation.getEntityNameParts()) {	// add name parts to row; one column per name part
+						componentsServicesFailureProbabilitiesTableRow.add(entityNamePart);
+					}
+					componentsServicesFailureProbabilitiesTableRow.add(Double.toString(aggregation.getFailureProbability()));	// also add failure probability to this row
+					componentsServiceFailureProbabilitiesTable.addRow(componentsServicesFailureProbabilitiesTableRow);	// insert row into table
+					break;
+				case COMPONENTS_SERVICE_OPERATIONS:
+					List<String> componentsServiceOperationFailureProbabilitiesTableRow = new ArrayList<String>(componentsServiceOperationFailureProbabilitiesTableHeaderRow.size());	// create new row
+					for (String entityNamePart : aggregation.getEntityNameParts()) {	// add name parts to row; one column per name part
+						componentsServiceOperationFailureProbabilitiesTableRow.add(entityNamePart);
+					}
+					componentsServiceOperationFailureProbabilitiesTableRow.add(Double.toString(aggregation.getFailureProbability()));	// also add failure probability to this row
+					componentsServiceOperationFailureProbabilitiesTable.addRow(componentsServiceOperationFailureProbabilitiesTableRow);	// insert row into table
+					break;
+				case EXTERNAL_SERVICES:
+					List<String> externalServiceFailureProbabilitiesTableRow = new ArrayList<String>(externalServiceFailureProbabilitiesTableHeaderRow.size());	// create new row
+					for (String entityNamePart : aggregation.getEntityNameParts()) {	// add name parts to row; one column per name part
+						externalServiceFailureProbabilitiesTableRow.add(entityNamePart);
+					}
+					externalServiceFailureProbabilitiesTableRow.add(Double.toString(aggregation.getFailureProbability()));	// also add failure probability to this row
+					externalServiceFailureProbabilitiesTable.addRow(externalServiceFailureProbabilitiesTableRow);	// insert row into table
+					break;
+				case EXTERNAL_SERVICE_OPERATIONS:
+					List<String> externalServiceOperationFailureProbabilitiesTableRow = new ArrayList<String>(externalServiceFailureProbabilitiesTableHeaderRow.size());	// create new row
+					for (String entityNamePart : aggregation.getEntityNameParts()) {	// add name parts to row; one column per name part
+						externalServiceOperationFailureProbabilitiesTableRow.add(entityNamePart);
+					}
+					externalServiceOperationFailureProbabilitiesTableRow.add(Double.toString(aggregation.getFailureProbability()));	// also add failure probability to this row
+					externalServiceOperationFailureProbabilitiesTable.addRow(externalServiceOperationFailureProbabilitiesTableRow);	// insert row into table
+					break;
+				default:
+					break;
+				}
+			}
+
+			/**
+			 * Finally, add the tables to our report item.
+			 */
+			markovReportItem.addTable(componentsInternalActionFailureProbabilitiesTable);
+			markovReportItem.addTable(componentsServiceFailureProbabilitiesTable);
+			markovReportItem.addTable(componentsServiceOperationFailureProbabilitiesTable);
+			markovReportItem.addTable(externalServiceFailureProbabilitiesTable);
+			markovReportItem.addTable(externalServiceOperationFailureProbabilitiesTable);
 		}
 		// add this report item to our list
 		markovReportItems.add(markovReportItem);

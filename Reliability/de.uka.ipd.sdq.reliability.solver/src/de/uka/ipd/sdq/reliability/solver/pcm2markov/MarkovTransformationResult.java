@@ -414,7 +414,7 @@ public class MarkovTransformationResult {
 	 * 
 	 * @return the sorted list of failure types
 	 */
-	private TreeSet<MarkovFailureType> getFailureTypesSorted() {
+	public TreeSet<MarkovFailureType> getFailureTypesSorted() {
 		TreeSet<MarkovFailureType> result = new TreeSet<MarkovFailureType>();
 		for (MarkovFailureType failureType : cumulatedFailureTypeProbabilities
 				.keySet()) {
@@ -430,7 +430,7 @@ public class MarkovTransformationResult {
 	 *            the given failure type
 	 * @return the failure probability
 	 */
-	private double getFailureTypeProbability(final MarkovFailureType failureType) {
+	public double getFailureTypeProbability(final MarkovFailureType failureType) {
 		Double failureTypeProbability = cumulatedFailureTypeProbabilities
 				.get(failureType);
 		return (failureTypeProbability == null) ? 0.0 : failureTypeProbability;

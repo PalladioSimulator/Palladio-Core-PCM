@@ -1,13 +1,16 @@
 package de.uka.ipd.sdq.reliability.solver.reporting;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Abstract class that is responsible for generating abstract output formats (e.g. lists, tables)
- * of Markov transformation results.
+ * Generates abstract tables (consisting of rows and columns).
  * 
  * @author Daniel Patejdl
  *
  */
-public abstract class MarkovReportItem {
+public class MarkovReportItem {
+	
 	/**
 	 * The scenario's name
 	 */
@@ -23,10 +26,17 @@ public abstract class MarkovReportItem {
 	 */
 	private double successProbability;
 
+	/**
+	 * A MarkovReportItem consists of several tables.
+	 */
+	private List<MarkovReportingTable> tables;
+
 	public MarkovReportItem(String scenarioName, String scenarioId, double successProbability) {
 		this.scenarioName = scenarioName;
 		this.scenarioId = scenarioId;
 		this.successProbability = successProbability;
+
+		tables = new ArrayList<MarkovReportingTable>();
 	}
 
 	/**
@@ -66,5 +76,21 @@ public abstract class MarkovReportItem {
 	 */
 	public double getSuccessProbability() {
 		return successProbability;
+	}
+
+	/**
+	 * Adds a table to the list of tables.
+	 * @param table the table
+	 */
+	public void addTable(MarkovReportingTable table){
+		tables.add(table);
+	}
+
+	/**
+	 * Returns all tables in the list.
+	 * @return all tables
+	 */
+	public List<MarkovReportingTable> getTables() {
+		return tables;
 	}
 }
