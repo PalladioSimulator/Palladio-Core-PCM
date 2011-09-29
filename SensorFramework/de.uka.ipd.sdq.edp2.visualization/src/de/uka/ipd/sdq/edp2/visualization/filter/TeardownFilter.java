@@ -108,12 +108,12 @@ public class TeardownFilter extends IFilter {
 
 	@Override
 	public String getFactoryId() {
-		return TeardownFilterFactory.getFactoryId();
+		return null;
 	}
 
 	@Override
 	public void saveState(IMemento memento) {
-		TeardownFilterFactory.saveState(memento, this);
+		//TeardownFilterFactory.saveState(memento, this);
 		logger.log(Level.INFO, "saveState()");
 	}
 

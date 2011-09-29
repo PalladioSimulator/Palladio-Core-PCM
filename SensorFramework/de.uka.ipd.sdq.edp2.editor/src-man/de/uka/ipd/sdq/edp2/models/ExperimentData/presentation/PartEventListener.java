@@ -3,24 +3,14 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.presentation;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IPartListener2;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartReference;
-import org.eclipse.ui.part.EditorPart;
 
-import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
-import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
-import de.uka.ipd.sdq.edp2.visualization.IDataFlow;
-import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
-import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
-import de.uka.ipd.sdq.edp2.visualization.filter.WarmupFilter;
 
 /**
  * @author Dominik Ernst

@@ -84,13 +84,5 @@
          
       </propertySections>
    </extension>
-   <extension
-         point="de.uka.ipd.sdq.edp2.visualization.filter">
-      <filter
-            class="de.uka.ipd.sdq.edp2.visualization.filter.WarmupFilter"
-            factory="de.uka.ipd.sdq.edp2.visualization.filter.WarmupFilterFactory"
-            wizard="de.uka.ipd.sdq.edp2.visualization.filter.WarmupFilterWizard">
-      </filter>
-   </extension>
 
 </plugin>

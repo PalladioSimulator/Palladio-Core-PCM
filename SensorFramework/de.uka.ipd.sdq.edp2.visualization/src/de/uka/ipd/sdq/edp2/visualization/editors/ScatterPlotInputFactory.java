@@ -1,20 +1,16 @@
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
 import java.util.HashMap;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.ui.IElementFactory;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableEditor;
-import org.eclipse.ui.IPersistableElement;
 
-import de.uka.ipd.sdq.edp2.visualization.FactoryAdapter;
 import de.uka.ipd.sdq.edp2.visualization.FactoryConnector;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
-import de.uka.ipd.sdq.edp2.visualization.util.PersistenceTag;
 
 /**
  * Factory for {@link ScatterPlotInput}. Also manages persistence of instances

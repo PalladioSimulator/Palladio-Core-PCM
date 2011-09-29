@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.edp2.visualization.filter;
+package de.uka.ipd.sdq.edp2.transformation.filter;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
