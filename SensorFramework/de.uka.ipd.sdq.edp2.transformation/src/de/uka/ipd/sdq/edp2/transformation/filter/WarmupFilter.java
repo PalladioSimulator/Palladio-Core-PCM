@@ -20,7 +20,10 @@ import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.Measurement;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
+import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
@@ -139,7 +142,19 @@ public class WarmupFilter extends IFilter {
 	 */
 	@Override
 	public boolean canAccept(IDataSource source) {
-		return true;
+		final MetricDescription sourceMetric = source.getMeasurementsRange()
+				.getMeasurements().getMeasure().getMetric();
+		BaseMetricDescription[] sourceMetrics = null;
+		if (!(sourceMetric instanceof BaseMetricDescription)) {
+			sourceMetrics = MetricDescriptionUtility
+					.toBaseMetricDescriptions(sourceMetric);
+		}
+		if (sourceMetrics[0].getCaptureType()
+				.equals(CaptureType.INTEGER_NUMBER)
+				|| sourceMetrics[0].getCaptureType().equals(
+						CaptureType.REAL_NUMBER))
+			return true;
+		return false;
 	}
 
 	/*
@@ -150,9 +165,10 @@ public class WarmupFilter extends IFilter {
 	@Override
 	public ArrayList<MetricDescription> getMetricRoles() {
 		ArrayList<MetricDescription> roles = new ArrayList<MetricDescription>();
-		MetricDescription nonTextual = ExperimentDataFactory.eINSTANCE.createNumericalBaseMetricDescription();
+		MetricDescription nonTextual = ExperimentDataFactory.eINSTANCE
+				.createNumericalBaseMetricDescription();
 		roles.add(nonTextual);
-		
+
 		return roles;
 	}
 

@@ -54,10 +54,10 @@ import de.uka.ipd.sdq.edp2.visualization.wizards.FilterWizard;
  * @author Roland Richter, Dominik Ernst
  * 
  */
-public class FiltersPropertySection extends AbstractPropertySection {
+public class TransformationsPropertySection extends AbstractPropertySection {
 	/** logger */
 	private final static Logger logger = Logger
-			.getLogger(FiltersPropertySection.class.getCanonicalName());
+			.getLogger(TransformationsPropertySection.class.getCanonicalName());
 
 	private final static String NAME_KEY = "elementName";
 
@@ -228,9 +228,9 @@ public class FiltersPropertySection extends AbstractPropertySection {
 	 * Creates and initializes the list of the applied filters and the
 	 * properties table. A selection listener looks if one entry in the filter
 	 * list is selected and if one is selected the
-	 * {@link FiltersPropertySection#refreshPropertiesTable()} is called. A
+	 * {@link TransformationsPropertySection#refreshPropertiesTable()} is called. A
 	 * listener look for the properties table and call
-	 * {@link FiltersPropertySection#updateProperties(String, Object)} of the
+	 * {@link TransformationsPropertySection#updateProperties(String, Object)} of the
 	 * value field is let out by pressing ENTER.
 	 * 
 	 * @param parentGroup

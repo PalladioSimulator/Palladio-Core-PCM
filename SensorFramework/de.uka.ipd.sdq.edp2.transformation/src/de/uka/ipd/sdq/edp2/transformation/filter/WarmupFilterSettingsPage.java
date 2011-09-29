@@ -7,6 +7,10 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.VerifyEvent;
+import org.eclipse.swt.events.VerifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -18,7 +22,7 @@ import org.eclipse.swt.widgets.Text;
 import de.uka.ipd.sdq.edp2.visualization.IAdapter;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 
-public class WarmupFilterSettingsPage extends WizardPage implements Listener {
+public class WarmupFilterSettingsPage extends WizardPage implements ModifyListener {
 
 	private final static String PAGE_NAME = "Warmup Filter Settings";
 
@@ -40,73 +44,25 @@ public class WarmupFilterSettingsPage extends WizardPage implements Listener {
 		super(PAGE_NAME);
 		this.source = source;
 		setDescription("Choose the settings for the Warmup Filter.");
-		setDroppedValuesPercentage(DEFAULT_DROPPED);
-		statusOK = new Status(IStatus.OK, "not_used", 0, "", null);
+		statusOK = new Status(IStatus.OK, "not_used", 0, "Press 'Finish' to create the Filter using the chosen settings.", null);
 		numberStatus = statusOK;
+		//TODO set the number of measurements
 	}
 
 	private void setDroppedValuesPercentage(float droppedValuesPercentage) {
 		this.droppedValuesPercentage = droppedValuesPercentage;
 		this.droppedValuesAbsolute = 0;
+		droppedAbsText.removeModifyListener(this);
+		if (droppedAbsText != null) droppedAbsText.setText("");
+		droppedAbsText.addModifyListener(this);
 	}
 
 	private void setDroppedValuesAbsolute(int droppedValuesAbsolute) {
 		this.droppedValuesAbsolute = droppedValuesAbsolute;
 		this.droppedValuesPercentage = 0.0f;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.eclipse.swt.widgets.Listener#handleEvent(org.eclipse.swt.widgets.
-	 * Event)
-	 */
-	@Override
-	public void handleEvent(Event event) {
-		numberStatus = statusOK;
-		if (event.widget == droppedAbsText) {
-			int temp = 0;
-			try {
-				temp = Integer.parseInt(droppedAbsText.getText());
-			} catch (NumberFormatException nfe) {
-				numberStatus = new Status(IStatus.ERROR, "not_used", 0,
-						"Not a valid number.", null);
-			}
-			if (temp > numberOfMeasurements || temp < 1) {
-				numberStatus = new Status(
-						IStatus.ERROR,
-						"not_used",
-						0,
-						"The number of dropped values must be less than the number of measurements and greater than zero.",
-						null);
-			} else {
-				setDroppedValuesAbsolute(temp);
-			}
-		}
-		if (event.widget == droppedPerText) {
-			float temp = 0;
-			try {
-				temp = Float.parseFloat(droppedPerText.getText());
-			} catch (NumberFormatException nfe) {
-				numberStatus = new Status(IStatus.ERROR, "not_used", 0,
-						"Not a valid number.", null);
-			}
-			if (temp > 100.0 || temp < 0.0) {
-				numberStatus = new Status(
-						IStatus.ERROR,
-						"not_used",
-						0,
-						"The number of dropped values must be less than 100% and greater than 0%.",
-						null);
-			} else {
-				setDroppedValuesPercentage(temp);
-			}
-
-		}
-
-		updatePageStatus();
-		getWizard().getContainer().updateButtons();
+		droppedPerText.removeModifyListener(this);
+		if (droppedPerText != null) droppedPerText.setText("");
+		droppedPerText.addModifyListener(this);
 	}
 
 	/*
@@ -133,12 +89,43 @@ public class WarmupFilterSettingsPage extends WizardPage implements Listener {
 		perLabel.setText("Dropped Values (as Percentage):");
 		droppedPerText = new Text(composite, SWT.BORDER);
 		droppedPerText.setSize(60, 20);
-		droppedPerText.addListener(SWT.Deactivate, this);
+		droppedPerText.addModifyListener(this);
+		//allow only numbers and dots to be entered
+		droppedPerText.addListener (SWT.Verify, new Listener () {
+			public void handleEvent (Event e) {
+				String string = e.text;
+				char [] chars = new char [string.length ()];
+				string.getChars (0, chars.length, chars, 0);
+				for (int i=0; i<chars.length; i++) {
+					if (!('0' <= chars [i] && chars [i] <= '9') && !(chars[i] == '.')) {
+						e.doit = false;
+						return;
+					}
+				}
+			}
+		});
 		Label absLabel = new Label(composite, SWT.NONE);
 		absLabel.setText("Dropped Values (absolute):");
 		droppedAbsText = new Text(composite, SWT.BORDER);
 		droppedAbsText.setSize(60, 20);
-		droppedAbsText.addListener(SWT.Deactivate, this);
+		droppedAbsText.addModifyListener(this);
+		//allow only numbers to be entered
+		droppedAbsText.addListener (SWT.Verify, new Listener () {
+			public void handleEvent (Event e) {
+				String string = e.text;
+				char [] chars = new char [string.length ()];
+				string.getChars (0, chars.length, chars, 0);
+				for (int i=0; i<chars.length; i++) {
+					if (!('0' <= chars [i] && chars [i] <= '9')) {
+						e.doit = false;
+						return;
+					}
+				}
+			}
+		});
+		
+		setDroppedValuesPercentage(DEFAULT_DROPPED);
+		
 	}
 
 	/**
@@ -151,7 +138,7 @@ public class WarmupFilterSettingsPage extends WizardPage implements Listener {
 		switch (numberStatus.getSeverity()) {
 		case IStatus.OK:
 			setErrorMessage(null);
-			setMessage(numberStatus.getMessage());
+			setMessage(numberStatus.getMessage(), WizardPage.NONE);
 			pageStatus = statusOK;
 			break;
 		case IStatus.WARNING:
@@ -166,7 +153,7 @@ public class WarmupFilterSettingsPage extends WizardPage implements Listener {
 			break;
 		default:
 			setErrorMessage(numberStatus.getMessage());
-			setMessage(numberStatus.getMessage());
+			setMessage(numberStatus.getMessage(), WizardPage.NONE);
 			pageStatus = numberStatus;
 			break;
 		}
@@ -213,8 +200,55 @@ public class WarmupFilterSettingsPage extends WizardPage implements Listener {
 	}
 
 	public WarmupFilter getFilter() {
-		// TODO Auto-generated method stub
 		return new WarmupFilter(source, droppedValuesAbsolute, droppedValuesPercentage);
+	}
+
+	@Override
+	public void modifyText(ModifyEvent e) {
+		numberStatus = statusOK;
+		if (e.widget == droppedAbsText) {
+			int temp = 0;
+			try {
+				temp = Integer.parseInt(droppedAbsText.getText());
+			} catch (NumberFormatException nfe) {
+				numberStatus = new Status(IStatus.ERROR, "not_used", 0,
+						"Not a valid number.", null);
+			}
+			if (temp > numberOfMeasurements || temp < 1) {
+				numberStatus = new Status(
+						IStatus.ERROR,
+						"not_used",
+						0,
+						"The number of dropped values must be less than the number of measurements and greater than zero.",
+						null);
+			} else {
+				setDroppedValuesAbsolute(temp);
+			}
+		}
+		if (e.widget == droppedPerText) {
+			float temp = 0;
+			try {
+				temp = Float.parseFloat(droppedPerText.getText());
+			} catch (NumberFormatException nfe) {
+				numberStatus = new Status(IStatus.ERROR, "not_used", 0,
+						"Not a valid number.", null);
+			}
+			if (temp > 100.0 || temp < 0.0) {
+				numberStatus = new Status(
+						IStatus.ERROR,
+						"not_used",
+						0,
+						"The number of dropped values must be less than 100% and greater than 0%.",
+						null);
+			} else {
+				setDroppedValuesPercentage(temp);
+			}
+
+		}
+
+		updatePageStatus();
+		getWizard().getContainer().updateButtons();
+		
 	}
 
 }

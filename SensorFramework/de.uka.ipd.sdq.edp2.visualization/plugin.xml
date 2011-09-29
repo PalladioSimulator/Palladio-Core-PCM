@@ -71,7 +71,7 @@
       <propertySections
             contributorId="de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor">
          <propertySection
-               class="de.uka.ipd.sdq.edp2.visualization.properties.sections.FiltersPropertySection"
+               class="de.uka.ipd.sdq.edp2.visualization.properties.sections.TransformationsPropertySection"
                
                id="de.uka.ipd.sdq.edp2.visualization.propertySectionFilter"
                tab="de.uka.ipd.sdq.edp2.visualization.propertyTabFilter">
