@@ -13,6 +13,7 @@ import javax.measure.Measure;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
+import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;

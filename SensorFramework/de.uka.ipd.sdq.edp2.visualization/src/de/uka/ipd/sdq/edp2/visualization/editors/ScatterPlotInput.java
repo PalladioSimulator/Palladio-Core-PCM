@@ -19,6 +19,9 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.DefaultTableXYDataset;
 import org.jfree.data.xy.XYSeries;
 
@@ -53,16 +56,14 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 	private DefaultTableXYDataset dataset;
 
-
-	public ScatterPlotInput(){
+	public ScatterPlotInput() {
 		super();
 	}
-	
+
 	public ScatterPlotInput(IDataSource source) {
 		super(source);
 		updateDataset();
 	}
-	
 
 	/**
 	 * Retrieves actual measurements from repository and assigns them to the
@@ -73,7 +74,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	public void updateDataset() {
 
 		logger.log(Level.INFO, "Editor input updateDataSet begin");
-		
+
 		DefaultTableXYDataset dataset = new DefaultTableXYDataset();
 		this.setDataset(dataset);
 		ArrayList<OrdinalMeasurementsDao<Measure>> list = new ArrayList<OrdinalMeasurementsDao<Measure>>();
@@ -100,21 +101,22 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 		// set the title
 		setTitle("ScatterPlotTitle");
-		/*setToolTipText(getSource().getMeasurementsRange().getMeasurements()
-				.getMeasure().getMetric().getTextualDescription());
-
-		// label data series according to metric definitions
-		MetricSetDescription md = (MetricSetDescription) getSource()
-				.getOutput().get(0).getRawMeasurements().getMeasurementsRange()
-				.getMeasurements().getMeasure().getMetric();
-
-		setLabelXScale(md.getSubsumedMetrics().get(0).getName() + " ( "
-				+ ((Measure) list1.get(0)).getUnit() + ")");
-		setLabelYScale(md.getSubsumedMetrics().get(1).getName() + " ( "
-				+ ((Measure) list2.get(0)).getUnit() + ")");
-		*/
+		/*
+		 * setToolTipText(getSource().getMeasurementsRange().getMeasurements()
+		 * .getMeasure().getMetric().getTextualDescription());
+		 * 
+		 * // label data series according to metric definitions
+		 * MetricSetDescription md = (MetricSetDescription) getSource()
+		 * .getOutput().get(0).getRawMeasurements().getMeasurementsRange()
+		 * .getMeasurements().getMeasure().getMetric();
+		 * 
+		 * setLabelXScale(md.getSubsumedMetrics().get(0).getName() + " ( " +
+		 * ((Measure) list1.get(0)).getUnit() + ")");
+		 * setLabelYScale(md.getSubsumedMetrics().get(1).getName() + " ( " +
+		 * ((Measure) list2.get(0)).getUnit() + ")");
+		 */
 		logger.log(Level.INFO, "Editor input updateDataSet end");
-		
+
 	}
 
 	/*
@@ -141,7 +143,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 	/*
 	 * (non-Javadoc)
@@ -199,8 +200,8 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	}
 
 	/**
-
-	/**
+	 * /**
+	 * 
 	 * @param dataset
 	 *            set the attribute {@link #dataset} new
 	 */
@@ -235,6 +236,17 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
+	}
+
+	@Override
+	public JFreeChart createChart() {
+		updateDataset();
+		JFreeChart chart = ChartFactory.createScatterPlot(getName(), "x-Label",
+				"y-Label", getDataset(), PlotOrientation.VERTICAL, true, true,
+				false);
+
+		return chart;
+
 	}
 
 }

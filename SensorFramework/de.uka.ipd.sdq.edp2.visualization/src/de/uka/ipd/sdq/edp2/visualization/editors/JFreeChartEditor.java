@@ -46,17 +46,10 @@ public abstract class JFreeChartEditor extends AbstractEditor {
 	protected ChartComposite chartContainer;
 	
 	/**
-	 * Creates a new Chart based on the editors current input.
-	 * @param input this editors Input
-	 * @return a new {@link JFreeChart}.
-	 */
-	protected abstract JFreeChart createChart(IDataSink input);
-	
-	/**
 	 * Method, which describes the default updating process of the current chart.
 	 */
 	public void updateChart() {
-		JFreeChart chart = createChart(input);
+		JFreeChart chart =  ((JFreeChartEditorInput)getEditorInput()).createChart();
 		chartContainer.setChart(chart);
 		chartContainer.forceRedraw();
 	}

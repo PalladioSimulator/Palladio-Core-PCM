@@ -8,6 +8,7 @@ import java.util.HashMap;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IPersistableElement;
+import org.jfree.chart.JFreeChart;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
@@ -31,6 +32,7 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	protected HashMap<String, Object> properties;
 	private IDataSource source;
 	private String title;
+	private JFreeChart chart;
 
 	public JFreeChartEditorInput(){
 		properties = new HashMap<String, Object>();
@@ -39,7 +41,6 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	public JFreeChartEditorInput(IDataSource source){
 		properties = new HashMap<String, Object>();
 		setSource(source);
-		source.addObserver(this);
 	}
 	
 	/* (non-Javadoc)
@@ -114,5 +115,28 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	/**
+	 * Returns the current Chart of the editor. Creates a new one if none exists.
+	 * @return the currently displayed chart.
+	 */
+	public JFreeChart getChart() {
+		if (chart == null) createChart();
+		return chart;
+	}
+
+	/**
+	 * Set the current JFreeChart.
+	 * @param chart
+	 */
+	public void setChart(JFreeChart chart) {
+		this.chart = chart;
+	}
+	
+	/**
+	 * Creates a new {@link JFreeChart}
+	 */
+	public abstract JFreeChart createChart();
+	
 
 }

@@ -62,7 +62,7 @@ public class HistogramEditor extends JFreeChartEditor {
 	 */
 	protected JFreeChart createChart(IDataSink input) {
 		if (input instanceof HistogramEditorInput) {
-			JFreeChart chart = ChartFactory.createHistogram("Histogram Test",
+			JFreeChart chart = ChartFactory.createHistogram("Histogram",
 					input.getToolTipText(), "Frequency",
 					(IntervalXYDataset) ((HistogramEditorInput) input)
 							.getDataset(), PlotOrientation.VERTICAL, true,

@@ -20,8 +20,12 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
 import org.eclipse.ui.part.EditorPart;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.general.Dataset;
 import org.jfree.data.statistics.HistogramDataset;
+import org.jfree.data.xy.IntervalXYDataset;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
@@ -38,11 +42,16 @@ import de.uka.ipd.sdq.edp2.visualization.util.PersistenceTag;
  * 
  */
 public class HistogramEditorInput extends JFreeChartEditorInput {
-	
+
 	/**
-	 * Name constant, which is used to identify this class in properties.
+	 * Name constant, which is used to identify this class in properties and
+	 * persistence.
 	 */
 	private static final String ELEMENT_NAME = "HistogramEditorInput";
+	/**
+	 * Key under which the number of bins is persisted.
+	 */
+	private static final String NUMBER_OF_BINS_KEY = "numberBins";
 	/**
 	 * The specific type of {@link Dataset}.
 	 */
@@ -50,7 +59,8 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	/**
 	 * Logger for this class
 	 */
-	private final static Logger logger = Logger.getLogger(HistogramEditorInput.class.getCanonicalName());
+	private final static Logger logger = Logger
+			.getLogger(HistogramEditorInput.class.getCanonicalName());
 
 	/**
 	 * 
@@ -62,20 +72,25 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/**
 	 * Changes the dataset to the specified one.
-	 * @param dataset the new {@link HistogramDataset}
+	 * 
+	 * @param dataset
+	 *            the new {@link HistogramDataset}
 	 */
 	public void setDataset(HistogramDataset dataset) {
 		this.dataset = dataset;
 	}
+
 	/**
 	 * 
 	 */
-	public HistogramEditorInput(){
+	public HistogramEditorInput() {
 		super();
 	}
+
 	/**
-	 * Constructor, with reference on the source. Automatically initiates an update of
-	 * the {@link #dataset}.
+	 * Constructor, with reference on the source. Automatically initiates an
+	 * update of the {@link #dataset}.
+	 * 
 	 * @param source
 	 */
 	public HistogramEditorInput(IDataSource source) {
@@ -84,12 +99,13 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	}
 
 	/**
-	 * Parses the data within the current source and updates the {@link #dataset} in accordance.
+	 * Parses the data within the current source and updates the
+	 * {@link #dataset} in accordance.
 	 */
 	@SuppressWarnings("unchecked")
 	public void updateDataset() {
 		dataset = new HistogramDataset();
-		
+
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
 		for (DataSeries series : getSource().getOutput()) {
@@ -99,21 +115,23 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		for (OrdinalMeasurementsDao<Measure> dao : listOfDaos) {
 			listOfMeasures.add(dao.getMeasurements());
 		}
-		//TODO sorting seems to have no effect
-		Collections.sort(listOfMeasures.get(0));
+		// TODO sorting seems to have no effect
+		// Collections.sort(listOfMeasures.get(0));
 		double[] values = new double[listOfMeasures.get(0).size()];
 		for (int i = 0; i < listOfMeasures.get(0).size(); i++) {
 			values[i] = listOfMeasures.get(0).get(i).doubleValue(
 					listOfMeasures.get(0).get(i).getUnit());
 		}
 
-		//source must be a HistogramAdapter
-		//TODO change so that the adapter doesn't have to be the direct predecessor
-		//FIXME shouldn't use PersistenceTag, but must get the number of bins
-		dataset.addSeries(0,
-				values, Integer.parseInt((String) (getSource().getProperties().get(PersistenceTag.NUMBER_OF_BINS.getID()))));
-		//set the title
-		setTitle("Histogram");
+		// source must be a HistogramAdapter
+		// TODO change so that the adapter doesn't have to be the direct
+		// predecessor
+		// FIXME shouldn't use PersistenceTag, but must get the number of bins
+		dataset.addSeries(0, values, Integer.parseInt((String) (getSource()
+				.getProperties().get(PersistenceTag.NUMBER_OF_BINS.getID()))));
+		// set the title of the chart to the name of the input data series
+		setTitle(getSource().getMeasurementsRange().getMeasurements()
+				.getMeasure().getMetric().getName());
 
 	}
 
@@ -126,8 +144,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public boolean canAccept(IDataSource source) {
-		// TODO Auto-generated method stub
-		return false;
+		return source.getOutput().size() == 1;
 	}
 
 	/*
@@ -185,6 +202,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.jface.viewers.ISelection#isEmpty()
 	 */
 	@Override
@@ -195,6 +213,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#getProperties()
 	 */
 	public HashMap<String, Object> getProperties() {
@@ -204,11 +223,23 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#setProperties(java.util.HashMap)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataFlow#setProperties(java.util.HashMap
+	 * )
 	 */
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public JFreeChart createChart() {
+		JFreeChart chart = ChartFactory.createHistogram("Histogram",
+				getToolTipText(), "Frequency", getDataset(),
+				PlotOrientation.VERTICAL, true, true, false);
+		setChart(chart);
+		return chart;
 	}
 
 }
