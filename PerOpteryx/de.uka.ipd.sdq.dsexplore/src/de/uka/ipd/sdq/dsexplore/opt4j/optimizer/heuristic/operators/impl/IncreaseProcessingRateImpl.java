@@ -94,6 +94,11 @@ public class IncreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 		
 		Set<ResourceType> resourceTypes = resultsCache.getResourceTypes(individual); 
 		for (ResourceType resourceType : resourceTypes) {
+			
+			if (resourceType.getEntityName().equals("DELAY")){
+				continue;
+			}
+			
 			boolean resourceTypeMatches = doesMatchHighUtilisation(individual, resultsCache, resourceType);
 			if (resourceTypeMatches){
 				return true;

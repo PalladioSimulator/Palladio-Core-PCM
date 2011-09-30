@@ -61,7 +61,7 @@ public abstract class AbstractProcessingRateTactic extends AbstractTactic {
 			finalizeAndAddCandidate(candidates, utilisationResultToBeChanged,
 					candidate);
 		} else {
-			logger.warn("Tried to apply Processing Rate Increase / Decrease Tactic, but the resource with the highest / lowest utilisation "+
+			logger.warn("Tried to apply classic Processing Rate Increase / Decrease Tactic, but the resource with the highest / lowest utilisation "+
 					utilProcessingResourceToBeChanged.getActiveResourceType_ActiveResourceSpecification().getEntityName()+" of "+
 					utilProcessingResourceToBeChanged.getResourceContainer_ProcessingResourceSpecification().getEntityName()+
 			" is not in the degrees of freedom.");

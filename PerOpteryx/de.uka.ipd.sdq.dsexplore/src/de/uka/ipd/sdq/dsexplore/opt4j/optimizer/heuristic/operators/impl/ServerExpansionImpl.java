@@ -1,11 +1,11 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.impl;
 
-import java.awt.image.ReplicateScaleFilter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.opt4j.core.problem.Genotype;
@@ -27,6 +27,7 @@ import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.ProcessingResourceSpecificationResult;
 import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
 import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.impl.ProcessingResourceSpecificationResultImpl;
@@ -77,9 +78,10 @@ public class ServerExpansionImpl extends AbstractTactic {
 	 * @param individual
 	 * @return
 	 */
-	private boolean doesMatchHighUtilisation(DSEIndividual individual) {
+	private boolean doesMatchHighUtilisation(DSEIndividual individual, ResourceType resourceType) {
+		
 		ProcessingResourceSpecificationResult maxUtilisationResult = this.resultInterpretationHelper
-			.getMaxProcUtilisationResult(individual);
+			.getMaxProcUtilisationResult(individual, resourceType);
 		return maxUtilisationResult != null && 
 			maxUtilisationResult.getResourceUtilisation() >= thresholdHighUtilisation;
 	}
@@ -92,7 +94,25 @@ public class ServerExpansionImpl extends AbstractTactic {
 	 * @return
 	 */
 	public boolean doesMatchPrecondition(DSEIndividual individual) {
-		return doesMatchHighUtilisation(individual) && !resultInterpretationHelper.getUnusedAvailableResourceContainers(individual).isEmpty();
+		
+		if (resultInterpretationHelper.getUnusedAvailableResourceContainers(individual).isEmpty()){
+			return false;
+		}
+		
+		Set<ResourceType> resourceTypes = resultInterpretationHelper.getResourceTypes(individual); 
+		for (ResourceType resourceType : resourceTypes) {
+			
+			if (resourceType.getEntityName().equals("DELAY")){
+				continue;
+			}
+			
+			boolean resourceTypeMatches = doesMatchHighUtilisation(individual, resourceType);
+			if (resourceTypeMatches){
+				return true;
+			}
+		}
+		// Check whether there is one server with high or low utilization
+		return false;
 	}
 	
 	/**
@@ -125,11 +145,22 @@ public class ServerExpansionImpl extends AbstractTactic {
 					maxUtilisationResult, resourceContainer);
 			
 			// classic expansion
-			createClassicServerExpansionCandidates(individual, candidates,
+			List<TacticsResultCandidate> classicCandidates = new ArrayList<TacticsResultCandidate>();
+			
+			createClassicServerExpansionCandidates(individual, classicCandidates,
 					maxUtilisationResult, resourceContainer);
 			
+			// prefer multiplicity candidates, if any, by setting the classic candidates weight to half. 
+			if (candidates.size() > 0){
+				for (TacticsResultCandidate tacticsResultCandidate : classicCandidates) {
+					tacticsResultCandidate.setCandidateWeight(tacticsResultCandidate.getCandidateWeight() / 2);
+				}
+			}
+			
+			candidates.addAll(classicCandidates);
 			
 		}
+		
 		return candidates;
 	}
 
