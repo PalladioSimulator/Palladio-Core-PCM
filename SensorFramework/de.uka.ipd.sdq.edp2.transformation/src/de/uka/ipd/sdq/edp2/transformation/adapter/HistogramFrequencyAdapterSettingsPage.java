@@ -37,16 +37,13 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 		Listener {
 
 	private final static String PAGE_NAME = "Histogram Frequency Adapter Settings";
-	private final static int DEFAULT_NUMBER_BINS = 5;
+
 	private static final Logger logger = Logger
 			.getLogger(HistogramFrequencyAdapterSettingsPage.class
 					.getCanonicalName());
 	IDataSource source;
 	IStatus selectionStatus;
-	IStatus binStatus;
 	List dataSeriesList;
-	Text binText;
-	int numberBins;
 	Status statusOK;
 
 	public HistogramFrequencyAdapterSettingsPage(IDataSource source) {
@@ -54,10 +51,8 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 		this.source = source;
 		// initialize defaults
 		setDescription("Choose the settings for the Histogram.");
-		numberBins = DEFAULT_NUMBER_BINS;
 		statusOK = new Status(IStatus.OK, "not_used", 0, "", null);
 		selectionStatus = statusOK;
-		binStatus = statusOK;
 	}
 
 	/*
@@ -76,30 +71,6 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 				selectionStatus = new Status(IStatus.ERROR, "not_used", 0,
 						"Must select a Series of Data to proceed.", null);
 			}
-		}
-		if (event.widget == binText) {
-			binStatus = statusOK;
-			try {
-				numberBins = Integer.parseInt(binText.getText());
-			} catch (NumberFormatException nfe) {
-				binStatus = new Status(IStatus.ERROR, "not_used", 0,
-						"Not a valid number.", null);
-				numberBins = 5;
-			}
-			binText.setText("" + numberBins);
-			if (numberBins < 2) {
-				binStatus = new Status(
-						IStatus.INFO,
-						"not_used",
-						0,
-						"The number of bins is 1, should be > 1 to receive a meaningful output.",
-						null);
-			}
-			if (numberBins < 1) {
-				binStatus = new Status(IStatus.ERROR, "not_used", 0,
-						"The number of bins must be positive.", null);
-			}
-
 		}
 
 		updatePageStatus();
@@ -146,14 +117,6 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 		// set the composite as the control for this page
 		setControl(composite);
 		setPageComplete(true);
-
-		// create another widget
-		Label binLabel = new Label(composite, SWT.NONE);
-		binLabel.setText("Number of bins:");
-		binText = new Text(composite, SWT.BORDER);
-		binText.setTabs(5);
-		binText.setText("" + numberBins);
-		binText.addListener(SWT.Deactivate, this);
 	}
 
 	/**
@@ -181,33 +144,10 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 			break;
 		default:
 			setErrorMessage(selectionStatus.getMessage());
-			setMessage(binStatus.getMessage());
+			setMessage(selectionStatus.getMessage());
 			pageStatus = selectionStatus;
 			break;
 		}
-		switch (binStatus.getSeverity()) {
-		case IStatus.OK:
-			setErrorMessage(null);
-			setMessage(binStatus.getMessage());
-			pageStatus = statusOK;
-			break;
-		case IStatus.WARNING:
-			setErrorMessage(null);
-			setMessage(binStatus.getMessage(), WizardPage.WARNING);
-			pageStatus = binStatus;
-			break;
-		case IStatus.INFO:
-			setErrorMessage(null);
-			setMessage(binStatus.getMessage(), WizardPage.INFORMATION);
-			pageStatus = binStatus;
-			break;
-		default:
-			setErrorMessage(binStatus.getMessage());
-			setMessage(binStatus.getMessage());
-			pageStatus = binStatus;
-			break;
-		}
-
 		return pageStatus;
 	}
 
@@ -245,9 +185,8 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 	 * @return the properties
 	 */
 	public String[] getProperties() {
-		String[] properties = new String[2];
+		String[] properties = new String[1];
 		properties[0] = "" + dataSeriesList.getSelectionIndex();
-		properties[1] = binText.getText();
 		return properties;
 	}
 
@@ -259,7 +198,7 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 	public HistogramFrequencyAdapter getAdapter() {
 		logger.log(Level.INFO, "AdapterSettingsPage returned non-null adapter");
 		return new HistogramFrequencyAdapter(source, Integer
-				.parseInt(getProperties()[0]), numberBins);
+				.parseInt(getProperties()[0]));
 	}
 
 }

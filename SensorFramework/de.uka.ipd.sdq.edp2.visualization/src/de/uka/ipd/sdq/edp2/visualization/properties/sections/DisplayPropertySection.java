@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TableLayout;
@@ -29,10 +31,12 @@ import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertyConstants;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
+import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
 import de.uka.ipd.sdq.edp2.visualization.Activator;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput;
@@ -72,7 +76,7 @@ public class DisplayPropertySection extends AbstractPropertySection {
 
 		Composite composite = getWidgetFactory()
 				.createFlatFormComposite(parent);
-		
+
 		RowLayout layout = new RowLayout(SWT.VERTICAL);
 		layout.spacing = 2;
 		layout.justify = true;
@@ -147,7 +151,8 @@ public class DisplayPropertySection extends AbstractPropertySection {
 									switch (e.detail) {
 									case SWT.TRAVERSE_RETURN:
 										item.setText(column, text.getText());
-										// TODO change properties here
+										updateChartSettings(item.getText(0),
+												text.getText());
 
 									case SWT.TRAVERSE_ESCAPE:
 										text.dispose();
@@ -175,22 +180,65 @@ public class DisplayPropertySection extends AbstractPropertySection {
 				}
 			}
 		});
-		
+
 		addChartSettings();
 
 	}
 
-	private void addChartSettings() {
-		editorInput = (JFreeChartEditorInput) editor.getEditorInput();
-		HashMap<String,Object> properties = editorInput.getProperties();
+	private void updateChartSettings(String key, String value) {
+		HashMap<String, Object> newProperties = getInput().getProperties();
+		newProperties.put(key, value);
+		getInput().setProperties(newProperties);
+		((JFreeChartEditor) editor).updateChart();
+		refreshSettingsTable();
+		editor.setFocus();
+	}
+
+	private void refreshSettingsTable() {
+		// clear the table
+		propertyTable.clearAll();
+		propertyTable.setItemCount(0);
+
+		// retrieve the properties of the editor input
+		HashMap<String, Object> properties = getInput().getProperties();
+
+		// list of properties should not contain the element's identifier
+		// (cannot and must not be modified)
 		properties.remove("elementName");
-		
-		for (String key: properties.keySet()){
+
+		// write property key-value-pairs into table
+		for (Object key : properties.keySet()) {
 			TableItem item = new TableItem(propertyTable, SWT.NONE);
 			item.setText(0, String.valueOf(key));
 			item.setText(1, String.valueOf(properties.get(key)));
 		}
-		
+	}
+
+	/*
+	 * if (event.widget == binText) { binStatus = statusOK; try { numberBins =
+	 * Integer.parseInt(binText.getText()); } catch (NumberFormatException nfe)
+	 * { binStatus = new Status(IStatus.ERROR, "not_used", 0,
+	 * "Not a valid number.", null); numberBins = 5; } binText.setText("" +
+	 * numberBins); if (numberBins < 2) { binStatus = new Status( IStatus.INFO,
+	 * "not_used", 0,
+	 * "The number of bins is 1, should be > 1 to receive a meaningful output.",
+	 * null); } if (numberBins < 1) { binStatus = new Status(IStatus.ERROR,
+	 * "not_used", 0, "The number of bins must be positive.", null); }
+	 * 
+	 * }
+	 */
+
+	private void addChartSettings() {
+		editorInput = (JFreeChartEditorInput) editor.getEditorInput();
+		HashMap<String, Object> properties = editorInput.getProperties();
+		properties.remove("elementName");
+
+		for (String key : properties.keySet()) {
+			TableItem item = new TableItem(propertyTable, SWT.NONE);
+			item.setText(0, String.valueOf(key));
+			item.setText(1, String.valueOf(properties.get(key)));
+		}
+
 	}
 
 	/*
@@ -205,15 +253,15 @@ public class DisplayPropertySection extends AbstractPropertySection {
 		super.setInput(part, selection);
 	}
 
-	public IDataSource getSource() {
+	public IDataSink getInput() {
 		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 		IDataSink input = editor.getEditorInput();
-		return input.getSource();
+		return input;
 	}
 
 	public void refresh() {
-		super.refresh();
+		refreshSettingsTable();
 	}
 
 }

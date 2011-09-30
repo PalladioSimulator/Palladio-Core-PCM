@@ -49,9 +49,16 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	private static final String ELEMENT_NAME = "HistogramEditorInput";
 	/**
-	 * Key under which the number of bins is persisted.
+	 * Keys for persistence of properties
 	 */
-	private static final String NUMBER_OF_BINS_KEY = "numberBins";
+	private final static String NUMBER_BINS_KEY = "numberOfBins";
+
+	private final static int DEFAULT_NUMBER_BINS = 5;
+	/**
+	 * The number of bins, i.e. the number of intervals of equal length in which
+	 * the measurements are counted.
+	 */
+	private int numberOfBins;
 	/**
 	 * The specific type of {@link Dataset}.
 	 */
@@ -127,12 +134,11 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		// TODO change so that the adapter doesn't have to be the direct
 		// predecessor
 		// FIXME shouldn't use PersistenceTag, but must get the number of bins
-		dataset.addSeries(0, values, Integer.parseInt((String) (getSource()
-				.getProperties().get(PersistenceTag.NUMBER_OF_BINS.getID()))));
+		dataset.addSeries(getSource().getMeasurementsRange().getMeasurements()
+				.getMeasure().getMetric().getName(), values, getNumberOfBins());
 		// set the title of the chart to the name of the input data series
 		setTitle(getSource().getMeasurementsRange().getMeasurements()
 				.getMeasure().getMetric().getName());
-
 	}
 
 	/*
@@ -218,6 +224,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	public HashMap<String, Object> getProperties() {
 		properties.put(ELEMENT_KEY, ELEMENT_NAME);
+		properties.put(NUMBER_BINS_KEY, getNumberOfBins());
 		return properties;
 	}
 
@@ -230,16 +237,31 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
-		// TODO Auto-generated method stub
+		
+		setNumberOfBins(Integer.parseInt(newProperties.get(NUMBER_BINS_KEY)
+				.toString()));
+		properties.put(NUMBER_BINS_KEY, getNumberOfBins());
 	}
 
 	@Override
 	public JFreeChart createChart() {
+		updateDataset();
 		JFreeChart chart = ChartFactory.createHistogram("Histogram",
 				getToolTipText(), "Frequency", getDataset(),
 				PlotOrientation.VERTICAL, true, true, false);
 		setChart(chart);
 		return chart;
+	}
+
+	private int getNumberOfBins() {
+		if (numberOfBins != 0) {
+			return numberOfBins;
+		}
+		return DEFAULT_NUMBER_BINS;
+	}
+
+	private void setNumberOfBins(int numberOfBins) {
+		this.numberOfBins = numberOfBins;
 	}
 
 }

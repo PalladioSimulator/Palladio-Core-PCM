@@ -28,7 +28,10 @@ import org.jfree.data.xy.XYSeries;
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
+import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
@@ -48,6 +51,11 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 * Name constant, which is used to identify this class in properties.
 	 */
 	private static final String ELEMENT_NAME = "ScatterPlotInput";
+
+	private static final String XLABEL_KEY = "xLabel";
+
+	private static final String YLABEL_KEY = "yLabel";
+
 	/**
 	 * Logger for this class.
 	 */
@@ -74,7 +82,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	public void updateDataset() {
 
 		logger.log(Level.INFO, "Editor input updateDataSet begin");
-
 		DefaultTableXYDataset dataset = new DefaultTableXYDataset();
 		this.setDataset(dataset);
 		ArrayList<OrdinalMeasurementsDao<Measure>> list = new ArrayList<OrdinalMeasurementsDao<Measure>>();
@@ -100,7 +107,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		dataset.addSeries(testSeries);
 
 		// set the title
-		setTitle("ScatterPlotTitle");
+		setTitle("Scatterplot");
 		/*
 		 * setToolTipText(getSource().getMeasurementsRange().getMeasurements()
 		 * .getMeasure().getMetric().getTextualDescription());
@@ -128,8 +135,18 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public boolean canAccept(IDataSource source) {
-		// TODO Auto-generated method stub
-		return false;
+		BaseMetricDescription[] mds = MetricDescriptionUtility
+				.toBaseMetricDescriptions(getSource().getOutput().get(0)
+						.getRawMeasurements().getMeasurementsRange()
+						.getMeasurements().getMeasure().getMetric());
+		boolean allDataNumeric = true;
+		for (BaseMetricDescription md : mds) {
+			if (!(md.getCaptureType().equals(CaptureType.INTEGER_NUMBER) || md
+					.getCaptureType().equals(CaptureType.REAL_NUMBER))) {
+				allDataNumeric = false;
+			}
+		}
+		return allDataNumeric && getSource().getOutput().size() == 2;
 	}
 
 	/*
@@ -186,7 +203,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		updateDataset();
-
 	}
 
 	/*
@@ -244,7 +260,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		JFreeChart chart = ChartFactory.createScatterPlot(getName(), "x-Label",
 				"y-Label", getDataset(), PlotOrientation.VERTICAL, true, true,
 				false);
-
+		setChart(chart);
 		return chart;
 
 	}

@@ -48,7 +48,6 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 * Keys for persistence of properties
 	 */
 	private final static String DATA_SERIES_KEY = "dataSeriesIndex";
-	private final static String NUMBER_BINS_KEY = "numberOfBins";
 	
 	/**
 	 * Logger for this class.
@@ -60,16 +59,6 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 * The index of the {@link DataSeries}, which is selected by this adapter.
 	 */
 	private int dataSeriesIndex;
-	/**
-	 * The number of bins, i.e. the number of intervals of equal length in which
-	 * the measurements are counted.
-	 */
-	private int numberOfBins;
-	/**
-	 * Size of each interval. TODO implement functionality to set the interval
-	 * size individually?
-	 */
-	private int[] intervalWidth;
 
 	public HistogramFrequencyAdapter() {
 	}
@@ -83,7 +72,6 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 */
 	public HistogramFrequencyAdapter(IDataSource source) {
 		super(source);
-		numberOfBins = 5;
 		dataSeriesIndex = 0;
 		transformData();
 	}
@@ -100,10 +88,8 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 * @param numberOfBins
 	 *            the number of intervals
 	 */
-	public HistogramFrequencyAdapter(IDataSource source, int dataSeriesIndex,
-			int numberOfBins) {
+	public HistogramFrequencyAdapter(IDataSource source, int dataSeriesIndex) {
 		super(source);
-		this.numberOfBins = numberOfBins;
 		this.dataSeriesIndex = dataSeriesIndex;
 		transformData();
 	}
@@ -251,8 +237,6 @@ public class HistogramFrequencyAdapter extends IAdapter {
 		properties.put(ELEMENT_KEY, ELEMENT_NAME);
 		properties.put(DATA_SERIES_KEY,
 				dataSeriesIndex);
-		properties
-				.put(NUMBER_BINS_KEY, "" + numberOfBins);
 		return properties;
 	}
 
@@ -262,14 +246,6 @@ public class HistogramFrequencyAdapter extends IAdapter {
 
 	public void setDataSeriesIndex(int dataSeriesIndex) {
 		this.dataSeriesIndex = dataSeriesIndex;
-	}
-
-	public int getNumberOfBins() {
-		return numberOfBins;
-	}
-
-	public void setNumberOfBins(int numberOfBins) {
-		this.numberOfBins = numberOfBins;
 	}
 
 	/*
@@ -296,13 +272,8 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 */
 	@Override
 	public void setProperties(HashMap<String, Object> map) {
-		setNumberOfBins(
-				Integer.parseInt(map.get(NUMBER_BINS_KEY).toString()));
-		setDataSeriesIndex(Integer.parseInt(map.get(DATA_SERIES_KEY).toString()));
-		
+		setDataSeriesIndex(Integer.parseInt(map.get(DATA_SERIES_KEY).toString()));	
 		properties.put(DATA_SERIES_KEY, getDataSeriesIndex());
-		properties.put(NUMBER_BINS_KEY, getNumberOfBins());
-		
 	}
 
 	/*

@@ -144,10 +144,13 @@ public class WarmupFilter extends IFilter {
 	public boolean canAccept(IDataSource source) {
 		final MetricDescription sourceMetric = source.getMeasurementsRange()
 				.getMeasurements().getMeasure().getMetric();
-		BaseMetricDescription[] sourceMetrics = null;
+		//Maximum of 3 dimensions for measurements
+		BaseMetricDescription[] sourceMetrics = new BaseMetricDescription[3];
 		if (!(sourceMetric instanceof BaseMetricDescription)) {
 			sourceMetrics = MetricDescriptionUtility
 					.toBaseMetricDescriptions(sourceMetric);
+		} else {
+			sourceMetrics[0] = (BaseMetricDescription) sourceMetric;
 		}
 		if (sourceMetrics[0].getCaptureType()
 				.equals(CaptureType.INTEGER_NUMBER)

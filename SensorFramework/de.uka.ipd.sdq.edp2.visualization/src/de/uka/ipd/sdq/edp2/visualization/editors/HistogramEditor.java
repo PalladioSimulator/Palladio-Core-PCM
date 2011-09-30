@@ -41,7 +41,7 @@ public class HistogramEditor extends JFreeChartEditor {
 	/**
 	 * Title of this Editor.
 	 */
-	private final static String EDITOR_NAME = "Histogram Editor";
+	private final static String EDITOR_NAME = "Histogram";
 
 	/*
 	 * (non-Javadoc)
@@ -51,24 +51,8 @@ public class HistogramEditor extends JFreeChartEditor {
 	public void createPartControl(Composite parent) {
 		this.parent = parent;
 		setPartName(EDITOR_NAME);
-		JFreeChart chart = createChart(input);
+		JFreeChart chart = ((JFreeChartEditorInput) getEditorInput()).createChart();
 		chartContainer = new ChartComposite(parent, SWT.NONE, chart, true);
 		getSite().setSelectionProvider(createSelectionProvider());
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor#createChart(org.eclipse.ui.IEditorInput)
-	 */
-	protected JFreeChart createChart(IDataSink input) {
-		if (input instanceof HistogramEditorInput) {
-			JFreeChart chart = ChartFactory.createHistogram("Histogram",
-					input.getToolTipText(), "Frequency",
-					(IntervalXYDataset) ((HistogramEditorInput) input)
-							.getDataset(), PlotOrientation.VERTICAL, true,
-					true, false);
-			return chart;
-		}
-		return null;
 	}
 }
