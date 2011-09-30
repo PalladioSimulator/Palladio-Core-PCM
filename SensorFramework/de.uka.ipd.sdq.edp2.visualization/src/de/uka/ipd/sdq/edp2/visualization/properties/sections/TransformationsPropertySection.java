@@ -48,8 +48,9 @@ import de.uka.ipd.sdq.edp2.visualization.wizards.AdapterWizard;
 import de.uka.ipd.sdq.edp2.visualization.wizards.FilterWizard;
 
 /**
- * GUI controls for Properties for {@link IFilter}. Used to display and edit
- * properties in Eclipse Properties View if an Visualization Editor is selected.
+ * GUI controls for {@link AbstractTransformation}s. Used to display and edit
+ * properties of applied data transformations in the Eclipse Properties View if
+ * an {@link AbstractEditor} is the currently active editor.
  * 
  * @author Roland Richter, Dominik Ernst
  * 
@@ -59,6 +60,10 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 	private final static Logger logger = Logger
 			.getLogger(TransformationsPropertySection.class.getCanonicalName());
 
+	/**
+	 * Key which must be the same as the key under which the ID's / names of
+	 * {@link AbstractTransformation}s are stored.
+	 */
 	private final static String NAME_KEY = "elementName";
 
 	/**
@@ -228,10 +233,10 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 	 * Creates and initializes the list of the applied filters and the
 	 * properties table. A selection listener looks if one entry in the filter
 	 * list is selected and if one is selected the
-	 * {@link TransformationsPropertySection#refreshPropertiesTable()} is called. A
-	 * listener look for the properties table and call
-	 * {@link TransformationsPropertySection#updateProperties(String, Object)} of the
-	 * value field is let out by pressing ENTER.
+	 * {@link TransformationsPropertySection#refreshPropertiesTable()} is
+	 * called. A listener look for the properties table and call
+	 * {@link TransformationsPropertySection#updateProperties(String, Object)}
+	 * of the value field is let out by pressing ENTER.
 	 * 
 	 * @param parentGroup
 	 *            the parent GUI Object
@@ -445,7 +450,7 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 
 		// list of properties should not contain the element's identifier
 		// (cannot and must not be modified)
-		properties.remove("elementName");
+		properties.remove(NAME_KEY);
 
 		// write property key-value-pairs into table
 		for (Object key : properties.keySet()) {
@@ -482,7 +487,7 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 					.getSource();
 		}
 
-		//get properties for keys and old values
+		// get properties for keys and old values
 		HashMap<String, Object> newProperties = selectedTransformation
 				.getProperties();
 		newProperties.put(key, value);

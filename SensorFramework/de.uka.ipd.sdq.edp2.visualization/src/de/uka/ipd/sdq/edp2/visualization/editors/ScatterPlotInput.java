@@ -243,17 +243,29 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		return false;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#getProperties()
+	 */
 	@Override
 	public HashMap<String, Object> getProperties() {
 		properties.put(ELEMENT_KEY, ELEMENT_NAME);
 		properties.put(TITLE_KEY, getTitle());
 		return properties;
 	}
-
+	
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#setProperties(java.util.HashMap)
+	 */
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
 	}
-
+	
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#createChart()
+	 */
 	@Override
 	public JFreeChart createChart() {
 		updateDataset();

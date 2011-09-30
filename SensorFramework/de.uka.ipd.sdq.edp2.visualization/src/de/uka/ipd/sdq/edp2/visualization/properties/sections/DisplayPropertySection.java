@@ -42,8 +42,9 @@ import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput;
 
 /**
- * Properties Tab, which can be used to show and modify visual aspects of an
- * editor ({@link AbstractEditor}).
+ * GUI controls for displaying options of {@link AbstractEditor}s. Shows and
+ * allows to edit visual settings of the current Editor in the Eclipse
+ * Properties View if an {@link AbstractEditor} is the currently active editor.
  * 
  * @author Roland Richter, Dominik Ernst
  * 
@@ -53,6 +54,11 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	private static Logger logger = Logger
 			.getLogger(DisplayPropertySection.class.getCanonicalName());
 
+	/**
+	 * Key which must be the same as the key under which the ID's / names of
+	 * {@link IDataSink}s are stored.
+	 */
+	private final static String NAME_KEY = "elementName";
 	/**
 	 * The current input of the
 	 */
@@ -70,6 +76,14 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	 */
 	private AbstractEditor editor;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#createControls
+	 * (org.eclipse.swt.widgets.Composite,
+	 * org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
+	 */
 	public void createControls(Composite parent,
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
@@ -151,7 +165,7 @@ public class DisplayPropertySection extends AbstractPropertySection {
 									switch (e.detail) {
 									case SWT.TRAVERSE_RETURN:
 										item.setText(column, text.getText());
-										updateChartSettings(item.getText(0),
+										updateEditorSettings(item.getText(0),
 												text.getText());
 
 									case SWT.TRAVERSE_ESCAPE:
@@ -181,19 +195,34 @@ public class DisplayPropertySection extends AbstractPropertySection {
 			}
 		});
 
-		addChartSettings();
+		// get the current chart's settings and add them to the table
+		refreshSettingsTable();
 
 	}
 
-	private void updateChartSettings(String key, String value) {
+	/**
+	 * Method which handles the change of values in the table and updates the
+	 * editor in accordance. TODO currently assumes the only possible editors to
+	 * be {@link JFreeChartEditor}s.
+	 * 
+	 * @param key
+	 *            The key of the changed property.
+	 * @param value
+	 *            The new values of the property.
+	 */
+	private void updateEditorSettings(String key, String value) {
 		HashMap<String, Object> newProperties = getInput().getProperties();
 		newProperties.put(key, value);
 		getInput().setProperties(newProperties);
+		// assumption: JFreeChartEditor
 		((JFreeChartEditor) editor).updateChart();
 		refreshSettingsTable();
 		editor.setFocus();
 	}
 
+	/**
+	 * Method which updates the {@code propertyTable}.
+	 */
 	private void refreshSettingsTable() {
 		// clear the table
 		propertyTable.clearAll();
@@ -204,7 +233,7 @@ public class DisplayPropertySection extends AbstractPropertySection {
 
 		// list of properties should not contain the element's identifier
 		// (cannot and must not be modified)
-		properties.remove("elementName");
+		properties.remove(NAME_KEY);
 
 		// write property key-value-pairs into table
 		for (Object key : properties.keySet()) {
@@ -212,33 +241,6 @@ public class DisplayPropertySection extends AbstractPropertySection {
 			item.setText(0, String.valueOf(key));
 			item.setText(1, String.valueOf(properties.get(key)));
 		}
-	}
-
-	/*
-	 * if (event.widget == binText) { binStatus = statusOK; try { numberBins =
-	 * Integer.parseInt(binText.getText()); } catch (NumberFormatException nfe)
-	 * { binStatus = new Status(IStatus.ERROR, "not_used", 0,
-	 * "Not a valid number.", null); numberBins = 5; } binText.setText("" +
-	 * numberBins); if (numberBins < 2) { binStatus = new Status( IStatus.INFO,
-	 * "not_used", 0,
-	 * "The number of bins is 1, should be > 1 to receive a meaningful output.",
-	 * null); } if (numberBins < 1) { binStatus = new Status(IStatus.ERROR,
-	 * "not_used", 0, "The number of bins must be positive.", null); }
-	 * 
-	 * }
-	 */
-
-	private void addChartSettings() {
-		editorInput = (JFreeChartEditorInput) editor.getEditorInput();
-		HashMap<String, Object> properties = editorInput.getProperties();
-		properties.remove("elementName");
-
-		for (String key : properties.keySet()) {
-			TableItem item = new TableItem(propertyTable, SWT.NONE);
-			item.setText(0, String.valueOf(key));
-			item.setText(1, String.valueOf(properties.get(key)));
-		}
-
 	}
 
 	/*
@@ -253,6 +255,11 @@ public class DisplayPropertySection extends AbstractPropertySection {
 		super.setInput(part, selection);
 	}
 
+	/**
+	 * Retrieves the input of the currently active editor.
+	 * 
+	 * @return the current {@link IDataSink}
+	 */
 	public IDataSink getInput() {
 		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
@@ -260,6 +267,12 @@ public class DisplayPropertySection extends AbstractPropertySection {
 		return input;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#refresh()
+	 */
 	public void refresh() {
 		refreshSettingsTable();
 	}
