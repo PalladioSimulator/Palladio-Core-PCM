@@ -1339,6 +1339,7 @@ public class ContextWrapper implements Cloneable {
 			// compare by variable list.
 			EList<VariableUsage> inputVUList = extCallIn
 					.getParameterCharacterisations_ExternalCallInput();
+			//FIXME: this does not take into account component parameters and user data! So if those are used, contexts are never reused even if they could
 			ComputedUsageContext cuc = matchVariableUsages(inputVUList);
 			if (cuc != null)
 				return cuc;
@@ -1350,6 +1351,7 @@ public class ContextWrapper implements Cloneable {
 					EList<VariableUsage> inputVUList = eci
 							.getParameterCharacterisations_ExternalCallInput();
 
+					//FIXME: this does not take into account component parameters and user data! So if those are used, contexts are never reused even if they could
 					ComputedUsageContext cuc = matchVariableUsages(inputVUList);
 					if (cuc != null)
 						return cuc;
@@ -1361,6 +1363,7 @@ public class ContextWrapper implements Cloneable {
 			// input
 			EList<VariableUsage> inputVUList = extCallIn
 					.getParameterCharacterisations_ExternalCallInput();
+			//FIXME: this does not take into account component parameters and user data! So if those are used, contexts are never reused even if they could
 			ComputedUsageContext cuc = matchVariableUsages(inputVUList);
 			if (cuc != null)
 				return cuc;
@@ -1440,6 +1443,7 @@ public class ContextWrapper implements Cloneable {
 
 		EList<VariableUsage> vuList = elsa
 				.getInputParameterUsages_EntryLevelSystemCall();
+		// FIXME: this does not take into account component parameters and user data! So if those are used, contexts are never reused even if they could
 		ComputedUsageContext cuc = matchVariableUsages(vuList);
 		if (cuc != null) {
 			logger.debug("Reusing existing computed usage context for "
