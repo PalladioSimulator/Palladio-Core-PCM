@@ -6,7 +6,6 @@ Bundle-Version: 3.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Require-Bundle: de.uka.ipd.sdq.pcmsolver,
- de.uka.ipd.sdq.workflow,
  de.uka.ipd.sdq.workflow.mdsd,
  de.uka.ipd.sdq.workflow.pcm,
  org.eclipse.ui,

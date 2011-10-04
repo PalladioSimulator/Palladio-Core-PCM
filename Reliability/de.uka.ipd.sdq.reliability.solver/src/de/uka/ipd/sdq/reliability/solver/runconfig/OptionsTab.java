@@ -8,6 +8,8 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.KeyEvent;
@@ -17,7 +19,6 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -33,7 +34,7 @@ import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
 import de.uka.ipd.sdq.reliability.core.MarkovEvaluationType;
-import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
+import de.uka.ipd.sdq.reliability.solver.SolverPlugin;
 
 /**
  * This tab page shows additional options for the PCM Solver Reliability launch.
@@ -44,10 +45,48 @@ import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
 public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 	/**
+	 * Image registry for the tab icon.
+	 * 
+	 * TODO: This is a temporary solution. In the long run, there should be a
+	 * centralized solution for retrieving the tab images.
+	 */
+	public static ImageRegistry imageRegistry = new ImageRegistry();
+
+	/**
+	 * Name of images used to represent the tab in the run config dialog.
+	 */
+	public static final String OPTIONS_TAB = "options_tab";
+
+	/**
+	 * Default setting for physical states iteration.
+	 */
+	private static final boolean ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED = true;
+
+	/**
 	 * Default setting for logging.
 	 */
 	private static final String LOGFILEDEFAULT = "";
-	
+
+	/**
+	 * Default setting for type of evaluation mode.
+	 */
+	private static final MarkovEvaluationType MARKOV_EVALUATION_MODE = MarkovEvaluationType.POINTSOFFAILURE;
+
+	/**
+	 * Default setting for applying Markov model reduction ("optimize" option).
+	 */
+	private static final boolean MARKOV_MODEL_REDUCTION_ENABLED = true;
+
+	/**
+	 * Default setting for storing the Markov model.
+	 */
+	private static final boolean MARKOV_MODEL_STORAGE_ENABLED = false;
+
+	/**
+	 * Default setting for addition of Markov model traces.
+	 */
+	private static final boolean MARKOV_MODEL_TRACES_ENABLED = false;
+
 	/**
 	 * Default name for the Markov model file.
 	 */
@@ -92,41 +131,54 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Default setting for Markov statistics.
 	 */
 	private static final boolean STATISTICSDEFAULT = false;
-	
-	/**
-	 * Default setting for applying Markov model reduction ("optimize" option).
-	 */
-	private static final boolean MARKOV_MODEL_REDUCTION_ENABLED = true;
-	
-	/**
-	 * Default setting for addition of Markov model traces.
-	 */
-	private static final boolean MARKOV_MODEL_TRACES_ENABLED = false;
-	
-	/**
-	 * Default setting for physical states iteration.
-	 */
-	private static final boolean ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED = true;
-	
-	/**
-	 * Default setting for storing the Markov model.
-	 */
-	private static final boolean MARKOV_MODEL_STORAGE_ENABLED = false;
 
 	/**
-	 * Default setting for type of evaluation mode.
+	 * Fills the image registry with the tab image.
 	 */
-	 private static final MarkovEvaluationType MARKOV_EVALUATION_MODE = MarkovEvaluationType.POINTSOFFAILURE;
+	static {
+		String iconPath = "icons/";
+		imageRegistry.put(OPTIONS_TAB, getImageDescriptor(iconPath
+				+ OPTIONS_TAB + ".gif"));
+	}
 
-	 /**
+	/**
+	 * @param imageFilePath
+	 *            the relative to the root of the plug-in; the path must be
+	 *            legal
+	 * @return an image descriptor, or null if no image could be found
+	 */
+	private static ImageDescriptor getImageDescriptor(String imageFilePath) {
+		return SolverPlugin.imageDescriptorFromPlugin(
+				SolverPlugin.PLUGIN_ID, imageFilePath);
+	}
+
+	/**
 	 * Button to a file dialog, starting in the user's file system.
 	 */
 	private Button buttonFileSystemFileDialogLogFile = null;
+	/**
+	 * Button to a file dialog, starting in the user's file system.
+	 */
+	private Button buttonFileSystemFileDialogModelFile = null;
 
 	/**
 	 * Button to a file dialog, starting in the user's workspace.
 	 */
 	private Button buttonWorkspaceFileDialogLogFile = null;
+
+	/**
+	 * Button to a file dialog, starting in the user's workspace.
+	 */
+	private Button buttonWorkspaceFileDialogModelFile = null;
+	/**
+	 * Checks for iteration over physical system states.
+	 */
+	private Button checkIterateOverPhysicalSystemStates;
+
+	/**
+	 * Checks for Markov model traces enablement.
+	 */
+	private Button checkMarkovModelTraces = null;
 
 	/**
 	 * Checks for Markov statistics.
@@ -142,6 +194,12 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Checks for number of exact decimal places.
 	 */
 	private Button checkNumberOfExactDecimalPlaces = null;
+
+	/**
+	 * Checks for optimize option.
+	 */
+	private Button checkOptimize = null;
+
 	/**
 	 * Checks for single result prints.
 	 */
@@ -153,9 +211,37 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	private Button checkSolvingTimeLimit = null;
 
 	/**
+	 * Checks for Marov model storage.
+	 */
+	private Button checkStoreMarkovModel = null;
+
+	/**
+	 * Radio button for failure categories (simplified evaluation without
+	 * failure recovery).
+	 */
+	private Button radioFailureCategories = null;
+
+	/**
+	 * Radio button for failure types.
+	 */
+	private Button radioFailureTypes = null;
+
+	/**
+	 * Radio button for points of failure.
+	 */
+	private Button radioPointsOfFailure = null;
+
+	/**
+	 * Radio button for single failure mode (simplified evaluation without
+	 * failure recovery).
+	 */
+	private Button radioSingleFailureMode = null;
+
+	/**
 	 * Spinner for number of evaluated system states.
 	 */
 	private Spinner spinnerNumberOfEvaluatedSystemStates = null;
+
 	/**
 	 * Spinner for number of exact decimal places.
 	 */
@@ -165,75 +251,21 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Spinner for solving time limits.
 	 */
 	private Spinner spinnerSolvingTimeLimit = null;
-	
-	/**
-	 * Checks for optimize option.
-	 */
-	private Button checkOptimize = null;
-	
-	/**
-	 * Checks for Markov model traces enablement.
-	 */
-	private Button checkMarkovModelTraces = null;
-	
-	/**
-	 * Checks for iteration over physical system states.
-	 */
-	private Button checkIterateOverPhysicalSystemStates;
-	
-	/**
-	 * Checks for Marov model storage.
-	 */
-	private Button checkStoreMarkovModel = null;
 
 	/**
 	 * Text box to specify the logging file.
 	 */
 	private Text textLogFile = null;
-	
+
 	/**
 	 * Text box to specify the model file.
 	 */
 	private Text textMarkovModelFile = null;
-	
-	/**
-	 * Button to a file dialog, starting in the user's file system.
-	 */
-	private Button buttonFileSystemFileDialogModelFile = null;
 
-	/**
-	 * Button to a file dialog, starting in the user's workspace.
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#activated(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
-	private Button buttonWorkspaceFileDialogModelFile = null;
-	
-	/**
-	 * Radio button for single failure mode (simplified evaluation without failure recovery).
-	 */
-	private Button radioSingleFailureMode = null;
-	
-	/**
-	 *  Radio button for failure categories (simplified evaluation without failure recovery).
-	 */
-	private Button radioFailureCategories = null;
-	
-	/**
-	 *  Radio button for failure types.
-	 */
-	private Button radioFailureTypes = null;
-	
-	/**
-	 *  Radio button for points of failure.
-	 */
-	private Button radioPointsOfFailure = null;
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
-	 */
-	public Image getImage() {
-		return RunConfigImages.getOptionsTabImage();
-	}
-
-	@Override
 	public void activated(final ILaunchConfigurationWorkingCopy workingCopy) {
 		// Leave this method empty to prevent unnecessary invocation of
 		// initializeFrom() and multiple resulting invocations of
@@ -271,14 +303,15 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		// The composite will show scroll bars if the size of
 		// the dialog decreases below the minimum size of the
 		// contained controls:
-		ScrolledComposite container = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL);
+		ScrolledComposite container = new ScrolledComposite(parent,
+				SWT.H_SCROLL | SWT.V_SCROLL);
 		container.setExpandHorizontal(true);
 		container.setExpandVertical(true);
 		Composite contentContainer = new Composite(container, SWT.NONE);
 		container.setContent(contentContainer);
 		GridLayout layout = new GridLayout();
 		contentContainer.setLayout(layout);
-		
+
 		// Sets the scrolled composite to be the displayed
 		// top-level control in this tab:
 		setControl(container);
@@ -366,7 +399,6 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		spinnerSolvingTimeLimit.addListener(SWT.Selection, listener);
 		spinnerSolvingTimeLimit.addModifyListener(modifyListener);
 
-
 		// Create a new GridLayout for the Markov transformation Group:
 		final GridLayout markovTransformationLayout = new GridLayout();
 		markovTransformationLayout.numColumns = 4;
@@ -375,32 +407,39 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		Group markovTransformationGroup = new Group(contentContainer, SWT.NONE);
 		markovTransformationGroup.setLayout(markovTransformationLayout);
 		markovTransformationGroup.setText("Markov Transformation");
-		markovTransformationGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-		
+		markovTransformationGroup.setLayoutData(new GridData(SWT.FILL,
+				SWT.CENTER, true, false));
+
 		// Add an optimize option as check box
 		checkOptimize = new Button(markovTransformationGroup, SWT.CHECK);
-		checkOptimize.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
-				false, false, markovTransformationLayout.numColumns, 1));
+		checkOptimize.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
+				false, markovTransformationLayout.numColumns, 1));
 		checkOptimize.setText("Apply Markov model reduction");
 		checkOptimize.setSelection(MARKOV_MODEL_REDUCTION_ENABLED);
 		checkOptimize.addListener(SWT.Selection, listener);
-		
+
 		// Add an option for Markov model traces as check box
-		checkMarkovModelTraces = new Button(markovTransformationGroup, SWT.CHECK);
+		checkMarkovModelTraces = new Button(markovTransformationGroup,
+				SWT.CHECK);
 		checkMarkovModelTraces.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				false, false, markovTransformationLayout.numColumns, 1));
 		checkMarkovModelTraces.setText("Add Markov traces");
 		checkMarkovModelTraces.setSelection(MARKOV_MODEL_TRACES_ENABLED);
 		checkMarkovModelTraces.addListener(SWT.Selection, listener);
-		
+
 		// Add an option to iterate over physical system states as check box
-		checkIterateOverPhysicalSystemStates = new Button(markovTransformationGroup, SWT.CHECK);
-		checkIterateOverPhysicalSystemStates.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
-				false, false, markovTransformationLayout.numColumns, 1));
-		checkIterateOverPhysicalSystemStates.setText("Iterate over physical system states");
-		checkIterateOverPhysicalSystemStates.setSelection(ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED);
-		checkIterateOverPhysicalSystemStates.addListener(SWT.Selection, listener);
-		
+		checkIterateOverPhysicalSystemStates = new Button(
+				markovTransformationGroup, SWT.CHECK);
+		checkIterateOverPhysicalSystemStates.setLayoutData(new GridData(
+				SWT.FILL, SWT.CENTER, false, false,
+				markovTransformationLayout.numColumns, 1));
+		checkIterateOverPhysicalSystemStates
+				.setText("Iterate over physical system states");
+		checkIterateOverPhysicalSystemStates
+				.setSelection(ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED);
+		checkIterateOverPhysicalSystemStates.addListener(SWT.Selection,
+				listener);
+
 		// Add a store markov model option as check box
 		checkStoreMarkovModel = new Button(markovTransformationGroup, SWT.CHECK);
 		checkStoreMarkovModel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
@@ -408,15 +447,15 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		checkStoreMarkovModel.setText("Store Markov model");
 		checkStoreMarkovModel.setSelection(MARKOV_MODEL_STORAGE_ENABLED);
 		checkStoreMarkovModel.addListener(SWT.Selection, listener);
-		
+
 		// Add a label showing where to specify the model file
 		Label labelModelFile = new Label(markovTransformationGroup, SWT.NONE);
 		labelModelFile.setText("Model file:");
-		
+
 		// Create the model file text box
 		textMarkovModelFile = new Text(markovTransformationGroup, SWT.BORDER);
-		textMarkovModelFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
-				false));
+		textMarkovModelFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				true, false));
 		textMarkovModelFile.setEnabled(MARKOV_MODEL_STORAGE_ENABLED);
 		textMarkovModelFile.setText(MARKOVMODELFILEDEFAULT);
 		textMarkovModelFile.addKeyListener(new KeyListener() {
@@ -434,14 +473,16 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 			}
 
 		});
-		
+
 		// Create the button responsible for triggering a file dialog,
 		// starting in the user's workspace
-		buttonWorkspaceFileDialogModelFile = new Button(markovTransformationGroup, SWT.NONE);
+		buttonWorkspaceFileDialogModelFile = new Button(
+				markovTransformationGroup, SWT.NONE);
 		buttonWorkspaceFileDialogModelFile.setLayoutData(new GridData(SWT.FILL,
 				SWT.CENTER, false, false));
 		buttonWorkspaceFileDialogModelFile.setText("Workspace...");
-		buttonWorkspaceFileDialogModelFile.setEnabled(MARKOV_MODEL_STORAGE_ENABLED);
+		buttonWorkspaceFileDialogModelFile
+				.setEnabled(MARKOV_MODEL_STORAGE_ENABLED);
 		buttonWorkspaceFileDialogModelFile
 				.addSelectionListener(new SelectionListener() {
 
@@ -455,16 +496,18 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 						IFile file = WorkspaceResourceDialog.openNewFile(
 								getShell(), "Save As",
 								"Select the parent folder:",
-								getRelativeFilePath(textMarkovModelFile.getText().trim()), null);
+								getRelativeFilePath(textMarkovModelFile
+										.getText().trim()), null);
 						if (file != null) {
 							String newModelFile = file.getLocation()
 									.toOSString();
 							if (newModelFile != null) {
-								// did the user select "*.markov" as extension and
+								// did the user select "*.markov" as extension
+								// and
 								// not add ".markov" to the file they specified?
 								if (!newModelFile.endsWith(".markov")) {
 									newModelFile += ".markov"; // append ".txt"
-															// extension
+									// extension
 								}
 								textMarkovModelFile.setText(newModelFile);
 								updateLaunchConfigurationDialog();
@@ -476,11 +519,13 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 		// Create the button responsible for triggering a file dialog,
 		// starting in the user's file system
-		buttonFileSystemFileDialogModelFile = new Button(markovTransformationGroup, SWT.NONE);
-		buttonFileSystemFileDialogModelFile.setLayoutData(new GridData(SWT.FILL,
-				SWT.CENTER, false, false));
+		buttonFileSystemFileDialogModelFile = new Button(
+				markovTransformationGroup, SWT.NONE);
+		buttonFileSystemFileDialogModelFile.setLayoutData(new GridData(
+				SWT.FILL, SWT.CENTER, false, false));
 		buttonFileSystemFileDialogModelFile.setText("File System...");
-		buttonFileSystemFileDialogModelFile.setEnabled(MARKOV_MODEL_STORAGE_ENABLED);
+		buttonFileSystemFileDialogModelFile
+				.setEnabled(MARKOV_MODEL_STORAGE_ENABLED);
 		buttonFileSystemFileDialogModelFile
 				.addSelectionListener(new SelectionListener() {
 
@@ -493,10 +538,13 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 					public void widgetSelected(final SelectionEvent e) {
 						FileDialog fileDiag = new FileDialog(new Shell(),
 								SWT.SAVE);
-						fileDiag.setFilterPath(getDirectoryName(textMarkovModelFile.getText().trim()));
+						fileDiag
+								.setFilterPath(getDirectoryName(textMarkovModelFile
+										.getText().trim()));
 						fileDiag.setFilterExtensions(new String[] { "*.markov",
 								"*.*" });
-						fileDiag.setFileName(getFileName(textMarkovModelFile.getText().trim()));
+						fileDiag.setFileName(getFileName(textMarkovModelFile
+								.getText().trim()));
 						fileDiag.setOverwrite(true);
 						String modelFile = fileDiag.open();
 						if (modelFile != null) {
@@ -504,7 +552,8 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 							// not add ".markov" to the file they specified?
 							if (fileDiag.getFilterIndex() == 0
 									&& !modelFile.endsWith(".markov")) {
-								modelFile += ".markov"; // append ".txt" extension
+								modelFile += ".markov"; // append ".txt"
+														// extension
 							}
 							textMarkovModelFile.setText(modelFile);
 							updateLaunchConfigurationDialog();
@@ -512,39 +561,52 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 						}
 					}
 				});
-		
+
 		// Create evaluation mode Group
 		final GridLayout evaluationModeLayout = new GridLayout();
 		final Group evaluationModeGroup = new Group(contentContainer, SWT.NONE);
 		evaluationModeGroup.setLayout(evaluationModeLayout);
 		evaluationModeGroup.setText("Evaluation Mode");
-		evaluationModeGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		evaluationModeGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				true, false));
 
-		// Of the following four radio buttons, only one must be enabled (checked). Make sure
+		// Of the following four radio buttons, only one must be enabled
+		// (checked). Make sure
 		// the boolean default values used are set accordingly (only one true).
 		radioSingleFailureMode = new Button(evaluationModeGroup, SWT.RADIO);
-		radioSingleFailureMode.setText("Single failure mode (simplified evaluation without failure recovery)");
-		radioSingleFailureMode.setSelection(MarkovEvaluationType.SINGLE == MARKOV_EVALUATION_MODE);
+		radioSingleFailureMode
+				.setText("Single failure mode (simplified evaluation without failure recovery)");
+		radioSingleFailureMode
+				.setSelection(MarkovEvaluationType.SINGLE == MARKOV_EVALUATION_MODE);
 		radioSingleFailureMode.addListener(SWT.Selection, listener);
-		radioSingleFailureMode.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		radioSingleFailureMode.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				false, false, 1, 1));
 
 		radioFailureCategories = new Button(evaluationModeGroup, SWT.RADIO);
-		radioFailureCategories.setText("Failure categories (simplified evaluation without failure recovery)");
-		radioFailureCategories.setSelection(MarkovEvaluationType.CLASSES == MARKOV_EVALUATION_MODE);
+		radioFailureCategories
+				.setText("Failure categories (simplified evaluation without failure recovery)");
+		radioFailureCategories
+				.setSelection(MarkovEvaluationType.CLASSES == MARKOV_EVALUATION_MODE);
 		radioFailureCategories.addListener(SWT.Selection, listener);
-		radioFailureCategories.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		radioFailureCategories.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				false, false, 1, 1));
 
 		radioFailureTypes = new Button(evaluationModeGroup, SWT.RADIO);
 		radioFailureTypes.setText("Failure types");
-		radioFailureTypes.setSelection(MarkovEvaluationType.TYPES == MARKOV_EVALUATION_MODE);
+		radioFailureTypes
+				.setSelection(MarkovEvaluationType.TYPES == MARKOV_EVALUATION_MODE);
 		radioFailureTypes.addListener(SWT.Selection, listener);
-		radioFailureTypes.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		radioFailureTypes.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				false, false, 1, 1));
 
 		radioPointsOfFailure = new Button(evaluationModeGroup, SWT.RADIO);
-		radioPointsOfFailure.setText("Points of failure (includes detailed reliability report)");
-		radioPointsOfFailure.setSelection(MarkovEvaluationType.POINTSOFFAILURE == MARKOV_EVALUATION_MODE);
+		radioPointsOfFailure
+				.setText("Points of failure (includes detailed reliability report)");
+		radioPointsOfFailure
+				.setSelection(MarkovEvaluationType.POINTSOFFAILURE == MARKOV_EVALUATION_MODE);
 		radioPointsOfFailure.addListener(SWT.Selection, listener);
-		radioPointsOfFailure.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		radioPointsOfFailure.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				false, false, 1, 1));
 
 		// Create a new GridLayout for the logging Group:
 		final GridLayout loggingLayout = new GridLayout();
@@ -607,33 +669,37 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 				SWT.CENTER, false, false));
 		buttonWorkspaceFileDialogLogFile.setText("Workspace...");
 		buttonWorkspaceFileDialogLogFile.setEnabled(SINGLERESULTSDEFAULT);
-		buttonWorkspaceFileDialogLogFile.addSelectionListener(new SelectionListener() {
+		buttonWorkspaceFileDialogLogFile
+				.addSelectionListener(new SelectionListener() {
 
-			@Override
-			public void widgetDefaultSelected(final SelectionEvent e) {
-				// nothing happens here
-			}
-
-			@Override
-			public void widgetSelected(final SelectionEvent e) {
-				IFile file = WorkspaceResourceDialog.openNewFile(getShell(),
-						"Save As", "Select the parent folder:",
-						getRelativeFilePath(textLogFile.getText().trim()), null);
-				if (file != null) {
-					String newLogFile = file.getLocation().toOSString();
-					if (newLogFile != null) {
-						// did the user select "*.txt" as extension and
-						// not add ".txt" to the file they specified?
-						if (!newLogFile.endsWith(".txt")) {
-							newLogFile += ".txt"; // append ".txt" extension
-						}
-						textLogFile.setText(newLogFile);
-						updateLaunchConfigurationDialog();
-						updateFieldsEnablement();
+					@Override
+					public void widgetDefaultSelected(final SelectionEvent e) {
+						// nothing happens here
 					}
-				}
-			}
-		});
+
+					@Override
+					public void widgetSelected(final SelectionEvent e) {
+						IFile file = WorkspaceResourceDialog.openNewFile(
+								getShell(), "Save As",
+								"Select the parent folder:",
+								getRelativeFilePath(textLogFile.getText()
+										.trim()), null);
+						if (file != null) {
+							String newLogFile = file.getLocation().toOSString();
+							if (newLogFile != null) {
+								// did the user select "*.txt" as extension and
+								// not add ".txt" to the file they specified?
+								if (!newLogFile.endsWith(".txt")) {
+									newLogFile += ".txt"; // append ".txt"
+															// extension
+								}
+								textLogFile.setText(newLogFile);
+								updateLaunchConfigurationDialog();
+								updateFieldsEnablement();
+							}
+						}
+					}
+				});
 
 		// Create the button responsible for triggering a file dialog,
 		// starting in the user's file system
@@ -654,10 +720,12 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 					public void widgetSelected(final SelectionEvent e) {
 						FileDialog fileDiag = new FileDialog(new Shell(),
 								SWT.SAVE);
-						fileDiag.setFilterPath(getDirectoryName(textLogFile.getText().trim()));
+						fileDiag.setFilterPath(getDirectoryName(textLogFile
+								.getText().trim()));
 						fileDiag.setFilterExtensions(new String[] { "*.txt",
 								"*.*" });
-						fileDiag.setFileName(getFileName(textLogFile.getText().trim()));
+						fileDiag.setFileName(getFileName(textLogFile.getText()
+								.trim()));
 						fileDiag.setOverwrite(true);
 						String logFile = fileDiag.open();
 						if (logFile != null) {
@@ -674,18 +742,28 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 					}
 
 				});
-		
+
 		// After all internal controls have been created,
 		// calculate the minimal size of the contentContainer.
 		// Scrollbars will be shown if the dialog size decreases
 		// below the calculated min size:
-		container.setMinSize(contentContainer.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-		
+		container.setMinSize(contentContainer.computeSize(SWT.DEFAULT,
+				SWT.DEFAULT));
+
 	}
 
 	@Override
 	public void deactivated(final ILaunchConfigurationWorkingCopy workingCopy) {
 
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
+	 */
+	public Image getImage() {
+		return imageRegistry.get(OPTIONS_TAB);
 	}
 
 	/**
@@ -739,39 +817,54 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 					MessageStrings.SINGLE_RESULTS, SINGLERESULTSDEFAULT));
 			textLogFile.setText(configuration.getAttribute(
 					MessageStrings.LOG_FILE, LOGFILEDEFAULT));
-			buttonWorkspaceFileDialogLogFile.setEnabled(configuration.getAttribute(
-					MessageStrings.SINGLE_RESULTS, SINGLERESULTSDEFAULT));
-			buttonFileSystemFileDialogLogFile.setEnabled(configuration.getAttribute(
-					MessageStrings.SINGLE_RESULTS, SINGLERESULTSDEFAULT));
+			buttonWorkspaceFileDialogLogFile.setEnabled(configuration
+					.getAttribute(MessageStrings.SINGLE_RESULTS,
+							SINGLERESULTSDEFAULT));
+			buttonFileSystemFileDialogLogFile.setEnabled(configuration
+					.getAttribute(MessageStrings.SINGLE_RESULTS,
+							SINGLERESULTSDEFAULT));
 			checkOptimize.setSelection(configuration.getAttribute(
-					MessageStrings.MARKOV_MODEL_REDUCTION_ENABLED, MARKOV_MODEL_REDUCTION_ENABLED));
+					MessageStrings.MARKOV_MODEL_REDUCTION_ENABLED,
+					MARKOV_MODEL_REDUCTION_ENABLED));
 			checkMarkovModelTraces.setSelection(configuration.getAttribute(
-					MessageStrings.MARKOV_MODEL_TRACES_ENABLED, MARKOV_MODEL_TRACES_ENABLED));
-			checkIterateOverPhysicalSystemStates.setSelection(configuration.getAttribute(
-					MessageStrings.ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED,
-					ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED));
+					MessageStrings.MARKOV_MODEL_TRACES_ENABLED,
+					MARKOV_MODEL_TRACES_ENABLED));
+			checkIterateOverPhysicalSystemStates
+					.setSelection(configuration
+							.getAttribute(
+									MessageStrings.ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED,
+									ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED));
 			checkStoreMarkovModel.setSelection(configuration.getAttribute(
-					MessageStrings.MARKOV_MODEL_STORAGE_ENABLED, MARKOV_MODEL_STORAGE_ENABLED));
+					MessageStrings.MARKOV_MODEL_STORAGE_ENABLED,
+					MARKOV_MODEL_STORAGE_ENABLED));
 			textMarkovModelFile.setEnabled(configuration.getAttribute(
-					MessageStrings.MARKOV_MODEL_STORAGE_ENABLED, MARKOV_MODEL_STORAGE_ENABLED));
+					MessageStrings.MARKOV_MODEL_STORAGE_ENABLED,
+					MARKOV_MODEL_STORAGE_ENABLED));
 			textMarkovModelFile.setText(configuration.getAttribute(
 					MessageStrings.MARKOV_MODEL_FILE, MARKOVMODELFILEDEFAULT));
-			buttonWorkspaceFileDialogModelFile.setEnabled(configuration.getAttribute(
-					MessageStrings.MARKOV_MODEL_STORAGE_ENABLED, MARKOV_MODEL_STORAGE_ENABLED));
-			buttonFileSystemFileDialogModelFile.setEnabled(configuration.getAttribute(
-					MessageStrings.MARKOV_MODEL_STORAGE_ENABLED, MARKOV_MODEL_STORAGE_ENABLED));
+			buttonWorkspaceFileDialogModelFile.setEnabled(configuration
+					.getAttribute(MessageStrings.MARKOV_MODEL_STORAGE_ENABLED,
+							MARKOV_MODEL_STORAGE_ENABLED));
+			buttonFileSystemFileDialogModelFile.setEnabled(configuration
+					.getAttribute(MessageStrings.MARKOV_MODEL_STORAGE_ENABLED,
+							MARKOV_MODEL_STORAGE_ENABLED));
 
 			MarkovEvaluationType evalType;
 			try {
-				evalType = MarkovEvaluationType.valueOf(configuration.getAttribute(
-						MessageStrings.MARKOV_EVALUATION_MODE, MARKOV_EVALUATION_MODE.toString()));
+				evalType = MarkovEvaluationType.valueOf(configuration
+						.getAttribute(MessageStrings.MARKOV_EVALUATION_MODE,
+								MARKOV_EVALUATION_MODE.toString()));
 			} catch (IllegalArgumentException e) {
 				evalType = MARKOV_EVALUATION_MODE;
 			}
-			radioFailureCategories.setSelection(MarkovEvaluationType.CLASSES == evalType);
-			radioPointsOfFailure.setSelection(MarkovEvaluationType.POINTSOFFAILURE == evalType);
-			radioSingleFailureMode.setSelection(MarkovEvaluationType.SINGLE == evalType);
-			radioFailureTypes.setSelection(MarkovEvaluationType.TYPES == evalType);
+			radioFailureCategories
+					.setSelection(MarkovEvaluationType.CLASSES == evalType);
+			radioPointsOfFailure
+					.setSelection(MarkovEvaluationType.POINTSOFFAILURE == evalType);
+			radioSingleFailureMode
+					.setSelection(MarkovEvaluationType.SINGLE == evalType);
+			radioFailureTypes
+					.setSelection(MarkovEvaluationType.TYPES == evalType);
 		} catch (CoreException e) {
 			// Defaults apply:
 			checkMarkovStatistics.setSelection(STATISTICSDEFAULT);
@@ -792,20 +885,23 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 			buttonFileSystemFileDialogLogFile.setEnabled(SINGLERESULTSDEFAULT);
 			checkOptimize.setSelection(MARKOV_MODEL_REDUCTION_ENABLED);
 			checkMarkovModelTraces.setSelection(MARKOV_MODEL_TRACES_ENABLED);
-			checkIterateOverPhysicalSystemStates.setSelection(ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED);
+			checkIterateOverPhysicalSystemStates
+					.setSelection(ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED);
 			checkStoreMarkovModel.setSelection(MARKOV_MODEL_STORAGE_ENABLED);
 			textMarkovModelFile.setEnabled(MARKOV_MODEL_STORAGE_ENABLED);
 			textMarkovModelFile.setText(MARKOVMODELFILEDEFAULT);
-			buttonWorkspaceFileDialogModelFile.setEnabled(MARKOV_MODEL_STORAGE_ENABLED);
-			buttonFileSystemFileDialogModelFile.setEnabled(MARKOV_MODEL_STORAGE_ENABLED);
-			radioSingleFailureMode.setSelection(
-					MarkovEvaluationType.SINGLE == MARKOV_EVALUATION_MODE);
-			radioFailureCategories.setSelection(
-					MarkovEvaluationType.CLASSES == MARKOV_EVALUATION_MODE);
-			radioFailureTypes.setSelection(
-					MarkovEvaluationType.TYPES == MARKOV_EVALUATION_MODE);
-			radioPointsOfFailure.setSelection(
-					MarkovEvaluationType.POINTSOFFAILURE == MARKOV_EVALUATION_MODE);
+			buttonWorkspaceFileDialogModelFile
+					.setEnabled(MARKOV_MODEL_STORAGE_ENABLED);
+			buttonFileSystemFileDialogModelFile
+					.setEnabled(MARKOV_MODEL_STORAGE_ENABLED);
+			radioSingleFailureMode
+					.setSelection(MarkovEvaluationType.SINGLE == MARKOV_EVALUATION_MODE);
+			radioFailureCategories
+					.setSelection(MarkovEvaluationType.CLASSES == MARKOV_EVALUATION_MODE);
+			radioFailureTypes
+					.setSelection(MarkovEvaluationType.TYPES == MARKOV_EVALUATION_MODE);
+			radioPointsOfFailure
+					.setSelection(MarkovEvaluationType.POINTSOFFAILURE == MARKOV_EVALUATION_MODE);
 		}
 
 		// Update the state of the dialog:
@@ -827,11 +923,12 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 			if (getCurrentFilePath(textLogFile.getText().trim()) == null) {
 				setErrorMessage("Invalid log file!");
 				return false;
-			} else if (getCurrentFilePath(textLogFile.getText().trim()).toFile().isDirectory()) {
+			} else if (getCurrentFilePath(textLogFile.getText().trim())
+					.toFile().isDirectory()) {
 				setErrorMessage("Log file is a directory!");
 				return false;
-			} else if (!getCurrentFilePath(textLogFile.getText().trim()).toFile().getParentFile()
-					.exists()) {
+			} else if (!getCurrentFilePath(textLogFile.getText().trim())
+					.toFile().getParentFile().exists()) {
 				setErrorMessage("Log file directory does not exist!");
 				return false;
 			}
@@ -840,11 +937,12 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 			if (getCurrentFilePath(textMarkovModelFile.getText().trim()) == null) {
 				setErrorMessage("Invalid Markov model file!");
 				return false;
-			} else if (getCurrentFilePath(textMarkovModelFile.getText().trim()).toFile().isDirectory()) {
+			} else if (getCurrentFilePath(textMarkovModelFile.getText().trim())
+					.toFile().isDirectory()) {
 				setErrorMessage("Markov model file is a directory!");
 				return false;
-			} else if (!getCurrentFilePath(textMarkovModelFile.getText().trim()).toFile().getParentFile()
-					.exists()) {
+			} else if (!getCurrentFilePath(textMarkovModelFile.getText().trim())
+					.toFile().getParentFile().exists()) {
 				setErrorMessage("Markov model file directory does not exist!");
 				return false;
 			}
@@ -867,30 +965,38 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(MessageStrings.SINGLE_RESULTS,
 				checkSingleResults.getSelection());
 
-		configuration.setAttribute(MessageStrings.NUMBER_OF_EVALUATED_SYSTEM_STATES_ENABLED,
+		configuration.setAttribute(
+				MessageStrings.NUMBER_OF_EVALUATED_SYSTEM_STATES_ENABLED,
 				checkNumberOfEvaluatedSystemStates.getSelection());
-		configuration.setAttribute(MessageStrings.NUMBER_OF_EVALUATED_SYSTEM_STATES,
-				Integer.parseInt(spinnerNumberOfEvaluatedSystemStates.getText()));
+		configuration.setAttribute(
+				MessageStrings.NUMBER_OF_EVALUATED_SYSTEM_STATES, Integer
+						.parseInt(spinnerNumberOfEvaluatedSystemStates
+								.getText()));
 
-		configuration.setAttribute(MessageStrings.NUMBER_OF_EXACT_DECIMAL_PLACES_ENABLED,
+		configuration.setAttribute(
+				MessageStrings.NUMBER_OF_EXACT_DECIMAL_PLACES_ENABLED,
 				checkNumberOfExactDecimalPlaces.getSelection());
-		configuration.setAttribute(MessageStrings.NUMBER_OF_EXACT_DECIMAL_PLACES,
-				Integer.parseInt(spinnerNumberOfExactDecimalPlaces.getText()));
+		configuration.setAttribute(
+				MessageStrings.NUMBER_OF_EXACT_DECIMAL_PLACES, Integer
+						.parseInt(spinnerNumberOfExactDecimalPlaces.getText()));
 
 		configuration.setAttribute(MessageStrings.SOLVING_TIME_LIMIT_ENABLED,
 				checkSolvingTimeLimit.getSelection());
-		configuration.setAttribute(MessageStrings.SOLVING_TIME_LIMIT, Integer.parseInt(
-				spinnerSolvingTimeLimit.getText()));
+		configuration.setAttribute(MessageStrings.SOLVING_TIME_LIMIT, Integer
+				.parseInt(spinnerSolvingTimeLimit.getText()));
 
-		configuration.setAttribute(MessageStrings.LOG_FILE, textLogFile.getText().trim());
-		
-		configuration.setAttribute(MessageStrings.MARKOV_MODEL_REDUCTION_ENABLED,
-				checkOptimize.getSelection());
-		
+		configuration.setAttribute(MessageStrings.LOG_FILE, textLogFile
+				.getText().trim());
+
+		configuration.setAttribute(
+				MessageStrings.MARKOV_MODEL_REDUCTION_ENABLED, checkOptimize
+						.getSelection());
+
 		configuration.setAttribute(MessageStrings.MARKOV_MODEL_TRACES_ENABLED,
 				checkMarkovModelTraces.getSelection());
 
-		configuration.setAttribute(MessageStrings.ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED,
+		configuration.setAttribute(
+				MessageStrings.ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED,
 				checkIterateOverPhysicalSystemStates.getSelection());
 
 		configuration.setAttribute(MessageStrings.MARKOV_MODEL_STORAGE_ENABLED,
@@ -926,25 +1032,30 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 				STATISTICSDEFAULT);
 		configuration.setAttribute(MessageStrings.SINGLE_RESULTS,
 				SINGLERESULTSDEFAULT);
-		configuration.setAttribute(MessageStrings.NUMBER_OF_EVALUATED_SYSTEM_STATES_ENABLED,
+		configuration.setAttribute(
+				MessageStrings.NUMBER_OF_EVALUATED_SYSTEM_STATES_ENABLED,
 				NUMBER_OF_EVALUATED_SYSTEM_STATES_ENABLED);
-		configuration.setAttribute(MessageStrings.NUMBER_OF_EVALUATED_SYSTEM_STATES,
+		configuration.setAttribute(
+				MessageStrings.NUMBER_OF_EVALUATED_SYSTEM_STATES,
 				NUMBER_OF_EVALUATED_SYSTEM_STATES);
-		configuration.setAttribute(MessageStrings.NUMBER_OF_EXACT_DECIMAL_PLACES_ENABLED,
+		configuration.setAttribute(
+				MessageStrings.NUMBER_OF_EXACT_DECIMAL_PLACES_ENABLED,
 				NUMBER_OF_EXACT_DECIMAL_PLACES_ENABLED);
-		configuration.setAttribute(MessageStrings.NUMBER_OF_EXACT_DECIMAL_PLACES,
+		configuration.setAttribute(
+				MessageStrings.NUMBER_OF_EXACT_DECIMAL_PLACES,
 				NUMBER_OF_EXACT_DECIMAL_PLACES);
 		configuration.setAttribute(MessageStrings.SOLVING_TIME_LIMIT_ENABLED,
 				SOLVING_TIME_LIMIT_ENABLED);
 		configuration.setAttribute(MessageStrings.SOLVING_TIME_LIMIT,
 				SOLVING_TIME_LIMIT);
-		configuration.setAttribute(MessageStrings.LOG_FILE,
-				LOGFILEDEFAULT);
-		configuration.setAttribute(MessageStrings.MARKOV_MODEL_REDUCTION_ENABLED,
+		configuration.setAttribute(MessageStrings.LOG_FILE, LOGFILEDEFAULT);
+		configuration.setAttribute(
+				MessageStrings.MARKOV_MODEL_REDUCTION_ENABLED,
 				MARKOV_MODEL_REDUCTION_ENABLED);
 		configuration.setAttribute(MessageStrings.MARKOV_MODEL_TRACES_ENABLED,
 				MARKOV_MODEL_TRACES_ENABLED);
-		configuration.setAttribute(MessageStrings.ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED,
+		configuration.setAttribute(
+				MessageStrings.ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED,
 				ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED);
 		configuration.setAttribute(MessageStrings.MARKOV_MODEL_STORAGE_ENABLED,
 				MARKOV_MODEL_STORAGE_ENABLED);
@@ -1003,8 +1114,8 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	/**
 	 * Returns the currently selected file path, relative to the workspace.
 	 * 
-	 * Returns an empty path if the current file path is not valid or not
-	 * within the workspace.
+	 * Returns an empty path if the current file path is not valid or not within
+	 * the workspace.
 	 * 
 	 * @return the currently selected file path
 	 */
@@ -1030,11 +1141,14 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		spinnerSolvingTimeLimit
 				.setEnabled(checkSolvingTimeLimit.getSelection());
 		textLogFile.setEnabled(checkSingleResults.getSelection());
-		buttonWorkspaceFileDialogLogFile.setEnabled(checkSingleResults.getSelection());
-		buttonFileSystemFileDialogLogFile
-				.setEnabled(checkSingleResults.getSelection());
+		buttonWorkspaceFileDialogLogFile.setEnabled(checkSingleResults
+				.getSelection());
+		buttonFileSystemFileDialogLogFile.setEnabled(checkSingleResults
+				.getSelection());
 		textMarkovModelFile.setEnabled(checkStoreMarkovModel.getSelection());
-		buttonWorkspaceFileDialogModelFile.setEnabled(checkStoreMarkovModel.getSelection());
-		buttonFileSystemFileDialogModelFile.setEnabled(checkStoreMarkovModel.getSelection());
+		buttonWorkspaceFileDialogModelFile.setEnabled(checkStoreMarkovModel
+				.getSelection());
+		buttonFileSystemFileDialogModelFile.setEnabled(checkStoreMarkovModel
+				.getSelection());
 	}
 }
