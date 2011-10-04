@@ -137,7 +137,7 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 					IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 					if(page != null) {
 						try {
-							page.openEditor(new MarkovResultEditorInput(markovResults),
+							page.openEditor(new MarkovResultEditorInput(markovResults), //configuration
 									"de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovResultEditor");
 						} catch (PartInitException e) {
 							e.printStackTrace();

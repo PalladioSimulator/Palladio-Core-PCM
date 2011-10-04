@@ -50,7 +50,7 @@ public class MarkovHtmlGenerator {
 				}
 				htmlCode.append("<br />");
 				htmlCode.append("<b>" + table.getTableName() + ":</b><br />");
-				htmlCode.append("<table border=\"1\" style=\"margin-left: 5mm; margin-top: 1mm;\">");
+				htmlCode.append("<table border=\"0\" style=\"margin-left: 0mm; margin-top: 1mm; border: 1px solid black;\">");
 				// create header row
 				htmlCode.append("<tr>");
 				for (String headerEntry : table.getHeaderRow()) {

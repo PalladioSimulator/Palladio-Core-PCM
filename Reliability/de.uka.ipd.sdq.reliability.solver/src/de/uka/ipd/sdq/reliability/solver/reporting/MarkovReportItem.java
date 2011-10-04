@@ -29,7 +29,9 @@ public class MarkovReportItem {
 	/**
 	 * A MarkovReportItem consists of several tables.
 	 */
-	private List<MarkovReportingTable> tables;
+	private List<MarkovReportingTable> tables;	// TODO splitten in
+												// TODO (1) failureModeTables ("Failure Mode Analysis")
+												// TODO (2) impactAnalysisTables ("Impact Analysis")
 
 	public MarkovReportItem(String scenarioName, String scenarioId, double successProbability) {
 		this.scenarioName = scenarioName;
