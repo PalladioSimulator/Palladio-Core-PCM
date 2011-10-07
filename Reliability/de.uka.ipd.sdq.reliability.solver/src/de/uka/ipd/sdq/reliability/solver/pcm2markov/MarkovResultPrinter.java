@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.reliability.solver.pcm2markov;
 
 import org.apache.log4j.Logger;
 
+@Deprecated
 public class MarkovResultPrinter {
 
 	/**

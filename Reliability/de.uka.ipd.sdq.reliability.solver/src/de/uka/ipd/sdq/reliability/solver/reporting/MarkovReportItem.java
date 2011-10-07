@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Generates abstract tables (consisting of rows and columns).
+ * Generates abstract tables based on the data of a reliability analysis of a given scenario.
+ * The data encapsulated in this class can be used for later output.
  * 
  * @author Daniel Patejdl
  *
@@ -12,7 +13,7 @@ import java.util.List;
 public class MarkovReportItem {
 	
 	/**
-	 * The scenario's name
+	 * The scenario's name.
 	 */
 	private String scenarioName;
 
@@ -22,23 +23,34 @@ public class MarkovReportItem {
 	private String scenarioId;
 
 	/**
-	 * The scenario's success probability;
+	 * The scenario's success probability as String.
 	 */
-	private double successProbability;
+	private String successProbabilityAsString;
 
 	/**
-	 * A MarkovReportItem consists of several tables.
+	 * A MarkovReportItem may consist of several tables related to failure mode analysis.
 	 */
-	private List<MarkovReportingTable> tables;	// TODO splitten in
-												// TODO (1) failureModeTables ("Failure Mode Analysis")
-												// TODO (2) impactAnalysisTables ("Impact Analysis")
+	private List<MarkovReportingTable> failureModeTables;
 
-	public MarkovReportItem(String scenarioName, String scenarioId, double successProbability) {
+	/**
+	 * A MarkovReportItem may consist of several tables related to impact analysis.
+	 */
+	private List<MarkovReportingTable> impactAnalysisTables;
+
+	/**
+	 * Generates a new Markov report item, initialized with a scenario name, the scenario's ID and
+	 * the success probability of the scenario as String.
+	 * @param scenarioName the name of the scenario
+	 * @param scenarioId the ID of the scenario
+	 * @param successProbabilityAsString the success probability of the scenario as String
+	 */
+	public MarkovReportItem(String scenarioName, String scenarioId, String successProbabilityAsString) {
 		this.scenarioName = scenarioName;
 		this.scenarioId = scenarioId;
-		this.successProbability = successProbability;
+		this.successProbabilityAsString = successProbabilityAsString;
 
-		tables = new ArrayList<MarkovReportingTable>();
+		failureModeTables = new ArrayList<MarkovReportingTable>();
+		impactAnalysisTables = new ArrayList<MarkovReportingTable>();
 	}
 
 	/**
@@ -76,23 +88,39 @@ public class MarkovReportItem {
 	/**
 	 * Gets the scenario's success probability.
 	 */
-	public double getSuccessProbability() {
-		return successProbability;
+	public String getSuccessProbabilityString() {
+		return successProbabilityAsString;
 	}
 
 	/**
-	 * Adds a table to the list of tables.
-	 * @param table the table
+	 * Adds a table to the list of failure mode tables.
+	 * @param failureModeTable the table
 	 */
-	public void addTable(MarkovReportingTable table){
-		tables.add(table);
+	public void addFailureModeTable(MarkovReportingTable failureModeTable){
+		failureModeTables.add(failureModeTable);
 	}
 
 	/**
-	 * Returns all tables in the list.
+	 * Returns all failure mode tables in the list.
 	 * @return all tables
 	 */
-	public List<MarkovReportingTable> getTables() {
-		return tables;
+	public List<MarkovReportingTable> getFailureModeTables() {
+		return failureModeTables;
+	}
+
+	/**
+	 * Adds a table to the list of failure mode tables.
+	 * @param impactAnalysisTable the table
+	 */
+	public void addImpactAnalysisTable(MarkovReportingTable impactAnalysisTable) {
+		impactAnalysisTables.add(impactAnalysisTable);
+	}
+
+	/**
+	 * Returns all impact analysis tables in the list.
+	 * @return all tables
+	 */
+	public List<MarkovReportingTable> getImpactAnalysisTables() {
+		return impactAnalysisTables;
 	}
 }

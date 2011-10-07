@@ -11,6 +11,7 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorPart;
 
+import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
 import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
 import de.uka.ipd.sdq.reliability.solver.reporting.MarkovReporting;
 
@@ -53,19 +54,27 @@ public class MarkovResultEditor extends EditorPart {
 		Browser browser = new Browser(parent, SWT.BORDER);
 		if (input != null) {
 			if (input instanceof MarkovResultEditorInput) {
-				// get Markov transformation results
+				// get Markov transformation results and configuration properties
 				List<MarkovTransformationResult> markovResults = ((MarkovResultEditorInput) input).getMarkovResults();
+				PCMSolverWorkflowRunConfiguration config = ((MarkovResultEditorInput) input).getConfiguration();
 				// generate HTML code using those results as data source
-				MarkovHtmlGenerator htmlGenerator = new MarkovHtmlGenerator(new MarkovReporting(markovResults));
+				MarkovHtmlGenerator htmlGenerator = new MarkovHtmlGenerator(new MarkovReporting(markovResults, config));
 				// create final HTML page
-				StringBuilder htmlCode = new StringBuilder("<html><head><title>Markov Results</title></head><body>");
+				StringBuilder htmlCode = new StringBuilder("<html><head><title>Markov Results</title>"
+						+ "<style type=\"text/css\">"
+						+ "body { font-family: Lucida Grande; font-size: 12px; }"
+						+ "td, th { font-size: 11px; }"
+						+ "th { background-color: c0c0c0; margin: 1px; padding: 3px 5px 3px 5px; }"
+						+ "td { background-color: dfdfdf; margin: 1px; padding: 3px 5px 3px 5px; }"
+						+ ".headerRow { border: 1px solid #a0a0a0; }"
+						+ "</style></head><body>");
 				htmlCode.append(htmlGenerator.getHtml());
 				htmlCode.append("</body></html>");
 				// display HTML code in browser
 				browser.setText(htmlCode.toString());
 			} else {
 				browser.setText("<html><head><title>Markov Results</title></head>"
-						+ "<body><font face=\"Arial\" color=\"red\">Error:"
+						+ "<body><font color=\"red\">Error:"
 						+ " The given editor input is not an instance of MarkovResultEditorInput.</font>"
 						+ "</body></html>");
 			}

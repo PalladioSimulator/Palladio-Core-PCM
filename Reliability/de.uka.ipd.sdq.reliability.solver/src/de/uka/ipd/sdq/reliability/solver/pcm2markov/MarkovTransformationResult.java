@@ -92,6 +92,12 @@ public class MarkovTransformationResult {
 	 * The list of potential failure types.
 	 */
 	private List<MarkovFailureType> failureTypes;
+	
+	/**
+	 * Indicates if an approximation scheme shall be used for
+	 * printing of probabilities.
+	 */
+	private boolean approximate;
 
 	/**
 	 * Creates a new Markov results aggregator.
@@ -147,6 +153,30 @@ public class MarkovTransformationResult {
 	 */
 	public UsageScenario getScenario() {
 		return scenario;
+	}
+
+	/**
+	 * Indicates if an approximation scheme shall be used for
+	 * printing of probabilities.
+	 * @return <code>true</code>, if an approximation scheme shall be used for
+	 * printing probabilities, <code>false</code> otherwise.
+	 */
+	public boolean isDoApproximate() {
+		return (configuration
+				.isIterationOverPhysicalSystemStatesEnabled())
+				&& approximate
+				&& (physicalStateEvaluationCount < Math.pow(markovSource
+						.getUnreliableResourceDescriptors().size(), 2));
+	}
+
+	/**
+	 * Method for setting a value responsible for telling if an approximation scheme
+	 * shall be used for printing probabilities.
+	 * @param approximate the value indicating if an approximation scheme shall be
+	 * used for printing probabilities
+	 */
+	public void setApproximate(boolean approximate) {
+		this.approximate = approximate;
 	}
 
 	/**
@@ -322,15 +352,6 @@ public class MarkovTransformationResult {
 	}
 
 	/**
-	 * Retrieves the overall success probability.
-	 * 
-	 * @return the success probability
-	 */
-	public double getSuccessProbability() {
-		return cumulatedSuccessProbability;
-	}
-
-	/**
 	 * Determines if the calculated success probability conforms to a given
 	 * required accuracy.
 	 * 
@@ -339,14 +360,23 @@ public class MarkovTransformationResult {
 	 * @return true if the required accuracy has been reached
 	 */
 	public boolean hasRequiredAccuracy(final int requiredAccuracy) {
-
+	
 		// Create an approximation for the accumulated success probability:
 		MarkovResultApproximation approximation = new MarkovResultApproximation(
 				cumulatedSuccessProbability, cumulatedSuccessProbability
 						+ (1.0 - cumulatedPhysicalStateProbability));
-
+	
 		// Check for the required accuracy:
 		return approximation.hasRequiredAccuracy(requiredAccuracy);
+	}
+
+	/**
+	 * Retrieves the overall success probability.
+	 * 
+	 * @return the success probability
+	 */
+	public double getSuccessProbability() {
+		return cumulatedSuccessProbability;
 	}
 
 	/**

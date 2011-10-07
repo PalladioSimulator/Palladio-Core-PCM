@@ -37,24 +37,26 @@ public class MarkovHtmlGenerator {
 	public String getHtml() {
 		StringBuilder htmlCode = new StringBuilder();
 		for (MarkovReportItem item : markovReportItems) {
-			htmlCode.append("<h3>Reliability results for UsageScenario: <font color=\"#707070\">"
-					+ item.getScenarioName() + "</font></h3>");
-			htmlCode.append("Scenario ID: <font color=\"#707070\">" +
+			htmlCode.append("<h2>Reliability results for UsageScenario: <font color=\"#606060\">"
+					+ item.getScenarioName() + "</font></h2>");
+			htmlCode.append("Scenario ID: <font color=\"#606060\">" +
 					item.getScenarioId() + "</font><br />");
-			htmlCode.append("Success probability: <font color=\"#707070\">"
-					+ item.getSuccessProbability() + "</font><br />");
-			// create HTML tables
-			for (MarkovReportingTable table : item.getTables()) {
+			htmlCode.append("Success probability: <font color=\"#606060\">"
+					+ item.getSuccessProbabilityString() + "</font><br />");
+			// draw horizontal separation line
+			htmlCode.append("<hr />");
+			// create tables: failure mode tables first, then impact analysis tables
+			htmlCode.append("<h3>Failure Mode Analysis</h3>");
+			for (MarkovReportingTable table : item.getFailureModeTables()) {
 				if (table.getRows().size() == 0) {
 					continue;	// table contains no rows, thus consider next table in list
 				}
-				htmlCode.append("<br />");
 				htmlCode.append("<b>" + table.getTableName() + ":</b><br />");
-				htmlCode.append("<table border=\"0\" style=\"margin-left: 0mm; margin-top: 1mm; border: 1px solid black;\">");
+				htmlCode.append("<table border=\"0\" style=\"margin-top: 1mm; border: 1px solid #a0a0a0;\">");
 				// create header row
 				htmlCode.append("<tr>");
 				for (String headerEntry : table.getHeaderRow()) {
-					htmlCode.append("<th>" + headerEntry + "</th>");
+					htmlCode.append("<th class=\"headerRow\">" + headerEntry + "</th>");
 				}
 				htmlCode.append("</tr>");
 				// create table data rows
@@ -67,7 +69,44 @@ public class MarkovHtmlGenerator {
 				}
 				// finish table HTML code
 				htmlCode.append("</table>");
+				htmlCode.append("<br />");
 			}
+			if (item.getImpactAnalysisTables().size() != 0) {
+				// draw horizontal separation line
+				htmlCode.append("<hr />");
+				// now, consider impact analysis tables
+				htmlCode.append("<h3>Impact Analysis</h3>");
+				for (MarkovReportingTable table : item
+						.getImpactAnalysisTables()) {
+					if (table.getRows().size() == 0) {
+						continue; // table contains no rows, thus consider next table in list
+					}
+					htmlCode.append("<b>" + table.getTableName()
+							+ ":</b><br />");
+					htmlCode.append("<table border=\"0\" style=\"margin-top: 1mm; border: 1px solid #a0a0a0;\">");
+					// create header row
+					htmlCode.append("<tr>");
+					for (String headerEntry : table.getHeaderRow()) {
+						htmlCode.append("<th class=\"headerRow\">"
+								+ headerEntry + "</th>");
+					}
+					htmlCode.append("</tr>");
+					// create table data rows
+					for (List<String> row : table.getRows()) {
+						htmlCode.append("<tr>");
+						for (String entry : row) {
+							htmlCode.append("<td>" + entry + "</td>");
+						}
+						htmlCode.append("</tr>");
+					}
+					// finish table HTML code
+					htmlCode.append("</table>");
+					htmlCode.append("<br />");
+				}
+			}
+			// draw horizontal separation lines
+			htmlCode.append("<hr style=\"text-align: center; width: 300px;\" noshade=\"noshade\">");
+			htmlCode.append("<hr style=\"text-align: center; width: 300px;\" noshade=\"noshade\">");
 		}
 
 		return htmlCode.toString();

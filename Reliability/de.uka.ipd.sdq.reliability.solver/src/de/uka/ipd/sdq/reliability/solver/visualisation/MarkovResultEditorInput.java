@@ -6,6 +6,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
 
+import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
 import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
 
 /**
@@ -16,12 +17,17 @@ import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
  *
  */
 public class MarkovResultEditorInput implements IEditorInput {
-	
+
 	/**
 	 * The Markov transformation results (one result object for
 	 * each PCM UsageScenario).
 	 */
 	private List<MarkovTransformationResult> markovResults;
+	
+	/**
+	 * Configuration properties for the reliability solver workflow.
+	 */
+	private PCMSolverWorkflowRunConfiguration configuration;
 
 	/**
 	 * Gets the Markov transformation results.
@@ -40,12 +46,22 @@ public class MarkovResultEditorInput implements IEditorInput {
 	}
 
 	/**
+	 * Gets the configuration properties for the reliability solver workflow
+	 * @return the configuration properties
+	 */
+	public PCMSolverWorkflowRunConfiguration getConfiguration() {
+		return configuration;
+	}
+
+	/**
 	 * Creates a new MarkovResultEditor, given a list of Markov transformation results.
 	 * @param markovResults the Markov transformation results
+	 * @param configuration the configuration properties for the reliability solver workflow
 	 */
 	public MarkovResultEditorInput(
-			List<MarkovTransformationResult> markovResults) {
+			List<MarkovTransformationResult> markovResults, PCMSolverWorkflowRunConfiguration configuration) {
 		this.markovResults = markovResults;
+		this.configuration = configuration;
 	}
 
 	@Override

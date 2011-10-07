@@ -586,6 +586,8 @@ public class MarkovTransformation {
 			e.printStackTrace();
 		}
 
+		markovResult.setApproximate(approximate);
+
 		// Let the user know about the result:
 		markovResult.print(approximate);
 
