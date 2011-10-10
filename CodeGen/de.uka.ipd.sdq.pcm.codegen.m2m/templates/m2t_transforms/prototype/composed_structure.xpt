@@ -43,7 +43,7 @@
 
 «DEFINE AllChildMemberVarInit FOR ComposedProvidingRequiringEntity»
 	«IF System.isInstance(this)»
-	if (de.uka.ipd.sdq.prototype.framework.RmiRegistry.LOCALHOST.equals(ip)) 
+	if (de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.LOCALHOST.equals(ip)) 
 	«ENDIF»
 	{
 		«EXPAND ChildMemberStartMain FOREACH this.assemblyContexts__ComposedStructure»

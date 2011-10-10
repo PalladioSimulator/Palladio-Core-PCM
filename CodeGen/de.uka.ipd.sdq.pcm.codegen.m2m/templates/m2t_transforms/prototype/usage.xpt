@@ -162,15 +162,15 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractOp
 	public «u.javaName()»Thread(
 			de.uka.ipd.sdq.sensorframework.entities.Experiment exp,
 			de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun,
-			de.uka.ipd.sdq.prototype.framework.RunProperties runProps)
+			de.uka.ipd.sdq.prototype.framework.utils.RunProperties runProps)
 	{
 		super(exp, expRun, "Response Time of «u.entityName»",runProps,"«this.interArrivalTime_OpenWorkload.specification.specificationString()»");
 	}
 
 	@Override
-	protected Runnable getScenarioRunner(de.uka.ipd.sdq.prototype.framework.RunProperties runProps)
+	protected Runnable getScenarioRunner(de.uka.ipd.sdq.prototype.framework.utils.RunProperties runProps)
 	{
-		return new «u.fqn()»((runProps.hasOption('R') ? runProps.getOptionValue('R') : de.uka.ipd.sdq.prototype.framework.RmiRegistry.LOCALHOST));
+		return new «u.fqn()»((runProps.hasOption('R') ? runProps.getOptionValue('R') : de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.LOCALHOST));
 	}
 }
 
@@ -196,15 +196,15 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractCl
 	public «u.javaName()»Thread(
 			de.uka.ipd.sdq.sensorframework.entities.Experiment exp,
 			de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun,
-			de.uka.ipd.sdq.prototype.framework.RunProperties runProps)
+			de.uka.ipd.sdq.prototype.framework.utils.RunProperties runProps)
 	{
 		super(exp, expRun, "Response Time of «u.entityName»",runProps);
 	}
 
 	@Override
-	protected Runnable getScenarioRunner(de.uka.ipd.sdq.prototype.framework.RunProperties runProps)
+	protected Runnable getScenarioRunner(de.uka.ipd.sdq.prototype.framework.utils.RunProperties runProps)
 	{
-		return new «u.fqn()»((runProps.hasOption('R') ? runProps.getOptionValue('R') : de.uka.ipd.sdq.prototype.framework.RmiRegistry.LOCALHOST));
+		return new «u.fqn()»((runProps.hasOption('R') ? runProps.getOptionValue('R') : de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.LOCALHOST));
 	}
 }
 «ENDDEFINE»

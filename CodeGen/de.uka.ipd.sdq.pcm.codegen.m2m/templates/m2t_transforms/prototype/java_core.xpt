@@ -84,11 +84,11 @@
 «REM»Basic Components get a main function«ENDREM»
 «DEFINE MainImplementation FOR RepositoryComponent»
 	public static void main(String[] args) {
-		String ip = de.uka.ipd.sdq.prototype.framework.RmiRegistry.getIpFromArguments(args);
+		String ip = de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.getIpFromArguments(args);
 
 		try {
 			«this.fqn()» obj = new «this.fqn()»(ip);
-			de.uka.ipd.sdq.prototype.framework.RmiRegistry.registerComponent(ip, obj, "«this.javaName()»");
+			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.registerComponent(ip, obj, "«this.javaName()»");
 
 		} catch (java.rmi.RemoteException e) {
 			logger.error("Instantiation of component «this.javaName()» failed");
@@ -99,14 +99,14 @@
 «REM»Composite Components get a main function«ENDREM»
 «DEFINE MainImplementation FOR ComposedProvidingRequiringEntity»
 	public static void main(String[] args) {
-		String ip = de.uka.ipd.sdq.prototype.framework.RmiRegistry.getIpFromArguments(args);
+		String ip = de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.getIpFromArguments(args);
 
 		try {
 			«this.fqn()» obj = new «this.fqn()»(ip);
 			«IF System.isInstance(this)»
 			obj.setContext(new «this.fqnContext()»());
 			«ENDIF»
-			de.uka.ipd.sdq.prototype.framework.RmiRegistry.registerComponent(ip, obj, "«this.javaName()»");
+			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.registerComponent(ip, obj, "«this.javaName()»");
 
 		} catch (java.rmi.RemoteException e) {
 			logger.error("Instantiation of component «this.javaName()» failed");
