@@ -53,7 +53,7 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 	{
 		this.usageScenario = getScenarioRunner(runProps);
 		this.experimentRun = expRun;
-		this.timeSpanSensor = AbstractMain.createOrReuseTimeSpanSensor(scenarioName);
+		this.timeSpanSensor = ExperimentManager.createOrReuseTimeSpanSensor(scenarioName);
 
 		
 		if (runProps.hasOption("m"))

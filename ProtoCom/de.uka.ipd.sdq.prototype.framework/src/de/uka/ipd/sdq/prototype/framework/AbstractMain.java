@@ -24,8 +24,6 @@ import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorframework.entities.Sensor;
-import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 
@@ -39,11 +37,6 @@ import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
  */
 public abstract class AbstractMain {
 
-	/** 
-	 * Suffix for ProtoCom sensors, as seen in the diagrams 
-	 */
-	private static final String PROTOCOM_SENSOR_SUFFIX = " (ProtoCom)";
-
 	/**
 	 * Root logger of the whole application. Changing its configuration impacts all log output.
 	 */
@@ -52,7 +45,6 @@ public abstract class AbstractMain {
 	/**
 	 * Attributes for the measurements store
 	 */
-	protected static de.uka.ipd.sdq.sensorframework.entities.Experiment exp = null;
 	private static IDAOFactory datasource = null;
 	private ExperimentRun expRun;
 
@@ -117,8 +109,8 @@ public abstract class AbstractMain {
 
 	protected void initMeasurement() {
 		datasource = prepareDatasource();
-		exp = datasource.createExperimentDAO().addExperiment(runProps.getOptionValue('n'));
-		expRun = exp.addExperimentRun(new java.util.Date().toString());
+		ExperimentManager.setExperiment(datasource.createExperimentDAO().addExperiment(runProps.getOptionValue('n')));
+		expRun = ExperimentManager.addExperimentRun();
 		logger.info("Created data source at event time " + (System.nanoTime() / Math.pow(10, 9)));
 
 		if (runProps.hasOption('w')) {
@@ -129,7 +121,7 @@ public abstract class AbstractMain {
 		// init threads if configuration is active server (not -P) or only
 		// warmup requested.
 		if (!runProps.hasOption('P') || runProps.hasOption('W')) {
-			initialiseThreads(exp, expRun);
+			initialiseThreads(ExperimentManager.getExperiment(), expRun);
 		}
 
 		// run measurements if the configuration is neither passive nor warmup
@@ -501,7 +493,7 @@ public abstract class AbstractMain {
 	protected abstract void initialiseThreads(Experiment exp, ExperimentRun expRun);
 
 	public static ExperimentRun getLatestExperimentRun() {
-		Collection<ExperimentRun> runs = AbstractMain.exp.getExperimentRuns();
+		Collection<ExperimentRun> runs = ExperimentManager.getExperiment().getExperimentRuns();
 		Iterator<ExperimentRun> it = runs.iterator();
 
 		ExperimentRun experimentRun = null;
@@ -512,57 +504,5 @@ public abstract class AbstractMain {
 		}
 
 		return experimentRun;
-	}
-
-	/**
-	 * Returns a {@link TimeSpanSensor} in the experiment that has the name
-	 * sensorName. Creates a new sensor and returns it of no sensor with this
-	 * name exists. The reuse is required because the EJB container may decide
-	 * at times to create new instances of the components, so for one component
-	 * type and one signature, this method may be called multiple times during
-	 * the measurements. We want to store all results per component type into
-	 * one sensor, though.
-	 * 
-	 * @param sensorName
-	 *            The sensor name to match
-	 * @return The {@link TimeSpanSensor} with the passed name or a new
-	 *         {@link TimeSpanSensor} with that name that is then also added to
-	 *         the experiment.
-	 */
-	public static TimeSpanSensor createOrReuseTimeSpanSensor(String sensorName) {
-
-		Collection<Sensor> existingSesors = AbstractMain.exp.getSensors();
-		for (Sensor sensor : existingSesors) {
-			if (sensor instanceof TimeSpanSensor && sensor.getSensorName().equals(sensorName + PROTOCOM_SENSOR_SUFFIX)) {
-				return (TimeSpanSensor) sensor;
-			}
-		}
-
-		TimeSpanSensor tss = AbstractMain.exp.addTimeSpanSensor(sensorName + PROTOCOM_SENSOR_SUFFIX);
-		return tss;
-	}
-
-	/**
-	 * Takes a measurement (from start time till current time) on the given sensor
-	 * 
-	 * @param start						start time
-	 * @param experimentRun				
-	 * @param overallTimeSpanSensor		sensor
-	 */
-	public static void takeMeasurement(long start, ExperimentRun experimentRun, TimeSpanSensor overallTimeSpanSensor) {
-
-		long now = System.nanoTime();
-		double measuredTimeSpan = (now - start) / Math.pow(10, 9);
-
-		experimentRun.addTimeSpanMeasurement(overallTimeSpanSensor, now / Math.pow(10, 9), measuredTimeSpan);
-	}
-
-	/**
-	 * Restored this from an older version.
-	 * Will be changed eventually.
-	 * @return
-	 */
-	public static long takeStartTimeForInnerMeasurement() {
-		return System.nanoTime();
 	}
 }
