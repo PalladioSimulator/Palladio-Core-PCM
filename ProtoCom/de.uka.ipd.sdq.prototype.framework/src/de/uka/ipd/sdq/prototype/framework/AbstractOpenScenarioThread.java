@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.prototype.framework;
 
+import de.uka.ipd.sdq.prototype.framework.utils.RunProperties;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;

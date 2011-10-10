@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.prototype.framework;
+package de.uka.ipd.sdq.prototype.framework.utils;
 
 import java.io.Serializable;
 import java.net.MalformedURLException;
@@ -11,6 +11,8 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
+
+import de.uka.ipd.sdq.prototype.framework.AbstractScenarioThread;
 
 public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Serializable {
 
@@ -98,7 +100,7 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 		try {
 			Registry reg = LocateRegistry.getRegistry(registryIP);
 
-			de.uka.ipd.sdq.prototype.framework.IRmiRegistry pcmRegistry = null;
+			de.uka.ipd.sdq.prototype.framework.utils.IRmiRegistry pcmRegistry = null;
 			
 			while (true) {
 				try {

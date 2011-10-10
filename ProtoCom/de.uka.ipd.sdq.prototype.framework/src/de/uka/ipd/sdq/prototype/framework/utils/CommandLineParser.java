@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.prototype.framework;
+package de.uka.ipd.sdq.prototype.framework.utils;
 
 import org.apache.commons.cli.GnuParser;
 import org.apache.commons.cli.HelpFormatter;

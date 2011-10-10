@@ -1,9 +1,11 @@
-package de.uka.ipd.sdq.prototype.framework;
+package de.uka.ipd.sdq.prototype.framework.utils;
 
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+
+import de.uka.ipd.sdq.prototype.framework.AbstractAllocationStorage;
 
 public class UserMenu
 {

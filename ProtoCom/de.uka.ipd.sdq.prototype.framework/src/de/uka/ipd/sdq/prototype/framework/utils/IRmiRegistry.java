@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.prototype.framework;
+package de.uka.ipd.sdq.prototype.framework.utils;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
