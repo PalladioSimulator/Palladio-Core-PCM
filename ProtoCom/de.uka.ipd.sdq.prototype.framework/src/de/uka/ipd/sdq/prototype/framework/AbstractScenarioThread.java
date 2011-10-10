@@ -95,6 +95,11 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 	
 	protected abstract void runAndMeasureUsageScenarioIteration();
 	
+	/**
+	 * FIXME: duplicate, see ExperimentManager!
+	 * 
+	 * @param start
+	 */
 	protected void takeScenarioMeasurement(long start) {
 		long now = System.nanoTime();
 		double measuredTimeSpan = (now - start) / Math.pow(10, 9);

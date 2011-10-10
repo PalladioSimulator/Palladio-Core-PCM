@@ -134,6 +134,38 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 		return LOCALHOST;
 	}
 
+	/**
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public static Remote lookup(String name) {
+		Remote result = null;
+
+		while (true) {
+			try {		
+				
+				result = java.rmi.Naming.lookup(name); 
+		
+			} catch (java.net.MalformedURLException e) {
+				logger.error("Remote URI malformed. This should never happen, strange model names used?");
+			} catch (java.rmi.RemoteException e) {
+				logger.error("Error while waiting for system. " + e);
+			} catch (java.rmi.NotBoundException e) {
+				logger.info("System missing: " + e.getMessage());
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException innerE) {
+					logger.error("Error while waiting for system. " + e);
+				}
+				continue;
+			}
+			
+			return result;
+		}
+	}
+	
+	
 	public static void main(String[] args)
 	{	
 		startRegistry();

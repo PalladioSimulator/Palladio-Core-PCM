@@ -5,7 +5,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -108,10 +107,6 @@ public abstract class AbstractMain {
 	}
 
 	protected void initMeasurement() {
-		datasource = prepareDatasource();
-		ExperimentManager.setExperiment(datasource.createExperimentDAO().addExperiment(runProps.getOptionValue('n')));
-		expRun = ExperimentManager.addExperimentRun();
-		logger.info("Created data source at event time " + (System.nanoTime() / Math.pow(10, 9)));
 
 		if (runProps.hasOption('w')) {
 			logger.info("Please pin java runtime to a single processor if needed! Press a key to continue!");
@@ -147,7 +142,16 @@ public abstract class AbstractMain {
 		System.exit(0);
 	}
 
+	private void createExperiment() {
+		datasource = prepareDatasource();
+		ExperimentManager.setExperiment(datasource.createExperimentDAO().addExperiment(runProps.getOptionValue('n')));
+		expRun = ExperimentManager.addExperimentRun();
+		logger.info("Created data source at event time " + (System.nanoTime() / Math.pow(10, 9)));
+	}
+
 	private void startDefaultMain() {
+		createExperiment();
+
 		if (!runProps.hasOption('R')) {
 			initialiseSystems();
 		}
@@ -258,11 +262,19 @@ public abstract class AbstractMain {
 		{
 			// Usage Scenarios
 			logger.debug("Start: Usage Scenarios");
+			
+			createExperiment();
 			initMeasurement();
 		}
 		else
 		{
 			int i = 4;
+
+			// This data source is only used temporary by components for inner sensors and NOT for the usage scenario.
+			// This should be refactored into a better place, just like all in this class...
+			datasource = prepareDatasource();
+			ExperimentManager.setExperiment(datasource.createExperimentDAO().addExperiment(runProps.getOptionValue('n')));
+
 			
 			// systems
 			String[][] systems = getSystems();
@@ -491,18 +503,4 @@ public abstract class AbstractMain {
 	 * Initialise threads and perform warmup, if requested. 
 	 */
 	protected abstract void initialiseThreads(Experiment exp, ExperimentRun expRun);
-
-	public static ExperimentRun getLatestExperimentRun() {
-		Collection<ExperimentRun> runs = ExperimentManager.getExperiment().getExperimentRuns();
-		Iterator<ExperimentRun> it = runs.iterator();
-
-		ExperimentRun experimentRun = null;
-
-		// just take the last run...
-		while (it.hasNext()) {
-			experimentRun = (ExperimentRun) it.next();
-		}
-
-		return experimentRun;
-	}
 }

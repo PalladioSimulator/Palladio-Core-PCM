@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.prototype.framework;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import javax.management.RuntimeErrorException;
 
@@ -64,14 +65,16 @@ public class ExperimentManager {
 	 * 
 	 * @param start						start time
 	 * @param experimentRun				
-	 * @param overallTimeSpanSensor		sensor
+	 * @param timeSpanSensor		sensor
 	 */
-	public static void takeMeasurement(long start, ExperimentRun experimentRun, TimeSpanSensor overallTimeSpanSensor) {
+	public static void takeMeasurement(long start, ExperimentRun experimentRun, TimeSpanSensor timeSpanSensor) {
 	
+		logger.info("Take measurement of " + timeSpanSensor.getSensorName());
+		
 		long now = System.nanoTime();
 		double measuredTimeSpan = (now - start) / Math.pow(10, 9);
 	
-		experimentRun.addTimeSpanMeasurement(overallTimeSpanSensor, now / Math.pow(10, 9), measuredTimeSpan);
+		experimentRun.addTimeSpanMeasurement(timeSpanSensor, now / Math.pow(10, 9), measuredTimeSpan);
 	}
 
 	/**
@@ -98,7 +101,33 @@ public class ExperimentManager {
 			}
 		}
 	
-		TimeSpanSensor tss = ExperimentManager.exp.addTimeSpanSensor(sensorName + ExperimentManager.PROTOCOM_SENSOR_SUFFIX);
+		TimeSpanSensor tss = getExperiment().addTimeSpanSensor(sensorName + ExperimentManager.PROTOCOM_SENSOR_SUFFIX);
 		return tss;
+	}
+
+	
+	/**
+	 * Returns the newest experiment run instance. If no one exists, a new experiment run
+	 * will be created. Note that the experiment run usually should be created explicitly 
+	 * and not here. This one is just a (quick) fix to get measurements from sensors running
+	 * on instances different from the usage scenario.
+	 * 
+	 * @return latest experiment run instance or a new one
+	 */
+	public static ExperimentRun getLatestExperimentRun() {		
+		if (getExperiment().getExperimentRuns().isEmpty()) {
+			addExperimentRun();
+		}
+		
+		Collection<ExperimentRun> runs = getExperiment().getExperimentRuns();
+		Iterator<ExperimentRun> it = runs.iterator();
+	
+		ExperimentRun experimentRun = null;
+	
+		while (it.hasNext()) {
+			experimentRun = (ExperimentRun) it.next();
+		}
+	
+		return experimentRun;
 	}
 }
