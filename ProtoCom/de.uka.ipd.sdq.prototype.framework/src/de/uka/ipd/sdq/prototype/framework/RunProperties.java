@@ -17,7 +17,7 @@ public class RunProperties
 	private Options options;
 	private Properties propertyFile = null;
 	
-	private static Logger logger = Logger.getLogger(RunProperties.class.getName());
+	private static Logger logger = org.apache.log4j.Logger.getRootLogger();
 	
 	public RunProperties(CommandLine cmdLine, Options options)
 	{
