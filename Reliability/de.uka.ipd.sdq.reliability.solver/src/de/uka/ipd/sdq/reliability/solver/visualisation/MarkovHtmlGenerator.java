@@ -46,7 +46,7 @@ public class MarkovHtmlGenerator {
 			// draw horizontal separation line
 			htmlCode.append("<hr />");
 			// create tables: failure mode tables first, then impact analysis tables
-			htmlCode.append("<h3>Failure Mode Analysis</h3>");
+			htmlCode.append("<h3>Failure Mode Analysis</h3>");	// TODO note to myelf: the upper rule belongs to this headline
 			for (MarkovReportingTable table : item.getFailureModeTables()) {
 				if (table.getRows().size() == 0) {
 					continue;	// table contains no rows, thus consider next table in list
@@ -75,7 +75,7 @@ public class MarkovHtmlGenerator {
 				// draw horizontal separation line
 				htmlCode.append("<hr />");
 				// now, consider impact analysis tables
-				htmlCode.append("<h3>Impact Analysis</h3>");
+				htmlCode.append("<h3>Impact Analysis</h3>");	// TODO note to myelf: the upper rule belongs to this headline
 				for (MarkovReportingTable table : item
 						.getImpactAnalysisTables()) {
 					if (table.getRows().size() == 0) {
@@ -105,8 +105,8 @@ public class MarkovHtmlGenerator {
 				}
 			}
 			// draw horizontal separation lines
-			htmlCode.append("<hr style=\"text-align: center; width: 300px;\" noshade=\"noshade\">");
-			htmlCode.append("<hr style=\"text-align: center; width: 300px;\" noshade=\"noshade\">");
+			htmlCode.append("<hr>");
+			htmlCode.append("<hr>");
 		}
 
 		return htmlCode.toString();
