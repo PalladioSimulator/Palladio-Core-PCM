@@ -34,7 +34,7 @@ public class SimuComWorkflowLauncher extends
 	protected SimuComWorkflowConfiguration deriveConfiguration(
 			ILaunchConfiguration configuration, String mode)
 			throws CoreException {
-		SimuComWorkflowConfiguration config = new SimuComWorkflowConfiguration(configuration,mode);
+		SimuComWorkflowConfiguration config = new SimuComWorkflowConfiguration(configuration.getAttributes());
 
 		AbstractWorkflowConfigurationBuilder builder;
 		builder = new PCMWorkflowConfigurationBuilder(configuration, mode);
