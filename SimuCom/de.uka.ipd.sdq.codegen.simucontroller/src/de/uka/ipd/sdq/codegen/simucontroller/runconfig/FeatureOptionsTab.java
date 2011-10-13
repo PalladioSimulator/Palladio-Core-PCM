@@ -33,6 +33,11 @@ import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
  * @author groenda
  */
 public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
+	
+	/** The id of this plug-in. */
+	public static final String PLUGIN_ID = "de.uka.ipd.sdq.codegen.simucontroller";
+	/** The path to the image file for the tab icon. */
+	private static final String FEATURE_OPTIONS_TAB_IMAGE_PATH = "icons/feature_tab.gif";
 
 	private static final String TITLE_FEATURE_CONFIG_SECTION = "PCM2EJB Feature Configuration File";
 	private static final String LABEL_SIMULATE_NETWORK = "Simulate throughput of linking resources and middleware marshalling / demarshalling of remote calls.";
@@ -276,7 +281,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public Image getImage() {
-		return RunConfigImages.getFeaturTabImage();
+		return RunConfigImages.getTabImage(PLUGIN_ID,FEATURE_OPTIONS_TAB_IMAGE_PATH);
 	}
 
     /*

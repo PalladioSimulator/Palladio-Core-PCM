@@ -25,6 +25,11 @@ import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
  * @author groenda
  */
 public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
+	
+	/** The id of this plug-in. */
+	public static final String PLUGIN_ID = "de.uka.ipd.sdq.workflow.pcm";
+	/** The path to the image file for the tab icon. */
+	private static final String FILENAME_TAB_IMAGE_PATH = "icons/filenames_tab.gif";
 
 	// input fields
 	/** Text field for path to allocation model file. */
@@ -44,7 +49,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public Image getImage() {
-		return RunConfigImages.getFileNamesTabImage();
+		return RunConfigImages.getTabImage(PLUGIN_ID,FILENAME_TAB_IMAGE_PATH);
 	}
 
 	/* (non-Javadoc)

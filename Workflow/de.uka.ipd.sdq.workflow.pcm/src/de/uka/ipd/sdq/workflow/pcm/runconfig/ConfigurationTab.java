@@ -32,6 +32,12 @@ import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
  * @author Roman Andrej
  */
 public class ConfigurationTab extends AbstractLaunchConfigurationTab {
+	
+	/** The id of this plug-in. */
+	public static final String PLUGIN_ID = "de.uka.ipd.sdq.workflow.pcm";
+	/** The path to the image file for the tab icon. */
+	private static final String CONFIGURATION_TAB_IMAGE_PATH 	= "icons/configuration_tab.gif";
+	
 	/** Title of the accuracy information group. */
 	private static final String GROUP_ACCURACY_LABEL = "Accuracy influence analysis";
 	/** Label for the accuracy influence analysis setting. */
@@ -59,7 +65,7 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
 	public Image getImage() {
-		return RunConfigImages.getConfigurationTabImage();
+		return RunConfigImages.getTabImage(PLUGIN_ID,CONFIGURATION_TAB_IMAGE_PATH);
 	}
 
 	/* (non-Javadoc)
