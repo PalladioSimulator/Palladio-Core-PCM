@@ -8,8 +8,6 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.KeyEvent;
@@ -34,7 +32,7 @@ import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
 import de.uka.ipd.sdq.reliability.core.MarkovEvaluationType;
-import de.uka.ipd.sdq.reliability.solver.SolverPlugin;
+import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
 
 /**
  * This tab page shows additional options for the PCM Solver Reliability launch.
@@ -45,23 +43,15 @@ import de.uka.ipd.sdq.reliability.solver.SolverPlugin;
 public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 	/**
-	 * Image registry for the tab icon.
-	 * 
-	 * TODO: This is a temporary solution. In the long run, there should be a
-	 * centralized solution for retrieving the tab images.
+	 * The path to the image file for the tab icon.
 	 */
-	public static ImageRegistry imageRegistry = new ImageRegistry();
-
-	/**
-	 * Name of images used to represent the tab in the run config dialog.
-	 */
-	public static final String OPTIONS_TAB = "options_tab";
+	private static final String FILENAME_TAB_IMAGE_PATH = "icons/options_tab.gif";
 
 	/**
 	 * Default setting for physical states iteration.
 	 */
 	private static final boolean ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED = true;
-
+	
 	/**
 	 * Default setting for logging.
 	 */
@@ -113,6 +103,11 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	private static final boolean NUMBER_OF_EXACT_DECIMAL_PLACES_ENABLED = false;
 
 	/**
+	 * The id of this plug-in.
+	 */
+	private static final String PLUGIN_ID = "de.uka.ipd.sdq.reliability.solver";
+
+	/**
 	 * Default setting for single result printing.
 	 */
 	private static final boolean SINGLERESULTSDEFAULT = false;
@@ -133,26 +128,6 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	private static final boolean STATISTICSDEFAULT = false;
 
 	/**
-	 * Fills the image registry with the tab image.
-	 */
-	static {
-		String iconPath = "icons/";
-		imageRegistry.put(OPTIONS_TAB, getImageDescriptor(iconPath
-				+ OPTIONS_TAB + ".gif"));
-	}
-
-	/**
-	 * @param imageFilePath
-	 *            the relative to the root of the plug-in; the path must be
-	 *            legal
-	 * @return an image descriptor, or null if no image could be found
-	 */
-	private static ImageDescriptor getImageDescriptor(String imageFilePath) {
-		return SolverPlugin.imageDescriptorFromPlugin(
-				SolverPlugin.PLUGIN_ID, imageFilePath);
-	}
-
-	/**
 	 * Button to a file dialog, starting in the user's file system.
 	 */
 	private Button buttonFileSystemFileDialogLogFile = null;
@@ -170,6 +145,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Button to a file dialog, starting in the user's workspace.
 	 */
 	private Button buttonWorkspaceFileDialogModelFile = null;
+	
 	/**
 	 * Checks for iteration over physical system states.
 	 */
@@ -272,11 +248,8 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		// performApply().
 	}
 
-	/**
-	 * The central routine to create the layout of the tag page.
-	 * 
-	 * @param parent
-	 *            the parent control
+	/*
+	 * (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
 	 */
 	public void createControl(final Composite parent) {
@@ -752,36 +725,31 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 	}
 
-	@Override
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#deactivated(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	 */
 	public void deactivated(final ILaunchConfigurationWorkingCopy workingCopy) {
-
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
 	public Image getImage() {
-		return imageRegistry.get(OPTIONS_TAB);
+		return RunConfigImages.getTabImage(PLUGIN_ID,FILENAME_TAB_IMAGE_PATH);
 	}
 
-	/**
-	 * The name of the tap page as displayed to the user.
-	 * 
-	 * @return the name of the tap page
+	/*
+	 * (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
 	 */
 	public String getName() {
 		return "Analysis Options";
 	}
 
-	/**
-	 * Initialization of the tab page in the case that a configuration already
-	 * exists.
-	 * 
-	 * @param configuration
-	 *            configuration details of the launch
+	/*
+	 * (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse.debug.core.ILaunchConfiguration)
 	 */
 	public void initializeFrom(final ILaunchConfiguration configuration) {
@@ -909,12 +877,8 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		updateFieldsEnablement();
 	}
 
-	/**
-	 * Checks if the tab is in a valid state.
-	 * 
-	 * @param configuration
-	 *            configuration details of the launch
-	 * @return TRUE if the tab page's state is valid
+	/*
+	 * (non-Javadoc)
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#isValid(org.eclipse.debug.core.ILaunchConfiguration)
 	 */
 	public boolean isValid(final ILaunchConfiguration configuration) {
@@ -951,11 +915,8 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		return true;
 	}
 
-	/**
-	 * Applies the values entered to the tab page to the launch configuration.
-	 * 
-	 * @param configuration
-	 *            configuration details of the launch as a working copy
+	/*
+	 * (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(final ILaunchConfigurationWorkingCopy configuration) {
@@ -1019,11 +980,8 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		}
 	}
 
-	/**
-	 * Loads default settings into the configuration.
-	 * 
-	 * @param configuration
-	 *            configuration details of the launch as a working copy
+	/*
+	 * (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void setDefaults(final ILaunchConfigurationWorkingCopy configuration) {
