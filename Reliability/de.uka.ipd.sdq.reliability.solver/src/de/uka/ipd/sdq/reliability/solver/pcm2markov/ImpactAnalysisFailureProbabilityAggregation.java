@@ -10,11 +10,11 @@ import java.util.List;
  * @author Daniel Patejdl
  *
  */
-public class FailureProbabilityAggregation {
+public class ImpactAnalysisFailureProbabilityAggregation {
 	/**
 	 * The failure probability aggregation type.
 	 */
-	FailureAggregationType failureAggregationType;
+	ImpactAnalysisFailureType failureAggregationType;
 
 	/**
 	 * A list of identification strings that make up the entire identifier and uniquely identify this
@@ -40,7 +40,7 @@ public class FailureProbabilityAggregation {
 	 * @param entityNameParts the entity's name parts; the entity's name is made up of its single parts
 	 * @param failureProbability the failure probability of the entity
 	 */
-	public FailureProbabilityAggregation(FailureAggregationType failureAggregationType,
+	public ImpactAnalysisFailureProbabilityAggregation(ImpactAnalysisFailureType failureAggregationType,
 			List<String> entityIdentifiers, List<String> entityNameParts, double failureProbability) {
 		this.failureAggregationType = failureAggregationType;
 		this.entityIdentifiers = new ArrayList<String>(entityIdentifiers.size());
@@ -60,7 +60,7 @@ public class FailureProbabilityAggregation {
 	 * @return <code>true</code>, if both types and identification strings match each other, <code>false</code>
 	 * otherwise
 	 */
-	public boolean compareToIdentifier(FailureAggregationType otherEntityType, List<String> otherEntityIdentifiers) {
+	public boolean compareToIdentifier(ImpactAnalysisFailureType otherEntityType, List<String> otherEntityIdentifiers) {
 		if (failureAggregationType == otherEntityType && entityIdentifiers.size() == otherEntityIdentifiers.size()) {
 			for (int i = 0; i < entityIdentifiers.size(); i++) {
 				if (entityIdentifiers.get(i).equals(otherEntityIdentifiers.get(i))) {
@@ -81,7 +81,7 @@ public class FailureProbabilityAggregation {
 	 * 
 	 * @return the failure probability aggregation type
 	 */
-	public FailureAggregationType getType() {
+	public ImpactAnalysisFailureType getType() {
 		return failureAggregationType;
 	}
 
@@ -90,7 +90,7 @@ public class FailureProbabilityAggregation {
 	 * 
 	 * @param failureAggregationType the failure probability aggregation type
 	 */
-	public void setType(FailureAggregationType failureAggregationType) {
+	public void setType(ImpactAnalysisFailureType failureAggregationType) {
 		this.failureAggregationType = failureAggregationType;
 	}
 

@@ -16,7 +16,6 @@ import de.uka.ipd.sdq.markov.MarkovChain;
 import de.uka.ipd.sdq.markov.State;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
-import de.uka.ipd.sdq.reliability.core.MarkovEvaluationType;
 import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
 
 /**
@@ -425,20 +424,6 @@ public class MarkovTransformationResult {
 						failureTypeProbability);
 			}
 		}
-
-//		/*
-//		 * If (and only if) the Markov evaluation type is set to
-//		 * "POINTSOFFAILURE", we will print detailed information regarding
-//		 * failure probabilities of components and external services.
-//		 */
-//		if (MarkovEvaluationType.valueOf(configuration
-//				.getMarkovEvaluationMode()) == MarkovEvaluationType.POINTSOFFAILURE) {
-//			new MarkovReporting(cumulatedFailureTypeProbabilities,
-//					cumulatedPhysicalStateProbability, doApproximate).print(); // detailed
-//			// failure
-//			// probabilities
-//			// report
-//		}
 	}
 
 	/**
@@ -583,17 +568,6 @@ public class MarkovTransformationResult {
 						failureTypeProbability));
 			}
 		}
-
-//		/*
-//		 * If (and only if) the Markov evaluation type is set to
-//		 * "POINTSOFFAILURE", we will add detailed information regarding
-//		 * failure probabilities of components and external services.
-//		 */
-//		if (MarkovEvaluationType.valueOf(configuration
-//				.getMarkovEvaluationMode()) == MarkovEvaluationType.POINTSOFFAILURE) {
-//			resultsList.addAll(new MarkovReporting(cumulatedFailureTypeProbabilities,
-//					cumulatedPhysicalStateProbability, doApproximate).getTextualResults());
-//		}
 
 		return resultsList;
 	}

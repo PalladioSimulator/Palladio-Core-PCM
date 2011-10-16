@@ -43,10 +43,12 @@ public class MarkovHtmlGenerator {
 					item.getScenarioId() + "</font><br />");
 			htmlCode.append("Success probability: <font color=\"#606060\">"
 					+ item.getSuccessProbabilityString() + "</font><br />");
-			// draw horizontal separation line
-			htmlCode.append("<hr />");
 			// create tables: failure mode tables first, then impact analysis tables
-			htmlCode.append("<h3>Failure Mode Analysis</h3>");	// TODO note to myelf: the upper rule belongs to this headline
+			if (item.getFailureModeTables().size() != 0) {
+				// draw horizontal separation line
+				htmlCode.append("<hr />");
+				htmlCode.append("<h3>Failure Mode Analysis</h3>"); // note to myself: the upper rule belongs to this headline
+			}
 			for (MarkovReportingTable table : item.getFailureModeTables()) {
 				if (table.getRows().size() == 0) {
 					continue;	// table contains no rows, thus consider next table in list
@@ -75,7 +77,7 @@ public class MarkovHtmlGenerator {
 				// draw horizontal separation line
 				htmlCode.append("<hr />");
 				// now, consider impact analysis tables
-				htmlCode.append("<h3>Impact Analysis</h3>");	// TODO note to myelf: the upper rule belongs to this headline
+				htmlCode.append("<h3>Impact Analysis</h3>");	// note to myself: the upper rule belongs to this headline
 				for (MarkovReportingTable table : item
 						.getImpactAnalysisTables()) {
 					if (table.getRows().size() == 0) {

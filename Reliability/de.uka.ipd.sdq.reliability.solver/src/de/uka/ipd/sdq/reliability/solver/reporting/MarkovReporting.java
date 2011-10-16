@@ -12,10 +12,13 @@ import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
 import de.uka.ipd.sdq.reliability.core.MarkovHardwareInducedFailureType;
 import de.uka.ipd.sdq.reliability.core.MarkovNetworkInducedFailureType;
 import de.uka.ipd.sdq.reliability.core.MarkovSoftwareInducedFailureType;
-import de.uka.ipd.sdq.reliability.solver.pcm2markov.FailureAggregationType;
-import de.uka.ipd.sdq.reliability.solver.pcm2markov.FailureProbabilityAggregation;
+import de.uka.ipd.sdq.reliability.solver.pcm2markov.FailureAnalysisFailureType;
+import de.uka.ipd.sdq.reliability.solver.pcm2markov.ClassesFailureProbabilityAggregation;
+import de.uka.ipd.sdq.reliability.solver.pcm2markov.ImpactAnalysisFailureType;
+import de.uka.ipd.sdq.reliability.solver.pcm2markov.ImpactAnalysisFailureProbabilityAggregation;
 import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovResultApproximation;
 import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
+import de.uka.ipd.sdq.reliability.solver.pcm2markov.TypesFailureProbabilityAggregation;
 
 /**
  * Class used for aggregation and output of success/failure probabilities that were
@@ -40,7 +43,7 @@ public class MarkovReporting {
 	 * internal actions, their services and service operations, external
 	 * services and their operations).
 	 */
-	List<FailureProbabilityAggregation> failureProbabilityAggregations;
+	List<ImpactAnalysisFailureProbabilityAggregation> failureProbabilityAggregations;
 
 	/**
 	 * A list of MarkovReportItem instances, which are generated as a result of
@@ -59,7 +62,7 @@ public class MarkovReporting {
 	public MarkovReporting(List<MarkovTransformationResult> markovResults, PCMSolverWorkflowRunConfiguration configuration) {
 		this.markovResults = markovResults;
 		this.configuration = configuration;
-		failureProbabilityAggregations = new ArrayList<FailureProbabilityAggregation>();
+		failureProbabilityAggregations = new ArrayList<ImpactAnalysisFailureProbabilityAggregation>();
 		markovReportItems = new ArrayList<MarkovReportItem>();
 	
 		createMarkovReportItems();
@@ -116,6 +119,8 @@ public class MarkovReporting {
 		boolean doApproximate = false;
 		double cumulatedSuccessProbability = -1.0;	// error value
 		
+		MarkovEvaluationType mode = MarkovEvaluationType.valueOf(configuration.getMarkovEvaluationMode());
+		
 		/*
 		 * Create table-style output format.
 		 */
@@ -150,13 +155,13 @@ public class MarkovReporting {
 			 */
 			createFailureAnalysisTables(cumulatedFailureTypeProbabilities,
 					cumulatedPhysicalStateProbability, doApproximate,
-					markovReportItem);
+					markovReportItem, mode);
 
 			/*
 			 * Calculate accumulated failure probabilities if our configuration is set accordingly.
 			 * Otherwise, we are done at this point.
 			 */
-			if (MarkovEvaluationType.valueOf(configuration.getMarkovEvaluationMode()) == MarkovEvaluationType.POINTSOFFAILURE) {
+			if (mode == MarkovEvaluationType.POINTSOFFAILURE) {
 				calculateComponentsInternalActionFailureProbabilities(cumulatedFailureTypeProbabilities);
 				calculateComponentsServiceFailureProbabilities(cumulatedFailureTypeProbabilities);
 				calculateComponentsServiceOperationFailureProbabilities(cumulatedFailureTypeProbabilities);
@@ -222,7 +227,7 @@ public class MarkovReporting {
 		 * to the according impact analysis table.
 		 */
 		double failureProbability = -1.0;	// error value
-		for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+		for (ImpactAnalysisFailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
 			failureProbability = aggregation.getFailureProbability();
 			switch (aggregation.getType()) {
 			case COMPONENTS_INTERNAL_ACTIONS:
@@ -309,9 +314,37 @@ public class MarkovReporting {
 	private void createFailureAnalysisTables(
 			Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities,
 			double cumulatedPhysicalStateProbability, boolean doApproximate,
-			MarkovReportItem markovReportItem) {
-		TreeSet<MarkovFailureType> failureTypesSorted = getFailureTypesSorted(cumulatedFailureTypeProbabilities);
+			MarkovReportItem markovReportItem, MarkovEvaluationType mode) {
+		switch (mode) {
+		case SINGLE:
+			// do nothing
+			break;
+		case CLASSES:	// failure categories
+			createClassesFailureAnalysisTable(
+					cumulatedFailureTypeProbabilities,
+					cumulatedPhysicalStateProbability, doApproximate,
+					markovReportItem);
+			break;
+		case TYPES:
+			createTypesFailureAnalysisTable(cumulatedFailureTypeProbabilities,
+					cumulatedPhysicalStateProbability, doApproximate,
+					markovReportItem);
+			break;
+		case POINTSOFFAILURE:
+			createPointsOfFailureAnalysisTable(
+					cumulatedFailureTypeProbabilities,
+					cumulatedPhysicalStateProbability, doApproximate,
+					markovReportItem);
+			break;
+		default:
+			break;
+		}
+	}
 
+	private void createPointsOfFailureAnalysisTable(
+			Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities,
+			double cumulatedPhysicalStateProbability, boolean doApproximate,
+			MarkovReportItem markovReportItem) {
 		/*
 		 * System-internal entities.
 		 */
@@ -372,6 +405,7 @@ public class MarkovReporting {
 		externalNetworkFailuresTable.setHeaderRow(externalNetworkFailuresTableHeaderRow);
 		List<String> externalNetworkFailuresTableRow;
 
+		TreeSet<MarkovFailureType> failureTypesSorted = getFailureTypesSorted(cumulatedFailureTypeProbabilities);
 		for (MarkovFailureType failureType : failureTypesSorted) {
 			if (failureType.isSystemExternal()) {	// external
 				if (failureType instanceof MarkovSoftwareInducedFailureType) {
@@ -381,18 +415,18 @@ public class MarkovReporting {
 					externalSoftwareFailuresTableRow.add(softwareInducedFailureType.getSignatureName());
 					externalSoftwareFailuresTableRow.add(softwareInducedFailureType.getSoftwareFailureName());
 					externalSoftwareFailuresTableRow
-							.add(doApproximate ? getFormattedProbabilityAsString(
-									getFailureTypeProbability(
-											softwareInducedFailureType,
-											cumulatedFailureTypeProbabilities),
+					.add(doApproximate ? getFormattedProbabilityAsString(
+							getFailureTypeProbability(
+									softwareInducedFailureType,
+									cumulatedFailureTypeProbabilities),
 									getFailureTypeProbability(
 											softwareInducedFailureType,
 											cumulatedFailureTypeProbabilities)
 											+ 1
 											- cumulatedPhysicalStateProbability)
-									: getFormattedProbabilityAsString(getFailureTypeProbability(
-											softwareInducedFailureType,
-											cumulatedFailureTypeProbabilities)));
+											: getFormattedProbabilityAsString(getFailureTypeProbability(
+													softwareInducedFailureType,
+													cumulatedFailureTypeProbabilities)));
 					externalSoftwareFailuresTable.addRow(externalSoftwareFailuresTableRow);
 				} else if (failureType instanceof MarkovHardwareInducedFailureType) {
 					MarkovHardwareInducedFailureType hardwareInducedFailureType = (MarkovHardwareInducedFailureType) failureType;
@@ -401,18 +435,18 @@ public class MarkovReporting {
 					externalHardwareFailuresTableRow.add(hardwareInducedFailureType.getSignatureName());
 					externalHardwareFailuresTableRow.add(hardwareInducedFailureType.getResourceTypeName());
 					externalHardwareFailuresTableRow
-							.add(doApproximate ? getFormattedProbabilityAsString(
-									getFailureTypeProbability(
-											hardwareInducedFailureType,
-											cumulatedFailureTypeProbabilities),
+					.add(doApproximate ? getFormattedProbabilityAsString(
+							getFailureTypeProbability(
+									hardwareInducedFailureType,
+									cumulatedFailureTypeProbabilities),
 									getFailureTypeProbability(
 											hardwareInducedFailureType,
 											cumulatedFailureTypeProbabilities)
 											+ 1
 											- cumulatedPhysicalStateProbability)
-									: getFormattedProbabilityAsString(getFailureTypeProbability(
-											hardwareInducedFailureType,
-											cumulatedFailureTypeProbabilities)));
+											: getFormattedProbabilityAsString(getFailureTypeProbability(
+													hardwareInducedFailureType,
+													cumulatedFailureTypeProbabilities)));
 					externalHardwareFailuresTable.addRow(externalHardwareFailuresTableRow);
 				} else if (failureType instanceof MarkovNetworkInducedFailureType) {
 					MarkovNetworkInducedFailureType networkInducedFailureType = (MarkovNetworkInducedFailureType) failureType;
@@ -421,18 +455,18 @@ public class MarkovReporting {
 					externalNetworkFailuresTableRow.add(networkInducedFailureType.getSignatureName());
 					externalNetworkFailuresTableRow.add(networkInducedFailureType.getCommLinkResourceTypeName());
 					externalNetworkFailuresTableRow
-							.add(doApproximate ? getFormattedProbabilityAsString(
-									getFailureTypeProbability(
-											networkInducedFailureType,
-											cumulatedFailureTypeProbabilities),
+					.add(doApproximate ? getFormattedProbabilityAsString(
+							getFailureTypeProbability(
+									networkInducedFailureType,
+									cumulatedFailureTypeProbabilities),
 									getFailureTypeProbability(
 											networkInducedFailureType,
 											cumulatedFailureTypeProbabilities)
 											+ 1
 											- cumulatedPhysicalStateProbability)
-									: getFormattedProbabilityAsString(getFailureTypeProbability(
-											networkInducedFailureType,
-											cumulatedFailureTypeProbabilities)));
+											: getFormattedProbabilityAsString(getFailureTypeProbability(
+													networkInducedFailureType,
+													cumulatedFailureTypeProbabilities)));
 					externalNetworkFailuresTable.addRow(externalNetworkFailuresTableRow);
 				}
 			} else {	// internal
@@ -445,18 +479,18 @@ public class MarkovReporting {
 					internalSoftwareFailuresTableRow.add(softwareInducedFailureType.getInternalActionName());
 					internalSoftwareFailuresTableRow.add(softwareInducedFailureType.getSoftwareFailureName());
 					internalSoftwareFailuresTableRow
-							.add(doApproximate ? getFormattedProbabilityAsString(
-									getFailureTypeProbability(
-											softwareInducedFailureType,
-											cumulatedFailureTypeProbabilities),
+					.add(doApproximate ? getFormattedProbabilityAsString(
+							getFailureTypeProbability(
+									softwareInducedFailureType,
+									cumulatedFailureTypeProbabilities),
 									getFailureTypeProbability(
 											softwareInducedFailureType,
 											cumulatedFailureTypeProbabilities)
 											+ 1
 											- cumulatedPhysicalStateProbability)
-									: getFormattedProbabilityAsString(getFailureTypeProbability(
-											softwareInducedFailureType,
-											cumulatedFailureTypeProbabilities)));
+											: getFormattedProbabilityAsString(getFailureTypeProbability(
+													softwareInducedFailureType,
+													cumulatedFailureTypeProbabilities)));
 					internalSoftwareFailuresTable.addRow(internalSoftwareFailuresTableRow);
 				} else if (failureType instanceof MarkovHardwareInducedFailureType) {
 					MarkovHardwareInducedFailureType hardwareInducedFailureType = (MarkovHardwareInducedFailureType) failureType;
@@ -464,18 +498,18 @@ public class MarkovReporting {
 					internalHardwareFailuresTableRow.add(hardwareInducedFailureType.getResourceContainerName());
 					internalHardwareFailuresTableRow.add(hardwareInducedFailureType.getResourceTypeName());
 					internalHardwareFailuresTableRow
-							.add(doApproximate ? getFormattedProbabilityAsString(
-									getFailureTypeProbability(
-											hardwareInducedFailureType,
-											cumulatedFailureTypeProbabilities),
+					.add(doApproximate ? getFormattedProbabilityAsString(
+							getFailureTypeProbability(
+									hardwareInducedFailureType,
+									cumulatedFailureTypeProbabilities),
 									getFailureTypeProbability(
 											hardwareInducedFailureType,
 											cumulatedFailureTypeProbabilities)
 											+ 1
 											- cumulatedPhysicalStateProbability)
-									: getFormattedProbabilityAsString(getFailureTypeProbability(
-											hardwareInducedFailureType,
-											cumulatedFailureTypeProbabilities)));
+											: getFormattedProbabilityAsString(getFailureTypeProbability(
+													hardwareInducedFailureType,
+													cumulatedFailureTypeProbabilities)));
 					internalHardwareFailuresTable.addRow(internalHardwareFailuresTableRow);
 				} else if (failureType instanceof MarkovNetworkInducedFailureType) {
 					MarkovNetworkInducedFailureType networkInducedFailureType = (MarkovNetworkInducedFailureType) failureType;
@@ -483,18 +517,18 @@ public class MarkovReporting {
 					internalNetworkFailuresTableRow.add(networkInducedFailureType.getLinkingResourceName());
 					internalNetworkFailuresTableRow.add(networkInducedFailureType.getCommLinkResourceTypeName());
 					internalNetworkFailuresTableRow
-							.add(doApproximate ? getFormattedProbabilityAsString(
-									getFailureTypeProbability(
-											networkInducedFailureType,
-											cumulatedFailureTypeProbabilities),
+					.add(doApproximate ? getFormattedProbabilityAsString(
+							getFailureTypeProbability(
+									networkInducedFailureType,
+									cumulatedFailureTypeProbabilities),
 									getFailureTypeProbability(
 											networkInducedFailureType,
 											cumulatedFailureTypeProbabilities)
 											+ 1
 											- cumulatedPhysicalStateProbability)
-									: getFormattedProbabilityAsString(getFailureTypeProbability(
-											networkInducedFailureType,
-											cumulatedFailureTypeProbabilities)));
+											: getFormattedProbabilityAsString(getFailureTypeProbability(
+													networkInducedFailureType,
+													cumulatedFailureTypeProbabilities)));
 					internalNetworkFailuresTable.addRow(internalNetworkFailuresTableRow);
 				}
 			}
@@ -522,6 +556,194 @@ public class MarkovReporting {
 		if (externalNetworkFailuresTable.getRows().size() != 0) {
 			markovReportItem.addFailureModeTable(externalNetworkFailuresTable);
 		}
+	}
+
+	private void createTypesFailureAnalysisTable(
+			Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities,
+			double cumulatedPhysicalStateProbability, boolean doApproximate,
+			MarkovReportItem markovReportItem) {
+		double failureProbability;
+		// create tables
+		MarkovReportingTable softwareInducedFailuresTable = new MarkovReportingTable("Software-induced failures");
+		List<String> softwareInducedFailuresTableHeaderRow = new ArrayList<String>(2);
+		softwareInducedFailuresTableHeaderRow.add("Software Failure");
+		softwareInducedFailuresTableHeaderRow.add("Failure Probability");
+		softwareInducedFailuresTable.setHeaderRow(softwareInducedFailuresTableHeaderRow);
+
+		MarkovReportingTable hardwareInducedFailuresTable = new MarkovReportingTable("Hardware-induced failures");
+		List<String> hardwareInducedFailuresTableHeaderRow = new ArrayList<String>(2);
+		hardwareInducedFailuresTableHeaderRow.add("Resource Type");
+		hardwareInducedFailuresTableHeaderRow.add("Failure Probability");
+		hardwareInducedFailuresTable.setHeaderRow(hardwareInducedFailuresTableHeaderRow);
+
+		MarkovReportingTable networkInducedFailuresTable = new MarkovReportingTable("Network-induced failures");
+		List<String> networkInducedFailuresTableHeaderRow = new ArrayList<String>(2);
+		networkInducedFailuresTableHeaderRow.add("Communication Resource Type");
+		networkInducedFailuresTableHeaderRow.add("Failure Probability");
+		networkInducedFailuresTable.setHeaderRow(networkInducedFailuresTableHeaderRow);
+
+		// determine failure probabilities
+		List<TypesFailureProbabilityAggregation> failureProbabilityAggregations = new ArrayList<TypesFailureProbabilityAggregation>();
+		for (MarkovFailureType type : cumulatedFailureTypeProbabilities.keySet()) {
+			if (!type.isSystemExternal()) {	// only consider internal failures
+				if (type instanceof MarkovSoftwareInducedFailureType) {	// only consider software-induced failures
+					MarkovSoftwareInducedFailureType softwareInducedFailureType = (MarkovSoftwareInducedFailureType) type;
+					boolean foundEntry = false;
+					for (TypesFailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+						if (aggregation.compareTo(FailureAnalysisFailureType.SOFTWARE_INDUCED, softwareInducedFailureType.getSoftwareFailureName())) {	// see if there exists already a fitting aggregation to which can add this type's failure probability to
+							// yes, we found such an entry, so add up the probabilities
+							aggregation.addToFailureProbability(cumulatedFailureTypeProbabilities.get(softwareInducedFailureType));
+							foundEntry = true;
+							break;
+						} // else continue with next
+					}
+					// we have not found a fitting entry previously, so we will create a new one
+					if (!foundEntry) {
+						failureProbabilityAggregations.add(
+								new TypesFailureProbabilityAggregation(
+										FailureAnalysisFailureType.SOFTWARE_INDUCED,
+										softwareInducedFailureType.getSoftwareFailureName(),
+										cumulatedFailureTypeProbabilities.get(softwareInducedFailureType)));
+					}
+				} else if (type instanceof MarkovHardwareInducedFailureType) {	// only consider hardware-induced failures
+					MarkovHardwareInducedFailureType hardwareInducedFailureType = (MarkovHardwareInducedFailureType) type;
+					boolean foundEntry = false;
+					for (TypesFailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+						if (aggregation.compareTo(FailureAnalysisFailureType.HARDWARE_INDUCED, hardwareInducedFailureType.getResourceTypeName())) {	// see if there exists already a fitting aggregation to which can add this type's failure probability to
+							// yes, we found such an entry, so add up the probabilities
+							aggregation.addToFailureProbability(cumulatedFailureTypeProbabilities.get(hardwareInducedFailureType));
+							foundEntry = true;
+							break;
+						} // else continue with next
+					}
+					if (!foundEntry) {
+						// we have not found a fitting entry previously, so we will create a new one
+						failureProbabilityAggregations.add(
+								new TypesFailureProbabilityAggregation(
+										FailureAnalysisFailureType.HARDWARE_INDUCED,
+										hardwareInducedFailureType.getResourceTypeName(),
+										cumulatedFailureTypeProbabilities.get(hardwareInducedFailureType)));
+					}
+				} else if (type instanceof MarkovNetworkInducedFailureType) {	// only consider network-induced failures
+					MarkovNetworkInducedFailureType networkInducedFailureType = (MarkovNetworkInducedFailureType) type;
+					boolean foundEntry = false;
+					for (TypesFailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+						if (aggregation.compareTo(FailureAnalysisFailureType.NETWORK_INDUCED, networkInducedFailureType.getCommLinkResourceTypeName())) {	// see if there exists already a fitting aggregation to which can add this type's failure probability to
+							// yes, we found such an entry, so add up the probabilities
+							aggregation.addToFailureProbability(cumulatedFailureTypeProbabilities.get(networkInducedFailureType));
+							foundEntry = true;
+							break;
+						} // else continue with next
+					}
+					if (!foundEntry) {
+						// we have not found a fitting entry previously, so we will create a new one
+						failureProbabilityAggregations.add(
+								new TypesFailureProbabilityAggregation(
+										FailureAnalysisFailureType.NETWORK_INDUCED,
+										networkInducedFailureType.getCommLinkResourceTypeName(),
+										cumulatedFailureTypeProbabilities.get(networkInducedFailureType)));
+					}
+				}
+			}
+		}
+
+		// now create rows of table
+		List<String> softwareInducedFailuresTableRow;
+		List<String> hardwareInducedFailuresTableRow;
+		List<String> networkInducedFailuresTableRow;
+		for (TypesFailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+			failureProbability = aggregation.getFailureProbability();
+			switch (aggregation.getType()) {
+			case SOFTWARE_INDUCED:
+				softwareInducedFailuresTableRow = new ArrayList<String>(2);
+				softwareInducedFailuresTableRow.add(aggregation.getTypeIdentifier());
+				softwareInducedFailuresTableRow.add(String.valueOf(doApproximate ? getFormattedProbabilityAsString(failureProbability, failureProbability + 1 - cumulatedPhysicalStateProbability)
+						: getFormattedProbabilityAsString(failureProbability)));
+				softwareInducedFailuresTable.addRow(softwareInducedFailuresTableRow);
+				break;
+			case HARDWARE_INDUCED:
+				hardwareInducedFailuresTableRow = new ArrayList<String>(2);
+				hardwareInducedFailuresTableRow.add(aggregation.getTypeIdentifier());
+				hardwareInducedFailuresTableRow.add(String.valueOf(doApproximate ? getFormattedProbabilityAsString(failureProbability, failureProbability + 1 - cumulatedPhysicalStateProbability)
+						: getFormattedProbabilityAsString(failureProbability)));
+				hardwareInducedFailuresTable.addRow(hardwareInducedFailuresTableRow);
+				break;
+			case NETWORK_INDUCED:
+				networkInducedFailuresTableRow = new ArrayList<String>(2);
+				networkInducedFailuresTableRow.add(aggregation.getTypeIdentifier());
+				networkInducedFailuresTableRow.add(String.valueOf(doApproximate ? getFormattedProbabilityAsString(failureProbability, failureProbability + 1 - cumulatedPhysicalStateProbability)
+						: getFormattedProbabilityAsString(failureProbability)));
+				networkInducedFailuresTable.addRow(networkInducedFailuresTableRow);
+				break;
+			default:
+				break;
+			}
+		}
+		
+		// finally, add tables to report item if they contain at least one row (per table)
+		if (softwareInducedFailuresTable.getRows().size() != 0) {
+			markovReportItem.addFailureModeTable(softwareInducedFailuresTable);
+		}
+		if (hardwareInducedFailuresTable.getRows().size() != 0) {
+			markovReportItem.addFailureModeTable(hardwareInducedFailuresTable);
+		}
+		if (networkInducedFailuresTable.getRows().size() != 0) {
+			markovReportItem.addFailureModeTable(networkInducedFailuresTable);
+		}
+	}
+
+	private void createClassesFailureAnalysisTable(
+			Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities,
+			double cumulatedPhysicalStateProbability, boolean doApproximate,
+			MarkovReportItem markovReportItem) {
+		double failureProbability;
+		MarkovReportingTable failureCategoryTable = new MarkovReportingTable("Failure categories");
+		List<String> failureCategoryTableHeaderRow = new ArrayList<String>(2);
+		failureCategoryTableHeaderRow.add("Category");
+		failureCategoryTableHeaderRow.add("Failure Probability");
+		failureCategoryTable.setHeaderRow(failureCategoryTableHeaderRow);
+
+		// determine failure probabilities
+		ClassesFailureProbabilityAggregation softwareInducedFailureAggregation =
+			new ClassesFailureProbabilityAggregation(FailureAnalysisFailureType.SOFTWARE_INDUCED);
+		ClassesFailureProbabilityAggregation hardwareInducedFailureAggregation =
+			new ClassesFailureProbabilityAggregation(FailureAnalysisFailureType.HARDWARE_INDUCED);
+		ClassesFailureProbabilityAggregation networkInducedFailureAggregation =
+			new ClassesFailureProbabilityAggregation(FailureAnalysisFailureType.NETWORK_INDUCED);
+		for (MarkovFailureType type : cumulatedFailureTypeProbabilities.keySet()) {
+			if (!type.isSystemExternal()) {	// only consider internal failures
+				if (type instanceof MarkovSoftwareInducedFailureType) {
+					softwareInducedFailureAggregation.addToFailureProbabilityBy(cumulatedFailureTypeProbabilities.get(type));
+				} else if (type instanceof MarkovHardwareInducedFailureType) {
+					hardwareInducedFailureAggregation.addToFailureProbabilityBy(cumulatedFailureTypeProbabilities.get(type));
+				} else if (type instanceof MarkovNetworkInducedFailureType) {
+					networkInducedFailureAggregation.addToFailureProbabilityBy(cumulatedFailureTypeProbabilities.get(type));
+				}
+			}
+		}
+
+		// create rows of table
+		List<String> row = new ArrayList<String>(failureCategoryTableHeaderRow.size());
+		row.add("Software-induced");
+		failureProbability = softwareInducedFailureAggregation.getFailureProbability();
+		row.add(String.valueOf(doApproximate ? getFormattedProbabilityAsString(failureProbability, failureProbability + 1 - cumulatedPhysicalStateProbability)
+				: getFormattedProbabilityAsString(failureProbability)));
+		failureCategoryTable.addRow(row);
+		row = new ArrayList<String>(failureCategoryTableHeaderRow.size());
+		row.add("Hardware-induced");
+		failureProbability = hardwareInducedFailureAggregation.getFailureProbability();
+		row.add(String.valueOf(doApproximate ? getFormattedProbabilityAsString(failureProbability, failureProbability + 1 - cumulatedPhysicalStateProbability)
+				: getFormattedProbabilityAsString(failureProbability)));
+		failureCategoryTable.addRow(row);
+		row = new ArrayList<String>(failureCategoryTableHeaderRow.size());
+		row.add("Network-induced");
+		failureProbability = networkInducedFailureAggregation.getFailureProbability();
+		row.add(String.valueOf(doApproximate ? getFormattedProbabilityAsString(failureProbability, failureProbability + 1 - cumulatedPhysicalStateProbability)
+				: getFormattedProbabilityAsString(failureProbability)));
+		failureCategoryTable.addRow(row);
+
+		// add table to report item
+		markovReportItem.addFailureModeTable(failureCategoryTable);
 	}
 
 	/**
@@ -555,8 +777,8 @@ public class MarkovReporting {
 					identifiers.add(softwareInducedFailureType.getComponentId());
 					List<String> nameParts = new ArrayList<String>(1);
 					nameParts.add(softwareInducedFailureType.getComponentName());
-					for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
-						if (aggregation.compareToIdentifier(FailureAggregationType.COMPONENTS_INTERNAL_ACTIONS, identifiers)) {
+					for (ImpactAnalysisFailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+						if (aggregation.compareToIdentifier(ImpactAnalysisFailureType.COMPONENTS_INTERNAL_ACTIONS, identifiers)) {
 							// this component ID is already in our data
 							// structure, therefore we do not
 							// add a new entry, but update the existing one
@@ -568,8 +790,8 @@ public class MarkovReporting {
 					}
 					if (!foundEntry) {
 						// we did not find a fitting entry, so we add a new one and set its values accordingly
-						failureProbabilityAggregations.add(new FailureProbabilityAggregation(
-										FailureAggregationType.COMPONENTS_INTERNAL_ACTIONS,
+						failureProbabilityAggregations.add(new ImpactAnalysisFailureProbabilityAggregation(
+										ImpactAnalysisFailureType.COMPONENTS_INTERNAL_ACTIONS,
 										identifiers,
 										nameParts,
 										cumulatedFailureTypeProbabilities.get(failureType)));
@@ -597,8 +819,8 @@ public class MarkovReporting {
 					List<String> nameParts = new ArrayList<String>(2);
 					nameParts.add(softwareInducedFailureType.getComponentName());
 					nameParts.add(softwareInducedFailureType.getInterfaceName());
-					for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
-						if (aggregation.compareToIdentifier(FailureAggregationType.COMPONENTS_SERVICES, identifiers)) {
+					for (ImpactAnalysisFailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+						if (aggregation.compareToIdentifier(ImpactAnalysisFailureType.COMPONENTS_SERVICES, identifiers)) {
 							// this entity is already in our data structure,
 							// therefore we do not
 							// add a new entry, but update the existing one
@@ -613,8 +835,8 @@ public class MarkovReporting {
 						// we did not find a fitting entry, so we add a new one
 						// and set its values
 						// accordingly
-						failureProbabilityAggregations.add(new FailureProbabilityAggregation(
-								FailureAggregationType.COMPONENTS_SERVICES,
+						failureProbabilityAggregations.add(new ImpactAnalysisFailureProbabilityAggregation(
+								ImpactAnalysisFailureType.COMPONENTS_SERVICES,
 								identifiers,
 								nameParts,
 								cumulatedFailureTypeProbabilities.get(failureType)));
@@ -644,8 +866,8 @@ public class MarkovReporting {
 					nameParts.add(softwareInducedFailureType.getComponentName());
 					nameParts.add(softwareInducedFailureType.getInterfaceName());
 					nameParts.add(softwareInducedFailureType.getSignatureName());
-					for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
-						if (aggregation.compareToIdentifier(FailureAggregationType.COMPONENTS_SERVICE_OPERATIONS, identifiers)) {
+					for (ImpactAnalysisFailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+						if (aggregation.compareToIdentifier(ImpactAnalysisFailureType.COMPONENTS_SERVICE_OPERATIONS, identifiers)) {
 							// this entity is already in our data structure,
 							// therefore we do not
 							// add a new entry, but update the existing one
@@ -660,8 +882,8 @@ public class MarkovReporting {
 						// we did not find a fitting entry, so we add a new one
 						// and set its values
 						// accordingly
-						failureProbabilityAggregations.add(new FailureProbabilityAggregation(
-								FailureAggregationType.COMPONENTS_SERVICE_OPERATIONS,
+						failureProbabilityAggregations.add(new ImpactAnalysisFailureProbabilityAggregation(
+								ImpactAnalysisFailureType.COMPONENTS_SERVICE_OPERATIONS,
 								identifiers,
 								nameParts,
 								cumulatedFailureTypeProbabilities.get(failureType)));
@@ -687,9 +909,9 @@ public class MarkovReporting {
 				List<String> nameParts = new ArrayList<String>(2);
 				nameParts.add(failureType.getRoleName());
 				nameParts.add(failureType.getInterfaceName());
-				for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+				for (ImpactAnalysisFailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
 					if (aggregation.compareToIdentifier(
-							FailureAggregationType.EXTERNAL_SERVICES,
+							ImpactAnalysisFailureType.EXTERNAL_SERVICES,
 							identifiers)) {
 						// this entity is already in our data structure,
 						// therefore we do not
@@ -704,8 +926,8 @@ public class MarkovReporting {
 					// we did not find a fitting entry, so we add a new one and
 					// set its values
 					// accordingly
-					failureProbabilityAggregations.add(new FailureProbabilityAggregation(
-									FailureAggregationType.EXTERNAL_SERVICES,
+					failureProbabilityAggregations.add(new ImpactAnalysisFailureProbabilityAggregation(
+									ImpactAnalysisFailureType.EXTERNAL_SERVICES,
 									identifiers,
 									nameParts,
 									cumulatedFailureTypeProbabilities.get(failureType)));
@@ -732,9 +954,9 @@ public class MarkovReporting {
 				nameParts.add(failureType.getRoleName());
 				nameParts.add(failureType.getInterfaceName());
 				nameParts.add(failureType.getSignatureName());
-				for (FailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
+				for (ImpactAnalysisFailureProbabilityAggregation aggregation : failureProbabilityAggregations) {
 					if (aggregation.compareToIdentifier(
-							FailureAggregationType.EXTERNAL_SERVICE_OPERATIONS,
+							ImpactAnalysisFailureType.EXTERNAL_SERVICE_OPERATIONS,
 							identifiers)) {
 						// this entity is already in our data structure,
 						// therefore we do not
@@ -749,8 +971,8 @@ public class MarkovReporting {
 					// we did not find a fitting entry, so we add a new one and
 					// set its values
 					// accordingly
-					failureProbabilityAggregations.add(new FailureProbabilityAggregation(
-									FailureAggregationType.EXTERNAL_SERVICE_OPERATIONS,
+					failureProbabilityAggregations.add(new ImpactAnalysisFailureProbabilityAggregation(
+									ImpactAnalysisFailureType.EXTERNAL_SERVICE_OPERATIONS,
 									identifiers,
 									nameParts,
 									cumulatedFailureTypeProbabilities.get(failureType)));
