@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.reliability.solver.pcm2markov;
+package de.uka.ipd.sdq.reliability.solver.reporting;
 
 import java.util.ArrayList;
 import java.util.List;

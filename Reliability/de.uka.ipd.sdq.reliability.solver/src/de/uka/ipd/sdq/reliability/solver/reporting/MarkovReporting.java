@@ -12,13 +12,8 @@ import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
 import de.uka.ipd.sdq.reliability.core.MarkovHardwareInducedFailureType;
 import de.uka.ipd.sdq.reliability.core.MarkovNetworkInducedFailureType;
 import de.uka.ipd.sdq.reliability.core.MarkovSoftwareInducedFailureType;
-import de.uka.ipd.sdq.reliability.solver.pcm2markov.FailureAnalysisFailureType;
-import de.uka.ipd.sdq.reliability.solver.pcm2markov.ClassesFailureProbabilityAggregation;
-import de.uka.ipd.sdq.reliability.solver.pcm2markov.ImpactAnalysisFailureType;
-import de.uka.ipd.sdq.reliability.solver.pcm2markov.ImpactAnalysisFailureProbabilityAggregation;
 import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovResultApproximation;
 import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
-import de.uka.ipd.sdq.reliability.solver.pcm2markov.TypesFailureProbabilityAggregation;
 
 /**
  * Class used for aggregation and output of success/failure probabilities that were
@@ -189,14 +184,14 @@ public class MarkovReporting {
 		MarkovReportingTable componentsInternalActionFailureProbabilitiesTable = new MarkovReportingTable("Component failure impacts");
 		List<String> componentsInternalActionFailureProbabilitiesTableHeaderRow = new ArrayList<String>(3);
 		componentsInternalActionFailureProbabilitiesTableHeaderRow.add("Component");
-		componentsInternalActionFailureProbabilitiesTableHeaderRow.add("Failure Probability");
+		componentsInternalActionFailureProbabilitiesTableHeaderRow.add("Aggregated Failure Mode Probability");
 		componentsInternalActionFailureProbabilitiesTable.setHeaderRow(componentsInternalActionFailureProbabilitiesTableHeaderRow);
 		// componentsServiceFailureProbabilities
 		MarkovReportingTable componentsServiceFailureProbabilitiesTable = new MarkovReportingTable("Component service failure impacts");
 		List<String> componentsServiceFailureProbabilitiesTableHeaderRow = new ArrayList<String>(3);
 		componentsServiceFailureProbabilitiesTableHeaderRow.add("Component");
 		componentsServiceFailureProbabilitiesTableHeaderRow.add("Interface");
-		componentsServiceFailureProbabilitiesTableHeaderRow.add("Failure Probability");
+		componentsServiceFailureProbabilitiesTableHeaderRow.add("Aggregated Failure Mode Probability");
 		componentsServiceFailureProbabilitiesTable.setHeaderRow(componentsServiceFailureProbabilitiesTableHeaderRow);
 		// componentsServiceOperationFailureProbabilities
 		MarkovReportingTable componentsServiceOperationFailureProbabilitiesTable = new MarkovReportingTable("Component operation failure impacts");
@@ -204,14 +199,14 @@ public class MarkovReporting {
 		componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Component");
 		componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Interface");
 		componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Signature");
-		componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Failure Probability");
+		componentsServiceOperationFailureProbabilitiesTableHeaderRow.add("Aggregated Failure Mode Probability");
 		componentsServiceOperationFailureProbabilitiesTable.setHeaderRow(componentsServiceOperationFailureProbabilitiesTableHeaderRow);
 		// externalServiceFailureProbabilities
 		MarkovReportingTable externalServiceFailureProbabilitiesTable = new MarkovReportingTable("External service failure impacts");
 		List<String> externalServiceFailureProbabilitiesTableHeaderRow = new ArrayList<String>(4);
 		externalServiceFailureProbabilitiesTableHeaderRow.add("System-required Role");
 		externalServiceFailureProbabilitiesTableHeaderRow.add("Interface");
-		externalServiceFailureProbabilitiesTableHeaderRow.add("Failure Probability");
+		externalServiceFailureProbabilitiesTableHeaderRow.add("Aggregated Failure Mode Probability");
 		externalServiceFailureProbabilitiesTable.setHeaderRow(externalServiceFailureProbabilitiesTableHeaderRow);
 		// externalServiceOperationFailureProbabilities
 		MarkovReportingTable externalServiceOperationFailureProbabilitiesTable = new MarkovReportingTable("External operation failure impacts");
@@ -219,7 +214,7 @@ public class MarkovReporting {
 		externalServiceOperationFailureProbabilitiesTableHeaderRow.add("System-required Role");
 		externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Interface");
 		externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Signature");
-		externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Failure Probability");
+		externalServiceOperationFailureProbabilitiesTableHeaderRow.add("Aggregated Failure Mode Probability");
 		externalServiceOperationFailureProbabilitiesTable.setHeaderRow(externalServiceOperationFailureProbabilitiesTableHeaderRow);
 
 		/*
@@ -348,60 +343,60 @@ public class MarkovReporting {
 		/*
 		 * System-internal entities.
 		 */
-		MarkovReportingTable internalSoftwareFailuresTable = new MarkovReportingTable("System-internal software-induced failures");
+		MarkovReportingTable internalSoftwareFailuresTable = new MarkovReportingTable("System-internal software-induced failure modes");
 		List<String> internalSoftwareFailuresTableHeaderRow = new ArrayList<String>(6);
 		internalSoftwareFailuresTableHeaderRow.add("Component");
 		internalSoftwareFailuresTableHeaderRow.add("Interface");
 		internalSoftwareFailuresTableHeaderRow.add("Signature");
 		internalSoftwareFailuresTableHeaderRow.add("Internal Action");
 		internalSoftwareFailuresTableHeaderRow.add("Software Failure");
-		internalSoftwareFailuresTableHeaderRow.add("Failure Probability");
+		internalSoftwareFailuresTableHeaderRow.add("Failure Mode Probability");
 		internalSoftwareFailuresTable.setHeaderRow(internalSoftwareFailuresTableHeaderRow);
 		List<String> internalSoftwareFailuresTableRow;
 
-		MarkovReportingTable internalHardwareFailuresTable = new MarkovReportingTable("System-internal hardware-induced failures");
+		MarkovReportingTable internalHardwareFailuresTable = new MarkovReportingTable("System-internal hardware-induced failure modes");
 		List<String> internalHardwareFailuresTableHeaderRow = new ArrayList<String>(3);
 		internalHardwareFailuresTableHeaderRow.add("Resource Container");
 		internalHardwareFailuresTableHeaderRow.add("Resource Type");
-		internalHardwareFailuresTableHeaderRow.add("Failure Probablity");
+		internalHardwareFailuresTableHeaderRow.add("Failure Mode Probablity");
 		internalHardwareFailuresTable.setHeaderRow(internalHardwareFailuresTableHeaderRow);
 		List<String> internalHardwareFailuresTableRow;
 
-		MarkovReportingTable internalNetworkFailuresTable = new MarkovReportingTable("System-internal network-induced failures");
+		MarkovReportingTable internalNetworkFailuresTable = new MarkovReportingTable("System-internal network-induced failure modes");
 		List<String> internalNetworkFailuresTableHeaderRow = new ArrayList<String>(3);
 		internalNetworkFailuresTableHeaderRow.add("Communication Link");
 		internalNetworkFailuresTableHeaderRow.add("Communication Resource Type");
-		internalNetworkFailuresTableHeaderRow.add("Failure Probablity");
+		internalNetworkFailuresTableHeaderRow.add("Failure Mode Probablity");
 		internalNetworkFailuresTable.setHeaderRow(internalNetworkFailuresTableHeaderRow);
 		List<String> internalNetworkFailuresTableRow;
 
 		/*
 		 * System-external entities.
 		 */
-		MarkovReportingTable externalSoftwareFailuresTable = new MarkovReportingTable("System-external software-induced failures");
+		MarkovReportingTable externalSoftwareFailuresTable = new MarkovReportingTable("System-external software-induced failure modes");
 		List<String> externalSoftwareFailuresTableHeaderRow = new ArrayList<String>(4);
 		externalSoftwareFailuresTableHeaderRow.add("System-required Role");
 		externalSoftwareFailuresTableHeaderRow.add("Signature");
 		externalSoftwareFailuresTableHeaderRow.add("Software Failure");
-		externalSoftwareFailuresTableHeaderRow.add("Failure Probability");
+		externalSoftwareFailuresTableHeaderRow.add("Failure Mode Probability");
 		externalSoftwareFailuresTable.setHeaderRow(externalSoftwareFailuresTableHeaderRow);
 		List<String> externalSoftwareFailuresTableRow;
 
-		MarkovReportingTable externalHardwareFailuresTable = new MarkovReportingTable("System-external hardware-induced failures");
+		MarkovReportingTable externalHardwareFailuresTable = new MarkovReportingTable("System-external hardware-induced failure modes");
 		List<String> externalHardwareFailuresTableHeaderRow = new ArrayList<String>(4);
 		externalHardwareFailuresTableHeaderRow.add("System-required Role");
 		externalHardwareFailuresTableHeaderRow.add("Signature");
 		externalHardwareFailuresTableHeaderRow.add("Communication Resource Type");
-		externalHardwareFailuresTableHeaderRow.add("Failure Probablity");
+		externalHardwareFailuresTableHeaderRow.add("Failure Mode Probablity");
 		externalHardwareFailuresTable.setHeaderRow(externalHardwareFailuresTableHeaderRow);
 		List<String> externalHardwareFailuresTableRow;
 
-		MarkovReportingTable externalNetworkFailuresTable = new MarkovReportingTable("System-external network-induced failures");
+		MarkovReportingTable externalNetworkFailuresTable = new MarkovReportingTable("System-external network-induced failure modes");
 		List<String> externalNetworkFailuresTableHeaderRow = new ArrayList<String>(4);
 		externalNetworkFailuresTableHeaderRow.add("System-required Role");
 		externalNetworkFailuresTableHeaderRow.add("Signature");
 		externalNetworkFailuresTableHeaderRow.add("Communication Resource Type");
-		externalNetworkFailuresTableHeaderRow.add("Failure Probablity");
+		externalNetworkFailuresTableHeaderRow.add("Failure Mode Probablity");
 		externalNetworkFailuresTable.setHeaderRow(externalNetworkFailuresTableHeaderRow);
 		List<String> externalNetworkFailuresTableRow;
 
@@ -564,22 +559,22 @@ public class MarkovReporting {
 			MarkovReportItem markovReportItem) {
 		double failureProbability;
 		// create tables
-		MarkovReportingTable softwareInducedFailuresTable = new MarkovReportingTable("Software-induced failures");
+		MarkovReportingTable softwareInducedFailuresTable = new MarkovReportingTable("Software-induced failure modes");
 		List<String> softwareInducedFailuresTableHeaderRow = new ArrayList<String>(2);
 		softwareInducedFailuresTableHeaderRow.add("Software Failure");
-		softwareInducedFailuresTableHeaderRow.add("Failure Probability");
+		softwareInducedFailuresTableHeaderRow.add("Failure Mode Probability");
 		softwareInducedFailuresTable.setHeaderRow(softwareInducedFailuresTableHeaderRow);
 
-		MarkovReportingTable hardwareInducedFailuresTable = new MarkovReportingTable("Hardware-induced failures");
+		MarkovReportingTable hardwareInducedFailuresTable = new MarkovReportingTable("Hardware-induced failure modes");
 		List<String> hardwareInducedFailuresTableHeaderRow = new ArrayList<String>(2);
 		hardwareInducedFailuresTableHeaderRow.add("Resource Type");
-		hardwareInducedFailuresTableHeaderRow.add("Failure Probability");
+		hardwareInducedFailuresTableHeaderRow.add("Failure Mode Probability");
 		hardwareInducedFailuresTable.setHeaderRow(hardwareInducedFailuresTableHeaderRow);
 
-		MarkovReportingTable networkInducedFailuresTable = new MarkovReportingTable("Network-induced failures");
+		MarkovReportingTable networkInducedFailuresTable = new MarkovReportingTable("Network-induced failure modes");
 		List<String> networkInducedFailuresTableHeaderRow = new ArrayList<String>(2);
 		networkInducedFailuresTableHeaderRow.add("Communication Resource Type");
-		networkInducedFailuresTableHeaderRow.add("Failure Probability");
+		networkInducedFailuresTableHeaderRow.add("Failure Mode Probability");
 		networkInducedFailuresTable.setHeaderRow(networkInducedFailuresTableHeaderRow);
 
 		// determine failure probabilities
@@ -697,10 +692,10 @@ public class MarkovReporting {
 			double cumulatedPhysicalStateProbability, boolean doApproximate,
 			MarkovReportItem markovReportItem) {
 		double failureProbability;
-		MarkovReportingTable failureCategoryTable = new MarkovReportingTable("Failure categories");
+		MarkovReportingTable failureCategoryTable = new MarkovReportingTable("Failure mode categories");
 		List<String> failureCategoryTableHeaderRow = new ArrayList<String>(2);
 		failureCategoryTableHeaderRow.add("Category");
-		failureCategoryTableHeaderRow.add("Failure Probability");
+		failureCategoryTableHeaderRow.add("Failure Mode Probability");
 		failureCategoryTable.setHeaderRow(failureCategoryTableHeaderRow);
 
 		// determine failure probabilities
@@ -724,19 +719,19 @@ public class MarkovReporting {
 
 		// create rows of table
 		List<String> row = new ArrayList<String>(failureCategoryTableHeaderRow.size());
-		row.add("Software-induced");
+		row.add("Software-induced failure");
 		failureProbability = softwareInducedFailureAggregation.getFailureProbability();
 		row.add(String.valueOf(doApproximate ? getFormattedProbabilityAsString(failureProbability, failureProbability + 1 - cumulatedPhysicalStateProbability)
 				: getFormattedProbabilityAsString(failureProbability)));
 		failureCategoryTable.addRow(row);
 		row = new ArrayList<String>(failureCategoryTableHeaderRow.size());
-		row.add("Hardware-induced");
+		row.add("Hardware-induced failure");
 		failureProbability = hardwareInducedFailureAggregation.getFailureProbability();
 		row.add(String.valueOf(doApproximate ? getFormattedProbabilityAsString(failureProbability, failureProbability + 1 - cumulatedPhysicalStateProbability)
 				: getFormattedProbabilityAsString(failureProbability)));
 		failureCategoryTable.addRow(row);
 		row = new ArrayList<String>(failureCategoryTableHeaderRow.size());
-		row.add("Network-induced");
+		row.add("Network-induced failure");
 		failureProbability = networkInducedFailureAggregation.getFailureProbability();
 		row.add(String.valueOf(doApproximate ? getFormattedProbabilityAsString(failureProbability, failureProbability + 1 - cumulatedPhysicalStateProbability)
 				: getFormattedProbabilityAsString(failureProbability)));

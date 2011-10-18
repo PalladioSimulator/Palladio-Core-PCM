@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.reliability.solver.pcm2markov;
+package de.uka.ipd.sdq.reliability.solver.reporting;
 
 /**
  * Enumeration describing the type of failure probabilities that are grouped together

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.reliability.solver.pcm2markov;
+package de.uka.ipd.sdq.reliability.solver.reporting;
 
 /**
  * Enumeration describing the type of entities (e.g. component's ID, a component's interface ID,
