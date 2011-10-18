@@ -13,13 +13,13 @@ import de.uka.ipd.sdq.simucomframework.variables.functions.LogNormDistFunction;
 import de.uka.ipd.sdq.simucomframework.variables.functions.NormDistFunction;
 
 /**
- * SimuComDefaultRandomNumberGenerator generates rsndom numbers in a separate thread.
+ * SimuComDefaultRandomNumberGenerator generates random numbers in a separate thread.
  * SimuComDefaultRandomNumberGenerator currently implements the interface for
  * random numbers needed by the prob function package. However, internally it
  * relies on a random stream implementing the RandomStream interface from JSS.
  *
  * SimuComDefaultRandomNumberGenerator implements {@link RandomStream} as the
- * fcuntions like {@link LogNormDistFunction} and {@link NormDistFunction} in
+ * functions like {@link LogNormDistFunction} and {@link NormDistFunction} in
  * package de.uka.ipd.sdq.simucomframework.variables.functions.
  *
  * This class is optimized for multi-cores, thus speeding up simulation significantly for
@@ -29,49 +29,32 @@ import de.uka.ipd.sdq.simucomframework.variables.functions.NormDistFunction;
  * number generator to a single place in the source (remember this needs to be
  * changed to get away from GPL code...).
  *
- *
-
  * @author Steffen Becker
  *
  */
 public class SimuComDefaultRandomNumberGenerator implements IRandomGenerator, RandomStream {
 
 	private static final int MAX_PRODUCER_BUFFER_SIZE = 1000;
-	private static Logger logger =
+	private static final Logger logger =
 		Logger.getLogger(SimuComDefaultRandomNumberGenerator.class.getName());
 	private static long streamCounter = 0;
 	private long myID;
-	private MRG32k3a rndNumberGenerator = null;
+	private final MRG32k3a rndNumberGenerator;
 	private LinkedBlockingQueue<Double> producerQueue = new LinkedBlockingQueue<Double>(MAX_PRODUCER_BUFFER_SIZE);
 	private Thread producerThread;
-	private boolean finished;
+	private volatile boolean finished;
 
 	public SimuComDefaultRandomNumberGenerator(long[] randomSeed){
-		myID = streamCounter++; finished = false;
-		logger.debug("Initialising random number generator! [Stream ID = "+myID+"]");
+		this.myID = streamCounter++; 
+		this.finished = false;
+		
+		if (logger.isDebugEnabled()) {
+			logger.debug("Initialising random number generator! [Stream ID = "+myID+"]");
+		}
 		rndNumberGenerator = new MRG32k3a();
-		if (randomSeed != null) {
-			if (randomSeed.length == 6) {
-				logger.debug("Setting fixed seed for random number generator! [Stream ID = "+myID+"]");
-				for (int i=0; i<6; i++) {
-					logger.debug("Seed "+i+" = "+randomSeed[i]);
-				}
-				rndNumberGenerator.setSeed(randomSeed);
-			}
-			else {
-				throw new RuntimeException("Seed array must have length of six longs for initialising random number generator");
-			}
-		}
-		else {
-			logger.debug("Setting random seed for random number generator! [Stream ID = "+myID+"]");
-			long[] myRandomSeed = new long[6];
-			Random r = new Random();
-			for (int i = 0; i < myRandomSeed.length; i++) {
-				myRandomSeed[i] = r.nextInt();
-			}
-			rndNumberGenerator.setSeed(myRandomSeed);
-		}
-		producerThread = new Thread(new Runnable(){
+		initRandomSeed(randomSeed);
+		
+		this.producerThread = new Thread(new Runnable(){
 			public void run() {
 				logger.debug("Random number producer started! [Stream ID = "+myID+"]");
 				try {
@@ -86,7 +69,42 @@ public class SimuComDefaultRandomNumberGenerator implements IRandomGenerator, Ra
 			}
 		});
 		producerThread.start();
-		logger.debug("Random number stream initialised! [Stream ID = "+myID+"]");
+		
+		if (logger.isDebugEnabled()) {
+			logger.debug("Random number stream initialised! [Stream ID = "+myID+"]");
+		}
+	}
+
+	/**
+	 * Set up seed of random number generator
+	 * @param randomSeed The random number generator's seed. May be null for default initialisation
+	 */
+	private void initRandomSeed(long[] randomSeed) {
+		if (randomSeed != null) {
+			if (randomSeed.length == 6) {
+				if (logger.isDebugEnabled()) {
+					logger.debug("Setting fixed seed for random number generator! [Stream ID = "+myID+"]");
+					for (int i=0; i<6; i++) {
+						logger.debug("Seed "+i+" = "+randomSeed[i]);
+					}
+				}
+				rndNumberGenerator.setSeed(randomSeed);
+			}
+			else {
+				throw new RuntimeException("Seed array must have length of six longs for initialising random number generator");
+			}
+		}
+		else {
+			if (logger.isDebugEnabled()) {
+				logger.debug("Setting random seed for random number generator! [Stream ID = "+myID+"]");
+			}
+			long[] myRandomSeed = new long[6];
+			Random r = new Random();
+			for (int i = 0; i < myRandomSeed.length; i++) {
+				myRandomSeed[i] = r.nextInt();
+			}
+			rndNumberGenerator.setSeed(myRandomSeed);
+		}
 	}
 
 	/**
@@ -94,15 +112,18 @@ public class SimuComDefaultRandomNumberGenerator implements IRandomGenerator, Ra
 	 * This method takes a previously generated random number from the asynchronously running generator thread.
 	 */
 	public double random() {
-		logger.debug("Drawing a random number from random number stream ["+myID+"]!");
+		if (logger.isDebugEnabled()) {
+			logger.debug("Drawing a random number from random number stream ["+myID+"]!");
+		}
 		double d;
 		try {
 			d = producerQueue.take();
 		} catch (InterruptedException e) {
 			throw new RuntimeException("Unexpected interruption of concurrent threads");
 		}
-		logger.debug("Number is: "+d);
-
+		if (logger.isDebugEnabled()) {
+			logger.debug("Number is: "+d);
+		}
 		return d;
 	}
 
@@ -122,7 +143,6 @@ public class SimuComDefaultRandomNumberGenerator implements IRandomGenerator, Ra
 		for (int i = start; i < u.length && i - start < n; i++) {
 			u[i] = this.random();
 		}
-
 	}
 
 	/**

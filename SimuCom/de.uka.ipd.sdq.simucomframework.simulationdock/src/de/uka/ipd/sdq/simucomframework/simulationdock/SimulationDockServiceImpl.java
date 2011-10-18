@@ -247,7 +247,9 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 	}
 
 	public void stopSimulation() {
-		((ISimulationControl)service.getService()).stopSimulation();
+		if (service != null && service.getService() != null) {
+			((ISimulationControl)service.getService()).stopSimulation();
+		}	
 		if (debugObserver != null) {
 			debugObserver.resume();
 		}
