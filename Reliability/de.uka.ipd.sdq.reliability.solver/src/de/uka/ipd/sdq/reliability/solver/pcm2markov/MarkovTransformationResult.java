@@ -4,11 +4,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
 
@@ -379,83 +377,6 @@ public class MarkovTransformationResult {
 	}
 
 	/**
-	 * Prints the results of the Markov transformation.
-	 * 
-	 * @param approximate
-	 *            indicates if an approximation scheme shall be used for
-	 *            printing of probabilities.
-	 */
-	@Deprecated
-	public void print(final boolean approximate) {
-
-		// Start result printing:
-		logger.info("Reliability results for UsageScenario \""
-				+ scenario.getEntityName() + "\" <" + scenario.getId() + ">:");
-
-		// Get Printer:
-		MarkovResultPrinter printer = new MarkovResultPrinter();
-
-		// Only approximate if there are really physical system states left that
-		// have not been evaluated:
-		boolean doApproximate = (configuration
-				.isIterationOverPhysicalSystemStatesEnabled())
-				&& approximate
-				&& (physicalStateEvaluationCount < Math.pow(markovSource
-						.getUnreliableResourceDescriptors().size(), 2));
-
-		// Print success probability:
-		if (doApproximate) {
-			printer.print("Success probability:", cumulatedSuccessProbability,
-					cumulatedSuccessProbability
-							+ (1.0 - cumulatedPhysicalStateProbability));
-		} else {
-			printer.print("Success probability:", cumulatedSuccessProbability);
-		}
-
-		// Print all failure probabilities:
-		for (MarkovFailureType failureType : getFailureTypesSorted()) {
-			double failureTypeProbability = getFailureTypeProbability(failureType);
-			if (doApproximate) {
-				printer.print(failureType.getName() + ":",
-						failureTypeProbability, failureTypeProbability
-								+ (1.0 - cumulatedPhysicalStateProbability));
-			} else {
-				printer.print(failureType.getName() + ":",
-						failureTypeProbability);
-			}
-		}
-	}
-
-	/**
-	 * Sorts the failure types alphabetically by name.
-	 * 
-	 * @return the sorted list of failure types
-	 */
-	@Deprecated
-	private TreeSet<MarkovFailureType> getFailureTypesSorted() {
-		TreeSet<MarkovFailureType> result = new TreeSet<MarkovFailureType>();
-		for (MarkovFailureType failureType : cumulatedFailureTypeProbabilities
-				.keySet()) {
-			result.add(failureType);
-		}
-		return result;
-	}
-
-	/**
-	 * Retrieves the failure probability of the given failure type.
-	 * 
-	 * @param failureType
-	 *            the given failure type
-	 * @return the failure probability
-	 */
-	@Deprecated
-	private double getFailureTypeProbability(final MarkovFailureType failureType) {
-		Double failureTypeProbability = cumulatedFailureTypeProbabilities
-				.get(failureType);
-		return (failureTypeProbability == null) ? 0.0 : failureTypeProbability;
-	}
-
-	/**
 	 * Builds the headings string for Markov transformation logging.
 	 * 
 	 * @return the log headings string
@@ -517,58 +438,5 @@ public class MarkovTransformationResult {
 
 		// Return the result:
 		return resultString.toString();
-	}
-
-	/**
-	 * Returns the results of the Markov transformation as string list.
-	 * @return results of the Markov transformation as string list
-	 */
-	@Deprecated
-	public List<String> getTextualResults(final boolean approximate) {
-		List<String> resultsList = new ArrayList<String>();
-
-		resultsList.add("Reliability results for UsageScenario \""
-				+ scenario.getEntityName() + "\" <" + scenario.getId() + ">:");
-
-		// Only approximate if there are really physical system states left that
-		// have not been evaluated:
-		boolean doApproximate = (configuration
-				.isIterationOverPhysicalSystemStatesEnabled())
-				&& approximate
-				&& (physicalStateEvaluationCount < Math.pow(markovSource
-						.getUnreliableResourceDescriptors().size(), 2));
-
-		// Add success probability:
-		if (doApproximate) {
-			MarkovResultApproximation approximation =
-				new MarkovResultApproximation(cumulatedSuccessProbability,
-					cumulatedSuccessProbability + (1.0 - cumulatedPhysicalStateProbability));
-			int places = approximation.getAccuracy() + 1;
-			resultsList.add(String.format("%1$-3s %2$." + places + "f - %3$."
-					+ places + "f", "Success probability:", approximation.getAdjustedLowerBound(),
-					approximation.getAdjustedUpperBound()));
-		} else {
-			resultsList.add(String.format("%1$-3s %2$.11f", "Success probability:",
-					cumulatedSuccessProbability));
-		}
-
-		// Add all failure probabilities:
-		for (MarkovFailureType failureType : getFailureTypesSorted()) {
-			double failureTypeProbability = getFailureTypeProbability(failureType);
-			if (doApproximate) {
-				MarkovResultApproximation approximation = new MarkovResultApproximation(
-						failureTypeProbability,
-						failureTypeProbability + (1.0 - cumulatedPhysicalStateProbability));
-				int places = approximation.getAccuracy() + 1;
-				resultsList.add(String.format("%1$-3s %2$." + places + "f - %3$."
-						+ places + "f", failureType.getName() + ":", failureTypeProbability,
-						failureTypeProbability + (1.0 - cumulatedPhysicalStateProbability)));
-			} else {
-				resultsList.add(String.format("%1$-3s %2$.11f", failureType.getName() + ":",
-						failureTypeProbability));
-			}
-		}
-
-		return resultsList;
 	}
 }

@@ -52,7 +52,7 @@
                extensions="markovresult"
                icon="icons/relsolver.ico"
                id="de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovResultEditor"
-               name="Markov Result Editor">
+               name="Markov Analysis Results">
          </editor>
    </extension>
 </plugin>

@@ -588,9 +588,6 @@ public class MarkovTransformation {
 
 		markovResult.setApproximate(approximate);
 
-		// Let the user know about the result:
-		markovResult.print(approximate);
-
 		// Return the transformation results:
 		return markovResult;
 	}

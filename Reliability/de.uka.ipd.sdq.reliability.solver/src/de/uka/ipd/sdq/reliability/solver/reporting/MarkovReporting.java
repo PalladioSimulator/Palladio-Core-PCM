@@ -349,7 +349,7 @@ public class MarkovReporting {
 		internalSoftwareFailuresTableHeaderRow.add("Interface");
 		internalSoftwareFailuresTableHeaderRow.add("Signature");
 		internalSoftwareFailuresTableHeaderRow.add("Internal Action");
-		internalSoftwareFailuresTableHeaderRow.add("Software Failure");
+		internalSoftwareFailuresTableHeaderRow.add("Failure Type");
 		internalSoftwareFailuresTableHeaderRow.add("Failure Mode Probability");
 		internalSoftwareFailuresTable.setHeaderRow(internalSoftwareFailuresTableHeaderRow);
 		List<String> internalSoftwareFailuresTableRow;
@@ -377,7 +377,7 @@ public class MarkovReporting {
 		List<String> externalSoftwareFailuresTableHeaderRow = new ArrayList<String>(4);
 		externalSoftwareFailuresTableHeaderRow.add("System-required Role");
 		externalSoftwareFailuresTableHeaderRow.add("Signature");
-		externalSoftwareFailuresTableHeaderRow.add("Software Failure");
+		externalSoftwareFailuresTableHeaderRow.add("Failure Type");
 		externalSoftwareFailuresTableHeaderRow.add("Failure Mode Probability");
 		externalSoftwareFailuresTable.setHeaderRow(externalSoftwareFailuresTableHeaderRow);
 		List<String> externalSoftwareFailuresTableRow;
@@ -561,7 +561,7 @@ public class MarkovReporting {
 		// create tables
 		MarkovReportingTable softwareInducedFailuresTable = new MarkovReportingTable("Software-induced failure modes");
 		List<String> softwareInducedFailuresTableHeaderRow = new ArrayList<String>(2);
-		softwareInducedFailuresTableHeaderRow.add("Software Failure");
+		softwareInducedFailuresTableHeaderRow.add("Failure Type");
 		softwareInducedFailuresTableHeaderRow.add("Failure Mode Probability");
 		softwareInducedFailuresTable.setHeaderRow(softwareInducedFailuresTableHeaderRow);
 
