@@ -215,6 +215,41 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 		}
 		last_time = now;
 	}
+	
+	@Override
+	public double getRemainingDemand(ISchedulableProcess process) {
+		boolean hasDemand = false;
+		for (Hashtable<ISchedulableProcess, Double> running_processes : running_processesPerCore) {
+			if (running_processes.containsKey(process)) {
+				hasDemand = true;
+				break;
+			}
+		}
+		if (hasDemand == false) {
+			return 0.0;
+		}
+		toNow();
+		for (Hashtable<ISchedulableProcess, Double> running_processes : running_processesPerCore) {
+			if (!running_processes.contains(process)) {
+				return running_processes.get(process);
+			}
+		}
+		// Should not be reached.
+		return 0.0;
+	}
+	
+	@Override
+	public void updateDemand(ISchedulableProcess process, double demand) {
+		for (Hashtable<ISchedulableProcess, Double> running_processes : running_processesPerCore) {
+			for (Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
+				if (e.getKey().equals(process)) {
+					e.setValue(demand);
+					break;
+				}
+			}
+		}
+		scheduleNextEvent();
+	}
 
     // New: calculate speed for a process.
 	private double getSpeed(ISchedulableProcess process) {

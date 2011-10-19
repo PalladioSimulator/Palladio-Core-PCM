@@ -19,6 +19,16 @@ public interface IActiveResource {
 	 * Processes the specified demand of the process.
 	 */
 	public abstract void process(ISchedulableProcess process, int resourceServiceId, double demand);
+	
+	/**
+	 * Returns the remaining demand for a process.
+	 */
+	public abstract double getRemainingDemand(ISchedulableProcess process);
+	
+	/**
+	 * Update (currently consuming) demand for a process.
+	 */
+	public abstract void updateDemand(ISchedulableProcess process, double demand);
 
 	/**
 	 * Creates the initial events for the resource.
@@ -45,6 +55,12 @@ public interface IActiveResource {
 	
 	public abstract void notifyTerminated(ISchedulableProcess simProcess);
 
+	/**
+	 * Get the number of processes currently having requests issued to this resource and waiting
+	 * for the request to complete.
+	 * @param simResourceInstance
+	 * @return
+	 */
 	public abstract int getQueueLengthFor(
 			SimResourceInstance simResourceInstance);
 	

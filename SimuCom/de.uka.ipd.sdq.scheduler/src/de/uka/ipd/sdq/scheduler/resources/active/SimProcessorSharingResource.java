@@ -39,6 +39,7 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 			if (getCapacity() == 1) {
 				fireStateChange(running_processes.size(), 0);
 			}
+			
 			LoggingWrapper.log(last + " finished.");
 			scheduleNextEvent();
 			last.activate();
@@ -119,6 +120,35 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 		}
 		scheduleNextEvent();
 		process.passivate();
+	}
+	
+	
+	@Override
+	public double getRemainingDemand(ISchedulableProcess process) {
+		if (!running_processes.contains(process)) {
+			return 0.0;
+		}
+		toNow();
+		return running_processes.get(process);
+	}
+	
+	@Override
+	public void updateDemand(ISchedulableProcess process, double demand) {
+		boolean updated = false;
+		for (Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
+			if (e.getKey().equals(process)) {
+				if (demand == Double.NaN) {
+					System.out.println();
+				}
+				e.setValue(demand);
+				updated = true;
+				break;
+			}
+		}
+		if (updated == false) {
+			throw new RuntimeException("COULD NOT UPDATE PROCESS!");
+		}
+		scheduleNextEvent();
 	}
 
 	@Override

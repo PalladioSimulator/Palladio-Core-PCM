@@ -139,6 +139,16 @@ public class SimActiveResource extends AbstractActiveResource {
 		}
 	}
 	
+	@Override
+	public double getRemainingDemand(ISchedulableProcess process) {
+		throw new UnsupportedOperationException("getRemainingDemand() not yet supported!");
+	}
+	
+	@Override
+	public void updateDemand(ISchedulableProcess process, double demand) {
+		throw new UnsupportedOperationException("updateDemand() not yet supported!");
+	}
+	
 	public void registerProcess(IRunningProcess runningProcess) {
 		IActiveProcess p = (IActiveProcess)runningProcess;
 		if (!processRegistry.isRegistered(p)){

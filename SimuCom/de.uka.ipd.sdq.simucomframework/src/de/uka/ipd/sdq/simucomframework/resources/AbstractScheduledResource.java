@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import scheduler.configuration.ActiveResourceConfiguration;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
+import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
@@ -69,6 +70,7 @@ public abstract class AbstractScheduledResource extends
 	protected int numberOfInstances;
 
 	protected SchedulingStrategy schedulingStrategy;
+	protected AbstractSimulatedResourceContainer resourceContainer = null;
 
 	public AbstractScheduledResource(SimuComModel myModel, String typeID,
 			String resourceContainerID, String resourceTypeID,
@@ -88,6 +90,10 @@ public abstract class AbstractScheduledResource extends
 		myResourceStatus.setId(this.getName());
 		myModel.getSimulationStatus().getResourceStatus().getActiveResources()
 				.add(myResourceStatus);
+		resourceContainer = myModel.getResourceRegistry().getResourceContainer(resourceContainerID);
+		if (resourceContainer == null) {
+			logger.warn("Resource container " +resourceContainerID + " is not available!");
+		}
 
 		stateListener = new HashMap<Integer, List<IStateListener>>();
 		for (int instance = 0; instance < numberOfInstances; instance++) {
@@ -126,6 +132,10 @@ public abstract class AbstractScheduledResource extends
 	 */
 	public abstract void consumeResource(SimuComSimProcess thread,
 			int resourceServiceID, double demand);
+	
+	public abstract double getRemainingDemandForProcess(SimuComSimProcess thread);
+	
+	public abstract void updateDemand(SimuComSimProcess thread, double demand);
 
 	/**
 	 * Template method. Implementers have to use the given demand and return the
@@ -322,7 +332,12 @@ public abstract class AbstractScheduledResource extends
 
 	public void update(int state, int instanceId) {
 		fireStateEvent(state, instanceId);
-
+	}
+	
+	public void demandCompleted(ISchedulableProcess simProcess) {
+		if (resourceContainer != null) {
+			resourceContainer.consumeResourceCompleted(simProcess);
+		}
 	}
 
 	public String getResourceTypeId() {

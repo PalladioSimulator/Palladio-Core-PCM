@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.scheduler.resources.active;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Hashtable;
+import java.util.Map.Entry;
 
 import umontreal.iro.lecuyer.simevents.Event;
 import umontreal.iro.lecuyer.simevents.Simulator;
@@ -104,6 +105,26 @@ public class SimFCFSResource extends AbstractActiveResource {
 		fireStateChange(processQ.size(), 0);
 		scheduleNextEvent(); 
 		process.passivate();
+	}
+	
+	@Override
+	public double getRemainingDemand(ISchedulableProcess process) {
+		if (!running_processes.contains(process)) {
+			return 0.0;
+		}
+		toNow();
+		return running_processes.get(process);
+	}
+	
+	@Override
+	public void updateDemand(ISchedulableProcess process, double demand) {
+		for (Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
+			if (e.getKey().equals(process)) {
+				e.setValue(demand);
+				break;
+			}
+		}
+		scheduleNextEvent();
 	}
 
 	@Override

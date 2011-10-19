@@ -212,6 +212,16 @@ public class ScheduledResource extends AbstractScheduledResource {
 		this.totalDemandedTime += concreteDemand;
 		aResource.process(process, resourceServiceID, concreteDemand);
 	}
+	
+	@Override
+	public double getRemainingDemandForProcess(SimuComSimProcess thread) {
+		return aResource.getRemainingDemand(thread);
+	}
+	
+	@Override
+	public void updateDemand(SimuComSimProcess thread, double demand) {
+		aResource.updateDemand(thread, demand);
+	}
 
 	@Override
 	public void deactivateResource() {

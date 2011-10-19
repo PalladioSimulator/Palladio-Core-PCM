@@ -102,4 +102,10 @@ public abstract class AbstractActiveResource extends AbstractSimResource
 		}
 	}
 	
+	protected void fireDemandCompleted(ISchedulableProcess simProcess) {
+		for (IActiveResourceStateSensor l : observers) {
+			l.demandCompleted(simProcess);
+		}
+	}
+	
 }

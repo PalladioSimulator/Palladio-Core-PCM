@@ -1,9 +1,16 @@
 package de.uka.ipd.sdq.scheduler.resources.active;
 
+import java.util.Hashtable;
+import java.util.Map.Entry;
+
+import umontreal.iro.lecuyer.simevents.Simulator;
+
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.events.DelayEvent;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 
 public class SimDelayResource extends AbstractActiveResource {
 
@@ -30,7 +37,17 @@ public class SimDelayResource extends AbstractActiveResource {
 		new DelayEvent(process).schedule(demand);
 		process.passivate();
 	}
-
+	
+	@Override
+	public double getRemainingDemand(ISchedulableProcess process) {
+		throw new UnsupportedOperationException("getRemainingDemand() not yet supported!");
+	}
+	
+	@Override
+	public void updateDemand(ISchedulableProcess process, double demand) {
+		throw new UnsupportedOperationException("updateDemand() not yet supported!");
+	}
+	
 	@Override
 	protected void enqueue(ISchedulableProcess process) {
 		this.num_running++;

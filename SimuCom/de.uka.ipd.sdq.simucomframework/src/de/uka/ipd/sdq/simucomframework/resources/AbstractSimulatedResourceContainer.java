@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -114,6 +115,10 @@ public abstract class AbstractSimulatedResourceContainer {
 	 */
 	public String getResourceContainerID() {
 		return myContainerID;
+	}
+	
+	public void consumeResourceCompleted(ISchedulableProcess thread) {
+		// Do nothing.
 	}
 	
 }
