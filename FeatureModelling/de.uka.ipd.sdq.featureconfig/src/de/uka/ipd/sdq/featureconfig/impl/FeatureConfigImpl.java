@@ -67,6 +67,16 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	protected static final FeatureConfigState FEATURE_CONFIG_STATE_EDEFAULT = FeatureConfigState.NOT_SET;
 
 	/**
+	 * The cached value of the '{@link #getFeatureConfigState() <em>Feature Config State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFeatureConfigState()
+	 * @generated
+	 * @ordered
+	 */
+	protected FeatureConfigState featureConfigState = FEATURE_CONFIG_STATE_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getConfignode() <em>Confignode</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConfignode()
@@ -103,15 +113,36 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeatureConfigState getFeatureConfigState() {
+		return featureConfigState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFeatureConfigState(FeatureConfigState newFeatureConfigState) {
+		FeatureConfigState oldFeatureConfigState = featureConfigState;
+		featureConfigState = newFeatureConfigState == null ? FEATURE_CONFIG_STATE_EDEFAULT : newFeatureConfigState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, featureconfigPackage.FEATURE_CONFIG__FEATURE_CONFIG_STATE, oldFeatureConfigState, featureConfigState));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> 
 	 * returns the result of showFeatureConfigState()
 	 * showFeatureConfigState is defined by an OCL expression.
 	 * The FeatureConfigState of a FeatureConfig is DEFAULT, if the FeatureConfig equals its configurationDefault.defaultConfig.
 	 * It is OVERRIDE, if it is included in its configurationOverrides.configOverrides.
 	 * If neither of these conditions applies, the FeatureConfigState is NOT_SET.
-	 * @generated NOT
+	 * @generated not
 	 */
-	public FeatureConfigState getFeatureConfigState() {
+	public FeatureConfigState getFeatureConfigStateOld() {
 		return showFeatureConfigState();
 	}
 
@@ -375,6 +406,9 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case featureconfigPackage.FEATURE_CONFIG__FEATURE_CONFIG_STATE:
+				setFeatureConfigState((FeatureConfigState)newValue);
+				return;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				getConfignode().clear();
 				getConfignode().addAll((Collection<? extends ConfigNode>)newValue);
@@ -399,6 +433,9 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case featureconfigPackage.FEATURE_CONFIG__FEATURE_CONFIG_STATE:
+				setFeatureConfigState(FEATURE_CONFIG_STATE_EDEFAULT);
+				return;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				getConfignode().clear();
 				return;
@@ -423,7 +460,7 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case featureconfigPackage.FEATURE_CONFIG__FEATURE_CONFIG_STATE:
-				return getFeatureConfigState() != FEATURE_CONFIG_STATE_EDEFAULT;
+				return featureConfigState != FEATURE_CONFIG_STATE_EDEFAULT;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGNODE:
 				return confignode != null && !confignode.isEmpty();
 			case featureconfigPackage.FEATURE_CONFIG__ANNOTATED_ELEMENT:
@@ -434,6 +471,22 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				return getConfigurationDefault() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (featureConfigState: ");
+		result.append(featureConfigState);
+		result.append(')');
+		return result.toString();
 	}
 
 	/**
