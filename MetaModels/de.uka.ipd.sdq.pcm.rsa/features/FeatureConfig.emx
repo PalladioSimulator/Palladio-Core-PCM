@@ -855,7 +855,7 @@ aka NULL, not set, do not override</body>
       </ownedLiteral>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_2-grAHvyEdyOhKBWyuRGig" name="FeatureConfig">
-      <ownedAttribute xmi:id="_9SMDgMcqEd6uiptR6cqsUw" name="featureConfigState" visibility="private" type="_D8LrwMcqEd6uiptR6cqsUw" isReadOnly="true" isDerived="true">
+      <ownedAttribute xmi:id="_9SMDgMcqEd6uiptR6cqsUw" name="featureConfigState" visibility="public" type="_D8LrwMcqEd6uiptR6cqsUw">
         <ownedComment xmi:id="_IpfTwCYyEd-we6LrevsdoA" annotatedElement="_9SMDgMcqEd6uiptR6cqsUw">
           <body>&lt;p>&#xD;
     &lt;span&#xD;
