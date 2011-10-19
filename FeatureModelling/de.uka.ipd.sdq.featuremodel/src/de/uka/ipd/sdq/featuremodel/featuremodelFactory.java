@@ -107,6 +107,15 @@ public interface featuremodelFactory extends EFactory {
 	StringAttribute createStringAttribute();
 
 	/**
+	 * Returns a new object of class '<em>External Object Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>External Object Attribute</em>'.
+	 * @generated
+	 */
+	ExternalObjectAttribute createExternalObjectAttribute();
+
+	/**
 	 * Returns a new object of class '<em>Required Constraint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

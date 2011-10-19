@@ -443,6 +443,70 @@ public interface featureconfigPackage extends EPackage {
 	int STRING_ATTRIBUTE_VALUE_FEATURE_COUNT = ATTRIBUTE_VALUE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.impl.ExternalObjectAttributeValueImpl <em>External Object Attribute Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featureconfig.impl.ExternalObjectAttributeValueImpl
+	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getExternalObjectAttributeValue()
+	 * @generated
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE_VALUE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE_VALUE__ID = ATTRIBUTE_VALUE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE_VALUE__NAME = ATTRIBUTE_VALUE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE_VALUE__VALUE = ATTRIBUTE_VALUE__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Confignode</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE_VALUE__CONFIGNODE = ATTRIBUTE_VALUE__CONFIGNODE;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE_VALUE__REFERENCED_OBJECT = ATTRIBUTE_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>External Object Attribute Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE_VALUE_FEATURE_COUNT = ATTRIBUTE_VALUE_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featureconfig.ConfigState <em>Config State</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -450,7 +514,7 @@ public interface featureconfigPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getConfigState()
 	 * @generated
 	 */
-	int CONFIG_STATE = 7;
+	int CONFIG_STATE = 8;
 
 
 	/**
@@ -461,7 +525,7 @@ public interface featureconfigPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getFeatureConfigState()
 	 * @generated
 	 */
-	int FEATURE_CONFIG_STATE = 8;
+	int FEATURE_CONFIG_STATE = 9;
 
 
 	/**
@@ -654,6 +718,27 @@ public interface featureconfigPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getStringAttributeValue();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featureconfig.ExternalObjectAttributeValue <em>External Object Attribute Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>External Object Attribute Value</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.ExternalObjectAttributeValue
+	 * @generated
+	 */
+	EClass getExternalObjectAttributeValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.featureconfig.ExternalObjectAttributeValue#getReferencedObject <em>Referenced Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Referenced Object</em>'.
+	 * @see de.uka.ipd.sdq.featureconfig.ExternalObjectAttributeValue#getReferencedObject()
+	 * @see #getExternalObjectAttributeValue()
+	 * @generated
+	 */
+	EReference getExternalObjectAttributeValue_ReferencedObject();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.featureconfig.Configuration#getDefaultConfig <em>Default Config</em>}'.
@@ -876,6 +961,24 @@ public interface featureconfigPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STRING_ATTRIBUTE_VALUE = eINSTANCE.getStringAttributeValue();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featureconfig.impl.ExternalObjectAttributeValueImpl <em>External Object Attribute Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.featureconfig.impl.ExternalObjectAttributeValueImpl
+		 * @see de.uka.ipd.sdq.featureconfig.impl.featureconfigPackageImpl#getExternalObjectAttributeValue()
+		 * @generated
+		 */
+		EClass EXTERNAL_OBJECT_ATTRIBUTE_VALUE = eINSTANCE.getExternalObjectAttributeValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Referenced Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTERNAL_OBJECT_ATTRIBUTE_VALUE__REFERENCED_OBJECT = eINSTANCE.getExternalObjectAttributeValue_ReferencedObject();
 
 		/**
 		 * The meta object literal for the '<em><b>Default Config</b></em>' containment reference feature.

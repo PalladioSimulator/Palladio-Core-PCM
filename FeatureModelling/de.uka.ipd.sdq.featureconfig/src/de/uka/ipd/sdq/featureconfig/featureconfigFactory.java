@@ -80,6 +80,15 @@ public interface featureconfigFactory extends EFactory {
 	StringAttributeValue createStringAttributeValue();
 
 	/**
+	 * Returns a new object of class '<em>External Object Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>External Object Attribute Value</em>'.
+	 * @generated
+	 */
+	ExternalObjectAttributeValue createExternalObjectAttributeValue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

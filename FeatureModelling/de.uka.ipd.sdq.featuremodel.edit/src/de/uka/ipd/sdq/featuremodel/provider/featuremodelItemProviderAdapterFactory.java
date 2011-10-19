@@ -328,6 +328,29 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featuremodel.ExternalObjectAttribute} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExternalObjectAttributeItemProvider externalObjectAttributeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featuremodel.ExternalObjectAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExternalObjectAttributeAdapter() {
+		if (externalObjectAttributeItemProvider == null) {
+			externalObjectAttributeItemProvider = new ExternalObjectAttributeItemProvider(this);
+		}
+
+		return externalObjectAttributeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -437,6 +460,7 @@ public class featuremodelItemProviderAdapterFactory extends featuremodelAdapterF
 		if (integerAttributeItemProvider != null) integerAttributeItemProvider.dispose();
 		if (doubleAttributeItemProvider != null) doubleAttributeItemProvider.dispose();
 		if (stringAttributeItemProvider != null) stringAttributeItemProvider.dispose();
+		if (externalObjectAttributeItemProvider != null) externalObjectAttributeItemProvider.dispose();
 	}
 
 }

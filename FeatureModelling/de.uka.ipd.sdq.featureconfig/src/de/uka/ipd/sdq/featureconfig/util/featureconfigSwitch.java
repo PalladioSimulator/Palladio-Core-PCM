@@ -149,6 +149,15 @@ public class featureconfigSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case featureconfigPackage.EXTERNAL_OBJECT_ATTRIBUTE_VALUE: {
+				ExternalObjectAttributeValue externalObjectAttributeValue = (ExternalObjectAttributeValue)theEObject;
+				T result = caseExternalObjectAttributeValue(externalObjectAttributeValue);
+				if (result == null) result = caseAttributeValue(externalObjectAttributeValue);
+				if (result == null) result = caseNamedElement(externalObjectAttributeValue);
+				if (result == null) result = caseIdentifier(externalObjectAttributeValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -255,6 +264,21 @@ public class featureconfigSwitch<T> {
 	 * @generated
 	 */
 	public T caseStringAttributeValue(StringAttributeValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>External Object Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>External Object Attribute Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExternalObjectAttributeValue(ExternalObjectAttributeValue object) {
 		return null;
 	}
 

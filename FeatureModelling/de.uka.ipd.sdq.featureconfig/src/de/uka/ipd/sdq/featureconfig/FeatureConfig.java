@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.featureconfig;
 
+import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -85,12 +86,12 @@ public interface FeatureConfig extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Annotated Element</em>' reference.
-	 * @see #setAnnotatedElement(EObject)
+	 * @see #setAnnotatedElement(FeatureDiagram)
 	 * @see de.uka.ipd.sdq.featureconfig.featureconfigPackage#getFeatureConfig_AnnotatedElement()
 	 * @model ordered="false"
 	 * @generated
 	 */
-	EObject getAnnotatedElement();
+	FeatureDiagram getAnnotatedElement();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.featureconfig.FeatureConfig#getAnnotatedElement <em>Annotated Element</em>}' reference.
@@ -100,7 +101,7 @@ public interface FeatureConfig extends EObject {
 	 * @see #getAnnotatedElement()
 	 * @generated
 	 */
-	void setAnnotatedElement(EObject value);
+	void setAnnotatedElement(FeatureDiagram value);
 
 	/**
 	 * Returns the value of the '<em><b>Configuration Overrides</b></em>' container reference.
@@ -157,19 +158,6 @@ public interface FeatureConfig extends EObject {
 	 * @generated
 	 */
 	void setConfigurationDefault(Configuration value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.annotatedElement.oclIsKindOf(featuremodel::FeatureDiagram)
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.annotatedElement.oclIsKindOf(featuremodel::FeatureDiagram)'"
-	 * @generated
-	 */
-	boolean RootIsFeatureModel(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
 	 * <!-- begin-user-doc -->

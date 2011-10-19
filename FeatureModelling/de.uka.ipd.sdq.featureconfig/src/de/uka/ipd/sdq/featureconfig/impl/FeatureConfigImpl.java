@@ -36,6 +36,7 @@ import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
 import de.uka.ipd.sdq.featureconfig.FeatureConfigState;
 import de.uka.ipd.sdq.featureconfig.featureconfigPackage;
+import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 import de.uka.ipd.sdq.featureconfig.util.featureconfigValidator;
 
 /**
@@ -82,7 +83,7 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * @generated
 	 * @ordered
 	 */
-	protected EObject annotatedElement;
+	protected FeatureDiagram annotatedElement;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -130,10 +131,10 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject getAnnotatedElement() {
+	public FeatureDiagram getAnnotatedElement() {
 		if (annotatedElement != null && annotatedElement.eIsProxy()) {
 			InternalEObject oldAnnotatedElement = (InternalEObject)annotatedElement;
-			annotatedElement = eResolveProxy(oldAnnotatedElement);
+			annotatedElement = (FeatureDiagram)eResolveProxy(oldAnnotatedElement);
 			if (annotatedElement != oldAnnotatedElement) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, featureconfigPackage.FEATURE_CONFIG__ANNOTATED_ELEMENT, oldAnnotatedElement, annotatedElement));
@@ -147,7 +148,7 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject basicGetAnnotatedElement() {
+	public FeatureDiagram basicGetAnnotatedElement() {
 		return annotatedElement;
 	}
 
@@ -156,8 +157,8 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAnnotatedElement(EObject newAnnotatedElement) {
-		EObject oldAnnotatedElement = annotatedElement;
+	public void setAnnotatedElement(FeatureDiagram newAnnotatedElement) {
+		FeatureDiagram oldAnnotatedElement = annotatedElement;
 		annotatedElement = newAnnotatedElement;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, featureconfigPackage.FEATURE_CONFIG__ANNOTATED_ELEMENT, oldAnnotatedElement, annotatedElement));
@@ -246,57 +247,6 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	}
 
 	/**
-	 * The cached OCL expression body for the '{@link #RootIsFeatureModel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Root Is Feature Model</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #RootIsFeatureModel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ROOT_IS_FEATURE_MODEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.annotatedElement.oclIsKindOf(featuremodel::FeatureDiagram)";
-
-	/**
-	 * The cached OCL invariant for the '{@link #RootIsFeatureModel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Root Is Feature Model</em>}' invariant operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #RootIsFeatureModel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 * @ordered
-	 */
-	protected static Constraint ROOT_IS_FEATURE_MODEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean RootIsFeatureModel(DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		if (ROOT_IS_FEATURE_MODEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(featureconfigPackage.Literals.FEATURE_CONFIG);
-			try {
-				ROOT_IS_FEATURE_MODEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(ROOT_IS_FEATURE_MODEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
-		}
-		if (!EOCL_ENV.createQuery(ROOT_IS_FEATURE_MODEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 featureconfigValidator.DIAGNOSTIC_SOURCE,
-						 featureconfigValidator.FEATURE_CONFIG__ROOT_IS_FEATURE_MODEL,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RootIsFeatureModel", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
 	 * The cached OCL expression body for the '{@link #showFeatureConfigState() <em>Show Feature Config State</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -329,7 +279,7 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 	public FeatureConfigState showFeatureConfigState() {
 		if (SHOW_FEATURE_CONFIG_STATE__EOCL_QRY == null) {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setOperationContext(featureconfigPackage.Literals.FEATURE_CONFIG, featureconfigPackage.Literals.FEATURE_CONFIG.getEAllOperations().get(1));
+			helper.setOperationContext(featureconfigPackage.Literals.FEATURE_CONFIG, featureconfigPackage.Literals.FEATURE_CONFIG.getEAllOperations().get(0));
 			try {
 				SHOW_FEATURE_CONFIG_STATE__EOCL_QRY = helper.createQuery(SHOW_FEATURE_CONFIG_STATE__EOCL_EXP);
 			}
@@ -430,7 +380,7 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				getConfignode().addAll((Collection<? extends ConfigNode>)newValue);
 				return;
 			case featureconfigPackage.FEATURE_CONFIG__ANNOTATED_ELEMENT:
-				setAnnotatedElement((EObject)newValue);
+				setAnnotatedElement((FeatureDiagram)newValue);
 				return;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGURATION_OVERRIDES:
 				setConfigurationOverrides((Configuration)newValue);
@@ -453,7 +403,7 @@ public class FeatureConfigImpl extends EObjectImpl implements FeatureConfig {
 				getConfignode().clear();
 				return;
 			case featureconfigPackage.FEATURE_CONFIG__ANNOTATED_ELEMENT:
-				setAnnotatedElement((EObject)null);
+				setAnnotatedElement((FeatureDiagram)null);
 				return;
 			case featureconfigPackage.FEATURE_CONFIG__CONFIGURATION_OVERRIDES:
 				setConfigurationOverrides((Configuration)null);

@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.featuremodel.ChildRelation;
 import de.uka.ipd.sdq.featuremodel.Constraint;
 import de.uka.ipd.sdq.featuremodel.ContinousIntervalRange;
 import de.uka.ipd.sdq.featuremodel.DoubleAttribute;
+import de.uka.ipd.sdq.featuremodel.ExternalObjectAttribute;
 import de.uka.ipd.sdq.featuremodel.Feature;
 import de.uka.ipd.sdq.featuremodel.FeatureDiagram;
 import de.uka.ipd.sdq.featuremodel.FeatureGroup;
@@ -136,6 +137,13 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * @generated
 	 */
 	private EClass stringAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass externalObjectAttributeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -550,6 +558,15 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExternalObjectAttribute() {
+		return externalObjectAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIntervalRange() {
 		return intervalRangeEClass;
 	}
@@ -722,6 +739,8 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		stringAttributeEClass = createEClass(STRING_ATTRIBUTE);
 		createEAttribute(stringAttributeEClass, STRING_ATTRIBUTE__DEFAULT_VALUE);
 
+		externalObjectAttributeEClass = createEClass(EXTERNAL_OBJECT_ATTRIBUTE);
+
 		// Create enums
 		attributeTypesEEnum = createEEnum(ATTRIBUTE_TYPES);
 	}
@@ -772,6 +791,7 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 		integerAttributeEClass.getESuperTypes().add(this.getAttribute());
 		doubleAttributeEClass.getESuperTypes().add(this.getAttribute());
 		stringAttributeEClass.getESuperTypes().add(this.getAttribute());
+		externalObjectAttributeEClass.getESuperTypes().add(this.getAttribute());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -886,6 +906,8 @@ public class featuremodelPackageImpl extends EPackageImpl implements featuremode
 
 		initEClass(stringAttributeEClass, StringAttribute.class, "StringAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 1, 1, StringAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(externalObjectAttributeEClass, ExternalObjectAttribute.class, "ExternalObjectAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(attributeTypesEEnum, AttributeTypes.class, "AttributeTypes");

@@ -83,6 +83,7 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 			case featuremodelPackage.INTEGER_ATTRIBUTE: return createIntegerAttribute();
 			case featuremodelPackage.DOUBLE_ATTRIBUTE: return createDoubleAttribute();
 			case featuremodelPackage.STRING_ATTRIBUTE: return createStringAttribute();
+			case featuremodelPackage.EXTERNAL_OBJECT_ATTRIBUTE: return createExternalObjectAttribute();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -206,6 +207,16 @@ public class featuremodelFactoryImpl extends EFactoryImpl implements featuremode
 	public StringAttribute createStringAttribute() {
 		StringAttributeImpl stringAttribute = new StringAttributeImpl();
 		return stringAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExternalObjectAttribute createExternalObjectAttribute() {
+		ExternalObjectAttributeImpl externalObjectAttribute = new ExternalObjectAttributeImpl();
+		return externalObjectAttribute;
 	}
 
 	/**

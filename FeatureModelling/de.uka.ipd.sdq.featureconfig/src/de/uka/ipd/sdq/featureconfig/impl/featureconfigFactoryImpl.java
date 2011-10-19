@@ -74,6 +74,7 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 			case featureconfigPackage.INTEGER_ATTRIBUTE_VALUE: return createIntegerAttributeValue();
 			case featureconfigPackage.DOUBLE_ATTRIBUTE_VALUE: return createDoubleAttributeValue();
 			case featureconfigPackage.STRING_ATTRIBUTE_VALUE: return createStringAttributeValue();
+			case featureconfigPackage.EXTERNAL_OBJECT_ATTRIBUTE_VALUE: return createExternalObjectAttributeValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -171,6 +172,16 @@ public class featureconfigFactoryImpl extends EFactoryImpl implements featurecon
 	public StringAttributeValue createStringAttributeValue() {
 		StringAttributeValueImpl stringAttributeValue = new StringAttributeValueImpl();
 		return stringAttributeValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExternalObjectAttributeValue createExternalObjectAttributeValue() {
+		ExternalObjectAttributeValueImpl externalObjectAttributeValue = new ExternalObjectAttributeValueImpl();
+		return externalObjectAttributeValue;
 	}
 
 	/**

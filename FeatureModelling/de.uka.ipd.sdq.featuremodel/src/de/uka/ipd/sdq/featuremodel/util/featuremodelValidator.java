@@ -194,6 +194,8 @@ public class featuremodelValidator extends EObjectValidator {
 				return validateDoubleAttribute((DoubleAttribute)value, diagnostics, context);
 			case featuremodelPackage.STRING_ATTRIBUTE:
 				return validateStringAttribute((StringAttribute)value, diagnostics, context);
+			case featuremodelPackage.EXTERNAL_OBJECT_ATTRIBUTE:
+				return validateExternalObjectAttribute((ExternalObjectAttribute)value, diagnostics, context);
 			case featuremodelPackage.ATTRIBUTE_TYPES:
 				return validateAttributeTypes((AttributeTypes)value, diagnostics, context);
 			default:
@@ -320,6 +322,23 @@ public class featuremodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(stringAttribute, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(stringAttribute, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(stringAttribute, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateExternalObjectAttribute(ExternalObjectAttribute externalObjectAttribute, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(externalObjectAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(externalObjectAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(externalObjectAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(externalObjectAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(externalObjectAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(externalObjectAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(externalObjectAttribute, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(externalObjectAttribute, diagnostics, context);
 		return result;
 	}
 

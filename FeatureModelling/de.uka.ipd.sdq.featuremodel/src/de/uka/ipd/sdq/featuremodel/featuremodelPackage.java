@@ -898,6 +898,52 @@ public interface featuremodelPackage extends EPackage {
 	int STRING_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.impl.ExternalObjectAttributeImpl <em>External Object Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.featuremodel.impl.ExternalObjectAttributeImpl
+	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getExternalObjectAttribute()
+	 * @generated
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE__ID = ATTRIBUTE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE__NAME = ATTRIBUTE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Range</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE__RANGE = ATTRIBUTE__RANGE;
+
+	/**
+	 * The number of structural features of the '<em>External Object Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_OBJECT_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.featuremodel.AttributeTypes <em>Attribute Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -905,7 +951,7 @@ public interface featuremodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getAttributeTypes()
 	 * @generated
 	 */
-	int ATTRIBUTE_TYPES = 16;
+	int ATTRIBUTE_TYPES = 17;
 
 
 	/**
@@ -1087,6 +1133,16 @@ public interface featuremodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStringAttribute_DefaultValue();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.ExternalObjectAttribute <em>External Object Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>External Object Attribute</em>'.
+	 * @see de.uka.ipd.sdq.featuremodel.ExternalObjectAttribute
+	 * @generated
+	 */
+	EClass getExternalObjectAttribute();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.featuremodel.IntervalRange <em>Interval Range</em>}'.
@@ -1546,6 +1602,16 @@ public interface featuremodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STRING_ATTRIBUTE__DEFAULT_VALUE = eINSTANCE.getStringAttribute_DefaultValue();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.ExternalObjectAttributeImpl <em>External Object Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.featuremodel.impl.ExternalObjectAttributeImpl
+		 * @see de.uka.ipd.sdq.featuremodel.impl.featuremodelPackageImpl#getExternalObjectAttribute()
+		 * @generated
+		 */
+		EClass EXTERNAL_OBJECT_ATTRIBUTE = eINSTANCE.getExternalObjectAttribute();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.featuremodel.impl.IntervalRangeImpl <em>Interval Range</em>}' class.

@@ -151,6 +151,10 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 				return createStringAttributeAdapter();
 			}
 			@Override
+			public Adapter caseExternalObjectAttribute(ExternalObjectAttribute object) {
+				return createExternalObjectAttributeAdapter();
+			}
+			@Override
 			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
@@ -269,6 +273,20 @@ public class featuremodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStringAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.featuremodel.ExternalObjectAttribute <em>External Object Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.featuremodel.ExternalObjectAttribute
+	 * @generated
+	 */
+	public Adapter createExternalObjectAttributeAdapter() {
 		return null;
 	}
 

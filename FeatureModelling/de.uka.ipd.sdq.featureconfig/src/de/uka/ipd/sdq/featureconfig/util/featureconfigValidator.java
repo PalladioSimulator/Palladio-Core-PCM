@@ -68,20 +68,12 @@ public class featureconfigValidator extends EObjectValidator {
 	public static final int CONFIG_NODE__CHECK_MULTIPLICITY_OF_FEATURE_GROUP = 2;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Root Is Feature Model' of 'Feature Config'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int FEATURE_CONFIG__ROOT_IS_FEATURE_MODEL = 3;
-
-	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Attribute Value Is Defined In Feature And Equals Type Integer' of 'Integer Attribute Value'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int INTEGER_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_INTEGER = 4;
+	public static final int INTEGER_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_INTEGER = 3;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Attribute Value Is Defined In Feature And Equals Type Double' of 'Double Attribute Value'.
@@ -89,7 +81,7 @@ public class featureconfigValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int DOUBLE_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_DOUBLE = 5;
+	public static final int DOUBLE_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_DOUBLE = 4;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Attribute Value Is Defined In Feature And Equals Type String' of 'String Attribute Value'.
@@ -97,7 +89,15 @@ public class featureconfigValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int STRING_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_STRING = 6;
+	public static final int STRING_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_STRING = 5;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Attribute Value Is Defined In Feature And Equals Type External Object' of 'External Object Attribute Value'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int EXTERNAL_OBJECT_ATTRIBUTE_VALUE__ATTRIBUTE_VALUE_IS_DEFINED_IN_FEATURE_AND_EQUALS_TYPE_EXTERNAL_OBJECT = 6;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -168,6 +168,8 @@ public class featureconfigValidator extends EObjectValidator {
 				return validateDoubleAttributeValue((DoubleAttributeValue)value, diagnostics, context);
 			case featureconfigPackage.STRING_ATTRIBUTE_VALUE:
 				return validateStringAttributeValue((StringAttributeValue)value, diagnostics, context);
+			case featureconfigPackage.EXTERNAL_OBJECT_ATTRIBUTE_VALUE:
+				return validateExternalObjectAttributeValue((ExternalObjectAttributeValue)value, diagnostics, context);
 			case featureconfigPackage.CONFIG_STATE:
 				return validateConfigState((ConfigState)value, diagnostics, context);
 			case featureconfigPackage.FEATURE_CONFIG_STATE:
@@ -238,25 +240,7 @@ public class featureconfigValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateFeatureConfig(FeatureConfig featureConfig, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(featureConfig, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(featureConfig, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(featureConfig, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(featureConfig, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(featureConfig, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(featureConfig, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(featureConfig, diagnostics, context);
-		if (result || diagnostics != null) result &= validateFeatureConfig_RootIsFeatureModel(featureConfig, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * Validates the RootIsFeatureModel constraint of '<em>Feature Config</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateFeatureConfig_RootIsFeatureModel(FeatureConfig featureConfig, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return featureConfig.RootIsFeatureModel(diagnostics, context);
+		return validate_EveryDefaultConstraint(featureConfig, diagnostics, context);
 	}
 
 	/**
@@ -350,6 +334,34 @@ public class featureconfigValidator extends EObjectValidator {
 	 */
 	public boolean validateStringAttributeValue_AttributeValueIsDefinedInFeatureAndEqualsTypeString(StringAttributeValue stringAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return stringAttributeValue.AttributeValueIsDefinedInFeatureAndEqualsTypeString(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateExternalObjectAttributeValue(ExternalObjectAttributeValue externalObjectAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(externalObjectAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(externalObjectAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(externalObjectAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(externalObjectAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(externalObjectAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(externalObjectAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(externalObjectAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(externalObjectAttributeValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validateExternalObjectAttributeValue_AttributeValueIsDefinedInFeatureAndEqualsTypeExternalObject(externalObjectAttributeValue, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the AttributeValueIsDefinedInFeatureAndEqualsTypeExternalObject constraint of '<em>External Object Attribute Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateExternalObjectAttributeValue_AttributeValueIsDefinedInFeatureAndEqualsTypeExternalObject(ExternalObjectAttributeValue externalObjectAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return externalObjectAttributeValue.AttributeValueIsDefinedInFeatureAndEqualsTypeExternalObject(diagnostics, context);
 	}
 
 	/**

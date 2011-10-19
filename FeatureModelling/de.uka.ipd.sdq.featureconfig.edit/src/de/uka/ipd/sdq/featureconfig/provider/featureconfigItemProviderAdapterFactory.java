@@ -213,6 +213,29 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.featureconfig.ExternalObjectAttributeValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExternalObjectAttributeValueItemProvider externalObjectAttributeValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.featureconfig.ExternalObjectAttributeValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExternalObjectAttributeValueAdapter() {
+		if (externalObjectAttributeValueItemProvider == null) {
+			externalObjectAttributeValueItemProvider = new ExternalObjectAttributeValueItemProvider(this);
+		}
+
+		return externalObjectAttributeValueItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -317,6 +340,7 @@ public class featureconfigItemProviderAdapterFactory extends featureconfigAdapte
 		if (integerAttributeValueItemProvider != null) integerAttributeValueItemProvider.dispose();
 		if (doubleAttributeValueItemProvider != null) doubleAttributeValueItemProvider.dispose();
 		if (stringAttributeValueItemProvider != null) stringAttributeValueItemProvider.dispose();
+		if (externalObjectAttributeValueItemProvider != null) externalObjectAttributeValueItemProvider.dispose();
 	}
 
 }

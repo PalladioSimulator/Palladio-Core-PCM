@@ -223,4 +223,5 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalObjectAttribute" eSuperTypes="#//Attribute"/>
 </ecore:EPackage>
