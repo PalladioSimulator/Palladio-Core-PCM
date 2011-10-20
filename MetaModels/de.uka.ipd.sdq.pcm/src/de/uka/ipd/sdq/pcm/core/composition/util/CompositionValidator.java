@@ -212,6 +212,10 @@ public class CompositionValidator extends EObjectValidator {
 				return validateResourceRequiredDelegationConnector((ResourceRequiredDelegationConnector)value, diagnostics, context);
 			case CompositionPackage.EVENT_CHANNEL:
 				return validateEventChannel((EventChannel)value, diagnostics, context);
+			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR:
+				return validateEventChannelSourceConnector((EventChannelSourceConnector)value, diagnostics, context);
+			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR:
+				return validateEventChannelSinkConnector((EventChannelSinkConnector)value, diagnostics, context);
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR:
 				return validateProvidedDelegationConnector((ProvidedDelegationConnector)value, diagnostics, context);
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR:
@@ -232,10 +236,6 @@ public class CompositionValidator extends EObjectValidator {
 				return validateRequiredInfrastructureDelegationConnector((RequiredInfrastructureDelegationConnector)value, diagnostics, context);
 			case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
 				return validateRequiredResourceDelegationConnector((RequiredResourceDelegationConnector)value, diagnostics, context);
-			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR:
-				return validateEventChannelSinkConnector((EventChannelSinkConnector)value, diagnostics, context);
-			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR:
-				return validateEventChannelSourceConnector((EventChannelSourceConnector)value, diagnostics, context);
 			case CompositionPackage.ASSEMBLY_CONTEXT:
 				return validateAssemblyContext((AssemblyContext)value, diagnostics, context);
 			default:

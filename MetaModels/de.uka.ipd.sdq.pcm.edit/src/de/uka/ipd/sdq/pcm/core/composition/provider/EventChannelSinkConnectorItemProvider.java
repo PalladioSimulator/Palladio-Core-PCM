@@ -72,6 +72,7 @@ public class EventChannelSinkConnectorItemProvider
 
 			addSinkRole__EventChannelSinkConnectorPropertyDescriptor(object);
 			addAssemblyContext__EventChannelSinkConnectorPropertyDescriptor(object);
+			addEventChannel__EventChannelSinkConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +113,28 @@ public class EventChannelSinkConnectorItemProvider
 				 getString("_UI_EventChannelSinkConnector_assemblyContext__EventChannelSinkConnector_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EventChannelSinkConnector_assemblyContext__EventChannelSinkConnector_feature", "_UI_EventChannelSinkConnector_type"),
 				 CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Event Channel Event Channel Sink Connector feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEventChannel__EventChannelSinkConnectorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EventChannelSinkConnector_eventChannel__EventChannelSinkConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventChannelSinkConnector_eventChannel__EventChannelSinkConnector_feature", "_UI_EventChannelSinkConnector_type"),
+				 CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR,
 				 true,
 				 false,
 				 true,

@@ -171,6 +171,16 @@ public class ComposedStructureItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
+				 CompositionFactory.eINSTANCE.createEventChannelSourceConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
+				 CompositionFactory.eINSTANCE.createEventChannelSinkConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
 				 CompositionFactory.eINSTANCE.createProvidedDelegationConnector()));
 
 		newChildDescriptors.add
@@ -217,16 +227,6 @@ public class ComposedStructureItemProvider
 			(createChildParameter
 				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
 				 CompositionFactory.eINSTANCE.createRequiredResourceDelegationConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createEventChannelSinkConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createEventChannelSourceConnector()));
 	}
 
 	/**

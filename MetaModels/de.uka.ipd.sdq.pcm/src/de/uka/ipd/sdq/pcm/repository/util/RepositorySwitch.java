@@ -351,17 +351,6 @@ public class RepositorySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.OPERATION_PROVIDED_ROLE: {
-				OperationProvidedRole operationProvidedRole = (OperationProvidedRole)theEObject;
-				T result = caseOperationProvidedRole(operationProvidedRole);
-				if (result == null) result = caseProvidedRole(operationProvidedRole);
-				if (result == null) result = caseRole(operationProvidedRole);
-				if (result == null) result = caseEntity(operationProvidedRole);
-				if (result == null) result = caseIdentifier(operationProvidedRole);
-				if (result == null) result = caseNamedElement(operationProvidedRole);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RepositoryPackage.SINK_ROLE: {
 				SinkRole sinkRole = (SinkRole)theEObject;
 				T result = caseSinkRole(sinkRole);
@@ -370,6 +359,17 @@ public class RepositorySwitch<T> {
 				if (result == null) result = caseEntity(sinkRole);
 				if (result == null) result = caseIdentifier(sinkRole);
 				if (result == null) result = caseNamedElement(sinkRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.OPERATION_PROVIDED_ROLE: {
+				OperationProvidedRole operationProvidedRole = (OperationProvidedRole)theEObject;
+				T result = caseOperationProvidedRole(operationProvidedRole);
+				if (result == null) result = caseProvidedRole(operationProvidedRole);
+				if (result == null) result = caseRole(operationProvidedRole);
+				if (result == null) result = caseEntity(operationProvidedRole);
+				if (result == null) result = caseIdentifier(operationProvidedRole);
+				if (result == null) result = caseNamedElement(operationProvidedRole);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

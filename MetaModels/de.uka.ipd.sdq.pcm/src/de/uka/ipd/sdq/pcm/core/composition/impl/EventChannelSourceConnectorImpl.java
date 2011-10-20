@@ -6,12 +6,14 @@
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
 import de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
@@ -24,6 +26,7 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSourceConnectorImpl#getSourceRole__EventChannelSourceRole <em>Source Role Event Channel Source Role</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSourceConnectorImpl#getAssemblyContext__EventChannelSourceConnector <em>Assembly Context Event Channel Source Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSourceConnectorImpl#getEventChannel__EventChannelSourceConnector <em>Event Channel Event Channel Source Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,6 +59,16 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 	 * @ordered
 	 */
 	protected AssemblyContext assemblyContext__EventChannelSourceConnector;
+
+	/**
+	 * The cached value of the '{@link #getEventChannel__EventChannelSourceConnector() <em>Event Channel Event Channel Source Connector</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventChannel__EventChannelSourceConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected EventChannel eventChannel__EventChannelSourceConnector;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,6 +170,96 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EventChannel getEventChannel__EventChannelSourceConnector() {
+		if (eventChannel__EventChannelSourceConnector != null && eventChannel__EventChannelSourceConnector.eIsProxy()) {
+			InternalEObject oldEventChannel__EventChannelSourceConnector = (InternalEObject)eventChannel__EventChannelSourceConnector;
+			eventChannel__EventChannelSourceConnector = (EventChannel)eResolveProxy(oldEventChannel__EventChannelSourceConnector);
+			if (eventChannel__EventChannelSourceConnector != oldEventChannel__EventChannelSourceConnector) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR, oldEventChannel__EventChannelSourceConnector, eventChannel__EventChannelSourceConnector));
+			}
+		}
+		return eventChannel__EventChannelSourceConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EventChannel basicGetEventChannel__EventChannelSourceConnector() {
+		return eventChannel__EventChannelSourceConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEventChannel__EventChannelSourceConnector(EventChannel newEventChannel__EventChannelSourceConnector, NotificationChain msgs) {
+		EventChannel oldEventChannel__EventChannelSourceConnector = eventChannel__EventChannelSourceConnector;
+		eventChannel__EventChannelSourceConnector = newEventChannel__EventChannelSourceConnector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR, oldEventChannel__EventChannelSourceConnector, newEventChannel__EventChannelSourceConnector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEventChannel__EventChannelSourceConnector(EventChannel newEventChannel__EventChannelSourceConnector) {
+		if (newEventChannel__EventChannelSourceConnector != eventChannel__EventChannelSourceConnector) {
+			NotificationChain msgs = null;
+			if (eventChannel__EventChannelSourceConnector != null)
+				msgs = ((InternalEObject)eventChannel__EventChannelSourceConnector).eInverseRemove(this, CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL, EventChannel.class, msgs);
+			if (newEventChannel__EventChannelSourceConnector != null)
+				msgs = ((InternalEObject)newEventChannel__EventChannelSourceConnector).eInverseAdd(this, CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL, EventChannel.class, msgs);
+			msgs = basicSetEventChannel__EventChannelSourceConnector(newEventChannel__EventChannelSourceConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR, newEventChannel__EventChannelSourceConnector, newEventChannel__EventChannelSourceConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR:
+				if (eventChannel__EventChannelSourceConnector != null)
+					msgs = ((InternalEObject)eventChannel__EventChannelSourceConnector).eInverseRemove(this, CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL, EventChannel.class, msgs);
+				return basicSetEventChannel__EventChannelSourceConnector((EventChannel)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR:
+				return basicSetEventChannel__EventChannelSourceConnector(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -166,6 +269,9 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SOURCE_CONNECTOR:
 				if (resolve) return getAssemblyContext__EventChannelSourceConnector();
 				return basicGetAssemblyContext__EventChannelSourceConnector();
+			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR:
+				if (resolve) return getEventChannel__EventChannelSourceConnector();
+				return basicGetEventChannel__EventChannelSourceConnector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -183,6 +289,9 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 				return;
 			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SOURCE_CONNECTOR:
 				setAssemblyContext__EventChannelSourceConnector((AssemblyContext)newValue);
+				return;
+			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR:
+				setEventChannel__EventChannelSourceConnector((EventChannel)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -202,6 +311,9 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SOURCE_CONNECTOR:
 				setAssemblyContext__EventChannelSourceConnector((AssemblyContext)null);
 				return;
+			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR:
+				setEventChannel__EventChannelSourceConnector((EventChannel)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -218,6 +330,8 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 				return sourceRole__EventChannelSourceRole != null;
 			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SOURCE_CONNECTOR:
 				return assemblyContext__EventChannelSourceConnector != null;
+			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR:
+				return eventChannel__EventChannelSourceConnector != null;
 		}
 		return super.eIsSet(featureID);
 	}

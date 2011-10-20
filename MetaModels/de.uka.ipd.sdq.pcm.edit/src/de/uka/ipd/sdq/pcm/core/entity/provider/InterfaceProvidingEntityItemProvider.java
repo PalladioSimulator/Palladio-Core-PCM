@@ -147,12 +147,12 @@ public class InterfaceProvidingEntityItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
-				 RepositoryFactory.eINSTANCE.createOperationProvidedRole()));
+				 RepositoryFactory.eINSTANCE.createSinkRole()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
-				 RepositoryFactory.eINSTANCE.createSinkRole()));
+				 RepositoryFactory.eINSTANCE.createOperationProvidedRole()));
 
 		newChildDescriptors.add
 			(createChildParameter

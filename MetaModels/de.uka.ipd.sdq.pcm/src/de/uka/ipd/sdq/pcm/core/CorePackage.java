@@ -179,22 +179,22 @@ public interface CorePackage extends EPackage {
 	int PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Assembly Event Connector Filter Condition</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 9;
-
-	/**
 	 * The feature id for the '<em><b>Event Channel Sink Connector Filter Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 10;
+	int PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Assembly Event Connector Filter Condition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Loop Loop Iteration</b></em>' container reference.

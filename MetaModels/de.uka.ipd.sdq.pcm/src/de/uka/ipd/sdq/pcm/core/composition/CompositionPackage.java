@@ -169,7 +169,7 @@ public interface CompositionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getProvidedDelegationConnector()
 	 * @generated
 	 */
-	int PROVIDED_DELEGATION_CONNECTOR = 5;
+	int PROVIDED_DELEGATION_CONNECTOR = 7;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl <em>Assembly Context</em>}' class.
@@ -189,7 +189,7 @@ public interface CompositionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getRequiredDelegationConnector()
 	 * @generated
 	 */
-	int REQUIRED_DELEGATION_CONNECTOR = 6;
+	int REQUIRED_DELEGATION_CONNECTOR = 8;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl <em>Assembly Connector</em>}' class.
@@ -199,7 +199,7 @@ public interface CompositionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyConnector()
 	 * @generated
 	 */
-	int ASSEMBLY_CONNECTOR = 7;
+	int ASSEMBLY_CONNECTOR = 9;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl <em>Resource Required Delegation Connector</em>}' class.
@@ -219,7 +219,7 @@ public interface CompositionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyEventConnector()
 	 * @generated
 	 */
-	int ASSEMBLY_EVENT_CONNECTOR = 8;
+	int ASSEMBLY_EVENT_CONNECTOR = 10;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.SourceDelegationConnectorImpl <em>Source Delegation Connector</em>}' class.
@@ -229,7 +229,7 @@ public interface CompositionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getSourceDelegationConnector()
 	 * @generated
 	 */
-	int SOURCE_DELEGATION_CONNECTOR = 9;
+	int SOURCE_DELEGATION_CONNECTOR = 11;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.SinkDelegationConnectorImpl <em>Sink Delegation Connector</em>}' class.
@@ -239,7 +239,7 @@ public interface CompositionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getSinkDelegationConnector()
 	 * @generated
 	 */
-	int SINK_DELEGATION_CONNECTOR = 10;
+	int SINK_DELEGATION_CONNECTOR = 12;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl <em>Composed Structure</em>}' class.
@@ -388,13 +388,31 @@ public interface CompositionPackage extends EPackage {
 	int EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Event Channel Source Connector Event Channel</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Event Channel Sink Connector Event Channel</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Parent Structure Event Channel</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+	int EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Event Channel</em>' class.
@@ -403,7 +421,202 @@ public interface CompositionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_CHANNEL_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+	int EVENT_CHANNEL_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl <em>Assembly Infrastructure Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyInfrastructureConnector()
+	 * @generated
+	 */
+	int ASSEMBLY_INFRASTRUCTURE_CONNECTOR = 13;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl <em>Required Infrastructure Delegation Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getRequiredInfrastructureDelegationConnector()
+	 * @generated
+	 */
+	int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = 15;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl <em>Provided Infrastructure Delegation Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getProvidedInfrastructureDelegationConnector()
+	 * @generated
+	 */
+	int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = 14;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl <em>Required Resource Delegation Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getRequiredResourceDelegationConnector()
+	 * @generated
+	 */
+	int REQUIRED_RESOURCE_DELEGATION_CONNECTOR = 16;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSinkConnectorImpl <em>Event Channel Sink Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSinkConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getEventChannelSinkConnector()
+	 * @generated
+	 */
+	int EVENT_CHANNEL_SINK_CONNECTOR = 6;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSourceConnectorImpl <em>Event Channel Source Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSourceConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getEventChannelSourceConnector()
+	 * @generated
+	 */
+	int EVENT_CHANNEL_SOURCE_CONNECTOR = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SOURCE_CONNECTOR__ID = CONNECTOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SOURCE_CONNECTOR__ENTITY_NAME = CONNECTOR__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parent Structure Connector</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SOURCE_CONNECTOR__PARENT_STRUCTURE_CONNECTOR = CONNECTOR__PARENT_STRUCTURE_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Source Role Event Channel Source Role</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SOURCE_CONNECTOR__SOURCE_ROLE_EVENT_CHANNEL_SOURCE_ROLE = CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Assembly Context Event Channel Source Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SOURCE_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SOURCE_CONNECTOR = CONNECTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Event Channel Event Channel Source Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR = CONNECTOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Event Channel Source Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SOURCE_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SINK_CONNECTOR__ID = CONNECTOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SINK_CONNECTOR__ENTITY_NAME = CONNECTOR__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parent Structure Connector</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SINK_CONNECTOR__PARENT_STRUCTURE_CONNECTOR = CONNECTOR__PARENT_STRUCTURE_CONNECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Sink Role Event Channel Sink Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR = CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Filter Condition Event Channel Sink Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR = CONNECTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Assembly Context Event Channel Sink Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR = CONNECTOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Event Channel Event Channel Sink Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR = CONNECTOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Event Channel Sink Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_CHANNEL_SINK_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -811,16 +1024,6 @@ public interface CompositionPackage extends EPackage {
 	int SINK_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl <em>Assembly Infrastructure Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyInfrastructureConnector()
-	 * @generated
-	 */
-	int ASSEMBLY_INFRASTRUCTURE_CONNECTOR = 11;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -891,26 +1094,6 @@ public interface CompositionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ASSEMBLY_INFRASTRUCTURE_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 4;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl <em>Required Infrastructure Delegation Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getRequiredInfrastructureDelegationConnector()
-	 * @generated
-	 */
-	int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = 13;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl <em>Provided Infrastructure Delegation Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getProvidedInfrastructureDelegationConnector()
-	 * @generated
-	 */
-	int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1039,16 +1222,6 @@ public interface CompositionPackage extends EPackage {
 	int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl <em>Required Resource Delegation Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getRequiredResourceDelegationConnector()
-	 * @generated
-	 */
-	int REQUIRED_RESOURCE_DELEGATION_CONNECTOR = 14;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1110,143 +1283,6 @@ public interface CompositionPackage extends EPackage {
 	 * @ordered
 	 */
 	int REQUIRED_RESOURCE_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSinkConnectorImpl <em>Event Channel Sink Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSinkConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getEventChannelSinkConnector()
-	 * @generated
-	 */
-	int EVENT_CHANNEL_SINK_CONNECTOR = 15;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SINK_CONNECTOR__ID = CONNECTOR__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SINK_CONNECTOR__ENTITY_NAME = CONNECTOR__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Parent Structure Connector</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SINK_CONNECTOR__PARENT_STRUCTURE_CONNECTOR = CONNECTOR__PARENT_STRUCTURE_CONNECTOR;
-
-	/**
-	 * The feature id for the '<em><b>Sink Role Event Channel Sink Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR = CONNECTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Filter Condition Event Channel Sink Connector</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR = CONNECTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Assembly Context Event Channel Sink Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR = CONNECTOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Event Channel Sink Connector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SINK_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSourceConnectorImpl <em>Event Channel Source Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSourceConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getEventChannelSourceConnector()
-	 * @generated
-	 */
-	int EVENT_CHANNEL_SOURCE_CONNECTOR = 16;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SOURCE_CONNECTOR__ID = CONNECTOR__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SOURCE_CONNECTOR__ENTITY_NAME = CONNECTOR__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Parent Structure Connector</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SOURCE_CONNECTOR__PARENT_STRUCTURE_CONNECTOR = CONNECTOR__PARENT_STRUCTURE_CONNECTOR;
-
-	/**
-	 * The feature id for the '<em><b>Source Role Event Channel Source Role</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SOURCE_CONNECTOR__SOURCE_ROLE_EVENT_CHANNEL_SOURCE_ROLE = CONNECTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Assembly Context Event Channel Source Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SOURCE_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SOURCE_CONNECTOR = CONNECTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Event Channel Source Connector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_CHANNEL_SOURCE_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1558,6 +1594,28 @@ public interface CompositionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEventChannel_EventGroup__EventChannel();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel <em>Event Channel Source Connector Event Channel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Event Channel Source Connector Event Channel</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel()
+	 * @see #getEventChannel()
+	 * @generated
+	 */
+	EReference getEventChannel_EventChannelSourceConnector__EventChannel();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel <em>Event Channel Sink Connector Event Channel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Event Channel Sink Connector Event Channel</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel()
+	 * @see #getEventChannel()
+	 * @generated
+	 */
+	EReference getEventChannel_EventChannelSinkConnector__EventChannel();
 
 	/**
 	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getParentStructure__EventChannel <em>Parent Structure Event Channel</em>}'.
@@ -1970,6 +2028,17 @@ public interface CompositionPackage extends EPackage {
 	EReference getEventChannelSinkConnector_AssemblyContext__EventChannelSinkConnector();
 
 	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector <em>Event Channel Event Channel Sink Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Event Channel Event Channel Sink Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector()
+	 * @see #getEventChannelSinkConnector()
+	 * @generated
+	 */
+	EReference getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector <em>Event Channel Source Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2000,6 +2069,17 @@ public interface CompositionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEventChannelSourceConnector_AssemblyContext__EventChannelSourceConnector();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector <em>Event Channel Event Channel Source Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Event Channel Event Channel Source Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector()
+	 * @see #getEventChannelSourceConnector()
+	 * @generated
+	 */
+	EReference getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure <em>Composed Structure</em>}'.
@@ -2284,6 +2364,22 @@ public interface CompositionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL = eINSTANCE.getEventChannel_EventGroup__EventChannel();
+
+		/**
+		 * The meta object literal for the '<em><b>Event Channel Source Connector Event Channel</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL = eINSTANCE.getEventChannel_EventChannelSourceConnector__EventChannel();
+
+		/**
+		 * The meta object literal for the '<em><b>Event Channel Sink Connector Event Channel</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL = eINSTANCE.getEventChannel_EventChannelSinkConnector__EventChannel();
 
 		/**
 		 * The meta object literal for the '<em><b>Parent Structure Event Channel</b></em>' container reference feature.
@@ -2606,6 +2702,14 @@ public interface CompositionPackage extends EPackage {
 		EReference EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR = eINSTANCE.getEventChannelSinkConnector_AssemblyContext__EventChannelSinkConnector();
 
 		/**
+		 * The meta object literal for the '<em><b>Event Channel Event Channel Sink Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR = eINSTANCE.getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSourceConnectorImpl <em>Event Channel Source Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2630,6 +2734,14 @@ public interface CompositionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EVENT_CHANNEL_SOURCE_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SOURCE_CONNECTOR = eINSTANCE.getEventChannelSourceConnector_AssemblyContext__EventChannelSourceConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Event Channel Event Channel Source Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR = eINSTANCE.getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl <em>Composed Structure</em>}' class.

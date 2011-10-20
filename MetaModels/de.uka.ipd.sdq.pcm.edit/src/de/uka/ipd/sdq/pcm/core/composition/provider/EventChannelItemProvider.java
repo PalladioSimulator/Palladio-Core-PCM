@@ -72,6 +72,8 @@ public class EventChannelItemProvider
 			super.getPropertyDescriptors(object);
 
 			addEventGroup__EventChannelPropertyDescriptor(object);
+			addEventChannelSourceConnector__EventChannelPropertyDescriptor(object);
+			addEventChannelSinkConnector__EventChannelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,6 +92,50 @@ public class EventChannelItemProvider
 				 getString("_UI_EventChannel_eventGroup__EventChannel_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EventChannel_eventGroup__EventChannel_feature", "_UI_EventChannel_type"),
 				 CompositionPackage.Literals.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Event Channel Source Connector Event Channel feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEventChannelSourceConnector__EventChannelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EventChannel_eventChannelSourceConnector__EventChannel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventChannel_eventChannelSourceConnector__EventChannel_feature", "_UI_EventChannel_type"),
+				 CompositionPackage.Literals.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Event Channel Sink Connector Event Channel feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEventChannelSinkConnector__EventChannelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EventChannel_eventChannelSinkConnector__EventChannel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventChannel_eventChannelSinkConnector__EventChannel_feature", "_UI_EventChannel_type"),
+				 CompositionPackage.Literals.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL,
 				 true,
 				 false,
 				 true,

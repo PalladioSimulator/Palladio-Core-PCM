@@ -83,6 +83,8 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 		switch (eClass.getClassifierID()) {
 			case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR: return createResourceRequiredDelegationConnector();
 			case CompositionPackage.EVENT_CHANNEL: return createEventChannel();
+			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR: return createEventChannelSourceConnector();
+			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR: return createEventChannelSinkConnector();
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR: return createProvidedDelegationConnector();
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR: return createRequiredDelegationConnector();
 			case CompositionPackage.ASSEMBLY_CONNECTOR: return createAssemblyConnector();
@@ -93,8 +95,6 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 			case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR: return createProvidedInfrastructureDelegationConnector();
 			case CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR: return createRequiredInfrastructureDelegationConnector();
 			case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR: return createRequiredResourceDelegationConnector();
-			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR: return createEventChannelSinkConnector();
-			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR: return createEventChannelSourceConnector();
 			case CompositionPackage.ASSEMBLY_CONTEXT: return createAssemblyContext();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");

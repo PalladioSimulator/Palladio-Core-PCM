@@ -58,10 +58,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedExecutionTime_PCMRandomVariable"
           ordered="false" eType="#//qosannotations/qos_performance/SpecifiedExecutionTime"
           eOpposite="#//qosannotations/qos_performance/SpecifiedExecutionTime/specification_SpecifiedExecutionTime"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyEventConnector__FilterCondition"
-          ordered="false" eType="#//core/composition/AssemblyEventConnector" eOpposite="#//core/composition/AssemblyEventConnector/filterCondition__AssemblyEventConnector"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="eventChannelSinkConnector__FilterCondition"
           ordered="false" eType="#//core/composition/EventChannelSinkConnector" eOpposite="#//core/composition/EventChannelSinkConnector/filterCondition__EventChannelSinkConnector"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyEventConnector__FilterCondition"
+          ordered="false" eType="#//core/composition/AssemblyEventConnector" eOpposite="#//core/composition/AssemblyEventConnector/filterCondition__AssemblyEventConnector"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="loop_LoopIteration" ordered="false"
           eType="#//usagemodel/Loop" eOpposite="#//usagemodel/Loop/loopIteration_Loop"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="openWorkload_PCMRandomVariable"
@@ -146,7 +146,7 @@
             <details key="body" value="self.providedRoles_InterfaceProvidingEntity->forAll(role|self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->forAll(role|self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))&#xD;&#xA;&#xD;&#xA;"/>
+            <details key="documentation" value="This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).&#xA;self.providedRoles_InterfaceProvidingEntity->forAll(role|self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -276,9 +276,35 @@
       <eClassifiers xsi:type="ecore:EClass" name="EventChannel" eSuperTypes="#//core/entity/Entity">
         <eStructuralFeatures xsi:type="ecore:EReference" name="eventGroup__EventChannel"
             ordered="false" lowerBound="1" eType="#//repository/EventGroup"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="eventChannelSourceConnector__EventChannel"
+            ordered="false" upperBound="-1" eType="#//core/composition/EventChannelSourceConnector"
+            eOpposite="#//core/composition/EventChannelSourceConnector/eventChannel__EventChannelSourceConnector"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="eventChannelSinkConnector__EventChannel"
+            ordered="false" upperBound="-1" eType="#//core/composition/EventChannelSinkConnector"
+            eOpposite="#//core/composition/EventChannelSinkConnector/eventChannel__EventChannelSinkConnector"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure__EventChannel"
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
             eOpposite="#//core/composition/ComposedStructure/eventChannel__ComposedStructure"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="EventChannelSourceConnector" eSuperTypes="#//core/composition/Connector">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="sourceRole__EventChannelSourceRole"
+            ordered="false" lowerBound="1" eType="#//repository/SourceRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext__EventChannelSourceConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="eventChannel__EventChannelSourceConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/EventChannel"
+            eOpposite="#//core/composition/EventChannel/eventChannelSourceConnector__EventChannel"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="EventChannelSinkConnector" eSuperTypes="#//core/composition/Connector">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="sinkRole__EventChannelSinkConnector"
+            ordered="false" lowerBound="1" eType="#//repository/SinkRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="filterCondition__EventChannelSinkConnector"
+            ordered="false" eType="#//core/PCMRandomVariable" containment="true" eOpposite="#//core/PCMRandomVariable/eventChannelSinkConnector__FilterCondition"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext__EventChannelSinkConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="eventChannel__EventChannelSinkConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/EventChannel"
+            eOpposite="#//core/composition/EventChannel/eventChannelSinkConnector__EventChannel"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ProvidedDelegationConnector" eSuperTypes="#//core/composition/DelegationConnector">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -427,7 +453,7 @@
             <details key="body" value="self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. &#xD;&#xA;self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. &#xA;self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -450,7 +476,7 @@
             <details key="body" value="self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. &#xD;&#xA;self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. &#xA;self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -472,7 +498,7 @@
             <details key="body" value="self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The Interfaces references by this Connector must match. This means that either &#xD;&#xA;1) the referenced providedRole and the referenced requiredRole refer to the same Interface (first part of the expression) or 2)  the Interface A referenced by the providedRole is a subtype of the Interface B referenced by the requiredRole as transitively defined by the parentInterface__Interface property. That means that either Interface A is the parentInterface__Interface of Interface B, or there is a set of Interfaces &#xD;&#xA;self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole"/>
+            <details key="documentation" value="The Interfaces references by this Connector must match. This means that either &#xD;&#xA;1) the referenced providedRole and the referenced requiredRole refer to the same Interface (first part of the expression) or 2)  the Interface A referenced by the providedRole is a subtype of the Interface B referenced by the requiredRole as transitively defined by the parentInterface__Interface property. That means that either Interface A is the parentInterface__Interface of Interface B, or there is a set of Interfaces &#xA;self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -572,20 +598,6 @@
             ordered="false" lowerBound="1" eType="#//core/entity/ResourceRequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="outerRequiredRole__RequiredResourceDelegationConnector"
             ordered="false" lowerBound="1" eType="#//core/entity/ResourceRequiredRole"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="EventChannelSinkConnector" eSuperTypes="#//core/composition/Connector">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="sinkRole__EventChannelSinkConnector"
-            ordered="false" lowerBound="1" eType="#//repository/SinkRole"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="filterCondition__EventChannelSinkConnector"
-            ordered="false" eType="#//core/PCMRandomVariable" containment="true" eOpposite="#//core/PCMRandomVariable/eventChannelSinkConnector__FilterCondition"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext__EventChannelSinkConnector"
-            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="EventChannelSourceConnector" eSuperTypes="#//core/composition/Connector">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="sourceRole__EventChannelSourceRole"
-            ordered="false" lowerBound="1" eType="#//repository/SourceRole"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext__EventChannelSourceConnector"
-            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="AssemblyContext" eSuperTypes="#//core/entity/Entity">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1515,6 +1527,13 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="eventGroup__SourceRole"
           ordered="false" lowerBound="1" eType="#//repository/EventGroup"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SinkRole" eSuperTypes="#//repository/ProvidedRole">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A SinkRole, extending a ProvidedRole, identifies components that provide an event handler for specific EventTypes. As for SourceRoles, the EventTypes, a SinkRole is compatible with, are defined by the associated EventGroup."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="eventGroup__SinkRole"
+          ordered="false" lowerBound="1" eType="#//repository/EventGroup"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OperationProvidedRole" eSuperTypes="#//repository/ProvidedRole">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents the provided operation interfaces. The PCM uses the association of an operation interface to a component to determine its role. "/>
@@ -1525,13 +1544,6 @@
           <details key="documentation" value="This property represents the corresponding interface that is provided by this role."/>
         </eAnnotations>
       </eStructuralFeatures>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SinkRole" eSuperTypes="#//repository/ProvidedRole">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A SinkRole, extending a ProvidedRole, identifies components that provide an event handler for specific EventTypes. As for SourceRoles, the EventTypes, a SinkRole is compatible with, are defined by the associated EventGroup."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="eventGroup__SinkRole"
-          ordered="false" lowerBound="1" eType="#//repository/EventGroup"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InfrastructureProvidedRole" eSuperTypes="#//repository/ProvidedRole">
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterface__InfrastructureProvidedRole"
@@ -2029,7 +2041,7 @@
           <details key="body" value="not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="ResourceTimeoutFailures are software-induced failure types, but are not annotated to InternalActions (they are only meant&#xD;&#xA;for passive resource timeouts).&#xD;&#xA;not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
+          <details key="documentation" value="ResourceTimeoutFailures are software-induced failure types, but are not annotated to InternalActions (they are only meant&#xD;&#xA;for passive resource timeouts).&#xA;not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2094,7 +2106,7 @@
           <details key="body" value="not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="ResourceTimeoutFailures&amp;nbsp;are&amp;nbsp;software-induced&amp;nbsp;failure&amp;nbsp;types,&amp;nbsp;but&amp;nbsp;are&amp;nbsp;not&amp;nbsp;annotated&amp;nbsp;to&amp;nbsp;system-external&#xD;&#xA;calls&amp;nbsp;(they&amp;nbsp;are&amp;nbsp;only&amp;nbsp;meant&lt;br />&#xD;&#xA;for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).&#xD;&#xA;not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
+          <details key="documentation" value="ResourceTimeoutFailures&amp;nbsp;are&amp;nbsp;software-induced&amp;nbsp;failure&amp;nbsp;types,&amp;nbsp;but&amp;nbsp;are&amp;nbsp;not&amp;nbsp;annotated&amp;nbsp;to&amp;nbsp;system-external&#xD;&#xA;calls&amp;nbsp;(they&amp;nbsp;are&amp;nbsp;only&amp;nbsp;meant&lt;br />&#xD;&#xA;for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).&#xA;not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2487,7 +2499,7 @@
           <details key="body" value="self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="&lt;pre id=&quot;comment_text_0&quot; class=&quot;bz_comment_text&quot;>&#xD;&#xA;check if the signature&#xD;&#xA;(declared in calledService_ExternalService attribute) belongs to the role&#xD;&#xA;(declared in role_ExternalService attribute)&#xD;&#xA;&lt;/pre>&#xD;&#xA;self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)"/>
+          <details key="documentation" value="&lt;pre id=&quot;comment_text_0&quot; class=&quot;bz_comment_text&quot;>&#xD;&#xA;check if the signature&#xD;&#xA;(declared in calledService_ExternalService attribute) belongs to the role&#xD;&#xA;(declared in role_ExternalService attribute)&#xD;&#xA;&lt;/pre>&#xA;self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3242,7 +3254,7 @@
           <details key="body" value="-- Get all AssemblyContexts used by this system, that is &#xD;&#xA;-- 1) the AssemblyContexts directly used in the system and &#xD;&#xA;self.system_Allocation.assemblyContexts__ComposedStructure&#xD;&#xA;-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,&#xD;&#xA;-- we need to get those AssemblyContexts too: Thus, we use a closure here&#xD;&#xA;->union(self.system_Allocation.assemblyContexts__ComposedStructure->closure(&#xD;&#xA;encapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)&#xD;&#xA;.assemblyContexts__ComposedStructure))&#xD;&#xA;--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated &#xD;&#xA;--and if yes, if they are allocated.&#xD;&#xA;->forAll(assemblyCtx|&#xD;&#xA;--AssemblyContexts that contain SubSystems do not need to be allocated&#xD;&#xA;assemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or&#xD;&#xA;--All others need to be allocated. &#xD;&#xA;self.allocationContexts_Allocation->select(allocationCtx|&#xD;&#xA;allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Each Assembly of BasicComponents and CompositeComponents used in the referenced System must be allocated. &#xD;&#xA;&#xD;&#xA;Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocated. If it is not allocated, all BasicComponents and CompositeComponents contained in this SubSystem (also transitively over several nested and not-allocated SubSystems) need to be allocated. &#xD;&#xA;&#xD;&#xA;The constraint is realised wth a closure over the AssemblyContext contained in a ComposedStructure. &#xD;&#xA;-- Get all AssemblyContexts used by this system, that is &#xD;&#xA;-- 1) the AssemblyContexts directly used in the system and &#xD;&#xA;self.system_Allocation.assemblyContexts__ComposedStructure&#xD;&#xA;-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,&#xD;&#xA;-- we need to get those AssemblyContexts too: Thus, we use a closure here&#xD;&#xA;->union(self.system_Allocation.assemblyContexts__ComposedStructure->closure(&#xD;&#xA;encapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)&#xD;&#xA;.assemblyContexts__ComposedStructure))&#xD;&#xA;--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated &#xD;&#xA;--and if yes, if they are allocated.&#xD;&#xA;->forAll(assemblyCtx|&#xD;&#xA;--AssemblyContexts that contain SubSystems do not need to be allocated&#xD;&#xA;assemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or&#xD;&#xA;--All others need to be allocated. &#xD;&#xA;self.allocationContexts_Allocation->select(allocationCtx|&#xD;&#xA;allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)"/>
+          <details key="documentation" value="Each Assembly of BasicComponents and CompositeComponents used in the referenced System must be allocated. &#xD;&#xA;&#xD;&#xA;Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocated. If it is not allocated, all BasicComponents and CompositeComponents contained in this SubSystem (also transitively over several nested and not-allocated SubSystems) need to be allocated. &#xD;&#xA;&#xD;&#xA;The constraint is realised wth a closure over the AssemblyContext contained in a ComposedStructure. &#xA;-- Get all AssemblyContexts used by this system, that is &#xD;&#xA;-- 1) the AssemblyContexts directly used in the system and &#xD;&#xA;self.system_Allocation.assemblyContexts__ComposedStructure&#xD;&#xA;-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,&#xD;&#xA;-- we need to get those AssemblyContexts too: Thus, we use a closure here&#xD;&#xA;->union(self.system_Allocation.assemblyContexts__ComposedStructure->closure(&#xD;&#xA;encapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)&#xD;&#xA;.assemblyContexts__ComposedStructure))&#xD;&#xA;--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated &#xD;&#xA;--and if yes, if they are allocated.&#xD;&#xA;->forAll(assemblyCtx|&#xD;&#xA;--AssemblyContexts that contain SubSystems do not need to be allocated&#xD;&#xA;assemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or&#xD;&#xA;--All others need to be allocated. &#xD;&#xA;self.allocationContexts_Allocation->select(allocationCtx|&#xD;&#xA;allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

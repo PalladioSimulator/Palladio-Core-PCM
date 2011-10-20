@@ -55,8 +55,8 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  *   <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable <em>Loop Action PCM Random Variable</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getGuardedBranchTransition_PCMRandomVariable <em>Guarded Branch Transition PCM Random Variable</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable <em>Specified Execution Time PCM Random Variable</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition <em>Assembly Event Connector Filter Condition</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getEventChannelSinkConnector__FilterCondition <em>Event Channel Sink Connector Filter Condition</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition <em>Assembly Event Connector Filter Condition</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getLoop_LoopIteration <em>Loop Loop Iteration</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getOpenWorkload_PCMRandomVariable <em>Open Workload PCM Random Variable</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getDelay_TimeSpecification <em>Delay Time Specification</em>}</li>

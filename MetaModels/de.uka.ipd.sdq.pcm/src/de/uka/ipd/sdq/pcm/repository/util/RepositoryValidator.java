@@ -316,10 +316,10 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateOperationRequiredRole((OperationRequiredRole)value, diagnostics, context);
 			case RepositoryPackage.SOURCE_ROLE:
 				return validateSourceRole((SourceRole)value, diagnostics, context);
-			case RepositoryPackage.OPERATION_PROVIDED_ROLE:
-				return validateOperationProvidedRole((OperationProvidedRole)value, diagnostics, context);
 			case RepositoryPackage.SINK_ROLE:
 				return validateSinkRole((SinkRole)value, diagnostics, context);
+			case RepositoryPackage.OPERATION_PROVIDED_ROLE:
+				return validateOperationProvidedRole((OperationProvidedRole)value, diagnostics, context);
 			case RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE:
 				return validateInfrastructureProvidedRole((InfrastructureProvidedRole)value, diagnostics, context);
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE:

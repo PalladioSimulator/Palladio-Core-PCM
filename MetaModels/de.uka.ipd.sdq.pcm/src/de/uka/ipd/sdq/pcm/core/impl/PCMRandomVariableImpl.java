@@ -73,8 +73,8 @@ import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
  *   <li>{@link de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl#getLoopAction_PCMRandomVariable <em>Loop Action PCM Random Variable</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl#getGuardedBranchTransition_PCMRandomVariable <em>Guarded Branch Transition PCM Random Variable</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl#getSpecifiedExecutionTime_PCMRandomVariable <em>Specified Execution Time PCM Random Variable</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl#getAssemblyEventConnector__FilterCondition <em>Assembly Event Connector Filter Condition</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl#getEventChannelSinkConnector__FilterCondition <em>Event Channel Sink Connector Filter Condition</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl#getAssemblyEventConnector__FilterCondition <em>Assembly Event Connector Filter Condition</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl#getLoop_LoopIteration <em>Loop Loop Iteration</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl#getOpenWorkload_PCMRandomVariable <em>Open Workload PCM Random Variable</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl#getDelay_TimeSpecification <em>Delay Time Specification</em>}</li>
@@ -904,14 +904,14 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetSpecifiedExecutionTime_PCMRandomVariable((SpecifiedExecutionTime)otherEnd, msgs);
-			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetAssemblyEventConnector__FilterCondition((AssemblyEventConnector)otherEnd, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetEventChannelSinkConnector__FilterCondition((EventChannelSinkConnector)otherEnd, msgs);
+			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetAssemblyEventConnector__FilterCondition((AssemblyEventConnector)otherEnd, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -966,10 +966,10 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 				return basicSetGuardedBranchTransition_PCMRandomVariable(null, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE:
 				return basicSetSpecifiedExecutionTime_PCMRandomVariable(null, msgs);
-			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
-				return basicSetAssemblyEventConnector__FilterCondition(null, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION:
 				return basicSetEventChannelSinkConnector__FilterCondition(null, msgs);
+			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
+				return basicSetAssemblyEventConnector__FilterCondition(null, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION:
 				return basicSetLoop_LoopIteration(null, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE:
@@ -1012,10 +1012,10 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 				return eInternalContainer().eInverseRemove(this, SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION, GuardedBranchTransition.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE:
 				return eInternalContainer().eInverseRemove(this, Qos_performancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME, SpecifiedExecutionTime.class, msgs);
-			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
-				return eInternalContainer().eInverseRemove(this, CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR, AssemblyEventConnector.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION:
 				return eInternalContainer().eInverseRemove(this, CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR, EventChannelSinkConnector.class, msgs);
+			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
+				return eInternalContainer().eInverseRemove(this, CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR, AssemblyEventConnector.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION:
 				return eInternalContainer().eInverseRemove(this, UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, Loop.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE:
@@ -1058,10 +1058,10 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 				return getGuardedBranchTransition_PCMRandomVariable();
 			case CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE:
 				return getSpecifiedExecutionTime_PCMRandomVariable();
-			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
-				return getAssemblyEventConnector__FilterCondition();
 			case CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION:
 				return getEventChannelSinkConnector__FilterCondition();
+			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
+				return getAssemblyEventConnector__FilterCondition();
 			case CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION:
 				return getLoop_LoopIteration();
 			case CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE:
@@ -1113,11 +1113,11 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 			case CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE:
 				setSpecifiedExecutionTime_PCMRandomVariable((SpecifiedExecutionTime)newValue);
 				return;
-			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
-				setAssemblyEventConnector__FilterCondition((AssemblyEventConnector)newValue);
-				return;
 			case CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION:
 				setEventChannelSinkConnector__FilterCondition((EventChannelSinkConnector)newValue);
+				return;
+			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
+				setAssemblyEventConnector__FilterCondition((AssemblyEventConnector)newValue);
 				return;
 			case CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION:
 				setLoop_LoopIteration((Loop)newValue);
@@ -1176,11 +1176,11 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 			case CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE:
 				setSpecifiedExecutionTime_PCMRandomVariable((SpecifiedExecutionTime)null);
 				return;
-			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
-				setAssemblyEventConnector__FilterCondition((AssemblyEventConnector)null);
-				return;
 			case CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION:
 				setEventChannelSinkConnector__FilterCondition((EventChannelSinkConnector)null);
+				return;
+			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
+				setAssemblyEventConnector__FilterCondition((AssemblyEventConnector)null);
 				return;
 			case CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION:
 				setLoop_LoopIteration((Loop)null);
@@ -1230,10 +1230,10 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 				return getGuardedBranchTransition_PCMRandomVariable() != null;
 			case CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE:
 				return getSpecifiedExecutionTime_PCMRandomVariable() != null;
-			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
-				return getAssemblyEventConnector__FilterCondition() != null;
 			case CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION:
 				return getEventChannelSinkConnector__FilterCondition() != null;
+			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:
+				return getAssemblyEventConnector__FilterCondition() != null;
 			case CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION:
 				return getLoop_LoopIteration() != null;
 			case CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE:

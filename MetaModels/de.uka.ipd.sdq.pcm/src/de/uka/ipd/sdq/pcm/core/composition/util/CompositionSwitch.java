@@ -154,6 +154,26 @@ public class CompositionSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR: {
+				EventChannelSourceConnector eventChannelSourceConnector = (EventChannelSourceConnector)theEObject;
+				T result = caseEventChannelSourceConnector(eventChannelSourceConnector);
+				if (result == null) result = caseConnector(eventChannelSourceConnector);
+				if (result == null) result = caseEntity(eventChannelSourceConnector);
+				if (result == null) result = caseIdentifier(eventChannelSourceConnector);
+				if (result == null) result = caseNamedElement(eventChannelSourceConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR: {
+				EventChannelSinkConnector eventChannelSinkConnector = (EventChannelSinkConnector)theEObject;
+				T result = caseEventChannelSinkConnector(eventChannelSinkConnector);
+				if (result == null) result = caseConnector(eventChannelSinkConnector);
+				if (result == null) result = caseEntity(eventChannelSinkConnector);
+				if (result == null) result = caseIdentifier(eventChannelSinkConnector);
+				if (result == null) result = caseNamedElement(eventChannelSinkConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR: {
 				ProvidedDelegationConnector providedDelegationConnector = (ProvidedDelegationConnector)theEObject;
 				T result = caseProvidedDelegationConnector(providedDelegationConnector);
@@ -258,26 +278,6 @@ public class CompositionSwitch<T> {
 				if (result == null) result = caseEntity(requiredResourceDelegationConnector);
 				if (result == null) result = caseIdentifier(requiredResourceDelegationConnector);
 				if (result == null) result = caseNamedElement(requiredResourceDelegationConnector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR: {
-				EventChannelSinkConnector eventChannelSinkConnector = (EventChannelSinkConnector)theEObject;
-				T result = caseEventChannelSinkConnector(eventChannelSinkConnector);
-				if (result == null) result = caseConnector(eventChannelSinkConnector);
-				if (result == null) result = caseEntity(eventChannelSinkConnector);
-				if (result == null) result = caseIdentifier(eventChannelSinkConnector);
-				if (result == null) result = caseNamedElement(eventChannelSinkConnector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR: {
-				EventChannelSourceConnector eventChannelSourceConnector = (EventChannelSourceConnector)theEObject;
-				T result = caseEventChannelSourceConnector(eventChannelSourceConnector);
-				if (result == null) result = caseConnector(eventChannelSourceConnector);
-				if (result == null) result = caseEntity(eventChannelSourceConnector);
-				if (result == null) result = caseIdentifier(eventChannelSourceConnector);
-				if (result == null) result = caseNamedElement(eventChannelSourceConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

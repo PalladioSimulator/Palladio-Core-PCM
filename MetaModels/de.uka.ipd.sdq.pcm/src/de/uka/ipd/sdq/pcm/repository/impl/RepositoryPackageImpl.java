@@ -1460,11 +1460,11 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		sourceRoleEClass = createEClass(SOURCE_ROLE);
 		createEReference(sourceRoleEClass, SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE);
 
-		operationProvidedRoleEClass = createEClass(OPERATION_PROVIDED_ROLE);
-		createEReference(operationProvidedRoleEClass, OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE);
-
 		sinkRoleEClass = createEClass(SINK_ROLE);
 		createEReference(sinkRoleEClass, SINK_ROLE__EVENT_GROUP_SINK_ROLE);
+
+		operationProvidedRoleEClass = createEClass(OPERATION_PROVIDED_ROLE);
+		createEReference(operationProvidedRoleEClass, OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE);
 
 		infrastructureProvidedRoleEClass = createEClass(INFRASTRUCTURE_PROVIDED_ROLE);
 		createEReference(infrastructureProvidedRoleEClass, INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE);
@@ -1553,8 +1553,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		operationInterfaceEClass.getESuperTypes().add(this.getInterface());
 		operationRequiredRoleEClass.getESuperTypes().add(this.getRequiredRole());
 		sourceRoleEClass.getESuperTypes().add(this.getRequiredRole());
-		operationProvidedRoleEClass.getESuperTypes().add(this.getProvidedRole());
 		sinkRoleEClass.getESuperTypes().add(this.getProvidedRole());
+		operationProvidedRoleEClass.getESuperTypes().add(this.getProvidedRole());
 		infrastructureProvidedRoleEClass.getESuperTypes().add(this.getProvidedRole());
 		completeComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
 		providesComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
@@ -1742,11 +1742,11 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEClass(sourceRoleEClass, SourceRole.class, "SourceRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSourceRole_EventGroup__SourceRole(), this.getEventGroup(), null, "eventGroup__SourceRole", null, 1, 1, SourceRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(operationProvidedRoleEClass, OperationProvidedRole.class, "OperationProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOperationProvidedRole_ProvidedInterface__OperationProvidedRole(), this.getOperationInterface(), null, "providedInterface__OperationProvidedRole", null, 1, 1, OperationProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(sinkRoleEClass, SinkRole.class, "SinkRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSinkRole_EventGroup__SinkRole(), this.getEventGroup(), null, "eventGroup__SinkRole", null, 1, 1, SinkRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(operationProvidedRoleEClass, OperationProvidedRole.class, "OperationProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperationProvidedRole_ProvidedInterface__OperationProvidedRole(), this.getOperationInterface(), null, "providedInterface__OperationProvidedRole", null, 1, 1, OperationProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(infrastructureProvidedRoleEClass, InfrastructureProvidedRole.class, "InfrastructureProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInfrastructureProvidedRole_ProvidedInterface__InfrastructureProvidedRole(), this.getInfrastructureInterface(), null, "providedInterface__InfrastructureProvidedRole", null, 1, 1, InfrastructureProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

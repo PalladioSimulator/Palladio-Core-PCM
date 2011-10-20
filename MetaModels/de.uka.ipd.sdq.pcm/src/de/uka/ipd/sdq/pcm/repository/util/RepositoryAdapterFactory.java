@@ -207,12 +207,12 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 				return createSourceRoleAdapter();
 			}
 			@Override
-			public Adapter caseOperationProvidedRole(OperationProvidedRole object) {
-				return createOperationProvidedRoleAdapter();
-			}
-			@Override
 			public Adapter caseSinkRole(SinkRole object) {
 				return createSinkRoleAdapter();
+			}
+			@Override
+			public Adapter caseOperationProvidedRole(OperationProvidedRole object) {
+				return createOperationProvidedRoleAdapter();
 			}
 			@Override
 			public Adapter caseInfrastructureProvidedRole(InfrastructureProvidedRole object) {

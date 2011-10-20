@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.core.composition;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.repository.EventGroup;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +18,8 @@ import de.uka.ipd.sdq.pcm.repository.EventGroup;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventGroup__EventChannel <em>Event Group Event Channel</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel <em>Event Channel Source Connector Event Channel</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel <em>Event Channel Sink Connector Event Channel</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getParentStructure__EventChannel <em>Parent Structure Event Channel</em>}</li>
  * </ul>
  * </p>
@@ -58,6 +61,42 @@ public interface EventChannel extends Entity {
 	 * @generated
 	 */
 	void setEventGroup__EventChannel(EventGroup value);
+
+	/**
+	 * Returns the value of the '<em><b>Event Channel Source Connector Event Channel</b></em>' reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector <em>Event Channel Event Channel Source Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event Channel Source Connector Event Channel</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Event Channel Source Connector Event Channel</em>' reference list.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getEventChannel_EventChannelSourceConnector__EventChannel()
+	 * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
+	 * @model opposite="eventChannel__EventChannelSourceConnector" ordered="false"
+	 * @generated
+	 */
+	EList<EventChannelSourceConnector> getEventChannelSourceConnector__EventChannel();
+
+	/**
+	 * Returns the value of the '<em><b>Event Channel Sink Connector Event Channel</b></em>' reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector <em>Event Channel Event Channel Sink Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Event Channel Sink Connector Event Channel</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Event Channel Sink Connector Event Channel</em>' reference list.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getEventChannel_EventChannelSinkConnector__EventChannel()
+	 * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
+	 * @model opposite="eventChannel__EventChannelSinkConnector" ordered="false"
+	 * @generated
+	 */
+	EList<EventChannelSinkConnector> getEventChannelSinkConnector__EventChannel();
 
 	/**
 	 * Returns the value of the '<em><b>Parent Structure Event Channel</b></em>' container reference.

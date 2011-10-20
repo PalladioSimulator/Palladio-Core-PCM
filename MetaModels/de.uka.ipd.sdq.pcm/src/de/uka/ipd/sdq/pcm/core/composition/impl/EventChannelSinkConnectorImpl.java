@@ -15,6 +15,7 @@ import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
 import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
 import de.uka.ipd.sdq.pcm.repository.SinkRole;
 
@@ -28,6 +29,7 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSinkConnectorImpl#getSinkRole__EventChannelSinkConnector <em>Sink Role Event Channel Sink Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSinkConnectorImpl#getFilterCondition__EventChannelSinkConnector <em>Filter Condition Event Channel Sink Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSinkConnectorImpl#getAssemblyContext__EventChannelSinkConnector <em>Assembly Context Event Channel Sink Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSinkConnectorImpl#getEventChannel__EventChannelSinkConnector <em>Event Channel Event Channel Sink Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +72,16 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 	 * @ordered
 	 */
 	protected AssemblyContext assemblyContext__EventChannelSinkConnector;
+
+	/**
+	 * The cached value of the '{@link #getEventChannel__EventChannelSinkConnector() <em>Event Channel Event Channel Sink Connector</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventChannel__EventChannelSinkConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected EventChannel eventChannel__EventChannelSinkConnector;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -214,6 +226,66 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EventChannel getEventChannel__EventChannelSinkConnector() {
+		if (eventChannel__EventChannelSinkConnector != null && eventChannel__EventChannelSinkConnector.eIsProxy()) {
+			InternalEObject oldEventChannel__EventChannelSinkConnector = (InternalEObject)eventChannel__EventChannelSinkConnector;
+			eventChannel__EventChannelSinkConnector = (EventChannel)eResolveProxy(oldEventChannel__EventChannelSinkConnector);
+			if (eventChannel__EventChannelSinkConnector != oldEventChannel__EventChannelSinkConnector) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR, oldEventChannel__EventChannelSinkConnector, eventChannel__EventChannelSinkConnector));
+			}
+		}
+		return eventChannel__EventChannelSinkConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EventChannel basicGetEventChannel__EventChannelSinkConnector() {
+		return eventChannel__EventChannelSinkConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEventChannel__EventChannelSinkConnector(EventChannel newEventChannel__EventChannelSinkConnector, NotificationChain msgs) {
+		EventChannel oldEventChannel__EventChannelSinkConnector = eventChannel__EventChannelSinkConnector;
+		eventChannel__EventChannelSinkConnector = newEventChannel__EventChannelSinkConnector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR, oldEventChannel__EventChannelSinkConnector, newEventChannel__EventChannelSinkConnector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEventChannel__EventChannelSinkConnector(EventChannel newEventChannel__EventChannelSinkConnector) {
+		if (newEventChannel__EventChannelSinkConnector != eventChannel__EventChannelSinkConnector) {
+			NotificationChain msgs = null;
+			if (eventChannel__EventChannelSinkConnector != null)
+				msgs = ((InternalEObject)eventChannel__EventChannelSinkConnector).eInverseRemove(this, CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL, EventChannel.class, msgs);
+			if (newEventChannel__EventChannelSinkConnector != null)
+				msgs = ((InternalEObject)newEventChannel__EventChannelSinkConnector).eInverseAdd(this, CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL, EventChannel.class, msgs);
+			msgs = basicSetEventChannel__EventChannelSinkConnector(newEventChannel__EventChannelSinkConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR, newEventChannel__EventChannelSinkConnector, newEventChannel__EventChannelSinkConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -221,6 +293,10 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 				if (filterCondition__EventChannelSinkConnector != null)
 					msgs = ((InternalEObject)filterCondition__EventChannelSinkConnector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR, null, msgs);
 				return basicSetFilterCondition__EventChannelSinkConnector((PCMRandomVariable)otherEnd, msgs);
+			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR:
+				if (eventChannel__EventChannelSinkConnector != null)
+					msgs = ((InternalEObject)eventChannel__EventChannelSinkConnector).eInverseRemove(this, CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL, EventChannel.class, msgs);
+				return basicSetEventChannel__EventChannelSinkConnector((EventChannel)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -235,6 +311,8 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 		switch (featureID) {
 			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR:
 				return basicSetFilterCondition__EventChannelSinkConnector(null, msgs);
+			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR:
+				return basicSetEventChannel__EventChannelSinkConnector(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -255,6 +333,9 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR:
 				if (resolve) return getAssemblyContext__EventChannelSinkConnector();
 				return basicGetAssemblyContext__EventChannelSinkConnector();
+			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR:
+				if (resolve) return getEventChannel__EventChannelSinkConnector();
+				return basicGetEventChannel__EventChannelSinkConnector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -275,6 +356,9 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 				return;
 			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR:
 				setAssemblyContext__EventChannelSinkConnector((AssemblyContext)newValue);
+				return;
+			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR:
+				setEventChannel__EventChannelSinkConnector((EventChannel)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -297,6 +381,9 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR:
 				setAssemblyContext__EventChannelSinkConnector((AssemblyContext)null);
 				return;
+			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR:
+				setEventChannel__EventChannelSinkConnector((EventChannel)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -315,6 +402,8 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 				return filterCondition__EventChannelSinkConnector != null;
 			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR:
 				return assemblyContext__EventChannelSinkConnector != null;
+			case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR:
+				return eventChannel__EventChannelSinkConnector != null;
 		}
 		return super.eIsSet(featureID);
 	}

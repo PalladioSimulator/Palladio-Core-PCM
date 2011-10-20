@@ -194,6 +194,16 @@ public class SystemItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
+				 CompositionFactory.eINSTANCE.createEventChannelSourceConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
+				 CompositionFactory.eINSTANCE.createEventChannelSinkConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
 				 CompositionFactory.eINSTANCE.createProvidedDelegationConnector()));
 
 		newChildDescriptors.add
@@ -243,23 +253,13 @@ public class SystemItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createEventChannelSinkConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createEventChannelSourceConnector()));
+				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createSinkRole()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
 				 RepositoryFactory.eINSTANCE.createOperationProvidedRole()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
-				 RepositoryFactory.eINSTANCE.createSinkRole()));
 
 		newChildDescriptors.add
 			(createChildParameter

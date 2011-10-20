@@ -67,6 +67,7 @@ public class EventChannelSourceConnectorItemProvider
 
 			addSourceRole__EventChannelSourceRolePropertyDescriptor(object);
 			addAssemblyContext__EventChannelSourceConnectorPropertyDescriptor(object);
+			addEventChannel__EventChannelSourceConnectorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -107,6 +108,28 @@ public class EventChannelSourceConnectorItemProvider
 				 getString("_UI_EventChannelSourceConnector_assemblyContext__EventChannelSourceConnector_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EventChannelSourceConnector_assemblyContext__EventChannelSourceConnector_feature", "_UI_EventChannelSourceConnector_type"),
 				 CompositionPackage.Literals.EVENT_CHANNEL_SOURCE_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SOURCE_CONNECTOR,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Event Channel Event Channel Source Connector feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEventChannel__EventChannelSourceConnectorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EventChannelSourceConnector_eventChannel__EventChannelSourceConnector_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventChannelSourceConnector_eventChannel__EventChannelSourceConnector_feature", "_UI_EventChannelSourceConnector_type"),
+				 CompositionPackage.Literals.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR,
 				 true,
 				 false,
 				 true,

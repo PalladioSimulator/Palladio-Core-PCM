@@ -110,8 +110,8 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 			case RepositoryPackage.OPERATION_INTERFACE: return createOperationInterface();
 			case RepositoryPackage.OPERATION_REQUIRED_ROLE: return createOperationRequiredRole();
 			case RepositoryPackage.SOURCE_ROLE: return createSourceRole();
-			case RepositoryPackage.OPERATION_PROVIDED_ROLE: return createOperationProvidedRole();
 			case RepositoryPackage.SINK_ROLE: return createSinkRole();
+			case RepositoryPackage.OPERATION_PROVIDED_ROLE: return createOperationProvidedRole();
 			case RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE: return createInfrastructureProvidedRole();
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE: return createCompleteComponentType();
 			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();

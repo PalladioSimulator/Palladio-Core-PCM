@@ -526,6 +526,8 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	public void dispose() {
 		if (resourceRequiredDelegationConnectorItemProvider != null) resourceRequiredDelegationConnectorItemProvider.dispose();
 		if (eventChannelItemProvider != null) eventChannelItemProvider.dispose();
+		if (eventChannelSourceConnectorItemProvider != null) eventChannelSourceConnectorItemProvider.dispose();
+		if (eventChannelSinkConnectorItemProvider != null) eventChannelSinkConnectorItemProvider.dispose();
 		if (providedDelegationConnectorItemProvider != null) providedDelegationConnectorItemProvider.dispose();
 		if (requiredDelegationConnectorItemProvider != null) requiredDelegationConnectorItemProvider.dispose();
 		if (assemblyConnectorItemProvider != null) assemblyConnectorItemProvider.dispose();
@@ -536,8 +538,6 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 		if (providedInfrastructureDelegationConnectorItemProvider != null) providedInfrastructureDelegationConnectorItemProvider.dispose();
 		if (requiredInfrastructureDelegationConnectorItemProvider != null) requiredInfrastructureDelegationConnectorItemProvider.dispose();
 		if (requiredResourceDelegationConnectorItemProvider != null) requiredResourceDelegationConnectorItemProvider.dispose();
-		if (eventChannelSinkConnectorItemProvider != null) eventChannelSinkConnectorItemProvider.dispose();
-		if (eventChannelSourceConnectorItemProvider != null) eventChannelSourceConnectorItemProvider.dispose();
 		if (assemblyContextItemProvider != null) assemblyContextItemProvider.dispose();
 	}
 

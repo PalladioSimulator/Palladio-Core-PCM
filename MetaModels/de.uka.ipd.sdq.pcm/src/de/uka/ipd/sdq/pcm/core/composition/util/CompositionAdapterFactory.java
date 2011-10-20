@@ -118,6 +118,14 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 				return createEventChannelAdapter();
 			}
 			@Override
+			public Adapter caseEventChannelSourceConnector(EventChannelSourceConnector object) {
+				return createEventChannelSourceConnectorAdapter();
+			}
+			@Override
+			public Adapter caseEventChannelSinkConnector(EventChannelSinkConnector object) {
+				return createEventChannelSinkConnectorAdapter();
+			}
+			@Override
 			public Adapter caseProvidedDelegationConnector(ProvidedDelegationConnector object) {
 				return createProvidedDelegationConnectorAdapter();
 			}
@@ -156,14 +164,6 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRequiredResourceDelegationConnector(RequiredResourceDelegationConnector object) {
 				return createRequiredResourceDelegationConnectorAdapter();
-			}
-			@Override
-			public Adapter caseEventChannelSinkConnector(EventChannelSinkConnector object) {
-				return createEventChannelSinkConnectorAdapter();
-			}
-			@Override
-			public Adapter caseEventChannelSourceConnector(EventChannelSourceConnector object) {
-				return createEventChannelSourceConnectorAdapter();
 			}
 			@Override
 			public Adapter caseAssemblyContext(AssemblyContext object) {

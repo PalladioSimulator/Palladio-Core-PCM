@@ -25,7 +25,11 @@
     <details key="SUPER_CLASS_ORDER" value="IGNORE"/>
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/111/pcm.uml</foreignModel>
+  <foreignModel>file:/Users/christophrathfelder/temp/identifier.uml</foreignModel>
+  <foreignModel>file:/Users/christophrathfelder/temp/pcm.uml</foreignModel>
+  <foreignModel>file:/Users/christophrathfelder/temp/ProbabilityFunction.uml</foreignModel>
+  <foreignModel>file:/Users/christophrathfelder/temp/stoex.uml</foreignModel>
+  <foreignModel>file:/Users/christophrathfelder/temp/Units.uml</foreignModel>
   <modelPluginVariables>OCL=org.eclipse.ocl</modelPluginVariables>
   <modelPluginVariables>EMF_OCL=org.eclipse.ocl.ecore</modelPluginVariables>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Pcm" basePackage="de.uka.ipd.sdq"
@@ -53,9 +57,9 @@
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/PCMRandomVariable/specifiedExecutionTime_PCMRandomVariable"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
-            createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/PCMRandomVariable/assemblyEventConnector__FilterCondition"/>
-        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/PCMRandomVariable/eventChannelSinkConnector__FilterCondition"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/PCMRandomVariable/assemblyEventConnector__FilterCondition"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/PCMRandomVariable/loop_LoopIteration"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
@@ -152,8 +156,30 @@
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//core/composition/EventChannel">
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
               propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannel/eventGroup__EventChannel"/>
+          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannel/eventChannelSourceConnector__EventChannel"/>
+          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannel/eventChannelSinkConnector__EventChannel"/>
           <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
               createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannel/parentStructure__EventChannel"/>
+        </genClasses>
+        <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//core/composition/EventChannelSourceConnector">
+          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSourceConnector/sourceRole__EventChannelSourceRole"/>
+          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSourceConnector/assemblyContext__EventChannelSourceConnector"/>
+          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSourceConnector/eventChannel__EventChannelSourceConnector"/>
+        </genClasses>
+        <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//core/composition/EventChannelSinkConnector">
+          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSinkConnector/sinkRole__EventChannelSinkConnector"/>
+          <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+              createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSinkConnector/filterCondition__EventChannelSinkConnector"/>
+          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSinkConnector/assemblyContext__EventChannelSinkConnector"/>
+          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSinkConnector/eventChannel__EventChannelSinkConnector"/>
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//core/composition/ProvidedDelegationConnector">
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -274,20 +300,6 @@
               propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredResourceDelegationConnector/innerRequiredRole__RequiredResourceDelegationConnector"/>
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
               propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredResourceDelegationConnector/outerRequiredRole__RequiredResourceDelegationConnector"/>
-        </genClasses>
-        <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//core/composition/EventChannelSinkConnector">
-          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSinkConnector/sinkRole__EventChannelSinkConnector"/>
-          <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-              createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSinkConnector/filterCondition__EventChannelSinkConnector"/>
-          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSinkConnector/assemblyContext__EventChannelSinkConnector"/>
-        </genClasses>
-        <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//core/composition/EventChannelSourceConnector">
-          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSourceConnector/sourceRole__EventChannelSourceRole"/>
-          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/EventChannelSourceConnector/assemblyContext__EventChannelSourceConnector"/>
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//core/composition/AssemblyContext">
           <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
@@ -620,13 +632,13 @@
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/SourceRole/eventGroup__SourceRole"/>
       </genClasses>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//repository/OperationProvidedRole">
-        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-            propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/OperationProvidedRole/providedInterface__OperationProvidedRole"/>
-      </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//repository/SinkRole">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/SinkRole/eventGroup__SinkRole"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//repository/OperationProvidedRole">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/OperationProvidedRole/providedInterface__OperationProvidedRole"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//repository/InfrastructureProvidedRole">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
