@@ -36,6 +36,9 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
  * @author Dominik Ernst
  */
 public abstract class JFreeChartEditor extends AbstractEditor {
+	
+	private static final String TITLE_KEY = "editorTitle";
+
 	/** Logger for this class */
 	private static Logger logger = Logger.getLogger(JFreeChartEditor.class
 			.getCanonicalName());

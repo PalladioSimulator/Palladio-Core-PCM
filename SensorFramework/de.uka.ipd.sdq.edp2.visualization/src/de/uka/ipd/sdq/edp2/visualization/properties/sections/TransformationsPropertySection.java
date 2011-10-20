@@ -113,6 +113,7 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 			// NPE may happen if the properties view is restored or opened while
 			// the editor is still or already closed
 		} catch (NullPointerException npe) {
+			
 			logger.log(Level.SEVERE,
 					"Tried to open properties view without an active editor!");
 			throw new RuntimeException();

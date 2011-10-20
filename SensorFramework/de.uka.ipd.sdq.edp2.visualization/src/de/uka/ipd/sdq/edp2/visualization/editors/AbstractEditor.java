@@ -14,6 +14,7 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableEditor;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.internal.presentations.UpdatingActionContributionItem;
 import org.eclipse.ui.part.EditorPart;
@@ -127,7 +128,6 @@ public abstract class AbstractEditor extends EditorPart implements
 	 * @see org.eclipse.ui.IPersistable#saveState(org.eclipse.ui.IMemento)
 	 */
 	public void saveState(IMemento memento) {
-
 	}
 
 	/*
@@ -137,7 +137,6 @@ public abstract class AbstractEditor extends EditorPart implements
 	@Override
 	public void setFocus() {
 		// TODO Auto-generated method stub
-
 	}
 
 	/*
