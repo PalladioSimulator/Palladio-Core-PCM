@@ -217,8 +217,8 @@ public abstract class AbstractEditor extends EditorPart implements
 	 * This editor can be set to receive another Input.
 	 * 
 	 * @param input
-	 *            the new {@link IEditorInput}.
+	 *            the new {@link IDataSink}.
 	 */
-	public abstract void changeInput(IEditorInput input);
+	public abstract void changeInput(IDataSink input);
 
 }

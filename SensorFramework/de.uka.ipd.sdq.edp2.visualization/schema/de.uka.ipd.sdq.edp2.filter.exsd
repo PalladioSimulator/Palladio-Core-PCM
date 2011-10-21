@@ -69,14 +69,7 @@
                </appinfo>
             </annotation>
          </attribute>
-         <attribute name="properties" type="string">
-            <annotation>
-               <documentation>
-                  
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="wizard" type="string">
+         <attribute name="wizard" type="string" use="required">
             <annotation>
                <documentation>
                   
@@ -84,6 +77,13 @@
                <appinfo>
                   <meta.attribute kind="java" basedOn=":de.uka.ipd.sdq.edp2.visualization.wizards.IFilterWizard"/>
                </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
             </annotation>
          </attribute>
       </complexType>

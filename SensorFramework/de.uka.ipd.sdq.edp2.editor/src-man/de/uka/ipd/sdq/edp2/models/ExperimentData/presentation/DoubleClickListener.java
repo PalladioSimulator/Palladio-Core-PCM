@@ -21,9 +21,7 @@ import de.uka.ipd.sdq.edp2.visualization.IAdapter;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 import de.uka.ipd.sdq.edp2.visualization.dialogs.SelectVisualizationDialog;
 import de.uka.ipd.sdq.edp2.visualization.dialogs.SelectVisualizationLabelProvider;
-import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput;
-import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput;
 import de.uka.ipd.sdq.edp2.visualization.wizards.AdapterWizard;
 
@@ -67,7 +65,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 
 				Object result = results[0];
 				IEditorInput input = null;
-				if (result instanceof ScatterPlotEditor) {
+				if (result instanceof ScatterPlotInput) {
 					input = new ScatterPlotInput(source);
 					try {
 						IWorkbenchPage page = EDP2EditorPlugin
@@ -77,14 +75,14 @@ public class DoubleClickListener implements IDoubleClickListener {
 								.getActivePage();
 						IEditorPart editor = page
 								.openEditor(input,
-										"de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlot");
+										"de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor");
 						page.addPartListener(new PartEventListener());
 					} catch (PartInitException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				} else {
-					if (result instanceof HistogramEditor) {
+					if (result instanceof HistogramEditorInput) {
 						// HistogramFrequencyAdapter adapter = new
 						// HistogramFrequencyAdapter(source);
 						// input = new HistogramEditorInput(adapter);
@@ -105,7 +103,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 										.getActiveWorkbenchWindow()
 										.getActivePage()
 										.openEditor(input,
-												"de.uka.ipd.sdq.edp2.visualization.editors.Histogram");
+												"de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor");
 							} catch (PartInitException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -114,7 +112,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 
 					}
 				}
-
+	
 			} else {
 				throw new RuntimeException("Empty Measurements!");
 			}
@@ -125,8 +123,8 @@ public class DoubleClickListener implements IDoubleClickListener {
 	private Object[] getPossibleVisualizations(RawMeasurements measurement) {
 		ArrayList<Object> list = getRegisteredVisualizations();
 		list.clear();
-		list.add(new ScatterPlotEditor());
-		list.add(new HistogramEditor());
+		list.add(new ScatterPlotInput());
+		list.add(new HistogramEditorInput());
 		return (list.toArray());
 	}
 

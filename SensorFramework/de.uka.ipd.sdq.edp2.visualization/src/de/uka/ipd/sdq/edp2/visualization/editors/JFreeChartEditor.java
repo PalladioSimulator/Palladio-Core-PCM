@@ -35,9 +35,16 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
  * 
  * @author Dominik Ernst
  */
-public abstract class JFreeChartEditor extends AbstractEditor {
+public class JFreeChartEditor extends AbstractEditor {
 	
-	private static final String TITLE_KEY = "editorTitle";
+	/** This editor's ID, e.g. for Referencing in extension points. */
+	public static final String EDITOR_ID = "de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor";
+	/**
+	 * Title of this Editor.
+	 */
+	private final static String EDITOR_NAME = "JFreeChartEditor";
+	
+	private static final String TITLE_KEY = "chartTitle";
 
 	/** Logger for this class */
 	private static Logger logger = Logger.getLogger(JFreeChartEditor.class
@@ -47,6 +54,19 @@ public abstract class JFreeChartEditor extends AbstractEditor {
 	protected Composite parent;
 	/** The container in which a {@link JFreeChart} is contained. */
 	protected ChartComposite chartContainer;
+	
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
+	 */
+	@Override
+	public void createPartControl(Composite parent) {
+		this.parent = parent;
+		setPartName(EDITOR_NAME);
+		JFreeChart chart = ((JFreeChartEditorInput) getEditorInput()).createChart();
+		chartContainer = new ChartComposite(parent, SWT.NONE, chart, true);
+		getSite().setSelectionProvider(createSelectionProvider());
+	}
 	
 	/**
 	 * Method, which describes the default updating process of the current chart.
@@ -61,7 +81,7 @@ public abstract class JFreeChartEditor extends AbstractEditor {
 	 * (non-Javadoc)
 	 * @see de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor#changeInput(org.eclipse.ui.IEditorInput)
 	 */
-	public void changeInput(IEditorInput newInput) {
+	public void changeInput(IDataSink newInput) {
 		setInput(input);
 		updateChart();
 	}

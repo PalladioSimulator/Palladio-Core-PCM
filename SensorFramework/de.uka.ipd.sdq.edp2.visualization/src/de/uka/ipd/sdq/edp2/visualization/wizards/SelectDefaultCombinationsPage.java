@@ -210,6 +210,8 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 				throw new RuntimeException();
 			}
 		}
+		//get the list of registered visualizations - again, assume that the typical visualizations are registered plugins
+		
 		return null;
 	}
 

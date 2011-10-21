@@ -4,20 +4,15 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -28,18 +23,13 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
-import org.eclipse.ui.views.properties.tabbed.ITabbedPropertyConstants;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
-import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
 import de.uka.ipd.sdq.edp2.visualization.Activator;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
-import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotEditor;
-import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput;
 
 /**
  * GUI controls for displaying options of {@link AbstractEditor}s. Shows and
@@ -135,7 +125,7 @@ public class DisplayPropertySection extends AbstractPropertySection {
 		TableViewerColumn valueColumn = new TableViewerColumn(
 				propertyTableViewer, SWT.NONE);
 		valueColumn.getColumn().setText("Value");
-
+		
 		// the editor for the cells
 		final TableEditor tableEditor = new TableEditor(propertyTable);
 		tableEditor.horizontalAlignment = SWT.LEFT;
@@ -197,7 +187,19 @@ public class DisplayPropertySection extends AbstractPropertySection {
 
 		// get the current chart's settings and add them to the table
 		refreshSettingsTable();
+		
 
+		/* This is the predefined Editor for JFreeChart properties in Swing - maybe usable??
+		Composite swtAwtComponent = new Composite(parent, SWT.EMBEDDED);
+		Frame frame = SWT_AWT.new_Frame( swtAwtComponent );
+		Panel parentPanel = new Panel();
+		frame.add(parentPanel);
+		ChartEditorFactory editorFactory = new DefaultChartEditorFactory();
+		ChartEditor chartEditor = editorFactory.createEditor(((JFreeChartEditorInput) getInput()).getChart());
+		
+		parentPanel.add((Component) chartEditor);
+		*/
+		
 	}
 
 	/**
