@@ -451,7 +451,7 @@ public class SimuComAnalysisResult extends AbstractPerformanceAnalysisResult imp
 	}
 
 	private ConfidenceInterval determineConfidenceInterval() throws AnalysisFailedException {
-		ConfidenceInterval ci;
+		ConfidenceInterval ci = null;
 		SensorAndMeasurements meas = getUsageScenarioMeasurements();
 		Sensor sensor = meas.getSensor();
 		if (sensor instanceof TimeSpanSensor){
@@ -463,7 +463,8 @@ public class SimuComAnalysisResult extends AbstractPerformanceAnalysisResult imp
 			}
 			if (statisticChecker.hasValidBatches()){
 				ci = new SampleMeanEstimator().estimateConfidence(statisticChecker.getBatchMeans(),this.alpha);
-			} else {
+			} 
+			if (ci == null) {
 				ci = new ConfidenceInterval(Double.NaN, 0, Double.POSITIVE_INFINITY, this.alpha);
 			}
 			return ci;

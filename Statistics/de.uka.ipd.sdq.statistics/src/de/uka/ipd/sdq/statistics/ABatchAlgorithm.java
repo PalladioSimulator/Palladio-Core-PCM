@@ -12,9 +12,9 @@ import java.util.List;
  */
 public abstract class ABatchAlgorithm implements IBatchAlgorithm {
 
-	protected List<Batch> batches;
+	protected List<Batch> batches = new ArrayList<Batch>();
 
-	private boolean valid;
+	private boolean valid = false;
 
 	@Override
 	public void offerSamples(List<Double> values) {

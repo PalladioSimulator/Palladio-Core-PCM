@@ -3,7 +3,9 @@ package de.uka.ipd.sdq.simucomframework;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.statistics.IBatchAlgorithm;
 import de.uka.ipd.sdq.statistics.PhiMixingBatchAlgorithm;
+import de.uka.ipd.sdq.statistics.StaticBatchAlgorithm;
 import de.uka.ipd.sdq.statistics.estimation.SampleMeanEstimator;
 
 /**
@@ -51,11 +53,21 @@ public class ExperimentRunner {
 		model.getSimulationControl().addStopCondition(new MaxMeasurementsStopCondition(model));
 		
 		// Add confidence stop condition if configured
-		if (model.getConfig().isUseConfidence()) {
-			double level = model.getConfig().getConfidenceLevel() / 100.0;
-			double halfWidth = model.getConfig().getConfidenceHalfWidth() / 100.0;
+		if (model.getConfiguration().isUseConfidence()) {
+			double level = model.getConfiguration().getConfidenceLevel() / 100.0;
+			double halfWidth = model.getConfiguration().getConfidenceHalfWidth() / 100.0;
+			
+			IBatchAlgorithm batchAlgorithm = null;
+			if (model.getConfiguration().isAutomaticBatches() ){
+				batchAlgorithm = new PhiMixingBatchAlgorithm();
+			} else {
+				int batchSize = model.getConfiguration().getBatchSize();
+				int minNumberOfBatches = model.getConfiguration().getMinNumberOfBatches();
+				batchAlgorithm = new StaticBatchAlgorithm(batchSize, minNumberOfBatches);
+			}
+			
 			model.getSimulationControl().addStopCondition(
-					new ConfidenceStopCondition(model, new PhiMixingBatchAlgorithm(),
+					new ConfidenceStopCondition(model, batchAlgorithm,
 							new SampleMeanEstimator(), level, halfWidth));
 	}
 }

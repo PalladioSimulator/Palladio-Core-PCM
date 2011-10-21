@@ -69,7 +69,6 @@ public class PhiMixingBatchAlgorithm extends ABatchAlgorithm {
 		logger = Logger.getLogger("de.uka.ipd.sdq.statistics.PhiMixingBatchAlgorithm.log");
 
 		qiSamples = new QuasiIndependentSampleSequence();
-		batches = new ArrayList<Batch>();
 
 		state = new Iteration0();
 	}

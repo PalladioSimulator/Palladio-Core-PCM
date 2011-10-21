@@ -68,11 +68,11 @@ public class ConfidenceStopCondition extends SimCondition<SimuComModel> implemen
 		this.confidenceLevel = confidenceLevel;
 		this.halfWidth = halfWidth;
 
-		if (model.getConfig()
+		if (model.getConfiguration()
 				.getConfidenceModelElementName() == null){
 			throw new RuntimeException("SimuCom tried to set up a ConfidenceStopCondition, but no usage scenario name was given to measure the confidence for.");
 		}
-		this.usageScenarioName = model.getConfig()
+		this.usageScenarioName = model.getConfiguration()
 				.getConfidenceModelElementName();
 
 		initialize();
@@ -100,30 +100,32 @@ public class ConfidenceStopCondition extends SimCondition<SimuComModel> implemen
 			ConfidenceInterval ci = estimator.estimateConfidence(
 					batchAlgorithm.getBatchMeans(), confidenceLevel);
 
-			// construct target confidence interval
-			ConfidenceInterval targetCI = new ConfidenceInterval(ci
-					.getMean(), halfWidth, confidenceLevel);
+			if (ci != null){
+				// construct target confidence interval
+				ConfidenceInterval targetCI = new ConfidenceInterval(ci
+						.getMean(), halfWidth, confidenceLevel);
 
-			if (targetCI.contains(ci)) {
-				logger.info("Requested confidence reached.");
-				confidenceReached = true;
-				this.confidence = ci;
+				if (targetCI.contains(ci)) {
+					logger.info("Requested confidence reached.");
+					confidenceReached = true;
+					this.confidence = ci;
 
-				// request another batch in order to proceed with improving
-				// confidence interval's half-width until the simulation
-				// actually stops.
-				minBatches = batchAlgorithm.getBatchMeans().size() + 1;
-			} else {
-				logger.info("Requested confidence not yet reached.");
+					// request another batch in order to proceed with improving
+					// confidence interval's half-width until the simulation
+					// actually stops.
+					minBatches = batchAlgorithm.getBatchMeans().size() + 1;
+				} else {
+					logger.info("Requested confidence not yet reached.");
 
-				// request another batch in order to reduce the confidence
-				// interval's half-width
-				minBatches = batchAlgorithm.getBatchMeans().size() + 1;
+					// request another batch in order to reduce the confidence
+					// interval's half-width
+					minBatches = batchAlgorithm.getBatchMeans().size() + 1;
+				}
+				logger.info("Current confidence interval: Mean " + ci.getMean()
+						+ ", " + confidenceLevel * 100
+						+ "% Confidence Interval " + "[" + ci.getLowerBound()
+						+ "," + ci.getUpperBound() + "]");
 			}
-			logger.info("Current confidence Inerval: Mean " + ci.getMean()
-					+ ", " + confidenceLevel * 100
-					+ "% Confidence Interval " + "[" + ci.getLowerBound()
-					+ "," + ci.getUpperBound() + "]");
 		}
 	}
 

@@ -94,7 +94,8 @@ public class ConfidenceInterval {
 	 *         false else.
 	 */
 	public boolean contains(ConfidenceInterval ci) {
-		return this.lowerBound <= ci.getLowerBound()
+		return ci != null
+				&& this.lowerBound <= ci.getLowerBound()
 				&& this.upperBound >= ci.getUpperBound();
 	}
 

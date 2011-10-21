@@ -48,17 +48,28 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 	public static final Integer DEFAULT_CONFIDENCE_LEVEL = 95;
 	/** Default value for the half width of the stop condition confidence.*/
 	public static final Integer DEFAULT_CONFIDENCE_HALFWIDTH = 10;
+	/** Default value for the automated batch calculation */
+	public static final Boolean DEFAULT_CONFIDENCE_USE_AUTOMATIC_BATCHES = true;
+	/** default batch size, arbitrarily chosen */
+	public static final Integer DEFAULT_CONFIDENCE_BATCH_SIZE = 200;
+	/** default minimum number of batches, arbitrarily chosen */
+	public static final Integer DEFAULT_CONFIDENCE_MIN_NUMBER_OF_BATCHES = 60;
+
+	
 
 	/** SimuCom configuration tab */
-	public static String EXPERIMENT_RUN = "experimentRun";
-	public static String SIMULATION_TIME = "simTime";
-	public static String SIMULATE_FAILURES = "simulateFailures";
-	public static String SIMULATE_LINKING_RESOURCES = "simulateLinkingResources";
-	public static String USE_CONFIDENCE = "useConfidenceStopCondition";
-	public static String CONFIDENCE_LEVEL = "confidenceLevel";
-	public static String CONFIDENCE_HALFWIDTH = "confidenceHalfWidth";
-	public static String CONFIDENCE_MODELELEMENT_URI = "confidenceModelElementURI";
-	public static String CONFIDENCE_MODELELEMENT_NAME = "confidenceModelElementName";
+	public static final String EXPERIMENT_RUN = "experimentRun";
+	public static final String SIMULATION_TIME = "simTime";
+	public static final String SIMULATE_FAILURES = "simulateFailures";
+	public static final String SIMULATE_LINKING_RESOURCES = "simulateLinkingResources";
+	public static final String USE_CONFIDENCE = "useConfidenceStopCondition";
+	public static final String CONFIDENCE_LEVEL = "confidenceLevel";
+	public static final String CONFIDENCE_HALFWIDTH = "confidenceHalfWidth";
+	public static final String CONFIDENCE_MODELELEMENT_URI = "confidenceModelElementURI";
+	public static final String CONFIDENCE_MODELELEMENT_NAME = "confidenceModelElementName";
+	public static final String CONFIDENCE_USE_AUTOMATIC_BATCHES = "confidenceUseAutomaticBatches";
+	public static final String CONFIDENCE_BATCH_SIZE = "confidenceBatchSize";
+	public static final String CONFIDENCE_MIN_NUMBER_OF_BATCHES = "confidenceMinNumberOfBatches";
 
 	/** configuration options */
 	private String nameExperimentRun;
@@ -74,6 +85,10 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 	private int confidenceHalfWidth = 0;
 	private URI confidenceModelElementURI;
 	private String confidenceModelElementName;
+	/* next three are batch algorithm settings */
+	private boolean automaticBatches;
+	private int batchSize;
+	private int minNumberOfBatches;
 	private String recorderName;
 	private IRecorderConfiguration recorderConfig;
 	private ExperimentRunDescriptor descriptor = null;
@@ -81,6 +96,9 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 	// SimuCom extensions can also provide extension to the SimuCom configuration.
 	// This map stores the extension configurations.
 	private HashMap<String, SimuComConfigExtension> simuComConfigExtensions = null;
+
+	
+
 
 	/**
 	 * @param configuration a map which maps configuration option IDs to their values.
@@ -129,6 +147,16 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 				this.confidenceModelElementURI = URI
 						.createURI((String) configuration
 								.get(CONFIDENCE_MODELELEMENT_URI));
+				
+				this.automaticBatches = (Boolean) configuration.get(CONFIDENCE_USE_AUTOMATIC_BATCHES);
+				if (!this.automaticBatches){
+					//only need batch settings if they are manually defined
+					this.batchSize = Integer.valueOf((String) configuration
+							.get(CONFIDENCE_BATCH_SIZE));
+					this.minNumberOfBatches = Integer.valueOf((String) configuration
+							.get(CONFIDENCE_MIN_NUMBER_OF_BATCHES));
+					
+				}
 
 			}
 
@@ -314,6 +342,30 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 			logger.fatal("Could not clone configuration.", e);
 		}
 		return config;
+	}
+	
+	public void setAutomaticBatches(boolean automaticBatches) {
+		this.automaticBatches = automaticBatches;
+	}
+
+	public boolean isAutomaticBatches() {
+		return this.automaticBatches;
+	}
+
+	public void getBatchSize(int batchSize) {
+		this.batchSize = batchSize;
+	}
+	
+	public int getBatchSize() {
+		return this.batchSize;
+	}
+	
+	public void setMinNumberOfBatches(int minNumberOfBatches) {
+		this.minNumberOfBatches = minNumberOfBatches;
+	}
+
+	public int getMinNumberOfBatches() {
+		return this.minNumberOfBatches;
 	}
 
 

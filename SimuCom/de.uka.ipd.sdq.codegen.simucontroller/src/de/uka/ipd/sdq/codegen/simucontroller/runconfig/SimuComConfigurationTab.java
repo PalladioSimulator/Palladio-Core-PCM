@@ -60,6 +60,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	private Text timeField;
 	private Text maxMeasurementsField;
 	private Button checkLoggingButton;
+	
+	/** Confidence settings */
 	private Button useConfidenceCheckBox;
 	private Label levelLabel;
 	private Text levelField;
@@ -68,13 +70,22 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	private Label selectModelElementLabel;
 	private Text selectModelElementField;
 	private Button selectModelElementButton;
-	private Combo persistenceCombo;
-	private ArrayList<String> modelFiles = new ArrayList<String>();
 	private String selectedModelElementName;
 	private URI selectedModelElementURI;
+	/** Batch means settings */
+	private Button useAutomatedBatchMeansCheckBox;
+	private Label batchSizeLabel;
+	private Text batchSizeField;
+	private Label minNumberOfBatchesLabel;
+	private Text minNumberOfBatchesField;
+	
+	private Combo persistenceCombo;
+	private ArrayList<String> modelFiles = new ArrayList<String>();
 
 	private RecorderTabGroup recorderTabGroup;
 	protected Composite container;
+
+
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
@@ -139,9 +150,11 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				selectModelElementLabel.setEnabled(selected);
 				selectModelElementField.setEnabled(selected);
 				selectModelElementButton.setEnabled(selected);
+				enableBatchMeansSettings(selected);
 
 				SimuComConfigurationTab.this.updateLaunchConfigurationDialog();
 			}
+
 		});
 
 		levelLabel = new Label(confidenceGroup, SWT.NONE);
@@ -179,6 +192,42 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				showSelectModelElementDialog();
 			}
 		});
+		
+		/** Batch means configuration */
+		useAutomatedBatchMeansCheckBox = new Button(confidenceGroup, SWT.CHECK);
+		useAutomatedBatchMeansCheckBox.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1));
+		useAutomatedBatchMeansCheckBox.setText("Automatically determine batch size (Beware: Manual batch size can lead to invalid results, only use it care).");
+		useAutomatedBatchMeansCheckBox.setSelection(false);
+		useAutomatedBatchMeansCheckBox.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				// enable level and half-with fields if and only if check box is checked
+				boolean selected = useAutomatedBatchMeansCheckBox.getSelection();
+				batchSizeLabel.setEnabled(!selected);
+				batchSizeField.setEnabled(!selected);
+				minNumberOfBatchesLabel.setEnabled(!selected);
+				minNumberOfBatchesField.setEnabled(!selected);
+
+				SimuComConfigurationTab.this.updateLaunchConfigurationDialog();
+			}
+		});
+		
+		batchSizeLabel = new Label(confidenceGroup, SWT.NONE);
+		batchSizeLabel.setText("Batch size:");
+		batchSizeLabel.setEnabled(false);
+
+		batchSizeField = new Text(confidenceGroup, SWT.BORDER);
+		batchSizeField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+		batchSizeField.addModifyListener(modifyListener);
+		batchSizeField.setEnabled(false);
+		
+		minNumberOfBatchesLabel = new Label(confidenceGroup, SWT.NONE);
+		minNumberOfBatchesLabel.setText("Minimum number of batches:");
+		minNumberOfBatchesLabel.setEnabled(false);
+
+		minNumberOfBatchesField = new Text(confidenceGroup, SWT.BORDER);
+		minNumberOfBatchesField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+		minNumberOfBatchesField.addModifyListener(modifyListener);
+		minNumberOfBatchesField.setEnabled(false);
 
 		/** Create Experiment Run section */
 		final Group experimentrunGroup = new Group(container, SWT.NONE);
@@ -249,6 +298,20 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		checkLoggingButton.setSelection(false);
 	}
 
+	/**
+	 * needs the value of useAutomatedBatchMeansCheckBox to be initialised. 
+	 * @param parentSelected
+	 */
+	private void enableBatchMeansSettings(boolean parentSelected) {
+		useAutomatedBatchMeansCheckBox.setEnabled(parentSelected);
+		
+		// depend on useAutomatedBatchMeans, too
+		batchSizeLabel.setEnabled(parentSelected && !useAutomatedBatchMeansCheckBox.getSelection());
+		batchSizeField.setEnabled(parentSelected && !useAutomatedBatchMeansCheckBox.getSelection());
+		minNumberOfBatchesLabel.setEnabled(parentSelected && !useAutomatedBatchMeansCheckBox.getSelection());
+		minNumberOfBatchesField.setEnabled(parentSelected && !useAutomatedBatchMeansCheckBox.getSelection());
+	}
+	
 	private void showSelectModelElementDialog() {
 		ResourceSet rs = loadModelFiles();
 		ArrayList<Object> filter = new ArrayList<Object>();
@@ -337,39 +400,34 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		}
 
 		try {
-			boolean select = configuration.getAttribute(
-					SimuComConfig.USE_CONFIDENCE, false);
-			useConfidenceCheckBox.setSelection(select);
-			levelLabel.setEnabled(select);
-			levelField.setEnabled(select);
-			halfWidthLabel.setEnabled(select);
-			halfWidthField.setEnabled(select);
-			selectModelElementLabel.setEnabled(select);
-			selectModelElementField.setEnabled(select);
-			selectModelElementButton.setEnabled(select);
-		} catch (CoreException e) {
-			useConfidenceCheckBox.setSelection(false);
-			levelLabel.setEnabled(false);
-			levelField.setEnabled(false);
-			halfWidthLabel.setEnabled(false);
-			halfWidthField.setEnabled(false);
-			selectModelElementLabel.setEnabled(false);
-			selectModelElementField.setEnabled(false);
-			selectModelElementButton.setEnabled(false);
-	}
-
-		try {
 			levelField.setText(configuration.getAttribute(
 					SimuComConfig.CONFIDENCE_LEVEL, "95"));
 		} catch (CoreException e) {
-			levelField.setText("95");
+			levelField.setText(""+SimuComConfig.DEFAULT_CONFIDENCE_LEVEL);
 		}
 
 		try {
 			halfWidthField.setText(configuration.getAttribute(
 					SimuComConfig.CONFIDENCE_HALFWIDTH, "10"));
 		} catch (CoreException e) {
-			halfWidthField.setText("10");
+			halfWidthField.setText(""+SimuComConfig.DEFAULT_CONFIDENCE_HALFWIDTH);
+		}
+		
+
+		String defaultBatchSize = ""+SimuComConfig.DEFAULT_CONFIDENCE_BATCH_SIZE;
+		try {
+			batchSizeField.setText(configuration.getAttribute(
+					SimuComConfig.CONFIDENCE_BATCH_SIZE, defaultBatchSize));
+		} catch (CoreException e) {
+			batchSizeField.setText(defaultBatchSize);
+		}
+		
+		String defaultMinNumberOfBatches = ""+SimuComConfig.DEFAULT_CONFIDENCE_MIN_NUMBER_OF_BATCHES;
+		try {
+			minNumberOfBatchesField.setText(configuration.getAttribute(
+					SimuComConfig.CONFIDENCE_MIN_NUMBER_OF_BATCHES, defaultMinNumberOfBatches));
+		} catch (CoreException e) {
+			minNumberOfBatchesField.setText(defaultMinNumberOfBatches);
 		}
 
 		try {
@@ -392,6 +450,41 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			selectedModelElementURI = null;
 			selectedModelElementName = "";
 			selectModelElementField.setText("");
+		}
+		
+	
+		// decide how to enable / disable them after initialising the values. 
+		try {
+			boolean isAutomaticBatches = configuration.getAttribute(
+					SimuComConfig.CONFIDENCE_USE_AUTOMATIC_BATCHES, false);
+			useAutomatedBatchMeansCheckBox.setSelection(isAutomaticBatches);
+			
+			boolean select = configuration.getAttribute(
+					SimuComConfig.USE_CONFIDENCE, false);
+			useConfidenceCheckBox.setSelection(select);
+			
+			levelLabel.setEnabled(select);
+			levelField.setEnabled(select);
+			halfWidthLabel.setEnabled(select);
+			halfWidthField.setEnabled(select);
+			selectModelElementLabel.setEnabled(select);
+			selectModelElementField.setEnabled(select);
+			selectModelElementButton.setEnabled(select);
+			
+			// needs the value of useAutomatedBatchMeansCheckBox to be initialised.  
+			enableBatchMeansSettings(select);
+			
+		} catch (CoreException e) {
+			useConfidenceCheckBox.setSelection(false);
+			levelLabel.setEnabled(false);
+			levelField.setEnabled(false);
+			halfWidthLabel.setEnabled(false);
+			halfWidthField.setEnabled(false);
+			selectModelElementLabel.setEnabled(false);
+			selectModelElementField.setEnabled(false);
+			selectModelElementButton.setEnabled(false);
+			enableBatchMeansSettings(false);
+			
 		}
 	}
 
@@ -428,6 +521,12 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			configuration.setAttribute(
 					SimuComConfig.CONFIDENCE_MODELELEMENT_URI, "");
 		}
+		configuration.setAttribute(SimuComConfig.CONFIDENCE_USE_AUTOMATIC_BATCHES,
+				useAutomatedBatchMeansCheckBox.getSelection());
+		configuration.setAttribute(SimuComConfig.CONFIDENCE_BATCH_SIZE,
+				batchSizeField.getText());
+		configuration.setAttribute(SimuComConfig.CONFIDENCE_MIN_NUMBER_OF_BATCHES,
+				minNumberOfBatchesField.getText());
 	}
 
 	/* (non-Javadoc)
@@ -451,6 +550,9 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_HALFWIDTH, SimuComConfig.DEFAULT_CONFIDENCE_HALFWIDTH);
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_NAME, SimuComConfig.DEFAULT_CONFIDENCE_MODELELEMENT_NAME);
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_URI, SimuComConfig.DEFAULT_CONFIDENCE_MODELELEMENT_URI);
+		configuration.setAttribute(SimuComConfig.CONFIDENCE_USE_AUTOMATIC_BATCHES, SimuComConfig.DEFAULT_CONFIDENCE_USE_AUTOMATIC_BATCHES);
+		configuration.setAttribute(SimuComConfig.CONFIDENCE_BATCH_SIZE, SimuComConfig.DEFAULT_CONFIDENCE_BATCH_SIZE);
+		configuration.setAttribute(SimuComConfig.CONFIDENCE_MIN_NUMBER_OF_BATCHES, SimuComConfig.DEFAULT_CONFIDENCE_MIN_NUMBER_OF_BATCHES);
 
 		try {
 			String[] recorderNames = RecorderExtensionHelper.getRecorderNames();
@@ -547,6 +649,34 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			setErrorMessage("Select a model element whose response times are " +
 					"to be monitored!");
 		}
+		
+		// check validity of batch size and number settings
+		if (useConfidenceCheckBox.getSelection() 
+				&& !useAutomatedBatchMeansCheckBox.getSelection()){
+			if ("".equals(batchSizeField.getText())){
+				setErrorMessage("Batch size has to be specified if not determined automatically.");
+				return false;
+			} else if ("".equals(minNumberOfBatchesField.getText())){
+				setErrorMessage("Minimum number of batches have to be specified if not determined automatically.");
+				return false;
+			}
+			
+			try {
+				Integer.parseInt(batchSizeField.getText());
+			} catch (NumberFormatException ex) {
+				setErrorMessage("Batch size has to be an integer!");
+				return false;
+			}
+			
+			try {
+				Integer.parseInt(minNumberOfBatchesField.getText());
+			} catch (NumberFormatException ex) {
+				setErrorMessage("Minimum number of batches has to be an integer!");
+				return false;
+			}
+			
+		}
+		
 		return true;
 	}
 
