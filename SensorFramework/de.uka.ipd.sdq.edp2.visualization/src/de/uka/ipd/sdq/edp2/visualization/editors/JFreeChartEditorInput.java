@@ -5,6 +5,8 @@ package de.uka.ipd.sdq.edp2.visualization.editors;
 
 import java.util.HashMap;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorInput;
@@ -174,5 +176,16 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	 * before the chart itself is updated.
 	 */
 	public abstract JFreeChart createChart();
+	
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.core.runtime.IExecutableExtension#setInitializationData(org.eclipse.core.runtime.IConfigurationElement, java.lang.String, java.lang.Object)
+	 */
+	@Override
+	public void setInitializationData(IConfigurationElement config,
+			String propertyName, Object data) throws CoreException {
+		// TODO Auto-generated method stub
+		// not used so far
+	}
 
 }

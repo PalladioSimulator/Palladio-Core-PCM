@@ -248,20 +248,6 @@ public class HistogramFrequencyAdapter extends IAdapter {
 		this.dataSeriesIndex = dataSeriesIndex;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.eclipse.core.runtime.IExecutableExtension#setInitializationData(org
-	 * .eclipse.core.runtime.IConfigurationElement, java.lang.String,
-	 * java.lang.Object)
-	 */
-	@Override
-	public void setInitializationData(IConfigurationElement config,
-			String propertyName, Object data) throws CoreException {
-		// TODO Auto-generated method stub
-
-	}
 
 	/*
 	 * (non-Javadoc)

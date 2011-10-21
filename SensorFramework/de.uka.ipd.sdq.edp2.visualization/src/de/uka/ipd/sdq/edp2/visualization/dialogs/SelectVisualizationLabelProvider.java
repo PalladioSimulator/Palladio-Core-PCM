@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.edp2.visualization.dialogs;
 
 import org.eclipse.jface.viewers.LabelProvider;
 
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualization;
 
 /**
@@ -23,11 +24,11 @@ public class SelectVisualizationLabelProvider extends LabelProvider {
 	 */
 	@Override
 	public String getText(Object element) {
-		IVisualization editor = null;
-		if (element instanceof IVisualization) {
-			editor = (IVisualization) element;
+		IDataSink editorInput = null;
+		if (element instanceof IDataSink) {
+			editorInput = (IDataSink) element;
 		}
-		return editor == null ? "No Editor found!" : editor.getClass().getName();
+		return editorInput == null ? "No Editor found!" : editorInput.getFactoryId();
 	}
 	
 	

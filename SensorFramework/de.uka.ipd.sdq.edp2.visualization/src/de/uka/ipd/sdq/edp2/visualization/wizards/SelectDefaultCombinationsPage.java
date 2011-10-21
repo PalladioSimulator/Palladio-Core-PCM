@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.edp2.visualization.wizards;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
@@ -39,6 +40,7 @@ import de.uka.ipd.sdq.edp2.visualization.IAdapter;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IFilter;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 
 /**
  * @author Dominik Ernst TODO change such that it allows to select from a list
@@ -52,9 +54,13 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 
 	private final static String FILTER_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.filter";
 	private final static String ADAPTER_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.adapter";
+	private final static String JFREECHART_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.jfreechart";
 
 	private final static String CLASS_ATTRIBUTE = "class";
+	private final static String ID_ATTRIBUTE = "id";
 	private final static String WIZARD_ATTRIBUTE = "wizard";
+	private final static String INPUT_CLASS_ATTRIBUTE = "inputClass";
+	private final static String INPUT_FACTORY_ATTRIBUTE = "inputFactory";
 
 	Object currentSelection;
 	IDataSource selectedSource;
@@ -174,18 +180,31 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		updatePageStatus();
 	}
 
+	/**
+	 * Checks the registered plugins for filters {@link IFilter}, adapters
+	 * {@link IAdapter} and JFreeCharts {@link JFreeChartEditorInput}. Then
+	 * creates the basic combinations ("defaults") of these and returns those
+	 * combinations, which work for the selected {@link IDataSource}.
+	 * 
+	 * @param forSource
+	 *            the selected {@link IDataSource}
+	 * @return the possible visualizations for the selected source
+	 */
 	protected HashSet<ArrayList<IDataSink>> getApplicableChoices(
 			IDataSource forSource) {
-		//get list of registered filters - assume that the basic filters exist
+		Object o = null;
+		String id;
+		// get list of registered filters - assume that the basic filters exist
 		final IConfigurationElement[] filterExtensions = Platform
 				.getExtensionRegistry().getConfigurationElementsFor(
 						FILTER_EXTENSION_POINT_ID);
-		ArrayList<IFilter> filters = new ArrayList<IFilter>();
+		HashMap<String, IFilter> filters = new HashMap<String, IFilter>();
 		for (IConfigurationElement e : filterExtensions) {
-			Object o = null;
+
 			try {
 				o = e.createExecutableExtension(CLASS_ATTRIBUTE);
-				filters.add((IFilter) o);
+				id = e.getAttribute(ID_ATTRIBUTE);
+				filters.put(id, (IFilter) o);
 			} catch (CoreException e1) {
 				logger
 						.log(Level.SEVERE,
@@ -193,16 +212,17 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 				throw new RuntimeException();
 			}
 		}
-		//get list of registered adapters - assume that the basic adapters exist
+		// get list of registered adapters - assume that the basic adapters
+		// exist
 		final IConfigurationElement[] adapterExtensions = Platform
 				.getExtensionRegistry().getConfigurationElementsFor(
 						ADAPTER_EXTENSION_POINT_ID);
-		ArrayList<IAdapter> adapters = new ArrayList<IAdapter>();
+		HashMap<String, IAdapter> adapters = new HashMap<String, IAdapter>();
 		for (IConfigurationElement e : adapterExtensions) {
-			Object o = null;
 			try {
 				o = e.createExecutableExtension(CLASS_ATTRIBUTE);
-				adapters.add((IAdapter) o);
+				id = e.getAttribute(ID_ATTRIBUTE);
+				adapters.put(id, (IAdapter) o);
 			} catch (CoreException e1) {
 				logger
 						.log(Level.SEVERE,
@@ -210,9 +230,65 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 				throw new RuntimeException();
 			}
 		}
-		//get the list of registered visualizations - again, assume that the typical visualizations are registered plugins
-		
-		return null;
+		// get the list of registered visualizations - again, assume that the
+		// typical visualizations are registered plugins
+		final IConfigurationElement[] chartExtensions = Platform
+				.getExtensionRegistry().getConfigurationElementsFor(
+						JFREECHART_EXTENSION_POINT_ID);
+		HashMap<String, JFreeChartEditorInput> charts = new HashMap<String, JFreeChartEditorInput>();
+		for (IConfigurationElement e : chartExtensions) {
+			try {
+				o = e.createExecutableExtension(INPUT_CLASS_ATTRIBUTE);
+				id = e.getAttribute(ID_ATTRIBUTE);
+				charts.put(id, (JFreeChartEditorInput) o);
+			} catch (CoreException e1) {
+				logger
+						.log(Level.SEVERE,
+								"Error in creating an Object referenced in an extension.");
+				throw new RuntimeException();
+			}
+		}
+		HashSet<ArrayList<IDataSink>> defaultVariants = new HashSet<ArrayList<IDataSink>>();
+		ArrayList<IDataSink> default1, default2, default3, default4;
+		default1 = new ArrayList<IDataSink>();
+		default2 = new ArrayList<IDataSink>();
+		default3 = new ArrayList<IDataSink>();
+		default4 = new ArrayList<IDataSink>();
+
+		default1.add(charts
+				.get("de.uka.ipd.sdq.edp2.visualization.Scatterplot"));
+
+		default2
+				.add(adapters
+						.get("de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter"));
+		default2.add(charts.get("de.uka.ipd.sdq.edp2.visualization.Histogram"));
+
+		default3.add(filters
+				.get("de.uka.ipd.sdq.edp2.transformation.WarmupFilter"));
+		default3.add(charts
+				.get("de.uka.ipd.sdq.edp2.visualization.Scatterplot"));
+
+		default4
+				.add(adapters
+						.get("de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter"));
+		default4.add(filters
+				.get("de.uka.ipd.sdq.edp2.transformation.WarmupFilter"));
+		default4.add(charts.get("de.uka.ipd.sdq.edp2.visualization.Histogram"));
+
+		defaultVariants.add(default1);
+		defaultVariants.add(default2);
+		defaultVariants.add(default3);
+		defaultVariants.add(default4);
+
+		// remove those variants, which don't work for the selected source
+		// TODO only checks first element in default combination so far, should it check the following ones, too?
+		for (ArrayList<IDataSink> variant : defaultVariants) {
+			if (!variant.get(0).canAccept(forSource)) {
+				defaultVariants.remove(variant);
+			}
+		}
+
+		return defaultVariants;
 	}
 
 	/**

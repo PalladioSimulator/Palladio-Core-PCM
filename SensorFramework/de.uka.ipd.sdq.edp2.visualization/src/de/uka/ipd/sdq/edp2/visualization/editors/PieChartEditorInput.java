@@ -10,6 +10,8 @@ import java.util.Observable;
 
 import javax.measure.Measure;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
@@ -191,6 +193,12 @@ public class PieChartEditorInput implements IDataSink {
 	}
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setInitializationData(IConfigurationElement config,
+			String propertyName, Object data) throws CoreException {
 		// TODO Auto-generated method stub
 		
 	}

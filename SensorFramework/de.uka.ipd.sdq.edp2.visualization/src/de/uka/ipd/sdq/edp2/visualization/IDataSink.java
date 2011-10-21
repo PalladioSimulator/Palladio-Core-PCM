@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.edp2.visualization;
 import java.util.ArrayList;
 import java.util.Observer;
 
+import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.ui.IEditorInput;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
@@ -11,11 +12,13 @@ import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 /**
  * A {@link IDataSink} represents an Object which receives input by an {@link IDataSource}.
  * Objects, which implement only {@link IDataSink} instead of subclassing {@link AbstractTransformation},
- * are inputs for different {@link AbstractEditor}s.
+ * are inputs for different {@link AbstractEditor}s. Because Editor inputs and transformations both may be
+ * (and typically are) located in separate plugins, all {@link IDataSink}s extend {@link IExecutableExtension}.
+ * 
  * @author Dominik Ernst
  * 
  */
-public interface IDataSink extends IDataFlow, Observer, IEditorInput {
+public interface IDataSink extends IDataFlow, Observer, IEditorInput, IExecutableExtension {
 	/**
 	 * @return The current IDataSource. 
 	 */
