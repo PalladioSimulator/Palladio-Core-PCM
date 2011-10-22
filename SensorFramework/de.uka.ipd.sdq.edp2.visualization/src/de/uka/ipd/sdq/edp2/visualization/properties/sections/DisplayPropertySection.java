@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
+import java.awt.Component;
+import java.awt.Frame;
+import java.awt.Panel;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -10,6 +13,7 @@ import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.awt.SWT_AWT;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
@@ -24,12 +28,16 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.jfree.chart.editor.ChartEditor;
+import org.jfree.chart.editor.ChartEditorFactory;
+import org.jfree.chart.editor.DefaultChartEditorFactory;
 
 import de.uka.ipd.sdq.edp2.visualization.Activator;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
+import de.uka.ipd.sdq.edp2.visualization.uitest.ChartSettings;
 
 /**
  * GUI controls for displaying options of {@link AbstractEditor}s. Shows and
@@ -188,9 +196,10 @@ public class DisplayPropertySection extends AbstractPropertySection {
 		// get the current chart's settings and add them to the table
 		refreshSettingsTable();
 		
+		new ChartSettings(composite, SWT.EMBEDDED);
 
-		/* This is the predefined Editor for JFreeChart properties in Swing - maybe usable??
-		Composite swtAwtComponent = new Composite(parent, SWT.EMBEDDED);
+		// This is the predefined Editor for JFreeChart properties in Swing - maybe usable??
+		/*Composite swtAwtComponent = new Composite(parent, SWT.EMBEDDED);
 		Frame frame = SWT_AWT.new_Frame( swtAwtComponent );
 		Panel parentPanel = new Panel();
 		frame.add(parentPanel);

@@ -39,14 +39,21 @@ public class DefaultViewsWizard extends Wizard implements INewWizard {
 	 */
 	boolean finishable;
 	
+	/**
+	 * The default-combination, which was selected by the user.
+	 */
 	ArrayList<IDataSink> selectedDefault;
 
+	/**
+	 * Sets the <finishable> attribute to the specified value.
+	 * @param finishable a boolean value
+	 */
 	public void setFinishable(boolean finishable) {
 		this.finishable = finishable;
 	}
 
 	/**
-	 * 
+	 * Constructor assigning the source and assuring the wizard cannot be finished instantly.
 	 */
 	public DefaultViewsWizard(IDataSource source) {
 		setWindowTitle("Select a Visualization");
@@ -67,34 +74,54 @@ public class DefaultViewsWizard extends Wizard implements INewWizard {
 		return false;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.jface.wizard.Wizard#addPages()
+	 */
 	@Override
 	public void addPages() {
 		selectCombinationsPage = new SelectDefaultCombinationsPage("Select a Visualization", source);
 		addPage(selectCombinationsPage);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.jface.wizard.Wizard#needsPreviousAndNextButtons()
+	 */
 	@Override
 	public boolean needsPreviousAndNextButtons() {
 		return false;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.jface.wizard.Wizard#createPageControls(org.eclipse.swt.widgets.Composite)
+	 */
 	@Override
 	public void createPageControls(Composite pageContainer) {
 		// TODO Auto-generated method stub
 		super.createPageControls(pageContainer);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.ui.IWorkbenchWizard#init(org.eclipse.ui.IWorkbench, org.eclipse.jface.viewers.IStructuredSelection)
+	 */
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.jface.wizard.Wizard#canFinish()
+	 */
 	@Override
 	public boolean canFinish() {
 		return finishable;
 	}
 	
 	/**
-	 * @return the selectedDefault
+	 * @return the selected Default-combination
 	 */
 	public ArrayList<IDataSink> getSelectedDefault() {
 		return selectedDefault;
