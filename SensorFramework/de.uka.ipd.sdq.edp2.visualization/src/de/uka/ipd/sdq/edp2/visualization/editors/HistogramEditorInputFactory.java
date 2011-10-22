@@ -61,9 +61,7 @@ public class HistogramEditorInputFactory extends ElementFactory {
 		
 		logger.log(Level.INFO, "Created source of EditorInput: "+createdSource.toString());
 		
-		createdSource.addObserver(histogramInput);
 		histogramInput.setSource(createdSource);
-		histogramInput.updateDataset();
 		
 		return histogramInput;
 	}

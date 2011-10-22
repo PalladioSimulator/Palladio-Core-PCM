@@ -75,7 +75,8 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		setDescription("Choose a combination of Filters/Adapters + Editor to display"
 				+ "the selected Data.");
 		statusOK = new Status(IStatus.OK, "not_used", 0, "", null);
-		selectionStatus = statusOK;
+		selectionStatus = new Status(IStatus.INFO, "not_used", 0,
+				"Please select a Visualization to proceed.", null);
 	}
 
 	@Override
@@ -154,7 +155,17 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 			@Override
 			public String getText(Object element) {
 				if (element != null) {
-					return element.toString();
+					ArrayList<Object> arrayListElement = (ArrayList<Object>)element;
+					StringBuffer shownString = new StringBuffer();
+					int length = arrayListElement.size();
+					shownString.append("[ ");
+					for (Object ele : arrayListElement){
+						shownString.append(ele.getClass().getSimpleName());
+						length--;
+						if (length > 0) shownString.append(" + ");
+					}
+					shownString.append(" ]");
+					return shownString.toString();
 				}
 				return null;
 			}
@@ -304,8 +315,8 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		selectionStatus = statusOK;
 		IStructuredSelection selection = (IStructuredSelection) event
 				.getSelection();
-		if (selection == null) {
-			selectionStatus = new Status(IStatus.ERROR, "", 0,
+		if (selection.isEmpty()) {
+			selectionStatus = new Status(IStatus.ERROR, "not_used", 0,
 					"Please select a Visualization to proceed.", null);
 		} else {
 			int index = choiceViewer.getTable().getSelectionIndex();
@@ -313,17 +324,17 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		}
 
 		updatePageStatus();
-		getContainer().updateButtons();
-
 	}
 
 	public IStatus updatePageStatus() {
 		IStatus pageStatus = statusOK;
+		((DefaultViewsWizard)getWizard()).setFinishable(false);
 		switch (selectionStatus.getSeverity()) {
 		case IStatus.OK:
 			setErrorMessage(null);
 			setMessage(selectionStatus.getMessage());
 			pageStatus = statusOK;
+			((DefaultViewsWizard)getWizard()).setFinishable(true);
 			break;
 		case IStatus.WARNING:
 			setErrorMessage(null);
@@ -341,6 +352,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 			pageStatus = selectionStatus;
 			break;
 		}
+		getContainer().updateButtons();
 		return pageStatus;
 	}
 

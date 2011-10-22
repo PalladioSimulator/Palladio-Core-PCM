@@ -305,8 +305,6 @@ public class WarmupFilter extends IFilter {
 	@Override
 	public void update(Observable o, Object arg) {
 		transformData();
-		setChanged();
-		notifyObservers();
 	}
 
 	@Override

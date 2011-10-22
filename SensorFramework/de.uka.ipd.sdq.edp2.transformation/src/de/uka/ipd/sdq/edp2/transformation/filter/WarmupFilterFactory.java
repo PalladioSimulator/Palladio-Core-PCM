@@ -44,9 +44,7 @@ public class WarmupFilterFactory extends ElementFactory{
 		
 		logger.log(Level.INFO, "Created source of WarmupFilter: "+createdSource.toString());
 		
-		createdSource.addObserver(filter);
 		filter.setSource(createdSource);
-		filter.transformData();
 		
 		return filter;
 	}

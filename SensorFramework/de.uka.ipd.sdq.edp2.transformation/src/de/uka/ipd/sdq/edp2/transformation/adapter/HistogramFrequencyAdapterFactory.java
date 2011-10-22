@@ -54,10 +54,8 @@ public class HistogramFrequencyAdapterFactory extends ElementFactory {
 		.createElement(memento);
 		
 		logger.log(Level.INFO, "Created source of HistoGramFrequencyAdapter: "+createdSource.toString());
-		
-		createdSource.addObserver(histogramAdapter);
+
 		histogramAdapter.setSource(createdSource);
-		histogramAdapter.transformData();
 		
 		return histogramAdapter;
 	}

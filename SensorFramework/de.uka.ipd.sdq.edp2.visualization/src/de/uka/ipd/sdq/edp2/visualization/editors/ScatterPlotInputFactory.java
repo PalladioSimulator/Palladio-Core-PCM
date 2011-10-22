@@ -56,9 +56,7 @@ public class ScatterPlotInputFactory extends ElementFactory {
 		IDataSource createdSource = (IDataSource) ((IElementFactory) sourceFactory)
 		.createElement(memento);
 		
-		createdSource.addObserver(scatterPlotInput);
 		scatterPlotInput.setSource(createdSource);
-		scatterPlotInput.updateDataset();
 		
 		return scatterPlotInput;
 	}

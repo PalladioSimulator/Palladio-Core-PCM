@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 
 /**
  * Provides a default implementation of a transformation. Should be subclassed
- * by an transformation.
+ * by all transformations.
  * 
  * @author Dominik Ernst, Roland Richter
  */
@@ -68,6 +68,7 @@ public abstract class AbstractTransformation extends IDataSource implements
 		this.source = source;
 		source.addObserver(this);
 		setOriginalMeasurementsRange(source.getOriginalMeasurementsRange());
+		transformData();
 	}
 
 	/*
