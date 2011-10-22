@@ -176,10 +176,14 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	 * before the chart itself is updated.
 	 */
 	public abstract JFreeChart createChart();
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.core.runtime.IExecutableExtension#setInitializationData(org.eclipse.core.runtime.IConfigurationElement, java.lang.String, java.lang.Object)
+	 * 
+	 * @see
+	 * org.eclipse.core.runtime.IExecutableExtension#setInitializationData(org
+	 * .eclipse.core.runtime.IConfigurationElement, java.lang.String,
+	 * java.lang.Object)
 	 */
 	@Override
 	public void setInitializationData(IConfigurationElement config,
@@ -187,5 +191,11 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 		// TODO Auto-generated method stub
 		// not used so far
 	}
+
+	/**
+	 * Retrieves actual measurements from repository and wraps them to into a
+	 * dataset. The dataset is used to be displayed in an JFreeChart editor-
+	 */
+	public abstract void updateDataset();
 
 }

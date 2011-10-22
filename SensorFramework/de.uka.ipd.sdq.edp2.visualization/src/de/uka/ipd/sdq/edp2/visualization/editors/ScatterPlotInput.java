@@ -166,7 +166,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	@Override
 	public boolean canAccept(IDataSource source) {
 		BaseMetricDescription[] mds = MetricDescriptionUtility
-				.toBaseMetricDescriptions(getSource().getOutput().get(0)
+				.toBaseMetricDescriptions(source.getOutput().get(0)
 						.getRawMeasurements().getMeasurementsRange()
 						.getMeasurements().getMeasure().getMetric());
 		boolean allDataNumeric = true;
@@ -176,7 +176,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 				allDataNumeric = false;
 			}
 		}
-		return allDataNumeric && getSource().getOutput().size() == 2;
+		return allDataNumeric && source.getOutput().size() == 2;
 	}
 
 	/*

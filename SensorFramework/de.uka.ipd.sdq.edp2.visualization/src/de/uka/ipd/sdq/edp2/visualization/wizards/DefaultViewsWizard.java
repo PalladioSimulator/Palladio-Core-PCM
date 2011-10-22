@@ -3,6 +3,8 @@
  */
 package de.uka.ipd.sdq.edp2.visualization.wizards;
 
+import java.util.ArrayList;
+
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.widgets.Composite;
@@ -11,6 +13,7 @@ import org.eclipse.ui.IWorkbench;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.visualization.IAdapter;
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IFilter;
 
@@ -36,10 +39,7 @@ public class DefaultViewsWizard extends Wizard implements INewWizard {
 	 */
 	boolean finishable;
 	
-
-	public boolean isFinishable() {
-		return finishable;
-	}
+	ArrayList<IDataSink> selectedDefault;
 
 	public void setFinishable(boolean finishable) {
 		this.finishable = finishable;
@@ -86,12 +86,25 @@ public class DefaultViewsWizard extends Wizard implements INewWizard {
 
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
-
 	}
 
 	@Override
 	public boolean canFinish() {
 		return finishable;
+	}
+	
+	/**
+	 * @return the selectedDefault
+	 */
+	public ArrayList<IDataSink> getSelectedDefault() {
+		return selectedDefault;
+	}
+
+	/**
+	 * @param selectedDefault the selectedDefault to set
+	 */
+	public void setSelectedDefault(ArrayList<IDataSink> selectedDefault) {
+		this.selectedDefault = selectedDefault;
 	}
 
 }

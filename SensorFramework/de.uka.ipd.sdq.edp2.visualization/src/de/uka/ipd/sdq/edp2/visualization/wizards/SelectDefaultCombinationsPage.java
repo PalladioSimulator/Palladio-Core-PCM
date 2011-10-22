@@ -154,7 +154,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 			@Override
 			public String getText(Object element) {
 				if (element != null) {
-					return ((IWizard) element).getWindowTitle();
+					return element.toString();
 				}
 				return null;
 			}
@@ -190,7 +190,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	 *            the selected {@link IDataSource}
 	 * @return the possible visualizations for the selected source
 	 */
-	protected HashSet<ArrayList<IDataSink>> getApplicableChoices(
+	protected ArrayList<ArrayList<IDataSink>> getApplicableChoices(
 			IDataSource forSource) {
 		Object o = null;
 		String id;
@@ -248,7 +248,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 				throw new RuntimeException();
 			}
 		}
-		HashSet<ArrayList<IDataSink>> defaultVariants = new HashSet<ArrayList<IDataSink>>();
+		ArrayList<ArrayList<IDataSink>> defaultVariants = new ArrayList<ArrayList<IDataSink>>();
 		ArrayList<IDataSink> default1, default2, default3, default4;
 		default1 = new ArrayList<IDataSink>();
 		default2 = new ArrayList<IDataSink>();
@@ -257,7 +257,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 
 		default1.add(charts
 				.get("de.uka.ipd.sdq.edp2.visualization.Scatterplot"));
-
+		
 		default2
 				.add(adapters
 						.get("de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter"));
@@ -293,11 +293,6 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 
 	/**
 	 * Method which is called when the "Next" Button in the Wizard is clicked.
-	 * Must call
-	 * {@link IFilterWizard#setSourceFromCaller(IDataSource, SelectDefaultCombinationsPage)}
-	 * , where the {@link IDataSource} is the source handed from the
-	 * RawMeasurements object, which was selected in the first place and
-	 * SelectFilterPage is a reference to {@link this} page.
 	 */
 	@Override
 	public IWizardPage getNextPage() {
@@ -309,11 +304,12 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		selectionStatus = statusOK;
 		IStructuredSelection selection = (IStructuredSelection) event
 				.getSelection();
-		currentSelection = null;
 		if (selection == null) {
 			selectionStatus = new Status(IStatus.ERROR, "", 0,
-					"Must select a Filter to proceed.", null);
+					"Please select a Visualization to proceed.", null);
 		} else {
+			int index = choiceViewer.getTable().getSelectionIndex();
+			setSelectedDefault(getApplicableChoices(selectedSource).get(index));
 		}
 
 		updatePageStatus();
@@ -348,8 +344,8 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		return pageStatus;
 	}
 
-	public void setFilter(IFilter filter) {
-		logger.log(Level.INFO, "Filter of FilterWizard set");
+	public void setSelectedDefault(ArrayList<IDataSink> selection) {
+		((DefaultViewsWizard)getWizard()).setSelectedDefault(selection);
 	}
 
 }

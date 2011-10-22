@@ -17,13 +17,17 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
+import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
 import de.uka.ipd.sdq.edp2.visualization.IAdapter;
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 import de.uka.ipd.sdq.edp2.visualization.dialogs.SelectVisualizationDialog;
 import de.uka.ipd.sdq.edp2.visualization.dialogs.SelectVisualizationLabelProvider;
 import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput;
 import de.uka.ipd.sdq.edp2.visualization.wizards.AdapterWizard;
+import de.uka.ipd.sdq.edp2.visualization.wizards.DefaultViewsWizard;
 
 /**
  * Listener for selections in the TreeViewer of {@link ExperimentDataEditor}.
@@ -56,76 +60,82 @@ public class DoubleClickListener implements IDoubleClickListener {
 
 				EDP2Source source = new EDP2Source(measurement);
 
-				SelectVisualizationDialog dialog = new SelectVisualizationDialog(
-						event.getViewer().getControl().getShell(),
-						new SelectVisualizationLabelProvider());
-				dialog.setElements(getPossibleVisualizations(measurement));
-				dialog.open();
-				Object[] results = dialog.getResult();
+				DefaultViewsWizard wizard = new DefaultViewsWizard(source);
+				WizardDialog wdialog = new WizardDialog(EDP2EditorPlugin
+						.getPlugin().getWorkbench().getActiveWorkbenchWindow()
+						.getShell(), wizard);
+				wdialog.open();
 
-				Object result = results[0];
-				IEditorInput input = null;
-				if (result instanceof ScatterPlotInput) {
-					input = new ScatterPlotInput(source);
+				if (wdialog.getReturnCode() == Window.OK) {
+					ArrayList<IDataSink> selection = wizard
+							.getSelectedDefault();
+
+					selection.get(0).setSource(source);
+					for (int i = 1; i < selection.size(); i++) {
+						selection.get(i).setSource(
+								(AbstractTransformation) selection.get(i - 1));
+					}
+
+					IEditorInput input = selection.get(selection.size() - 1);
+
 					try {
-						IWorkbenchPage page = EDP2EditorPlugin
-								.getPlugin()
-								.getWorkbench()
-								.getActiveWorkbenchWindow()
+						IWorkbenchPage page = EDP2EditorPlugin.getPlugin()
+								.getWorkbench().getActiveWorkbenchWindow()
 								.getActivePage();
 						IEditorPart editor = page
 								.openEditor(input,
 										"de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor");
 						page.addPartListener(new PartEventListener());
-					} catch (PartInitException e) {
-						// TODO Auto-generated catch block
+					} catch (PartInitException e) { // TODO Auto-generated
+													// catchblock
 						e.printStackTrace();
 					}
-				} else {
-					if (result instanceof HistogramEditorInput) {
-						// HistogramFrequencyAdapter adapter = new
-						// HistogramFrequencyAdapter(source);
-						// input = new HistogramEditorInput(adapter);
-						AdapterWizard wizard = new AdapterWizard(source);
-						IAdapter adapter = null;
-						WizardDialog wdialog = new WizardDialog(
-								EDP2EditorPlugin.getPlugin().getWorkbench()
-										.getActiveWorkbenchWindow().getShell(),
-								wizard);
-						wdialog.open();
-						if (wdialog.getReturnCode() == Window.OK) {
-							adapter = wizard.getAdapter();
-							input = new HistogramEditorInput(adapter);
-							try {
-								EDP2EditorPlugin
-										.getPlugin()
-										.getWorkbench()
-										.getActiveWorkbenchWindow()
-										.getActivePage()
-										.openEditor(input,
-												"de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor");
-							} catch (PartInitException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						}
 
-					}
+					/*
+					 * SelectVisualizationDialog dialog = new
+					 * SelectVisualizationDialog(
+					 * event.getViewer().getControl().getShell(), new
+					 * SelectVisualizationLabelProvider());
+					 * dialog.setElements(getPossibleVisualizations
+					 * (measurement)); dialog.open(); Object[] results =
+					 * dialog.getResult();
+					 * 
+					 * Object result = results[0]; IEditorInput input = null; if
+					 * (result instanceof ScatterPlotInput) { input = new
+					 * ScatterPlotInput(source); try { IWorkbenchPage page =
+					 * EDP2EditorPlugin .getPlugin() .getWorkbench()
+					 * .getActiveWorkbenchWindow() .getActivePage(); IEditorPart
+					 * editor = page .openEditor(input,
+					 * "de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
+					 * ); page.addPartListener(new PartEventListener()); } catch
+					 * (PartInitException e) { // TODO Auto-generated catch
+					 * block e.printStackTrace(); } } else { if (result
+					 * instanceof HistogramEditorInput) { //
+					 * HistogramFrequencyAdapter adapter = new //
+					 * HistogramFrequencyAdapter(source); // input = new
+					 * HistogramEditorInput(adapter); AdapterWizard wizard = new
+					 * AdapterWizard(source); IAdapter adapter = null;
+					 * WizardDialog wdialog = new WizardDialog(
+					 * EDP2EditorPlugin.getPlugin().getWorkbench()
+					 * .getActiveWorkbenchWindow().getShell(), wizard);
+					 * wdialog.open(); if (wdialog.getReturnCode() == Window.OK)
+					 * { adapter = wizard.getAdapter(); input = new
+					 * HistogramEditorInput(adapter); try { EDP2EditorPlugin
+					 * .getPlugin() .getWorkbench() .getActiveWorkbenchWindow()
+					 * .getActivePage() .openEditor(input,
+					 * "de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
+					 * ); } catch (PartInitException e) { // TODO Auto-generated
+					 * catch block e.printStackTrace(); } }
+					 * 
+					 * } }
+					 */
+
 				}
-	
 			} else {
 				throw new RuntimeException("Empty Measurements!");
 			}
 		}
 
-	}
-
-	private Object[] getPossibleVisualizations(RawMeasurements measurement) {
-		ArrayList<Object> list = getRegisteredVisualizations();
-		list.clear();
-		list.add(new ScatterPlotInput());
-		list.add(new HistogramEditorInput());
-		return (list.toArray());
 	}
 
 	public ArrayList<Object> getRegisteredVisualizations() {
