@@ -386,12 +386,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String RecoveryBlockAction13CreationTool_title;
+	public static String RecoveryAction13CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RecoveryBlockAction13CreationTool_desc;
+	public static String RecoveryAction13CreationTool_desc;
 
 	/**
 	 * @generated
@@ -476,12 +476,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String RecoveryBlockAlternativeBehaviour9CreationTool_title;
+	public static String RecoveryActionBehaviour9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RecoveryBlockAlternativeBehaviour9CreationTool_desc;
+	public static String RecoveryActionBehaviour9CreationTool_desc;
 
 	/**
 	 * @generated
@@ -631,7 +631,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String RecoveryBlockActionRecoveryBlockAlternativeBehavioursEditPart_title;
+	public static String RecoveryActionRecoveryBlockCompartment2EditPart_title;
 
 	/**
 	 * @generated
@@ -666,12 +666,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String RecoveryBlockActionRecoveryBlockCompartmentEditPart_title;
+	public static String RecoveryActionRecoveryBlockCompartmentEditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart_title;
+	public static String RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart_title;
 
 	/**
 	 * @generated
@@ -811,12 +811,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecoveryBlockAction_2015_incominglinks;
+	public static String NavigatorGroupName_RecoveryAction_2016_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecoveryBlockAction_2015_outgoinglinks;
+	public static String NavigatorGroupName_RecoveryAction_2016_outgoinglinks;
 
 	/**
 	 * @generated
@@ -931,22 +931,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecoveryBlockAction_3056_incominglinks;
+	public static String NavigatorGroupName_RecoveryAction_3057_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecoveryBlockAction_3056_outgoinglinks;
+	public static String NavigatorGroupName_RecoveryAction_3057_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecoveryBlockAlternativeBehaviour_3052_incominglinks;
+	public static String NavigatorGroupName_RecoveryActionBehaviour_3058_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecoveryBlockAlternativeBehaviour_3052_outgoinglinks;
+	public static String NavigatorGroupName_RecoveryActionBehaviour_3058_outgoinglinks;
 
 	/**
 	 * @generated
@@ -971,12 +971,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002_target;
+	public static String NavigatorGroupName_RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002_source;
+	public static String NavigatorGroupName_RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_source;
 
 	/**
 	 * @generated

@@ -22302,7 +22302,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             </edges>
           </contents>
         </eAnnotations>
-        <packagedElement xmi:type="uml:Class" xmi:id="_rCg4sDqGEd-LPs9iafFs9w" name="RecoveryBlockAlternativeBehaviour">
+        <packagedElement xmi:type="uml:Class" xmi:id="_rCg4sDqGEd-LPs9iafFs9w" name="RecoveryActionBehaviour">
           <ownedComment xmi:id="_OX1DoDqLEd-LPs9iafFs9w" annotatedElement="_rCg4sDqGEd-LPs9iafFs9w">
             <body>&lt;p>&#xD;
     Recovery block alternative haviours represent alternatives of recovery blocks. They are resource demanding behaviours,&#xD;
@@ -22316,16 +22316,16 @@ Solving the stochastic expression, which can be a function involving arithmetic 
           </ownedComment>
           <generalization xmi:id="_0AT6IDqGEd-LPs9iafFs9w" general="_NBzeIDqGEd-LPs9iafFs9w"/>
           <generalization xmi:id="_0LzYcDqGEd-LPs9iafFs9w" general="_-kKR4OKHEdq6IvzVMFpuzg"/>
-          <ownedAttribute xmi:id="_1qb5oDqGEd-LPs9iafFs9w" name="nextAlternative_RecoveryBlockAlternativeBehaviour" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" association="_1qargDqGEd-LPs9iafFs9w">
+          <ownedAttribute xmi:id="_1qb5oDqGEd-LPs9iafFs9w" name="nextAlternative__RecoveryActionBehaviour" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" association="_1qargDqGEd-LPs9iafFs9w">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1qcgsDqGEd-LPs9iafFs9w" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1qb5oTqGEd-LPs9iafFs9w"/>
           </ownedAttribute>
-          <ownedAttribute xmi:id="_uIcH0DqGEd-LPs9iafFs9w" name="recoveryBlockAction_RecoveryBlockAlternativeBehaviour" visibility="public" type="_nwYZkDqGEd-LPs9iafFs9w" association="_uIZEgDqGEd-LPs9iafFs9w">
+          <ownedAttribute xmi:id="_uIcH0DqGEd-LPs9iafFs9w" name="recoveryAction__RecoveryActionBehaviour" visibility="public" type="_nwYZkDqGEd-LPs9iafFs9w" association="_uIZEgDqGEd-LPs9iafFs9w">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uIcu4TqGEd-LPs9iafFs9w" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uIcu4DqGEd-LPs9iafFs9w" value="1"/>
           </ownedAttribute>
         </packagedElement>
-        <packagedElement xmi:type="uml:Class" xmi:id="_nwYZkDqGEd-LPs9iafFs9w" name="RecoveryBlockAction">
+        <packagedElement xmi:type="uml:Class" xmi:id="_nwYZkDqGEd-LPs9iafFs9w" name="RecoveryAction">
           <ownedComment xmi:id="_LR4swDqTEd-LPs9iafFs9w" annotatedElement="_nwYZkDqGEd-LPs9iafFs9w">
             <body>Recover block actions are a generic failure handling technique. A recovery block consists of a a primary algorithm and one&#xD;
 or more alternatives that can be used in case of failure. If the primary algorithm fails, the next alternative is chosen.&#xD;
@@ -22334,11 +22334,11 @@ Here the alternatives also support failure types. Alternatives may specify which
           <ownedRule xmi:id="_4JlxwDqIEd-LPs9iafFs9w" name="Alternatives form a chain" constrainedElement="_nwYZkDqGEd-LPs9iafFs9w">
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_4JmY0DqIEd-LPs9iafFs9w">
               <language>OCL</language>
-              <body>self.recoveryBlockAlternativeBehaviours_RecoveryBlockAction->isUnique(s: RecoveryBlockAlternativeBehaviour | s.nextAlternative_RecoveryBlockAlternativeBehaviour) and&#xD;&#xA;self.recoveryBlockAlternativeBehaviours_RecoveryBlockAction->forAll(x:RecoveryBlockAlternativeBehaviour| x &lt;> x.nextAlternative_RecoveryBlockAlternativeBehaviour)&#xD;&#xA;</body>
+              <body>self.recoveryActionBehaviours__RecoveryAction->isUnique(s: RecoveryActionBehaviour | s.nextAlternative__RecoveryActionBehaviour) and&#xD;&#xA;self.recoveryActionBehaviours__RecoveryAction->forAll(x:RecoveryActionBehaviour| x &lt;> x.nextAlternative__RecoveryActionBehaviour)&#xD;&#xA;</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_0wNtEDqGEd-LPs9iafFs9w" general="_kmntkODhEdq8ysXH3gTiEg"/>
-          <ownedAttribute xmi:id="_uIaSoDqGEd-LPs9iafFs9w" name="recoveryBlockAlternativeBehaviours_RecoveryBlockAction" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" aggregation="composite" association="_uIZEgDqGEd-LPs9iafFs9w">
+          <ownedAttribute xmi:id="_uIaSoDqGEd-LPs9iafFs9w" name="recoveryActionBehaviours__RecoveryAction" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" aggregation="composite" association="_uIZEgDqGEd-LPs9iafFs9w">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uIbgwDqGEd-LPs9iafFs9w" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uIa5sDqGEd-LPs9iafFs9w" value="2"/>
           </ownedAttribute>

@@ -1238,43 +1238,41 @@
       </modelFacet>
     </childNodes>
     <childNodes
-        visualID="3056"
-        editPartClassName="RecoveryBlockAction2EditPart"
-        itemSemanticEditPolicyClassName="RecoveryBlockAction2ItemSemanticEditPolicy"
-        notationViewFactoryClassName="RecoveryBlockActionViewFactory"
-        canonicalEditPolicyClassName="RecoveryBlockAction2CanonicalEditPolicy"
+        visualID="3057"
+        editPartClassName="RecoveryAction2EditPart"
+        itemSemanticEditPolicyClassName="RecoveryAction2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="RecoveryAction2CanonicalEditPolicy"
         compartments="//@diagram/@compartments.20"
-        graphicalNodeEditPolicyClassName="RecoveryBlockAction2GraphicalNodeEditPolicy"
-        createCommandClassName="RecoveryBlockAction2CreateCommand"
+        graphicalNodeEditPolicyClassName="RecoveryAction2GraphicalNodeEditPolicy"
+        createCommandClassName="RecoveryAction2CreateCommand"
         containers="//@diagram/@compartments.21 //@diagram/@compartments.19 //@diagram/@compartments.18 //@diagram/@compartments.25 //@diagram/@compartments.13 //@diagram/@compartments.26 //@diagram/@compartments.6">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="RecoveryBlockActionEditHelper"/>
+          editHelperClassName="RecoveryActionEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="RecoveryBlockActionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RecoveryBlockActionFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRecoveryBlockActionNameLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureRecoveryBlockActionCompartment; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RecoveryBlockActionFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;layoutThis.horizontalSpacing = 0;&#xA;&#x9;layoutThis.verticalSpacing = 0;&#xA;&#x9;layoutThis.marginWidth = 0;&#xA;&#x9;layoutThis.marginHeight = 0;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setLineWidth(1);&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel recoveryBlockActionStereotype0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;recoveryBlockActionStereotype0.setText(&quot;&lt;&lt;RecoveryBlockAction>>&quot;);&#xA;recoveryBlockActionStereotype0.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintRecoveryBlockActionStereotype0 = new org.eclipse.draw2d.GridData();&#xA;constraintRecoveryBlockActionStereotype0.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryBlockActionStereotype0.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryBlockActionStereotype0.horizontalIndent = 0;&#xA;constraintRecoveryBlockActionStereotype0.horizontalSpan = 1;&#xA;constraintRecoveryBlockActionStereotype0.verticalSpan = 1;&#xA;constraintRecoveryBlockActionStereotype0.grabExcessHorizontalSpace = false;&#xA;constraintRecoveryBlockActionStereotype0.grabExcessVerticalSpace = false;&#xA;this.add(recoveryBlockActionStereotype0, constraintRecoveryBlockActionStereotype0);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryBlockActionNameLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureRecoveryBlockActionNameLabel.setText(&quot;&quot;);&#xA;fFigureRecoveryBlockActionNameLabel.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryBlockActionNameLabel = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryBlockActionNameLabel.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryBlockActionNameLabel.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryBlockActionNameLabel.horizontalIndent = 0;&#xA;constraintFFigureRecoveryBlockActionNameLabel.horizontalSpan = 1;&#xA;constraintFFigureRecoveryBlockActionNameLabel.verticalSpan = 1;&#xA;constraintFFigureRecoveryBlockActionNameLabel.grabExcessHorizontalSpace = false;&#xA;constraintFFigureRecoveryBlockActionNameLabel.grabExcessVerticalSpace = false;&#xA;this.add(fFigureRecoveryBlockActionNameLabel, constraintFFigureRecoveryBlockActionNameLabel);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryBlockActionCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;fFigureRecoveryBlockActionCompartment.setFill(false);&#xA;fFigureRecoveryBlockActionCompartment.setOutline(false);&#xA;fFigureRecoveryBlockActionCompartment.setLineWidth(1);&#xA;fFigureRecoveryBlockActionCompartment.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryBlockActionCompartment = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryBlockActionCompartment.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryBlockActionCompartment.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryBlockActionCompartment.horizontalIndent = 0;&#xA;constraintFFigureRecoveryBlockActionCompartment.horizontalSpan = 1;&#xA;constraintFFigureRecoveryBlockActionCompartment.verticalSpan = 1;&#xA;constraintFFigureRecoveryBlockActionCompartment.grabExcessHorizontalSpace = true;&#xA;constraintFFigureRecoveryBlockActionCompartment.grabExcessVerticalSpace = true;&#xA;this.add(fFigureRecoveryBlockActionCompartment, constraintFFigureRecoveryBlockActionCompartment);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRecoveryBlockActionNameLabel() {&#xA;&#x9;&#x9;return fFigureRecoveryBlockActionNameLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureRecoveryBlockActionCompartment() {&#xA;&#x9;&#x9;return fFigureRecoveryBlockActionCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="RecoveryActionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RecoveryActionFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRecoveryActionNameLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureRecoveryActionCompartment; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RecoveryActionFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;layoutThis.horizontalSpacing = 0;&#xA;&#x9;layoutThis.verticalSpacing = 0;&#xA;&#x9;layoutThis.marginWidth = 0;&#xA;&#x9;layoutThis.marginHeight = 0;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setLineWidth(1);&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel recoveryActionStereotype0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;recoveryActionStereotype0.setText(&quot;&lt;&lt;RecoveryAction>>&quot;);&#xA;recoveryActionStereotype0.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintRecoveryActionStereotype0 = new org.eclipse.draw2d.GridData();&#xA;constraintRecoveryActionStereotype0.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryActionStereotype0.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryActionStereotype0.horizontalIndent = 0;&#xA;constraintRecoveryActionStereotype0.horizontalSpan = 1;&#xA;constraintRecoveryActionStereotype0.verticalSpan = 1;&#xA;constraintRecoveryActionStereotype0.grabExcessHorizontalSpace = false;&#xA;constraintRecoveryActionStereotype0.grabExcessVerticalSpace = false;&#xA;this.add(recoveryActionStereotype0, constraintRecoveryActionStereotype0);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryActionNameLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureRecoveryActionNameLabel.setText(&quot;&quot;);&#xA;fFigureRecoveryActionNameLabel.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryActionNameLabel = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryActionNameLabel.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryActionNameLabel.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryActionNameLabel.horizontalIndent = 0;&#xA;constraintFFigureRecoveryActionNameLabel.horizontalSpan = 1;&#xA;constraintFFigureRecoveryActionNameLabel.verticalSpan = 1;&#xA;constraintFFigureRecoveryActionNameLabel.grabExcessHorizontalSpace = false;&#xA;constraintFFigureRecoveryActionNameLabel.grabExcessVerticalSpace = false;&#xA;this.add(fFigureRecoveryActionNameLabel, constraintFFigureRecoveryActionNameLabel);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryActionCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;fFigureRecoveryActionCompartment.setFill(false);&#xA;fFigureRecoveryActionCompartment.setOutline(false);&#xA;fFigureRecoveryActionCompartment.setLineWidth(1);&#xA;fFigureRecoveryActionCompartment.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryActionCompartment = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryActionCompartment.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryActionCompartment.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryActionCompartment.horizontalIndent = 0;&#xA;constraintFFigureRecoveryActionCompartment.horizontalSpan = 1;&#xA;constraintFFigureRecoveryActionCompartment.verticalSpan = 1;&#xA;constraintFFigureRecoveryActionCompartment.grabExcessHorizontalSpace = true;&#xA;constraintFFigureRecoveryActionCompartment.grabExcessVerticalSpace = true;&#xA;this.add(fFigureRecoveryActionCompartment, constraintFFigureRecoveryActionCompartment);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRecoveryActionNameLabel() {&#xA;&#x9;&#x9;return fFigureRecoveryActionNameLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureRecoveryActionCompartment() {&#xA;&#x9;&#x9;return fFigureRecoveryActionCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryBlockAction"/>
+            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryAction"/>
         <containmentMetaFeature
             href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
         <childMetaFeature
             href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
       </modelFacet>
       <labels
-          visualID="5053"
-          editPartClassName="RecoveryBlockActionEntityName2EditPart"
-          itemSemanticEditPolicyClassName="RecoveryBlockActionEntityName2ItemSemanticEditPolicy"
-          notationViewFactoryClassName="RecoveryBlockActionEntityNameViewFactory"
+          visualID="5055"
+          editPartClassName="RecoveryActionEntityName2EditPart"
+          itemSemanticEditPolicyClassName="RecoveryActionEntityName2ItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureRecoveryBlockActionNameLabel"
+            getterName="getFigureRecoveryActionNameLabel"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
@@ -1287,43 +1285,41 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="3052"
-        editPartClassName="RecoveryBlockAlternativeBehaviourEditPart"
-        itemSemanticEditPolicyClassName="RecoveryBlockAlternativeBehaviourItemSemanticEditPolicy"
-        notationViewFactoryClassName="RecoveryBlockAlternativeBehaviourViewFactory"
-        canonicalEditPolicyClassName="RecoveryBlockAlternativeBehaviourCanonicalEditPolicy"
+        visualID="3058"
+        editPartClassName="RecoveryActionBehaviourEditPart"
+        itemSemanticEditPolicyClassName="RecoveryActionBehaviourItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="RecoveryActionBehaviourCanonicalEditPolicy"
         compartments="//@diagram/@compartments.21"
-        graphicalNodeEditPolicyClassName="RecoveryBlockAlternativeBehaviourGraphicalNodeEditPolicy"
-        createCommandClassName="RecoveryBlockAlternativeBehaviourCreateCommand"
+        graphicalNodeEditPolicyClassName="RecoveryActionBehaviourGraphicalNodeEditPolicy"
+        createCommandClassName="RecoveryActionBehaviourCreateCommand"
         containers="//@diagram/@compartments.20 //@diagram/@compartments.33">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="RecoveryBlockAlternativeBehaviourEditHelper"/>
+          editHelperClassName="RecoveryActionBehaviourEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="RecoveryBlockAlternativeBehaviourFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RecoveryBlockAlternativeBehaviourFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRecoveryBlockAlternativeBehaviourNameLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureRecoveryBlockAlternativeBehaviourCompartment; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RecoveryBlockAlternativeBehaviourFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;layoutThis.horizontalSpacing = 0;&#xA;&#x9;layoutThis.verticalSpacing = 0;&#xA;&#x9;layoutThis.marginWidth = 0;&#xA;&#x9;layoutThis.marginHeight = 0;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setLineWidth(1);&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel recoveryBlockAlternativeBehaviourStereotype0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;recoveryBlockAlternativeBehaviourStereotype0.setText(&quot;&lt;&lt;RecoveryBlockAlternativeBehaviour>>&quot;);&#xA;recoveryBlockAlternativeBehaviourStereotype0.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintRecoveryBlockAlternativeBehaviourStereotype0 = new org.eclipse.draw2d.GridData();&#xA;constraintRecoveryBlockAlternativeBehaviourStereotype0.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryBlockAlternativeBehaviourStereotype0.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryBlockAlternativeBehaviourStereotype0.horizontalIndent = 0;&#xA;constraintRecoveryBlockAlternativeBehaviourStereotype0.horizontalSpan = 1;&#xA;constraintRecoveryBlockAlternativeBehaviourStereotype0.verticalSpan = 1;&#xA;constraintRecoveryBlockAlternativeBehaviourStereotype0.grabExcessHorizontalSpace = false;&#xA;constraintRecoveryBlockAlternativeBehaviourStereotype0.grabExcessVerticalSpace = false;&#xA;this.add(recoveryBlockAlternativeBehaviourStereotype0, constraintRecoveryBlockAlternativeBehaviourStereotype0);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryBlockAlternativeBehaviourNameLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureRecoveryBlockAlternativeBehaviourNameLabel.setText(&quot;&quot;);&#xA;fFigureRecoveryBlockAlternativeBehaviourNameLabel.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryBlockAlternativeBehaviourNameLabel = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourNameLabel.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourNameLabel.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourNameLabel.horizontalIndent = 0;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourNameLabel.horizontalSpan = 1;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourNameLabel.verticalSpan = 1;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourNameLabel.grabExcessHorizontalSpace = false;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourNameLabel.grabExcessVerticalSpace = false;&#xA;this.add(fFigureRecoveryBlockAlternativeBehaviourNameLabel, constraintFFigureRecoveryBlockAlternativeBehaviourNameLabel);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryBlockAlternativeBehaviourCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;fFigureRecoveryBlockAlternativeBehaviourCompartment.setFill(false);&#xA;fFigureRecoveryBlockAlternativeBehaviourCompartment.setOutline(false);&#xA;fFigureRecoveryBlockAlternativeBehaviourCompartment.setLineWidth(1);&#xA;fFigureRecoveryBlockAlternativeBehaviourCompartment.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryBlockAlternativeBehaviourCompartment = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourCompartment.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourCompartment.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourCompartment.horizontalIndent = 0;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourCompartment.horizontalSpan = 1;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourCompartment.verticalSpan = 1;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourCompartment.grabExcessHorizontalSpace = true;&#xA;constraintFFigureRecoveryBlockAlternativeBehaviourCompartment.grabExcessVerticalSpace = true;&#xA;this.add(fFigureRecoveryBlockAlternativeBehaviourCompartment, constraintFFigureRecoveryBlockAlternativeBehaviourCompartment);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRecoveryBlockAlternativeBehaviourNameLabel() {&#xA;&#x9;&#x9;return fFigureRecoveryBlockAlternativeBehaviourNameLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureRecoveryBlockAlternativeBehaviourCompartment() {&#xA;&#x9;&#x9;return fFigureRecoveryBlockAlternativeBehaviourCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="RecoveryActionBehaviourFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RecoveryActionBehaviourFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRecoveryActionBehaviourNameLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureRecoveryActionBehaviourCompartment; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RecoveryActionBehaviourFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;layoutThis.horizontalSpacing = 0;&#xA;&#x9;layoutThis.verticalSpacing = 0;&#xA;&#x9;layoutThis.marginWidth = 0;&#xA;&#x9;layoutThis.marginHeight = 0;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setLineWidth(1);&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel recoveryActionBehaviourStereotype0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;recoveryActionBehaviourStereotype0.setText(&quot;&lt;&lt;RecoveryActionBehaviour>>&quot;);&#xA;recoveryActionBehaviourStereotype0.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintRecoveryActionBehaviourStereotype0 = new org.eclipse.draw2d.GridData();&#xA;constraintRecoveryActionBehaviourStereotype0.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryActionBehaviourStereotype0.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryActionBehaviourStereotype0.horizontalIndent = 0;&#xA;constraintRecoveryActionBehaviourStereotype0.horizontalSpan = 1;&#xA;constraintRecoveryActionBehaviourStereotype0.verticalSpan = 1;&#xA;constraintRecoveryActionBehaviourStereotype0.grabExcessHorizontalSpace = false;&#xA;constraintRecoveryActionBehaviourStereotype0.grabExcessVerticalSpace = false;&#xA;this.add(recoveryActionBehaviourStereotype0, constraintRecoveryActionBehaviourStereotype0);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryActionBehaviourNameLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureRecoveryActionBehaviourNameLabel.setText(&quot;&quot;);&#xA;fFigureRecoveryActionBehaviourNameLabel.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryActionBehaviourNameLabel = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryActionBehaviourNameLabel.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryActionBehaviourNameLabel.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryActionBehaviourNameLabel.horizontalIndent = 0;&#xA;constraintFFigureRecoveryActionBehaviourNameLabel.horizontalSpan = 1;&#xA;constraintFFigureRecoveryActionBehaviourNameLabel.verticalSpan = 1;&#xA;constraintFFigureRecoveryActionBehaviourNameLabel.grabExcessHorizontalSpace = false;&#xA;constraintFFigureRecoveryActionBehaviourNameLabel.grabExcessVerticalSpace = false;&#xA;this.add(fFigureRecoveryActionBehaviourNameLabel, constraintFFigureRecoveryActionBehaviourNameLabel);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryActionBehaviourCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;fFigureRecoveryActionBehaviourCompartment.setFill(false);&#xA;fFigureRecoveryActionBehaviourCompartment.setOutline(false);&#xA;fFigureRecoveryActionBehaviourCompartment.setLineWidth(1);&#xA;fFigureRecoveryActionBehaviourCompartment.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryActionBehaviourCompartment = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryActionBehaviourCompartment.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryActionBehaviourCompartment.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryActionBehaviourCompartment.horizontalIndent = 0;&#xA;constraintFFigureRecoveryActionBehaviourCompartment.horizontalSpan = 1;&#xA;constraintFFigureRecoveryActionBehaviourCompartment.verticalSpan = 1;&#xA;constraintFFigureRecoveryActionBehaviourCompartment.grabExcessHorizontalSpace = true;&#xA;constraintFFigureRecoveryActionBehaviourCompartment.grabExcessVerticalSpace = true;&#xA;this.add(fFigureRecoveryActionBehaviourCompartment, constraintFFigureRecoveryActionBehaviourCompartment);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRecoveryActionBehaviourNameLabel() {&#xA;&#x9;&#x9;return fFigureRecoveryActionBehaviourNameLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureRecoveryActionBehaviourCompartment() {&#xA;&#x9;&#x9;return fFigureRecoveryActionBehaviourCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryBlockAlternativeBehaviour"/>
+            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryActionBehaviour"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"/>
+            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"/>
+            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"/>
       </modelFacet>
       <labels
-          visualID="5049"
-          editPartClassName="RecoveryBlockAlternativeBehaviourEntityNameEditPart"
-          itemSemanticEditPolicyClassName="RecoveryBlockAlternativeBehaviourEntityNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="RecoveryBlockAlternativeBehaviourEntityNameViewFactory"
+          visualID="5054"
+          editPartClassName="RecoveryActionBehaviourEntityNameEditPart"
+          itemSemanticEditPolicyClassName="RecoveryActionBehaviourEntityNameItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureRecoveryBlockAlternativeBehaviourNameLabel"
+            getterName="getFigureRecoveryActionBehaviourNameLabel"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
@@ -2204,14 +2200,13 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2015"
-        editPartClassName="RecoveryBlockActionEditPart"
-        itemSemanticEditPolicyClassName="RecoveryBlockActionItemSemanticEditPolicy"
-        notationViewFactoryClassName="RecoveryBlockActionViewFactory"
-        canonicalEditPolicyClassName="RecoveryBlockActionCanonicalEditPolicy"
+        visualID="2016"
+        editPartClassName="RecoveryActionEditPart"
+        itemSemanticEditPolicyClassName="RecoveryActionItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="RecoveryActionCanonicalEditPolicy"
         compartments="//@diagram/@compartments.33"
-        graphicalNodeEditPolicyClassName="RecoveryBlockActionGraphicalNodeEditPolicy"
-        createCommandClassName="RecoveryBlockActionCreateCommand">
+        graphicalNodeEditPolicyClassName="RecoveryActionGraphicalNodeEditPolicy"
+        createCommandClassName="RecoveryActionCreateCommand">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -2219,27 +2214,26 @@
           metamodelType="//@diagram/@childNodes.27/@elementType"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          className="RecoveryBlockActionFigure"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RecoveryBlockActionFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRecoveryBlockActionNameLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureRecoveryBlockActionCompartment; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RecoveryBlockActionFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;layoutThis.horizontalSpacing = 0;&#xA;&#x9;layoutThis.verticalSpacing = 0;&#xA;&#x9;layoutThis.marginWidth = 0;&#xA;&#x9;layoutThis.marginHeight = 0;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setLineWidth(1);&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel recoveryBlockActionStereotype0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;recoveryBlockActionStereotype0.setText(&quot;&lt;&lt;RecoveryBlockAction>>&quot;);&#xA;recoveryBlockActionStereotype0.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintRecoveryBlockActionStereotype0 = new org.eclipse.draw2d.GridData();&#xA;constraintRecoveryBlockActionStereotype0.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryBlockActionStereotype0.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryBlockActionStereotype0.horizontalIndent = 0;&#xA;constraintRecoveryBlockActionStereotype0.horizontalSpan = 1;&#xA;constraintRecoveryBlockActionStereotype0.verticalSpan = 1;&#xA;constraintRecoveryBlockActionStereotype0.grabExcessHorizontalSpace = false;&#xA;constraintRecoveryBlockActionStereotype0.grabExcessVerticalSpace = false;&#xA;this.add(recoveryBlockActionStereotype0, constraintRecoveryBlockActionStereotype0);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryBlockActionNameLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureRecoveryBlockActionNameLabel.setText(&quot;&quot;);&#xA;fFigureRecoveryBlockActionNameLabel.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryBlockActionNameLabel = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryBlockActionNameLabel.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryBlockActionNameLabel.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryBlockActionNameLabel.horizontalIndent = 0;&#xA;constraintFFigureRecoveryBlockActionNameLabel.horizontalSpan = 1;&#xA;constraintFFigureRecoveryBlockActionNameLabel.verticalSpan = 1;&#xA;constraintFFigureRecoveryBlockActionNameLabel.grabExcessHorizontalSpace = false;&#xA;constraintFFigureRecoveryBlockActionNameLabel.grabExcessVerticalSpace = false;&#xA;this.add(fFigureRecoveryBlockActionNameLabel, constraintFFigureRecoveryBlockActionNameLabel);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryBlockActionCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;fFigureRecoveryBlockActionCompartment.setFill(false);&#xA;fFigureRecoveryBlockActionCompartment.setOutline(false);&#xA;fFigureRecoveryBlockActionCompartment.setLineWidth(1);&#xA;fFigureRecoveryBlockActionCompartment.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryBlockActionCompartment = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryBlockActionCompartment.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryBlockActionCompartment.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryBlockActionCompartment.horizontalIndent = 0;&#xA;constraintFFigureRecoveryBlockActionCompartment.horizontalSpan = 1;&#xA;constraintFFigureRecoveryBlockActionCompartment.verticalSpan = 1;&#xA;constraintFFigureRecoveryBlockActionCompartment.grabExcessHorizontalSpace = true;&#xA;constraintFFigureRecoveryBlockActionCompartment.grabExcessVerticalSpace = true;&#xA;this.add(fFigureRecoveryBlockActionCompartment, constraintFFigureRecoveryBlockActionCompartment);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRecoveryBlockActionNameLabel() {&#xA;&#x9;&#x9;return fFigureRecoveryBlockActionNameLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureRecoveryBlockActionCompartment() {&#xA;&#x9;&#x9;return fFigureRecoveryBlockActionCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          className="RecoveryActionFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RecoveryActionFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRecoveryActionNameLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RectangleFigure fFigureRecoveryActionCompartment; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RecoveryActionFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;layoutThis.horizontalSpacing = 0;&#xA;&#x9;layoutThis.verticalSpacing = 0;&#xA;&#x9;layoutThis.marginWidth = 0;&#xA;&#x9;layoutThis.marginHeight = 0;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setLineWidth(1);&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel recoveryActionStereotype0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;recoveryActionStereotype0.setText(&quot;&lt;&lt;RecoveryAction>>&quot;);&#xA;recoveryActionStereotype0.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintRecoveryActionStereotype0 = new org.eclipse.draw2d.GridData();&#xA;constraintRecoveryActionStereotype0.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryActionStereotype0.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintRecoveryActionStereotype0.horizontalIndent = 0;&#xA;constraintRecoveryActionStereotype0.horizontalSpan = 1;&#xA;constraintRecoveryActionStereotype0.verticalSpan = 1;&#xA;constraintRecoveryActionStereotype0.grabExcessHorizontalSpace = false;&#xA;constraintRecoveryActionStereotype0.grabExcessVerticalSpace = false;&#xA;this.add(recoveryActionStereotype0, constraintRecoveryActionStereotype0);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryActionNameLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureRecoveryActionNameLabel.setText(&quot;&quot;);&#xA;fFigureRecoveryActionNameLabel.setBorder(new org.eclipse.draw2d.MarginBorder(getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(2)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryActionNameLabel = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryActionNameLabel.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryActionNameLabel.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureRecoveryActionNameLabel.horizontalIndent = 0;&#xA;constraintFFigureRecoveryActionNameLabel.horizontalSpan = 1;&#xA;constraintFFigureRecoveryActionNameLabel.verticalSpan = 1;&#xA;constraintFFigureRecoveryActionNameLabel.grabExcessHorizontalSpace = false;&#xA;constraintFFigureRecoveryActionNameLabel.grabExcessVerticalSpace = false;&#xA;this.add(fFigureRecoveryActionNameLabel, constraintFFigureRecoveryActionNameLabel);&#xA;&#xA;&#xA;&#xA;&#xA;fFigureRecoveryActionCompartment = new org.eclipse.draw2d.RectangleFigure();&#xA;fFigureRecoveryActionCompartment.setFill(false);&#xA;fFigureRecoveryActionCompartment.setOutline(false);&#xA;fFigureRecoveryActionCompartment.setLineWidth(1);&#xA;fFigureRecoveryActionCompartment.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureRecoveryActionCompartment = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureRecoveryActionCompartment.verticalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryActionCompartment.horizontalAlignment = org.eclipse.draw2d.GridData.FILL;&#xA;constraintFFigureRecoveryActionCompartment.horizontalIndent = 0;&#xA;constraintFFigureRecoveryActionCompartment.horizontalSpan = 1;&#xA;constraintFFigureRecoveryActionCompartment.verticalSpan = 1;&#xA;constraintFFigureRecoveryActionCompartment.grabExcessHorizontalSpace = true;&#xA;constraintFFigureRecoveryActionCompartment.grabExcessVerticalSpace = true;&#xA;this.add(fFigureRecoveryActionCompartment, constraintFFigureRecoveryActionCompartment);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRecoveryActionNameLabel() {&#xA;&#x9;&#x9;return fFigureRecoveryActionNameLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.draw2d.RectangleFigure getFigureRecoveryActionCompartment() {&#xA;&#x9;&#x9;return fFigureRecoveryActionCompartment;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryBlockAction"/>
+            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryAction"/>
         <containmentMetaFeature
             href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
         <childMetaFeature
             href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
       </modelFacet>
       <labels
-          visualID="5048"
-          editPartClassName="RecoveryBlockActionEntityNameEditPart"
-          itemSemanticEditPolicyClassName="RecoveryBlockActionEntityNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="RecoveryBlockActionEntityNameViewFactory"
+          visualID="5056"
+          editPartClassName="RecoveryActionEntityNameEditPart"
+          itemSemanticEditPolicyClassName="RecoveryActionEntityNameItemSemanticEditPolicy"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:ParentAssignedViewmap"
-            getterName="getFigureRecoveryBlockActionNameLabel"
+            getterName="getFigureRecoveryActionNameLabel"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
@@ -2277,12 +2271,11 @@
           targetEnd="//@expressionProviders/@providers.0/@expressions.1"/>
     </links>
     <links
-        visualID="4002"
-        editPartClassName="RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart"
-        itemSemanticEditPolicyClassName="RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourItemSemanticEditPolicy"
-        notationViewFactoryClassName="RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourViewFactory"
-        createCommandClassName="RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourCreateCommand"
-        reorientCommandClassName="RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourReorientCommand">
+        visualID="4003"
+        editPartClassName="RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart"
+        itemSemanticEditPolicyClassName="RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourItemSemanticEditPolicy"
+        createCommandClassName="RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourCreateCommand"
+        reorientCommandClassName="RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourReorientCommand">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
       <elementType
@@ -2294,7 +2287,7 @@
       <modelFacet
           xsi:type="gmfgen:FeatureLinkModelFacet">
         <metaFeature
-            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryBlockAlternativeBehaviour/nextAlternative_RecoveryBlockAlternativeBehaviour"/>
+            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryActionBehaviour/nextAlternative__RecoveryActionBehaviour"/>
       </modelFacet>
       <creationConstraints
           sourceEnd="//@expressionProviders/@providers.0/@expressions.2"
@@ -2640,11 +2633,10 @@
           classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BehaviourFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BehaviourFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setLineWidth(1);&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
     </compartments>
     <compartments
-        visualID="7052"
-        editPartClassName="RecoveryBlockActionRecoveryBlockCompartmentEditPart"
-        itemSemanticEditPolicyClassName="RecoveryBlockActionRecoveryBlockCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="RecoveryBlockActionRecoveryBlockCompartmentViewFactory"
-        canonicalEditPolicyClassName="RecoveryBlockActionRecoveryBlockCompartmentCanonicalEditPolicy"
+        visualID="7054"
+        editPartClassName="RecoveryActionRecoveryBlockCompartmentEditPart"
+        itemSemanticEditPolicyClassName="RecoveryActionRecoveryBlockCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="RecoveryActionRecoveryBlockCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.28"
         title="RecoveryBlockCompartment"
         canCollapse="false"
@@ -2655,15 +2647,14 @@
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getFigureRecoveryBlockActionCompartment"
+          getterName="getFigureRecoveryActionCompartment"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7053"
-        editPartClassName="RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart"
-        itemSemanticEditPolicyClassName="RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentViewFactory"
-        canonicalEditPolicyClassName="RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentCanonicalEditPolicy"
+        visualID="7055"
+        editPartClassName="RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart"
+        itemSemanticEditPolicyClassName="RecoveryActionBehaviourAlternativeBehaviourCompartmentItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="RecoveryActionBehaviourAlternativeBehaviourCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.16 //@diagram/@childNodes.19 //@diagram/@childNodes.20 //@diagram/@childNodes.25 //@diagram/@childNodes.21 //@diagram/@childNodes.22 //@diagram/@childNodes.23 //@diagram/@childNodes.29 //@diagram/@childNodes.27"
         title="AlternativeBehaviourCompartment"
         canCollapse="false"
@@ -2674,7 +2665,7 @@
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getFigureRecoveryBlockAlternativeBehaviourCompartment"
+          getterName="getFigureRecoveryActionBehaviourCompartment"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
@@ -2868,11 +2859,10 @@
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <compartments
-        visualID="7047"
-        editPartClassName="RecoveryBlockActionRecoveryBlockAlternativeBehavioursEditPart"
-        itemSemanticEditPolicyClassName="RecoveryBlockActionRecoveryBlockAlternativeBehavioursItemSemanticEditPolicy"
-        notationViewFactoryClassName="RecoveryBlockActionRecoveryBlockAlternativeBehavioursViewFactory"
-        canonicalEditPolicyClassName="RecoveryBlockActionRecoveryBlockAlternativeBehavioursCanonicalEditPolicy"
+        visualID="7056"
+        editPartClassName="RecoveryActionRecoveryBlockCompartment2EditPart"
+        itemSemanticEditPolicyClassName="RecoveryActionRecoveryBlockCompartment2ItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="RecoveryActionRecoveryBlockCompartment2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.28"
         title="RecoveryBlockCompartment"
         canCollapse="false"
@@ -2883,7 +2873,7 @@
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
           xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getFigureRecoveryBlockActionCompartment"
+          getterName="getFigureRecoveryActionCompartment"
           figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
     </compartments>
     <palette>
@@ -2953,8 +2943,8 @@
             genNodes="//@diagram/@childNodes.23 //@diagram/@topLevelNodes.11"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="RecoveryBlockAction"
-            description="Create new RecoveryBlockAction"
+            title="RecoveryAction"
+            description="Create new RecoveryAction"
             genNodes="//@diagram/@childNodes.27 //@diagram/@topLevelNodes.12"/>
       </groups>
       <groups
@@ -3003,8 +2993,8 @@
             genNodes="//@diagram/@childNodes.34"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="RecoveryBlockAlternativeBehaviour"
-            description="Create new RecoveryBlockAlternativeBehaviour"
+            title="RecoveryActionBehaviour"
+            description="Create new RecoveryActionBehaviour"
             genNodes="//@diagram/@childNodes.28"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
@@ -4179,7 +4169,7 @@
           body="self &lt;> oppositeEnd"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
-          body="(self.recoveryBlockAction_RecoveryBlockAlternativeBehaviour.recoveryBlockAlternativeBehaviours_RecoveryBlockAction->select(beh|beh.nextAlternative_RecoveryBlockAlternativeBehaviour = self)->size() = 0) and (self.recoveryBlockAction_RecoveryBlockAlternativeBehaviour = oppositeEnd.recoveryBlockAction_RecoveryBlockAlternativeBehaviour)"/>
+          body="(self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->select(beh|beh.nextAlternative__RecoveryActionBehaviour = self)->size() = 0) and (self.recoveryAction__RecoveryActionBehaviour = oppositeEnd.recoveryAction__RecoveryActionBehaviour)"/>
     </providers>
   </expressionProviders>
   <labelParsers

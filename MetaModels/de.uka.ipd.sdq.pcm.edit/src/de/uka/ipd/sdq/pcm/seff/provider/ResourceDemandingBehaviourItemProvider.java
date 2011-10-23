@@ -224,7 +224,7 @@ public class ResourceDemandingBehaviourItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 Seff_reliabilityFactory.eINSTANCE.createRecoveryBlockAction()));
+				 Seff_reliabilityFactory.eINSTANCE.createRecoveryAction()));
 	}
 
 	/**

@@ -32,22 +32,22 @@ public interface Seff_reliabilityFactory extends EFactory {
 	Seff_reliabilityFactory eINSTANCE = de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.Seff_reliabilityFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Recovery Block Alternative Behaviour</em>'.
+	 * Returns a new object of class '<em>Recovery Action Behaviour</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Recovery Block Alternative Behaviour</em>'.
+	 * @return a new object of class '<em>Recovery Action Behaviour</em>'.
 	 * @generated
 	 */
-	RecoveryBlockAlternativeBehaviour createRecoveryBlockAlternativeBehaviour();
+	RecoveryActionBehaviour createRecoveryActionBehaviour();
 
 	/**
-	 * Returns a new object of class '<em>Recovery Block Action</em>'.
+	 * Returns a new object of class '<em>Recovery Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Recovery Block Action</em>'.
+	 * @return a new object of class '<em>Recovery Action</em>'.
 	 * @generated
 	 */
-	RecoveryBlockAction createRecoveryBlockAction();
+	RecoveryAction createRecoveryAction();
 
 	/**
 	 * Returns the package supported by this factory.

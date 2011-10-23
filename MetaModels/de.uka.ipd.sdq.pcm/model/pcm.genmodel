@@ -25,11 +25,11 @@
     <details key="SUPER_CLASS_ORDER" value="IGNORE"/>
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/Users/christophrathfelder/temp/identifier.uml</foreignModel>
-  <foreignModel>file:/Users/christophrathfelder/temp/pcm.uml</foreignModel>
-  <foreignModel>file:/Users/christophrathfelder/temp/ProbabilityFunction.uml</foreignModel>
-  <foreignModel>file:/Users/christophrathfelder/temp/stoex.uml</foreignModel>
-  <foreignModel>file:/Users/christophrathfelder/temp/Units.uml</foreignModel>
+  <foreignModel>file:/C:/temp/rsaExport/identifier.uml</foreignModel>
+  <foreignModel>file:/C:/temp/rsaExport/pcm.uml</foreignModel>
+  <foreignModel>file:/C:/temp/rsaExport/ProbabilityFunction.uml</foreignModel>
+  <foreignModel>file:/C:/temp/rsaExport/stoex.uml</foreignModel>
+  <foreignModel>file:/C:/temp/rsaExport/Units.uml</foreignModel>
   <modelPluginVariables>OCL=org.eclipse.ocl</modelPluginVariables>
   <modelPluginVariables>EMF_OCL=org.eclipse.ocl.ecore</modelPluginVariables>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Pcm" basePackage="de.uka.ipd.sdq"
@@ -1063,18 +1063,18 @@
       <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Seff_reliability"
           basePackage="de.uka.ipd.sdq.pcm.seff" resource="XML" disposableProviderFactory="true"
           ecorePackage="pcm.ecore#//seff/seff_reliability">
-        <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour">
+        <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour">
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/nextAlternative_RecoveryBlockAlternativeBehaviour"/>
+              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/nextAlternative__RecoveryActionBehaviour"/>
           <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
-              createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"/>
+              createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/recoveryAction__RecoveryActionBehaviour"/>
         </genClasses>
-        <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction">
+        <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_reliability/RecoveryAction">
           <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-              createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"/>
-          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/Alternativesformachain">
-            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/Alternativesformachain/diagnostics"/>
-            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/Alternativesformachain/context"/>
+              createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"/>
+          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_reliability/RecoveryAction/Alternativesformachain">
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryAction/Alternativesformachain/diagnostics"/>
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryAction/Alternativesformachain/context"/>
           </genOperations>
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//seff/seff_reliability/FailureHandlingEntity">

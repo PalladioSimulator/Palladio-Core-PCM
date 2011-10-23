@@ -67,13 +67,13 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionRecoveryBlockAlternativeBehavioursEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionRecoveryBlockCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionRecoveryBlockCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionRecoveryBlockCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
@@ -368,7 +368,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockActionEditPart.VISUAL_ID));
+							.getType(RecoveryActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getDiagramLinksByType(
@@ -381,7 +381,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getDiagramLinksByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
 			links
 					.addChildren(createNavigatorItems(connectedViews, links,
 							false));
@@ -849,22 +849,21 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case RecoveryBlockActionEditPart.VISUAL_ID: {
+		case RecoveryActionEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_RecoveryBlockAction_2015_incominglinks,
+					Messages.NavigatorGroupName_RecoveryAction_2016_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_RecoveryBlockAction_2015_outgoinglinks,
+					Messages.NavigatorGroupName_RecoveryAction_2016_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockActionRecoveryBlockAlternativeBehavioursEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(
-					connectedViews,
+							.getType(RecoveryActionRecoveryBlockCompartment2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
@@ -1050,7 +1049,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 							.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAction2EditPart.VISUAL_ID));
+							.getType(RecoveryAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -1409,7 +1408,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 							.getType(ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAction2EditPart.VISUAL_ID));
+							.getType(RecoveryAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -1712,7 +1711,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 							.getType(ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAction2EditPart.VISUAL_ID));
+							.getType(RecoveryAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -1860,28 +1859,27 @@ public class PalladioComponentModelNavigatorContentProvider implements
 							.getType(ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAction2EditPart.VISUAL_ID));
+							.getType(RecoveryAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
 		}
 
-		case RecoveryBlockAction2EditPart.VISUAL_ID: {
+		case RecoveryAction2EditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_RecoveryBlockAction_3056_incominglinks,
+					Messages.NavigatorGroupName_RecoveryAction_3057_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_RecoveryBlockAction_3056_outgoinglinks,
+					Messages.NavigatorGroupName_RecoveryAction_3057_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockActionRecoveryBlockCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(
-					connectedViews,
+							.getType(RecoveryActionRecoveryBlockCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
@@ -1905,18 +1903,18 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID: {
+		case RecoveryActionBehaviourEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_RecoveryBlockAlternativeBehaviour_3052_incominglinks,
+					Messages.NavigatorGroupName_RecoveryActionBehaviour_3058_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_RecoveryBlockAlternativeBehaviour_3052_outgoinglinks,
+					Messages.NavigatorGroupName_RecoveryActionBehaviour_3058_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
 							.getType(StartAction2EditPart.VISUAL_ID));
@@ -1925,7 +1923,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
 							.getType(StopAction2EditPart.VISUAL_ID));
@@ -1934,7 +1932,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
 							.getType(LoopAction2EditPart.VISUAL_ID));
@@ -1943,7 +1941,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
 							.getType(InternalAction2EditPart.VISUAL_ID));
@@ -1952,7 +1950,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
 							.getType(BranchAction2EditPart.VISUAL_ID));
@@ -1961,7 +1959,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
 							.getType(ExternalCallAction2EditPart.VISUAL_ID));
@@ -1970,7 +1968,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
 							.getType(EmitEventAction2EditPart.VISUAL_ID));
@@ -1979,7 +1977,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(
 					connectedViews,
 					PalladioComponentModelVisualIDRegistry
@@ -1989,7 +1987,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
 							.getType(AcquireAction2EditPart.VISUAL_ID));
@@ -1998,7 +1996,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
 							.getType(ReleaseAction2EditPart.VISUAL_ID));
@@ -2007,7 +2005,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
 							.getType(ForkAction2EditPart.VISUAL_ID));
@@ -2016,7 +2014,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
 							.getType(SetVariableAction2EditPart.VISUAL_ID));
@@ -2025,22 +2023,22 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAction2EditPart.VISUAL_ID));
+							.getType(RecoveryAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -2226,7 +2224,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 							.getType(ForkedBehaviourSynchronisationPointForkedBehavioursEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAction2EditPart.VISUAL_ID));
+							.getType(RecoveryAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -2359,7 +2357,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 							.getType(ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews,
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAction2EditPart.VISUAL_ID));
+							.getType(RecoveryAction2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -2436,7 +2434,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockActionEditPart.VISUAL_ID));
+							.getType(RecoveryActionEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
@@ -2497,7 +2495,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAction2EditPart.VISUAL_ID));
+							.getType(RecoveryAction2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
@@ -2568,7 +2566,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockActionEditPart.VISUAL_ID));
+							.getType(RecoveryActionEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
@@ -2629,7 +2627,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAction2EditPart.VISUAL_ID));
+							.getType(RecoveryAction2EditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
@@ -2646,24 +2644,22 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID: {
+		case RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002_target,
+					Messages.NavigatorGroupName_RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002_source,
+					Messages.NavigatorGroupName_RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getLinksTargetByType(
-					Collections.singleton(view),
-					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID));
+			Collection connectedViews = getLinksTargetByType(Collections
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(RecoveryActionBehaviourEditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(view),
+			connectedViews = getLinksSourceByType(Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {

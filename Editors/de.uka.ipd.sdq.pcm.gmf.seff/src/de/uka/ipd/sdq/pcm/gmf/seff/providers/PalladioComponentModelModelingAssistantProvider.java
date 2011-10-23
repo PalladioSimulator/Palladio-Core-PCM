@@ -52,12 +52,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionInfrastructureCallsC
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionRecoveryBlockAlternativeBehavioursEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionRecoveryBlockCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionRecoveryBlockCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionRecoveryBlockCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartment2EditPart;
@@ -232,8 +232,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.ForkAction_3023);
 			types
 					.add(PalladioComponentModelElementTypes.SetVariableAction_3024);
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
 			return types;
 		}
 		if (editPart instanceof BranchActionBranchTransitionCompartmentEditPart) {
@@ -261,8 +260,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
 			types
 					.add(PalladioComponentModelElementTypes.SetVariableAction_3024);
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
 			return types;
 		}
 		if (editPart instanceof ForkActionForkedBehavioursEditPart) {
@@ -287,8 +285,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.AcquireAction_3026);
 			types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
 			types.add(PalladioComponentModelElementTypes.ForkAction_3023);
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourBehaviourCompartment3EditPart) {
@@ -306,17 +303,16 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.AcquireAction_3026);
 			types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
 			types.add(PalladioComponentModelElementTypes.ForkAction_3023);
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
 			return types;
 		}
-		if (editPart instanceof RecoveryBlockActionRecoveryBlockCompartmentEditPart) {
+		if (editPart instanceof RecoveryActionRecoveryBlockCompartmentEditPart) {
 			ArrayList types = new ArrayList(1);
 			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAlternativeBehaviour_3052);
+					.add(PalladioComponentModelElementTypes.RecoveryActionBehaviour_3058);
 			return types;
 		}
-		if (editPart instanceof RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart) {
+		if (editPart instanceof RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart) {
 			ArrayList types = new ArrayList(13);
 			types.add(PalladioComponentModelElementTypes.StartAction_3004);
 			types.add(PalladioComponentModelElementTypes.StopAction_3005);
@@ -333,8 +329,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.ForkAction_3023);
 			types
 					.add(PalladioComponentModelElementTypes.SetVariableAction_3024);
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
 			return types;
 		}
 		if (editPart instanceof SynchronisationPointSynchronisationPointEditPart) {
@@ -357,8 +352,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.AcquireAction_3026);
 			types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
 			types.add(PalladioComponentModelElementTypes.ForkAction_3023);
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourBehaviourCompartment4EditPart) {
@@ -378,8 +372,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
 			types
 					.add(PalladioComponentModelElementTypes.SetVariableAction_3024);
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
 			return types;
 		}
 		if (editPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
@@ -397,10 +390,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.SynchronisationPoint_3038);
 			return types;
 		}
-		if (editPart instanceof RecoveryBlockActionRecoveryBlockAlternativeBehavioursEditPart) {
+		if (editPart instanceof RecoveryActionRecoveryBlockCompartment2EditPart) {
 			ArrayList types = new ArrayList(1);
 			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAlternativeBehaviour_3052);
+					.add(PalladioComponentModelElementTypes.RecoveryActionBehaviour_3058);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingSEFFEditPart) {
@@ -420,8 +413,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.AcquireAction_2012);
 			types.add(PalladioComponentModelElementTypes.ReleaseAction_2010);
 			types.add(PalladioComponentModelElementTypes.ForkAction_2011);
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_2015);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_2016);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
@@ -481,8 +473,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((ForkActionEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
-		if (sourceEditPart instanceof RecoveryBlockActionEditPart) {
-			return ((RecoveryBlockActionEditPart) sourceEditPart)
+		if (sourceEditPart instanceof RecoveryActionEditPart) {
+			return ((RecoveryActionEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof StartAction2EditPart) {
@@ -529,12 +521,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((CollectionIteratorAction2EditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
-		if (sourceEditPart instanceof RecoveryBlockAction2EditPart) {
-			return ((RecoveryBlockAction2EditPart) sourceEditPart)
+		if (sourceEditPart instanceof RecoveryAction2EditPart) {
+			return ((RecoveryAction2EditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
-		if (sourceEditPart instanceof RecoveryBlockAlternativeBehaviourEditPart) {
-			return ((RecoveryBlockAlternativeBehaviourEditPart) sourceEditPart)
+		if (sourceEditPart instanceof RecoveryActionBehaviourEditPart) {
+			return ((RecoveryActionBehaviourEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof SetVariableAction2EditPart) {
@@ -598,8 +590,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((ForkActionEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
-		if (targetEditPart instanceof RecoveryBlockActionEditPart) {
-			return ((RecoveryBlockActionEditPart) targetEditPart)
+		if (targetEditPart instanceof RecoveryActionEditPart) {
+			return ((RecoveryActionEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof StartAction2EditPart) {
@@ -646,12 +638,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((CollectionIteratorAction2EditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
-		if (targetEditPart instanceof RecoveryBlockAction2EditPart) {
-			return ((RecoveryBlockAction2EditPart) targetEditPart)
+		if (targetEditPart instanceof RecoveryAction2EditPart) {
+			return ((RecoveryAction2EditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
-		if (targetEditPart instanceof RecoveryBlockAlternativeBehaviourEditPart) {
-			return ((RecoveryBlockAlternativeBehaviourEditPart) targetEditPart)
+		if (targetEditPart instanceof RecoveryActionBehaviourEditPart) {
+			return ((RecoveryActionBehaviourEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof SetVariableAction2EditPart) {
@@ -718,8 +710,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((ForkActionEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
-		if (sourceEditPart instanceof RecoveryBlockActionEditPart) {
-			return ((RecoveryBlockActionEditPart) sourceEditPart)
+		if (sourceEditPart instanceof RecoveryActionEditPart) {
+			return ((RecoveryActionEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof StartAction2EditPart) {
@@ -766,12 +758,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((CollectionIteratorAction2EditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
-		if (sourceEditPart instanceof RecoveryBlockAction2EditPart) {
-			return ((RecoveryBlockAction2EditPart) sourceEditPart)
+		if (sourceEditPart instanceof RecoveryAction2EditPart) {
+			return ((RecoveryAction2EditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
-		if (sourceEditPart instanceof RecoveryBlockAlternativeBehaviourEditPart) {
-			return ((RecoveryBlockAlternativeBehaviourEditPart) sourceEditPart)
+		if (sourceEditPart instanceof RecoveryActionBehaviourEditPart) {
+			return ((RecoveryActionBehaviourEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof SetVariableAction2EditPart) {
@@ -836,8 +828,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((ForkActionEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
-		if (targetEditPart instanceof RecoveryBlockActionEditPart) {
-			return ((RecoveryBlockActionEditPart) targetEditPart)
+		if (targetEditPart instanceof RecoveryActionEditPart) {
+			return ((RecoveryActionEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof StartAction2EditPart) {
@@ -884,12 +876,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((CollectionIteratorAction2EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
-		if (targetEditPart instanceof RecoveryBlockAction2EditPart) {
-			return ((RecoveryBlockAction2EditPart) targetEditPart)
+		if (targetEditPart instanceof RecoveryAction2EditPart) {
+			return ((RecoveryAction2EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
-		if (targetEditPart instanceof RecoveryBlockAlternativeBehaviourEditPart) {
-			return ((RecoveryBlockAlternativeBehaviourEditPart) targetEditPart)
+		if (targetEditPart instanceof RecoveryActionBehaviourEditPart) {
+			return ((RecoveryActionBehaviourEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof SetVariableAction2EditPart) {
@@ -954,8 +946,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((ForkActionEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
-		if (sourceEditPart instanceof RecoveryBlockActionEditPart) {
-			return ((RecoveryBlockActionEditPart) sourceEditPart)
+		if (sourceEditPart instanceof RecoveryActionEditPart) {
+			return ((RecoveryActionEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof StartAction2EditPart) {
@@ -1002,12 +994,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((CollectionIteratorAction2EditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
-		if (sourceEditPart instanceof RecoveryBlockAction2EditPart) {
-			return ((RecoveryBlockAction2EditPart) sourceEditPart)
+		if (sourceEditPart instanceof RecoveryAction2EditPart) {
+			return ((RecoveryAction2EditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
-		if (sourceEditPart instanceof RecoveryBlockAlternativeBehaviourEditPart) {
-			return ((RecoveryBlockAlternativeBehaviourEditPart) sourceEditPart)
+		if (sourceEditPart instanceof RecoveryActionBehaviourEditPart) {
+			return ((RecoveryActionBehaviourEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof SetVariableAction2EditPart) {

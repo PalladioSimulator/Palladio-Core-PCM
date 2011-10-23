@@ -162,8 +162,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 				case ForkAction2EditPart.VISUAL_ID:
 				case ForkedBehaviourEditPart.VISUAL_ID:
 				case CollectionIteratorAction2EditPart.VISUAL_ID:
-				case RecoveryBlockAction2EditPart.VISUAL_ID:
-				case RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID:
+				case RecoveryAction2EditPart.VISUAL_ID:
+				case RecoveryActionBehaviourEditPart.VISUAL_ID:
 				case SetVariableAction2EditPart.VISUAL_ID:
 				case SynchronisationPointEditPart.VISUAL_ID:
 				case GuardedBranchTransitionEditPart.VISUAL_ID:
@@ -174,7 +174,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 				case AcquireActionEditPart.VISUAL_ID:
 				case ReleaseActionEditPart.VISUAL_ID:
 				case ForkActionEditPart.VISUAL_ID:
-				case RecoveryBlockActionEditPart.VISUAL_ID:
+				case RecoveryActionEditPart.VISUAL_ID:
 				case VariableUsage2EditPart.VISUAL_ID:
 				case VariableCharacterisation2EditPart.VISUAL_ID:
 				case VariableUsage4EditPart.VISUAL_ID:
@@ -216,7 +216,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 				|| AcquireActionEditPart.VISUAL_ID == visualID
 				|| ReleaseActionEditPart.VISUAL_ID == visualID
 				|| ForkActionEditPart.VISUAL_ID == visualID
-				|| RecoveryBlockActionEditPart.VISUAL_ID == visualID
+				|| RecoveryActionEditPart.VISUAL_ID == visualID
 				|| VariableUsageEditPart.VISUAL_ID == visualID
 				|| VariableCharacterisationEditPart.VISUAL_ID == visualID
 				|| VariableUsage2EditPart.VISUAL_ID == visualID
@@ -244,8 +244,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 				|| ForkedBehaviourEditPart.VISUAL_ID == visualID
 				|| CollectionIteratorAction2EditPart.VISUAL_ID == visualID
 				|| ResourceDemandingBehaviour3EditPart.VISUAL_ID == visualID
-				|| RecoveryBlockAction2EditPart.VISUAL_ID == visualID
-				|| RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID == visualID
+				|| RecoveryAction2EditPart.VISUAL_ID == visualID
+				|| RecoveryActionBehaviourEditPart.VISUAL_ID == visualID
 				|| SetVariableAction2EditPart.VISUAL_ID == visualID
 				|| VariableUsage3EditPart.VISUAL_ID == visualID
 				|| VariableCharacterisation5EditPart.VISUAL_ID == visualID
@@ -347,8 +347,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		case ForkActionEditPart.VISUAL_ID:
 			return createForkAction_2011(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case RecoveryBlockActionEditPart.VISUAL_ID:
-			return createRecoveryBlockAction_2015(domainElement, containerView,
+		case RecoveryActionEditPart.VISUAL_ID:
+			return createRecoveryAction_2016(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case VariableUsageEditPart.VISUAL_ID:
 			return createVariableUsage_3042(domainElement, containerView,
@@ -432,11 +432,11 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return createResourceDemandingBehaviour_3014(domainElement,
 					containerView, index, persisted, preferencesHint);
-		case RecoveryBlockAction2EditPart.VISUAL_ID:
-			return createRecoveryBlockAction_3056(domainElement, containerView,
+		case RecoveryAction2EditPart.VISUAL_ID:
+			return createRecoveryAction_3057(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID:
-			return createRecoveryBlockAlternativeBehaviour_3052(domainElement,
+		case RecoveryActionBehaviourEditPart.VISUAL_ID:
+			return createRecoveryActionBehaviour_3058(domainElement,
 					containerView, index, persisted, preferencesHint);
 		case SetVariableAction2EditPart.VISUAL_ID:
 			return createSetVariableAction_3024(domainElement, containerView,
@@ -477,8 +477,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 			return createAbstractActionSuccessor_AbstractAction_4001(
 					containerView, index, persisted, preferencesHint);
-		case RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID:
-			return createRecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002(
+		case RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID:
+			return createRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003(
 					containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
@@ -1093,13 +1093,13 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	public Node createRecoveryBlockAction_2015(EObject domainElement,
+	public Node createRecoveryAction_2016(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(PalladioComponentModelVisualIDRegistry
-				.getType(RecoveryBlockActionEditPart.VISUAL_ID));
+				.getType(RecoveryActionEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		stampShortcut(containerView, node);
@@ -1131,14 +1131,13 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label5048 = createLabel(
-				node,
+		Node label5056 = createLabel(node,
 				PalladioComponentModelVisualIDRegistry
-						.getType(RecoveryBlockActionEntityNameEditPart.VISUAL_ID));
+						.getType(RecoveryActionEntityNameEditPart.VISUAL_ID));
 		createCompartment(
 				node,
 				PalladioComponentModelVisualIDRegistry
-						.getType(RecoveryBlockActionRecoveryBlockAlternativeBehavioursEditPart.VISUAL_ID),
+						.getType(RecoveryActionRecoveryBlockCompartment2EditPart.VISUAL_ID),
 				false, false, false, false);
 		return node;
 	}
@@ -2250,13 +2249,13 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	public Node createRecoveryBlockAction_3056(EObject domainElement,
+	public Node createRecoveryAction_3057(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(PalladioComponentModelVisualIDRegistry
-				.getType(RecoveryBlockAction2EditPart.VISUAL_ID));
+				.getType(RecoveryAction2EditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -2287,14 +2286,65 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label5053 = createLabel(
-				node,
+		Node label5055 = createLabel(node,
 				PalladioComponentModelVisualIDRegistry
-						.getType(RecoveryBlockActionEntityName2EditPart.VISUAL_ID));
+						.getType(RecoveryActionEntityName2EditPart.VISUAL_ID));
 		createCompartment(
 				node,
 				PalladioComponentModelVisualIDRegistry
-						.getType(RecoveryBlockActionRecoveryBlockCompartmentEditPart.VISUAL_ID),
+						.getType(RecoveryActionRecoveryBlockCompartmentEditPart.VISUAL_ID),
+				false, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createRecoveryActionBehaviour_3058(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(RecoveryActionBehaviourEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5054 = createLabel(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(RecoveryActionBehaviourEntityNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID),
 				false, false, false, false);
 		return node;
 	}
@@ -2641,58 +2691,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	public Node createRecoveryBlockAlternativeBehaviour_3052(
-			EObject domainElement, View containerView, int index,
-			boolean persisted, PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(PalladioComponentModelVisualIDRegistry
-				.getType(RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
-				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getLineStyle_LineColor(), FigureUtilities
-				.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node
-				.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore,
-					IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
-					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
-					.intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
-				.getFillStyle_FillColor(), FigureUtilities
-				.RGBToInteger(fillRGB));
-		Node label5049 = createLabel(
-				node,
-				PalladioComponentModelVisualIDRegistry
-						.getType(RecoveryBlockAlternativeBehaviourEntityNameEditPart.VISUAL_ID));
-		createCompartment(
-				node,
-				PalladioComponentModelVisualIDRegistry
-						.getType(RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID),
-				false, false, false, false);
-		return node;
-	}
-
-	/**
-	 * @generated
-	 */
 	public Edge createAbstractActionSuccessor_AbstractAction_4001(
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
@@ -2745,7 +2743,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	public Edge createRecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002(
+	public Edge createRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003(
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2760,7 +2758,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge
 				.setType(PalladioComponentModelVisualIDRegistry
-						.getType(RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID));
+						.getType(RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
 		edge.setElement(null);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint

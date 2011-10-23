@@ -44,10 +44,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
@@ -164,7 +164,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecoveryBlockAction_2015 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryBlockAction_2015"); //$NON-NLS-1$
+	public static final IElementType RecoveryAction_2016 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_2016"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -285,11 +285,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecoveryBlockAlternativeBehaviour_3052 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryBlockAlternativeBehaviour_3052"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
 	public static final IElementType CollectionIteratorAction_3013 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_3013"); //$NON-NLS-1$
 
 	/**
@@ -300,7 +295,12 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecoveryBlockAction_3056 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryBlockAction_3056"); //$NON-NLS-1$
+	public static final IElementType RecoveryAction_3057 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_3057"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecoveryActionBehaviour_3058 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviour_3058"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -345,7 +345,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002"); //$NON-NLS-1$
+	public static final IElementType RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -499,9 +499,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 
 			elements
 					.put(
-							RecoveryBlockAction_2015,
+							RecoveryAction_2016,
 							de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
-									.getRecoveryBlockAction());
+									.getRecoveryAction());
 
 			elements.put(VariableUsage_3042, ParameterPackage.eINSTANCE
 					.getVariableUsage());
@@ -593,15 +593,15 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 
 			elements
 					.put(
-							RecoveryBlockAction_3056,
+							RecoveryAction_3057,
 							de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
-									.getRecoveryBlockAction());
+									.getRecoveryAction());
 
 			elements
 					.put(
-							RecoveryBlockAlternativeBehaviour_3052,
+							RecoveryActionBehaviour_3058,
 							de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
-									.getRecoveryBlockAlternativeBehaviour());
+									.getRecoveryActionBehaviour());
 
 			elements.put(SetVariableAction_3024, SeffPackage.eINSTANCE
 					.getSetVariableAction());
@@ -630,9 +630,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 
 			elements
 					.put(
-							RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002,
+							RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003,
 							de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
-									.getRecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour());
+									.getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -663,7 +663,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(AcquireAction_2012);
 			KNOWN_ELEMENT_TYPES.add(ReleaseAction_2010);
 			KNOWN_ELEMENT_TYPES.add(ForkAction_2011);
-			KNOWN_ELEMENT_TYPES.add(RecoveryBlockAction_2015);
+			KNOWN_ELEMENT_TYPES.add(RecoveryAction_2016);
 			KNOWN_ELEMENT_TYPES.add(VariableUsage_3042);
 			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3033);
 			KNOWN_ELEMENT_TYPES.add(VariableUsage_3049);
@@ -691,8 +691,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(ForkedBehaviour_3027);
 			KNOWN_ELEMENT_TYPES.add(CollectionIteratorAction_3013);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3014);
-			KNOWN_ELEMENT_TYPES.add(RecoveryBlockAction_3056);
-			KNOWN_ELEMENT_TYPES.add(RecoveryBlockAlternativeBehaviour_3052);
+			KNOWN_ELEMENT_TYPES.add(RecoveryAction_3057);
+			KNOWN_ELEMENT_TYPES.add(RecoveryActionBehaviour_3058);
 			KNOWN_ELEMENT_TYPES.add(SetVariableAction_3024);
 			KNOWN_ELEMENT_TYPES.add(VariableUsage_3036);
 			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3055);
@@ -703,7 +703,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES
 					.add(AbstractActionSuccessor_AbstractAction_4001);
 			KNOWN_ELEMENT_TYPES
-					.add(RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002);
+					.add(RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -739,8 +739,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			return ReleaseAction_2010;
 		case ForkActionEditPart.VISUAL_ID:
 			return ForkAction_2011;
-		case RecoveryBlockActionEditPart.VISUAL_ID:
-			return RecoveryBlockAction_2015;
+		case RecoveryActionEditPart.VISUAL_ID:
+			return RecoveryAction_2016;
 		case VariableUsageEditPart.VISUAL_ID:
 			return VariableUsage_3042;
 		case VariableCharacterisationEditPart.VISUAL_ID:
@@ -795,10 +795,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			return CollectionIteratorAction_3013;
 		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return ResourceDemandingBehaviour_3014;
-		case RecoveryBlockAction2EditPart.VISUAL_ID:
-			return RecoveryBlockAction_3056;
-		case RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID:
-			return RecoveryBlockAlternativeBehaviour_3052;
+		case RecoveryAction2EditPart.VISUAL_ID:
+			return RecoveryAction_3057;
+		case RecoveryActionBehaviourEditPart.VISUAL_ID:
+			return RecoveryActionBehaviour_3058;
 		case SetVariableAction2EditPart.VISUAL_ID:
 			return SetVariableAction_3024;
 		case VariableUsage3EditPart.VISUAL_ID:
@@ -815,8 +815,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			return ResourceDemandingBehaviour_3018;
 		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 			return AbstractActionSuccessor_AbstractAction_4001;
-		case RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID:
-			return RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002;
+		case RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID:
+			return RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003;
 		}
 		return null;
 	}

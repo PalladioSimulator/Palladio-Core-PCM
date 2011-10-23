@@ -47,8 +47,8 @@ import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.impl.Seff_performancePackageImpl;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.util.Seff_reliabilityValidator;
@@ -79,14 +79,14 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass recoveryBlockAlternativeBehaviourEClass = null;
+	private EClass recoveryActionBehaviourEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass recoveryBlockActionEClass = null;
+	private EClass recoveryActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -233,8 +233,8 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRecoveryBlockAlternativeBehaviour() {
-		return recoveryBlockAlternativeBehaviourEClass;
+	public EClass getRecoveryActionBehaviour() {
+		return recoveryActionBehaviourEClass;
 	}
 
 	/**
@@ -242,8 +242,8 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour() {
-		return (EReference)recoveryBlockAlternativeBehaviourEClass.getEStructuralFeatures().get(0);
+	public EReference getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour() {
+		return (EReference)recoveryActionBehaviourEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -251,8 +251,8 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRecoveryBlockAlternativeBehaviour_RecoveryBlockAction_RecoveryBlockAlternativeBehaviour() {
-		return (EReference)recoveryBlockAlternativeBehaviourEClass.getEStructuralFeatures().get(1);
+	public EReference getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour() {
+		return (EReference)recoveryActionBehaviourEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -260,8 +260,8 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRecoveryBlockAction() {
-		return recoveryBlockActionEClass;
+	public EClass getRecoveryAction() {
+		return recoveryActionEClass;
 	}
 
 	/**
@@ -269,8 +269,8 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRecoveryBlockAction_RecoveryBlockAlternativeBehaviours_RecoveryBlockAction() {
-		return (EReference)recoveryBlockActionEClass.getEStructuralFeatures().get(0);
+	public EReference getRecoveryAction_RecoveryActionBehaviours__RecoveryAction() {
+		return (EReference)recoveryActionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -319,12 +319,12 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 		isCreated = true;
 
 		// Create classes and their features
-		recoveryBlockAlternativeBehaviourEClass = createEClass(RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR);
-		createEReference(recoveryBlockAlternativeBehaviourEClass, RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR);
-		createEReference(recoveryBlockAlternativeBehaviourEClass, RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__RECOVERY_BLOCK_ACTION_RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR);
+		recoveryActionBehaviourEClass = createEClass(RECOVERY_ACTION_BEHAVIOUR);
+		createEReference(recoveryActionBehaviourEClass, RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR);
+		createEReference(recoveryActionBehaviourEClass, RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR);
 
-		recoveryBlockActionEClass = createEClass(RECOVERY_BLOCK_ACTION);
-		createEReference(recoveryBlockActionEClass, RECOVERY_BLOCK_ACTION__RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOURS_RECOVERY_BLOCK_ACTION);
+		recoveryActionEClass = createEClass(RECOVERY_ACTION);
+		createEReference(recoveryActionEClass, RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION);
 
 		failureHandlingEntityEClass = createEClass(FAILURE_HANDLING_ENTITY);
 		createEReference(failureHandlingEntityEClass, FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY);
@@ -363,20 +363,20 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		recoveryBlockAlternativeBehaviourEClass.getESuperTypes().add(this.getFailureHandlingEntity());
-		recoveryBlockAlternativeBehaviourEClass.getESuperTypes().add(theSeffPackage.getResourceDemandingBehaviour());
-		recoveryBlockActionEClass.getESuperTypes().add(theSeffPackage.getAbstractInternalControlFlowAction());
+		recoveryActionBehaviourEClass.getESuperTypes().add(this.getFailureHandlingEntity());
+		recoveryActionBehaviourEClass.getESuperTypes().add(theSeffPackage.getResourceDemandingBehaviour());
+		recoveryActionEClass.getESuperTypes().add(theSeffPackage.getAbstractInternalControlFlowAction());
 		failureHandlingEntityEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(recoveryBlockAlternativeBehaviourEClass, RecoveryBlockAlternativeBehaviour.class, "RecoveryBlockAlternativeBehaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour(), this.getRecoveryBlockAlternativeBehaviour(), null, "nextAlternative_RecoveryBlockAlternativeBehaviour", null, 0, 1, RecoveryBlockAlternativeBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRecoveryBlockAlternativeBehaviour_RecoveryBlockAction_RecoveryBlockAlternativeBehaviour(), this.getRecoveryBlockAction(), this.getRecoveryBlockAction_RecoveryBlockAlternativeBehaviours_RecoveryBlockAction(), "recoveryBlockAction_RecoveryBlockAlternativeBehaviour", null, 1, 1, RecoveryBlockAlternativeBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(recoveryActionBehaviourEClass, RecoveryActionBehaviour.class, "RecoveryActionBehaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour(), this.getRecoveryActionBehaviour(), null, "nextAlternative__RecoveryActionBehaviour", null, 0, 1, RecoveryActionBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour(), this.getRecoveryAction(), this.getRecoveryAction_RecoveryActionBehaviours__RecoveryAction(), "recoveryAction__RecoveryActionBehaviour", null, 1, 1, RecoveryActionBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(recoveryBlockActionEClass, RecoveryBlockAction.class, "RecoveryBlockAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRecoveryBlockAction_RecoveryBlockAlternativeBehaviours_RecoveryBlockAction(), this.getRecoveryBlockAlternativeBehaviour(), this.getRecoveryBlockAlternativeBehaviour_RecoveryBlockAction_RecoveryBlockAlternativeBehaviour(), "recoveryBlockAlternativeBehaviours_RecoveryBlockAction", null, 2, -1, RecoveryBlockAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(recoveryActionEClass, RecoveryAction.class, "RecoveryAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRecoveryAction_RecoveryActionBehaviours__RecoveryAction(), this.getRecoveryActionBehaviour(), this.getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour(), "recoveryActionBehaviours__RecoveryAction", null, 2, -1, RecoveryAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		EOperation op = addEOperation(recoveryBlockActionEClass, ecorePackage.getEBoolean(), "Alternativesformachain", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(recoveryActionEClass, ecorePackage.getEBoolean(), "Alternativesformachain", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());

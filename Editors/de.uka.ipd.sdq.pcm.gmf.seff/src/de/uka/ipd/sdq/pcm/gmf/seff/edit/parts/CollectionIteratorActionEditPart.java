@@ -130,16 +130,16 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CollectionIteratorParameterLabel2EditPart) {
-			((CollectionIteratorParameterLabel2EditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureCollectionIteratorParameterLabelFigure());
-			return true;
-		}
 		if (childEditPart instanceof CollectionIteratorActionEntityNameEditPart) {
 			((CollectionIteratorActionEntityNameEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureCollectionIteratorNameLabelFigure());
+			return true;
+		}
+		if (childEditPart instanceof CollectionIteratorParameterLabel2EditPart) {
+			((CollectionIteratorParameterLabel2EditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureCollectionIteratorParameterLabelFigure());
 			return true;
 		}
 		return false;
@@ -149,10 +149,10 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CollectionIteratorParameterLabel2EditPart) {
+		if (childEditPart instanceof CollectionIteratorActionEntityNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof CollectionIteratorActionEntityNameEditPart) {
+		if (childEditPart instanceof CollectionIteratorParameterLabel2EditPart) {
 			return true;
 		}
 		return false;
@@ -343,7 +343,7 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 			types
 					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
 		}
-		if (targetEditPart instanceof RecoveryBlockActionEditPart) {
+		if (targetEditPart instanceof RecoveryActionEditPart) {
 			types
 					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
 		}
@@ -391,7 +391,7 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 			types
 					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
 		}
-		if (targetEditPart instanceof RecoveryBlockAction2EditPart) {
+		if (targetEditPart instanceof RecoveryAction2EditPart) {
 			types
 					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
 		}
@@ -448,8 +448,7 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 			types.add(PalladioComponentModelElementTypes.ForkAction_2011);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_2015);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_2016);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
 			types.add(PalladioComponentModelElementTypes.StartAction_3004);
@@ -487,8 +486,7 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
 			types
@@ -553,8 +551,7 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 			types.add(PalladioComponentModelElementTypes.ForkAction_2011);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_2015);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_2016);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
 			types.add(PalladioComponentModelElementTypes.StartAction_3004);
@@ -592,8 +589,7 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
 			types

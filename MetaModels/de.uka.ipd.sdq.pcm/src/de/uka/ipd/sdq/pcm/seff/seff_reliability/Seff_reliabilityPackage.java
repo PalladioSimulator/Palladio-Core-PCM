@@ -114,14 +114,14 @@ public interface Seff_reliabilityPackage extends EPackage {
 	int FAILURE_HANDLING_ENTITY_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryBlockAlternativeBehaviourImpl <em>Recovery Block Alternative Behaviour</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl <em>Recovery Action Behaviour</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryBlockAlternativeBehaviourImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.Seff_reliabilityPackageImpl#getRecoveryBlockAlternativeBehaviour()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.Seff_reliabilityPackageImpl#getRecoveryActionBehaviour()
 	 * @generated
 	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR = 0;
+	int RECOVERY_ACTION_BEHAVIOUR = 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -130,7 +130,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__ID = FAILURE_HANDLING_ENTITY__ID;
+	int RECOVERY_ACTION_BEHAVIOUR__ID = FAILURE_HANDLING_ENTITY__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -139,7 +139,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__ENTITY_NAME = FAILURE_HANDLING_ENTITY__ENTITY_NAME;
+	int RECOVERY_ACTION_BEHAVIOUR__ENTITY_NAME = FAILURE_HANDLING_ENTITY__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Failure Types Failure Handling Entity</b></em>' reference list.
@@ -148,7 +148,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__FAILURE_TYPES_FAILURE_HANDLING_ENTITY = FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY;
+	int RECOVERY_ACTION_BEHAVIOUR__FAILURE_TYPES_FAILURE_HANDLING_ENTITY = FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>' container reference.
@@ -157,7 +157,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 0;
+	int RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
@@ -166,7 +166,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 1;
+	int RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Steps Behaviour</b></em>' containment reference list.
@@ -175,44 +175,44 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__STEPS_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 2;
+	int RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Next Alternative Recovery Block Alternative Behaviour</b></em>' reference.
+	 * The feature id for the '<em><b>Next Alternative Recovery Action Behaviour</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 3;
+	int RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Recovery Block Action Recovery Block Alternative Behaviour</b></em>' container reference.
+	 * The feature id for the '<em><b>Recovery Action Recovery Action Behaviour</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__RECOVERY_BLOCK_ACTION_RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 4;
+	int RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>Recovery Block Alternative Behaviour</em>' class.
+	 * The number of structural features of the '<em>Recovery Action Behaviour</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR_FEATURE_COUNT = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 5;
+	int RECOVERY_ACTION_BEHAVIOUR_FEATURE_COUNT = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryBlockActionImpl <em>Recovery Block Action</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionImpl <em>Recovery Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryBlockActionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.Seff_reliabilityPackageImpl#getRecoveryBlockAction()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.Seff_reliabilityPackageImpl#getRecoveryAction()
 	 * @generated
 	 */
-	int RECOVERY_BLOCK_ACTION = 1;
+	int RECOVERY_ACTION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -221,7 +221,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ACTION__ID = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__ID;
+	int RECOVERY_ACTION__ID = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -230,7 +230,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ACTION__ENTITY_NAME = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__ENTITY_NAME;
+	int RECOVERY_ACTION__ENTITY_NAME = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
@@ -239,7 +239,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ACTION__PREDECESSOR_ABSTRACT_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+	int RECOVERY_ACTION__PREDECESSOR_ABSTRACT_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__PREDECESSOR_ABSTRACT_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
@@ -248,7 +248,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ACTION__SUCCESSOR_ABSTRACT_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+	int RECOVERY_ACTION__SUCCESSOR_ABSTRACT_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__SUCCESSOR_ABSTRACT_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>' container reference.
@@ -257,7 +257,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION;
+	int RECOVERY_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
@@ -266,7 +266,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ACTION__RESOURCE_DEMAND_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION;
+	int RECOVERY_ACTION__RESOURCE_DEMAND_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Infrastructure Call Action</b></em>' containment reference list.
@@ -275,7 +275,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ACTION__INFRASTRUCTURE_CALL_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION;
+	int RECOVERY_ACTION__INFRASTRUCTURE_CALL_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Resource Call Action</b></em>' containment reference list.
@@ -284,79 +284,79 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ACTION__RESOURCE_CALL_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION;
+	int RECOVERY_ACTION__RESOURCE_CALL_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION;
 
 	/**
-	 * The feature id for the '<em><b>Recovery Block Alternative Behaviours Recovery Block Action</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Recovery Action Behaviours Recovery Action</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ACTION__RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOURS_RECOVERY_BLOCK_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
+	int RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Recovery Block Action</em>' class.
+	 * The number of structural features of the '<em>Recovery Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_BLOCK_ACTION_FEATURE_COUNT = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
+	int RECOVERY_ACTION_FEATURE_COUNT = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour <em>Recovery Block Alternative Behaviour</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour <em>Recovery Action Behaviour</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Recovery Block Alternative Behaviour</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour
+	 * @return the meta object for class '<em>Recovery Action Behaviour</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour
 	 * @generated
 	 */
-	EClass getRecoveryBlockAlternativeBehaviour();
+	EClass getRecoveryActionBehaviour();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour#getNextAlternative_RecoveryBlockAlternativeBehaviour <em>Next Alternative Recovery Block Alternative Behaviour</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getNextAlternative__RecoveryActionBehaviour <em>Next Alternative Recovery Action Behaviour</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next Alternative Recovery Block Alternative Behaviour</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour#getNextAlternative_RecoveryBlockAlternativeBehaviour()
-	 * @see #getRecoveryBlockAlternativeBehaviour()
+	 * @return the meta object for the reference '<em>Next Alternative Recovery Action Behaviour</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getNextAlternative__RecoveryActionBehaviour()
+	 * @see #getRecoveryActionBehaviour()
 	 * @generated
 	 */
-	EReference getRecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour();
+	EReference getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour#getRecoveryBlockAction_RecoveryBlockAlternativeBehaviour <em>Recovery Block Action Recovery Block Alternative Behaviour</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour <em>Recovery Action Recovery Action Behaviour</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Recovery Block Action Recovery Block Alternative Behaviour</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour#getRecoveryBlockAction_RecoveryBlockAlternativeBehaviour()
-	 * @see #getRecoveryBlockAlternativeBehaviour()
+	 * @return the meta object for the container reference '<em>Recovery Action Recovery Action Behaviour</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour()
+	 * @see #getRecoveryActionBehaviour()
 	 * @generated
 	 */
-	EReference getRecoveryBlockAlternativeBehaviour_RecoveryBlockAction_RecoveryBlockAlternativeBehaviour();
+	EReference getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction <em>Recovery Block Action</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction <em>Recovery Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Recovery Block Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction
+	 * @return the meta object for class '<em>Recovery Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction
 	 * @generated
 	 */
-	EClass getRecoveryBlockAction();
+	EClass getRecoveryAction();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction#getRecoveryBlockAlternativeBehaviours_RecoveryBlockAction <em>Recovery Block Alternative Behaviours Recovery Block Action</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction <em>Recovery Action Behaviours Recovery Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Recovery Block Alternative Behaviours Recovery Block Action</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction#getRecoveryBlockAlternativeBehaviours_RecoveryBlockAction()
-	 * @see #getRecoveryBlockAction()
+	 * @return the meta object for the containment reference list '<em>Recovery Action Behaviours Recovery Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction()
+	 * @see #getRecoveryAction()
 	 * @generated
 	 */
-	EReference getRecoveryBlockAction_RecoveryBlockAlternativeBehaviours_RecoveryBlockAction();
+	EReference getRecoveryAction_RecoveryActionBehaviours__RecoveryAction();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity <em>Failure Handling Entity</em>}'.
@@ -402,48 +402,48 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryBlockAlternativeBehaviourImpl <em>Recovery Block Alternative Behaviour</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl <em>Recovery Action Behaviour</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryBlockAlternativeBehaviourImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.Seff_reliabilityPackageImpl#getRecoveryBlockAlternativeBehaviour()
+		 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.Seff_reliabilityPackageImpl#getRecoveryActionBehaviour()
 		 * @generated
 		 */
-		EClass RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR = eINSTANCE.getRecoveryBlockAlternativeBehaviour();
+		EClass RECOVERY_ACTION_BEHAVIOUR = eINSTANCE.getRecoveryActionBehaviour();
 
 		/**
-		 * The meta object literal for the '<em><b>Next Alternative Recovery Block Alternative Behaviour</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Next Alternative Recovery Action Behaviour</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR = eINSTANCE.getRecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour();
+		EReference RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR = eINSTANCE.getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour();
 
 		/**
-		 * The meta object literal for the '<em><b>Recovery Block Action Recovery Block Alternative Behaviour</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Recovery Action Recovery Action Behaviour</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR__RECOVERY_BLOCK_ACTION_RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR = eINSTANCE.getRecoveryBlockAlternativeBehaviour_RecoveryBlockAction_RecoveryBlockAlternativeBehaviour();
+		EReference RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR = eINSTANCE.getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryBlockActionImpl <em>Recovery Block Action</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionImpl <em>Recovery Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryBlockActionImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.Seff_reliabilityPackageImpl#getRecoveryBlockAction()
+		 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.Seff_reliabilityPackageImpl#getRecoveryAction()
 		 * @generated
 		 */
-		EClass RECOVERY_BLOCK_ACTION = eINSTANCE.getRecoveryBlockAction();
+		EClass RECOVERY_ACTION = eINSTANCE.getRecoveryAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Recovery Block Alternative Behaviours Recovery Block Action</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Recovery Action Behaviours Recovery Action</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RECOVERY_BLOCK_ACTION__RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOURS_RECOVERY_BLOCK_ACTION = eINSTANCE.getRecoveryBlockAction_RecoveryBlockAlternativeBehaviours_RecoveryBlockAction();
+		EReference RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION = eINSTANCE.getRecoveryAction_RecoveryActionBehaviours__RecoveryAction();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl <em>Failure Handling Entity</em>}' class.

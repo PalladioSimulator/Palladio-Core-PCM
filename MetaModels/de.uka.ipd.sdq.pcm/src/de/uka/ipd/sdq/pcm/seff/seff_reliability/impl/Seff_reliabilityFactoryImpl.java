@@ -12,8 +12,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
@@ -68,8 +66,8 @@ public class Seff_reliabilityFactoryImpl extends EFactoryImpl implements Seff_re
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case Seff_reliabilityPackage.RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR: return createRecoveryBlockAlternativeBehaviour();
-			case Seff_reliabilityPackage.RECOVERY_BLOCK_ACTION: return createRecoveryBlockAction();
+			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR: return createRecoveryActionBehaviour();
+			case Seff_reliabilityPackage.RECOVERY_ACTION: return createRecoveryAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,9 +78,9 @@ public class Seff_reliabilityFactoryImpl extends EFactoryImpl implements Seff_re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RecoveryBlockAlternativeBehaviour createRecoveryBlockAlternativeBehaviour() {
-		RecoveryBlockAlternativeBehaviourImpl recoveryBlockAlternativeBehaviour = new RecoveryBlockAlternativeBehaviourImpl();
-		return recoveryBlockAlternativeBehaviour;
+	public RecoveryActionBehaviour createRecoveryActionBehaviour() {
+		RecoveryActionBehaviourImpl recoveryActionBehaviour = new RecoveryActionBehaviourImpl();
+		return recoveryActionBehaviour;
 	}
 
 	/**
@@ -90,9 +88,9 @@ public class Seff_reliabilityFactoryImpl extends EFactoryImpl implements Seff_re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RecoveryBlockAction createRecoveryBlockAction() {
-		RecoveryBlockActionImpl recoveryBlockAction = new RecoveryBlockActionImpl();
-		return recoveryBlockAction;
+	public RecoveryAction createRecoveryAction() {
+		RecoveryActionImpl recoveryAction = new RecoveryActionImpl();
+		return recoveryAction;
 	}
 
 	/**

@@ -168,7 +168,7 @@ public class AbstractLoopActionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
-				 Seff_reliabilityFactory.eINSTANCE.createRecoveryBlockAlternativeBehaviour()));
+				 Seff_reliabilityFactory.eINSTANCE.createRecoveryActionBehaviour()));
 	}
 
 }

@@ -15,7 +15,7 @@ public class PalladioComponentModelNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 7055;
+	private static final int GROUP_CATEGORY = 7058;
 
 	/**
 	 * @generated

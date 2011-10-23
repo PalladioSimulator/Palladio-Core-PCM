@@ -18,8 +18,6 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.*;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
 /**
@@ -103,25 +101,25 @@ public class Seff_reliabilitySwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case Seff_reliabilityPackage.RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR: {
-				RecoveryBlockAlternativeBehaviour recoveryBlockAlternativeBehaviour = (RecoveryBlockAlternativeBehaviour)theEObject;
-				T result = caseRecoveryBlockAlternativeBehaviour(recoveryBlockAlternativeBehaviour);
-				if (result == null) result = caseFailureHandlingEntity(recoveryBlockAlternativeBehaviour);
-				if (result == null) result = caseResourceDemandingBehaviour(recoveryBlockAlternativeBehaviour);
-				if (result == null) result = caseEntity(recoveryBlockAlternativeBehaviour);
-				if (result == null) result = caseIdentifier(recoveryBlockAlternativeBehaviour);
-				if (result == null) result = caseNamedElement(recoveryBlockAlternativeBehaviour);
+			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR: {
+				RecoveryActionBehaviour recoveryActionBehaviour = (RecoveryActionBehaviour)theEObject;
+				T result = caseRecoveryActionBehaviour(recoveryActionBehaviour);
+				if (result == null) result = caseFailureHandlingEntity(recoveryActionBehaviour);
+				if (result == null) result = caseResourceDemandingBehaviour(recoveryActionBehaviour);
+				if (result == null) result = caseEntity(recoveryActionBehaviour);
+				if (result == null) result = caseIdentifier(recoveryActionBehaviour);
+				if (result == null) result = caseNamedElement(recoveryActionBehaviour);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Seff_reliabilityPackage.RECOVERY_BLOCK_ACTION: {
-				RecoveryBlockAction recoveryBlockAction = (RecoveryBlockAction)theEObject;
-				T result = caseRecoveryBlockAction(recoveryBlockAction);
-				if (result == null) result = caseAbstractInternalControlFlowAction(recoveryBlockAction);
-				if (result == null) result = caseAbstractAction(recoveryBlockAction);
-				if (result == null) result = caseEntity(recoveryBlockAction);
-				if (result == null) result = caseIdentifier(recoveryBlockAction);
-				if (result == null) result = caseNamedElement(recoveryBlockAction);
+			case Seff_reliabilityPackage.RECOVERY_ACTION: {
+				RecoveryAction recoveryAction = (RecoveryAction)theEObject;
+				T result = caseRecoveryAction(recoveryAction);
+				if (result == null) result = caseAbstractInternalControlFlowAction(recoveryAction);
+				if (result == null) result = caseAbstractAction(recoveryAction);
+				if (result == null) result = caseEntity(recoveryAction);
+				if (result == null) result = caseIdentifier(recoveryAction);
+				if (result == null) result = caseNamedElement(recoveryAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,32 +137,32 @@ public class Seff_reliabilitySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Recovery Block Alternative Behaviour</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Recovery Action Behaviour</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Recovery Block Alternative Behaviour</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Recovery Action Behaviour</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRecoveryBlockAlternativeBehaviour(RecoveryBlockAlternativeBehaviour object) {
+	public T caseRecoveryActionBehaviour(RecoveryActionBehaviour object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Recovery Block Action</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Recovery Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Recovery Block Action</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Recovery Action</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRecoveryBlockAction(RecoveryBlockAction object) {
+	public T caseRecoveryAction(RecoveryAction object) {
 		return null;
 	}
 

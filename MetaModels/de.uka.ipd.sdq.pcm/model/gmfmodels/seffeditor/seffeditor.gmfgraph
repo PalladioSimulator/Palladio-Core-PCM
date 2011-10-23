@@ -775,10 +775,10 @@
           text=""/>
     </descriptors>
     <descriptors
-        name="RecoveryBlockActionFigure">
+        name="RecoveryActionFigure">
       <actualFigure
           xsi:type="gmfgraph:RoundedRectangle"
-          name="RecoveryBlockActionFigure">
+          name="RecoveryActionFigure">
         <layout
             xsi:type="gmfgraph:GridLayout">
           <margins/>
@@ -787,8 +787,8 @@
         <minimumSize/>
         <children
             xsi:type="gmfgraph:Label"
-            name="RecoveryBlockActionStereotype"
-            text="&lt;&lt;RecoveryBlockAction>>">
+            name="RecoveryActionStereotype"
+            text="&lt;&lt;RecoveryAction>>">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"/>
           <border
@@ -800,7 +800,7 @@
         </children>
         <children
             xsi:type="gmfgraph:Label"
-            name="RecoveryBlockActionNameLabel">
+            name="RecoveryActionNameLabel">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"/>
           <border
@@ -827,14 +827,14 @@
       <accessors
           figure="//@figures.0/@descriptors.23/@actualFigure/@children.1"/>
       <accessors
-          accessor="getFigureRecoveryBlockActionCompartment"
+          accessor="getFigureRecoveryActionCompartment"
           figure="//@figures.0/@descriptors.23/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
-        name="RecoveryBlockAlternativeBehaviourFigure">
+        name="RecoveryActionBehaviourFigure">
       <actualFigure
           xsi:type="gmfgraph:Rectangle"
-          name="RecoveryBlockAlternativeBehaviourFigure">
+          name="RecoveryActionBehaviourFigure">
         <layout
             xsi:type="gmfgraph:GridLayout">
           <margins/>
@@ -843,8 +843,8 @@
         <minimumSize/>
         <children
             xsi:type="gmfgraph:Label"
-            name="RecoveryBlockAlternativeBehaviourStereotype"
-            text="&lt;&lt;RecoveryBlockAlternativeBehaviour>>">
+            name="RecoveryActionBehaviourStereotype"
+            text="&lt;&lt;RecoveryActionBehaviour>>">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"/>
           <border
@@ -856,7 +856,7 @@
         </children>
         <children
             xsi:type="gmfgraph:Label"
-            name="RecoveryBlockAlternativeBehaviourNameLabel">
+            name="RecoveryActionBehaviourNameLabel">
           <layoutData
               xsi:type="gmfgraph:GridLayoutData"/>
           <border
@@ -868,7 +868,7 @@
         </children>
         <children
             xsi:type="gmfgraph:Rectangle"
-            name="RecoveryBlockAlternativeBehaviourCompartment"
+            name="RecoveryActionBehaviourCompartment"
             outline="false"
             fill="false">
           <layoutData
@@ -883,7 +883,7 @@
       <accessors
           figure="//@figures.0/@descriptors.24/@actualFigure/@children.1"/>
       <accessors
-          accessor="getFigureRecoveryBlockAlternativeBehaviourCompartment"
+          accessor="getFigureRecoveryActionBehaviourCompartment"
           figure="//@figures.0/@descriptors.24/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
@@ -1019,11 +1019,11 @@
       name="FailureOccurrenceDescriptionNode"
       figure="FailureOccurrenceDescriptionFigure"/>
   <nodes
-      name="RecoveryBlockActionNode"
-      figure="RecoveryBlockActionFigure"/>
+      name="RecoveryActionNode"
+      figure="RecoveryActionFigure"/>
   <nodes
-      name="RecoveryBlockAlternativeBehaviourNode"
-      figure="RecoveryBlockAlternativeBehaviourFigure"/>
+      name="RecoveryActionBehaviourNode"
+      figure="RecoveryActionBehaviourFigure"/>
   <nodes
       name="InfrastructureCallNode"
       figure="InfrastructureCallFigure"/>
@@ -1105,11 +1105,11 @@
       accessor="//@figures.0/@descriptors.10/@accessors.1"/>
   <compartments
       name="RecoveryBlockCompartment"
-      figure="RecoveryBlockActionFigure"
+      figure="RecoveryActionFigure"
       accessor="//@figures.0/@descriptors.23/@accessors.1"/>
   <compartments
       name="AlternativeBehaviourCompartment"
-      figure="RecoveryBlockAlternativeBehaviourFigure"
+      figure="RecoveryActionBehaviourFigure"
       accessor="//@figures.0/@descriptors.24/@accessors.1"/>
   <compartments
       name="InfrastructureCallInputVariableUsages"
@@ -1207,12 +1207,12 @@
       name="FailureOccurrenceDescriptionLabel"
       figure="FailureOccurrenceDescriptionFigure"/>
   <labels
-      name="RecoveryBlockActionNameLabel"
-      figure="RecoveryBlockActionFigure"
+      name="RecoveryActionNameLabel"
+      figure="RecoveryActionFigure"
       accessor="//@figures.0/@descriptors.23/@accessors.0"/>
   <labels
-      name="RecoveryBlockAlternativeBehaviourNameLabel"
-      figure="RecoveryBlockAlternativeBehaviourFigure"
+      name="RecoveryActionBehaviourNameLabel"
+      figure="RecoveryActionBehaviourFigure"
       accessor="//@figures.0/@descriptors.24/@accessors.0"/>
   <labels
       name="InfrastructureCallTargetLabel"

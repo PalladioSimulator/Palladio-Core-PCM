@@ -81,49 +81,49 @@ public class Seff_reliabilityItemProviderAdapterFactory extends Seff_reliability
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RecoveryBlockAlternativeBehaviourItemProvider recoveryBlockAlternativeBehaviourItemProvider;
+	protected RecoveryActionBehaviourItemProvider recoveryActionBehaviourItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRecoveryBlockAlternativeBehaviourAdapter() {
-		if (recoveryBlockAlternativeBehaviourItemProvider == null) {
-			recoveryBlockAlternativeBehaviourItemProvider = new RecoveryBlockAlternativeBehaviourItemProvider(this);
+	public Adapter createRecoveryActionBehaviourAdapter() {
+		if (recoveryActionBehaviourItemProvider == null) {
+			recoveryActionBehaviourItemProvider = new RecoveryActionBehaviourItemProvider(this);
 		}
 
-		return recoveryBlockAlternativeBehaviourItemProvider;
+		return recoveryActionBehaviourItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RecoveryBlockActionItemProvider recoveryBlockActionItemProvider;
+	protected RecoveryActionItemProvider recoveryActionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRecoveryBlockActionAdapter() {
-		if (recoveryBlockActionItemProvider == null) {
-			recoveryBlockActionItemProvider = new RecoveryBlockActionItemProvider(this);
+	public Adapter createRecoveryActionAdapter() {
+		if (recoveryActionItemProvider == null) {
+			recoveryActionItemProvider = new RecoveryActionItemProvider(this);
 		}
 
-		return recoveryBlockActionItemProvider;
+		return recoveryActionItemProvider;
 	}
 
 	/**
@@ -225,8 +225,8 @@ public class Seff_reliabilityItemProviderAdapterFactory extends Seff_reliability
 	 * @generated
 	 */
 	public void dispose() {
-		if (recoveryBlockAlternativeBehaviourItemProvider != null) recoveryBlockAlternativeBehaviourItemProvider.dispose();
-		if (recoveryBlockActionItemProvider != null) recoveryBlockActionItemProvider.dispose();
+		if (recoveryActionBehaviourItemProvider != null) recoveryActionBehaviourItemProvider.dispose();
+		if (recoveryActionItemProvider != null) recoveryActionItemProvider.dispose();
 	}
 
 }

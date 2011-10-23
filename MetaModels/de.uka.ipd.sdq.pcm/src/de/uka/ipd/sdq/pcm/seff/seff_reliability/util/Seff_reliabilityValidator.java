@@ -15,8 +15,6 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.*;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
@@ -54,12 +52,12 @@ public class Seff_reliabilityValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.pcm.seff.seff_reliability";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Alternativesformachain' of 'Recovery Block Action'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Alternativesformachain' of 'Recovery Action'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RECOVERY_BLOCK_ACTION__ALTERNATIVESFORMACHAIN = 1;
+	public static final int RECOVERY_ACTION__ALTERNATIVESFORMACHAIN = 1;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -125,10 +123,10 @@ public class Seff_reliabilityValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
-			case Seff_reliabilityPackage.RECOVERY_BLOCK_ALTERNATIVE_BEHAVIOUR:
-				return validateRecoveryBlockAlternativeBehaviour((RecoveryBlockAlternativeBehaviour)value, diagnostics, context);
-			case Seff_reliabilityPackage.RECOVERY_BLOCK_ACTION:
-				return validateRecoveryBlockAction((RecoveryBlockAction)value, diagnostics, context);
+			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR:
+				return validateRecoveryActionBehaviour((RecoveryActionBehaviour)value, diagnostics, context);
+			case Seff_reliabilityPackage.RECOVERY_ACTION:
+				return validateRecoveryAction((RecoveryAction)value, diagnostics, context);
 			case Seff_reliabilityPackage.FAILURE_HANDLING_ENTITY:
 				return validateFailureHandlingEntity((FailureHandlingEntity)value, diagnostics, context);
 			default:
@@ -141,18 +139,18 @@ public class Seff_reliabilityValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRecoveryBlockAlternativeBehaviour(RecoveryBlockAlternativeBehaviour recoveryBlockAlternativeBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(recoveryBlockAlternativeBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(recoveryBlockAlternativeBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(recoveryBlockAlternativeBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(recoveryBlockAlternativeBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(recoveryBlockAlternativeBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(recoveryBlockAlternativeBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(recoveryBlockAlternativeBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(recoveryBlockAlternativeBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= seffValidator.validateResourceDemandingBehaviour_ExactlyOneStopAction(recoveryBlockAlternativeBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= seffValidator.validateResourceDemandingBehaviour_ExactlyOneStartAction(recoveryBlockAlternativeBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= seffValidator.validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(recoveryBlockAlternativeBehaviour, diagnostics, context);
+	public boolean validateRecoveryActionBehaviour(RecoveryActionBehaviour recoveryActionBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(recoveryActionBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(recoveryActionBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(recoveryActionBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(recoveryActionBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(recoveryActionBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(recoveryActionBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(recoveryActionBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(recoveryActionBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= seffValidator.validateResourceDemandingBehaviour_ExactlyOneStopAction(recoveryActionBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= seffValidator.validateResourceDemandingBehaviour_ExactlyOneStartAction(recoveryActionBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= seffValidator.validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(recoveryActionBehaviour, diagnostics, context);
 		return result;
 	}
 
@@ -161,27 +159,27 @@ public class Seff_reliabilityValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRecoveryBlockAction(RecoveryBlockAction recoveryBlockAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(recoveryBlockAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(recoveryBlockAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(recoveryBlockAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(recoveryBlockAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(recoveryBlockAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(recoveryBlockAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(recoveryBlockAction, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(recoveryBlockAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRecoveryBlockAction_Alternativesformachain(recoveryBlockAction, diagnostics, context);
+	public boolean validateRecoveryAction(RecoveryAction recoveryAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(recoveryAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(recoveryAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(recoveryAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(recoveryAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(recoveryAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(recoveryAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(recoveryAction, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(recoveryAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validateRecoveryAction_Alternativesformachain(recoveryAction, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the Alternativesformachain constraint of '<em>Recovery Block Action</em>'.
+	 * Validates the Alternativesformachain constraint of '<em>Recovery Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRecoveryBlockAction_Alternativesformachain(RecoveryBlockAction recoveryBlockAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return recoveryBlockAction.Alternativesformachain(diagnostics, context);
+	public boolean validateRecoveryAction_Alternativesformachain(RecoveryAction recoveryAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return recoveryAction.Alternativesformachain(diagnostics, context);
 	}
 
 	/**

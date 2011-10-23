@@ -51,7 +51,7 @@ public class PalladioComponentModelPaletteFactory {
 		paletteContainer.add(createCollectionIteratorAction10CreationTool());
 		paletteContainer.add(createBranchAction11CreationTool());
 		paletteContainer.add(createForkAction12CreationTool());
-		paletteContainer.add(createRecoveryBlockAction13CreationTool());
+		paletteContainer.add(createRecoveryAction13CreationTool());
 		return paletteContainer;
 	}
 
@@ -72,8 +72,7 @@ public class PalladioComponentModelPaletteFactory {
 		paletteContainer
 				.add(createProbabilisticBranchTransition7CreationTool());
 		paletteContainer.add(createGuardedBranchTransition8CreationTool());
-		paletteContainer
-				.add(createRecoveryBlockAlternativeBehaviour9CreationTool());
+		paletteContainer.add(createRecoveryActionBehaviour9CreationTool());
 		paletteContainer.add(createInfrastructureCall10CreationTool());
 		return paletteContainer;
 	}
@@ -312,17 +311,17 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRecoveryBlockAction13CreationTool() {
+	private ToolEntry createRecoveryAction13CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
-		types.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
-		types.add(PalladioComponentModelElementTypes.RecoveryBlockAction_2015);
+		types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
+		types.add(PalladioComponentModelElementTypes.RecoveryAction_2016);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.RecoveryBlockAction13CreationTool_title,
-				Messages.RecoveryBlockAction13CreationTool_desc, types);
-		entry.setId("createRecoveryBlockAction13CreationTool"); //$NON-NLS-1$
+				Messages.RecoveryAction13CreationTool_title,
+				Messages.RecoveryAction13CreationTool_desc, types);
+		entry.setId("createRecoveryAction13CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.RecoveryBlockAction_3056));
+						.getImageDescriptor(PalladioComponentModelElementTypes.RecoveryAction_3057));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -492,18 +491,17 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRecoveryBlockAlternativeBehaviour9CreationTool() {
+	private ToolEntry createRecoveryActionBehaviour9CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(PalladioComponentModelElementTypes.RecoveryBlockAlternativeBehaviour_3052);
+				.add(PalladioComponentModelElementTypes.RecoveryActionBehaviour_3058);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.RecoveryBlockAlternativeBehaviour9CreationTool_title,
-				Messages.RecoveryBlockAlternativeBehaviour9CreationTool_desc,
-				types);
-		entry.setId("createRecoveryBlockAlternativeBehaviour9CreationTool"); //$NON-NLS-1$
+				Messages.RecoveryActionBehaviour9CreationTool_title,
+				Messages.RecoveryActionBehaviour9CreationTool_desc, types);
+		entry.setId("createRecoveryActionBehaviour9CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.RecoveryBlockAlternativeBehaviour_3052));
+						.getImageDescriptor(PalladioComponentModelElementTypes.RecoveryActionBehaviour_3058));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -549,7 +547,7 @@ public class PalladioComponentModelPaletteFactory {
 	private ToolEntry createRecoveryFlow2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(PalladioComponentModelElementTypes.RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002);
+				.add(PalladioComponentModelElementTypes.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003);
 		LinkToolEntry entry = new LinkToolEntry(
 				Messages.RecoveryFlow2CreationTool_title,
 				Messages.RecoveryFlow2CreationTool_desc, types);

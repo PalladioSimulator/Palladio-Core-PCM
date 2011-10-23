@@ -171,7 +171,7 @@ public class AbstractBranchTransitionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
-				 Seff_reliabilityFactory.eINSTANCE.createRecoveryBlockAlternativeBehaviour()));
+				 Seff_reliabilityFactory.eINSTANCE.createRecoveryActionBehaviour()));
 	}
 
 	/**

@@ -21,8 +21,8 @@ import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
 
 /**
  * Provides sensitivity support to alter the failure probabilities of all
@@ -182,9 +182,9 @@ public class ComponentSensitivity extends MarkovSensitivity {
 					resultList.addAll(getInternalActionsForBehaviour(transition
 							.getBranchBehaviour_BranchTransition()));
 				}
-			} else if (action instanceof RecoveryBlockAction) {
-				for (RecoveryBlockAlternativeBehaviour recoveryBehaviour : ((RecoveryBlockAction) action)
-						.getRecoveryBlockAlternativeBehaviours_RecoveryBlockAction()) {
+			} else if (action instanceof RecoveryAction) {
+				for (RecoveryActionBehaviour recoveryBehaviour : ((RecoveryAction) action)
+						.getRecoveryActionBehaviours__RecoveryAction()) {
 					resultList
 							.addAll(getInternalActionsForBehaviour(recoveryBehaviour));
 				}

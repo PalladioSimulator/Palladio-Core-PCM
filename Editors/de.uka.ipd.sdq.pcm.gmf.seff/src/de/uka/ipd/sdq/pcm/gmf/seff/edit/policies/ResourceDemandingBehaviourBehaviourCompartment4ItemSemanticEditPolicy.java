@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ExternalCallAction2CreateComman
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ForkAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InternalAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.LoopAction2CreateCommand;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.RecoveryBlockAction2CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.RecoveryAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ReleaseAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.SetVariableAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StartAction2CreateCommand;
@@ -87,9 +87,9 @@ public class ResourceDemandingBehaviourBehaviourCompartment4ItemSemanticEditPoli
 				.getElementType()) {
 			return getGEFWrapper(new SetVariableAction2CreateCommand(req));
 		}
-		if (PalladioComponentModelElementTypes.RecoveryBlockAction_3056 == req
+		if (PalladioComponentModelElementTypes.RecoveryAction_3057 == req
 				.getElementType()) {
-			return getGEFWrapper(new RecoveryBlockAction2CreateCommand(req));
+			return getGEFWrapper(new RecoveryAction2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

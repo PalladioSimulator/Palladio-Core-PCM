@@ -124,16 +124,16 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof InfrastructureCallTargetLabelEditPart) {
-			((InfrastructureCallTargetLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureInfrastructureCallTargetLabel());
-			return true;
-		}
 		if (childEditPart instanceof InfrastructureCallNumberOfCallsLabelEditPart) {
 			((InfrastructureCallNumberOfCallsLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureInfrastructureCallNumberOfCallsLabel());
+			return true;
+		}
+		if (childEditPart instanceof InfrastructureCallTargetLabelEditPart) {
+			((InfrastructureCallTargetLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureInfrastructureCallTargetLabel());
 			return true;
 		}
 		if (childEditPart instanceof InfrastructureCallInfrastructureCallInputVariableUsagesEditPart) {
@@ -152,10 +152,10 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof InfrastructureCallTargetLabelEditPart) {
+		if (childEditPart instanceof InfrastructureCallNumberOfCallsLabelEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof InfrastructureCallNumberOfCallsLabelEditPart) {
+		if (childEditPart instanceof InfrastructureCallTargetLabelEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof InfrastructureCallInfrastructureCallInputVariableUsagesEditPart) {

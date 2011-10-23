@@ -343,7 +343,7 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 			types
 					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
 		}
-		if (targetEditPart instanceof RecoveryBlockActionEditPart) {
+		if (targetEditPart instanceof RecoveryActionEditPart) {
 			types
 					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
 		}
@@ -391,7 +391,7 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 			types
 					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
 		}
-		if (targetEditPart instanceof RecoveryBlockAction2EditPart) {
+		if (targetEditPart instanceof RecoveryAction2EditPart) {
 			types
 					.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
 		}
@@ -448,8 +448,7 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 			types.add(PalladioComponentModelElementTypes.ForkAction_2011);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_2015);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_2016);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
 			types.add(PalladioComponentModelElementTypes.StartAction_3004);
@@ -487,8 +486,7 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
 			types
@@ -553,8 +551,7 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 			types.add(PalladioComponentModelElementTypes.ForkAction_2011);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_2015);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_2016);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
 			types.add(PalladioComponentModelElementTypes.StartAction_3004);
@@ -592,8 +589,7 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-			types
-					.add(PalladioComponentModelElementTypes.RecoveryBlockAction_3056);
+			types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
 		}
 		if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
 			types

@@ -119,8 +119,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="RecoveryBlockAction"
-          description="Create new RecoveryBlockAction">
+          title="RecoveryAction"
+          description="Create new RecoveryAction">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -202,8 +202,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="RecoveryBlockAlternativeBehaviour"
-          description="Create new RecoveryBlockAlternativeBehaviour">
+          title="RecoveryActionBehaviour"
+          description="Create new RecoveryActionBehaviour">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

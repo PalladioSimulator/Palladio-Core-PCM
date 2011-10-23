@@ -107,11 +107,11 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ForkActionEntityNameEditPart.VISUAL_ID:
 				return new ForkActionEntityNameEditPart(view);
 
-			case RecoveryBlockActionEditPart.VISUAL_ID:
-				return new RecoveryBlockActionEditPart(view);
+			case RecoveryActionEditPart.VISUAL_ID:
+				return new RecoveryActionEditPart(view);
 
-			case RecoveryBlockActionEntityNameEditPart.VISUAL_ID:
-				return new RecoveryBlockActionEntityNameEditPart(view);
+			case RecoveryActionEntityNameEditPart.VISUAL_ID:
+				return new RecoveryActionEntityNameEditPart(view);
 
 			case VariableUsageEditPart.VISUAL_ID:
 				return new VariableUsageEditPart(view);
@@ -252,18 +252,17 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 				return new ResourceDemandingBehaviour3EditPart(view);
 
-			case RecoveryBlockAction2EditPart.VISUAL_ID:
-				return new RecoveryBlockAction2EditPart(view);
+			case RecoveryAction2EditPart.VISUAL_ID:
+				return new RecoveryAction2EditPart(view);
 
-			case RecoveryBlockActionEntityName2EditPart.VISUAL_ID:
-				return new RecoveryBlockActionEntityName2EditPart(view);
+			case RecoveryActionEntityName2EditPart.VISUAL_ID:
+				return new RecoveryActionEntityName2EditPart(view);
 
-			case RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID:
-				return new RecoveryBlockAlternativeBehaviourEditPart(view);
+			case RecoveryActionBehaviourEditPart.VISUAL_ID:
+				return new RecoveryActionBehaviourEditPart(view);
 
-			case RecoveryBlockAlternativeBehaviourEntityNameEditPart.VISUAL_ID:
-				return new RecoveryBlockAlternativeBehaviourEntityNameEditPart(
-						view);
+			case RecoveryActionBehaviourEntityNameEditPart.VISUAL_ID:
+				return new RecoveryActionBehaviourEntityNameEditPart(view);
 
 			case SetVariableAction2EditPart.VISUAL_ID:
 				return new SetVariableAction2EditPart(view);
@@ -364,12 +363,11 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 				return new ResourceDemandingBehaviourBehaviourCompartment3EditPart(
 						view);
 
-			case RecoveryBlockActionRecoveryBlockCompartmentEditPart.VISUAL_ID:
-				return new RecoveryBlockActionRecoveryBlockCompartmentEditPart(
-						view);
+			case RecoveryActionRecoveryBlockCompartmentEditPart.VISUAL_ID:
+				return new RecoveryActionRecoveryBlockCompartmentEditPart(view);
 
-			case RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID:
-				return new RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart(
+			case RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID:
+				return new RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart(
 						view);
 
 			case SetVariableActionVariableSetterEditPart.VISUAL_ID:
@@ -411,15 +409,14 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ForkActionForkedBehaviours2EditPart.VISUAL_ID:
 				return new ForkActionForkedBehaviours2EditPart(view);
 
-			case RecoveryBlockActionRecoveryBlockAlternativeBehavioursEditPart.VISUAL_ID:
-				return new RecoveryBlockActionRecoveryBlockAlternativeBehavioursEditPart(
-						view);
+			case RecoveryActionRecoveryBlockCompartment2EditPart.VISUAL_ID:
+				return new RecoveryActionRecoveryBlockCompartment2EditPart(view);
 
 			case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 				return new AbstractActionSuccessor_AbstractActionEditPart(view);
 
-			case RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID:
-				return new RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart(
+			case RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID:
+				return new RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart(
 						view);
 
 			}

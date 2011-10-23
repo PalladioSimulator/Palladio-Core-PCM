@@ -58,13 +58,13 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionRecoveryBlockAlternativeBehavioursEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionRecoveryBlockCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionRecoveryBlockCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionRecoveryBlockCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
@@ -189,10 +189,10 @@ public class PalladioComponentModelDiagramUpdater {
 			return getForkedBehaviourBehaviourCompartment_7026SemanticChildren(view);
 		case ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviourBehaviourCompartment_7014SemanticChildren(view);
-		case RecoveryBlockActionRecoveryBlockCompartmentEditPart.VISUAL_ID:
-			return getRecoveryBlockActionRecoveryBlockCompartment_7052SemanticChildren(view);
-		case RecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID:
-			return getRecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartment_7053SemanticChildren(view);
+		case RecoveryActionRecoveryBlockCompartmentEditPart.VISUAL_ID:
+			return getRecoveryActionRecoveryBlockCompartment_7054SemanticChildren(view);
+		case RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID:
+			return getRecoveryActionBehaviourAlternativeBehaviourCompartment_7055SemanticChildren(view);
 		case SetVariableActionVariableSetterEditPart.VISUAL_ID:
 			return getSetVariableActionVariableSetter_7025SemanticChildren(view);
 		case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
@@ -215,8 +215,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getSetVariableActionVariableSetter_7016SemanticChildren(view);
 		case ForkActionForkedBehaviours2EditPart.VISUAL_ID:
 			return getForkActionForkedBehaviours_7019SemanticChildren(view);
-		case RecoveryBlockActionRecoveryBlockAlternativeBehavioursEditPart.VISUAL_ID:
-			return getRecoveryBlockActionRecoveryBlockCompartment_7047SemanticChildren(view);
+		case RecoveryActionRecoveryBlockCompartment2EditPart.VISUAL_ID:
+			return getRecoveryActionRecoveryBlockCompartment_7056SemanticChildren(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getResourceDemandingSEFF_1000SemanticChildren(view);
 		}
@@ -620,7 +620,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == RecoveryBlockAction2EditPart.VISUAL_ID) {
+			if (visualID == RecoveryAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -893,7 +893,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == RecoveryBlockAction2EditPart.VISUAL_ID) {
+			if (visualID == RecoveryAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1104,7 +1104,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == RecoveryBlockAction2EditPart.VISUAL_ID) {
+			if (visualID == RecoveryAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1188,7 +1188,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == RecoveryBlockAction2EditPart.VISUAL_ID) {
+			if (visualID == RecoveryAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1200,7 +1200,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRecoveryBlockActionRecoveryBlockCompartment_7052SemanticChildren(
+	public static List getRecoveryActionRecoveryBlockCompartment_7054SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -1209,17 +1209,17 @@ public class PalladioComponentModelDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction) containerView
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) containerView
 				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement
-				.getRecoveryBlockAlternativeBehaviours_RecoveryBlockAction()
-				.iterator(); it.hasNext();) {
-			de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour childElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour) it
+				.getRecoveryActionBehaviours__RecoveryAction().iterator(); it
+				.hasNext();) {
+			de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour childElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) it
 					.next();
 			int visualID = PalladioComponentModelVisualIDRegistry
 					.getNodeVisualID(view, childElement);
-			if (visualID == RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID) {
+			if (visualID == RecoveryActionBehaviourEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1231,7 +1231,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRecoveryBlockAlternativeBehaviourAlternativeBehaviourCompartment_7053SemanticChildren(
+	public static List getRecoveryActionBehaviourAlternativeBehaviourCompartment_7055SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -1240,7 +1240,7 @@ public class PalladioComponentModelDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour) containerView
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) containerView
 				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getSteps_Behaviour().iterator(); it
@@ -1308,7 +1308,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == RecoveryBlockAction2EditPart.VISUAL_ID) {
+			if (visualID == RecoveryAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1422,7 +1422,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == RecoveryBlockAction2EditPart.VISUAL_ID) {
+			if (visualID == RecoveryAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1571,7 +1571,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == RecoveryBlockAction2EditPart.VISUAL_ID) {
+			if (visualID == RecoveryAction2EditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1777,7 +1777,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRecoveryBlockActionRecoveryBlockCompartment_7047SemanticChildren(
+	public static List getRecoveryActionRecoveryBlockCompartment_7056SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.EMPTY_LIST;
@@ -1786,17 +1786,17 @@ public class PalladioComponentModelDiagramUpdater {
 		if (!containerView.isSetElement()) {
 			return Collections.EMPTY_LIST;
 		}
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction) containerView
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) containerView
 				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement
-				.getRecoveryBlockAlternativeBehaviours_RecoveryBlockAction()
-				.iterator(); it.hasNext();) {
-			de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour childElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour) it
+				.getRecoveryActionBehaviours__RecoveryAction().iterator(); it
+				.hasNext();) {
+			de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour childElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) it
 					.next();
 			int visualID = PalladioComponentModelVisualIDRegistry
 					.getNodeVisualID(view, childElement);
-			if (visualID == RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID) {
+			if (visualID == RecoveryActionBehaviourEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1880,7 +1880,7 @@ public class PalladioComponentModelDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
-			if (visualID == RecoveryBlockActionEditPart.VISUAL_ID) {
+			if (visualID == RecoveryActionEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -1920,8 +1920,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getReleaseAction_2010ContainedLinks(view);
 		case ForkActionEditPart.VISUAL_ID:
 			return getForkAction_2011ContainedLinks(view);
-		case RecoveryBlockActionEditPart.VISUAL_ID:
-			return getRecoveryBlockAction_2015ContainedLinks(view);
+		case RecoveryActionEditPart.VISUAL_ID:
+			return getRecoveryAction_2016ContainedLinks(view);
 		case VariableUsageEditPart.VISUAL_ID:
 			return getVariableUsage_3042ContainedLinks(view);
 		case VariableCharacterisationEditPart.VISUAL_ID:
@@ -1976,10 +1976,10 @@ public class PalladioComponentModelDiagramUpdater {
 			return getCollectionIteratorAction_3013ContainedLinks(view);
 		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3014ContainedLinks(view);
-		case RecoveryBlockAction2EditPart.VISUAL_ID:
-			return getRecoveryBlockAction_3056ContainedLinks(view);
-		case RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID:
-			return getRecoveryBlockAlternativeBehaviour_3052ContainedLinks(view);
+		case RecoveryAction2EditPart.VISUAL_ID:
+			return getRecoveryAction_3057ContainedLinks(view);
+		case RecoveryActionBehaviourEditPart.VISUAL_ID:
+			return getRecoveryActionBehaviour_3058ContainedLinks(view);
 		case SetVariableAction2EditPart.VISUAL_ID:
 			return getSetVariableAction_3024ContainedLinks(view);
 		case VariableUsage3EditPart.VISUAL_ID:
@@ -2027,8 +2027,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getReleaseAction_2010IncomingLinks(view);
 		case ForkActionEditPart.VISUAL_ID:
 			return getForkAction_2011IncomingLinks(view);
-		case RecoveryBlockActionEditPart.VISUAL_ID:
-			return getRecoveryBlockAction_2015IncomingLinks(view);
+		case RecoveryActionEditPart.VISUAL_ID:
+			return getRecoveryAction_2016IncomingLinks(view);
 		case VariableUsageEditPart.VISUAL_ID:
 			return getVariableUsage_3042IncomingLinks(view);
 		case VariableCharacterisationEditPart.VISUAL_ID:
@@ -2083,10 +2083,10 @@ public class PalladioComponentModelDiagramUpdater {
 			return getCollectionIteratorAction_3013IncomingLinks(view);
 		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3014IncomingLinks(view);
-		case RecoveryBlockAction2EditPart.VISUAL_ID:
-			return getRecoveryBlockAction_3056IncomingLinks(view);
-		case RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID:
-			return getRecoveryBlockAlternativeBehaviour_3052IncomingLinks(view);
+		case RecoveryAction2EditPart.VISUAL_ID:
+			return getRecoveryAction_3057IncomingLinks(view);
+		case RecoveryActionBehaviourEditPart.VISUAL_ID:
+			return getRecoveryActionBehaviour_3058IncomingLinks(view);
 		case SetVariableAction2EditPart.VISUAL_ID:
 			return getSetVariableAction_3024IncomingLinks(view);
 		case VariableUsage3EditPart.VISUAL_ID:
@@ -2134,8 +2134,8 @@ public class PalladioComponentModelDiagramUpdater {
 			return getReleaseAction_2010OutgoingLinks(view);
 		case ForkActionEditPart.VISUAL_ID:
 			return getForkAction_2011OutgoingLinks(view);
-		case RecoveryBlockActionEditPart.VISUAL_ID:
-			return getRecoveryBlockAction_2015OutgoingLinks(view);
+		case RecoveryActionEditPart.VISUAL_ID:
+			return getRecoveryAction_2016OutgoingLinks(view);
 		case VariableUsageEditPart.VISUAL_ID:
 			return getVariableUsage_3042OutgoingLinks(view);
 		case VariableCharacterisationEditPart.VISUAL_ID:
@@ -2190,10 +2190,10 @@ public class PalladioComponentModelDiagramUpdater {
 			return getCollectionIteratorAction_3013OutgoingLinks(view);
 		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3014OutgoingLinks(view);
-		case RecoveryBlockAction2EditPart.VISUAL_ID:
-			return getRecoveryBlockAction_3056OutgoingLinks(view);
-		case RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID:
-			return getRecoveryBlockAlternativeBehaviour_3052OutgoingLinks(view);
+		case RecoveryAction2EditPart.VISUAL_ID:
+			return getRecoveryAction_3057OutgoingLinks(view);
+		case RecoveryActionBehaviourEditPart.VISUAL_ID:
+			return getRecoveryActionBehaviour_3058OutgoingLinks(view);
 		case SetVariableAction2EditPart.VISUAL_ID:
 			return getSetVariableAction_3024OutgoingLinks(view);
 		case VariableUsage3EditPart.VISUAL_ID:
@@ -2356,8 +2356,8 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRecoveryBlockAction_2015ContainedLinks(View view) {
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction) view
+	public static List getRecoveryAction_2016ContainedLinks(View view) {
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
 				.getElement();
 		List result = new LinkedList();
 		result
@@ -2594,12 +2594,24 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRecoveryBlockAction_3056ContainedLinks(View view) {
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction) view
+	public static List getRecoveryAction_3057ContainedLinks(View view) {
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
 				.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getRecoveryActionBehaviour_3058ContainedLinks(View view) {
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) view
+				.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour_4003(modelElement));
 		return result;
 	}
 
@@ -2669,19 +2681,6 @@ public class PalladioComponentModelDiagramUpdater {
 	public static List getResourceDemandingBehaviour_3018ContainedLinks(
 			View view) {
 		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getRecoveryBlockAlternativeBehaviour_3052ContainedLinks(
-			View view) {
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour) view
-				.getElement();
-		List result = new LinkedList();
-		result
-				.addAll(getOutgoingFeatureModelFacetLinks_RecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour_4002(modelElement));
-		return result;
 	}
 
 	/**
@@ -2857,8 +2856,8 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRecoveryBlockAction_2015IncomingLinks(View view) {
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction) view
+	public static List getRecoveryAction_2016IncomingLinks(View view) {
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
 				.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
@@ -3128,14 +3127,29 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRecoveryBlockAction_3056IncomingLinks(View view) {
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction) view
+	public static List getRecoveryAction_3057IncomingLinks(View view) {
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
 				.getElement();
 		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
 				.getResourceSet().getResources());
 		List result = new LinkedList();
 		result
 				.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(
+						modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getRecoveryActionBehaviour_3058IncomingLinks(View view) {
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) view
+				.getElement();
+		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
+				.getResourceSet().getResources());
+		List result = new LinkedList();
+		result
+				.addAll(getIncomingFeatureModelFacetLinks_RecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour_4003(
 						modelElement, crossReferences));
 		return result;
 	}
@@ -3208,22 +3222,6 @@ public class PalladioComponentModelDiagramUpdater {
 	 */
 	public static List getResourceDemandingBehaviour_3018IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List getRecoveryBlockAlternativeBehaviour_3052IncomingLinks(
-			View view) {
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour) view
-				.getElement();
-		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
-				.getResourceSet().getResources());
-		List result = new LinkedList();
-		result
-				.addAll(getIncomingFeatureModelFacetLinks_RecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour_4002(
-						modelElement, crossReferences));
-		return result;
 	}
 
 	/**
@@ -3363,8 +3361,8 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRecoveryBlockAction_2015OutgoingLinks(View view) {
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction) view
+	public static List getRecoveryAction_2016OutgoingLinks(View view) {
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
 				.getElement();
 		List result = new LinkedList();
 		result
@@ -3598,12 +3596,24 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRecoveryBlockAction_3056OutgoingLinks(View view) {
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction) view
+	public static List getRecoveryAction_3057OutgoingLinks(View view) {
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
 				.getElement();
 		List result = new LinkedList();
 		result
 				.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getRecoveryActionBehaviour_3058OutgoingLinks(View view) {
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) view
+				.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour_4003(modelElement));
 		return result;
 	}
 
@@ -3677,19 +3687,6 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List getRecoveryBlockAlternativeBehaviour_3052OutgoingLinks(
-			View view) {
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour) view
-				.getElement();
-		List result = new LinkedList();
-		result
-				.addAll(getOutgoingFeatureModelFacetLinks_RecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour_4002(modelElement));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	private static Collection getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(
 			AbstractAction target, Map crossReferences) {
 		Collection result = new LinkedList();
@@ -3713,8 +3710,8 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getIncomingFeatureModelFacetLinks_RecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour_4002(
-			de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour target,
+	private static Collection getIncomingFeatureModelFacetLinks_RecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour_4003(
+			de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour target,
 			Map crossReferences) {
 		Collection result = new LinkedList();
 		Collection settings = (Collection) crossReferences.get(target);
@@ -3722,13 +3719,13 @@ public class PalladioComponentModelDiagramUpdater {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
 			if (setting.getEStructuralFeature() == de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
-					.getRecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour()) {
+					.getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour()) {
 				result
 						.add(new PalladioComponentModelLinkDescriptor(
 								setting.getEObject(),
 								target,
-								PalladioComponentModelElementTypes.RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002,
-								RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID));
+								PalladioComponentModelElementTypes.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003,
+								RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
 			}
 		}
 		return result;
@@ -3756,11 +3753,11 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getOutgoingFeatureModelFacetLinks_RecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour_4002(
-			de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour source) {
+	private static Collection getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour_4003(
+			de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour source) {
 		Collection result = new LinkedList();
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour destination = source
-				.getNextAlternative_RecoveryBlockAlternativeBehaviour();
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour destination = source
+				.getNextAlternative__RecoveryActionBehaviour();
 		if (destination == null) {
 			return result;
 		}
@@ -3768,8 +3765,8 @@ public class PalladioComponentModelDiagramUpdater {
 				.add(new PalladioComponentModelLinkDescriptor(
 						source,
 						destination,
-						PalladioComponentModelElementTypes.RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviour_4002,
-						RecoveryBlockAlternativeBehaviourNextAlternative_RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID));
+						PalladioComponentModelElementTypes.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003,
+						RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
 		return result;
 	}
 

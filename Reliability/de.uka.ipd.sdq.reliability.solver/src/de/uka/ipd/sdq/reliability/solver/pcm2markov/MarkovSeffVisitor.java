@@ -42,15 +42,15 @@ import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFQueryHelper;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import de.uka.ipd.sdq.reliability.core.MarkovEvaluationType;
-import de.uka.ipd.sdq.reliability.core.MarkovNetworkInducedFailureType;
 import de.uka.ipd.sdq.reliability.core.MarkovHardwareInducedFailureType;
+import de.uka.ipd.sdq.reliability.core.MarkovNetworkInducedFailureType;
 import de.uka.ipd.sdq.reliability.core.MarkovSoftwareInducedFailureType;
 
 /**
@@ -173,10 +173,10 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 			final AbstractInternalControlFlowAction controlFlowAction) {
 
 		// Only consider RecoveryBlockActions:
-		if (!(controlFlowAction instanceof RecoveryBlockAction)) {
+		if (!(controlFlowAction instanceof RecoveryAction)) {
 			return null;
 		}
-		RecoveryBlockAction action = (RecoveryBlockAction) controlFlowAction;
+		RecoveryAction action = (RecoveryAction) controlFlowAction;
 
 		// Logging & naming:
 		String name = action.getEntityName() + "[" + action.getId() + "]";
@@ -184,8 +184,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		logger.debug("Visit RecoveryBlockAction: " + name);
 
 		// Retrieve the list of RecoveryBlockBehaviours:
-		List<RecoveryBlockAlternativeBehaviour> behaviours = action
-				.getRecoveryBlockAlternativeBehaviours_RecoveryBlockAction();
+		List<RecoveryActionBehaviour> behaviours = action
+				.getRecoveryActionBehaviours__RecoveryAction();
 		if (behaviours.size() == 0) {
 			throw new MarkovException("RecoveryBlockAction '"
 					+ action.getEntityName()
@@ -193,8 +193,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		}
 
 		// Create the resulting Markov chain:
-		RecoveryBlockAlternativeBehaviour previousAlternative = behaviours
-				.get(0);
+		RecoveryActionBehaviour previousAlternative = behaviours.get(0);
 		int index = 0;
 		prefixes.add("Alternative(" + (++index) + ")");
 		// A direct invocation forces treatment as ResourceDemandingBehaviour:
@@ -205,9 +204,9 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		if ((evaluationType != MarkovEvaluationType.SINGLE)
 				&& (evaluationType != MarkovEvaluationType.CLASSES)) {
 			while (previousAlternative
-					.getNextAlternative_RecoveryBlockAlternativeBehaviour() != null) {
+					.getNextAlternative__RecoveryActionBehaviour() != null) {
 				previousAlternative = previousAlternative
-						.getNextAlternative_RecoveryBlockAlternativeBehaviour();
+						.getNextAlternative__RecoveryActionBehaviour();
 				List<String> failureTypes = getFailureTypeIds(previousAlternative);
 				prefixes.add("Alternative(" + (++index) + ")");
 				MarkovChain handlingChain = caseResourceDemandingBehaviour(previousAlternative);
@@ -882,7 +881,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		MarkovChain resultChain;
 
 		// Retrieve descriptors for the resources required by the container:
-		List<ProcessingResourceDescriptor> descriptors = getResourceDescriptors(container, true);
+		List<ProcessingResourceDescriptor> descriptors = getResourceDescriptors(
+				container, true);
 
 		// Create the state probabilities and specific state chains:
 		ArrayList<Double> stateProbabilities = new ArrayList<Double>();
@@ -931,7 +931,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 			final ResourceContainer container) {
 
 		// Retrieve the resource failure descriptions:
-		List<ProcessingResourceDescriptor> descriptors = getResourceDescriptors(container, true);
+		List<ProcessingResourceDescriptor> descriptors = getResourceDescriptors(
+				container, true);
 		List<FailureDescription> failureDescriptions = getFailureDescriptionsForResourceState(descriptors);
 
 		MarkovChain resultChain = null;
@@ -1421,7 +1422,8 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	 * @param resourceContainer
 	 *            the resource container
 	 * @param searchForRequiredResources
-	 *            if set to TRUE, only the resources required by this container will be returned
+	 *            if set to TRUE, only the resources required by this container
+	 *            will be returned
 	 * @return the resulting list of resources
 	 */
 	private List<ProcessingResourceDescriptor> getResourceDescriptors(
@@ -1434,9 +1436,9 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// Go through the list of specified resources:
 		for (ProcessingResourceSpecification resource : resourceContainer
 				.getActiveResourceSpecifications_ResourceContainer()) {
-			
+
 			// Check if this is a required resource:
-			if(searchForRequiredResources && !resource.isRequiredByContainer()){
+			if (searchForRequiredResources && !resource.isRequiredByContainer()) {
 				continue;
 			}
 

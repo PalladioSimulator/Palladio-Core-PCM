@@ -49,9 +49,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
@@ -128,7 +128,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case AcquireActionEditPart.VISUAL_ID:
 		case ReleaseActionEditPart.VISUAL_ID:
 		case ForkActionEditPart.VISUAL_ID:
-		case RecoveryBlockActionEditPart.VISUAL_ID:
+		case RecoveryActionEditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
 			}
@@ -401,10 +401,10 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case RecoveryBlockActionEditPart.VISUAL_ID: {
+		case RecoveryActionEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
-						.getRecoveryBlockAction_2015ContainedLinks(view));
+						.getRecoveryAction_2016ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -647,10 +647,10 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case RecoveryBlockAction2EditPart.VISUAL_ID: {
+		case RecoveryAction2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
-						.getRecoveryBlockAction_3056ContainedLinks(view));
+						.getRecoveryAction_3057ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -658,11 +658,10 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case RecoveryBlockAlternativeBehaviourEditPart.VISUAL_ID: {
+		case RecoveryActionBehaviourEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result
-						.addAll(PalladioComponentModelDiagramUpdater
-								.getRecoveryBlockAlternativeBehaviour_3052ContainedLinks(view));
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getRecoveryActionBehaviour_3058ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

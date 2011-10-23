@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
 import de.uka.ipd.sdq.pcmsolver.handler.CollectionIteratorActionHandler;
 import de.uka.ipd.sdq.pcmsolver.handler.ExternalCallActionHandler;
@@ -131,10 +131,10 @@ public class SeffVisitor extends SeffSwitch {
 	@Override
 	public Object caseAbstractInternalControlFlowAction(
 			final AbstractInternalControlFlowAction action) {
-		if (action instanceof RecoveryBlockAction) {
+		if (action instanceof RecoveryAction) {
 			logger.debug("Visit " + action.getClass().getSimpleName() + " \""
 					+ action.getEntityName() + "\"");
-			recoveryBlockHandler.handle((RecoveryBlockAction) action);
+			recoveryBlockHandler.handle((RecoveryAction) action);
 			doSwitch(action.getSuccessor_AbstractAction());
 			return action;
 		} else {

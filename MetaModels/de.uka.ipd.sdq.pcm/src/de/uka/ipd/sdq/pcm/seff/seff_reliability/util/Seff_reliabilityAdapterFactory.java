@@ -18,8 +18,6 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.*;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
 /**
@@ -86,12 +84,12 @@ public class Seff_reliabilityAdapterFactory extends AdapterFactoryImpl {
 	protected Seff_reliabilitySwitch<Adapter> modelSwitch =
 		new Seff_reliabilitySwitch<Adapter>() {
 			@Override
-			public Adapter caseRecoveryBlockAlternativeBehaviour(RecoveryBlockAlternativeBehaviour object) {
-				return createRecoveryBlockAlternativeBehaviourAdapter();
+			public Adapter caseRecoveryActionBehaviour(RecoveryActionBehaviour object) {
+				return createRecoveryActionBehaviourAdapter();
 			}
 			@Override
-			public Adapter caseRecoveryBlockAction(RecoveryBlockAction object) {
-				return createRecoveryBlockActionAdapter();
+			public Adapter caseRecoveryAction(RecoveryAction object) {
+				return createRecoveryActionAdapter();
 			}
 			@Override
 			public Adapter caseFailureHandlingEntity(FailureHandlingEntity object) {
@@ -142,30 +140,30 @@ public class Seff_reliabilityAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour <em>Recovery Block Alternative Behaviour</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour <em>Recovery Action Behaviour</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour
 	 * @generated
 	 */
-	public Adapter createRecoveryBlockAlternativeBehaviourAdapter() {
+	public Adapter createRecoveryActionBehaviourAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction <em>Recovery Block Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction <em>Recovery Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction
 	 * @generated
 	 */
-	public Adapter createRecoveryBlockActionAdapter() {
+	public Adapter createRecoveryActionAdapter() {
 		return null;
 	}
 

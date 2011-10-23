@@ -36,9 +36,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionEntityName2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryBlockAlternativeBehaviourEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEntityName2EditPart;
@@ -245,22 +245,22 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser recoveryBlockActionEntityName_5048Parser;
+	private IParser recoveryActionEntityName_5056Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRecoveryBlockActionEntityName_5048Parser() {
-		if (recoveryBlockActionEntityName_5048Parser == null) {
+	private IParser getRecoveryActionEntityName_5056Parser() {
+		if (recoveryActionEntityName_5056Parser == null) {
 			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 					.getNamedElement_EntityName() };
 			EAttribute[] editableFeatures = new EAttribute[] { EntityPackage.eINSTANCE
 					.getNamedElement_EntityName() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			recoveryBlockActionEntityName_5048Parser = parser;
+			recoveryActionEntityName_5056Parser = parser;
 		}
-		return recoveryBlockActionEntityName_5048Parser;
+		return recoveryActionEntityName_5056Parser;
 	}
 
 	/**
@@ -512,22 +512,43 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser recoveryBlockActionEntityName_5053Parser;
+	private IParser recoveryActionEntityName_5055Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getRecoveryBlockActionEntityName_5053Parser() {
-		if (recoveryBlockActionEntityName_5053Parser == null) {
+	private IParser getRecoveryActionEntityName_5055Parser() {
+		if (recoveryActionEntityName_5055Parser == null) {
 			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 					.getNamedElement_EntityName() };
 			EAttribute[] editableFeatures = new EAttribute[] { EntityPackage.eINSTANCE
 					.getNamedElement_EntityName() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			recoveryBlockActionEntityName_5053Parser = parser;
+			recoveryActionEntityName_5055Parser = parser;
 		}
-		return recoveryBlockActionEntityName_5053Parser;
+		return recoveryActionEntityName_5055Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser recoveryActionBehaviourEntityName_5054Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getRecoveryActionBehaviourEntityName_5054Parser() {
+		if (recoveryActionBehaviourEntityName_5054Parser == null) {
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			EAttribute[] editableFeatures = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			recoveryActionBehaviourEntityName_5054Parser = parser;
+		}
+		return recoveryActionBehaviourEntityName_5054Parser;
 	}
 
 	/**
@@ -632,27 +653,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser recoveryBlockAlternativeBehaviourEntityName_5049Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getRecoveryBlockAlternativeBehaviourEntityName_5049Parser() {
-		if (recoveryBlockAlternativeBehaviourEntityName_5049Parser == null) {
-			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-					.getNamedElement_EntityName() };
-			EAttribute[] editableFeatures = new EAttribute[] { EntityPackage.eINSTANCE
-					.getNamedElement_EntityName() };
-			MessageFormatParser parser = new MessageFormatParser(features,
-					editableFeatures);
-			recoveryBlockAlternativeBehaviourEntityName_5049Parser = parser;
-		}
-		return recoveryBlockAlternativeBehaviourEntityName_5049Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ExternalCallActionEntityNameEditPart.VISUAL_ID:
@@ -675,8 +675,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getReleaseActionEntityName_5022Parser();
 		case ForkActionEntityNameEditPart.VISUAL_ID:
 			return getForkActionEntityName_5024Parser();
-		case RecoveryBlockActionEntityNameEditPart.VISUAL_ID:
-			return getRecoveryBlockActionEntityName_5048Parser();
+		case RecoveryActionEntityNameEditPart.VISUAL_ID:
+			return getRecoveryActionEntityName_5056Parser();
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return getVariableCharacterisation_3033Parser();
 		case VariableCharacterisation2EditPart.VISUAL_ID:
@@ -707,10 +707,10 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getForkActionEntityName_5026Parser();
 		case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
 			return getCollectionIteratorActionEntityName_5013Parser();
-		case RecoveryBlockActionEntityName2EditPart.VISUAL_ID:
-			return getRecoveryBlockActionEntityName_5053Parser();
-		case RecoveryBlockAlternativeBehaviourEntityNameEditPart.VISUAL_ID:
-			return getRecoveryBlockAlternativeBehaviourEntityName_5049Parser();
+		case RecoveryActionEntityName2EditPart.VISUAL_ID:
+			return getRecoveryActionEntityName_5055Parser();
+		case RecoveryActionBehaviourEntityNameEditPart.VISUAL_ID:
+			return getRecoveryActionBehaviourEntityName_5054Parser();
 		case SetVariableActionEntityName2EditPart.VISUAL_ID:
 			return getSetVariableActionEntityName_5027Parser();
 		case VariableCharacterisation5EditPart.VISUAL_ID:

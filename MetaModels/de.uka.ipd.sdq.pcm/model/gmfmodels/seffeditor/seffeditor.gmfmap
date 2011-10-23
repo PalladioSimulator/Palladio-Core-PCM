@@ -1459,11 +1459,11 @@
         href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
     <ownedChild>
       <domainMetaElement
-          href="../../pcm.ecore#//seff/seff_reliability/RecoveryBlockAction"/>
+          href="../../pcm.ecore#//seff/seff_reliability/RecoveryAction"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="seffeditor.gmfgraph#RecoveryBlockActionNameLabel"/>
+            href="seffeditor.gmfgraph#RecoveryActionNameLabel"/>
         <features
             href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
         <editableFeatures
@@ -1473,20 +1473,20 @@
           xsi:type="gmftool:CreationTool"
           href="seffeditor.gmftool#//@palette/@tools.0/@tools.12"/>
       <diagramNode
-          href="seffeditor.gmfgraph#RecoveryBlockActionNode"/>
+          href="seffeditor.gmfgraph#RecoveryActionNode"/>
       <children
           compartment="//@nodes.12/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../../pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"/>
+            href="../../pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"/>
         <childrenFeature
-            href="../../pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"/>
+            href="../../pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"/>
         <ownedChild>
           <domainMetaElement
-              href="../../pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour"/>
+              href="../../pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="seffeditor.gmfgraph#RecoveryBlockAlternativeBehaviourNameLabel"/>
+                href="seffeditor.gmfgraph#RecoveryActionBehaviourNameLabel"/>
             <features
                 href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
             <editableFeatures
@@ -1496,7 +1496,7 @@
               xsi:type="gmftool:CreationTool"
               href="seffeditor.gmftool#//@palette/@tools.1/@tools.8"/>
           <diagramNode
-              href="seffeditor.gmfgraph#RecoveryBlockAlternativeBehaviourNode"/>
+              href="seffeditor.gmfgraph#RecoveryActionBehaviourNode"/>
           <children
               compartment="//@nodes.12/@ownedChild/@children.0/@ownedChild/@compartments.0"
               referencedChild="//@nodes.0/@ownedChild">
@@ -1639,12 +1639,12 @@
         href="seffeditor.gmfgraph#RecoveryFlowConnection"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="../../pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/nextAlternative_RecoveryBlockAlternativeBehaviour"/>
+        href="../../pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/nextAlternative__RecoveryActionBehaviour"/>
     <creationConstraints>
       <sourceEnd
           body="self &lt;> oppositeEnd"/>
       <targetEnd
-          body="(self.recoveryBlockAction_RecoveryBlockAlternativeBehaviour.recoveryBlockAlternativeBehaviours_RecoveryBlockAction->select(beh|beh.nextAlternative_RecoveryBlockAlternativeBehaviour = self)->size() = 0) and (self.recoveryBlockAction_RecoveryBlockAlternativeBehaviour = oppositeEnd.recoveryBlockAction_RecoveryBlockAlternativeBehaviour)"/>
+          body="(self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->select(beh|beh.nextAlternative__RecoveryActionBehaviour = self)->size() = 0) and (self.recoveryAction__RecoveryActionBehaviour = oppositeEnd.recoveryAction__RecoveryActionBehaviour)"/>
     </creationConstraints>
   </links>
   <diagram>
