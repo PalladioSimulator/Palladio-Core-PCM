@@ -25,6 +25,7 @@ import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.core.databinding.beans.PojoObservables;
+import org.jfree.chart.JFreeChart;
 
 public class ChartSettings extends Composite {
 	private DataBindingContext m_bindingContext;
@@ -34,19 +35,23 @@ public class ChartSettings extends Composite {
 	private Text txtXaxisText;
 	private Text txtYaxisText;
 	private Button btnShowCaption;
+	private JFreeChart chart;
+	private Button btnShowXaxisTitle;
+	private Button btnShowYaxisTitle;
 
 	/**
 	 * Create the composite.
 	 * @param parent
 	 * @param style
 	 */
-	public ChartSettings(Composite parent, int style) {
+	public ChartSettings(Composite parent, int style, JFreeChart chart) {
 		super(parent, style);
 		addDisposeListener(new DisposeListener() {
 			public void widgetDisposed(DisposeEvent e) {
 				toolkit.dispose();
 			}
 		});
+		this.chart = chart;
 		toolkit.adapt(this);
 		toolkit.paintBordersFor(this);
 		
@@ -68,14 +73,8 @@ public class ChartSettings extends Composite {
 		toolkit.paintBordersFor(grpCaption);
 		
 		txtCaption = new Text(grpCaption, SWT.BORDER);
-		txtCaption.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusLost(FocusEvent e) {
-				handleCaptionTextChanged();
-			}
-		});
 		txtCaption.setBounds(51, 46, 106, 21);
-		txtCaption.setText("Caption");
+		txtCaption.setText(chart.getTitle().getText());
 		toolkit.adapt(txtCaption, true, true);
 		
 		Label lblCaptionText = new Label(grpCaption, SWT.NONE);
@@ -84,12 +83,6 @@ public class ChartSettings extends Composite {
 		lblCaptionText.setText("Text:");
 		
 		btnShowCaption = new Button(grpCaption, SWT.CHECK);
-		btnShowCaption.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseDown(MouseEvent e) {
-				handleShowCaptionChanged();
-			}
-		});
 		btnShowCaption.setBounds(10, 21, 93, 16);
 		toolkit.adapt(btnShowCaption, true, true);
 		btnShowCaption.setText("Show caption");
@@ -100,7 +93,7 @@ public class ChartSettings extends Composite {
 		toolkit.adapt(grpXaxis);
 		toolkit.paintBordersFor(grpXaxis);
 		
-		Button btnShowXaxisTitle = new Button(grpXaxis, SWT.CHECK);
+		btnShowXaxisTitle = new Button(grpXaxis, SWT.CHECK);
 		btnShowXaxisTitle.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -126,7 +119,7 @@ public class ChartSettings extends Composite {
 		toolkit.adapt(grpYaxis);
 		toolkit.paintBordersFor(grpYaxis);
 		
-		Button btnShowYaxisTitle = new Button(grpYaxis, SWT.CHECK);
+		btnShowYaxisTitle = new Button(grpYaxis, SWT.CHECK);
 		btnShowYaxisTitle.setBounds(10, 21, 95, 16);
 		btnShowYaxisTitle.setText("Show axis title");
 		toolkit.adapt(btnShowYaxisTitle, true, true);
@@ -163,18 +156,33 @@ public class ChartSettings extends Composite {
 		m_bindingContext = initDataBindings();
 
 	}
-
-	protected void handleCaptionTextChanged() {
-		// TODO Auto-generated method stub
 		
-	}
-
-	protected void handleShowCaptionChanged() {
-		// TODO Auto-generated method stub
-		
-	}
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
+		//
+		IObservableValue txtCaptionObserveTextObserveWidget = SWTObservables.observeText(txtCaption, new int[]{SWT.Modify, SWT.FocusOut});
+		IObservableValue chartgetTitleTextObserveValue = PojoObservables.observeValue(chart.getTitle(), "text");
+		bindingContext.bindValue(txtCaptionObserveTextObserveWidget, chartgetTitleTextObserveValue, null, null);
+		//
+		IObservableValue btnShowXaxisTitleObserveSelectionObserveWidget = SWTObservables.observeSelection(btnShowXaxisTitle);
+		IObservableValue chartXYPlotXAxisVisibleObserveValue = PojoObservables.observeValue(chart.getXYPlot().getDomainAxis().isVisible(), "XYPlot.xAxisVisible");
+		bindingContext.bindValue(btnShowXaxisTitleObserveSelectionObserveWidget, chartXYPlotXAxisVisibleObserveValue, null, null);
+		//
+		IObservableValue txtXaxisTextObserveTextObserveWidget = SWTObservables.observeText(txtXaxisText, SWT.Modify);
+		IObservableValue chartXYPlotxAxisLabelObserveValue = PojoObservables.observeValue(chart.getXYPlot().getDomainAxis().getLabel(), "XYPlot.xAxisLabel");
+		bindingContext.bindValue(txtXaxisTextObserveTextObserveWidget, chartXYPlotxAxisLabelObserveValue, null, null);
+		//
+		IObservableValue btnShowYaxisTitleObserveSelectionObserveWidget = SWTObservables.observeSelection(btnShowYaxisTitle);
+		IObservableValue chartXYPlotYAxisVisibleObserveValue = PojoObservables.observeValue(chart.getXYPlot().getRangeAxis().isVisible(), "XYPlot.yAxisVisible");
+		bindingContext.bindValue(btnShowYaxisTitleObserveSelectionObserveWidget, chartXYPlotYAxisVisibleObserveValue, null, null);
+		//
+		IObservableValue txtYaxisTextObserveTextObserveWidget = SWTObservables.observeText(txtYaxisText, SWT.Modify);
+		IObservableValue chartXYPlotyAxisLabelObserveValue = PojoObservables.observeValue(chart.getXYPlot().getRangeAxis().getLabel(), "XYPlot.yAxisLabel");
+		bindingContext.bindValue(txtYaxisTextObserveTextObserveWidget, chartXYPlotyAxisLabelObserveValue, null, null);
+		//
+		IObservableValue btnShowCaptionObserveSelectionObserveWidget = SWTObservables.observeSelection(btnShowCaption);
+		IObservableValue chartTitleexpandToFitSpaceObserveValue = PojoObservables.observeValue(chart.getTitle(), "title.expandToFitSpace");
+		bindingContext.bindValue(btnShowCaptionObserveSelectionObserveWidget, chartTitleexpandToFitSpaceObserveValue, null, null);
 		//
 		return bindingContext;
 	}

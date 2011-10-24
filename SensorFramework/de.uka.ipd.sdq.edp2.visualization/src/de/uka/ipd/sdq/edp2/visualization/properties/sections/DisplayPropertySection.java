@@ -196,10 +196,10 @@ public class DisplayPropertySection extends AbstractPropertySection {
 		// get the current chart's settings and add them to the table
 		refreshSettingsTable();
 		
-		new ChartSettings(composite, SWT.EMBEDDED);
+		//new ChartSettings(composite, SWT.EMBEDDED, ((JFreeChartEditorInput)getInput()).getChart());
 
-		// This is the predefined Editor for JFreeChart properties in Swing - maybe usable??
-		/*Composite swtAwtComponent = new Composite(parent, SWT.EMBEDDED);
+		// This is the predefined Editor for JFreeChart properties in Swing
+		Composite swtAwtComponent = new Composite(parent, SWT.EMBEDDED);
 		Frame frame = SWT_AWT.new_Frame( swtAwtComponent );
 		Panel parentPanel = new Panel();
 		frame.add(parentPanel);
@@ -207,7 +207,7 @@ public class DisplayPropertySection extends AbstractPropertySection {
 		ChartEditor chartEditor = editorFactory.createEditor(((JFreeChartEditorInput) getInput()).getChart());
 		
 		parentPanel.add((Component) chartEditor);
-		*/
+		
 		
 	}
 
