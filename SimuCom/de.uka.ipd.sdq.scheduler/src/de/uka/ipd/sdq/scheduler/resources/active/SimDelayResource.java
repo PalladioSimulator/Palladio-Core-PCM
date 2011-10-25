@@ -29,6 +29,7 @@ public class SimDelayResource extends AbstractActiveResource {
 	protected void dequeue(ISchedulableProcess process) {
 		this.num_running--;
 		fireStateChange(num_running, 0);
+		fireDemandCompleted(process);
 	}
 
 	@Override

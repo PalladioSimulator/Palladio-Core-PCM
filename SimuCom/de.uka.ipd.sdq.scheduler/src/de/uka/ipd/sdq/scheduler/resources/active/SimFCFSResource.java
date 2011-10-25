@@ -39,6 +39,7 @@ public class SimFCFSResource extends AbstractActiveResource {
 			running_processes.remove(first);
 			processQ.remove(first);
 			fireStateChange(processQ.size(), 0);
+			fireDemandCompleted(first);
 			LoggingWrapper.log("Demand of Process "+ first + " finished.");
 			scheduleNextEvent();
 			first.activate();

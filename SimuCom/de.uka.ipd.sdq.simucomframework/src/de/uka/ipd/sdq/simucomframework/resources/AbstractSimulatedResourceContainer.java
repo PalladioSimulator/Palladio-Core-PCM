@@ -116,9 +116,5 @@ public abstract class AbstractSimulatedResourceContainer {
 	public String getResourceContainerID() {
 		return myContainerID;
 	}
-	
-	public void consumeResourceCompleted(ISchedulableProcess thread) {
-		// Do nothing.
-	}
-	
+		
 }

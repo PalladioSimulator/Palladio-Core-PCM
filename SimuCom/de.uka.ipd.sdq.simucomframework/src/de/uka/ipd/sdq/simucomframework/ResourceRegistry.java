@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.simucomframework;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource;
@@ -67,6 +68,25 @@ public class ResourceRegistry {
 			resourceContainerHash.put(containerID, container);
 		}
 		return resourceContainerHash.get(containerID);
+	}
+	
+	/**
+	 * Add a PCM LinkingResourceContainer
+	 * @param container the linking resource container to add
+	 */
+	public void addLinkingResourceContainer(SimulatedLinkingResourceContainer container) {
+		assert(!resourceContainerHash.containsKey(container.getResourceContainerID()));
+		resourceContainerHash.put(container.getResourceContainerID(), container);
+	}
+	
+	public List<SimulatedLinkingResourceContainer> getLinkingResourceContainers() {
+		List<SimulatedLinkingResourceContainer> resourceContainers = new ArrayList<SimulatedLinkingResourceContainer>();
+		for (AbstractSimulatedResourceContainer container : resourceContainerHash.values()) {
+			if (container instanceof SimulatedLinkingResourceContainer) {
+				resourceContainers.add((SimulatedLinkingResourceContainer)container);
+			}
+		}
+		return resourceContainers;
 	}
 	
 	/**

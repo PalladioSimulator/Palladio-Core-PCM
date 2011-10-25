@@ -35,14 +35,12 @@
 		«ENDLET»
 		// end of failure handling before the call
 
-		«EXPAND HandleRemoteExternalCall(prefix) FOR this»
 	«ENDIF»
-	«EXPAND GenericPreCall(call,parameterUsages) FOR this»
+	«EXPAND GenericPreCall(call,parameterUsages,prefix) FOR this»
 «ENDDEFINE»
 
 «DEFINE PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) FOR InfrastructureSignature»
 	«IF InternalAction.isInstance(call)»
-		«EXPAND HandleRemoteExternalCall(prefix) FOR this»
 	«ELSE»
 		«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) does not support a call for the provided action type."»
 	«ENDIF»
@@ -50,9 +48,12 @@
 «ENDDEFINE»
 
 «REM»This generic pre call does not include simulation of network failures and latency. «ENDREM»
-«DEFINE GenericPreCall(Object call,List[VariableUsage] parameterUsages) FOR OperationSignature»
+«DEFINE GenericPreCall(Object call,List[VariableUsage] parameterUsages, String prefix) FOR OperationSignature»
 	try {
 	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
+	«IF InternalAction.isInstance(call) || ExternalCallAction.isInstance(call)»
+	«EXPAND HandleRemoteExternalCall(prefix) FOR this»
+	«ENDIF»
 	«IF ExternalCallAction.isInstance(call)»
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR this.externalCallActionDescription(call)»
 	«ELSE»
@@ -242,7 +243,15 @@
 						de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer linkingContainer = ctx.findLinkingResource(linkingResourceID);
 						// Load linking resource with a demand of 0 byte so that only the latency is considered.
 						// The bytesize is only considered when the completions are activated (ctx.getModel().getConfig().getSimulateLinkingResources() == true).
-						linkingContainer.loadActiveResource(ctx.getThread(), linkingContainer.getLinkingResourceTypeName(), 0);
+						double demand = 0.0;
+						try {
+							if (ctx.getStack().currentStackFrame().getValue("stream.BYTESIZE") != null) {
+								demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("stream.BYTESIZE",Double.class));
+							}
+						} catch(de.uka.ipd.sdq.simucomframework.variables.exceptions.ValueNotInFrameException valueNotInFrameException) {
+							demand = 0.0;
+						}
+						linkingContainer.loadActiveResource(ctx.getThread(), fromContainer.getResourceContainerID(), linkingContainer.getLinkingResourceTypeName(), demand);
   					} else {
   						throw new RuntimeException("A component on the resource container with id "+fromContainer.getResourceContainerID()+" calls a component on resource container with id "+toContainer.getResourceContainerID()+", but there is no linking resource between the containers! Add a LinkingResource or change the component allocation.");
   					}

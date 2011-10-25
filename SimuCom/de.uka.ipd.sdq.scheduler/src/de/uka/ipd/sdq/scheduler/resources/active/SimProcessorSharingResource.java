@@ -39,7 +39,7 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 			if (getCapacity() == 1) {
 				fireStateChange(running_processes.size(), 0);
 			}
-			
+			fireDemandCompleted(last);
 			LoggingWrapper.log(last + " finished.");
 			scheduleNextEvent();
 			last.activate();

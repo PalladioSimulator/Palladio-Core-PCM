@@ -107,7 +107,7 @@
 //-------------------------
 
 «AROUND m2t_transforms::calls::PreCallTM(Object call, String prefix, List[VariableUsage] parameterUsages) FOR OperationSignature»
-	«EXPAND m2t_transforms::sim::calls::GenericPreCall(call, parameterUsages) FOR this»
+	«EXPAND m2t_transforms::sim::calls::GenericPreCall(call, parameterUsages, prefix) FOR this»
 «ENDAROUND»
  
 «AROUND m2t_transforms::calls::PreCallTM(Object call, String prefix, List[VariableUsage] parameterUsages) FOR InfrastructureSignature»

@@ -335,8 +335,8 @@ public abstract class AbstractScheduledResource extends
 	}
 	
 	public void demandCompleted(ISchedulableProcess simProcess) {
-		if (resourceContainer != null) {
-			resourceContainer.consumeResourceCompleted(simProcess);
+		for (IDemandListener l : demandListener) {
+			l.demandCompleted(simProcess);
 		}
 	}
 

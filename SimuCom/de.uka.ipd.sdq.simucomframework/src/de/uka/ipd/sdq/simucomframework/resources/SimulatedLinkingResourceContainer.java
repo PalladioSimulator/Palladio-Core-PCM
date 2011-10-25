@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
+import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public class SimulatedLinkingResourceContainer extends
@@ -44,6 +46,14 @@ public class SimulatedLinkingResourceContainer extends
 			return resource.getId();
 		}
 		return null;
+	}
+	
+	public void loadActiveResource(SimuComSimProcess requestingProcess, String originResourceContainerID, String typeID, double demand) {
+		AbstractScheduledResource resource = activeResources.get(typeID);
+		if (resource == null) {
+			throw new ResourceContainerIsMissingRequiredResourceType(typeID);
+		}
+		resource.consumeResource(requestingProcess, 1, demand);
 	}
 
 	/**

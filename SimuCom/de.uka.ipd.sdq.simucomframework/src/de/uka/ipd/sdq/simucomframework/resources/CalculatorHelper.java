@@ -150,7 +150,6 @@ public class CalculatorHelper {
 
         r.addDemandListener(new IDemandListener() {
 
-            @Override
             public void demand(double demand) {
                 // take current time
                 ProbeSample currentTimeSample = takeCurrentTimeSample(r, ctx);
@@ -169,6 +168,10 @@ public class CalculatorHelper {
                 ctx.getSampleBlackboard().addSample(
                         ProbeSpecUtils.buildProbeSetSample(currentTimeSample, demandedTimeSample, context, "",
                                 demandedTimeProbeSetId));
+            }
+            
+            public void demandCompleted(ISchedulableProcess simProcess) {
+            	// Do nothing.
             }
         });
     }
