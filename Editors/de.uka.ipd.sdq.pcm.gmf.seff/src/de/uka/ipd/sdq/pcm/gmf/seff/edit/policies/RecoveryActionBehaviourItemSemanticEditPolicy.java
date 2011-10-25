@@ -20,8 +20,8 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourCreateCommand;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourReorientCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
@@ -65,7 +65,7 @@ public class RecoveryActionBehaviourItemSemanticEditPolicy extends
 		for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
 			Edge incomingLink = (Edge) it.next();
 			if (PalladioComponentModelVisualIDRegistry
-					.getVisualID(incomingLink) == RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID) {
+					.getVisualID(incomingLink) == RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						incomingLink.getSource().getElement(), null,
 						incomingLink.getTarget().getElement(), false);
@@ -77,7 +77,7 @@ public class RecoveryActionBehaviourItemSemanticEditPolicy extends
 		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
 			if (PalladioComponentModelVisualIDRegistry
-					.getVisualID(outgoingLink) == RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID) {
+					.getVisualID(outgoingLink) == RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
 						outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
@@ -616,9 +616,9 @@ public class RecoveryActionBehaviourItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (PalladioComponentModelElementTypes.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003 == req
+		if (PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004 == req
 				.getElementType()) {
-			return getGEFWrapper(new RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourCreateCommand(
+			return getGEFWrapper(new RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -629,9 +629,9 @@ public class RecoveryActionBehaviourItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (PalladioComponentModelElementTypes.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003 == req
+		if (PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004 == req
 				.getElementType()) {
-			return getGEFWrapper(new RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourCreateCommand(
+			return getGEFWrapper(new RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourCreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
 		return null;
@@ -646,8 +646,8 @@ public class RecoveryActionBehaviourItemSemanticEditPolicy extends
 	protected Command getReorientReferenceRelationshipCommand(
 			ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
-		case RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID:
-			return getGEFWrapper(new RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourReorientCommand(
+		case RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID:
+			return getGEFWrapper(new RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourReorientCommand(
 					req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);

@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AbstractActionSuccessor_Abstrac
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AbstractActionSuccessor_AbstractActionReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionRecoveryBlockCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
@@ -106,7 +106,7 @@ public class RecoveryAction2ItemSemanticEditPolicy extends
 								.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
 							if (PalladioComponentModelVisualIDRegistry
-									.getVisualID(incomingLink) == RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID) {
+									.getVisualID(incomingLink) == RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(
 										incomingLink.getSource().getElement(),
 										null, incomingLink.getTarget()
@@ -121,7 +121,7 @@ public class RecoveryAction2ItemSemanticEditPolicy extends
 								.hasNext();) {
 							Edge outgoingLink = (Edge) it.next();
 							if (PalladioComponentModelVisualIDRegistry
-									.getVisualID(outgoingLink) == RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID) {
+									.getVisualID(outgoingLink) == RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(
 										outgoingLink.getSource().getElement(),
 										null, outgoingLink.getTarget()

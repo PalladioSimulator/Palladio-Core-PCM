@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelBaseItemS
 /**
  * @generated
  */
-public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourCreateCommand
+public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourCreateCommand
 		extends EditElementCommand {
 
 	/**
@@ -32,7 +32,7 @@ public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourCrea
 	/**
 	 * @generated
 	 */
-	public RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourCreateCommand(
+	public RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourCreateCommand(
 			CreateRelationshipRequest request, EObject source, EObject target) {
 		super(request.getLabel(), null, request);
 		this.source = source;
@@ -59,7 +59,7 @@ public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourCrea
 		}
 		// target may be null here but it's possible to check constraint
 		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003(
+				.canCreateRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
 						getSource(), getTarget());
 	}
 
@@ -75,7 +75,8 @@ public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourCrea
 
 		if (getSource() != null && getTarget() != null) {
 			getSource()
-					.setNextAlternative__RecoveryActionBehaviour(getTarget());
+					.getFailureHandlingAlternatives__RecoveryActionBehaviour()
+					.add(getTarget());
 		}
 		return CommandResult.newOKCommandResult();
 

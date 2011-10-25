@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelBaseItemS
 /**
  * @generated
  */
-public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourReorientCommand
+public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourReorientCommand
 		extends EditElementCommand {
 
 	/**
@@ -43,7 +43,7 @@ public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourReor
 	/**
 	 * @generated
 	 */
-	public RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourReorientCommand(
+	public RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourReorientCommand(
 			ReorientReferenceRelationshipRequest request) {
 		super(request.getLabel(), null, request);
 		reorientDirection = request.getDirection();
@@ -76,7 +76,7 @@ public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourReor
 			return false;
 		}
 		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003(
+				.canExistRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
 						getNewSource(), getOldTarget());
 	}
 
@@ -88,7 +88,7 @@ public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourReor
 			return false;
 		}
 		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003(
+				.canExistRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
 						getOldSource(), getNewTarget());
 	}
 
@@ -114,9 +114,12 @@ public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourReor
 	 * @generated
 	 */
 	protected CommandResult reorientSource() throws ExecutionException {
-		getOldSource().setNextAlternative__RecoveryActionBehaviour(null);
-		getNewSource().setNextAlternative__RecoveryActionBehaviour(
-				getOldTarget());
+		getOldSource()
+				.getFailureHandlingAlternatives__RecoveryActionBehaviour()
+				.remove(getOldTarget());
+		getNewSource()
+				.getFailureHandlingAlternatives__RecoveryActionBehaviour().add(
+						getOldTarget());
 		return CommandResult.newOKCommandResult(referenceOwner);
 	}
 
@@ -124,8 +127,12 @@ public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourReor
 	 * @generated
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getOldSource().setNextAlternative__RecoveryActionBehaviour(
-				getNewTarget());
+		getOldSource()
+				.getFailureHandlingAlternatives__RecoveryActionBehaviour()
+				.remove(getOldTarget());
+		getOldSource()
+				.getFailureHandlingAlternatives__RecoveryActionBehaviour().add(
+						getNewTarget());
 		return CommandResult.newOKCommandResult(referenceOwner);
 	}
 

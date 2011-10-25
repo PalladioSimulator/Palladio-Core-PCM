@@ -415,8 +415,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 				return new AbstractActionSuccessor_AbstractActionEditPart(view);
 
-			case RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID:
-				return new RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart(
+			case RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID:
+				return new RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart(
 						view);
 
 			}

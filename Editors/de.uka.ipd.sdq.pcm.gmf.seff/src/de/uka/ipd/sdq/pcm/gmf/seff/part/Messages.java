@@ -971,12 +971,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_target;
+	public static String NavigatorGroupName_RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_source;
+	public static String NavigatorGroupName_RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_source;
 
 	/**
 	 * @generated

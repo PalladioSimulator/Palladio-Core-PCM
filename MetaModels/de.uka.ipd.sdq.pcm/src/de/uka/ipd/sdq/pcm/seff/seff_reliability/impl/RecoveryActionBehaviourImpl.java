@@ -15,6 +15,7 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.util.Seff_reliabilityValidator;
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
 import java.util.Collection;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -55,7 +57,7 @@ import org.eclipse.ocl.ecore.OCL;
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getAbstractLoopAction_ResourceDemandingBehaviour <em>Abstract Loop Action Resource Demanding Behaviour</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getAbstractBranchTransition_ResourceDemandingBehaviour <em>Abstract Branch Transition Resource Demanding Behaviour</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getSteps_Behaviour <em>Steps Behaviour</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getNextAlternative__RecoveryActionBehaviour <em>Next Alternative Recovery Action Behaviour</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getFailureHandlingAlternatives__RecoveryActionBehaviour <em>Failure Handling Alternatives Recovery Action Behaviour</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getRecoveryAction__RecoveryActionBehaviour <em>Recovery Action Recovery Action Behaviour</em>}</li>
  * </ul>
  * </p>
@@ -81,14 +83,14 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 	protected EList<AbstractAction> steps_Behaviour;
 
 	/**
-	 * The cached value of the '{@link #getNextAlternative__RecoveryActionBehaviour() <em>Next Alternative Recovery Action Behaviour</em>}' reference.
+	 * The cached value of the '{@link #getFailureHandlingAlternatives__RecoveryActionBehaviour() <em>Failure Handling Alternatives Recovery Action Behaviour</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNextAlternative__RecoveryActionBehaviour()
+	 * @see #getFailureHandlingAlternatives__RecoveryActionBehaviour()
 	 * @generated
 	 * @ordered
 	 */
-	protected RecoveryActionBehaviour nextAlternative__RecoveryActionBehaviour;
+	protected EList<RecoveryActionBehaviour> failureHandlingAlternatives__RecoveryActionBehaviour;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,37 +210,11 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RecoveryActionBehaviour getNextAlternative__RecoveryActionBehaviour() {
-		if (nextAlternative__RecoveryActionBehaviour != null && nextAlternative__RecoveryActionBehaviour.eIsProxy()) {
-			InternalEObject oldNextAlternative__RecoveryActionBehaviour = (InternalEObject)nextAlternative__RecoveryActionBehaviour;
-			nextAlternative__RecoveryActionBehaviour = (RecoveryActionBehaviour)eResolveProxy(oldNextAlternative__RecoveryActionBehaviour);
-			if (nextAlternative__RecoveryActionBehaviour != oldNextAlternative__RecoveryActionBehaviour) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR, oldNextAlternative__RecoveryActionBehaviour, nextAlternative__RecoveryActionBehaviour));
-			}
+	public EList<RecoveryActionBehaviour> getFailureHandlingAlternatives__RecoveryActionBehaviour() {
+		if (failureHandlingAlternatives__RecoveryActionBehaviour == null) {
+			failureHandlingAlternatives__RecoveryActionBehaviour = new EObjectResolvingEList<RecoveryActionBehaviour>(RecoveryActionBehaviour.class, this, Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR);
 		}
-		return nextAlternative__RecoveryActionBehaviour;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RecoveryActionBehaviour basicGetNextAlternative__RecoveryActionBehaviour() {
-		return nextAlternative__RecoveryActionBehaviour;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNextAlternative__RecoveryActionBehaviour(RecoveryActionBehaviour newNextAlternative__RecoveryActionBehaviour) {
-		RecoveryActionBehaviour oldNextAlternative__RecoveryActionBehaviour = nextAlternative__RecoveryActionBehaviour;
-		nextAlternative__RecoveryActionBehaviour = newNextAlternative__RecoveryActionBehaviour;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR, oldNextAlternative__RecoveryActionBehaviour, nextAlternative__RecoveryActionBehaviour));
+		return failureHandlingAlternatives__RecoveryActionBehaviour;
 	}
 
 	/**
@@ -436,6 +412,159 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 	}
 
 	/**
+	 * The cached OCL expression body for the '{@link #RecoveryActionBehaviourHasOnlyOnePredecessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Recovery Action Behaviour Has Only One Predecessor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RecoveryActionBehaviourHasOnlyOnePredecessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->\n"+"	exists(x,y:RecoveryActionBehaviour | x<>y\n"+"		and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)\n"+"		and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))";
+
+	/**
+	 * The cached OCL invariant for the '{@link #RecoveryActionBehaviourHasOnlyOnePredecessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Recovery Action Behaviour Has Only One Predecessor</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RecoveryActionBehaviourHasOnlyOnePredecessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean RecoveryActionBehaviourHasOnlyOnePredecessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(Seff_reliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR);
+			try {
+				RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 Seff_reliabilityValidator.DIAGNOSTIC_SOURCE,
+						 Seff_reliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RecoveryActionBehaviourHasOnlyOnePredecessor", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * The cached OCL expression body for the '{@link #RecoveryActionBehaviourIsNotSuccessorOfItself(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Recovery Action Behaviour Is Not Successor Of Itself</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RecoveryActionBehaviourIsNotSuccessorOfItself(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)";
+
+	/**
+	 * The cached OCL invariant for the '{@link #RecoveryActionBehaviourIsNotSuccessorOfItself(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Recovery Action Behaviour Is Not Successor Of Itself</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #RecoveryActionBehaviourIsNotSuccessorOfItself(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean RecoveryActionBehaviourIsNotSuccessorOfItself(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(Seff_reliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR);
+			try {
+				RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 Seff_reliabilityValidator.DIAGNOSTIC_SOURCE,
+						 Seff_reliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RecoveryActionBehaviourIsNotSuccessorOfItself", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * The cached OCL expression body for the '{@link #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Successors Of Recovery Action Behaviour Handle Disjoint Failure Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.failureHandlingAlternatives__RecoveryActionBehaviour->\n"+"	exists(x,y:RecoveryActionBehaviour | x<>y and\n"+"	x.failureTypes_FailureHandlingEntity->\n"+"		exists(f:pcm::reliability::FailureType |\n"+"		y.failureTypes_FailureHandlingEntity->includes(f)))";
+
+	/**
+	 * The cached OCL invariant for the '{@link #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Successors Of Recovery Action Behaviour Handle Disjoint Failure Types</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(Seff_reliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR);
+			try {
+				SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 Seff_reliabilityValidator.DIAGNOSTIC_SOURCE,
+						 Seff_reliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -514,9 +643,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 				return getAbstractBranchTransition_ResourceDemandingBehaviour();
 			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
 				return getSteps_Behaviour();
-			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR:
-				if (resolve) return getNextAlternative__RecoveryActionBehaviour();
-				return basicGetNextAlternative__RecoveryActionBehaviour();
+			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR:
+				return getFailureHandlingAlternatives__RecoveryActionBehaviour();
 			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
 				return getRecoveryAction__RecoveryActionBehaviour();
 		}
@@ -542,8 +670,9 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 				getSteps_Behaviour().clear();
 				getSteps_Behaviour().addAll((Collection<? extends AbstractAction>)newValue);
 				return;
-			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR:
-				setNextAlternative__RecoveryActionBehaviour((RecoveryActionBehaviour)newValue);
+			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR:
+				getFailureHandlingAlternatives__RecoveryActionBehaviour().clear();
+				getFailureHandlingAlternatives__RecoveryActionBehaviour().addAll((Collection<? extends RecoveryActionBehaviour>)newValue);
 				return;
 			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
 				setRecoveryAction__RecoveryActionBehaviour((RecoveryAction)newValue);
@@ -569,8 +698,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
 				getSteps_Behaviour().clear();
 				return;
-			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR:
-				setNextAlternative__RecoveryActionBehaviour((RecoveryActionBehaviour)null);
+			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR:
+				getFailureHandlingAlternatives__RecoveryActionBehaviour().clear();
 				return;
 			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
 				setRecoveryAction__RecoveryActionBehaviour((RecoveryAction)null);
@@ -593,8 +722,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 				return getAbstractBranchTransition_ResourceDemandingBehaviour() != null;
 			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
 				return steps_Behaviour != null && !steps_Behaviour.isEmpty();
-			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR:
-				return nextAlternative__RecoveryActionBehaviour != null;
+			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR:
+				return failureHandlingAlternatives__RecoveryActionBehaviour != null && !failureHandlingAlternatives__RecoveryActionBehaviour.isEmpty();
 			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
 				return getRecoveryAction__RecoveryActionBehaviour() != null;
 		}

@@ -153,16 +153,16 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 	}
 
 	/**
-	 * Handles RecoveryBlockActions.
+	 * Handles RecoveryActions.
 	 * 
 	 * This is a workaround using the case for
-	 * AbstractInternalControlFlowActions, because RecoveryBlockActions are not
+	 * AbstractInternalControlFlowActions, because RecoveryActions are not
 	 * directly contained in the SEFF package, and thus there is no case for
 	 * them.
 	 * 
-	 * First, for each RecoveryBlockAlternativeBehaviour a specific Markov chain
-	 * is built. Then, specific chains are appended to each other according to
-	 * the specification of handled failure types.
+	 * First, for each RecoveryActionBehaviour a specific Markov chain is built.
+	 * Then, specific chains are appended to each other according to the
+	 * specification of handled failure types.
 	 * 
 	 * @param controlFlowAction
 	 *            the control flow action
@@ -181,45 +181,73 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 		// Logging & naming:
 		String name = action.getEntityName() + "[" + action.getId() + "]";
 		prefixes.add(name);
-		logger.debug("Visit RecoveryBlockAction: " + name);
+		logger.debug("Visit RecoveryAction: " + name);
 
 		// Retrieve the list of RecoveryBlockBehaviours:
 		List<RecoveryActionBehaviour> behaviours = action
 				.getRecoveryActionBehaviours__RecoveryAction();
 		if (behaviours.size() == 0) {
-			throw new MarkovException("RecoveryBlockAction '"
+			throw new MarkovException("RecoveryAction '"
 					+ action.getEntityName()
 					+ "' does not specify any behaviours.");
 		}
 
 		// Create the resulting Markov chain:
-		RecoveryActionBehaviour previousAlternative = behaviours.get(0);
-		int index = 0;
-		prefixes.add("Alternative(" + (++index) + ")");
-		// A direct invocation forces treatment as ResourceDemandingBehaviour:
-		MarkovChain resultChain = caseResourceDemandingBehaviour(previousAlternative);
-		prefixes.remove(prefixes.size() - 1);
-		// Only consider failure handling alternatives if the differentiation of
-		// failure types is fine-grained enough:
-		if ((evaluationType != MarkovEvaluationType.SINGLE)
-				&& (evaluationType != MarkovEvaluationType.CLASSES)) {
-			while (previousAlternative
-					.getNextAlternative__RecoveryActionBehaviour() != null) {
-				previousAlternative = previousAlternative
-						.getNextAlternative__RecoveryActionBehaviour();
-				List<String> failureTypes = getFailureTypeIds(previousAlternative);
-				prefixes.add("Alternative(" + (++index) + ")");
-				MarkovChain handlingChain = caseResourceDemandingBehaviour(previousAlternative);
-				prefixes.remove(prefixes.size() - 1);
-				markovBuilder.appendFailureHandlingMarkovChain(resultChain,
-						handlingChain, failureTypes, optimize);
-			}
-		}
+		MarkovChain resultChain = processRecoveryActionBehaviour(action, action
+				.getPrimaryBehaviour__RecoveryAction());
 
 		// Naming:
 		prefixes.remove(prefixes.size() - 1);
 
 		// Return the result:
+		return resultChain;
+	}
+
+	/**
+	 * Returns a Markov chain that reflects a recovery action behaviour
+	 * including its failure handling alternatives.
+	 * 
+	 * @param action
+	 *            the surrounding recovery block action
+	 * @param behaviour
+	 *            the behaviour to evaluate
+	 * @return the resulting Markov chain
+	 */
+	private MarkovChain processRecoveryActionBehaviour(RecoveryAction action,
+			RecoveryActionBehaviour behaviour) {
+
+		// Step 1: evaluate the behaviour itself:
+		prefixes.add("Alternative("
+				+ action.getRecoveryActionBehaviours__RecoveryAction().indexOf(
+						behaviour) + ")");
+		MarkovChain resultChain = caseResourceDemandingBehaviour(behaviour);
+		prefixes.remove(prefixes.size() - 1);
+
+		// Step 2: consider any existing failure handling alternatives if
+		// the differentiation of failure types is fine-grained enough:
+		if ((evaluationType != MarkovEvaluationType.SINGLE)
+				&& (evaluationType != MarkovEvaluationType.CLASSES)
+				&& (behaviour
+						.getFailureHandlingAlternatives__RecoveryActionBehaviour()
+						.size() > 0)) {
+
+			// Determine the chains and handled failure types of the
+			// alternatives:
+			List<MarkovChain> failureHandlingChains = new ArrayList<MarkovChain>();
+			List<List<String>> failureTypeLists = new ArrayList<List<String>>();
+			for (RecoveryActionBehaviour handlingAlternative : behaviour
+					.getFailureHandlingAlternatives__RecoveryActionBehaviour()) {
+				failureTypeLists.add(getFailureTypeIds(handlingAlternative));
+				failureHandlingChains.add(processRecoveryActionBehaviour(
+						action, handlingAlternative));
+			}
+
+			// Append the handling alternatives to the current chain:
+			markovBuilder.appendFailureHandlingMarkovChains(resultChain,
+					failureHandlingChains, failureTypeLists, optimize);
+		}
+
+		// Step 3: return the result:
 		return resultChain;
 	}
 

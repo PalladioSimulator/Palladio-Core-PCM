@@ -46,7 +46,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
@@ -345,7 +345,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003"); //$NON-NLS-1$
+	public static final IElementType RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -630,9 +630,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 
 			elements
 					.put(
-							RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003,
+							RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004,
 							de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
-									.getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour());
+									.getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -703,7 +703,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES
 					.add(AbstractActionSuccessor_AbstractAction_4001);
 			KNOWN_ELEMENT_TYPES
-					.add(RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003);
+					.add(RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -815,8 +815,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			return ResourceDemandingBehaviour_3018;
 		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 			return AbstractActionSuccessor_AbstractAction_4001;
-		case RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID:
-			return RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003;
+		case RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID:
+			return RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004;
 		}
 		return null;
 	}

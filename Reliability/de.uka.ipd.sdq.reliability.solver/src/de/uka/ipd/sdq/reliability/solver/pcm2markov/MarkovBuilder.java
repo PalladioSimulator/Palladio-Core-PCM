@@ -13,8 +13,6 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
-import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
-import de.uka.ipd.sdq.reliability.core.MarkovEvaluationType;
 
 /**
  * This class provides methods for building Markov Chains.
@@ -74,75 +72,42 @@ public class MarkovBuilder {
 	public void appendFailureHandlingMarkovChain(
 			final MarkovChain aggregateChain, final MarkovChain handlingChain,
 			final List<String> handledFailureTypeIds, final boolean optimize) {
-		List<State> failureStates = getFailureStates(aggregateChain);
-		for (State failureState : failureStates) {
-			String failureTypeLabelValue = getFailureTypeId(failureState);
-			if (isFailureTypeHandled(handledFailureTypeIds,
-					failureTypeLabelValue)) {
-				appendFailureHandlingChain(aggregateChain, handlingChain,
-						failureState, optimize);
-			}
-		}
+		appendFailureHandlingMarkovChain(aggregateChain,
+				getFailureStates(aggregateChain), handlingChain,
+				handledFailureTypeIds, optimize);
 		removeDuplicateFailureStates(aggregateChain, optimize);
 	}
 
 	/**
-	 * Checks if a failure-on-demand occurrence is contained in a given list of
-	 * handled failure types.
-	 * 
-	 * @param handledFailureTypeIds
-	 *            the list of handled failure types
-	 * @param occurredFailureTypeId
-	 *            the occurred failure type
-	 * @return true if the occurred failure type is included in the list of
-	 *         handled types
-	 */
-	private boolean isFailureTypeHandled(
-			final List<String> handledFailureTypeIds,
-			final String occurredFailureTypeId) {
-		for (String handledId : handledFailureTypeIds) {
-			if (occurredFailureTypeId.contains(handledId)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Removes duplicate failure states from the given Markov chain.
+	 * Incorporates multiple Markov Chains into one aggregate chain. The
+	 * specific Markov Chains are inserted into the aggregate Markov Chain
+	 * replacing the failure states.
 	 * 
 	 * @param aggregateChain
-	 *            the chain to reduce
+	 *            the Markov Chain which will incorporate the other chains
+	 * @param handlingChains
+	 *            the Markov Chains which will be incorporated into the other
+	 *            chain
+	 * @param handledFailureTypeIdLists
+	 *            the list of handled failure types per chain
 	 * @param optimize
 	 *            indicates if Markov Chain reduction shall be performed during
 	 *            the transformation
 	 */
-	private void removeDuplicateFailureStates(final MarkovChain markovChain,
+	public void appendFailureHandlingMarkovChains(
+			final MarkovChain aggregateChain,
+			final List<MarkovChain> handlingChains,
+			final List<List<String>> handledFailureTypeIdLists,
 			final boolean optimize) {
-
-		// Iterate over the failure states of the chain:
-		List<State> failureStates = getFailureStates(markovChain);
-		List<State> duplicateFailureStates = new ArrayList<State>();
-		for (State failureState : failureStates) {
-			if (duplicateFailureStates.contains(failureState)) {
-				continue;
-			}
-			List<State> matchingFailureStates = findMatchingFailureStates(
-					failureStates, failureState);
-			matchingFailureStates.remove(failureState);
-			for (State matchingState : matchingFailureStates) {
-				connectStates(markovChain, matchingState, failureState, 1.0);
-				matchingState.setType(StateType.DEFAULT);
-				duplicateFailureStates.add(matchingState);
-			}
+		List<State> aggregateFailureStates = getFailureStates(aggregateChain);
+		for (int i = 0; i < handlingChains.size(); i++) {
+			aggregateFailureStates = findStates(aggregateFailureStates,
+					StateType.FAILURE);
+			appendFailureHandlingMarkovChain(aggregateChain,
+					aggregateFailureStates, handlingChains.get(i),
+					handledFailureTypeIdLists.get(i), optimize);
 		}
-
-		// Optimize the aggregate MarkovChain:
-		if (optimize) {
-			for (State duplicateState : duplicateFailureStates) {
-				reduceState(markovChain, duplicateState);
-			}
-		}
+		removeDuplicateFailureStates(aggregateChain, optimize);
 	}
 
 	/**
@@ -557,55 +522,6 @@ public class MarkovBuilder {
 	}
 
 	/**
-	 * Creates a Markov Chain that represents a sequential execution path.
-	 * 
-	 * @param prefixes
-	 *            the prefixes of the Markov Chain name
-	 * @param stateNames
-	 *            the names of the states to create
-	 * @param statesOut
-	 *            the list of states created within the method that corresponds
-	 *            to the given list of state names
-	 * @return the resulting Markov Chain
-	 */
-	public MarkovChain initSequentialMarkovChain(final List<String> prefixes,
-			final List<String> stateNames, final List<State> statesOut) {
-
-		// Create the Markov Chain Entity:
-		MarkovChain markovChain = markovFactory.createMarkovChain();
-		markovChain.setName(getName(prefixes));
-
-		// Create the Start and Success States:
-		State startState = addState(markovChain, StateType.START,
-				StateType.START.toString(), prefixes);
-		State successState = addState(markovChain, StateType.SUCCESS,
-				StateType.SUCCESS.toString(), prefixes);
-
-		// Mark the State that will later lead directly to the Success State:
-		State stateToSuccess = startState;
-
-		// Go through the chain of state names:
-		for (int i = 0; i < stateNames.size(); i++) {
-
-			// Create a Markov State for this Action:
-			State state = addState(markovChain, StateType.DEFAULT, stateNames
-					.get(i), prefixes);
-			statesOut.add(state);
-
-			connectStates(markovChain, stateToSuccess, state, 1.0);
-
-			// Update the State leading to Success:
-			stateToSuccess = state;
-		}
-
-		// Create the Transition leading to the Success State:
-		connectStates(markovChain, stateToSuccess, successState, 1.0);
-
-		// Return the result:
-		return markovChain;
-	}
-
-	/**
 	 * Creates a Markov Chain for a branch with solved branch probabilities.
 	 * 
 	 * @param prefixes
@@ -777,6 +693,55 @@ public class MarkovBuilder {
 	}
 
 	/**
+	 * Creates a Markov Chain that represents a sequential execution path.
+	 * 
+	 * @param prefixes
+	 *            the prefixes of the Markov Chain name
+	 * @param stateNames
+	 *            the names of the states to create
+	 * @param statesOut
+	 *            the list of states created within the method that corresponds
+	 *            to the given list of state names
+	 * @return the resulting Markov Chain
+	 */
+	public MarkovChain initSequentialMarkovChain(final List<String> prefixes,
+			final List<String> stateNames, final List<State> statesOut) {
+
+		// Create the Markov Chain Entity:
+		MarkovChain markovChain = markovFactory.createMarkovChain();
+		markovChain.setName(getName(prefixes));
+
+		// Create the Start and Success States:
+		State startState = addState(markovChain, StateType.START,
+				StateType.START.toString(), prefixes);
+		State successState = addState(markovChain, StateType.SUCCESS,
+				StateType.SUCCESS.toString(), prefixes);
+
+		// Mark the State that will later lead directly to the Success State:
+		State stateToSuccess = startState;
+
+		// Go through the chain of state names:
+		for (int i = 0; i < stateNames.size(); i++) {
+
+			// Create a Markov State for this Action:
+			State state = addState(markovChain, StateType.DEFAULT, stateNames
+					.get(i), prefixes);
+			statesOut.add(state);
+
+			connectStates(markovChain, stateToSuccess, state, 1.0);
+
+			// Update the State leading to Success:
+			stateToSuccess = state;
+		}
+
+		// Create the Transition leading to the Success State:
+		connectStates(markovChain, stateToSuccess, successState, 1.0);
+
+		// Return the result:
+		return markovChain;
+	}
+
+	/**
 	 * Adds a state of a given type and with a given name to a Markov chain.
 	 * 
 	 * @param chain
@@ -890,6 +855,42 @@ public class MarkovBuilder {
 		if (optimize) {
 			reduceState(aggregateChain, handlingChainStartState);
 			reduceState(aggregateChain, handlingChainSuccessState);
+		}
+	}
+
+	/**
+	 * Incorporates one Markov Chain into another. The specific Markov Chain is
+	 * inserted into the aggregate Markov Chain replacing the failure state.
+	 * 
+	 * @param aggregateChain
+	 *            the Markov Chain which will incorporate the other chain
+	 * @param aggregateFailureStates
+	 *            the failure states of the aggregate chain that shall be
+	 *            considered
+	 * @param handlingChain
+	 *            the Markov Chain which will be incorporated into the other
+	 *            chain
+	 * @param handledFailureTypeIds
+	 *            the list of handled failure types
+	 * @param removeDuplicateFailureStates
+	 *            indicates if duplicateFailureStates shall be removed at the
+	 *            end of the procedure
+	 * @param optimize
+	 *            indicates if Markov Chain reduction shall be performed during
+	 *            the transformation
+	 */
+	private void appendFailureHandlingMarkovChain(
+			final MarkovChain aggregateChain,
+			final List<State> aggregateFailureStates,
+			final MarkovChain handlingChain,
+			final List<String> handledFailureTypeIds, final boolean optimize) {
+		for (State failureState : aggregateFailureStates) {
+			String failureTypeLabelValue = getFailureTypeId(failureState);
+			if (isFailureTypeHandled(handledFailureTypeIds,
+					failureTypeLabelValue)) {
+				appendFailureHandlingChain(aggregateChain, handlingChain,
+						failureState, optimize);
+			}
 		}
 	}
 
@@ -1104,6 +1105,26 @@ public class MarkovBuilder {
 	}
 
 	/**
+	 * Retrieves all Markov states of a given type from a given state list.
+	 * 
+	 * @param states
+	 *            the list of states to search through
+	 * @param type
+	 *            the requested state type
+	 * @return the sub list if states of the requested type
+	 */
+	private List<State> findStates(final List<State> states,
+			final StateType type) {
+		List<State> resultList = new ArrayList<State>();
+		for (State state : states) {
+			if (state.getType().equals(type)) {
+				resultList.add(state);
+			}
+		}
+		return resultList;
+	}
+
+	/**
 	 * Creates a list of all Transitions in a Markov Chain that start from a
 	 * given source state.
 	 * 
@@ -1213,6 +1234,28 @@ public class MarkovBuilder {
 	}
 
 	/**
+	 * Checks if a failure-on-demand occurrence is contained in a given list of
+	 * handled failure types.
+	 * 
+	 * @param handledFailureTypeIds
+	 *            the list of handled failure types
+	 * @param occurredFailureTypeId
+	 *            the occurred failure type
+	 * @return true if the occurred failure type is included in the list of
+	 *         handled types
+	 */
+	private boolean isFailureTypeHandled(
+			final List<String> handledFailureTypeIds,
+			final String occurredFailureTypeId) {
+		for (String handledId : handledFailureTypeIds) {
+			if (occurredFailureTypeId.contains(handledId)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * Names a Transition.
 	 * 
 	 * @param transition
@@ -1289,6 +1332,43 @@ public class MarkovBuilder {
 
 				// Add the new Transition to the Markov Chain:
 				contributeTransition(markovChain, transition);
+			}
+		}
+	}
+
+	/**
+	 * Removes duplicate failure states from the given Markov chain.
+	 * 
+	 * @param aggregateChain
+	 *            the chain to reduce
+	 * @param optimize
+	 *            indicates if Markov Chain reduction shall be performed during
+	 *            the transformation
+	 */
+	private void removeDuplicateFailureStates(final MarkovChain markovChain,
+			final boolean optimize) {
+
+		// Iterate over the failure states of the chain:
+		List<State> failureStates = getFailureStates(markovChain);
+		List<State> duplicateFailureStates = new ArrayList<State>();
+		for (State failureState : failureStates) {
+			if (duplicateFailureStates.contains(failureState)) {
+				continue;
+			}
+			List<State> matchingFailureStates = findMatchingFailureStates(
+					failureStates, failureState);
+			matchingFailureStates.remove(failureState);
+			for (State matchingState : matchingFailureStates) {
+				connectStates(markovChain, matchingState, failureState, 1.0);
+				matchingState.setType(StateType.DEFAULT);
+				duplicateFailureStates.add(matchingState);
+			}
+		}
+
+		// Optimize the aggregate MarkovChain:
+		if (optimize) {
+			for (State duplicateState : duplicateFailureStates) {
+				reduceState(markovChain, duplicateState);
 			}
 		}
 	}

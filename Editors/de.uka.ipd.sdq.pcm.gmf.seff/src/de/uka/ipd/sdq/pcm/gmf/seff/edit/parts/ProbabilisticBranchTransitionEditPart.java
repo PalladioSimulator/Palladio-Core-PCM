@@ -126,16 +126,16 @@ public class ProbabilisticBranchTransitionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProbabilisticBranchTransitionBranchProbabilityEditPart) {
-			((ProbabilisticBranchTransitionBranchProbabilityEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureBranchTransitionProbabilityLabel());
-			return true;
-		}
 		if (childEditPart instanceof ProbabilisticBranchTransitionEntityNameEditPart) {
 			((ProbabilisticBranchTransitionEntityNameEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureBranchTransitionNameLabel());
+			return true;
+		}
+		if (childEditPart instanceof ProbabilisticBranchTransitionBranchProbabilityEditPart) {
+			((ProbabilisticBranchTransitionBranchProbabilityEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureBranchTransitionProbabilityLabel());
 			return true;
 		}
 		return false;
@@ -145,10 +145,10 @@ public class ProbabilisticBranchTransitionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProbabilisticBranchTransitionBranchProbabilityEditPart) {
+		if (childEditPart instanceof ProbabilisticBranchTransitionEntityNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof ProbabilisticBranchTransitionEntityNameEditPart) {
+		if (childEditPart instanceof ProbabilisticBranchTransitionBranchProbabilityEditPart) {
 			return true;
 		}
 		return false;

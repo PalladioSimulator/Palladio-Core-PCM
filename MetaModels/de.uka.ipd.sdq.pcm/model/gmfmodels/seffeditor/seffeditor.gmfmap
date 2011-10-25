@@ -1639,12 +1639,12 @@
         href="seffeditor.gmfgraph#RecoveryFlowConnection"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
-        href="../../pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/nextAlternative__RecoveryActionBehaviour"/>
+        href="../../pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/failureHandlingAlternatives__RecoveryActionBehaviour"/>
     <creationConstraints>
       <sourceEnd
-          body="self &lt;> oppositeEnd"/>
+          body="not self.failureHandlingAlternatives__RecoveryActionBehaviour->exists(x,y:RecoveryActionBehaviour | x&lt;>y and not x.failureTypes_FailureHandlingEntity->intersection(y.failureTypes_FailureHandlingEntity)->isEmpty())"/>
       <targetEnd
-          body="(self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->select(beh|beh.nextAlternative__RecoveryActionBehaviour = self)->size() = 0) and (self.recoveryAction__RecoveryActionBehaviour = oppositeEnd.recoveryAction__RecoveryActionBehaviour)"/>
+          body="(not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->exists(x,y:RecoveryActionBehaviour | x&lt;>y and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self) and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))) and (self.recoveryAction__RecoveryActionBehaviour = oppositeEnd.recoveryAction__RecoveryActionBehaviour)"/>
     </creationConstraints>
   </links>
   <diagram>

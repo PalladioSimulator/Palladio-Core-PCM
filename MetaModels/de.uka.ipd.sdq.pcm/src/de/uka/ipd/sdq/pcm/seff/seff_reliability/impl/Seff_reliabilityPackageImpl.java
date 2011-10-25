@@ -242,7 +242,7 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour() {
+	public EReference getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour() {
 		return (EReference)recoveryActionBehaviourEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -269,8 +269,17 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRecoveryAction_RecoveryActionBehaviours__RecoveryAction() {
+	public EReference getRecoveryAction_PrimaryBehaviour__RecoveryAction() {
 		return (EReference)recoveryActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRecoveryAction_RecoveryActionBehaviours__RecoveryAction() {
+		return (EReference)recoveryActionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -320,10 +329,11 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 
 		// Create classes and their features
 		recoveryActionBehaviourEClass = createEClass(RECOVERY_ACTION_BEHAVIOUR);
-		createEReference(recoveryActionBehaviourEClass, RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR);
+		createEReference(recoveryActionBehaviourEClass, RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR);
 		createEReference(recoveryActionBehaviourEClass, RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR);
 
 		recoveryActionEClass = createEClass(RECOVERY_ACTION);
+		createEReference(recoveryActionEClass, RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION);
 		createEReference(recoveryActionEClass, RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION);
 
 		failureHandlingEntityEClass = createEClass(FAILURE_HANDLING_ENTITY);
@@ -370,16 +380,44 @@ public class Seff_reliabilityPackageImpl extends EPackageImpl implements Seff_re
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(recoveryActionBehaviourEClass, RecoveryActionBehaviour.class, "RecoveryActionBehaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour(), this.getRecoveryActionBehaviour(), null, "nextAlternative__RecoveryActionBehaviour", null, 0, 1, RecoveryActionBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour(), this.getRecoveryActionBehaviour(), null, "failureHandlingAlternatives__RecoveryActionBehaviour", null, 0, -1, RecoveryActionBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour(), this.getRecoveryAction(), this.getRecoveryAction_RecoveryActionBehaviours__RecoveryAction(), "recoveryAction__RecoveryActionBehaviour", null, 1, 1, RecoveryActionBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(recoveryActionEClass, RecoveryAction.class, "RecoveryAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRecoveryAction_RecoveryActionBehaviours__RecoveryAction(), this.getRecoveryActionBehaviour(), this.getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour(), "recoveryActionBehaviours__RecoveryAction", null, 2, -1, RecoveryAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		EOperation op = addEOperation(recoveryActionEClass, ecorePackage.getEBoolean(), "Alternativesformachain", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(recoveryActionBehaviourEClass, ecorePackage.getEBoolean(), "RecoveryActionBehaviourHasOnlyOnePredecessor", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(recoveryActionBehaviourEClass, ecorePackage.getEBoolean(), "RecoveryActionBehaviourIsNotSuccessorOfItself", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(recoveryActionBehaviourEClass, ecorePackage.getEBoolean(), "SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(recoveryActionEClass, RecoveryAction.class, "RecoveryAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRecoveryAction_PrimaryBehaviour__RecoveryAction(), this.getRecoveryActionBehaviour(), null, "primaryBehaviour__RecoveryAction", null, 1, 1, RecoveryAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRecoveryAction_RecoveryActionBehaviours__RecoveryAction(), this.getRecoveryActionBehaviour(), this.getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour(), "recoveryActionBehaviours__RecoveryAction", null, 2, -1, RecoveryAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(recoveryActionEClass, ecorePackage.getEBoolean(), "PrimaryBehaviourOfRecoveryActionMustBeSet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);

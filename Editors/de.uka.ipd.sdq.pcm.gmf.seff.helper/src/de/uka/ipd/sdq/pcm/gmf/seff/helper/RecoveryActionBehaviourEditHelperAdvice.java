@@ -5,7 +5,7 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 
-public class RecoveryBlockAlternativeBehaviourEditHelperAdvice extends
+public class RecoveryActionBehaviourEditHelperAdvice extends
 		AbstractEditHelperAdvice implements IEditHelperAdvice {
 
 	/* (non-Javadoc)

@@ -72,25 +72,25 @@ public class RecoveryActionBehaviourItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNextAlternative__RecoveryActionBehaviourPropertyDescriptor(object);
+			addFailureHandlingAlternatives__RecoveryActionBehaviourPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Next Alternative Recovery Action Behaviour feature.
+	 * This adds a property descriptor for the Failure Handling Alternatives Recovery Action Behaviour feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNextAlternative__RecoveryActionBehaviourPropertyDescriptor(Object object) {
+	protected void addFailureHandlingAlternatives__RecoveryActionBehaviourPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RecoveryActionBehaviour_nextAlternative__RecoveryActionBehaviour_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RecoveryActionBehaviour_nextAlternative__RecoveryActionBehaviour_feature", "_UI_RecoveryActionBehaviour_type"),
-				 Seff_reliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR,
+				 getString("_UI_RecoveryActionBehaviour_failureHandlingAlternatives__RecoveryActionBehaviour_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RecoveryActionBehaviour_failureHandlingAlternatives__RecoveryActionBehaviour_feature", "_UI_RecoveryActionBehaviour_type"),
+				 Seff_reliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR,
 				 true,
 				 false,
 				 true,

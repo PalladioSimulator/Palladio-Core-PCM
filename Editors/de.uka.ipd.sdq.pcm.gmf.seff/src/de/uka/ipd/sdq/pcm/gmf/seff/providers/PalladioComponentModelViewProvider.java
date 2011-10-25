@@ -477,8 +477,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 			return createAbstractActionSuccessor_AbstractAction_4001(
 					containerView, index, persisted, preferencesHint);
-		case RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID:
-			return createRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003(
+		case RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID:
+			return createRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
 					containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
@@ -2743,7 +2743,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	public Edge createRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003(
+	public Edge createRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
@@ -2758,7 +2758,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		ViewUtil.insertChildView(containerView, edge, index, persisted);
 		edge
 				.setType(PalladioComponentModelVisualIDRegistry
-						.getType(RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
+						.getType(RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID));
 		edge.setElement(null);
 		// initializePreferences
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint

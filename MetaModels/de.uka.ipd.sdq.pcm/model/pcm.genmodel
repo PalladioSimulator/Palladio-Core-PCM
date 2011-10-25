@@ -1065,16 +1065,30 @@
           ecorePackage="pcm.ecore#//seff/seff_reliability">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour">
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/nextAlternative__RecoveryActionBehaviour"/>
+              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/failureHandlingAlternatives__RecoveryActionBehaviour"/>
           <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
               createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/recoveryAction__RecoveryActionBehaviour"/>
+          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/RecoveryActionBehaviourHasOnlyOnePredecessor">
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/RecoveryActionBehaviourHasOnlyOnePredecessor/diagnostics"/>
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/RecoveryActionBehaviourHasOnlyOnePredecessor/context"/>
+          </genOperations>
+          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/RecoveryActionBehaviourIsNotSuccessorOfItself">
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/RecoveryActionBehaviourIsNotSuccessorOfItself/diagnostics"/>
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/RecoveryActionBehaviourIsNotSuccessorOfItself/context"/>
+          </genOperations>
+          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes">
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes/diagnostics"/>
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes/context"/>
+          </genOperations>
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_reliability/RecoveryAction">
+          <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+              propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_reliability/RecoveryAction/primaryBehaviour__RecoveryAction"/>
           <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
               createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"/>
-          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_reliability/RecoveryAction/Alternativesformachain">
-            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryAction/Alternativesformachain/diagnostics"/>
-            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryAction/Alternativesformachain/context"/>
+          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_reliability/RecoveryAction/PrimaryBehaviourOfRecoveryActionMustBeSet">
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryAction/PrimaryBehaviourOfRecoveryActionMustBeSet/diagnostics"/>
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_reliability/RecoveryAction/PrimaryBehaviourOfRecoveryActionMustBeSet/context"/>
           </genOperations>
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//seff/seff_reliability/FailureHandlingEntity">

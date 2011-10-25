@@ -12,15 +12,15 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 /**
  * @generated
  */
-public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourItemSemanticEditPolicy
+public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourItemSemanticEditPolicy
 		extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourItemSemanticEditPolicy() {
+	public RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourItemSemanticEditPolicy() {
 		super(
-				PalladioComponentModelElementTypes.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003);
+				PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004);
 	}
 
 	/**

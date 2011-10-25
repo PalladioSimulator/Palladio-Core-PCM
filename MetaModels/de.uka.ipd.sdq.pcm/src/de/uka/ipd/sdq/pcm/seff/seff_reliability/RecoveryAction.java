@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction <em>Primary Behaviour Recovery Action</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction <em>Recovery Action Behaviours Recovery Action</em>}</li>
  * </ul>
  * </p>
@@ -41,6 +42,32 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
 	 * @generated
 	 */
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * Returns the value of the '<em><b>Primary Behaviour Recovery Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Primary Behaviour Recovery Action</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Primary Behaviour Recovery Action</em>' reference.
+	 * @see #setPrimaryBehaviour__RecoveryAction(RecoveryActionBehaviour)
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryAction_PrimaryBehaviour__RecoveryAction()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	RecoveryActionBehaviour getPrimaryBehaviour__RecoveryAction();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction <em>Primary Behaviour Recovery Action</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Primary Behaviour Recovery Action</em>' reference.
+	 * @see #getPrimaryBehaviour__RecoveryAction()
+	 * @generated
+	 */
+	void setPrimaryBehaviour__RecoveryAction(RecoveryActionBehaviour value);
 
 	/**
 	 * Returns the value of the '<em><b>Recovery Action Behaviours Recovery Action</b></em>' containment reference list.
@@ -64,15 +91,13 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.recoveryActionBehaviours__RecoveryAction->isUnique(s: RecoveryActionBehaviour | s.nextAlternative__RecoveryActionBehaviour) and
-	 * self.recoveryActionBehaviours__RecoveryAction->forAll(x:RecoveryActionBehaviour| x <> x.nextAlternative__RecoveryActionBehaviour)
-	 * 
+	 * self.primaryBehaviour__RecoveryAction <> null
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.recoveryActionBehaviours__RecoveryAction->isUnique(s: RecoveryActionBehaviour | s.nextAlternative__RecoveryActionBehaviour) and\r\nself.recoveryActionBehaviours__RecoveryAction->forAll(x:RecoveryActionBehaviour| x <> x.nextAlternative__RecoveryActionBehaviour)\r\n'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.primaryBehaviour__RecoveryAction <> null'"
 	 * @generated
 	 */
-	boolean Alternativesformachain(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean PrimaryBehaviourOfRecoveryActionMustBeSet(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // RecoveryAction

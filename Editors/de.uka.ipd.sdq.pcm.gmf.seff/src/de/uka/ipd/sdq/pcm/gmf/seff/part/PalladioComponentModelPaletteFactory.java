@@ -547,7 +547,7 @@ public class PalladioComponentModelPaletteFactory {
 	private ToolEntry createRecoveryFlow2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(PalladioComponentModelElementTypes.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003);
+				.add(PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004);
 		LinkToolEntry entry = new LinkToolEntry(
 				Messages.RecoveryFlow2CreationTool_title,
 				Messages.RecoveryFlow2CreationTool_desc, types);

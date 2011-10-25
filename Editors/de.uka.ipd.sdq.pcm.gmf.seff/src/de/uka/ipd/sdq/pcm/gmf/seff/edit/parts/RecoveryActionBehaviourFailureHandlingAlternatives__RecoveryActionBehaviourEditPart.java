@@ -14,23 +14,23 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart
+public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart
 		extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4003;
+	public static final int VISUAL_ID = 4004;
 
 	/**
 	 * @generated
 	 */
-	public RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart(
+	public RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart(
 			View view) {
 		super(view);
 	}
@@ -42,7 +42,7 @@ public class RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEdit
 		super.createDefaultEditPolicies();
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourItemSemanticEditPolicy());
+				new RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourItemSemanticEditPolicy());
 	}
 
 	/**

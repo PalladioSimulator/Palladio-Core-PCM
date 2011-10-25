@@ -24,6 +24,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -74,8 +75,31 @@ public class RecoveryActionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPrimaryBehaviour__RecoveryActionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Primary Behaviour Recovery Action feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPrimaryBehaviour__RecoveryActionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RecoveryAction_primaryBehaviour__RecoveryAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RecoveryAction_primaryBehaviour__RecoveryAction_feature", "_UI_RecoveryAction_type"),
+				 Seff_reliabilityPackage.Literals.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

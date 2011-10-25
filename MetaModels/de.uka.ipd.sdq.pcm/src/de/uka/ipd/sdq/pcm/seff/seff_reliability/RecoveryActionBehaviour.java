@@ -6,6 +6,9 @@
 package de.uka.ipd.sdq.pcm.seff.seff_reliability;
 
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +30,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getNextAlternative__RecoveryActionBehaviour <em>Next Alternative Recovery Action Behaviour</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour <em>Failure Handling Alternatives Recovery Action Behaviour</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour <em>Recovery Action Recovery Action Behaviour</em>}</li>
  * </ul>
  * </p>
@@ -45,30 +48,20 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 	/**
-	 * Returns the value of the '<em><b>Next Alternative Recovery Action Behaviour</b></em>' reference.
+	 * Returns the value of the '<em><b>Failure Handling Alternatives Recovery Action Behaviour</b></em>' reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Next Alternative Recovery Action Behaviour</em>' reference isn't clear,
+	 * If the meaning of the '<em>Failure Handling Alternatives Recovery Action Behaviour</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next Alternative Recovery Action Behaviour</em>' reference.
-	 * @see #setNextAlternative__RecoveryActionBehaviour(RecoveryActionBehaviour)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour()
+	 * @return the value of the '<em>Failure Handling Alternatives Recovery Action Behaviour</em>' reference list.
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour()
 	 * @model ordered="false"
 	 * @generated
 	 */
-	RecoveryActionBehaviour getNextAlternative__RecoveryActionBehaviour();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getNextAlternative__RecoveryActionBehaviour <em>Next Alternative Recovery Action Behaviour</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next Alternative Recovery Action Behaviour</em>' reference.
-	 * @see #getNextAlternative__RecoveryActionBehaviour()
-	 * @generated
-	 */
-	void setNextAlternative__RecoveryActionBehaviour(RecoveryActionBehaviour value);
+	EList<RecoveryActionBehaviour> getFailureHandlingAlternatives__RecoveryActionBehaviour();
 
 	/**
 	 * Returns the value of the '<em><b>Recovery Action Recovery Action Behaviour</b></em>' container reference.
@@ -97,5 +90,51 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 	 * @generated
 	 */
 	void setRecoveryAction__RecoveryActionBehaviour(RecoveryAction value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->
+	 * 	exists(x,y:RecoveryActionBehaviour | x<>y
+	 * 		and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)
+	 * 		and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->\r\n\texists(x,y:RecoveryActionBehaviour | x<>y\r\n\t\tand x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)\r\n\t\tand y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))'"
+	 * @generated
+	 */
+	boolean RecoveryActionBehaviourHasOnlyOnePredecessor(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)'"
+	 * @generated
+	 */
+	boolean RecoveryActionBehaviourIsNotSuccessorOfItself(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.failureHandlingAlternatives__RecoveryActionBehaviour->
+	 * 	exists(x,y:RecoveryActionBehaviour | x<>y and
+	 * 	x.failureTypes_FailureHandlingEntity->
+	 * 		exists(f:pcm::reliability::FailureType |
+	 * 		y.failureTypes_FailureHandlingEntity->includes(f)))
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.failureHandlingAlternatives__RecoveryActionBehaviour->\r\n\texists(x,y:RecoveryActionBehaviour | x<>y and\r\n\tx.failureTypes_FailureHandlingEntity->\r\n\t\texists(f:pcm::reliability::FailureType |\r\n\t\ty.failureTypes_FailureHandlingEntity->includes(f)))'"
+	 * @generated
+	 */
+	boolean SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // RecoveryActionBehaviour

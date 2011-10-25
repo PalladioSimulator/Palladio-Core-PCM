@@ -66,7 +66,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEntit
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEntityNameEditPart;
@@ -326,9 +326,9 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?AbstractAction?successor_AbstractAction", PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001); //$NON-NLS-1$
-		case RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID:
+		case RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0?RecoveryActionBehaviour?nextAlternative__RecoveryActionBehaviour", PalladioComponentModelElementTypes.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0?RecoveryActionBehaviour?failureHandlingAlternatives__RecoveryActionBehaviour", PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -485,8 +485,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getResourceDemandingBehaviour_3018Text(view);
 		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 			return getAbstractActionSuccessor_AbstractAction_4001Text(view);
-		case RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID:
-			return getRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003Text(view);
+		case RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID:
+			return getRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -1408,7 +1408,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003Text(
+	private String getRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004Text(
 			View view) {
 		return ""; //$NON-NLS-1$
 	}

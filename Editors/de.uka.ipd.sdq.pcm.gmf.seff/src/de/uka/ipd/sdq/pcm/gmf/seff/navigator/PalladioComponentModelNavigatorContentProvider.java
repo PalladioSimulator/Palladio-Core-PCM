@@ -70,7 +70,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditP
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionRecoveryBlockCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionRecoveryBlockCompartmentEditPart;
@@ -381,7 +381,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getDiagramLinksByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID));
 			links
 					.addChildren(createNavigatorItems(connectedViews, links,
 							false));
@@ -2032,13 +2032,13 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getIncomingLinksByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			connectedViews = getOutgoingLinksByType(
 					Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
+							.getType(RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -2644,13 +2644,13 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID: {
+		case RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_target,
+					Messages.NavigatorGroupName_RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_source,
+					Messages.NavigatorGroupName_RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getLinksTargetByType(Collections
 					.singleton(view), PalladioComponentModelVisualIDRegistry

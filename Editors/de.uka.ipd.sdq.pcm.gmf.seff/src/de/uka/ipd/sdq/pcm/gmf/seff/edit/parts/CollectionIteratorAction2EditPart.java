@@ -130,16 +130,16 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CollectionIteratorActionEntityName2EditPart) {
-			((CollectionIteratorActionEntityName2EditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureCollectionIteratorNameLabelFigure());
-			return true;
-		}
 		if (childEditPart instanceof CollectionIteratorParameterLabelEditPart) {
 			((CollectionIteratorParameterLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureCollectionIteratorParameterLabelFigure());
+			return true;
+		}
+		if (childEditPart instanceof CollectionIteratorActionEntityName2EditPart) {
+			((CollectionIteratorActionEntityName2EditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureCollectionIteratorNameLabelFigure());
 			return true;
 		}
 		return false;
@@ -149,10 +149,10 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof CollectionIteratorActionEntityName2EditPart) {
+		if (childEditPart instanceof CollectionIteratorParameterLabelEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof CollectionIteratorParameterLabelEditPart) {
+		if (childEditPart instanceof CollectionIteratorActionEntityName2EditPart) {
 			return true;
 		}
 		return false;

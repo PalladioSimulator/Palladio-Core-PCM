@@ -236,7 +236,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <method name="getType()" value="2001,2002,2003,2013,2004,2005,2006,2007,2008,2012,2010,2011,2016,3042,3033,3049,3035,3047,3037,3003,3004,3005,3006,3007,3051,3050,3053,3054,3048,3009,3010,3011,3012,3046,3026,3020,3023,3027,3013,3014,3057,3058,3024,3036,3055,3038,3039,3017,3018"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4001,4003"/>
+            <method name="getType()" value="4001,4004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="5002,5046,5009,5010,5011,5012,5015,5016,5023,5029,5022,5024,5056,5040,5047,5045,5003,5004,5005,5051,5052,5050,5008,5007,5037,5006,5044,5028,5020,5026,5013,5014,5055,5054,5027,5035,5018,5036"/>
@@ -783,11 +783,11 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0">
          <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003"
-               name="%metatype.name.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004"
+               name="%metatype.name.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4003"/>
+            <param name="semanticHint" value="4004"/>
          </specializationType>
       </metamodel>
    </extension>
@@ -853,7 +853,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3018"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.AbstractActionSuccessor_AbstractAction_4001"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

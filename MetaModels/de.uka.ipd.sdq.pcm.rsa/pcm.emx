@@ -22091,7 +22091,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
                 <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_xx37kef8Ed-7B-w-u5ZN-g"/>
               </children>
               <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_xx0RMef8Ed-7B-w-u5ZN-g" fontName="Segoe UI" showStereotype="Label"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xx0RMuf8Ed-7B-w-u5ZN-g" x="7392" y="9108"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xx0RMuf8Ed-7B-w-u5ZN-g" x="7920" y="9108" width="6292"/>
             </children>
             <children xmi:id="_gLQ_UOf-Ed-7B-w-u5ZN-g" element="_nwYZkDqGEd-LPs9iafFs9w">
               <children xmi:id="_gLRmYOf-Ed-7B-w-u5ZN-g" type="ImageCompartment">
@@ -22113,7 +22113,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
                 <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_gLSNdef-Ed-7B-w-u5ZN-g"/>
               </children>
               <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_gLQ_Uef-Ed-7B-w-u5ZN-g" fontName="Segoe UI" showStereotype="Label"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gLQ_Uuf-Ed-7B-w-u5ZN-g" x="8448" y="5940"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gLQ_Uuf-Ed-7B-w-u5ZN-g" x="7919" y="5940" width="6161"/>
             </children>
             <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_z__OYef7Ed-7B-w-u5ZN-g"/>
             <element xsi:nil="true"/>
@@ -22263,7 +22263,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               </children>
               <children xmi:id="_gLUCoOf-Ed-7B-w-u5ZN-g" type="ToRoleLabel" element="_uIcH0DqGEd-LPs9iafFs9w">
                 <children xmi:id="_gLUCouf-Ed-7B-w-u5ZN-g" type="ToRole"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_gLUCoef-Ed-7B-w-u5ZN-g" x="4" y="-4438"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_gLUCoef-Ed-7B-w-u5ZN-g" x="532" y="-3555"/>
               </children>
               <children xmi:id="_gLUCo-f-Ed-7B-w-u5ZN-g" type="FromMultiplicityLabel" element="_uIaSoDqGEd-LPs9iafFs9w">
                 <children xmi:id="_gLUCpef-Ed-7B-w-u5ZN-g" type="FromMultiplicity"/>
@@ -22271,7 +22271,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               </children>
               <children xmi:id="_gLUpsOf-Ed-7B-w-u5ZN-g" type="FromRoleLabel" element="_uIaSoDqGEd-LPs9iafFs9w">
                 <children xmi:id="_gLUpsuf-Ed-7B-w-u5ZN-g" type="FromRole"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_gLUpsef-Ed-7B-w-u5ZN-g" x="-323" y="-4636"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_gLUpsef-Ed-7B-w-u5ZN-g" x="-455" y="-3621"/>
               </children>
               <children xmi:id="_gLVQwOf-Ed-7B-w-u5ZN-g" type="ToQualifierLabel" element="_uIcH0DqGEd-LPs9iafFs9w">
                 <children xmi:id="_gLVQwuf-Ed-7B-w-u5ZN-g" type="QualifierCompartment">
@@ -22297,8 +22297,57 @@ Solving the stochastic expression, which can be a function involving arithmetic 
                 </children>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_gLWe5ef-Ed-7B-w-u5ZN-g" y="1058"/>
               </children>
-              <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_gLS0gef-Ed-7B-w-u5ZN-g" fontName="Segoe UI" showStereotype="Text"/>
-              <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gLS0guf-Ed-7B-w-u5ZN-g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+              <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_gLS0gef-Ed-7B-w-u5ZN-g" fontName="Segoe UI" routing="Rectilinear" showStereotype="Text"/>
+              <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gLS0guf-Ed-7B-w-u5ZN-g" points="[2348, 596, 2282, -2572]$[2348, 2573, 2282, -595]"/>
+            </edges>
+            <edges xmi:id="_POqIwP2WEeCKi4Scusrt0g" element="_PNsfcP2WEeCKi4Scusrt0g" source="_gLQ_UOf-Ed-7B-w-u5ZN-g" target="_xx0RMOf8Ed-7B-w-u5ZN-g">
+              <children xmi:id="_POrW4P2WEeCKi4Scusrt0g" type="NameLabel">
+                <children xmi:id="_POrW4v2WEeCKi4Scusrt0g" type="Stereotype"/>
+                <children xmi:id="_POrW4_2WEeCKi4Scusrt0g" type="Name"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_POrW4f2WEeCKi4Scusrt0g" y="-186"/>
+              </children>
+              <children xmi:id="_POr98P2WEeCKi4Scusrt0g" type="ToMultiplicityLabel" element="_PORuQP2WEeCKi4Scusrt0g">
+                <children xmi:id="_POslAP2WEeCKi4Scusrt0g" type="ToMultiplicity"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_POr98f2WEeCKi4Scusrt0g" y="396"/>
+              </children>
+              <children xmi:id="_POtMEP2WEeCKi4Scusrt0g" type="ToRoleLabel" element="_PORuQP2WEeCKi4Scusrt0g">
+                <children xmi:id="_POtMEv2WEeCKi4Scusrt0g" type="ToRole"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_POtMEf2WEeCKi4Scusrt0g" y="-397"/>
+              </children>
+              <children xmi:id="_POtME_2WEeCKi4Scusrt0g" type="FromMultiplicityLabel" element="_POPSAP2WEeCKi4Scusrt0g">
+                <children xmi:id="_POtMFf2WEeCKi4Scusrt0g" type="FromMultiplicity"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_POtMFP2WEeCKi4Scusrt0g" y="396"/>
+              </children>
+              <children xmi:id="_POtzIP2WEeCKi4Scusrt0g" type="FromRoleLabel" element="_POPSAP2WEeCKi4Scusrt0g">
+                <children xmi:id="_POtzIv2WEeCKi4Scusrt0g" type="FromRole"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_POtzIf2WEeCKi4Scusrt0g" x="-587" y="-646"/>
+              </children>
+              <children xmi:id="_POtzI_2WEeCKi4Scusrt0g" type="ToQualifierLabel" element="_PORuQP2WEeCKi4Scusrt0g">
+                <children xmi:id="_POuaMP2WEeCKi4Scusrt0g" type="QualifierCompartment">
+                  <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_POuaMf2WEeCKi4Scusrt0g"/>
+                </children>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_POtzJP2WEeCKi4Scusrt0g" y="-186"/>
+              </children>
+              <children xmi:id="_POuaMv2WEeCKi4Scusrt0g" type="FromQualifierLabel" element="_POPSAP2WEeCKi4Scusrt0g">
+                <children xmi:id="_POuaNP2WEeCKi4Scusrt0g" type="QualifierCompartment">
+                  <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_POuaNf2WEeCKi4Scusrt0g"/>
+                </children>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_POuaM_2WEeCKi4Scusrt0g" y="-186"/>
+              </children>
+              <children xmi:id="_POuaNv2WEeCKi4Scusrt0g" type="ToConstraintLabel" element="_PORuQP2WEeCKi4Scusrt0g">
+                <children xmi:id="_POvBQP2WEeCKi4Scusrt0g" type="ToConstraintCompartment">
+                  <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_POvBQf2WEeCKi4Scusrt0g"/>
+                </children>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_POuaN_2WEeCKi4Scusrt0g" y="1058"/>
+              </children>
+              <children xmi:id="_POvBQv2WEeCKi4Scusrt0g" type="FromConstraintLabel" element="_POPSAP2WEeCKi4Scusrt0g">
+                <children xmi:id="_POvBRP2WEeCKi4Scusrt0g" type="FromConstraintCompartment">
+                  <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_POvBRf2WEeCKi4Scusrt0g"/>
+                </children>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_POvBQ_2WEeCKi4Scusrt0g" x="20" y="903"/>
+              </children>
+              <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_POqIwf2WEeCKi4Scusrt0g" fontName="Segoe UI" routing="Rectilinear" lineWidth="1" showStereotype="Text"/>
+              <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_POqIwv2WEeCKi4Scusrt0g" points="[-1991, 596, -2057, -2572]$[-1991, 2573, -2057, -595]"/>
             </edges>
           </contents>
         </eAnnotations>
@@ -22314,10 +22363,28 @@ Solving the stochastic expression, which can be a function involving arithmetic 
     handle the failure type.&#xD;
 &lt;/p></body>
           </ownedComment>
+          <ownedRule xmi:id="_BJLYoP2SEeCKi4Scusrt0g" name="RecoveryActionBehaviourHasOnlyOnePredecessor" constrainedElement="_rCg4sDqGEd-LPs9iafFs9w">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_BJN04P2SEeCKi4Scusrt0g">
+              <language>OCL</language>
+              <body>not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->&#xD;&#xA;&#x9;exists(x,y:RecoveryActionBehaviour | x&lt;>y&#xD;&#xA;&#x9;&#x9;and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)&#xD;&#xA;&#x9;&#x9;and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:id="_jD6jUP2TEeCKi4Scusrt0g" name="RecoveryActionBehaviourIsNotSuccessorOfItself" constrainedElement="_rCg4sDqGEd-LPs9iafFs9w">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_jD7KYP2TEeCKi4Scusrt0g">
+              <language>OCL</language>
+              <body>not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:id="_DQR9IP2UEeCKi4Scusrt0g" name="SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes" constrainedElement="_rCg4sDqGEd-LPs9iafFs9w">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_DQSkMP2UEeCKi4Scusrt0g">
+              <language>OCL</language>
+              <body>not self.failureHandlingAlternatives__RecoveryActionBehaviour->&#xD;&#xA;&#x9;exists(x,y:RecoveryActionBehaviour | x&lt;>y and&#xD;&#xA;&#x9;x.failureTypes_FailureHandlingEntity->&#xD;&#xA;&#x9;&#x9;exists(f:pcm::reliability::FailureType |&#xD;&#xA;&#x9;&#x9;y.failureTypes_FailureHandlingEntity->includes(f)))</body>
+            </specification>
+          </ownedRule>
           <generalization xmi:id="_0AT6IDqGEd-LPs9iafFs9w" general="_NBzeIDqGEd-LPs9iafFs9w"/>
           <generalization xmi:id="_0LzYcDqGEd-LPs9iafFs9w" general="_-kKR4OKHEdq6IvzVMFpuzg"/>
-          <ownedAttribute xmi:id="_1qb5oDqGEd-LPs9iafFs9w" name="nextAlternative__RecoveryActionBehaviour" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" association="_1qargDqGEd-LPs9iafFs9w">
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1qcgsDqGEd-LPs9iafFs9w" value="1"/>
+          <ownedAttribute xmi:id="_1qb5oDqGEd-LPs9iafFs9w" name="failureHandlingAlternatives__RecoveryActionBehaviour" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" association="_1qargDqGEd-LPs9iafFs9w">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1qcgsDqGEd-LPs9iafFs9w" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1qb5oTqGEd-LPs9iafFs9w"/>
           </ownedAttribute>
           <ownedAttribute xmi:id="_uIcH0DqGEd-LPs9iafFs9w" name="recoveryAction__RecoveryActionBehaviour" visibility="public" type="_nwYZkDqGEd-LPs9iafFs9w" association="_uIZEgDqGEd-LPs9iafFs9w">
@@ -22331,16 +22398,20 @@ Solving the stochastic expression, which can be a function involving arithmetic 
 or more alternatives that can be used in case of failure. If the primary algorithm fails, the next alternative is chosen.&#xD;
 Here the alternatives also support failure types. Alternatives may specify which kind of failures they can handle.</body>
           </ownedComment>
-          <ownedRule xmi:id="_4JlxwDqIEd-LPs9iafFs9w" name="Alternatives form a chain" constrainedElement="_nwYZkDqGEd-LPs9iafFs9w">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_4JmY0DqIEd-LPs9iafFs9w">
+          <ownedRule xmi:id="_4qimIP2WEeCKi4Scusrt0g" name="PrimaryBehaviourOfRecoveryActionMustBeSet" constrainedElement="_nwYZkDqGEd-LPs9iafFs9w">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_4qimIf2WEeCKi4Scusrt0g">
               <language>OCL</language>
-              <body>self.recoveryActionBehaviours__RecoveryAction->isUnique(s: RecoveryActionBehaviour | s.nextAlternative__RecoveryActionBehaviour) and&#xD;&#xA;self.recoveryActionBehaviours__RecoveryAction->forAll(x:RecoveryActionBehaviour| x &lt;> x.nextAlternative__RecoveryActionBehaviour)&#xD;&#xA;</body>
+              <body>self.primaryBehaviour__RecoveryAction &lt;> null</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_0wNtEDqGEd-LPs9iafFs9w" general="_kmntkODhEdq8ysXH3gTiEg"/>
           <ownedAttribute xmi:id="_uIaSoDqGEd-LPs9iafFs9w" name="recoveryActionBehaviours__RecoveryAction" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" aggregation="composite" association="_uIZEgDqGEd-LPs9iafFs9w">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uIbgwDqGEd-LPs9iafFs9w" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uIa5sDqGEd-LPs9iafFs9w" value="2"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_POPSAP2WEeCKi4Scusrt0g" name="primaryBehaviour__RecoveryAction" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" association="_PNsfcP2WEeCKi4Scusrt0g">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PORHMP2WEeCKi4Scusrt0g" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_POQgIP2WEeCKi4Scusrt0g" value="1"/>
           </ownedAttribute>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_NBzeIDqGEd-LPs9iafFs9w" name="FailureHandlingEntity" isAbstract="true">
@@ -22370,6 +22441,12 @@ Here the alternatives also support failure types. Alternatives may specify which
           <ownedEnd xmi:id="_1qdHwDqGEd-LPs9iafFs9w" name="" visibility="private" type="_rCg4sDqGEd-LPs9iafFs9w" association="_1qargDqGEd-LPs9iafFs9w">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1qdu0TqGEd-LPs9iafFs9w" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1qdu0DqGEd-LPs9iafFs9w" value="1"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_PNsfcP2WEeCKi4Scusrt0g" memberEnd="_POPSAP2WEeCKi4Scusrt0g _PORuQP2WEeCKi4Scusrt0g">
+          <ownedEnd xmi:id="_PORuQP2WEeCKi4Scusrt0g" name="" visibility="private" type="_nwYZkDqGEd-LPs9iafFs9w" association="_PNsfcP2WEeCKi4Scusrt0g">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_POSVUf2WEeCKi4Scusrt0g" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_POSVUP2WEeCKi4Scusrt0g" value="1"/>
           </ownedEnd>
         </packagedElement>
       </packagedElement>

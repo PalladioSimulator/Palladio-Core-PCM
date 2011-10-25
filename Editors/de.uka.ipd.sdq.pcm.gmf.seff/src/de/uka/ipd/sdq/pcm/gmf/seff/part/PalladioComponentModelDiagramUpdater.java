@@ -61,7 +61,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditP
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionRecoveryBlockCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionRecoveryBlockCompartmentEditPart;
@@ -2611,7 +2611,7 @@ public class PalladioComponentModelDiagramUpdater {
 				.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour_4003(modelElement));
+				.addAll(getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(modelElement));
 		return result;
 	}
 
@@ -3149,7 +3149,7 @@ public class PalladioComponentModelDiagramUpdater {
 				.getResourceSet().getResources());
 		List result = new LinkedList();
 		result
-				.addAll(getIncomingFeatureModelFacetLinks_RecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour_4003(
+				.addAll(getIncomingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(
 						modelElement, crossReferences));
 		return result;
 	}
@@ -3613,7 +3613,7 @@ public class PalladioComponentModelDiagramUpdater {
 				.getElement();
 		List result = new LinkedList();
 		result
-				.addAll(getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour_4003(modelElement));
+				.addAll(getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(modelElement));
 		return result;
 	}
 
@@ -3710,7 +3710,7 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getIncomingFeatureModelFacetLinks_RecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour_4003(
+	private static Collection getIncomingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(
 			de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour target,
 			Map crossReferences) {
 		Collection result = new LinkedList();
@@ -3719,13 +3719,13 @@ public class PalladioComponentModelDiagramUpdater {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
 			if (setting.getEStructuralFeature() == de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
-					.getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour()) {
+					.getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour()) {
 				result
 						.add(new PalladioComponentModelLinkDescriptor(
 								setting.getEObject(),
 								target,
-								PalladioComponentModelElementTypes.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003,
-								RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
+								PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004,
+								RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID));
 			}
 		}
 		return result;
@@ -3753,20 +3753,21 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour_4003(
+	private static Collection getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(
 			de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour source) {
 		Collection result = new LinkedList();
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour destination = source
-				.getNextAlternative__RecoveryActionBehaviour();
-		if (destination == null) {
-			return result;
+		for (Iterator destinations = source
+				.getFailureHandlingAlternatives__RecoveryActionBehaviour()
+				.iterator(); destinations.hasNext();) {
+			de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour destination = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) destinations
+					.next();
+			result
+					.add(new PalladioComponentModelLinkDescriptor(
+							source,
+							destination,
+							PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004,
+							RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID));
 		}
-		result
-				.add(new PalladioComponentModelLinkDescriptor(
-						source,
-						destination,
-						PalladioComponentModelElementTypes.RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003,
-						RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart.VISUAL_ID));
 		return result;
 	}
 

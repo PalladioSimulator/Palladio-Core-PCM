@@ -129,16 +129,16 @@ public class GuardedBranchTransitionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof GuardedBranchTransitionIdEditPart) {
-			((GuardedBranchTransitionIdEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureBranchTransitionConditionLabel());
-			return true;
-		}
 		if (childEditPart instanceof GuardedBranchTransitionEntityNameEditPart) {
 			((GuardedBranchTransitionEntityNameEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureBranchTransitionNameLabel());
+			return true;
+		}
+		if (childEditPart instanceof GuardedBranchTransitionIdEditPart) {
+			((GuardedBranchTransitionIdEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureBranchTransitionConditionLabel());
 			return true;
 		}
 		return false;
@@ -148,10 +148,10 @@ public class GuardedBranchTransitionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof GuardedBranchTransitionIdEditPart) {
+		if (childEditPart instanceof GuardedBranchTransitionEntityNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof GuardedBranchTransitionEntityNameEditPart) {
+		if (childEditPart instanceof GuardedBranchTransitionIdEditPart) {
 			return true;
 		}
 		return false;

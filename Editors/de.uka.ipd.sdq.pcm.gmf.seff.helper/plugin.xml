@@ -120,10 +120,10 @@
          		typeId="de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_3024">
          </adviceBinding>
          <adviceBinding
-         		class="de.uka.ipd.sdq.pcm.gmf.seff.helper.RecoveryBlockAlternativeBehaviourEditHelperAdvice"
-         		id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryBlockAlternativeBehaviourAdvice"
+         		class="de.uka.ipd.sdq.pcm.gmf.seff.helper.RecoveryActionBehaviourEditHelperAdvice"
+         		id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviourAdvice"
          		inheritance="all"
-         		typeId="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryBlockAlternativeBehaviour_3052">
+         		typeId="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviour_3058">
          </adviceBinding>
  
       </metamodel>
@@ -210,7 +210,7 @@
          		ref="de.uka.ipd.sdq.pcm.gmf.seff.SetVariableActionAdvice">
          </advice>
          <advice
-         		ref="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryBlockAlternativeBehaviourAdvice">
+         		ref="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviourAdvice">
          </advice>
          <elementType
                ref="de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000">

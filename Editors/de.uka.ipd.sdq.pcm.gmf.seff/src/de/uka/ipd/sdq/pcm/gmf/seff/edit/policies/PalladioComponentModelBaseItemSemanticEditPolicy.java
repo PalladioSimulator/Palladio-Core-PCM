@@ -335,11 +335,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
-		private static PalladioComponentModelAbstractExpression RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_SourceExpression;
+		private static PalladioComponentModelAbstractExpression RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_SourceExpression;
 		/**
 		 * @generated
 		 */
-		private static PalladioComponentModelAbstractExpression RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_TargetExpression;
+		private static PalladioComponentModelAbstractExpression RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_TargetExpression;
 
 		/**
 		 * @generated
@@ -363,16 +363,18 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003(
+		public static boolean canCreateRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
 				de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour source,
 				de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour target) {
 			if (source != null) {
-				if (source.getNextAlternative__RecoveryActionBehaviour() != null) {
+				if (source
+						.getFailureHandlingAlternatives__RecoveryActionBehaviour()
+						.contains(target)) {
 					return false;
 				}
 			}
 
-			return canExistRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003(
+			return canExistRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
 					source, target);
 		}
 
@@ -427,24 +429,24 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
-		public static boolean canExistRecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003(
+		public static boolean canExistRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
 				de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour source,
 				de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour target) {
 			try {
 				if (source == null) {
 					return true;
 				}
-				if (RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_SourceExpression == null) {
+				if (RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_SourceExpression == null) {
 					Map env = Collections
 							.singletonMap(
 									OPPOSITE_END_VAR,
 									de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
 											.getRecoveryActionBehaviour());
-					RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_SourceExpression = PalladioComponentModelOCLFactory
+					RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_SourceExpression = PalladioComponentModelOCLFactory
 							.getExpression(
-									"self <> oppositeEnd", de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE.getRecoveryActionBehaviour(), env); //$NON-NLS-1$
+									"not self.failureHandlingAlternatives__RecoveryActionBehaviour->exists(x,y:RecoveryActionBehaviour | x<>y and not x.failureTypes_FailureHandlingEntity->intersection(y.failureTypes_FailureHandlingEntity)->isEmpty())", de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE.getRecoveryActionBehaviour(), env); //$NON-NLS-1$
 				}
-				Object sourceVal = RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_SourceExpression
+				Object sourceVal = RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_SourceExpression
 						.evaluate(source, Collections.singletonMap(
 								OPPOSITE_END_VAR, target));
 				if (false == sourceVal instanceof Boolean
@@ -454,17 +456,17 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 				if (target == null) {
 					return true;
 				}
-				if (RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_TargetExpression == null) {
+				if (RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_TargetExpression == null) {
 					Map env = Collections
 							.singletonMap(
 									OPPOSITE_END_VAR,
 									de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
 											.getRecoveryActionBehaviour());
-					RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_TargetExpression = PalladioComponentModelOCLFactory
+					RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_TargetExpression = PalladioComponentModelOCLFactory
 							.getExpression(
-									"(self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->select(beh|beh.nextAlternative__RecoveryActionBehaviour = self)->size() = 0) and (self.recoveryAction__RecoveryActionBehaviour = oppositeEnd.recoveryAction__RecoveryActionBehaviour)", de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE.getRecoveryActionBehaviour(), env); //$NON-NLS-1$
+									"(not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->exists(x,y:RecoveryActionBehaviour | x<>y and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self) and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))) and (self.recoveryAction__RecoveryActionBehaviour = oppositeEnd.recoveryAction__RecoveryActionBehaviour)", de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE.getRecoveryActionBehaviour(), env); //$NON-NLS-1$
 				}
-				Object targetVal = RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviour_4003_TargetExpression
+				Object targetVal = RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_TargetExpression
 						.evaluate(target, Collections.singletonMap(
 								OPPOSITE_END_VAR, source));
 				if (false == targetVal instanceof Boolean

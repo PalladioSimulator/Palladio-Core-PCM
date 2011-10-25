@@ -407,6 +407,6 @@
       visualID="4001"
       queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0' and _eClass_.name = 'AbstractAction') and _feature_.name = 'successor_AbstractAction')"/>
   <linkTraces
-      visualID="4003"
-      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0' and _eClass_.name = 'RecoveryActionBehaviour') and _feature_.name = 'nextAlternative__RecoveryActionBehaviour')"/>
+      visualID="4004"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0' and _eClass_.name = 'RecoveryActionBehaviour') and _feature_.name = 'failureHandlingAlternatives__RecoveryActionBehaviour')"/>
 </trace:TraceModel>

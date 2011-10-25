@@ -178,13 +178,13 @@ public interface Seff_reliabilityPackage extends EPackage {
 	int RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Next Alternative Recovery Action Behaviour</b></em>' reference.
+	 * The feature id for the '<em><b>Failure Handling Alternatives Recovery Action Behaviour</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 3;
+	int RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Recovery Action Recovery Action Behaviour</b></em>' container reference.
@@ -287,13 +287,22 @@ public interface Seff_reliabilityPackage extends EPackage {
 	int RECOVERY_ACTION__RESOURCE_CALL_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION;
 
 	/**
+	 * The feature id for the '<em><b>Primary Behaviour Recovery Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Recovery Action Behaviours Recovery Action</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
+	int RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Recovery Action</em>' class.
@@ -302,7 +311,7 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECOVERY_ACTION_FEATURE_COUNT = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
+	int RECOVERY_ACTION_FEATURE_COUNT = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 2;
 
 
 	/**
@@ -316,15 +325,15 @@ public interface Seff_reliabilityPackage extends EPackage {
 	EClass getRecoveryActionBehaviour();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getNextAlternative__RecoveryActionBehaviour <em>Next Alternative Recovery Action Behaviour</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour <em>Failure Handling Alternatives Recovery Action Behaviour</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next Alternative Recovery Action Behaviour</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getNextAlternative__RecoveryActionBehaviour()
+	 * @return the meta object for the reference list '<em>Failure Handling Alternatives Recovery Action Behaviour</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour()
 	 * @see #getRecoveryActionBehaviour()
 	 * @generated
 	 */
-	EReference getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour();
+	EReference getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour();
 
 	/**
 	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour <em>Recovery Action Recovery Action Behaviour</em>}'.
@@ -346,6 +355,17 @@ public interface Seff_reliabilityPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRecoveryAction();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction <em>Primary Behaviour Recovery Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Primary Behaviour Recovery Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction()
+	 * @see #getRecoveryAction()
+	 * @generated
+	 */
+	EReference getRecoveryAction_PrimaryBehaviour__RecoveryAction();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction <em>Recovery Action Behaviours Recovery Action</em>}'.
@@ -412,12 +432,12 @@ public interface Seff_reliabilityPackage extends EPackage {
 		EClass RECOVERY_ACTION_BEHAVIOUR = eINSTANCE.getRecoveryActionBehaviour();
 
 		/**
-		 * The meta object literal for the '<em><b>Next Alternative Recovery Action Behaviour</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Failure Handling Alternatives Recovery Action Behaviour</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RECOVERY_ACTION_BEHAVIOUR__NEXT_ALTERNATIVE_RECOVERY_ACTION_BEHAVIOUR = eINSTANCE.getRecoveryActionBehaviour_NextAlternative__RecoveryActionBehaviour();
+		EReference RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR = eINSTANCE.getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour();
 
 		/**
 		 * The meta object literal for the '<em><b>Recovery Action Recovery Action Behaviour</b></em>' container reference feature.
@@ -436,6 +456,14 @@ public interface Seff_reliabilityPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RECOVERY_ACTION = eINSTANCE.getRecoveryAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Primary Behaviour Recovery Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION = eINSTANCE.getRecoveryAction_PrimaryBehaviour__RecoveryAction();
 
 		/**
 		 * The meta object literal for the '<em><b>Recovery Action Behaviours Recovery Action</b></em>' containment reference list feature.

@@ -250,8 +250,6 @@ List[InternalAction] queryInternalActionsForkedBehaviour(List[ForkedBehaviour] l
 List[InternalAction] queryInternalActions(ForkedBehaviour b, List[InternalAction] result):
 	queryInternalActions(b.steps_Behaviour.findStart(), result);
 
-RecoveryActionBehaviour findPrimaryAlterantive(List[RecoveryActionBehaviour] behaviours):
-	behaviours.selectFirst(b| behaviours.forAll(s| s.nextAlternative__RecoveryActionBehaviour != b));
 
 ResourceDemandingSEFF getRdseff(AbstractAction action) : JAVA
 	de.uka.sdq.pcm.transformations.Helper.getRdseff(de.uka.ipd.sdq.pcm.seff.AbstractAction)

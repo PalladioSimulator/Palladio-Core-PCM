@@ -1241,6 +1241,7 @@
         visualID="3057"
         editPartClassName="RecoveryAction2EditPart"
         itemSemanticEditPolicyClassName="RecoveryAction2ItemSemanticEditPolicy"
+        notationViewFactoryClassName="RecoveryActionViewFactory"
         canonicalEditPolicyClassName="RecoveryAction2CanonicalEditPolicy"
         compartments="//@diagram/@compartments.20"
         graphicalNodeEditPolicyClassName="RecoveryAction2GraphicalNodeEditPolicy"
@@ -1267,6 +1268,7 @@
           visualID="5055"
           editPartClassName="RecoveryActionEntityName2EditPart"
           itemSemanticEditPolicyClassName="RecoveryActionEntityName2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="RecoveryActionEntityNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -1288,6 +1290,7 @@
         visualID="3058"
         editPartClassName="RecoveryActionBehaviourEditPart"
         itemSemanticEditPolicyClassName="RecoveryActionBehaviourItemSemanticEditPolicy"
+        notationViewFactoryClassName="RecoveryActionBehaviourViewFactory"
         canonicalEditPolicyClassName="RecoveryActionBehaviourCanonicalEditPolicy"
         compartments="//@diagram/@compartments.21"
         graphicalNodeEditPolicyClassName="RecoveryActionBehaviourGraphicalNodeEditPolicy"
@@ -1314,6 +1317,7 @@
           visualID="5054"
           editPartClassName="RecoveryActionBehaviourEntityNameEditPart"
           itemSemanticEditPolicyClassName="RecoveryActionBehaviourEntityNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="RecoveryActionBehaviourEntityNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -2203,6 +2207,7 @@
         visualID="2016"
         editPartClassName="RecoveryActionEditPart"
         itemSemanticEditPolicyClassName="RecoveryActionItemSemanticEditPolicy"
+        notationViewFactoryClassName="RecoveryActionViewFactory"
         canonicalEditPolicyClassName="RecoveryActionCanonicalEditPolicy"
         compartments="//@diagram/@compartments.33"
         graphicalNodeEditPolicyClassName="RecoveryActionGraphicalNodeEditPolicy"
@@ -2228,6 +2233,7 @@
           visualID="5056"
           editPartClassName="RecoveryActionEntityNameEditPart"
           itemSemanticEditPolicyClassName="RecoveryActionEntityNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="RecoveryActionEntityNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -2271,11 +2277,11 @@
           targetEnd="//@expressionProviders/@providers.0/@expressions.1"/>
     </links>
     <links
-        visualID="4003"
-        editPartClassName="RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourEditPart"
-        itemSemanticEditPolicyClassName="RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourItemSemanticEditPolicy"
-        createCommandClassName="RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourCreateCommand"
-        reorientCommandClassName="RecoveryActionBehaviourNextAlternative__RecoveryActionBehaviourReorientCommand">
+        visualID="4004"
+        editPartClassName="RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart"
+        itemSemanticEditPolicyClassName="RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourItemSemanticEditPolicy"
+        createCommandClassName="RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourCreateCommand"
+        reorientCommandClassName="RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourReorientCommand">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
       <elementType
@@ -2287,7 +2293,7 @@
       <modelFacet
           xsi:type="gmfgen:FeatureLinkModelFacet">
         <metaFeature
-            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryActionBehaviour/nextAlternative__RecoveryActionBehaviour"/>
+            href="../../pcm.genmodel#//pcm/seff/seff_reliability/RecoveryActionBehaviour/failureHandlingAlternatives__RecoveryActionBehaviour"/>
       </modelFacet>
       <creationConstraints
           sourceEnd="//@expressionProviders/@providers.0/@expressions.2"
@@ -2636,6 +2642,7 @@
         visualID="7054"
         editPartClassName="RecoveryActionRecoveryBlockCompartmentEditPart"
         itemSemanticEditPolicyClassName="RecoveryActionRecoveryBlockCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="RecoveryActionRecoveryBlockCompartmentViewFactory"
         canonicalEditPolicyClassName="RecoveryActionRecoveryBlockCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.28"
         title="RecoveryBlockCompartment"
@@ -2654,6 +2661,7 @@
         visualID="7055"
         editPartClassName="RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart"
         itemSemanticEditPolicyClassName="RecoveryActionBehaviourAlternativeBehaviourCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="RecoveryActionBehaviourAlternativeBehaviourCompartmentViewFactory"
         canonicalEditPolicyClassName="RecoveryActionBehaviourAlternativeBehaviourCompartmentCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.7 //@diagram/@childNodes.8 //@diagram/@childNodes.9 //@diagram/@childNodes.10 //@diagram/@childNodes.16 //@diagram/@childNodes.19 //@diagram/@childNodes.20 //@diagram/@childNodes.25 //@diagram/@childNodes.21 //@diagram/@childNodes.22 //@diagram/@childNodes.23 //@diagram/@childNodes.29 //@diagram/@childNodes.27"
         title="AlternativeBehaviourCompartment"
@@ -2862,6 +2870,7 @@
         visualID="7056"
         editPartClassName="RecoveryActionRecoveryBlockCompartment2EditPart"
         itemSemanticEditPolicyClassName="RecoveryActionRecoveryBlockCompartment2ItemSemanticEditPolicy"
+        notationViewFactoryClassName="RecoveryActionRecoveryBlockCompartmentViewFactory"
         canonicalEditPolicyClassName="RecoveryActionRecoveryBlockCompartment2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.28"
         title="RecoveryBlockCompartment"
@@ -4166,10 +4175,10 @@
           body="self.predecessor_AbstractAction = null and not self.oclIsTypeOf(StartAction)"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
-          body="self &lt;> oppositeEnd"/>
+          body="not self.failureHandlingAlternatives__RecoveryActionBehaviour->exists(x,y:RecoveryActionBehaviour | x&lt;>y and not x.failureTypes_FailureHandlingEntity->intersection(y.failureTypes_FailureHandlingEntity)->isEmpty())"/>
       <expressions
           xsi:type="gmfgen:GenConstraint"
-          body="(self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->select(beh|beh.nextAlternative__RecoveryActionBehaviour = self)->size() = 0) and (self.recoveryAction__RecoveryActionBehaviour = oppositeEnd.recoveryAction__RecoveryActionBehaviour)"/>
+          body="(not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->exists(x,y:RecoveryActionBehaviour | x&lt;>y and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self) and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))) and (self.recoveryAction__RecoveryActionBehaviour = oppositeEnd.recoveryAction__RecoveryActionBehaviour)"/>
     </providers>
   </expressionProviders>
   <labelParsers
