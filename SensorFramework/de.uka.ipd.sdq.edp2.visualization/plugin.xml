@@ -4,7 +4,7 @@
    <extension-point id="jfreechart" name="JFreeChart Visualization" schema="schema/de.uka.ipd.sdq.edp2.visualization.jfreechart.exsd"/>
    <extension-point id="adapter" name="Adapter" schema="schema/de.uka.ipd.sdq.edp2.adapter.exsd"/>
    <extension-point id="filter" name="Filter" schema="schema/de.uka.ipd.sdq.edp2.filter.exsd"/>
-   <extension-point id="defaultSequence" name="Default Sequence" schema="schema/defaultSequence.exsd"/>
+   <extension-point id="defaultSequences" name="Default Sequences" schema="schema/defaultSequence.exsd"/>
    <extension
          point="org.eclipse.ui.elementFactories">
       <factory
@@ -87,38 +87,41 @@
       </jfreechart>
    </extension>
    <extension
-         point="de.uka.ipd.sdq.edp2.visualization.defaultSequence">
-      <element
-            transformationID="de.uka.ipd.sdq.edp2.transformation.filter.WarmupFilter"
-            type="filter">
-         <property
-               key="droppedValuesRelative"
-               name="Dropped values"
-               value="15">
-         </property>
-      </element>
-      <element
-            transformationID="de.uka.ipd.sdq.edp2.transformation.adapter.HistogramAdapter"
-            type="adapter">
-         <property
-               key="dataSeriesIndex"
-               name="Data series index"
-               value="1">
-         </property>
-      </element>
-      <element
-            transformationID="de.uka.ipd.sdq.edp2.visualization.Histogram"
-            type="chart">
-         <property
-               key="numberOfBins"
-               name="Number of bins"
-               value="10">
-         </property>
-      </element>
-      <matchingMetric
-            UUID="_MenvIiUREd6gmLudJva2Dw"
+         point="de.uka.ipd.sdq.edp2.visualization.defaultSequences">
+      <defaultSequence
             name="Response Time">
-      </matchingMetric>
+         <matchingMetric
+               UUID="notUsedYet"
+               name="SomeMetric">
+         </matchingMetric>
+         <element
+               transformationID="de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter"
+               type="adapter">
+            <property
+                  key="dataSeriesIndex"
+                  name="Data series index"
+                  value="1">
+            </property>
+         </element>
+         <element
+               transformationID="de.uka.ipd.sdq.edp2.transformation.WarmupFilter"
+               type="filter">
+            <property
+                  key="droppedValuesRelative"
+                  name="Percentage of values dropped"
+                  value="15">
+            </property>
+         </element>
+         <element
+               transformationID="de.uka.ipd.sdq.edp2.visualization.Histogram"
+               type="chart">
+            <property
+                  key="numberOfBins"
+                  name="number of bins"
+                  value="10">
+            </property>
+         </element>
+      </defaultSequence>
    </extension>
 
 </plugin>

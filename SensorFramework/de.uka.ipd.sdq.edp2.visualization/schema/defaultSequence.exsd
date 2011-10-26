@@ -3,7 +3,7 @@
 <schema targetNamespace="de.uka.ipd.sdq.edp2.visualization" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="de.uka.ipd.sdq.edp2.visualization" id="defaultSequence" name="Default Sequence"/>
+         <meta.schema plugin="de.uka.ipd.sdq.edp2.visualization" id="defaultSequences" name="Default Sequences"/>
       </appinfo>
       <documentation>
          Default Sequences are &lt;b&gt;combinations of Filters / Adapters / EditorInputs&lt;/b&gt;, which are proposed to the user when he/she decides to display experiment data. Each sequence must have an IDataSink as its last element, e.g. a subclass of JFreeChartEditorInput. In addition, it is possible to (optionally) specify properties for the default combination. Properties are key-value-pairs that have to match the specific properties of the element. If no explicit value is provided for a property, its default-value is taken instead.&lt;br&gt;
@@ -19,8 +19,7 @@ An important role plays the &lt;b&gt;matchingMetric&lt;/b&gt; element: a specifi
       </annotation>
       <complexType>
          <sequence>
-            <element ref="element" minOccurs="1" maxOccurs="10"/>
-            <element ref="matchingMetric"/>
+            <element ref="defaultSequence" minOccurs="1" maxOccurs="unbounded"/>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -106,6 +105,22 @@ An important role plays the &lt;b&gt;matchingMetric&lt;/b&gt; element: a specifi
                </documentation>
             </annotation>
          </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="defaultSequence">
+      <complexType>
+         <sequence>
+            <element ref="element" minOccurs="1" maxOccurs="10"/>
+            <element ref="matchingMetric"/>
+         </sequence>
          <attribute name="name" type="string" use="required">
             <annotation>
                <documentation>

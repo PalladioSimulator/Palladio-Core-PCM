@@ -42,7 +42,7 @@ public class DefaultViewsWizard extends Wizard implements INewWizard {
 	/**
 	 * The default-combination, which was selected by the user.
 	 */
-	ArrayList<IDataSink> selectedDefault;
+	DefaultSequence selectedDefault;
 
 	/**
 	 * Sets the <finishable> attribute to the specified value.
@@ -123,14 +123,14 @@ public class DefaultViewsWizard extends Wizard implements INewWizard {
 	/**
 	 * @return the selected Default-combination
 	 */
-	public ArrayList<IDataSink> getSelectedDefault() {
+	public DefaultSequence getSelectedDefault() {
 		return selectedDefault;
 	}
 
 	/**
 	 * @param selectedDefault the selectedDefault to set
 	 */
-	public void setSelectedDefault(ArrayList<IDataSink> selectedDefault) {
+	public void setSelectedDefault(DefaultSequence selectedDefault) {
 		this.selectedDefault = selectedDefault;
 	}
 

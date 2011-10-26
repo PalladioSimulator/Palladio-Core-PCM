@@ -57,7 +57,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	private final static String FILTER_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.filter";
 	private final static String ADAPTER_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.adapter";
 	private final static String JFREECHART_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.jfreechart";
-	private final static String DEFAULT_COMBOS_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.defaultSequence";
+	private final static String DEFAULT_COMBOS_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.defaultSequences";
 
 	/**
 	 * Attribute names as used in extension points.
@@ -82,12 +82,6 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	 * Viewer for the possible choices of Filter/Adapter/Chart combinations.
 	 */
 	private TableViewer choiceViewer;
-
-	/**
-	 * TODO DELETEME
-	 * The default variants to display experiment data.
-	 */
-	private ArrayList<ArrayList<IDataSink>> defaultVariants;
 	
 	/**
 	 * The default sequences to display experiment data;
@@ -178,8 +172,6 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 			}
 		}
 
-		// create the variants
-		defaultVariants = new ArrayList<ArrayList<IDataSink>>();
 		defaultSequences = new ArrayList<DefaultSequence>();
 
 		final IConfigurationElement[] defaultSequencesExtensions = Platform
@@ -190,22 +182,22 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		for (IConfigurationElement e : defaultSequencesExtensions) {
 			
 			DefaultSequence tempDefault = new DefaultSequence();
-			final IConfigurationElement[] elements = e.getChildren("element");
-			for (IConfigurationElement eInner : elements) {
+			final IConfigurationElement[] sequence = e.getChildren("element");
+			for (IConfigurationElement element : sequence) {
 				
-				if (eInner.getAttribute("type").equals("adapter")) {
-					tempDefault.addSequenceElement(adapters.get(eInner
+				if (element.getAttribute("type").equals("adapter")) {
+					tempDefault.addSequenceElement(adapters.get(element
 							.getAttribute("transformationID")));
-				} else if (eInner.getAttribute("type").equals("filter")) {
-					tempDefault.addSequenceElement(filters.get(eInner
+				} else if (element.getAttribute("type").equals("filter")) {
+					tempDefault.addSequenceElement(filters.get(element
 							.getAttribute("transformationID")));
-				} else if (eInner.getAttribute("type").equals("chart")) {
-					tempDefault.addSequenceElement(charts.get(eInner
+				} else if (element.getAttribute("type").equals("chart")) {
+					tempDefault.addSequenceElement(charts.get(element
 							.getAttribute("transformationID")));
 				}
-				final IConfigurationElement[] properties = e.getChildren("property");
+				final IConfigurationElement[] properties = element.getChildren("property");
 				for (IConfigurationElement property : properties) {
-					HashMap<String, String> elementProperties = new HashMap<String, String>();
+					HashMap<String, Object> elementProperties = new HashMap<String, Object>();
 					elementProperties.put(property.getAttribute("key"), property.getAttribute("value"));
 					tempDefault.addSequenceProperty(elementProperties);
 				}
@@ -239,10 +231,6 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 				.get("de.uka.ipd.sdq.edp2.transformation.WarmupFilter"));
 		default4.add(charts.get("de.uka.ipd.sdq.edp2.visualization.Histogram"));
 
-		defaultVariants.add(default1);
-		defaultVariants.add(default2);
-		defaultVariants.add(default3);
-		defaultVariants.add(default4);
 	}
 
 	/*
@@ -293,7 +281,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 
 			@Override
 			public Object[] getElements(Object inputElement) {
-				return getApplicableChoices(selectedSource).toArray();
+				return getApplicableSequences(selectedSource).toArray();
 			}
 
 			@Override
@@ -327,12 +315,13 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 			@Override
 			public String getText(Object element) {
 				if (element != null) {
-					// the elements in the list are ArrayLists themselves
-					ArrayList<Object> arrayListElement = (ArrayList<Object>) element;
+					// the elements in the list are of type DefaultSequence
+					DefaultSequence sequenceElement = (DefaultSequence) element;
 					StringBuffer shownString = new StringBuffer();
-					int length = arrayListElement.size();
-					shownString.append("[ ");
-					for (Object ele : arrayListElement) {
+					int length = sequenceElement.getSize();
+					shownString.append(sequenceElement.getsequenceName());
+					shownString.append(":[ ");
+					for (Object ele : sequenceElement.getSequenceElements()) {
 						shownString.append(ele.getClass().getSimpleName());
 						length--;
 						if (length > 0)
@@ -357,35 +346,24 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 			}
 		});
 
-		choiceViewer.setInput(getApplicableChoices(selectedSource));
+		choiceViewer.setInput(getApplicableSequences(selectedSource));
 		choiceViewer.addSelectionChangedListener(this);
 
 		// set the composite as the control for this page
 		setControl(composite);
 		updatePageStatus();
 	}
-
-	/**
-	 * Returns those combinations, which work for the selected
-	 * {@link IDataSource}.
-	 * 
-	 * @param forSource
-	 *            the selected {@link IDataSource}
-	 * @return the possible visualizations for the selected source
-	 */
-	protected ArrayList<ArrayList<IDataSink>> getApplicableChoices(
-			IDataSource forSource) {
-
-		ArrayList<ArrayList<IDataSink>> applicableVariants = new ArrayList<ArrayList<IDataSink>>();
-		// remove those variants, which don't work for the selected source
-		// TODO only checks first element in default combination so far, should
-		// it check the following ones, too?
-		for (ArrayList<IDataSink> variant : defaultVariants) {
-			if (variant.get(0).canAccept(forSource)) {
-				applicableVariants.add(variant);
+	
+	private ArrayList<DefaultSequence> getApplicableSequences(IDataSource forSource) {
+		ArrayList<DefaultSequence> applicableSequences = new  ArrayList<DefaultSequence>();
+		
+		for (DefaultSequence seq : defaultSequences){
+			if (seq.getFirstSequenceElement().canAccept(forSource)){
+				applicableSequences.add(seq);
 			}
 		}
-		return applicableVariants;
+		
+		return applicableSequences;
 	}
 
 	/*
@@ -405,7 +383,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 					"Please select a Visualization to proceed.", null);
 		} else {
 			int index = choiceViewer.getTable().getSelectionIndex();
-			setSelectedDefault(getApplicableChoices(selectedSource).get(index));
+			setSelectedDefault(getApplicableSequences(selectedSource).get(index));
 		}
 
 		updatePageStatus();
@@ -452,7 +430,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	 * 
 	 * @param selection
 	 */
-	public void setSelectedDefault(ArrayList<IDataSink> selection) {
+	public void setSelectedDefault(DefaultSequence selection) {
 		((DefaultViewsWizard) getWizard()).setSelectedDefault(selection);
 	}
 

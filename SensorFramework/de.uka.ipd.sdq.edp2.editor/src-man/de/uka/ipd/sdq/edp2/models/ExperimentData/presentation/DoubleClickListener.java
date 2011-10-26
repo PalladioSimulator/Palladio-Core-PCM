@@ -27,6 +27,7 @@ import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput;
 import de.uka.ipd.sdq.edp2.visualization.wizards.AdapterWizard;
+import de.uka.ipd.sdq.edp2.visualization.wizards.DefaultSequence;
 import de.uka.ipd.sdq.edp2.visualization.wizards.DefaultViewsWizard;
 
 /**
@@ -67,16 +68,18 @@ public class DoubleClickListener implements IDoubleClickListener {
 				wdialog.open();
 
 				if (wdialog.getReturnCode() == Window.OK) {
-					ArrayList<IDataSink> selection = wizard
+					DefaultSequence selection = wizard
 							.getSelectedDefault();
 
-					selection.get(0).setSource(source);
-					for (int i = 1; i < selection.size(); i++) {
-						selection.get(i).setSource(
-								(AbstractTransformation) selection.get(i - 1));
+					selection.getFirstSequenceElement().setProperties(selection.getSequenceProperties().get(0));
+					selection.getFirstSequenceElement().setSource(source);
+					
+					for (int i = 1; i < selection.getSize(); i++) {
+						selection.getSequenceElements().get(i).setSource(
+								(AbstractTransformation) selection.getSequenceElements().get(i - 1));
 					}
 
-					IEditorInput input = selection.get(selection.size() - 1);
+					IEditorInput input = selection.getSequenceElements().get(selection.getSize() - 1);
 
 					try {
 						IWorkbenchPage page = EDP2EditorPlugin.getPlugin()

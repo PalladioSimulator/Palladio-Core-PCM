@@ -17,11 +17,11 @@ public class DefaultSequence {
 	private String sequenceID;
 	private String sequenceName;
 	private String matchingMetric;
-	private ArrayList<HashMap<String, String>> sequenceProperties;
+	private ArrayList<HashMap<String, Object>> sequenceProperties;
 
 	public DefaultSequence() {
 		sequenceElements = new ArrayList<IDataSink>();
-		sequenceProperties = new ArrayList<HashMap<String, String>>();
+		sequenceProperties = new ArrayList<HashMap<String, Object>>();
 	}
 
 	/**
@@ -82,21 +82,36 @@ public class DefaultSequence {
 	 * @param key the property's key
 	 * @param value the property's value
 	 */
-	public void addSequenceProperty(HashMap<String, String> map) {
+	public void addSequenceProperty(HashMap<String, Object> map) {
 		sequenceProperties.add(map);
 	}
 
 	/**
 	 * @return the sequenceElements
 	 */
-	public ArrayList<IDataSink> getsequenceElements() {
+	public ArrayList<IDataSink> getSequenceElements() {
 		return sequenceElements;
+	}
+	
+	/**
+	 * Convenience method.
+	 * @return the first element in <sequenceElements>
+	 */
+	public IDataSink getFirstSequenceElement(){
+		return sequenceElements.get(0);
 	}
 
 	/**
 	 * @return the sequenceProperties
 	 */
-	public ArrayList<HashMap<String, String>> getsequenceProperties() {
+	public ArrayList<HashMap<String, Object>> getSequenceProperties() {
 		return sequenceProperties;
+	}
+	/**
+	 * Convenience method.
+	 * @return the number of elements in <sequenceElements>
+	 */
+	public int getSize() {
+		return sequenceElements.size();
 	}
 }
