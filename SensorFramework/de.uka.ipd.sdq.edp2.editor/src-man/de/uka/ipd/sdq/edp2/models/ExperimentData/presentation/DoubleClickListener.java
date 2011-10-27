@@ -68,18 +68,24 @@ public class DoubleClickListener implements IDoubleClickListener {
 				wdialog.open();
 
 				if (wdialog.getReturnCode() == Window.OK) {
-					DefaultSequence selection = wizard
-							.getSelectedDefault();
+					DefaultSequence selection = wizard.getSelectedDefault();
 
-					selection.getFirstSequenceElement().setProperties(selection.getSequenceProperties().get(0));
+					selection.getFirstSequenceElement().setProperties(
+							selection.getSequenceProperties().get(0));
 					selection.getFirstSequenceElement().setSource(source);
-					
+
 					for (int i = 1; i < selection.getSize(); i++) {
+						selection.getSequenceElements().get(i).setProperties(
+								selection.getSequenceProperties().get(i));
 						selection.getSequenceElements().get(i).setSource(
-								(AbstractTransformation) selection.getSequenceElements().get(i - 1));
+								selection.getSequenceElements().get(i - 1));
 					}
 
-					IEditorInput input = selection.getSequenceElements().get(selection.getSize() - 1);
+					IDataSink visualization = selection.getVisualization();
+					visualization.setProperties(selection
+							.getVisualizationProperties());
+					visualization.setSource(selection.getLastSequenceElement());
+					IEditorInput input = selection.getVisualization();
 
 					try {
 						IWorkbenchPage page = EDP2EditorPlugin.getPlugin()
@@ -90,7 +96,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 										"de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor");
 						page.addPartListener(new PartEventListener());
 					} catch (PartInitException e) { // TODO Auto-generated
-													// catchblock
+						// catchblock
 						e.printStackTrace();
 					}
 

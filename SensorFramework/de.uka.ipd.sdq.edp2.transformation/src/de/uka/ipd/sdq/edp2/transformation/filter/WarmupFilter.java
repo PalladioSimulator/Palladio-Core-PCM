@@ -45,9 +45,28 @@ import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
  */
 public class WarmupFilter extends IFilter {
 
+	/**
+	 * This elements Name as used in extension points and for persistence.
+	 */
 	private final static String ELEMENT_NAME = "WarmupFilter";
+	/**
+	 * Property key for persistence of <droppedValues>.
+	 */
 	private final static String DROPPED_VALUES_ABS_KEY = "droppedValuesAbsolute";
+	/**
+	 * Property key for persistence of <droppedValuesPercentage>.
+	 */
 	private final static String DROPPED_VALUES_REL_KEY = "droppedValuesRelative";
+
+	/**
+	 * Default value for <droppedValuesPercentage>.
+	 */
+	private final static int DEFAULT_VALUE_DROPPED_VALUES_REL = 10;
+	/**
+	 * Default value for <droppedValues>.
+	 */
+	private final static int DEFAULT_VALUE_DROPPED_VALUES_ABS = 0;
+
 	/**
 	 * Logger for this class
 	 */
@@ -144,7 +163,7 @@ public class WarmupFilter extends IFilter {
 	public boolean canAccept(IDataSource source) {
 		final MetricDescription sourceMetric = source.getMeasurementsRange()
 				.getMeasurements().getMeasure().getMetric();
-		//Maximum of 3 dimensions for measurements
+		// Maximum of 3 dimensions for measurements
 		BaseMetricDescription[] sourceMetrics = new BaseMetricDescription[3];
 		if (!(sourceMetric instanceof BaseMetricDescription)) {
 			sourceMetrics = MetricDescriptionUtility
@@ -279,10 +298,18 @@ public class WarmupFilter extends IFilter {
 	 * de.uka.ipd.sdq.edp2.visualization.IDataTransformation#getProperties()
 	 */
 	public void setProperties(HashMap<String, Object> map) {
-		setDroppedValues(Integer.parseInt(map.get(DROPPED_VALUES_ABS_KEY)
-				.toString()));
-		setDroppedValuesPercentage(Float.parseFloat(map.get(
-				DROPPED_VALUES_REL_KEY).toString()));
+		if (properties.get(DROPPED_VALUES_ABS_KEY) != null
+				|| map.get(DROPPED_VALUES_ABS_KEY) != null)
+			setDroppedValues(Integer.parseInt(map.get(DROPPED_VALUES_ABS_KEY)
+					.toString()));
+		else
+			setDroppedValues(DEFAULT_VALUE_DROPPED_VALUES_ABS);
+		if (map.get(DROPPED_VALUES_REL_KEY) != null
+				|| properties.get(DROPPED_VALUES_REL_KEY) != null)
+			setDroppedValuesPercentage(Float.parseFloat(map.get(
+					DROPPED_VALUES_REL_KEY).toString()));
+		else
+			setDroppedValuesPercentage(DEFAULT_VALUE_DROPPED_VALUES_ABS);
 		properties.put(DROPPED_VALUES_ABS_KEY, getDroppedValues());
 		properties.put(DROPPED_VALUES_REL_KEY, getDroppedValuesPercentage());
 	}

@@ -239,7 +239,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
-		
 		setNumberOfBins(Integer.parseInt(newProperties.get(NUMBER_BINS_KEY)
 				.toString()));
 		properties.put(NUMBER_BINS_KEY, getNumberOfBins());

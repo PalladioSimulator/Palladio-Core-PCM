@@ -60,8 +60,21 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	private final static String DEFAULT_COMBOS_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.defaultSequences";
 
 	/**
-	 * Attribute names as used in extension points.
+	 * Attribute names and element IDs as used in extension points.
 	 */
+	private final static String ELEMENT_ID_ADAPTER = "adapter";
+	private final static String ELEMENT_ID_FILTER = "filter";
+	private final static String ELEMENT_ID_VISUALIZATION = "visualization";
+	private final static String ELEMENT_ID_PROPERTY = "property";
+	private final static String ELEMENT_ID_INPUT_METRIC = "inputMetric";
+	private final static String INPUT_METRIC_UUID_ATTRIBUTE = "UUID";
+	private final static String INPUT_METRIC_DESCRIPTION_ATTRIBUTE = "description";
+	private final static String PROPERTY_KEY_ATTRIBUTE = "key";
+	private final static String PROPERTY_VALUE_ATTRIBUTE = "value";
+	private final static String ADAPTER_ID_ATTRIBUTE = "adapterID";
+	private final static String FILTER_ID_ATTRIBUTE = "filterID";
+	private final static String VISUALIZATION_ID_ATTRIBUTE = "visualizationID";
+
 	private final static String CLASS_ATTRIBUTE = "class";
 	private final static String ID_ATTRIBUTE = "id";
 	private final static String INPUT_CLASS_ATTRIBUTE = "inputClass";
@@ -82,7 +95,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	 * Viewer for the possible choices of Filter/Adapter/Chart combinations.
 	 */
 	private TableViewer choiceViewer;
-	
+
 	/**
 	 * The default sequences to display experiment data;
 	 */
@@ -180,29 +193,71 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 
 		// TODO create constants for attribute ids
 		for (IConfigurationElement e : defaultSequencesExtensions) {
-			
+
 			DefaultSequence tempDefault = new DefaultSequence();
-			final IConfigurationElement[] sequence = e.getChildren("element");
+
+			tempDefault.setSequenceID(e.getAttribute("id"));
+			tempDefault.setSequenceName(e.getAttribute("name"));
+
+			final IConfigurationElement[] sequence = e.getChildren();
+
+			// use if-then-else to keep the order of transformations the same as
+			// in the extension
+
 			for (IConfigurationElement element : sequence) {
-				
-				if (element.getAttribute("type").equals("adapter")) {
+				if (element.getName().equals(ELEMENT_ID_ADAPTER)) {
 					tempDefault.addSequenceElement(adapters.get(element
-							.getAttribute("transformationID")));
-				} else if (element.getAttribute("type").equals("filter")) {
+							.getAttribute(ADAPTER_ID_ATTRIBUTE)));
+					final IConfigurationElement[] properties = element
+							.getChildren(ELEMENT_ID_PROPERTY);
+					for (IConfigurationElement property : properties) {
+						HashMap<String, Object> elementProperties = new HashMap<String, Object>();
+						elementProperties.put(property
+								.getAttribute(PROPERTY_KEY_ATTRIBUTE), property
+								.getAttribute(PROPERTY_VALUE_ATTRIBUTE));
+						tempDefault.addSequenceProperty(elementProperties);
+					}
+				} else if (element.getName().equals(ELEMENT_ID_FILTER)) {
 					tempDefault.addSequenceElement(filters.get(element
-							.getAttribute("transformationID")));
-				} else if (element.getAttribute("type").equals("chart")) {
-					tempDefault.addSequenceElement(charts.get(element
-							.getAttribute("transformationID")));
-				}
-				final IConfigurationElement[] properties = element.getChildren("property");
-				for (IConfigurationElement property : properties) {
-					HashMap<String, Object> elementProperties = new HashMap<String, Object>();
-					elementProperties.put(property.getAttribute("key"), property.getAttribute("value"));
-					tempDefault.addSequenceProperty(elementProperties);
+							.getAttribute(FILTER_ID_ATTRIBUTE)));
+					final IConfigurationElement[] properties = element
+							.getChildren(ELEMENT_ID_PROPERTY);
+					for (IConfigurationElement property : properties) {
+						HashMap<String, Object> elementProperties = new HashMap<String, Object>();
+						elementProperties.put(property
+								.getAttribute(PROPERTY_KEY_ATTRIBUTE), property
+								.getAttribute(PROPERTY_VALUE_ATTRIBUTE));
+						tempDefault.addSequenceProperty(elementProperties);
+					}
+				
+				} else if (element.getName().equals(ELEMENT_ID_VISUALIZATION)) {
+					//the visualization is handled separately by the DefaultSequence class
+					tempDefault.setVisualization(charts.get(element
+							.getAttribute(VISUALIZATION_ID_ATTRIBUTE)));
+					final IConfigurationElement[] properties = element
+							.getChildren(ELEMENT_ID_PROPERTY);
+					for (IConfigurationElement property : properties) {
+						HashMap<String, Object> elementProperties = new HashMap<String, Object>();
+						elementProperties.put(property
+								.getAttribute(PROPERTY_KEY_ATTRIBUTE), property
+								.getAttribute(PROPERTY_VALUE_ATTRIBUTE));
+						tempDefault
+								.setVisualizationProperties(elementProperties);
+					}
 				}
 			}
+
+			// there is exactly 1 element of the type inputMetric
+			IConfigurationElement inputMetricElement = e
+					.getChildren(ELEMENT_ID_INPUT_METRIC)[0];
+
+			tempDefault.setInputMetricUUID(inputMetricElement
+					.getAttribute(INPUT_METRIC_UUID_ATTRIBUTE));
+			tempDefault.setInputDescription(inputMetricElement
+					.getAttribute(INPUT_METRIC_DESCRIPTION_ATTRIBUTE));
+
 			defaultSequences.add(tempDefault);
+
 		}
 
 		ArrayList<IDataSink> default1, default2, default3, default4;
@@ -319,8 +374,8 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 					DefaultSequence sequenceElement = (DefaultSequence) element;
 					StringBuffer shownString = new StringBuffer();
 					int length = sequenceElement.getSize();
-					shownString.append(sequenceElement.getsequenceName());
-					shownString.append(":[ ");
+					shownString.append(sequenceElement.getSequenceName());
+					shownString.append(": [ ");
 					for (Object ele : sequenceElement.getSequenceElements()) {
 						shownString.append(ele.getClass().getSimpleName());
 						length--;
@@ -353,16 +408,17 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		setControl(composite);
 		updatePageStatus();
 	}
-	
-	private ArrayList<DefaultSequence> getApplicableSequences(IDataSource forSource) {
-		ArrayList<DefaultSequence> applicableSequences = new  ArrayList<DefaultSequence>();
-		
-		for (DefaultSequence seq : defaultSequences){
-			if (seq.getFirstSequenceElement().canAccept(forSource)){
+
+	private ArrayList<DefaultSequence> getApplicableSequences(
+			IDataSource forSource) {
+		ArrayList<DefaultSequence> applicableSequences = new ArrayList<DefaultSequence>();
+
+		for (DefaultSequence seq : defaultSequences) {
+			if (seq.getFirstSequenceElement().canAccept(forSource)) {
 				applicableSequences.add(seq);
 			}
 		}
-		
+
 		return applicableSequences;
 	}
 
@@ -383,7 +439,8 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 					"Please select a Visualization to proceed.", null);
 		} else {
 			int index = choiceViewer.getTable().getSelectionIndex();
-			setSelectedDefault(getApplicableSequences(selectedSource).get(index));
+			setSelectedDefault(getApplicableSequences(selectedSource)
+					.get(index));
 		}
 
 		updatePageStatus();

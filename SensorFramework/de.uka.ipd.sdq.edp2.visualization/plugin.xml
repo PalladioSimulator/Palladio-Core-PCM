@@ -89,38 +89,37 @@
    <extension
          point="de.uka.ipd.sdq.edp2.visualization.defaultSequences">
       <defaultSequence
+            id="responseTime"
             name="Response Time">
-         <matchingMetric
-               UUID="notUsedYet"
-               name="SomeMetric">
-         </matchingMetric>
-         <element
-               transformationID="de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter"
-               type="adapter">
+         <adapter
+               adapterID="de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter">
             <property
                   key="dataSeriesIndex"
-                  name="Data series index"
+                  name="index of data series"
                   value="1">
             </property>
-         </element>
-         <element
-               transformationID="de.uka.ipd.sdq.edp2.transformation.WarmupFilter"
-               type="filter">
-            <property
-                  key="droppedValuesRelative"
-                  name="Percentage of values dropped"
-                  value="15">
-            </property>
-         </element>
-         <element
-               transformationID="de.uka.ipd.sdq.edp2.visualization.Histogram"
-               type="chart">
+         </adapter>
+         <visualization
+               visualizationID="de.uka.ipd.sdq.edp2.visualization.Histogram">
             <property
                   key="numberOfBins"
-                  name="number of bins"
+                  name="number of bins displayed"
                   value="10">
             </property>
-         </element>
+         </visualization>
+         <filter
+               filterID="de.uka.ipd.sdq.edp2.transformation.WarmupFilter">
+            <property
+                  key="droppedValuesRelative"
+                  name="dropped values in percentage"
+                  value="15">
+            </property>
+         </filter>
+         <inputMetric
+               UUID="uuid"
+               description="2-dimensional: Response Time + Simulation Time"
+               name="Simulation: Response Time">
+         </inputMetric>
       </defaultSequence>
    </extension>
 
