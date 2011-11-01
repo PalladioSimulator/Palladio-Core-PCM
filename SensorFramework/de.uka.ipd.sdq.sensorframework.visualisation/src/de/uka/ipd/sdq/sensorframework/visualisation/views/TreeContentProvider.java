@@ -67,14 +67,15 @@ public class TreeContentProvider implements ITreeContentProvider {
 				Experiment experiment = treeObject.getExperiment();
 				Collection<Sensor> sensors = experiment.getSensors();
 				
-				Object[] objects = new Object[sensors.size()];
+				TreeObject[] objects = new TreeObject[sensors.size()];
 				
 				int i = 0;
-				for (Sensor s : sensors)
-					// FIXME a more efficient method to check if the sensor contains measurements should be used
-					objects[i++] = new TreeObject(s, treeObject.getDatasource(), experiment,
-							run, run.getMeasurementsOfSensor(s).getMeasurements().isEmpty());
-				
+				for (Sensor sensor : sensors) {
+					objects[i++] = 
+							new TreeObject(
+									sensor, treeObject.getDatasource(), experiment,
+									run);
+				}
 				return objects;
 
 			}

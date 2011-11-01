@@ -60,12 +60,7 @@ public class TimeSpanSensorAndMeasurement extends AbstractSensorAndMeasurements 
 
 	@Override
 	public synchronized List<Measurement> getMeasurements() {
-		ArrayList<Measurement> m = new ArrayList<Measurement>();
-		for (int i = 0; i < timeSpans.size(); i++) {
-			m.add(new TimeSpanMeasurementImpl(i, eventTimes.get(i), timeSpans
-					.get(i)));
-		}
-		return m;
+		return new TimeSpanMeasurementListWithBackgroundStore(eventTimes, timeSpans);
 	}
 
 	@Override

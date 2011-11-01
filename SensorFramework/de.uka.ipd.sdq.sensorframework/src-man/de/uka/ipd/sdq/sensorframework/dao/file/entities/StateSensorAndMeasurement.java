@@ -45,12 +45,7 @@ public class StateSensorAndMeasurement extends AbstractSensorAndMeasurements {
 
 	@Override
 	public List<Measurement> getMeasurements() {
-		ArrayList<Measurement> m = new ArrayList<Measurement>();
-		for (int i = 0; i < states.size(); i++) {
-			m.add(new StateMeasurementImpl(i, eventTimes.get(i), states
-							.get(i)));
-		}
-		return m;
+		return new StateMeasurementListWithBackgroundStore(eventTimes, states);
 	}
 
 	public List<State> getStates() {

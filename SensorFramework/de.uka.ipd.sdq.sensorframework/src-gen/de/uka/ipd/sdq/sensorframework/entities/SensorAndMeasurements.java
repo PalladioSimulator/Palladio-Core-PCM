@@ -2,9 +2,14 @@ package de.uka.ipd.sdq.sensorframework.entities;
 
 import java.util.Collection;
 
+/**
+ * Container class which stores a tuple of a sensor and its measuremnts collection
+ * @author Steffen Becker
+ *
+ */
 public class SensorAndMeasurements {
-	private Sensor mySensor;
-	private Collection<Measurement> myMeasurements;
+	private final Sensor mySensor;
+	private final Collection<Measurement> myMeasurements;
 
 	public SensorAndMeasurements(Sensor s, Collection<Measurement> m){
 		this.mySensor = s;
