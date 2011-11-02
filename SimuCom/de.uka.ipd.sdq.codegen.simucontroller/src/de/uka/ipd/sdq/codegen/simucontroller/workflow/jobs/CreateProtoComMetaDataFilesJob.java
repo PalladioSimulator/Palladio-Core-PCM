@@ -68,4 +68,10 @@ public class CreateProtoComMetaDataFilesJob extends AbstractCreateMetaDataFilesJ
 	protected String[] getRequiredBundles() {
 		return BUNDLES;
 	}	
+	
+    @Override
+    protected String getBundleActivator() {
+        return "main.SimuComControl";
+    }
+	
 }

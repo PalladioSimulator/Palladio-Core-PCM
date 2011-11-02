@@ -6,7 +6,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflowConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadMiddlewareConfigurationIntoBlackboardJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
@@ -38,9 +38,9 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 	public static final String COMPLETION_REPOSITORY_PARTITION = "de.uka.ipd.sdq.pcm.completionRepositoryPartition";
 	
 	private MDSDBlackboard blackboard;
-	private SimuComWorkflowConfiguration configuration;
+	private AbstractSimulationWorkflowConfiguration configuration;
 		
-	public ApplyConnectorCompletionsJob(SimuComWorkflowConfiguration configuration) {
+	public ApplyConnectorCompletionsJob(AbstractSimulationWorkflowConfiguration configuration) {
 		super();
 		
 		this.configuration = configuration;

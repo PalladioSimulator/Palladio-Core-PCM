@@ -40,6 +40,7 @@ public class BuildPluginJarJob implements IJobWithResult<byte[]> {
 			JarBuilder builder = new JarBuilder(new File(jarLocation));
 			addCompiledClasses(location, builder);
 			addMetadataFiles(location, builder);
+			addModelFiles(location, builder);
 			builder.close();
 			this.result = loadBundle(new File(location).getAbsolutePath() + File.separator + "simucominstance.jar");
 		} catch (IOException e) {
@@ -59,6 +60,18 @@ public class BuildPluginJarJob implements IJobWithResult<byte[]> {
 		});
 	}
 
+    /**
+     * @param location
+     * @param builder
+     */
+    private void addModelFiles(URI location, JarBuilder builder) {
+        builder.addDirectoryRecursive(new File(location).listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.equals("model");
+            }
+        })[0], "model");
+    }
+	
 	/**
 	 * @param location
 	 * @param builder

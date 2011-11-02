@@ -122,8 +122,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 			
 			simulationStartTime = System.nanoTime();
 			sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_STARTED");
-			((ISimulationControl)service.getService()).prepareSimulation(
-					(SimuComConfig)config, simulationObservers, isRemoteRun);
+            ((ISimulationControl) service.getService()).prepareSimulation(config, simulationObservers, isRemoteRun);
 		} catch (Exception ex) {
 			throw new RuntimeException(ex);
 		}

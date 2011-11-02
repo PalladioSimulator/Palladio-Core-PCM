@@ -4,30 +4,22 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.eclipse.debug.core.ILaunchConfiguration;
 
+import de.uka.ipd.sdq.simucomframework.AbstractSimulationConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.workflow.launchconfig.extension.ExtendableJobConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.AccuracyInfluenceAnalysisState;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.SensitivityAnalysisConfiguration;
 
 /**
  */
-public class SimuComWorkflowConfiguration extends
-		AbstractPCMCompletionWorkflowRunConfiguration implements Cloneable, ExtendableJobConfiguration {
+public class SimuComWorkflowConfiguration extends AbstractSimulationWorkflowConfiguration {
 	/** Logger for this class. */
 	private static final Logger logger = Logger.getLogger(SimuComWorkflowConfiguration.class);
 
-
-    /** The configuration of the current launch to work with. */
-    private Map<String, Object> attributes = null;
-
 	private SimuComConfig simuComConfig = null;
-	private boolean simulateLinkingResources;
+	
 	private boolean simulateFailures;
-
-	private String featureConfigFile;
 	
 	
 	/**
@@ -39,12 +31,12 @@ public class SimuComWorkflowConfiguration extends
 	 * @param mode The mode of the workflow currently runs in (run/debug)
 	 */
 	public SimuComWorkflowConfiguration(Map<String, Object> attributes) {
-        this.attributes = attributes;
+	    super(attributes);
 	}
 	
 	
 
-	public SimuComConfig getSimuComConfiguration() {
+	public AbstractSimulationConfig getSimulationConfiguration() {
 		return simuComConfig;
 	}
 
@@ -52,12 +44,7 @@ public class SimuComWorkflowConfiguration extends
 		checkFixed();
 		this.simuComConfig = simuComConfig;
 		this.simulateFailures = simuComConfig.getSimulateFailures();
-		this.simulateLinkingResources = simuComConfig
-				.getSimulateLinkingResources();
-	}
-
-	public boolean getSimulateLinkingResources() {
-		return simulateLinkingResources;
+        this.setSimulateLinkingResources(simuComConfig.getSimulateLinkingResources());
 	}
 
 	@Override
@@ -67,12 +54,6 @@ public class SimuComWorkflowConfiguration extends
 		if (isAccuracyInfluenceAnalysisEnabled()) {
 			simuComConfig.setAdditionalExperimentRunDescription(" (" + getAccuracyInfluenceAnalysisState() + ")");
 		}
-	}
-
-	public void setSimulateLinkingResources(boolean simulateLinkingResources) {
-		checkFixed();
-		this.simulateLinkingResources = simulateLinkingResources;
-		this.setLoadMiddlewareAndCompletionFiles(simulateLinkingResources);
 	}
 
 	public boolean getSimulateFailures() {
@@ -92,38 +73,6 @@ public class SimuComWorkflowConfiguration extends
 
 	public void setDefaults() {
 		throw new RuntimeException("Not implemented. No defaults defined.");
-	}
-
-	/**
-	 * @return Returns the filename of the mark model instance containing the
-	 *         PCM connector completion configuration
-	 */
-	public String getFeatureConfigFile() {
-		return featureConfigFile;
-	}
-
-	/**
-	 * Sets the filename of the mark model for connector completions
-	 *
-	 * @param featureConfigFile
-	 *            File name of the connector completion file
-	 */
-	public void setFeatureConfigFile(String featureConfigFile) {
-		checkFixed();
-		this.featureConfigFile = featureConfigFile;
-	}
-
-	/**
-	 * Call super.getPCMModelFiles and then add my own featureconfig file.
-	 */
-	@Override
-	public List<String> getPCMModelFiles() {
-		List<String> pcmModelFiles = super.getPCMModelFiles();
-
-		if (featureConfigFile != null)
-			pcmModelFiles.add(featureConfigFile);
-
-		return pcmModelFiles;
 	}
 
 	public SimuComWorkflowConfiguration copy(
@@ -147,10 +96,10 @@ public class SimuComWorkflowConfiguration extends
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		SimuComWorkflowConfiguration config = (SimuComWorkflowConfiguration) super.clone();
-		config.featureConfigFile = new String(this.featureConfigFile);
+		config.setFeatureConfigFile(this.getFeatureConfigFile());
 		config.simuComConfig = this.simuComConfig.getClone();
 		config.simulateFailures = this.simulateFailures;
-		config.simulateLinkingResources = this.simulateLinkingResources;
+        config.setSimulateLinkingResources(this.getSimulateLinkingResources());
 		return config;
 	}
 
@@ -167,15 +116,5 @@ public class SimuComWorkflowConfiguration extends
 		}
 		return config;
 	}
-	
-	 /**
-     * Get the configuration of the current launch.
-     * 
-     * @return the launchConfiguration
-     */
-    public Map<String, Object> getAttributes() {
-        return attributes;
-    }
-
 
 }

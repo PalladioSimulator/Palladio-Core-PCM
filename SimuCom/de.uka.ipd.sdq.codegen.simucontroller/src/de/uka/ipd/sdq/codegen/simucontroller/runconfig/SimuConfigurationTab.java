@@ -25,7 +25,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
-import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.simucomframework.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.ConfigurationTab;
 
@@ -177,7 +177,7 @@ public class SimuConfigurationTab extends ConfigurationTab {
 
 		try {
 			fixedSeedButton.setSelection(configuration.getAttribute(
-					SimuComConfig.USE_FIXED_SEED, false));
+					AbstractSimulationConfig.USE_FIXED_SEED, false));
 		} catch (CoreException e) {
 			fixedSeedButton.setSelection(false);
 		}
@@ -185,7 +185,7 @@ public class SimuConfigurationTab extends ConfigurationTab {
 		for (int i=0; i<6; i++) {
 			try {
 				seedText[i].setText(configuration.getAttribute(
-						SimuComConfig.FIXED_SEED_PREFIX+i, i+""));
+						AbstractSimulationConfig.FIXED_SEED_PREFIX+i, i+""));
 			} catch (CoreException e) {
 				seedText[i].setText(i+"");
 			}
@@ -243,10 +243,10 @@ public class SimuConfigurationTab extends ConfigurationTab {
 
 		configuration.setAttribute(ConstantsContainer.DELETE_TEMPORARY_DATA_AFTER_ANALYSIS,
 				clearButton.getSelection());
-		configuration.setAttribute(SimuComConfig.USE_FIXED_SEED,
+		configuration.setAttribute(AbstractSimulationConfig.USE_FIXED_SEED,
 				fixedSeedButton.getSelection());
 		for (int i=0; i<6; i++){
-			configuration.setAttribute(SimuComConfig.FIXED_SEED_PREFIX+i,
+			configuration.setAttribute(AbstractSimulationConfig.FIXED_SEED_PREFIX+i,
 					seedText[i].getText());
 		}
 		configuration.setAttribute(ConstantsContainer.VARIABLE_TEXT,

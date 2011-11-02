@@ -37,7 +37,7 @@ public class ConstantsContainer {
 	public static final String TEMPORARY_DATA_LOCATION = "outpath";
 	public static final String DELETE_TEMPORARY_DATA_AFTER_ANALYSIS = "clear";
 	public static final String ANALYSE_ACCURACY = "simulateAccuracy";
-	// Configuration tab (SimuCom)
+	// Configuration tab (Simulation)
 	public static final String VARIABLE_TEXT = "variable";
 	public static final String MINIMUM_TEXT = "minimum";
 	public static final String MAXIMUM_TEXT = "maximum";

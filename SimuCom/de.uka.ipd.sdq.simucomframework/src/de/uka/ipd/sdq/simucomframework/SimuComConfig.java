@@ -7,9 +7,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.URI;
 
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.IRecorderConfiguration;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.RecorderExtensionHelper;
-import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
 /**
  * @author roman
@@ -23,21 +21,9 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 	/** Serialization ID of this class. */
 	private static final long serialVersionUID = -3364130550065874984L;
 
-	public static final String PERSISTENCE_RECORDER_NAME = "persistenceFramework";
 	public static final String SHOULD_THROW_EXCEPTION = "shouldThrowException";
-	public static final String MAXIMUM_MEASUREMENT_COUNT = "maximumMeasurementCount";
-	public static final String USE_FIXED_SEED = "useFixedSeed";
-	public static final String FIXED_SEED_PREFIX = "fixedSeed";
-
+	
 	// Default values
-	/** Default name for an experiment run. */
-	public static final String DEFAULT_EXPERIMENT_RUN = "MyRun";
-	/** Default for stop condition simulation time. */
-	public static final String DEFAULT_SIMULATION_TIME = "150000";
-	/** Default for stop condition maximum measurement count.*/
-	public static final String DEFAULT_MAXIMUM_MEASUREMENT_COUNT = "10000";
-	/** Default name of persistence recorder. */
-	public static final String DEFAULT_PERSISTENCE_RECORDER_NAME = "";
 	/** Default name of model element for the stop condition confidence. */
 	public static final String DEFAULT_CONFIDENCE_MODELELEMENT_NAME = "";
 	/** Stop condition confidence, URI to model element ? */
@@ -58,8 +44,6 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 	
 
 	/** SimuCom configuration tab */
-	public static final String EXPERIMENT_RUN = "experimentRun";
-	public static final String SIMULATION_TIME = "simTime";
 	public static final String SIMULATE_FAILURES = "simulateFailures";
 	public static final String SIMULATE_LINKING_RESOURCES = "simulateLinkingResources";
 	public static final String USE_CONFIDENCE = "useConfidenceStopCondition";
@@ -71,15 +55,8 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 	public static final String CONFIDENCE_BATCH_SIZE = "confidenceBatchSize";
 	public static final String CONFIDENCE_MIN_NUMBER_OF_BATCHES = "confidenceMinNumberOfBatches";
 
-	/** configuration options */
-	private String nameExperimentRun;
-	private String additionalExperimentRunDescription;
-	private long simuTime;
 	private boolean simulateFailures = false;
 	private boolean simulateLinkingResources = false;
-	private Long maxMeasurementsCount;
-	private long[] randomSeed = null;
-	private IRandomGenerator randomNumberGenerator = null;
 	private boolean useConfidence = false;
 	private int confidenceLevel = 0;
 	private int confidenceHalfWidth = 0;
@@ -89,10 +66,6 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 	private boolean automaticBatches;
 	private int batchSize;
 	private int minNumberOfBatches;
-	private String recorderName;
-	private IRecorderConfiguration recorderConfig;
-	private ExperimentRunDescriptor descriptor = null;
-	
 	// SimuCom extensions can also provide extension to the SimuCom configuration.
 	// This map stores the extension configurations.
 	private HashMap<String, SimuComConfigExtension> simuComConfigExtensions = null;
@@ -115,14 +88,6 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 	    super(configuration, debug);
 		simuComConfigExtensions = new HashMap<String, SimuComConfigExtension>();
 		try {
-			this.nameExperimentRun = (String) configuration.get(
-					EXPERIMENT_RUN);
-			this.simuTime = Long.valueOf((String)configuration.get(
-					SIMULATION_TIME));
-			this.maxMeasurementsCount = Long.valueOf((String)configuration.get(
-					MAXIMUM_MEASUREMENT_COUNT));
-			this.randomSeed = getSeedFromConfig(configuration);
-
 			if (configuration.containsKey(SIMULATE_FAILURES)){
 				this.simulateFailures = (Boolean)configuration.get(
 						SIMULATE_FAILURES);
@@ -159,14 +124,6 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 				}
 
 			}
-
-			this.recorderName = (String) configuration
-					.get(PERSISTENCE_RECORDER_NAME);
-			recorderConfig = RecorderExtensionHelper
-					.getRecorderConfigForName(recorderName);
-			if (recorderConfig != null) {
-				recorderConfig.setConfiguration(configuration);
-			}
 			
 		} catch (Exception e) {
 			throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
@@ -181,65 +138,12 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 		return simuComConfigExtensions.get(id);
 	}
 
-	public String getAdditionalExperimentRunDescription() {
-		return additionalExperimentRunDescription;
-	}
-
-	public void setAdditionalExperimentRunDescription(
-			String additionalExperimentRunDescription) {
-		this.additionalExperimentRunDescription = additionalExperimentRunDescription;
-	}
-
-	private long[] getSeedFromConfig(Map<String,Object> configuration) {
-		if ((Boolean)configuration.get(USE_FIXED_SEED)) {
-			long[] seed = new long[6];
-			for (int i = 0; i < 6; i++) {
-				seed[i] = Long.parseLong((String)configuration.get(FIXED_SEED_PREFIX+i));
-			}
-			return seed;
-		}
-		return null;
-	}
-
-	public String getNameExperimentRun() {
-		String name = "";
-		if(descriptor != null) {
-			name += descriptor.getNameExperimentRun();
-		} else {
-			name += getNameBase();
-		}
-		if (additionalExperimentRunDescription != null) {
-			name += additionalExperimentRunDescription;
-		}
-		return name;
-	}
-
-	public String getNameBase() {
-		return nameExperimentRun;
-	}
-
-	public void setNameBase(String  name) {
-		this.nameExperimentRun = name;
-	}
-
-	public long getSimuTime() {
-		return simuTime;
-	}
-
-	public long getMaxMeasurementsCount() {
-		return maxMeasurementsCount;
-	}
-
 	public boolean getSimulateFailures() {
 		return simulateFailures;
 	}
 
 	public boolean getSimulateLinkingResources() {
 		return simulateLinkingResources;
-	}
-
-	public String getRecorderName() {
-		return recorderName;
 	}
 
 	public boolean isUseConfidence() {
@@ -260,40 +164,6 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 
 	public URI getConfidenceModelElementURI() {
 		return confidenceModelElementURI;
-	}
-
-	public String getEngine() {
-		return "de.uka.ipd.sdq.simulation.abstractsimengine.ssj.SSJSimEngineFactory";
-	}
-
-	public IRandomGenerator getRandomGenerator() {
-		if (randomNumberGenerator == null) {
-			randomNumberGenerator = new SimuComDefaultRandomNumberGenerator(this.randomSeed);
-		}
-		return randomNumberGenerator;
-	}
-
-	/**
-	 * Dispose random generator and delete reference to it
-	 * so that this {@link SimuComConfig} can be started again and will create a
-	 * new RandomGenerator.
-	 * @author martens
-	 */
-	public void disposeRandomGenerator() {
-		this.randomNumberGenerator.dispose();
-		this.randomNumberGenerator = null;
-	}
-
-	public void setExperimentRunDescriptor(ExperimentRunDescriptor descriptor){
-		this.descriptor  = descriptor;
-	}
-
-	public ExperimentRunDescriptor getExperimentRunDescriptor(){
-		return descriptor;
-	}
-
-	public IRecorderConfiguration getRecorderConfig() {
-		return recorderConfig;
 	}
 
 	/**Returns a copy of the instance with a replaced descriptor.

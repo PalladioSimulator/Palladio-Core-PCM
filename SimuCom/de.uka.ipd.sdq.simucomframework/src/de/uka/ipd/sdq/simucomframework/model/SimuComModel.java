@@ -93,7 +93,7 @@ public class SimuComModel implements ISimulationModel<SimuComModel> {
 
     private void initScheduler() {
         // Obtain the used SSJ simulator and set the scheduler's simulator accordingly.
-        // FIXME: SimuCom should not be aware of the used simulation engine. 
+        // FIXME: The simulation engine (here: SSJ) should not be hard-coded. 
         SSJExperiment<SimuComModel> exp = (SSJExperiment<SimuComModel>) this.getSimulationControl();
         Simulator simulator = exp.getSimulator(); 
         SchedulingFactory.setUsedSimulator(simulator);
@@ -294,7 +294,7 @@ public class SimuComModel implements ISimulationModel<SimuComModel> {
         AbstractActiveResource.cleanProcesses();
 
         // Print failure statistics:
-        if (getConfig().getSimulateFailures()) {
+        if (getConfiguration().getSimulateFailures()) {
             FailureStatistics.getInstance().printFailureStatistics(logger);
         }
 

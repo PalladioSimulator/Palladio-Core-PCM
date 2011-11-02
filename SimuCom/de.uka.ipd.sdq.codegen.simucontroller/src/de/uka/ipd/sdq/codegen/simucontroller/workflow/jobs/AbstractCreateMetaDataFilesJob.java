@@ -107,7 +107,7 @@ public abstract class AbstractCreateMetaDataFilesJob {
 		out.println("Bundle-Name: SimuCom Instance Plug-in"); //$NON-NLS-1$
 		out.println("Bundle-SymbolicName: " + project.getName() + ";singleton:=true"); //$NON-NLS-1$
 		out.println("Bundle-Version: 1.0.0"); //$NON-NLS-1$
-		out.println("Bundle-Activator: main.SimuComControl");
+		out.println("Bundle-Activator: " + getBundleActivator());
 		
 		out.print("Require-Bundle: ");
 		
@@ -129,5 +129,7 @@ public abstract class AbstractCreateMetaDataFilesJob {
 	}
 
 	protected abstract String[] getRequiredBundles();
+	
+	protected abstract String getBundleActivator();
 
 }

@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflowConfiguration;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
@@ -36,7 +36,7 @@ public class TransformPCMForSensitivityAnalysisJob implements
 	private List<SensitivityAnalysisConfiguration> sconfList;
 
 	public TransformPCMForSensitivityAnalysisJob(
-			SimuComWorkflowConfiguration configuration) throws CoreException {
+			AbstractSimulationWorkflowConfiguration configuration) throws CoreException {
 		super();
 		this.sconfList = configuration.getSensitivityAnalysisConfigurations();
 	}

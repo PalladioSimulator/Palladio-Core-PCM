@@ -195,8 +195,8 @@ public class SimulatedResourceContainer extends
 			String passiveResourceID, String assemblyContextID,
 			String combinedID, int capacity) {
 		// return new SimFairPassiveResource(capacity, name, name, null,null);
-		return new SimSimpleFairPassiveResource(myModel, capacity, name,
-				passiveResourceID, assemblyContextID, combinedID);
+        return new SimSimpleFairPassiveResource<SimuComModel>(myModel, capacity, name, passiveResourceID,
+                assemblyContextID, combinedID, myModel.getConfiguration().getSimulateFailures());
 	}
 	
 	/**

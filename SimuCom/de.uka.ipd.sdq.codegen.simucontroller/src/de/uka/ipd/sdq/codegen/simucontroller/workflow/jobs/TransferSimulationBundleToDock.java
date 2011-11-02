@@ -5,7 +5,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflowConfiguration;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl;
 import de.uka.ipd.sdq.workflow.IJob;
@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.workflow.launchconfig.extension.AbstractExtendableJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 
 /**
- * Installs a Plug-In from the specified location string with use a bundeles
+ * Installs a Plug-In from the specified location string with use a bundles
  * context.The context is used to grant access to other methods so that this
  * bundle can interact with the Framework.
  */
@@ -30,14 +30,14 @@ public class TransferSimulationBundleToDock extends AbstractExtendableJob<MDSDBl
 	/**
 	 * Configuration object for the simulation 
 	 */
-	private SimuComWorkflowConfiguration myConfig;
+	private AbstractSimulationWorkflowConfiguration myConfig;
 
 	private boolean isDebug;
 
 	private IDebugListener debugListener;
 
 	public TransferSimulationBundleToDock(
-			SimuComWorkflowConfiguration configuration,
+			AbstractSimulationWorkflowConfiguration configuration,
 			IDebugListener debugListener,
 			IJobWithResult<byte[]> createPluginJarJob) {
 		super();
@@ -61,7 +61,7 @@ public class TransferSimulationBundleToDock extends AbstractExtendableJob<MDSDBl
 				debugListener.simulationStartsInDock(dock);
 			}
 			simService.load(
-					myConfig.getSimuComConfiguration(),
+					myConfig.getSimulationConfiguration(),
 					myCreatePluginProjectJob.getResult(),
 					dock.isRemote());
 			
@@ -77,14 +77,14 @@ public class TransferSimulationBundleToDock extends AbstractExtendableJob<MDSDBl
 			
 			
 			simService.simulate(
-					myConfig.getSimuComConfiguration(),
+					myConfig.getSimulationConfiguration(),
 					myCreatePluginProjectJob.getResult(),
 					dock.isRemote());
 		} catch (InterruptedException e) {
 			throw new JobFailedException("Job failed while waiting for a dock to become available",e);
 		}
 		catch (Exception e) {
-			throw new JobFailedException("SimuCom simulation run failed.",e);
+			throw new JobFailedException("Simulation run failed.",e);
 		}
 		finally {
 			if (isDebug) {

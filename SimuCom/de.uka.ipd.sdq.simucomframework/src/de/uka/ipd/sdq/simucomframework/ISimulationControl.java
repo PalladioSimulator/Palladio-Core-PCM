@@ -22,7 +22,7 @@ public interface ISimulationControl {
      * local sensor factory storages
      * 
      */
-    public void prepareSimulation(SimuComConfig config, IStatusObserver statusObserver, boolean useOwnSensorstorage);
+    public void prepareSimulation(AbstractSimulationConfig config, IStatusObserver statusObserver, boolean useOwnSensorstorage);
 
     /** Start a simulation run
      * @param config The configuration object which sets many simulation parameters like stop conditions, storage location, etc.

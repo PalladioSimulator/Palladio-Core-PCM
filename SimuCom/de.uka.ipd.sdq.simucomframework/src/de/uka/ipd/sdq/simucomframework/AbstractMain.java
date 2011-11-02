@@ -209,13 +209,12 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simucomframework.IS
 	 * .ipd.sdq.simucomframework.SimuComConfig,
 	 * de.uka.ipd.sdq.simucomframework.IStatusObserver, boolean)
 	 */
-	public void prepareSimulation(SimuComConfig config, de.uka.ipd.sdq.simucomframework.IStatusObserver observer,
-			boolean isRemoteRun) {
-		model = SimuComFactory.getSimuComModel(config, getStatus(), isRemoteRun);
+    public void prepareSimulation(AbstractSimulationConfig config, IStatusObserver observer, boolean isRemoteRun) {
+		model = SimuComFactory.getSimuComModel((SimuComConfig)config, getStatus(), isRemoteRun);
 
 		model.initialiseResourceContainer(getResourceContainerFactory());
-		model.setUsageScenarios(getWorkloads(config));
-		setupCalculators(config);
+		model.setUsageScenarios(getWorkloads((SimuComConfig)config));
+		setupCalculators((SimuComConfig)config);
 	}
 
 	/*
@@ -226,11 +225,10 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simucomframework.IS
 	 * .ipd.sdq.simucomframework.SimuComConfig,
 	 * de.uka.ipd.sdq.simucomframework.IStatusObserver, boolean)
 	 */
-	public de.uka.ipd.sdq.simucomframework.SimuComResult startSimulation(
-			de.uka.ipd.sdq.simucomframework.AbstractSimulationConfig config,
-			de.uka.ipd.sdq.simucomframework.IStatusObserver observer, boolean isRemoteRun) {
-		return run(observer, (SimuComConfig) config, isRemoteRun);
-	}
+    public de.uka.ipd.sdq.simucomframework.SimuComResult startSimulation(AbstractSimulationConfig config,
+            IStatusObserver observer, boolean isRemoteRun) {
+        return run(observer, (SimuComConfig) config, isRemoteRun);
+    }
 
 	/*
 	 * (non-Javadoc)

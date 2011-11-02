@@ -109,7 +109,7 @@ public class SimuComAnalysis extends SimuComWorkflowLauncher implements IAnalysi
 
 		String experimentName = getExperimentName(pheno);
 		this.previousExperimentNames.put(pheno.getGenotypeID().hashCode(), experimentName);
-		this.simuComWorkflowConfiguration.getSimuComConfiguration().setNameBase(experimentName);
+		this.simuComWorkflowConfiguration.getSimulationConfiguration().setNameBase(experimentName);
 		
 		System.gc();
 		
@@ -129,7 +129,7 @@ public class SimuComAnalysis extends SimuComWorkflowLauncher implements IAnalysi
 	 */
 	private boolean isExperimentRunDoesNotExist(String experimentName) {
 		
-		IRecorderConfiguration recorderConfig = this.simuComWorkflowConfiguration.getSimuComConfiguration().getRecorderConfig();
+		IRecorderConfiguration recorderConfig = this.simuComWorkflowConfiguration.getSimulationConfiguration().getRecorderConfig();
 		
 		if (recorderConfig instanceof SensorFrameworkConfig){
 			

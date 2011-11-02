@@ -49,7 +49,7 @@ public class SetupPipesAndFiltersStrategy implements ISetupDataSinkStrategy {
 	private IRawWriteStrategy createWriteStrategy() {
 		try {
 			String writeStrategyClass = RecorderExtensionHelper
-					.getWriteStrategyClassNameForName(model.getConfig()
+					.getWriteStrategyClassNameForName(model.getConfiguration()
 							.getRecorderName());
 			return (IRawWriteStrategy) Class.forName(writeStrategyClass).newInstance();
 		} catch (CoreException e) {

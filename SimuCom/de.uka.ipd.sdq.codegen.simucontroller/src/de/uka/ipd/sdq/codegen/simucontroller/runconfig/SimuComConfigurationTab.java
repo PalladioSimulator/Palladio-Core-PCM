@@ -42,6 +42,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.RecorderExtensionHelper;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.RecorderTabGroup;
+import de.uka.ipd.sdq.simucomframework.AbstractSimulationConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.TabHelper;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
@@ -80,6 +81,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	private Text minNumberOfBatchesField;
 	
 	private Combo persistenceCombo;
+	private Combo simulatorCombo;
 	private ArrayList<String> modelFiles = new ArrayList<String>();
 
 	private RecorderTabGroup recorderTabGroup;
@@ -102,28 +104,55 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		container.setLayout(new GridLayout());
 		setControl(container);
 
-		/** Create SimuCom section */
-		final Group simucomGroup = new Group(container, SWT.NONE);
-		simucomGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		/** Create Simulator section */
+		final Group simulatorGroup = new Group(container, SWT.NONE);
+        simulatorGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        final GridLayout simulatorLayout = new GridLayout();
+        simulatorLayout.numColumns = 3;
+        simulatorGroup.setLayout(simulatorLayout);
+        simulatorGroup.setText("Simulator");
+		
+        final Label simulatorLabel = new Label(simulatorGroup, SWT.NONE);
+        simulatorLabel.setText("Simulator implementation:");
+        
+        String[] simulatorNames = null;
+        try {
+            simulatorNames = SimulatorExtensionHelper.getSimulatorNames();
+        } catch (CoreException e1) {
+            logger.warn("Could not retrieve names of simulator extensions.", e1);
+        }
+        simulatorCombo = new Combo(simulatorGroup, SWT.READ_ONLY);
+        simulatorCombo.setItems(simulatorNames);
+        simulatorCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+        simulatorCombo.addSelectionListener (new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                updateLaunchConfigurationDialog();
+            }
+        });
+        
+		/** Create Stop Conditions section */
+		final Group stopConditionsGroup = new Group(container, SWT.NONE);
+		stopConditionsGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		final GridLayout gridLayout_1 = new GridLayout();
 		gridLayout_1.numColumns = 3;
-		simucomGroup.setLayout(gridLayout_1);
-		simucomGroup.setText("SimuCom");
+		stopConditionsGroup.setLayout(gridLayout_1);
+		stopConditionsGroup.setText("Stop Conditions");
 
-		final Label timeLabel = new Label(simucomGroup, SWT.NONE);
+		final Label timeLabel = new Label(stopConditionsGroup, SWT.NONE);
 		timeLabel.setText("Maximum simulation time:");
 
-		timeField = new Text(simucomGroup, SWT.BORDER);
+		timeField = new Text(stopConditionsGroup, SWT.BORDER);
 		timeField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		timeField.addModifyListener(modifyListener);
 
-		final Label secLabel = new Label(simucomGroup, SWT.NONE);
+		final Label secLabel = new Label(stopConditionsGroup, SWT.NONE);
 		secLabel.setText("Simulated Time Units");
 
-		final Label maxLabel = new Label(simucomGroup, SWT.NONE);
+		final Label maxLabel = new Label(stopConditionsGroup, SWT.NONE);
 		maxLabel.setText("Maximum measurements count:");
 
-		maxMeasurementsField = new Text(simucomGroup, SWT.BORDER);
+		maxMeasurementsField = new Text(stopConditionsGroup, SWT.BORDER);
 		maxMeasurementsField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		maxMeasurementsField.addModifyListener(modifyListener);
 
@@ -251,7 +280,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		persistenceGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
 				false));
 		persistenceGroup.setLayout(new GridLayout(2, false));
-		persistenceGroup.setText("Persistence");
+		persistenceGroup.setText("Simulation Results");
 
 		final Label persistenceLabel = new Label(persistenceGroup, SWT.NONE);
 		persistenceLabel.setText("Persistence Framework:");
@@ -349,7 +378,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
 	 */
 	public String getName() {
-		return "SimuCom";
+		return "Simulation";
 	}
 
 	/* (non-Javadoc)
@@ -357,30 +386,46 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	 */
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		recorderTabGroup.initializeFrom(configuration);
+		
+        try {
+            String simulatorId = configuration.getAttribute(AbstractSimulationConfig.SIMULATOR_ID,
+                    AbstractSimulationConfig.DEFAULT_SIMULATOR_ID);
+            String simulatorName = SimulatorExtensionHelper.getSimulatorNameForId(simulatorId);
+            String[] items = simulatorCombo.getItems();
+            for (int i = 0; i < items.length; i++) {
+                String currentItemName = items[i];
+                if (currentItemName.equals(simulatorName)) {
+                    simulatorCombo.select(i);
+                }
+            }
+        } catch (CoreException e) {
+            logger.warn("Could not initialise simulator selection.", e);
+        }
+		
 		try {
 			nameField.setText(configuration.getAttribute(
-					SimuComConfig.EXPERIMENT_RUN, ""));
+					AbstractSimulationConfig.EXPERIMENT_RUN, ""));
 		} catch (CoreException e) {
 			nameField.setText("MyRun");
 		}
 
 		try {
 			timeField.setText(configuration.getAttribute(
-					SimuComConfig.SIMULATION_TIME, ""));
+					AbstractSimulationConfig.SIMULATION_TIME, ""));
 		} catch (CoreException e) {
 			timeField.setText("150000");
 		}
 
 		try {
 			maxMeasurementsField.setText(configuration.getAttribute(
-					SimuComConfig.MAXIMUM_MEASUREMENT_COUNT, ""));
+					AbstractSimulationConfig.MAXIMUM_MEASUREMENT_COUNT, ""));
 		} catch (CoreException e) {
 			maxMeasurementsField.setText("10000");
 		}
 
 		try {
 			String persistenceFrameworkName = configuration.getAttribute(
-					SimuComConfig.PERSISTENCE_RECORDER_NAME, "");
+					AbstractSimulationConfig.PERSISTENCE_RECORDER_NAME, "");
 			String[] items = persistenceCombo.getItems();
 			for (int i=0; i<items.length; i++){
 				String str = items[i];
@@ -394,7 +439,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 
 		try {
 			checkLoggingButton.setSelection(configuration.getAttribute(
-					SimuComConfig.VERBOSE_LOGGING, false));
+					AbstractSimulationConfig.VERBOSE_LOGGING, false));
 		} catch (CoreException e) {
 			checkLoggingButton.setSelection(false);
 		}
@@ -492,18 +537,27 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		// TODO Comment
-		recorderTabGroup.performApply(configuration);
+        // delegate this method call to recorder tab group
+        recorderTabGroup.performApply(configuration);
 
-		configuration.setAttribute(SimuComConfig.EXPERIMENT_RUN,
+        // apply simulator selection
+        try {
+            // find simulator id for the given simulator name
+            String simulatorId = SimulatorExtensionHelper.getSimulatorIdForName(simulatorCombo.getText());
+            configuration.setAttribute(AbstractSimulationConfig.SIMULATOR_ID, simulatorId);
+        } catch (CoreException e) {
+            logger.error("Failed to retrieve the id for simulator \"" + simulatorCombo.getText() + "\"");
+        }
+        
+		configuration.setAttribute(AbstractSimulationConfig.EXPERIMENT_RUN,
 				nameField.getText());
-		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
+		configuration.setAttribute(AbstractSimulationConfig.SIMULATION_TIME,
 				timeField.getText());
-		configuration.setAttribute(SimuComConfig.MAXIMUM_MEASUREMENT_COUNT,
+		configuration.setAttribute(AbstractSimulationConfig.MAXIMUM_MEASUREMENT_COUNT,
 						maxMeasurementsField.getText());
-		configuration.setAttribute(SimuComConfig.PERSISTENCE_RECORDER_NAME,
+		configuration.setAttribute(AbstractSimulationConfig.PERSISTENCE_RECORDER_NAME,
 				persistenceCombo.getText());
-		configuration.setAttribute(SimuComConfig.VERBOSE_LOGGING,
+		configuration.setAttribute(AbstractSimulationConfig.VERBOSE_LOGGING,
 				checkLoggingButton.getSelection());
 		configuration.setAttribute(SimuComConfig.USE_CONFIDENCE,
 				useConfidenceCheckBox.getSelection());
@@ -533,18 +587,16 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		// TODO Comment
+		// delegate this method call to recorder tab group
 		if (recorderTabGroup != null) {
 			recorderTabGroup.setDefaults(configuration);
 		}
 
-		configuration.setAttribute(SimuComConfig.EXPERIMENT_RUN,
-				SimuComConfig.DEFAULT_EXPERIMENT_RUN);
-		configuration.setAttribute(SimuComConfig.SIMULATION_TIME, SimuComConfig.DEFAULT_SIMULATION_TIME
-		);
-		configuration.setAttribute(SimuComConfig.MAXIMUM_MEASUREMENT_COUNT,
-		SimuComConfig.DEFAULT_MAXIMUM_MEASUREMENT_COUNT);
-		configuration.setAttribute(SimuComConfig.PERSISTENCE_RECORDER_NAME, SimuComConfig.DEFAULT_PERSISTENCE_RECORDER_NAME);
+		configuration.setAttribute(AbstractSimulationConfig.SIMULATOR_ID, AbstractSimulationConfig.DEFAULT_SIMULATOR_ID);
+        configuration.setAttribute(AbstractSimulationConfig.EXPERIMENT_RUN, AbstractSimulationConfig.DEFAULT_EXPERIMENT_RUN);
+        configuration.setAttribute(AbstractSimulationConfig.SIMULATION_TIME, AbstractSimulationConfig.DEFAULT_SIMULATION_TIME);
+        configuration.setAttribute(AbstractSimulationConfig.MAXIMUM_MEASUREMENT_COUNT, AbstractSimulationConfig.DEFAULT_MAXIMUM_MEASUREMENT_COUNT);
+        configuration.setAttribute(AbstractSimulationConfig.PERSISTENCE_RECORDER_NAME, AbstractSimulationConfig.DEFAULT_PERSISTENCE_RECORDER_NAME);
 		configuration.setAttribute(SimuComConfig.USE_CONFIDENCE, SimuComConfig.DEFAULT_USE_CONFIDENCE);
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_LEVEL, SimuComConfig.DEFAULT_CONFIDENCE_LEVEL);
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_HALFWIDTH, SimuComConfig.DEFAULT_CONFIDENCE_HALFWIDTH);
@@ -554,13 +606,14 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_BATCH_SIZE, SimuComConfig.DEFAULT_CONFIDENCE_BATCH_SIZE);
 		configuration.setAttribute(SimuComConfig.CONFIDENCE_MIN_NUMBER_OF_BATCHES, SimuComConfig.DEFAULT_CONFIDENCE_MIN_NUMBER_OF_BATCHES);
 
+		// set default value for persistence framework
 		try {
 			String[] recorderNames = RecorderExtensionHelper.getRecorderNames();
 			if (recorderNames.length > 0){
-				configuration.setAttribute(SimuComConfig.PERSISTENCE_RECORDER_NAME, recorderNames[0]);
+				configuration.setAttribute(AbstractSimulationConfig.PERSISTENCE_RECORDER_NAME, recorderNames[0]);
 			}
 		} catch (CoreException e1) {
-			logger.error("Could not set default values.", e1);
+			logger.error("Could not set default value for persistence framework.", e1);
 		}
 	}
 
@@ -580,6 +633,11 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	public boolean isValid(ILaunchConfiguration launchConfig) {
 		setErrorMessage(null);
 
+		String simulatorName = simulatorCombo.getText();
+        if (simulatorName == null || simulatorName.isEmpty()) {
+            setErrorMessage("Simulator implementation is missing!");
+            return false;
+        }
 		if (nameField.getText().equals("")){
 			setErrorMessage("ExperimentRun name is missing!");
 			return false;
