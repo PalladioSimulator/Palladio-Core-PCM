@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 
 import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
+import de.uka.ipd.sdq.probespec.framework.BlackboardFactory;
 import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
@@ -102,20 +103,25 @@ public class SimuComModel implements ISimulationModel<SimuComModel> {
     
     private void initialiseProbeSpecification() {
         // create ProbeSpecification context
-        probeSpecContext = new ProbeSpecContext(config.getBlackboardType(), new SimuComProbeStrategyRegistry(),
-                new CalculatorFactory(this, new SetupPipesAndFiltersStrategy(this)));
-
+        probeSpecContext = new ProbeSpecContext();
+        
+        // create a blackboard of the specified type
+        ISampleBlackboard blackboard = BlackboardFactory.createBlackboard(config.getBlackboardType(), probeSpecContext
+                .getThreadManager());
+        
         // decorate the current blackboard in order to discard any measurement that arrives after
         // the simulation end
-        ISampleBlackboard currentBlackboard = probeSpecContext.getSampleBlackboard();
-        ISampleBlackboard decoratedBlackboard = new DiscardInvalidMeasurementsBlackboardDecorator(currentBlackboard,
+        ISampleBlackboard decoratedBlackboard = new DiscardInvalidMeasurementsBlackboardDecorator(blackboard,
                 simControl);
-        probeSpecContext.setSampleBlackboard(decoratedBlackboard);
+        
+        // initialise ProbeSpecification context
+        probeSpecContext.initialise(blackboard, new SimuComProbeStrategyRegistry(), new CalculatorFactory(this,
+                new SetupPipesAndFiltersStrategy(this)));
 
         // install a garbage collector which keeps track of the samples stored on the blackboard and
         // removes samples when they become obsolete
         SimuComGarbageCollector garbageCollector = new SimuComGarbageCollector(decoratedBlackboard);
-        probeSpecContext.setBlackboardGarbageCollector(garbageCollector);        
+        probeSpecContext.setBlackboardGarbageCollector(garbageCollector);
     }
     
 	/**

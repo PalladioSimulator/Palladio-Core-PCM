@@ -27,12 +27,12 @@ public class ConcurrentSampleBlackboard extends SampleBlackboard {
 	private static Logger logger = Logger.getLogger(ConcurrentSampleBlackboard.class.getName());
 	
 	private LinkedBlockingQueue<QueuedAction> sampleQueue;
-	private ProbeSpecContext probeSpecContext;
+	private ThreadManager threadManager;
 	private boolean running;
 
-    public ConcurrentSampleBlackboard(ProbeSpecContext ctx) {
+    public ConcurrentSampleBlackboard(ThreadManager threadManager) {
         this.sampleQueue = new LinkedBlockingQueue<QueuedAction>();
-        this.probeSpecContext = ctx;
+        this.threadManager = threadManager;
     }
 
 	private void delegateAddSample(ProbeSetSample pss) {
@@ -114,10 +114,10 @@ public class ConcurrentSampleBlackboard extends SampleBlackboard {
 	}
 	
 	private void checkRunning() {
-	    if(!running) {
-	        running = true;
-	        probeSpecContext.getThreadManager().startThread(new ProcessQueuedActions(), "ProbeSpec Concurrent Blackboard");
-	    }
+        if (!running) {
+            running = true;
+            threadManager.startThread(new ProcessQueuedActions(), "ProbeSpec Concurrent Blackboard");
+        }
 	}
 
 	/**

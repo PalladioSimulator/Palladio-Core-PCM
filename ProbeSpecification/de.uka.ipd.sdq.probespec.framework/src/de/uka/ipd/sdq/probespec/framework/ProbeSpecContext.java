@@ -26,20 +26,22 @@ public class ProbeSpecContext {
 	
 	private Registry<PipesAndFiltersManager> pipeManagerRegisty;
 	
-	public ProbeSpecContext(BlackboardType blackboardType,
-            IProbeStrategyRegistry probeStrategyRegistry,
-            ICalculatorFactory calculatorFactory) {
+	private boolean initialised;
+	
+	public ProbeSpecContext() {
 		threadManager = new ThreadManager();
 		probeSetIdGenerator = new ProbeSetIDGenerator();
 		calculatorRegistry = new CalculatorRegistry();
 		pipeManagerRegisty = new Registry<PipesAndFiltersManager>();
-		
-		// create a blackboard of the specified type
-        ISampleBlackboard sampleBlackboard = BlackboardFactory.createBlackboard(blackboardType, this);
-		setSampleBlackboard(sampleBlackboard);
-		
-        setProbeStrategyRegistry(probeStrategyRegistry);
-        setCalculatorFactory(calculatorFactory);
+	}
+	
+	public void initialise(ISampleBlackboard blackboard,
+            IProbeStrategyRegistry probeStrategyRegistry,
+            ICalculatorFactory calculatorFactory) {
+        this.sampleBlackboard = blackboard;
+        this.probeStrategyRegistry = probeStrategyRegistry;
+        this.calculatorFactory = calculatorFactory;
+        this.initialised = true;
 	}
 	
 	public Integer obtainProbeSetId(String probeSetId) {
@@ -51,6 +53,7 @@ public class ProbeSpecContext {
 	}
 
 	public IProbeStrategyRegistry getProbeStrategyRegistry() {
+	    throwExceptionIfNotInitialised();
 		return probeStrategyRegistry;
 	}
 
@@ -60,6 +63,7 @@ public class ProbeSpecContext {
 	}
 
 	public ICalculatorFactory getCalculatorFactory() {
+	    throwExceptionIfNotInitialised();
 		return calculatorFactory;
 	}
 
@@ -68,6 +72,7 @@ public class ProbeSpecContext {
 	}
 
 	public ISampleBlackboard getSampleBlackboard() {
+	    throwExceptionIfNotInitialised();
 		return sampleBlackboard;
 	}
 
@@ -93,10 +98,13 @@ public class ProbeSpecContext {
 	}
 	
 	public Registry<PipesAndFiltersManager> getPipeManagerRegisty() {
+	    throwExceptionIfNotInitialised();
 		return pipeManagerRegisty;
 	}
 
 	public void finish() {
+	    throwExceptionIfNotInitialised();
+	    
 		// stop registered threads
 		getThreadManager().stopThreads();
 		
@@ -104,7 +112,12 @@ public class ProbeSpecContext {
 		for(PipesAndFiltersManager p : pipeManagerRegisty) {
 			p.flush();
 		}
-		
 	}
+	
+    private void throwExceptionIfNotInitialised() {
+        if (!initialised) {
+            throw new RuntimeException("Initialise the ProbeSpecification context before using it.");
+        }
+    }
 	
 }
