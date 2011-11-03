@@ -34,8 +34,8 @@ public class AcquireActionTraversalStrategy implements ISeffTraversalStrategy<Ac
         final PassiveResource passiveResouce = action.getPassiveresource_AcquireAction();
 
         final SimPassiveResource res = state.getStack().currentScope().getComponent()
-                .getPassiveResource(passiveResouce);
-        final boolean acquired = res.acquire(request.getSimulatedProcess(), 1);
+                .getPassiveResource(passiveResouce); 
+        final boolean acquired = res.acquire(request.getSimulatedProcess(), 1, false, action.getTimeoutValue());
 
         if (acquired) {
             return new TraverseNextAction<AbstractAction>(action.getSuccessor_AbstractAction());

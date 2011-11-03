@@ -13,8 +13,6 @@ import de.uka.ipd.sdq.simulation.staticstructure.SimulatedSystem;
 
 public class BuildSimulatedSystem implements IPCMCommand<SimulatedSystem> {
 
-  
-    
     @Override
     public SimulatedSystem execute(PCMModel model, ICommandExecutor<PCMModel> executor) {
         SimulatedSystem system = new SimulatedSystem();

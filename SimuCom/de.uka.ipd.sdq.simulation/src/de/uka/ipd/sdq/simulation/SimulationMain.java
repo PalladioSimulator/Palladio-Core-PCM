@@ -59,11 +59,10 @@ public class SimulationMain implements ISimulationControl, BundleActivator {
     /**
      * {@inheritDoc}
      */
-    @Override
-    public SimuComResult startSimulation(final AbstractSimulationConfig config, final IStatusObserver statusObserver,
-            final boolean useOwnSensorstorage) {
-
-        this.initializeLogger(config);
+	@Override
+	public void prepareSimulation(AbstractSimulationConfig config,
+			final IStatusObserver statusObserver, boolean useOwnSensorstorage) {
+		this.initializeLogger(config);
 
         // create simulation model
         this.model = EventSimModel.create((EventSimConfig) config, this.bundleContext);
@@ -84,7 +83,14 @@ public class SimulationMain implements ISimulationControl, BundleActivator {
 
         });
         this.getStatus().setCurrentSimulationTime(0);
-
+	}
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public SimuComResult startSimulation(final AbstractSimulationConfig config, final IStatusObserver statusObserver,
+            final boolean useOwnSensorstorage) {
         try {
             this.model.getSimulationControl().start();
         } catch (final Throwable t) {

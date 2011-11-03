@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.simulation;
 
-import de.uka.ipd.sdq.simulation.abstractSimEngine.SimCondition;
+import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
 
 public class MaxMeasurementsStopCondition extends SimCondition<EventSimModel> {
 

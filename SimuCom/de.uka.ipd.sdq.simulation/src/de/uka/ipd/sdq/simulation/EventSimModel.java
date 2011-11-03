@@ -1,26 +1,41 @@
 package de.uka.ipd.sdq.simulation;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.osgi.framework.BundleContext;
 
+import umontreal.iro.lecuyer.simevents.Simulator;
+
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.probespec.framework.BlackboardFactory;
 import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
+import de.uka.ipd.sdq.probespec.framework.RequestContext;
+import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
+import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
+import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.simucomframework.DiscardInvalidMeasurementsBlackboardDecorator;
 import de.uka.ipd.sdq.simucomframework.ISimulationListener;
-import de.uka.ipd.sdq.simucomframework.ssj.SSJSimEngineFactory;
+import de.uka.ipd.sdq.simucomframework.SimuComGarbageCollector;
+import de.uka.ipd.sdq.simucomframework.calculator.SetupPipesAndFiltersStrategy;
+import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.probes.SimuComProbeStrategyRegistry;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.PCMStoExEvaluationVisitor;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.ISimEngineFactory;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.ISimulationControl;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.ISimulationModel;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ssj.SSJExperiment;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ssj.SSJSimEngineFactory;
 import de.uka.ipd.sdq.simulation.command.BuildComponentInstances;
 import de.uka.ipd.sdq.simulation.command.ICommand;
 import de.uka.ipd.sdq.simulation.command.ICommandExecutor;
@@ -88,6 +103,7 @@ public class EventSimModel implements ISimulationModel<EventSimModel> {
     private Map<String, ComponentInstance> componentRegistry;
 
     private EntityTraceRecorder traceRecorder;
+    private ProbeSpecContext probeSpecContext;
 
     private EventSimModel(final EventSimConfig config, final ISimEngineFactory<EventSimModel> factory,
             final BundleContext context) {
@@ -122,10 +138,12 @@ public class EventSimModel implements ISimulationModel<EventSimModel> {
     @Override
     public void init() {
         // initialise random generators
-        PCMStoExEvaluationVisitor.deleteFunctionLib();
         StoExCache.initialiseStoExCache(this.config.getRandomGenerator());
         ProbabilityFunctionFactoryImpl.getInstance().setRandomGenerator(this.config.getRandomGenerator());
 
+        // set up the resource scheduler
+        initScheduler();
+        
         // initialise resource environment and allocation
         this.resourceEnvironment = this.execute(new BuildSimulatedResourceEnvironment(this));
         this.resourceAllocation = this.execute(new BuildResourceAllocation(this.resourceEnvironment));
@@ -139,7 +157,7 @@ public class EventSimModel implements ISimulationModel<EventSimModel> {
         // setup handling for PCM parameter characterisations
         this.execute(new InstallSystemCallParameterHandling());
         this.execute(new InstallExternalCallParameterHandling());
-
+        
         // initialise the Probe Specification
         this.initialiseProbeSpecification();
 
@@ -163,6 +181,48 @@ public class EventSimModel implements ISimulationModel<EventSimModel> {
         for (final IWorkloadGenerator d : workloadGenerators) {
             d.processWorkload();
         }
+    }
+    
+    private void initScheduler() {
+        // Obtain the used SSJ simulator and set the scheduler's simulator accordingly.
+        // FIXME: The simulation engine (here: SSJ) should not be hard-coded. 
+        SSJExperiment<EventSimModel> exp = (SSJExperiment<EventSimModel>) this.getSimulationControl();
+        Simulator simulator = exp.getSimulator(); 
+        SchedulingFactory.setUsedSimulator(simulator);
+        ISchedulingFactory.eINSTANCE.resetFactory();
+    }
+    
+    /**
+     * Initialises the Probe Specification by building the {@link ProbeSpecContext}, setting up the
+     * calculators and mounting the probes.
+     */
+    private void initialiseProbeSpecification() {        
+        // create ProbeSpecification context
+        probeSpecContext = new ProbeSpecContext();
+
+        // create a blackboard of the specified type
+        ISampleBlackboard blackboard = BlackboardFactory.createBlackboard(config.getBlackboardType(), probeSpecContext
+                .getThreadManager());
+
+        // initialise ProbeSpecification context
+        probeSpecContext.initialise(blackboard, new EventSimProbeStrategyRegistry(), new CalculatorFactory(this));
+
+        // install a garbage collector which keeps track of the samples stored on the blackboard and
+        // removes samples when they become obsolete
+        IRegionBasedGarbageCollector<RequestContext> garbageCollector = new EventSimGarbageCollector(blackboard);
+        probeSpecContext.setBlackboardGarbageCollector(garbageCollector);
+        
+        // build calculators
+        this.execute(new BuildResponseTimeCalculators(this));
+        this.execute(new BuildActiveResourceCalculators(this, this.resourceEnvironment));
+        this.execute(new BuildPassiveResourceCalculators(this, this.passiveResourceRegistry));
+
+        // mount probes
+        this.execute(new MountUsageScenarioProbes());
+        this.execute(new MountSystemCallProbes());
+        this.execute(new MountExternalCallProbes());
+        this.execute(new MountActiveResourceProbes(this, this.resourceEnvironment));
+        this.execute(new MountPassiveResourceProbes(this, this.passiveResourceRegistry));
     }
 
     private void setupStopConditions() {
@@ -207,7 +267,7 @@ public class EventSimModel implements ISimulationModel<EventSimModel> {
         UsageBehaviorTraversal.clearTraversalListeners();
         SeffTraversal.clearTraversalListeners();
         EventSimEntity.resetIdGenerator();
-        ProbeSpecContext.instance().finish();
+        probeSpecContext.finish();
 
         logger.info("Simulation took " + getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
 
@@ -351,6 +411,10 @@ public class EventSimModel implements ISimulationModel<EventSimModel> {
     public BundleContext getBundleContext() {
         return this.bundleContext;
     }
+    
+    public ProbeSpecContext getProbeSpecContext() {
+        return probeSpecContext;
+    }
 
     /**
      * Notfies all simulation observers that the simulation is about to start
@@ -371,31 +435,6 @@ public class EventSimModel implements ISimulationModel<EventSimModel> {
     }
 
     /**
-     * Initialises the Probe Specification by building the {@link ProbeSpecContext}, setting up the
-     * calculators and mounting the probes.
-     */
-    private void initialiseProbeSpecification() {
-        // initialise context
-        ProbeSpecContext.clean();
-        final ProbeSpecContext context = ProbeSpecContext.instance();
-        final ISampleBlackboard sampleBlackboard = BlackboardFactory.createBlackboard(this.config.getBlackboardType());
-        context.configure(sampleBlackboard, new EventSimGarbageCollector(sampleBlackboard),
-                new EventSimProbeStrategyRegistry(), new CalculatorFactory(sampleBlackboard, this));
-
-        // build calculators
-        this.execute(new BuildResponseTimeCalculators());
-        this.execute(new BuildActiveResourceCalculators(this.resourceEnvironment));
-        this.execute(new BuildPassiveResourceCalculators(this.passiveResourceRegistry));
-
-        // mount probes
-        this.execute(new MountUsageScenarioProbes());
-        this.execute(new MountSystemCallProbes());
-        this.execute(new MountExternalCallProbes());
-        this.execute(new MountActiveResourceProbes(this, this.resourceEnvironment));
-        this.execute(new MountPassiveResourceProbes(this, this.passiveResourceRegistry));
-    }
-
-    /**
      * Returns the PCM model that is to be simulated. If it has not been loaded before, this methods
      * loads the PCM model from the bundle.
      * 
@@ -411,17 +450,18 @@ public class EventSimModel implements ISimulationModel<EventSimModel> {
         }
         return this.pcmModel;
     }
-
+    
     /**
-     * Takes an absolute path and converts it to a path that is relative to the bundle.
+     * Takes a path and converts it to a path that is relative to the bundle.
      * 
-     * @param absolutePath
-     *            the absolute path
+     * @param location
+     *            the path
      * @return the relative path
      */
-    private IPath createRelativePathToModelFile(final String absolutePath) {
-        final URI fileSystemUri = URI.createFileURI(absolutePath);
-        final String fileName = fileSystemUri.segment(fileSystemUri.segmentCount() - 1);
+    private IPath createRelativePathToModelFile(final String location) {
+        URI u = URI.createURI(location);
+        String fileName = u.segment(u.segmentCount()-1);
+
         final IPath path = new Path("model/" + fileName);
         return path;
     }

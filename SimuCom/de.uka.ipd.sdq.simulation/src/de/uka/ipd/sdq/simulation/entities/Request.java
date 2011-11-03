@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.simulation.EventSimModel;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.AbstractSimEvent;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
 import de.uka.ipd.sdq.simulation.debug.DebugEntityListener;
 import de.uka.ipd.sdq.simulation.resources.scheduler.IProcessListener;
 import de.uka.ipd.sdq.simulation.resources.scheduler.SimulatedProcess;

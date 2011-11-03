@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.simulation.events;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.simulation.EventSimModel;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.AbstractSimEvent;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
 import de.uka.ipd.sdq.simulation.entities.User;
 import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviorTraversal;
 

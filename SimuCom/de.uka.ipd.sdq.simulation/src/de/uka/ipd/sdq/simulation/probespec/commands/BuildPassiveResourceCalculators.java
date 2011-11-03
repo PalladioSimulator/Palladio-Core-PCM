@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.HoldTimeCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.StateCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.WaitingTimeCalculator;
+import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.PCMModel;
 import de.uka.ipd.sdq.simulation.command.ICommandExecutor;
 import de.uka.ipd.sdq.simulation.command.IPCMCommand;
@@ -16,19 +17,21 @@ import de.uka.ipd.sdq.simulation.staticstructure.PassiveResourceRegistry;
 
 public class BuildPassiveResourceCalculators implements IPCMCommand<List<Calculator>> {
 
+    private EventSimModel model;
     private PassiveResourceRegistry registry;
 
-    public BuildPassiveResourceCalculators(PassiveResourceRegistry registry) {
+    public BuildPassiveResourceCalculators(EventSimModel model, PassiveResourceRegistry registry) {
         this.registry = registry;
+        this.model = model;
     }
 
     @Override
     public List<Calculator> execute(PCMModel model, ICommandExecutor<PCMModel> executor) {
         List<Calculator> calculators = new ArrayList<Calculator>();
         for (SimPassiveResource r : registry.getPassiveResources()) {
-            calculators.add(setupStateCalculator(r));
-            calculators.add(setupWaitingTimeCalculator(r));
-            calculators.add(setupHoldTimeCalculator(r));
+            calculators.add(setupStateCalculator(this.model.getProbeSpecContext(), r));
+            calculators.add(setupWaitingTimeCalculator(this.model.getProbeSpecContext(), r));
+            calculators.add(setupHoldTimeCalculator(this.model.getProbeSpecContext(), r));
         }
         return calculators;
     }
@@ -45,45 +48,45 @@ public class BuildPassiveResourceCalculators implements IPCMCommand<List<Calcula
      *            the resource
      * @return the probe set ID
      */
-    public static Integer getStateProbeSetId(SimPassiveResource resource) {
-        return ProbeSpecContext.instance().obtainProbeSetId(
+    public static Integer getStateProbeSetId(ProbeSpecContext probeSpecContext, SimPassiveResource resource) {
+        return probeSpecContext.obtainProbeSetId(
                 "state_" + resource.getResourceName() + " " + resource.getResourceId());
     }
 
-    public static Integer getStartWaitingProbeSetId(SimPassiveResource resource) {
-        return ProbeSpecContext.instance().obtainProbeSetId("startWaiting_" + resource.getResourceId());
+    public static Integer getStartWaitingProbeSetId(ProbeSpecContext probeSpecContext, SimPassiveResource resource) {
+        return probeSpecContext.obtainProbeSetId("startWaiting_" + resource.getResourceId());
     }
 
-    public static Integer getStopWaitingProbeSetId(SimPassiveResource resource) {
-        return ProbeSpecContext.instance().obtainProbeSetId("stopWaiting_" + resource.getResourceId());
+    public static Integer getStopWaitingProbeSetId(ProbeSpecContext probeSpecContext, SimPassiveResource resource) {
+        return probeSpecContext.obtainProbeSetId("stopWaiting_" + resource.getResourceId());
     }
 
-    public static Integer getStartHoldTimeProbeSetId(SimPassiveResource resource) {
-        return ProbeSpecContext.instance().obtainProbeSetId("startHold" + resource.getResourceId());
+    public static Integer getStartHoldTimeProbeSetId(ProbeSpecContext probeSpecContext, SimPassiveResource resource) {
+        return probeSpecContext.obtainProbeSetId("startHold" + resource.getResourceId());
     }
 
-    public static Integer getStopHoldTimeProbeSetId(SimPassiveResource resource) {
-        return ProbeSpecContext.instance().obtainProbeSetId("stopHold" + resource.getResourceId());
+    public static Integer getStopHoldTimeProbeSetId(ProbeSpecContext probeSpecContext, SimPassiveResource resource) {
+        return probeSpecContext.obtainProbeSetId("stopHold" + resource.getResourceId());
     }
 
-    private StateCalculator setupStateCalculator(SimPassiveResource resource) {
-        final Integer stateProbeSetID = getStateProbeSetId(resource);
-        return ProbeSpecContext.instance().getCalculatorFactory().buildStateCalculator(
+    private StateCalculator setupStateCalculator(ProbeSpecContext probeSpecContext, SimPassiveResource resource) {
+        final Integer stateProbeSetID = getStateProbeSetId(probeSpecContext, resource);
+        return probeSpecContext.getCalculatorFactory().buildStateCalculator(
                 "Passive Resource " + resource.getResourceName() + " " + resource.getResourceId(), stateProbeSetID);
     }
 
-    private WaitingTimeCalculator setupWaitingTimeCalculator(SimPassiveResource resource) {
-        final Integer startWaitingProbeSetId = getStartWaitingProbeSetId(resource);
-        final Integer stopWaitingProbeSetId = getStopWaitingProbeSetId(resource);
-        return ProbeSpecContext.instance().getCalculatorFactory().buildWaitingTimeCalculator(
+    private WaitingTimeCalculator setupWaitingTimeCalculator(ProbeSpecContext probeSpecContext, SimPassiveResource resource) {
+        final Integer startWaitingProbeSetId = getStartWaitingProbeSetId(probeSpecContext, resource);
+        final Integer stopWaitingProbeSetId = getStopWaitingProbeSetId(probeSpecContext, resource);
+        return probeSpecContext.getCalculatorFactory().buildWaitingTimeCalculator(
                 "Passive Resource " + resource.getResourceName() + " " + resource.getResourceId(),
                 startWaitingProbeSetId, stopWaitingProbeSetId);
     }
 
-    private HoldTimeCalculator setupHoldTimeCalculator(SimPassiveResource resource) {
-        final Integer startHoldProbeSetId = getStartHoldTimeProbeSetId(resource);
-        final Integer stopHoldProbeSetId = getStopHoldTimeProbeSetId(resource);
-        return ProbeSpecContext.instance().getCalculatorFactory().buildHoldTimeCalculator(
+    private HoldTimeCalculator setupHoldTimeCalculator(ProbeSpecContext probeSpecContext, SimPassiveResource resource) {
+        final Integer startHoldProbeSetId = getStartHoldTimeProbeSetId(probeSpecContext, resource);
+        final Integer stopHoldProbeSetId = getStopHoldTimeProbeSetId(probeSpecContext, resource);
+        return probeSpecContext.getCalculatorFactory().buildHoldTimeCalculator(
                 "Passive Resource " + resource.getResourceName() + " " + resource.getResourceId(), startHoldProbeSetId,
                 stopHoldProbeSetId);
     }

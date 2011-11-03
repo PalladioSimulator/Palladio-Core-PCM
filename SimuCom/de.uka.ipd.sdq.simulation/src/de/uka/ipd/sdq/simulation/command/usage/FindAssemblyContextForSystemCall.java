@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simulation.command.usage;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.Connector;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
@@ -40,13 +41,23 @@ public class FindAssemblyContextForSystemCall implements IPCMCommand<AssemblyCon
      */
     @Override
     public AssemblyContext execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
-        // find the system which provides the call
+        // find the system which is referred to by the call 
         InterfaceProvidingEntity entity = call.getProvidedRole_EntryLevelSystemCall().getProvidingEntity_ProvidedRole();
         System system = castToSystemOrThrowException(entity);
 
+        // throw an exception, if the call refers to another system as specified by the simulation parameters  
+        if (!system.getId().equals(pcm.getSystemModel().getId())) {
+            throw new RuntimeException(
+                    "The system call "
+                            + PCMEntityHelper.toString(call)
+                            + " refers to a system different from the system specified in the simulation configuration. Expected "
+                            + PCMEntityHelper.toString(pcm.getSystemModel()) + ", but encountered "
+                            + PCMEntityHelper.toString(system) + ".");
+        }
+
         // find delegation connector pointing to the assembly context
-        OperationProvidedRole wantedRole = call.getProvidedRole_EntryLevelSystemCall();
-        ProvidedDelegationConnector delegationConnector = findDelegationConnectorForRole(system, wantedRole);
+        OperationProvidedRole providedRole = call.getProvidedRole_EntryLevelSystemCall();
+        ProvidedDelegationConnector delegationConnector = findDelegationConnectorForRole(system, providedRole);
 
         AssemblyContext assemblyCtx = delegationConnector.getAssemblyContext_ProvidedDelegationConnector();
 
@@ -90,13 +101,16 @@ public class FindAssemblyContextForSystemCall implements IPCMCommand<AssemblyCon
      */
     private ProvidedDelegationConnector findDelegationConnectorForRole(System system, OperationProvidedRole role) {
         ProvidedDelegationConnector delegationConnector = null;
-        for (ProvidedDelegationConnector c : system.getProvidedDelegationConnectors_ComposedStructure()) {
-            OperationProvidedRole outerRole = c.getOuterProvidedRole_ProvidedDelegationConnector();
-            OperationProvidedRole wantedRole = call.getProvidedRole_EntryLevelSystemCall();
-            if (outerRole.getId().equals(wantedRole.getId())) {
-                delegationConnector = c;
-                // we have found the connector, so leave the "for" loop
-                break;
+        for (Connector c : system.getConnectors__ComposedStructure()) {
+            if (ProvidedDelegationConnector.class.isInstance(c)) {
+                ProvidedDelegationConnector pdc = (ProvidedDelegationConnector) c;
+                OperationProvidedRole outerRole = pdc.getOuterProvidedRole_ProvidedDelegationConnector();
+                OperationProvidedRole wantedRole = call.getProvidedRole_EntryLevelSystemCall();
+                if (outerRole.getId().equals(wantedRole.getId())) {
+                    delegationConnector = pdc;
+                    // we have found the connector, so leave the "for" loop
+                    break;
+                }
             }
         }
         if (delegationConnector == null) {

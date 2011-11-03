@@ -42,7 +42,7 @@ public class ClosedWorkloadGenerator implements IWorkloadGenerator {
         this.workload = workload;
         this.population = workload.getPopulation();
         this.thinkTime = workload.getThinkTime_ClosedWorkload();
-        this.blackboardGarbageCollector = ProbeSpecContext.instance().getBlackboardGarbageCollector();
+        this.blackboardGarbageCollector = this.model.getProbeSpecContext().getBlackboardGarbageCollector();
     }
 
     /**

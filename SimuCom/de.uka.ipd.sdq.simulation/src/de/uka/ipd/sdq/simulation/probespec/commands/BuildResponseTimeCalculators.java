@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.CalculatorRegistry;
 import de.uka.ipd.sdq.probespec.framework.calculator.ResponseTimeCalculator;
+import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.PCMModel;
 import de.uka.ipd.sdq.simulation.command.ICommandExecutor;
 import de.uka.ipd.sdq.simulation.command.IPCMCommand;
@@ -37,20 +38,27 @@ import de.uka.ipd.sdq.simulation.command.usage.FindSystemCallsOfScenario;
  */
 public class BuildResponseTimeCalculators implements IPCMCommand<List<Calculator>> {
 
+    private EventSimModel model;
+
+    public BuildResponseTimeCalculators(EventSimModel model) {
+        this.model = model;
+    }
+
     /**
      * {@inheritDoc}
      */
     @Override
     public List<Calculator> execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
         List<Calculator> calculators = new ArrayList<Calculator>();
-        CalculatorRegistry registry = ProbeSpecContext.instance().getCalculatorRegistry();
+        ProbeSpecContext probeSpecContext = model.getProbeSpecContext();
+        CalculatorRegistry registry = probeSpecContext.getCalculatorRegistry();
 
         // build a calculator for each UsageScenario
         UsageModel usageModel = pcm.getUsageModel();
         for (UsageScenario s : usageModel.getUsageScenario_UsageModel()) {
-            Calculator calculator = ProbeSpecContext.instance().getCalculatorFactory().buildResponseTimeCalculator(
-                    s.getEntityName(), ProbeSpecContext.instance().obtainProbeSetId(s.getId() + "_start"),
-                    ProbeSpecContext.instance().obtainProbeSetId(s.getId() + "_end"));
+            Calculator calculator = probeSpecContext.getCalculatorFactory().buildResponseTimeCalculator(
+                    s.getEntityName(), probeSpecContext.obtainProbeSetId(s.getId() + "_start"),
+                    probeSpecContext.obtainProbeSetId(s.getId() + "_end"));
             calculators.add(calculator);
             registry.registerCalculator(s.getId(), calculator);
         }
@@ -59,9 +67,9 @@ public class BuildResponseTimeCalculators implements IPCMCommand<List<Calculator
         for (UsageScenario s : usageModel.getUsageScenario_UsageModel()) {
             List<EntryLevelSystemCall> calls = executor.execute(new FindSystemCallsOfScenario(s));
             for (EntryLevelSystemCall c : calls) {
-                Calculator calculator = ProbeSpecContext.instance().getCalculatorFactory().buildResponseTimeCalculator(
-                        buildSystemCallName(c), ProbeSpecContext.instance().obtainProbeSetId(c.getId() + "_start"),
-                        ProbeSpecContext.instance().obtainProbeSetId(c.getId() + "_end"));
+                Calculator calculator = probeSpecContext.getCalculatorFactory().buildResponseTimeCalculator(
+                        buildSystemCallName(c), probeSpecContext.obtainProbeSetId(c.getId() + "_start"),
+                        probeSpecContext.obtainProbeSetId(c.getId() + "_end"));
                 calculators.add(calculator);
                 registry.registerCalculator(c.getId(), calculator);
             }
@@ -82,10 +90,10 @@ public class BuildResponseTimeCalculators implements IPCMCommand<List<Calculator
 
             // build and register a calculator for each call
             for (ExternalCallAction c : calls) {
-                Calculator calculator = ProbeSpecContext.instance().getCalculatorFactory().buildResponseTimeCalculator(
+                Calculator calculator = probeSpecContext.getCalculatorFactory().buildResponseTimeCalculator(
                         buildExternalCallName(c, assemblyCtx),
-                        ProbeSpecContext.instance().obtainProbeSetId(c.getId() + "," + assemblyCtx.getId() + "_start"),
-                        ProbeSpecContext.instance().obtainProbeSetId(c.getId() + "," + assemblyCtx.getId() + "_end"));
+                        probeSpecContext.obtainProbeSetId(c.getId() + "," + assemblyCtx.getId() + "_start"),
+                        probeSpecContext.obtainProbeSetId(c.getId() + "," + assemblyCtx.getId() + "_end"));
                 calculators.add(calculator);
                 registry.registerCalculator(c.getId(), calculator);
             }
@@ -129,7 +137,7 @@ public class BuildResponseTimeCalculators implements IPCMCommand<List<Calculator
         builder.append(call.getCalledService_ExternalService().getEntityName());
         builder.append(getPositionInInterface(call.getCalledService_ExternalService()));
         builder.append(" <Component: ");
-        builder.append(assemblyCtx.getEncapsulatedComponent_AssemblyContext().getEntityName());
+        builder.append(assemblyCtx.getEncapsulatedComponent__AssemblyContext().getEntityName());
         builder.append(", AssemblyCtx: ");
         builder.append(assemblyCtx.getId());
         builder.append(", CallID: ");

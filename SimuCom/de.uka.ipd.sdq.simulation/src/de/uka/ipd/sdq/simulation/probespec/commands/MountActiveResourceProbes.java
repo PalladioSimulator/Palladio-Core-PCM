@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategy;
 import de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.PCMModel;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.ISimulationControl;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.command.ICommandExecutor;
 import de.uka.ipd.sdq.simulation.command.IPCMCommand;
 import de.uka.ipd.sdq.simulation.entities.SimActiveResource;
@@ -89,17 +89,19 @@ public class MountActiveResourceProbes implements IPCMCommand<Void> {
                 @Override
                 public void stateChanged(int state, int instanceId) {
                     // take current time
-                    ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl());
+                    ProbeSample currentTimeSample = takeCurrentTimeSample(model.getProbeSpecContext(), model
+                            .getSimulationControl());
 
                     // take state
-                    ProbeSample stateSample = takeStateProbe(state);
+                    ProbeSample stateSample = takeStateProbe(model.getProbeSpecContext(), state);
 
                     // build ProbeSetSample and publish it on the blackboard
                     // TODO maybe null instead of an empty string is better here
                     RequestContext context = new RequestContext("");
-                    ProbeSpecContext.instance().getSampleBlackboard().addSample(
+                    model.getProbeSpecContext().getSampleBlackboard().addSample(
                             ProbeSpecUtils.buildProbeSetSample(currentTimeSample, stateSample, context, "",
-                                    BuildActiveResourceCalculators.getStateProbeSetId(resource, i)));
+                                    BuildActiveResourceCalculators.getStateProbeSetId(model.getProbeSpecContext(),
+                                            resource, i)));
                 }
             }, instance);
         }
@@ -113,15 +115,20 @@ public class MountActiveResourceProbes implements IPCMCommand<Void> {
             public void utilizationChanged(double resourceDemand, double totalTime) {
                 // build ProbeSetSamples and publish them on the blackboard
                 // TODO maybe null instead of empty string is better here
-                ISampleBlackboard blackboard = ProbeSpecContext.instance().getSampleBlackboard();
+                ISampleBlackboard blackboard = model.getProbeSpecContext().getSampleBlackboard();
                 RequestContext context = new RequestContext("");
-                blackboard.addSample(ProbeSpecUtils.buildProbeSetSample(takeTimeSample(0.0), takeStateProbe(1),
-                        context, "", BuildActiveResourceCalculators.getOverallUtilisationProbeSetId(resource)));
-                blackboard.addSample(ProbeSpecUtils.buildProbeSetSample(takeTimeSample(resourceDemand),
-                        takeStateProbe(0), context, "", BuildActiveResourceCalculators
-                                .getOverallUtilisationProbeSetId(resource)));
-                blackboard.addSample(ProbeSpecUtils.buildProbeSetSample(takeTimeSample(totalTime), takeStateProbe(1),
-                        context, "", BuildActiveResourceCalculators.getOverallUtilisationProbeSetId(resource)));
+                blackboard.addSample(ProbeSpecUtils.buildProbeSetSample(
+                        takeTimeSample(model.getProbeSpecContext(), 0.0),
+                        takeStateProbe(model.getProbeSpecContext(), 1), context, "", BuildActiveResourceCalculators
+                                .getOverallUtilisationProbeSetId(model.getProbeSpecContext(), resource)));
+                blackboard.addSample(ProbeSpecUtils.buildProbeSetSample(takeTimeSample(model.getProbeSpecContext(),
+                        resourceDemand), takeStateProbe(model.getProbeSpecContext(), 0), context, "",
+                        BuildActiveResourceCalculators.getOverallUtilisationProbeSetId(model.getProbeSpecContext(),
+                                resource)));
+                blackboard.addSample(ProbeSpecUtils.buildProbeSetSample(takeTimeSample(model.getProbeSpecContext(),
+                        totalTime), takeStateProbe(model.getProbeSpecContext(), 1), context, "",
+                        BuildActiveResourceCalculators.getOverallUtilisationProbeSetId(model.getProbeSpecContext(),
+                                resource)));
             }
         });
     }
@@ -140,16 +147,18 @@ public class MountActiveResourceProbes implements IPCMCommand<Void> {
             @Override
             public void demand(double demand) {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl());
+                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getProbeSpecContext(), model
+                        .getSimulationControl());
 
                 // take demanded time
-                ProbeSample demandedTimeSample = takeDemandedTimeSample(demand);
+                ProbeSample demandedTimeSample = takeDemandedTimeSample(model.getProbeSpecContext(), demand);
 
                 // build ProbeSetSample and publish it on the blackboard
                 RequestContext context = new RequestContext("");
-                ProbeSpecContext.instance().getSampleBlackboard().addSample(
+                model.getProbeSpecContext().getSampleBlackboard().addSample(
                         ProbeSpecUtils.buildProbeSetSample(currentTimeSample, demandedTimeSample, context, "",
-                                BuildActiveResourceCalculators.getDemandedTimeProbeSetId(resource)));
+                                BuildActiveResourceCalculators.getDemandedTimeProbeSetId(model.getProbeSpecContext(),
+                                        resource)));
             }
         });
     }
@@ -162,8 +171,8 @@ public class MountActiveResourceProbes implements IPCMCommand<Void> {
      * @return the created probe sample
      */
     @SuppressWarnings("unchecked")
-    private static ProbeSample takeStateProbe(int state) {
-        IProbeStrategy probeStrategy = ProbeSpecContext.instance().getProbeStrategyRegistry().getProbeStrategy(
+    private static ProbeSample takeStateProbe(ProbeSpecContext probeSpecContext, int state) {
+        IProbeStrategy probeStrategy = probeSpecContext.getProbeStrategyRegistry().getProbeStrategy(
                 ProbeType.RESOURCE_STATE, SimActiveResource.class);
         ProbeSample stateSample = probeStrategy.takeSample("TODO: probeId", state);
         return stateSample;
@@ -178,16 +187,17 @@ public class MountActiveResourceProbes implements IPCMCommand<Void> {
      * @return the created probe sample
      */
     @SuppressWarnings("unchecked")
-    private static ProbeSample takeCurrentTimeSample(ISimulationControl<EventSimModel> simControl) {
-        IProbeStrategy probeStrategy = ProbeSpecContext.instance().getProbeStrategyRegistry().getProbeStrategy(
+    private static ProbeSample takeCurrentTimeSample(ProbeSpecContext probeSpecContext,
+            ISimulationControl<EventSimModel> simControl) {
+        IProbeStrategy probeStrategy = probeSpecContext.getProbeStrategyRegistry().getProbeStrategy(
                 ProbeType.CURRENT_TIME, null);
         ProbeSample currentTimeSample = probeStrategy.takeSample("TODO: probeId", simControl);
         return currentTimeSample;
     }
 
     @SuppressWarnings("unchecked")
-    private static ProbeSample takeTimeSample(Double time) {
-        IProbeStrategy probeStrategy = ProbeSpecContext.instance().getProbeStrategyRegistry().getProbeStrategy(
+    private static ProbeSample takeTimeSample(ProbeSpecContext probeSpecContext, Double time) {
+        IProbeStrategy probeStrategy = probeSpecContext.getProbeStrategyRegistry().getProbeStrategy(
                 ProbeType.CURRENT_TIME, null);
         ProbeSample currentTimeSample = probeStrategy.takeSample("TODO: probeId", time);
         return currentTimeSample;
@@ -201,8 +211,8 @@ public class MountActiveResourceProbes implements IPCMCommand<Void> {
      * @return the created probe sample
      */
     @SuppressWarnings("unchecked")
-    private static ProbeSample takeDemandedTimeSample(Double demand) {
-        IProbeStrategy probeStrategy = ProbeSpecContext.instance().getProbeStrategyRegistry().getProbeStrategy(
+    private static ProbeSample takeDemandedTimeSample(ProbeSpecContext probeSpecContext, Double demand) {
+        IProbeStrategy probeStrategy = probeSpecContext.getProbeStrategyRegistry().getProbeStrategy(
                 ProbeType.RESOURCE_DEMAND, SimActiveResource.class);
         ProbeSample demandedTimeSample = probeStrategy.takeSample("TODO: probeId", demand);
         return demandedTimeSample;

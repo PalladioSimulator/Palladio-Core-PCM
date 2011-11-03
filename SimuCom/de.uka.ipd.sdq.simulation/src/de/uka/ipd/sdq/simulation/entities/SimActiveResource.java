@@ -76,6 +76,11 @@ public class SimActiveResource extends EventSimEntity {
             public void update(int state, int instanceId) {
                 fireStateEvent(state, instanceId);
             }
+
+            @Override
+            public void demandCompleted(ISchedulableProcess simProcess) {
+                // do nothing
+            }
         });
     }
 
@@ -93,7 +98,9 @@ public class SimActiveResource extends EventSimEntity {
         }
         double concreteDemand = calculateConcreteDemand(abstractDemand);
         this.totalDemandedTime += concreteDemand;
-        schedulerResource.process(process, concreteDemand);
+        
+        // TODO What resource service ID has to passed here?
+        schedulerResource.process(process, 1, concreteDemand);
 
         // notify demands listeners
         fireDemand(abstractDemand);

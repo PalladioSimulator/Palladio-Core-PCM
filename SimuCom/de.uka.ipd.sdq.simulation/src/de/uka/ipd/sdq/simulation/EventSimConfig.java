@@ -1,11 +1,12 @@
 package de.uka.ipd.sdq.simulation;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.simucomframework.AbstractSimulationConfig;
-import de.uka.ipd.sdq.workflow.launchconfig.ConstantsContainer;
+import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 
 /**
  * This class encapsulates the configuration of an EventSim simulation run. The configuration is
@@ -65,6 +66,7 @@ public class EventSimConfig extends AbstractSimulationConfig {
     @SuppressWarnings("unused")
     private EventSimConfig() {
         // this constructor is not intended to be called.
+    	super(null, false);
         this.usageModelFile = null;
         this.allocationModelFile = null;
     }

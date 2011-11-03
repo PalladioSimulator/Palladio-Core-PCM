@@ -58,23 +58,25 @@ public class MountExternalCallProbes implements IPCMCommand<Void> {
                     @Override
                     public void before(AbstractAction action, Request r, TraversalState<AbstractAction> state) {
                         // take current time sample
-                        ProbeSpecContext.instance().getSampleBlackboard().addSample(
-                                ProbeSpecUtils.buildProbeSetSample(ProbeSpecContext.instance()
-                                        .getProbeStrategyRegistry().getProbeStrategy(ProbeType.CURRENT_TIME, null)
-                                        .takeSample(c.getId(), r.getModel().getSimulationControl()), r
-                                        .getRequestContext(), c.getId(), ProbeSpecContext.instance().obtainProbeSetId(
-                                        c.getId() + "," + assemblyCtx.getId() + "_start")));
+                        ProbeSpecContext probeSpecContext = r.getModel().getProbeSpecContext();
+                        probeSpecContext.getSampleBlackboard().addSample(
+                                ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()
+                                        .getProbeStrategy(ProbeType.CURRENT_TIME, null).takeSample(c.getId(),
+                                                r.getModel().getSimulationControl()), r.getRequestContext(), c.getId(),
+                                        probeSpecContext.obtainProbeSetId(c.getId() + "," + assemblyCtx.getId()
+                                                + "_start")));
                     }
 
                     @Override
                     public void after(AbstractAction action, Request r, TraversalState<AbstractAction> state) {
                         // take current time sample
-                        ProbeSpecContext.instance().getSampleBlackboard().addSample(
-                                ProbeSpecUtils.buildProbeSetSample(ProbeSpecContext.instance()
-                                        .getProbeStrategyRegistry().getProbeStrategy(ProbeType.CURRENT_TIME, null)
-                                        .takeSample(c.getId(), r.getModel().getSimulationControl()), r
-                                        .getRequestContext(), c.getId(), ProbeSpecContext.instance().obtainProbeSetId(
-                                        c.getId() + "," + assemblyCtx.getId() + "_end")));
+                        ProbeSpecContext probeSpecContext = r.getModel().getProbeSpecContext();
+                        probeSpecContext.getSampleBlackboard().addSample(
+                                ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()
+                                        .getProbeStrategy(ProbeType.CURRENT_TIME, null).takeSample(c.getId(),
+                                                r.getModel().getSimulationControl()), r.getRequestContext(), c.getId(),
+                                        probeSpecContext.obtainProbeSetId(c.getId() + "," + assemblyCtx.getId()
+                                                + "_end")));
                     }
                 });
             }

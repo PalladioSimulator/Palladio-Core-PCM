@@ -39,7 +39,7 @@ public class OpenWorkloadGenerator implements IWorkloadGenerator {
         this.model = model;
         this.workload = workload;
         this.interarrivalTime = workload.getInterArrivalTime_OpenWorkload();
-        this.blackboardGarbageCollector = ProbeSpecContext.instance().getBlackboardGarbageCollector();
+        this.blackboardGarbageCollector = this.model.getProbeSpecContext().getBlackboardGarbageCollector();
     }
 
     /**

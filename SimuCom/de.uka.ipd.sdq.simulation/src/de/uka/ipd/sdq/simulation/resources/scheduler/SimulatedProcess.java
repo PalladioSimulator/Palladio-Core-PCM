@@ -134,4 +134,10 @@ public class SimulatedProcess implements ISchedulableProcess {
         terminatedObservers.remove(o);
     }
 
+    @Override
+    public void timeout(String timeoutFailureName) {
+        // TODO Failures are not yet supported
+        throw new RuntimeException("Encountered a timeout but simulation of failures is not yet supported.");
+    }
+
 }

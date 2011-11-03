@@ -4,7 +4,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.simulation.EventSimModel;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.AbstractSimEvent;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
 import de.uka.ipd.sdq.simulation.entities.Request;
 import de.uka.ipd.sdq.simulation.staticstructure.ComponentInstance;
 import de.uka.ipd.sdq.simulation.traversal.seff.SeffTraversal;

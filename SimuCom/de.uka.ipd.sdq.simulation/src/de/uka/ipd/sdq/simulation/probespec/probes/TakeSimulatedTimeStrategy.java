@@ -9,7 +9,7 @@ import javax.measure.unit.SI;
 import de.uka.ipd.sdq.probespec.framework.ProbeSample;
 import de.uka.ipd.sdq.probespec.framework.ProbeType;
 import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategy;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.ISimulationControl;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 
 /**
  * ProbeStrategy which is able to measure the current simulated time. The simulated time's unit is

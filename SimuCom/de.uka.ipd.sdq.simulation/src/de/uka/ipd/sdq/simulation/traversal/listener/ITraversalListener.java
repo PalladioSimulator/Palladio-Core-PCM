@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.simulation.traversal.listener;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.simulation.EventSimModel;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.AbstractSimEntity;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntity;
 import de.uka.ipd.sdq.simulation.traversal.BehaviourTraversal;
 import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
 

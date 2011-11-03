@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.simulation.entities;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
-import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
 import de.uka.ipd.sdq.simulation.EventSimModel;
@@ -23,7 +22,7 @@ public class ForkedRequest extends Request {
         this.asynchronous = asynchronous;
         this.parent = parent;
 
-        this.addEntityListener(new GarbageCollectionListener(ProbeSpecContext.instance()
+        this.addEntityListener(new GarbageCollectionListener(model.getProbeSpecContext()
                 .getBlackboardGarbageCollector()));
         // this.addEntityListener(new ForkFinishedHandler());
     }

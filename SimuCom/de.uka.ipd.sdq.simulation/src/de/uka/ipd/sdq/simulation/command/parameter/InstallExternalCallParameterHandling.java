@@ -41,7 +41,7 @@ public class InstallExternalCallParameterHandling implements IPCMCommand<Void> {
     public Void execute(final PCMModel pcm, final ICommandExecutor<PCMModel> executor) {
         // find all external calls
         final List<ExternalCallAction> externalCalls = new ArrayList<ExternalCallAction>();
-        for (final AssemblyContext assemblyCtx : pcm.getSystemModel().getAssemblyContexts_ComposedStructure()) {
+        for (final AssemblyContext assemblyCtx : pcm.getSystemModel().getAssemblyContexts__ComposedStructure()) {
             final List<ResourceDemandingSEFF> seffs = executor.execute(new FindSeffsForAssemblyContext(assemblyCtx));
             for (ResourceDemandingSEFF s : seffs) {
                 externalCalls.addAll(executor.execute(new FindExternalCallActionsInSeff(s)));

@@ -53,8 +53,8 @@ public class SimPassiveResource extends EventSimEntity {
      * 
      * @see IPassiveResource#acquire(de.uka.ipd.sdq.scheduler.ISchedulableProcess, int)
      */
-    public boolean acquire(SimulatedProcess process, int num) {
-        return schedulerResource.acquire(process, num);
+    public boolean acquire(SimulatedProcess process, int num, boolean timeout, double timeoutValue) {
+        return schedulerResource.acquire(process, num, timeout, timeoutValue);
     }
 
     /**

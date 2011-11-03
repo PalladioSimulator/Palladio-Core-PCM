@@ -30,6 +30,7 @@ import de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorListener;
 import de.uka.ipd.sdq.probespec.framework.calculator.ResponseTimeCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.StateCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.WaitingTimeCalculator;
+import de.uka.ipd.sdq.simucomframework.calculator.ISetupDataSinkStrategy;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.exceptions.unchecked.EventSimException;
 
@@ -45,7 +46,6 @@ import de.uka.ipd.sdq.simulation.exceptions.unchecked.EventSimException;
 public class CalculatorFactory implements ICalculatorFactory {
 
     private EventSimModel model;
-    private ISampleBlackboard blackboard;
     private String experimentRunName;
 
     /**
@@ -55,14 +55,11 @@ public class CalculatorFactory implements ICalculatorFactory {
      * 
      * @param model
      *            the simulation model
-     * @param blackboard
-     *            the blackboard
      * @param dataSink
      */
-    public CalculatorFactory(ISampleBlackboard blackboard, EventSimModel model) {
+    public CalculatorFactory(EventSimModel model) {
         this.experimentRunName = "Run " + new Date();
         this.model = model;
-        this.blackboard = blackboard;
     }
 
     /**
@@ -71,19 +68,19 @@ public class CalculatorFactory implements ICalculatorFactory {
     @Override
     public Calculator buildResponseTimeCalculator(String calculatorName, Integer startProbeSetID, Integer endProbeSetID) {
         // Initialize calculator
-        Calculator calculator = new ResponseTimeCalculator(blackboard, startProbeSetID, endProbeSetID);
+        Calculator calculator = new ResponseTimeCalculator(model.getProbeSpecContext(), startProbeSetID, endProbeSetID);
 
         // Initialize metadata
         MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator.getMeasurementMetrics(),
-                (SensorFrameworkConfig) model.getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getSimulationRunName());
+                (SensorFrameworkConfig) (SensorFrameworkConfig)model.getConfiguration().getRecorderConfig());
+        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
         metaData.setExperimentRunName(experimentRunName);
         metaData.setMeasurementName("Response Time of " + calculatorName);
         metaData.setMetricName("Response Time");
 
         // set up the pipes-and-filters chain
         PipesAndFiltersManager pipeManager = setupFilterChain(metaData, calculator);
-        ProbeSpecContext.instance().getPipeManagerRegisty().register(pipeManager);
+        model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 
         return calculator;
     }
@@ -95,21 +92,21 @@ public class CalculatorFactory implements ICalculatorFactory {
     public WaitingTimeCalculator buildDemandBasedWaitingTimeCalculator(String calculatorName,
             Integer startWaitingProbeSetID, Integer stopProcessingProbeSetID) {
         // Initialize calculator
-        WaitingTimeCalculator calculator = new DemandBasedWaitingTimeCalculator(blackboard, startWaitingProbeSetID,
+        WaitingTimeCalculator calculator = new DemandBasedWaitingTimeCalculator(model.getProbeSpecContext(), startWaitingProbeSetID,
                 stopProcessingProbeSetID);
 
         // Initialize metadata
         MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator.getMeasurementMetrics(),
                 (SensorFrameworkConfig) model.getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getSimulationRunName());
+        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
         metaData.setExperimentRunName(experimentRunName);
-        metaData.setMeasurementName(model.getConfiguration().getSimulationRunName() + ": Wait time at "
+        metaData.setMeasurementName(model.getConfiguration().getNameExperimentRun() + ": Wait time at "
                 + calculatorName);
         metaData.setMetricName("Waiting Time");
 
         // set up the pipes-and-filters chain
         PipesAndFiltersManager pipeManager = setupFilterChain(metaData, calculator);
-        ProbeSpecContext.instance().getPipeManagerRegisty().register(pipeManager);
+        model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 
         return calculator;
     }
@@ -121,20 +118,20 @@ public class CalculatorFactory implements ICalculatorFactory {
     public WaitingTimeCalculator buildWaitingTimeCalculator(String calculatorName, Integer startWaitingProbeSetID,
             Integer stopWaitingProbeSetID) {
         // Initialize calculator
-        WaitingTimeCalculator calculator = new WaitingTimeCalculator(blackboard, startWaitingProbeSetID,
+        WaitingTimeCalculator calculator = new WaitingTimeCalculator(model.getProbeSpecContext(), startWaitingProbeSetID,
                 stopWaitingProbeSetID);
 
         // Initialize metadata
         MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator.getMeasurementMetrics(),
                 (SensorFrameworkConfig) model.getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getSimulationRunName());
+        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
         metaData.setExperimentRunName(experimentRunName);
         metaData.setMeasurementName("Wait time at " + calculatorName);
         metaData.setMetricName("Waiting Time");
 
         // set up the pipes-and-filters chain
         PipesAndFiltersManager pipeManager = setupFilterChain(metaData, calculator);
-        ProbeSpecContext.instance().getPipeManagerRegisty().register(pipeManager);
+        model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 
         return calculator;
     }
@@ -146,19 +143,19 @@ public class CalculatorFactory implements ICalculatorFactory {
     public HoldTimeCalculator buildHoldTimeCalculator(String calculatorName, Integer startHoldProbeSetID,
             Integer stopHoldProbeSetID) {
         // Initialize calculator
-        HoldTimeCalculator calculator = new HoldTimeCalculator(blackboard, startHoldProbeSetID, stopHoldProbeSetID);
+        HoldTimeCalculator calculator = new HoldTimeCalculator(model.getProbeSpecContext(), startHoldProbeSetID, stopHoldProbeSetID);
 
         // Initialize metadata
         MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator.getMeasurementMetrics(),
                 (SensorFrameworkConfig) model.getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getSimulationRunName());
+        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
         metaData.setExperimentRunName(experimentRunName);
         metaData.setMeasurementName("Hold time at " + calculatorName);
         metaData.setMetricName("Hold Time");
 
         // set up the pipes-and-filters chain
         PipesAndFiltersManager pipeManager = setupFilterChain(metaData, calculator);
-        ProbeSpecContext.instance().getPipeManagerRegisty().register(pipeManager);
+        model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 
         return calculator;
     }
@@ -169,19 +166,19 @@ public class CalculatorFactory implements ICalculatorFactory {
     @Override
     public StateCalculator buildStateCalculator(String calculatorName, Integer probeSetId) {
         // Initialize calculator
-        StateCalculator calculator = new StateCalculator(blackboard, probeSetId);
+        StateCalculator calculator = new StateCalculator(model.getProbeSpecContext(), probeSetId);
 
         // Initialize metadata
         MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator.getMeasurementMetrics(),
                 (SensorFrameworkConfig) model.getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getSimulationRunName());
+        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
         metaData.setExperimentRunName(experimentRunName);
         metaData.setMeasurementName("Utilisation of " + calculatorName);
         metaData.setMetricName("Utilisation");
 
         // set up the pipes-and-filters chain
         PipesAndFiltersManager pipeManager = setupFilterChain(metaData, calculator);
-        ProbeSpecContext.instance().getPipeManagerRegisty().register(pipeManager);
+        model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 
         return calculator;
     }
@@ -192,19 +189,19 @@ public class CalculatorFactory implements ICalculatorFactory {
     @Override
     public DemandCalculator buildDemandCalculator(String calculatorName, Integer probeSetID) {
         // Initialize calculator
-        DemandCalculator calculator = new DemandCalculator(blackboard, probeSetID);
+        DemandCalculator calculator = new DemandCalculator(model.getProbeSpecContext(), probeSetID);
 
         // Initialize metadata
         MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator.getMeasurementMetrics(),
                 (SensorFrameworkConfig) model.getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getSimulationRunName());
+        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
         metaData.setExperimentRunName(experimentRunName);
         metaData.setMeasurementName("Demanded time at " + calculatorName);
         metaData.setMetricName("Demanded Time");
 
         // set up the pipes-and-filters chain
         PipesAndFiltersManager pipeManager = setupFilterChain(metaData, calculator);
-        ProbeSpecContext.instance().getPipeManagerRegisty().register(pipeManager);
+        model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 
         return calculator;
     }
@@ -215,19 +212,19 @@ public class CalculatorFactory implements ICalculatorFactory {
     @Override
     public StateCalculator buildOverallUtilizationCalculator(String calculatorName, Integer probeSetId) {
         // Initialize calculator
-        StateCalculator calculator = new StateCalculator(blackboard, probeSetId);
+        StateCalculator calculator = new StateCalculator(model.getProbeSpecContext(), probeSetId);
 
         // Initialize metadata
         MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator.getMeasurementMetrics(),
                 (SensorFrameworkConfig) model.getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getSimulationRunName());
+        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
         metaData.setExperimentRunName(experimentRunName);
         metaData.setMeasurementName("Overall Utilisation of " + calculatorName);
         metaData.setMetricName("Overall Utilisation");
 
         // set up the pipes-and-filters chain
         PipesAndFiltersManager pipeManager = setupFilterChain(metaData, calculator);
-        ProbeSpecContext.instance().getPipeManagerRegisty().register(pipeManager);
+        model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 
         return calculator;
     }
@@ -285,8 +282,8 @@ public class CalculatorFactory implements ICalculatorFactory {
 
     @Override
     public ExecutionResultCalculator buildExecutionResultCalculator(String calculatorName, Integer probeSetID) {
-        // TODO Auto-generated method stub
-        return null;
+    	// TODO provide implementation
+        throw new RuntimeException("The method buildExecutionResultCalculator is not yet implemented.");
     }
 
 }

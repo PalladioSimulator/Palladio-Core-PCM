@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategy;
 import de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.PCMModel;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.ISimulationControl;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.command.ICommandExecutor;
 import de.uka.ipd.sdq.simulation.command.IPCMCommand;
 import de.uka.ipd.sdq.simulation.entities.SimPassiveResource;
@@ -64,17 +64,19 @@ public class MountPassiveResourceProbes implements IPCMCommand<Void> {
             @SuppressWarnings("unchecked")
             private void measureState() {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl());
+                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getProbeSpecContext(), model
+                        .getSimulationControl());
 
                 // take state
-                ProbeSample stateSample = takeStateProbe(resource);
+                ProbeSample stateSample = takeStateProbe(model.getProbeSpecContext(), resource);
 
                 // build ProbeSetSample and publish it on the blackboard
                 // TODO maybe null instead of empty string is better here
                 RequestContext context = new RequestContext("");
-                ProbeSpecContext.instance().getSampleBlackboard().addSample(
+                model.getProbeSpecContext().getSampleBlackboard().addSample(
                         ProbeSpecUtils.buildProbeSetSample(currentTimeSample, stateSample, context, "",
-                                BuildPassiveResourceCalculators.getStateProbeSetId(resource)));
+                                BuildPassiveResourceCalculators.getStateProbeSetId(model.getProbeSpecContext(),
+                                        resource)));
             }
 
         });
@@ -88,12 +90,14 @@ public class MountPassiveResourceProbes implements IPCMCommand<Void> {
             @Override
             public void request(SimulatedProcess process, int num) {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl());
+                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getProbeSpecContext(), model
+                        .getSimulationControl());
 
                 // build ProbeSetSample and publish it on the blackboard
-                ProbeSpecContext.instance().getSampleBlackboard().addSample(
+                model.getProbeSpecContext().getSampleBlackboard().addSample(
                         ProbeSpecUtils.buildProbeSetSample(currentTimeSample, process.getRequest().getRequestContext(),
-                                "", BuildPassiveResourceCalculators.getStartWaitingProbeSetId(resource)));
+                                "", BuildPassiveResourceCalculators.getStartWaitingProbeSetId(model
+                                        .getProbeSpecContext(), resource)));
             }
 
             @Override
@@ -105,12 +109,14 @@ public class MountPassiveResourceProbes implements IPCMCommand<Void> {
             @Override
             public void acquire(SimulatedProcess process, int num) {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl());
+                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getProbeSpecContext(), model
+                        .getSimulationControl());
 
                 // build ProbeSetSample and publish it on the blackboard
-                ProbeSpecContext.instance().getSampleBlackboard().addSample(
+                model.getProbeSpecContext().getSampleBlackboard().addSample(
                         ProbeSpecUtils.buildProbeSetSample(currentTimeSample, process.getRequest().getRequestContext(),
-                                "", BuildPassiveResourceCalculators.getStopWaitingProbeSetId(resource)));
+                                "", BuildPassiveResourceCalculators.getStopWaitingProbeSetId(model
+                                        .getProbeSpecContext(), resource)));
             }
         });
 
@@ -128,24 +134,28 @@ public class MountPassiveResourceProbes implements IPCMCommand<Void> {
             @Override
             public void release(SimulatedProcess process, int num) {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl());
+                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getProbeSpecContext(), model
+                        .getSimulationControl());
 
                 // build ProbeSetSample and publish it on the blackboard
-                ProbeSpecContext.instance().getSampleBlackboard().addSample(
+                model.getProbeSpecContext().getSampleBlackboard().addSample(
                         ProbeSpecUtils.buildProbeSetSample(currentTimeSample, process.getRequest().getRequestContext(),
-                                "", BuildPassiveResourceCalculators.getStopHoldTimeProbeSetId(resource)));
+                                "", BuildPassiveResourceCalculators.getStopHoldTimeProbeSetId(model
+                                        .getProbeSpecContext(), resource)));
             }
 
             @SuppressWarnings("unchecked")
             @Override
             public void acquire(SimulatedProcess process, int num) {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl());
+                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getProbeSpecContext(), model
+                        .getSimulationControl());
 
                 // build ProbeSetSample and publish it on the blackboard
-                ProbeSpecContext.instance().getSampleBlackboard().addSample(
+                model.getProbeSpecContext().getSampleBlackboard().addSample(
                         ProbeSpecUtils.buildProbeSetSample(currentTimeSample, process.getRequest().getRequestContext(),
-                                "", BuildPassiveResourceCalculators.getStartHoldTimeProbeSetId(resource)));
+                                "", BuildPassiveResourceCalculators.getStartHoldTimeProbeSetId(model
+                                        .getProbeSpecContext(), resource)));
             }
         });
 
@@ -160,16 +170,16 @@ public class MountPassiveResourceProbes implements IPCMCommand<Void> {
      * @return the created probe sample
      */
     @SuppressWarnings("unchecked")
-    private static ProbeSample takeCurrentTimeSample(ISimulationControl<EventSimModel> simControl) {
-        IProbeStrategy probeStrategy = ProbeSpecContext.instance().getProbeStrategyRegistry().getProbeStrategy(
+    private static ProbeSample takeCurrentTimeSample(ProbeSpecContext probeSpecContext, ISimulationControl<EventSimModel> simControl) {
+        IProbeStrategy probeStrategy = probeSpecContext.getProbeStrategyRegistry().getProbeStrategy(
                 ProbeType.CURRENT_TIME, null);
         ProbeSample currentTimeSample = probeStrategy.takeSample("TODO: probeId", simControl);
         return currentTimeSample;
     }
 
     @SuppressWarnings("unchecked")
-    private static ProbeSample takeStateProbe(final SimPassiveResource r) {
-        IProbeStrategy probeStrategy = ProbeSpecContext.instance().getProbeStrategyRegistry().getProbeStrategy(
+    private static ProbeSample takeStateProbe(ProbeSpecContext probeSpecContext, final SimPassiveResource r) {
+        IProbeStrategy probeStrategy = probeSpecContext.getProbeStrategyRegistry().getProbeStrategy(
                 ProbeType.RESOURCE_STATE, SimPassiveResource.class);
         ProbeSample stateSample = probeStrategy.takeSample("TODO: probeId", r);
         return stateSample;

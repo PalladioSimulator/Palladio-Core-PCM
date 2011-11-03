@@ -7,6 +7,7 @@ import java.util.Map;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.Connector;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
@@ -56,7 +57,7 @@ public class BuildComponentInstances implements IPCMCommand<Map<String, Componen
         Map<String, ComponentInstance> componentsMap = new HashMap<String, ComponentInstance>();
         for (AllocationContext a : pcm.getAllocationModel().getAllocationContexts_Allocation()) {
             AssemblyContext assemblyCtx = a.getAssemblyContext_AllocationContext();
-            RepositoryComponent c = assemblyCtx.getEncapsulatedComponent_AssemblyContext();
+            RepositoryComponent c = assemblyCtx.getEncapsulatedComponent__AssemblyContext();
             if (RepositoryPackage.eINSTANCE.getBasicComponent().isInstance(c)) {
                 BasicComponent basicComponent = (BasicComponent) c;
                 SimulatedResourceContainer resourceContainer = allocation.getResourceContainer(assemblyCtx);
@@ -68,14 +69,17 @@ public class BuildComponentInstances implements IPCMCommand<Map<String, Componen
         }
 
         // link provided and required services
-        for (AssemblyConnector c : pcm.getSystemModel().getAssemblyConnectors_ComposedStructure()) {
-            ComponentInstance provComp = componentsMap.get(c.getProvidingAssemblyContext_AssemblyConnector()
-                    .getId());
-            ComponentInstance reqComp = componentsMap.get(c.getRequiringAssemblyContext_AssemblyConnector()
-                    .getId());
-            RoleInstance reqRole = reqComp.getRequiredRole(c.getRequiredRole_AssemblyConnector());
-            RoleInstance provRole = provComp.getProvidedRole(c.getProvidedRole_AssemblyConnector());
-            RoleInstance.linkRoles(reqRole, provRole);
+        for (Connector c : pcm.getSystemModel().getConnectors__ComposedStructure()) {
+            if (AssemblyConnector.class.isInstance(c)) {
+                AssemblyConnector ac = (AssemblyConnector) c;
+                ComponentInstance provComp = componentsMap.get(ac.getProvidingAssemblyContext_AssemblyConnector()
+                        .getId());
+                ComponentInstance reqComp = componentsMap.get(ac.getRequiringAssemblyContext_AssemblyConnector()
+                        .getId());
+                RoleInstance reqRole = reqComp.getRequiredRole(ac.getRequiredRole_AssemblyConnector());
+                RoleInstance provRole = provComp.getProvidedRole(ac.getProvidedRole_AssemblyConnector());
+                RoleInstance.linkRoles(reqRole, provRole);
+            }
         }
 
         return componentsMap;
@@ -113,7 +117,7 @@ public class BuildComponentInstances implements IPCMCommand<Map<String, Componen
 
         // create stack frame with component parameters overwritten by the AssemblyContext...
         SimulatedStackframe<Object> overwritingComponentFrame = new SimulatedStackframe<Object>();
-        List<VariableUsage> overwritingComponentParameter = assemblyCtx.getConfigParameterUsages_AssemblyContext();
+        List<VariableUsage> overwritingComponentParameter = assemblyCtx.getConfigParameterUsages__AssemblyContext();
         ParameterHelper.createEvaluationProxiesAndCopyToFrame(overwritingComponentParameter, overwritingComponentFrame);
 
         // ...and copy them to the component's stack frame. Existing variables are overwritten.

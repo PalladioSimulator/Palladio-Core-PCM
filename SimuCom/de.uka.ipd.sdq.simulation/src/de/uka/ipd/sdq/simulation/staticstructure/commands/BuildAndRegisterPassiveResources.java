@@ -50,7 +50,7 @@ public class BuildAndRegisterPassiveResources implements IPCMCommand<Void> {
     public Void execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
         for (AllocationContext ctx : pcm.getAllocationModel().getAllocationContexts_Allocation()) {
             RepositoryComponent component = ctx.getAssemblyContext_AllocationContext()
-                    .getEncapsulatedComponent_AssemblyContext();
+                    .getEncapsulatedComponent__AssemblyContext();
             BasicComponent basicComponent = null;
             if (RepositoryPackage.eINSTANCE.getBasicComponent().isInstance(component)) {
                 basicComponent = (BasicComponent) component;
@@ -65,7 +65,8 @@ public class BuildAndRegisterPassiveResources implements IPCMCommand<Void> {
                 SimulatedResourceContainer resourceContainer = allocation.getResourceContainer(ctx
                         .getAssemblyContext_AllocationContext());
                 ContainerOperatingSystem os = resourceContainer.getOperatingSystem();
-                SimPassiveResource simResource = ResourceFactory.createPassiveResource(model, specification, os);
+                SimPassiveResource simResource = ResourceFactory.createPassiveResource(model, specification, os, ctx
+                        .getAssemblyContext_AllocationContext());
 
                 // register the created passive resource
                 model.getPassiveResourceRegistry().registerPassiveResource(specification, simResource,

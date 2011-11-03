@@ -10,12 +10,12 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CreatePluginProjectJob;
 import de.uka.ipd.sdq.workflow.IJob;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
+import de.uka.ipd.sdq.workflow.pcm.jobs.CreatePluginProjectJob;
 
 /**
  * 
@@ -36,7 +36,7 @@ public class CreateSimulationMainFile implements IJob {
     
     @Override
     public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
-        IProject project = CreatePluginProjectJob.getProject(configuration.getPluginID());
+        IProject project = CreatePluginProjectJob.getProject(configuration.getStoragePluginID());
 
         try {
             createSimulationMainFile(project);

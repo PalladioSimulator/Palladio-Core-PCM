@@ -67,7 +67,7 @@ public class FindSeffsForAssemblyContext implements IPCMCommand<List<ResourceDem
      * @return the component, if the encapsulated component is a BasicComponent
      */
     private BasicComponent findBasicComponent(AssemblyContext assemblyCtx) {
-        RepositoryComponent component = assemblyCtx.getEncapsulatedComponent_AssemblyContext();
+        RepositoryComponent component = assemblyCtx.getEncapsulatedComponent__AssemblyContext();
         if (RepositoryPackage.eINSTANCE.getBasicComponent().isInstance(component)) {
             return (BasicComponent) component;
         } else {

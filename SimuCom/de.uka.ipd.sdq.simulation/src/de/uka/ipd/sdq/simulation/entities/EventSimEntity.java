@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 import de.uka.ipd.sdq.simulation.EventSimModel;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.AbstractSimEntity;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntity;
 
 /**
  * This is the abstract base class for all simulated entities. Entities have an ID and they notify

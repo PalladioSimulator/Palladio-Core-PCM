@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.DemandCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.StateCalculator;
+import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.PCMModel;
 import de.uka.ipd.sdq.simulation.command.ICommandExecutor;
 import de.uka.ipd.sdq.simulation.command.IPCMCommand;
@@ -30,6 +31,7 @@ import de.uka.ipd.sdq.simulation.staticstructure.SimulatedResourceEnvironment;
  */
 public class BuildActiveResourceCalculators implements IPCMCommand<List<Calculator>> {
 
+    private EventSimModel model;
     private SimulatedResourceEnvironment environment;
 
     /**
@@ -39,8 +41,9 @@ public class BuildActiveResourceCalculators implements IPCMCommand<List<Calculat
      * @param environment
      *            the resource environment
      */
-    public BuildActiveResourceCalculators(SimulatedResourceEnvironment environment) {
+    public BuildActiveResourceCalculators(EventSimModel model, SimulatedResourceEnvironment environment) {
         this.environment = environment;
+        this.model = model;
     }
 
     /**
@@ -51,23 +54,23 @@ public class BuildActiveResourceCalculators implements IPCMCommand<List<Calculat
         List<Calculator> calculators = new ArrayList<Calculator>();
         for (SimulatedResourceContainer c : environment.getResourceContainers()) {
             for (SimActiveResource r : c.getResources()) {
-                calculators.add(setupDemandCalculator(r));
+                calculators.add(setupDemandCalculator(this.model.getProbeSpecContext(), r));
 
                 // setup utilization calculators depending on their scheduling strategy and number
                 // of cores
                 SchedulingPolicy strategy = r.getSchedulingStrategy();
                 if (strategy.equals(SchedulingPolicy.PROCESSOR_SHARING)) {
                     if (r.getNumberOfInstances() == 1) {
-                        calculators.addAll(setupResourceStateCalculator(r));
+                        calculators.addAll(setupResourceStateCalculator(this.model.getProbeSpecContext(), r));
                     } else {
-                        calculators.add(setupOverallUtilisationCalculator(r));
+                        calculators.add(setupOverallUtilisationCalculator(this.model.getProbeSpecContext(), r));
                     }
                 } else if (strategy.equals(SchedulingPolicy.DELAY) || strategy.equals(SchedulingPolicy.FCFS)) {
                     assert (r.getNumberOfInstances() == 1) : "DELAY and FCFS resources are expected to "
                             + "have exactly one core";
-                    calculators.addAll(setupResourceStateCalculator(r));
+                    calculators.addAll(setupResourceStateCalculator(this.model.getProbeSpecContext(), r));
                 } else if (strategy.equals(SchedulingPolicy.EXACT)) {
-                    calculators.add(setupOverallUtilisationCalculator(r));
+                    calculators.add(setupOverallUtilisationCalculator(this.model.getProbeSpecContext(), r));
                 } else {
                     throw new RuntimeException("Could not setup utilization calculator at resource "
                             + r.getDescription() + " as it is unknown how to handle the scheduling strategy "
@@ -93,8 +96,8 @@ public class BuildActiveResourceCalculators implements IPCMCommand<List<Calculat
      *            the resource
      * @return the probe set ID
      */
-    public static Integer getDemandedTimeProbeSetId(SimActiveResource resource) {
-        return ProbeSpecContext.instance().obtainProbeSetId("demand_" + resource.getName() + "_" + resource.getId());
+    public static Integer getDemandedTimeProbeSetId(ProbeSpecContext probeSpecContext, SimActiveResource resource) {
+        return probeSpecContext.obtainProbeSetId("demand_" + resource.getName() + "_" + resource.getId());
     }
 
     /**
@@ -106,12 +109,12 @@ public class BuildActiveResourceCalculators implements IPCMCommand<List<Calculat
      *            the instance of the resource
      * @return the probe set ID
      */
-    public static Integer getStateProbeSetId(SimActiveResource resource, int instance) {
-        return ProbeSpecContext.instance().obtainProbeSetId("state_" + getInstanceDescription(resource, instance));
+    public static Integer getStateProbeSetId(ProbeSpecContext probeSpecContext, SimActiveResource resource, int instance) {
+        return probeSpecContext.obtainProbeSetId("state_" + getInstanceDescription(resource, instance));
     }
 
-    public static Integer getOverallUtilisationProbeSetId(SimActiveResource resource) {
-        return ProbeSpecContext.instance().obtainProbeSetId("overallUtilization_" + resource.getDescription());
+    public static Integer getOverallUtilisationProbeSetId(ProbeSpecContext probeSpecContext, SimActiveResource resource) {
+        return probeSpecContext.obtainProbeSetId("overallUtilization_" + resource.getDescription());
     }
 
     /**
@@ -121,9 +124,9 @@ public class BuildActiveResourceCalculators implements IPCMCommand<List<Calculat
      *            the resource
      * @return the created calculator
      */
-    private DemandCalculator setupDemandCalculator(final SimActiveResource resource) {
-        final Integer probeSetId = getDemandedTimeProbeSetId(resource);
-        DemandCalculator calculator = ProbeSpecContext.instance().getCalculatorFactory().buildDemandCalculator(
+    private DemandCalculator setupDemandCalculator(ProbeSpecContext probeSpecContext, final SimActiveResource resource) {
+        final Integer probeSetId = getDemandedTimeProbeSetId(probeSpecContext, resource);
+        DemandCalculator calculator = probeSpecContext.getCalculatorFactory().buildDemandCalculator(
                 resource.getDescription(), probeSetId);
         return calculator;
     }
@@ -135,20 +138,22 @@ public class BuildActiveResourceCalculators implements IPCMCommand<List<Calculat
      *            the resource
      * @return the list of created calculators
      */
-    private List<StateCalculator> setupResourceStateCalculator(SimActiveResource resource) {
+    private List<StateCalculator> setupResourceStateCalculator(ProbeSpecContext probeSpecContext,
+            SimActiveResource resource) {
         List<StateCalculator> calculators = new ArrayList<StateCalculator>();
         for (int instance = 0; instance < resource.getNumberOfInstances(); instance++) {
-            final Integer probeSetID = getStateProbeSetId(resource, instance);
-            calculators.add(ProbeSpecContext.instance().getCalculatorFactory().buildStateCalculator(
+            final Integer probeSetID = getStateProbeSetId(probeSpecContext, resource, instance);
+            calculators.add(probeSpecContext.getCalculatorFactory().buildStateCalculator(
                     getInstanceDescription(resource, instance), probeSetID));
         }
         return calculators;
     }
 
-    private StateCalculator setupOverallUtilisationCalculator(SimActiveResource resource) {
-        final Integer stateProbeSetID = getOverallUtilisationProbeSetId(resource);
-        return ProbeSpecContext.instance().getCalculatorFactory().buildOverallUtilizationCalculator(
-                resource.getDescription(), stateProbeSetID);
+    private StateCalculator setupOverallUtilisationCalculator(ProbeSpecContext probeSpecContext,
+            SimActiveResource resource) {
+        final Integer stateProbeSetID = getOverallUtilisationProbeSetId(probeSpecContext, resource);
+        return probeSpecContext.getCalculatorFactory().buildOverallUtilizationCalculator(resource.getDescription(),
+                stateProbeSetID);
     }
 
     /**

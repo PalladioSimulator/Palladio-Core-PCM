@@ -18,9 +18,6 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMLaunchConfiguration
 import de.uka.ipd.sdq.workflow.pcm.configurations.PCMWorkflowConfigurationBuilder;
 
 /**
- * 
- * TODO describe class
- * 
  * This class is based on {@link SimuComWorkflowLauncher}. Some code has been reused.
  * 
  * @author Philipp Merkle
@@ -43,7 +40,7 @@ public class EventSimWorkflowLauncher extends AbstractPCMLaunchConfigurationDele
     @Override
     protected EventSimWorkflowConfiguration deriveConfiguration(ILaunchConfiguration configuration, String mode)
             throws CoreException {
-        EventSimWorkflowConfiguration config = new EventSimWorkflowConfiguration();
+        EventSimWorkflowConfiguration config = new EventSimWorkflowConfiguration(configuration.getAttributes());
 
         AbstractWorkflowConfigurationBuilder builder;
         builder = new PCMWorkflowConfigurationBuilder(configuration, mode);

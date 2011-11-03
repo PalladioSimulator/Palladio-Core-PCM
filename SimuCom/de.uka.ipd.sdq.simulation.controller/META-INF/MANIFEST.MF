@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.cip;bundle-version="2.0.0",
  de.uka.ipd.sdq.simulation;bundle-version="1.0.0",
  de.uka.ipd.sdq.simucomframework;bundle-version="1.0.0",
- de.uka.ipd.sdq.cip.runtime;bundle-version="1.0.0"
+ de.uka.ipd.sdq.cip.runtime;bundle-version="1.0.0",
+ de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.simulation.controller.runconfig

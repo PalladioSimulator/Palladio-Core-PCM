@@ -44,14 +44,14 @@ public class MountUsageScenarioProbes implements IPCMCommand<Void> {
                 @Override
                 public void before(AbstractUserAction action, User u, TraversalState<AbstractUserAction> state) {
                     // take current time sample
-                    ProbeSpecContext.instance().getSampleBlackboard().addSample(
-                            ProbeSpecUtils.buildProbeSetSample(ProbeSpecContext.instance().getProbeStrategyRegistry()
+                    ProbeSpecContext probeSpecContext = u.getModel().getProbeSpecContext();
+                    probeSpecContext.getSampleBlackboard().addSample(
+                            ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()
                                     .getProbeStrategy(ProbeType.CURRENT_TIME, null).takeSample(start.getId(),
                                             u.getModel().getSimulationControl()), u.getRequestContext(), start.getId(),
-                                    ProbeSpecContext.instance().obtainProbeSetId(
-                                            start.getScenarioBehaviour_AbstractUserAction()
-                                                    .getUsageScenario_SenarioBehaviour().getId()
-                                                    + "_start")));
+                                    probeSpecContext.obtainProbeSetId(start.getScenarioBehaviour_AbstractUserAction()
+                                            .getUsageScenario_SenarioBehaviour().getId()
+                                            + "_start")));
                 }
 
                 @Override
@@ -67,14 +67,14 @@ public class MountUsageScenarioProbes implements IPCMCommand<Void> {
                 @Override
                 public void after(AbstractUserAction action, User u, TraversalState<AbstractUserAction> state) {
                     // take current time sample
-                    ProbeSpecContext.instance().getSampleBlackboard().addSample(
-                            ProbeSpecUtils.buildProbeSetSample(ProbeSpecContext.instance().getProbeStrategyRegistry()
+                    ProbeSpecContext probeSpecContext = u.getModel().getProbeSpecContext();
+                    probeSpecContext.getSampleBlackboard().addSample(
+                            ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()
                                     .getProbeStrategy(ProbeType.CURRENT_TIME, null).takeSample(start.getId(),
                                             u.getModel().getSimulationControl()), u.getRequestContext(), start.getId(),
-                                    ProbeSpecContext.instance().obtainProbeSetId(
-                                            start.getScenarioBehaviour_AbstractUserAction()
-                                                    .getUsageScenario_SenarioBehaviour().getId()
-                                                    + "_end")));
+                                    probeSpecContext.obtainProbeSetId(start.getScenarioBehaviour_AbstractUserAction()
+                                            .getUsageScenario_SenarioBehaviour().getId()
+                                            + "_end")));
                 }
 
                 @Override
