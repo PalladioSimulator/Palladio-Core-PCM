@@ -46,6 +46,9 @@ public class MainConfigTab extends FileNamesInputTab {
 	private Button  lqsimConfigStopOnMessageLoss;
 	protected Combo comboLqsimOutput;
 	
+	private Text lqnsConfigPragma;
+	private Text lqnsimConfigPragma;
+	
 	private Group sresConfigGroup; 
 	private Group lqnsConfigGroup; 
 	private Group lqsimConfigGroup;
@@ -87,6 +90,7 @@ public class MainConfigTab extends FileNamesInputTab {
 	
 	//private MainConfigTabListener listener = new MainConfigTabListener();
 	private ComboBoxListener comboListener = new ComboBoxListener();
+
 	
 
 	
@@ -203,6 +207,14 @@ public class MainConfigTab extends FileNamesInputTab {
 		textLqsimOutputDir.addModifyListener(listener);
 
 		createFolderSelectionButtons(group,textLqsimOutputDir);
+		
+		Label labelPragma = new Label(group, SWT.NONE);
+		labelPragma.setText("Additional Pragmas:");
+		labelPragma.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
+		
+		lqnsimConfigPragma = new Text(group, SWT.SINGLE | SWT.BORDER);
+		lqnsimConfigPragma.setLayoutData(threeColumnGridData);
+		lqnsimConfigPragma.addModifyListener(listener);
 
 		return group;
 	}
@@ -311,6 +323,14 @@ public class MainConfigTab extends FileNamesInputTab {
 		textLqnsOutputDir.addModifyListener(listener);
 
 		createFolderSelectionButtons(group,textLqnsOutputDir);
+		
+		Label labelPragma = new Label(group, SWT.NONE);
+		labelPragma.setText("Additional Pragmas:");
+		labelPragma.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false));
+		
+		lqnsConfigPragma = new Text(group, SWT.SINGLE | SWT.BORDER);
+		lqnsConfigPragma.setLayoutData(threeColumnGridData);
+		lqnsConfigPragma.addModifyListener(listener);
 		
 		return group;
 	}
@@ -493,6 +513,12 @@ public class MainConfigTab extends FileNamesInputTab {
 		}
 		
 		try{
+			lqnsConfigPragma.setText(configuration.getAttribute(MessageStrings.PRAGMAS, ""));
+		} catch(CoreException e){
+			lqnsConfigPragma.setText("");
+		}
+		
+		try{
 			lqsimConfig1.setText(configuration.getAttribute(MessageStrings.RUN_TIME, ""));
 		} catch(CoreException e){
 			lqsimConfig1.setText("");
@@ -531,6 +557,13 @@ public class MainConfigTab extends FileNamesInputTab {
 		} catch (CoreException e) {
 			this.lqsimConfigStopOnMessageLoss.setSelection(true);
 		}
+		
+		try{
+			lqnsimConfigPragma.setText(configuration.getAttribute(MessageStrings.PRAGMAS, ""));
+		} catch(CoreException e){
+			lqnsimConfigPragma.setText("");
+		}
+		
 		try {
 			this.lqnsConfigInfTaskMult.setSelection(configuration.getAttribute(
 					MessageStrings.INFINITE_TASK_MULTIPLICITY, true));
@@ -573,6 +606,9 @@ public class MainConfigTab extends FileNamesInputTab {
 		configuration.setAttribute(MessageStrings.RUN_TIME, lqsimConfig1.getText());
 		configuration.setAttribute(MessageStrings.BLOCKS, lqsimConfig2.getText());
 		configuration.setAttribute(MessageStrings.PS_QUANTUM, lqsimConfig3.getText());
+		
+		configuration.setAttribute(MessageStrings.PRAGMAS, lqnsimConfigPragma.getText());
+		configuration.setAttribute(MessageStrings.PRAGMAS, lqnsConfigPragma.getText());
 		
 		configuration.setAttribute(MessageStrings.LQNS_OUTPUT_DIR, textLqnsOutputDir.getText());
 		configuration.setAttribute(MessageStrings.LQSIM_OUTPUT_DIR, textLqsimOutputDir.getText());

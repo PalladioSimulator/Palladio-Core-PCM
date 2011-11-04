@@ -150,8 +150,16 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 			// Process proc = null;
 			if (solverProgram.equals(FILENAME_LQNS)) {
 				
-				if (!config.getStopOnMessageLossLQNS()){
-					options += " -P stop-on-message-loss=false"; 
+				// check whether Pragmas (see LQN documentation) are used and if yes, set -P option
+				if (!config.getStopOnMessageLossLQNS() 
+						|| !"".equals(config.getPragmas())){
+					options += " -P ";
+					if (!config.getStopOnMessageLossLQNS()){
+						options += "stop-on-message-loss=false "; 
+					}
+					if (!"".equals(config.getPragmas())){
+						options += config.getPragmas();
+					}
 				}
 				if (lqnsOutputType.equals(MessageStrings.LQN_OUTPUT_HUMAN)) {
 					inputFile = filenameLQN;

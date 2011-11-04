@@ -24,6 +24,8 @@ public class MessageStrings {
 	public static final String UNDER_COEFF = "underCoeff";
 	public static final String LQNS_OUTPUT = "output";
 	public static final String LQSIM_OUTPUT = "lqsimoutput";
+	
+	public static final String PRAGMAS = "lqnPragmas";
 
 	public static final String RUN_TIME = "runTime";
 	public static final String BLOCKS = "blocks";

@@ -96,6 +96,9 @@ public class PCMSolverConfigurationBasedConfigBuilder extends
 				: 0);
 		config.setPsQuantum(hasAttribute(MessageStrings.PS_QUANTUM) ? getStringAttribute(MessageStrings.PS_QUANTUM)
 				: "0.001");
+		
+		config.setPragmas(hasAttribute(MessageStrings.PRAGMAS) ? getStringAttribute(MessageStrings.PRAGMAS)
+				: "");
 
 		config.setLQSimRuntime(hasAttribute(MessageStrings.RUN_TIME) ? getStringAttribute(MessageStrings.RUN_TIME)
 				: "");

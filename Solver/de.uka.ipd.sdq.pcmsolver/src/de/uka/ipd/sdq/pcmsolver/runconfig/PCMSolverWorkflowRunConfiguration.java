@@ -70,6 +70,8 @@ public class PCMSolverWorkflowRunConfiguration extends
 
 	private String underCoeff;
 
+	private String lqnPragmas;
+
 	public PCMSolverWorkflowRunConfiguration() {
 		super();
 	}
@@ -182,6 +184,11 @@ public class PCMSolverWorkflowRunConfiguration extends
 	public String getUnderCoeff() {
 		return underCoeff;
 	}
+	
+	public String getPragmas(){
+		return this.lqnPragmas;
+	}
+	
 
 	public boolean isIterationOverPhysicalSystemStatesEnabled() {
 		return iterationOverPhysicalSystemStatesEnabled;
@@ -385,6 +392,10 @@ public class PCMSolverWorkflowRunConfiguration extends
 
 	public void setUnderCoeff(String underCoeff) {
 		this.underCoeff = underCoeff;
+	}
+
+	public void setPragmas(String pragmaString) {
+		this.lqnPragmas = pragmaString;
 	}
 
 }
