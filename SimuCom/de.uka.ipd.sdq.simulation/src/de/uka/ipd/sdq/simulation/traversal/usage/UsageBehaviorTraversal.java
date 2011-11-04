@@ -119,7 +119,7 @@ public class UsageBehaviorTraversal extends BehaviourTraversal<AbstractUserActio
      */
     @SuppressWarnings("unchecked")
     @Override
-    public IUsageTraversalStrategy<AbstractUserAction> obtainTraversalStrategy(final EClass eclass) {
+    public IUsageTraversalStrategy<AbstractUserAction> loadTraversalStrategy(final EClass eclass) {
         return (IUsageTraversalStrategy<AbstractUserAction>) handlerMap.get(eclass);
     }
 

@@ -50,7 +50,9 @@ public class TraversalStateStack<A extends Entity> implements Cloneable {
      *            the stack frame
      */
     public void enterScope(final TraversalStackFrame<A> frame) {
-        logger.debug("Entering Scope");
+        if(logger.isDebugEnabled()) {
+            logger.debug("Entering Scope");    
+        }
         this.stack.push(frame);
     }
 
@@ -59,7 +61,9 @@ public class TraversalStateStack<A extends Entity> implements Cloneable {
      * beneath becomes the current scope.
      */
     public void leaveScope() {
-        logger.debug("Leaving Scope");
+        if (logger.isDebugEnabled()) {
+            logger.debug("Leaving Scope");
+        }
         this.stack.pop();
     }
 

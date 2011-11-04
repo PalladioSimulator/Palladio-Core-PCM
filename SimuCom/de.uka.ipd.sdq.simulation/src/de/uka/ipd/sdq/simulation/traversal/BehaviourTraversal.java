@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.simulation.util.PCMEntityHelper;
  * provides the information which action is the next to be traversed. For further information see
  * {@link ITraversalInstruction}. Implementors of this class have to provide appropriate traversal
  * strategies for the various action types by implementing the
- * {@link #obtainTraversalStrategy(EClass)} method.
+ * {@link #loadTraversalStrategy(EClass)} method.
  * <p>
  * It is an inherent property of event based simulations that the behaviour of a simulated entity is
  * distributed over several events. Therefore, the traversal can be paused and scheduled to be
@@ -85,7 +85,7 @@ public abstract class BehaviourTraversal<A extends Entity, E extends EventSimEnt
         // the traversal is either completed or needs to be paused.
         while (currentAction != null) {
             // obtain the traversal strategy for the current action
-            final ITraversalStrategy<A, A, E> t = this.obtainTraversalStrategy(currentAction.eClass());
+            final ITraversalStrategy<A, A, E> t = this.loadTraversalStrategy(currentAction.eClass());
             if (t == null) {
                 throw new TraversalException("No traversal strategy could be found for "
                         + PCMEntityHelper.toString(currentAction));
@@ -177,7 +177,7 @@ public abstract class BehaviourTraversal<A extends Entity, E extends EventSimEnt
      *            the type of the action
      * @return the traversal strategy which is able to traverse actions of the specified type
      */
-    public abstract <T extends A> ITraversalStrategy<A, T, E> obtainTraversalStrategy(EClass eclass);
+    public abstract <T extends A> ITraversalStrategy<A, T, E> loadTraversalStrategy(EClass eclass);
 
     /**
      * This method is called whenever a simulated entity is about to traverse an action.

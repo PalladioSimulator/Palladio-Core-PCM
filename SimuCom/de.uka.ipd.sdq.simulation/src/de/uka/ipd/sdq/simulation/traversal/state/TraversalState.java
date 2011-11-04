@@ -83,6 +83,8 @@ public class TraversalState<A extends Entity> implements Cloneable {
     }
 
     /**
+     * TODO is this method really needed?
+     * 
      * {@inheritDoc}
      */
     @SuppressWarnings("unchecked")

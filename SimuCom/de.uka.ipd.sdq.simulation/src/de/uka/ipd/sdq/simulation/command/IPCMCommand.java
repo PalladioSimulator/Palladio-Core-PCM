@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.simulation.PCMModel;
  */
 public interface IPCMCommand<R> extends ICommand<R, PCMModel> {
 
-    // the sole purpose of this interface is to define the model type parameter for commands using
-    // PCM models
+    // the sole purpose of this interface is to set ICommand's type parameter <M> for commands that
+    // operate on a PCM model
 
 }

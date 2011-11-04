@@ -150,7 +150,7 @@ public class SeffTraversal extends BehaviourTraversal<AbstractAction, Request> {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public <T extends AbstractAction> ITraversalStrategy<AbstractAction, T, Request> obtainTraversalStrategy(
+    public <T extends AbstractAction> ITraversalStrategy<AbstractAction, T, Request> loadTraversalStrategy(
             final EClass eclass) {
         return (ITraversalStrategy<AbstractAction, T, Request>) handlerMap.get(eclass);
     }

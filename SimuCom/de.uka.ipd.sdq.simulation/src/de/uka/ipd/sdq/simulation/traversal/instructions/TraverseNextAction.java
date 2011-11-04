@@ -7,8 +7,6 @@ import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
 
 /**
  * Use this instruction to continue the traversal with a specified action.
- * <p>
- * If the action is contained in a new 
  * 
  * @author Philipp Merkle
  * 
