@@ -25,6 +25,8 @@ public class EventSimLaunchConfigurationBasedConfigBuilder extends
 
     @Override
     public void fillConfiguration(AbstractWorkflowBasedRunConfiguration configuration) throws CoreException {
+        super.fillConfiguration(configuration);
+        
         EventSimWorkflowConfiguration config = (EventSimWorkflowConfiguration) configuration;
 
         config.setSimulationConfiguration(new EventSimConfig(properties, config.isDebug()));
