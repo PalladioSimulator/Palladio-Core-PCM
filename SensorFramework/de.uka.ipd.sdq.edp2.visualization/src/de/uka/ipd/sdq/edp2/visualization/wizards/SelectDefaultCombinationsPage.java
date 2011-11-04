@@ -77,6 +77,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 
 	private final static String CLASS_ATTRIBUTE = "class";
 	private final static String ID_ATTRIBUTE = "id";
+	private final static String NAME_ATTRIBUTE = "name";
 	private final static String INPUT_CLASS_ATTRIBUTE = "inputClass";
 
 	/**
@@ -125,7 +126,8 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	/**
 	 * Checks the registered plugins for filters {@link IFilter}, adapters
 	 * {@link IAdapter} and JFreeCharts {@link JFreeChartEditorInput}. Then
-	 * creates the basic combinations ("defaults") of these
+	 * creates the basic combinations, objects of the type
+	 * {@link DefaultSequence} from these.
 	 */
 	private void createDefaultCombinations() {
 		Object o = null;
@@ -166,8 +168,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 				throw new RuntimeException();
 			}
 		}
-		// get the list of registered visualizations - again, assume that the
-		// typical visualizations are registered plugins
+		// get the list of registered visualizations
 		final IConfigurationElement[] chartExtensions = Platform
 				.getExtensionRegistry().getConfigurationElementsFor(
 						JFREECHART_EXTENSION_POINT_ID);
@@ -191,13 +192,12 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 				.getExtensionRegistry().getConfigurationElementsFor(
 						DEFAULT_COMBOS_EXTENSION_POINT_ID);
 
-		// TODO create constants for attribute ids
 		for (IConfigurationElement e : defaultSequencesExtensions) {
 
 			DefaultSequence tempDefault = new DefaultSequence();
 
-			tempDefault.setSequenceID(e.getAttribute("id"));
-			tempDefault.setSequenceName(e.getAttribute("name"));
+			tempDefault.setSequenceID(e.getAttribute(ID_ATTRIBUTE));
+			tempDefault.setSequenceName(e.getAttribute(NAME_ATTRIBUTE));
 
 			final IConfigurationElement[] sequence = e.getChildren();
 
@@ -229,9 +229,10 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 								.getAttribute(PROPERTY_VALUE_ATTRIBUTE));
 						tempDefault.addSequenceProperty(elementProperties);
 					}
-				
+
 				} else if (element.getName().equals(ELEMENT_ID_VISUALIZATION)) {
-					//the visualization is handled separately by the DefaultSequence class
+					// the visualization is handled separately by the
+					// DefaultSequence class
 					tempDefault.setVisualization(charts.get(element
 							.getAttribute(VISUALIZATION_ID_ATTRIBUTE)));
 					final IConfigurationElement[] properties = element
@@ -250,7 +251,6 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 			// there is exactly 1 element of the type inputMetric
 			IConfigurationElement inputMetricElement = e
 					.getChildren(ELEMENT_ID_INPUT_METRIC)[0];
-
 			tempDefault.setInputMetricUUID(inputMetricElement
 					.getAttribute(INPUT_METRIC_UUID_ATTRIBUTE));
 			tempDefault.setInputDescription(inputMetricElement
@@ -260,31 +260,28 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 
 		}
 
-		ArrayList<IDataSink> default1, default2, default3, default4;
-		default1 = new ArrayList<IDataSink>();
-		default2 = new ArrayList<IDataSink>();
-		default3 = new ArrayList<IDataSink>();
-		default4 = new ArrayList<IDataSink>();
-
-		default1.add(charts
+		// HistogramAdapter+Histogram are added independently of Default
+		// Combinations in extension points
+		DefaultSequence basicSequence1 = new DefaultSequence();
+		basicSequence1.setSequenceID("histogramDefault");
+		basicSequence1.setSequenceName("Histogram");
+		basicSequence1.setInputMetricUUID("no_UUID");
+		basicSequence1
+				.addSequenceElement(adapters
+						.get("de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter"));
+		basicSequence1.setVisualization(charts
+				.get("de.uka.ipd.sdq.edp2.visualization.Histogram"));
+		// The scatterplot is added independently of Default Combinations in
+		// extension points
+		DefaultSequence basicSequence2 = new DefaultSequence();
+		basicSequence2.setSequenceID("scatterplotDefault");
+		basicSequence2.setSequenceName("Scatterplot");
+		basicSequence2.setInputMetricUUID("no_UUID");
+		basicSequence2.setVisualization(charts
 				.get("de.uka.ipd.sdq.edp2.visualization.Scatterplot"));
 
-		default2
-				.add(adapters
-						.get("de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter"));
-		default2.add(charts.get("de.uka.ipd.sdq.edp2.visualization.Histogram"));
-
-		default3.add(filters
-				.get("de.uka.ipd.sdq.edp2.transformation.WarmupFilter"));
-		default3.add(charts
-				.get("de.uka.ipd.sdq.edp2.visualization.Scatterplot"));
-
-		default4
-				.add(adapters
-						.get("de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter"));
-		default4.add(filters
-				.get("de.uka.ipd.sdq.edp2.transformation.WarmupFilter"));
-		default4.add(charts.get("de.uka.ipd.sdq.edp2.visualization.Histogram"));
+		defaultSequences.add(basicSequence1);
+		defaultSequences.add(basicSequence2);
 
 	}
 
@@ -366,23 +363,21 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 				return null;
 			}
 
-			@SuppressWarnings("unchecked")
 			@Override
 			public String getText(Object element) {
 				if (element != null) {
 					// the elements in the list are of type DefaultSequence
 					DefaultSequence sequenceElement = (DefaultSequence) element;
-					StringBuffer shownString = new StringBuffer();
-					int length = sequenceElement.getSize();
-					shownString.append(sequenceElement.getSequenceName());
-					shownString.append(": [ ");
-					for (Object ele : sequenceElement.getSequenceElements()) {
-						shownString.append(ele.getClass().getSimpleName());
-						length--;
-						if (length > 0)
-							shownString.append(" + ");
-					}
-					shownString.append(" ]");
+					StringBuilder shownString = new StringBuilder(
+							sequenceElement.getSequenceName());
+					/*
+					 * int length = sequenceElement.getSize();
+					 * shownString.append(": [ "); for (Object ele :
+					 * sequenceElement.getSequenceElements()) {
+					 * shownString.append(ele.getClass().getSimpleName());
+					 * length--; if (length > 0) shownString.append(" + "); }
+					 * shownString.append(" ]");
+					 */
 					return shownString.toString();
 				}
 				return null;
@@ -414,8 +409,21 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		ArrayList<DefaultSequence> applicableSequences = new ArrayList<DefaultSequence>();
 
 		for (DefaultSequence seq : defaultSequences) {
-			if (seq.getFirstSequenceElement().canAccept(forSource)) {
+			if (seq.getInputMetricUUID().equals(
+					forSource.getOriginalMeasurementsRange().getMeasurements()
+							.getMeasure().getMetric().getUuid())) {
 				applicableSequences.add(seq);
+			}
+			else if (seq.getInputMetricUUID().equals("no_UUID")) {
+				if (seq.getSize() > 0) {
+					if (seq.getFirstSequenceElement().canAccept(forSource)) {
+						applicableSequences.add(seq);
+					}
+				} else {
+					if (seq.getVisualization().canAccept(forSource)) {
+						applicableSequences.add(seq);
+					}
+				}
 			}
 		}
 

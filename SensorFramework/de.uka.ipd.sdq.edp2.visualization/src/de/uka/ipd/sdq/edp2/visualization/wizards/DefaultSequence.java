@@ -156,6 +156,10 @@ public class DefaultSequence {
 	 * @return the visualizationProperties
 	 */
 	public HashMap<String, Object> getVisualizationProperties() {
+		//if no properties are set, return dummy properties to make the visualization use default values
+		if (visualizationProperties == null) {
+			return new HashMap<String,Object>();
+		}
 		return visualizationProperties;
 	}
 	

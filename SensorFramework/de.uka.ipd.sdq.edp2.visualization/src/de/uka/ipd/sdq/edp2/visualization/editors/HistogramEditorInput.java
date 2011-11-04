@@ -152,7 +152,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public boolean canAccept(IDataSource source) {
-		return source.getOutput().size() == 1;
+		return source.getOutput().size() >= 1;
 	}
 
 	/*
@@ -239,9 +239,12 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
-		setNumberOfBins(Integer.parseInt(newProperties.get(NUMBER_BINS_KEY)
-				.toString()));
-		properties.put(NUMBER_BINS_KEY, getNumberOfBins());
+		if (properties.get(NUMBER_BINS_KEY) != null
+				|| newProperties.get(NUMBER_BINS_KEY) != null)
+			setNumberOfBins(Integer.parseInt(newProperties.get(NUMBER_BINS_KEY)
+					.toString()));
+		else
+			setNumberOfBins(DEFAULT_NUMBER_BINS);
 	}
 
 	@Override

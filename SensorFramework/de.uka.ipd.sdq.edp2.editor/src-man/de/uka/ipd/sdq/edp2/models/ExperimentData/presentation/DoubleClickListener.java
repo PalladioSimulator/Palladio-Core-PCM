@@ -70,10 +70,13 @@ public class DoubleClickListener implements IDoubleClickListener {
 				if (wdialog.getReturnCode() == Window.OK) {
 					DefaultSequence selection = wizard.getSelectedDefault();
 
-					selection.getFirstSequenceElement().setProperties(
-							selection.getSequenceProperties().get(0));
-					selection.getFirstSequenceElement().setSource(source);
-
+					if (selection.getSize() > 0) {
+						if (selection.getSequenceProperties().size() > 0) {
+							selection.getFirstSequenceElement().setProperties(
+									selection.getSequenceProperties().get(0));
+						}
+						selection.getFirstSequenceElement().setSource(source);
+					}
 					for (int i = 1; i < selection.getSize(); i++) {
 						selection.getSequenceElements().get(i).setProperties(
 								selection.getSequenceProperties().get(i));
@@ -84,7 +87,13 @@ public class DoubleClickListener implements IDoubleClickListener {
 					IDataSink visualization = selection.getVisualization();
 					visualization.setProperties(selection
 							.getVisualizationProperties());
-					visualization.setSource(selection.getLastSequenceElement());
+					if (selection.getSize() > 0) {
+						visualization.setSource(selection
+								.getLastSequenceElement());
+					} else {
+						visualization.setSource(source);
+					}
+
 					IEditorInput input = selection.getVisualization();
 
 					try {

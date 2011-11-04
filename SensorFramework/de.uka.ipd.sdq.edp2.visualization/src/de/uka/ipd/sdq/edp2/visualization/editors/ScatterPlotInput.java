@@ -51,26 +51,12 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 * Name constant, which is used to identify this class in properties.
 	 */
 	private static final String ELEMENT_NAME = "ScatterPlotInput";
-	
+
 	/**
 	 * The default Title for newly created Plots.
 	 */
 	private static final String DEFAULT_TITLE = "ScatterPlot";
 
-	/**
-	 * Properties for charts created from this type of {@link JFreeChartEditorInput}.
-	 */
-	private String xLabel;
-	private String yLabel;
-	private boolean showLegend;
-	
-	/**
-	 * Keys for Properties.
-	 */
-	private static final String XLABEL_KEY = "xLabel";
-	private static final String YLABEL_KEY = "yLabel";
-	private static final String LEGEND_KEY = "showLegend";
-	
 	/**
 	 * Logger for this class.
 	 */
@@ -81,8 +67,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 * The specific type of dataset for this editor input.
 	 */
 	private DefaultTableXYDataset dataset;
-
-
 
 	public ScatterPlotInput() {
 		super();
@@ -125,19 +109,8 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 			testSeries.add(x.doubleValue(x.getUnit()), y.doubleValue(y
 					.getUnit()));
 		}
-
 		dataset.addSeries(testSeries);
-		
-		//if the axes don't have a description yet, use metric names as default
-		if (this.xLabel == null) {
-			BaseMetricDescription[] mds = MetricDescriptionUtility
-			.toBaseMetricDescriptions(getSource().getOutput().get(0)
-					.getRawMeasurements().getMeasurementsRange()
-					.getMeasurements().getMeasure().getMetric());
-			this.xLabel = mds[0].getName();
-			this.yLabel = mds[1].getName();
-		}
-		
+
 		/*
 		 * setToolTipText(getSource().getMeasurementsRange().getMeasurements()
 		 * .getMeasure().getMetric().getTextualDescription());
@@ -275,44 +248,39 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#getProperties()
 	 */
 	@Override
 	public HashMap<String, Object> getProperties() {
 		properties.put(ELEMENT_KEY, ELEMENT_NAME);
-		properties.put(TITLE_KEY, getTitle());
-		properties.put(XLABEL_KEY, xLabel);
-		properties.put(YLABEL_KEY, yLabel);
-		properties.put(LEGEND_KEY, showLegend);
 		return properties;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#setProperties(java.util.HashMap)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataFlow#setProperties(java.util.HashMap
+	 * )
 	 */
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
-		setTitle(newProperties.get(TITLE_KEY).toString());
-		this.xLabel = newProperties.get(XLABEL_KEY).toString();
-		this.yLabel = newProperties.get(YLABEL_KEY).toString();
-		this.showLegend = Boolean.parseBoolean(newProperties.get(LEGEND_KEY).toString());
-		properties.put(TITLE_KEY, newProperties.get(TITLE_KEY));
-		properties.put(XLABEL_KEY, newProperties.get(XLABEL_KEY));
-		properties.put(YLABEL_KEY, newProperties.get(YLABEL_KEY));
-		properties.put(LEGEND_KEY, newProperties.get(LEGEND_KEY));
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#createChart()
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#createChart
+	 * ()
 	 */
 	@Override
 	public JFreeChart createChart() {
 		updateDataset();
-		JFreeChart chart = ChartFactory.createScatterPlot(getTitle(), xLabel,
-				yLabel, getDataset(), PlotOrientation.VERTICAL, showLegend, true,
-				false);
+		JFreeChart chart = ChartFactory.createScatterPlot(getTitle(), "xLabel",
+				"yLabel", getDataset(), PlotOrientation.VERTICAL, true,
+				true, false);
 		setChart(chart);
 		return chart;
 

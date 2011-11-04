@@ -310,8 +310,6 @@ public class WarmupFilter extends IFilter {
 					DROPPED_VALUES_REL_KEY).toString()));
 		else
 			setDroppedValuesPercentage(DEFAULT_VALUE_DROPPED_VALUES_ABS);
-		properties.put(DROPPED_VALUES_ABS_KEY, getDroppedValues());
-		properties.put(DROPPED_VALUES_REL_KEY, getDroppedValuesPercentage());
 	}
 
 	/*

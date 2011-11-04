@@ -89,6 +89,7 @@
    <extension
          point="de.uka.ipd.sdq.edp2.visualization.defaultSequences">
       <defaultSequence
+            description="Histogram for 2-dimensional Data"
             id="responseTime"
             name="Response Time">
          <adapter
@@ -116,7 +117,7 @@
             </property>
          </filter>
          <inputMetric
-               UUID="uuid"
+               UUID="_MenvIiUREd6gmLudJva2Dw"
                description="2-dimensional: Response Time + Simulation Time"
                name="Simulation: Response Time">
          </inputMetric>
