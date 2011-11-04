@@ -32,10 +32,12 @@ import de.uka.ipd.sdq.edp2.visualization.wizards.DefaultViewsWizard;
 
 /**
  * Listener for selections in the TreeViewer of {@link ExperimentDataEditor}.
- * Upon Doubleklick on a {@link RawMeasurements}-object it opens a Dialog and
- * offers possible Editors to display the data encapsulated by the object. Also
- * creates a new {@link EDP2Source}, which is associated with the selected
- * {@link RawMeasurements}.
+ * Creates a new {@link EDP2Source}, which is associated with the selected
+ * {@link RawMeasurements}. Upon Doubleklick on a {@link RawMeasurements}-object
+ * it opens a Dialog and offers possible combinations of visualizations and
+ * transformations to display the data encapsulated by the object. All
+ * combinations are objects of the Type {@link DefaultSequence} and displayed in
+ * the {@link DefaultViewsWizard}.
  * 
  * @author ernst
  * 
@@ -54,6 +56,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 			selectedObject = selection.getFirstElement();
 		}
 		RawMeasurements measurement = null;
+		// check for the object to contain actual data
 		if (selectedObject instanceof RawMeasurements) {
 			measurement = (RawMeasurements) selectedObject;
 
@@ -61,6 +64,9 @@ public class DoubleClickListener implements IDoubleClickListener {
 
 				EDP2Source source = new EDP2Source(measurement);
 
+				// open the wizard with reference to the selected source
+				// it shows possible visualizations, which are instances of
+				// DefaultSequence
 				DefaultViewsWizard wizard = new DefaultViewsWizard(source);
 				WizardDialog wdialog = new WizardDialog(EDP2EditorPlugin
 						.getPlugin().getWorkbench().getActiveWorkbenchWindow()

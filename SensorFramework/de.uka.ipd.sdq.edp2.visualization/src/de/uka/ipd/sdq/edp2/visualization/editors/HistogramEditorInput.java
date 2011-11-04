@@ -55,6 +55,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	private final static String NUMBER_BINS_KEY = "numberOfBins";
 
+	/**
+	 * Default value for the <numberOfBins>
+	 */
 	private final static int DEFAULT_NUMBER_BINS = 5;
 	/**
 	 * The number of bins, i.e. the number of intervals of equal length in which

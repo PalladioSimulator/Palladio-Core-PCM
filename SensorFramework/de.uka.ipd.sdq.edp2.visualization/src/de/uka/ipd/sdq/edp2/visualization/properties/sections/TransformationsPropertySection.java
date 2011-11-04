@@ -29,8 +29,11 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
@@ -104,26 +107,26 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 		Composite composite = getWidgetFactory()
 				.createFlatFormComposite(parent);
 
-		try {
-			// properties view is only visible for abstract editors, so no type
-			// check is necessary
-			editor = (AbstractEditor) Activator.getDefault().getWorkbench()
-					.getActiveWorkbenchWindow().getActivePage()
-					.getActiveEditor();
-			// NPE may happen if the properties view is restored or opened while
-			// the editor is still or already closed
-		} catch (NullPointerException npe) {
-			
-			logger.log(Level.SEVERE,
-					"Tried to open properties view without an active editor!");
-			throw new RuntimeException();
-		}
-
-		// set the input to what is actually selected in the editor
-		setInput(editor, Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getSelectionService().getSelection(
-						editor.getSite().getId()));
-
+		/*
+		 * try {
+		 * 
+		 * editor =
+		 * Activator.getDefault().getWorkbench().getActiveWorkbenchWindow
+		 * ().getActivePage();
+		 * 
+		 * // NPE may happen if the properties view is restored or opened while
+		 * // the editor is still or already closed } catch
+		 * (NullPointerException npe) {
+		 * 
+		 * logger.log(Level.SEVERE,
+		 * "Tried to open properties view without an active editor!"); throw new
+		 * RuntimeException(); }
+		 * 
+		 * // set the input to what is actually selected in the editor
+		 * setInput(editor, Activator.getDefault().getWorkbench()
+		 * .getActiveWorkbenchWindow().getSelectionService().getSelection(
+		 * editor.getSite().getId()));
+		 */
 		// initialize the layout
 		createLayout(composite);
 
@@ -179,8 +182,6 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 		};
 		buttonAdapter.addListener(SWT.Selection, btnListener);
 		buttonFilter.addListener(SWT.Selection, btnListener);
-		updateTransformationsList();
-
 	}
 
 	private void handleSemanticChange(IAdapter adapter) {
@@ -382,13 +383,25 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 	 * To get the corresponding source from the actual used editor.
 	 * 
 	 * @return the source of the editor input. {@link IDataSink#getSource()} is
-	 *         caled for the return value.
+	 *         called for the return value.
 	 */
 	public IDataSource getSource() {
+
+		IDataSink input = null;
+		
+		//TODO prevent the calling of the active editor reference if eclipse is restarted.
+		// OR: save the "last active" editor reference and use it if eclipse isn't restored yet
+		// suspect: getActivePage() is null
+		logger.log(Level.INFO, Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getActivePage().toString());
+		if (Activator.getDefault().getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor() == null) {
+			return null;
+		}
 		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		IDataSink input = editor.getEditorInput();
+		input = editor.getEditorInput();
 		return input.getSource();
+
 	}
 
 	/**
