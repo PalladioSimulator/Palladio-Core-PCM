@@ -35,11 +35,11 @@
             contributorId="de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor">
          <propertyTab
                category="sample"
-               id="de.uka.ipd.sdq.edp2.visualization.propertyTabFilter"
+               id="de.uka.ipd.sdq.edp2.visualization.propertyTabTransformations"
                label="Filter &amp; Adapter">
          </propertyTab>
          <propertyTab
-               afterTab="de.uka.ipd.sdq.edp2.visualization.propertyTabAdapter"
+               afterTab="de.uka.ipd.sdq.edp2.visualization.propertyTabTransformations"
                category="sample"
                id="de.uka.ipd.sdq.edp2.visualization.propertyTabDisplay"
                label="Display">
@@ -53,19 +53,13 @@
          <propertySection
                class="de.uka.ipd.sdq.edp2.visualization.properties.sections.TransformationsPropertySection"
                
-               id="de.uka.ipd.sdq.edp2.visualization.propertySectionFilter"
-               tab="de.uka.ipd.sdq.edp2.visualization.propertyTabFilter">
-            <input
-                  type="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput">
-            </input>
+               id="de.uka.ipd.sdq.edp2.visualization.propertySectionTransformations"
+               tab="de.uka.ipd.sdq.edp2.visualization.propertyTabTransformations">
          </propertySection>
           <propertySection
                 class="de.uka.ipd.sdq.edp2.visualization.properties.sections.DisplayPropertySection"
                 id="de.uka.ipd.sdq.edp2.visualization.propertySectionDisplay"
                 tab="de.uka.ipd.sdq.edp2.visualization.propertyTabDisplay">
-             <input
-                   type="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput">
-             </input>
          </propertySection>
          
       </propertySections>

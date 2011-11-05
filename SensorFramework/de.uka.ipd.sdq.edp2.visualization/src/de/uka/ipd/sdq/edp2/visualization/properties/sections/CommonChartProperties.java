@@ -1,8 +1,10 @@
 package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.title.LegendTitle;
 
 /**
  * The properties wrapper with common settings for all JFreeCharts.
@@ -21,6 +23,8 @@ public class CommonChartProperties implements Serializable {
 	private boolean showTitle;
 	private boolean showLabelXAxis;
 	private boolean showLabelYAxis;
+	private boolean showLegend;
+	private ArrayList<LegendTitle> removedLegends;
 	
 	/**
 	 * Empty constructor.
@@ -34,7 +38,6 @@ public class CommonChartProperties implements Serializable {
 	 */
 	public CommonChartProperties(JFreeChart chart){
 		setChart(chart);
-		
 		this.labelXAxis = chart.getXYPlot().getDomainAxis().getLabel();
 		this.labelYAxis = chart.getXYPlot().getRangeAxis().getLabel();
 		this.showTitle = chart.getTitle() != null;
@@ -43,6 +46,8 @@ public class CommonChartProperties implements Serializable {
 		}
 		this.showLabelXAxis = chart.getXYPlot().getDomainAxis().getLabel() != null;
 		this.showLabelYAxis = chart.getXYPlot().getRangeAxis().getLabel() != null;
+		removedLegends = new ArrayList<LegendTitle>();
+		this.showLegend = chart.getLegend() != null;
 	}
 
 	/**
@@ -150,6 +155,26 @@ public class CommonChartProperties implements Serializable {
 	public void setShowLabelYAxis(boolean showLabelYAxis) {
 		chart.getXYPlot().getRangeAxis().setLabel(showLabelYAxis ? getLabelYAxis() : null);
 		this.showLabelYAxis = showLabelYAxis;
+	}
+
+	/**
+	 * @param showLegend the showLegend to set
+	 */
+	public void setShowLegend(boolean showLegend) {
+		if (!showLegend) {
+			removedLegends.add(chart.getLegend());
+			chart.removeLegend();
+		} else {
+			chart.addLegend(removedLegends.get(0));
+		}
+		this.showLegend = showLegend;
+	}
+
+	/**
+	 * @return the showLegend
+	 */
+	public boolean isShowLegend() {
+		return showLegend;
 	}
 	
 }

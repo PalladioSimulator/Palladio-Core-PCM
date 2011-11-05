@@ -191,26 +191,13 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 						Activator.getDefault().getWorkbench()
 								.getActiveWorkbenchWindow().getShell(),
 						"Semantics of Data Changed",
-						"The applied data transformation cannot be displayed in the current editor."
-								+ "It will be closed and a new Editor is opened. Do you want to proceed?");
+						"The applied data transformation cannot be displayed in the current dataset."
+								+ "A new dataset must be created to replace it. Do you want to proceed?");
 
 		if (result) {
+			
 			IDataSink newInput = new HistogramEditorInput(adapter);
-			Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
-					.getActivePage().closeEditor(editor, false);
-			try {
-				editor = (AbstractEditor) Activator
-						.getDefault()
-						.getWorkbench()
-						.getActiveWorkbenchWindow()
-						.getActivePage()
-						.openEditor(newInput,
-								"de.uka.ipd.sdq.edp2.visualization.editors.Histogram");
-
-			} catch (PartInitException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			editor.changeInput(newInput);
 		}
 	}
 
@@ -265,7 +252,7 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 
 		transformationTable.setLinesVisible(true);
 		transformationTable.setHeaderVisible(true);
-		// set width and hight from the table
+		// set width and height of the table
 		transformationTable.setLayoutData(new RowData(250, 123));
 		// set the weight of the table columns
 		TableLayout tableLayout = new TableLayout();
@@ -404,10 +391,7 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 	}
 
 	/**
-	 * Update the filter list. It is called, if a new Filter is added with the
-	 * button "Add ****filter". If somebody want to add a Filter, this method
-	 * have to be called. Before it is called, the input of the editor had to be
-	 * changed to the new input.
+	 * Updates the list of transformations which are applied to the last active editor input.
 	 */
 	public void updateTransformationsList() {
 

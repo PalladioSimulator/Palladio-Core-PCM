@@ -71,13 +71,13 @@ public class RepositoryUtility {
 	 * Path to a {@link LocalDirectoryRepository}, which is typically used for
 	 * temporary storage.
 	 */
-	private final static String LOCAL_REPO_URI = "C:\\Temp";
+	private final static File LOCAL_REPO_URI = new File("C:\\Temp");
 
 	/**
 	 * The initialization of the local Repository.
 	 */
 	private final static Repository LOCAL_REPO = RepositoryManager
-			.initializeLocalDirectoryRepository(new File(LOCAL_REPO_URI));
+			.initializeLocalDirectoryRepository(LOCAL_REPO_URI);
 
 	/**
 	 * One-time initialization is done here.
@@ -85,13 +85,14 @@ public class RepositoryUtility {
 	public RepositoryUtility(){
 		RepositoryManager.addRepository(RepositoryManager
 				.getCentralRepository(), LOCAL_REPO);
+		LOCAL_REPO_URI.deleteOnExit();
 	}
 	/**
 	 * 
 	 * @return The URI (String) to the static local repository.
 	 */
 	public static String getDefaultLocalRepositoryURI() {
-		return LOCAL_REPO_URI;
+		return LOCAL_REPO_URI.getAbsolutePath();
 	}
 
 	/**

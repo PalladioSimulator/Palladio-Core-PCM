@@ -15,6 +15,7 @@ import org.jfree.chart.JFreeChart;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties;
 
 /**
  * @author Dominik Ernst
@@ -198,5 +199,12 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	 * dataset. The dataset is used to be displayed in an JFreeChart editor-
 	 */
 	public abstract void updateDataset();
+	
+	/**
+	 * This method delivers the particular bean-class, which is used to describe the dataset's properties.
+	 * @param <T> the particular type of properties for this editor input.
+	 * @return the properties class, which forwards changes in its attributes to the {@link JFreeChart}
+	 */
+	public abstract <T extends CommonChartProperties> T getChartProperties();
 
 }

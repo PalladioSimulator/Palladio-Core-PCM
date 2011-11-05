@@ -25,6 +25,7 @@ public class CommonChartPropertiesComposite extends Composite {
 	private Button showLabelYAxisButton;
 	private Button showTitleButton;
 	private Text titleText;
+	private Button btnShowLegend;
 
 	public CommonChartPropertiesComposite(
 			Composite parent,
@@ -85,6 +86,10 @@ public class CommonChartPropertiesComposite extends Composite {
 		showTitleButton = new Button(grpDescriptions, SWT.CHECK);
 		showTitleButton.setBounds(247, 29, 120, 16);
 		showTitleButton.setText("Show diagram title");
+		
+		btnShowLegend = new Button(grpDescriptions, SWT.CHECK);
+		btnShowLegend.setText("Show legend");
+		btnShowLegend.setBounds(4, 133, 112, 16);
 		setLayout(groupLayout);
 
 		if (commonChartProperties != null) {
@@ -95,50 +100,6 @@ public class CommonChartPropertiesComposite extends Composite {
 	@Override
 	protected void checkSubclass() {
 		// Disable the check that prevents subclassing of SWT components
-	}
-
-	private DataBindingContext initDataBindings() {
-		IObservableValue labelXAxisObserveWidget = SWTObservables.observeText(
-				labelXAxisText, SWT.FocusOut);
-		IObservableValue labelXAxisObserveValue = PojoObservables.observeValue(
-				commonChartProperties, "labelXAxis");
-		IObservableValue labelYAxisObserveWidget = SWTObservables.observeText(
-				labelYAxisText, SWT.FocusOut);
-		IObservableValue labelYAxisObserveValue = PojoObservables.observeValue(
-				commonChartProperties, "labelYAxis");
-		IObservableValue showLabelXAxisObserveWidget = SWTObservables
-				.observeSelection(showLabelXAxisButton);
-		IObservableValue showLabelXAxisObserveValue = PojoObservables
-				.observeValue(commonChartProperties, "showLabelXAxis");
-		IObservableValue showLabelYAxisObserveWidget = SWTObservables
-				.observeSelection(showLabelYAxisButton);
-		IObservableValue showLabelYAxisObserveValue = PojoObservables
-				.observeValue(commonChartProperties, "showLabelYAxis");
-		IObservableValue showTitleObserveWidget = SWTObservables
-				.observeSelection(showTitleButton);
-		IObservableValue showTitleObserveValue = PojoObservables.observeValue(
-				commonChartProperties, "showTitle");
-		IObservableValue titleObserveWidget = SWTObservables.observeText(
-				titleText, SWT.FocusOut);
-		IObservableValue titleObserveValue = PojoObservables.observeValue(
-				commonChartProperties, "title");
-		//
-		DataBindingContext bindingContext = new DataBindingContext();
-		//
-		bindingContext.bindValue(labelXAxisObserveWidget,
-				labelXAxisObserveValue, null, null);
-		bindingContext.bindValue(labelYAxisObserveWidget,
-				labelYAxisObserveValue, null, null);
-		bindingContext.bindValue(showLabelXAxisObserveWidget,
-				showLabelXAxisObserveValue, null, null);
-		bindingContext.bindValue(showLabelYAxisObserveWidget,
-				showLabelYAxisObserveValue, null, null);
-		bindingContext.bindValue(showTitleObserveWidget, showTitleObserveValue,
-				null, null);
-		bindingContext.bindValue(titleObserveWidget, titleObserveValue, null,
-				null);
-		//
-		return bindingContext;
 	}
 
 	public de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties getCommonChartProperties() {
@@ -163,5 +124,38 @@ public class CommonChartPropertiesComposite extends Composite {
 				m_bindingContext = initDataBindings();
 			}
 		}
+	}
+	protected DataBindingContext initDataBindings() {
+		DataBindingContext bindingContext = new DataBindingContext();
+		//
+		IObservableValue labelXAxisObserveWidget = SWTObservables.observeText(labelXAxisText, SWT.FocusOut);
+		IObservableValue labelXAxisObserveValue = PojoObservables.observeValue(commonChartProperties, "labelXAxis");
+		bindingContext.bindValue(labelXAxisObserveWidget, labelXAxisObserveValue, null, null);
+		//
+		IObservableValue labelYAxisObserveWidget = SWTObservables.observeText(labelYAxisText, SWT.FocusOut);
+		IObservableValue labelYAxisObserveValue = PojoObservables.observeValue(commonChartProperties, "labelYAxis");
+		bindingContext.bindValue(labelYAxisObserveWidget, labelYAxisObserveValue, null, null);
+		//
+		IObservableValue showLabelXAxisObserveWidget = SWTObservables.observeSelection(showLabelXAxisButton);
+		IObservableValue showLabelXAxisObserveValue = PojoObservables.observeValue(commonChartProperties, "showLabelXAxis");
+		bindingContext.bindValue(showLabelXAxisObserveWidget, showLabelXAxisObserveValue, null, null);
+		//
+		IObservableValue showLabelYAxisObserveWidget = SWTObservables.observeSelection(showLabelYAxisButton);
+		IObservableValue showLabelYAxisObserveValue = PojoObservables.observeValue(commonChartProperties, "showLabelYAxis");
+		bindingContext.bindValue(showLabelYAxisObserveWidget, showLabelYAxisObserveValue, null, null);
+		//
+		IObservableValue showTitleObserveWidget = SWTObservables.observeSelection(showTitleButton);
+		IObservableValue showTitleObserveValue = PojoObservables.observeValue(commonChartProperties, "showTitle");
+		bindingContext.bindValue(showTitleObserveWidget, showTitleObserveValue, null, null);
+		//
+		IObservableValue titleObserveWidget = SWTObservables.observeText(titleText, SWT.FocusOut);
+		IObservableValue titleObserveValue = PojoObservables.observeValue(commonChartProperties, "title");
+		bindingContext.bindValue(titleObserveWidget, titleObserveValue, null, null);
+		//
+		IObservableValue btnShowLegendObserveSelectionObserveWidget = SWTObservables.observeSelection(btnShowLegend);
+		IObservableValue commonChartPropertiesShowLegendObserveValue = PojoObservables.observeValue(commonChartProperties, "showLegend");
+		bindingContext.bindValue(btnShowLegendObserveSelectionObserveWidget, commonChartPropertiesShowLegendObserveValue, null, null);
+		//
+		return bindingContext;
 	}
 }

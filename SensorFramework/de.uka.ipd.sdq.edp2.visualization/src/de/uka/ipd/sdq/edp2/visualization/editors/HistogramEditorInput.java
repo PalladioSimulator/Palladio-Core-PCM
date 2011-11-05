@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties;
 
 /**
  * @author Dominik Ernst
@@ -49,6 +50,10 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 * the measurements are counted.
 	 */
 	private int numberOfBins;
+	/**
+	 * Counter for the number of data series
+	 */
+	private int seriesCounter;
 	/**
 	 * The specific type of {@link Dataset}.
 	 */
@@ -92,7 +97,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	public HistogramEditorInput(IDataSource source) {
 		super(source);
-		updateDataset();
 	}
 
 	/**
@@ -124,8 +128,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		// TODO change so that the adapter doesn't have to be the direct
 		// predecessor
 		// FIXME shouldn't use PersistenceTag, but must get the number of bins
-		dataset.addSeries(getSource().getMeasurementsRange().getMeasurements()
-				.getMeasure().getMetric().getName(), values, getNumberOfBins());
+		dataset.addSeries("Series "+(seriesCounter+1), values, getNumberOfBins());
 		// set the title of the chart to the name of the input data series
 		setTitle(getSource().getMeasurementsRange().getMeasurements()
 				.getMeasure().getMetric().getName());
@@ -254,6 +257,12 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	private void setNumberOfBins(int numberOfBins) {
 		this.numberOfBins = numberOfBins;
+	}
+
+	@Override
+	public HistogramChartProperties getChartProperties() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

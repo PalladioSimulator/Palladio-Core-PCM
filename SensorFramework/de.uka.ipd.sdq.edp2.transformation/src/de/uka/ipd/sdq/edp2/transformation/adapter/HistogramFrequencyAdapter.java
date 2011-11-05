@@ -60,6 +60,9 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 */
 	private int dataSeriesIndex;
 
+	/**
+	 * Empty constructor
+	 */
 	public HistogramFrequencyAdapter() {
 	}
 
@@ -219,14 +222,6 @@ public class HistogramFrequencyAdapter extends IAdapter {
 		return properties;
 	}
 
-	public int getDataSeriesIndex() {
-		return dataSeriesIndex;
-	}
-
-	public void setDataSeriesIndex(int dataSeriesIndex) {
-		this.dataSeriesIndex = dataSeriesIndex;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -253,6 +248,20 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	public ImageDescriptor getImageDescriptor() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	/**
+	 * @return the dataSeriesIndex
+	 */
+	public int getDataSeriesIndex() {
+		return dataSeriesIndex;
+	}
+
+	/**
+	 * @param dataSeriesIndex the dataSeriesIndex to set
+	 */
+	public void setDataSeriesIndex(int dataSeriesIndex) {
+		this.dataSeriesIndex = dataSeriesIndex;
 	}
 
 }

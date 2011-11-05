@@ -86,19 +86,35 @@ public class WarmupFilter extends IFilter {
 	 */
 	private float droppedValuesPercentage = 0.0f;
 
+	/**
+	 * 
+	 * @return the current value in <droppedValues>
+	 */
 	public int getDroppedValues() {
 		return droppedValues;
 	}
 
+	/**
+	 * 
+	 * @param droppedValues the number of dropped values to set (as an absolute value)
+	 */
 	public void setDroppedValues(int droppedValues) {
 		this.droppedValues = droppedValues;
 		this.droppedValuesPercentage = 0.0f;
 	}
 
+	/**
+	 * 
+	 * @return the current <droppedValuesPercentage>
+	 */
 	public float getDroppedValuesPercentage() {
 		return droppedValuesPercentage;
 	}
 
+	/**
+	 * 
+	 * @param droppedValuesPercentage the number of dropped values to set (as an absolute value)
+	 */
 	public void setDroppedValuesPercentage(float droppedValuesPercentage) {
 		this.droppedValuesPercentage = droppedValuesPercentage;
 		this.droppedValues = 0;
