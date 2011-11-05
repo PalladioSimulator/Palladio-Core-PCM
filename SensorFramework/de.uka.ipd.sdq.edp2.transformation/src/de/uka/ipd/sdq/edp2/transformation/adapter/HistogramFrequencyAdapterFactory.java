@@ -7,14 +7,10 @@ import java.util.logging.Logger;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.ui.IElementFactory;
 import org.eclipse.ui.IMemento;
-import org.eclipse.ui.IPersistableElement;
 
 import de.uka.ipd.sdq.edp2.visualization.FactoryConnector;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IFilter;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
-import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput;
-import de.uka.ipd.sdq.edp2.visualization.util.PersistenceTag;
 /**
  * A factory for {@link HistogramFrequencyAdapter} elements. Responsible for persistance and restoring.
  * @author Dominik Ernst
@@ -53,7 +49,7 @@ public class HistogramFrequencyAdapterFactory extends ElementFactory {
 		IDataSource createdSource = (IDataSource) ((IElementFactory) sourceFactory)
 		.createElement(memento);
 		
-		logger.log(Level.INFO, "Created source of HistoGramFrequencyAdapter: "+createdSource.toString());
+		logger.log(Level.INFO, "Created source of HistogramFrequencyAdapter: "+createdSource.toString());
 
 		histogramAdapter.setSource(createdSource);
 		

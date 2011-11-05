@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.edp2.transformation.filter;
 
+import java.util.HashMap;
 import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.IStatus;
@@ -188,19 +189,14 @@ public class WarmupFilterSettingsPage extends WizardPage implements ModifyListen
 		return null;
 	}
 
-	/**
-	 * Retrieves the values of the form, which are the properties of the
-	 * {@link IAdapter} for whose setup this wizard page is responsible.
-	 * 
-	 * @return the properties
-	 */
-	public String[] getProperties() {
-		String[] properties = new String[2];
-		return properties;
-	}
-
 	public WarmupFilter getFilter() {
-		return new WarmupFilter(source, droppedValuesAbsolute, droppedValuesPercentage);
+		WarmupFilter filter = new WarmupFilter();
+		HashMap<String, Object> properties = filter.getProperties();
+		properties.put("droppedValuesAbsolute", droppedValuesAbsolute);
+		properties.put("droppedValuesRelative", droppedValuesPercentage);
+		filter.setProperties(properties);
+		filter.setSource(source);
+		return filter;
 	}
 
 	@Override

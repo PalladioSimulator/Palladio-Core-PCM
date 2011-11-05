@@ -39,14 +39,6 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	 */
 	private final static String NAME_KEY = "elementName";
 	/**
-	 * The current input of the
-	 */
-	private JFreeChartEditorInput editorInput;
-	/**
-	 * The table to show all modifiable attributes.
-	 */
-	private Table propertyTable;
-	/**
 	 * The last active editor;
 	 */
 	private AbstractEditor editor;
@@ -63,20 +55,10 @@ public class DisplayPropertySection extends AbstractPropertySection {
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
 
-		try {
-			// properties view is only visible for abstract editors, so no type
-			// check is necessary
-			editor = (AbstractEditor) Activator.getDefault().getWorkbench()
-					.getActiveWorkbenchWindow().getActivePage()
-					.getActiveEditor();
-			// NPE may happen if the properties view is restored or opened while
-			// the editor is still or already closed
-		} catch (NullPointerException npe) {
-			logger.log(Level.SEVERE,
-					"Tried to open properties view without an active editor!");
-			throw new RuntimeException();
+		if (getInput() != null) {
+			new CommonChartPropertiesComposite(parent, SWT.EMBEDDED,
+					new CommonChartProperties(getInput().getChart()));
 		}
-		new CommonChartPropertiesComposite(parent, SWT.EMBEDDED, new CommonChartProperties(getInput().getChart()));
 	}
 
 	/*
@@ -97,10 +79,13 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	 * @return the current {@link IDataSink}
 	 */
 	public JFreeChartEditorInput getInput() {
+		if (Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage() == null) {
+			return null;
+		}
 		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		editorInput = (JFreeChartEditorInput) editor.getEditorInput();
-		return editorInput;
+		return (JFreeChartEditorInput) editor.getEditorInput();
 	}
 
 	/*
@@ -110,6 +95,12 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	 * org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#refresh()
 	 */
 	public void refresh() {
+		updateInput();
+	}
+
+	private void updateInput() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

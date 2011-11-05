@@ -104,31 +104,18 @@ public class WarmupFilter extends IFilter {
 		this.droppedValues = 0;
 	}
 
+	/**
+	 * Empty constructor.
+	 */
 	public WarmupFilter() {
 	};
 
+	/**
+	 * Default constructor 
+	 * @param source
+	 */
 	public WarmupFilter(IDataSource source) {
 		super(source);
-		transformData();
-	}
-
-	/**
-	 * Constructor for restoring of a {@link WarmupFilter} by the a Factory
-	 * (used for persistence).
-	 * 
-	 * @param source
-	 *            the attached {@link IDataSource}
-	 * @param droppedValues
-	 *            number of values dropped as an absolute value
-	 * @param droppedValuesPercentage
-	 *            number of values dropped in percentage
-	 */
-	public WarmupFilter(IDataSource source, int droppedValues,
-			float droppedValuesPercentage) {
-		super(source);
-		setDroppedValues(droppedValues);
-		setDroppedValuesPercentage(droppedValuesPercentage);
-		transformData();
 	}
 
 	/*
@@ -291,25 +278,22 @@ public class WarmupFilter extends IFilter {
 		return properties;
 	}
 
+
 	/*
 	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.uka.ipd.sdq.edp2.visualization.IDataTransformation#getProperties()
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#setProperties(java.util.HashMap)
 	 */
-	public void setProperties(HashMap<String, Object> map) {
-		if (properties.get(DROPPED_VALUES_ABS_KEY) != null
-				|| map.get(DROPPED_VALUES_ABS_KEY) != null)
-			setDroppedValues(Integer.parseInt(map.get(DROPPED_VALUES_ABS_KEY)
+	public void setProperties(HashMap<String, Object> newProperties) {
+		if (validProperties(newProperties, DROPPED_VALUES_ABS_KEY))
+			setDroppedValues(Integer.parseInt(newProperties.get(DROPPED_VALUES_ABS_KEY)
 					.toString()));
 		else
 			setDroppedValues(DEFAULT_VALUE_DROPPED_VALUES_ABS);
-		if (map.get(DROPPED_VALUES_REL_KEY) != null
-				|| properties.get(DROPPED_VALUES_REL_KEY) != null)
-			setDroppedValuesPercentage(Float.parseFloat(map.get(
+		if (validProperties(newProperties, DROPPED_VALUES_REL_KEY))
+			setDroppedValuesPercentage(Float.parseFloat(newProperties.get(
 					DROPPED_VALUES_REL_KEY).toString()));
 		else
-			setDroppedValuesPercentage(DEFAULT_VALUE_DROPPED_VALUES_ABS);
+			setDroppedValuesPercentage(DEFAULT_VALUE_DROPPED_VALUES_REL);
 	}
 
 	/*

@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.edp2.visualization;
 
+import java.util.HashMap;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
@@ -131,6 +133,18 @@ public abstract class AbstractTransformation extends IDataSource implements
 		// as long as it has no relevance, the empty method is added here to
 		// avoid unnecessary implementation
 		// or misunderstandings
+	}
+	
+	/**
+	 * Method which checks the existence of the given key in both {@link HashMap}s: <newProperties> and
+	 * the <properties> which are currently set for this {@link AbstractTransformation}.
+	 * @param newProperties the set of properties to set
+	 * @param key the key for which property to check non-null 
+	 * @return <true> if both the new and the old set of properties contain an entry with the given key
+	 */
+	public boolean validProperties(HashMap<String, Object> newProperties, String key){
+		return (properties.get(key) != null
+				|| newProperties.get(key) != null);
 	}
 
 }

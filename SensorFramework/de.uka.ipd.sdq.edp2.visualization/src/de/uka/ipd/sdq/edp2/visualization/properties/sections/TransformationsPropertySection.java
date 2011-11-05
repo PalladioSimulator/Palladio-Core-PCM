@@ -389,12 +389,11 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 
 		IDataSink input = null;
 		
-		//TODO prevent the calling of the active editor reference if eclipse is restarted.
-		// OR: save the "last active" editor reference and use it if eclipse isn't restored yet
-		// suspect: getActivePage() is null
-		logger.log(Level.INFO, Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getActivePage().toString());
+		//workaround:
+		//prevent the calling of the active editor reference if eclipse is restarted and getActivePage() is null
+		//idea: save the "last active" editor reference and use it if eclipse isn't restored yet?
 		if (Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor() == null) {
+				.getActiveWorkbenchWindow().getActivePage() == null) {
 			return null;
 		}
 		editor = (AbstractEditor) Activator.getDefault().getWorkbench()

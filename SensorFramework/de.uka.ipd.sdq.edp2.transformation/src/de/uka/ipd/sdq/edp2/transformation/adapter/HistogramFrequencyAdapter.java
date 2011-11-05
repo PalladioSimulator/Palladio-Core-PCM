@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.edp2.transformation.adapter;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
@@ -10,9 +9,6 @@ import java.util.logging.Logger;
 
 import javax.measure.Measure;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IMemento;
 
@@ -27,7 +23,6 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.visualization.IAdapter;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
-import de.uka.ipd.sdq.edp2.visualization.util.PersistenceTag;
 import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
 
 /**
@@ -43,12 +38,17 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 * Name constant, which is used to identify this class in properties.
 	 */
 	private final static String ELEMENT_NAME = "HistogramFrequencyAdapter";
-	
+
 	/**
 	 * Keys for persistence of properties
 	 */
 	private final static String DATA_SERIES_KEY = "dataSeriesIndex";
-	
+
+	/**
+	 * Default value for <dataSeriesIndex>.
+	 */
+	private final static int DEFAULT_VALUE_DATA_SERIES_INDEX = 0;
+
 	/**
 	 * Logger for this class.
 	 */
@@ -72,26 +72,6 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 */
 	public HistogramFrequencyAdapter(IDataSource source) {
 		super(source);
-		dataSeriesIndex = 0;
-		transformData();
-	}
-
-	/**
-	 * Constructor for predefined assignment of values to a newly created
-	 * object's variables, used for persistence.
-	 * 
-	 * @param source
-	 *            the attached {@link IDataSource}
-	 * @param dataSeriesIndex
-	 *            the index of the {@link DataSeries} to be displayed in the
-	 *            histogram
-	 * @param numberOfBins
-	 *            the number of intervals
-	 */
-	public HistogramFrequencyAdapter(IDataSource source, int dataSeriesIndex) {
-		super(source);
-		this.dataSeriesIndex = dataSeriesIndex;
-		transformData();
 	}
 
 	/*
@@ -145,7 +125,7 @@ public class HistogramFrequencyAdapter extends IAdapter {
 
 		// important: set the reference of the dataSeries
 		this.dataSeries = rawMeasurements.getDataSeries();
-		
+
 		setChanged();
 		notifyObservers();
 
@@ -235,8 +215,7 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	@Override
 	public HashMap<String, Object> getProperties() {
 		properties.put(ELEMENT_KEY, ELEMENT_NAME);
-		properties.put(DATA_SERIES_KEY,
-				dataSeriesIndex);
+		properties.put(DATA_SERIES_KEY, getDataSeriesIndex());
 		return properties;
 	}
 
@@ -248,7 +227,6 @@ public class HistogramFrequencyAdapter extends IAdapter {
 		this.dataSeriesIndex = dataSeriesIndex;
 	}
 
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -257,9 +235,13 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 * )
 	 */
 	@Override
-	public void setProperties(HashMap<String, Object> map) {
-		setDataSeriesIndex(Integer.parseInt(map.get(DATA_SERIES_KEY).toString()));	
-		properties.put(DATA_SERIES_KEY, getDataSeriesIndex());
+	public void setProperties(HashMap<String, Object> newProperties) {
+		if (validProperties(newProperties, DATA_SERIES_KEY))
+			setDataSeriesIndex(Integer.parseInt(newProperties.get(
+					DATA_SERIES_KEY).toString()));
+		else
+			setDataSeriesIndex(DEFAULT_VALUE_DATA_SERIES_INDEX);
+
 	}
 
 	/*

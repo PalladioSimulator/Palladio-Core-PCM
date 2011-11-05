@@ -1,25 +1,15 @@
 package de.uka.ipd.sdq.edp2.visualization.datasource;
 
-import java.io.File;
 import java.util.HashMap;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.ui.IElementFactory;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
 
-import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
-import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
-import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
-import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.visualization.FactoryConnector;
 import de.uka.ipd.sdq.edp2.visualization.IDataFlow;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IFilter;
-import de.uka.ipd.sdq.edp2.visualization.util.PersistenceTag;
 
 /**
  * A factory for persistence of {@link IDataFlow} elements.

@@ -36,57 +36,55 @@ public class CommonChartPropertiesComposite extends Composite {
 
 	public CommonChartPropertiesComposite(Composite parent, int style) {
 		super(parent, style);
-		
+
 		Group grpDescriptions = new Group(this, SWT.NONE);
 		grpDescriptions.setText("Descriptions");
 		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(GroupLayout.LEADING)
-				.add(GroupLayout.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.add(grpDescriptions, GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
-					.addContainerGap())
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(GroupLayout.LEADING)
-				.add(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.add(grpDescriptions, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(138, Short.MAX_VALUE))
-		);
-		
-				labelYAxisText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
-				labelYAxisText.setBounds(72, 96, 169, 21);
-				
-						labelXAxisText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
-						labelXAxisText.setBounds(72, 62, 169, 21);
-						
-								titleText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
-								titleText.setBounds(72, 28, 169, 21);
-								
-										Label label_5 = new Label(grpDescriptions, SWT.NONE);
-										label_5.setBounds(4, 31, 26, 15);
-										label_5.setText("Title:");
-										
-												Label label = new Label(grpDescriptions, SWT.NONE);
-												label.setBounds(4, 65, 62, 15);
-												label.setText("X-axis label:");
-												
-														Label label_1 = new Label(grpDescriptions, SWT.NONE);
-														label_1.setBounds(4, 99, 62, 15);
-														label_1.setText("Y-axis label:");
-														
-																showLabelYAxisButton = new Button(grpDescriptions, SWT.CHECK);
-																showLabelYAxisButton.setBounds(247, 98, 112, 16);
-																showLabelYAxisButton.setText("Show Y-axis label");
-																
-																		showLabelXAxisButton = new Button(grpDescriptions, SWT.CHECK);
-																		showLabelXAxisButton.setBounds(247, 64, 112, 16);
-																		showLabelXAxisButton.setText("Show X-axis label");
-																		
-																				showTitleButton = new Button(grpDescriptions, SWT.CHECK);
-																				showTitleButton.setBounds(247, 29, 120, 16);
-																				showTitleButton.setText("Show diagram title");
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(
+				GroupLayout.LEADING).add(
+				GroupLayout.TRAILING,
+				groupLayout.createSequentialGroup().addContainerGap().add(
+						grpDescriptions, GroupLayout.DEFAULT_SIZE, 409,
+						Short.MAX_VALUE).addContainerGap()));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(
+				GroupLayout.LEADING).add(
+				groupLayout.createSequentialGroup().addContainerGap().add(
+						grpDescriptions, GroupLayout.PREFERRED_SIZE, 159,
+						GroupLayout.PREFERRED_SIZE).addContainerGap(138,
+						Short.MAX_VALUE)));
+
+		labelYAxisText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
+		labelYAxisText.setBounds(72, 96, 169, 21);
+
+		labelXAxisText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
+		labelXAxisText.setBounds(72, 62, 169, 21);
+
+		titleText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
+		titleText.setBounds(72, 28, 169, 21);
+
+		Label label_5 = new Label(grpDescriptions, SWT.NONE);
+		label_5.setBounds(4, 31, 26, 15);
+		label_5.setText("Title:");
+
+		Label label = new Label(grpDescriptions, SWT.NONE);
+		label.setBounds(4, 65, 62, 15);
+		label.setText("X-axis label:");
+
+		Label label_1 = new Label(grpDescriptions, SWT.NONE);
+		label_1.setBounds(4, 99, 62, 15);
+		label_1.setText("Y-axis label:");
+
+		showLabelYAxisButton = new Button(grpDescriptions, SWT.CHECK);
+		showLabelYAxisButton.setBounds(247, 98, 112, 16);
+		showLabelYAxisButton.setText("Show Y-axis label");
+
+		showLabelXAxisButton = new Button(grpDescriptions, SWT.CHECK);
+		showLabelXAxisButton.setBounds(247, 64, 112, 16);
+		showLabelXAxisButton.setText("Show X-axis label");
+
+		showTitleButton = new Button(grpDescriptions, SWT.CHECK);
+		showTitleButton.setBounds(247, 29, 120, 16);
+		showTitleButton.setText("Show diagram title");
 		setLayout(groupLayout);
 
 		if (commonChartProperties != null) {

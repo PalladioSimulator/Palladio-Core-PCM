@@ -36,7 +36,6 @@ Export-Package: de.uka.ipd.sdq.edp2.visualization;
    org.eclipse.ui,
    de.uka.ipd.sdq.edp2.models.Repository,
    de.uka.ipd.sdq.edp2.visualization",
- de.uka.ipd.sdq.edp2.visualization.dialogs;uses:="org.eclipse.jface.viewers,org.eclipse.ui.dialogs,org.eclipse.swt.widgets",
  de.uka.ipd.sdq.edp2.visualization.editors;
   uses:="org.eclipse.ui.views.properties.tabbed,
    org.eclipse.core.runtime,

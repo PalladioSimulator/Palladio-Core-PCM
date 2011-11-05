@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.edp2.transformation.adapter;
 
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -104,7 +105,8 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 
 		// gets labels of the different data series in the source
 		MetricDescription[] mds = MetricDescriptionUtility
-				.toBaseMetricDescriptions(source.getMeasurementsRange().getMeasurements().getMeasure().getMetric());
+				.toBaseMetricDescriptions(source.getMeasurementsRange()
+						.getMeasurements().getMeasure().getMetric());
 		for (int i = 0; i < mds.length; i++) {
 			dataSeriesList.add(mds[i].getName());
 		}
@@ -179,26 +181,19 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 	}
 
 	/**
-	 * Retrieves the values of the form, which are the properties of the
-	 * {@link IAdapter} for whose setup this wizard page is responsible.
-	 * 
-	 * @return the properties
-	 */
-	public String[] getProperties() {
-		String[] properties = new String[1];
-		properties[0] = "" + dataSeriesList.getSelectionIndex();
-		return properties;
-	}
-
-	/**
 	 * Creates the adapter from the data on the form.
 	 * 
 	 * @return a new {@link HistogramFrequencyAdapter}
 	 */
 	public HistogramFrequencyAdapter getAdapter() {
 		logger.log(Level.INFO, "AdapterSettingsPage returned non-null adapter");
-		return new HistogramFrequencyAdapter(source, Integer
-				.parseInt(getProperties()[0]));
+		HistogramFrequencyAdapter adapter = new HistogramFrequencyAdapter();
+		HashMap<String, Object> properties = adapter.getProperties();
+		properties.put(properties.get("dataSeriesIndex").toString(),
+				dataSeriesList.getSelectionIndex());
+		adapter.setProperties(properties);
+		adapter.setSource(source);
+		return adapter;
 	}
 
 }
