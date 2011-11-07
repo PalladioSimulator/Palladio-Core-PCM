@@ -15,7 +15,7 @@ public class CommonChartProperties implements Serializable {
 
 	private static final long serialVersionUID = 6964212270982799287L;
 
-	private JFreeChart chart;
+	protected JFreeChart chart;
 	
 	private String title;
 	private String labelXAxis;
@@ -38,16 +38,6 @@ public class CommonChartProperties implements Serializable {
 	 */
 	public CommonChartProperties(JFreeChart chart){
 		setChart(chart);
-		this.labelXAxis = chart.getXYPlot().getDomainAxis().getLabel();
-		this.labelYAxis = chart.getXYPlot().getRangeAxis().getLabel();
-		this.showTitle = chart.getTitle() != null;
-		if (showTitle) {
-			this.title = chart.getTitle().getText();
-		}
-		this.showLabelXAxis = chart.getXYPlot().getDomainAxis().getLabel() != null;
-		this.showLabelYAxis = chart.getXYPlot().getRangeAxis().getLabel() != null;
-		removedLegends = new ArrayList<LegendTitle>();
-		this.showLegend = chart.getLegend() != null;
 	}
 
 	/**
@@ -62,6 +52,16 @@ public class CommonChartProperties implements Serializable {
 	 */
 	public void setChart(JFreeChart chart) {
 		this.chart = chart;
+		this.labelXAxis = chart.getXYPlot().getDomainAxis().getLabel();
+		this.labelYAxis = chart.getXYPlot().getRangeAxis().getLabel();
+		this.showTitle = chart.getTitle() != null;
+		if (showTitle) {
+			this.title = chart.getTitle().getText();
+		}
+		this.showLabelXAxis = chart.getXYPlot().getDomainAxis().getLabel() != null;
+		this.showLabelYAxis = chart.getXYPlot().getRangeAxis().getLabel() != null;
+		removedLegends = new ArrayList<LegendTitle>();
+		this.showLegend = chart.getLegend() != null;
 	}
 
 	/**

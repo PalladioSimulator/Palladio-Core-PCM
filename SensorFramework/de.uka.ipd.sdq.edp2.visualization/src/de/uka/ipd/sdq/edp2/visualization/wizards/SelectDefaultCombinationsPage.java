@@ -263,8 +263,8 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		// HistogramAdapter+Histogram are added independently of Default
 		// Combinations in extension points
 		DefaultSequence basicSequence1 = new DefaultSequence();
-		basicSequence1.setSequenceID("histogramDefault");
-		basicSequence1.setSequenceName("Histogram");
+		basicSequence1.setSequenceID("histogramAdapterDefault");
+		basicSequence1.setSequenceName("Histogram + Adapter");
 		basicSequence1.setInputMetricUUID("no_UUID");
 		basicSequence1
 				.addSequenceElement(adapters
@@ -279,9 +279,18 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		basicSequence2.setInputMetricUUID("no_UUID");
 		basicSequence2.setVisualization(charts
 				.get("de.uka.ipd.sdq.edp2.visualization.Scatterplot"));
+		
+		// experimental sequence with histogram only (for multiple dataseries)
+		DefaultSequence basicSequence3 = new DefaultSequence();
+		basicSequence3.setSequenceID("histogramDefault");
+		basicSequence3.setSequenceName("Histogram (EXPERIMENTAL)");
+		basicSequence3.setInputMetricUUID("no_UUID");
+		basicSequence3.setVisualization(charts
+				.get("de.uka.ipd.sdq.edp2.visualization.Histogram"));
 
 		defaultSequences.add(basicSequence1);
 		defaultSequences.add(basicSequence2);
+		defaultSequences.add(basicSequence3);
 
 	}
 

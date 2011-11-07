@@ -39,6 +39,7 @@ import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2SourceFactory;
+import de.uka.ipd.sdq.edp2.visualization.properties.SpecificChartProperties;
 import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties;
 
 /**
@@ -287,7 +288,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public <T extends CommonChartProperties> T getChartProperties() {
+	public SpecificChartProperties getChartProperties() {
 		// TODO Auto-generated method stub
 		return null;
 	}

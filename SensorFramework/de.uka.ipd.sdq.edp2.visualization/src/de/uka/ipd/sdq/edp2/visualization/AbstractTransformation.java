@@ -144,7 +144,7 @@ public abstract class AbstractTransformation extends IDataSource implements
 	 */
 	public boolean validProperties(HashMap<String, Object> newProperties, String key){
 		return (properties.get(key) != null
-				|| newProperties.get(key) != null);
+				&& newProperties.get(key) != null);
 	}
 
 }

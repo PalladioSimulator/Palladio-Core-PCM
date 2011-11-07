@@ -6,6 +6,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.EditorPart;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.event.ChartChangeEvent;
+import org.jfree.chart.event.ChartChangeListener;
 import org.jfree.experimental.chart.swt.ChartComposite;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
@@ -16,7 +18,7 @@ import de.uka.ipd.sdq.edp2.visualization.IDataSink;
  * 
  * @author Dominik Ernst
  */
-public class JFreeChartEditor extends AbstractEditor {
+public class JFreeChartEditor extends AbstractEditor implements ChartChangeListener {
 	
 	/** This editor's ID, e.g. for Referencing in extension points. */
 	public static final String EDITOR_ID = "de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor";
@@ -35,6 +37,10 @@ public class JFreeChartEditor extends AbstractEditor {
 	protected Composite parent;
 	/** The container in which a {@link JFreeChart} is contained. */
 	protected ChartComposite chartContainer;
+	/**
+	 * The current chart.
+	 */
+	JFreeChart chart;
 	
 	/*
 	 * (non-Javadoc)
@@ -44,7 +50,8 @@ public class JFreeChartEditor extends AbstractEditor {
 	public void createPartControl(Composite parent) {
 		this.parent = parent;
 		setPartName(EDITOR_NAME);
-		JFreeChart chart = ((JFreeChartEditorInput) getEditorInput()).createChart();
+		chart = ((JFreeChartEditorInput) getEditorInput()).createChart();
+		chart.addChangeListener(this);
 		chartContainer = new ChartComposite(parent, SWT.NONE, chart, true);
 		getSite().setSelectionProvider(createSelectionProvider());
 	}
@@ -53,7 +60,9 @@ public class JFreeChartEditor extends AbstractEditor {
 	 * Method, which describes the default updating process of the current chart.
 	 */
 	public void updateChart() {
-		JFreeChart chart =  ((JFreeChartEditorInput)getEditorInput()).createChart();
+		chart.removeChangeListener(this);
+		chart = ((JFreeChartEditorInput)getEditorInput()).createChart();
+		chart.addChangeListener(this);
 		chartContainer.setChart(chart);
 		chartContainer.forceRedraw();
 	}
@@ -65,6 +74,11 @@ public class JFreeChartEditor extends AbstractEditor {
 	public void changeInput(IDataSink newInput) {
 		setInput(input);
 		this.input = newInput;
+		updateChart();
+	}
+
+	@Override
+	public void chartChanged(ChartChangeEvent event) {
 		updateChart();
 	}
 

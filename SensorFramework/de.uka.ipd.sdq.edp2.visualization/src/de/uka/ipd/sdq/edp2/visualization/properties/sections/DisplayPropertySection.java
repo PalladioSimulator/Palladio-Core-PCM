@@ -39,9 +39,25 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	 */
 	private final static String NAME_KEY = "elementName";
 	/**
+	 * Composite for all properties of all JFreeCharts
+	 */
+	private CommonChartPropertiesComposite commonComposite;
+	/**
+	 * The properties-wrapper for properties of all JFreeCharts
+	 */
+	private CommonChartProperties commonProperties;
+	/**
+	 * Composite for the properties of the currently displayed chart.
+	 */
+	private Composite specificComposite;
+	/**
 	 * The last active editor;
 	 */
-	private AbstractEditor editor;
+	private JFreeChartEditor editor;
+	/**
+	 * The parent composite.
+	 */
+	private Composite parent;
 
 	/*
 	 * (non-Javadoc)
@@ -54,10 +70,14 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	public void createControls(Composite parent,
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		super.createControls(parent, aTabbedPropertySheetPage);
-
+		this.parent = parent;
 		if (getInput() != null) {
-			new CommonChartPropertiesComposite(parent, SWT.EMBEDDED,
-					new CommonChartProperties(getInput().getChart()));
+			commonProperties = new CommonChartProperties(getInput().getChart());
+			commonComposite = new CommonChartPropertiesComposite(parent,
+					SWT.EMBEDDED, commonProperties);
+			specificComposite = getInput().getChartProperties()
+					.retrieveComposite(parent);
+
 		}
 	}
 
@@ -83,7 +103,7 @@ public class DisplayPropertySection extends AbstractPropertySection {
 				.getActivePage() == null) {
 			return null;
 		}
-		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
+		editor = (JFreeChartEditor) Activator.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 		return (JFreeChartEditorInput) editor.getEditorInput();
 	}
@@ -99,8 +119,13 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	}
 
 	private void updateInput() {
-		// TODO Auto-generated method stub
-
+		if (getInput() != null){
+			specificComposite.dispose();
+		}
+		commonProperties = new CommonChartProperties(getInput().getChart());
+		commonComposite.setCommonChartProperties(commonProperties);
+		specificComposite = getInput().getChartProperties().retrieveComposite(
+				parent);
 	}
 
 }
