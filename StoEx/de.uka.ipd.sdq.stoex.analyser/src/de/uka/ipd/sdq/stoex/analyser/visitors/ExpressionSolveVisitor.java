@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
-import de.uka.ipd.sdq.stoex.BooleanExpression;
+import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
@@ -45,6 +45,7 @@ import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.analyser.operations.AddOperation;
+import de.uka.ipd.sdq.stoex.analyser.operations.AndOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.CompareOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.DivOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.EqualsOperation;
@@ -52,9 +53,11 @@ import de.uka.ipd.sdq.stoex.analyser.operations.GreaterEqualOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.GreaterOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.LessEqualOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.LessOperation;
+import de.uka.ipd.sdq.stoex.analyser.operations.LogicalOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.ModOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.MultOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.NotEqualOperation;
+import de.uka.ipd.sdq.stoex.analyser.operations.OrOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.SubOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.TermProductOperation;
 import de.uka.ipd.sdq.stoex.analyser.probfunction.ProbfunctionHelper;
@@ -133,6 +136,26 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		Expression right = (Expression) doSwitch(expr.getRight());
 		
 		return handleComparison(left, right, op);
+	}
+
+	/**
+	 * Performs logical operations (AND, OR).
+	 */
+	public Object caseBooleanOperatorExpression(BooleanOperatorExpression expr) {
+
+		String opName = expr.getOperation().getName();
+		LogicalOperation op;
+		if (opName.equals("AND"))
+			op = new AndOperation();
+		else if(opName.equals("OR"))
+			op = new OrOperation();
+		else
+			throw new UnsupportedOperationException();
+
+		Expression left = (Expression) doSwitch(expr.getLeft());
+		Expression right = (Expression) doSwitch(expr.getRight());
+
+		return handleLogical(left, right, op);
 	}
 
 	/**
@@ -474,6 +497,18 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		else if (isString(right) && isProbFunc(left))
 			iPMF = op.compare(extractStringFromLiteral(right),
 					extractIPMFFromLiteral(left));
+		else
+			throw new UnsupportedOperationException();
+		
+		return createLiteralForIPMF(iPMF);
+	}
+
+	private Object handleLogical(Expression left, Expression right,
+			LogicalOperation op) {
+		IProbabilityMassFunction iPMF = null;
+		if (isProbFunc(left) && isProbFunc(right))
+			iPMF = op.evaluate(extractIPMFFromLiteral(left),
+					extractIPMFFromLiteral(right));
 		else
 			throw new UnsupportedOperationException();
 		
