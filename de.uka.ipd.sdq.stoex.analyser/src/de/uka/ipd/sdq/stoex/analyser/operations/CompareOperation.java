@@ -124,7 +124,7 @@ public abstract class CompareOperation {
 
 		List<ISample> sampleList = new ArrayList<ISample>();
 		sampleList.add(probFac.createSample(TRUE_STRING, trueProb));
-		sampleList.add(probFac.createSample("FALSE", 1 - trueProb));
+		sampleList.add(probFac.createSample(FALSE_STRING, 1 - trueProb));
 
 		IProbabilityMassFunction boolPMF = probFac
 				.createProbabilityMassFunction(sampleList, unit, true);
