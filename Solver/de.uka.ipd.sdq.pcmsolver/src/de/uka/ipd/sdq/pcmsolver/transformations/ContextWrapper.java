@@ -5,8 +5,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.Logger;
@@ -65,18 +63,15 @@ import de.uka.ipd.sdq.pcm.system.System;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UserData;
-import de.uka.ipd.sdq.pcmsolver.Pair;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.VariableUsageHelper;
-import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
-import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 
 /**
  * For convenient implementation of model transformations in Java from PCM
@@ -114,10 +109,11 @@ import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
  */
 public class ContextWrapper implements Cloneable {
 
+	/**
+	 * 
+	 */
 	protected static Logger logger = Logger.getLogger(ContextWrapper.class
 			.getName());
-
-	// private AssemblyContext assCtx;
 
 	/**
 	 * Builds a list of assembly context ids by searching for nested components.
@@ -149,7 +145,8 @@ public class ContextWrapper implements Cloneable {
 						// add the found assembly context
 						assCtxList2.add(ac);
 
-						// search for more inner assembly contexts by continuing the
+						// search for more inner assembly contexts by continuing
+						// the
 						// traversal on provided
 						// delegation connectors:
 						AssemblyContext childAssCtx = pdc
@@ -177,76 +174,31 @@ public class ContextWrapper implements Cloneable {
 		throw new UnsupportedOperationException();
 	}
 
-	private AllocationContext allCtx;
-	/** See {@link #getAssCtxList()} for info */
-	private List<AssemblyContext> assCtxList;
-	private HashMap<AbstractBranchTransition, Double> branchProbs = new HashMap<AbstractBranchTransition, Double>();
-	private ComputedAllocationContext compAllCtx;
-
-	private ComputedUsageContext compUsgCtx;
-	// maps 
-	private CallsToLinkResourcesMap linkResources = new CallsToLinkResourcesMap();
-	private HashMap<AbstractLoopAction, ManagedPMF> loopIters = new HashMap<AbstractLoopAction, ManagedPMF>();
-	private PCMInstance pcmInstance;
-	private HashMap<ParametricResourceDemand, ProcessingResourceSpecification> procResources = new HashMap<ParametricResourceDemand, ProcessingResourceSpecification>();;
-
-	private HashMap<ExternalCallAction, Double> inputParameterBytesizes = new HashMap<ExternalCallAction, Double>();
-	private HashMap<ExternalCallAction, Double> outputParameterBytesizes = new HashMap<ExternalCallAction, Double>();
-	
 	/**
-	 * Contains the already solved resource demand in time on the specific
-	 * processor
-	 */
-	private ResourceDemandCache resDemands = new ResourceDemandCache();
+	 * Creates a List of {@link ContextWrapper}s to handle the given
+	 * {@link EntryLevelSystemCall}. One {@link ContextWrapper} is created for
+	 * each {@link AllocationContext} the receiving component is allocated to.
+	 * Thus, callers must handle multiple component allocation instances of the
+	 * called component. One ContextWrapper then handles the context of that
+	 * particular component instance (i.e. one replica) These are new
+	 * ContextWrappers without any previous context information.
+	 * */
+	public static List<ContextWrapper> getContextWrapperFor(
+			EntryLevelSystemCall elsa, PCMInstance pcm) {
 
-	/** Creates a List of {@link ContextWrapper}s to handle the given 
-	 * {@link EntryLevelSystemCall}. One {@link ContextWrapper} is created 
-	 * for each {@link AllocationContext} the receiving component is allocated to. 
-	 * Thus, callers must handle multiple component allocation instances of the called component. 
-	 * One ContextWrapper then handles the context of that particular 
-	 * component instance (i.e. one replica)
-	 * These are new ContextWrappers without any previous context information. 
-	 * */ 
-	public static List<ContextWrapper> getContextWrapperFor(EntryLevelSystemCall elsa, PCMInstance pcm) {
-		
 		ContextWrapper templateContextWrapper = new ContextWrapper(pcm);
-		
-		List<AssemblyContext> calledAssemblyContextList = templateContextWrapper.getFirstAssemblyContext2(elsa);
+
+		List<AssemblyContext> calledAssemblyContextList = templateContextWrapper
+				.getFirstAssemblyContext(elsa);
 		templateContextWrapper.setAssCtxList(calledAssemblyContextList);
-		ComputedUsageContext computedUsageContext = templateContextWrapper.getFirstComputedUsageContext(elsa);
+		ComputedUsageContext computedUsageContext = templateContextWrapper
+				.getFirstComputedUsageContext(elsa);
 		templateContextWrapper.setCompUsgCtx(computedUsageContext);
-		
+
 		List<ContextWrapper> contextWrapperList = createContextWrappersBasedOnTemplate(
 				templateContextWrapper, calledAssemblyContextList,
 				computedUsageContext);
-		
-		return contextWrapperList;
-	}
 
-	/** Uses the passed ContextWrapper as a template to create new ones for each called AllocationContext
-	 * The template is needed to keep existing usage information such as branch probabilities. 
-	 * 
-	 * @param templateContextWrapper
-	 * @param calledAssemblyContextList
-	 * @param computedUsageContext
-	 * @return
-	 */
-	private static List<ContextWrapper> createContextWrappersBasedOnTemplate(
-			ContextWrapper templateContextWrapper,
-			List<AssemblyContext> calledAssemblyContextList,
-			ComputedUsageContext computedUsageContext) {
-	
-		List<AllocationContext> allocationContextList = templateContextWrapper.getNextAllocationContextList(templateContextWrapper.getAssCtxList());
-		List<ContextWrapper> contextWrapperList = new ArrayList<ContextWrapper>(allocationContextList.size());
-		
-		
-		for (AllocationContext allocationContext : allocationContextList) {
-			ContextWrapper contextWrapper = (ContextWrapper)templateContextWrapper.clone();
-			contextWrapper.setAllCtx(allocationContext);
-			contextWrapper.setCompAllCtx(contextWrapper.getNextComputedAllocationContext(contextWrapper.getCompUsgCtx()));
-			contextWrapper.readComputedContextsToHashMaps();
-			contextWrapperList.add(contextWrapper);
-		}
 		return contextWrapperList;
 	}
 
@@ -259,19 +211,26 @@ public class ContextWrapper implements Cloneable {
 	 * @param oldContextWrapper
 	 *            IS MODIFIED!
 	 */
-	public static List<ContextWrapper> getContextWrapperFor(ExternalCallAction eca, ComputedUsageContext cuc,
+	public static List<ContextWrapper> getContextWrapperFor(
+			ExternalCallAction eca, ComputedUsageContext cuc,
 			ComputedAllocationContext cac, ContextWrapper oldContextWrapper) {
-		
-		ContextWrapper templateContextWrapper = new ContextWrapper(oldContextWrapper.getPcmInstance());
-		
-		templateContextWrapper.setAssCtxList(oldContextWrapper.findProvidingAssemblyContexts(eca, true));
-		List<AllocationContext> allocationContextList = templateContextWrapper.getNextAllocationContextList(templateContextWrapper.getAssCtxList());
-		List<ContextWrapper> contextWrapperList = new ArrayList<ContextWrapper>(allocationContextList.size());
+
+		ContextWrapper templateContextWrapper = new ContextWrapper(
+				oldContextWrapper.getPcmInstance());
+
+		templateContextWrapper.setAssCtxList(oldContextWrapper
+				.findProvidingAssemblyContexts(eca, true));
+		List<AllocationContext> allocationContextList = templateContextWrapper
+				.getNextAllocationContextList(templateContextWrapper
+						.getAssCtxList());
+		List<ContextWrapper> contextWrapperList = new ArrayList<ContextWrapper>(
+				allocationContextList.size());
 		for (AllocationContext allocationContext : allocationContextList) {
-			//XXX: only a fully initialised context wrapper can be cloned...
+			// XXX: only a fully initialised context wrapper can be cloned...
 			templateContextWrapper.setAllCtx(allocationContext);
-			
-			ContextWrapper contextWrapper = (ContextWrapper)templateContextWrapper.clone();
+
+			ContextWrapper contextWrapper = (ContextWrapper) templateContextWrapper
+					.clone();
 			contextWrapper.setAllCtx(allocationContext);
 			contextWrapperList.add(contextWrapper);
 			contextWrapper.handleComputedContexts(cuc, cac);
@@ -279,19 +238,121 @@ public class ContextWrapper implements Cloneable {
 		return contextWrapperList;
 	}
 
+	/**
+	 * Uses the passed ContextWrapper as a template to create new ones for each
+	 * called AllocationContext The template is needed to keep existing usage
+	 * information such as branch probabilities.
+	 * 
+	 * @param templateContextWrapper
+	 * @param calledAssemblyContextList
+	 * @param computedUsageContext
+	 * @return
+	 */
+	private static List<ContextWrapper> createContextWrappersBasedOnTemplate(
+			ContextWrapper templateContextWrapper,
+			List<AssemblyContext> calledAssemblyContextList,
+			ComputedUsageContext computedUsageContext) {
+
+		List<AllocationContext> allocationContextList = templateContextWrapper
+				.getNextAllocationContextList(templateContextWrapper
+						.getAssCtxList());
+		List<ContextWrapper> contextWrapperList = new ArrayList<ContextWrapper>(
+				allocationContextList.size());
+
+		for (AllocationContext allocationContext : allocationContextList) {
+			ContextWrapper contextWrapper = (ContextWrapper) templateContextWrapper
+					.clone();
+			contextWrapper.setAllCtx(allocationContext);
+			contextWrapper.setCompAllCtx(contextWrapper
+					.getNextComputedAllocationContext(contextWrapper
+							.getCompUsgCtx()));
+			contextWrapper.readComputedContextsToHashMaps();
+			contextWrapperList.add(contextWrapper);
+		}
+		return contextWrapperList;
+	}
+
+	/**
+	 * 
+	 */
+	private AllocationContext allCtx;
+
+	/**
+	 * See {@link #getAssCtxList()} for info.
+	 */
+	private List<AssemblyContext> assCtxList;
+
+	/**
+	 * 
+	 */
+	private HashMap<AbstractBranchTransition, Double> branchProbs = new HashMap<AbstractBranchTransition, Double>();
+
+	/**
+	 * 
+	 */
+	private ComputedAllocationContext compAllCtx;
+
+	/**
+	 * 
+	 */
+	private ComputedUsageContext compUsgCtx;
+
+	/**
+	 * 
+	 */
+	private HashMap<ExternalCallAction, Double> inputParameterBytesizes = new HashMap<ExternalCallAction, Double>();
+
+	/**
+	 * 
+	 */
+	private CallsToLinkResourcesMap linkResources = new CallsToLinkResourcesMap();
+
+	/**
+	 * 
+	 */
+	private HashMap<AbstractLoopAction, ManagedPMF> loopIters = new HashMap<AbstractLoopAction, ManagedPMF>();
+
+	/**
+	 * 
+	 */
+	private HashMap<ExternalCallAction, Double> outputParameterBytesizes = new HashMap<ExternalCallAction, Double>();
+
+	/**
+	 * 
+	 */
+	private PCMInstance pcmInstance;
+
+	/**
+	 * 
+	 */
+	private HashMap<ParametricResourceDemand, ProcessingResourceSpecification> procResources = new HashMap<ParametricResourceDemand, ProcessingResourceSpecification>();
+
+	/**
+	 * Contains the already solved resource demand in time on the specific
+	 * processor
+	 */
+	private ResourceDemandCache resDemands = new ResourceDemandCache();
+
+	/**
+	 * 
+	 * @param pcm
+	 */
 	public ContextWrapper(PCMInstance pcm) {
 		pcmInstance = pcm;
 	}
 
+	/**
+	 * 
+	 */
 	protected ContextWrapper() {
 	}
 
-	@Override
 	/**
-	 * Copies this ContextWrapper. Sets references to the PCM model elements and  
-	 * the computed context objects, so that the context can be shared (e.g. retrieving
-	 * branch probabilities of earlier context wrapper traversals).  
+	 * Copies this ContextWrapper. Sets references to the PCM model elements and
+	 * the computed context objects, so that the context can be shared (e.g.
+	 * retrieving branch probabilities of earlier context wrapper traversals).
 	 */
+	@Override
 	public Object clone() {
 		ContextWrapper clonedWrapper = new ContextWrapper();
 		EList<AssemblyContext> list = new BasicEList<AssemblyContext>();
@@ -305,8 +366,8 @@ public class ContextWrapper implements Cloneable {
 		clonedWrapper.setCompAllCtx(compAllCtx);
 		clonedWrapper.setCompUsgCtx(compUsgCtx);
 		clonedWrapper.setPcmInstance(pcmInstance);
-		
-		if (compAllCtx != null && compUsgCtx != null){
+
+		if (compAllCtx != null && compUsgCtx != null) {
 			clonedWrapper.readComputedContextsToHashMaps();
 		}
 		return clonedWrapper;
@@ -377,43 +438,19 @@ public class ContextWrapper implements Cloneable {
 		}
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public AllocationContext getAllCtx() {
 		return allCtx;
 	}
 
-	// TODO: idea to fix the above problematic methods, however, it does not
-	// work
-	// The assCtxList is not properly maintained.
-	/*
-	 * public ContextWrapper getContextWrapperFor(ExternalCallAction eca) {
+	/**
 	 * 
-	 * ContextWrapper newContextWrapper = new ContextWrapper(pcmInstance);
-	 * newContextWrapper.setAssCtxList(getNextAssemblyContext(eca,true));
-	 * newContextWrapper.setAllCtx(getNextAllocationContext(assCtxList.get(0)));
-	 * 
-	 * newContextWrapper.setCompUsgCtx(getNextComputedUsageContext(eca));
-	 * newContextWrapper
-	 * .setCompAllCtx(getNextComputedAllocationContext(newContextWrapper
-	 * .getCompUsgCtx())); newContextWrapper.readComputedContextsToHashMaps();
-	 * return this; }
-	 * 
-	 * public ContextWrapper getContextWrapperFor(EntryLevelSystemCall elsa) {
-	 * 
-	 * ContextWrapper newContextWrapper = new ContextWrapper(pcmInstance);
-	 * newContextWrapper.setAssCtxList(getFirstAssemblyContext2(elsa));
-	 * newContextWrapper.setAllCtx(getNextAllocationContext(assCtxList.get(0)));
-	 * 
-	 * newContextWrapper.setCompUsgCtx(getFirstComputedUsageContext(elsa));
-	 * newContextWrapper
-	 * .setCompAllCtx(getNextComputedAllocationContext(newContextWrapper
-	 * .getCompUsgCtx())); newContextWrapper.readComputedContextsToHashMaps();
-	 * 
-	 * return newContextWrapper; }
+	 * @return
 	 */
-
 	public AssemblyContext getAssCtx() {
-
-		// return assCtx;
 		return assCtxList.get(assCtxList.size() - 1);
 	}
 
@@ -431,127 +468,149 @@ public class ContextWrapper implements Cloneable {
 		return assCtxList;
 	}
 
+	/**
+	 * 
+	 * @param abt
+	 * @return
+	 */
 	public Double getBranchProbability(AbstractBranchTransition abt) {
 		return branchProbs.get(abt);
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ComputedAllocationContext getCompAllCtx() {
 		return compAllCtx;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ComputedUsageContext getCompUsgCtx() {
 		return compUsgCtx;
 	}
 
+	/**
+	 * 
+	 * @param eca
+	 * @param targetAllocationContext
+	 * @return
+	 */
 	public CommunicationLinkResourceSpecification getConcreteLinkingResource(
 			ExternalCallAction eca, AllocationContext targetAllocationContext) {
 		return linkResources.get(eca, targetAllocationContext);
 	}
-	
-	public Double getMeanTotalInputParameterBytesize(ExternalCallAction eca) {
-		return inputParameterBytesizes.get(eca);
-	}
 
-	public Double getMeanTotalOutputParameterBytesize(ExternalCallAction eca) {
-		return outputParameterBytesizes.get(eca);
-	}
-
+	/**
+	 * 
+	 * @param aa
+	 * @return
+	 */
 	public PassiveResource getConcretePassiveResource(AcquireAction aa) {
 		// TODO: Passive Resource should depend on AssemblyContext
 		return aa.getPassiveresource_AcquireAction();
 	}
 
+	/**
+	 * 
+	 * @param ra
+	 * @return
+	 */
 	public PassiveResource getConcretePassiveResource(ReleaseAction ra) {
 		// TODO: Passive Resource should depend on AssemblyContext
 		return ra.getPassiveResource_ReleaseAction();
 	}
 
+	/**
+	 * 
+	 * @param prd
+	 * @return
+	 */
 	public ProcessingResourceSpecification getConcreteProcessingResource(
 			ParametricResourceDemand prd) {
 		return procResources.get(prd);
 	}
 
 	/**
-	 * FIXME: This method changes the current ContextWrapper this, 
-	 * but returns a {@link List} of new {@link ContextWrapper} instances
-	 * created based on this one.
-	 * It needs to use the current context in order to retain information such as branch probabilities
+	 * FIXME: This method changes the current ContextWrapper this, but returns a
+	 * {@link List} of new {@link ContextWrapper} instances created based on
+	 * this one. It needs to use the current context in order to retain
+	 * information such as branch probabilities
+	 * 
 	 * @param elsa
 	 * @return
 	 */
 	public List<ContextWrapper> getContextWrapperFor(EntryLevelSystemCall elsa) {
-		
-		assCtxList = getFirstAssemblyContext2(elsa);
+
+		assCtxList = getFirstAssemblyContext(elsa);
 		compUsgCtx = getFirstComputedUsageContext(elsa);
-		
-		return createContextWrappersBasedOnTemplate(
-				this, assCtxList,
+
+		return createContextWrappersBasedOnTemplate(this, assCtxList,
 				compUsgCtx);
 	}
 
 	/**
-	 * FIXME: This method changes the current ContextWrapper this, 
-	 * but returns a {@link List} of new {@link ContextWrapper} instances
-	 * created based on this one.  
-	 * It needs to use the current context in order to retain information such as branch probabilities
+	 * FIXME: This method changes the current ContextWrapper this, but returns a
+	 * {@link List} of new {@link ContextWrapper} instances created based on
+	 * this one. It needs to use the current context in order to retain
+	 * information such as branch probabilities
 	 * 
 	 * @param eca
-	 * @return A {@link List} of new {@link ContextWrapper} instances, but also changes this one.
+	 * @return A {@link List} of new {@link ContextWrapper} instances, but also
+	 *         changes this one.
 	 */
-	public List<ContextWrapper>  getContextWrapperFor(ExternalCallAction eca) {
+	public List<ContextWrapper> getContextWrapperFor(ExternalCallAction eca) {
+		// TODO: idea to fix the above problematic methods, however, it does not
+		// work
+		// The assCtxList is not properly maintained.
+		/*
+		 * public ContextWrapper getContextWrapperFor(ExternalCallAction eca) {
+		 * 
+		 * ContextWrapper newContextWrapper = new ContextWrapper(pcmInstance);
+		 * newContextWrapper.setAssCtxList(getNextAssemblyContext(eca,true));
+		 * newContextWrapper
+		 * .setAllCtx(getNextAllocationContext(assCtxList.get(0)));
+		 * 
+		 * newContextWrapper.setCompUsgCtx(getNextComputedUsageContext(eca));
+		 * newContextWrapper
+		 * .setCompAllCtx(getNextComputedAllocationContext(newContextWrapper
+		 * .getCompUsgCtx()));
+		 * newContextWrapper.readComputedContextsToHashMaps(); return this; }
+		 * 
+		 * public ContextWrapper getContextWrapperFor(EntryLevelSystemCall elsa)
+		 * {
+		 * 
+		 * ContextWrapper newContextWrapper = new ContextWrapper(pcmInstance);
+		 * newContextWrapper.setAssCtxList(getFirstAssemblyContext2(elsa));
+		 * newContextWrapper
+		 * .setAllCtx(getNextAllocationContext(assCtxList.get(0)));
+		 * 
+		 * newContextWrapper.setCompUsgCtx(getFirstComputedUsageContext(elsa));
+		 * newContextWrapper
+		 * .setCompAllCtx(getNextComputedAllocationContext(newContextWrapper
+		 * .getCompUsgCtx()));
+		 * newContextWrapper.readComputedContextsToHashMaps();
+		 * 
+		 * return newContextWrapper; }
+		 */
 		assCtxList = findProvidingAssemblyContexts(eca, true);
 		compUsgCtx = getNextComputedUsageContext(eca);
-		
+
 		List<ContextWrapper> contextWrapperList = createContextWrappersBasedOnTemplate(
-				this, assCtxList,
-				compUsgCtx);
-		
+				this, assCtxList, compUsgCtx);
+
 		return contextWrapperList;
 	}
 
-	// public ServiceEffectSpecification getNextSEFF2(EntryLevelSystemCall elsc)
-	// {
-	// AssemblyContext ac = getFirstAssemblyContext(elsc);
-	//		
-	// Signature sig = elsc.getSignature_EntryLevelSystemCall();
-	// if (ac != null)
-	// return getSeff(ac, sig);
-	// else
-	// return null;
-	// }
-
-	// private ServiceEffectSpecification getSeff(AssemblyContext ac, Signature
-	// sig) {
-	// RepositoryComponent rc = ac.getEncapsulatedComponent__AssemblyContext();
-	//		
-	// if (rc instanceof BasicComponent){
-	// String serviceName = sig.getServiceName();
-	// BasicComponent bc = (BasicComponent) rc;
-	// EList<ServiceEffectSpecification> seffList = bc
-	// .getServiceEffectSpecifications__BasicComponent();
-	// for (ServiceEffectSpecification seff : seffList) {
-	// if (seff.getDescribedService__SEFF().getServiceName().equals(
-	// serviceName)) {
-	// return seff;
-	// }
-	// }
-	// } else if (rc instanceof CompositeComponent){
-	// CompositeComponent cc = (CompositeComponent)rc;
-	// EList<AssemblyContext> inner =
-	// cc.getAssemblyContexts_ComposedStructure();
-	// if (inner.size() == 0){
-	// logger.error("Empty CompositeComponent "+cc.getEntityName());
-	// throw new
-	// RuntimeException("Empty CompositeComponent "+cc.getEntityName());
-	// }
-	// logger.debug("Retrieving inner SEFF of CompositeComponent "+cc.getEntityName());
-	// //recursive call of this method for the internals of the
-	// CompositeComponent
-	// return getSeff(inner.get(0),sig);
-	// }
-	// return null;
-	// }
-
+	/**
+	 * 
+	 * @param eca
+	 * @param clrs
+	 * @return
+	 */
 	public ManagedPDF getDelayOnLinkingResource(ExternalCallAction eca,
 			CommunicationLinkResourceSpecification clrs) {
 		EList<ExternalCallInput> eciList = compUsgCtx
@@ -606,90 +665,19 @@ public class ContextWrapper implements Cloneable {
 	}
 
 	/**
-	 * Retrieves the SpecifiedReliabilityAnnotation that belongs to the given
-	 * system external call.
 	 * 
-	 * It is assumed that the external call action belongs to the component that
-	 * is encapsulated by the current assembly context. The current assembly
-	 * context is the last element of assCtxList. If no corresponding
-	 * SpecifiedReliabilityAnnotation exists, the method returns NULL.
-	 * 
-	 * @param externalCallAction
-	 *            the system external call
-	 * @param systemRequiredRole
-	 *            the system required role that provides the called service
-	 * @return the corresponding SpecifiedReliabilityAnnotation (if one exists)
+	 * @param prd
+	 * @return
 	 */
-	private SpecifiedReliabilityAnnotation findReliabilityAnnotationForSystemExternalCall(
-			final ExternalCallAction externalCallAction,
-			final OperationRequiredRole systemRequiredRole) {
-
-		// Search through the system's QoS annotations:
-		for (QoSAnnotations annotation : pcmInstance.getSystem()
-				.getQosAnnotations_System()) {
-			for (SpecifiedQoSAnnotation specifiedAnnotation : annotation
-					.getSpecifiedQoSAnnotations_QoSAnnotations()) {
-				if (!(specifiedAnnotation instanceof SpecifiedReliabilityAnnotation)) {
-					continue;
-				}
-				if (specifiedAnnotation.getRole_SpecifiedQoSAnnotation()
-						.getId().equals(systemRequiredRole.getId())) {
-					if (specifiedAnnotation.getSignature_SpecifiedQoSAnnation()
-							.getId().equals(
-									externalCallAction
-											.getCalledService_ExternalService()
-											.getId())) {
-						return (SpecifiedReliabilityAnnotation) specifiedAnnotation;
-					}
-				}
-			}
-		}
-
-		// No corresponding reliability annotation found:
-		return null;
-	}
-
-	/**
-	 * Retrieves the OperationRequiredRole that belongs to the given external
-	 * call action.
-	 * 
-	 * It is assumed that the external call action belongs to the component that
-	 * is encapsulated by the current assembly context. The current assembly
-	 * context is the last element of assCtxList.
-	 * 
-	 * @param externalCallAction
-	 *            the external call action
-	 * @return the OperationRequiredRole
-	 */
-	private OperationRequiredRole getRequiredRoleForExternalCallAction(
-			final ExternalCallAction externalCallAction) {
-
-		// First retrieve the interface:
-		OperationInterface reqInterface = externalCallAction
-				.getCalledService_ExternalService()
-				.getInterface__OperationSignature();
-
-		// Search through the required roles of the current AssemblyContext:
-		for (RequiredRole role : assCtxList.get(assCtxList.size() - 1)
-				.getEncapsulatedComponent__AssemblyContext()
-				.getRequiredRoles_InterfaceRequiringEntity()) {
-			if (role instanceof OperationRequiredRole) {
-				if (((OperationRequiredRole) role)
-						.getRequiredInterface__OperationRequiredRole().getId()
-						.equals(reqInterface.getId())) {
-					return (OperationRequiredRole) role;
-				}
-			}
-		}
-
-		// Nothing found (should not happen):
-		return null;
-	}
-
 	public boolean getIsOriginalPDFFor(ParametricResourceDemand prd) {
 		return this.resDemands.isOriginalPDF(prd);
 	}
 
+	/**
+	 * 
+	 * @param ala
+	 * @return
+	 */
 	public ManagedPMF getLoopIterations(AbstractLoopAction ala) {
 		return loopIters.get(ala);
 	}
@@ -704,16 +692,34 @@ public class ContextWrapper implements Cloneable {
 	public Double getMeanTimeConsumption(ParametricResourceDemand prd) {
 		return resDemands.getDouble(prd);
 	}
-	
-	public String getTimeConsumptionSpecification(ParametricResourceDemand prd) {
-		String resultSpecification = resDemands.getPDF(prd).toString();
-		return resultSpecification;
+
+	/**
+	 * 
+	 * @param eca
+	 * @return
+	 */
+	public Double getMeanTotalInputParameterBytesize(ExternalCallAction eca) {
+		return inputParameterBytesizes.get(eca);
 	}
 
+	/**
+	 * 
+	 * @param eca
+	 * @return
+	 */
+	public Double getMeanTotalOutputParameterBytesize(ExternalCallAction eca) {
+		return outputParameterBytesizes.get(eca);
+	}
+
+	/**
+	 * 
+	 * @param elsc
+	 * @return
+	 */
 	public ServiceEffectSpecification getNextSEFF(EntryLevelSystemCall elsc) {
 		Signature sig = elsc.getOperationSignature__EntryLevelSystemCall();
 
-		List<AssemblyContext> acList = getFirstAssemblyContext2(elsc);
+		List<AssemblyContext> acList = getFirstAssemblyContext(elsc);
 
 		AssemblyContext ac = acList.get(acList.size() - 1);
 		BasicComponent bc = (BasicComponent) ac
@@ -769,6 +775,11 @@ public class ContextWrapper implements Cloneable {
 		return null;
 	}
 
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
 	public PCMInstance getPcmInstance() {
 		return pcmInstance;
 	}
@@ -784,6 +795,20 @@ public class ContextWrapper implements Cloneable {
 		return resDemands.getPDF(prd);
 	}
 
+	/**
+	 * 
+	 * @param prd
+	 * @return
+	 */
+	public String getTimeConsumptionSpecification(ParametricResourceDemand prd) {
+		String resultSpecification = resDemands.getPDF(prd).toString();
+		return resultSpecification;
+	}
+
+	/**
+	 * 
+	 * @param allCtx
+	 */
 	public void setAllCtx(AllocationContext allCtx) {
 		this.allCtx = allCtx;
 	}
@@ -802,18 +827,34 @@ public class ContextWrapper implements Cloneable {
 		this.assCtxList = assCtxList;
 	}
 
+	/**
+	 * 
+	 * @param compAllCtx
+	 */
 	public void setCompAllCtx(ComputedAllocationContext compAllCtx) {
 		this.compAllCtx = compAllCtx;
 	}
 
+	/**
+	 * 
+	 * @param compUsgCtx
+	 */
 	public void setCompUsgCtx(ComputedUsageContext compUsgCtx) {
 		this.compUsgCtx = compUsgCtx;
 	}
 
+	/**
+	 * 
+	 * @param pcmInstance
+	 */
 	public void setPcmInstance(PCMInstance pcmInstance) {
 		this.pcmInstance = pcmInstance;
 	}
 
+	/**
+	 * 
+	 * @param newCompUsgCtx
+	 */
 	private void addComponentParametersToNewContext(
 			ComputedUsageContext newCompUsgCtx) {
 
@@ -892,6 +933,11 @@ public class ContextWrapper implements Cloneable {
 		}
 	}
 
+	/**
+	 * 
+	 * @param eca
+	 * @return
+	 */
 	private ExternalCallInput addExternalCallInputToCurrentContext(
 			ExternalCallAction eca) {
 		EList<VariableUsage> parList = eca.getInputVariableUsages__CallAction();
@@ -906,6 +952,12 @@ public class ContextWrapper implements Cloneable {
 		return eci;
 	}
 
+	/**
+	 * 
+	 * @param vuList1
+	 * @param vuList2
+	 * @return
+	 */
 	private boolean areEqual(EList<VariableUsage> vuList1,
 			EList<VariableUsage> vuList2) {
 
@@ -960,6 +1012,11 @@ public class ContextWrapper implements Cloneable {
 		return (varUsgCounter == vuList1.size());
 	}
 
+	/**
+	 * 
+	 * @param context
+	 * @return
+	 */
 	private Collection<VariableUsage> copyComponentParameters(
 			AssemblyContext context) {
 		ImplementationComponentType component = (ImplementationComponentType) context
@@ -974,6 +1031,11 @@ public class ContextWrapper implements Cloneable {
 
 	}
 
+	/**
+	 * 
+	 * @param eca
+	 * @return
+	 */
 	private ComputedUsageContext createNewComputedUsageContext(
 			ExternalCallAction eca) {
 		// create new computed usage context
@@ -1041,15 +1103,16 @@ public class ContextWrapper implements Cloneable {
 		// Retrieve the list of AssemblyConnectors within the parent
 		// ComposedStructure:
 		EList<Connector> assConnList = requiringAssemblyContext
-				.getParentStructure__AssemblyContext().getConnectors__ComposedStructure();
+				.getParentStructure__AssemblyContext()
+				.getConnectors__ComposedStructure();
 
 		// Check for each AssemblyConnector in the list if it fulfills
 		// the requirements:
 		for (Connector conn : assConnList) {
 			if (conn instanceof AssemblyConnector) {
 				AssemblyConnector assConn = (AssemblyConnector) conn;
-				if (assConn.getRequiringAssemblyContext_AssemblyConnector().getId()
-						.equals(requiringAssemblyContext.getId())
+				if (assConn.getRequiringAssemblyContext_AssemblyConnector()
+						.getId().equals(requiringAssemblyContext.getId())
 						&& assConn.getRequiredRole_AssemblyConnector()
 								.getRequiredInterface__OperationRequiredRole()
 								.getId().equals(requiredInterfaceId)
@@ -1062,71 +1125,6 @@ public class ContextWrapper implements Cloneable {
 
 		// No AssmblyConnector found:
 		return null;
-	}
-
-	/**
-	 * Searches for the required role of the system that is reached from the
-	 * current AssemblyContext via its given required role.
-	 * 
-	 * The current AssemblyContext is the last element of the assCtxList. If the
-	 * required role of the AssemblyContext does not lead to a system required
-	 * role, the method returns NULL.
-	 * 
-	 * @param requiredRole
-	 *            the required role of the current AssemblyContext
-	 * @return the system required role
-	 */
-	private OperationRequiredRole findSystemRequiredRoleForCurrentAssemblyContext(
-			final OperationRequiredRole requiredRole) {
-
-		// Initialize variables:
-		ComposedStructure reqStructure = null;
-		int index = assCtxList.size() - 1;
-		OperationRequiredRole reqRole = requiredRole;
-
-		// Navigate upwards through the list of parent contexts:
-		while ((reqStructure == null)
-				|| (!reqStructure.getId().equals(
-						pcmInstance.getSystem().getId()))) {
-
-			// Set reqStructure to the parent ComposedStructure of this
-			// AssemblyContext:
-			reqStructure = assCtxList.get(index)
-					.getParentStructure__AssemblyContext();
-
-			// Check for the RequiredDelegationConnector that is connected to
-			// this AssemblyContext:
-			RequiredDelegationConnector delConn = null;
-			for (Connector conn : reqStructure
-					.getConnectors__ComposedStructure()) {
-				if (conn instanceof RequiredDelegationConnector) {
-					RequiredDelegationConnector connector = (RequiredDelegationConnector) conn;
-					if (connector.getAssemblyContext_RequiredDelegationConnector()
-							.getId().equals(assCtxList.get(index).getId())
-							&& connector
-									.getInnerRequiredRole_RequiredDelegationConnector()
-									.getId().equals(reqRole.getId())) {
-						delConn = connector;
-						break;
-					}
-				}
-			}
-			if (delConn == null) {
-
-				// No RequiredDelegationConnector found:
-				return null;
-			}
-
-			// Retrieve the outer required role of the connector:
-			reqRole = delConn
-					.getOuterRequiredRole_RequiredDelegationConnector();
-
-			// Navigate upwards:
-			index--;
-		}
-
-		// No RequiredDelegationConnector found:
-		return reqRole;
 	}
 
 	/**
@@ -1190,36 +1188,6 @@ public class ContextWrapper implements Cloneable {
 		return null;
 	}
 
-	// public AssemblyContext getNextAssemblyContext(ExternalCallAction eca) {
-	// String roleId = eca.getRole_ExternalService().getId();
-	// Signature serviceToBeCalled = eca.getCalledService_ExternalService();
-	// Interface requiredInterface = (Interface) serviceToBeCalled
-	// .eContainer();
-	//
-	// AssemblyConnector matchingAssConn = null;
-	// EList<AssemblyConnector> assConnList = pcmInstance.getSystem()
-	// .getAssemblyConnectors_ComposedStructure();
-	//	
-	// for (AssemblyConnector assConn : assConnList) {
-	// if (assConn
-	// .getRequiringAssemblyContext_AssemblyConnector()
-	// .getId().equals(getAssCtx().getId())
-	// && assConn.getRequiredRole_AssemblyConnector()
-	// .getRequiredInterface__RequiredRole().getId()
-	// .equals(requiredInterface.getId())
-	// && assConn.getRequiredRole_AssemblyConnector()
-	// .getId().equals(roleId)) {
-	// matchingAssConn = assConn;
-	// }
-	// }
-	//		
-	// if (matchingAssConn != null) {
-	// return matchingAssConn
-	// .getProvidingAssemblyContext_AssemblyConnector();
-	// } else
-	// return null;
-	// }
-
 	/**
 	 * Find a matching AssemblyConnector by looking at the
 	 * RequiredDelegationConnectors of this AssemblyContext ac. Step up the
@@ -1239,7 +1207,8 @@ public class ContextWrapper implements Cloneable {
 	 */
 	private AssemblyConnector findFromDelegationConnector(String roleId,
 			String interfaceId, AssemblyContext ac, int i) {
-		for (Connector conn : ac.getParentStructure__AssemblyContext().getConnectors__ComposedStructure()) {
+		for (Connector conn : ac.getParentStructure__AssemblyContext()
+				.getConnectors__ComposedStructure()) {
 			if (conn instanceof RequiredDelegationConnector) {
 				RequiredDelegationConnector reqConn = (RequiredDelegationConnector) conn;
 				if (reqConn.getInnerRequiredRole_RequiredDelegationConnector()
@@ -1256,16 +1225,20 @@ public class ContextWrapper implements Cloneable {
 					String compositeComponentAssCtxId = compositeComponentAssemblyContext
 							.getId();
 
-					for ( Connector conn2 : compositeComponentAssemblyContext.getParentStructure__AssemblyContext().getConnectors__ComposedStructure()) {
+					for (Connector conn2 : compositeComponentAssemblyContext
+							.getParentStructure__AssemblyContext()
+							.getConnectors__ComposedStructure()) {
 						if (conn2 instanceof AssemblyConnector) {
 							AssemblyConnector assConn = (AssemblyConnector) conn2;
-							if (assConn.getRequiringAssemblyContext_AssemblyConnector()
+							if (assConn
+									.getRequiringAssemblyContext_AssemblyConnector()
 									.getId().equals(compositeComponentAssCtxId)
 									&& assConn
 											.getRequiredRole_AssemblyConnector()
 											.getRequiredInterface__OperationRequiredRole()
 											.getId().equals(interfaceId)
-									&& assConn.getRequiredRole_AssemblyConnector()
+									&& assConn
+											.getRequiredRole_AssemblyConnector()
 											.getId().equals(outerRoleId)) {
 								return assConn;
 							}
@@ -1277,6 +1250,121 @@ public class ContextWrapper implements Cloneable {
 		return null;
 	}
 
+	/**
+	 * Retrieves the SpecifiedReliabilityAnnotation that belongs to the given
+	 * system external call.
+	 * 
+	 * It is assumed that the external call action belongs to the component that
+	 * is encapsulated by the current assembly context. The current assembly
+	 * context is the last element of assCtxList. If no corresponding
+	 * SpecifiedReliabilityAnnotation exists, the method returns NULL.
+	 * 
+	 * @param externalCallAction
+	 *            the system external call
+	 * @param systemRequiredRole
+	 *            the system required role that provides the called service
+	 * @return the corresponding SpecifiedReliabilityAnnotation (if one exists)
+	 */
+	private SpecifiedReliabilityAnnotation findReliabilityAnnotationForSystemExternalCall(
+			final ExternalCallAction externalCallAction,
+			final OperationRequiredRole systemRequiredRole) {
+
+		// Search through the system's QoS annotations:
+		for (QoSAnnotations annotation : pcmInstance.getSystem()
+				.getQosAnnotations_System()) {
+			for (SpecifiedQoSAnnotation specifiedAnnotation : annotation
+					.getSpecifiedQoSAnnotations_QoSAnnotations()) {
+				if (!(specifiedAnnotation instanceof SpecifiedReliabilityAnnotation)) {
+					continue;
+				}
+				if (specifiedAnnotation.getRole_SpecifiedQoSAnnotation()
+						.getId().equals(systemRequiredRole.getId())) {
+					if (specifiedAnnotation.getSignature_SpecifiedQoSAnnation()
+							.getId().equals(
+									externalCallAction
+											.getCalledService_ExternalService()
+											.getId())) {
+						return (SpecifiedReliabilityAnnotation) specifiedAnnotation;
+					}
+				}
+			}
+		}
+
+		// No corresponding reliability annotation found:
+		return null;
+	}
+
+	/**
+	 * Searches for the required role of the system that is reached from the
+	 * current AssemblyContext via its given required role.
+	 * 
+	 * The current AssemblyContext is the last element of the assCtxList. If the
+	 * required role of the AssemblyContext does not lead to a system required
+	 * role, the method returns NULL.
+	 * 
+	 * @param requiredRole
+	 *            the required role of the current AssemblyContext
+	 * @return the system required role
+	 */
+	private OperationRequiredRole findSystemRequiredRoleForCurrentAssemblyContext(
+			final OperationRequiredRole requiredRole) {
+
+		// Initialize variables:
+		ComposedStructure reqStructure = null;
+		int index = assCtxList.size() - 1;
+		OperationRequiredRole reqRole = requiredRole;
+
+		// Navigate upwards through the list of parent contexts:
+		while ((reqStructure == null)
+				|| (!reqStructure.getId().equals(
+						pcmInstance.getSystem().getId()))) {
+
+			// Set reqStructure to the parent ComposedStructure of this
+			// AssemblyContext:
+			reqStructure = assCtxList.get(index)
+					.getParentStructure__AssemblyContext();
+
+			// Check for the RequiredDelegationConnector that is connected to
+			// this AssemblyContext:
+			RequiredDelegationConnector delConn = null;
+			for (Connector conn : reqStructure
+					.getConnectors__ComposedStructure()) {
+				if (conn instanceof RequiredDelegationConnector) {
+					RequiredDelegationConnector connector = (RequiredDelegationConnector) conn;
+					if (connector
+							.getAssemblyContext_RequiredDelegationConnector()
+							.getId().equals(assCtxList.get(index).getId())
+							&& connector
+									.getInnerRequiredRole_RequiredDelegationConnector()
+									.getId().equals(reqRole.getId())) {
+						delConn = connector;
+						break;
+					}
+				}
+			}
+			if (delConn == null) {
+
+				// No RequiredDelegationConnector found:
+				return null;
+			}
+
+			// Retrieve the outer required role of the connector:
+			reqRole = delConn
+					.getOuterRequiredRole_RequiredDelegationConnector();
+
+			// Navigate upwards:
+			index--;
+		}
+
+		// No RequiredDelegationConnector found:
+		return reqRole;
+	}
+
+	/**
+	 * 
+	 * @param compUsgCtx
+	 * @return
+	 */
 	private ComputedAllocationContext getExistingComputedAllocationContext(
 			ComputedUsageContext compUsgCtx) {
 		EList<ComputedAllocationContext> allCtxList = pcmInstance
@@ -1294,7 +1382,7 @@ public class ContextWrapper implements Cloneable {
 	}
 
 	/**
-	 * Try to find an existingf {@link ComputedUsageContext} for the passed
+	 * Try to find an existing {@link ComputedUsageContext} for the passed
 	 * ExternalCall. This method checks whether the references
 	 * {@link AssemblyContext} match as well as whether the required variables
 	 * match. If none is found, null is returned and a new
@@ -1368,39 +1456,12 @@ public class ContextWrapper implements Cloneable {
 		return null;
 	}
 
-	private AssemblyContext getFirstAssemblyContext(EntryLevelSystemCall elsa) {
-		Signature serviceToBeCalled = elsa
-				.getOperationSignature__EntryLevelSystemCall();
-		Interface requiredInterface = (Interface) serviceToBeCalled
-				.eContainer();
-
-		ProvidedRole role = elsa.getProvidedRole_EntryLevelSystemCall();
-
-		try {
-			for (Connector conn : pcmInstance.getSystem().getConnectors__ComposedStructure()) {
-				if (conn instanceof ProvidedDelegationConnector) {
-					ProvidedDelegationConnector pdc = (ProvidedDelegationConnector) conn;
-					if (pdc.getOuterProvidedRole_ProvidedDelegationConnector()
-							.getId().equals(role.getId())) {
-						// pdc.getChildComponentContext_ProvidedDelegationConnector();
-						return pdc.getAssemblyContext_ProvidedDelegationConnector();
-						// TODO: testen, abfrage interface?
-					}
-				}
-			}
-			// If ProvidedDelegationConnectors are not bound to outer roles (for
-			// example you changed your Systems only interface, deleting the old
-			// one, and a dangling ProvidedConnector remains),
-			// NullPointerEcxeptions can occur in the upper part.
-		} catch (RuntimeException e) {
-			throw new RuntimeException(
-					"Something is wrong with your ProvidedDelegationConnectors: Are they all bound to proper roles?",
-					e);
-		}
-		return null;
-	}
-
-	private List<AssemblyContext> getFirstAssemblyContext2(
+	/**
+	 * 
+	 * @param elsa
+	 * @return
+	 */
+	private List<AssemblyContext> getFirstAssemblyContext(
 			EntryLevelSystemCall elsa) {
 		String roleId = elsa.getProvidedRole_EntryLevelSystemCall().getId();
 		// Signature serviceToBeCalled =
@@ -1412,11 +1473,12 @@ public class ContextWrapper implements Cloneable {
 
 		AssemblyContext startingAssCtx = null;
 
-		for ( Connector conn : pcmInstance.getSystem().getConnectors__ComposedStructure()) {
+		for (Connector conn : pcmInstance.getSystem()
+				.getConnectors__ComposedStructure()) {
 			if (conn instanceof ProvidedDelegationConnector) {
 				ProvidedDelegationConnector pdc = (ProvidedDelegationConnector) conn;
-				if (pdc.getOuterProvidedRole_ProvidedDelegationConnector().getId()
-						.equals(roleId)) {
+				if (pdc.getOuterProvidedRole_ProvidedDelegationConnector()
+						.getId().equals(roleId)) {
 					startingAssCtx = pdc
 							.getAssemblyContext_ProvidedDelegationConnector();
 					startingRole = pdc
@@ -1434,6 +1496,11 @@ public class ContextWrapper implements Cloneable {
 		}
 	}
 
+	/**
+	 * 
+	 * @param elsa
+	 * @return
+	 */
 	private ComputedUsageContext getFirstComputedUsageContext(
 			EntryLevelSystemCall elsa) {
 		logger.debug("In getFirstComputedUsageContext");
@@ -1469,6 +1536,11 @@ public class ContextWrapper implements Cloneable {
 		}
 	}
 
+	/**
+	 * 
+	 * @param ref
+	 * @return
+	 */
 	private String getFullParameterName(AbstractNamedReference ref) {
 		String name = "";
 		while (ref instanceof NamespaceReference) {
@@ -1477,306 +1549,6 @@ public class ContextWrapper implements Cloneable {
 			ref = nsRef.getInnerReference_NamespaceReference();
 		}
 		return name += ref.getReferenceName();
-	}
-
-	/**
-	 * It can be multiple ones if the component
-	 * is replicated to several servers. Otherwise the list contains only one element.
-	 * @param nextAssCtxIterator
-	 * @return
-	 * @see #getNextAllocationContextList(List)
-	 */
-	private List<AllocationContext> getNextAllocationContextList(
-			Iterator<AssemblyContext> nextAssCtxIterator) {
-		if (nextAssCtxIterator.hasNext()) {
-			AssemblyContext nextAssCtx = nextAssCtxIterator.next();
-
-			EList<AllocationContext> allCtxList = pcmInstance.getAllocation()
-					.getAllocationContexts_Allocation();
-
-			// return all AllocationContexts this AssemblyContext is allocated to
-			List<AllocationContext> targetAllocationContextList = new ArrayList<AllocationContext>(); 
-			for (AllocationContext allCtx : allCtxList) {
-				if (allCtx.getAssemblyContext_AllocationContext().getId()
-						.equals(nextAssCtx.getId())) {
-					targetAllocationContextList.add(allCtx);
-				}
-			}
-			if (targetAllocationContextList.size() >= 0){
-				return targetAllocationContextList;
-			} else {
-				return getNextAllocationContextList(nextAssCtxIterator);
-			}
-		}
-		// TODO: throw exception
-		return null;
-	}
-
-	/**
-	 * Get the next {@link AllocationContext}s. It can be multiple ones if the component
-	 * is replicated to several servers. Otherwise the list contains only one element.
-	 * If this is a composite component,
-	 * then the passed nextAssCtxList contains several {@link AssemblyContext}.
-	 * The outer component is the one that is usally allocated (if composite and
-	 * non-completion). If no allocation for the outer can be found, check for
-	 * inner (e.g. for subsystems and completions).
-	 * 
-	 * @param nextAssCtxList
-	 *            : List of the hierarchy of the current assembly contexts.
-	 *            Contains several {@link AssemblyContext} if the components are
-	 *            composite The first is the outmost component.
-	 * @see ContextWrapper#getAssCtxList()
-	 * @return
-	 */
-	private List<AllocationContext> getNextAllocationContextList(
-			List<AssemblyContext> nextAssCtxList) {
-		return getNextAllocationContextList(nextAssCtxList.iterator());
-	}
-
-	/**
-	 * Calculated the next context based on the passed one and the current
-	 * allCtx of this ContextWrapper.
-	 * 
-	 * @param compUsgCtx
-	 * @return
-	 */
-	private ComputedAllocationContext getNextComputedAllocationContext(
-			ComputedUsageContext compUsgCtx) {
-		logger.debug("In getNextComputedAllocationContext ");
-
-		ComputedAllocationContext cac = getExistingComputedAllocationContext(compUsgCtx);
-		if (cac != null) {
-			logger.debug("Reusing existing computed allocation context for "
-					+ getAssCtx().getEntityName());
-			return cac;
-		} else {
-			logger.debug("Creating new computed allocation context for "
-					+ getAssCtx().getEntityName());
-			ComputedAllocationContext newCompAllCtx = ComputedAllocationFactory.eINSTANCE
-					.createComputedAllocationContext();
-			pcmInstance.getComputedAllocation()
-					.getComputedAllocationContexts_ComputedAllocation().add(
-							newCompAllCtx);
-			newCompAllCtx.setUsageContext_ComputedAllocationContext(compUsgCtx);
-			newCompAllCtx
-					.setAllocationContext_ComputedAllocationContext(allCtx);
-			return newCompAllCtx;
-		}
-	}
-
-	/**
-	 * @param eca
-	 * @return
-	 */
-	private ComputedUsageContext getNextComputedUsageContext(
-			ExternalCallAction eca) {
-		logger.debug("In getNextComputedUsageContext " + eca.getEntityName());
-
-		ComputedUsageContext cuc = getExistingComputedUsageContext(eca);
-		if (cuc != null) {
-			logger.debug("Reusing existing computed usage context for "
-					+ getAssCtx().getEntityName());
-			return cuc;
-		} else {
-			logger.debug("Creating new computed usage context for "
-					+ getAssCtx().getEntityName());
-			return createNewComputedUsageContext(eca);
-		}
-	}
-
-	private void handleComputedContexts(ComputedUsageContext cuc,
-			ComputedAllocationContext cac) {
-		compUsgCtx = cuc;
-		compUsgCtx.setAssemblyContext_ComputedUsageContext(getAssCtx());
-		compAllCtx = cac;
-		compAllCtx.setAllocationContext_ComputedAllocationContext(allCtx);
-		readComputedContextsToHashMaps();
-	}
-
-	/**
-	 * Tries to find the {@link ComputedUsageContext} in the pcm instance that
-	 * 1) references the same assembly context for that we want to have an
-	 * ComputedUsageContext and 2) references the same list of variables we are
-	 * looking for.
-	 * 
-	 * @param vuList
-	 * @return A matching {@link ComputedUsageContext} or null.
-	 */
-	private ComputedUsageContext matchVariableUsages(EList<VariableUsage> vuList) {
-		EList<ComputedUsageContext> cucList = pcmInstance.getComputedUsage()
-				.getUsageContexts_ComputedUsage();
-		for (ComputedUsageContext cuc : cucList) {
-			if (cuc.getAssemblyContext_ComputedUsageContext().getId().equals(
-					getAssCtx().getId())) {
-				Input input = cuc.getInput_ComputedUsageContext();
-				EList<VariableUsage> vuList2 = input
-						.getParameterChacterisations_Input();
-
-				// logger.debug("List1: "+vuList);
-				// logger.debug("List2: "+vuList2);
-
-				if (areEqual(vuList, vuList2)) {
-					// logger.debug("Are Equal Successful!");
-					return cuc;
-				}
-			}
-		}
-		logger.debug("Matching Input Variables for External Call failed.");
-		return null;
-	}
-
-	private void readComputedContextsToHashMaps() {
-		EList<BranchProbability> bpList = compUsgCtx
-				.getBranchProbabilities_ComputedUsageContext();
-		for (BranchProbability bp : bpList) {
-			branchProbs.put(bp.getBranchtransition_BranchProbability(), bp
-					.getProbability());
-		}
-
-		EList<LoopIteration> liList = compUsgCtx
-				.getLoopiterations_ComputedUsageContext();
-		for (LoopIteration li : liList) {
-			String spec = li.getSpecification_LoopIteration()
-					.getSpecification();
-			ManagedPMF pmf = null;
-			try {
-				pmf = ManagedPMF.createFromString(spec);
-			} catch (StringNotPDFException e) {
-				e.printStackTrace();
-			} catch (RecognitionException e) {
-				e.printStackTrace();
-			}
-			loopIters.put(li.getLoopaction_LoopIteration(), pmf);
-		}
-
-		EList<ResourceDemand> rdList = compAllCtx
-				.getResourceDemands_ComputedAllocationContext();
-		for (ResourceDemand rd : rdList) {
-			// These are already solved expressions, they do not contain
-			// variables.
-			String spec = rd.getSpecification_ResourceDemand()
-					.getSpecification();
-
-			Expression rdExpression = ExpressionHelper.parseToExpression(spec);
-			ExpressionToPDFWrapper rdWrapper = null;
-		
-			try {
-				rdWrapper = ExpressionToPDFWrapper
-					.createExpressionToPDFWrapper(rdExpression);
-			} catch (Exception e){
-				throw new IllegalArgumentException(
-						"Could not derive a PDF from expression \"" + spec +
-						"\"; Exception type: " + e.getClass().getName() +
-						"; Error message: \"" + e.getMessage() + "\"");
-			}
-			resDemands.put(rd.getParametricResourceDemand_ResourceDemand(),
-					rdWrapper);
-
-			/*
-			 * FunctionLiteral function;
-			 * function.getParameters_FunctionLiteral()
-			 */
-
-			// ManagedPDF pdf = null;
-			// try {
-			// pdf = ManagedPDF.createFromString(spec);
-			// } catch (StringNotPDFException e) {
-			// e.printStackTrace();
-			// } catch (RecognitionException e) {
-			// e.printStackTrace();
-			// }
-
-		}
-
-		// Store the mapping which ParametricResourceDemand accesses which
-		// Resource in this context.
-		for (ResourceDemand rd : rdList) {
-			ParametricResourceDemand prd = rd
-					.getParametricResourceDemand_ResourceDemand();
-			ProcessingResourceType prt = prd
-					.getRequiredResource_ParametricResourceDemand();
-			EList<ProcessingResourceSpecification> prsList = allCtx
-					.getResourceContainer_AllocationContext()
-					.getActiveResourceSpecifications_ResourceContainer();
-			for (ProcessingResourceSpecification prs : prsList) {
-				ProcessingResourceType prsType = prs
-						.getActiveResourceType_ActiveResourceSpecification();
-				if (prsType.getId().equals(prt.getId())) {
-					procResources.put(prd, prs);
-				}
-			}
-			
-			// special case for system external calls:
-			if (prt.getEntityName().equals("SystemExternalResource")){
-				EList<ResourceContainer> containerList = getPcmInstance().getResourceEnvironment().getResourceContainer_ResourceEnvironment();
-				for (ResourceContainer container : containerList){
-					if (container.getEntityName().equals("SystemExternalResourceContainer")){
-						ProcessingResourceSpecification prs = container.getActiveResourceSpecifications_ResourceContainer().get(0);
-						procResources.put(prd,prs);
-					}
-				}
-			}
-			
-		}
-
-		EList<ExternalCallInput> eciList = compUsgCtx
-				.getExternalCallInput_ComputedUsageContext();
-		EList<LinkingResource> lrList = pcmInstance.getResourceEnvironment()
-				.getLinkingResources__ResourceEnvironment();
-		ResourceContainer rc1 = allCtx.getResourceContainer_AllocationContext();
-		for (ExternalCallInput eci : eciList) {
-			ExternalCallAction eca = eci
-					.getExternalCallAction_ExternalCallInput();
-
-			List<AssemblyContext> acList = findProvidingAssemblyContexts(eca,
-					false);
-			
-			List<AllocationContext> allocationContextList = getNextAllocationContextList(acList);
-			for (AllocationContext nextAllCtx : allocationContextList) {
-
-				ResourceContainer rc2 = nextAllCtx
-				.getResourceContainer_AllocationContext();
-
-				if (rc1 != rc2) {
-					for (LinkingResource lr : lrList) {
-
-						// ------------------------------
-						// contains() does NOT work (fb)!
-						// ------------------------------
-						// if
-						// (lr.getFromResourceContainer_LinkingResource().contains(rc1)
-						// &&
-						// lr.getToResourceContainer_LinkingResource().contains(rc2)){
-
-						boolean rc1Contained = exists(lr
-								.getConnectedResourceContainers_LinkingResource(),
-								rc1);
-						boolean rc2Contained = exists(lr
-								.getConnectedResourceContainers_LinkingResource(),
-								rc2);
-						if (rc1Contained && rc2Contained) {
-							CommunicationLinkResourceSpecification clrs = lr
-							.getCommunicationLinkResourceSpecifications_LinkingResource();
-							linkResources.put(eca, nextAllCtx, clrs);
-						}
-					}
-				}
-			}
-		}
-		
-		// also compute and store parameter BYTESIZEs
-		for (ExternalCallInput eci : compUsgCtx
-				.getExternalCallInput_ComputedUsageContext()) {
-			inputParameterBytesizes.put(eci
-					.getExternalCallAction_ExternalCallInput(),
-					getMeanTotalInputParameterBytesize(eci));
-		}
-		for (ExternalCallOutput eco : compUsgCtx
-				.getExternalCallOutput_ComputedUsageContext()) {
-			outputParameterBytesizes.put(eco
-					.getExternalCallAction_ExternalCallOutput(),
-					getMeanTotalOutputParameterBytesize(eco));
-		}
 	}
 
 	/**
@@ -1854,119 +1626,359 @@ public class ContextWrapper implements Cloneable {
 
 		return meanTotalOutputParameterBytesize;
 	}
-}
-
-/**
- * Cache for the solved resource demands. Stores both pdfs and constant demands.
- * Offers methods to retrieve the actual demand for a ParametricResourceDemand
- * as aa double (i.e. mean value or constant) or PDF.
- * 
- * @author martens
- * 
- */
-class ResourceDemandCache {
-	private HashMap<ParametricResourceDemand, ExpressionToPDFWrapper> resDemandDistributions = new HashMap<ParametricResourceDemand, ExpressionToPDFWrapper>();
 
 	/**
-	 * Returns the resource demand for the passed
-	 * {@link ParametricResourceDemand} as a {@link Double}. May return null if
-	 * there was no matching resource demand found internally. If the resource
-	 * demand was only given as a pdf before, it also puts the Double in the
-	 * cache for future use.
+	 * It can be multiple ones if the component is replicated to several
+	 * servers. Otherwise the list contains only one element.
 	 * 
-	 * @param prd
+	 * @param nextAssCtxIterator
 	 * @return
+	 * @see #getNextAllocationContextList(List)
 	 */
-	public Double getDouble(ParametricResourceDemand prd) {
-		if (this.resDemandDistributions.containsKey(prd)) {
-			return this.resDemandDistributions.get(prd).getMeanValue();
-		}
-		return null;
-	}
+	private List<AllocationContext> getNextAllocationContextList(
+			Iterator<AssemblyContext> nextAssCtxIterator) {
+		if (nextAssCtxIterator.hasNext()) {
+			AssemblyContext nextAssCtx = nextAssCtxIterator.next();
 
-	/**
-	 * Returns the resource demand for the passed
-	 * {@link ParametricResourceDemand} as a {@link ManagedPDF}. May return null
-	 * if there was no matching resource demand found internally. If the
-	 * resource demand was only given as a double before, it also puts the new
-	 * pdf in the cache for future use.
-	 * 
-	 * @param prd
-	 * @return
-	 */
-	public ManagedPDF getPDF(ParametricResourceDemand prd) {
-		if (this.resDemandDistributions.containsKey(prd)) {
-			return new ManagedPDF(resDemandDistributions.get(prd).getPDF());
-		}
-		return null;
-	}
+			EList<AllocationContext> allCtxList = pcmInstance.getAllocation()
+					.getAllocationContexts_Allocation();
 
-	/**
-	 * Returns whether this resource demand is a derived pdf (i.e. it has been
-	 * created using a mean value) or whether it is an original pdf (i.e. the
-	 * mean value is derived).
-	 * 
-	 * @return true if it has been created using
-	 *         {@link #put(ParametricResourceDemand, ProbabilityDensityFunction)}
-	 *         , false if this has been created using
-	 *         {@link #put(ParametricResourceDemand, Double)}.
-	 */
-	public boolean isOriginalPDF(ParametricResourceDemand prd) {
-		if (this.resDemandDistributions.containsKey(prd)) {
-			return this.resDemandDistributions.get(prd).isOriginalPDF();
-		} else {
-			return false;
-		}
-	}
-
-	public void put(ParametricResourceDemand parametricResourceDemand,
-			ExpressionToPDFWrapper rdWrapper) {
-		this.resDemandDistributions.put(parametricResourceDemand, rdWrapper);
-
-	}
-
-}
-
-/**
- * Stores triples of {@link ExternalCallAction}, {@link AllocationContext}, and {@link CommunicationLinkResourceSpecification}
- * to retrieve the linking resource used if the call is issued to the allocation context.
- * So to say, realizes something like a 
- * Map<ExternalCallAction,Map<AllocationContext,CommunicationLinkResourceSpecification>>.
- * But does not use only maps internally because not so many elements are expected.  
- *  
- * @author martens
- *
- */
-class CallsToLinkResourcesMap {
-	
-	Map<ExternalCallAction,List<Pair<AllocationContext,CommunicationLinkResourceSpecification>>> internalMap = new HashMap<ExternalCallAction, List<Pair<AllocationContext,CommunicationLinkResourceSpecification>>>();
-
-	public void put(ExternalCallAction eca, AllocationContext nextAllCtx,
-			CommunicationLinkResourceSpecification clrs) {
-		Pair<AllocationContext,CommunicationLinkResourceSpecification> pair = new Pair<AllocationContext, CommunicationLinkResourceSpecification>(nextAllCtx, clrs);
-		List<Pair<AllocationContext,CommunicationLinkResourceSpecification>> listForEca = internalMap.get(eca);
-		if (listForEca == null){
-			listForEca = new ArrayList<Pair<AllocationContext,CommunicationLinkResourceSpecification>>();
-			internalMap.put(eca, listForEca);
-		}
-		listForEca.add(pair);
-		
-	}
-
-	public CommunicationLinkResourceSpecification get(ExternalCallAction eca,
-			AllocationContext allCtx) {
-		List<Pair<AllocationContext,CommunicationLinkResourceSpecification>> listForEca = internalMap.get(eca);
-		if (listForEca == null){
-			return null;
-		}
-		for (Pair<AllocationContext, CommunicationLinkResourceSpecification> pair : listForEca) {
-			if (pair.getFirst().getId().equals(allCtx.getId())){
-				return pair.getSecond();
+			// return all AllocationContexts this AssemblyContext is allocated
+			// to
+			List<AllocationContext> targetAllocationContextList = new ArrayList<AllocationContext>();
+			for (AllocationContext allCtx : allCtxList) {
+				if (allCtx.getAssemblyContext_AllocationContext().getId()
+						.equals(nextAssCtx.getId())) {
+					targetAllocationContextList.add(allCtx);
+				}
+			}
+			if (targetAllocationContextList.size() >= 0) {
+				return targetAllocationContextList;
+			} else {
+				return getNextAllocationContextList(nextAssCtxIterator);
 			}
 		}
+		// TODO: throw exception
 		return null;
 	}
-	
+
+	/**
+	 * Get the next {@link AllocationContext}s. It can be multiple ones if the
+	 * component is replicated to several servers. Otherwise the list contains
+	 * only one element. If this is a composite component, then the passed
+	 * nextAssCtxList contains several {@link AssemblyContext}. The outer
+	 * component is the one that is usally allocated (if composite and
+	 * non-completion). If no allocation for the outer can be found, check for
+	 * inner (e.g. for subsystems and completions).
+	 * 
+	 * @param nextAssCtxList
+	 *            : List of the hierarchy of the current assembly contexts.
+	 *            Contains several {@link AssemblyContext} if the components are
+	 *            composite The first is the outmost component.
+	 * @see ContextWrapper#getAssCtxList()
+	 * @return
+	 */
+	private List<AllocationContext> getNextAllocationContextList(
+			List<AssemblyContext> nextAssCtxList) {
+		return getNextAllocationContextList(nextAssCtxList.iterator());
+	}
+
+	/**
+	 * Calculated the next context based on the passed one and the current
+	 * allCtx of this ContextWrapper.
+	 * 
+	 * @param compUsgCtx
+	 * @return
+	 */
+	private ComputedAllocationContext getNextComputedAllocationContext(
+			ComputedUsageContext compUsgCtx) {
+		logger.debug("In getNextComputedAllocationContext ");
+
+		ComputedAllocationContext cac = getExistingComputedAllocationContext(compUsgCtx);
+		if (cac != null) {
+			logger.debug("Reusing existing computed allocation context for "
+					+ getAssCtx().getEntityName());
+			return cac;
+		} else {
+			logger.debug("Creating new computed allocation context for "
+					+ getAssCtx().getEntityName());
+			ComputedAllocationContext newCompAllCtx = ComputedAllocationFactory.eINSTANCE
+					.createComputedAllocationContext();
+			pcmInstance.getComputedAllocation()
+					.getComputedAllocationContexts_ComputedAllocation().add(
+							newCompAllCtx);
+			newCompAllCtx.setUsageContext_ComputedAllocationContext(compUsgCtx);
+			newCompAllCtx
+					.setAllocationContext_ComputedAllocationContext(allCtx);
+			return newCompAllCtx;
+		}
+	}
+
+	/**
+	 * @param eca
+	 * @return
+	 */
+	private ComputedUsageContext getNextComputedUsageContext(
+			ExternalCallAction eca) {
+		logger.debug("In getNextComputedUsageContext " + eca.getEntityName());
+
+		ComputedUsageContext cuc = getExistingComputedUsageContext(eca);
+		if (cuc != null) {
+			logger.debug("Reusing existing computed usage context for "
+					+ getAssCtx().getEntityName());
+			return cuc;
+		} else {
+			logger.debug("Creating new computed usage context for "
+					+ getAssCtx().getEntityName());
+			return createNewComputedUsageContext(eca);
+		}
+	}
+
+	/**
+	 * Retrieves the OperationRequiredRole that belongs to the given external
+	 * call action.
+	 * 
+	 * It is assumed that the external call action belongs to the component that
+	 * is encapsulated by the current assembly context. The current assembly
+	 * context is the last element of assCtxList.
+	 * 
+	 * @param externalCallAction
+	 *            the external call action
+	 * @return the OperationRequiredRole
+	 */
+	private OperationRequiredRole getRequiredRoleForExternalCallAction(
+			final ExternalCallAction externalCallAction) {
+
+		// First retrieve the interface:
+		OperationInterface reqInterface = externalCallAction
+				.getCalledService_ExternalService()
+				.getInterface__OperationSignature();
+
+		// Search through the required roles of the current AssemblyContext:
+		for (RequiredRole role : assCtxList.get(assCtxList.size() - 1)
+				.getEncapsulatedComponent__AssemblyContext()
+				.getRequiredRoles_InterfaceRequiringEntity()) {
+			if (role instanceof OperationRequiredRole) {
+				if (((OperationRequiredRole) role)
+						.getRequiredInterface__OperationRequiredRole().getId()
+						.equals(reqInterface.getId())) {
+					return (OperationRequiredRole) role;
+				}
+			}
+		}
+
+		// Nothing found (should not happen):
+		return null;
+	}
+
+	/**
+	 * 
+	 * @param cuc
+	 * @param cac
+	 */
+	private void handleComputedContexts(ComputedUsageContext cuc,
+			ComputedAllocationContext cac) {
+		compUsgCtx = cuc;
+		compUsgCtx.setAssemblyContext_ComputedUsageContext(getAssCtx());
+		compAllCtx = cac;
+		compAllCtx.setAllocationContext_ComputedAllocationContext(allCtx);
+		readComputedContextsToHashMaps();
+	}
+
+	/**
+	 * Tries to find the {@link ComputedUsageContext} in the pcm instance that
+	 * 1) references the same assembly context for that we want to have an
+	 * ComputedUsageContext and 2) references the same list of variables we are
+	 * looking for.
+	 * 
+	 * @param vuList
+	 * @return A matching {@link ComputedUsageContext} or null.
+	 */
+	private ComputedUsageContext matchVariableUsages(EList<VariableUsage> vuList) {
+		EList<ComputedUsageContext> cucList = pcmInstance.getComputedUsage()
+				.getUsageContexts_ComputedUsage();
+		for (ComputedUsageContext cuc : cucList) {
+			if (cuc.getAssemblyContext_ComputedUsageContext().getId().equals(
+					getAssCtx().getId())) {
+				Input input = cuc.getInput_ComputedUsageContext();
+				EList<VariableUsage> vuList2 = input
+						.getParameterChacterisations_Input();
+
+				// logger.debug("List1: "+vuList);
+				// logger.debug("List2: "+vuList2);
+
+				if (areEqual(vuList, vuList2)) {
+					// logger.debug("Are Equal Successful!");
+					return cuc;
+				}
+			}
+		}
+		logger.debug("Matching Input Variables for External Call failed.");
+		return null;
+	}
+
+	/**
+	 * 
+	 */
+	private void readComputedContextsToHashMaps() {
+		EList<BranchProbability> bpList = compUsgCtx
+				.getBranchProbabilities_ComputedUsageContext();
+		for (BranchProbability bp : bpList) {
+			branchProbs.put(bp.getBranchtransition_BranchProbability(), bp
+					.getProbability());
+		}
+
+		EList<LoopIteration> liList = compUsgCtx
+				.getLoopiterations_ComputedUsageContext();
+		for (LoopIteration li : liList) {
+			String spec = li.getSpecification_LoopIteration()
+					.getSpecification();
+			ManagedPMF pmf = null;
+			try {
+				pmf = ManagedPMF.createFromString(spec);
+			} catch (StringNotPDFException e) {
+				e.printStackTrace();
+			} catch (RecognitionException e) {
+				e.printStackTrace();
+			}
+			loopIters.put(li.getLoopaction_LoopIteration(), pmf);
+		}
+
+		EList<ResourceDemand> rdList = compAllCtx
+				.getResourceDemands_ComputedAllocationContext();
+		for (ResourceDemand rd : rdList) {
+			// These are already solved expressions, they do not contain
+			// variables.
+			String spec = rd.getSpecification_ResourceDemand()
+					.getSpecification();
+
+			Expression rdExpression = ExpressionHelper.parseToExpression(spec);
+			ExpressionToPDFWrapper rdWrapper = null;
+
+			try {
+				rdWrapper = ExpressionToPDFWrapper
+						.createExpressionToPDFWrapper(rdExpression);
+			} catch (Exception e) {
+				throw new IllegalArgumentException(
+						"Could not derive a PDF from expression \"" + spec
+								+ "\"; Exception type: "
+								+ e.getClass().getName()
+								+ "; Error message: \"" + e.getMessage() + "\"");
+			}
+			resDemands.put(rd.getParametricResourceDemand_ResourceDemand(),
+					rdWrapper);
+
+			/*
+			 * FunctionLiteral function;
+			 * function.getParameters_FunctionLiteral()
+			 */
+
+			// ManagedPDF pdf = null;
+			// try {
+			// pdf = ManagedPDF.createFromString(spec);
+			// } catch (StringNotPDFException e) {
+			// e.printStackTrace();
+			// } catch (RecognitionException e) {
+			// e.printStackTrace();
+			// }
+
+		}
+
+		// Store the mapping which ParametricResourceDemand accesses which
+		// Resource in this context.
+		for (ResourceDemand rd : rdList) {
+			ParametricResourceDemand prd = rd
+					.getParametricResourceDemand_ResourceDemand();
+			ProcessingResourceType prt = prd
+					.getRequiredResource_ParametricResourceDemand();
+			EList<ProcessingResourceSpecification> prsList = allCtx
+					.getResourceContainer_AllocationContext()
+					.getActiveResourceSpecifications_ResourceContainer();
+			for (ProcessingResourceSpecification prs : prsList) {
+				ProcessingResourceType prsType = prs
+						.getActiveResourceType_ActiveResourceSpecification();
+				if (prsType.getId().equals(prt.getId())) {
+					procResources.put(prd, prs);
+				}
+			}
+
+			// special case for system external calls:
+			if (prt.getEntityName().equals("SystemExternalResource")) {
+				EList<ResourceContainer> containerList = getPcmInstance()
+						.getResourceEnvironment()
+						.getResourceContainer_ResourceEnvironment();
+				for (ResourceContainer container : containerList) {
+					if (container.getEntityName().equals(
+							"SystemExternalResourceContainer")) {
+						ProcessingResourceSpecification prs = container
+								.getActiveResourceSpecifications_ResourceContainer()
+								.get(0);
+						procResources.put(prd, prs);
+					}
+				}
+			}
+
+		}
+
+		EList<ExternalCallInput> eciList = compUsgCtx
+				.getExternalCallInput_ComputedUsageContext();
+		EList<LinkingResource> lrList = pcmInstance.getResourceEnvironment()
+				.getLinkingResources__ResourceEnvironment();
+		ResourceContainer rc1 = allCtx.getResourceContainer_AllocationContext();
+		for (ExternalCallInput eci : eciList) {
+			ExternalCallAction eca = eci
+					.getExternalCallAction_ExternalCallInput();
+
+			List<AssemblyContext> acList = findProvidingAssemblyContexts(eca,
+					false);
+
+			List<AllocationContext> allocationContextList = getNextAllocationContextList(acList);
+			for (AllocationContext nextAllCtx : allocationContextList) {
+
+				ResourceContainer rc2 = nextAllCtx
+						.getResourceContainer_AllocationContext();
+
+				if (rc1 != rc2) {
+					for (LinkingResource lr : lrList) {
+
+						// ------------------------------
+						// contains() does NOT work (fb)!
+						// ------------------------------
+						// if
+						// (lr.getFromResourceContainer_LinkingResource().contains(rc1)
+						// &&
+						// lr.getToResourceContainer_LinkingResource().contains(rc2)){
+
+						boolean rc1Contained = exists(
+								lr
+										.getConnectedResourceContainers_LinkingResource(),
+								rc1);
+						boolean rc2Contained = exists(
+								lr
+										.getConnectedResourceContainers_LinkingResource(),
+								rc2);
+						if (rc1Contained && rc2Contained) {
+							CommunicationLinkResourceSpecification clrs = lr
+									.getCommunicationLinkResourceSpecifications_LinkingResource();
+							linkResources.put(eca, nextAllCtx, clrs);
+						}
+					}
+				}
+			}
+		}
+
+		// also compute and store parameter BYTESIZEs
+		for (ExternalCallInput eci : compUsgCtx
+				.getExternalCallInput_ComputedUsageContext()) {
+			inputParameterBytesizes.put(eci
+					.getExternalCallAction_ExternalCallInput(),
+					getMeanTotalInputParameterBytesize(eci));
+		}
+		for (ExternalCallOutput eco : compUsgCtx
+				.getExternalCallOutput_ComputedUsageContext()) {
+			outputParameterBytesizes.put(eco
+					.getExternalCallAction_ExternalCallOutput(),
+					getMeanTotalOutputParameterBytesize(eco));
+		}
+	}
 }
-
-
