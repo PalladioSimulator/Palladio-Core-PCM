@@ -23,11 +23,9 @@ import de.uka.ipd.sdq.context.computed_usage.ExternalCallOutput;
 import de.uka.ipd.sdq.context.computed_usage.Input;
 import de.uka.ipd.sdq.context.computed_usage.LoopIteration;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.Connector;
-import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
@@ -38,15 +36,10 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnn
 import de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
-import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.OperationInterface;
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
@@ -162,8 +155,9 @@ public class ContextWrapper implements Cloneable {
 		ContextWrapper templateContextWrapper = new ContextWrapper();
 		templateContextWrapper.pcmInstance = oldContextWrapper.getPcmInstance();
 
-		templateContextWrapper.setAssCtxList(oldContextWrapper
-				.getHandlingAssemblyContexts(eca));
+		templateContextWrapper
+				.setAssCtxList(PCMInstanceHelper.getHandlingAssemblyContexts(
+						eca, oldContextWrapper.assCtxList));
 		List<AllocationContext> allocationContextList = templateContextWrapper
 				.getNextAllocationContextList(templateContextWrapper
 						.getAssCtxList());
@@ -323,51 +317,6 @@ public class ContextWrapper implements Cloneable {
 	}
 
 	/**
-	 * Searches for the providing AssemblyContexts that handle the given
-	 * ExternalCallAction.
-	 * 
-	 * If the ExternalCallAction is a system external call, the method returns
-	 * an empty list. If the providing side is a nested structure of
-	 * AssemblyContexts, all providing AssemblyContexts are returned in a list,
-	 * with the actual handling context as the last element.
-	 * 
-	 * @param externalCall
-	 *            the ExternallCallAction on
-	 * @param isCreateContextWrapper
-	 *            FIXME: This method modifies the passed ContextWrapper if
-	 *            isCreateContextWrapper is true, which makes everything very
-	 *            unclear!
-	 * @return the providing AssemblyContexts
-	 */
-	public List<AssemblyContext> getHandlingAssemblyContexts(
-			final ExternalCallAction externalCall) {
-
-		// Collect information about the externalCall:
-		String roleId = externalCall.getRole_ExternalService().getId();
-		Signature serviceToBeCalled = externalCall
-				.getCalledService_ExternalService();
-		Interface requiredInterface = (Interface) serviceToBeCalled
-				.eContainer();
-		String interfaceId = requiredInterface.getId();
-
-		// Search for an AssemblyConnector between the calling
-		// AssemblyContext and the handling AssemblyContext:
-		List<AssemblyContext> contexts = getAssCtxListClone();
-		AssemblyConnector connector = findAssemblyConnectorForRequiredRole(
-				roleId, interfaceId, contexts);
-		if (connector == null) {
-			// If no AssemblyConnector is found, the call is a system external
-			// call and has no handling AssemblyContext:
-			return new ArrayList<AssemblyContext>();
-		}
-
-		// Retrieve the set of handling assembly contexts from:
-		return PCMInstanceHelper.getHandlingAssemblyContexts(connector
-				.getProvidingAssemblyContext_AssemblyConnector(), connector
-				.getProvidedRole_AssemblyConnector(), contexts);
-	}
-
-	/**
 	 * 
 	 * @return
 	 */
@@ -381,17 +330,6 @@ public class ContextWrapper implements Cloneable {
 	 */
 	public AssemblyContext getAssCtx() {
 		return assCtxList.get(assCtxList.size() - 1);
-	}
-
-	/**
-	 * Returns a copy of the current list of nested AssemblyContexts.
-	 * 
-	 * @return a copy of the AssemblyContexts list
-	 */
-	private List<AssemblyContext> getAssCtxListClone() {
-		List<AssemblyContext> resultList = new ArrayList<AssemblyContext>();
-		resultList.addAll(assCtxList);
-		return resultList;
 	}
 
 	/**
@@ -504,40 +442,9 @@ public class ContextWrapper implements Cloneable {
 	 *         changes this one.
 	 */
 	public List<ContextWrapper> getContextWrapperFor(ExternalCallAction eca) {
-		// TODO: idea to fix the above problematic methods, however, it does not
-		// work
-		// The assCtxList is not properly maintained.
-		/*
-		 * public ContextWrapper getContextWrapperFor(ExternalCallAction eca) {
-		 * 
-		 * ContextWrapper newContextWrapper = new ContextWrapper(pcmInstance);
-		 * newContextWrapper.setAssCtxList(getNextAssemblyContext(eca,true));
-		 * newContextWrapper
-		 * .setAllCtx(getNextAllocationContext(assCtxList.get(0)));
-		 * 
-		 * newContextWrapper.setCompUsgCtx(getNextComputedUsageContext(eca));
-		 * newContextWrapper
-		 * .setCompAllCtx(getNextComputedAllocationContext(newContextWrapper
-		 * .getCompUsgCtx()));
-		 * newContextWrapper.readComputedContextsToHashMaps(); return this; }
-		 * 
-		 * public ContextWrapper getContextWrapperFor(EntryLevelSystemCall elsa)
-		 * {
-		 * 
-		 * ContextWrapper newContextWrapper = new ContextWrapper(pcmInstance);
-		 * newContextWrapper.setAssCtxList(getFirstAssemblyContext2(elsa));
-		 * newContextWrapper
-		 * .setAllCtx(getNextAllocationContext(assCtxList.get(0)));
-		 * 
-		 * newContextWrapper.setCompUsgCtx(getFirstComputedUsageContext(elsa));
-		 * newContextWrapper
-		 * .setCompAllCtx(getNextComputedAllocationContext(newContextWrapper
-		 * .getCompUsgCtx()));
-		 * newContextWrapper.readComputedContextsToHashMaps();
-		 * 
-		 * return newContextWrapper; }
-		 */
-		assCtxList = getHandlingAssemblyContexts(eca);
+
+		assCtxList = PCMInstanceHelper.getHandlingAssemblyContexts(eca,
+				assCtxList);
 		compUsgCtx = getNextComputedUsageContext(eca);
 
 		List<ContextWrapper> contextWrapperList = createContextWrappersBasedOnTemplate(
@@ -689,7 +596,8 @@ public class ContextWrapper implements Cloneable {
 		Signature sig = eca.getCalledService_ExternalService();
 
 		// Get the list of providing AssemblyContexts for this call:
-		List<AssemblyContext> acList = getHandlingAssemblyContexts(eca);
+		List<AssemblyContext> acList = PCMInstanceHelper
+				.getHandlingAssemblyContexts(eca, assCtxList);
 		if (acList.size() == 0) {
 			// If no providing AssemblyContexts are found, the call is a system
 			// external call, and there is no next SEFF for it:
@@ -1018,66 +926,6 @@ public class ContextWrapper implements Cloneable {
 			}
 		}
 		return false;
-	}
-
-	/**
-	 * Searches for an AssemblyConnector that connects the current
-	 * AssemblyContext via its given requiredRole to its providing counterpart.
-	 * 
-	 * The current AssemblyContext is the last element of the given list of
-	 * nested contexts. The method traverses any RequiredDelegationConnectors
-	 * that lie between the AssemblyContext and its AssemblyConnector. If the
-	 * role is connected to the system boundary, the method returns NULL. During
-	 * the method, the list of nestedContexts is adapted to the current search
-	 * level. If a connector is found, the resulting list reflects the
-	 * encapsulating contexts of the connector.
-	 * 
-	 * @param requiredRoleId
-	 *            the id of the RequiredRole to match
-	 * @param requiredInterfaceId
-	 *            the id of the Interface to match
-	 * @return the AssemblyConnector, or NULL, if the required role leads to the
-	 *         system boundary
-	 */
-	private AssemblyConnector findAssemblyConnectorForRequiredRole(
-			final String requiredRoleId, final String requiredInterfaceId,
-			final List<AssemblyContext> nestedContexts) {
-
-		// Navigate upwards the stack of parent AssemblyContexts
-		// (starting from the current AssemblyContext):
-		String currentRequiredRoleId = requiredRoleId;
-		AssemblyContext currentContext = null;
-		while (!nestedContexts.isEmpty()) {
-
-			// Examine the innermost context of the list:
-			currentContext = nestedContexts.get(nestedContexts.size() - 1);
-			nestedContexts.remove(currentContext);
-
-			// Check if the searched AssemblyConnector is directly
-			// connected to the currently examined context:
-			AssemblyConnector matchingAssConn = PCMInstanceHelper
-					.findAssemblyConnectorForRequiringAssemblyContext(
-							currentRequiredRoleId, requiredInterfaceId,
-							currentContext);
-			if (matchingAssConn != null) {
-				return matchingAssConn;
-			}
-
-			// As no AssemblyConnector is directly connected, we
-			// have to look for a RequiredDelegationConnector
-			// instead and repeat the search for the next higher
-			// AssemblyContext and its corresponding
-			// OperationRequiredRole:
-			RequiredDelegationConnector matchingDeleConn = PCMInstanceHelper
-					.findDelegationConnectorForRequiringAssemblyContext(
-							currentRequiredRoleId, requiredInterfaceId,
-							currentContext);
-			currentRequiredRoleId = matchingDeleConn
-					.getOuterRequiredRole_RequiredDelegationConnector().getId();
-		}
-
-		// No AssemblyContext found:
-		return null;
 	}
 
 	/**
@@ -1719,7 +1567,8 @@ public class ContextWrapper implements Cloneable {
 			ExternalCallAction eca = eci
 					.getExternalCallAction_ExternalCallInput();
 
-			List<AssemblyContext> acList = getHandlingAssemblyContexts(eca);
+			List<AssemblyContext> acList = PCMInstanceHelper
+					.getHandlingAssemblyContexts(eca, assCtxList);
 
 			List<AllocationContext> allocationContextList = getNextAllocationContextList(acList);
 			for (AllocationContext nextAllCtx : allocationContextList) {
