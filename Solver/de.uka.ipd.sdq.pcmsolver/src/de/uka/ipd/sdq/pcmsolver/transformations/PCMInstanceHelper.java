@@ -3,11 +3,14 @@ package de.uka.ipd.sdq.pcmsolver.transformations;
 import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.Connector;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
@@ -41,7 +44,7 @@ public class PCMInstanceHelper {
 	 *            the existing list of AssemblyContexts
 	 * @return the extended AssemblyContext list
 	 */
-	public static List<AssemblyContext> getAssCtxs(
+	public static List<AssemblyContext> getHandlingAssemblyContexts(
 			final AssemblyContext topLevelAssCtx,
 			final OperationProvidedRole topLevelProvidedRole,
 			final List<AssemblyContext> existingAssCtxs) {
@@ -81,8 +84,8 @@ public class PCMInstanceHelper {
 								.getAssemblyContext_ProvidedDelegationConnector();
 						OperationProvidedRole nestedProvidedRole = pdc
 								.getInnerProvidedRole_ProvidedDelegationConnector();
-						return getAssCtxs(nestedAssCtx, nestedProvidedRole,
-								existingAssCtxs);
+						return getHandlingAssemblyContexts(nestedAssCtx,
+								nestedProvidedRole, existingAssCtxs);
 					}
 				}
 			}
@@ -140,7 +143,8 @@ public class PCMInstanceHelper {
 		}
 
 		if (topLevelAssCtx != null) {
-			return getAssCtxs(topLevelAssCtx, topLevelAssCtxProvidedRole,
+			return getHandlingAssemblyContexts(topLevelAssCtx,
+					topLevelAssCtxProvidedRole,
 					new BasicEList<AssemblyContext>());
 		}
 
@@ -150,5 +154,85 @@ public class PCMInstanceHelper {
 						+ system.getEntityName()
 						+ "\" that matches the EntryLevelSystemCall \""
 						+ systemCall.getEntityName() + "\".");
+	}
+
+	/**
+	 * Searches for an AssemblyConnector that connects a given
+	 * requiringAssemblyContext via its requiredRole to its providing
+	 * counterpart.
+	 * 
+	 * Notice that the requiredRole of the requiringAssemblyContext could also
+	 * be associated to a RequiredDelegationConnector instead of an
+	 * AssemblyConnector. In this case, NULL is returned.
+	 * 
+	 * @param requiredRoleId
+	 *            the id of the RequiredRole to match
+	 * @param requiredInterfaceId
+	 *            the id of the Interface to match
+	 * @param requiringAssemblyContext
+	 *            the AssemblyContext to match
+	 * @return the matching AssemblyConnector within the parent
+	 *         ComposedStructure
+	 */
+	public static AssemblyConnector findAssemblyConnectorForRequiringAssemblyContext(
+			final String requiredRoleId, final String requiredInterfaceId,
+			final AssemblyContext requiringAssemblyContext) {
+
+		// Retrieve the list of connectors within the parent
+		// ComposedStructure:
+		EList<Connector> connList = requiringAssemblyContext
+				.getParentStructure__AssemblyContext()
+				.getConnectors__ComposedStructure();
+
+		// Check for each AssemblyConnector in the list if it fulfills
+		// the requirements:
+		for (Connector conn : connList) {
+			if (conn instanceof AssemblyConnector) {
+				AssemblyConnector assConn = (AssemblyConnector) conn;
+				if (assConn.getRequiringAssemblyContext_AssemblyConnector()
+						.getId().equals(requiringAssemblyContext.getId())
+						&& assConn.getRequiredRole_AssemblyConnector()
+								.getRequiredInterface__OperationRequiredRole()
+								.getId().equals(requiredInterfaceId)
+						&& assConn.getRequiredRole_AssemblyConnector().getId()
+								.equals(requiredRoleId)) {
+					return assConn;
+				}
+			}
+		}
+
+		// No AssmblyConnector found:
+		return null;
+	}
+
+	public static RequiredDelegationConnector findDelegationConnectorForRequiringAssemblyContext(
+			String requiredRoleId, String requiredInterfaceId,
+			AssemblyContext requiringAssemblyContext) {
+
+		// Retrieve the list of connectors within the parent
+		// ComposedStructure:
+		EList<Connector> connList = requiringAssemblyContext
+				.getParentStructure__AssemblyContext()
+				.getConnectors__ComposedStructure();
+
+		// Check for each RequiredDelegationConnector in the list if it fulfills
+		// the requirements:
+		for (Connector conn : connList) {
+			if (conn instanceof RequiredDelegationConnector) {
+				RequiredDelegationConnector dc = (RequiredDelegationConnector) conn;
+				if (dc.getAssemblyContext_RequiredDelegationConnector().getId()
+						.equals(requiringAssemblyContext.getId())
+						&& dc.getInnerRequiredRole_RequiredDelegationConnector()
+								.getRequiredInterface__OperationRequiredRole()
+								.getId().equals(requiredInterfaceId)
+						&& dc.getInnerRequiredRole_RequiredDelegationConnector().getId()
+								.equals(requiredRoleId)) {
+					return dc;
+				}
+			}
+		}
+
+		// No AssmblyConnector found:
+		return null;
 	}
 }

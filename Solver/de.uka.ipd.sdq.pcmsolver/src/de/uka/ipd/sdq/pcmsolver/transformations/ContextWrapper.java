@@ -116,7 +116,6 @@ public class ContextWrapper implements Cloneable {
 	protected static Logger logger = Logger.getLogger(ContextWrapper.class
 			.getName());
 
-
 	/**
 	 * Creates a List of {@link ContextWrapper}s to handle the given
 	 * {@link EntryLevelSystemCall}. One {@link ContextWrapper} is created for
@@ -129,16 +128,19 @@ public class ContextWrapper implements Cloneable {
 	public static List<ContextWrapper> getContextWrapperFor(
 			EntryLevelSystemCall elsa, PCMInstance pcm) {
 
-		ContextWrapper templateContextWrapper = new ContextWrapper(pcm);
-		List<AssemblyContext> calledAssemblyContextList = PCMInstanceHelper
+		ContextWrapper templateContextWrapper = new ContextWrapper();
+		templateContextWrapper.pcmInstance = pcm;
+
+		List<AssemblyContext> handlingAssemblyContexts = PCMInstanceHelper
 				.getHandlingAssemblyContexts(elsa, pcm.getSystem());
-		templateContextWrapper.setAssCtxList(calledAssemblyContextList);
+		templateContextWrapper.setAssCtxList(handlingAssemblyContexts);
+
 		ComputedUsageContext computedUsageContext = templateContextWrapper
 				.getFirstComputedUsageContext(elsa);
 		templateContextWrapper.setCompUsgCtx(computedUsageContext);
 
 		List<ContextWrapper> contextWrapperList = createContextWrappersBasedOnTemplate(
-				templateContextWrapper, calledAssemblyContextList,
+				templateContextWrapper, handlingAssemblyContexts,
 				computedUsageContext);
 
 		return contextWrapperList;
@@ -157,11 +159,11 @@ public class ContextWrapper implements Cloneable {
 			ExternalCallAction eca, ComputedUsageContext cuc,
 			ComputedAllocationContext cac, ContextWrapper oldContextWrapper) {
 
-		ContextWrapper templateContextWrapper = new ContextWrapper(
-				oldContextWrapper.getPcmInstance());
+		ContextWrapper templateContextWrapper = new ContextWrapper();
+		templateContextWrapper.pcmInstance = oldContextWrapper.getPcmInstance();
 
 		templateContextWrapper.setAssCtxList(oldContextWrapper
-				.findProvidingAssemblyContexts(eca, true));
+				.getHandlingAssemblyContexts(eca));
 		List<AllocationContext> allocationContextList = templateContextWrapper
 				.getNextAllocationContextList(templateContextWrapper
 						.getAssCtxList());
@@ -276,17 +278,22 @@ public class ContextWrapper implements Cloneable {
 	private ResourceDemandCache resDemands = new ResourceDemandCache();
 
 	/**
+	 * Creates an empty ContextWrapper instance based only on the given PCM
+	 * model instance.
 	 * 
-	 * @param pcm
+	 * @param pcmInstance
+	 *            the PCM model instance
 	 */
-	public ContextWrapper(PCMInstance pcm) {
-		pcmInstance = pcm;
+	public ContextWrapper(final PCMInstance pcmInstance) {
+		this.pcmInstance = pcmInstance;
 	}
 
 	/**
+	 * Standard constructor.
 	 * 
+	 * Protected, only for private use through clone().
 	 */
-	protected ContextWrapper() {
+	private ContextWrapper() {
 	}
 
 	/**
@@ -332,12 +339,8 @@ public class ContextWrapper implements Cloneable {
 	 *            unclear!
 	 * @return the providing AssemblyContexts
 	 */
-	public List<AssemblyContext> findProvidingAssemblyContexts(
-			final ExternalCallAction externalCall,
-			final boolean isCreateContextWrapper) {
-
-		// Create the result variable:
-		BasicEList<AssemblyContext> resultList = new BasicEList<AssemblyContext>();
+	public List<AssemblyContext> getHandlingAssemblyContexts(
+			final ExternalCallAction externalCall) {
 
 		// Collect information about the externalCall:
 		String roleId = externalCall.getRole_ExternalService().getId();
@@ -349,36 +352,19 @@ public class ContextWrapper implements Cloneable {
 
 		// Search for an AssemblyConnector between the calling
 		// AssemblyContext and the handling AssemblyContext:
-		AssemblyConnector connector = findAssemblyContextForRequiredRole(
-				roleId, interfaceId, isCreateContextWrapper);
+		List<AssemblyContext> contexts = getAssCtxListClone();
+		AssemblyConnector connector = findAssemblyConnectorForRequiredRole(
+				roleId, interfaceId, contexts);
 		if (connector == null) {
 			// If no AssemblyConnector is found, the call is a system external
 			// call and has no handling AssemblyContext:
-			return resultList;
+			return new ArrayList<AssemblyContext>();
 		}
 
-		// Retrieve the direct providing AssemblyContext of the connector:
-		AssemblyContext providingContext = connector
-				.getProvidingAssemblyContext_AssemblyConnector();
-		OperationProvidedRole providedRole = connector
-				.getProvidedRole_AssemblyConnector();
-
-		// Navigate downwards through the possibly nested AssemblyContexts,
-		// until the actual handling AssemblyContext is found:
-		if (isCreateContextWrapper) {
-			return PCMInstanceHelper.getAssCtxs(providingContext, providedRole, assCtxList);
-		} else {
-			AssemblyContext reqAssCtx = connector
-					.getRequiringAssemblyContext_AssemblyConnector();
-			if (reqAssCtx.getId().equals(getAssCtx().getId())) {
-				// in this case the assembly contexts have to be inherited
-				for (AssemblyContext ac : assCtxList) {
-					resultList.add(ac);
-				}
-				resultList.remove(resultList.size() - 1);
-			}
-			return PCMInstanceHelper.getAssCtxs(providingContext, providedRole, resultList);
-		}
+		// Retrieve the set of handling assembly contexts from:
+		return PCMInstanceHelper.getHandlingAssemblyContexts(connector
+				.getProvidingAssemblyContext_AssemblyConnector(), connector
+				.getProvidedRole_AssemblyConnector(), contexts);
 	}
 
 	/**
@@ -395,6 +381,17 @@ public class ContextWrapper implements Cloneable {
 	 */
 	public AssemblyContext getAssCtx() {
 		return assCtxList.get(assCtxList.size() - 1);
+	}
+
+	/**
+	 * Returns a copy of the current list of nested AssemblyContexts.
+	 * 
+	 * @return a copy of the AssemblyContexts list
+	 */
+	private List<AssemblyContext> getAssCtxListClone() {
+		List<AssemblyContext> resultList = new ArrayList<AssemblyContext>();
+		resultList.addAll(assCtxList);
+		return resultList;
 	}
 
 	/**
@@ -540,7 +537,7 @@ public class ContextWrapper implements Cloneable {
 		 * 
 		 * return newContextWrapper; }
 		 */
-		assCtxList = findProvidingAssemblyContexts(eca, true);
+		assCtxList = getHandlingAssemblyContexts(eca);
 		compUsgCtx = getNextComputedUsageContext(eca);
 
 		List<ContextWrapper> contextWrapperList = createContextWrappersBasedOnTemplate(
@@ -692,7 +689,7 @@ public class ContextWrapper implements Cloneable {
 		Signature sig = eca.getCalledService_ExternalService();
 
 		// Get the list of providing AssemblyContexts for this call:
-		List<AssemblyContext> acList = findProvidingAssemblyContexts(eca, false);
+		List<AssemblyContext> acList = getHandlingAssemblyContexts(eca);
 		if (acList.size() == 0) {
 			// If no providing AssemblyContexts are found, the call is a system
 			// external call, and there is no next SEFF for it:
@@ -1024,174 +1021,62 @@ public class ContextWrapper implements Cloneable {
 	}
 
 	/**
-	 * Searches for an AssemblyConnector that connects a given
-	 * requiringAssemblyContext via its requiredRole to its providing
-	 * counterpart.
-	 * 
-	 * Notice that the requiredRole of the requiringAssemblyContext could also
-	 * be associated to a RequiredDelegationConnector instead of an
-	 * AssemblyConnector. In this case, NULL is returned.
-	 * 
-	 * @param requiredRoleId
-	 *            the id of the RequiredRole to match
-	 * @param requiredInterfaceId
-	 *            the id of the Interface to match
-	 * @param requiringAssemblyContext
-	 *            the AssemblyContext to match
-	 * @return the matching AssemblyConnector within the parent
-	 *         ComposedStructure
-	 */
-	private AssemblyConnector findAssemblyConnectorForRequiringAssemblyContext(
-			final String requiredRoleId, final String requiredInterfaceId,
-			final AssemblyContext requiringAssemblyContext) {
-
-		// Retrieve the list of AssemblyConnectors within the parent
-		// ComposedStructure:
-		EList<Connector> assConnList = requiringAssemblyContext
-				.getParentStructure__AssemblyContext()
-				.getConnectors__ComposedStructure();
-
-		// Check for each AssemblyConnector in the list if it fulfills
-		// the requirements:
-		for (Connector conn : assConnList) {
-			if (conn instanceof AssemblyConnector) {
-				AssemblyConnector assConn = (AssemblyConnector) conn;
-				if (assConn.getRequiringAssemblyContext_AssemblyConnector()
-						.getId().equals(requiringAssemblyContext.getId())
-						&& assConn.getRequiredRole_AssemblyConnector()
-								.getRequiredInterface__OperationRequiredRole()
-								.getId().equals(requiredInterfaceId)
-						&& assConn.getRequiredRole_AssemblyConnector().getId()
-								.equals(requiredRoleId)) {
-					return assConn;
-				}
-			}
-		}
-
-		// No AssmblyConnector found:
-		return null;
-	}
-
-	/**
 	 * Searches for an AssemblyConnector that connects the current
 	 * AssemblyContext via its given requiredRole to its providing counterpart.
 	 * 
-	 * The current AssemblyContext is the last element of this.assCtxList. The
-	 * method traverses any RequiredDelegationConnectors that lie between the
-	 * AssemblyContext and its AssemblyConnector. If the role is connected to
-	 * the system boundary, the method returns NULL.
+	 * The current AssemblyContext is the last element of the given list of
+	 * nested contexts. The method traverses any RequiredDelegationConnectors
+	 * that lie between the AssemblyContext and its AssemblyConnector. If the
+	 * role is connected to the system boundary, the method returns NULL. During
+	 * the method, the list of nestedContexts is adapted to the current search
+	 * level. If a connector is found, the resulting list reflects the
+	 * encapsulating contexts of the connector.
 	 * 
 	 * @param requiredRoleId
 	 *            the id of the RequiredRole to match
 	 * @param requiredInterfaceId
 	 *            the id of the Interface to match
-	 * @param isCreateContextWrapper
-	 *            if true, this ContextWrapper is modified and the found
-	 *            AssemblyContext is removed from the internal assCtxList.
-	 *            FIXME: Why does this make sense ever?
-	 * @return An AssemblyContext that either is a matching Assem
+	 * @return the AssemblyConnector, or NULL, if the required role leads to the
+	 *         system boundary
 	 */
-	private AssemblyConnector findAssemblyContextForRequiredRole(
+	private AssemblyConnector findAssemblyConnectorForRequiredRole(
 			final String requiredRoleId, final String requiredInterfaceId,
-			final boolean isCreateContextWrapper) {
+			final List<AssemblyContext> nestedContexts) {
 
 		// Navigate upwards the stack of parent AssemblyContexts
 		// (starting from the current AssemblyContext):
-		for (int i = assCtxList.size() - 1; i >= 0; i--) {
+		String currentRequiredRoleId = requiredRoleId;
+		AssemblyContext currentContext = null;
+		while (!nestedContexts.isEmpty()) {
+
+			// Examine the innermost context of the list:
+			currentContext = nestedContexts.get(nestedContexts.size() - 1);
+			nestedContexts.remove(currentContext);
 
 			// Check if the searched AssemblyConnector is directly
-			// connected to this AssemblyContext:
-			AssemblyConnector matchingAssConn = findAssemblyConnectorForRequiringAssemblyContext(
-					requiredRoleId, requiredInterfaceId, assCtxList.get(i));
+			// connected to the currently examined context:
+			AssemblyConnector matchingAssConn = PCMInstanceHelper
+					.findAssemblyConnectorForRequiringAssemblyContext(
+							currentRequiredRoleId, requiredInterfaceId,
+							currentContext);
 			if (matchingAssConn != null) {
-				if (isCreateContextWrapper) {
-					assCtxList.remove(i);
-				}
 				return matchingAssConn;
 			}
 
-			// If no AssemblyConnector is directly attached to this
-			// AssemblyContext, check for a RequiredDelegationConnector leading
-			// to the boundary of the next higher ComposedStructure. If we are
-			// already on the top level (i = 0), the AssemblyConnector is
-			// connected to the system boundary, and no providing
-			// AssemblyContext exists.
-			if (i != 0) {
-				matchingAssConn = findFromDelegationConnector(requiredRoleId,
-						requiredInterfaceId, assCtxList.get(i), i);
-				if (matchingAssConn != null) {
-					if (isCreateContextWrapper) {
-						assCtxList.remove(i);
-						assCtxList.remove(i - 1);
-					}
-					return matchingAssConn;
-				}
-			}
+			// As no AssemblyConnector is directly connected, we
+			// have to look for a RequiredDelegationConnector
+			// instead and repeat the search for the next higher
+			// AssemblyContext and its corresponding
+			// OperationRequiredRole:
+			RequiredDelegationConnector matchingDeleConn = PCMInstanceHelper
+					.findDelegationConnectorForRequiringAssemblyContext(
+							currentRequiredRoleId, requiredInterfaceId,
+							currentContext);
+			currentRequiredRoleId = matchingDeleConn
+					.getOuterRequiredRole_RequiredDelegationConnector().getId();
 		}
 
 		// No AssemblyContext found:
-		return null;
-	}
-
-	/**
-	 * Find a matching AssemblyConnector by looking at the
-	 * RequiredDelegationConnectors of this AssemblyContext ac. Step up the
-	 * composition one step and find the matching AssemblyConnector and then
-	 * return that found AssemblyConnector.
-	 * 
-	 * Does not modify this ContextWrapper.
-	 * 
-	 * FIXME: If the composition is deeper than 1, this probably does not work.
-	 * It should be recursive.
-	 * 
-	 * @param roleId
-	 * @param interfaceId
-	 * @param ac
-	 * @param i
-	 * @return
-	 */
-	private AssemblyConnector findFromDelegationConnector(String roleId,
-			String interfaceId, AssemblyContext ac, int i) {
-		for (Connector conn : ac.getParentStructure__AssemblyContext()
-				.getConnectors__ComposedStructure()) {
-			if (conn instanceof RequiredDelegationConnector) {
-				RequiredDelegationConnector reqConn = (RequiredDelegationConnector) conn;
-				if (reqConn.getInnerRequiredRole_RequiredDelegationConnector()
-						.getId().equals(roleId)
-						&& reqConn
-								.getInnerRequiredRole_RequiredDelegationConnector()
-								.getRequiredInterface__OperationRequiredRole()
-								.getId().equals(interfaceId)) {
-					String outerRoleId = reqConn
-							.getOuterRequiredRole_RequiredDelegationConnector()
-							.getId();
-					AssemblyContext compositeComponentAssemblyContext = assCtxList
-							.get(i - 1);
-					String compositeComponentAssCtxId = compositeComponentAssemblyContext
-							.getId();
-
-					for (Connector conn2 : compositeComponentAssemblyContext
-							.getParentStructure__AssemblyContext()
-							.getConnectors__ComposedStructure()) {
-						if (conn2 instanceof AssemblyConnector) {
-							AssemblyConnector assConn = (AssemblyConnector) conn2;
-							if (assConn
-									.getRequiringAssemblyContext_AssemblyConnector()
-									.getId().equals(compositeComponentAssCtxId)
-									&& assConn
-											.getRequiredRole_AssemblyConnector()
-											.getRequiredInterface__OperationRequiredRole()
-											.getId().equals(interfaceId)
-									&& assConn
-											.getRequiredRole_AssemblyConnector()
-											.getId().equals(outerRoleId)) {
-								return assConn;
-							}
-						}
-					}
-				}
-			}
-		}
 		return null;
 	}
 
@@ -1834,8 +1719,7 @@ public class ContextWrapper implements Cloneable {
 			ExternalCallAction eca = eci
 					.getExternalCallAction_ExternalCallInput();
 
-			List<AssemblyContext> acList = findProvidingAssemblyContexts(eca,
-					false);
+			List<AssemblyContext> acList = getHandlingAssemblyContexts(eca);
 
 			List<AllocationContext> allocationContextList = getNextAllocationContextList(acList);
 			for (AllocationContext nextAllCtx : allocationContextList) {
