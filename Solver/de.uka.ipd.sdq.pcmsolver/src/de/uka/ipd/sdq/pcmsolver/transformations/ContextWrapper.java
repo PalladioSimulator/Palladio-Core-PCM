@@ -40,6 +40,7 @@ import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.OperationInterface;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -115,64 +116,6 @@ public class ContextWrapper implements Cloneable {
 	protected static Logger logger = Logger.getLogger(ContextWrapper.class
 			.getName());
 
-	/**
-	 * Builds a list of assembly context ids by searching for nested components.
-	 * Is called recursively. This method is static to ensure that it does not
-	 * modify this Context Wrapper
-	 * 
-	 * @param ac
-	 * @param role
-	 * @param assCtxList2
-	 * @return
-	 */
-	public static List<AssemblyContext> getAssCtxs(AssemblyContext ac,
-			Role role, List<AssemblyContext> assCtxList2) {
-		RepositoryComponent rc = ac.getEncapsulatedComponent__AssemblyContext();
-
-		if (rc instanceof BasicComponent) {
-			assCtxList2.add(ac);
-			return assCtxList2;
-		} else if (rc instanceof ComposedStructure) {
-			ComposedStructure cs = (ComposedStructure) rc;
-			for (Connector conn : cs.getConnectors__ComposedStructure()) {
-				if (conn instanceof ProvidedDelegationConnector) {
-					ProvidedDelegationConnector pdc = (ProvidedDelegationConnector) conn;
-					// traverse down the provided delegation connectors of the
-					// composite component
-					if (pdc.getOuterProvidedRole_ProvidedDelegationConnector()
-							.getId().equals(role.getId())) {
-
-						// add the found assembly context
-						assCtxList2.add(ac);
-
-						// search for more inner assembly contexts by continuing
-						// the
-						// traversal on provided
-						// delegation connectors:
-						AssemblyContext childAssCtx = pdc
-								.getAssemblyContext_ProvidedDelegationConnector();
-						return getAssCtxs(
-								childAssCtx,
-								pdc
-										.getInnerProvidedRole_ProvidedDelegationConnector(),
-								assCtxList2);
-					}
-				}
-			}
-			String message = "Could not handle inner AssemblyContexts of ComposedStructure "
-					+ cs.getEntityName()
-					+ ". Make sure to define the internals properly.";
-			logger.error(message);
-			throw new UnsupportedOperationException(message);
-
-		}
-		// should not happen
-		logger
-				.error("The current assembly context contains a child component, "
-						+ "which is neither BasicComponent nor CompositeComponent. "
-						+ "This is not supported by the PCMSolver!");
-		throw new UnsupportedOperationException();
-	}
 
 	/**
 	 * Creates a List of {@link ContextWrapper}s to handle the given
@@ -187,9 +130,8 @@ public class ContextWrapper implements Cloneable {
 			EntryLevelSystemCall elsa, PCMInstance pcm) {
 
 		ContextWrapper templateContextWrapper = new ContextWrapper(pcm);
-
-		List<AssemblyContext> calledAssemblyContextList = templateContextWrapper
-				.getFirstAssemblyContext(elsa);
+		List<AssemblyContext> calledAssemblyContextList = PCMInstanceHelper
+				.getHandlingAssemblyContexts(elsa, pcm.getSystem());
 		templateContextWrapper.setAssCtxList(calledAssemblyContextList);
 		ComputedUsageContext computedUsageContext = templateContextWrapper
 				.getFirstComputedUsageContext(elsa);
@@ -418,12 +360,13 @@ public class ContextWrapper implements Cloneable {
 		// Retrieve the direct providing AssemblyContext of the connector:
 		AssemblyContext providingContext = connector
 				.getProvidingAssemblyContext_AssemblyConnector();
-		Role providingRole = connector.getProvidedRole_AssemblyConnector();
+		OperationProvidedRole providedRole = connector
+				.getProvidedRole_AssemblyConnector();
 
 		// Navigate downwards through the possibly nested AssemblyContexts,
 		// until the actual handling AssemblyContext is found:
 		if (isCreateContextWrapper) {
-			return getAssCtxs(providingContext, providingRole, assCtxList);
+			return PCMInstanceHelper.getAssCtxs(providingContext, providedRole, assCtxList);
 		} else {
 			AssemblyContext reqAssCtx = connector
 					.getRequiringAssemblyContext_AssemblyConnector();
@@ -434,7 +377,7 @@ public class ContextWrapper implements Cloneable {
 				}
 				resultList.remove(resultList.size() - 1);
 			}
-			return getAssCtxs(providingContext, providingRole, resultList);
+			return PCMInstanceHelper.getAssCtxs(providingContext, providedRole, resultList);
 		}
 	}
 
@@ -545,7 +488,8 @@ public class ContextWrapper implements Cloneable {
 	 */
 	public List<ContextWrapper> getContextWrapperFor(EntryLevelSystemCall elsa) {
 
-		assCtxList = getFirstAssemblyContext(elsa);
+		assCtxList = PCMInstanceHelper.getHandlingAssemblyContexts(elsa,
+				pcmInstance.getSystem());
 		compUsgCtx = getFirstComputedUsageContext(elsa);
 
 		return createContextWrappersBasedOnTemplate(this, assCtxList,
@@ -719,7 +663,8 @@ public class ContextWrapper implements Cloneable {
 	public ServiceEffectSpecification getNextSEFF(EntryLevelSystemCall elsc) {
 		Signature sig = elsc.getOperationSignature__EntryLevelSystemCall();
 
-		List<AssemblyContext> acList = getFirstAssemblyContext(elsc);
+		List<AssemblyContext> acList = PCMInstanceHelper
+				.getHandlingAssemblyContexts(elsc, pcmInstance.getSystem());
 
 		AssemblyContext ac = acList.get(acList.size() - 1);
 		BasicComponent bc = (BasicComponent) ac
@@ -1454,46 +1399,6 @@ public class ContextWrapper implements Cloneable {
 				return cuc;
 		}
 		return null;
-	}
-
-	/**
-	 * 
-	 * @param elsa
-	 * @return
-	 */
-	private List<AssemblyContext> getFirstAssemblyContext(
-			EntryLevelSystemCall elsa) {
-		String roleId = elsa.getProvidedRole_EntryLevelSystemCall().getId();
-		// Signature serviceToBeCalled =
-		// elsa.getSignature_EntryLevelSystemCall();
-		// Interface requiredInterface = (Interface) serviceToBeCalled
-		// .eContainer();
-		// String interfaceId = requiredInterface.getId();
-		ProvidedRole startingRole = elsa.getProvidedRole_EntryLevelSystemCall();
-
-		AssemblyContext startingAssCtx = null;
-
-		for (Connector conn : pcmInstance.getSystem()
-				.getConnectors__ComposedStructure()) {
-			if (conn instanceof ProvidedDelegationConnector) {
-				ProvidedDelegationConnector pdc = (ProvidedDelegationConnector) conn;
-				if (pdc.getOuterProvidedRole_ProvidedDelegationConnector()
-						.getId().equals(roleId)) {
-					startingAssCtx = pdc
-							.getAssemblyContext_ProvidedDelegationConnector();
-					startingRole = pdc
-							.getInnerProvidedRole_ProvidedDelegationConnector();
-				}
-			}
-		}
-
-		if (startingAssCtx != null) {
-			return getAssCtxs(startingAssCtx, startingRole,
-					new BasicEList<AssemblyContext>());
-		} else {
-			// "Something is wrong with your ProvidedDelegationConnectors: Are they all bound to proper roles?"
-			return null;
-		}
 	}
 
 	/**
