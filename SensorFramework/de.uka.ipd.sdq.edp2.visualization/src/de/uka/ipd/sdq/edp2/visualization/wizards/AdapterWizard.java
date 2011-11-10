@@ -10,8 +10,8 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
-import de.uka.ipd.sdq.edp2.visualization.IAdapter;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 
 /**
  * The main wizard, which shows available adapters for the currently selected {@link RawMeasurements}. 
@@ -27,7 +27,7 @@ public class AdapterWizard extends Wizard implements INewWizard {
 	/**
 	 * The source, which is associated with the selected RawMeasurements.
 	 */
-	IDataSource source;
+	AbstractDataSource source;
 	/**
 	 * Variable to indicate, if the user is allowed to finish the Wizard.
 	 */
@@ -35,7 +35,7 @@ public class AdapterWizard extends Wizard implements INewWizard {
 	/**
 	 * The adapter, which is to be created by the Wizard (passed reference from nested Wizard).
 	 */
-	IAdapter createdAdapter;
+	AbstractAdapter createdAdapter;
 
 	public boolean isFinishable() {
 		return finishable;
@@ -48,7 +48,7 @@ public class AdapterWizard extends Wizard implements INewWizard {
 	/**
 	 * 
 	 */
-	public AdapterWizard(IDataSource source) {
+	public AdapterWizard(AbstractDataSource source) {
 		setWindowTitle("Add a new Adapter");
 		this.source = source;
 		this.finishable = false;
@@ -94,11 +94,11 @@ public class AdapterWizard extends Wizard implements INewWizard {
 		return finishable;
 	}
 
-	public IAdapter getAdapter() {
+	public AbstractAdapter getAdapter() {
 		return createdAdapter;
 	}
 	
-	public void setAdapter(IAdapter adapter) {
+	public void setAdapter(AbstractAdapter adapter) {
 		this.createdAdapter = adapter;
 	}
 

@@ -9,7 +9,7 @@ import org.eclipse.ui.IElementFactory;
 import org.eclipse.ui.IMemento;
 
 import de.uka.ipd.sdq.edp2.visualization.FactoryConnector;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 
 /**
@@ -39,7 +39,7 @@ public class WarmupFilterFactory extends ElementFactory{
 		Object sourceFactory = factoryConnector.getAdapter(memento.getString(SOURCE_KEY),
 				IElementFactory.class);
 		
-		IDataSource createdSource = (IDataSource) ((IElementFactory) sourceFactory)
+		AbstractDataSource createdSource = (AbstractDataSource) ((IElementFactory) sourceFactory)
 		.createElement(memento);
 		
 		logger.log(Level.INFO, "Created source of WarmupFilter: "+createdSource.toString());

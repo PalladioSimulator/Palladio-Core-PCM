@@ -4,12 +4,12 @@ package de.uka.ipd.sdq.edp2.visualization;
  * @author Dominik Ernst
  *
  */
-public abstract class IAdapter extends AbstractTransformation {
+public abstract class AbstractAdapter extends AbstractTransformation {
 	
 	/**
 	 * Empty default constructor.
 	 */
-	public IAdapter(){
+	public AbstractAdapter(){
 		
 	}
 	
@@ -17,7 +17,7 @@ public abstract class IAdapter extends AbstractTransformation {
 	 * Constructor with source parameter.
 	 * @param source the attached source
 	 */
-	public IAdapter(IDataSource source){
+	public AbstractAdapter(AbstractDataSource source){
 		super(source);
 	}
 	

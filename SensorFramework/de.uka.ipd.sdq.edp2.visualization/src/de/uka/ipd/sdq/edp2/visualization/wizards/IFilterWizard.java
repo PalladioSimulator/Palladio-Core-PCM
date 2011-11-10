@@ -2,11 +2,11 @@ package de.uka.ipd.sdq.edp2.visualization.wizards;
 
 import org.eclipse.jface.wizard.IWizard;
 
-import de.uka.ipd.sdq.edp2.visualization.IAdapter;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IFilter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 
 public interface IFilterWizard extends IWizard {
-	public IFilter getFilter();
-	public void setSourceFromCaller(IDataSource source, SelectFilterPage selectFilterPage);
+	public AbstractFilter getFilter();
+	public void setSourceFromCaller(AbstractDataSource source, SelectFilterPage selectFilterPage);
 }

@@ -21,18 +21,18 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
-import de.uka.ipd.sdq.edp2.visualization.IAdapter;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
 
 /**
- * Implementation of an {@link IAdapter}, which transforms the source data into
+ * Implementation of an {@link AbstractAdapter}, which transforms the source data into
  * one, single-dimension series of data to be displayed in a histogram.
  * 
  * @author Dominik Ernst
  * 
  */
-public class HistogramFrequencyAdapter extends IAdapter {
+public class HistogramFrequencyAdapter extends AbstractAdapter {
 
 	/**
 	 * Name constant, which is used to identify this class in properties.
@@ -71,9 +71,9 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 * {@link HistogramFrequencyAdapter}'s variables.
 	 * 
 	 * @param source
-	 *            the attached {@link IDataSource}
+	 *            the attached {@link AbstractDataSource}
 	 */
-	public HistogramFrequencyAdapter(IDataSource source) {
+	public HistogramFrequencyAdapter(AbstractDataSource source) {
 		super(source);
 	}
 
@@ -174,7 +174,7 @@ public class HistogramFrequencyAdapter extends IAdapter {
 	 * edp2.visualization.IDataSource)
 	 */
 	@Override
-	public boolean canAccept(IDataSource source) {
+	public boolean canAccept(AbstractDataSource source) {
 		// TODO when is a histogram frequency adapter actually usable?
 		return true;
 	}
@@ -238,18 +238,7 @@ public class HistogramFrequencyAdapter extends IAdapter {
 			setDataSeriesIndex(DEFAULT_VALUE_DATA_SERIES_INDEX);
 
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
-	 */
-	@Override
-	public ImageDescriptor getImageDescriptor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	/**
 	 * @return the dataSeriesIndex
 	 */

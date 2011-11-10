@@ -12,10 +12,10 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
-import de.uka.ipd.sdq.edp2.visualization.IAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IFilter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 
 /**
  * A wizard which is opened upon selection/doubleclick on an element containing Experiment Data.
@@ -33,7 +33,7 @@ public class DefaultViewsWizard extends Wizard implements INewWizard {
 	/**
 	 * The source, which is associated with the selected RawMeasurements.
 	 */
-	IDataSource source;
+	AbstractDataSource source;
 	/**
 	 * Variable to indicate, if the user is allowed to finish the Wizard.
 	 */
@@ -55,7 +55,7 @@ public class DefaultViewsWizard extends Wizard implements INewWizard {
 	/**
 	 * Constructor assigning the source and assuring the wizard cannot be finished instantly.
 	 */
-	public DefaultViewsWizard(IDataSource source) {
+	public DefaultViewsWizard(AbstractDataSource source) {
 		setWindowTitle("Select a Visualization");
 		this.source = source;
 		this.finishable = false;

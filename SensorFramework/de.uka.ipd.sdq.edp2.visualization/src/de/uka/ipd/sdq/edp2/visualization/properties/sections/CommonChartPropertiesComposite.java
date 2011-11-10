@@ -18,7 +18,7 @@ import org.eclipse.swt.widgets.Group;
 public class CommonChartPropertiesComposite extends Composite {
 
 	private DataBindingContext m_bindingContext;
-	private de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties commonChartProperties = new de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties();
+	private de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties commonChartProperties = new de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties();
 	private Text labelXAxisText;
 	private Text labelYAxisText;
 	private Button showLabelXAxisButton;
@@ -30,7 +30,7 @@ public class CommonChartPropertiesComposite extends Composite {
 	public CommonChartPropertiesComposite(
 			Composite parent,
 			int style,
-			de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties newCommonChartProperties) {
+			de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties newCommonChartProperties) {
 		this(parent, style);
 		setCommonChartProperties(newCommonChartProperties);
 	}
@@ -102,17 +102,17 @@ public class CommonChartPropertiesComposite extends Composite {
 		// Disable the check that prevents subclassing of SWT components
 	}
 
-	public de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties getCommonChartProperties() {
+	public de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties getCommonChartProperties() {
 		return commonChartProperties;
 	}
 
 	public void setCommonChartProperties(
-			de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties newCommonChartProperties) {
+			de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties newCommonChartProperties) {
 		setCommonChartProperties(newCommonChartProperties, true);
 	}
 
 	public void setCommonChartProperties(
-			de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties newCommonChartProperties,
+			de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties newCommonChartProperties,
 			boolean update) {
 		commonChartProperties = newCommonChartProperties;
 		if (update) {

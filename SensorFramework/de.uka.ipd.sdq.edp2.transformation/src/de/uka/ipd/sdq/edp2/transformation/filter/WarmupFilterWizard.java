@@ -10,7 +10,7 @@ import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.widgets.Composite;
 
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.wizards.AdapterWizard;
 import de.uka.ipd.sdq.edp2.visualization.wizards.FilterWizard;
 import de.uka.ipd.sdq.edp2.visualization.wizards.IAdapterWizard;
@@ -21,8 +21,8 @@ import de.uka.ipd.sdq.edp2.visualization.wizards.SelectFilterPage;
 /**
  * The wizard for creating a {@link WarmupFilter}. It is referenced in
  * the central {@link FilterWizard}. Receives the information on the
- * {@link IDataSource} for which the filter is created from
- * {@link #setSourceFromCaller(IDataSource, SelectFilterPage)}. If the wizard
+ * {@link AbstractDataSource} for which the filter is created from
+ * {@link #setSourceFromCaller(AbstractDataSource, SelectFilterPage)}. If the wizard
  * is finished, it uses
  * {@link SelectFilterPage#setFilter(de.uka.ipd.sdq.edp2.visualization.IFilter)}
  * to pass the reference on to the central {@link FilterWizard}.
@@ -37,7 +37,7 @@ public class WarmupFilterWizard extends Wizard implements
 			.getLogger(WarmupFilterWizard.class.getCanonicalName());
 	private static final String WINDOW_TITLE = "Warmup Filter";
 	WarmupFilterSettingsPage settingsFilterPage;
-	IDataSource source;
+	AbstractDataSource source;
 	boolean finishable;
 	WarmupFilter createdFilter;
 	SelectFilterPage callingWizardPage;
@@ -61,7 +61,7 @@ public class WarmupFilterWizard extends Wizard implements
 	/**
 	 * Constructor for intra-project usage.
 	 */
-	public WarmupFilterWizard(IDataSource source,
+	public WarmupFilterWizard(AbstractDataSource source,
 			SelectFilterPage selectFilterPage) {
 		setWindowTitle(WINDOW_TITLE);
 		this.finishable = false;
@@ -113,7 +113,7 @@ public class WarmupFilterWizard extends Wizard implements
 	}
 
 	@Override
-	public void setSourceFromCaller(IDataSource source,
+	public void setSourceFromCaller(AbstractDataSource source,
 			SelectFilterPage selectFilterPage) {
 		this.source = source;
 		this.callingWizardPage = selectFilterPage;

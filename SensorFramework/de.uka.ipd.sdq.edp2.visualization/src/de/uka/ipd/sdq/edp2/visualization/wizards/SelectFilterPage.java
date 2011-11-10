@@ -33,9 +33,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 
-import de.uka.ipd.sdq.edp2.visualization.IAdapter;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IFilter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 
 /**
  * @author Dominik Ernst
@@ -53,7 +53,7 @@ public class SelectFilterPage extends WizardPage implements
 	private final static String FILTER_CLASS_ATTRIBUTE = "class";
 	private final static String FILTER_WIZARD_ATTRIBUTE = "wizard";
 
-	IDataSource selectedSource;
+	AbstractDataSource selectedSource;
 	ArrayList<IFilterWizard> availableFilters;
 
 	List filterList;
@@ -61,9 +61,9 @@ public class SelectFilterPage extends WizardPage implements
 	Status statusOK;
 	IFilterWizard selectedFilterWizard;
 	TableViewer filterViewer;
-	IFilter createdFilter;
+	AbstractFilter createdFilter;
 
-	protected SelectFilterPage(String pageName, IDataSource selectedSource) {
+	protected SelectFilterPage(String pageName, AbstractDataSource selectedSource) {
 		super(pageName);
 		this.selectedSource = selectedSource;
 		setDescription("Select the Filter you wish to add.");
@@ -172,7 +172,7 @@ public class SelectFilterPage extends WizardPage implements
 	}
 
 	protected ArrayList<IFilterWizard> getApplicableFilters(
-			IDataSource forSource) {
+			AbstractDataSource forSource) {
 		availableFilters = new ArrayList<IFilterWizard>();
 		// checks the extension registry for all registered filters and adds
 		// them to the list
@@ -184,7 +184,7 @@ public class SelectFilterPage extends WizardPage implements
 			try {
 				w = e.createExecutableExtension(FILTER_WIZARD_ATTRIBUTE);
 				o = e.createExecutableExtension(FILTER_CLASS_ATTRIBUTE);
-				if (((IFilter)o).canAccept(forSource)) {
+				if (((AbstractFilter)o).canAccept(forSource)) {
 					availableFilters.add((IFilterWizard) w);
 				}
 			} catch (CoreException e1) {
@@ -198,8 +198,8 @@ public class SelectFilterPage extends WizardPage implements
 	
 	/**
 	 * Method which is called when the "Next" Button in the Wizard is clicked.
-	 * Must call {@link IFilterWizard#setSourceFromCaller(IDataSource, SelectFilterPage)},
-	 * where the {@link IDataSource} is the source handed from the RawMeasurements object, which was selected
+	 * Must call {@link IFilterWizard#setSourceFromCaller(AbstractDataSource, SelectFilterPage)},
+	 * where the {@link AbstractDataSource} is the source handed from the RawMeasurements object, which was selected
 	 * in the first place and SelectFilterPage is a reference to {@link this} page.
 	 */
 	@Override
@@ -255,7 +255,7 @@ public class SelectFilterPage extends WizardPage implements
 		return pageStatus;
 	}
 
-	public void setFilter(IFilter filter) {
+	public void setFilter(AbstractFilter filter) {
 		logger.log(Level.INFO, "Filter of FilterWizard set");
 		this.createdFilter = filter;
 		FilterWizard wizard = (FilterWizard) getWizard();

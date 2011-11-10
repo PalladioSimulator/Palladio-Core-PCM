@@ -13,7 +13,8 @@ import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler;
 /**
  * 
  * @author Dominik Ernst
@@ -21,7 +22,7 @@ import de.uka.ipd.sdq.edp2.visualization.IDataSource;
  */
 public class StatisticsText implements de.uka.ipd.sdq.edp2.visualization.IVisualization {
 
-	protected IDataSource source;
+	protected AbstractDataSource source;
 	protected ArrayList<MetricDescription> roles;
 
 	public void output() {
@@ -69,6 +70,12 @@ public class StatisticsText implements de.uka.ipd.sdq.edp2.visualization.IVisual
 
 	@Override
 	public String getContributorId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IEditorInputHandler getEditorInputHandler() {
 		// TODO Auto-generated method stub
 		return null;
 	}

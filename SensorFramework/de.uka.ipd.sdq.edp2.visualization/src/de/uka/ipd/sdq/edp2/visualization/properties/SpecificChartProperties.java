@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.edp2.visualization.properties;
 
 import java.io.Serializable;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
 /**
@@ -12,7 +13,11 @@ import org.eclipse.swt.widgets.Composite;
  *
  */
 public abstract class SpecificChartProperties implements Serializable {
-
+	
+	/**
+	 * Default style for composites.
+	 */
+	protected static final int STYLE = SWT.EMBEDDED;
 	/**
 	 * Serial UUID.
 	 */

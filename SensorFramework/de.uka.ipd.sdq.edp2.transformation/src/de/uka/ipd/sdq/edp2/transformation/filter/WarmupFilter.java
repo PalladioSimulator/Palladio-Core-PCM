@@ -31,19 +31,19 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IFilter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
 
 /**
  * A WarmupFilter cuts off the first n values of the {@link DataSeries} from
- * {@link IDataSource}. Metrics and other metadata remain untouched. TODO At the
+ * {@link AbstractDataSource}. Metrics and other metadata remain untouched. TODO At the
  * moment works with a local copy in local directory.
  * 
  * @author Dominik Ernst, Roland Richter
  * 
  */
-public class WarmupFilter extends IFilter {
+public class WarmupFilter extends AbstractFilter {
 
 	/**
 	 * This elements Name as used in extension points and for persistence.
@@ -130,7 +130,7 @@ public class WarmupFilter extends IFilter {
 	 * Default constructor 
 	 * @param source
 	 */
-	public WarmupFilter(IDataSource source) {
+	public WarmupFilter(AbstractDataSource source) {
 		super(source);
 	}
 
@@ -163,7 +163,7 @@ public class WarmupFilter extends IFilter {
 	 * edp2.visualization.IDataSource)
 	 */
 	@Override
-	public boolean canAccept(IDataSource source) {
+	public boolean canAccept(AbstractDataSource source) {
 		final MetricDescription sourceMetric = source.getMeasurementsRange()
 				.getMeasurements().getMeasure().getMetric();
 		// Maximum of 3 dimensions for measurements
@@ -330,11 +330,5 @@ public class WarmupFilter extends IFilter {
 	@Override
 	public void update(Observable o, Object arg) {
 		transformData();
-	}
-
-	@Override
-	public ImageDescriptor getImageDescriptor() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

@@ -84,7 +84,7 @@ public class HistogramChartProperties extends SpecificChartProperties {
 	
 	@Override
 	public Composite retrieveComposite(Composite parent) {
-		return new HistogramChartPropertiesComposite(parent, SWT.EMBEDDED, this);
+		return new HistogramChartPropertiesComposite(parent, STYLE, this);
 	}
 
 }

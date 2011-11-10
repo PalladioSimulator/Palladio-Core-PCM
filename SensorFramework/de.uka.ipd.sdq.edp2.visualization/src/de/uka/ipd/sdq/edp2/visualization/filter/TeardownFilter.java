@@ -53,20 +53,20 @@ import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryFactory;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IFilter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2SourceFactory;
 import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
 
 /**
  * A {@link TeardownFilter} cuts off the last n values of the {@link DataSeries} from
- * {@link IDataSource}. Metrics and other metadata remain untouched. TODO At the
+ * {@link AbstractDataSource}. Metrics and other metadata remain untouched. TODO At the
  * moment works with a local copy in local directory.
  * 
  * @author Dominik Ernst, Roland Richter
  * 
  */
-public class TeardownFilter extends IFilter {
+public class TeardownFilter extends AbstractFilter {
 
 	private final static Logger logger = Logger.getLogger(TeardownFilter.class
 			.getCanonicalName());
@@ -92,12 +92,12 @@ public class TeardownFilter extends IFilter {
 	}
 
 	
-	public TeardownFilter(IDataSource source) {
+	public TeardownFilter(AbstractDataSource source) {
 		super(source);	
 		transformData();
 	}
 
-	public TeardownFilter(IDataSource source, int droppedValues,
+	public TeardownFilter(AbstractDataSource source, int droppedValues,
 			float droppedValuesPercentage) {
 		super(source);
 		setDroppedValues(droppedValues);
@@ -118,7 +118,7 @@ public class TeardownFilter extends IFilter {
 	}
 
 	@Override
-	public boolean canAccept(IDataSource source) {
+	public boolean canAccept(AbstractDataSource source) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -180,12 +180,6 @@ public class TeardownFilter extends IFilter {
 		dataSeries = rawMeasurements.getDataSeries();
 
 		logger.log(Level.INFO, "teardown filter transform end");
-	}
-
-	@Override
-	public ImageDescriptor getImageDescriptor() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

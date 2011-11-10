@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 
 /**
- * A {@link IDataSink} represents an Object which receives input by an {@link IDataSource}.
+ * A {@link IDataSink} represents an Object which receives input by an {@link AbstractDataSource}.
  * Objects, which implement only {@link IDataSink} instead of subclassing {@link AbstractTransformation},
  * are inputs for different {@link AbstractEditor}s. Because Editor inputs and transformations both may be
  * (and typically are) located in separate plugins, all {@link IDataSink}s extend {@link IExecutableExtension}.
@@ -18,16 +18,16 @@ import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
  * @author Dominik Ernst
  * 
  */
-public interface IDataSink extends IDataFlow, Observer, IEditorInput, IExecutableExtension {
+public interface IDataSink extends IDataFlow, Observer, IExecutableExtension {
 	/**
 	 * @return The current IDataSource. 
 	 */
-	IDataSource getSource();
+	AbstractDataSource getSource();
 
 	/**
 	 * @param source The IDataSource which represents the input for this sink.
 	 */
-	void setSource(IDataSource source);
+	void setSource(AbstractDataSource source);
 
 	/**
 	 * Roles are MetricDescriptions, which this IDataSink can use (i.e. its editor can display)
@@ -40,5 +40,16 @@ public interface IDataSink extends IDataFlow, Observer, IEditorInput, IExecutabl
 	 * 
 	 * @return TRUE if there exists a MetricDescription that accepts the source.
 	 */
-	boolean canAccept(IDataSource source);
+	boolean canAccept(AbstractDataSource source);
+	
+	/**
+	 * 
+	 * @return a new Instance of the data type, which is required to display the data of this {@link IDataSink}.
+	 */
+	Object getDataTypeInstance();
+	/**
+	 * 
+	 * @return the data in a format which can be used by the data type as returned by getDataTypeInstance
+	 */
+	Object getData();
 }

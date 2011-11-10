@@ -1,0 +1,211 @@
+/**
+ * 
+ */
+package de.uka.ipd.sdq.edp2.visualization.editors;
+
+import java.util.ArrayList;
+import java.util.Observable;
+
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.ui.IPersistableElement;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.labels.StandardXYToolTipGenerator;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYBarRenderer;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.data.general.AbstractSeriesDataset;
+import org.jfree.data.statistics.HistogramDataset;
+
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
+import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler;
+
+/**
+ * @author Dominik Ernst
+ * 
+ */
+public class JFreeChartEditorInputHandler implements IEditorInputHandler {
+
+	private ArrayList<JFreeChartEditorInput> inputs;
+	private Object dataset;
+	private XYPlot plot;
+	private XYItemRenderer renderer;
+
+	/**
+	 * Empty constructor.
+	 */
+	public JFreeChartEditorInputHandler() {
+		inputs = new ArrayList<JFreeChartEditorInput>();
+	}
+
+	/**
+	 * Constructor with a first input.
+	 */
+	public JFreeChartEditorInputHandler(JFreeChartEditorInput firstInput) {
+		inputs = new ArrayList<JFreeChartEditorInput>();
+		addInput(firstInput);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler#addInput(de.uka
+	 * .ipd.sdq.edp2.visualization.IDataSink)
+	 */
+	@Override
+	public boolean addInput(IDataSink newInput) {
+		// if it is the first input, the <newInput> is added in any case.
+		inputs.add((JFreeChartEditorInput) newInput);
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler#getInputDataset()
+	 */
+	@Override
+	public Object getInputDataset() {
+		dataset = inputs.get(0).getDataTypeInstance();
+		if (dataset instanceof HistogramDataset) {
+			HistogramDataset histogramDataset = (HistogramDataset) dataset;
+			for (JFreeChartEditorInput input : inputs) {
+				histogramDataset.addSeries(input.getName(), (double[])input.getData(), Integer
+						.parseInt(input.getProperties().get("numberOfBins")
+								.toString()));
+			}
+			plot = inputs.get(0).createPlot();
+			plot.setDataset(histogramDataset);
+		}
+		renderer = inputs.get(0).createRenderer();
+
+		return dataset;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler#getInputs()
+	 */
+	@Override
+	public ArrayList<IDataSink> getInputs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler#removeInput(de.
+	 * uka.ipd.sdq.edp2.visualization.IDataSink)
+	 */
+	@Override
+	public boolean removeInput(IDataSink removedInput) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.IEditorInput#exists()
+	 */
+	@Override
+	public boolean exists() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
+	 */
+	@Override
+	public ImageDescriptor getImageDescriptor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.IEditorInput#getName()
+	 */
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return "someName";
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.IEditorInput#getPersistable()
+	 */
+	@Override
+	public IPersistableElement getPersistable() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.ui.IEditorInput#getToolTipText()
+	 */
+	@Override
+	public String getToolTipText() {
+		// TODO Auto-generated method stub
+		return "someTT";
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
+	 */
+	@Override
+	public Object getAdapter(Class adapter) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int getInputsSize() {
+		return inputs.size();
+	}
+
+	/**
+	 * Creates a new {@link JFreeChart}. Charts are specific for each
+	 * EditorInput. Typically an update of the current DataSet is recommended,
+	 * before the chart itself is updated.
+	 */
+	public JFreeChart createChart() {
+		getInputDataset();
+		NumberAxis domainAxis = new NumberAxis("x-Axis label");
+		NumberAxis rangeAxis = new NumberAxis("y-Axis label");
+		plot.setRenderer(renderer);
+		plot.setRangeAxis(rangeAxis);
+		plot.setDomainAxis(domainAxis);
+		JFreeChart chart = new JFreeChart(inputs.get(0).getTitle(),
+				JFreeChart.DEFAULT_TITLE_FONT, plot, true);
+		return chart;
+	}
+
+}

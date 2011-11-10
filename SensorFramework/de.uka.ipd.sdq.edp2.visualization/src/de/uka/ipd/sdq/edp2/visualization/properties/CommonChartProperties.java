@@ -1,10 +1,14 @@
-package de.uka.ipd.sdq.edp2.visualization.properties.sections;
+package de.uka.ipd.sdq.edp2.visualization.properties;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.title.LegendTitle;
+
+import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartPropertiesComposite;
 
 /**
  * The properties wrapper with common settings for all JFreeCharts.
@@ -14,6 +18,11 @@ import org.jfree.chart.title.LegendTitle;
 public class CommonChartProperties implements Serializable {
 
 	private static final long serialVersionUID = 6964212270982799287L;
+
+	/**
+	 * Default style for composites displaying the wrapped properties.
+	 */
+	private static final int STYLE = SWT.EMBEDDED;
 
 	protected JFreeChart chart;
 	
@@ -175,6 +184,14 @@ public class CommonChartProperties implements Serializable {
 	 */
 	public boolean isShowLegend() {
 		return showLegend;
+	}
+	
+	/**
+	 * 
+	 * @return a new {@link Composite} to display the {@link CommonChartProperties} using the default style.
+	 */
+	public CommonChartPropertiesComposite retrieveComposite(Composite parent){
+		return new CommonChartPropertiesComposite(parent, STYLE, this);
 	}
 	
 }

@@ -30,6 +30,7 @@ import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
+import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler;
 import de.uka.ipd.sdq.edp2.visualization.IVisualization;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 
@@ -50,20 +51,12 @@ public abstract class AbstractEditor extends EditorPart implements
 	public static final String EDITOR_ID = "de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor";
 
 	/** The input for this Editor. */
-	protected IDataSink input;
+	protected IEditorInputHandler input;
 	/** Reference on the current {@link TabbedPropertySheetPage}. */
 	protected TabbedPropertySheetPage propertySheetPage;
 
 	/** Default, empty constructor. */
 	public AbstractEditor() {
-	}
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.ui.part.EditorPart#getEditorInput()
-	 */
-	@Override
-	public IDataSink getEditorInput() {
-		return (IDataSink)super.getEditorInput();
 	}
 
 	/*
@@ -99,7 +92,7 @@ public abstract class AbstractEditor extends EditorPart implements
 	public void init(IEditorSite site, IEditorInput input)
 			throws PartInitException {
 		setSite(site);
-		this.input = (IDataSink)input;
+		this.input = (IEditorInputHandler)input;
 		setInput(input);
 	}
 
@@ -212,13 +205,12 @@ public abstract class AbstractEditor extends EditorPart implements
 	public String getContributorId() {
 		return EDITOR_ID;
 	}
-
-	/**
-	 * This editor can be set to receive another Input.
-	 * 
-	 * @param input
-	 *            the new {@link IDataSink}.
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.ui.part.EditorPart#getEditorInput()
 	 */
-	public abstract void changeInput(IDataSink input);
+	public IEditorInput getEditorInput(){
+		return getEditorInputHandler();
+	}
 
 }

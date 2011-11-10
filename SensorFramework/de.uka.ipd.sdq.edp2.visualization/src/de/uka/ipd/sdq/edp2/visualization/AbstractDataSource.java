@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 
 /**
- * An {@link IDataSource} serves as preceding element of an {@link IDataSink}.
+ * An {@link AbstractDataSource} serves as preceding element of an {@link IDataSink}.
  * It has in particular a reference on the {@link DataSeries} attributes of some
  * experiment data. The only implementing classes of this interface should be {@link AbstractTransformation}
  * and {@link EDP2Source}. All other classes should extend {@link AbstractTransformation} or implement
@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
  * 
  * @author Dominik Ernst, Roland Richter
  */
-public abstract class IDataSource extends Observable implements IDataFlow {
+public abstract class AbstractDataSource extends Observable implements IDataFlow {
 
 	/**
 	 * An {@link EList} of (@link DataSeries} objects.
@@ -38,15 +38,15 @@ public abstract class IDataSource extends Observable implements IDataFlow {
 	 */
 	protected MeasurementsRange measurementsRange;
 	/**
-	 * {@link Map}, which stores the properties of {@link IDataSource} objects.
+	 * {@link Map}, which stores the properties of {@link AbstractDataSource} objects.
 	 */
 	protected HashMap<String, Object> properties;
 
 	/**
 	 * A default constructor, only initializing an instance of {@link HashMap}
-	 * for the properties of this {@link IDataSource}.
+	 * for the properties of this {@link AbstractDataSource}.
 	 */
-	public IDataSource() {
+	public AbstractDataSource() {
 		properties = new HashMap<String, Object>();
 	}
 
@@ -62,7 +62,7 @@ public abstract class IDataSource extends Observable implements IDataFlow {
 	/**
 	 * Returns the reference on the {@link MeasurementsRange} .
 	 * 
-	 * @return The {@link MeasurementsRange} for this {@link IDataSource} .
+	 * @return The {@link MeasurementsRange} for this {@link AbstractDataSource} .
 	 */
 	public MeasurementsRange getMeasurementsRange() {
 		return measurementsRange;

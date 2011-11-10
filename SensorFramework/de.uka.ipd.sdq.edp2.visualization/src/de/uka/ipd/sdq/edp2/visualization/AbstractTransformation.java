@@ -15,13 +15,13 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
  * 
  * @author Dominik Ernst, Roland Richter
  */
-public abstract class AbstractTransformation extends IDataSource implements
+public abstract class AbstractTransformation extends AbstractDataSource implements
 		IDataSink {
 
 	/**
 	 * The previous element in a chain of {@link IDataFlow} elements.
 	 */
-	protected IDataSource source;
+	protected AbstractDataSource source;
 	/**
 	 * Key under which this class' name is stored in the properties.
 	 */
@@ -42,7 +42,7 @@ public abstract class AbstractTransformation extends IDataSource implements
 	 *            The source attached to this {@link AbstractTransformation}.
 	 */
 
-	public AbstractTransformation(IDataSource source) {
+	public AbstractTransformation(AbstractDataSource source) {
 		setSource(source);
 	}
 
@@ -52,7 +52,7 @@ public abstract class AbstractTransformation extends IDataSource implements
 	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getSource()
 	 */
 	@Override
-	public IDataSource getSource() {
+	public AbstractDataSource getSource() {
 		return source;
 	}
 
@@ -64,43 +64,13 @@ public abstract class AbstractTransformation extends IDataSource implements
 	 * edp2.visualization.IDataSource)
 	 */
 	@Override
-	public void setSource(IDataSource source) {
+	public void setSource(AbstractDataSource source) {
 		if (this.source != null)
 			getSource().deleteObserver(this);
 		this.source = source;
 		source.addObserver(this);
 		setOriginalMeasurementsRange(source.getOriginalMeasurementsRange());
 		transformData();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#exists()
-	 */
-	@Override
-	public boolean exists() {
-		return source != null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getPersistable()
-	 */
-	@Override
-	public IPersistableElement getPersistable() {
-		return this;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getToolTipText()
-	 */
-	@Override
-	public String getToolTipText() {
-		return "noTooltip";
 	}
 
 	/**
@@ -145,6 +115,26 @@ public abstract class AbstractTransformation extends IDataSource implements
 	public boolean validProperties(HashMap<String, Object> newProperties, String key){
 		return (properties.get(key) != null
 				&& newProperties.get(key) != null);
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getDataTypeInstance()
+	 */
+	@Override
+	public Object getDataTypeInstance() {
+		//transformations are no editor inputs, thus they cannot be displayed.
+		return null;
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getData()
+	 */
+	@Override
+	public Object getData() {
+		//transformations are no editor inputs, thus they cannot be displayed.
+		return null;
 	}
 
 }

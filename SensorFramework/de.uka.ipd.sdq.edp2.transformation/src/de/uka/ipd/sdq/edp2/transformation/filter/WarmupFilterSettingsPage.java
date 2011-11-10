@@ -20,8 +20,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 
-import de.uka.ipd.sdq.edp2.visualization.IAdapter;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 
 public class WarmupFilterSettingsPage extends WizardPage implements ModifyListener {
 
@@ -32,7 +32,7 @@ public class WarmupFilterSettingsPage extends WizardPage implements ModifyListen
 	private static final Logger logger = Logger
 			.getLogger(WarmupFilterSettingsPage.class.getCanonicalName());
 
-	IDataSource source;
+	AbstractDataSource source;
 	IStatus numberStatus;
 	Text droppedAbsText;
 	Text droppedPerText;
@@ -41,7 +41,7 @@ public class WarmupFilterSettingsPage extends WizardPage implements ModifyListen
 	long numberOfMeasurements;
 	Status statusOK;
 
-	public WarmupFilterSettingsPage(IDataSource source) {
+	public WarmupFilterSettingsPage(AbstractDataSource source) {
 		super(PAGE_NAME);
 		this.source = source;
 		setDescription("Choose the settings for the Warmup Filter.");

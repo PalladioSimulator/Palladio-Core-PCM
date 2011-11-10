@@ -9,7 +9,7 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableEditor;
 
 import de.uka.ipd.sdq.edp2.visualization.FactoryConnector;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 
 /**
@@ -31,12 +31,12 @@ public class ScatterPlotInputFactory extends ElementFactory {
 
 	/**
 	 * Method for restoring {@link ScatterPlotInput} elements. Should call
-	 * {@link IDataSource#saveState(IMemento)} of the associated source.
+	 * {@link AbstractDataSource#saveState(IMemento)} of the associated source.
 	 * 
 	 * @param memento the {@link IMemento} passed on
 	 *            by {@link IPersistableEditor#restoreState(IMemento)}
 	 * @return Restored {@link ScatterPlotInput} with non-null reference to the
-	 *         {@link IDataSource}
+	 *         {@link AbstractDataSource}
 	 */
 	public IAdaptable createElement(IMemento memento) {
 		ScatterPlotInput scatterPlotInput = new ScatterPlotInput();
@@ -53,7 +53,7 @@ public class ScatterPlotInputFactory extends ElementFactory {
 		Object sourceFactory = factoryConnector.getAdapter(memento.getString(SOURCE_KEY),
 				IElementFactory.class);
 		
-		IDataSource createdSource = (IDataSource) ((IElementFactory) sourceFactory)
+		AbstractDataSource createdSource = (AbstractDataSource) ((IElementFactory) sourceFactory)
 		.createElement(memento);
 		
 		scatterPlotInput.setSource(createdSource);

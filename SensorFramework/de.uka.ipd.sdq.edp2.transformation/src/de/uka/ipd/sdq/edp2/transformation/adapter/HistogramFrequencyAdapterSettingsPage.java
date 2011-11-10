@@ -23,8 +23,8 @@ import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
-import de.uka.ipd.sdq.edp2.visualization.IAdapter;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 
 /**
  * A {@link WizardPage}, which provides the settings for
@@ -42,12 +42,12 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 	private static final Logger logger = Logger
 			.getLogger(HistogramFrequencyAdapterSettingsPage.class
 					.getCanonicalName());
-	IDataSource source;
+	AbstractDataSource source;
 	IStatus selectionStatus;
 	List dataSeriesList;
 	Status statusOK;
 
-	public HistogramFrequencyAdapterSettingsPage(IDataSource source) {
+	public HistogramFrequencyAdapterSettingsPage(AbstractDataSource source) {
 		super(PAGE_NAME);
 		this.source = source;
 		// initialize defaults

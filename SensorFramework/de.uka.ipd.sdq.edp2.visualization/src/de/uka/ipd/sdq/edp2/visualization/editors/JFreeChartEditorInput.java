@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
 import java.util.HashMap;
+import java.util.Observable;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -12,27 +13,25 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties;
 import de.uka.ipd.sdq.edp2.visualization.properties.SpecificChartProperties;
-import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties;
 
 /**
  * @author Dominik Ernst
  * 
  */
-public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
+public abstract class JFreeChartEditorInput extends Observable implements IDataSink, ISelection {
 
 	/**
 	 * Key under which this class' name is stored in the properties.
 	 */
 	protected static final String ELEMENT_KEY = "elementName";
 
-	/**
-	 * Key under which this editor's title is stored in the properties.
-	 */
-	protected static final String TITLE_KEY = "editorTitle";
 	/**
 	 * The properties of this {@link JFreeChartEditorInput}, which are persisted
 	 * and displayed in the 'Display'-Tab of the Properties-View.
@@ -41,11 +40,7 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	/**
 	 * The {@link IEditorInput}'s or rather {@link IDataSink}'s predecessor.
 	 */
-	private IDataSource source;
-	/**
-	 * Reference on the current chart.
-	 */
-	private JFreeChart chart;
+	private AbstractDataSource source;
 	/**
 	 * The title for the chart.
 	 */
@@ -55,7 +50,7 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 		properties = new HashMap<String, Object>();
 	}
 
-	public JFreeChartEditorInput(IDataSource source) {
+	public JFreeChartEditorInput(AbstractDataSource source) {
 		properties = new HashMap<String, Object>();
 		setSource(source);
 	}
@@ -66,7 +61,7 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getSource()
 	 */
 	@Override
-	public IDataSource getSource() {
+	public AbstractDataSource getSource() {
 		return source;
 	}
 
@@ -78,7 +73,7 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	 * edp2.visualization.IDataSource)
 	 */
 	@Override
-	public void setSource(IDataSource source) {
+	public void setSource(AbstractDataSource source) {
 		if (this.source != null)
 			getSource().deleteObserver(this);
 		this.source = source;
@@ -89,51 +84,10 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.ui.IEditorInput#exists()
-	 */
-	@Override
-	public boolean exists() {
-		return source != null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getImageDescriptor()
-	 */
-	@Override
-	public ImageDescriptor getImageDescriptor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see org.eclipse.ui.IEditorInput#getName()
 	 */
 	@Override
 	public String getName() {
-		return title;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getPersistable()
-	 */
-	@Override
-	public IPersistableElement getPersistable() {
-		return this;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getToolTipText()
-	 */
-	@Override
-	public String getToolTipText() {
 		return title;
 	}
 
@@ -151,35 +105,18 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
+	
 	/**
-	 * Returns the current Chart of the editor. Creates a new one if none
-	 * exists.
-	 * 
-	 * @return the currently displayed chart.
+	 * Creates a new {@link XYItemRenderer}.
+	 * @return
 	 */
-	public JFreeChart getChart() {
-		if (chart == null)
-			createChart();
-		return chart;
-	}
-
+	public abstract XYItemRenderer createRenderer(); 
+	
 	/**
-	 * Set the current JFreeChart.
-	 * 
-	 * @param chart
+	 * Creates a new {@link XYPlot}.
+	 * @return
 	 */
-	public void setChart(JFreeChart chart) {
-		this.chart = chart;
-	}
-
-	/**
-	 * Creates a new {@link JFreeChart}. Charts are specific for each
-	 * EditorInput. Typically an update of the current DataSet is recommended,
-	 * before the chart itself is updated.
-	 */
-	public abstract JFreeChart createChart();
-
+	public abstract XYPlot createPlot();
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -207,5 +144,9 @@ public abstract class JFreeChartEditorInput implements IDataSink, ISelection {
 	 * @return the properties class, which forwards changes in its attributes to the {@link JFreeChart}
 	 */
 	public abstract SpecificChartProperties getChartProperties();
+	
+	public CommonChartProperties getCommonChartProperties(){
+		return new CommonChartProperties();
+	}
 
 }

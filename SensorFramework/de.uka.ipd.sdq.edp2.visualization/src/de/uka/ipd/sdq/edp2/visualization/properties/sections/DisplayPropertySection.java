@@ -1,15 +1,9 @@
 package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
-import java.util.HashMap;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
@@ -43,10 +37,6 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	 */
 	private CommonChartPropertiesComposite commonComposite;
 	/**
-	 * The properties-wrapper for properties of all JFreeCharts
-	 */
-	private CommonChartProperties commonProperties;
-	/**
 	 * Composite for the properties of the currently displayed chart.
 	 */
 	private Composite specificComposite;
@@ -72,12 +62,10 @@ public class DisplayPropertySection extends AbstractPropertySection {
 		super.createControls(parent, aTabbedPropertySheetPage);
 		this.parent = parent;
 		if (getInput() != null) {
-			commonProperties = new CommonChartProperties(getInput().getChart());
-			commonComposite = new CommonChartPropertiesComposite(parent,
-					SWT.EMBEDDED, commonProperties);
+			commonComposite = getInput().getCommonChartProperties()
+					.retrieveComposite(parent);
 			specificComposite = getInput().getChartProperties()
 					.retrieveComposite(parent);
-
 		}
 	}
 
@@ -119,11 +107,11 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	}
 
 	private void updateInput() {
-		if (getInput() != null){
+		if (getInput() != null) {
 			specificComposite.dispose();
+			commonComposite.dispose();
 		}
-		commonProperties = new CommonChartProperties(getInput().getChart());
-		commonComposite.setCommonChartProperties(commonProperties);
+		commonComposite = getInput().getCommonChartProperties().retrieveComposite(parent);
 		specificComposite = getInput().getChartProperties().retrieveComposite(
 				parent);
 	}

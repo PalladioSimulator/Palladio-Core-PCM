@@ -15,6 +15,8 @@ import org.eclipse.ui.PartInitException;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandler;
 import de.uka.ipd.sdq.edp2.visualization.wizards.DefaultSequence;
 import de.uka.ipd.sdq.edp2.visualization.wizards.DefaultViewsWizard;
 
@@ -87,8 +89,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 					} else {
 						visualization.setSource(source);
 					}
-
-					IEditorInput input = selection.getVisualization();
+					IEditorInput input = new JFreeChartEditorInputHandler((JFreeChartEditorInput) selection.getVisualization());
 
 					try {
 						IWorkbenchPage page = EDP2EditorPlugin.getPlugin()

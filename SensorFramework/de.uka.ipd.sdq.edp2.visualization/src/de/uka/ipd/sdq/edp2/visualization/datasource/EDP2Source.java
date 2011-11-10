@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 
 import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
 
@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
  * @author Dominik Ernst
  * 
  */
-public class EDP2Source extends IDataSource {
+public class EDP2Source extends AbstractDataSource {
 
 	/**
 	 * Logger for this class.
@@ -204,9 +204,9 @@ public class EDP2Source extends IDataSource {
 
 	/**
 	 * Returns the UUID as a String of the {@link RawMeasurements} , which were
-	 * selected to produce this {@link IDataSource} .
+	 * selected to produce this {@link AbstractDataSource} .
 	 * 
-	 * @return The {@link ExperimentSetting} for this {@link IDataSource}.
+	 * @return The {@link ExperimentSetting} for this {@link AbstractDataSource}.
 	 */
 	public String getRawMeasurementsUUID() {
 		return rawMeasurementsUUID;
@@ -215,7 +215,7 @@ public class EDP2Source extends IDataSource {
 	/**
 	 * Sets the UUID of the {@link RawMeasurements} object, which is connected
 	 * with this source to the specified UUID. WARNING: The UUID must actually
-	 * exist in the {@link IDataSource} 's {@link Repository} !
+	 * exist in the {@link AbstractDataSource} 's {@link Repository} !
 	 * 
 	 * @param rawMeasurementsUUID
 	 *            the new UUID of the {@link RawMeasurements}
@@ -230,7 +230,7 @@ public class EDP2Source extends IDataSource {
 	 * were selected.
 	 * 
 	 * @return The URI of the attached repository {@link String} for this
-	 *         {@link IDataSource}.
+	 *         {@link AbstractDataSource}.
 	 */
 	public String getRepositoryURI() {
 		return repositoryURI;

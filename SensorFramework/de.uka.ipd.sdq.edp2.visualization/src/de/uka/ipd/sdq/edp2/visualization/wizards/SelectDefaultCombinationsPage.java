@@ -31,10 +31,10 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
-import de.uka.ipd.sdq.edp2.visualization.IAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IFilter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 
 /**
@@ -51,7 +51,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 			.getLogger(SelectDefaultCombinationsPage.class.getCanonicalName());
 
 	/**
-	 * Extension points for registered {@link IFilter}, {@link IAdapter} and
+	 * Extension points for registered {@link AbstractFilter}, {@link AbstractAdapter} and
 	 * {@link JFreeChartEditorInput}-elements
 	 */
 	private final static String FILTER_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.filter";
@@ -83,7 +83,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	/**
 	 * The source which was selected when the wizard was started.
 	 */
-	private IDataSource selectedSource;
+	private AbstractDataSource selectedSource;
 	/**
 	 * The current {@link IStatus} based on the selection in the <choiceViewer>
 	 */
@@ -111,7 +111,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	 *            the source which was selected to invoke the wizard.
 	 */
 	protected SelectDefaultCombinationsPage(String pageName,
-			IDataSource selectedSource) {
+			AbstractDataSource selectedSource) {
 		super(pageName);
 		this.selectedSource = selectedSource;
 		setDescription("Choose a combination of Filters/Adapters + Editor to display"
@@ -124,8 +124,8 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	}
 
 	/**
-	 * Checks the registered plugins for filters {@link IFilter}, adapters
-	 * {@link IAdapter} and JFreeCharts {@link JFreeChartEditorInput}. Then
+	 * Checks the registered plugins for filters {@link AbstractFilter}, adapters
+	 * {@link AbstractAdapter} and JFreeCharts {@link JFreeChartEditorInput}. Then
 	 * creates the basic combinations, objects of the type
 	 * {@link DefaultSequence} from these.
 	 */
@@ -136,13 +136,13 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		final IConfigurationElement[] filterExtensions = Platform
 				.getExtensionRegistry().getConfigurationElementsFor(
 						FILTER_EXTENSION_POINT_ID);
-		HashMap<String, IFilter> filters = new HashMap<String, IFilter>();
+		HashMap<String, AbstractFilter> filters = new HashMap<String, AbstractFilter>();
 		for (IConfigurationElement e : filterExtensions) {
 
 			try {
 				o = e.createExecutableExtension(CLASS_ATTRIBUTE);
 				id = e.getAttribute(ID_ATTRIBUTE);
-				filters.put(id, (IFilter) o);
+				filters.put(id, (AbstractFilter) o);
 			} catch (CoreException e1) {
 				logger
 						.log(Level.SEVERE,
@@ -155,12 +155,12 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		final IConfigurationElement[] adapterExtensions = Platform
 				.getExtensionRegistry().getConfigurationElementsFor(
 						ADAPTER_EXTENSION_POINT_ID);
-		HashMap<String, IAdapter> adapters = new HashMap<String, IAdapter>();
+		HashMap<String, AbstractAdapter> adapters = new HashMap<String, AbstractAdapter>();
 		for (IConfigurationElement e : adapterExtensions) {
 			try {
 				o = e.createExecutableExtension(CLASS_ATTRIBUTE);
 				id = e.getAttribute(ID_ATTRIBUTE);
-				adapters.put(id, (IAdapter) o);
+				adapters.put(id, (AbstractAdapter) o);
 			} catch (CoreException e1) {
 				logger
 						.log(Level.SEVERE,
@@ -414,7 +414,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	}
 
 	private ArrayList<DefaultSequence> getApplicableSequences(
-			IDataSource forSource) {
+			AbstractDataSource forSource) {
 		ArrayList<DefaultSequence> applicableSequences = new ArrayList<DefaultSequence>();
 
 		for (DefaultSequence seq : defaultSequences) {

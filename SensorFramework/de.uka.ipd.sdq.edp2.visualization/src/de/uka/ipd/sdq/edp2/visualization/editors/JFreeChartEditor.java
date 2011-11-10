@@ -11,6 +11,7 @@ import org.jfree.chart.event.ChartChangeListener;
 import org.jfree.experimental.chart.swt.ChartComposite;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
+import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler;
 
 /**
  * Implementation of an {@link EditorPart}, which is responsible for showing
@@ -42,6 +43,7 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 	 */
 	JFreeChart chart;
 	
+	
 	/*
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
@@ -50,8 +52,8 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 	public void createPartControl(Composite parent) {
 		this.parent = parent;
 		setPartName(EDITOR_NAME);
-		chart = ((JFreeChartEditorInput) getEditorInput()).createChart();
-		chart.addChangeListener(this);
+		setTitleToolTip(EDITOR_NAME);
+		chart = getEditorInputHandler().createChart();
 		chartContainer = new ChartComposite(parent, SWT.NONE, chart, true);
 		getSite().setSelectionProvider(createSelectionProvider());
 	}
@@ -61,20 +63,10 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 	 */
 	public void updateChart() {
 		chart.removeChangeListener(this);
-		chart = ((JFreeChartEditorInput)getEditorInput()).createChart();
+		chart = ((JFreeChartEditorInputHandler)getEditorInput()).createChart();
 		chart.addChangeListener(this);
 		chartContainer.setChart(chart);
 		chartContainer.forceRedraw();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor#changeInput(org.eclipse.ui.IEditorInput)
-	 */
-	public void changeInput(IDataSink newInput) {
-		setInput(input);
-		this.input = newInput;
-		updateChart();
 	}
 
 	@Override
@@ -82,4 +74,8 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 		updateChart();
 	}
 
+	@Override
+	public JFreeChartEditorInputHandler getEditorInputHandler() {
+		return (JFreeChartEditorInputHandler)input;
+	}
 }

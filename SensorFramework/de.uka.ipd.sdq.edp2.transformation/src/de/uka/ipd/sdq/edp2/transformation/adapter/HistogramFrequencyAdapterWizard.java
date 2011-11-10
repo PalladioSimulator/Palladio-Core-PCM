@@ -13,7 +13,7 @@ import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.widgets.Composite;
 
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.wizards.AdapterWizard;
 import de.uka.ipd.sdq.edp2.visualization.wizards.IAdapterWizard;
 import de.uka.ipd.sdq.edp2.visualization.wizards.SelectAdapterPage;
@@ -21,8 +21,8 @@ import de.uka.ipd.sdq.edp2.visualization.wizards.SelectAdapterPage;
 /**
  * The wizard for creating a {@link HistogramFrequencyAdapter}. Is referenced in
  * the central {@link AdapterWizard}. Receives the information on the
- * {@link IDataSource} for which the Adapter is created from
- * {@link #setSourceFromCaller(IDataSource, SelectAdapterPage)}. If the wizard
+ * {@link AbstractDataSource} for which the Adapter is created from
+ * {@link #setSourceFromCaller(AbstractDataSource, SelectAdapterPage)}. If the wizard
  * is finished, it uses
  * {@link SelectAdapterPage#setAdapter(de.uka.ipd.sdq.edp2.visualization.IAdapter)}
  * to pass the reference on to the central {@link AdapterWizard}.
@@ -37,7 +37,7 @@ public class HistogramFrequencyAdapterWizard extends Wizard implements
 			.getLogger(HistogramFrequencyAdapterWizard.class.getCanonicalName());
 	private static final String WINDOW_TITLE = "Histogram Frequency Adapter";
 	HistogramFrequencyAdapterSettingsPage settingsAdapterPage;
-	IDataSource source;
+	AbstractDataSource source;
 	boolean finishable;
 	HistogramFrequencyAdapter createdAdapter;
 	SelectAdapterPage callingWizardPage;
@@ -61,7 +61,7 @@ public class HistogramFrequencyAdapterWizard extends Wizard implements
 	/**
 	 * Constructor for intra-project usage.
 	 */
-	public HistogramFrequencyAdapterWizard(IDataSource source,
+	public HistogramFrequencyAdapterWizard(AbstractDataSource source,
 			SelectAdapterPage selectAdapterPage) {
 		setWindowTitle(WINDOW_TITLE);
 		this.finishable = false;
@@ -113,7 +113,7 @@ public class HistogramFrequencyAdapterWizard extends Wizard implements
 	}
 
 	@Override
-	public void setSourceFromCaller(IDataSource source,
+	public void setSourceFromCaller(AbstractDataSource source,
 			SelectAdapterPage selectAdapterPage) {
 		this.source = source;
 		this.callingWizardPage = selectAdapterPage;

@@ -17,4 +17,7 @@ import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
  */
 public interface IVisualization extends IPersistableEditor,
 		ITabbedPropertySheetPageContributor {
+	
+	public IEditorInputHandler getEditorInputHandler();
+	
 }

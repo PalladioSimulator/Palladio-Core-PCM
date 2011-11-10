@@ -19,6 +19,7 @@ import org.jfree.chart.labels.StandardXYToolTipGenerator;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.general.Dataset;
 import org.jfree.data.statistics.HistogramDataset;
 
@@ -27,9 +28,9 @@ import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties;
 import de.uka.ipd.sdq.edp2.visualization.properties.HistogramChartProperties;
-import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties;
 
 /**
  * @author Dominik Ernst
@@ -57,13 +58,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	private int numberOfBins;
 	/**
-	 * Counter for the number of data series
-	 */
-	private int seriesCounter;
-	/**
 	 * The specific type of {@link Dataset}.
 	 */
-	private HistogramDataset dataset;
+	private double[] data;
 	/**
 	 * Logger for this class
 	 */
@@ -71,24 +68,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 			.getLogger(HistogramEditorInput.class.getCanonicalName());
 
 	private HistogramChartProperties chartProperties;
-	
-	/**
-	 * 
-	 * @return the dataset
-	 */
-	public HistogramDataset getDataset() {
-		return dataset;
-	}
-
-	/**
-	 * Changes the dataset to the specified one.
-	 * 
-	 * @param dataset
-	 *            the new {@link HistogramDataset}
-	 */
-	public void setDataset(HistogramDataset dataset) {
-		this.dataset = dataset;
-	}
 
 	/**
 	 * Empty constructor.
@@ -104,7 +83,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 * 
 	 * @param source
 	 */
-	public HistogramEditorInput(IDataSource source) {
+	public HistogramEditorInput(AbstractDataSource source) {
 		super(source);
 		chartProperties = new HistogramChartProperties(this);
 	}
@@ -115,8 +94,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@SuppressWarnings("unchecked")
 	public void updateDataset() {
-		dataset = new HistogramDataset();
-		seriesCounter = getSource().getOutput().size();
 
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
@@ -134,20 +111,15 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 		// TODO sorting seems to have no effect
 		// Collections.sort(listOfMeasures.get(0));
-		double[][] values = new double[seriesCounter][listOfMeasures.get(0)
-				.size()];
-		for (int j = 0; j < seriesCounter; j++) {
-			for (int i = 0; i < listOfMeasures.get(j).size(); i++) {
-				values[j][i] = listOfMeasures.get(j).get(i).doubleValue(
-						listOfMeasures.get(j).get(i).getUnit());
-			}
-			dataset.addSeries(metrics[j].getName(), values[j],
-					getNumberOfBins());
-		}
+		data = new double[listOfMeasures.get(0).size()];
 
+		for (int i = 0; i < listOfMeasures.get(0).size(); i++) {
+			data[i] = listOfMeasures.get(0).get(i).doubleValue(
+					listOfMeasures.get(0).get(i).getUnit());
+
+		}
 		// set the title of the chart to the name of the input data series
-		setTitle(getSource().getMeasurementsRange().getMeasurements()
-				.getMeasure().getMetric().getName());
+		setTitle(metrics[0].getName());
 	}
 
 	/*
@@ -158,7 +130,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 * (de.uka.ipd.sdq.edp2.models.ExperimentData.presentation.IDataSource)
 	 */
 	@Override
-	public boolean canAccept(IDataSource source) {
+	public boolean canAccept(AbstractDataSource source) {
 		return source.getOutput().size() >= 1;
 	}
 
@@ -254,23 +226,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 			setNumberOfBins(DEFAULT_NUMBER_BINS);
 	}
 
-	@Override
-	public JFreeChart createChart() {
-		updateDataset();
-		NumberAxis domainAxis = new NumberAxis("x-Axis label");
-		NumberAxis rangeAxis = new NumberAxis("y-Axis label");
-		XYBarRenderer renderer = new XYBarRenderer();
-		renderer.setBaseToolTipGenerator(new StandardXYToolTipGenerator());
-
-		XYPlot plot = new XYPlot(dataset, domainAxis, rangeAxis, renderer);
-		plot.setOrientation(PlotOrientation.VERTICAL);
-		JFreeChart chart = new JFreeChart(getTitle(),
-				JFreeChart.DEFAULT_TITLE_FONT, plot, true);
-
-		setChart(chart);
-		return chart;
-	}
-
 	private int getNumberOfBins() {
 		if (numberOfBins != 0) {
 			return numberOfBins;
@@ -286,10 +241,29 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	public HistogramChartProperties getChartProperties() {
 		return chartProperties;
 	}
-	
-	public void updateChartProperties(){
+
+	public void updateChartProperties() {
 		setNumberOfBins(chartProperties.getNumberOfBins());
-		getChart().fireChartChanged();
+	}
+
+	@Override
+	public Object getData() {
+		return data;
+	}
+
+	@Override
+	public Object getDataTypeInstance() {
+		return new HistogramDataset();
+	}
+
+	@Override
+	public XYPlot createPlot() {
+		return new XYPlot();
+	}
+
+	@Override
+	public XYItemRenderer createRenderer() {
+		return new XYBarRenderer();
 	}
 
 }

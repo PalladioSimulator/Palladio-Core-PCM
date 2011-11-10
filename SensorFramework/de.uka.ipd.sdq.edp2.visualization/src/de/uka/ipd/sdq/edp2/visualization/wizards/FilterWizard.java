@@ -10,9 +10,9 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
-import de.uka.ipd.sdq.edp2.visualization.IAdapter;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IFilter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 
 /**
  * The main wizard, which shows available adapters for the currently selected {@link RawMeasurements}. 
@@ -28,7 +28,7 @@ public class FilterWizard extends Wizard implements INewWizard {
 	/**
 	 * The source, which is associated with the selected RawMeasurements.
 	 */
-	IDataSource source;
+	AbstractDataSource source;
 	/**
 	 * Variable to indicate, if the user is allowed to finish the Wizard.
 	 */
@@ -36,7 +36,7 @@ public class FilterWizard extends Wizard implements INewWizard {
 	/**
 	 * The adapter, which is to be created by the Wizard (passed reference from nested Wizard).
 	 */
-	IFilter createdFilter;
+	AbstractFilter createdFilter;
 
 	public boolean isFinishable() {
 		return finishable;
@@ -49,7 +49,7 @@ public class FilterWizard extends Wizard implements INewWizard {
 	/**
 	 * 
 	 */
-	public FilterWizard(IDataSource source) {
+	public FilterWizard(AbstractDataSource source) {
 		setWindowTitle("Add a new Filter");
 		this.source = source;
 		this.finishable = false;
@@ -95,11 +95,11 @@ public class FilterWizard extends Wizard implements INewWizard {
 		return finishable;
 	}
 
-	public IFilter getFilter() {
+	public AbstractFilter getFilter() {
 		return createdFilter;
 	}
 	
-	public void setFilter(IFilter filter) {
+	public void setFilter(AbstractFilter filter) {
 		this.createdFilter = filter;
 	}
 

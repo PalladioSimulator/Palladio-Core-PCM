@@ -33,12 +33,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 
-import de.uka.ipd.sdq.edp2.visualization.IAdapter;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 
 /**
  * {@link WizardPage}, which provides a list of all available adapters
- * {@link IAdapter}, that are registered as extensions.
+ * {@link AbstractAdapter}, that are registered as extensions.
  * 
  * @author Dominik Ernst
  */
@@ -53,7 +53,7 @@ public class SelectAdapterPage extends WizardPage implements
 	private final static String ADAPTER_CLASS_ATTRIBUTE = "class";
 	private final static String ADAPTER_WIZARD_ATTRIBUTE = "wizard";
 
-	IDataSource selectedSource;
+	AbstractDataSource selectedSource;
 	ArrayList<IAdapterWizard> availableAdapters;
 
 	List adapterList;
@@ -61,9 +61,9 @@ public class SelectAdapterPage extends WizardPage implements
 	Status statusOK;
 	IAdapterWizard selectedAdapterWizard;
 	TableViewer adapterViewer;
-	IAdapter createdAdapter;
+	AbstractAdapter createdAdapter;
 
-	protected SelectAdapterPage(String pageName, IDataSource selectedSource) {
+	protected SelectAdapterPage(String pageName, AbstractDataSource selectedSource) {
 		super(pageName);
 		this.selectedSource = selectedSource;
 		setDescription("Select the Adapter you wish to add.");
@@ -172,7 +172,7 @@ public class SelectAdapterPage extends WizardPage implements
 	}
 
 	protected ArrayList<IAdapterWizard> getApplicableAdapters(
-			IDataSource forSource) {
+			AbstractDataSource forSource) {
 		availableAdapters = new ArrayList<IAdapterWizard>();
 		// checks the extension registry for all registered adapters and adds
 		// them to the list
@@ -184,7 +184,7 @@ public class SelectAdapterPage extends WizardPage implements
 			try {
 				w = e.createExecutableExtension(ADAPTER_WIZARD_ATTRIBUTE);
 				o = e.createExecutableExtension(ADAPTER_CLASS_ATTRIBUTE);
-				if (((IAdapter) o).canAccept(forSource)) {
+				if (((AbstractAdapter) o).canAccept(forSource)) {
 					availableAdapters.add((IAdapterWizard) w);
 				}
 			} catch (CoreException ex) {
@@ -201,8 +201,8 @@ public class SelectAdapterPage extends WizardPage implements
 	/**
 	 * Method which is called when the "Next" Button in the Wizard is clicked.
 	 * Must call
-	 * {@link IAdapterWizard#setSourceFromCaller(IDataSource, SelectAdapterPage)}
-	 * , where the {@link IDataSource} is the source handed from the
+	 * {@link IAdapterWizard#setSourceFromCaller(AbstractDataSource, SelectAdapterPage)}
+	 * , where the {@link AbstractDataSource} is the source handed from the
 	 * RawMeasurements object, which was selected in the first place and
 	 * <code>this</code> a reference on this {@link SelectAdapterPage}.
 	 */
@@ -260,7 +260,7 @@ public class SelectAdapterPage extends WizardPage implements
 		return pageStatus;
 	}
 
-	public void setAdapter(IAdapter adapter) {
+	public void setAdapter(AbstractAdapter adapter) {
 		logger.log(Level.INFO, "adapter of AdapterWizard set");
 		this.createdAdapter = adapter;
 		AdapterWizard wizard = (AdapterWizard) getWizard();

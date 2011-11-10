@@ -40,10 +40,10 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
 import de.uka.ipd.sdq.edp2.visualization.Activator;
-import de.uka.ipd.sdq.edp2.visualization.IAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IFilter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
@@ -147,10 +147,10 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 
 			@Override
 			public void handleEvent(Event event) {
-				IDataSink input = editor.getEditorInput();
+				IDataSink input = editor.getEditorInputHandler().getInputs().get(0);
 				if (event.widget == buttonAdapter) {
 					AdapterWizard wizard = new AdapterWizard(getSource());
-					IAdapter adapter = null;
+					AbstractAdapter adapter = null;
 					WizardDialog wdialog = new WizardDialog(Activator
 							.getDefault().getWorkbench()
 							.getActiveWorkbenchWindow().getShell(), wizard);
@@ -162,7 +162,7 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 
 				} else if (event.widget == buttonFilter) {
 					FilterWizard wizard = new FilterWizard(getSource());
-					IFilter filter = null;
+					AbstractFilter filter = null;
 					WizardDialog wdialog = new WizardDialog(Activator
 							.getDefault().getWorkbench()
 							.getActiveWorkbenchWindow().getShell(), wizard);
@@ -184,7 +184,7 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 		buttonFilter.addListener(SWT.Selection, btnListener);
 	}
 
-	private void handleSemanticChange(IAdapter adapter) {
+	private void handleSemanticChange(AbstractAdapter adapter) {
 		// TODO perform actual check on compatible editors for new input.
 		boolean result = MessageDialog
 				.openQuestion(
@@ -197,7 +197,6 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 		if (result) {
 			
 			IDataSink newInput = new HistogramEditorInput(adapter);
-			editor.changeInput(newInput);
 		}
 	}
 
@@ -372,7 +371,7 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 	 * @return the source of the editor input. {@link IDataSink#getSource()} is
 	 *         called for the return value.
 	 */
-	public IDataSource getSource() {
+	public AbstractDataSource getSource() {
 
 		IDataSink input = null;
 		
@@ -385,7 +384,7 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 		}
 		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		input = editor.getEditorInput();
+		input = editor.getEditorInputHandler().getInputs().get(0);
 		return input.getSource();
 
 	}

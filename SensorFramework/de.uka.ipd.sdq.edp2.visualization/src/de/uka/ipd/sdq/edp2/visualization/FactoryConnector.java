@@ -58,23 +58,23 @@ public class FactoryConnector implements IAdapterFactory {
 	@Override
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
 		
-		HashMap<IAdapter, IElementFactory> adapterFactoryMap = getAdapterFactoryMap();
-		HashMap<IFilter, IElementFactory> filterFactoryMap = getFilterFactoryMap();
-		Set<IAdapter> adapterKeys = adapterFactoryMap.keySet();
-		Set<IFilter> filterKeys = filterFactoryMap.keySet();
+		HashMap<AbstractAdapter, IElementFactory> adapterFactoryMap = getAdapterFactoryMap();
+		HashMap<AbstractFilter, IElementFactory> filterFactoryMap = getFilterFactoryMap();
+		Set<AbstractAdapter> adapterKeys = adapterFactoryMap.keySet();
+		Set<AbstractFilter> filterKeys = filterFactoryMap.keySet();
 		
 		IElementFactory resultingFactory = null;
 		
 		// find the adapter or filter in the maps and set the return to the corresponding
 		// factory
-		for (IAdapter adapter : adapterKeys) {
+		for (AbstractAdapter adapter : adapterKeys) {
 			// compare string representations of objects
 			if (adapter.getClass().getCanonicalName().equals(
 					adaptableObject.toString())) {
 				resultingFactory = adapterFactoryMap.get(adapter);
 			}
 		}
-		for (IFilter filter : filterKeys) {
+		for (AbstractFilter filter : filterKeys) {
 			// compare string representations of objects
 			if (filter.getClass().getCanonicalName().equals(
 					adaptableObject.toString())) {
@@ -91,13 +91,13 @@ public class FactoryConnector implements IAdapterFactory {
 	}
 	
 	/**
-	 * Gets all registered Filters ({@link IFilter}) and their corresponding
+	 * Gets all registered Filters ({@link AbstractFilter}) and their corresponding
 	 * Factories({@link IElementFactory}).
 	 * 
-	 * @return a map of {@link IFilter} - {@link IElementFactory} combinations.
+	 * @return a map of {@link AbstractFilter} - {@link IElementFactory} combinations.
 	 */
-	public HashMap<IFilter, IElementFactory> getFilterFactoryMap() {
-		HashMap<IFilter, IElementFactory> filterFactoryMap = new HashMap<IFilter, IElementFactory>();
+	public HashMap<AbstractFilter, IElementFactory> getFilterFactoryMap() {
+		HashMap<AbstractFilter, IElementFactory> filterFactoryMap = new HashMap<AbstractFilter, IElementFactory>();
 		// checks the extension registry for all registered adapters and adds
 		// them to the list
 		final IConfigurationElement[] filterExtensions = Platform
@@ -110,7 +110,7 @@ public class FactoryConnector implements IAdapterFactory {
 				factory = e
 						.createExecutableExtension(FACTORY_ATTRIBUTE);
 				filter = e.createExecutableExtension(CLASS_ATTRIBUTE);
-				filterFactoryMap.put((IFilter) filter,
+				filterFactoryMap.put((AbstractFilter) filter,
 						(IElementFactory) factory);
 			} catch (CoreException e1) {
 				logger
@@ -123,13 +123,13 @@ public class FactoryConnector implements IAdapterFactory {
 	}
 
 	/**
-	 * Gets all registered Adapters ({@link IAdapter}) and their corresponding
+	 * Gets all registered Adapters ({@link AbstractAdapter}) and their corresponding
 	 * Factories({@link IElementFactory}).
 	 * 
-	 * @return a map of {@link IAdapter} - {@link IElementFactory} combinations.
+	 * @return a map of {@link AbstractAdapter} - {@link IElementFactory} combinations.
 	 */
-	public HashMap<IAdapter, IElementFactory> getAdapterFactoryMap() {
-		HashMap<IAdapter, IElementFactory> adapterFactoryMap = new HashMap<IAdapter, IElementFactory>();
+	public HashMap<AbstractAdapter, IElementFactory> getAdapterFactoryMap() {
+		HashMap<AbstractAdapter, IElementFactory> adapterFactoryMap = new HashMap<AbstractAdapter, IElementFactory>();
 		// checks the extension registry for all registered adapters and adds
 		// them to the list
 		final IConfigurationElement[] adapterExtensions = Platform
@@ -142,7 +142,7 @@ public class FactoryConnector implements IAdapterFactory {
 				factory = e
 						.createExecutableExtension(FACTORY_ATTRIBUTE);
 				adapter = e.createExecutableExtension(CLASS_ATTRIBUTE);
-				adapterFactoryMap.put((IAdapter) adapter,
+				adapterFactoryMap.put((AbstractAdapter) adapter,
 						(IElementFactory) factory);
 			} catch (CoreException e1) {
 				logger

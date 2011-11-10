@@ -22,6 +22,8 @@ import org.eclipse.ui.views.properties.IPropertySource;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.xy.DefaultTableXYDataset;
 import org.jfree.data.xy.XYSeries;
 
@@ -37,10 +39,10 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IDataSource;
+import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2SourceFactory;
+import de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties;
 import de.uka.ipd.sdq.edp2.visualization.properties.SpecificChartProperties;
-import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartProperties;
 
 /**
  * Input for {@link ScatterPlotEditor} .
@@ -75,7 +77,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		setTitle(DEFAULT_TITLE);
 	}
 
-	public ScatterPlotInput(IDataSource source) {
+	public ScatterPlotInput(AbstractDataSource source) {
 		super(source);
 		setTitle(DEFAULT_TITLE);
 	}
@@ -138,7 +140,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 * (de.uka.ipd.sdq.edp2.models.ExperimentData.presentation.IDataSource)
 	 */
 	@Override
-	public boolean canAccept(IDataSource source) {
+	public boolean canAccept(AbstractDataSource source) {
 		BaseMetricDescription[] mds = MetricDescriptionUtility
 				.toBaseMetricDescriptions(source.getOutput().get(0)
 						.getRawMeasurements().getMeasurementsRange()
@@ -209,16 +211,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		updateDataset();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getPersistable()
-	 */
-	@Override
-	public IPersistableElement getPersistable() {
-		return this;
-	}
-
 	/**
 	 * /**
 	 * 
@@ -269,26 +261,32 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	public void setProperties(HashMap<String, Object> newProperties) {
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#createChart
-	 * ()
-	 */
 	@Override
-	public JFreeChart createChart() {
-		updateDataset();
-		JFreeChart chart = ChartFactory.createScatterPlot(getTitle(), "xLabel",
-				"yLabel", getDataset(), PlotOrientation.VERTICAL, true,
-				true, false);
-		setChart(chart);
-		return chart;
-
+	public SpecificChartProperties getChartProperties() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public SpecificChartProperties getChartProperties() {
+	public XYPlot createPlot() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public XYItemRenderer createRenderer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object getData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object getDataTypeInstance() {
 		// TODO Auto-generated method stub
 		return null;
 	}
