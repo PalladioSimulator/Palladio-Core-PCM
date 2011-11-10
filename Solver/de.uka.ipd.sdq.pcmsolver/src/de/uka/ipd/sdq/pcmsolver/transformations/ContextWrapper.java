@@ -95,6 +95,12 @@ import de.uka.ipd.sdq.stoex.NamespaceReference;
  * retrieves the information from the computed contexts given for example an
  * AbstractBranchTransition or ParametricResourceDemand.
  * 
+ * TODO: This class is way too big and needs refactoring. For many methods, it
+ * would make sense to re-write them so that they only depend on their input
+ * parameters (and not on the state of the object). This should make it much
+ * easier to understand the code. Moreover, context-independent methods
+ * can be outsourced into helper classes.
+ * 
  * @see Heiko's dissertation, section 6.2.4 at
  *      http://docserver.bis.uni-oldenburg
  *      .de/_publikationen/dissertation/2008/kozpar08/pdf/kozpar08.pdf
