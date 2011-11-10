@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.edp2.visualization;
 import java.util.ArrayList;
 import java.util.Observer;
 
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorInput;
 
 /**
@@ -14,7 +15,7 @@ import org.eclipse.ui.IEditorInput;
  * @author Dominik Ernst
  *
  */
-public interface IEditorInputHandler extends IEditorInput, Observer {
+public interface IEditorInputHandler extends IEditorInput, Observer, ISelection {
 
 	/**
 	 * Method to retrieve all contained {@link IDataSink}s. These are intended to be displayed by the same

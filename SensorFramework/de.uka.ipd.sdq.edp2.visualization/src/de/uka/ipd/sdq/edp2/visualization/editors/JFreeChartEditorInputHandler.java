@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler;
  */
 public class JFreeChartEditorInputHandler implements IEditorInputHandler {
 
-	private ArrayList<JFreeChartEditorInput> inputs;
+	private ArrayList<IDataSink> inputs;
 	private Object dataset;
 	private XYPlot plot;
 	private XYItemRenderer renderer;
@@ -36,14 +36,14 @@ public class JFreeChartEditorInputHandler implements IEditorInputHandler {
 	 * Empty constructor.
 	 */
 	public JFreeChartEditorInputHandler() {
-		inputs = new ArrayList<JFreeChartEditorInput>();
+		inputs = new ArrayList<IDataSink>();
 	}
 
 	/**
 	 * Constructor with a first input.
 	 */
 	public JFreeChartEditorInputHandler(JFreeChartEditorInput firstInput) {
-		inputs = new ArrayList<JFreeChartEditorInput>();
+		inputs = new ArrayList<IDataSink>();
 		addInput(firstInput);
 	}
 
@@ -72,15 +72,15 @@ public class JFreeChartEditorInputHandler implements IEditorInputHandler {
 		dataset = inputs.get(0).getDataTypeInstance();
 		if (dataset instanceof HistogramDataset) {
 			HistogramDataset histogramDataset = (HistogramDataset) dataset;
-			for (JFreeChartEditorInput input : inputs) {
+			for (IDataSink input : inputs) {
 				histogramDataset.addSeries(input.getName(), (double[])input.getData(), Integer
 						.parseInt(input.getProperties().get("numberOfBins")
 								.toString()));
 			}
-			plot = inputs.get(0).createPlot();
+			plot = ((JFreeChartEditorInput) inputs.get(0)).createPlot();
 			plot.setDataset(histogramDataset);
 		}
-		renderer = inputs.get(0).createRenderer();
+		renderer = ((JFreeChartEditorInput) inputs.get(0)).createRenderer();
 
 		return dataset;
 	}
@@ -92,8 +92,7 @@ public class JFreeChartEditorInputHandler implements IEditorInputHandler {
 	 */
 	@Override
 	public ArrayList<IDataSink> getInputs() {
-		// TODO Auto-generated method stub
-		return null;
+		return inputs;
 	}
 
 	/*
@@ -203,9 +202,14 @@ public class JFreeChartEditorInputHandler implements IEditorInputHandler {
 		plot.setRenderer(renderer);
 		plot.setRangeAxis(rangeAxis);
 		plot.setDomainAxis(domainAxis);
-		JFreeChart chart = new JFreeChart(inputs.get(0).getTitle(),
+		JFreeChart chart = new JFreeChart(inputs.get(0).getName(),
 				JFreeChart.DEFAULT_TITLE_FONT, plot, true);
 		return chart;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return getInputsSize() == 0;
 	}
 
 }

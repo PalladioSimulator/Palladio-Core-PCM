@@ -173,9 +173,9 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 					}
 				}
 
-				if (editor instanceof JFreeChartEditor) {
+				/*if (editor instanceof JFreeChartEditor) {
 					((JFreeChartEditor) editor).updateChart();
-				}
+				}*/
 				editor.setFocus();
 				updateTransformationsList();
 			}
@@ -384,6 +384,7 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 		}
 		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		logger.log(Level.INFO, editor.getEditorInputHandler().toString());
 		input = editor.getEditorInputHandler().getInputs().get(0);
 		return input.getSource();
 
