@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler;
 
 /**
+ * Implementation of an {@link IEditorInputHandler} for {@link JFreeChartEditorInput}s.
  * @author Dominik Ernst
  * 
  */

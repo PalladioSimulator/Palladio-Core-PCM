@@ -1,15 +1,21 @@
 package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ITreeSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
@@ -18,6 +24,8 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
@@ -29,6 +37,7 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IWorkbenchPart;
@@ -58,7 +67,8 @@ import de.uka.ipd.sdq.edp2.visualization.wizards.FilterWizard;
  * @author Roland Richter, Dominik Ernst
  * 
  */
-public class TransformationsPropertySection extends AbstractPropertySection {
+public class TransformationsPropertySection extends AbstractPropertySection
+		implements ISelectionChangedListener {
 	/** logger */
 	private final static Logger logger = Logger
 			.getLogger(TransformationsPropertySection.class.getCanonicalName());
@@ -70,16 +80,16 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 	private final static String NAME_KEY = "elementName";
 
 	/**
-	 * A list which contains the applied transformations
+	 * A tree, which contains the editor's inputs and their transformations (as
+	 * children)
 	 */
-	private List list;
+	private TreeViewer treeViewer;
 	/**
 	 * A simple counter for the list
 	 */
 	private int counter = 0;
 	/**
-	 * The attributes table. It shows the attributes for the filter which is
-	 * selected in the filtersList
+	 * The table for displaying attributes of a selected transformation.
 	 */
 	private Table transformationTable;
 
@@ -93,6 +103,8 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 	 * {@link ITabbedPropertySheetPageContributor}.
 	 */
 	private AbstractEditor editor;
+	
+	private AbstractTransformation lastSelection;
 
 	/**
 	 * Create the look and items of the properties. It is called, if one of the
@@ -130,11 +142,14 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 		// initialize the layout
 		createLayout(composite);
 
-		// generate the group for the applied transformations
-		Group transformationGroup = createTransformationGroup(composite);
+		updateEditorReference();
+		treeViewer = new InputSelectionTree(composite, SWT.EMBEDDED, editor
+				.getEditorInputHandler()).getTreeViewer();
+
+		treeViewer.addSelectionChangedListener(this);
 
 		// initialize the contents of the group
-		initTransformationTable(transformationGroup);
+		initTransformationTable(composite);
 
 		final Button buttonAdapter = new Button(composite, SWT.PUSH);
 		buttonAdapter.setText("Add new Adapter..");
@@ -145,11 +160,14 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 
 		Listener btnListener = new Listener() {
 
+		//TODO fix references on previous transformations etc.
 			@Override
 			public void handleEvent(Event event) {
-				IDataSink input = editor.getEditorInputHandler().getInputs().get(0);
+				
+				IDataSink input = editor.getEditorInputHandler().getInputs()
+						.get(0);
 				if (event.widget == buttonAdapter) {
-					AdapterWizard wizard = new AdapterWizard(getSource());
+					AdapterWizard wizard = new AdapterWizard(null);
 					AbstractAdapter adapter = null;
 					WizardDialog wdialog = new WizardDialog(Activator
 							.getDefault().getWorkbench()
@@ -161,7 +179,7 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 					}
 
 				} else if (event.widget == buttonFilter) {
-					FilterWizard wizard = new FilterWizard(getSource());
+					FilterWizard wizard = new FilterWizard(null);
 					AbstractFilter filter = null;
 					WizardDialog wdialog = new WizardDialog(Activator
 							.getDefault().getWorkbench()
@@ -173,31 +191,33 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 					}
 				}
 
-				/*if (editor instanceof JFreeChartEditor) {
-					((JFreeChartEditor) editor).updateChart();
-				}*/
+				/*
+				 * if (editor instanceof JFreeChartEditor) { ((JFreeChartEditor)
+				 * editor).updateChart(); }
+				 */
 				editor.setFocus();
-				updateTransformationsList();
 			}
 		};
 		buttonAdapter.addListener(SWT.Selection, btnListener);
 		buttonFilter.addListener(SWT.Selection, btnListener);
+
 	}
 
 	private void handleSemanticChange(AbstractAdapter adapter) {
 		// TODO perform actual check on compatible editors for new input.
-		boolean result = MessageDialog
-				.openQuestion(
-						Activator.getDefault().getWorkbench()
-								.getActiveWorkbenchWindow().getShell(),
-						"Semantics of Data Changed",
-						"The applied data transformation cannot be displayed in the current dataset."
-								+ "A new dataset must be created to replace it. Do you want to proceed?");
-
-		if (result) {
-			
-			IDataSink newInput = new HistogramEditorInput(adapter);
-		}
+		/*
+		 * boolean result = MessageDialog .openQuestion(
+		 * Activator.getDefault().getWorkbench()
+		 * .getActiveWorkbenchWindow().getShell(), "Semantics of Data Changed",
+		 * "The applied data transformation cannot be displayed in the current dataset."
+		 * +
+		 * "A new dataset must be created to replace it. Do you want to proceed?"
+		 * );
+		 * 
+		 * if (result) {
+		 * 
+		 * IDataSink newInput = new HistogramEditorInput(adapter); }
+		 */
 	}
 
 	/**
@@ -207,13 +227,9 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 	 *            It is the parent.
 	 */
 	private void createLayout(Composite composite) {
-		RowLayout layout = new RowLayout(SWT.VERTICAL);
-		layout.spacing = 2;
-		layout.justify = true;
-		layout.pack = true;
+		GridLayout layout = new GridLayout(2, false);
 		layout.marginWidth = 2;
 		layout.marginHeight = 2;
-		layout.wrap = true;
 		composite.setLayout(layout);
 	}
 
@@ -229,30 +245,17 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 	 * @param parentGroup
 	 *            the parent GUI Object
 	 */
-	private void initTransformationTable(Group parentGroup) {
-		// initialize the list of transformations with a selection listener
-		list = new List(parentGroup, SWT.BORDER | SWT.SINGLE | SWT.V_SCROLL);
-		list.setLayoutData(new RowData(175, 140));
-		list.addSelectionListener(new SelectionListener() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				refreshPropertiesTable();
-			}
-
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-				// TODO Auto-generated method stub
-			}
-		});
+	private void initTransformationTable(Composite parent) {
 
 		// initialize the table, which shows the properties of transformations
-		transformationTable = new Table(parentGroup, SWT.SINGLE | SWT.BORDER
+		transformationTable = new Table(parent, SWT.SINGLE | SWT.BORDER
 				| SWT.V_SCROLL | SWT.FULL_SELECTION);
 
 		transformationTable.setLinesVisible(true);
 		transformationTable.setHeaderVisible(true);
+		transformationTable.setLayoutData(new GridData(250,123));
 		// set width and height of the table
-		transformationTable.setLayoutData(new RowData(250, 123));
+		//transformationTable.setLayoutData(new RowData(250, 123));
 		// set the weight of the table columns
 		TableLayout tableLayout = new TableLayout();
 		tableLayout.addColumnData(new ColumnWeightData(2));
@@ -331,28 +334,6 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 
 	}
 
-	/**
-	 * Creates and configures the layout of the group for showing the currently
-	 * applied transformations.
-	 * 
-	 * @param composite
-	 *            the parent GUI Object
-	 * @return the GUI Group for the group applied filters
-	 */
-	private Group createTransformationGroup(Composite composite) {
-		RowData data = new RowData();
-		data.width = 550;
-		data.height = 155;
-
-		Group filtersGroup = getWidgetFactory().createGroup(composite,
-				"Current Transformations");
-		RowLayout rl = new RowLayout(SWT.HORIZONTAL);
-		rl.spacing = 15;
-		filtersGroup.setLayout(rl);
-		filtersGroup.setLayoutData(data);
-		return filtersGroup;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -365,97 +346,37 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 		super.setInput(part, selection);
 	}
 
-	/**
-	 * To get the corresponding source from the actual used editor.
-	 * 
-	 * @return the source of the editor input. {@link IDataSink#getSource()} is
-	 *         called for the return value.
-	 */
-	public AbstractDataSource getSource() {
-
-		IDataSink input = null;
-		
-		//workaround:
-		//prevent the calling of the active editor reference if eclipse is restarted and getActivePage() is null
-		//idea: save the "last active" editor reference and use it if eclipse isn't restored yet?
-		if (Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage() == null) {
-			return null;
+	private void updateEditorReference() {
+		if (Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage() == null) {
+		} else {
+			editor = (AbstractEditor) Activator.getDefault().getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage()
+					.getActiveEditor();
 		}
-		editor = (AbstractEditor) Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		logger.log(Level.INFO, editor.getEditorInputHandler().toString());
-		input = editor.getEditorInputHandler().getInputs().get(0);
-		return input.getSource();
-
-	}
-
-	/**
-	 * Updates the list of transformations which are applied to the last active editor input.
-	 */
-	public void updateTransformationsList() {
-
-		AbstractTransformation transformation = null;
-
-		if (!list.isDisposed()) {
-			list.removeAll();
-
-			counter = 0;
-
-			// check if there are any transformations at all
-			if (getSource() instanceof AbstractTransformation) {
-				transformation = (AbstractTransformation) getSource();
-				list.add(transformation.getName());
-				counter++;
-				// iterate over remaining transformations
-				while (transformation.getSource() instanceof AbstractTransformation) {
-					transformation = (AbstractTransformation) transformation
-							.getSource();
-					list.add(transformation.getName());
-					counter++;
-				}
-			}
-			logger.log(Level.INFO, "Number of transformations: " + counter);
-		}
-
 	}
 
 	/**
 	 * Refresh the items in the filters properties table. It shows the
 	 * properties of the selected filter in the list.
+	 * 
+	 * @param abstractTransformation
 	 */
 	private void refreshPropertiesTable() {
-		// clear the table
+
 		transformationTable.clearAll();
 		transformationTable.setItemCount(0);
 
-		// get the index of the selected transformation
-		AbstractTransformation selectedTransformation = (AbstractTransformation) getSource();
-		int selection = list.getSelectionIndex();
-		int i = 0;
-
-		// iterate to the selected item over the editor input's source-chain
-		while (i < selection) {
-			i++;
-			selectedTransformation = (AbstractTransformation) selectedTransformation
-					.getSource();
-		}
-
-		// retrieve the properties of the selected transformation
-		HashMap<String, Object> properties = selectedTransformation
+		HashMap<String, Object> properties = lastSelection
 				.getProperties();
 
-		// list of properties should not contain the element's identifier
-		// (cannot and must not be modified)
 		properties.remove(NAME_KEY);
 
-		// write property key-value-pairs into table
 		for (Object key : properties.keySet()) {
 			TableItem item = new TableItem(transformationTable, SWT.NONE);
 			item.setText(0, String.valueOf(key));
 			item.setText(1, String.valueOf(properties.get(key)));
 		}
-
 	}
 
 	/**
@@ -469,31 +390,16 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 	 *            the value as an Object.
 	 */
 	private void updateProperties(String key, Object value) {
-		logger.log(Level.INFO, "update property '" + key + "' : '" + value
-				+ "'");
-
-		// get the index of the selected transformation
-		AbstractTransformation selectedTransformation = (AbstractTransformation) getSource();
-		int selection = list.getSelectionIndex();
-		int i = 0;
-
-		// iterate to the selected item over the editor inputs source-chain
-		while (i < selection) {
-			i++;
-			selectedTransformation = (AbstractTransformation) selectedTransformation
-					.getSource();
-		}
 
 		// get properties for keys and old values
-		HashMap<String, Object> newProperties = selectedTransformation
-				.getProperties();
+		HashMap<String, Object> newProperties = lastSelection.getProperties();
+		
 		newProperties.put(key, value);
-		selectedTransformation.setProperties(newProperties);
-		selectedTransformation.transformData();
+		lastSelection.setProperties(newProperties);
+		lastSelection.transformData();
 
 		((JFreeChartEditor) editor).updateChart();
 		editor.setFocus();
-		refreshPropertiesTable();
 
 	}
 
@@ -504,7 +410,16 @@ public class TransformationsPropertySection extends AbstractPropertySection {
 	 * org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#refresh()
 	 */
 	public void refresh() {
-		updateTransformationsList();
+	}
+
+	@Override
+	public void selectionChanged(SelectionChangedEvent event) {
+		ITreeSelection selection = (ITreeSelection) event
+				.getSelectionProvider().getSelection();
+		if (selection.getFirstElement() instanceof AbstractTransformation) {
+			lastSelection = (AbstractTransformation) selection.getFirstElement();
+			refreshPropertiesTable();
+		}
 	}
 
 }
