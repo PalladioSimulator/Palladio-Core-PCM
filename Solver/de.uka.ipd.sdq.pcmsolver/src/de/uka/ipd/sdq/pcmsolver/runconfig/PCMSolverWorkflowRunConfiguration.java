@@ -57,8 +57,11 @@ public class PCMSolverWorkflowRunConfiguration extends
 
 	private boolean stopOnMessageLossLQNS;
 	private boolean stopOnMessageLossLQSim;
-	
+
 	private boolean isInfiniteTaskMultiplicity;
+
+	private String saveFile;
+	private boolean saveResultsToFileEnabled;
 
 	public boolean isInfiniteTaskMultiplicity() {
 		return isInfiniteTaskMultiplicity;
@@ -79,6 +82,7 @@ public class PCMSolverWorkflowRunConfiguration extends
 	public String getConvValue() {
 		return convValue;
 	}
+
 	public int getDebugLevel() {
 		return debugLevel;
 	}
@@ -184,11 +188,10 @@ public class PCMSolverWorkflowRunConfiguration extends
 	public String getUnderCoeff() {
 		return underCoeff;
 	}
-	
-	public String getPragmas(){
+
+	public String getPragmas() {
 		return this.lqnPragmas;
 	}
-	
 
 	public boolean isIterationOverPhysicalSystemStatesEnabled() {
 		return iterationOverPhysicalSystemStatesEnabled;
@@ -392,6 +395,22 @@ public class PCMSolverWorkflowRunConfiguration extends
 
 	public void setUnderCoeff(String underCoeff) {
 		this.underCoeff = underCoeff;
+	}
+
+	public String getSaveFile() {
+		return saveFile;
+	}
+
+	public void setSaveFile(String saveFile) {
+		this.saveFile = saveFile;
+	}
+
+	public boolean isSaveResultsToFileEnabled() {
+		return saveResultsToFileEnabled;
+	}
+
+	public void setSaveResultsToFileEnabled(boolean saveResultsToFileEnabled) {
+		this.saveResultsToFileEnabled = saveResultsToFileEnabled;
 	}
 
 	public void setPragmas(String pragmaString) {

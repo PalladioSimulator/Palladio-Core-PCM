@@ -1,8 +1,13 @@
 package de.uka.ipd.sdq.reliability.solver.pcm2markov;
 
-import java.util.Arrays;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
@@ -12,11 +17,9 @@ import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
 import de.uka.ipd.sdq.pcmsolver.transformations.EMFHelper;
 import de.uka.ipd.sdq.pcmsolver.transformations.SolverStrategy;
+import de.uka.ipd.sdq.reliability.solver.reporting.MarkovReporting;
 import de.uka.ipd.sdq.reliability.solver.sensitivity.MarkovSensitivity;
-import de.uka.ipd.sdq.reliability.solver.sensitivity.MultiSensitivity;
-import de.uka.ipd.sdq.reliability.solver.sensitivity.NetworkSensitivity;
-import de.uka.ipd.sdq.reliability.solver.sensitivity.ResourceMTTRSensitivity;
-import de.uka.ipd.sdq.reliability.solver.sensitivity.SoftwareSensitivity;
+import de.uka.ipd.sdq.reliability.solver.visualisation.MarkovHtmlGenerator;
 import de.uka.ipd.sdq.reliability.solver.visualisation.MarkovResultEditorInput;
 
 /**
@@ -105,7 +108,7 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 				.get(0)
 				: null;
 		if (result != null) {
-			EMFHelper.saveToXMIFile(result.getResultChain(), fileName);
+			EMFHelper.saveToXMIFile(result.getResultChain(), resolveFile(fileName));
 		}
 	}
 
@@ -124,20 +127,84 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		if (configuration.isMarkovModelStorageEnabled()) {
 			storeTransformedModel(configuration.getMarkovModelFile());
 		}
-		showResults();
+
+		// embed results in HTML page
+		String htmlCode = new MarkovHtmlGenerator(new MarkovReporting(markovResults, configuration)).getHtml();
+		// check whether the HTML page containing the results shall be saved to a file
+		if (configuration.isSaveResultsToFileEnabled()) {
+			saveResultsToFile(htmlCode);
+		} // else do nothing
+
+		// show the HTML page containing the results
+		showResults(htmlCode);
 	}
 
 	/**
-	 * Shows the Markov transformation results in the workbench editor of the target instance.
+	 * Resolves a file's path in case it starts with "platform:/" and returns the entire
+	 * absolute path to the file, including the file's name.
+	 * 
+	 * @param fileURL the path to a file, including the file's name (and its extension)
+	 * @return the absolute path to the file, including the file's name
 	 */
-	private void showResults() {
+	private String resolveFile(String fileURL) {
+		// if this is a platform URL, first resolve it to an absolute path
+		if (fileURL.startsWith("platform:")){
+			try {
+				URL solvedURL = FileLocator.resolve(new URL(fileURL));
+				fileURL = solvedURL.getPath();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "";
+			}
+		}
+		return fileURL;
+	}
+
+	/**
+	 * Saves the given String (HTML code) to a file specified in the configuration.
+	 * @param htmlCode the (HTML code) string to save
+	 */
+	private void saveResultsToFile(String htmlCode) {
+		BufferedWriter out = null;
+		String filePath = resolveFile(configuration.getSaveFile());
+		try {
+			File f = new File(filePath);
+			// if the file exists, we will delete it and create a new,
+			// empty one (i.e., overwrite the existing file) once, and then
+			// repeatedly append to this file
+			if (f.exists()) {
+				f.delete(); // delete current (old) file
+				f.createNewFile(); // create a new, empty file
+			}
+			out = new BufferedWriter(new FileWriter(filePath, true));
+			out.append(htmlCode.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (out != null) {
+					out.flush();
+					out.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/**
+	 * Shows the Markov transformation results in the workbench editor of the target instance, given
+	 * HTML code, represented as string.
+	 * @param htmlCode the HTML code as string
+	 */
+	private void showResults(final String htmlCode) {
 		if (markovResults != null) {
 			Display.getDefault().asyncExec(new Runnable() {
 				public void run() {
 					IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 					if(page != null) {
 						try {
-							page.openEditor(new MarkovResultEditorInput(markovResults, configuration),
+							page.openEditor(new MarkovResultEditorInput(htmlCode),
 									"de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovResultEditor");
 						} catch (PartInitException e) {
 							e.printStackTrace();

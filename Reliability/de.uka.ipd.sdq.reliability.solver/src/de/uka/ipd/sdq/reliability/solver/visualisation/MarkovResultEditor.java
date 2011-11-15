@@ -1,6 +1,9 @@
 package de.uka.ipd.sdq.reliability.solver.visualisation;
 
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.swt.SWT;
@@ -10,10 +13,7 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorPart;
-
-import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
-import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
-import de.uka.ipd.sdq.reliability.solver.reporting.MarkovReporting;
+import org.eclipse.ui.part.FileEditorInput;
 
 public class MarkovResultEditor extends EditorPart {
 
@@ -52,66 +52,50 @@ public class MarkovResultEditor extends EditorPart {
 	public void createPartControl(Composite parent) {
 		IEditorInput input = getEditorInput();
 		Browser browser = new Browser(parent, SWT.BORDER);
+		browser.setJavascriptEnabled(true);
 		if (input != null) {
 			if (input instanceof MarkovResultEditorInput) {
-				// get Markov transformation results and configuration properties
-				List<MarkovTransformationResult> markovResults = ((MarkovResultEditorInput) input).getMarkovResults();
-				PCMSolverWorkflowRunConfiguration config = ((MarkovResultEditorInput) input).getConfiguration();
-				// generate HTML code using those results as data source
-				MarkovHtmlGenerator htmlGenerator = new MarkovHtmlGenerator(new MarkovReporting(markovResults, config));
-				// create final HTML page
-				StringBuilder htmlCode = new StringBuilder("<html><head><title>Markov Results</title>"
-						+ "<style type=\"text/css\">"
-						+ "body { font-family: Lucida Grande; font-size: 12px; }"
-						+ "td, th { font-size: 11px; }"
-						+ "th { background-color: c0c0c0; margin: 1px; padding: 3px 5px 3px 5px; }"
-						+ "td { background-color: dfdfdf; margin: 1px; padding: 3px 5px 3px 5px; }"
-						+ ".headerRow { border: 1px solid #a0a0a0; }"
-						+ "</style></head><body>");
-				htmlCode.append(htmlGenerator.getHtml());
-				htmlCode.append("</body></html>");
 				// display HTML code in browser
-				browser.setText(htmlCode.toString());
+				browser.setText(((MarkovResultEditorInput) input).getHtmlCode());
 			} else {
-				browser.setText("<html><head><title>Markov Results</title></head>"
-						+ "<body><font color=\"red\">Error:"
-						+ " The given editor input is not an instance of MarkovResultEditorInput.</font>"
-						+ "</body></html>");
+				// see if we can extract HTML code from the given input
+				String fileContent = getFileContent(input);
+				if (fileContent.trim().startsWith("<html>")) {
+					// assume we have an HTML file and try to display it
+					browser.setText(fileContent);
+				} else {
+					browser.setText("<html><head><title>Markov Results</title></head>"
+							+ "<body><font color=\"red\">Error:"
+							+ " The given editor input could not be handled.</font>"
+							+ "</body></html>");
+				}
 			}
 		}
+	}
 
-//				StringBuilder resultBuilder = new StringBuilder();
-//				for (MarkovTransformationResult markovResult : markovResults) {
-//					for (String item : markovResult.getTextualResults(true)) {	// TODO get boolean approximate value from config?
-//						resultBuilder.append(item + "<br />");
-//					}
-//				}
-//				browser.setText("<html>"
-//						+ "<head><title>Markov Results</title></head>"
-//						+ "<body>"
-//						+ "<div style=\"font: bold 15px Arial; font-variant: small-caps;"
-//						+ "border-bottom: 2px black dashed; width: 200px; margin-bottom: 5mm; padding-left: 8px\">"
-//						+ "Markov Results"
-//						+ "</div>"
-//						+ "<div style=\"font-family: Arial; font-size: 11px; color: #404050; line-height: 18px\">"
-//						+ resultBuilder
-//						+ "</div>"
-//						+ "</body>"
-//						+ "</html>");
-//			} else {
-//				browser.setText("<html>"
-//						+ "<head><title>Markov Results</title></head>"
-//						+ "<body><font face=\"Arial\" color=\"red\">Error:"
-//						+ " The input is not an instance of MarkovResultEditorInput.</font></body>"
-//						+ "</html>");
-//			}
-//		} else {
-//			browser.setText("<html>"
-//					+ "<head><title>Markov Results</title></head>"
-//					+ "<body><font face=\"Arial\" color=\"red\">Error:"
-//					+ " The input is null.</font></body>"
-//					+ "</html>");
-//		}
+	private String getFileContent(IEditorInput input) {
+		StringBuilder fileContent = null;
+		if (input instanceof FileEditorInput) {
+			FileEditorInput fileEditorInput = (FileEditorInput) input;
+			try {
+				FileReader fileReader = new FileReader(fileEditorInput.getPath().toOSString());
+				BufferedReader in = new BufferedReader(fileReader);
+				String line = null;
+				fileContent = new StringBuilder();
+				String newLine = System.getProperty("line.separator");
+				try {
+					while ((line = in.readLine()) != null) {
+						fileContent.append(line);
+						fileContent.append(newLine);
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return fileContent.toString();
 	}
 
 	@Override

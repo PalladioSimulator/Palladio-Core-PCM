@@ -1,8 +1,11 @@
 package de.uka.ipd.sdq.reliability.solver.runconfig;
 
+import java.net.URL;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
@@ -126,15 +129,31 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Default setting for Markov statistics.
 	 */
 	private static final boolean STATISTICSDEFAULT = false;
+	
+	/**
+	 * Default setting for saving results.
+	 */
+	private static final boolean SAVE_RESULTS_TO_FILE_ENABLED = false;
+	
+	/**
+	 * Default setting for saving results file.
+	 */
+	private static final String SAVE_FILE_DEFAULT = "";
 
 	/**
 	 * Button to a file dialog, starting in the user's file system.
 	 */
 	private Button buttonFileSystemFileDialogLogFile = null;
+
 	/**
 	 * Button to a file dialog, starting in the user's file system.
 	 */
 	private Button buttonFileSystemFileDialogModelFile = null;
+	
+	/**
+	 * Button to a file dialog, starting in the user's file system.
+	 */
+	private Button buttonFileSystemFileDialogSaveToFile = null;
 
 	/**
 	 * Button to a file dialog, starting in the user's workspace.
@@ -145,6 +164,11 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Button to a file dialog, starting in the user's workspace.
 	 */
 	private Button buttonWorkspaceFileDialogModelFile = null;
+	
+	/**
+	 * Button to a file dialog, starting in the user's workspace.
+	 */
+	private Button buttonWorkspaceFileDialogSaveToFile = null;
 	
 	/**
 	 * Checks for iteration over physical system states.
@@ -187,9 +211,14 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	private Button checkSolvingTimeLimit = null;
 
 	/**
-	 * Checks for Marov model storage.
+	 * Checks for Markov model storage.
 	 */
 	private Button checkStoreMarkovModel = null;
+
+	/**
+	 * Checks whether results should be saved to a file.
+	 */
+	private Button checkSaveResultsToFile = null;
 
 	/**
 	 * Radio button for failure categories (simplified evaluation without
@@ -237,6 +266,11 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Text box to specify the model file.
 	 */
 	private Text textMarkovModelFile = null;
+
+	/**
+	 * Text box to specify the results file.
+	 */
+	private Text textSaveResultsToFile = null;
 
 	/*
 	 * (non-Javadoc)
@@ -475,6 +509,8 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 							String newModelFile = file.getLocation()
 									.toOSString();
 							if (newModelFile != null) {
+								String portableString = file.getFullPath().toPortableString();
+								newModelFile = "platform:/resource" + portableString;
 								// did the user select "*.markov" as extension
 								// and
 								// not add ".markov" to the file they specified?
@@ -660,6 +696,8 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 						if (file != null) {
 							String newLogFile = file.getLocation().toOSString();
 							if (newLogFile != null) {
+								String portableString = file.getFullPath().toPortableString();
+								newLogFile = "platform:/resource" + portableString;
 								// did the user select "*.txt" as extension and
 								// not add ".txt" to the file they specified?
 								if (!newLogFile.endsWith(".txt")) {
@@ -716,13 +754,141 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 				});
 
+		// Create a new GridLayout for the Markov analysis Group:
+		final GridLayout markovAnalysisResultsLayout = new GridLayout();
+		markovAnalysisResultsLayout.numColumns = 4;
+
+		// Create the Markov analysis Group
+		final Group markovAnalysisResultsGroup = new Group(contentContainer, SWT.NONE);
+		markovAnalysisResultsGroup.setLayout(markovAnalysisResultsLayout);
+		markovAnalysisResultsGroup.setText("Markov Analysis Results");
+		markovAnalysisResultsGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
+				false));
+
+		// Create the Markov statistics check box:
+		checkSaveResultsToFile = new Button(markovAnalysisResultsGroup, SWT.CHECK);
+		checkSaveResultsToFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				false, false, markovAnalysisResultsLayout.numColumns, 1));
+		checkSaveResultsToFile
+				.setText("Save results to file");
+		checkSaveResultsToFile.setSelection(SAVE_RESULTS_TO_FILE_ENABLED);
+		checkSaveResultsToFile.addListener(SWT.Selection, listener);
+
+		// Add a label showing where to specify the results file
+		Label labelSaveResultsToFile = new Label(markovAnalysisResultsGroup, SWT.NONE);
+		labelSaveResultsToFile.setText("File:");
+
+		// Create the textbox to specify a file for saving the Markov analysis results
+		textSaveResultsToFile = new Text(markovAnalysisResultsGroup, SWT.BORDER);
+		textSaveResultsToFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
+				false));
+		textSaveResultsToFile.setText(SAVE_FILE_DEFAULT);
+		textSaveResultsToFile.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
+		textSaveResultsToFile.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyPressed(final KeyEvent e) {
+				// nothing happens here
+			}
+
+			@Override
+			public void keyReleased(final KeyEvent e) {
+				setDirty(true);
+				updateLaunchConfigurationDialog();
+				updateFieldsEnablement();
+			}
+
+		});
+
+		// Create the button responsible for triggering a file dialog,
+		// starting in the user's workspace
+		buttonWorkspaceFileDialogSaveToFile = new Button(markovAnalysisResultsGroup, SWT.NONE);
+		buttonWorkspaceFileDialogSaveToFile.setLayoutData(new GridData(SWT.FILL,
+				SWT.CENTER, false, false));
+		buttonWorkspaceFileDialogSaveToFile.setText("Workspace...");
+		buttonWorkspaceFileDialogSaveToFile.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
+		buttonWorkspaceFileDialogSaveToFile
+				.addSelectionListener(new SelectionListener() {
+
+					@Override
+					public void widgetDefaultSelected(final SelectionEvent e) {
+						// nothing happens here
+					}
+
+					@Override
+					public void widgetSelected(final SelectionEvent e) {
+						IFile file = WorkspaceResourceDialog.openNewFile(
+								getShell(), "Save As",
+								"Select the parent folder:",
+								getRelativeFilePath(textSaveResultsToFile.getText()
+										.trim()), null);
+						if (file != null) {
+							String newSaveToFile = file.getLocation().toOSString();
+							if (newSaveToFile != null) {
+								String portableString = file.getFullPath().toPortableString();
+								newSaveToFile = "platform:/resource" + portableString;
+								// did the user select "*.markovresult" as extension and
+								// not add ".markovresult" to the file they specified?
+								if (!newSaveToFile.endsWith(".markovresult")) {
+									newSaveToFile += ".markovresult"; // append ".markovresult"
+															// extension
+								}
+								textSaveResultsToFile.setText(newSaveToFile);
+								updateLaunchConfigurationDialog();
+								updateFieldsEnablement();
+							}
+						}
+					}
+				});
+
+		// Create the button responsible for triggering a file dialog,
+		// starting in the user's file system
+		buttonFileSystemFileDialogSaveToFile = new Button(markovAnalysisResultsGroup, SWT.NONE);
+		buttonFileSystemFileDialogSaveToFile.setLayoutData(new GridData(SWT.FILL,
+				SWT.CENTER, false, false));
+		buttonFileSystemFileDialogSaveToFile.setText("File System...");
+		buttonFileSystemFileDialogSaveToFile.setEnabled(SINGLERESULTSDEFAULT);
+		buttonFileSystemFileDialogSaveToFile
+				.addSelectionListener(new SelectionListener() {
+
+					@Override
+					public void widgetDefaultSelected(final SelectionEvent e) {
+						// nothing happens here
+					}
+
+					@Override
+					public void widgetSelected(final SelectionEvent e) {
+						FileDialog fileDiag = new FileDialog(new Shell(),
+								SWT.SAVE);
+						fileDiag.setFilterPath(getDirectoryName(textSaveResultsToFile
+								.getText().trim()));
+						fileDiag.setFilterExtensions(new String[] { "*.markovresult",
+								"*.*" });
+						fileDiag.setFileName(getFileName(textSaveResultsToFile.getText()
+								.trim()));
+						fileDiag.setOverwrite(true);
+						String saveToFile = fileDiag.open();
+						if (saveToFile != null) {
+							// did the user select "*.markovresult" as extension and
+							// not add ".markovresult" to the file they specified?
+							if (fileDiag.getFilterIndex() == 0
+									&& !saveToFile.endsWith(".markovresult")) {
+								saveToFile += ".markovresult"; // append ".markovresult" extension
+							}
+							textSaveResultsToFile.setText(saveToFile);
+							updateLaunchConfigurationDialog();
+							updateFieldsEnablement();
+						}
+					}
+
+				});
+
 		// After all internal controls have been created,
 		// calculate the minimal size of the contentContainer.
 		// Scrollbars will be shown if the dialog size decreases
 		// below the calculated min size:
 		container.setMinSize(contentContainer.computeSize(SWT.DEFAULT,
 				SWT.DEFAULT));
-
 	}
 
 	/*
@@ -817,6 +983,18 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 					.getAttribute(MessageStrings.MARKOV_MODEL_STORAGE_ENABLED,
 							MARKOV_MODEL_STORAGE_ENABLED));
 
+			checkSaveResultsToFile.setSelection(configuration.getAttribute(
+					MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED,
+					SAVE_RESULTS_TO_FILE_ENABLED));
+			textSaveResultsToFile.setEnabled(configuration.getAttribute(
+					MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED, SAVE_RESULTS_TO_FILE_ENABLED));
+			textSaveResultsToFile.setText(configuration.getAttribute(
+					MessageStrings.SAVE_FILE_DEFAULT, SAVE_FILE_DEFAULT));
+			buttonWorkspaceFileDialogSaveToFile.setEnabled(configuration.getAttribute(
+					MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED, SAVE_RESULTS_TO_FILE_ENABLED));
+			buttonFileSystemFileDialogSaveToFile.setEnabled(configuration.getAttribute(
+					MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED, SAVE_RESULTS_TO_FILE_ENABLED));
+
 			MarkovEvaluationType evalType;
 			try {
 				evalType = MarkovEvaluationType.valueOf(configuration
@@ -870,47 +1048,111 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 					.setSelection(MarkovEvaluationType.TYPES == MARKOV_EVALUATION_MODE);
 			radioPointsOfFailure
 					.setSelection(MarkovEvaluationType.POINTSOFFAILURE == MARKOV_EVALUATION_MODE);
+
+			checkSaveResultsToFile.setSelection(SAVE_RESULTS_TO_FILE_ENABLED);
+			textSaveResultsToFile.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
+			textSaveResultsToFile.setText(SAVE_FILE_DEFAULT);
+			buttonWorkspaceFileDialogSaveToFile.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
+			buttonFileSystemFileDialogSaveToFile.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
 		}
 
 		// Update the state of the dialog:
 		updateLaunchConfigurationDialog();
 		updateFieldsEnablement();
 	}
+	
+	/**returns the path including the last slash */
+	private String resolvePath(String fileURL) {
+		// if this is a platform URL, first resolve it to an absolute path
+		if (fileURL.startsWith("platform:")){
+			try {
+				URL solvedURL = FileLocator.resolve(new URL(fileURL));
+				fileURL =  solvedURL.getPath();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "";
+			} 
+		} 
+
+		// now this should be an absolute path, but it can have either slashes or backslashes
+		int indexBackslash = fileURL.lastIndexOf("\\");
+		int indexSlash = fileURL.lastIndexOf("/");
+		// the right directory separator is the one where the above results in the higher index (assuming that linux file systems do not allow backslashes in file names...)
+		int index = indexBackslash > indexSlash ? indexBackslash : indexSlash;
+		String folderPath = fileURL.substring(0, index+1);
+		return folderPath;
+	}
+	
+	/**
+	 * Resolves a file's path in case it starts with "platform:/" and returns the entire
+	 * absolute path to the file, including the file's name.
+	 * 
+	 * @param fileURL the path to a file, including the file's name (and its extension)
+	 * @return the absolute path to the file, including the file's name
+	 */
+	private String resolveFile(String fileURL) {
+		// if this is a platform URL, first resolve it to an absolute path
+		if (fileURL.startsWith("platform:")){
+			try {
+				URL solvedURL = FileLocator.resolve(new URL(fileURL));
+				fileURL = solvedURL.getPath();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "";
+			}
+		}
+		return fileURL;
+	}
 
 	/*
 	 * (non-Javadoc)
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#isValid(org.eclipse.debug.core.ILaunchConfiguration)
 	 */
-	public boolean isValid(final ILaunchConfiguration configuration) {
+	public boolean isValid(final ILaunchConfiguration configuration) {	
 		// single result logging enabled?
 		if (checkSingleResults.getSelection()) {
-			if (getCurrentFilePath(textLogFile.getText().trim()) == null) {
+			if (getCurrentFilePath(resolvePath(textLogFile.getText().trim())) == null) {
 				setErrorMessage("Invalid log file!");
 				return false;
-			} else if (getCurrentFilePath(textLogFile.getText().trim())
+			} else if (getCurrentFilePath(resolveFile(textLogFile.getText().trim()))
 					.toFile().isDirectory()) {
 				setErrorMessage("Log file is a directory!");
 				return false;
-			} else if (!getCurrentFilePath(textLogFile.getText().trim())
+			} else if (!getCurrentFilePath(resolvePath(textLogFile.getText().trim()))
 					.toFile().getParentFile().exists()) {
 				setErrorMessage("Log file directory does not exist!");
 				return false;
 			}
 		}
 		if (checkStoreMarkovModel.getSelection()) {
-			if (getCurrentFilePath(textMarkovModelFile.getText().trim()) == null) {
+			if (getCurrentFilePath(resolvePath(textMarkovModelFile.getText().trim())) == null) {
 				setErrorMessage("Invalid Markov model file!");
 				return false;
-			} else if (getCurrentFilePath(textMarkovModelFile.getText().trim())
+			} else if (getCurrentFilePath(resolveFile(textMarkovModelFile.getText().trim()))
 					.toFile().isDirectory()) {
 				setErrorMessage("Markov model file is a directory!");
 				return false;
-			} else if (!getCurrentFilePath(textMarkovModelFile.getText().trim())
+			} else if (!getCurrentFilePath(resolvePath(textMarkovModelFile.getText().trim()))
 					.toFile().getParentFile().exists()) {
 				setErrorMessage("Markov model file directory does not exist!");
 				return false;
 			}
 		}
+		if (checkSaveResultsToFile.getSelection()) {
+			if (getCurrentFilePath(resolvePath(textSaveResultsToFile.getText().trim())) == null) {
+				setErrorMessage("Invalid results file!");
+				return false;
+			} else if (getCurrentFilePath(resolveFile(textSaveResultsToFile.getText().trim()))
+					.toFile().isDirectory()) {
+				setErrorMessage("Results file is a directory!");
+				return false;
+			} else if (!getCurrentFilePath(resolvePath(textSaveResultsToFile.getText().trim()))
+					.toFile().getParentFile().exists()) {
+				setErrorMessage("Results file directory does not exist!");
+				return false;
+			}
+		}
+
 		setErrorMessage(null); // will clear any error messages shown
 		return true;
 	}
@@ -978,6 +1220,11 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 			configuration.setAttribute(MessageStrings.MARKOV_EVALUATION_MODE,
 					MarkovEvaluationType.POINTSOFFAILURE.toString());
 		}
+
+		configuration.setAttribute(MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED,
+				checkSaveResultsToFile.getSelection());
+		configuration.setAttribute(MessageStrings.SAVE_FILE_DEFAULT,
+				textSaveResultsToFile.getText().trim());
 	}
 
 	/*
@@ -1108,5 +1355,8 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 				.getSelection());
 		buttonFileSystemFileDialogModelFile.setEnabled(checkStoreMarkovModel
 				.getSelection());
+		textSaveResultsToFile.setEnabled(checkSaveResultsToFile.getSelection());
+		buttonWorkspaceFileDialogSaveToFile.setEnabled(checkSaveResultsToFile.getSelection());
+		buttonFileSystemFileDialogSaveToFile.setEnabled(checkSaveResultsToFile.getSelection());
 	}
 }

@@ -93,6 +93,12 @@ public class PCMSolverReliabilityConfigurationBasedConfigBuilder extends
 		config
 				.setMarkovEvaluationMode(hasAttribute(MessageStrings.MARKOV_EVALUATION_MODE) ? getStringAttribute(MessageStrings.MARKOV_EVALUATION_MODE)
 						: MarkovEvaluationType.POINTSOFFAILURE.toString());	// POINTSOFFAILURE will be default evaluation mode if attribute cannot be found
+		config
+				.setSaveResultsToFileEnabled(hasAttribute(MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED) ? getBooleanAttribute(MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED)
+						: true);
+		config
+				.setSaveFile(hasAttribute(MessageStrings.SAVE_FILE_DEFAULT) ? getStringAttribute(MessageStrings.SAVE_FILE_DEFAULT)
+						: null);
 	}
 
 }

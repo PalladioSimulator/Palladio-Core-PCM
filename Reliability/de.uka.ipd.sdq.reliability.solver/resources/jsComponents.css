@@ -1,0 +1,62 @@
+/*
+    Copyright 2006 Dr. Detlef Groth, Schwielowsee, Germany.
+     License: http://creativecommons.org/licenses/LGPL/2.1/
+     System        : JSCOMPONENTS_JS : 
+     Object Name   : $RCS_FILE$
+     Revision      : $REVISION$
+     Date          : Fri Nov 10 15:34:53 2006
+     Created By    : Dr. Detlef Groth, Schwielowsee, Germany
+     Created       : Fri Nov 10 15:34:53 2006
+
+     Last Modified : <061118.1045>
+     ID            : $Id$
+     Source        : $Source$
+     Description	
+     Notes
+
+  */
+  
+/* Modified by Daniel Patejdl, 11th and 15th of November, 2011. */
+
+div.JSTableSort table th {
+padding: 5px;
+padding-left: 14px;
+padding-right: 14px;
+background-color: #ccc ;
+}
+div.JSTableSort table th.SortNumber, div.JSTableSort table th.SortString {
+cursor: pointer ;
+}
+
+
+div.JSTableSort table th.SortAsc {
+background-color: #eef ;
+/*background-image: url(up.gif);*/
+background-repeat : no-repeat;
+cursor: pointer ;
+
+}
+div.JSTableSort table th.SortDesc {
+background-color: #efe;
+/*background-image: url(down.gif);*/
+background-repeat : no-repeat;
+cursor: pointer ;
+}
+div.JSTableStripe table tr.even td {
+background-color: #eff;
+}
+div.JSTableStripe table th {
+background-color: #ccc;
+}
+div.JSTableStripe table {
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 5px;
+    border-collapse: collapse ;
+}
+div.JSTableStripe table td, th {
+    padding: 5px;
+    border-top: solid;
+    border-left: solid;
+    border-width: 1px;
+}

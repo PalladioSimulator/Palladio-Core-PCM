@@ -1,13 +1,8 @@
 package de.uka.ipd.sdq.reliability.solver.visualisation;
 
-import java.util.List;
-
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
-
-import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
-import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
 
 /**
  * Class that is responsible for displaying Markov transformation results
@@ -19,38 +14,24 @@ import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
 public class MarkovResultEditorInput implements IEditorInput {
 
 	/**
-	 * The Markov transformation results (one result object for
-	 * each PCM UsageScenario).
+	 * HTML code represented as string.
 	 */
-	private List<MarkovTransformationResult> markovResults;
-	
-	/**
-	 * Configuration properties for the reliability solver workflow.
-	 */
-	private PCMSolverWorkflowRunConfiguration configuration;
+	private String htmlCode;
 
 	/**
-	 * Gets the Markov transformation results.
-	 * @return the Markov transformation results
+	 * Gets the HTML code as string.
+	 * @return the HTML code as string
 	 */
-	public List<MarkovTransformationResult> getMarkovResults() {
-		return markovResults;
+	public String getHtmlCode() {
+		return htmlCode;
 	}
 
 	/**
-	 * Sets the Markov transformation results.
-	 * @param markovResults the Markov transformation results
+	 * Sets the HTML code (string)
+	 * @param htmlCode the HTML code as string
 	 */
-	public void setMarkovResults(List<MarkovTransformationResult> markovResults) {
-		this.markovResults = markovResults;
-	}
-
-	/**
-	 * Gets the configuration properties for the reliability solver workflow
-	 * @return the configuration properties
-	 */
-	public PCMSolverWorkflowRunConfiguration getConfiguration() {
-		return configuration;
+	public void setHtmlCode(String htmlCode) {
+		this.htmlCode = htmlCode;
 	}
 
 	/**
@@ -58,10 +39,8 @@ public class MarkovResultEditorInput implements IEditorInput {
 	 * @param markovResults the Markov transformation results
 	 * @param configuration the configuration properties for the reliability solver workflow
 	 */
-	public MarkovResultEditorInput(
-			List<MarkovTransformationResult> markovResults, PCMSolverWorkflowRunConfiguration configuration) {
-		this.markovResults = markovResults;
-		this.configuration = configuration;
+	public MarkovResultEditorInput(String htmlCode) {
+		this.htmlCode = htmlCode;
 	}
 
 	@Override

@@ -60,5 +60,8 @@ public class MessageStrings {
 
 	public static final String MARKOV_EVALUATION_MODE = "markovEvaluationMode";
 	public static final String INFINITE_TASK_MULTIPLICITY = "infiniteTaskMultiplicity";
+	
+	public static final String SAVE_RESULTS_TO_FILE_ENABLED = "saveResultsToFileEnabled";
+	public static final String SAVE_FILE_DEFAULT = "saveFileDefault";
 
 }

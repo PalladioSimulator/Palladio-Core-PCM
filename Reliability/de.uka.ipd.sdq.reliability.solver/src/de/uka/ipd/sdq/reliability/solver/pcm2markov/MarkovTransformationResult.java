@@ -4,11 +4,13 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.eclipse.core.runtime.FileLocator;
 
 import de.uka.ipd.sdq.markov.MarkovChain;
 import de.uka.ipd.sdq.markov.State;
@@ -177,6 +179,27 @@ public class MarkovTransformationResult {
 	}
 
 	/**
+	 * Resolves a file's path in case it starts with "platform:/" and returns the entire
+	 * absolute path to the file, including the file's name.
+	 * 
+	 * @param fileURL the path to a file, including the file's name (and its extension)
+	 * @return the absolute path to the file, including the file's name
+	 */
+	private String resolveFile(String fileURL) {
+		// if this is a platform URL, first resolve it to an absolute path
+		if (fileURL.startsWith("platform:")){
+			try {
+				URL solvedURL = FileLocator.resolve(new URL(fileURL));
+				fileURL = solvedURL.getPath();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "";
+			}
+		}
+		return fileURL;
+	}
+
+	/**
 	 * Adds the results of the evaluation of a single physical system state
 	 * during the PCM2Markov transformation.
 	 * 
@@ -260,9 +283,10 @@ public class MarkovTransformationResult {
 		if (configuration.isPrintMarkovSingleResults()) {
 			// yes - write output to log file
 			BufferedWriter out = null;
+			String filePath = resolveFile(configuration.getLogFile());
 			try {
 				if (physicalStateEvaluationCount == 1) {
-					File f = new File(configuration.getLogFile());
+					File f = new File(filePath);
 					// if the file exists, we will delete it and create a new,
 					// empty one
 					// (i.e., overwrite the existing file) once, and then
@@ -276,14 +300,13 @@ public class MarkovTransformationResult {
 							.getLogFile(), true));
 					logger
 							.info("Logging results of all Markov transformation runs to: "
-									+ configuration.getLogFile());
+									+ filePath);
 					out.append(getLogHeadings()
 							+ System.getProperty("line.separator"));
 					out.flush();
 					out.close();
 				}
-				out = new BufferedWriter(new FileWriter(configuration
-						.getLogFile(), true));
+				out = new BufferedWriter(new FileWriter(filePath, true));
 				out.append(getLogSingleResults(successProbability,
 						physicalStateProbability)
 						+ System.getProperty("line.separator"));
