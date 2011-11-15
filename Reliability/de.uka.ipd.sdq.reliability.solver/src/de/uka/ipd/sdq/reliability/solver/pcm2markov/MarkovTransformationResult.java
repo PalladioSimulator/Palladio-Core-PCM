@@ -91,10 +91,10 @@ public class MarkovTransformationResult {
 	 * The list of potential failure types.
 	 */
 	private List<MarkovFailureType> failureTypes;
-	
+
 	/**
-	 * Indicates if an approximation scheme shall be used for
-	 * printing of probabilities.
+	 * Indicates if an approximation scheme shall be used for printing of
+	 * probabilities.
 	 */
 	private boolean approximate;
 
@@ -129,8 +129,9 @@ public class MarkovTransformationResult {
 	}
 
 	/**
-	 * Gets the overall failure type probabilities, accumulated over all considered
-	 * physical system states.
+	 * Gets the overall failure type probabilities, accumulated over all
+	 * considered physical system states.
+	 * 
 	 * @return the overall failure type probabilities
 	 */
 	public Map<MarkovFailureType, Double> getCumulatedFailureTypeProbabilities() {
@@ -138,8 +139,9 @@ public class MarkovTransformationResult {
 	}
 
 	/**
-	 * Gets the overall physical state probability, accumulated over all considered
-	 * physical system states.
+	 * Gets the overall physical state probability, accumulated over all
+	 * considered physical system states.
+	 * 
 	 * @return the overall physical state probability
 	 */
 	public double getCumulatedPhysicalStateProbability() {
@@ -148,6 +150,7 @@ public class MarkovTransformationResult {
 
 	/**
 	 * Gets the usage scenario which has been evaluated
+	 * 
 	 * @return the usage scenario
 	 */
 	public UsageScenario getScenario() {
@@ -155,24 +158,26 @@ public class MarkovTransformationResult {
 	}
 
 	/**
-	 * Indicates if an approximation scheme shall be used for
-	 * printing of probabilities.
+	 * Indicates if an approximation scheme shall be used for printing of
+	 * probabilities.
+	 * 
 	 * @return <code>true</code>, if an approximation scheme shall be used for
-	 * printing probabilities, <code>false</code> otherwise.
+	 *         printing probabilities, <code>false</code> otherwise.
 	 */
 	public boolean isDoApproximate() {
-		return (configuration
-				.isIterationOverPhysicalSystemStatesEnabled())
+		return (configuration.isIterationOverPhysicalSystemStatesEnabled())
 				&& approximate
 				&& (physicalStateEvaluationCount < Math.pow(markovSource
 						.getUnreliableResourceDescriptors().size(), 2));
 	}
 
 	/**
-	 * Method for setting a value responsible for telling if an approximation scheme
-	 * shall be used for printing probabilities.
-	 * @param approximate the value indicating if an approximation scheme shall be
-	 * used for printing probabilities
+	 * Method for setting a value responsible for telling if an approximation
+	 * scheme shall be used for printing probabilities.
+	 * 
+	 * @param approximate
+	 *            the value indicating if an approximation scheme shall be used
+	 *            for printing probabilities
 	 */
 	public void setApproximate(boolean approximate) {
 		this.approximate = approximate;
@@ -238,8 +243,16 @@ public class MarkovTransformationResult {
 		// Check plausibility of Markov probabilities:
 		double successProbability = markovProbabilityMatrix[indexStart][indexSuccess];
 		if (successProbability < 0.0 || successProbability > 1.0) {
-			throw new MarkovException("Illegal success probability ("
-					+ successProbability + "). The value must be in [0,1].");
+			// It should never happen that the success probability is outside [0,1].
+			// The only feasible explanation is a rounding error (which has been
+			// observed for certain sample PCM instances):
+			double correctedSuccessProbability = (successProbability < 0.5) ? 0.0
+					: 1.0;
+			logger.warn("Illegal success probability " + successProbability
+					+ " outside [0,1]. Assuming a rounding error. "
+					+ "Setting success probability to "
+					+ correctedSuccessProbability);
+			successProbability = correctedSuccessProbability;
 		}
 
 		// Accumulate results:
@@ -269,8 +282,9 @@ public class MarkovTransformationResult {
 			String failureTypeId = markovBuilder.getFailureTypeId(failureStates
 					.get(i));
 			MarkovFailureType failureType = getFailureType(failureTypeId);
-			
-			Double failureProbability = cumulatedFailureTypeProbabilities.get(failureType);
+
+			Double failureProbability = cumulatedFailureTypeProbabilities
+					.get(failureType);
 			cumulatedFailureTypeProbabilities.put(failureType,
 					((failureProbability == null) ? 0.0 : failureProbability)
 							+ failureTypeProbabilityDelta);
@@ -380,12 +394,12 @@ public class MarkovTransformationResult {
 	 * @return true if the required accuracy has been reached
 	 */
 	public boolean hasRequiredAccuracy(final int requiredAccuracy) {
-	
+
 		// Create an approximation for the accumulated success probability:
 		MarkovResultApproximation approximation = new MarkovResultApproximation(
 				cumulatedSuccessProbability, cumulatedSuccessProbability
 						+ (1.0 - cumulatedPhysicalStateProbability));
-	
+
 		// Check for the required accuracy:
 		return approximation.hasRequiredAccuracy(requiredAccuracy);
 	}
