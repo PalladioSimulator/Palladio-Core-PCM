@@ -406,10 +406,10 @@ public class MarkovReporting {
 		TreeSet<MarkovFailureType> failureTypesSorted = getFailureTypesSorted(cumulatedFailureTypeProbabilities);
 		for (MarkovFailureType failureType : failureTypesSorted) {
 			double failureProbability = getFailureTypeProbability(failureType, cumulatedFailureTypeProbabilities);
+			if (!(failureProbability > 0.0)) {
+				continue;
+			}
 			if (failureType.isSystemExternal()) {	// external
-				if (!(failureProbability > 0.0)) {
-					continue;
-				}
 				if (failureType instanceof MarkovSoftwareInducedFailureType) {
 					MarkovSoftwareInducedFailureType softwareInducedFailureType = (MarkovSoftwareInducedFailureType) failureType;
 
