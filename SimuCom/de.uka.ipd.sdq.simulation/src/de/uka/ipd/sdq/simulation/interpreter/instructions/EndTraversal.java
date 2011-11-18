@@ -14,17 +14,19 @@ import de.uka.ipd.sdq.simulation.interpreter.state.AbstractInterpreterState;
  * 
  * @param <A>
  *            the least common parent type of all actions that are intended to be traversed
+ * @param <S>
+ *            TODO
  */
-public abstract class EndTraversal<A extends Entity, F extends AbstractInterpreterState<A>> implements
-        ITraversalInstruction<A, F> {
+public abstract class EndTraversal<A extends Entity, S extends AbstractInterpreterState<A>> implements
+        ITraversalInstruction<A, S> {
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public A process(final F scope) {
-        scope.enqueueFinishedAction(scope.getCurrentPosition());
-        scope.setCurrentPosition(null);
+    public A process(final S state) {
+        state.enqueueFinishedAction(state.getCurrentPosition());
+        state.setCurrentPosition(null);
         return null;
     }
 

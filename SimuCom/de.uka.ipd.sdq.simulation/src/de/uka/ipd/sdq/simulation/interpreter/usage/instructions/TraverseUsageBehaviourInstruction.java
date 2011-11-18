@@ -10,6 +10,9 @@ import de.uka.ipd.sdq.simulation.interpreter.state.UserState;
 import de.uka.ipd.sdq.simulation.interpreter.usage.IUsageTraversalInstruction;
 
 /**
+ * TODO: adjust javadoc since the term scope is slightly outdated and should be better denoted by
+ * the level of traversal hierarchy.
+ * 
  * Use this instruction to continue the traversal with a specified {@link ScenarioBehaviour}. This
  * opens a new scope on the {@link TraversalStateStack}. As soon as the specified behaviour has been
  * traversed completely, the previous scope is restored.
@@ -45,14 +48,14 @@ public class TraverseUsageBehaviourInstruction implements ITraversalInstruction<
      * {@inheritDoc}
      */
     @Override
-    public AbstractUserAction process(final UserState scope) {
-        scope.setPreviousPosition(scope.getCurrentPosition());
-        scope.setCurrentPosition(this.actionAfterCompletion);
+    public AbstractUserAction process(final UserState state) {
+        state.setPreviousPosition(state.getCurrentPosition());
+        state.setCurrentPosition(this.actionAfterCompletion);
 
-        scope.pushStackFrame();
+        state.pushStackFrame();
 
         final Start start = this.model.execute(new FindActionInUsageBehaviour<Start>(this.behaviour, Start.class));
-        scope.setCurrentPosition(start);
+        state.setCurrentPosition(start);
         return start;
     }
 

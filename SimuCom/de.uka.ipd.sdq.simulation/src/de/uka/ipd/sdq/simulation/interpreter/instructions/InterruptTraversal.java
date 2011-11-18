@@ -21,8 +21,8 @@ import de.uka.ipd.sdq.simulation.interpreter.state.AbstractInterpreterState;
  * @see ResumeSeffTraversalEvent
  * @see SeffBehaviourInterpreter#resumeTraversal()
  */
-public abstract class InterruptTraversal<A extends Entity, F extends AbstractInterpreterState<A>> implements
-        ITraversalInstruction<A, F> {
+public abstract class InterruptTraversal<A extends Entity, S extends AbstractInterpreterState<A>> implements
+        ITraversalInstruction<A, S> {
 
     private final A resumeAction;
 
@@ -40,10 +40,10 @@ public abstract class InterruptTraversal<A extends Entity, F extends AbstractInt
      * {@inheritDoc}
      */
     @Override
-    public A process(final F scope) {
-        scope.setPreviousPosition(scope.getCurrentPosition());
-        scope.enqueueFinishedAction(scope.getCurrentPosition());
-        scope.setCurrentPosition(this.resumeAction);
+    public A process(final S state) {
+        state.setPreviousPosition(state.getCurrentPosition());
+        state.enqueueFinishedAction(state.getCurrentPosition());
+        state.setCurrentPosition(this.resumeAction);
         return null;
     }
 

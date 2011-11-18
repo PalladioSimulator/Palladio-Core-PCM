@@ -11,6 +11,9 @@ import de.uka.ipd.sdq.simulation.interpreter.state.RequestState;
 import de.uka.ipd.sdq.simulation.staticstructure.ComponentInstance;
 
 /**
+ *  TODO: adjust javadoc since the term scope is slightly outdated and should be better denoted by
+ * the level of traversal hierarchy.
+ * 
  * Use this instruction to continue the traversal with a specified
  * {@link ResourceDemandingBehaviour}. This opens a new scope on the {@link TraversalStateStack}. As
  * soon as the specified behaviour has been traversed completely, the previous scope is restored.
@@ -50,16 +53,16 @@ public class TraverseComponentBehaviourInstruction implements
      * {@inheritDoc}
      */
     @Override
-    public AbstractAction process(RequestState scope) {
-        scope.setPreviousPosition(scope.getCurrentPosition());
-        scope.setCurrentPosition(this.actionAfterCompletion);
+    public AbstractAction process(RequestState state) {
+        state.setPreviousPosition(state.getCurrentPosition());
+        state.setCurrentPosition(this.actionAfterCompletion);
 
         final StartAction startAction = this.model.execute(new FindActionInResourceDemandingBehaviour<StartAction>(
                 this.behaviour, StartAction.class));
 
-        scope.pushStackFrame();
-        scope.setCurrentPosition(startAction);
-        scope.setComponent(this.component);
+        state.pushStackFrame();
+        state.setCurrentPosition(startAction);
+        state.setComponent(this.component);
 
         return startAction;
     }

@@ -12,8 +12,8 @@ import de.uka.ipd.sdq.simulation.interpreter.state.AbstractInterpreterState;
  * @param <A>
  *            the least common parent type of all actions that are intended to be traversed
  */
-public abstract class TraverseNextAction<A extends Entity, F extends AbstractInterpreterState<A>> implements
-        ITraversalInstruction<A, F> {
+public abstract class TraverseNextAction<A extends Entity, S extends AbstractInterpreterState<A>> implements
+        ITraversalInstruction<A, S> {
 
     private final A nextAction;
 
@@ -31,10 +31,10 @@ public abstract class TraverseNextAction<A extends Entity, F extends AbstractInt
      * {@inheritDoc}
      */
     @Override
-    public A process(final F scope) {
-        scope.enqueueFinishedAction(scope.getCurrentPosition());
-        scope.setPreviousPosition(scope.getCurrentPosition());
-        scope.setCurrentPosition(this.nextAction);
+    public A process(final S state) {
+        state.enqueueFinishedAction(state.getCurrentPosition());
+        state.setPreviousPosition(state.getCurrentPosition());
+        state.setCurrentPosition(this.nextAction);
         return this.nextAction;
     }
 

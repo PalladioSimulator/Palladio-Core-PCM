@@ -5,6 +5,9 @@ import de.uka.ipd.sdq.simulation.interpreter.ITraversalInstruction;
 import de.uka.ipd.sdq.simulation.interpreter.state.AbstractInterpreterState;
 
 /**
+ * TODO: adjust javadoc since the term scope is slightly outdated and should be better denoted by
+ * the level of traversal hierarchy.
+ * 
  * Use this instruction to leave the current scope of the traversal state's stack. Leaving the
  * current scope means to remove the stack frame from the top of the stack. The stack frame below
  * becomes visible and is used for subsequent traversal procedure.
@@ -14,21 +17,21 @@ import de.uka.ipd.sdq.simulation.interpreter.state.AbstractInterpreterState;
  * @param <A>
  *            the least common parent type of all actions that are intended to be traversed
  */
-public abstract class TraverseAfterLeavingScope<A extends Entity, F extends AbstractInterpreterState<A>> implements
-        ITraversalInstruction<A, F> {
+public abstract class TraverseAfterLeavingScope<A extends Entity, S extends AbstractInterpreterState<A>> implements
+        ITraversalInstruction<A, S> {
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public A process(final F scope) {
-        final A currentPositionInLeftScope = scope.getCurrentPosition();
-        scope.popStackFrame();
+    public A process(final S state) {
+        final A currentPositionInLeftScope = state.getCurrentPosition();
+        state.popStackFrame();
 
-        if (scope.isEmpty()) {
-            scope.enqueueFinishedAction(currentPositionInLeftScope);
-            scope.enqueueFinishedAction(scope.getPreviousPosition());
-            return scope.getCurrentPosition();
+        if (state.isEmpty()) {
+            state.enqueueFinishedAction(currentPositionInLeftScope);
+            state.enqueueFinishedAction(state.getPreviousPosition());
+            return state.getCurrentPosition();
         } else {
             throw new RuntimeException("Tried to continue the traversal after leaving the current scope, but there "
                     + "is no outer scope. Consider to return a " + EndTraversal.class.getName()
