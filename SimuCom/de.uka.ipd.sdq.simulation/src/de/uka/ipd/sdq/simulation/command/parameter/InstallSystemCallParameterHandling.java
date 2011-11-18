@@ -15,8 +15,8 @@ import de.uka.ipd.sdq.simulation.command.IPCMCommand;
 import de.uka.ipd.sdq.simulation.command.usage.FindSystemCallsOfScenario;
 import de.uka.ipd.sdq.simulation.entities.User;
 import de.uka.ipd.sdq.simulation.traversal.listener.IUsageTraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviorTraversal;
+import de.uka.ipd.sdq.simulation.traversal.state.UserState;
+import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
 import de.uka.ipd.sdq.simulation.util.ParameterHelper;
 
 /**
@@ -44,13 +44,13 @@ public class InstallSystemCallParameterHandling implements IPCMCommand<Void> {
         if (systemCalls != null) {
             for (final EntryLevelSystemCall c : systemCalls) {
                 // install a listener which handles the parameter passing
-                UsageBehaviorTraversal.addTraversalListener(c, new SystemCallTraversalListener());
+                UsageBehaviourInterpreter.addTraversalListener(c, new SystemCallTraversalListener());
             }
         }
         // the listeners are mounted; we don't need to return anything.
         return null;
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -62,7 +62,7 @@ public class InstallSystemCallParameterHandling implements IPCMCommand<Void> {
     private class SystemCallTraversalListener implements IUsageTraversalListener {
 
         @Override
-        public void before(final AbstractUserAction action, final User who, TraversalState<AbstractUserAction> state) {
+        public void before(final AbstractUserAction action, final User who, UserState state) {
             final EntryLevelSystemCall call = (EntryLevelSystemCall) action;
             final StackContext ctx = state.getStoExContext();
 
@@ -78,7 +78,7 @@ public class InstallSystemCallParameterHandling implements IPCMCommand<Void> {
         }
 
         @Override
-        public void after(final AbstractUserAction action, final User who, TraversalState<AbstractUserAction> state) {
+        public void after(final AbstractUserAction action, final User who, UserState state) {
             final EntryLevelSystemCall call = (EntryLevelSystemCall) action;
             final StackContext ctx = state.getStoExContext();
 

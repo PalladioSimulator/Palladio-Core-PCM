@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.simulation.traversal.usage;
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.simulation.entities.User;
 import de.uka.ipd.sdq.simulation.traversal.ITraversalStrategy;
+import de.uka.ipd.sdq.simulation.traversal.state.UserState;
 
 /**
  * Use this interface for traversal strategies containing the simulation logic for usage actions,
@@ -16,7 +17,7 @@ import de.uka.ipd.sdq.simulation.traversal.ITraversalStrategy;
  * @see ITraversalStrategy
  */
 public interface IUsageTraversalStrategy<T extends AbstractUserAction> extends
-        ITraversalStrategy<AbstractUserAction, T, User> {
+        ITraversalStrategy<AbstractUserAction, T, User, UserState> {
 
     // The sole purpose of this interface is to define the type parameters
     // of a usage traversal strategy. Thus, no additional signatures are declared.

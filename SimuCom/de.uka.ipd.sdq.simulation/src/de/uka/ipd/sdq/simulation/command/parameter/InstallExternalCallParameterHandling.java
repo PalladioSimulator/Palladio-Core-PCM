@@ -6,7 +6,6 @@ import java.util.List;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
@@ -19,8 +18,8 @@ import de.uka.ipd.sdq.simulation.command.seff.FindSeffsForAssemblyContext;
 import de.uka.ipd.sdq.simulation.entities.Request;
 import de.uka.ipd.sdq.simulation.staticstructure.ComponentInstance;
 import de.uka.ipd.sdq.simulation.traversal.listener.AbstractExternalCallListener;
-import de.uka.ipd.sdq.simulation.traversal.seff.SeffTraversal;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.seff.SeffBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
 import de.uka.ipd.sdq.simulation.util.ParameterHelper;
 
 /**
@@ -49,7 +48,7 @@ public class InstallExternalCallParameterHandling implements IPCMCommand<Void> {
         }
         if (externalCalls != null) {
             for (final ExternalCallAction c : externalCalls) {
-                SeffTraversal.addTraversalListener(c, new ExternalCallTraversalListener());
+                SeffBehaviourInterpreter.addTraversalListener(c, new ExternalCallTraversalListener());
             }
         }
         // the listeners are mounted; we don't need to return anything.
@@ -68,7 +67,7 @@ public class InstallExternalCallParameterHandling implements IPCMCommand<Void> {
 
         @Override
         public void before(final ExternalCallAction call, final Request who,
-                final ComponentInstance callingComponent, TraversalState<AbstractAction> state) {
+                final ComponentInstance callingComponent, RequestState state) {
             final StackContext ctx = state.getStoExContext();
 
             // find the component which provides the required call
@@ -91,7 +90,7 @@ public class InstallExternalCallParameterHandling implements IPCMCommand<Void> {
 
         @Override
         public void after(final ExternalCallAction call, final Request who,
-                final ComponentInstance callingComponent, TraversalState<AbstractAction> state) {
+                final ComponentInstance callingComponent, RequestState state) {
             final StackContext ctx = state.getStoExContext();
 
             // get a reference on the current stack frame which is being removed soon

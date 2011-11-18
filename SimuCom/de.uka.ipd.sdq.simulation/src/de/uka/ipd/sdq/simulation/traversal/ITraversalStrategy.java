@@ -2,14 +2,14 @@ package de.uka.ipd.sdq.simulation.traversal;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.simulation.entities.EventSimEntity;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.state.AbstractInterpreterState;
 
 /**
  * A traversal strategy contains the simulation logic for a specific action type. Whenever the
- * {@link BehaviourTraversal} encounters an action of this specific type, it delegates the execution
+ * {@link BehaviourInterpreter} encounters an action of this specific type, it delegates the execution
  * to the suitable traversal strategy. The strategy then handles the action by simulating the effect
  * on the system under simulation. When finished, the traversal strategy returns the execution to
- * the {@link BehaviourTraversal} together with an instruction on how to proceed the traversal.
+ * the {@link BehaviourInterpreter} together with an instruction on how to proceed the traversal.
  * 
  * @author Philipp Merkle
  * 
@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
  * @param <E>
  *            the type of the entity that initiates the traversal
  */
-public interface ITraversalStrategy<A extends Entity, T extends A, E extends EventSimEntity> {
+public interface ITraversalStrategy<A extends Entity, T extends A, E extends EventSimEntity, F extends AbstractInterpreterState<A>> {
 
     /**
      * Executes the simulation logic associated with the specified action. When finished, an
@@ -34,6 +34,6 @@ public interface ITraversalStrategy<A extends Entity, T extends A, E extends Eve
      *            the traversal state
      * @return the instruction on how to proceed the traversal
      */
-    public ITraversalInstruction<A> traverse(T action, E entity, TraversalState<A> state);
+    public ITraversalInstruction<A, F> traverse(T action, E entity, F scope);
 
 }

@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.simulation.traversal.seff;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.simulation.entities.Request;
 import de.uka.ipd.sdq.simulation.traversal.ITraversalStrategy;
+import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
 
 /**
  * Use this interface for traversal strategies containing the simulation logic for SEFF actions,
@@ -16,9 +17,9 @@ import de.uka.ipd.sdq.simulation.traversal.ITraversalStrategy;
  * @see ITraversalStrategy
  */
 public interface ISeffTraversalStrategy<T extends AbstractAction> extends
-        ITraversalStrategy<AbstractAction, T, Request> {
+        ITraversalStrategy<AbstractAction, T, Request, RequestState> {
 
     // The sole purpose of this interface is to define the type parameters
     // of a SEFF traversal strategy. Thus, no additional signatures are declared.
-
+    
 }

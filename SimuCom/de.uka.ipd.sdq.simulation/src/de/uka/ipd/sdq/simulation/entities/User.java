@@ -28,9 +28,6 @@ public class User extends EventSimEntity {
      * Specification.
      */
     private final RequestContext requestContext;
-    
-    private int runningForks;
-    private ForksFinishedCallback forksFinishedCallback;
 
     /**
      * Constructs a new User that is supposed to traverse the specified usage scenario.
@@ -71,27 +68,5 @@ public class User extends EventSimEntity {
     public RequestContext getRequestContext() {
         return this.requestContext;
     }
-    
-    public boolean hasRunningForks() {
-        return this.runningForks > 0;
-    }
-    
-    public void incrementRunningForks() {
-        this.runningForks++;
-    }
 
-    public void decrementRunningForks() {
-        this.runningForks--;
-    }
-    
-    public void registerForksFinishedCallback(ForksFinishedCallback callback) {
-        this.forksFinishedCallback = callback;
-    }
-    
-    public interface ForksFinishedCallback {
-        
-        public void forksFinished();
-        
-    }
-    
 }

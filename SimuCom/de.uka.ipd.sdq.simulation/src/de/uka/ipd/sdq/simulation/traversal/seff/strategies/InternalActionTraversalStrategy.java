@@ -5,7 +5,6 @@ import java.util.Queue;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
@@ -13,17 +12,17 @@ import de.uka.ipd.sdq.simulation.entities.Request;
 import de.uka.ipd.sdq.simulation.entities.SimActiveResource;
 import de.uka.ipd.sdq.simulation.events.ResumeSeffTraversalEvent;
 import de.uka.ipd.sdq.simulation.staticstructure.SimulatedResourceContainer;
-import de.uka.ipd.sdq.simulation.traversal.ITraversalInstruction;
-import de.uka.ipd.sdq.simulation.traversal.instructions.InterruptTraversal;
+import de.uka.ipd.sdq.simulation.traversal.seff.IRequestTraversalInstruction;
 import de.uka.ipd.sdq.simulation.traversal.seff.ISeffTraversalStrategy;
+import de.uka.ipd.sdq.simulation.traversal.seff.instructions.RequestTraversalInstructionFactory;
 import de.uka.ipd.sdq.simulation.traversal.state.ITraversalStrategyState;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
 
 /**
  * This traversal strategy is responsible for {@link InternalAction}s.
  * 
  * @author Philipp Merkle
- *
+ * 
  */
 public class InternalActionTraversalStrategy implements ISeffTraversalStrategy<InternalAction> {
 
@@ -31,11 +30,10 @@ public class InternalActionTraversalStrategy implements ISeffTraversalStrategy<I
      * {@inheritDoc}
      */
     @Override
-    public ITraversalInstruction<AbstractAction> traverse(final InternalAction action, final Request request,
-            final TraversalState<AbstractAction> state) {
+    public IRequestTraversalInstruction traverse(final InternalAction action, final Request request,
+            final RequestState state) {
         // restore or create state
-        InternalActionTraversalState internalState = (InternalActionTraversalState) state.getStack().currentScope()
-                .getInternalState(action);
+        InternalActionTraversalState internalState = (InternalActionTraversalState) state.getInternalState(action);
         if (internalState == null) {
             internalState = this.initialiseState(request, action, state);
         }
@@ -47,8 +45,7 @@ public class InternalActionTraversalStrategy implements ISeffTraversalStrategy<I
         final double demand = NumberConverter.toDouble(state.getStoExContext().evaluate(
                 demandSpecification.getSpecification()));
 
-        final SimulatedResourceContainer resourceContainer = state.getStack().currentScope().getComponent()
-                .getResourceContainer();
+        final SimulatedResourceContainer resourceContainer = state.getComponent().getResourceContainer();
         final SimActiveResource resource = resourceContainer.getResourceByType(resourceType);
         if (resource == null) {
             throw new RuntimeException("Could not find a resource of type " + resourceType.getEntityName());
@@ -58,25 +55,25 @@ public class InternalActionTraversalStrategy implements ISeffTraversalStrategy<I
 
         if (internalState.hasPendingDemands()) {
             request.passivate(new ResumeSeffTraversalEvent(request.getModel(), state));
-            return new InterruptTraversal<AbstractAction>(action);
+            return RequestTraversalInstructionFactory.interruptTraversal(action);
         } else {
             request.passivate(new ResumeSeffTraversalEvent(request.getModel(), state));
-            return new InterruptTraversal<AbstractAction>(action.getSuccessor_AbstractAction());
+            return RequestTraversalInstructionFactory.interruptTraversal(action.getSuccessor_AbstractAction());
         }
 
     }
 
     private InternalActionTraversalState initialiseState(final Request request, final InternalAction action,
-            final TraversalState<AbstractAction> context) {
+            final RequestState state) {
         // create and set state
-        final InternalActionTraversalState state = new InternalActionTraversalState();
+        final InternalActionTraversalState internalState = new InternalActionTraversalState();
         for (final ParametricResourceDemand d : action.getResourceDemand_Action()) {
-            state.enqueueDemand(d);
+            internalState.enqueueDemand(d);
         }
 
-        context.getStack().currentScope().addInternalState(action, state);
+        state.addInternalState(action, internalState);
 
-        return state;
+        return internalState;
     }
 
     private class InternalActionTraversalState implements ITraversalStrategyState {

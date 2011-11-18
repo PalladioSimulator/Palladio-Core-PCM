@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simulation.traversal.instructions;
+package de.uka.ipd.sdq.simulation.traversal.seff.instructions;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -7,9 +7,8 @@ import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.command.seff.FindActionInResourceDemandingBehaviour;
 import de.uka.ipd.sdq.simulation.staticstructure.ComponentInstance;
 import de.uka.ipd.sdq.simulation.traversal.ITraversalInstruction;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalStackFrame;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalStateStack;
+import de.uka.ipd.sdq.simulation.traversal.seff.IRequestTraversalInstruction;
+import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
 
 /**
  * Use this instruction to continue the traversal with a specified
@@ -19,7 +18,8 @@ import de.uka.ipd.sdq.simulation.traversal.state.TraversalStateStack;
  * @author Philipp Merkle
  * 
  */
-public class TraverseResourceDemandingBehaviour implements ITraversalInstruction<AbstractAction> {
+public class TraverseComponentBehaviourInstruction implements
+        ITraversalInstruction<AbstractAction, RequestState>, IRequestTraversalInstruction {
 
     private final EventSimModel model;
     private final ComponentInstance component;
@@ -38,7 +38,7 @@ public class TraverseResourceDemandingBehaviour implements ITraversalInstruction
      * @param actionAfterCompletion
      *            the action that is to be traversed after leaving the scope
      */
-    public TraverseResourceDemandingBehaviour(final EventSimModel model, final ResourceDemandingBehaviour behaviour,
+    public TraverseComponentBehaviourInstruction(final EventSimModel model, final ResourceDemandingBehaviour behaviour,
             final ComponentInstance component, final AbstractAction actionAfterCompletion) {
         this.model = model;
         this.component = component;
@@ -50,16 +50,16 @@ public class TraverseResourceDemandingBehaviour implements ITraversalInstruction
      * {@inheritDoc}
      */
     @Override
-    public AbstractAction process(final TraversalState<AbstractAction> state) {
-        final TraversalStackFrame<AbstractAction> scope = state.getStack().currentScope();
-        scope.setPreviousPosition(state.getStack().currentScope().getCurrentPosition());
+    public AbstractAction process(RequestState scope) {
+        scope.setPreviousPosition(scope.getCurrentPosition());
         scope.setCurrentPosition(this.actionAfterCompletion);
 
         final StartAction startAction = this.model.execute(new FindActionInResourceDemandingBehaviour<StartAction>(
                 this.behaviour, StartAction.class));
-        state.getStack().enterScope(new TraversalStackFrame<AbstractAction>());
-        state.getStack().currentScope().setCurrentPosition(startAction);
-        state.getStack().currentScope().setComponent(this.component);
+
+        scope.pushStackFrame();
+        scope.setCurrentPosition(startAction);
+        scope.setComponent(this.component);
 
         return startAction;
     }

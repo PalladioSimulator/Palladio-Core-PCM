@@ -3,22 +3,20 @@ package de.uka.ipd.sdq.simulation.traversal.seff.strategies;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.simulation.entities.Request;
-import de.uka.ipd.sdq.simulation.traversal.ITraversalInstruction;
-import de.uka.ipd.sdq.simulation.traversal.instructions.TraverseNextAction;
-import de.uka.ipd.sdq.simulation.traversal.instructions.TraverseResourceDemandingBehaviour;
+import de.uka.ipd.sdq.simulation.traversal.seff.IRequestTraversalInstruction;
 import de.uka.ipd.sdq.simulation.traversal.seff.ISeffTraversalStrategy;
+import de.uka.ipd.sdq.simulation.traversal.seff.instructions.RequestTraversalInstructionFactory;
 import de.uka.ipd.sdq.simulation.traversal.state.ITraversalStrategyState;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
 
 /**
  * This traversal strategy is responsible for {@link LoopAction}s.
  * 
  * @author Philipp Merkle
- *
+ * 
  */
 public class LoopActionTraversalStrategy implements ISeffTraversalStrategy<LoopAction> {
 
@@ -28,10 +26,10 @@ public class LoopActionTraversalStrategy implements ISeffTraversalStrategy<LoopA
      * {@inheritDoc}
      */
     @Override
-    public ITraversalInstruction<AbstractAction> traverse(final LoopAction loop, final Request request,
-            final TraversalState<AbstractAction> state) {
+    public IRequestTraversalInstruction traverse(final LoopAction loop, final Request request,
+            final RequestState state) {
         // restore or create state
-        LoopActionTraversalState internalState = (LoopActionTraversalState) state.getStack().currentScope().getInternalState(loop);
+        LoopActionTraversalState internalState = (LoopActionTraversalState) state.getInternalState(loop);
         if (internalState == null) {
             internalState = this.initialiseState(request, loop, state);
         }
@@ -41,22 +39,22 @@ public class LoopActionTraversalStrategy implements ISeffTraversalStrategy<LoopA
                 logger.debug("Traversing iteration " + internalState.getCurrentIteration() + " of "
                         + internalState.getOverallIterations());
             }
-            
+
             // traverse the body behaviour
             internalState.incrementCurrentIteration();
             final ResourceDemandingBehaviour behaviour = loop.getBodyBehaviour_Loop();
-            return new TraverseResourceDemandingBehaviour(request.getModel(), behaviour, state.getStack()
-                    .currentScope().getComponent(), loop);
+            return RequestTraversalInstructionFactory.traverseResourceDemandingBehaviour(request.getModel(), behaviour,
+                    state.getComponent(), loop);
         } else {
             if (logger.isDebugEnabled()) {
                 logger.debug("Completed loop traversal");
             }
-            return new TraverseNextAction<AbstractAction>(loop.getSuccessor_AbstractAction());
+            return RequestTraversalInstructionFactory.traverseNextAction(loop.getSuccessor_AbstractAction());
         }
     }
 
     private LoopActionTraversalState initialiseState(final Request request, final LoopAction loop,
-            final TraversalState<AbstractAction> state) {
+            final RequestState state) {
         // evaluate the iteration count
         final PCMRandomVariable loopCountRandVar = loop.getIterationCount_LoopAction();
         final Integer overallIterations = state.getStoExContext().evaluate(loopCountRandVar.getSpecification(),
@@ -64,7 +62,7 @@ public class LoopActionTraversalStrategy implements ISeffTraversalStrategy<LoopA
 
         // create and set state
         final LoopActionTraversalState internalState = new LoopActionTraversalState(overallIterations);
-        state.getStack().currentScope().addInternalState(loop, internalState);
+        state.addInternalState(loop, internalState);
 
         return internalState;
     }

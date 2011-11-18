@@ -1,19 +1,15 @@
 package de.uka.ipd.sdq.simulation;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.osgi.framework.BundleContext;
 
 import umontreal.iro.lecuyer.simevents.Simulator;
-
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.probespec.framework.BlackboardFactory;
 import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
@@ -23,14 +19,8 @@ import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageC
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
-import de.uka.ipd.sdq.simucomframework.DiscardInvalidMeasurementsBlackboardDecorator;
 import de.uka.ipd.sdq.simucomframework.ISimulationListener;
-import de.uka.ipd.sdq.simucomframework.SimuComGarbageCollector;
-import de.uka.ipd.sdq.simucomframework.calculator.SetupPipesAndFiltersStrategy;
-import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import de.uka.ipd.sdq.simucomframework.probes.SimuComProbeStrategyRegistry;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
-import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.PCMStoExEvaluationVisitor;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
@@ -67,8 +57,8 @@ import de.uka.ipd.sdq.simulation.staticstructure.SimulatedResourceEnvironment;
 import de.uka.ipd.sdq.simulation.staticstructure.commands.BuildAndRegisterPassiveResources;
 import de.uka.ipd.sdq.simulation.staticstructure.commands.BuildResourceAllocation;
 import de.uka.ipd.sdq.simulation.staticstructure.commands.BuildSimulatedResourceEnvironment;
-import de.uka.ipd.sdq.simulation.traversal.seff.SeffTraversal;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviorTraversal;
+import de.uka.ipd.sdq.simulation.traversal.seff.SeffBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
 import de.uka.ipd.sdq.simulation.workload.BuildWorkloadGenerator;
 import de.uka.ipd.sdq.simulation.workload.IWorkloadGenerator;
 
@@ -264,8 +254,8 @@ public class EventSimModel implements ISimulationModel<EventSimModel> {
         if (logger.isDebugEnabled()) {
             logger.debug("Cleaning up...");
         }
-        UsageBehaviorTraversal.clearTraversalListeners();
-        SeffTraversal.clearTraversalListeners();
+        UsageBehaviourInterpreter.clearTraversalListeners();
+        SeffBehaviourInterpreter.clearTraversalListeners();
         EventSimEntity.resetIdGenerator();
         probeSpecContext.finish();
 

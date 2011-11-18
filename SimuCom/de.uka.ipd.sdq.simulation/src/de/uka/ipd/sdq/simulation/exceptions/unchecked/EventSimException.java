@@ -3,8 +3,8 @@ package de.uka.ipd.sdq.simulation.exceptions.unchecked;
 import de.uka.ipd.sdq.simulation.exceptions.UncheckedSimulationException;
 
 /**
- * This exception indicates a general problem while performing an EventSim simulation run. If this
- * exception is not catched, the simulation aborts.
+ * This exception indicates a problem while performing an EventSim simulation run. If this exception
+ * is not catched, the simulation aborts.
  * 
  * @author Philipp Merkle
  * 

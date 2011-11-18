@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simulation;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
@@ -63,7 +62,6 @@ public class EventSimConfig extends AbstractSimulationConfig {
      * The private constructor prevents this class from being instantiated without passing the
      * configuration.
      */
-    @SuppressWarnings("unused")
     private EventSimConfig() {
         // this constructor is not intended to be called.
     	super(null, false);

@@ -19,8 +19,8 @@ import de.uka.ipd.sdq.simulation.command.seff.FindSeffsForAssemblyContext;
 import de.uka.ipd.sdq.simulation.entities.Request;
 import de.uka.ipd.sdq.simulation.traversal.listener.ISeffTraversalListener;
 import de.uka.ipd.sdq.simulation.traversal.listener.ITraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.seff.SeffTraversal;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.seff.SeffBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
 
 /**
  * This command registers a {@link ITraversalListener} before and after each
@@ -53,10 +53,10 @@ public class MountExternalCallProbes implements IPCMCommand<Void> {
             // time sample before and after a call in order to enable the calculation of the call's
             // response time.
             for (final ExternalCallAction c : calls) {
-                SeffTraversal.addTraversalListener(c, new ISeffTraversalListener() {
+                SeffBehaviourInterpreter.addTraversalListener(c, new ISeffTraversalListener() {
 
                     @Override
-                    public void before(AbstractAction action, Request r, TraversalState<AbstractAction> state) {
+                    public void before(AbstractAction action, Request r, RequestState state) {
                         // take current time sample
                         ProbeSpecContext probeSpecContext = r.getModel().getProbeSpecContext();
                         probeSpecContext.getSampleBlackboard().addSample(
@@ -68,7 +68,7 @@ public class MountExternalCallProbes implements IPCMCommand<Void> {
                     }
 
                     @Override
-                    public void after(AbstractAction action, Request r, TraversalState<AbstractAction> state) {
+                    public void after(AbstractAction action, Request r, RequestState state) {
                         // take current time sample
                         ProbeSpecContext probeSpecContext = r.getModel().getProbeSpecContext();
                         probeSpecContext.getSampleBlackboard().addSample(

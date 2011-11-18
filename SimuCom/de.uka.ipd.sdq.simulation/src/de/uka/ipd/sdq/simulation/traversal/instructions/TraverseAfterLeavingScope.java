@@ -2,8 +2,7 @@ package de.uka.ipd.sdq.simulation.traversal.instructions;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.simulation.traversal.ITraversalInstruction;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalStackFrame;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.state.AbstractInterpreterState;
 
 /**
  * Use this instruction to leave the current scope of the traversal state's stack. Leaving the
@@ -15,18 +14,18 @@ import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
  * @param <A>
  *            the least common parent type of all actions that are intended to be traversed
  */
-public class TraverseAfterLeavingScope<A extends Entity> implements ITraversalInstruction<A> {
+public abstract class TraverseAfterLeavingScope<A extends Entity, F extends AbstractInterpreterState<A>> implements
+        ITraversalInstruction<A, F> {
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public A process(final TraversalState<A> state) {
-        final A currentPositionInLeftScope = state.getStack().currentScope().getCurrentPosition();
-        state.getStack().leaveScope();
+    public A process(final F scope) {
+        final A currentPositionInLeftScope = scope.getCurrentPosition();
+        scope.popStackFrame();
 
-        if (!state.getStack().isEmpty()) {
-            final TraversalStackFrame<A> scope = state.getStack().currentScope();
+        if (scope.isEmpty()) {
             scope.enqueueFinishedAction(currentPositionInLeftScope);
             scope.enqueueFinishedAction(scope.getPreviousPosition());
             return scope.getCurrentPosition();

@@ -10,8 +10,7 @@ import de.uka.ipd.sdq.simulation.entities.EventSimEntity;
 import de.uka.ipd.sdq.simulation.exceptions.unchecked.TraversalException;
 import de.uka.ipd.sdq.simulation.traversal.instructions.EndTraversal;
 import de.uka.ipd.sdq.simulation.traversal.listener.ITraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalStackFrame;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.state.AbstractInterpreterState;
 import de.uka.ipd.sdq.simulation.util.PCMEntityHelper;
 
 /**
@@ -47,61 +46,46 @@ import de.uka.ipd.sdq.simulation.util.PCMEntityHelper;
  *            the least common parent type of all actions that are to be traversed
  * @param <E>
  *            the type of the entity whose behaviour is simulated by the traversal
+ * @param <S>
+ *            TODO
  */
-public abstract class BehaviourTraversal<A extends Entity, E extends EventSimEntity> {
+public abstract class BehaviourInterpreter<A extends Entity, E extends EventSimEntity, S extends AbstractInterpreterState<A>> {
 
-    private static Logger logger = Logger.getLogger(BehaviourTraversal.class);
-
-    /** the entity which traverses the usage behavior */
-    protected final E entity;
-
-    public BehaviourTraversal(final E entity) {
-        this.entity = entity;
-    }
-
-//    /**
-//     * Creates a new traversal state and starts the traversal.
-//     */
-//    public abstract void beginTraversal();
-//
-//    /**
-//     * Resumes the traversal after it has been paused. The traversal is restored in accordance with
-//     * the specified traversal state.
-//     * 
-//     * @param state
-//     *            the traversal state
-//     */
-//    public abstract void resumeTraversal(TraversalState<A> state);
+    private static Logger logger = Logger.getLogger(BehaviourInterpreter.class);
 
     /**
      * Begins or resumes the traversal with the specified action.
      * 
+     * @param the
+     *            entity which traverses the usage behavior
      * @param firstAction
      *            the action with which to start the traversal
+     * @param state
+     *            TODO
      */
-    protected void traverse(final A firstAction, TraversalState<A> state) {
+    protected void traverse(E entity, final A firstAction, S state) {
         A currentAction = firstAction;
         // traverse the actions one after another. When the current action is null, it means that
         // the traversal is either completed or needs to be paused.
         while (currentAction != null) {
             // obtain the traversal strategy for the current action
-            final ITraversalStrategy<A, A, E> t = this.loadTraversalStrategy(currentAction.eClass());
+            final ITraversalStrategy<A, A, E, S> t = this.loadTraversalStrategy(currentAction.eClass());
             if (t == null) {
                 throw new TraversalException("No traversal strategy could be found for "
                         + PCMEntityHelper.toString(currentAction));
             }
 
             // notify traversal listeners. Do not change the order of the next two lines!
-            this.notifyAfterListenerAboutFinishedActions(currentAction, state);
-            this.notifyBeforeListenerAboutStartedActions(currentAction, state);
+            this.notifyAfterListenerAboutFinishedActions(entity, currentAction, state);
+            this.notifyBeforeListenerAboutStartedActions(entity, currentAction, state);
 
             // traverse the current action and get an instruction of how to proceed the
             // traversal.
             if (logger.isDebugEnabled()) {
                 logger.debug("Traversing action " + PCMEntityHelper.toString(currentAction) + " at t="
-                        + this.entity.getModel().getSimulationControl().getCurrentSimulationTime());
+                        + entity.getModel().getSimulationControl().getCurrentSimulationTime());
             }
-            final ITraversalInstruction<A> instruction = t.traverse(currentAction, this.entity, state);
+            final ITraversalInstruction<A, S> instruction = t.traverse(currentAction, entity, state);
 
             // set the next action to be traversed according to the instructions provided by the
             // current traversal strategy
@@ -109,8 +93,8 @@ public abstract class BehaviourTraversal<A extends Entity, E extends EventSimEnt
             currentAction = nextAction;
 
             // check, whether the traversal is completed.
-            if (nextAction == null && instruction instanceof EndTraversal<?>) {
-                this.endTraversal(state);
+            if (nextAction == null && instruction instanceof EndTraversal<?, ?>) {
+                this.endTraversal(entity, state);
             }
         }
     }
@@ -119,13 +103,12 @@ public abstract class BehaviourTraversal<A extends Entity, E extends EventSimEnt
      * This method is called, when the traversal is completed. This is not the case, when the
      * traversal is to be stopped.
      */
-    private void endTraversal(TraversalState<A> state) {
-        while (state.getStack().currentScope().hasFinishedActions()) {
-            final A action = state.getStack().currentScope().dequeueFinishedAction();
-            this.notifyAfterListener(action, this.entity, state);
+    private void endTraversal(E entity, S state) {
+        while (state.hasFinishedActions()) {
+            final A action = state.dequeueFinishedAction();
+            this.notifyAfterListener(action, entity, state);
         }
-        state.getStack().leaveScope();
-        this.entity.notifyLeftSystem();
+        entity.notifyLeftSystem();
     }
 
     /**
@@ -136,11 +119,9 @@ public abstract class BehaviourTraversal<A extends Entity, E extends EventSimEnt
      * @param currentAction
      *            the action that is about to be traversed
      */
-    private void notifyBeforeListenerAboutStartedActions(final A currentAction, TraversalState<A> state) {
-        final TraversalStackFrame<A> currentScope = state.getStack().currentScope();
-        if (currentScope.getPreviousPosition() == null
-                || !currentScope.getPreviousPosition().getId().equals(currentAction.getId())) {
-            this.notifyBeforeListener(currentAction, this.entity, state);
+    private void notifyBeforeListenerAboutStartedActions(E entity, final A currentAction, S state) {
+        if (state.getPreviousPosition() == null || !state.getPreviousPosition().getId().equals(currentAction.getId())) {
+            this.notifyBeforeListener(currentAction, entity, state);
         }
     }
 
@@ -150,23 +131,13 @@ public abstract class BehaviourTraversal<A extends Entity, E extends EventSimEnt
      * @param currentAction
      *            the action that is about to be traversed
      */
-    private void notifyAfterListenerAboutFinishedActions(final A currentAction, TraversalState<A> state) {
-        final TraversalStackFrame<A> currentScope = state.getStack().currentScope();
-        while (currentScope.hasFinishedActions()) {
-            final A action = currentScope.dequeueFinishedAction();
+    private void notifyAfterListenerAboutFinishedActions(E entity, final A currentAction, S state) {
+        while (state.hasFinishedActions()) {
+            final A action = state.dequeueFinishedAction();
             if (!action.getId().equals(currentAction.getId())) {
-                this.notifyAfterListener(action, this.entity, state);
+                this.notifyAfterListener(action, entity, state);
             }
         }
-    }
-
-    /**
-     * Returns the entity whose behaviour is to be simulated.
-     * 
-     * @return the simulated entity
-     */
-    public E getEntity() {
-        return this.entity;
     }
 
     /**
@@ -177,7 +148,7 @@ public abstract class BehaviourTraversal<A extends Entity, E extends EventSimEnt
      *            the type of the action
      * @return the traversal strategy which is able to traverse actions of the specified type
      */
-    public abstract <T extends A> ITraversalStrategy<A, T, E> loadTraversalStrategy(EClass eclass);
+    public abstract <T extends A> ITraversalStrategy<A, T, E, S> loadTraversalStrategy(EClass eclass);
 
     /**
      * This method is called whenever a simulated entity is about to traverse an action.
@@ -190,7 +161,7 @@ public abstract class BehaviourTraversal<A extends Entity, E extends EventSimEnt
      * @param state
      *            TODO
      */
-    public abstract void notifyBeforeListener(A action, E entity, TraversalState<A> state);
+    public abstract void notifyBeforeListener(A action, E entity, S state);
 
     /**
      * This method is called whenever a simulated entity has completed the traversal of an action.
@@ -203,6 +174,6 @@ public abstract class BehaviourTraversal<A extends Entity, E extends EventSimEnt
      * @param state
      *            TODO
      */
-    public abstract void notifyAfterListener(A action, E entity, TraversalState<A> state);
+    public abstract void notifyAfterListener(A action, E entity, S state);
 
 }

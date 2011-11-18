@@ -2,13 +2,12 @@ package de.uka.ipd.sdq.simulation.events;
 
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
 import de.uka.ipd.sdq.simulation.entities.Request;
 import de.uka.ipd.sdq.simulation.staticstructure.ComponentInstance;
-import de.uka.ipd.sdq.simulation.traversal.seff.SeffTraversal;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.seff.SeffBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.traversal.state.UserState;
 
 /**
  * Schedule this event to begin the traversal of a {@link ResourceDemandingSEFF} (RD-SEFF).
@@ -23,7 +22,7 @@ public class BeginSeffTraversalEvent extends AbstractSimEvent<EventSimModel, Req
 
     private final ComponentInstance component;
     private final OperationSignature signature;
-    private final TraversalState<AbstractUserAction> parentState;
+    private final UserState parentState;
 
     /**
      * Use this constructor to begin the traversal of the RD-SEFF provided by the specified {@code
@@ -40,7 +39,7 @@ public class BeginSeffTraversalEvent extends AbstractSimEvent<EventSimModel, Req
      *            the state of the usage traversal
      */
     public BeginSeffTraversalEvent(final EventSimModel model, final ComponentInstance component,
-            final OperationSignature signature, TraversalState<AbstractUserAction> parentState) {
+            final OperationSignature signature, UserState parentState) {
         super(model, "BeginUsageTraversalEvent");
         this.component = component;
         this.signature = signature;
@@ -52,7 +51,7 @@ public class BeginSeffTraversalEvent extends AbstractSimEvent<EventSimModel, Req
      */
     @Override
     public void eventRoutine(final Request who) {
-        new SeffTraversal(who).beginTraversal(this.component, this.signature, this.parentState);
+        SeffBehaviourInterpreter.instance().beginTraversal(who, this.component, this.signature, this.parentState);
     }
 
 }

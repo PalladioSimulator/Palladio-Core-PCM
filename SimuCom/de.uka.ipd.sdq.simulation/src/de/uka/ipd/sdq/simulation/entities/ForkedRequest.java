@@ -1,15 +1,11 @@
 package de.uka.ipd.sdq.simulation.entities;
 
-import org.apache.log4j.Logger;
-
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 
 public class ForkedRequest extends Request {
-
-    private static final Logger logger = Logger.getLogger(ForkedRequest.class);
 
     private Request parent;
     private boolean asynchronous;
@@ -24,7 +20,6 @@ public class ForkedRequest extends Request {
 
         this.addEntityListener(new GarbageCollectionListener(model.getProbeSpecContext()
                 .getBlackboardGarbageCollector()));
-        // this.addEntityListener(new ForkFinishedHandler());
     }
 
     @Override
@@ -33,22 +28,16 @@ public class ForkedRequest extends Request {
         return new RequestContext(Long.toString(this.getEntityId()), parentContex);
     }
 
-    // @Override
-    // protected SimulatedProcess createSimulatedProcess() {
-    // throw new EventSimException("This method should never be called.");
-    // }
-
-    // @Override
-    // public SimulatedProcess getSimulatedProcess() {
-    // return parent.getSimulatedProcess();
-    // }
-
-    public Request getParent() {
+    public Request getParentRequest() {
         return this.parent;
     }
 
     public boolean isAsynchronous() {
         return this.asynchronous;
+    }
+
+    public ForkedBehaviour getBehaviour() {
+        return behaviour;
     }
 
     /**
@@ -78,13 +67,11 @@ public class ForkedRequest extends Request {
         @Override
         public void leftSystem() {
             garbageCollector.leaveRegion(ForkedRequest.this.getRequestContext().rootContext());
-            // ForkedRequest.this.getParent().decrementRunningForks();
         }
 
         @Override
         public void enteredSystem() {
             garbageCollector.enterRegion(ForkedRequest.this.getRequestContext().rootContext());
-            // ForkedRequest.this.getParent().incrementRunningForks();
         }
 
     }

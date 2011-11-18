@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.simulation.traversal.seff.strategies;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
@@ -11,10 +10,10 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.entities.Request;
 import de.uka.ipd.sdq.simulation.exceptions.unchecked.UnexpectedModelStructureException;
-import de.uka.ipd.sdq.simulation.traversal.ITraversalInstruction;
-import de.uka.ipd.sdq.simulation.traversal.instructions.TraverseResourceDemandingBehaviour;
+import de.uka.ipd.sdq.simulation.traversal.seff.IRequestTraversalInstruction;
 import de.uka.ipd.sdq.simulation.traversal.seff.ISeffTraversalStrategy;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.seff.instructions.TraverseComponentBehaviourInstruction;
+import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
 import de.uka.ipd.sdq.simulation.util.PCMEntityHelper;
 
 /**
@@ -29,8 +28,8 @@ public class BranchActionTraversalStrategy implements ISeffTraversalStrategy<Bra
      * {@inheritDoc}
      */
     @Override
-    public ITraversalInstruction<AbstractAction> traverse(final BranchAction action, final Request request,
-            final TraversalState<AbstractAction> state) {
+    public IRequestTraversalInstruction traverse(
+            final BranchAction action, final Request request, final RequestState state) {
         EventSimModel model = request.getModel();
         ResourceDemandingBehaviour behaviour = null;
 
@@ -75,8 +74,8 @@ public class BranchActionTraversalStrategy implements ISeffTraversalStrategy<Bra
         }
         assert (enteredTransition) : "No branch transition has been entered.";
 
-        return new TraverseResourceDemandingBehaviour(request.getModel(), behaviour, state.getStack().currentScope()
-                .getComponent(), action.getSuccessor_AbstractAction());
+        return new TraverseComponentBehaviourInstruction(request.getModel(), behaviour, state.getComponent(), action
+                .getSuccessor_AbstractAction());
     }
 
 }

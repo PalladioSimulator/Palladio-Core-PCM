@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simulation.traversal.instructions;
+package de.uka.ipd.sdq.simulation.traversal.usage.instructions;
 
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
@@ -6,9 +6,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.command.usage.FindActionInUsageBehaviour;
 import de.uka.ipd.sdq.simulation.traversal.ITraversalInstruction;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalStackFrame;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalStateStack;
+import de.uka.ipd.sdq.simulation.traversal.state.UserState;
+import de.uka.ipd.sdq.simulation.traversal.usage.IUsageTraversalInstruction;
 
 /**
  * Use this instruction to continue the traversal with a specified {@link ScenarioBehaviour}. This
@@ -18,7 +17,8 @@ import de.uka.ipd.sdq.simulation.traversal.state.TraversalStateStack;
  * @author Philipp Merkle
  * 
  */
-public class TraverseScenarioBehaviour implements ITraversalInstruction<AbstractUserAction> {
+public class TraverseUsageBehaviourInstruction implements ITraversalInstruction<AbstractUserAction, UserState>,
+        IUsageTraversalInstruction {
 
     private final EventSimModel model;
     private final ScenarioBehaviour behaviour;
@@ -34,7 +34,7 @@ public class TraverseScenarioBehaviour implements ITraversalInstruction<Abstract
      * @param actionAfterCompletion
      *            the action that is to be traversed after leaving the scope
      */
-    public TraverseScenarioBehaviour(final EventSimModel model, final ScenarioBehaviour behaviour,
+    public TraverseUsageBehaviourInstruction(final EventSimModel model, final ScenarioBehaviour behaviour,
             final AbstractUserAction actionAfterCompletion) {
         this.model = model;
         this.behaviour = behaviour;
@@ -45,14 +45,14 @@ public class TraverseScenarioBehaviour implements ITraversalInstruction<Abstract
      * {@inheritDoc}
      */
     @Override
-    public AbstractUserAction process(final TraversalState<AbstractUserAction> state) {
-        final TraversalStackFrame<AbstractUserAction> scope = state.getStack().currentScope();
-        scope.setPreviousPosition(state.getStack().currentScope().getCurrentPosition());
+    public AbstractUserAction process(final UserState scope) {
+        scope.setPreviousPosition(scope.getCurrentPosition());
         scope.setCurrentPosition(this.actionAfterCompletion);
 
+        scope.pushStackFrame();
+
         final Start start = this.model.execute(new FindActionInUsageBehaviour<Start>(this.behaviour, Start.class));
-        state.getStack().enterScope(new TraversalStackFrame<AbstractUserAction>());
-        state.getStack().currentScope().setCurrentPosition(start);
+        scope.setCurrentPosition(start);
         return start;
     }
 

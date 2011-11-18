@@ -14,15 +14,13 @@ import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.command.seff.FindActionInResourceDemandingBehaviour;
 import de.uka.ipd.sdq.simulation.entities.Request;
 import de.uka.ipd.sdq.simulation.staticstructure.ComponentInstance;
-import de.uka.ipd.sdq.simulation.traversal.BehaviourTraversal;
-import de.uka.ipd.sdq.simulation.traversal.ITraversalStrategy;
+import de.uka.ipd.sdq.simulation.traversal.BehaviourInterpreter;
 import de.uka.ipd.sdq.simulation.traversal.listener.ISeffTraversalListener;
 import de.uka.ipd.sdq.simulation.traversal.seff.strategies.AcquireActionTraversalStrategy;
 import de.uka.ipd.sdq.simulation.traversal.seff.strategies.BranchActionTraversalStrategy;
@@ -34,24 +32,25 @@ import de.uka.ipd.sdq.simulation.traversal.seff.strategies.ReleaseActionTraversa
 import de.uka.ipd.sdq.simulation.traversal.seff.strategies.SetVariableActionTraversalStrategy;
 import de.uka.ipd.sdq.simulation.traversal.seff.strategies.StartActionTraversalStrategy;
 import de.uka.ipd.sdq.simulation.traversal.seff.strategies.StopActionTraversalStrategy;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalStackFrame;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
+import de.uka.ipd.sdq.simulation.traversal.state.UserState;
+import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
 
 /**
- * Provides the traversal of {@link ResourceDemandingSEFF}s.
+ * An interpreter for {@link ResourceDemandingSEFF}s.
  * 
  * @author Philipp Merkle
  * 
- * @see BehaviourTraversal
+ * @see BehaviourInterpreter
  */
-public class SeffTraversal extends BehaviourTraversal<AbstractAction, Request> {
+public class SeffBehaviourInterpreter extends BehaviourInterpreter<AbstractAction, Request, RequestState> {
 
-    private static final Logger logger = Logger.getLogger(SeffTraversal.class);
+    private static final Logger logger = Logger.getLogger(SeffBehaviourInterpreter.class);
     private static final Map<EClass, ISeffTraversalStrategy<? extends AbstractAction>> handlerMap = new HashMap<EClass, ISeffTraversalStrategy<? extends AbstractAction>>();
     private static final Map<AbstractAction, List<ISeffTraversalListener>> traversalListenerMap = new HashMap<AbstractAction, List<ISeffTraversalListener>>();
     private static final List<ISeffTraversalListener> traversalListenerList = new ArrayList<ISeffTraversalListener>();
 
-    private TraversalState<AbstractAction> state;
+    private static final SeffBehaviourInterpreter singleInstance = new SeffBehaviourInterpreter();
 
     static {
         // register default action handlers
@@ -67,82 +66,69 @@ public class SeffTraversal extends BehaviourTraversal<AbstractAction, Request> {
         handlerMap.put(SeffPackage.eINSTANCE.getForkAction(), new ForkActionTraversalStrategy());
     }
 
-    /**
-     * Default constructor. (TODO)
-     * 
-     * @param request
-     *            the request that traverses the behaviour
-     */
-    public SeffTraversal(final Request request) {
-        super(request);
+    // make the constructor private in order to prevent multiple instances.
+    private SeffBehaviourInterpreter() {
+        // nothing to do
     }
 
-    /**
-     * Use this constructor to begin the traversal of the SEFF specified by the passed forked
-     * behaviour.
-     * 
-     * @param request
-     * @param usageState
-     */
-    public SeffTraversal(final Request request, final ForkedBehaviour behaviour,
-            final TraversalState<AbstractUserAction> usageState) {
-        super(request);
+    public static SeffBehaviourInterpreter instance() {
+        return singleInstance;
     }
 
     /**
      * Starts the traversal of the {@link ResourceDemandingSEFF} associated with the specified
      * component and signature.
      */
-    public void beginTraversal(final ComponentInstance component, final OperationSignature signature,
-            final TraversalState<AbstractUserAction> usageState) {
-        this.entity.notifyEnteredSystem();
+    public void beginTraversal(Request request, final ComponentInstance component, final OperationSignature signature,
+            final UserState usageState) {
+        request.notifyEnteredSystem();
 
         // initialise traversal state and StoEx context
-        this.state = new TraversalState<AbstractAction>(usageState.getStoExContext(), usageState);
-
-        // enter scope
-        this.state.getStack().enterScope(new TraversalStackFrame<AbstractAction>());
-        this.state.getStack().currentScope().setComponent(component);
+        RequestState state = new RequestState(usageState, usageState.getStoExContext());
+        state.pushStackFrame();
+        state.setComponent(component);
 
         // find start action
-        final EventSimModel model = this.getEntity().getModel();
+        final EventSimModel model = request.getModel();
         final ResourceDemandingSEFF seff = component.getServiceEffectSpecification(signature);
         final StartAction startAction = model.execute(new FindActionInResourceDemandingBehaviour<StartAction>(seff,
                 StartAction.class));
 
         // begin traversal
-        this.state.getStack().currentScope().setCurrentPosition(startAction);
-        this.traverse(startAction, this.state);
+        state.setCurrentPosition(startAction);
+        this.traverse(request, startAction, state);
     }
 
-    public void beginTraversal(ForkedBehaviour behaviour, final TraversalState<AbstractAction> parentState) {
-        this.entity.notifyEnteredSystem();
+    public void beginTraversal(Request request, ForkedBehaviour behaviour, final RequestState parentState) {
+        request.notifyEnteredSystem();
 
         // initialise traversal state and StoEx context
         StackContext stoExContext = new StackContext();
-        stoExContext.getStack().pushStackFrame(parentState.getStoExContext().getStack().currentStackFrame().copyFrame());
-        this.state = new TraversalState<AbstractAction>(stoExContext);
+        stoExContext.getStack()
+                .pushStackFrame(parentState.getStoExContext().getStack().currentStackFrame().copyFrame());
 
-        // enter scope
-        this.state.getStack().enterScope(new TraversalStackFrame<AbstractAction>());
-        this.state.getStack().currentScope().setComponent(parentState.getStack().currentScope().getComponent());
+        RequestState state = null;
+        try {
+            state = parentState.clone();
+        } catch (CloneNotSupportedException e) {
+            // TODO log error and throw exception
+            e.printStackTrace();
+        }
+        state.setComponent(parentState.getComponent());
 
         // find start action
-        final EventSimModel model = this.getEntity().getModel();
-        final StartAction startAction = model.execute(new FindActionInResourceDemandingBehaviour<StartAction>(behaviour,
-                StartAction.class));
+        final EventSimModel model = request.getModel();
+        final StartAction startAction = model.execute(new FindActionInResourceDemandingBehaviour<StartAction>(
+                behaviour, StartAction.class));
 
         // begin traversal
-        this.state.getStack().currentScope().setCurrentPosition(startAction);
-        this.traverse(startAction, this.state);
+        state.setCurrentPosition(startAction);
+        this.traverse(request, startAction, state);
     }
 
-    public void resumeTraversal(final TraversalState<AbstractAction> state) {
-        // restore traversal state
-        this.state = state;
-
-        // find next action
-        super.traverse(this.state.getStack().currentScope().getCurrentPosition(), this.state);
+    public void resumeTraversal(Request request, final RequestState state) {
+        // find next action and resume traversal
+        super.traverse(request, state.getCurrentPosition(), state);
     }
 
     /**
@@ -150,9 +136,8 @@ public class SeffTraversal extends BehaviourTraversal<AbstractAction, Request> {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public <T extends AbstractAction> ITraversalStrategy<AbstractAction, T, Request> loadTraversalStrategy(
-            final EClass eclass) {
-        return (ITraversalStrategy<AbstractAction, T, Request>) handlerMap.get(eclass);
+    public ISeffTraversalStrategy<? extends AbstractAction> loadTraversalStrategy(final EClass eclass) {
+        return handlerMap.get(eclass);
     }
 
     /**
@@ -243,8 +228,7 @@ public class SeffTraversal extends BehaviourTraversal<AbstractAction, Request> {
      * {@inheritDoc}
      */
     @Override
-    public void notifyAfterListener(final AbstractAction action, final Request request,
-            TraversalState<AbstractAction> state) {
+    public void notifyAfterListener(final AbstractAction action, final Request request, RequestState state) {
         final List<ISeffTraversalListener> listeners = traversalListenerMap.get(action);
         if (listeners != null) {
             for (final ISeffTraversalListener l : listeners) {
@@ -260,8 +244,7 @@ public class SeffTraversal extends BehaviourTraversal<AbstractAction, Request> {
      * {@inheritDoc}
      */
     @Override
-    public void notifyBeforeListener(final AbstractAction action, final Request request,
-            TraversalState<AbstractAction> state) {
+    public void notifyBeforeListener(final AbstractAction action, final Request request, RequestState state) {
         final List<ISeffTraversalListener> listeners = traversalListenerMap.get(action);
         if (listeners != null) {
             for (final ISeffTraversalListener l : listeners) {

@@ -1,16 +1,14 @@
 package de.uka.ipd.sdq.simulation.events;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
 import de.uka.ipd.sdq.simulation.entities.Request;
-import de.uka.ipd.sdq.simulation.traversal.seff.SeffTraversal;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.seff.SeffBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
 
 /**
- * Schedule this event to resume the traversal of a {@link ResourceDemandingSEFF}
- * (RD-SEFF).
+ * Schedule this event to resume the traversal of a {@link ResourceDemandingSEFF} (RD-SEFF).
  * <p>
  * The {@link Request} that is supposed to traverse the SEFF, is passed to the {@code schedule()}
  * method.
@@ -20,7 +18,7 @@ import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
  */
 public class ResumeSeffTraversalEvent extends AbstractSimEvent<EventSimModel, Request> {
 
-    private final TraversalState<AbstractAction> state;
+    private final RequestState state;
 
     /**
      * Use this constructor to resume the traversal of a RD-SEFF. All information required to resume
@@ -31,7 +29,7 @@ public class ResumeSeffTraversalEvent extends AbstractSimEvent<EventSimModel, Re
      * @param state
      *            the traversal state
      */
-    public ResumeSeffTraversalEvent(final EventSimModel model, final TraversalState<AbstractAction> state) {
+    public ResumeSeffTraversalEvent(final EventSimModel model, final RequestState state) {
         super(model, "ResumeSeffTraversalEvent");
         this.state = state;
     }
@@ -41,7 +39,7 @@ public class ResumeSeffTraversalEvent extends AbstractSimEvent<EventSimModel, Re
      */
     @Override
     public void eventRoutine(final Request who) {
-        new SeffTraversal(who).resumeTraversal(this.state);
+        SeffBehaviourInterpreter.instance().resumeTraversal(who, this.state);
     }
 
 }

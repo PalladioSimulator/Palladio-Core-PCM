@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.simulation.workload;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;

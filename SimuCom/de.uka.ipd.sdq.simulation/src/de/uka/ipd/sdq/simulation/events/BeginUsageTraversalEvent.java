@@ -5,7 +5,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
 import de.uka.ipd.sdq.simulation.entities.User;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviorTraversal;
+import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
 
 /**
  * Schedule this event to begin the traversal of a {@link UsageScenario}.
@@ -39,7 +39,7 @@ public class BeginUsageTraversalEvent extends AbstractSimEvent<EventSimModel, Us
     @Override
     public void eventRoutine(final User who) {
         ScenarioBehaviour behaviour = this.scenario.getScenarioBehaviour_UsageScenario();
-        new UsageBehaviorTraversal(who, behaviour).beginTraversal();
+        UsageBehaviourInterpreter.instance().beginTraversal(who, behaviour);
     }
 
 }

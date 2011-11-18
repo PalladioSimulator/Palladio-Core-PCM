@@ -2,8 +2,7 @@ package de.uka.ipd.sdq.simulation.traversal.instructions;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.simulation.traversal.ITraversalInstruction;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalStackFrame;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.state.AbstractInterpreterState;
 
 /**
  * Use this instruction to end the traversal.
@@ -16,14 +15,14 @@ import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
  * @param <A>
  *            the least common parent type of all actions that are intended to be traversed
  */
-public class EndTraversal<A extends Entity> implements ITraversalInstruction<A> {
+public abstract class EndTraversal<A extends Entity, F extends AbstractInterpreterState<A>> implements
+        ITraversalInstruction<A, F> {
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public A process(final TraversalState<A> state) {
-        final TraversalStackFrame<A> scope = state.getStack().currentScope();
+    public A process(final F scope) {
         scope.enqueueFinishedAction(scope.getCurrentPosition());
         scope.setCurrentPosition(null);
         return null;

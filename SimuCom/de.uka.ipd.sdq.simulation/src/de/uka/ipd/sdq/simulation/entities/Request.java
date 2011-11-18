@@ -45,9 +45,6 @@ public class Request extends EventSimEntity {
      */
     private AbstractSimEvent<EventSimModel, Request> activationEvent;
 
-    // private int runningForks;
-    // private ForksFinishedCallback forksFinishedCallback;
-
     /**
      * Constructs a new Request representing the execution of the specified system call, which has
      * been issued by the given User.
@@ -226,28 +223,5 @@ public class Request extends EventSimEntity {
             Request.this.activate();
         }
     }
-
-    // public boolean hasRunningForks() {
-    // return this.runningForks > 0;
-    // }
-
-    // public void incrementRunningForks() {
-    // user.
-    // this.runningForks++;
-    // }
-    //
-    // public void decrementRunningForks() {
-    // this.runningForks--;
-    // }
-
-    // public void registerForksFinishedCallback(ForksFinishedCallback callback) {
-    // this.forksFinishedCallback = callback;
-    // }
-    //    
-    // public interface ForksFinishedCallback {
-    //        
-    // public void forksFinished();
-    //        
-    // }
 
 }

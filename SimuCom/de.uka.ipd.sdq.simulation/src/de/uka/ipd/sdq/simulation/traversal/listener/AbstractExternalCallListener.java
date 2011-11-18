@@ -5,7 +5,7 @@ import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.simulation.entities.Request;
 import de.uka.ipd.sdq.simulation.exceptions.unchecked.EventSimException;
 import de.uka.ipd.sdq.simulation.staticstructure.ComponentInstance;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
 
 /**
  * This abstract class eases the implementation of an {@link ITraversalListener} which is supposed
@@ -22,21 +22,21 @@ public abstract class AbstractExternalCallListener implements ISeffTraversalList
      * @see #before(AbstractAction, Request, TraversalState)
      */
     public abstract void before(ExternalCallAction call, Request request, ComponentInstance callingComponent,
-            TraversalState<AbstractAction> state);
+            RequestState state);
 
     /**
      * @see #after(AbstractAction, Request, TraversalState)
      */
     public abstract void after(ExternalCallAction call, Request request, ComponentInstance callingComponent,
-            TraversalState<AbstractAction> state);
+            RequestState state);
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void before(AbstractAction action, Request request, TraversalState<AbstractAction> state) {
+    public void before(AbstractAction action, Request request, RequestState state) {
         ExternalCallAction call = castToExternalCallActionOrThrowException(action);
-        ComponentInstance component = state.getStack().currentScope().getComponent();
+        ComponentInstance component = state.getComponent();
         before(call, request, component, state);
     }
 
@@ -44,9 +44,9 @@ public abstract class AbstractExternalCallListener implements ISeffTraversalList
      * {@inheritDoc}
      */
     @Override
-    public void after(AbstractAction action, Request request, TraversalState<AbstractAction> state) {
+    public void after(AbstractAction action, Request request, RequestState state) {
         ExternalCallAction call = castToExternalCallActionOrThrowException(action);
-        ComponentInstance component = state.getStack().currentScope().getComponent();
+        ComponentInstance component = state.getComponent();
         after(call, request, component, state);
     }
 

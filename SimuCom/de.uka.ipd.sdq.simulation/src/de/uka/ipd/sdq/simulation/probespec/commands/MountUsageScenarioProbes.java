@@ -15,8 +15,8 @@ import de.uka.ipd.sdq.simulation.command.usage.FindActionInUsageBehaviour;
 import de.uka.ipd.sdq.simulation.entities.User;
 import de.uka.ipd.sdq.simulation.traversal.listener.ITraversalListener;
 import de.uka.ipd.sdq.simulation.traversal.listener.IUsageTraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviorTraversal;
+import de.uka.ipd.sdq.simulation.traversal.state.UserState;
+import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
 
 /**
  * This command registers a {@link ITraversalListener} at the start and at the stop action of a
@@ -39,10 +39,10 @@ public class MountUsageScenarioProbes implements IPCMCommand<Void> {
             final Stop stop = executor.execute(new FindActionInUsageBehaviour<Stop>(behaviour, Stop.class));
 
             // add a traversal listener to the usage scenario's start action
-            UsageBehaviorTraversal.addTraversalListener(start, new IUsageTraversalListener() {
+            UsageBehaviourInterpreter.addTraversalListener(start, new IUsageTraversalListener() {
 
                 @Override
-                public void before(AbstractUserAction action, User u, TraversalState<AbstractUserAction> state) {
+                public void before(AbstractUserAction action, User u, UserState state) {
                     // take current time sample
                     ProbeSpecContext probeSpecContext = u.getModel().getProbeSpecContext();
                     probeSpecContext.getSampleBlackboard().addSample(
@@ -55,17 +55,17 @@ public class MountUsageScenarioProbes implements IPCMCommand<Void> {
                 }
 
                 @Override
-                public void after(AbstractUserAction action, User u, TraversalState<AbstractUserAction> state) {
+                public void after(AbstractUserAction action, User u, UserState state) {
                     // nothing to do
                 }
 
             });
 
             // add a traversal listener to the usage scenario's stop action
-            UsageBehaviorTraversal.addTraversalListener(stop, new IUsageTraversalListener() {
+            UsageBehaviourInterpreter.addTraversalListener(stop, new IUsageTraversalListener() {
 
                 @Override
-                public void after(AbstractUserAction action, User u, TraversalState<AbstractUserAction> state) {
+                public void after(AbstractUserAction action, User u, UserState state) {
                     // take current time sample
                     ProbeSpecContext probeSpecContext = u.getModel().getProbeSpecContext();
                     probeSpecContext.getSampleBlackboard().addSample(
@@ -78,7 +78,7 @@ public class MountUsageScenarioProbes implements IPCMCommand<Void> {
                 }
 
                 @Override
-                public void before(AbstractUserAction action, User who, TraversalState<AbstractUserAction> state) {
+                public void before(AbstractUserAction action, User who, UserState state) {
                     // nothing to do
                 }
 

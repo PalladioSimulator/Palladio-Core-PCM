@@ -14,14 +14,12 @@ import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.command.usage.FindActionInUsageBehaviour;
 import de.uka.ipd.sdq.simulation.entities.User;
-import de.uka.ipd.sdq.simulation.traversal.BehaviourTraversal;
+import de.uka.ipd.sdq.simulation.traversal.BehaviourInterpreter;
 import de.uka.ipd.sdq.simulation.traversal.listener.IUsageTraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalStackFrame;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.state.UserState;
 import de.uka.ipd.sdq.simulation.traversal.usage.strategies.BranchTraversalStrategy;
 import de.uka.ipd.sdq.simulation.traversal.usage.strategies.DelayTraversalStrategy;
 import de.uka.ipd.sdq.simulation.traversal.usage.strategies.EntryLevelSystemCallTraversalStrategy;
@@ -30,21 +28,20 @@ import de.uka.ipd.sdq.simulation.traversal.usage.strategies.StartTraversalStrate
 import de.uka.ipd.sdq.simulation.traversal.usage.strategies.StopTraversalStrategy;
 
 /**
- * Provides the traversal of {@link UsageScenario}s.
+ * An interpreter for {@link UsageScenario}s.
  * 
  * @author Philipp Merkle
  * 
- * @see BehaviourTraversal
+ * @see BehaviourInterpreter
  */
-public class UsageBehaviorTraversal extends BehaviourTraversal<AbstractUserAction, User> {
+public class UsageBehaviourInterpreter extends BehaviourInterpreter<AbstractUserAction, User, UserState> {
 
-    private static final Logger logger = Logger.getLogger(UsageBehaviorTraversal.class);
+    private static final Logger logger = Logger.getLogger(UsageBehaviourInterpreter.class);
     private static final Map<EClass, IUsageTraversalStrategy<? extends AbstractUserAction>> handlerMap = new HashMap<EClass, IUsageTraversalStrategy<? extends AbstractUserAction>>();
     private static final Map<AbstractUserAction, List<IUsageTraversalListener>> traversalListenerMap = new HashMap<AbstractUserAction, List<IUsageTraversalListener>>();
     private static final List<IUsageTraversalListener> traversalListenerList = new ArrayList<IUsageTraversalListener>();
 
-    private ScenarioBehaviour behaviour;
-    private TraversalState<AbstractUserAction> state;
+    private static final UsageBehaviourInterpreter singleInstance = new UsageBehaviourInterpreter();
 
     static {
         // register default action handlers
@@ -56,62 +53,42 @@ public class UsageBehaviorTraversal extends BehaviourTraversal<AbstractUserActio
         handlerMap.put(UsagemodelPackage.eINSTANCE.getDelay(), new DelayTraversalStrategy());
         handlerMap.put(UsagemodelPackage.eINSTANCE.getBranch(), new BranchTraversalStrategy());
     }
-
-    /**
-     * Use this constructor to begin the traversal of the specified behaviour.
-     * 
-     * @param user
-     *            the user that traverses the behaviour
-     * @param behaviour
-     *            the behaviour that is to be traversed
-     */
-    public UsageBehaviorTraversal(final User user, final ScenarioBehaviour behaviour) {
-        super(user);
-        this.behaviour = behaviour;
+    
+    // make the constructor private in order to prevent multiple instances.
+    private UsageBehaviourInterpreter() {
+        // nothing to do
     }
 
-    /**
-     * Use this constructor when a previous traversal is to be restored by using the {@code
-     * resumeTraversal} method.
-     * 
-     * @param user
-     *            the user that traverses the behaviour
-     */
-    public UsageBehaviorTraversal(final User user) {
-        super(user);
+    public static UsageBehaviourInterpreter instance() {
+        return singleInstance;
     }
 
     /**
      * {@inheritDoc}
      */
-    public void beginTraversal() {
-        this.entity.notifyEnteredSystem();
+    public void beginTraversal(final User user, final ScenarioBehaviour behaviour) {
+        user.notifyEnteredSystem();
 
         // initialise traversal state and StoEx context
-        this.state = new TraversalState<AbstractUserAction>(new StackContext());
-        this.state.getStoExContext().getStack().createAndPushNewStackFrame();
-
-        // enter scope
-        this.state.getStack().enterScope(new TraversalStackFrame<AbstractUserAction>());
+        UserState state = new UserState();
+        state.pushStackFrame();
+        state.getStoExContext().getStack().createAndPushNewStackFrame();
 
         // find start action
-        final EventSimModel model = this.getEntity().getModel();
-        final Start start = model.execute(new FindActionInUsageBehaviour<Start>(this.behaviour, Start.class));
+        final EventSimModel model = user.getModel();
+        final Start start = model.execute(new FindActionInUsageBehaviour<Start>(behaviour, Start.class));
 
         // begin traversal
-        this.state.getStack().currentScope().setCurrentPosition(start);
-        this.traverse(start, this.state);
+        state.setCurrentPosition(start);
+        this.traverse(user, start, state);
     }
 
     /**
      * {@inheritDoc}
      */
-    public void resumeTraversal(final TraversalState<AbstractUserAction> state) {
-        // restore traversal state
-        this.state = state;
-
-        // find next action
-        super.traverse(this.state.getStack().currentScope().getCurrentPosition(), this.state);
+    public void resumeTraversal(final User user, final UserState state) {
+        // find next action and resume traversal
+        super.traverse(user, state.getCurrentPosition(), state);
     }
 
     /**
@@ -119,8 +96,8 @@ public class UsageBehaviorTraversal extends BehaviourTraversal<AbstractUserActio
      */
     @SuppressWarnings("unchecked")
     @Override
-    public IUsageTraversalStrategy<AbstractUserAction> loadTraversalStrategy(final EClass eclass) {
-        return (IUsageTraversalStrategy<AbstractUserAction>) handlerMap.get(eclass);
+    public IUsageTraversalStrategy<? extends AbstractUserAction> loadTraversalStrategy(final EClass eclass) {
+        return handlerMap.get(eclass);
     }
 
     /**
@@ -212,8 +189,7 @@ public class UsageBehaviorTraversal extends BehaviourTraversal<AbstractUserActio
      * {@inheritDoc}
      */
     @Override
-    public void notifyAfterListener(final AbstractUserAction action, final User user,
-            TraversalState<AbstractUserAction> state) {
+    public void notifyAfterListener(final AbstractUserAction action, final User user, UserState state) {
         final List<IUsageTraversalListener> listeners = traversalListenerMap.get(action);
         if (listeners != null) {
             for (final IUsageTraversalListener l : listeners) {
@@ -229,8 +205,7 @@ public class UsageBehaviorTraversal extends BehaviourTraversal<AbstractUserActio
      * {@inheritDoc}
      */
     @Override
-    public void notifyBeforeListener(final AbstractUserAction action, final User user,
-            TraversalState<AbstractUserAction> state) {
+    public void notifyBeforeListener(final AbstractUserAction action, final User user, UserState state) {
         final List<IUsageTraversalListener> listeners = traversalListenerMap.get(action);
         if (listeners != null) {
             for (final IUsageTraversalListener l : listeners) {

@@ -1,12 +1,11 @@
 package de.uka.ipd.sdq.simulation.events;
 
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
 import de.uka.ipd.sdq.simulation.entities.User;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviorTraversal;
+import de.uka.ipd.sdq.simulation.traversal.state.UserState;
+import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
 
 /**
  * Schedule this event to resume the traversal of a {@link UsageScenario}.
@@ -19,7 +18,7 @@ import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviorTraversal;
  */
 public class ResumeUsageTraversalEvent extends AbstractSimEvent<EventSimModel, User> {
 
-    private final TraversalState<AbstractUserAction> state;
+    private final UserState state;
 
     /**
      * Use this constructor to resume the traversal of a {@link UsageScenario}. All information
@@ -30,7 +29,7 @@ public class ResumeUsageTraversalEvent extends AbstractSimEvent<EventSimModel, U
      * @param state
      *            the traversal state
      */
-    public ResumeUsageTraversalEvent(final EventSimModel model, final TraversalState<AbstractUserAction> state) {
+    public ResumeUsageTraversalEvent(final EventSimModel model, final UserState state) {
         super(model, "ResumeUsageTraversalEvent");
         this.state = state;
     }
@@ -40,7 +39,7 @@ public class ResumeUsageTraversalEvent extends AbstractSimEvent<EventSimModel, U
      */
     @Override
     public void eventRoutine(final User who) {
-        new UsageBehaviorTraversal(who).resumeTraversal(this.state);
+        UsageBehaviourInterpreter.instance().resumeTraversal(who, this.state);
     }
 
 }

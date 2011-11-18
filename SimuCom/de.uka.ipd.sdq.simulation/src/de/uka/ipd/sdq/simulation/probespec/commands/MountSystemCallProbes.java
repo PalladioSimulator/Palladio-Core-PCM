@@ -15,8 +15,8 @@ import de.uka.ipd.sdq.simulation.command.usage.FindSystemCallsOfScenario;
 import de.uka.ipd.sdq.simulation.entities.User;
 import de.uka.ipd.sdq.simulation.traversal.listener.ITraversalListener;
 import de.uka.ipd.sdq.simulation.traversal.listener.IUsageTraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviorTraversal;
+import de.uka.ipd.sdq.simulation.traversal.state.UserState;
+import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
 
 /**
  * This command registers a {@link ITraversalListener} before and after each
@@ -36,10 +36,10 @@ public class MountSystemCallProbes implements IPCMCommand<Void> {
         for (UsageScenario s : pcm.getUsageModel().getUsageScenario_UsageModel()) {
             List<EntryLevelSystemCall> calls = executor.execute(new FindSystemCallsOfScenario(s));
             for (final EntryLevelSystemCall c : calls) {
-                UsageBehaviorTraversal.addTraversalListener(c, new IUsageTraversalListener() {
+                UsageBehaviourInterpreter.addTraversalListener(c, new IUsageTraversalListener() {
 
                     @Override
-                    public void before(AbstractUserAction action, User u, TraversalState<AbstractUserAction> state) {
+                    public void before(AbstractUserAction action, User u, UserState state) {
                         // take current time sample
                         ProbeSpecContext probeSpecContext = u.getModel().getProbeSpecContext();
                         probeSpecContext.getSampleBlackboard().addSample(
@@ -50,7 +50,7 @@ public class MountSystemCallProbes implements IPCMCommand<Void> {
                     }
 
                     @Override
-                    public void after(AbstractUserAction action, User u, TraversalState<AbstractUserAction> state) {
+                    public void after(AbstractUserAction action, User u, UserState state) {
                         // take current time sample
                         ProbeSpecContext probeSpecContext = u.getModel().getProbeSpecContext();
                         probeSpecContext.getSampleBlackboard().addSample(

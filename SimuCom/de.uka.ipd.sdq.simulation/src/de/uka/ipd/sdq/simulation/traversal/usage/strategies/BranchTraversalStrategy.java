@@ -1,15 +1,14 @@
 package de.uka.ipd.sdq.simulation.traversal.usage.strategies;
 
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.entities.User;
-import de.uka.ipd.sdq.simulation.traversal.ITraversalInstruction;
-import de.uka.ipd.sdq.simulation.traversal.instructions.TraverseScenarioBehaviour;
-import de.uka.ipd.sdq.simulation.traversal.state.TraversalState;
+import de.uka.ipd.sdq.simulation.traversal.state.UserState;
+import de.uka.ipd.sdq.simulation.traversal.usage.IUsageTraversalInstruction;
 import de.uka.ipd.sdq.simulation.traversal.usage.IUsageTraversalStrategy;
+import de.uka.ipd.sdq.simulation.traversal.usage.instructions.UsageTraversalInstructionFactory;
 
 /**
  * This traversal strategy is responsible for {@link Branch} actions.
@@ -23,8 +22,7 @@ public class BranchTraversalStrategy implements IUsageTraversalStrategy<Branch> 
      * {@inheritDoc}
      */
     @Override
-    public ITraversalInstruction<AbstractUserAction> traverse(final Branch branch, final User user,
-            final TraversalState<AbstractUserAction> state) {
+    public IUsageTraversalInstruction traverse(final Branch branch, final User user, final UserState state) {
         EventSimModel model = user.getModel();
         ScenarioBehaviour behaviour = null;
         double sum = 0;
@@ -42,7 +40,8 @@ public class BranchTraversalStrategy implements IUsageTraversalStrategy<Branch> 
         // TODO log a warn message
         assert (enteredTransition) : "No branch transition has been entered.";
 
-        return new TraverseScenarioBehaviour(user.getModel(), behaviour, branch.getSuccessor());
+        return UsageTraversalInstructionFactory.traverseScenarioBehaviour(user.getModel(), behaviour, branch
+                .getSuccessor());
     }
 
 }
