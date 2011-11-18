@@ -16,10 +16,10 @@ import de.uka.ipd.sdq.simulation.command.IPCMCommand;
 import de.uka.ipd.sdq.simulation.command.seff.FindExternalCallActionsInSeff;
 import de.uka.ipd.sdq.simulation.command.seff.FindSeffsForAssemblyContext;
 import de.uka.ipd.sdq.simulation.entities.Request;
+import de.uka.ipd.sdq.simulation.interpreter.listener.AbstractExternalCallListener;
+import de.uka.ipd.sdq.simulation.interpreter.seff.SeffBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.interpreter.state.RequestState;
 import de.uka.ipd.sdq.simulation.staticstructure.ComponentInstance;
-import de.uka.ipd.sdq.simulation.traversal.listener.AbstractExternalCallListener;
-import de.uka.ipd.sdq.simulation.traversal.seff.SeffBehaviourInterpreter;
-import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
 import de.uka.ipd.sdq.simulation.util.ParameterHelper;
 
 /**

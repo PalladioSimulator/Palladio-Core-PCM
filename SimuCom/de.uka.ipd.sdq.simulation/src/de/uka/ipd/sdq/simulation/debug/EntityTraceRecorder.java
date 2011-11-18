@@ -15,12 +15,12 @@ import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.simulation.entities.EventSimEntity;
 import de.uka.ipd.sdq.simulation.entities.Request;
 import de.uka.ipd.sdq.simulation.entities.User;
-import de.uka.ipd.sdq.simulation.traversal.listener.ISeffTraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.listener.IUsageTraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.seff.SeffBehaviourInterpreter;
-import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
-import de.uka.ipd.sdq.simulation.traversal.state.UserState;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.interpreter.listener.ISeffTraversalListener;
+import de.uka.ipd.sdq.simulation.interpreter.listener.IUsageTraversalListener;
+import de.uka.ipd.sdq.simulation.interpreter.seff.SeffBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.interpreter.state.RequestState;
+import de.uka.ipd.sdq.simulation.interpreter.state.UserState;
+import de.uka.ipd.sdq.simulation.interpreter.usage.UsageBehaviourInterpreter;
 import de.uka.ipd.sdq.simulation.util.PCMEntityHelper;
 
 public class EntityTraceRecorder {

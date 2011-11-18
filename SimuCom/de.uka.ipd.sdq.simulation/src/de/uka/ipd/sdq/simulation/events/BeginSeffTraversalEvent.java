@@ -5,9 +5,9 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
 import de.uka.ipd.sdq.simulation.entities.Request;
+import de.uka.ipd.sdq.simulation.interpreter.seff.SeffBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.interpreter.state.UserState;
 import de.uka.ipd.sdq.simulation.staticstructure.ComponentInstance;
-import de.uka.ipd.sdq.simulation.traversal.seff.SeffBehaviourInterpreter;
-import de.uka.ipd.sdq.simulation.traversal.state.UserState;
 
 /**
  * Schedule this event to begin the traversal of a {@link ResourceDemandingSEFF} (RD-SEFF).

@@ -4,8 +4,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.simulation.EventSimModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
 import de.uka.ipd.sdq.simulation.entities.User;
-import de.uka.ipd.sdq.simulation.traversal.state.UserState;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.interpreter.state.UserState;
+import de.uka.ipd.sdq.simulation.interpreter.usage.UsageBehaviourInterpreter;
 
 /**
  * Schedule this event to resume the traversal of a {@link UsageScenario}.

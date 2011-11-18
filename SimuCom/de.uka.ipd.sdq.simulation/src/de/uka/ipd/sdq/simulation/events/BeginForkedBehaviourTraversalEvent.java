@@ -7,8 +7,8 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
 import de.uka.ipd.sdq.simulation.entities.ForkedRequest;
 import de.uka.ipd.sdq.simulation.entities.Request;
 import de.uka.ipd.sdq.simulation.exceptions.unchecked.EventSimException;
-import de.uka.ipd.sdq.simulation.traversal.seff.SeffBehaviourInterpreter;
-import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
+import de.uka.ipd.sdq.simulation.interpreter.seff.SeffBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.interpreter.state.RequestState;
 
 /**
  * Schedule this event to begin the traversal of a {@link ForkedBehaviour}.

@@ -14,9 +14,9 @@ import de.uka.ipd.sdq.simulation.command.ICommandExecutor;
 import de.uka.ipd.sdq.simulation.command.IPCMCommand;
 import de.uka.ipd.sdq.simulation.command.usage.FindSystemCallsOfScenario;
 import de.uka.ipd.sdq.simulation.entities.User;
-import de.uka.ipd.sdq.simulation.traversal.listener.IUsageTraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.state.UserState;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.interpreter.listener.IUsageTraversalListener;
+import de.uka.ipd.sdq.simulation.interpreter.state.UserState;
+import de.uka.ipd.sdq.simulation.interpreter.usage.UsageBehaviourInterpreter;
 import de.uka.ipd.sdq.simulation.util.ParameterHelper;
 
 /**

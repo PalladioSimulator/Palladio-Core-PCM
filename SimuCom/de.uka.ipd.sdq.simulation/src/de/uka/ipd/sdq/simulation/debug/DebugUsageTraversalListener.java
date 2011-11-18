@@ -4,9 +4,9 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.simulation.entities.User;
-import de.uka.ipd.sdq.simulation.traversal.listener.IUsageTraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.state.UserState;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.interpreter.listener.IUsageTraversalListener;
+import de.uka.ipd.sdq.simulation.interpreter.state.UserState;
+import de.uka.ipd.sdq.simulation.interpreter.usage.UsageBehaviourInterpreter;
 import de.uka.ipd.sdq.simulation.util.PCMEntityHelper;
 
 /**

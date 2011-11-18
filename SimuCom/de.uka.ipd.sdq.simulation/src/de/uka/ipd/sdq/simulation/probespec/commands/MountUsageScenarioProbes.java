@@ -13,10 +13,10 @@ import de.uka.ipd.sdq.simulation.command.ICommandExecutor;
 import de.uka.ipd.sdq.simulation.command.IPCMCommand;
 import de.uka.ipd.sdq.simulation.command.usage.FindActionInUsageBehaviour;
 import de.uka.ipd.sdq.simulation.entities.User;
-import de.uka.ipd.sdq.simulation.traversal.listener.ITraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.listener.IUsageTraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.state.UserState;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.interpreter.listener.ITraversalListener;
+import de.uka.ipd.sdq.simulation.interpreter.listener.IUsageTraversalListener;
+import de.uka.ipd.sdq.simulation.interpreter.state.UserState;
+import de.uka.ipd.sdq.simulation.interpreter.usage.UsageBehaviourInterpreter;
 
 /**
  * This command registers a {@link ITraversalListener} at the start and at the stop action of a

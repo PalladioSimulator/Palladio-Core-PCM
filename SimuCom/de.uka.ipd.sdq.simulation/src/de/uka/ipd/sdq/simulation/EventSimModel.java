@@ -38,6 +38,8 @@ import de.uka.ipd.sdq.simulation.debug.EntityTraceRecorder;
 import de.uka.ipd.sdq.simulation.entities.EventSimEntity;
 import de.uka.ipd.sdq.simulation.entities.SimActiveResource;
 import de.uka.ipd.sdq.simulation.entities.User;
+import de.uka.ipd.sdq.simulation.interpreter.seff.SeffBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.interpreter.usage.UsageBehaviourInterpreter;
 import de.uka.ipd.sdq.simulation.probespec.CalculatorFactory;
 import de.uka.ipd.sdq.simulation.probespec.EventSimGarbageCollector;
 import de.uka.ipd.sdq.simulation.probespec.EventSimProbeStrategyRegistry;
@@ -57,8 +59,6 @@ import de.uka.ipd.sdq.simulation.staticstructure.SimulatedResourceEnvironment;
 import de.uka.ipd.sdq.simulation.staticstructure.commands.BuildAndRegisterPassiveResources;
 import de.uka.ipd.sdq.simulation.staticstructure.commands.BuildResourceAllocation;
 import de.uka.ipd.sdq.simulation.staticstructure.commands.BuildSimulatedResourceEnvironment;
-import de.uka.ipd.sdq.simulation.traversal.seff.SeffBehaviourInterpreter;
-import de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviourInterpreter;
 import de.uka.ipd.sdq.simulation.workload.BuildWorkloadGenerator;
 import de.uka.ipd.sdq.simulation.workload.IWorkloadGenerator;
 

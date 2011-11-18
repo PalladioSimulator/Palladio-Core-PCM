@@ -1,0 +1,27 @@
+package de.uka.ipd.sdq.simulation.interpreter.seff.strategies;
+
+import de.uka.ipd.sdq.pcm.seff.StartAction;
+import de.uka.ipd.sdq.simulation.entities.Request;
+import de.uka.ipd.sdq.simulation.interpreter.seff.IRequestTraversalInstruction;
+import de.uka.ipd.sdq.simulation.interpreter.seff.ISeffTraversalStrategy;
+import de.uka.ipd.sdq.simulation.interpreter.seff.instructions.RequestTraversalInstructionFactory;
+import de.uka.ipd.sdq.simulation.interpreter.state.RequestState;
+
+/**
+ * This traversal strategy is responsible for {@link StartAction}s.
+ * 
+ * @author Philipp Merkle
+ * 
+ */
+public class StartActionTraversalStrategy implements ISeffTraversalStrategy<StartAction> {
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public IRequestTraversalInstruction traverse(final StartAction action, final Request request,
+            final RequestState state) {
+        return RequestTraversalInstructionFactory.traverseNextAction(action.getSuccessor_AbstractAction());
+    }
+
+}

@@ -17,10 +17,10 @@ import de.uka.ipd.sdq.simulation.command.IPCMCommand;
 import de.uka.ipd.sdq.simulation.command.seff.FindExternalCallActionsInSeff;
 import de.uka.ipd.sdq.simulation.command.seff.FindSeffsForAssemblyContext;
 import de.uka.ipd.sdq.simulation.entities.Request;
-import de.uka.ipd.sdq.simulation.traversal.listener.ISeffTraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.listener.ITraversalListener;
-import de.uka.ipd.sdq.simulation.traversal.seff.SeffBehaviourInterpreter;
-import de.uka.ipd.sdq.simulation.traversal.state.RequestState;
+import de.uka.ipd.sdq.simulation.interpreter.listener.ISeffTraversalListener;
+import de.uka.ipd.sdq.simulation.interpreter.listener.ITraversalListener;
+import de.uka.ipd.sdq.simulation.interpreter.seff.SeffBehaviourInterpreter;
+import de.uka.ipd.sdq.simulation.interpreter.state.RequestState;
 
 /**
  * This command registers a {@link ITraversalListener} before and after each
