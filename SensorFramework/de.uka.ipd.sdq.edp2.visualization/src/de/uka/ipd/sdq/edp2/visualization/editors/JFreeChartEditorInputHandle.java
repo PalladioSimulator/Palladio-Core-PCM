@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
@@ -19,14 +20,14 @@ import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.statistics.HistogramDataset;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler;
+import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandle;
 
 /**
- * Implementation of an {@link IEditorInputHandler} for {@link JFreeChartEditorInput}s.
+ * Implementation of an {@link IEditorInputHandle} for {@link JFreeChartEditorInput}s.
  * @author Dominik Ernst
  * 
  */
-public class JFreeChartEditorInputHandler implements IEditorInputHandler {
+public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 
 	private ArrayList<IDataSink> inputs;
 	private Object dataset;
@@ -36,14 +37,14 @@ public class JFreeChartEditorInputHandler implements IEditorInputHandler {
 	/**
 	 * Empty constructor.
 	 */
-	public JFreeChartEditorInputHandler() {
+	public JFreeChartEditorInputHandle() {
 		inputs = new ArrayList<IDataSink>();
 	}
 
 	/**
 	 * Constructor with a first input.
 	 */
-	public JFreeChartEditorInputHandler(JFreeChartEditorInput firstInput) {
+	public JFreeChartEditorInputHandle(IDataSink firstInput) {
 		inputs = new ArrayList<IDataSink>();
 		addInput(firstInput);
 	}
@@ -70,6 +71,7 @@ public class JFreeChartEditorInputHandler implements IEditorInputHandler {
 	 */
 	@Override
 	public Object getInputDataset() {
+		
 		dataset = inputs.get(0).getDataTypeInstance();
 		if (dataset instanceof HistogramDataset) {
 			HistogramDataset histogramDataset = (HistogramDataset) dataset;
@@ -117,7 +119,7 @@ public class JFreeChartEditorInputHandler implements IEditorInputHandler {
 	@Override
 	public boolean exists() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	/*
@@ -149,8 +151,7 @@ public class JFreeChartEditorInputHandler implements IEditorInputHandler {
 	 */
 	@Override
 	public IPersistableElement getPersistable() {
-		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 	/*
@@ -183,7 +184,6 @@ public class JFreeChartEditorInputHandler implements IEditorInputHandler {
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -211,6 +211,16 @@ public class JFreeChartEditorInputHandler implements IEditorInputHandler {
 	@Override
 	public boolean isEmpty() {
 		return getInputsSize() == 0;
+	}
+
+	@Override
+	public String getFactoryId() {
+		return JFreeChartEditorInputHandleFactory.getFactoryId();
+	}
+
+	@Override
+	public void saveState(IMemento memento) {
+		JFreeChartEditorInputHandleFactory.saveState(memento, this);
 	}
 
 }

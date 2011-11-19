@@ -14,10 +14,10 @@ import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 
 /**
- * Factory for {@link ScatterPlotInput}. Also manages persistence of instances
- * of {@link ScatterPlotInput}.
+ * Factory for {@link HistogramEditorInput}. Also manages persistence of instances
+ * of {@link HistogramEditorInput}.
  * 
- * @author ernst
+ * @author Dominik Ernst
  * 
  */
 public class HistogramEditorInputFactory extends ElementFactory {

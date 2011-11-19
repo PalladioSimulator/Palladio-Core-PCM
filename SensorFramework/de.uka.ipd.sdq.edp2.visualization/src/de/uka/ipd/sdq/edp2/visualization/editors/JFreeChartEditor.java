@@ -11,7 +11,7 @@ import org.jfree.chart.event.ChartChangeListener;
 import org.jfree.experimental.chart.swt.ChartComposite;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler;
+import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandle;
 
 /**
  * Implementation of an {@link EditorPart}, which is responsible for showing
@@ -63,7 +63,7 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 	 */
 	public void updateChart() {
 		chart.removeChangeListener(this);
-		chart = ((JFreeChartEditorInputHandler)getEditorInput()).createChart();
+		chart = ((JFreeChartEditorInputHandle)getEditorInput()).createChart();
 		chart.addChangeListener(this);
 		chartContainer.setChart(chart);
 		chartContainer.forceRedraw();
@@ -75,7 +75,7 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 	}
 
 	@Override
-	public JFreeChartEditorInputHandler getEditorInputHandler() {
-		return (JFreeChartEditorInputHandler)input;
+	public JFreeChartEditorInputHandle getEditorInputHandler() {
+		return (JFreeChartEditorInputHandle)input;
 	}
 }

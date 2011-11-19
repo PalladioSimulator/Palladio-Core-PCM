@@ -8,6 +8,7 @@ import java.util.Observer;
 
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IPersistableElement;
 
 /**
  * Interface for classes wrapping multiple editor inputs into one object to be displayed
@@ -15,7 +16,7 @@ import org.eclipse.ui.IEditorInput;
  * @author Dominik Ernst
  *
  */
-public interface IEditorInputHandler extends IEditorInput, Observer, ISelection {
+public interface IEditorInputHandle extends IEditorInput, Observer, ISelection, IPersistableElement {
 
 	/**
 	 * Method to retrieve all contained {@link IDataSink}s. These are intended to be displayed by the same
@@ -25,14 +26,14 @@ public interface IEditorInputHandler extends IEditorInput, Observer, ISelection 
 	public ArrayList<IDataSink> getInputs();
 	
 	/**
-	 * Adds an {@link IDataSink} to this {@link IEditorInputHandler}'s list of inputs.
+	 * Adds an {@link IDataSink} to this {@link IEditorInputHandle}'s list of inputs.
 	 * @param newInput the {@link IDataSink} to add.
 	 * @return <true> if the {@link IDataSink} could be added successfully.
 	 */
 	public boolean addInput(IDataSink newInput);
 	
 	/**
-	 * Removes an {@link IDataSink} from this {@link IEditorInputHandler}'s list of inputs.
+	 * Removes an {@link IDataSink} from this {@link IEditorInputHandle}'s list of inputs.
 	 * @param removedInput the {@link IDataSink} to add.
 	 * @return <true> if the {@link IDataSink} could found and removed.
 	 */

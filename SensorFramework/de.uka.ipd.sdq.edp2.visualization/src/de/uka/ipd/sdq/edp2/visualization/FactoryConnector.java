@@ -16,9 +16,7 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2SourceFactory;
 
 /**
  * A class, which connects the different {@link IElementFactory}s. Uses
- * extension points to retrieve pairs of adapters and factories. TODO add
- * filters OR make this class superfluous by direct persistence of elements as
- * BASE64 strings in a global factory for all transformations/sources.
+ * extension points to retrieve pairs of adapters and factories.
  * 
  * @author Dominik Ernst
  * 
@@ -39,6 +37,10 @@ public class FactoryConnector implements IAdapterFactory {
 	 */
 	private final static String ADAPTER_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.adapter";
 	/**
+	 * ID of the extension point for data sinks.
+	 */
+	private static final String SINK_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.datasink";
+	/**
 	 * The "class" attribute's element name in the extension point.
 	 */
 	private final static String CLASS_ATTRIBUTE = "class";
@@ -46,7 +48,6 @@ public class FactoryConnector implements IAdapterFactory {
 	 * The "factory" attribute's element name in the extension point.
 	 */
 	private final static String FACTORY_ATTRIBUTE = "factory";
-
 
 	/*
 	 * (non-Javadoc)
@@ -60,25 +61,32 @@ public class FactoryConnector implements IAdapterFactory {
 		
 		HashMap<AbstractAdapter, IElementFactory> adapterFactoryMap = getAdapterFactoryMap();
 		HashMap<AbstractFilter, IElementFactory> filterFactoryMap = getFilterFactoryMap();
-		Set<AbstractAdapter> adapterKeys = adapterFactoryMap.keySet();
-		Set<AbstractFilter> filterKeys = filterFactoryMap.keySet();
+		HashMap<IDataSink, IElementFactory> sinkFactoryMap = getSinkFactoryMap();
 		
 		IElementFactory resultingFactory = null;
 		
 		// find the adapter or filter in the maps and set the return to the corresponding
 		// factory
-		for (AbstractAdapter adapter : adapterKeys) {
+		for (AbstractAdapter adapter : adapterFactoryMap.keySet()) {
 			// compare string representations of objects
 			if (adapter.getClass().getCanonicalName().equals(
 					adaptableObject.toString())) {
 				resultingFactory = adapterFactoryMap.get(adapter);
 			}
 		}
-		for (AbstractFilter filter : filterKeys) {
+		for (AbstractFilter filter : filterFactoryMap.keySet()) {
 			// compare string representations of objects
 			if (filter.getClass().getCanonicalName().equals(
 					adaptableObject.toString())) {
 				resultingFactory = filterFactoryMap.get(filter);
+			}
+		}
+		
+		for (IDataSink sink : sinkFactoryMap.keySet()) {
+			// compare string representations of objects
+			if (sink.getClass().getCanonicalName().equals(
+					adaptableObject.toString())) {
+				resultingFactory = sinkFactoryMap.get(sink);
 			}
 		}
 		
@@ -152,6 +160,38 @@ public class FactoryConnector implements IAdapterFactory {
 			}
 		}
 		return adapterFactoryMap;
+	}
+	
+	/**
+	 * Gets all registered editor inputs ({@link IDataSink}) and their corresponding
+	 * Factories({@link IElementFactory}).
+	 * 
+	 * @return a map of {@link IDataSink} - {@link IElementFactory} combinations.
+	 */
+	public HashMap<IDataSink, IElementFactory> getSinkFactoryMap() {
+		HashMap<IDataSink, IElementFactory> sinkFactoryMap = new HashMap<IDataSink, IElementFactory>();
+		// checks the extension registry for all registered adapters and adds
+		// them to the list
+		final IConfigurationElement[] sinkExtensions = Platform
+				.getExtensionRegistry().getConfigurationElementsFor(
+						SINK_EXTENSION_POINT_ID);
+		for (IConfigurationElement e : sinkExtensions) {
+			Object sink = null;
+			Object factory = null;
+			try {
+				factory = e
+						.createExecutableExtension(FACTORY_ATTRIBUTE);
+				sink = e.createExecutableExtension(CLASS_ATTRIBUTE);
+				sinkFactoryMap.put((IDataSink) sink,
+						(IElementFactory) factory);
+			} catch (CoreException e1) {
+				logger
+						.log(Level.SEVERE,
+								"Error in creating an Object referenced in an extension.");
+				throw new RuntimeException();
+			}
+		}
+		return sinkFactoryMap;
 	}
 
 	/*

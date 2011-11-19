@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler;
+import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.IVisualization;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 
@@ -51,7 +51,7 @@ public abstract class AbstractEditor extends EditorPart implements
 	public static final String EDITOR_ID = "de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor";
 
 	/** The input for this Editor. */
-	protected IEditorInputHandler input;
+	protected IEditorInputHandle input;
 	/** Reference on the current {@link TabbedPropertySheetPage}. */
 	protected TabbedPropertySheetPage propertySheetPage;
 
@@ -92,7 +92,7 @@ public abstract class AbstractEditor extends EditorPart implements
 	public void init(IEditorSite site, IEditorInput input)
 			throws PartInitException {
 		setSite(site);
-		this.input = (IEditorInputHandler)input;
+		this.input = (IEditorInputHandle)input;
 		setInput(input);
 	}
 

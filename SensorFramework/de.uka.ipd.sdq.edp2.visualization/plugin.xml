@@ -5,6 +5,7 @@
    <extension-point id="adapter" name="Adapter" schema="schema/de.uka.ipd.sdq.edp2.adapter.exsd"/>
    <extension-point id="filter" name="Filter" schema="schema/de.uka.ipd.sdq.edp2.filter.exsd"/>
    <extension-point id="defaultSequences" name="Default Sequences" schema="schema/defaultSequence.exsd"/>
+   <extension-point id="datasink" name="Data Sink" schema="schema/datasink.exsd"/>
    <extension
          point="org.eclipse.ui.elementFactories">
       <factory
@@ -18,6 +19,10 @@
       <factory
             class="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInputFactory"
             id="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInputFactory">
+      </factory>
+      <factory
+            class="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandleFactory"
+            id="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputFactory">
       </factory>
    </extension>
    <extension
@@ -122,6 +127,15 @@
                name="Simulation: Response Time">
          </inputMetric>
       </defaultSequence>
+   </extension>
+   <extension
+         point="de.uka.ipd.sdq.edp2.visualization.datasink">
+      <datasink
+            class="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput"
+            editor="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
+            factory="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInputFactory"
+            id="de.uka.ipd.sdq.edp2.visualization.histogram">
+      </datasink>
    </extension>
 
 </plugin>
