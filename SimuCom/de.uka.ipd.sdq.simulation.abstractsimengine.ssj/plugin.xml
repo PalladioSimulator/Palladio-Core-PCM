@@ -5,7 +5,8 @@
          point="de.uka.ipd.sdq.simulation.abstractsimengine.engine">
       <engine
             class="de.uka.ipd.sdq.simulation.abstractsimengine.ssj.SSJSimEngineFactory"
-            id="de.uka.ipd.sdq.simulation.abstractsimengine.ssj.SSJSimEngineFactory">
+            id="de.uka.ipd.sdq.simulation.abstractsimengine.ssj"
+            name="SSJ Simulation Engine">
       </engine>
    </extension>
 

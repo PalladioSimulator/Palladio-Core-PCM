@@ -13,6 +13,8 @@ import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
+import de.uka.ipd.sdq.simulation.abstractsimengine.util.AbstractSimEnginePreferencesHelper;
 
 /**
  * Base class for simulation instances. It contains a generic simulation start
@@ -210,11 +212,19 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simucomframework.IS
 	 * de.uka.ipd.sdq.simucomframework.IStatusObserver, boolean)
 	 */
     public void prepareSimulation(AbstractSimulationConfig config, IStatusObserver observer, boolean isRemoteRun) {
-		model = SimuComFactory.getSimuComModel((SimuComConfig)config, getStatus(), isRemoteRun);
+        // load factory for the preferred simulation engine
+        ISimEngineFactory<SimuComModel> factory = AbstractSimEnginePreferencesHelper.getPreferredSimulationEngine();
+        if (factory == null) {
+            throw new RuntimeException("There is no simulation engine available. Install at least one engine.");
+        }
+        
+        // create simulation model
+        model = new SimuComModel((SimuComConfig) config, getStatus(), factory, isRemoteRun);
 
-		model.initialiseResourceContainer(getResourceContainerFactory());
-		model.setUsageScenarios(getWorkloads((SimuComConfig)config));
-		setupCalculators((SimuComConfig)config);
+        // initialse simulation model
+        model.initialiseResourceContainer(getResourceContainerFactory());
+        model.setUsageScenarios(getWorkloads((SimuComConfig) config));
+        setupCalculators((SimuComConfig) config);
 	}
 
 	/*
