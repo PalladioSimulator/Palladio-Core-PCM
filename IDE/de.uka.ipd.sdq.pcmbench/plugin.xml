@@ -125,4 +125,12 @@
          </run>
       </application>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="de.uka.ipd.sdq.pcmbench.preferences.PCMBenchPreferences"
+            id="de.uka.ipd.sdq.pcmbench.palladio"
+            name="Palladio">
+      </page>
+   </extension>
 </plugin>

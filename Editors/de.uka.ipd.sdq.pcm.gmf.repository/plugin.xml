@@ -122,9 +122,10 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
       <?gmfgen generated="true"?>
       <page
+            category="de.uka.ipd.sdq.pcmbench.palladio"
+            class="de.uka.ipd.sdq.pcm.gmf.repository.preferences.DiagramGeneralPreferencePage"
             id="de.uka.ipd.sdq.pcm.diagram.repository"
-            name="%prefpage.de.uka.ipd.sdq.pcm.diagram.repository"
-            class="de.uka.ipd.sdq.pcm.gmf.repository.preferences.DiagramGeneralPreferencePage">
+            name="%prefpage.de.uka.ipd.sdq.pcm.diagram.repository">
       </page>
       <page
             id="de.uka.ipd.sdq.pcm.diagram.repository.appearance"

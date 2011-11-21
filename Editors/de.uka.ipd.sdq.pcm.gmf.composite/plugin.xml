@@ -162,9 +162,10 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
       <?gmfgen generated="true"?>
       <page
+            category="de.uka.ipd.sdq.pcmbench.palladio"
+            class="de.uka.ipd.sdq.pcm.gmf.composite.preferences.DiagramGeneralPreferencePage"
             id="de.uka.ipd.sdq.pcm.diagram.composite"
-            name="%prefpage.de.uka.ipd.sdq.pcm.diagram.composite"
-            class="de.uka.ipd.sdq.pcm.gmf.composite.preferences.DiagramGeneralPreferencePage">
+            name="%prefpage.de.uka.ipd.sdq.pcm.diagram.composite">
       </page>
       <page
             id="de.uka.ipd.sdq.pcm.diagram.composite.appearance"

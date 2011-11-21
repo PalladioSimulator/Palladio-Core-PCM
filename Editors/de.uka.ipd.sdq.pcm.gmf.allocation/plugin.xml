@@ -157,9 +157,10 @@ Copyright 2007, SDQ, IPD, U KA
    <extension point="org.eclipse.ui.preferencePages">
       <?gmfgen generated="true"?>
       <page
+            category="de.uka.ipd.sdq.pcmbench.palladio"
+            class="de.uka.ipd.sdq.pcm.gmf.allocation.preferences.DiagramGeneralPreferencePage"
             id="de.uka.ipd.sdq.pcm.diagram.general"
-            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.general"
-            class="de.uka.ipd.sdq.pcm.gmf.allocation.preferences.DiagramGeneralPreferencePage">
+            name="%preference.page.title.de.uka.ipd.sdq.pcm.diagram.general">
       </page>
       <page
             id="de.uka.ipd.sdq.pcm.diagram.appearance"

@@ -121,9 +121,10 @@
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
       <?gmfgen generated="true"?>
       <page
+            category="de.uka.ipd.sdq.pcmbench.palladio"
+            class="de.uka.ipd.sdq.pcm.gmf.resource.preferences.DiagramGeneralPreferencePage"
             id="de.uka.ipd.sdq.pcm.gmf.resource.general"
-            name="%prefpage.de.uka.ipd.sdq.pcm.gmf.resource.general"
-            class="de.uka.ipd.sdq.pcm.gmf.resource.preferences.DiagramGeneralPreferencePage">
+            name="%prefpage.de.uka.ipd.sdq.pcm.gmf.resource.general">
       </page>
       <page
             id="de.uka.ipd.sdq.pcm.gmf.resource.appearance"
