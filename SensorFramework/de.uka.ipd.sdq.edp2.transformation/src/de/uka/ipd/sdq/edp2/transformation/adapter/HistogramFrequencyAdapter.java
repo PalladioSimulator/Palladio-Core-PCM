@@ -132,7 +132,7 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 		setChanged();
 		notifyObservers();
 
-		logger.log(Level.INFO, "transformation END");
+		logger.log(Level.INFO, "transformation END - dataseriesIndex is: "+getDataSeriesIndex());
 	}
 
 	/*

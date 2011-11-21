@@ -37,6 +37,10 @@ public class JFreeChartEditorInputHandleFactory implements IElementFactory {
 	 */
 	protected final static String INPUT_NAME_KEY = "inputName";
 	/**
+	 * The attribute under which the different inputs names are stored.
+	 */
+	protected final static String INPUT_ELEMENT_KEY = "InputElement";
+	/**
 	 * The attribute under which the size of the input array is persisted.
 	 */
 	protected final static String INPUT_SIZE_KEY = "inputSize";
@@ -67,25 +71,24 @@ public class JFreeChartEditorInputHandleFactory implements IElementFactory {
 		JFreeChartEditorInputHandle handle = new JFreeChartEditorInputHandle();
 		memento = memento.getChild(ELEMENT_NAME);
 		int size = memento.getInteger(INPUT_SIZE_KEY);
-		for (int j = 0; j < size; j++){
-			String elementName = memento.getString(INPUT_NAME_KEY+j);
+		IMemento[] inputMementos = memento.getChildren(INPUT_ELEMENT_KEY);
+		for (IMemento subMemento : inputMementos){
+			String elementName = subMemento.getString(INPUT_NAME_KEY);
 			Object sinkFactory = factoryConnector.getAdapter(elementName, IElementFactory.class);
 			IDataSink createdSink = (IDataSink) ((IElementFactory) sinkFactory)
-			.createElement(memento);
-			
+			.createElement(subMemento);
 			handle.addInput(createdSink);
 		}
 		return handle;
 	}
 	
 	public static void saveState(IMemento memento, JFreeChartEditorInputHandle inputHandle) {
-		memento.createChild(ELEMENT_NAME);
-		memento = memento.getChild(ELEMENT_NAME);
+		memento = memento.createChild(ELEMENT_NAME);
 		memento.putInteger(INPUT_SIZE_KEY, inputHandle.getInputsSize());
-		int i = 0;
 		for (IDataSink input : inputHandle.getInputs()) {
-			memento.putString(INPUT_NAME_KEY+i++, input.getClass().getCanonicalName());
-			input.saveState(memento);
+			IMemento subMemento = memento.createChild(INPUT_ELEMENT_KEY);
+			subMemento.putString(INPUT_NAME_KEY, input.getClass().getCanonicalName());
+			input.saveState(subMemento);
 		}
 	}
 

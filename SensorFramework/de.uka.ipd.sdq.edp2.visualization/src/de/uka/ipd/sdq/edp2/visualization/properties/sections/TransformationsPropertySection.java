@@ -390,10 +390,9 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	 *            the value as an Object.
 	 */
 	private void updateProperties(String key, Object value) {
-
 		// get properties for keys and old values
 		HashMap<String, Object> newProperties = lastSelection.getProperties();
-		
+		logger.log(Level.INFO, ""+lastSelection.getName()+" updated with: "+key.toString()+", " + value.toString());
 		newProperties.put(key, value);
 		lastSelection.setProperties(newProperties);
 		lastSelection.transformData();
