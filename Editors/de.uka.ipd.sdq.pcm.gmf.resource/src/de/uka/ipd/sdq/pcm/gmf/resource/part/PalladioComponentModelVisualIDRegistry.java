@@ -14,6 +14,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpeci
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationLatencyLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationThroughputLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceNetworkSwitchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationActiveResourceTypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
@@ -197,6 +198,9 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case LinkingResource2EditPart.VISUAL_ID:
+			if (LinkingResourceEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

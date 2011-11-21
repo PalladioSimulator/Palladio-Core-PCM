@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -121,6 +122,56 @@ public class LinkingResource2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof LinkingResourceEntityNameEditPart) {
+			((LinkingResourceEntityNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureNetworkSwitchNameFigure());
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof LinkingResourceEntityNameEditPart) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		return getContentPane();
+	}
+
+	/**
+	 * @generated
+	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(250, 50);
 		return result;
@@ -207,6 +258,14 @@ public class LinkingResource2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+				.getType(LinkingResourceEntityNameEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSource() {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
 		types
@@ -266,6 +325,11 @@ public class LinkingResource2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrappingLabel fFigureNetworkSwitchNameFigure;
+
+		/**
+		 * @generated
+		 */
 		public NetworkSwitchFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(27),
 					getMapMode().DPtoLP(27)));
@@ -275,6 +339,19 @@ public class LinkingResource2EditPart extends ShapeNodeEditPart {
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(10),
 					getMapMode().DPtoLP(10), getMapMode().DPtoLP(10),
 					getMapMode().DPtoLP(10)));
+			createContents();
+		}
+
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			fFigureNetworkSwitchNameFigure = new WrappingLabel();
+			fFigureNetworkSwitchNameFigure.setText("");
+
+			this.add(fFigureNetworkSwitchNameFigure);
+
 		}
 
 		/**
@@ -294,6 +371,13 @@ public class LinkingResource2EditPart extends ShapeNodeEditPart {
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureNetworkSwitchNameFigure() {
+			return fFigureNetworkSwitchNameFigure;
 		}
 
 	}

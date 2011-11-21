@@ -98,6 +98,13 @@
     <ownedChild>
       <domainMetaElement
           href="../../pcm.ecore#//resourceenvironment/LinkingResource"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="resourceeditor.gmfgraph#NetworkSwitchNameLabel"/>
+        <features
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="resourceeditor.gmftool#//@palette/@tools.0/@tools.1"/>

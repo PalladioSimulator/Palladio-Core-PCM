@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpeci
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
@@ -225,13 +226,18 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getLinkingResource_2003Text(View view) {
-		LinkingResource domainModelElement = (LinkingResource) view
-				.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getId();
+		IParser parser = PalladioComponentModelParserProvider.getParser(
+				PalladioComponentModelElementTypes.LinkingResource_2003, view
+						.getElement() != null ? view.getElement() : view,
+				PalladioComponentModelVisualIDRegistry
+						.getType(LinkingResourceEntityNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2003); //$NON-NLS-1$
+					"Parser was not found for label " + 5012); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

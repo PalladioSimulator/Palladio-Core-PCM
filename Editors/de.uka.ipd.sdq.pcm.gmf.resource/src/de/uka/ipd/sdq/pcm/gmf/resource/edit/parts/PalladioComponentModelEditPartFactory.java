@@ -44,6 +44,9 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case LinkingResource2EditPart.VISUAL_ID:
 				return new LinkingResource2EditPart(view);
 
+			case LinkingResourceEntityNameEditPart.VISUAL_ID:
+				return new LinkingResourceEntityNameEditPart(view);
+
 			case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 				return new ProcessingResourceSpecificationEditPart(view);
 

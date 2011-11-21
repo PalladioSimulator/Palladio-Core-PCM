@@ -15,6 +15,9 @@
   <nodeTraces
       visualID="2003"
       queryText="let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0' and _eClass_.name = 'LinkingResource'">
+    <nodeLabelTraces
+        visualID="5012"
+        queryText="true"/>
     <compartmentTraces
         visualID="7003"
         queryText="true"/>

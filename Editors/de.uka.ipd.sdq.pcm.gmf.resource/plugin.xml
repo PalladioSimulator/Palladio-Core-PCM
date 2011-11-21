@@ -121,10 +121,9 @@
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
       <?gmfgen generated="true"?>
       <page
-            category="de.uka.ipd.sdq.pcmbench.palladio"
-            class="de.uka.ipd.sdq.pcm.gmf.resource.preferences.DiagramGeneralPreferencePage"
             id="de.uka.ipd.sdq.pcm.gmf.resource.general"
-            name="%prefpage.de.uka.ipd.sdq.pcm.gmf.resource.general">
+            name="%prefpage.de.uka.ipd.sdq.pcm.gmf.resource.general"
+            class="de.uka.ipd.sdq.pcm.gmf.resource.preferences.DiagramGeneralPreferencePage">
       </page>
       <page
             id="de.uka.ipd.sdq.pcm.gmf.resource.appearance"
@@ -239,7 +238,7 @@
             <method name="getType()" value="4002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5001,5002,5003,5004,5006,5009,5010,5005,5007,5008,5011"/>
+            <method name="getType()" value="5001,5012,5002,5003,5004,5006,5009,5010,5005,5007,5008,5011"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="7001,7002,7003"/>

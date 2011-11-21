@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTREditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationNumberOfReplicasEditPart;
@@ -50,6 +51,24 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			resourceContainerEntityName_5001Parser = parser;
 		}
 		return resourceContainerEntityName_5001Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser linkingResourceEntityName_5012Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLinkingResourceEntityName_5012Parser() {
+		if (linkingResourceEntityName_5012Parser == null) {
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			linkingResourceEntityName_5012Parser = parser;
+		}
+		return linkingResourceEntityName_5012Parser;
 	}
 
 	/**
@@ -164,6 +183,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		switch (visualID) {
 		case ResourceContainerEntityNameEditPart.VISUAL_ID:
 			return getResourceContainerEntityName_5001Parser();
+		case LinkingResourceEntityNameEditPart.VISUAL_ID:
+			return getLinkingResourceEntityName_5012Parser();
 		case ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID:
 			return getProcessingResourceSpecificationMTTF_5002Parser();
 		case ProcessingResourceSpecificationMTTREditPart.VISUAL_ID:

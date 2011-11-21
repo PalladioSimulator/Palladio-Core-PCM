@@ -118,17 +118,6 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel2EditPart) {
-			((WrappingLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureNetworkSwitchSpecificationNameFigure());
-			return true;
-		}
-		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
-			((CommunicationLinkResourceSpecificationFailureProbabilityEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureFailureProbabilityFigure());
-			return true;
-		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationThroughputLabelEditPart) {
 			((CommunicationLinkResourceSpecificationThroughputLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
@@ -140,6 +129,17 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 					.setLabel(getPrimaryShape().getFigureLatencyLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof WrappingLabel2EditPart) {
+			((WrappingLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureNetworkSwitchSpecificationNameFigure());
+			return true;
+		}
+		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
+			((CommunicationLinkResourceSpecificationFailureProbabilityEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureFailureProbabilityFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -147,16 +147,16 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel2EditPart) {
-			return true;
-		}
-		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
-			return true;
-		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationThroughputLabelEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationLatencyLabelEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof WrappingLabel2EditPart) {
+			return true;
+		}
+		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			return true;
 		}
 		return false;

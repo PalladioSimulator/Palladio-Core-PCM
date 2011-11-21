@@ -118,7 +118,13 @@
         <size
             x="200"
             y="40"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="NetworkSwitchNameFigure"/>
       </actualFigure>
+      <accessors
+          accessor="getFigureNetworkSwitchNameFigure"
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="ProcessingResourceSpecificationFigure">
@@ -307,6 +313,10 @@
       name="NetworkSwitchSpecificationNameLabel"
       figure="NetworkSwitchFigure"
       accessor="//@figures.0/@descriptors.5/@accessors.3"/>
+  <labels
+      name="NetworkSwitchNameLabel"
+      figure="NetworkSwitchFigure"
+      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
   <labels
       name="LatencyLabel"
       figure="NetworkSwitchSpecificationFigure"

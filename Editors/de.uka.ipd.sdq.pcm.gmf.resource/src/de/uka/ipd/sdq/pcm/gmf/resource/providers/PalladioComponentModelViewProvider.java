@@ -51,6 +51,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpeci
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationThroughputLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceNetworkSwitchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationActiveResourceTypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
@@ -369,6 +370,9 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
+		Node label5012 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(LinkingResourceEntityNameEditPart.VISUAL_ID));
 		createCompartment(
 				node,
 				PalladioComponentModelVisualIDRegistry
