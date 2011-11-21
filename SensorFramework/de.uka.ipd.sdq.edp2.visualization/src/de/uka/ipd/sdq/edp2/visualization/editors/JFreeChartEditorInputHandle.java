@@ -12,12 +12,15 @@ import org.eclipse.ui.IPersistableElement;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.labels.StandardXYToolTipGenerator;
+import org.jfree.chart.plot.Plot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.statistics.HistogramDataset;
+import org.jfree.data.xy.DefaultXYDataset;
+import org.jfree.data.xy.XYDataset;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandle;
@@ -29,8 +32,8 @@ import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandle;
  */
 public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 
-	private ArrayList<IDataSink> inputs;
-	private Object dataset;
+	private ArrayList<JFreeChartEditorInput> inputs;
+	private XYDataset dataset;
 	private XYPlot plot;
 	private XYItemRenderer renderer;
 
@@ -38,14 +41,14 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	 * Empty constructor.
 	 */
 	public JFreeChartEditorInputHandle() {
-		inputs = new ArrayList<IDataSink>();
+		inputs = new ArrayList<JFreeChartEditorInput>();
 	}
 
 	/**
 	 * Constructor with a first input.
 	 */
 	public JFreeChartEditorInputHandle(IDataSink firstInput) {
-		inputs = new ArrayList<IDataSink>();
+		inputs = new ArrayList<JFreeChartEditorInput>();
 		addInput(firstInput);
 	}
 
@@ -70,9 +73,10 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	 * de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler#getInputDataset()
 	 */
 	@Override
-	public Object getInputDataset() {
+	public Object getInputData() {
 		
-		dataset = inputs.get(0).getDataTypeInstance();
+		
+		dataset = (XYDataset) inputs.get(0).getDataTypeInstance();
 		if (dataset instanceof HistogramDataset) {
 			HistogramDataset histogramDataset = (HistogramDataset) dataset;
 			for (IDataSink input : inputs) {
@@ -82,10 +86,26 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 			}
 			plot = ((JFreeChartEditorInput) inputs.get(0)).createPlot();
 			plot.setDataset(histogramDataset);
+		} else if (dataset instanceof DefaultXYDataset){
+			DefaultXYDataset xyDataset = (DefaultXYDataset) dataset;
+			for (IDataSink input : inputs) {
+				xyDataset.addSeries(input.getName(), (double[][])input.getData());
+			}
+			plot = ((JFreeChartEditorInput) inputs.get(0)).createPlot();
+			plot.setDataset(xyDataset);
 		}
 		renderer = ((JFreeChartEditorInput) inputs.get(0)).createRenderer();
 
 		return dataset;
+	}
+	
+	public XYPlot getPlot(){
+		plot = inputs.get(0).createPlot();
+		plot.setRenderer(inputs.get(0).createRenderer());
+		plot.setDataset(inputs.get(0).createDataset());
+		
+		return plot = inputs.get(0).createPlot();
+		
 	}
 
 	/*
@@ -94,7 +114,7 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	 * @see de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler#getInputs()
 	 */
 	@Override
-	public ArrayList<IDataSink> getInputs() {
+	public ArrayList<JFreeChartEditorInput> getInputs() {
 		return inputs;
 	}
 
@@ -197,7 +217,7 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	 * before the chart itself is updated.
 	 */
 	public JFreeChart createChart() {
-		getInputDataset();
+		getInputData();
 		NumberAxis domainAxis = new NumberAxis("x-Axis label");
 		NumberAxis rangeAxis = new NumberAxis("y-Axis label");
 		plot.setRenderer(renderer);
@@ -221,6 +241,11 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	@Override
 	public void saveState(IMemento memento) {
 		JFreeChartEditorInputHandleFactory.saveState(memento, this);
+	}
+
+	@Override
+	public boolean supportsMultipleInputs() {
+		return true;
 	}
 
 }

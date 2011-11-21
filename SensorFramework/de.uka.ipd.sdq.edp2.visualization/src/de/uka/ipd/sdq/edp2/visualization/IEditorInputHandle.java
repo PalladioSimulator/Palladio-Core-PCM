@@ -10,9 +10,11 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
 
+import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
+
 /**
- * Interface for classes wrapping multiple editor inputs into one object to be displayed
- * by an editor.
+ * Interface for classes that are being displayed by implementations of {@link AbstractEditor}.
+ * Possibly manages multiple inputs as indicated by {@link #supportsMultipleInputs()}
  * @author Dominik Ernst
  *
  */
@@ -23,7 +25,7 @@ public interface IEditorInputHandle extends IEditorInput, Observer, ISelection, 
 	 * {@link IVisualization}.
 	 * @return the contained {@link IDataSink}s
 	 */
-	public ArrayList<IDataSink> getInputs();
+	public ArrayList<? extends IDataSink> getInputs();
 	
 	/**
 	 * Adds an {@link IDataSink} to this {@link IEditorInputHandle}'s list of inputs.
@@ -49,6 +51,13 @@ public interface IEditorInputHandle extends IEditorInput, Observer, ISelection, 
 	 * Method to return the combined set of input data, which can be displayed by an {@link IVisualization}.
 	 * @return
 	 */
-	public Object getInputDataset();
+	public Object getInputData();
+	
+	/**
+	 * Method, which returns <true> if the {@link IEditorInputHandle} and its corresponding {@link AbstractEditor}
+	 * are able to display multiple {@link IDataSink} objects.
+	 * @return <true> if multiple inputs are supported.
+	 */
+	public boolean supportsMultipleInputs();
 	
 }

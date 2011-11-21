@@ -23,8 +23,12 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYDotRenderer;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.xy.DefaultTableXYDataset;
+import org.jfree.data.xy.DefaultXYDataset;
+import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
@@ -68,9 +72,9 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 			.getLogger(ScatterPlotInput.class.getCanonicalName());
 
 	/**
-	 * The specific type of dataset for this editor input.
+	 * The specific type of data provided by this {@link JFreeChartEditorInput}
 	 */
-	private DefaultTableXYDataset dataset;
+	private double[][] data;
 
 	public ScatterPlotInput() {
 		super();
@@ -91,8 +95,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	public void updateDataset() {
 
 		logger.log(Level.INFO, "Editor input updateDataSet begin");
-		DefaultTableXYDataset dataset = new DefaultTableXYDataset();
-		this.setDataset(dataset);
 		ArrayList<OrdinalMeasurementsDao<Measure>> list = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		for (DataSeries data : getSource().getOutput()) {
 			list.add(MeasurementsUtility.getOrdinalMeasurementsDao(data));
@@ -104,15 +106,15 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		List<Measure> list1 = omdSeries1.getMeasurements();
 
 		List<Measure> list2 = omdSeries2.getMeasurements();
+		
+		data = new double[2][list1.size()];
 
-		XYSeries testSeries = new XYSeries(list1.get(0), false, false);
 		for (int i = 0; i < list1.size(); i++) {
-			Measure x = list1.get(i);
-			Measure y = list2.get(i);
-			testSeries.add(x.doubleValue(x.getUnit()), y.doubleValue(y
-					.getUnit()));
-		}
-		dataset.addSeries(testSeries);
+				Measure x = list1.get(i);
+				Measure y = list2.get(i);
+				data[0][i] = x.doubleValue(x.getUnit());
+				data[1][i] = y.doubleValue(y.getUnit());
+			}
 
 		/*
 		 * setToolTipText(getSource().getMeasurementsRange().getMeasurements()
@@ -211,24 +213,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		updateDataset();
 	}
 
-	/**
-	 * /**
-	 * 
-	 * @param dataset
-	 *            set the attribute {@link #dataset} new
-	 */
-	public void setDataset(DefaultTableXYDataset dataset) {
-		this.dataset = dataset;
-
-	}
-
-	/**
-	 * @return the attribute {@link ScatterPlotInput#dataset}
-	 */
-	public DefaultTableXYDataset getDataset() {
-		return dataset;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -269,24 +253,26 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 	@Override
 	public XYPlot createPlot() {
-		// TODO Auto-generated method stub
-		return null;
+		return new XYPlot();
 	}
 
 	@Override
 	public XYItemRenderer createRenderer() {
-		// TODO Auto-generated method stub
-		return null;
+		return new XYDotRenderer();
 	}
 
 	@Override
 	public Object getData() {
-		// TODO Auto-generated method stub
-		return null;
+		return data;
 	}
 
 	@Override
-	public Object getDataTypeInstance() {
+	public AbstractSeriesDataset getDataTypeInstance() {
+		return new DefaultXYDataset();
+	}
+
+	@Override
+	public XYDataset createDataset() {
 		// TODO Auto-generated method stub
 		return null;
 	}

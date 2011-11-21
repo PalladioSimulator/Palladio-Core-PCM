@@ -6,6 +6,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.ui.IPersistableElement;
+import org.jfree.data.general.AbstractSeriesDataset;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 

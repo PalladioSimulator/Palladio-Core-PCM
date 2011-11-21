@@ -15,6 +15,7 @@ import org.eclipse.ui.IPersistableElement;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.data.xy.XYDataset;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
@@ -108,15 +109,21 @@ public abstract class JFreeChartEditorInput extends Observable implements IDataS
 	
 	/**
 	 * Creates a new {@link XYItemRenderer}.
-	 * @return
+	 * @return the new {@link XYItemRenderer}
 	 */
 	public abstract XYItemRenderer createRenderer(); 
 	
 	/**
 	 * Creates a new {@link XYPlot}.
-	 * @return
+	 * @return the new {@link XYPlot}.
 	 */
 	public abstract XYPlot createPlot();
+	
+	/**
+	 * Creates a new {@link XYDataset}.
+	 * @return the new {@link XYDataset}.
+	 */
+	public abstract XYDataset createDataset();
 	/*
 	 * (non-Javadoc)
 	 * 

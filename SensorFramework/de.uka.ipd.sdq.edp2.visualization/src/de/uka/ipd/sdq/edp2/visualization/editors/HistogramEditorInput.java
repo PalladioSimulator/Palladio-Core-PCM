@@ -20,8 +20,10 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.general.Dataset;
 import org.jfree.data.statistics.HistogramDataset;
+import org.jfree.data.xy.XYDataset;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
@@ -58,7 +60,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	private int numberOfBins;
 	/**
-	 * The specific type of {@link Dataset}.
+	 * The specific type of data provided by this {@link JFreeChartEditorInput}.
 	 */
 	private double[] data;
 	/**
@@ -252,7 +254,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public Object getDataTypeInstance() {
+	public AbstractSeriesDataset getDataTypeInstance() {
 		return new HistogramDataset();
 	}
 
@@ -264,6 +266,12 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	@Override
 	public XYItemRenderer createRenderer() {
 		return new XYBarRenderer();
+	}
+
+	@Override
+	public XYDataset createDataset() {
+		
+		return null;
 	}
 
 }
