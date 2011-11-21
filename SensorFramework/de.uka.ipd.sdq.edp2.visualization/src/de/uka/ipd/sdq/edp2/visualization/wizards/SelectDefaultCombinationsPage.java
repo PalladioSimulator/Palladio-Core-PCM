@@ -56,7 +56,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	 */
 	private final static String FILTER_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.filter";
 	private final static String ADAPTER_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.adapter";
-	private final static String JFREECHART_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.jfreechart";
+	private final static String SINK_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.datasink";
 	private final static String DEFAULT_COMBOS_EXTENSION_POINT_ID = "de.uka.ipd.sdq.edp2.visualization.defaultSequences";
 
 	/**
@@ -78,7 +78,6 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	private final static String CLASS_ATTRIBUTE = "class";
 	private final static String ID_ATTRIBUTE = "id";
 	private final static String NAME_ATTRIBUTE = "name";
-	private final static String INPUT_CLASS_ATTRIBUTE = "inputClass";
 
 	/**
 	 * The source which was selected when the wizard was started.
@@ -171,11 +170,11 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		// get the list of registered visualizations
 		final IConfigurationElement[] chartExtensions = Platform
 				.getExtensionRegistry().getConfigurationElementsFor(
-						JFREECHART_EXTENSION_POINT_ID);
+						SINK_EXTENSION_POINT_ID);
 		HashMap<String, JFreeChartEditorInput> charts = new HashMap<String, JFreeChartEditorInput>();
 		for (IConfigurationElement e : chartExtensions) {
 			try {
-				o = e.createExecutableExtension(INPUT_CLASS_ATTRIBUTE);
+				o = e.createExecutableExtension(CLASS_ATTRIBUTE);
 				id = e.getAttribute(ID_ATTRIBUTE);
 				charts.put(id, (JFreeChartEditorInput) o);
 			} catch (CoreException e1) {
@@ -270,7 +269,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 				.addSequenceElement(adapters
 						.get("de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter"));
 		basicSequence1.setVisualization(charts
-				.get("de.uka.ipd.sdq.edp2.visualization.Histogram"));
+				.get("de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput"));
 		// The scatterplot is added independently of Default Combinations in
 		// extension points
 		DefaultSequence basicSequence2 = new DefaultSequence();
@@ -278,7 +277,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		basicSequence2.setSequenceName("Scatterplot");
 		basicSequence2.setInputMetricUUID("no_UUID");
 		basicSequence2.setVisualization(charts
-				.get("de.uka.ipd.sdq.edp2.visualization.Scatterplot"));
+				.get("de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput"));
 		
 		// experimental sequence with histogram only (for multiple dataseries)
 		DefaultSequence basicSequence3 = new DefaultSequence();
@@ -286,7 +285,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		basicSequence3.setSequenceName("Histogram (EXPERIMENTAL)");
 		basicSequence3.setInputMetricUUID("no_UUID");
 		basicSequence3.setVisualization(charts
-				.get("de.uka.ipd.sdq.edp2.visualization.Histogram"));
+				.get("de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput"));
 
 		defaultSequences.add(basicSequence1);
 		defaultSequences.add(basicSequence2);

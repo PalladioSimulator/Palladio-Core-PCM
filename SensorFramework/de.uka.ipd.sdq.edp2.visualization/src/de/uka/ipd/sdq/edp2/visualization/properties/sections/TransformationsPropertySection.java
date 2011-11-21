@@ -144,7 +144,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 
 		updateEditorReference();
 		treeViewer = new InputSelectionTree(composite, SWT.EMBEDDED, editor
-				.getEditorInputHandler()).getTreeViewer();
+				.getEditorInputHandle()).getTreeViewer();
 
 		treeViewer.addSelectionChangedListener(this);
 
@@ -164,7 +164,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 			@Override
 			public void handleEvent(Event event) {
 				
-				IDataSink input = editor.getEditorInputHandler().getInputs()
+				IDataSink input = editor.getEditorInputHandle().getInputs()
 						.get(0);
 				if (event.widget == buttonAdapter) {
 					AdapterWizard wizard = new AdapterWizard(null);

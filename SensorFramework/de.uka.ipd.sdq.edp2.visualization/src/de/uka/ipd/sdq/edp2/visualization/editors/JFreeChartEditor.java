@@ -53,7 +53,7 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 		this.parent = parent;
 		setPartName(EDITOR_NAME);
 		setTitleToolTip(EDITOR_NAME);
-		chart = getEditorInputHandler().createChart();
+		chart = getEditorInputHandle().createChart();
 		chartContainer = new ChartComposite(parent, SWT.NONE, chart, true);
 		getSite().setSelectionProvider(createSelectionProvider());
 	}
@@ -75,7 +75,7 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 	}
 
 	@Override
-	public JFreeChartEditorInputHandle getEditorInputHandler() {
+	public JFreeChartEditorInputHandle getEditorInputHandle() {
 		return (JFreeChartEditorInputHandle)input;
 	}
 }

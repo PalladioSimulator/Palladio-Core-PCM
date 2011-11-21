@@ -9,20 +9,8 @@
    <extension
          point="org.eclipse.ui.elementFactories">
       <factory
-            class="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInputFactory"
-            id="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInputFactory">
-      </factory>
-      <factory
-            class="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditorInputFactory"
-            id="de.uka.ipd.sdq.edp2.visualization.editors.PieChartInputFactory">
-      </factory>
-      <factory
-            class="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInputFactory"
-            id="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInputFactory">
-      </factory>
-      <factory
             class="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandleFactory"
-            id="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputFactory">
+            id="de.uka.ipd.sdq.edp2.visualization.JFreeChartEditorInputHandleFactory">
       </factory>
    </extension>
    <extension
@@ -79,19 +67,6 @@
       </editor>
    </extension>
    <extension
-         point="de.uka.ipd.sdq.edp2.visualization.jfreechart">
-      <jfreechart
-            factoryClass="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInputFactory"
-            id="de.uka.ipd.sdq.edp2.visualization.Histogram"
-            inputClass="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
-      </jfreechart>
-      <jfreechart
-            factoryClass="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInputFactory"
-            id="de.uka.ipd.sdq.edp2.visualization.Scatterplot"
-            inputClass="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput">
-      </jfreechart>
-   </extension>
-   <extension
          point="de.uka.ipd.sdq.edp2.visualization.defaultSequences">
       <defaultSequence
             description="Histogram for 2-dimensional Data"
@@ -134,7 +109,13 @@
             class="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput"
             editor="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
             factory="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInputFactory"
-            id="de.uka.ipd.sdq.edp2.visualization.histogram">
+            id="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
+      </datasink>
+      <datasink
+            class="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput"
+            editor="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
+            factory="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInputFactory"
+            id="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput">
       </datasink>
    </extension>
 

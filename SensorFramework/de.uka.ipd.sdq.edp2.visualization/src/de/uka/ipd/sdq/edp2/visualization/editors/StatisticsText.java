@@ -75,7 +75,7 @@ public class StatisticsText implements de.uka.ipd.sdq.edp2.visualization.IVisual
 	}
 
 	@Override
-	public IEditorInputHandle getEditorInputHandler() {
+	public IEditorInputHandle getEditorInputHandle() {
 		// TODO Auto-generated method stub
 		return null;
 	}

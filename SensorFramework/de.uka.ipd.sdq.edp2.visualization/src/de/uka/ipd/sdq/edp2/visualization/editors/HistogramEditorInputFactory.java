@@ -21,14 +21,17 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
  * 
  */
 public class HistogramEditorInputFactory extends ElementFactory {
-
+	
+	/**
+	 * Logger for this class.
+	 */
 	private static Logger logger = Logger
 			.getLogger(HistogramEditorInputFactory.class.getCanonicalName());
 	/**
 	 * The factory's ID. Must match the ID specified in the extension point
 	 * "org.eclipse.ui.elementFactories".
 	 */
-	private static final String FACTORY_ID = "de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInputFactory";
+	private static final String FACTORY_ID = "de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput";
 
 	/**
 	 * Method for restoring {@link HistogramEditorInput} elements. Should call
@@ -50,14 +53,11 @@ public class HistogramEditorInputFactory extends ElementFactory {
 		//properties are set for the restored element
 		histogramInput.setProperties(restoredProperties);
 		
-		FactoryConnector factoryConnector = new FactoryConnector();
 		Object sourceFactory = factoryConnector.getAdapter(memento.getString(SOURCE_KEY),
 				IElementFactory.class);
 		
 		AbstractDataSource createdSource = (AbstractDataSource) ((IElementFactory) sourceFactory)
 		.createElement(memento);
-		
-		logger.log(Level.INFO, "Created source of EditorInput: "+createdSource.toString());
 		
 		histogramInput.setSource(createdSource);
 		

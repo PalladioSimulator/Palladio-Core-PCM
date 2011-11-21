@@ -210,7 +210,7 @@ public abstract class AbstractEditor extends EditorPart implements
 	 * @see org.eclipse.ui.part.EditorPart#getEditorInput()
 	 */
 	public IEditorInput getEditorInput(){
-		return getEditorInputHandler();
+		return getEditorInputHandle();
 	}
 
 }
