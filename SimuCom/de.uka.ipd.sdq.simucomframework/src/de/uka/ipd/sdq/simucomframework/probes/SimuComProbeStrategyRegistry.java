@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simucomframework.probes;
 
-import umontreal.iro.lecuyer.simprocs.SimProcess;
 import de.uka.ipd.sdq.probespec.framework.ProbeType;
 import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategyRegistry;
 import de.uka.ipd.sdq.probespec.framework.probes.ProbeStrategyRegistry;
@@ -17,7 +16,7 @@ import de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource;
  * <li>{@link ProbeType#RESOURCE_DEMAND}, {@link AbstractScheduledResource}</li>
  * <li>{@link ProbeType#RESOURCE_STATE}, {@link AbstractScheduledResource}</li>
  * <li>{@link ProbeType#RESOURCE_STATE}, {@link IPassiveResource}</li>
- * <li>{@link ProbeType#EXECUTION_RESULT}, {@link SimProcess}</li>
+ * <li>{@link ProbeType#EXECUTION_RESULT}, <code>null</code></li>
  * </ul>
  * 
  * @author Philipp Merkle, brosch
