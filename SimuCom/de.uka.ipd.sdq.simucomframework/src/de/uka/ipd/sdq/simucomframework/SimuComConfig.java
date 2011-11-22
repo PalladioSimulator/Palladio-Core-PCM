@@ -7,8 +7,10 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.URI;
 
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.RecorderExtensionHelper;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
+
 /**
  * @author roman
  *
@@ -237,6 +239,13 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 	public int getMinNumberOfBatches() {
 		return this.minNumberOfBatches;
 	}
+	
+    public IRandomGenerator getRandomGenerator() {
+        if (randomNumberGenerator == null) {
+            randomNumberGenerator = new SimuComDefaultRandomNumberGenerator(this.randomSeed);
+        }
+        return randomNumberGenerator;
+    }
 
 
 }

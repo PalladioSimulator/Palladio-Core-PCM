@@ -13,6 +13,9 @@ import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
+import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
+import de.uka.ipd.sdq.simulation.IStatusObserver;
+import de.uka.ipd.sdq.simulation.SimulationResult;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.util.AbstractSimEnginePreferencesHelper;
 
@@ -30,7 +33,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.util.AbstractSimEnginePrefere
  * @author Steffen Becker
  * 
  */
-public abstract class AbstractMain implements de.uka.ipd.sdq.simucomframework.ISimulationControl,
+public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulationControl,
 		org.osgi.framework.BundleActivator {
 
 	// Service registry entry for registering this object in Eclipse's service
@@ -48,7 +51,7 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simucomframework.IS
 	@SuppressWarnings("unchecked")
 	public void start(org.osgi.framework.BundleContext context) throws Exception {
 		// register the service
-		serviceRegistryEntry = context.registerService(de.uka.ipd.sdq.simucomframework.ISimulationControl.class
+		serviceRegistryEntry = context.registerService(de.uka.ipd.sdq.simulation.ISimulationControl.class
 				.getName(), this, new java.util.Hashtable());
 	}
 
@@ -79,7 +82,7 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simucomframework.IS
 	 *            local sensorframework
 	 * @return A status code indicating success or failure of the simulation
 	 */
-	protected SimuComResult run(final IStatusObserver statusObserver, SimuComConfig config, boolean isRemoteRun) {
+	protected SimulationResult run(final IStatusObserver statusObserver, SimuComConfig config, boolean isRemoteRun) {
 
 		logger.info("Starting Simulation");
 
@@ -235,7 +238,7 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simucomframework.IS
 	 * .ipd.sdq.simucomframework.SimuComConfig,
 	 * de.uka.ipd.sdq.simucomframework.IStatusObserver, boolean)
 	 */
-    public de.uka.ipd.sdq.simucomframework.SimuComResult startSimulation(AbstractSimulationConfig config,
+    public de.uka.ipd.sdq.simulation.SimulationResult startSimulation(AbstractSimulationConfig config,
             IStatusObserver observer, boolean isRemoteRun) {
         return run(observer, (SimuComConfig) config, isRemoteRun);
     }

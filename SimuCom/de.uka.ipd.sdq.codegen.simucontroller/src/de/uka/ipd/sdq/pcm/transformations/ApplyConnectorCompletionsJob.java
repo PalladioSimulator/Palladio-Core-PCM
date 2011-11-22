@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.pcm.transformations;
 
 import org.apache.log4j.Logger;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -8,6 +10,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflowConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
+import de.uka.ipd.sdq.workflow.pcm.jobs.CreatePluginProjectJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadMiddlewareConfigurationIntoBlackboardJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 import de.uka.ipd.sdq.featureconfig.Configuration;
@@ -56,6 +59,17 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		Repository completionRepository = RepositoryFactory.eINSTANCE.createRepository();
 		completionRepository.setEntityName("CompletionsRepository");
 		String tempDir = SimuControllerPlugin.getDefault().getStateLocation().append("temp").toOSString();
+		
+//		IProject project = CreatePluginProjectJob.getProject(configuration.getStoragePluginID());
+//		IFolder modelFolder = project.getFolder("model");
+//		URI u = pcmModels.getAllocation().eResource().getURI().trimSegments(1);
+//		u = u.appendSegment("completions.repository");
+//		
+//		
+//		String modelBasePath = modelFolder.getLocation().toOSString();
+//		String tempDir = modelBasePath;
+		
+//		u
 		Resource r = completionRepositoryPartition.getResourceSet().createResource(URI.createFileURI(tempDir));
 		r.getContents().add(completionRepository);
 		this.blackboard.addPartition(COMPLETION_REPOSITORY_PARTITION, completionRepositoryPartition);

@@ -5,8 +5,8 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.simucomframework.AbstractSimulationConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.AccuracyInfluenceAnalysisState;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.SensitivityAnalysisConfiguration;

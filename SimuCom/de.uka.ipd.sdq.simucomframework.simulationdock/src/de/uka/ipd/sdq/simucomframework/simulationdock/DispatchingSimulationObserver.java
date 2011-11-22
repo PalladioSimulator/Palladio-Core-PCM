@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.simucomframework.simulationdock;
 
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.simucomframework.IStatusObserver;
+import de.uka.ipd.sdq.simulation.IStatusObserver;
 
 public class DispatchingSimulationObserver implements IStatusObserver {
 

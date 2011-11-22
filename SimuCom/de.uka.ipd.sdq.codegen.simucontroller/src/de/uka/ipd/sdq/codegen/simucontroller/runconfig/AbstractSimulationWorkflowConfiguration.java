@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import java.util.List;
 import java.util.Map;
 
-import de.uka.ipd.sdq.simucomframework.AbstractSimulationConfig;
+import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.launchconfig.extension.ExtendableJobConfiguration;
 
 public abstract class AbstractSimulationWorkflowConfiguration extends AbstractPCMCompletionWorkflowRunConfiguration

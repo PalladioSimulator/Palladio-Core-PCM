@@ -18,11 +18,9 @@ import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
 import de.uka.ipd.sdq.simucomframework.DiscardInvalidMeasurementsBlackboardDecorator;
-import de.uka.ipd.sdq.simucomframework.ISimulationListener;
 import de.uka.ipd.sdq.simucomframework.ResourceRegistry;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComGarbageCollector;
-import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.calculator.CalculatorFactory;
 import de.uka.ipd.sdq.simucomframework.calculator.SetupPipesAndFiltersStrategy;
 import de.uka.ipd.sdq.simucomframework.probes.SimuComProbeStrategyRegistry;
@@ -35,6 +33,8 @@ import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusPackage;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
+import de.uka.ipd.sdq.simulation.ISimulationListener;
+import de.uka.ipd.sdq.simulation.SimulationResult;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
@@ -54,7 +54,7 @@ public class SimuComModel implements ISimulationModel<SimuComModel> {
 
 	protected ResourceRegistry resourceRegistry = null;
 	private IWorkloadDriver[] workloadDrivers;
-	private SimuComResult status = SimuComResult.OK;
+	private SimulationResult status = SimulationResult.OK;
 	private Throwable errorMessage = null;
 	private SimuComConfig config;
 	private long mainMeasurementsCount;
@@ -228,7 +228,7 @@ public class SimuComModel implements ISimulationModel<SimuComModel> {
      * @param error The new status
      * @param t The exception message if any, null otherwise
      */
-    public void setStatus(SimuComResult error, Throwable t) {
+    public void setStatus(SimulationResult error, Throwable t) {
         this.status = error;
         this.errorMessage = t;
     }
@@ -236,7 +236,7 @@ public class SimuComModel implements ISimulationModel<SimuComModel> {
     /**
      * @return The simulation status
      */
-    public SimuComResult getErrorStatus(){
+    public SimulationResult getErrorStatus(){
         return status;
     }
 

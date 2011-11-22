@@ -657,4 +657,11 @@ litigation.
          version="2.1.0.v20090520"
          unpack="false"/>
 
+   <plugin
+         id="de.uka.ipd.sdq.simulation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>

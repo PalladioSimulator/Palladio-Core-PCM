@@ -7,7 +7,6 @@ import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.PassiveResourceObservee;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimAbstractPassiveResource;
@@ -74,7 +73,7 @@ public class SimSimpleFairPassiveResource<M extends ISimulationModel<M>> extends
 
 		// AM: Copied from AbstractActiveResource: If simulation is stopped,
 		// allow all processes to finish
-		if (SchedulingFactory.getUsedSimulator().isStopped()) {
+		if (!myModel.getSimulationControl().isRunning()) {
 			// Do nothing, but allows calling process to complete
 			return true;
 		}
@@ -147,7 +146,7 @@ public class SimSimpleFairPassiveResource<M extends ISimulationModel<M>> extends
 
 		// AM: Copied from AbstractActiveResource: If simulation is stopped,
 		// allow all processes to finish
-		if (SchedulingFactory.getUsedSimulator().isStopped()) {
+		if (!myModel.getSimulationControl().isRunning()) {
 			// Do nothing, but allows calling process to complete
 			return;
 		}

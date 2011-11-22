@@ -39,6 +39,7 @@ public class CreateSimuComMetaDataFilesJob extends AbstractCreateMetaDataFilesJo
 	}
 
 	private final static String[] BUNDLES = new String[] {
+	     "de.uka.ipd.sdq.simulation", 
 	     "de.uka.ipd.sdq.simulation.abstractsimengine",
 		 "de.uka.ipd.sdq.simucomframework",
 		 "de.uka.ipd.sdq.simucomframework.simucomstatus",

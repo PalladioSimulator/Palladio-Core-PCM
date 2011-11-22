@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
+import de.uka.ipd.sdq.simulation.SimulationResult;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimProcess;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcess;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcessListener;
@@ -168,7 +169,7 @@ public abstract class SimuComSimProcess extends AbstractSimProcess<SimuComModel>
                     "Simulation caused an exception. Caught it in SimProcess Lifecycle Method",
                     e);
             }
-            ((SimuComModel) getModel()).setStatus(SimuComResult.ERROR, e);
+            ((SimuComModel) getModel()).setStatus(SimulationResult.ERROR, e);
             logger.debug("Trying to stop simulation now...");
             this.getModel().getSimulationControl().stop();
         }

@@ -24,7 +24,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.context;bundle-version="2.0.0";visibility:=reexport,
  de.uka.ipd.sdq.tcfmoop;bundle-version="1.0.0",
  de.uka.ipd.sdq.dsexplore.qml,
- de.uka.ipd.sdq.dsexplore.qml.handling;bundle-version="1.0.0"
+ de.uka.ipd.sdq.dsexplore.qml.handling;bundle-version="1.0.0",
+ de.uka.ipd.sdq.simulation;bundle-version="1.0.0"
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.dsexplore,
  de.uka.ipd.sdq.dsexplore.analysis,

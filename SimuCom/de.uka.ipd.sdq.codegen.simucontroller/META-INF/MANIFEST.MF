@@ -44,7 +44,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.reliability.core;bundle-version="3.1.0",
  de.fzi.se.accuracy;bundle-version="1.0.0",
  de.fzi.se.quality;bundle-version="1.0.0",
- de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0"
+ de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0",
+ de.uka.ipd.sdq.simulation;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.debug,
  de.uka.ipd.sdq.codegen.simucontroller.runconfig,

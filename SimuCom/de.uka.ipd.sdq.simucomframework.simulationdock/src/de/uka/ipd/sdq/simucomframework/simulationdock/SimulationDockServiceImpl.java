@@ -19,12 +19,11 @@ import org.osgi.service.event.EventAdmin;
 import org.osgi.util.tracker.ServiceTracker;
 
 import de.uka.ipd.sdq.simucomframework.AbstractMain;
-import de.uka.ipd.sdq.simucomframework.AbstractSimulationConfig;
-import de.uka.ipd.sdq.simucomframework.ISimulationControl;
-import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.simucomframework.SimuComResult;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
+import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
+import de.uka.ipd.sdq.simulation.ISimulationControl;
+import de.uka.ipd.sdq.simulation.SimulationResult;
 
 public class SimulationDockServiceImpl implements SimulationDockService {
 
@@ -158,10 +157,10 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 
 	private void simulate(final AbstractSimulationConfig config, Bundle simulationBundleRef, final EventAdmin eventAdmin, boolean isRemoteRun) {
 		try {
-			SimuComResult result = ((ISimulationControl)service.getService()).startSimulation(
+			SimulationResult result = ((ISimulationControl)service.getService()).startSimulation(
 					config, simulationObservers, isRemoteRun);
 			
-			if (result == SimuComResult.ERROR) {
+			if (result == SimulationResult.ERROR) {
 				throw new RuntimeException("Simulation failed.",((ISimulationControl)service.getService()).getErrorThrowable());
 			}
 		} catch (Exception ex) {
