@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simulation.abstractsimengine.ssj;
+package de.uka.ipd.sdq.simulation.abstractsimengine.processes;
 
 public interface ISimProcessStrategy {
 

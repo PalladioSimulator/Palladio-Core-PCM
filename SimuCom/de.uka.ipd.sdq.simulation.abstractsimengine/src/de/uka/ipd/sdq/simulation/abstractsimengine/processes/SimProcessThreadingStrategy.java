@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simulation.abstractsimengine.ssj;
+package de.uka.ipd.sdq.simulation.abstractsimengine.processes;
 
 import java.util.concurrent.Semaphore;
 
