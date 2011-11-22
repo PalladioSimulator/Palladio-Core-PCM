@@ -1,17 +1,17 @@
-package de.uka.ipd.sdq.simulation.abstractsimengine.util;
+package de.uka.ipd.sdq.simulation.preferences;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Platform;
 
-import de.uka.ipd.sdq.simulation.abstractsimengine.Activator;
+import de.uka.ipd.sdq.simulation.Activator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
-import de.uka.ipd.sdq.simulation.abstractsimengine.preferences.AbstractSimEnginePreferencePage;
+import de.uka.ipd.sdq.simulation.abstractsimengine.util.AbstractSimEngineExtensionHelper;
 
-public class AbstractSimEnginePreferencesHelper {
+public class SimulationPreferencesHelper {
 
-    private static final Logger logger = Logger.getLogger(AbstractSimEnginePreferencesHelper.class);
+    private static final Logger logger = Logger.getLogger(SimulationPreferencesHelper.class);
 
     /**
      * Returns the default simulation engine. The default engine is the first entry in the list of
@@ -35,7 +35,7 @@ public class AbstractSimEnginePreferencesHelper {
     public static <M extends ISimulationModel<M>> ISimEngineFactory<M> getPreferredSimulationEngine() {
         // retrieve the id of the preferred engine
         String preferredEngineId = Platform.getPreferencesService().getString(Activator.PLUGIN_ID,
-                AbstractSimEnginePreferencePage.PREFERENCE_SIMULATION_ENGINE_ID, getDefaultEngineId(), null);
+                SimulationPreferencePage.PREFERENCE_SIMULATION_ENGINE_ID, getDefaultEngineId(), null);
 
         // retrieve simulation engine factory for the preferred engine
         ISimEngineFactory<?> engineFactory = null;

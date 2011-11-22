@@ -5,11 +5,8 @@ Bundle-SymbolicName: de.uka.ipd.sdq.simulation.abstractsimengine;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.simulation.abstractsimengine,
- de.uka.ipd.sdq.simulation.abstractsimengine.preferences,
  de.uka.ipd.sdq.simulation.abstractsimengine.util
 Require-Bundle: org.apache.log4j,
- org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-Vendor: sdq.ipd.kit.edu
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: de.uka.ipd.sdq.simulation.abstractsimengine.Activator

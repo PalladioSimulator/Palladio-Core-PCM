@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.SimulationResult;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
-import de.uka.ipd.sdq.simulation.abstractsimengine.util.AbstractSimEnginePreferencesHelper;
+import de.uka.ipd.sdq.simulation.preferences.SimulationPreferencesHelper;
 
 /**
  * Base class for simulation instances. It contains a generic simulation start
@@ -216,7 +216,7 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulat
 	 */
     public void prepareSimulation(AbstractSimulationConfig config, IStatusObserver observer, boolean isRemoteRun) {
         // load factory for the preferred simulation engine
-        ISimEngineFactory<SimuComModel> factory = AbstractSimEnginePreferencesHelper.getPreferredSimulationEngine();
+        ISimEngineFactory<SimuComModel> factory = SimulationPreferencesHelper.getPreferredSimulationEngine();
         if (factory == null) {
             throw new RuntimeException("There is no simulation engine available. Install at least one engine.");
         }

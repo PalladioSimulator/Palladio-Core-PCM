@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simulation.abstractsimengine.preferences;
+package de.uka.ipd.sdq.simulation.preferences;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
@@ -7,7 +7,7 @@ import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
-import de.uka.ipd.sdq.simulation.abstractsimengine.Activator;
+import de.uka.ipd.sdq.simulation.Activator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.util.AbstractSimEngineExtensionHelper;
 
 /**
@@ -16,9 +16,9 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.util.AbstractSimEngineExtensi
  * @author Philipp Merkle
  * 
  */
-public class AbstractSimEnginePreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
+public class SimulationPreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 
-    private static final Logger logger = Logger.getLogger(AbstractSimEnginePreferencePage.class);
+    private static final Logger logger = Logger.getLogger(SimulationPreferencePage.class);
 
     /** the id for the simulation engine preference **/
     public static final String PREFERENCE_SIMULATION_ENGINE_ID = "simulationEngineField";
@@ -26,7 +26,7 @@ public class AbstractSimEnginePreferencePage extends FieldEditorPreferencePage i
     /**
      * Default constructor.
      */
-    public AbstractSimEnginePreferencePage() {
+    public SimulationPreferencePage() {
         // use grid layout
         super(GRID);
     }
