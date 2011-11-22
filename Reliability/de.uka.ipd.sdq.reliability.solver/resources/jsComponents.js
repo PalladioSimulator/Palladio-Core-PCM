@@ -11,7 +11,13 @@
      Notes
 */
 
-/* Modified by Daniel Patejdl, 7th and 11th of November, 2011. */
+/*
+	Modified by Daniel Patejdl, 7th, 11th and 21st of November, 2011. I removed code
+	that I don't need. I also removed use of the up.gif and down.gif images. Instead,
+	I use normal text to indicate whether we're sorting ascendingly or descendingly.
+*/
+
+
 
 // Simon Willison's Weblog http://simon.incutio.com/archive/2004/05/26/addLoadEvent
 function addLoadEvent(func) {
@@ -27,6 +33,7 @@ function addLoadEvent(func) {
     }
   }
 }
+
 /* Event Utilities */
 function evtGetTarget(evt) {
     var elem ;
@@ -54,6 +61,7 @@ if (document.addEventListener) {
 } else {
     alert("Your browser is not supported!");
 }
+
 /* XMLHttpRequestLoader - Class */
 function XMLHttpRequestLoader () {
     var xmlhttp = false ;
@@ -71,6 +79,7 @@ function XMLHttpRequestLoader () {
             }
         }
     }
+
     function loadXML(url,cb) {
         if (typeof(XMLHttpRequest) != "undefined") {
             load(url,cb);
@@ -80,6 +89,7 @@ function XMLHttpRequestLoader () {
             alert("Browser not supported or JavaScript or ActiveX (IE) is not enabled!");
         }
     }
+
     function load(srcUrl,cb) {
         var req = new XMLHttpRequest();
         req.overrideMimeType('text/xml');
@@ -97,7 +107,7 @@ function XMLHttpRequestLoader () {
         req.setRequestHeader('Cache-Control', 'no-cache'); 
         req.send(null);
     }
-    
+
     function loadIE(srcUrl,cb) {
         xmlhttp.open("GET", srcUrl);
         xmlhttp.onreadystatechange = function() {
@@ -138,10 +148,12 @@ window.onload = function() {
     var divs = document.getElementsByTagName("DIV") ;
     var l = divs.length ;
     var head = document.getElementsByTagName("head");
-    var images = new Array("up.gif","down.gif");
+/*
+	var images = new Array("up.gif","down.gif");
     for (var i = 0 ; i < images.length ; i++) {
         var img = new Image(); img.src = ""+images[i] ;
     }
+*/
     for (var i = 0 ; i < l ; i++) {
         if (divs.item(i).className && divs.item(i).className.match(/JS.+/)) {
             var comp = new jsComponent(divs.item(i));
@@ -165,7 +177,6 @@ window.onload = function() {
      Description	
      Notes
      */
-
 function JSTableStripe(div) {
     var table = div.getElementsByTagName("table")[0];
     var types = new Array("even","odd");
@@ -175,6 +186,7 @@ function JSTableStripe(div) {
         trs.item(i).className = types[mod] ;
     }
 }
+
 function JSTableSort(div) {
     var table = div.getElementsByTagName("table")[0];
     var types = new Array();
@@ -193,6 +205,7 @@ function JSTableSort(div) {
         }
 
     }
+
     function sort_table (table,extract_fct,sort_fct) {
         var clones = new Array();
         var tbody = table.getElementsByTagName('tbody')[0];
@@ -225,9 +238,11 @@ function JSTableSort(div) {
             JSTableStripe(table.parentNode);
         }
     }
+
     function compare_numbers(a,b) {
         return (a.value-b.value);
     }
+
     function compare_strings(a,b) {
         a = a.value ; b = b.value ;
         if (""+a<""+b) return (-1) ;
@@ -240,32 +255,45 @@ function JSTableSort(div) {
         text = text.replace(/<.+?>/g,"");
         return String(text) ;
     }
-    
+
     function extract_string_c (r,i) {
         var text = r.getElementsByTagName('td')[i].innerHTML;
         text = text.replace(/<.+?>/g,"");
         return String(text) ;
     }
+
     function extract_number (r,i) {
         var n = r.getElementsByTagName('td')[i].innerHTML;
         return parseFloat(n) ;
         
     }
 
-    function build_sorter(table,i,type) {
+    function build_sorter(table,i,type) {	// table, i: table header index, type: "s" or "n" ("s" for "sort strings", "n" for "sort numbers")
         return function() {
             var ths = table.getElementsByTagName("th");
             for (var j = 0 ; j < ths.length;j++) {
                 table.getElementsByTagName("th").item(j).className = types[j] ;
+                // First, we reset all header names to their original names, i.e., to their names
+            	// excluding the "(Ascending)" and "(Descending)" strings. Then, we alter header i's
+            	// name to indicate whether we're sorting ascendingly or descendinngly.
+                ths.item(j).innerHTML = ths.item(j).innerHTML.substring(0, ths.item(j).innerHTML.indexOf("&nbsp")) + "&nbsp;";	// reset first
             }
             if (order == 'desc' && lastI == 1) {
                 order = "asc" ;
                 table.getElementsByTagName('th').item(i).className="SortAsc";
+                var headerContent = table.getElementsByTagName('th').item(i).innerHTML;
+                headerContent = headerContent.substring(0, headerContent.indexOf("&nbsp;"));
+                // Now, we alter header i's name to indicate whether we're sorting ascendingly or descendingly.
+                // In this case, we sort descendingly:
+                table.getElementsByTagName('th').item(i).innerHTML = headerContent + "&nbsp;<br /><i>(Descending)</i>";
             } else {
-                
                 table.getElementsByTagName('th').item(i).className="SortDesc";
+                var headerContent = table.getElementsByTagName('th').item(i).innerHTML;
+                headerContent = headerContent.substring(0, headerContent.indexOf("&nbsp;"));
+                // Now, we alter header i's name to indicate whether we're sorting ascendingly or descendingly.
+                // In this case, we sort ascendingly:
+                table.getElementsByTagName('th').item(i).innerHTML = headerContent + "&nbsp;<br /><i>(Ascending)</i>";
                 order = "desc" ;
-                
             }
             lastI = 1 ;
             if(type == 'n') {

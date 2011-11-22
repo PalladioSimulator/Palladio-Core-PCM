@@ -37,8 +37,6 @@ public class MarkovHtmlGenerator {
 		this.markovReportItems = markovReporting.getMarkovReportItems();
 	}
 
-	// FIXME Images (arrows up and down) aren't shown on the resulting HTML
-	// page.
 	/**
 	 * Creates and returns a String containing HTML code. The HTML code reflects
 	 * the Markov transformation results. All transformation results are
@@ -103,7 +101,7 @@ public class MarkovHtmlGenerator {
 				for (String headerEntry : table.getHeaderRow()) {
 					htmlCode
 							.append("<th class=\"SortString\" onselectstart=\"return false;\">"
-									+ headerEntry + "</th>");
+									+ headerEntry + "&nbsp;</th>");
 				}
 				htmlCode.append("</tr></thead><tbody>");
 				// create table data rows
@@ -138,7 +136,7 @@ public class MarkovHtmlGenerator {
 					for (String headerEntry : table.getHeaderRow()) {
 						htmlCode
 								.append("<th class=\"SortString\" onselectstart=\"return false;\">"
-										+ headerEntry + "</th>");
+										+ headerEntry + "&nbsp;</th>");
 					}
 					htmlCode.append("</tr></thead><tbody>");
 					// create table data rows
