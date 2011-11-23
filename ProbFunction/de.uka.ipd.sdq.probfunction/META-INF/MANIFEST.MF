@@ -13,5 +13,6 @@ Export-Package: de.uka.ipd.sdq.probfunction,
  de.uka.ipd.sdq.probfunction.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- de.uka.ipd.sdq.units;visibility:=reexport
+ de.uka.ipd.sdq.units;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction.math.apache;bundle-version="0.0.1";visibility:=reexport
 Bundle-ActivationPolicy: lazy
