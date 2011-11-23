@@ -11,6 +11,7 @@ Export-Package: de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.probfunction.math.apache.impl,
  de.uka.ipd.sdq.probfunction.math.exception,
  de.uka.ipd.sdq.probfunction.math.impl,
+ de.uka.ipd.sdq.probfunction.math.random,
  de.uka.ipd.sdq.probfunction.math.util
 Require-Bundle: uc.ac.ucl.ee.flanagan,
  de.uka.ipd.sdq.probfunction,

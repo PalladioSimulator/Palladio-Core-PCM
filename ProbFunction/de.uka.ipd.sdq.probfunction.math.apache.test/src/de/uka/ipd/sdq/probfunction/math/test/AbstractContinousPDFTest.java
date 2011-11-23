@@ -85,7 +85,7 @@ public abstract class AbstractContinousPDFTest <T extends IContinousPDF>
 		
 		for(int i=0;i<500;i++)
 		{
-			double x = rng.random();
+			double x = rng.nextDouble();
 			Assert.assertEquals("CDF is differing! For x = " + x, a.cdf(x), b.cdf(x), EPSILON);
 		}
 		
@@ -100,7 +100,7 @@ public abstract class AbstractContinousPDFTest <T extends IContinousPDF>
 		
 		for(int i=0;i<500;i++)
 		{
-			double x = rng.random();
+			double x = rng.nextDouble();
 			Assert.assertEquals("Density is differing! For x = " + x, a.density(x), b.density(x), EPSILON);
 		}
 	}
@@ -115,7 +115,7 @@ public abstract class AbstractContinousPDFTest <T extends IContinousPDF>
 		
 		for(int i=0;i<500;i++)
 		{
-			double u = rng.random();
+			double u = rng.nextDouble();
 			Assert.assertEquals("InverseF is differing! For u = " + u, a.inverseF(u), b.inverseF(u), EPSILON);
 		}
 	}
