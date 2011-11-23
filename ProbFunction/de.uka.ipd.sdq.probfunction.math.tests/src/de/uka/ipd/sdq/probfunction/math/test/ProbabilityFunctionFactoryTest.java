@@ -34,10 +34,10 @@ import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnitNameNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnitNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
-import de.uka.ipd.sdq.probfunction.math.impl.ExponentialDistribution;
-import de.uka.ipd.sdq.probfunction.math.impl.GammaDistribution;
-import de.uka.ipd.sdq.probfunction.math.impl.LognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
+import de.uka.ipd.sdq.probfunction.math.ssj.impl.ExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.math.ssj.impl.GammaDistribution;
+import de.uka.ipd.sdq.probfunction.math.ssj.impl.LognormalDistribution;
 
 /**
  * @author Ihssane
