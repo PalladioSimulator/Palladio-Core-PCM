@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test profunction math
+Bundle-SymbolicName: de.uka.ipd.sdq.probfunction.math.apache.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: de.uka.ipd.sdq.probfunction.math.apache,
+ de.uka.ipd.sdq.probfunction.math,
+ org.apache.commons.math,
+ org.junit4,
+ de.uka.ipd.sdq.probfunction.math.ssj;bundle-version="1.0.0"
