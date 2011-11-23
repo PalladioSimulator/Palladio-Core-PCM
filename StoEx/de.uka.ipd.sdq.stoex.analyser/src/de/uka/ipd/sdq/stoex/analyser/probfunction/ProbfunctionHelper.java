@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.stoex.analyser.probfunction;
 
 import java.util.List;
 
-import umontreal.iro.lecuyer.probdist.LognormalDistFromMoments;
+
 import de.uka.ipd.sdq.probfunction.ContinuousPDF;
 import de.uka.ipd.sdq.probfunction.ExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.GammaDistribution;
@@ -49,7 +49,6 @@ public class ProbfunctionHelper {
 				double stdev = getDoubleValue((NumericLiteral)parameters.get(1));
 				double variance = stdev * stdev ;
 				ILognormalDistribution dist = ProbabilityFunctionFactoryImpl.getInstance().getcPDFFactory().createLognormalDistributionFromMoments(mean, variance);
-//				LognormalDistFromMoments dist = new LognormalDistFromMoments(mean, variance);
 				lognorm.setMu(dist.getMu());
 				lognorm.setSigma(dist.getSigma());
 				return lognorm;
@@ -63,7 +62,6 @@ public class ProbfunctionHelper {
 				double mean = getDoubleValue((NumericLiteral)parameters.get(0));
 				double coeffVar = getDoubleValue((NumericLiteral)parameters.get(1));
 				IGammaDistribution dist = ProbabilityFunctionFactoryImpl.getInstance().getcPDFFactory().createGammaDistributionFromMoments(mean, coeffVar);
-//				GammaDistributionFromMoments dist = new GammaDistributionFromMoments(mean, coeffVar);
 				gamma.setAlpha(dist.getAlpha());
 				gamma.setTheta(dist.getTheta());
 				return gamma;
