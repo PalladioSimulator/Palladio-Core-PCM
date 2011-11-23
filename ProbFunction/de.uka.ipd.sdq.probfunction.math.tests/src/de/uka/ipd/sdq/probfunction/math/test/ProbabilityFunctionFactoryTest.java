@@ -20,6 +20,9 @@ import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
+import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
+import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
@@ -34,10 +37,8 @@ import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnitNameNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnitNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.probfunction.math.impl.IContinousPDFFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
-import de.uka.ipd.sdq.probfunction.math.ssj.impl.ExponentialDistribution;
-import de.uka.ipd.sdq.probfunction.math.ssj.impl.GammaDistribution;
-import de.uka.ipd.sdq.probfunction.math.ssj.impl.LognormalDistribution;
 
 /**
  * @author Ihssane
@@ -395,9 +396,11 @@ public class ProbabilityFunctionFactoryTest {
 	@Test
 	public void transformContinuousToBoxedPDF() throws UnknownPDFTypeException, ProbabilitySumNotOneException, DoubleSampleException, FunctionNotInTimeDomainException, NegativeDistanceException, UnitNotSetException, UnitNameNotSetException, InvalidSampleValueException{
 		
-		LognormalDistribution lognorm = new LognormalDistribution(1, 0.5);
-		ExponentialDistribution exp = new ExponentialDistribution(0.5);
-		GammaDistribution gamma = new GammaDistribution(3, 2);
+	    IContinousPDFFactory factory = ProbabilityFunctionFactoryImpl.getInstance().getcPDFFactory();
+	    
+		ILognormalDistribution lognorm = factory.createLognormalDistribution(1, 0.5);
+		IExponentialDistribution exp = factory.createExponentialDistribution(0.5);
+		IGammaDistribution gamma = factory.createGammaDistribution(3, 2);
 				
 		//Should not throw any exceptions
 		transformAndCheck(lognorm);
