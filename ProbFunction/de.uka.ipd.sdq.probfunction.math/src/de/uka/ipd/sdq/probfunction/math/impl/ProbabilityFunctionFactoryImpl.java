@@ -33,6 +33,7 @@ import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
+import de.uka.ipd.sdq.probfunction.math.apache.impl.ContinousPDFFactory;
 import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
@@ -45,7 +46,7 @@ import flanagan.complex.Complex;
  * @author Ihssane, martens
  * 
  */
-public abstract class ProbabilityFunctionFactoryImpl implements
+public class ProbabilityFunctionFactoryImpl implements
 		IProbabilityFunctionFactory {
 
 	public static final String DEFAULT_UNIT_NAME = "ms";
@@ -59,9 +60,8 @@ public abstract class ProbabilityFunctionFactoryImpl implements
 	 */
 	private IRandomGenerator randomGenerator = new DefaultRandomGenerator();
 	
-	protected static ProbabilityFunctionFactoryImpl factoryInstance;
-
-	
+    protected final static ProbabilityFunctionFactoryImpl factoryInstance = new ProbabilityFunctionFactoryImpl(
+            new ContinousPDFFactory());	
 	
 	protected ProbabilityFunctionFactoryImpl(IContinousPDFFactory cPDFFactory) {
 		this.cPDFFactory = cPDFFactory;
