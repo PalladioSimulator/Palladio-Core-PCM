@@ -28,6 +28,7 @@ public interface IProbabilityFunctionFactory {
 
 	/**
 	 * Singleton instance of the factory.
+	 * TODO: Remove this crap!
 	 */
 	IProbabilityFunctionFactory eINSTANCE = de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl
 			.getInstance();

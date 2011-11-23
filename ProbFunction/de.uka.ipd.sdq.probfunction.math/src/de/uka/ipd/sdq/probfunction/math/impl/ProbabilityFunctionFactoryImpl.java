@@ -45,11 +45,12 @@ import flanagan.complex.Complex;
  * @author Ihssane, martens
  * 
  */
-public class ProbabilityFunctionFactoryImpl implements
+public abstract class ProbabilityFunctionFactoryImpl implements
 		IProbabilityFunctionFactory {
 
 	public static final String DEFAULT_UNIT_NAME = "ms";
 	private ProbfunctionFactory eFactory = ProbfunctionFactory.eINSTANCE;
+	private IContinousPDFFactory cPDFFactory;
 	
 	/**
 	 * can be overwritten by {@link #setRandomGenerator(IRandomGenerator)}
@@ -58,10 +59,20 @@ public class ProbabilityFunctionFactoryImpl implements
 	 */
 	private IRandomGenerator randomGenerator = new DefaultRandomGenerator();
 	
-	private static final IProbabilityFunctionFactory factoryInstance = new ProbabilityFunctionFactoryImpl();
+	protected static ProbabilityFunctionFactoryImpl factoryInstance;
 
-	private ProbabilityFunctionFactoryImpl() {
-		super();
+	
+	
+	protected ProbabilityFunctionFactoryImpl(IContinousPDFFactory cPDFFactory) {
+		this.cPDFFactory = cPDFFactory;
+	}
+
+	public IContinousPDFFactory getcPDFFactory() {
+		return cPDFFactory;
+	}
+
+	public void setcPDFFactory(IContinousPDFFactory cPDFFactory) {
+		this.cPDFFactory = cPDFFactory;
 	}
 
 	public IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction epdf)
@@ -96,7 +107,6 @@ public class ProbabilityFunctionFactoryImpl implements
 		return transformToSamplePDF(epdf,this.randomGenerator);
 	}
 	
-	@SuppressWarnings("unchecked")
 	public ISamplePDF transformToSamplePDF(ProbabilityDensityFunction epdf, IRandomGenerator randomGenerator)
 			throws UnknownPDFTypeException, ProbabilitySumNotOneException,
 			DoubleSampleException {
@@ -193,6 +203,7 @@ public class ProbabilityFunctionFactoryImpl implements
 		return resultList;
 	}
 
+	@Override
 	public IProbabilityMassFunction createProbabilityMassFunction(
 			List<ISample> samples, IUnit unit, boolean hasOrderedDomain) {
 		return new ProbabilityMassFunctionImpl(samples, unit, hasOrderedDomain,
@@ -501,13 +512,13 @@ public class ProbabilityFunctionFactoryImpl implements
 		} else if (ePDF instanceof BoxedPDF) {
 			pdf = transformToBoxedPDF(ePDF,randomGenerator);
 		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.ExponentialDistribution){
-			pdf = new de.uka.ipd.sdq.probfunction.math.impl.ExponentialDistribution(((de.uka.ipd.sdq.probfunction.ExponentialDistribution)ePDF).getRate());
+			pdf = cPDFFactory.createExponentialDistribution(((de.uka.ipd.sdq.probfunction.ExponentialDistribution)ePDF).getRate());
 		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.GammaDistribution){
-			pdf = new de.uka.ipd.sdq.probfunction.math.impl.GammaDistribution(((de.uka.ipd.sdq.probfunction.GammaDistribution)ePDF).getAlpha(),((de.uka.ipd.sdq.probfunction.GammaDistribution)ePDF).getTheta());
+			pdf = cPDFFactory.createGammaDistribution(((de.uka.ipd.sdq.probfunction.GammaDistribution)ePDF).getAlpha(),((de.uka.ipd.sdq.probfunction.GammaDistribution)ePDF).getTheta());
 		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.LognormalDistribution){
-			pdf = new de.uka.ipd.sdq.probfunction.math.impl.LognormalDistribution(((de.uka.ipd.sdq.probfunction.LognormalDistribution)ePDF).getMu(),((de.uka.ipd.sdq.probfunction.LognormalDistribution)ePDF).getSigma());
+			pdf = cPDFFactory.createLognormalDistribution(((de.uka.ipd.sdq.probfunction.LognormalDistribution)ePDF).getMu(),((de.uka.ipd.sdq.probfunction.LognormalDistribution)ePDF).getSigma());
 		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.NormalDistribution){
-			pdf = new de.uka.ipd.sdq.probfunction.math.impl.NormalDistribution(((de.uka.ipd.sdq.probfunction.NormalDistribution)ePDF).getMu(),((de.uka.ipd.sdq.probfunction.NormalDistribution)ePDF).getSigma());
+			pdf = cPDFFactory.createNormalDistribution(((de.uka.ipd.sdq.probfunction.NormalDistribution)ePDF).getMu(),((de.uka.ipd.sdq.probfunction.NormalDistribution)ePDF).getSigma());
 		} else { 
 			throw new UnknownPDFTypeException(ePDF);
 		}
@@ -584,7 +595,7 @@ public class ProbabilityFunctionFactoryImpl implements
 		return unit;
 	}
 
-	public static IProbabilityFunctionFactory getInstance() {
+	public static ProbabilityFunctionFactoryImpl getInstance() {
 		return factoryInstance;
 	}
 

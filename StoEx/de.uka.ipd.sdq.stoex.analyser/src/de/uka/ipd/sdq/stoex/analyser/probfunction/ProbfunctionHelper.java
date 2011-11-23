@@ -9,7 +9,10 @@ import de.uka.ipd.sdq.probfunction.GammaDistribution;
 import de.uka.ipd.sdq.probfunction.LognormalDistribution;
 import de.uka.ipd.sdq.probfunction.NormalDistribution;
 import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
-import de.uka.ipd.sdq.probfunction.math.impl.GammaDistributionFromMoments;
+import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
+import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
+
+import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
@@ -45,7 +48,8 @@ public class ProbfunctionHelper {
 				double mean = getDoubleValue((NumericLiteral)parameters.get(0));
 				double stdev = getDoubleValue((NumericLiteral)parameters.get(1));
 				double variance = stdev * stdev ;
-				LognormalDistFromMoments dist = new LognormalDistFromMoments(mean, variance);
+				ILognormalDistribution dist = ProbabilityFunctionFactoryImpl.getInstance().getcPDFFactory().createLognormalDistributionFromMoments(mean, variance);
+//				LognormalDistFromMoments dist = new LognormalDistFromMoments(mean, variance);
 				lognorm.setMu(dist.getMu());
 				lognorm.setSigma(dist.getSigma());
 				return lognorm;
@@ -58,7 +62,8 @@ public class ProbfunctionHelper {
 				GammaDistribution gamma = probFuncFactory.createGammaDistribution();
 				double mean = getDoubleValue((NumericLiteral)parameters.get(0));
 				double coeffVar = getDoubleValue((NumericLiteral)parameters.get(1));
-				GammaDistributionFromMoments dist = new GammaDistributionFromMoments(mean, coeffVar);
+				IGammaDistribution dist = ProbabilityFunctionFactoryImpl.getInstance().getcPDFFactory().createGammaDistributionFromMoments(mean, coeffVar);
+//				GammaDistributionFromMoments dist = new GammaDistributionFromMoments(mean, coeffVar);
 				gamma.setAlpha(dist.getAlpha());
 				gamma.setTheta(dist.getTheta());
 				return gamma;

@@ -14,7 +14,8 @@ public abstract class ProbabilityDensityFunctionImpl extends
 		ProbabilityFunctionImpl implements IProbabilityDensityFunction {
 
 	protected ProbabilityDensityFunctionImpl(IUnit unit,
-			boolean isInFrequencyDomain) {
+			boolean isInFrequencyDomain) 
+	{
 		super(unit, true, isInFrequencyDomain);
 	}
 	

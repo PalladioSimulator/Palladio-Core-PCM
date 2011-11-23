@@ -19,7 +19,7 @@ public abstract class ProbabilityFunctionImpl implements IProbabilityFunction {
 	private boolean isInFrequencyDomain;
 	public IRandomGenerator randomGenerator;
 	
-	protected static final IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
+	protected static final IProbabilityFunctionFactory pfFactory = ProbabilityFunctionFactoryImpl.getInstance();
 	
 	
 	public ProbabilityFunctionImpl(IUnit unit, boolean hasOrderedDomain, boolean isInFrequencyDomain) {
@@ -29,9 +29,11 @@ public abstract class ProbabilityFunctionImpl implements IProbabilityFunction {
 		this.isInFrequencyDomain = isInFrequencyDomain;
 	}
 
-	// hide constructor
-	private ProbabilityFunctionImpl(){
-	}
+//	// hide constructor
+//	private ProbabilityFunctionImpl()
+//	{
+//		
+//	}
 
 
 	public IUnit getUnit() {
