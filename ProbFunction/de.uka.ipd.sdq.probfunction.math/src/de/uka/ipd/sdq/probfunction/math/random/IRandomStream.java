@@ -13,6 +13,6 @@ public interface IRandomStream {
 	
 	public double nextDouble();
 
-	public void setSeed(long[] randomSeed);
+	public void setSeed(long[] seed);
 	
 }

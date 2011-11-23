@@ -1,10 +1,7 @@
 package de.uka.ipd.sdq.probfunction.math.apache.impl;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.commons.math.random.RandomGenerator;
-
 import de.uka.ipd.sdq.probfunction.math.random.IRandomStream;
 
 
@@ -17,7 +14,7 @@ import de.uka.ipd.sdq.probfunction.math.random.IRandomStream;
 public class ApacheMathRandomGenerator implements IRandomStream 
 {
 	
-	RandomGenerator rng;
+	protected RandomGenerator rng;
 	
 	public ApacheMathRandomGenerator(RandomGenerator rng) {
 		super();
@@ -36,17 +33,18 @@ public class ApacheMathRandomGenerator implements IRandomStream
 
 	@Override
 	public void setSeed(long[] seed) {
-		List<Integer> seedList = new ArrayList<Integer>();
+		int[] intSeed = new int[seed.length];
 		
-		for(long s : seed)
+		for(int i=0;i<seed.length;i++)
 		{
+			long s = seed[i];
 			if (s < Integer.MIN_VALUE || s > Integer.MAX_VALUE) {
 		        throw new IllegalArgumentException
 		            (s + " cannot be cast to int without changing its value.");
 		    }
-			seedList.add((int)s);
+			intSeed[i] = (int)s;
 		}
-		
+		setSeed(intSeed);
 	}
 
 }
