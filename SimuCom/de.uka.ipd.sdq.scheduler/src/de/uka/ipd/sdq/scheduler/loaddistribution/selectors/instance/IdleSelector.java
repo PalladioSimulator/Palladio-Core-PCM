@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
 
 
-public class IdleSelector extends AbstractInstanceSelector  {
+public class IdleSelector extends AbstractInstanceSelector {
 
 	RoundRobinSelector ideal_instance_selector;
 	

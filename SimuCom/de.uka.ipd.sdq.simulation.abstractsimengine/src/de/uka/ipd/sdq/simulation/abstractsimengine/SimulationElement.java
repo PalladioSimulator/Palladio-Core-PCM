@@ -10,12 +10,12 @@ package de.uka.ipd.sdq.simulation.abstractsimengine;
  * @param <M>
  *            the type of the simulation model
  */
-public abstract class SimulationElement<M extends ISimulationModel<M>> {
+public abstract class SimulationElement {
 
     private String name;
-    private M model;
+    private ISimulationModel model;
 
-    public SimulationElement(M model, String name) {
+    public SimulationElement(ISimulationModel model, String name) {
         this.model = model;
         this.name = name;
     }
@@ -30,8 +30,8 @@ public abstract class SimulationElement<M extends ISimulationModel<M>> {
     /**
      * Returns the simulation model.
      */
-    public M getModel() {
-        return model;
+    public ISimulationModel getModel() {
+        return this.model;
     }
 
 }

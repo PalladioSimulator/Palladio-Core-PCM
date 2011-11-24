@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.scheduler;
 
 import de.uka.ipd.sdq.scheduler.sensors.IProcessStateSensor;
+import de.uka.ipd.sdq.simulation.abstractsimengine.IEntity;
 
 
 /**
@@ -12,7 +13,7 @@ import de.uka.ipd.sdq.scheduler.sensors.IProcessStateSensor;
  * @author jens
  * 
  */
-public interface IRunningProcess {
+public interface IRunningProcess extends IEntity {
 
 	/**
 	 * @return Returns the process wrapped by this instance.

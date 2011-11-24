@@ -8,14 +8,14 @@ package de.uka.ipd.sdq.simulation.abstractsimengine;
  *            the type of the simulation model
  * @see IEntity
  */
-public abstract class AbstractSimEntity<M extends ISimulationModel<M>> extends SimulationElement<M> implements IEntity {
+public abstract class AbstractSimEntityDelegator extends SimulationElement implements IEntity {
 
     /**
      * the delegate has the simulation-library-specific knowledge of how entities are handled.
      */
     protected IEntity delegate;
 
-    protected AbstractSimEntity(M model, String name) {
+    protected AbstractSimEntityDelegator(ISimulationModel model, String name) {
         super(model, name);
         delegate = model.getSimEngineFactory().createEntity(this, name);
     }

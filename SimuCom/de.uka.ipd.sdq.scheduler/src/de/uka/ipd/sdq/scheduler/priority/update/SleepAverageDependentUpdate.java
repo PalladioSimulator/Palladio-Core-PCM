@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.scheduler.priority.update;
 
-import de.uka.ipd.sdq.scheduler.priority.IPriority;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
@@ -9,15 +9,17 @@ import de.uka.ipd.sdq.scheduler.sensors.impl.SleepAverageSensor;
 
 public class SleepAverageDependentUpdate implements IPriorityUpdateStrategy {
 
+    private SchedulerModel model;
 	private SleepAverageSensor sleepAverageSensor;
 	
 	// parameters according to the Linux 2.6.22 scheduler.
 	private double max_sleep_average;
 	private int max_bonus;
 
-	public SleepAverageDependentUpdate(IActiveProcess process, double max_sleep_average, int max_bonus) {
-		sleepAverageSensor = new SleepAverageSensor(process, max_sleep_average, max_bonus);
+	public SleepAverageDependentUpdate(SchedulerModel model, IActiveProcess process, double max_sleep_average, int max_bonus) {
+		sleepAverageSensor = new SleepAverageSensor(model, process, max_sleep_average, max_bonus);
 		process.addStateSensor(sleepAverageSensor);
+		this.model = model;
 		this.max_bonus = max_bonus;
 		this.max_sleep_average = max_sleep_average;
 	}
@@ -53,7 +55,7 @@ public class SleepAverageDependentUpdate implements IPriorityUpdateStrategy {
 	}
 	
 	public SleepAverageDependentUpdate cloneFor(ProcessWithPriority process) {
-		return new SleepAverageDependentUpdate(process, max_sleep_average, max_bonus);
+		return new SleepAverageDependentUpdate(model, process, max_sleep_average, max_bonus);
 	}
 	
 }

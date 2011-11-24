@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 /**
  * Represents a failure of an AbstractScheduledResource.
@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
  * @author brosch
  * 
  */
-public class ResourceFailedEvent extends AbstractSimEvent<SimuComModel, AbstractScheduledResource> {
+public class ResourceFailedEvent extends AbstractSimEventDelegator<AbstractScheduledResource> {
 
 	/**
 	 * The resource that this event belongs to.

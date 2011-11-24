@@ -5,7 +5,6 @@ import org.apache.log4j.Logger;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
-import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.exceptions.ThroughputZeroOrNegativeException;
@@ -47,7 +46,7 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 		this.latencySpec = latencySpec;
 		this.throughput = d;
 		this.failureProbability = failureProbability;
-		this.canFail = (simuComModel.getConfig().getSimulateFailures() && this.failureProbability > 0.0);
+		this.canFail = (simuComModel.getConfiguration().getSimulateFailures() && this.failureProbability > 0.0);
 
 	}
 
@@ -59,7 +58,7 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 	protected IActiveResource createActiveResource(SimuComModel simuComModel) {
 		// this.demandedTimeSensor = new SimpleTimeSpanSensor(simuComModel,
 		// "Demanded time at " + description);
-		IActiveResource aResource = ISchedulingFactory.eINSTANCE
+		IActiveResource aResource = getModel().getSchedulingFactory()
 				.createSimFCFSResource(SchedulingStrategy.FCFS.toString(),
 						getNextResourceId());
 

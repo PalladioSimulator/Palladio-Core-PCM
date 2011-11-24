@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.scheduler.strategy.impl;
 import java.util.Deque;
 
 import scheduler.configuration.StarvationBoost;
-
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;

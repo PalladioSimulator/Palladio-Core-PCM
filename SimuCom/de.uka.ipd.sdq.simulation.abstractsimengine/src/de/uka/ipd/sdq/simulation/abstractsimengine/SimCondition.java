@@ -14,11 +14,7 @@ package de.uka.ipd.sdq.simulation.abstractsimengine;
  * @param <M>
  *            the type of the simulation model
  */
-public abstract class SimCondition<M extends ISimulationModel<M>> extends SimulationElement<M> {
-
-    protected SimCondition(M model, String name) {
-        super(model, name);
-    }
+public interface SimCondition {
 
     /**
      * Checks whether this condition is satisfied. This is the case, for instance, if a certain
@@ -26,6 +22,6 @@ public abstract class SimCondition<M extends ISimulationModel<M>> extends Simula
      * 
      * @return true, if the condition is satisfied; false, else.
      */
-    public abstract boolean check();
+    public boolean check();
 
 }

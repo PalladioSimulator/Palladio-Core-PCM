@@ -3,18 +3,18 @@ package de.uka.ipd.sdq.scheduler.resources.active.special;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Random;
-import java.util.Set;
 import java.util.Map.Entry;
 
-import umontreal.iro.lecuyer.simevents.Event;
-import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
 import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
+import de.uka.ipd.sdq.simulation.abstractsimengine.IEntity;
+import de.uka.ipd.sdq.simulation.abstractsimengine.NullEntity;
 
 /**
  * This class is for testing purposes only. It is used for the MASCOTS paper case study. 
@@ -23,15 +23,15 @@ import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
  */
 public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 	
-	private class DoLoadBalancingEvent extends Event {
+	private class DoLoadBalancingEvent extends AbstractSimEventDelegator<NullEntity> {
 		
-		public DoLoadBalancingEvent() {
-			super(SchedulingFactory.getUsedSimulator());
+		public DoLoadBalancingEvent(SchedulerModel model) {
+			super(model, SimProcessorSharingResourceWindows.class.getName());
 		}
 		
 
 		@Override
-		public void actions() {
+		 public void eventRoutine(NullEntity who) {
 			//System.out.println(simulator.time() + ": Trying load balancing...");
 			int coreToBalanceTo = getCoreWithShortestQueue();
 			int coreToBalanceFrom = getCoreWithLongestQueue();
@@ -45,7 +45,8 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 				// move random process from sender core to idle core
 				Random random = new Random();
 				ISchedulableProcess processToBalance = processes[random.nextInt(processes.length)];
-				System.out.println(simulator.time() + ": Balancing process: " + processToBalance.getId() + " from core " + coreToBalanceFrom + " to " + coreToBalanceTo);
+				double simTime = getModel().getSimulationControl().getCurrentSimulationTime();
+				System.out.println(simTime + ": Balancing process: " + processToBalance.getId() + " from core " + coreToBalanceFrom + " to " + coreToBalanceTo);
 				Double processValue = runningProcesses.get(processToBalance);
 				runningProcesses.remove(processToBalance);
 				putProcessOnCore(processToBalance, processValue, coreToBalanceTo);
@@ -55,26 +56,17 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 			}
 			
 		}
+
 	}
 	
-	private class ProcessingFinishedEvent extends Event {
-		ISchedulableProcess process;
+	private class ProcessingFinishedEvent extends AbstractSimEventDelegator<ISchedulableProcess> {
 		
-		public ProcessingFinishedEvent(ISchedulableProcess process) {
-			super(SchedulingFactory.getUsedSimulator());
-			this.process = process;
-		}
-		
-		public ISchedulableProcess getProcess() {
-			return process;
-		}
-
-		public void setProcess(ISchedulableProcess process) {
-			this.process = process;
+		public ProcessingFinishedEvent(SchedulerModel model) {
+			super(model, ProcessingFinishedEvent.class.getName());
 		}
 
 		@Override
-		public void actions() {
+		public void eventRoutine(ISchedulableProcess process) {
 			ISchedulableProcess last = process;
 			toNow();
 			// NEW
@@ -92,8 +84,10 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 					// all cores are idle or have no contention
 				} else {
 					// Try load balancing one time unit from now
-					DoLoadBalancingEvent event = new DoLoadBalancingEvent();
-					event.schedule(simulator.time()+1);
+                    DoLoadBalancingEvent event = new DoLoadBalancingEvent(SimProcessorSharingResourceWindows.this
+                            .getModel());
+					double simTime = getModel().getSimulationControl().getCurrentSimulationTime();
+					event.schedule(IEntity.NULL, simTime+1);
 				}
 			}
 		//	System.out.println(simulator.time() + ": " + last.getId() + " finished");
@@ -110,11 +104,9 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 	// Hashtable<ISchedulableProcess, Double>();
 	private double last_time; 
 	private int coreToUseForInitialLoadBalancing = 0;
-	private Simulator simulator;
 
-	public SimProcessorSharingResourceWindows(String name, String id, int numberOfCores) {
-		super(numberOfCores, name, id);
-		this.simulator = SchedulingFactory.getUsedSimulator();
+	public SimProcessorSharingResourceWindows(SchedulerModel model, String name, String id, int numberOfCores) {
+		super(model, numberOfCores, name, id);
 		for (int j=0; j<numberOfCores; j++) {
 			running_processesPerCore.add(new Hashtable<ISchedulableProcess, Double>());
 		}
@@ -140,9 +132,8 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 			}
 		}
 	
-		processingFinished.cancel();
+		processingFinished.removeEvent();
 		if (shortest!=null){
-			processingFinished.setProcess(shortest);
 			// New: calculate time for process
 			double time = shortestTime;// * getSpeed(shortest);
 			// double time = running_processes.get(shortest) * getSpeed();
@@ -150,7 +141,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 			if (!MathTools.less(0, time)) {
                 time = 0.0;
             }
-			processingFinished.schedule(time);
+			processingFinished.schedule(shortest, time);
 		}
 	}
 	
@@ -196,7 +187,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 
 
 	private void toNow() {
-		double now = simulator.time();
+		double now = getModel().getSimulationControl().getCurrentSimulationTime();
 		double passed_time = now - last_time;
 		// System.out.println("toNow: " + now + " - " + last_time + " = " +
 		// passed_time);

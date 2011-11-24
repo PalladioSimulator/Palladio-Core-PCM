@@ -7,12 +7,12 @@ import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.PassiveResourceObservee;
 import de.uka.ipd.sdq.scheduler.resources.passive.SimAbstractPassiveResource;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
-import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 
 /**
  * @author Fabro
@@ -29,11 +29,11 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
  * @param <M>
  *            the type of the simulation model.
  */
-public class SimSimpleFairPassiveResource<M extends ISimulationModel<M>> extends AbstractSimResource implements
+public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 		IPassiveResource {
 
-	protected Deque<SimpleWaitingProcess<M>> waiting_queue;
-	private M myModel;
+	protected Deque<SimpleWaitingProcess> waiting_queue;
+	private SchedulerModel myModel;
 	private int available;
 	private String passiveResourceID;
 	private String assemblyContextID;
@@ -42,10 +42,10 @@ public class SimSimpleFairPassiveResource<M extends ISimulationModel<M>> extends
 	// provides observer functionality to this resource
 	private PassiveResourceObservee observee;
 
-    public SimSimpleFairPassiveResource(M model, int capacity, String name, String passiveResourceID,
+    public SimSimpleFairPassiveResource(SchedulerModel model, int capacity, String name, String passiveResourceID,
             String assemblyContextID, String combinedID, boolean simulateFailures) {
-		super(capacity, name, combinedID);
-		this.waiting_queue = new ArrayDeque<SimpleWaitingProcess<M>>();
+		super(model, capacity, name, combinedID);
+		this.waiting_queue = new ArrayDeque<SimpleWaitingProcess>();
 		this.myModel = model;
 		this.passiveResourceID = passiveResourceID;
 		this.assemblyContextID = assemblyContextID;
@@ -88,7 +88,7 @@ public class SimSimpleFairPassiveResource<M extends ISimulationModel<M>> extends
 		} else {
 			LoggingWrapper.log("Process " + sched_process + " is waiting for "
 					+ num + " of " + this);
-			SimpleWaitingProcess<M> process = new SimpleWaitingProcess<M>(
+			SimpleWaitingProcess process = new SimpleWaitingProcess(
 			        myModel, sched_process, num);
 			processTimeout(timeout, timeoutValue, process);
 			waiting_queue.add(process);
@@ -109,7 +109,7 @@ public class SimSimpleFairPassiveResource<M extends ISimulationModel<M>> extends
 	 *            the waiting process
 	 */
 	private void processTimeout(final boolean timeout,
-			final double timeoutValue, final SimpleWaitingProcess<M> process) {
+			final double timeoutValue, final SimpleWaitingProcess process) {
         if (!simulateFailures || !timeout) {
             return;
         }
@@ -119,7 +119,7 @@ public class SimSimpleFairPassiveResource<M extends ISimulationModel<M>> extends
 							this.passiveResourceID));
 		}
         if (timeoutValue > 0.0) {
-            PassiveResourceTimeoutEvent<M> event = new PassiveResourceTimeoutEvent<M>(myModel, this, process);
+            PassiveResourceTimeoutEvent event = new PassiveResourceTimeoutEvent(myModel, this, process);
             event.schedule(process, timeoutValue);
         }
 	}
@@ -159,7 +159,7 @@ public class SimSimpleFairPassiveResource<M extends ISimulationModel<M>> extends
 	}
 
 	private void notifyWaitingProcesses() {
-		SimpleWaitingProcess<M> waitingProcess = waiting_queue.peek();
+		SimpleWaitingProcess waitingProcess = waiting_queue.peek();
 		while (waitingProcess != null
 				&& canProceed(waitingProcess.getProcess(), waitingProcess
 						.getNumRequested())) {
@@ -192,7 +192,7 @@ public class SimSimpleFairPassiveResource<M extends ISimulationModel<M>> extends
 	 * @return TRUE if the process is waiting to acquire the resource; FALSE
 	 *         otherwise
 	 */
-	public boolean isWaiting(final SimpleWaitingProcess<M> process) {
+	public boolean isWaiting(final SimpleWaitingProcess process) {
 		return waiting_queue.contains(process);
 	}
 
@@ -202,7 +202,7 @@ public class SimSimpleFairPassiveResource<M extends ISimulationModel<M>> extends
 	 * @param process
 	 *            the process to remove
 	 */
-	public void remove(final SimpleWaitingProcess<M> process) {
+	public void remove(final SimpleWaitingProcess process) {
 		waiting_queue.remove(process);
 	}
 }

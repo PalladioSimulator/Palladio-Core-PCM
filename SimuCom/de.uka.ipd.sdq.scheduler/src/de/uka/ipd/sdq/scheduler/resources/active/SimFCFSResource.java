@@ -5,34 +5,23 @@ import java.util.Deque;
 import java.util.Hashtable;
 import java.util.Map.Entry;
 
-import umontreal.iro.lecuyer.simevents.Event;
-import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 public class SimFCFSResource extends AbstractActiveResource {
+    
+	private class ProcessingFinishedEvent extends AbstractSimEventDelegator<ISchedulableProcess> {
 
-	private class ProcessingFinishedEvent extends Event {
-		ISchedulableProcess process;
-
-		public ProcessingFinishedEvent(ISchedulableProcess process) {
-			super(SchedulingFactory.getUsedSimulator());
-			this.process = process;
-		}
-
-		public ISchedulableProcess getProcess() {
-			return process;
-		}
-
-		public void setProcess(ISchedulableProcess process) {
-			this.process = process;
+		public ProcessingFinishedEvent(SchedulerModel model) {
+			super(model, ProcessingFinishedEvent.class.getName());
 		}
 
 		@Override
-		public void actions() {
+		public void eventRoutine(ISchedulableProcess process) {
 			ISchedulableProcess first = process;
 			toNow();
 			assert MathTools.equalsDouble(0, running_processes.get(first));
@@ -47,30 +36,27 @@ public class SimFCFSResource extends AbstractActiveResource {
 
 	}
 
-	private ProcessingFinishedEvent processingFinished = new ProcessingFinishedEvent(
-			null);
+	private ProcessingFinishedEvent processingFinished;
 	private Deque<ISchedulableProcess> processQ = new ArrayDeque<ISchedulableProcess>();
 	private Hashtable<ISchedulableProcess, Double> running_processes = new Hashtable<ISchedulableProcess, Double>();
 	private double last_time;
-	private Simulator simulator;
 
-	public SimFCFSResource(String name, String id, int capacity) {
-		super(capacity, name, id);
-		this.simulator = SchedulingFactory.getUsedSimulator();
+	public SimFCFSResource(SchedulerModel model, String name, String id, int capacity) {
+		super(model, capacity, name, id);
+		processingFinished = new ProcessingFinishedEvent(model);
 	}
 
 	public void scheduleNextEvent() {
 		ISchedulableProcess first = processQ.peek();
-		processingFinished.cancel();
+		processingFinished.removeEvent();
 		if (first != null) {
-			processingFinished.setProcess(first);
 			double time = running_processes.get(first);
-			processingFinished.schedule(time);
+			processingFinished.schedule(first, time);
 		}
 	}
 
 	private void toNow() {
-		double now = simulator.time();
+		double now = getModel().getSimulationControl().getCurrentSimulationTime();
 		double passed_time = now - last_time;
 		if (MathTools.less(0, passed_time)) {
 			ISchedulableProcess first = processQ.peek();

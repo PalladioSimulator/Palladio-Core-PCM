@@ -5,12 +5,11 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimProcess;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimProcessDelegator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcess;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcessListener;
-import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 
-public abstract class SimulatedProcess<T extends ISimulationModel<T>> implements ISimProcess {
+public abstract class SimulatedProcess implements ISimProcess {
 
     public static final Logger logger = Logger.getLogger(SimulatedProcess.class);
     
@@ -76,7 +75,7 @@ public abstract class SimulatedProcess<T extends ISimulationModel<T>> implements
         suspend();
     }
     
-    abstract protected AbstractSimProcess<T> getAbstractProcess();
+    abstract protected AbstractSimProcessDelegator getAbstractProcess();
 
     public void suspend() {
         if (this.myProcessState != ProcessState.RUNNING)

@@ -10,11 +10,11 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
  * @param <M>
  *            the type of the simulation model
  */
-public class SSJConditionWrapper<M extends ISimulationModel<M>> {
+public class SSJConditionWrapper<M extends ISimulationModel> {
 
-    private SimCondition<M> abstractCondition;
+    private SimCondition abstractCondition;
 
-    public SSJConditionWrapper(SimCondition<M> abstractCondition) {
+    public SSJConditionWrapper(SimCondition abstractCondition) {
         this.abstractCondition = abstractCondition;
     }
 

@@ -1,21 +1,25 @@
 package de.uka.ipd.sdq.scheduler.resources;
 
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 
 
-public abstract class AbstractSimResource {
+public abstract class AbstractSimResource extends SchedulerEntity {
 
 	protected int capacity;
 	private String name = "";
 	private String id = "";
-	protected SchedulingFactory factory = new SchedulingFactory();
+	protected SchedulingFactory factory;
 	
 
-	public AbstractSimResource(int capacity, String name, String id) {
-		super();
+	public AbstractSimResource(SchedulerModel model, int capacity, String name, String id) {
+		super(model, AbstractSimResource.class.getName());
 		this.capacity = capacity;
 		this.name = name;
 		this.id = id;
+		
+		factory = new SchedulingFactory(model);
 	}
 
 	public int getCapacity() {

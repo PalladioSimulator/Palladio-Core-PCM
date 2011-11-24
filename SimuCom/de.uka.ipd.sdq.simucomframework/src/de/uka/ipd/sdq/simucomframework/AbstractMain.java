@@ -216,7 +216,7 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulat
 	 */
     public void prepareSimulation(AbstractSimulationConfig config, IStatusObserver observer, boolean isRemoteRun) {
         // load factory for the preferred simulation engine
-        ISimEngineFactory<SimuComModel> factory = SimulationPreferencesHelper.getPreferredSimulationEngine();
+        ISimEngineFactory factory = SimulationPreferencesHelper.getPreferredSimulationEngine();
         if (factory == null) {
             throw new RuntimeException("There is no simulation engine available. Install at least one engine.");
         }

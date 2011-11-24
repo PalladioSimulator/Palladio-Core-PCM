@@ -1,21 +1,18 @@
 package de.uka.ipd.sdq.scheduler.events;
 
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
-import umontreal.iro.lecuyer.simevents.Event;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
-public class DelayEvent extends Event {
+public class DelayEvent extends AbstractSimEventDelegator<ISchedulableProcess> {
 	
-	ISchedulableProcess process;
-	
-	public DelayEvent(ISchedulableProcess process) {
-		super(SchedulingFactory.getUsedSimulator());
-		this.process = process;
+	public DelayEvent(SchedulerModel model) {
+		super(model, "DelayEvent");
 	}
 
-	@Override
-	public void actions() {
-		process.activate();
-	}
+    @Override
+    public void eventRoutine(ISchedulableProcess process) {
+        process.activate();
+    }
 
 }

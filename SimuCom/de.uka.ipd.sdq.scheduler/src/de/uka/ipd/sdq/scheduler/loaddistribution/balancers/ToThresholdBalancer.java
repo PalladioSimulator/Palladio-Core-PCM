@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.scheduler.loaddistribution.balancers;
 
 import java.util.List;
 
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
@@ -17,17 +18,19 @@ import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
  */
 public class ToThresholdBalancer extends AbstractLoadBalancer {
 
+    private SchedulerModel model;
 	private double last_balanced = 0;
 	private int threshold;
 
-	public ToThresholdBalancer(double balancing_interval,
+	public ToThresholdBalancer(SchedulerModel model, double balancing_interval,
 			boolean prio_increasing, boolean queue_ascending, int threshold) {
 		super(balancing_interval, prio_increasing, queue_ascending);
+		this.model = model;
 		this.threshold = threshold;
 	}
 
 	public void activelyBalance(IResourceInstance instance) {
-		double now = simulator.time();
+		double now = model.getSimulationControl().getCurrentSimulationTime();
 		if ((now - last_balanced) > balancing_interval) {
 			balance(getBusiest(), getLaziest());
 			last_balanced = now;

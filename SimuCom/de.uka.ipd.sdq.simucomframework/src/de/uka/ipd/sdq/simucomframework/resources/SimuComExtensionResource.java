@@ -5,8 +5,8 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public abstract class SimuComExtensionResource extends AbstractActiveResource {
 	
-	public SimuComExtensionResource(int capacity, String name, String id) {
-		super(capacity, name, id);
+	public SimuComExtensionResource(SimuComModel model, int capacity, String name, String id) {
+		super(model, capacity, name, id);
 	}
 
 	public abstract void initialize(SimuComModel simuComModel);

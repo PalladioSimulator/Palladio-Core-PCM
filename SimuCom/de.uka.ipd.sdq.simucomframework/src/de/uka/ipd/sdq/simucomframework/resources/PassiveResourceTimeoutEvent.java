@@ -1,9 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
-import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
-import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 /**
  * This event indicates a timeout of a process waiting at a passive resource.
@@ -11,17 +10,17 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
  * @author brosch
  * 
  */
-public class PassiveResourceTimeoutEvent<M extends ISimulationModel<M>> extends AbstractSimEvent<M, SimpleWaitingProcess<M>> {
+public class PassiveResourceTimeoutEvent extends AbstractSimEventDelegator<SimpleWaitingProcess> {
 
 	/**
 	 * The waiting process.
 	 */
-	private SimpleWaitingProcess<M> process;
+	private SimpleWaitingProcess process;
 
 	/**
 	 * The resource.
 	 */
-	private SimSimpleFairPassiveResource<M> resource;
+	private SimSimpleFairPassiveResource resource;
 
 	/**
 	 * Creates a new timeout event.
@@ -33,9 +32,9 @@ public class PassiveResourceTimeoutEvent<M extends ISimulationModel<M>> extends 
 	 * @param process
 	 *            the waiting process
 	 */
-	public PassiveResourceTimeoutEvent(final M model,
-			final SimSimpleFairPassiveResource<M> resource,
-			final SimpleWaitingProcess<M> process) {
+	public PassiveResourceTimeoutEvent(final SchedulerModel model,
+			final SimSimpleFairPassiveResource resource,
+			final SimpleWaitingProcess process) {
 		super(model, resource.getName());
 		this.resource = resource;
 		this.process = process;
@@ -50,7 +49,7 @@ public class PassiveResourceTimeoutEvent<M extends ISimulationModel<M>> extends 
 	 * de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimEvent#eventRoutine
 	 * (de.uka.ipd.sdq.simucomframework.abstractSimEngine.IEntityDelegate)
 	 */
-	public void eventRoutine(SimpleWaitingProcess<M> who) {
+	public void eventRoutine(SimpleWaitingProcess who) {
 
 		// Check if the process is still waiting:
 		if (!resource.isWaiting(process)) {
@@ -70,7 +69,7 @@ public class PassiveResourceTimeoutEvent<M extends ISimulationModel<M>> extends 
 	 * 
 	 * @return the waiting process
 	 */
-	public SimpleWaitingProcess<M> getProcess() {
+	public SimpleWaitingProcess getProcess() {
 		return process;
 	}
 
@@ -79,7 +78,7 @@ public class PassiveResourceTimeoutEvent<M extends ISimulationModel<M>> extends 
 	 * 
 	 * @return the passive resource
 	 */
-	public SimSimpleFairPassiveResource<M> getResource() {
+	public SimSimpleFairPassiveResource getResource() {
 		return resource;
 	}
 

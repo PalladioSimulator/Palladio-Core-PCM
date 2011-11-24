@@ -3,34 +3,23 @@ package de.uka.ipd.sdq.scheduler.resources.active;
 import java.util.Hashtable;
 import java.util.Map.Entry;
 
-import umontreal.iro.lecuyer.simevents.Event;
-import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 public class SimProcessorSharingResource extends AbstractActiveResource {
 	
-	private class ProcessingFinishedEvent extends Event {
-		ISchedulableProcess process;
-		
-		public ProcessingFinishedEvent(ISchedulableProcess process) {
-			super(SchedulingFactory.getUsedSimulator());
-			this.process = process;
-		}
-		
-		public ISchedulableProcess getProcess() {
-			return process;
-		}
-
-		public void setProcess(ISchedulableProcess process) {
-			this.process = process;
+	private class ProcessingFinishedEvent extends AbstractSimEventDelegator<ISchedulableProcess> {
+				
+		public ProcessingFinishedEvent(SchedulerModel model) {
+			super(model, ProcessingFinishedEvent.class.getName());
 		}
 
 		@Override
-		public void actions() {
+		public void eventRoutine(ISchedulableProcess process) {
 			ISchedulableProcess last = process;
 			toNow();
 			running_processes.remove(last);
@@ -50,11 +39,9 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 	private ProcessingFinishedEvent processingFinished = new ProcessingFinishedEvent(null);
 	private Hashtable<ISchedulableProcess,Double> running_processes = new Hashtable<ISchedulableProcess, Double>();
 	private double last_time; 
-	private Simulator simulator;
 
-	public SimProcessorSharingResource(String name, String id, int i) {
-		super(i, name, id);
-		this.simulator = SchedulingFactory.getUsedSimulator();
+	public SimProcessorSharingResource(SchedulerModel model, String name, String id, int i) {
+		super(model, i, name, id);
 	}
 
 	public void scheduleNextEvent() {
@@ -64,9 +51,8 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 				shortest = process;
 			}
 		}
-		processingFinished.cancel();
+		processingFinished.removeEvent();
 		if (shortest!=null){
-			processingFinished.setProcess(shortest);
 			double time = running_processes.get(shortest) * getSpeed();
 			
 			// avoid trouble caused by rounding issues
@@ -74,13 +60,13 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 			
 			assert time >= 0 : "Remaining time ("+ time +")small than zero!";
 			
-			processingFinished.schedule(time);
+			processingFinished.schedule(shortest, time);
 		}
 	}
 
 
 	private void toNow() {
-		double now = simulator.time();
+		double now = getModel().getSimulationControl().getCurrentSimulationTime();
 		double passed_time = now - last_time;
 		if (MathTools.less(0, passed_time)){
 			passed_time /= getSpeed(); 

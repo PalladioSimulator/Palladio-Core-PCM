@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.statistics.estimation.IConfidenceEstimator;
  * @author Philipp Merkle
  *
  */
-public class ConfidenceStopCondition extends SimCondition<SimuComModel> implements  ICalculatorListener {
+public class ConfidenceStopCondition implements SimCondition, ICalculatorListener {
 
 	private static final Logger logger = Logger.getLogger(ConfidenceStopCondition.class);
 
@@ -60,8 +60,6 @@ public class ConfidenceStopCondition extends SimCondition<SimuComModel> implemen
 	protected ConfidenceStopCondition(SimuComModel model,
 			IBatchAlgorithm batchAlgorithm, IConfidenceEstimator estimator,
 			double confidenceLevel, double halfWidth) {
-		super(model, "Confidence Stop Condition");
-
 		this.model = model;
 		this.batchAlgorithm = batchAlgorithm;
 		this.estimator = estimator;

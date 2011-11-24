@@ -7,26 +7,23 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
-import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 
-public abstract class AbstractActiveResource extends AbstractSimResource
-		implements IActiveResource {
+public abstract class AbstractActiveResource extends AbstractSimResource implements IActiveResource {
 
 	private static Map<ISchedulableProcess, AbstractActiveResource> currentResourceTable = new ConcurrentHashMap<ISchedulableProcess, AbstractActiveResource>();
 
 	private List<IActiveResourceStateSensor> observers;
 	
-	public AbstractActiveResource(int capacity, String name, String id) {
-		super(capacity, name, id);
+    public AbstractActiveResource(SchedulerModel model, int capacity, String name, String id) {
+        super(model, capacity, name, id);
 		observers = new ArrayList<IActiveResourceStateSensor>();
 	}
 
 	public final void process(ISchedulableProcess process, int resourceServiceID, double demand) {
-		// what should actually happen here is a test of SSJExperiment.isRunning
-		if (SchedulingFactory.getUsedSimulator().isStopped()) {
+		if (!getModel().getSimulationControl().isRunning()) {
 			// Do nothing, but allows calling process to complete
 			return;
 		}

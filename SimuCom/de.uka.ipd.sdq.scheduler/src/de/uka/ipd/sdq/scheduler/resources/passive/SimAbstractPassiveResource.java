@@ -5,6 +5,7 @@ import java.util.Deque;
 
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
@@ -18,9 +19,9 @@ public abstract class SimAbstractPassiveResource extends AbstractSimResource
 	protected Deque<WaitingProcess> waiting_queue;
 	protected SimActiveResource main_resource;
 
-	public SimAbstractPassiveResource(int capacity, String name, String id,
+	public SimAbstractPassiveResource(SchedulerModel model, int capacity, String name, String id,
 			IPriorityBoost priority_boost, SimActiveResource managing_resource) {
-		super(capacity, name, id);
+		super(model, capacity, name, id);
 		this.priority_boost = priority_boost;
 		this.main_resource = managing_resource;
 		this.waiting_queue = new ArrayDeque<WaitingProcess>();

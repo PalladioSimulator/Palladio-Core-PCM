@@ -15,11 +15,11 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
  * @param <M>
  *            the type of the simulation model
  */
-public class SSJModel<M extends ISimulationModel<M>> implements ISimulationModel<M> {
+public class SSJModel implements ISimulationModel {
 
-    private final M model;
+    private final ISimulationModel model;
 
-    public SSJModel(final M model) {
+    public SSJModel(final ISimulationModel model) {
         this.model = model;
     }
 
@@ -40,12 +40,12 @@ public class SSJModel<M extends ISimulationModel<M>> implements ISimulationModel
     }
 
     @Override
-    public ISimEngineFactory<M> getSimEngineFactory() {
+    public ISimEngineFactory getSimEngineFactory() {
         return this.model.getSimEngineFactory();
     }
 
     @Override
-    public ISimulationControl<M> getSimulationControl() {
+    public ISimulationControl getSimulationControl() {
         return this.model.getSimulationControl();
     }
 
@@ -58,12 +58,12 @@ public class SSJModel<M extends ISimulationModel<M>> implements ISimulationModel
     }
 
     @Override
-    public void setSimulationControl(final ISimulationControl<M> control) {
+    public void setSimulationControl(final ISimulationControl control) {
         this.model.setSimulationControl(control);
     }
 
     @Override
-    public void setSimulationEngineFactory(final ISimEngineFactory<M> factory) {
+    public void setSimulationEngineFactory(final ISimEngineFactory factory) {
         this.model.setSimulationEngineFactory(factory);
     }
 

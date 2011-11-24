@@ -5,13 +5,13 @@ package de.uka.ipd.sdq.simulation.abstractsimengine;
  * <code>lifeCycle</code> method. in this way, this class supports the so-called process-interaction
  * simulation modelling.
  * <p>
- * By contrast to {@link AbstractSimEvent}s, simulated time may pass while executing the process
+ * By contrast to {@link AbstractSimEventDelegator}s, simulated time may pass while executing the process
  * lifecycle. 
  * 
  * @author Steffen Becker (this code has been factored out from SimuCom)
  * @author Philipp Merkle
  */
-public interface ISimProcess {
+public interface ISimProcess extends IEntity {
 
     /**
      * Passivates this process. This will suspend the simulation of the process until it is resumed

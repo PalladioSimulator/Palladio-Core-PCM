@@ -17,11 +17,11 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simulation.SimulationResult;
-import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimProcess;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimProcessDelegator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcess;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcessListener;
 
-public abstract class SimuComSimProcess extends AbstractSimProcess<SimuComModel> implements ISchedulableProcess,
+public abstract class SimuComSimProcess extends AbstractSimProcessDelegator implements ISchedulableProcess,
         ISimProcessListener {
 
     private static AtomicLong sessionID = new AtomicLong(0);
@@ -51,15 +51,15 @@ public abstract class SimuComSimProcess extends AbstractSimProcess<SimuComModel>
     
     protected SimuComSimProcess(SimuComModel model, String name, RequestContext parentRequestContext) {
         super(model, name);
-        isDebug = model.getConfiguration().isDebug();
-        logger.debug("Create SimuComSimProcess with id " + getRawId());
-        this.delayResource = new SimDelayResource(name + "_thinktime", name
-                + "_thinktime");
+        this.isDebug = model.getConfiguration().isDebug();
+        this.delayResource = new SimDelayResource(model, name + "_thinktime", name + "_thinktime");
         requestContext = new RequestContext(Long.valueOf(getRawId()).toString(), parentRequestContext);
         
         // add a process listener in order to get notified when this process is about to be
         // suspended or resumed again.
         this.addProcessListener(this);
+        
+        logger.debug("Create SimuComSimProcess with id " + getRawId());
     }
 
     public void activate() {
@@ -209,6 +209,11 @@ public abstract class SimuComSimProcess extends AbstractSimProcess<SimuComModel>
     @Override
     public void notifySuspending(ISimProcess process) {
         // nothing to do here
+    }
+
+    @Override
+    public SimuComModel getModel() {
+        return (SimuComModel) super.getModel();
     }
     
 }

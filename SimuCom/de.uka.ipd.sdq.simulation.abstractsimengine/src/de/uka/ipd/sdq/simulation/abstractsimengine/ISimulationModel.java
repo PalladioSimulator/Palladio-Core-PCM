@@ -23,15 +23,15 @@ package de.uka.ipd.sdq.simulation.abstractsimengine;
  * @param <M>
  *            the type of the simulation model
  */
-public interface ISimulationModel<M extends ISimulationModel<M>> {
+public interface ISimulationModel {
 
-    public ISimulationControl<M> getSimulationControl();
+    public ISimulationControl getSimulationControl();
 
-    public void setSimulationControl(ISimulationControl<M> control);
+    public void setSimulationControl(ISimulationControl control);
 
-    public void setSimulationEngineFactory(ISimEngineFactory<M> factory);
+    public void setSimulationEngineFactory(ISimEngineFactory factory);
 
-    public ISimEngineFactory<M> getSimEngineFactory();
+    public ISimEngineFactory getSimEngineFactory();
 
     /**
      * Initialises the simulation. Especially, the initial events are scheduled here before the

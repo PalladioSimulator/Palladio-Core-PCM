@@ -10,7 +10,6 @@ import scheduler.configuration.ProcessConfiguration;
 import scheduler.configuration.SchedulerConfiguration;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
-import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
 import de.uka.ipd.sdq.scheduler.tools.SchedulerTools;
 import de.uka.ipd.sdq.simucomframework.Context;
@@ -49,7 +48,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 		// Reliability Stuff.
 		this.mttf = mttf;
 		this.mttr = mttr;
-		this.canBeUnavailable = (myModel.getConfig().getSimulateFailures()
+		this.canBeUnavailable = (myModel.getConfiguration().getSimulateFailures()
 				&& (this.mttf > 0.0) && (this.mttr > 0.0));
 
 		// used to let resource fail and be repaired again:
@@ -88,7 +87,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 			resourceConf.setName(schedulerName);
 			resourceConf.setReplicas(numReplicas);
 			resourceConf.setSchedulerConfiguration(selectedConf);
-			IActiveResource resource = ISchedulingFactory.eINSTANCE
+			IActiveResource resource = getModel().getSchedulingFactory()
 					.createActiveResource(resourceConf);
 			return resource;
 		}
@@ -103,18 +102,18 @@ public class ScheduledResource extends AbstractScheduledResource {
 
 		// active resources scheduled by standard scheduling techniques
 		case FCFS:
-			scheduledResource = ISchedulingFactory.eINSTANCE
+			scheduledResource = getModel().getSchedulingFactory()
 					.createSimFCFSResource(SchedulingStrategy.FCFS.toString(),
 							getNextResourceId());
 			break;
 		case PROCESSOR_SHARING:
-			scheduledResource = ISchedulingFactory.eINSTANCE
+			scheduledResource = getModel().getSchedulingFactory()
 					.createSimProcessorSharingResource(
 							SchedulingStrategy.PROCESSOR_SHARING.toString(),
 							getNextResourceId(), numberOfCores);
 			break;
 		case DELAY:
-			scheduledResource = ISchedulingFactory.eINSTANCE
+			scheduledResource = getModel().getSchedulingFactory()
 					.createSimDelayResource(
 							SchedulingStrategy.DELAY.toString(),
 							getNextResourceId());
@@ -125,7 +124,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 					"Linux 2.6.22", numberOfCores, sensorDescription);
 			break;
 		case LINUX_2_6_CFS:
-			scheduledResource = ISchedulingFactory.eINSTANCE
+			scheduledResource = getModel().getSchedulingFactory()
 					.createSimProcessorSharingResource(
 							SchedulingStrategy.LINUX_2_6_CFS.toString(),
 							getNextResourceId(), numberOfCores);
@@ -143,19 +142,21 @@ public class ScheduledResource extends AbstractScheduledResource {
 					"Windows XP", numberOfCores, sensorDescription);
 			break;
 		case SPECIAL_WINDOWS:
-			scheduledResource = ISchedulingFactory.eINSTANCE
+			scheduledResource = getModel().getSchedulingFactory()
 					.createSimProcessorSharingResourceWindows(
 							SchedulingStrategy.SPECIAL_WINDOWS.toString(),
 							getNextResourceId(), numberOfCores);
 			break;
 		case SPECIAL_LINUXO1:
-			scheduledResource = ISchedulingFactory.eINSTANCE
+			scheduledResource = getModel().getSchedulingFactory()
 					.createSimProcessorSharingResourceLinuxO1(
 							SchedulingStrategy.SPECIAL_LINUXO1.toString(),
 							getNextResourceId(), numberOfCores);
 			break;
 		case GINPEX_DISK:
-			scheduledResource = ISchedulingFactory.eINSTANCE.createResourceFromExtension("de.uka.ipd.sdq.simucom.ginpex.scheduler.hdd", SchedulingStrategy.GINPEX_DISK.toString(), getNextResourceId());
+            scheduledResource = getModel().getSchedulingFactory().createResourceFromExtension(
+                    "de.uka.ipd.sdq.simucom.ginpex.scheduler.hdd", SchedulingStrategy.GINPEX_DISK.toString(),
+                    getNextResourceId());
 			//scheduledResource = ISchedulingFactory.eINSTANCE
 			//		.createSimGinpexDiskResource(
 			//				SchedulingStrategy.GINPEX_DISK.toString(),
@@ -181,7 +182,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 			processConf.setName(process.getId());
 			processConf.setPriority(PriorityClass.DEFAULT);
 			processConf.setReplicas(1);
-			ProcessWithPriority p = (ProcessWithPriority) ISchedulingFactory.eINSTANCE
+			ProcessWithPriority p = (ProcessWithPriority) getModel().getSchedulingFactory()
 					.createRunningProcess(process, processConf, resourceConf);
 
 			resource.registerProcess(p);

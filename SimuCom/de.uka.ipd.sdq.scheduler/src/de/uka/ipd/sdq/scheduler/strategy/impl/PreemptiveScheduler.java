@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.scheduler.strategy.impl;
 
 import scheduler.configuration.StarvationBoost;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
 import de.uka.ipd.sdq.scheduler.priority.update.SetToBaseUpdate;
@@ -15,10 +15,13 @@ import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 
 public class PreemptiveScheduler extends AbstractScheduler {
 	
-	public PreemptiveScheduler(SimActiveResource resource,
+    private SchedulerModel model;
+    
+	public PreemptiveScheduler(SchedulerModel model, SimActiveResource resource,
 			IQueueingStrategy queueingStrategy, boolean in_front_after_waiting,
 			double scheduling_interval, StarvationBoost starvationBoost) {
 		super(resource, queueingStrategy, in_front_after_waiting, starvationBoost);
+		this.model = model;
 		this.scheduling_interval = scheduling_interval;
 	}
 
@@ -124,7 +127,7 @@ public class PreemptiveScheduler extends AbstractScheduler {
 	}
 
 	public void scheduleNextEvent(IResourceInstance instance) {
-		double time = SchedulingFactory.getUsedSimulator().time();
+		double time = model.getSimulationControl().getCurrentSimulationTime();
 		ProcessWithPriority running = (ProcessWithPriority) instance
 				.getRunningProcess();
 		if (running != null) {

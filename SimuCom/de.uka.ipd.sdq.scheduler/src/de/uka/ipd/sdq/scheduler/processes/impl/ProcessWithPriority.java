@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.scheduler.processes.impl;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
@@ -14,9 +15,9 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	private IPriorityUpdateStrategy priorityUpdateStrategy;
 	private static boolean in_front_if_priority_changed = false;
 
-	public ProcessWithPriority(ISchedulableProcess process,
+	public ProcessWithPriority(SchedulerModel model, ISchedulableProcess process,
 			IPriority staticPriority) {
-		super(process);
+		super(model, process);
 		this.staticPriority = staticPriority;
 		this.dynamicPriority = staticPriority;
 		this.priorityUpdateStrategy = null;
@@ -87,7 +88,7 @@ public class ProcessWithPriority extends PreemptiveProcess {
 	
 	@Override
 	public IActiveProcess createNewInstance(ISchedulableProcess process) {
-		ProcessWithPriority p = new ProcessWithPriority(process,staticPriority);
+        ProcessWithPriority p = new ProcessWithPriority(getModel(), process, staticPriority);
 		p.dynamicPriority = staticPriority;
 		if (this.priorityUpdateStrategy != null){
 			p.priorityUpdateStrategy = this.priorityUpdateStrategy.cloneFor(p);

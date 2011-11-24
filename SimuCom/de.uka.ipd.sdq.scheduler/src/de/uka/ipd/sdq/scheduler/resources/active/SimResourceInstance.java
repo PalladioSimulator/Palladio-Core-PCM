@@ -3,16 +3,16 @@ package de.uka.ipd.sdq.scheduler.resources.active;
 import java.util.ArrayList;
 import java.util.List;
 
-import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 import de.uka.ipd.sdq.scheduler.events.SchedulingEvent;
 import de.uka.ipd.sdq.scheduler.events.SchedulingInterruptEvent;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 
-public class SimResourceInstance implements IResourceInstance {
+public class SimResourceInstance extends SchedulerEntity implements IResourceInstance {
 
 	private int number;
 	private IActiveResource containing_resource;
@@ -42,12 +42,11 @@ public class SimResourceInstance implements IResourceInstance {
 	private IRunningProcess last_running_process;
 
 	private SchedulingEvent scheduling_event;
-	private Simulator simulator;
 	private boolean isScheduling;
 	private List<IActiveResourceStateSensor> resourceObserverList = new ArrayList<IActiveResourceStateSensor>();
 
-	public SimResourceInstance(int number, IActiveResource containing_resource) {
-		super();
+	public SimResourceInstance(SchedulerModel model, int number, IActiveResource containing_resource) {
+	    super(model, SimResourceInstance.class.getName());
 		this.number = number;
 		this.containing_resource = containing_resource;
 		// Initialise this at start instead of container for multiple Simulation
@@ -55,7 +54,6 @@ public class SimResourceInstance implements IResourceInstance {
 		// this.scheduling_event = new
 		// SchedulingEvent((SimActiveResource)containing_resource,this);
 		this.running_process = null;
-		this.simulator = SchedulingFactory.getUsedSimulator();
 		this.isScheduling = false;
 	}
 
@@ -100,16 +98,15 @@ public class SimResourceInstance implements IResourceInstance {
 
 	public void scheduleSchedulingEvent(double time) {
 		cancelSchedulingEvent();
-		scheduling_event.schedule(time);
+		scheduling_event.schedule(this, time);
 	}
 
 	public void schedulingInterrupt(double time) {
-		new SchedulingInterruptEvent((SimActiveResource) containing_resource,
-				this).schedule(time);
+        new SchedulingInterruptEvent(getModel(), (SimActiveResource) containing_resource).schedule(this, time);
 	}
 
 	public void cancelSchedulingEvent() {
-		scheduling_event.cancel();
+		scheduling_event.removeEvent();
 	}
 
 	@Override
@@ -136,18 +133,19 @@ public class SimResourceInstance implements IResourceInstance {
 	}
 
 	public double getNextSchedEventTime() {
-		double time = scheduling_event.time() - simulator.time();
-		return time;
+	    double simTime = getModel().getSimulationControl().getCurrentSimulationTime();
+	    double eventTime = scheduling_event.scheduledAtTime();
+		return eventTime - simTime;
 	}
 
 	public void start() {
-		this.scheduling_event = new SchedulingEvent(
-				(SimActiveResource) containing_resource, this);
-		scheduling_event.schedule(0);
+		this.scheduling_event = new SchedulingEvent(getModel(),
+				(SimActiveResource) containing_resource);
+		scheduling_event.schedule(this, 0);
 	}
 
 	public void stop() {
-		scheduling_event.cancel();
+		scheduling_event.removeEvent();
 	}
 
 	public void setIsScheduling(boolean b) {

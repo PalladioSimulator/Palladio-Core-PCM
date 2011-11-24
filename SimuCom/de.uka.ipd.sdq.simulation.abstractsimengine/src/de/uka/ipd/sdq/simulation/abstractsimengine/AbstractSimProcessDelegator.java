@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
  *            the type of the simulation model
  * @see ISimProcess
  */
-public abstract class AbstractSimProcess<M extends ISimulationModel<M>> extends SimulationElement<M> implements
+public abstract class AbstractSimProcessDelegator extends AbstractSimEntityDelegator implements
         ISimProcess {
 
     private static AtomicLong processIdGenerator = new AtomicLong(0);
@@ -21,17 +21,17 @@ public abstract class AbstractSimProcess<M extends ISimulationModel<M>> extends 
      * with this process, which is why it invokes the <code>lifecycle</code> method as soon as the
      * process is to be executed.
      */
-    private ISimProcess delegate = null;
+    private ISimProcess delegate;
     private long id;
 
-    public AbstractSimProcess(M model, String name) {
+    public AbstractSimProcessDelegator(ISimulationModel model, String name) {
         super(model, name);
         this.delegate = model.getSimEngineFactory().createSimProcess(this, name);
         this.id = generateNextID();
     }
 
-    // TODO This method should be called getId() but there is already such a method. Thus, getId()
-    // should be renamed to getTextualId() or something like that.
+    // TODO This method should be rather named getId() but there is already such a method. Thus,
+    // getId() should be renamed to getTextualId() or similar.
     public long getRawId() {
         return id;
     }
@@ -74,5 +74,13 @@ public abstract class AbstractSimProcess<M extends ISimulationModel<M>> extends 
     public void removeProcessListener(ISimProcessListener l) {
         delegate.removeProcessListener(l);
     }
+    
+//    public boolean isScheduled() {
+//        return delegate.isScheduled();
+//    }
+//
+//    public void reschedule(double d) {
+//        delegate.reschedule(d);
+//    }
 
 }

@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.scheduler.resources.passive;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
@@ -17,9 +17,9 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 	private PassiveResourceObservee observee;
 	private int available;
 
-	public SimFairPassiveResource(int capacity, String name, String id,
+	public SimFairPassiveResource(SchedulerModel model, int capacity, String name, String id,
 			IPriorityBoost priority_boost, SimActiveResource managing_resource) {
-		super(capacity, name, id, priority_boost, managing_resource);
+		super(model, capacity, name, id, priority_boost, managing_resource);
 		observee = new PassiveResourceObservee();
 		available = capacity;
 	}
@@ -35,7 +35,7 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 
 		// AM: Copied from AbstractActiveResource: If simulation is stopped,
 		// allow all processes to finish
-		if (SchedulingFactory.getUsedSimulator().isStopped()) {
+		if (!getModel().getSimulationControl().isRunning()) {
 			// Do nothing, but allows calling process to complete
 			return true;
 		}
@@ -60,7 +60,7 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 
 		// AM: Copied from AbstractActiveResource: If simulation is stopped,
 		// allow all processes to finish
-		if (SchedulingFactory.getUsedSimulator().isStopped()) {
+		if (!getModel().getSimulationControl().isRunning()) {
 			// Do nothing, but allows calling process to complete
 			return;
 		}

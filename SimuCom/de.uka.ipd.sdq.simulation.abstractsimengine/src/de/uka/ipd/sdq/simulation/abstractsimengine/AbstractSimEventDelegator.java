@@ -10,7 +10,7 @@ package de.uka.ipd.sdq.simulation.abstractsimengine;
  *            the type of the entity which is modified by this event
  * @see ISimEvent
  */
-public abstract class AbstractSimEvent<M extends ISimulationModel<M>, E extends IEntity> extends SimulationElement<M>
+public abstract class AbstractSimEventDelegator<E extends IEntity> extends SimulationElement
         implements ISimEvent<E> {
 
     /**
@@ -21,7 +21,7 @@ public abstract class AbstractSimEvent<M extends ISimulationModel<M>, E extends 
      */
     private ISimEvent<E> delegate;
 
-    protected AbstractSimEvent(M model, String name) {
+    protected AbstractSimEventDelegator(ISimulationModel model, String name) {
         super(model, name);
         delegate = model.getSimEngineFactory().createSimEvent(this, name);
     }
@@ -52,6 +52,13 @@ public abstract class AbstractSimEvent<M extends ISimulationModel<M>, E extends 
     public void removeEvent() {
         // delegate the method call
         delegate.removeEvent();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public double scheduledAtTime() {
+        return delegate.scheduledAtTime();
     }
 
 }

@@ -3,12 +3,12 @@ package de.uka.ipd.sdq.scheduler.processes.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 import de.uka.ipd.sdq.scheduler.events.IDelayedAction;
 import de.uka.ipd.sdq.scheduler.events.ProceedEvent;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.loaddistribution.IResourceInstanceConstraint;
 import de.uka.ipd.sdq.scheduler.loaddistribution.constraints.MultipleResourceInstancesConstraint;
 import de.uka.ipd.sdq.scheduler.loaddistribution.constraints.SingleResourceInstanceConstraint;
@@ -19,9 +19,8 @@ import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 import de.uka.ipd.sdq.scheduler.sensors.IProcessStateSensor;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
 
-public class ActiveProcess implements IActiveProcess {
-	
-	
+public class ActiveProcess extends SchedulerEntity implements IActiveProcess {
+    
 	/**
 	 * Creates a new wrapper containing the running information of a process.
 	 * 
@@ -31,26 +30,25 @@ public class ActiveProcess implements IActiveProcess {
 	 * @param id
 	 *            A unique identifier of the process.
 	 */
-	public ActiveProcess(ISchedulableProcess process) {
-		super();
+	public ActiveProcess(SchedulerModel model, ISchedulableProcess process) {
+		super(model, ActiveProcess.class.getName());
 
 		this.affinityConstraint = null;
 		this.currentDemand = 0;
 		this.idealInstanceConstraint = null;
 		this.lastInstanceConstraint = null;
 		this.lastUpdateTime = 0;
-		this.proceedEvent = new ProceedEvent(this);
+		this.proceedEvent = new ProceedEvent(model);
 		this.process = process;
 		this.processStateSensorList = new ArrayList<IProcessStateSensor>();
 		this.runqueue = null;
 		this.state = PROCESS_STATE.READY;
-		this.simulator = SchedulingFactory.getUsedSimulator();
 	}
 
 	// /////////////////////////////////////////////////////////////////////
 	// Basics
 	// /////////////////////////////////////////////////////////////////////
-
+	
 	private ISchedulableProcess process;
 	private IRunQueue runqueue;
 
@@ -196,7 +194,7 @@ public class ActiveProcess implements IActiveProcess {
 	}
 
 	public void toNow() {
-		double currentTime = simulator.time();
+		double currentTime = getModel().getSimulationControl().getCurrentSimulationTime();
 		if (isRunning()) {
 			double passedTime = currentTime - lastUpdateTime;
 			if (passedTime > MathTools.EPSILON_ERROR) {
@@ -361,7 +359,6 @@ public class ActiveProcess implements IActiveProcess {
 	// /////////////////////////////////////////////////////////////////////
 
 	private ProceedEvent proceedEvent = null;
-	private Simulator simulator = null;
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#scheduleProceedEvent()
@@ -369,14 +366,14 @@ public class ActiveProcess implements IActiveProcess {
 	public void scheduleProceedEvent(IScheduler scheduler) {
 		cancelProceedEvent();
 		proceedEvent.setScheduler(scheduler);
-		proceedEvent.schedule(getCurrentDemand());
+		proceedEvent.schedule(this, getCurrentDemand());
 	}
 	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.scheduler.processes.impl.IRunnableProcess#cancelProceedEvent()
 	 */
 	public void cancelProceedEvent() {
-		proceedEvent.cancel();
+		proceedEvent.removeEvent();
 	}
 
 
@@ -394,10 +391,14 @@ public class ActiveProcess implements IActiveProcess {
 		this.proceedEvent.setDelayedAction(action);
 	}
 
-	public IActiveProcess createNewInstance(ISchedulableProcess process) {
-		return new ActiveProcess(process);
+	public IActiveProcess createNewInstance(SchedulerModel model, ISchedulableProcess process) {
+		return new ActiveProcess(model, process);
 	}
 
-
+    @Override
+    public IActiveProcess createNewInstance(ISchedulableProcess process) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }

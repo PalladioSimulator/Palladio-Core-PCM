@@ -5,7 +5,6 @@ import java.util.List;
 
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
-import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
 import de.uka.ipd.sdq.scheduler.priority.boost.StaticPriorityBoost;
@@ -172,10 +171,10 @@ public class SimulatedResourceContainer extends
 				resetTimeSlice);
 
 		if (isFair) {
-			return new SimFairPassiveResource(capacity, name, id, boost,
+			return new SimFairPassiveResource(myModel, capacity, name, id, boost,
 					(SimActiveResource) managingResource);
 		} else {
-			return new SimUnfairPassiveResource(capacity, name, id, boost,
+			return new SimUnfairPassiveResource(myModel, capacity, name, id, boost,
 					(SimActiveResource) managingResource, 0.1, true);
 		}
 	}
@@ -183,10 +182,10 @@ public class SimulatedResourceContainer extends
 	private IPassiveResource getPassiveResourceLinux(String name, String id,
 			int capacity, boolean isFair, IActiveResource managingResource) {
 		if (isFair) {
-			return new SimFairPassiveResource(capacity, name, id, null,
+			return new SimFairPassiveResource(myModel, capacity, name, id, null,
 					(SimActiveResource) managingResource);
 		} else {
-			return new SimUnfairPassiveResource(capacity, name, id, null,
+			return new SimUnfairPassiveResource(myModel, capacity, name, id, null,
 					(SimActiveResource) managingResource, 0.1, true);
 		}
 	}
@@ -195,7 +194,7 @@ public class SimulatedResourceContainer extends
 			String passiveResourceID, String assemblyContextID,
 			String combinedID, int capacity) {
 		// return new SimFairPassiveResource(capacity, name, name, null,null);
-        return new SimSimpleFairPassiveResource<SimuComModel>(myModel, capacity, name, passiveResourceID,
+        return new SimSimpleFairPassiveResource(myModel, capacity, name, passiveResourceID,
                 assemblyContextID, combinedID, myModel.getConfiguration().getSimulateFailures());
 	}
 	

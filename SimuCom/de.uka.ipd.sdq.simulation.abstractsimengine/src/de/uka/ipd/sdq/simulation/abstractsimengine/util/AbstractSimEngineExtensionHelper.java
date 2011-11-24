@@ -71,11 +71,11 @@ public class AbstractSimEngineExtensionHelper {
         return "";
     }
     
-    public static ISimEngineFactory<?> getEngineFactory(String engineId) throws CoreException {
+    public static ISimEngineFactory getEngineFactory(String engineId) throws CoreException {
         for (IExtension extension : ExtensionPointHelper.findExtensions(EXTENSION_POINT_ID)) {
             for (IConfigurationElement e : ExtensionPointHelper.findConfigurationElements(extension, "engine")) {
                 if (e != null && e.getAttribute("id").equals(engineId)) {
-                    return (ISimEngineFactory<?>) e.createExecutableExtension("class");
+                    return (ISimEngineFactory) e.createExecutableExtension("class");
                 }
             }
         }

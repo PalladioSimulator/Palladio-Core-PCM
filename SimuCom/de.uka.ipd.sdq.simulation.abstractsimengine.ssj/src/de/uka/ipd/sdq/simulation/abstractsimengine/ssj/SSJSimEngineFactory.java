@@ -1,8 +1,8 @@
 package de.uka.ipd.sdq.simulation.abstractsimengine.ssj;
 
-import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntity;
-import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEvent;
-import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimProcess;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntityDelegator;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimProcessDelegator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.IEntity;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEvent;
@@ -17,36 +17,36 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
  * @param <M>
  *            the type of the simulation model
  */
-public class SSJSimEngineFactory<M extends ISimulationModel<M>> implements ISimEngineFactory<M> {
+public class SSJSimEngineFactory implements ISimEngineFactory {
 
-    private SSJModel<M> model;
+    private SSJModel model;
 
     @Override
-    public void setModel(M model) {
-        this.model = new SSJModel<M>(model);
+    public void setModel(ISimulationModel model) {
+        this.model = new SSJModel(model);
     }
 
     @Override
-    public ISimulationControl<M> createSimulationControl() {
-        ISimulationControl<M> delegate = new SSJExperiment<M>(model);
+    public ISimulationControl createSimulationControl() {
+        ISimulationControl delegate = new SSJExperiment(model);
         model.setSimulationControl(delegate);
         // model.setSimulationEngineFactory(this);
         return delegate;
     }
 
     @Override
-    public ISimProcess createSimProcess(AbstractSimProcess<M> myProcess, String name) {
-        return new SSJSimProcess<M>(myProcess, name);
+    public ISimProcess createSimProcess(AbstractSimProcessDelegator myProcess, String name) {
+        return new SSJSimProcess(myProcess, name);
     }
 
     @Override
-    public <E extends IEntity> ISimEvent<E> createSimEvent(AbstractSimEvent<M, E> myEvent, String name) {
-        return new SSJSimEvent<M, E>(myEvent, name);
+    public <E extends IEntity> ISimEvent<E> createSimEvent(AbstractSimEventDelegator<E> myEvent, String name) {
+        return new SSJSimEvent<E>(myEvent, name);
     }
 
     @Override
-    public IEntity createEntity(AbstractSimEntity<M> e, String name) {
-        return new SSJEntity<M>(e, name);
+    public IEntity createEntity(AbstractSimEntityDelegator e, String name) {
+        return new SSJEntity(e, name);
     }
 
 }

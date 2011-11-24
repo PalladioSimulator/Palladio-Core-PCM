@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.ProcessRegistry;
@@ -29,8 +30,8 @@ public class SimActiveResource extends AbstractActiveResource {
 
 	public static final Logger logger = Logger.getLogger("Scheduler");
 
-	public SimActiveResource(int capacity, String name, String id) {
-		super(capacity, name, id);
+	public SimActiveResource(SchedulerModel model, int capacity, String name, String id) {
+		super(model, capacity, name, id);
 		this.instanceList = new ArrayList<IResourceInstance>();
 		this.processRegistry = new ProcessRegistry(this);
 		for (int i = 0; i < capacity; i++) {

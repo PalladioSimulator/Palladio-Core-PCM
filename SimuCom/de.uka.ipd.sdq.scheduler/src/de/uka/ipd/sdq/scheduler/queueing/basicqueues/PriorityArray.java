@@ -5,6 +5,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.priority.IPriority;
 import de.uka.ipd.sdq.scheduler.priority.IPriorityManager;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
@@ -14,14 +15,16 @@ import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class PriorityArray implements IProcessQueue {
 
+    private SchedulerModel model;
 	private Hashtable<IPriority, IProcessQueue> priorityTable;
 	private IPriorityManager priority_manager;
 
-	public PriorityArray(IPriorityManager priority_manager) {
+	public PriorityArray(SchedulerModel model, IPriorityManager priority_manager) {
+	    this.model = model;
 		this.priority_manager = priority_manager;
 		this.priorityTable = new Hashtable<IPriority, IProcessQueue>();
 		for (IPriority prio : priority_manager.decreasing()) {
-			priorityTable.put(prio, new ProcessQueueImpl());
+			priorityTable.put(prio, new ProcessQueueImpl(model));
 		}
 	}
 
@@ -238,7 +241,7 @@ public class PriorityArray implements IProcessQueue {
 	}
 
 	public IProcessQueue createNewInstance() {
-		return new PriorityArray(priority_manager);
+		return new PriorityArray(model, priority_manager);
 	}
 	
 	public boolean processStarving(double threshold) {

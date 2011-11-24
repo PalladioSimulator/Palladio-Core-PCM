@@ -14,11 +14,12 @@ import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
+import de.uka.ipd.sdq.simucomframework.entities.SimuComEntity;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.ActiveResouce;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
-import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntity;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntityDelegator;
 
 /**
  * Base class of all resources which have their own scheduler, i.e., active
@@ -28,8 +29,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntity;
  * @author Steffen Becker
  * 
  */
-public abstract class AbstractScheduledResource extends
-		AbstractSimEntity<SimuComModel> implements IActiveResourceStateSensor {
+public abstract class AbstractScheduledResource extends SimuComEntity implements IActiveResourceStateSensor {
 
 	public final static double EPSILON = Math.pow(10, -9);
 

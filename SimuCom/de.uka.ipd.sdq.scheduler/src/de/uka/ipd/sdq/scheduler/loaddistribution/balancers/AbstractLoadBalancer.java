@@ -2,8 +2,6 @@ package de.uka.ipd.sdq.scheduler.loaddistribution.balancers;
 
 import java.util.Hashtable;
 
-import umontreal.iro.lecuyer.simevents.Simulator;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.loaddistribution.ILoadBalancer;
 import de.uka.ipd.sdq.scheduler.queueing.strategies.MultipleQueuesStrategy;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
@@ -32,8 +30,6 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 	 * they are returned in reverse order.
 	 */
 	protected boolean queue_ascending;
-	
-	protected Simulator simulator;
 
 	protected Hashtable<IResourceInstance, Double> last_balanced;
 
@@ -65,7 +61,6 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 		this.queue_ascending = queue_ascending;
 		this.queue_holder = null;
 		this.last_balanced = new Hashtable<IResourceInstance, Double>();
-		this.simulator = SchedulingFactory.getUsedSimulator();
 	}
 	
 	

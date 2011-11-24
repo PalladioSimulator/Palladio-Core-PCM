@@ -9,7 +9,7 @@ import java.util.Observer;
  * @param <M>
  *            the type of the simulation model
  */
-public interface ISimulationControl<M extends ISimulationModel<M>> {
+public interface ISimulationControl {
 
     /**
      * Starts the simulation.
@@ -35,7 +35,7 @@ public interface ISimulationControl<M extends ISimulationModel<M>> {
      */
     public abstract void setMaxSimTime(long simTime);
 
-    public abstract void addStopCondition(SimCondition<M> maxMeasurementsStopCondition);
+    public abstract void addStopCondition(SimCondition maxMeasurementsStopCondition);
 
     public abstract void addTimeObserver(Observer observer);
 

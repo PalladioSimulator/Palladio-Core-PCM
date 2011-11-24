@@ -1,23 +1,22 @@
 package de.uka.ipd.sdq.scheduler.sensors.impl;
 
-import umontreal.iro.lecuyer.simevents.Simulator;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.PROCESS_STATE;
 import de.uka.ipd.sdq.scheduler.sensors.IProcessStateSensor;
 
 public class HptSensor implements IProcessStateSensor {
 
+    private SchedulerModel model; 
 	private PROCESS_STATE last_state;
 	private double lastUpdateTime;
-	private Simulator simulator;
 	private boolean isHpt = false;
 	private double hpt = 0;
 	private double threshold;
 	private double hptStart;
 	
-	public HptSensor(IActiveProcess process, double threshold){
-		this.simulator = SchedulingFactory.getUsedSimulator();
+	public HptSensor(SchedulerModel model, IActiveProcess process, double threshold){
+	    this.model = model;
 		this.lastUpdateTime = 0;
 		this.last_state = process.getState();
 		this.threshold = threshold;
@@ -26,7 +25,7 @@ public class HptSensor implements IProcessStateSensor {
 	public void start(){
 		isHpt = true;
 		hpt = 0.0;
-		hptStart = simulator.time();
+		hptStart = model.getSimulationControl().getCurrentSimulationTime();
 		lastUpdateTime = hptStart;
 	}
 	
@@ -39,7 +38,7 @@ public class HptSensor implements IProcessStateSensor {
 	}
 
 	public void stop() {
-		double currentTime = simulator.time();
+		double currentTime = model.getSimulationControl().getCurrentSimulationTime();
 		double passedTime = currentTime - lastUpdateTime;
 		
 		if (last_state == PROCESS_STATE.RUNNING){
@@ -53,7 +52,7 @@ public class HptSensor implements IProcessStateSensor {
 
 	public void update(PROCESS_STATE new_state) {
 		if (isHpt){
-			double currentTime = simulator.time();
+			double currentTime = model.getSimulationControl().getCurrentSimulationTime();
 			double passedTime = currentTime - lastUpdateTime;
 			
 			// Process was running, but is finished now

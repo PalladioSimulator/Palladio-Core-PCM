@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.scheduler;
 
-import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
+import de.uka.ipd.sdq.simulation.abstractsimengine.IEntity;
 
 /**
  * Process that can be scheduled for execution on an active resource or can
@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
  * @author jens
  * 
  */
-public interface ISchedulableProcess {
+public interface ISchedulableProcess extends IEntity {
 
 	/**
 	 * Notifies the process to resume its execution. Is only called if the

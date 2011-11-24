@@ -6,7 +6,6 @@ import org.eclipse.core.runtime.Platform;
 
 import de.uka.ipd.sdq.simulation.Activator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
-import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.util.AbstractSimEngineExtensionHelper;
 
 public class SimulationPreferencesHelper {
@@ -31,21 +30,20 @@ public class SimulationPreferencesHelper {
         return firstEngineId;
     }
 
-    @SuppressWarnings("unchecked")
-    public static <M extends ISimulationModel<M>> ISimEngineFactory<M> getPreferredSimulationEngine() {
+    public static ISimEngineFactory getPreferredSimulationEngine() {
         // retrieve the id of the preferred engine
         String preferredEngineId = Platform.getPreferencesService().getString(Activator.PLUGIN_ID,
                 SimulationPreferencePage.PREFERENCE_SIMULATION_ENGINE_ID, getDefaultEngineId(), null);
 
         // retrieve simulation engine factory for the preferred engine
-        ISimEngineFactory<?> engineFactory = null;
+        ISimEngineFactory engineFactory = null;
         try {
             engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(preferredEngineId);
         } catch (CoreException e) {
             logger.warn("Could not retrieve simulation engine factory.", e);
         }
         
-        return (ISimEngineFactory<M>) engineFactory;
+        return engineFactory;
     }
 
 }

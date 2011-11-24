@@ -6,31 +6,28 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
-import umontreal.iro.lecuyer.simevents.Simulator;
-
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IProcessQueue;
 import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class ProcessQueueImpl implements IProcessQueue {
 
+    private SchedulerModel model;
 	private ArrayDeque<IActiveProcess> queue;
 	private Hashtable<IActiveProcess, Double> waiting_time_table = new Hashtable<IActiveProcess, Double>();
-	private Simulator simulator;
 	
-	public ProcessQueueImpl(){
-		this.simulator = SchedulingFactory.getUsedSimulator();
+	public ProcessQueueImpl(SchedulerModel model){
 		queue = new ArrayDeque<IActiveProcess>();
 	}
 
 	public void addLast(IActiveProcess process) {
-		waiting_time_table.put(process, simulator.time());
+		waiting_time_table.put(process, model.getSimulationControl().getCurrentSimulationTime());
 		queue.addLast(process);
 	}
 
 	public void addFirst(IActiveProcess process) {
-		waiting_time_table.put(process, simulator.time());
+		waiting_time_table.put(process, model.getSimulationControl().getCurrentSimulationTime());
 		queue.addFirst(process);
 	}
 	
@@ -127,12 +124,12 @@ public class ProcessQueueImpl implements IProcessQueue {
 	}
 
 	public IProcessQueue createNewInstance() {
-		return new ProcessQueueImpl();
+		return new ProcessQueueImpl(model);
 	}
 
 	
 	public boolean processStarving(double threshold) {
-		double now = simulator.time();
+		double now = model.getSimulationControl().getCurrentSimulationTime();
 		for (IActiveProcess process : ascending()){
 			double waiting_time = now - waiting_time_table.get(process);
 			if (waiting_time > threshold)
@@ -150,7 +147,7 @@ public class ProcessQueueImpl implements IProcessQueue {
 	}
 
 	public List<IActiveProcess> getStarvingProcesses(double starvationLimit) {
-		double now = simulator.time();
+		double now = model.getSimulationControl().getCurrentSimulationTime();
 		List<IActiveProcess> result = new ArrayList<IActiveProcess>();
 		for (IActiveProcess process : ascending()){
 			Double time = waiting_time_table.get(process);

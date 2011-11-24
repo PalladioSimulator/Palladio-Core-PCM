@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 
-import umontreal.iro.lecuyer.simevents.Simulator;
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 import de.uka.ipd.sdq.probespec.framework.BlackboardFactory;
 import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
@@ -15,6 +14,7 @@ import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
 import de.uka.ipd.sdq.simucomframework.DiscardInvalidMeasurementsBlackboardDecorator;
@@ -38,7 +38,6 @@ import de.uka.ipd.sdq.simulation.SimulationResult;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
-import de.uka.ipd.sdq.simulation.abstractsimengine.ssj.SSJExperiment;
 
 /**
  * Central simulation class needed by desmoj. Keeps the simulation state which is not part of the
@@ -47,25 +46,25 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ssj.SSJExperiment;
  * @author Steffen Becker
  * 
  */
-public class SimuComModel implements ISimulationModel<SimuComModel> {
+public class SimuComModel extends SchedulerModel implements ISimulationModel {
 
-	protected static Logger logger =
-		Logger.getLogger(SimuComModel.class.getName());
+    protected static Logger logger = Logger.getLogger(SimuComModel.class);
 
-	protected ResourceRegistry resourceRegistry = null;
+	protected ResourceRegistry resourceRegistry;
 	private IWorkloadDriver[] workloadDrivers;
 	private SimulationResult status = SimulationResult.OK;
-	private Throwable errorMessage = null;
+	private Throwable errorMessage;
 	private SimuComConfig config;
 	private long mainMeasurementsCount;
-	private ISimEngineFactory<SimuComModel> simulationEngineFactory;
-	private ISimulationControl<SimuComModel> simControl;
-	private SimuComStatus simulationStatus = null;
+	private ISimEngineFactory simulationEngineFactory;
+	private ISimulationControl simControl;
+	private SimuComStatus simulationStatus;
 	/** List of issues experience during a simulation run of this configuration. */
 	private List<SeverityAndIssue> issues;
-	private ProbeSpecContext probeSpecContext = null;
+	private ProbeSpecContext probeSpecContext;
+	private ISchedulingFactory schedulingFactory;
 
-    public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory<SimuComModel> factory,
+    public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory factory,
             boolean isRemoteRun) {
 		this.config = config;
 		this.simulationEngineFactory = factory;
@@ -86,20 +85,11 @@ public class SimuComModel implements ISimulationModel<SimuComModel> {
 		ProbabilityFunctionFactoryImpl.getInstance().setRandomGenerator(config.getRandomGenerator());
 
 		// set up the resource scheduler
-        initScheduler();
+		schedulingFactory = new SchedulingFactory(this);
 		
         // set up the measurement framework
         initialiseProbeSpecification();
 	}
-
-    private void initScheduler() {
-        // Obtain the used SSJ simulator and set the scheduler's simulator accordingly.
-        // FIXME: The simulation engine (here: SSJ) should not be hard-coded. 
-        SSJExperiment<SimuComModel> exp = (SSJExperiment<SimuComModel>) this.getSimulationControl();
-        Simulator simulator = exp.getSimulator(); 
-        SchedulingFactory.setUsedSimulator(simulator);
-        ISchedulingFactory.eINSTANCE.resetFactory();
-    }
     
     private void initialiseProbeSpecification() {
         // create ProbeSpecification context
@@ -264,19 +254,19 @@ public class SimuComModel implements ISimulationModel<SimuComModel> {
         return mainMeasurementsCount;
     }
 
-    public ISimulationControl<SimuComModel> getSimulationControl() {
+    public ISimulationControl getSimulationControl() {
         return simControl;
     }
 
-    public void setSimulationControl(ISimulationControl<SimuComModel> control) {
+    public void setSimulationControl(ISimulationControl control) {
         this.simControl = control;
     }
 
-    public void setSimulationEngineFactory(ISimEngineFactory<SimuComModel> factory) {
+    public void setSimulationEngineFactory(ISimEngineFactory factory) {
         this.simulationEngineFactory = factory;
     }
 
-    public ISimEngineFactory<SimuComModel> getSimEngineFactory() {
+    public ISimEngineFactory getSimEngineFactory() {
         return this.simulationEngineFactory;
     }
 
@@ -286,6 +276,10 @@ public class SimuComModel implements ISimulationModel<SimuComModel> {
 
     public ProbeSpecContext getProbeSpecContext() {
         return probeSpecContext;
+    }
+    
+    public ISchedulingFactory getSchedulingFactory() {
+        return schedulingFactory;
     }
 
     @Override
@@ -305,12 +299,6 @@ public class SimuComModel implements ISimulationModel<SimuComModel> {
         }
 
         this.getProbeSpecContext().getThreadManager().stopThreads();
-
-        // This does some cleanup.
-        // TODO: review this, maybe this is obsolete, if the stuff is cleanup on a different
-        // place.
-        // Currently, this has to be done to cleanup some memory.
-        ISchedulingFactory.eINSTANCE.resetFactory();
     }
 
     @Override

@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.scheduler.resources;
 
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
+import de.uka.ipd.sdq.simulation.abstractsimengine.IEntity;
 
 /**
  * This class represents an instance of an active resources. It got a unique ID
@@ -10,7 +11,7 @@ import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
  * @author jens
  * 
  */
-public interface IResourceInstance {
+public interface IResourceInstance extends IEntity {
 
 	/**
 	 * Unique name of the resource instance.

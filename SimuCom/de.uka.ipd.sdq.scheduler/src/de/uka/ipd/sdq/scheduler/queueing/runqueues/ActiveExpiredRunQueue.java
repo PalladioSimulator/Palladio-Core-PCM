@@ -3,9 +3,7 @@ package de.uka.ipd.sdq.scheduler.queueing.runqueues;
 import java.util.ArrayList;
 import java.util.List;
 
-import umontreal.iro.lecuyer.simevents.Simulator;
-
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.processes.impl.PreemptiveProcess;
 import de.uka.ipd.sdq.scheduler.queueing.IProcessQueue;
@@ -14,15 +12,15 @@ import de.uka.ipd.sdq.scheduler.resources.IResourceInstance;
 
 public class ActiveExpiredRunQueue extends AbstractRunQueue {
 
+    private SchedulerModel model;
 	private IProcessQueue activePriorityArray;
 	private IProcessQueue expiredPriorityArray;
 	private double expired_timestamp = -1;
-	private Simulator simulator;
 
-	public ActiveExpiredRunQueue(IProcessQueue queue_prototype) {
+	public ActiveExpiredRunQueue(SchedulerModel model, IProcessQueue queue_prototype) {
+	    this.model = model;
 		this.activePriorityArray = queue_prototype.createNewInstance();
 		this.expiredPriorityArray = queue_prototype.createNewInstance();
-		this.simulator = SchedulingFactory.getUsedSimulator();
 	}
 
 	/**
@@ -90,7 +88,7 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 	}
 
 	public IRunQueue createNewInstance() {
-		return new ActiveExpiredRunQueue(activePriorityArray);
+		return new ActiveExpiredRunQueue(model, activePriorityArray);
 	}
 
 	public List<IActiveProcess> identifyMovableProcesses(
@@ -123,7 +121,8 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 
 	public boolean processStarving(double threshold) {
 		if (expired_timestamp >= 0) {
-			return simulator.time() - expired_timestamp > threshold;
+		    double simTime = model.getSimulationControl().getCurrentSimulationTime();
+			return simTime - expired_timestamp > threshold;
 		} else {
 			return false;
 		}
@@ -159,7 +158,8 @@ public class ActiveExpiredRunQueue extends AbstractRunQueue {
 	}
 
 	private void updateStarvationTime() {
-		updateStarvationTime(simulator.time());
+	    double simTime = model.getSimulationControl().getCurrentSimulationTime();
+		updateStarvationTime(simTime);
 	}
 
 	private void updateStarvationTime(double waiting) {

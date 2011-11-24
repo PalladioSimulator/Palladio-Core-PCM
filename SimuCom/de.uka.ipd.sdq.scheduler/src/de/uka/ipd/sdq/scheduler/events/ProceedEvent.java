@@ -2,10 +2,10 @@ package de.uka.ipd.sdq.scheduler.events;
 
 import org.apache.log4j.Logger;
 
-import umontreal.iro.lecuyer.simevents.Event;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 /**
  * Event to proceed the activity of a process. This event requires, that at the
@@ -22,18 +22,15 @@ import de.uka.ipd.sdq.scheduler.strategy.IScheduler;
  * @author jens
  * 
  */
-public class ProceedEvent extends Event {
+public class ProceedEvent extends AbstractSimEventDelegator<IActiveProcess> {
 
-	protected IActiveProcess process;
 	private IDelayedAction action;
 	protected IScheduler scheduler;
 	static Logger logger = Logger.getLogger(ProceedEvent.class);
 
-	public ProceedEvent(IActiveProcess process) {
-		super(SchedulingFactory.getUsedSimulator());
-		this.process = process;
-		this.action = null;
-		
+	public ProceedEvent(SchedulerModel model) {
+		super(model, "ProceedEvent");
+		this.action = null;		
 	}
 
 	public void setDelayedAction(IDelayedAction action) {
@@ -41,7 +38,7 @@ public class ProceedEvent extends Event {
 	}
 
 	@Override
-	public void actions() {
+	public void eventRoutine(IActiveProcess process) {
 		logger.debug("Proceed Event handler triggered");
 		process.toNow();
 		if (action != null) {
@@ -56,4 +53,5 @@ public class ProceedEvent extends Event {
 	public void setScheduler(IScheduler scheduler) {
 		this.scheduler = scheduler;
 	}
+
 }

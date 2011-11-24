@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.scheduler.processes.impl;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.processes.IActiveProcess;
 import de.uka.ipd.sdq.scheduler.timeslice.ITimeSlice;
 
@@ -9,8 +10,8 @@ public class PreemptiveProcess extends ActiveProcess {
 
 	private ITimeSlice timeslice = null;
 	
-	public PreemptiveProcess(ISchedulableProcess process) {
-		super(process);
+	public PreemptiveProcess(SchedulerModel model, ISchedulableProcess process) {
+		super(model, process);
 	}
 	
 	@Override
@@ -34,7 +35,7 @@ public class PreemptiveProcess extends ActiveProcess {
 	
 	@Override
 	public IActiveProcess createNewInstance(ISchedulableProcess process) {
-		PreemptiveProcess p = new PreemptiveProcess(process);
+		PreemptiveProcess p = new PreemptiveProcess(getModel(), process);
 		p.timeslice = this.timeslice.clone();
 		return p;
 	}
