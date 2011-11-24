@@ -1,12 +1,12 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.simucomframework.desmoj;
+package de.uka.ipd.sdq.simulation.abstractsimengine.desmoj;
 
-import de.uka.ipd.sdq.simulation.abstractSimEngine.ISimEngineFactory;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.ISimulationConfig;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.ISimulationControl;
-import de.uka.ipd.sdq.simulation.abstractSimEngine.ISimulationModel;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationConfig;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 import desmoj.core.simulator.Model;
 
 /**
@@ -14,11 +14,11 @@ import desmoj.core.simulator.Model;
  * @author Philipp Merkle
  * 
  */
-public class DesmoJModel<T extends ISimulationModel<T>> extends Model implements ISimulationModel<T> {
+public class DesmoJModel extends Model implements ISimulationModel {
 
-    private final T model;
+    private final ISimulationModel model;
 
-    public DesmoJModel(final T model, final String modelName) {
+    public DesmoJModel(final ISimulationModel model, final String modelName) {
         super(null, modelName, false, false);
         this.model = model;
     }
@@ -36,7 +36,7 @@ public class DesmoJModel<T extends ISimulationModel<T>> extends Model implements
      */
     @Override
     public void doInitialSchedules() {
-        this.init();
+        this.model.init();
     }
 
     /**
@@ -59,7 +59,7 @@ public class DesmoJModel<T extends ISimulationModel<T>> extends Model implements
      * {@inheritDoc}
      */
     @Override
-    public ISimEngineFactory<T> getSimEngineFactory() {
+    public ISimEngineFactory getSimEngineFactory() {
         return this.model.getSimEngineFactory();
     }
 
@@ -67,7 +67,7 @@ public class DesmoJModel<T extends ISimulationModel<T>> extends Model implements
      * {@inheritDoc}
      */
     @Override
-    public ISimulationControl<T> getSimulationControl() {
+    public ISimulationControl getSimulationControl() {
         return this.model.getSimulationControl();
     }
 
@@ -76,14 +76,14 @@ public class DesmoJModel<T extends ISimulationModel<T>> extends Model implements
      */
     @Override
     public void init() {
-        this.model.init();
+        // do nothing since we have the doInitialSchedules method where initial events are scheduled
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void setSimulationControl(final ISimulationControl<T> control) {
+    public void setSimulationControl(final ISimulationControl control) {
         this.model.setSimulationControl(control);
     }
 
@@ -91,7 +91,7 @@ public class DesmoJModel<T extends ISimulationModel<T>> extends Model implements
      * {@inheritDoc}
      */
     @Override
-    public void setSimulationEngineFactory(final ISimEngineFactory<T> factory) {
+    public void setSimulationEngineFactory(final ISimEngineFactory factory) {
         this.model.setSimulationEngineFactory(factory);
     }
 
