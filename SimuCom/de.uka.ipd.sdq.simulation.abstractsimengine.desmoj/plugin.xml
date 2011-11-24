@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="de.uka.ipd.sdq.simulation.abstractsimengine.engine">
+      <engine
+            class="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.DesmoJSimEngineFactory"
+            id="de.uka.ipd.sdq.simucomframework.desmoj.engine1"
+            name="Desmo-J Simulation Engine">
+      </engine>
+   </extension>
+
+</plugin>
