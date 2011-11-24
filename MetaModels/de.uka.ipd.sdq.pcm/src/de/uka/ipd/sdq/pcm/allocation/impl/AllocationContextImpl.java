@@ -267,7 +267,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "(!self.allocation_AllocationContext.oclIsUndefined()) xor (!self.eventChannel__AllocationContext.oclIsUndefined())";
+	protected static final String ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "(!self.assemblyContext_AllocationContext.oclIsUndefined()) xor (!self.eventChannel__AllocationContext.oclIsUndefined())";
 
 	/**
 	 * The cached OCL invariant for the '{@link #OneAssemblyContextOrOneEventChannelShouldBeReferred(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>One Assembly Context Or One Event Channel Should Be Referred</em>}' invariant operation.

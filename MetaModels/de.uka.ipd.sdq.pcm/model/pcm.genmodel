@@ -25,11 +25,7 @@
     <details key="SUPER_CLASS_ORDER" value="IGNORE"/>
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/temp/rsaExport/identifier.uml</foreignModel>
-  <foreignModel>file:/C:/temp/rsaExport/pcm.uml</foreignModel>
-  <foreignModel>file:/C:/temp/rsaExport/ProbabilityFunction.uml</foreignModel>
-  <foreignModel>file:/C:/temp/rsaExport/stoex.uml</foreignModel>
-  <foreignModel>file:/C:/temp/rsaExport/Units.uml</foreignModel>
+  <foreignModel>file:/C:/111/pcm.uml</foreignModel>
   <modelPluginVariables>OCL=org.eclipse.ocl</modelPluginVariables>
   <modelPluginVariables>EMF_OCL=org.eclipse.ocl.ecore</modelPluginVariables>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Pcm" basePackage="de.uka.ipd.sdq"

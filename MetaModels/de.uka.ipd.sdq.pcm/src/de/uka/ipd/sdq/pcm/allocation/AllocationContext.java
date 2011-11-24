@@ -155,11 +155,11 @@ public interface AllocationContext extends Entity {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * (!self.allocation_AllocationContext.oclIsUndefined()) xor (!self.eventChannel__AllocationContext.oclIsUndefined())
+	 * (!self.assemblyContext_AllocationContext.oclIsUndefined()) xor (!self.eventChannel__AllocationContext.oclIsUndefined())
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='(!self.allocation_AllocationContext.oclIsUndefined()) xor (!self.eventChannel__AllocationContext.oclIsUndefined())'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='(!self.assemblyContext_AllocationContext.oclIsUndefined()) xor (!self.eventChannel__AllocationContext.oclIsUndefined())'"
 	 * @generated
 	 */
 	boolean OneAssemblyContextOrOneEventChannelShouldBeReferred(DiagnosticChain diagnostics, Map<Object, Object> context);
