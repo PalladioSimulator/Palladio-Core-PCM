@@ -118,6 +118,12 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
+			((CommunicationLinkResourceSpecificationFailureProbabilityEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureFailureProbabilityFigure());
+			return true;
+		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationThroughputLabelEditPart) {
 			((CommunicationLinkResourceSpecificationThroughputLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
@@ -134,12 +140,6 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 					.getFigureNetworkSwitchSpecificationNameFigure());
 			return true;
 		}
-		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
-			((CommunicationLinkResourceSpecificationFailureProbabilityEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureFailureProbabilityFigure());
-			return true;
-		}
 		return false;
 	}
 
@@ -147,6 +147,9 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
+			return true;
+		}
 		if (childEditPart instanceof CommunicationLinkResourceSpecificationThroughputLabelEditPart) {
 			return true;
 		}
@@ -154,9 +157,6 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 			return true;
 		}
 		if (childEditPart instanceof WrappingLabel2EditPart) {
-			return true;
-		}
-		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
 			return true;
 		}
 		return false;

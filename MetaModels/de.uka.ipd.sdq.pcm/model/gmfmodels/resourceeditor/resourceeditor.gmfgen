@@ -110,6 +110,10 @@
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureSchedulingPolicyFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <behaviour
+            xsi:type="gmfgen:CustomBehaviour"
+            key="EditPolicyRoles.OPEN_ROLE"
+            editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.dialogs.resource.OpenSchedulingPolicyDialog"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             parser="//@labelParsers/@implementations.0"
