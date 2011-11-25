@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
 import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
@@ -37,7 +38,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnitNameNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnitNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
-import de.uka.ipd.sdq.probfunction.math.impl.IContinousPDFFactory;
+
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 
 /**
@@ -396,7 +397,7 @@ public class ProbabilityFunctionFactoryTest {
 	@Test
 	public void transformContinuousToBoxedPDF() throws UnknownPDFTypeException, ProbabilitySumNotOneException, DoubleSampleException, FunctionNotInTimeDomainException, NegativeDistanceException, UnitNotSetException, UnitNameNotSetException, InvalidSampleValueException{
 		
-	    IContinousPDFFactory factory = ProbabilityFunctionFactoryImpl.getInstance().getcPDFFactory();
+	    IPDFFactory factory = ProbabilityFunctionFactoryImpl.getInstance().getPDFFactory();
 	    
 		ILognormalDistribution lognorm = factory.createLognormalDistribution(1, 0.5);
 		IExponentialDistribution exp = factory.createExponentialDistribution(0.5);
