@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 import de.uka.ipd.sdq.probespec.framework.BlackboardFactory;
 import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
@@ -77,12 +78,16 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
 		// All following uses of static objects have severy issues. Nobody really thought of
 		// e.g. running Simucom in parallel (e.g. to utilise many cores)!
 		
-		// TODO: This is not thread and hence concurrency safe...
-		// initialise Random Generators
-		StoExCache.initialiseStoExCache(config.getRandomGenerator());
+		IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
+		
+		probFunctionFactory.setRandomGenerator(config.getRandomGenerator());
 		
 		// TODO: This is not thread and hence concurrency safe...
-		ProbabilityFunctionFactoryImpl.getInstance().setRandomGenerator(config.getRandomGenerator());
+		// initialise Random Generators
+		StoExCache.initialiseStoExCache(probFunctionFactory);
+		
+		// TODO: This is not thread and hence concurrency safe...
+		
 
 		// set up the resource scheduler
 		schedulingFactory = new SchedulingFactory(this);

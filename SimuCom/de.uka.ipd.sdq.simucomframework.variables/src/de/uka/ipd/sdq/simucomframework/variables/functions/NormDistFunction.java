@@ -2,16 +2,17 @@ package de.uka.ipd.sdq.simucomframework.variables.functions;
 
 import java.util.List;
 
-import umontreal.iro.lecuyer.randvar.NormalGen;
-import umontreal.iro.lecuyer.rng.RandomStream;
+
+import de.uka.ipd.sdq.probfunction.math.INormalDistribution;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 
-public class NormDistFunction implements IFunction {
+public class NormDistFunction extends AbstractProbDistFunction {
 
-	private RandomStream stream;
 	
-	public NormDistFunction(RandomStream stream2) {
-		this.stream = stream2;
+	public NormDistFunction(IRandomGenerator random, IPDFFactory factory) {
+		super(random, factory);
 	}
 
 	public boolean checkParameters(List<Object> parameters) {
@@ -23,7 +24,8 @@ public class NormDistFunction implements IFunction {
 	public Object evaluate(List<Object> parameters) {
 		double mean = NumberConverter.toDouble(parameters.get(0));
 		double deviation = NumberConverter.toDouble(parameters.get(1));
-		return NormalGen.nextDouble(stream, mean, deviation);
+		INormalDistribution distribution = factory.createNormalDistribution(mean, deviation);
+		return distribution.inverseF(randomGen.random());
 	}
 
 }

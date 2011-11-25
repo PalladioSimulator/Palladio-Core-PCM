@@ -2,16 +2,17 @@ package de.uka.ipd.sdq.simucomframework.variables.functions;
 
 import java.util.List;
 
-import umontreal.iro.lecuyer.randvar.UniformGen;
-import umontreal.iro.lecuyer.rng.RandomStream;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+import de.uka.ipd.sdq.probfunction.math.IUniformDistribution;
+
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 
-public class UniDoubleDistFunction implements IFunction {
+public class UniDoubleDistFunction extends AbstractProbDistFunction {
 
-	private RandomStream stream;
-
-	public UniDoubleDistFunction(RandomStream stream2) {
-		this.stream = stream2;
+	
+	public UniDoubleDistFunction(IRandomGenerator random, IPDFFactory factory) {
+		super(random, factory);
 	}
 
 	public boolean checkParameters(List<Object> parameters) {
@@ -26,7 +27,8 @@ public class UniDoubleDistFunction implements IFunction {
 	public Object evaluate(List<Object> parameters) {
 		double a = NumberConverter.toDouble(parameters.get(0));
 		double b = NumberConverter.toDouble(parameters.get(1));
-		return UniformGen.nextDouble(stream, a, b);
+		IUniformDistribution distribution = factory.createUniformDistribution(a, b);
+		return distribution.inverseF(randomGen.random());
 	}
 
 }

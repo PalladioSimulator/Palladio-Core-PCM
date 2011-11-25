@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
 import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.INormalDistribution;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
@@ -33,7 +34,7 @@ import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
-import de.uka.ipd.sdq.probfunction.math.apache.impl.ContinousPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.apache.impl.PDFFactory;
 import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
@@ -51,7 +52,7 @@ public class ProbabilityFunctionFactoryImpl implements
 
 	public static final String DEFAULT_UNIT_NAME = "ms";
 	private ProbfunctionFactory eFactory = ProbfunctionFactory.eINSTANCE;
-	private IContinousPDFFactory cPDFFactory;
+	private IPDFFactory pdfFactory;
 	
 	/**
 	 * can be overwritten by {@link #setRandomGenerator(IRandomGenerator)}
@@ -61,18 +62,18 @@ public class ProbabilityFunctionFactoryImpl implements
 	private IRandomGenerator randomGenerator = new DefaultRandomGenerator();
 	
     protected final static ProbabilityFunctionFactoryImpl factoryInstance = new ProbabilityFunctionFactoryImpl(
-            new ContinousPDFFactory());	
+            new PDFFactory());	
 	
-	protected ProbabilityFunctionFactoryImpl(IContinousPDFFactory cPDFFactory) {
-		this.cPDFFactory = cPDFFactory;
+	protected ProbabilityFunctionFactoryImpl(IPDFFactory pdfFactory) {
+		this.pdfFactory = pdfFactory;
 	}
 
-	public IContinousPDFFactory getcPDFFactory() {
-		return cPDFFactory;
+	public IPDFFactory getPDFFactory() {
+		return pdfFactory;
 	}
 
-	public void setcPDFFactory(IContinousPDFFactory cPDFFactory) {
-		this.cPDFFactory = cPDFFactory;
+	public void setPDFFactory(IPDFFactory pdfFactory) {
+		this.pdfFactory = pdfFactory;
 	}
 
 	public IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction epdf)
@@ -512,13 +513,13 @@ public class ProbabilityFunctionFactoryImpl implements
 		} else if (ePDF instanceof BoxedPDF) {
 			pdf = transformToBoxedPDF(ePDF,randomGenerator);
 		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.ExponentialDistribution){
-			pdf = cPDFFactory.createExponentialDistribution(((de.uka.ipd.sdq.probfunction.ExponentialDistribution)ePDF).getRate());
+			pdf = pdfFactory.createExponentialDistribution(((de.uka.ipd.sdq.probfunction.ExponentialDistribution)ePDF).getRate());
 		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.GammaDistribution){
-			pdf = cPDFFactory.createGammaDistribution(((de.uka.ipd.sdq.probfunction.GammaDistribution)ePDF).getAlpha(),((de.uka.ipd.sdq.probfunction.GammaDistribution)ePDF).getTheta());
+			pdf = pdfFactory.createGammaDistribution(((de.uka.ipd.sdq.probfunction.GammaDistribution)ePDF).getAlpha(),((de.uka.ipd.sdq.probfunction.GammaDistribution)ePDF).getTheta());
 		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.LognormalDistribution){
-			pdf = cPDFFactory.createLognormalDistribution(((de.uka.ipd.sdq.probfunction.LognormalDistribution)ePDF).getMu(),((de.uka.ipd.sdq.probfunction.LognormalDistribution)ePDF).getSigma());
+			pdf = pdfFactory.createLognormalDistribution(((de.uka.ipd.sdq.probfunction.LognormalDistribution)ePDF).getMu(),((de.uka.ipd.sdq.probfunction.LognormalDistribution)ePDF).getSigma());
 		} else if (ePDF instanceof de.uka.ipd.sdq.probfunction.NormalDistribution){
-			pdf = cPDFFactory.createNormalDistribution(((de.uka.ipd.sdq.probfunction.NormalDistribution)ePDF).getMu(),((de.uka.ipd.sdq.probfunction.NormalDistribution)ePDF).getSigma());
+			pdf = pdfFactory.createNormalDistribution(((de.uka.ipd.sdq.probfunction.NormalDistribution)ePDF).getMu(),((de.uka.ipd.sdq.probfunction.NormalDistribution)ePDF).getSigma());
 		} else { 
 			throw new UnknownPDFTypeException(ePDF);
 		}
@@ -816,6 +817,12 @@ public class ProbabilityFunctionFactoryImpl implements
 
 	public void setRandomGenerator(IRandomGenerator randomGenerator) {
 		this.randomGenerator  = randomGenerator;
+	}
+
+	@Override
+	public IRandomGenerator getRandomGenerator() {
+		
+		return this.randomGenerator;
 	}
 
 }

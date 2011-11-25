@@ -4,6 +4,9 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.cost.ScalarFunction;
 import de.uka.ipd.sdq.pcm.cost.VariableProcessingResourceCost;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
@@ -24,7 +27,8 @@ public class CostUtil {
 
 	private CostStoExCache stoExCache;
 
-	private SimuComDefaultRandomNumberGenerator randomGenerator;
+	private IRandomGenerator randomGenerator;
+	private IProbabilityFunctionFactory probFunctionFactory;
 	
 	private static CostUtil singletonInstance = null;
 	
@@ -37,14 +41,16 @@ public class CostUtil {
 	
 	private CostUtil(){
 		this.randomGenerator = new SimuComDefaultRandomNumberGenerator(null);
-		this.stoExCache = new CostStoExCache(this.randomGenerator);
-		
+		probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
+		probFunctionFactory.setRandomGenerator(this.randomGenerator);
+		this.stoExCache = new CostStoExCache(probFunctionFactory);
 	}
 
 	public double getDoubleFromSpecification(String specification) {
 		// TODO Auto-generated method stub
-		if (StoExCache.singleton() == null){
-			StoExCache.initialiseStoExCache(new SimuComDefaultRandomNumberGenerator(null));
+		if (StoExCache.singleton() == null)
+		{
+			StoExCache.initialiseStoExCache(probFunctionFactory);
 		}
 		Object rate = StackContext.evaluateStatic(specification);
 		// cannot use the following direct access to the solving visitor, as it also requires an initialised StoExCache. 
@@ -94,7 +100,7 @@ public class CostUtil {
 			StoExCacheEntry stoExEntry = this.stoExCache.getEntry(specification);
 			Expression parsedExpression = stoExEntry.getParsedExpression();
 
-			PCMStoExEvaluationVisitor visitor = new PCMStoExEvaluationVisitor(stoExEntry,stackframe,VariableMode.RETURN_DEFAULT_ON_NOT_FOUND,randomGenerator);
+			PCMStoExEvaluationVisitor visitor = new PCMStoExEvaluationVisitor(stoExEntry,stackframe,VariableMode.RETURN_DEFAULT_ON_NOT_FOUND,probFunctionFactory);
 			Object number = visitor.doSwitch(parsedExpression);
 			return toDoubleOrZero(number);
 		} catch (RuntimeException e){
@@ -137,15 +143,15 @@ public class CostUtil {
 	}
 	
 	public void resetCache(){
-		this.stoExCache = new CostStoExCache(this.randomGenerator);
+		this.stoExCache = new CostStoExCache(probFunctionFactory);
 	}
 	
 }
 
 class CostStoExCache extends StoExCache {
 	
-	protected CostStoExCache(SimuComDefaultRandomNumberGenerator simuComDefaultRandomNumberGenerator){
-		super(simuComDefaultRandomNumberGenerator);
+	protected CostStoExCache(IProbabilityFunctionFactory factory){
+		super(factory);
 	}
 	
 }

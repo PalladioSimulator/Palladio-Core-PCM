@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.junit.Assert;
 
 import de.uka.ipd.sdq.probfunction.math.IContinousPDF;
+import de.uka.ipd.sdq.probfunction.math.IContinousPDFFactory;
 import de.uka.ipd.sdq.probfunction.math.apache.impl.ApacheMathRandomGenerator;
-import de.uka.ipd.sdq.probfunction.math.impl.IContinousPDFFactory;
 
 
 public abstract class AbstractContinousPDFTest <T extends IContinousPDF>
@@ -15,7 +15,7 @@ public abstract class AbstractContinousPDFTest <T extends IContinousPDF>
 	
 	T a,b;
 	static final IContinousPDFFactory ssjFactory = new de.uka.ipd.sdq.probfunction.math.ssj.impl.ContinousPDFFactory();
-	static final IContinousPDFFactory apacheFactory = new de.uka.ipd.sdq.probfunction.math.apache.impl.ContinousPDFFactory();
+	static final IContinousPDFFactory apacheFactory = new de.uka.ipd.sdq.probfunction.math.apache.impl.PDFFactory();
 	
 	final static double EPSILON = 0.000000001; 
 	RandomGenerator random = new MersenneTwister(42);

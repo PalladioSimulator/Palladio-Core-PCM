@@ -2,9 +2,10 @@ package de.uka.ipd.sdq.simucomframework.variables.functions;
 
 import java.util.List;
 
-import umontreal.iro.lecuyer.probdist.GammaDistFromMoments;
-import umontreal.iro.lecuyer.randvar.GammaGen;
-import umontreal.iro.lecuyer.rng.RandomStream;
+import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 
 /**
@@ -13,12 +14,11 @@ import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
  * @author Anne
  *
  */
-public class GammaDistFunctionFromMoments implements IFunction {
+public class GammaDistFunctionFromMoments extends AbstractProbDistFunction {
 	
-	private RandomStream stream;
-
-	public GammaDistFunctionFromMoments(RandomStream stream2) {
-		this.stream = stream2;
+	
+	public GammaDistFunctionFromMoments(IRandomGenerator randomGen, IPDFFactory factory) {
+		super(randomGen, factory);
 	}
 
 	/**
@@ -43,10 +43,10 @@ public class GammaDistFunctionFromMoments implements IFunction {
 
 	public Object evaluate(List<Object> parameters) {
 		double mean = NumberConverter.toDouble(parameters.get(0));
-		double c = NumberConverter.toDouble(parameters.get(1));
-		double variance = c*mean*c*mean;
-		GammaGen generator = new GammaGen(stream, new GammaDistFromMoments(mean,variance));
-		return generator.nextDouble();
+		double coeffVar = NumberConverter.toDouble(parameters.get(1));
+		
+		IGammaDistribution distribution = factory.createGammaDistributionFromMoments(mean, coeffVar);
+		return distribution.inverseF(randomGen.random());
 	}
 
 }

@@ -2,9 +2,10 @@ package de.uka.ipd.sdq.simucomframework.variables.functions;
 
 import java.util.List;
 
-import umontreal.iro.lecuyer.probdist.LognormalDistFromMoments;
-import umontreal.iro.lecuyer.randvar.LognormalGen;
-import umontreal.iro.lecuyer.rng.RandomStream;
+
+import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 
 /**
@@ -12,12 +13,11 @@ import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
  * @author Anne
  *
  */
-public class LogNormDistFunctionFromMoments implements IFunction {
+public class LogNormDistFunctionFromMoments extends AbstractProbDistFunction {
 	
-	private RandomStream stream;
 
-	public LogNormDistFunctionFromMoments(RandomStream stream2) {
-		this.stream = stream2;
+	public LogNormDistFunctionFromMoments(IRandomGenerator random, IPDFFactory factory) {
+		super(random, factory);
 	}
 
 	/**
@@ -43,8 +43,8 @@ public class LogNormDistFunctionFromMoments implements IFunction {
 		double mean = NumberConverter.toDouble(parameters.get(0));
 		double stdev = NumberConverter.toDouble(parameters.get(1));
 		double variance = stdev*stdev;
-		LognormalGen generator = new LognormalGen(stream, new LognormalDistFromMoments(mean,variance));
-		return generator.nextDouble();
+		ILognormalDistribution distribution = factory.createLognormalDistributionFromMoments(mean, variance);
+		return distribution.inverseF(randomGen.random());
 	}
 
 }

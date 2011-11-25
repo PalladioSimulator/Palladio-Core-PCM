@@ -8,10 +8,12 @@ import org.apache.log4j.Logger;
 import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExSwitch;
-import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
+
 import de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
-import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
+
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCacheEntry;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.TypesIncompatibleInComparisionException;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.TypesIncompatibleInProductException;
@@ -85,12 +87,12 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	 */
 	private VariableMode mode;
 	
-	public PCMStoExEvaluationVisitor(StoExCacheEntry cacheEntry, SimulatedStackframe<Object> frame, VariableMode initialMode, IRandomGenerator randomGenerator) {
+	public PCMStoExEvaluationVisitor(StoExCacheEntry cacheEntry, SimulatedStackframe<Object> frame, VariableMode initialMode, IProbabilityFunctionFactory probFunctionFactory) {
 		this.typeInferer = cacheEntry.getTypeInferer();
 		myStackFrame = frame;
 		this.mode = initialMode;
 		probfunctionVisitor = new PCMProbfunctionEvaluationVisitor(cacheEntry);
-		functionLib = new FunctionLib(randomGenerator);
+		functionLib = new FunctionLib(probFunctionFactory.getRandomGenerator(), probFunctionFactory.getPDFFactory());
 	}
 
 	public void setVariableMode(VariableMode mode) {

@@ -12,7 +12,9 @@ import org.apache.log4j.Level;
 import org.apache.log4j.PatternLayout;
 
 import de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
+import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.prototype.framework.utils.CommandLineParser;
 import de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry;
 import de.uka.ipd.sdq.prototype.framework.utils.RunProperties;
@@ -21,6 +23,7 @@ import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
+
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 
 /**
@@ -72,7 +75,9 @@ public abstract class AbstractMain {
 	
 		logger.info("Initialising StoEx Cache " + (runProps.hasOption('E') ? " - Seed: " + runProps.getOptionValue('E') : ""));
 	
-		StoExCache.initialiseStoExCache(randomGen);
+		IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
+		probFunctionFactory.setRandomGenerator(randomGen);
+		StoExCache.initialiseStoExCache(probFunctionFactory);
 	
 		handleStartOption();
 	}

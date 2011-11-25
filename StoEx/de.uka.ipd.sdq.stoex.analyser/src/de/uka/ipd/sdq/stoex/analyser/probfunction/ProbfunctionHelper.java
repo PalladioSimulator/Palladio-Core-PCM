@@ -48,7 +48,7 @@ public class ProbfunctionHelper {
 				double mean = getDoubleValue((NumericLiteral)parameters.get(0));
 				double stdev = getDoubleValue((NumericLiteral)parameters.get(1));
 				double variance = stdev * stdev ;
-				ILognormalDistribution dist = ProbabilityFunctionFactoryImpl.getInstance().getcPDFFactory().createLognormalDistributionFromMoments(mean, variance);
+				ILognormalDistribution dist = ProbabilityFunctionFactoryImpl.getInstance().getPDFFactory().createLognormalDistributionFromMoments(mean, variance);
 				lognorm.setMu(dist.getMu());
 				lognorm.setSigma(dist.getSigma());
 				return lognorm;
@@ -61,7 +61,7 @@ public class ProbfunctionHelper {
 				GammaDistribution gamma = probFuncFactory.createGammaDistribution();
 				double mean = getDoubleValue((NumericLiteral)parameters.get(0));
 				double coeffVar = getDoubleValue((NumericLiteral)parameters.get(1));
-				IGammaDistribution dist = ProbabilityFunctionFactoryImpl.getInstance().getcPDFFactory().createGammaDistributionFromMoments(mean, coeffVar);
+				IGammaDistribution dist = ProbabilityFunctionFactoryImpl.getInstance().getPDFFactory().createGammaDistributionFromMoments(mean, coeffVar);
 				gamma.setAlpha(dist.getAlpha());
 				gamma.setTheta(dist.getTheta());
 				return gamma;

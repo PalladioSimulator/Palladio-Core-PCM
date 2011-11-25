@@ -1,9 +1,5 @@
-package de.uka.ipd.sdq.probfunction.math.impl;
+package de.uka.ipd.sdq.probfunction.math;
 
-import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
-import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
-import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
-import de.uka.ipd.sdq.probfunction.math.INormalDistribution;
 
 public interface IContinousPDFFactory 
 {
@@ -62,5 +58,15 @@ public interface IContinousPDFFactory
 	 * @return The distribution
 	 */
 	public INormalDistribution createNormalDistribution(double mu, double sigma);
+	
+
+	/**
+	 * Creates a new UniformDistribution for doing math.
+	 * 
+	 * @param a The a value
+	 * @param b The b value
+	 * @return The distribution
+	 */
+	public IUniformDistribution createUniformDistribution(double a, double b);
 	
 }

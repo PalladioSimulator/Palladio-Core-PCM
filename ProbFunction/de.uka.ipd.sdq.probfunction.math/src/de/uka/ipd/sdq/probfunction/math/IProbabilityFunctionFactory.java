@@ -536,4 +536,8 @@ public interface IProbabilityFunctionFactory {
 	 * @param randomGenerator
 	 */
 	public void setRandomGenerator(IRandomGenerator randomGenerator);
+	
+	public IRandomGenerator getRandomGenerator();
+	
+	public IPDFFactory getPDFFactory();
 }

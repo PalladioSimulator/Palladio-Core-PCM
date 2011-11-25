@@ -21,4 +21,13 @@ public interface IDiscretePDFFactory
 	 */
 	public IPoissonDistribution createPoissonDistribution(double mean);
 	
+	
+	/**
+	 * Creates a new UniformIntDistribution for doing math.
+	 * 
+	 * @param a The a value
+	 * @param b The b value
+	 * @return The distribution
+	 */
+	public IUniformIntDistribution createUniformIntDistribution(int a, int b);
 }

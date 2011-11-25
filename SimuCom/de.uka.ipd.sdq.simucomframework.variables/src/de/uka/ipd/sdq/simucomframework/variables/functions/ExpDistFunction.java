@@ -2,16 +2,17 @@ package de.uka.ipd.sdq.simucomframework.variables.functions;
 
 import java.util.List;
 
-import umontreal.iro.lecuyer.randvar.ExponentialGen;
-import umontreal.iro.lecuyer.rng.RandomStream;
+import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 
-public class ExpDistFunction implements IFunction {
+public class ExpDistFunction extends AbstractProbDistFunction {
 
-	private RandomStream stream;
 	
-	public ExpDistFunction(RandomStream stream2) {
-		this.stream = stream2;
+	public ExpDistFunction(IRandomGenerator stream, IPDFFactory factory) {
+		super(stream, factory);
 	}
 
 	public boolean checkParameters(List<Object> parameters) {
@@ -24,8 +25,8 @@ public class ExpDistFunction implements IFunction {
 
 	public Object evaluate(List<Object> parameters) {
 		double mean = NumberConverter.toDouble(parameters.get(0));
-		double next = ExponentialGen.nextDouble(stream, mean);
-		return next;
+		IExponentialDistribution distribution = factory.createExponentialDistribution(1.0/mean);
+		return distribution.inverseF(randomGen.random());
 	}
 
 }

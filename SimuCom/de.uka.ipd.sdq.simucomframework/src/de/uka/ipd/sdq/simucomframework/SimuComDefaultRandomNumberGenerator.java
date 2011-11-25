@@ -5,10 +5,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.log4j.Logger;
 
-import umontreal.iro.lecuyer.rng.MRG32k3a;
-import umontreal.iro.lecuyer.rng.RandomStream;
-import umontreal.iro.lecuyer.rng.RandomStreamBase;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+
+import de.uka.ipd.sdq.probfunction.math.apache.impl.MT19937RandomGenerator;
+import de.uka.ipd.sdq.probfunction.math.random.IRandomStream;
 import de.uka.ipd.sdq.simucomframework.variables.functions.LogNormDistFunction;
 import de.uka.ipd.sdq.simucomframework.variables.functions.NormDistFunction;
 
@@ -32,14 +32,14 @@ import de.uka.ipd.sdq.simucomframework.variables.functions.NormDistFunction;
  * @author Steffen Becker
  *
  */
-public class SimuComDefaultRandomNumberGenerator implements IRandomGenerator, RandomStream {
+public class SimuComDefaultRandomNumberGenerator implements IRandomGenerator {
 
 	private static final int MAX_PRODUCER_BUFFER_SIZE = 1000;
 	private static final Logger logger =
 		Logger.getLogger(SimuComDefaultRandomNumberGenerator.class.getName());
 	private static long streamCounter = 0;
 	private long myID;
-	private final MRG32k3a rndNumberGenerator;
+	private final IRandomStream rndNumberGenerator;
 	private LinkedBlockingQueue<Double> producerQueue = new LinkedBlockingQueue<Double>(MAX_PRODUCER_BUFFER_SIZE);
 	private Thread producerThread;
 	private volatile boolean finished;
@@ -51,7 +51,7 @@ public class SimuComDefaultRandomNumberGenerator implements IRandomGenerator, Ra
 		if (logger.isDebugEnabled()) {
 			logger.debug("Initialising random number generator! [Stream ID = "+myID+"]");
 		}
-		rndNumberGenerator = new MRG32k3a();
+		rndNumberGenerator = new MT19937RandomGenerator();//new MRG32k3aRandomGenerator();
 		initRandomSeed(randomSeed);
 		
 		this.producerThread = new Thread(new Runnable(){

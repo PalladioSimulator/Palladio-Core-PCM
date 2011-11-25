@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.simucomframework.variables.cache;
 
 import java.util.HashMap;
 
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 
 /**
@@ -22,7 +23,8 @@ public class StoExCache {
 	// Franz' version of adding the random number generator to the cache does not work in 
 	// concurrent runs as well as in Protocom
 	private static StoExCache stoexSingleton = null;
-	private IRandomGenerator myRandomNumberGenerator = null;
+	private IProbabilityFunctionFactory probFunctionFactory = null;
+	
 	
 
 	/**
@@ -30,13 +32,13 @@ public class StoExCache {
 	 * so that it can be resetted independently of the main singleton instance. 
 	 * @param randomGenerator
 	 */
-	protected StoExCache(IRandomGenerator randomGenerator) {
-		myRandomNumberGenerator = randomGenerator;
+	protected StoExCache(IProbabilityFunctionFactory probFunctionFactory) {
+		this.probFunctionFactory = probFunctionFactory;
 	}
 	
-	public static void initialiseStoExCache(IRandomGenerator randomGenerator){
-		assert randomGenerator != null;
-		stoexSingleton = new StoExCache(randomGenerator);
+	public static void initialiseStoExCache(IProbabilityFunctionFactory probFunctionFactory){
+		assert probFunctionFactory != null;
+		stoexSingleton = new StoExCache(probFunctionFactory);
 	}
 	
 	public static StoExCache singleton() {
@@ -51,7 +53,7 @@ public class StoExCache {
 	 * @return The StoExCacheEntry containing the static information on the stoex 
 	 */
 	public synchronized StoExCacheEntry getEntry(String spec) {
-		assert myRandomNumberGenerator != null;
+		assert probFunctionFactory.getRandomGenerator() != null;
 		if (!cache.containsKey(spec)){
 			cache.put(spec, new StoExCacheEntry(spec));
 		}
@@ -59,6 +61,10 @@ public class StoExCache {
 	}
 	
 	public IRandomGenerator getRandomGenerator(){
-		return this.myRandomNumberGenerator;
+		return this.probFunctionFactory.getRandomGenerator();
+	}
+	
+	public IProbabilityFunctionFactory getProbabilityFunctionFactory(){
+		return this.probFunctionFactory;
 	}
 }

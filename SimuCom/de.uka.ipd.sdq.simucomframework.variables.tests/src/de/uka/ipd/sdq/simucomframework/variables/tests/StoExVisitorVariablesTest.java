@@ -9,7 +9,9 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
+import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.StochasticExpressionEvaluationFailedException;
@@ -30,7 +32,9 @@ public class StoExVisitorVariablesTest extends TestCase {
 		BasicConfigurator.resetConfiguration();
 		BasicConfigurator.configure(ca);
 		
-		StoExCache.initialiseStoExCache(new DefaultRandomGenerator());
+		IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
+		probFunctionFactory.setRandomGenerator(new DefaultRandomGenerator());
+		StoExCache.initialiseStoExCache(probFunctionFactory);
 		stackFrame = new SimulatedStackframe<Object>();
 		stackFrame.addValue("anInt.BYTESIZE", 10);
 		stackFrame.addValue("anBoolean.VALUE", false);

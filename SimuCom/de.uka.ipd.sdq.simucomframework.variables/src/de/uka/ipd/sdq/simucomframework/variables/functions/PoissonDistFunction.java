@@ -2,16 +2,17 @@ package de.uka.ipd.sdq.simucomframework.variables.functions;
 
 import java.util.List;
 
-import umontreal.iro.lecuyer.randvar.PoissonGen;
-import umontreal.iro.lecuyer.rng.RandomStream;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.IPoissonDistribution;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 
-public class PoissonDistFunction implements IFunction {
+public class PoissonDistFunction extends AbstractProbDistFunction {
 
-	private RandomStream stream;
+	
 
-	public PoissonDistFunction(RandomStream stream2) {
-		this.stream = stream2;
+	public PoissonDistFunction(IRandomGenerator random, IPDFFactory factory) {
+		super(random, factory);
 	}
 
 	public boolean checkParameters(List<Object> parameters) {
@@ -24,7 +25,8 @@ public class PoissonDistFunction implements IFunction {
 
 	public Object evaluate(List<Object> parameters) {
 		double mean = NumberConverter.toDouble(parameters.get(0));
-		return PoissonGen.nextInt(stream, mean);
+		IPoissonDistribution distribution = factory.createPoissonDistribution(mean);
+		return distribution.inverseF(randomGen.random());
 	}
 
 }

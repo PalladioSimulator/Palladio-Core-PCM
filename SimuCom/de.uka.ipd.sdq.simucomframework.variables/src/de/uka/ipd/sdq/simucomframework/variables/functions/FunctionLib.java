@@ -2,11 +2,10 @@ package de.uka.ipd.sdq.simucomframework.variables.functions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 
-import umontreal.iro.lecuyer.rng.MRG32k3a;
-import umontreal.iro.lecuyer.rng.RandomStream;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.FunctionParametersNotAcceptedException;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.FunctionUnknownException;
 import de.uka.ipd.sdq.stoex.analyser.probfunction.ProbfunctionHelper;
@@ -19,57 +18,32 @@ import de.uka.ipd.sdq.stoex.analyser.probfunction.ProbfunctionHelper;
 public class FunctionLib {
 
 	private HashMap<String, IFunction> myFunctions = new HashMap<String, IFunction>();
-	private RandomStream randomStream;
+	private IRandomGenerator randomStream;
 
 	/**
 	 * Initialise the function library.
-	 * If the passed {@link IRandomGenerator} is an instance
-	 * of {@link RandomStream} and thus can be used for the
-	 * function initialisations, it is casted and used.
-	 * Otherwise, a new {@link MRG32k3a} stream is generated.
-	 *
-	 * It would be nicer to use just one interface for random numbers, and
-	 * not both {@link IRandomGenerator} and {@link RandomStream}.
-	 * However, I did not want to replace the Probfunction interface IRandomGenerator
-     * completely by RandomStream because if we want to get rid of SSJ at some point,
-     * it should not be referenced in the whole code.
+	 * 
 	 */
-	public FunctionLib(IRandomGenerator iRandomGenerator) {
-		RandomStream myStream = null;
-		if (iRandomGenerator instanceof RandomStream){
-			myStream = (RandomStream)iRandomGenerator;
-		} else {
-			// same initialisation as in
-			// de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator
-			MRG32k3a myMRG32k3aStream = new MRG32k3a();
-			long[] myRandomSeed = new long[6];
-			Random r = new Random();
-			for (int i = 0; i < myRandomSeed.length; i++) {
-				myRandomSeed[i] = r.nextInt();
-			}
-			myMRG32k3aStream.setSeed(myRandomSeed);
-			myStream = myMRG32k3aStream;
-			// end random stream initialisation
-		}
-		addStdFunctionsToLib(myStream);
-		this.randomStream = myStream;
+	public FunctionLib(IRandomGenerator randomStream, IPDFFactory factory) {
+		this.randomStream = randomStream;
+		addStdFunctionsToLib(randomStream, factory);
 	}
 
 	/**
 	 * Add the functions available in simucoms standard library
 	 */
-	private void addStdFunctionsToLib(RandomStream stream) {
-		myFunctions.put("Norm",new NormDistFunction(stream));
-		myFunctions.put("Exp",new ExpDistFunction(stream));
-		myFunctions.put("Pois",new PoissonDistFunction(stream));
-		myFunctions.put("UniDouble",new UniDoubleDistFunction(stream));
-		myFunctions.put("UniInt",new UniIntDistFunction(stream));
+	private void addStdFunctionsToLib(IRandomGenerator randomGen, IPDFFactory factory) {
+		myFunctions.put("Norm",new NormDistFunction(randomGen, factory));
+		myFunctions.put("Exp",new ExpDistFunction(randomGen, factory));
+		myFunctions.put("Pois",new PoissonDistFunction(randomGen, factory));
+		myFunctions.put("UniDouble",new UniDoubleDistFunction(randomGen, factory));
+		myFunctions.put("UniInt",new UniIntDistFunction(randomGen, factory));
 		myFunctions.put("Trunc",new TruncFunction());
 		myFunctions.put(RoundFunction.ROUND_FUNCTION_NAME,new RoundFunction());
-		myFunctions.put(ProbfunctionHelper.LOGNORM,new LogNormDistFunction(stream));
-		myFunctions.put(ProbfunctionHelper.LOGNORM2,new LogNormDistFunctionFromMoments(stream));
-		myFunctions.put(ProbfunctionHelper.GAMMA,new GammaDistFunction(stream));
-		myFunctions.put(ProbfunctionHelper.GAMMA2,new GammaDistFunctionFromMoments(stream));
+		myFunctions.put(ProbfunctionHelper.LOGNORM,new LogNormDistFunction(randomGen, factory));
+		myFunctions.put(ProbfunctionHelper.LOGNORM2,new LogNormDistFunctionFromMoments(randomGen, factory));
+		myFunctions.put(ProbfunctionHelper.GAMMA,new GammaDistFunction(randomGen, factory));
+		myFunctions.put(ProbfunctionHelper.GAMMA2,new GammaDistFunctionFromMoments(randomGen, factory));
 		myFunctions.put(MinFunction.MIN_FUNCTION_NAME, new MinFunction());
 		myFunctions.put(MaxFunction.MAX_FUNCTION_NAME, new MaxFunction());
 		myFunctions.put(MinDeviationFunction.MIN_DEVIATION_FUNCTION_NAME, new MinDeviationFunction());
@@ -89,7 +63,7 @@ public class FunctionLib {
 		myFunctions.put(id, f);
 	}
 
-	public RandomStream getRandomStream(){
+	public IRandomGenerator getRandomStream(){
 		return randomStream;
 	}
 

@@ -76,7 +76,7 @@ public class StackContext implements Serializable {
 		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
 		Object result = null;
 		try {
-			 result = new PCMStoExEvaluationVisitor(cacheEntry,currentFrame,mode,StoExCache.singleton().getRandomGenerator())
+			 result = new PCMStoExEvaluationVisitor(cacheEntry,currentFrame,mode,StoExCache.singleton().getProbabilityFunctionFactory())
 						.doSwitch(cacheEntry.getParsedExpression());
 		} catch (Exception ex) {
 			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);
@@ -105,7 +105,7 @@ public class StackContext implements Serializable {
 		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
 		Object result = null;
 		try {
-			result = new PCMStoExEvaluationVisitor(cacheEntry,currentFrame,VariableMode.EXCEPTION_ON_NOT_FOUND,StoExCache.singleton().getRandomGenerator())
+			result = new PCMStoExEvaluationVisitor(cacheEntry,currentFrame,VariableMode.EXCEPTION_ON_NOT_FOUND,StoExCache.singleton().getProbabilityFunctionFactory())
 					.doSwitch(cacheEntry.getParsedExpression());
 		} catch (Exception ex) {
 			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);
@@ -126,7 +126,7 @@ public class StackContext implements Serializable {
 		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
 		Object result = null;
 		try {
-			result = new PCMStoExEvaluationVisitor(cacheEntry,currentFrame,mode,StoExCache.singleton().getRandomGenerator())
+			result = new PCMStoExEvaluationVisitor(cacheEntry,currentFrame,mode,StoExCache.singleton().getProbabilityFunctionFactory())
 					.doSwitch(cacheEntry.getParsedExpression());
 		} catch (Exception ex) {
 			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);

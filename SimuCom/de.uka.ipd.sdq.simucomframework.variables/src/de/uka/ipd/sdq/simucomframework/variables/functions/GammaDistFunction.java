@@ -2,8 +2,9 @@ package de.uka.ipd.sdq.simucomframework.variables.functions;
 
 import java.util.List;
 
-import umontreal.iro.lecuyer.randvar.GammaGen;
-import umontreal.iro.lecuyer.rng.RandomStream;
+import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 
 /**
@@ -13,12 +14,12 @@ import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
  * @author Anne
  *
  */
-public class GammaDistFunction implements IFunction {
+public class GammaDistFunction extends AbstractProbDistFunction  {
 	
-	private RandomStream stream;
+	
 
-	public GammaDistFunction(RandomStream stream2) {
-		this.stream = stream2;
+	public GammaDistFunction(IRandomGenerator randomGen, IPDFFactory factory) {
+		super(randomGen, factory);
 	}
 
 	public boolean checkParameters(List<Object> parameters) {
@@ -38,7 +39,8 @@ public class GammaDistFunction implements IFunction {
 		double alpha = NumberConverter.toDouble(parameters.get(0));
 		double theta= NumberConverter.toDouble(parameters.get(1));
 		//alpha is alpha (also called k), lambda is 1/theta
-		return GammaGen.nextDouble(stream, alpha, 1.0/theta);
+		IGammaDistribution distribution = factory.createGammaDistribution(alpha, theta);
+		return distribution.inverseF(randomGen.random());
 	}
 
 }

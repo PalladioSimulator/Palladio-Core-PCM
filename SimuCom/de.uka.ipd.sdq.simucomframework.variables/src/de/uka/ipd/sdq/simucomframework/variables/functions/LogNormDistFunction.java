@@ -2,8 +2,9 @@ package de.uka.ipd.sdq.simucomframework.variables.functions;
 
 import java.util.List;
 
-import umontreal.iro.lecuyer.randvar.LognormalGen;
-import umontreal.iro.lecuyer.rng.RandomStream;
+import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 
 /**
@@ -11,12 +12,12 @@ import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
  * @author Anne
  *
  */
-public class LogNormDistFunction implements IFunction {
+public class LogNormDistFunction extends AbstractProbDistFunction {
 	
-	private RandomStream stream;
 
-	public LogNormDistFunction(RandomStream stream2) {
-		this.stream = stream2;
+
+	public LogNormDistFunction(IRandomGenerator randomGen, IPDFFactory factory) {
+		super(randomGen, factory);
 	}
 
 	/**
@@ -40,7 +41,8 @@ public class LogNormDistFunction implements IFunction {
 	public Object evaluate(List<Object> parameters) {
 		double mu = NumberConverter.toDouble(parameters.get(0));
 		double sigma= NumberConverter.toDouble(parameters.get(1));
-		return LognormalGen.nextDouble(stream, mu, sigma);
+		ILognormalDistribution distribution = factory.createLognormalDistribution(mu, sigma);
+		return distribution.inverseF(randomGen.random());
 	}
 
 }

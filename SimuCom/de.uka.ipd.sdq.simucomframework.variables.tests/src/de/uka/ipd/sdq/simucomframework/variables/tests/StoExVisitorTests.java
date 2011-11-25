@@ -9,6 +9,9 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.Priority;
 
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
+import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
+import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
@@ -22,7 +25,10 @@ public class StoExVisitorTests extends TestCase {
 		Logger.getLogger(StoExVisitorTests.class.getName());
 
 	public void setUp() {
-		StoExCache.initialiseStoExCache(new SimuComDefaultRandomNumberGenerator(new long[]{1,2,3,4,5,6}));
+		IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
+		probFunctionFactory.setRandomGenerator(new SimuComDefaultRandomNumberGenerator(new long[]{1,2,3,4,5,6}));
+		StoExCache.initialiseStoExCache(probFunctionFactory);
+		
 
 		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
 		ConsoleAppender ca = new ConsoleAppender(myLayout);

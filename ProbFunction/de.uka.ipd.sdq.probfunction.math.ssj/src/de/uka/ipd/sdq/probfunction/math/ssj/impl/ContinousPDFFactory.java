@@ -4,11 +4,12 @@
 package de.uka.ipd.sdq.probfunction.math.ssj.impl;
 
 import umontreal.iro.lecuyer.probdist.LognormalDistFromMoments;
+import de.uka.ipd.sdq.probfunction.math.IContinousPDFFactory;
 import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
 import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.INormalDistribution;
-import de.uka.ipd.sdq.probfunction.math.impl.IContinousPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.IUniformDistribution;
 
 /**
  * @author joerg
@@ -66,6 +67,12 @@ public class ContinousPDFFactory implements IContinousPDFFactory {
 			double mean, double variance) {
 		
 		return new LognormalDistribution(new LognormalDistFromMoments(mean, variance));
+	}
+
+	@Override
+	public IUniformDistribution createUniformDistribution(double a, double b) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
