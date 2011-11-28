@@ -4,11 +4,13 @@
 package de.uka.ipd.sdq.probfunction.math.ssj.impl;
 
 import umontreal.iro.lecuyer.probdist.LognormalDistFromMoments;
+import de.uka.ipd.sdq.probfunction.math.IChiSquareDistribution;
 import de.uka.ipd.sdq.probfunction.math.IContinousPDFFactory;
 import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
 import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.INormalDistribution;
+import de.uka.ipd.sdq.probfunction.math.IStudentTDistribution;
 import de.uka.ipd.sdq.probfunction.math.IUniformDistribution;
 
 /**
@@ -71,8 +73,17 @@ public class ContinousPDFFactory implements IContinousPDFFactory {
 
 	@Override
 	public IUniformDistribution createUniformDistribution(double a, double b) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
+
+    @Override
+    public IChiSquareDistribution createChiSquareDistribution(int degreesOfFreedom) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public IStudentTDistribution createStudentTDistribution(int degreesOfFreedom) {
+        throw new UnsupportedOperationException();
+    }
 
 }

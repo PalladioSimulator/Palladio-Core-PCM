@@ -5,12 +5,14 @@ package de.uka.ipd.sdq.probfunction.math.apache.impl;
 
 
 import de.uka.ipd.sdq.probfunction.math.IBinomialDistribution;
+import de.uka.ipd.sdq.probfunction.math.IChiSquareDistribution;
 import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
 import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
 import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.INormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.IPoissonDistribution;
+import de.uka.ipd.sdq.probfunction.math.IStudentTDistribution;
 import de.uka.ipd.sdq.probfunction.math.IUniformDistribution;
 import de.uka.ipd.sdq.probfunction.math.IUniformIntDistribution;
 
@@ -96,5 +98,15 @@ public class PDFFactory implements IPDFFactory{
 		
 		return new UniformDistribution(a, b);
 	}
+
+    @Override
+    public IChiSquareDistribution createChiSquareDistribution(int degreesOfFreedom) {
+        return new ChiSquareDistribution(degreesOfFreedom);
+    }
+
+    @Override
+    public IStudentTDistribution createStudentTDistribution(int degreesOfFreedom) {
+        return new StudentTDistribution(degreesOfFreedom);
+    }
 
 }

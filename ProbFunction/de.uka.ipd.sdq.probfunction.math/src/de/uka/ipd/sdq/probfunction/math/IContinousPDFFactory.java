@@ -69,4 +69,22 @@ public interface IContinousPDFFactory
 	 */
 	public IUniformDistribution createUniformDistribution(double a, double b);
 	
+    /**
+     * Creates a new chi-square distribution with the specified parameter.
+     * 
+     * @param degreesOfFreedom
+     *            the degrees of freedom
+     * @return the distribution
+     */
+    public IChiSquareDistribution createChiSquareDistribution(int degreesOfFreedom);
+	
+    /**
+     * Creates a new student's t-distribution with the specified parameter.
+     * 
+     * @param degreesOfFreedom
+     *            the degrees of freedom
+     * @return the distribution
+     */    
+    public IStudentTDistribution createStudentTDistribution(int degreesOfFreedom);
+	
 }
