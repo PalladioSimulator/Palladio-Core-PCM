@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.probfunction.math.ssj.impl;
 
 import umontreal.iro.lecuyer.probdist.LognormalDistFromMoments;
