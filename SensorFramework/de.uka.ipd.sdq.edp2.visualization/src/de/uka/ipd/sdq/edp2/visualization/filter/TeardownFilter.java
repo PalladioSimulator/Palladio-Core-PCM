@@ -236,4 +236,10 @@ public class TeardownFilter extends AbstractFilter {
 		
 	}
 
+	@Override
+	public Object getData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

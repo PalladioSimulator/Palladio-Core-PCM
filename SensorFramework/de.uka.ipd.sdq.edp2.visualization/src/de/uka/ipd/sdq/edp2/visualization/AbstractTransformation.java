@@ -129,7 +129,8 @@ public abstract class AbstractTransformation extends AbstractDataSource implemen
 	}
 	
 	
-	public Object getCombinedData(IDataSink addedSink){
+	public Object getData(){
+		//transformations are no editor inputs, thus they cannot be displayed.
 		return null;
 	}
 

@@ -59,13 +59,7 @@ public interface IDataSink extends IDataFlow, Observer, IExecutableExtension {
 	Object getDataTypeInstance();
 
 	/**
-	 * Adds this {@link IDataSink}'s data to the specified {@link IDataSink}'s data type instance.
-	 * This method is used by {@link IEditorInputHandle}s if multiple editor inputs are displayed in the
-	 * same visualization.
-	 * @param toSink
-	 *            the {@link IDataSink} to which this Sink adds its Data
-	 * @return the combined data in a format which is used by the data type of
-	 *         the <toSink>
+	 * 
 	 */
-	Object getCombinedData(IDataSink addedSink);
+	Object getData();
 }

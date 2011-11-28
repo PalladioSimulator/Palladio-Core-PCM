@@ -75,6 +75,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	private XYPlot plot;
 	private JFreeChart chart;
 	private HistogramDataset dataset;
+	private NumberAxis domainAxis;
 
 	/**
 	 * Empty constructor.
@@ -125,9 +126,10 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 					listOfMeasures.get(0).get(i).getUnit());
 
 		}
-		dataset.addSeries(getName(), data, getNumberOfBins());
 		// set the title of the chart to the name of the input data series
 		setTitle(metrics[0].getName());
+		dataset.addSeries(getTitle(), data, getNumberOfBins());
+		
 	}
 
 	/*
@@ -254,19 +256,15 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public AbstractSeriesDataset getDataTypeInstance() {
-		return new HistogramDataset();
-	}
-
-	@Override
-	public XYItemRenderer createRenderer() {
-		return new XYBarRenderer();
+	public HistogramDataset getDataTypeInstance() {
+		return dataset;
 	}
 
 
 	public JFreeChart getChart() {
-		NumberAxis domainAxis = new NumberAxis("x-Axis label");
-		NumberAxis rangeAxis = new NumberAxis("y-Axis label");
+		updateDataset();
+		NumberAxis domainAxis = new NumberAxis(getTitle());
+		NumberAxis rangeAxis = new NumberAxis("Frequency");
 		plot = new XYPlot();
 		plot.setDataset(dataset);
 		renderer = new XYBarRenderer();
@@ -279,9 +277,8 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public Object getCombinedData(IDataSink addedSink) {
-		// TODO Auto-generated method stub
-		return null;
+	public double[] getData() {
+		return data;
 	}
 
 }

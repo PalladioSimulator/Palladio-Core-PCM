@@ -21,11 +21,15 @@ import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.DefaultXYItemRenderer;
+import org.jfree.chart.renderer.xy.XYBarRenderer;
 import org.jfree.chart.renderer.xy.XYDotRenderer;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.general.AbstractSeriesDataset;
+import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.xy.DefaultTableXYDataset;
 import org.jfree.data.xy.DefaultXYDataset;
 import org.jfree.data.xy.XYDataset;
@@ -76,6 +80,16 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 */
 	private double[][] rawData;
 
+	private NumberAxis domainAxis;
+
+	private NumberAxis rangeAxis;
+
+	private DefaultXYDataset dataset;
+
+	private JFreeChart chart;
+
+	private DefaultXYItemRenderer renderer;
+
 	public ScatterPlotInput() {
 		super();
 		setTitle(DEFAULT_TITLE);
@@ -93,7 +107,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 */
 	@SuppressWarnings("unchecked")
 	public void updateDataset() {
-
+		dataset = new DefaultXYDataset();
 		logger.log(Level.INFO, "Editor input updateDataSet begin");
 		ArrayList<OrdinalMeasurementsDao<Measure>> list = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		for (DataSeries data : getSource().getOutput()) {
@@ -115,6 +129,15 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 				rawData[0][i] = x.doubleValue(x.getUnit());
 				rawData[1][i] = y.doubleValue(y.getUnit());
 			}
+		
+		dataset.addSeries(getTitle(), rawData);
+		
+		MetricDescription[] metrics = MetricDescriptionUtility
+		.toBaseMetricDescriptions(getSource().getMeasurementsRange()
+				.getMeasurements().getMeasure().getMetric());
+		
+		domainAxis = new NumberAxis(metrics[0].getName());
+		rangeAxis = new NumberAxis(metrics[1].getName());
 
 		/*
 		 * setToolTipText(getSource().getMeasurementsRange().getMeasurements()
@@ -252,29 +275,28 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public AbstractSeriesDataset getDataTypeInstance() {
-		DefaultXYDataset dataset = new DefaultXYDataset();
-		dataset.addSeries(getName(), rawData);
+	public DefaultXYDataset getDataTypeInstance() {
 		return dataset;
 	}
 
-	@Override
-	public XYItemRenderer createRenderer() {
-		XYItemRenderer renderer = new XYDotRenderer();
-		return null;
-	}
-	
-
-	@Override
-	public Object getCombinedData(IDataSink addedSink) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public JFreeChart getChart() {
-		// TODO Auto-generated method stub
-		return null;
+		updateDataset();
+		XYPlot plot = new XYPlot();
+		plot.setDataset(dataset);
+		renderer = new DefaultXYItemRenderer();
+		plot.setRenderer(renderer);
+		plot.setRangeAxis(rangeAxis);
+		plot.setDomainAxis(domainAxis);
+		chart = new JFreeChart(getName(),
+				JFreeChart.DEFAULT_TITLE_FONT, plot, true);
+		return chart;
+	}
+
+	@Override
+	public double[][] getData() {
+		return rawData;
 	}
 
 }

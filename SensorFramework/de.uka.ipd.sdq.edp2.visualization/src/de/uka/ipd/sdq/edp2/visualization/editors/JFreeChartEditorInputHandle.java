@@ -76,37 +76,25 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	@Override
 	public Object getInputData() {
 		
-		/*dataset = (XYDataset) inputs.get(0).getDataTypeInstance();
+		dataset = (XYDataset) inputs.get(0).getDataTypeInstance();
+		
 		if (dataset instanceof HistogramDataset) {
 			HistogramDataset histogramDataset = (HistogramDataset) dataset;
-			for (IDataSink input : inputs) {
-				histogramDataset.addSeries(input.getName(), (double[])input.getData(), Integer
-						.parseInt(input.getProperties().get("numberOfBins")
+			
+			for (int i = 1; i< getInputsSize(); i++){
+				histogramDataset.addSeries(inputs.get(i).getName(), (double[]) inputs.get(i).getData(), Integer
+						.parseInt(inputs.get(i).getProperties().get("numberOfBins")
 								.toString()));
 			}
-			plot = ((JFreeChartEditorInput) inputs.get(0)).createPlot();
-			plot.setDataset(histogramDataset);
+			dataset = histogramDataset;
 		} else if (dataset instanceof DefaultXYDataset){
 			DefaultXYDataset xyDataset = (DefaultXYDataset) dataset;
-			for (IDataSink input : inputs) {
-				xyDataset.addSeries(input.getName(), (double[][])input.getData());
+			for (int i = 1; i< getInputsSize(); i++){
+				xyDataset.addSeries(inputs.get(i).getName(), (double[][]) inputs.get(i).getData());
 			}
-			plot = ((JFreeChartEditorInput) inputs.get(0)).createPlot();
-			plot.setDataset(xyDataset);
+			dataset = xyDataset;
 		}
-		renderer = ((JFreeChartEditorInput) inputs.get(0)).createRenderer();
-	*/
 		return dataset;
-	}
-	
-	public XYPlot getPlot(){
-		/*plot = inputs.get(0).createPlot();
-		plot.setRenderer(inputs.get(0).createRenderer());
-		plot.setDataset(inputs.get(0).createDataset());
-		
-		return plot = inputs.get(0).createPlot();
-		*/
-		return null;
 	}
 
 	/*
@@ -218,15 +206,8 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	 * before the chart itself is updated.
 	 */
 	public JFreeChart createChart() {
-		getInputData();
 		chart = getInputs().get(0).getChart();
-		NumberAxis domainAxis = new NumberAxis("x-Axis label");
-		NumberAxis rangeAxis = new NumberAxis("y-Axis label");
-		plot.setRenderer(renderer);
-		plot.setRangeAxis(rangeAxis);
-		plot.setDomainAxis(domainAxis);
-		JFreeChart chart = new JFreeChart(inputs.get(0).getName(),
-				JFreeChart.DEFAULT_TITLE_FONT, plot, true);
+		getInputData();
 		return chart;
 	}
 

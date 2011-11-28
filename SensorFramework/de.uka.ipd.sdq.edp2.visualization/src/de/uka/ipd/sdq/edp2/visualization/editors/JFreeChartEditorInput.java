@@ -107,12 +107,6 @@ public abstract class JFreeChartEditorInput extends Observable implements IDataS
 		this.title = title;
 	}
 	
-	/**
-	 * Creates a new {@link XYItemRenderer}.
-	 * @return the new {@link XYItemRenderer}
-	 */
-	public abstract XYItemRenderer createRenderer(); 
-
 	/*
 	 * (non-Javadoc)
 	 * 
