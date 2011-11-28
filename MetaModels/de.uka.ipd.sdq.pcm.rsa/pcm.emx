@@ -12584,10 +12584,6 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ElM9kzhwEdy4wo8LP9zxLA" value="1"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_dTV1YuMfEdqaQsPH3rPnBQ" name="linkingResource_CommunicationLinkResourceSpecification" visibility="public" type="_X5vv8OMeEdqaQsPH3rPnBQ" association="_dTV1YOMfEdqaQsPH3rPnBQ"/>
-        <ownedAttribute xmi:id="_P8g0ML6TEeCl7dogSpARwQ" name="name" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-          <defaultValue xmi:type="uml:LiteralNull" xmi:id="_bQkiYL6TEeCl7dogSpARwQ"/>
-        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_TBcu0OMfEdqaQsPH3rPnBQ" memberEnd="_TBcu0eMfEdqaQsPH3rPnBQ _TBcu0uMfEdqaQsPH3rPnBQ">
         <ownedEnd xmi:id="_TBcu0uMfEdqaQsPH3rPnBQ" name="communicationlinkresourcespecification" visibility="private" type="_OSNYgOMfEdqaQsPH3rPnBQ" association="_TBcu0OMfEdqaQsPH3rPnBQ">
