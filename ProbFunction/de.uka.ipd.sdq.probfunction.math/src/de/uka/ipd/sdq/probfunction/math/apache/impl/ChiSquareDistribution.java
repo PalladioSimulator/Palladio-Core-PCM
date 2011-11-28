@@ -160,7 +160,7 @@ public class ChiSquareDistribution extends AbstractContinousPDF implements IChiS
     @Override
     public Object getMedian() throws UnorderedDomainException {
         // this method has been implemented in accordance with [1]
-        double intermediateResult = 1 - (2 / (9 * degreesOfFreedom));
+        double intermediateResult = 1 - (2.0 / (9.0 * degreesOfFreedom));
         return degreesOfFreedom * Math.pow(intermediateResult, 3);
     }
 
