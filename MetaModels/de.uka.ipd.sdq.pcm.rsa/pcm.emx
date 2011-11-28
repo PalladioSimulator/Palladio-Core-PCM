@@ -7066,7 +7066,7 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
         <ownedRule xmi:id="_5TYjELauEeCl7dogSpARwQ" name="OneAssemblyContextOrOneEventChannelShouldBeReferred" constrainedElement="_9nOFcOD7Edq8ysXH3gTiEg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_5TYjEbauEeCl7dogSpARwQ">
             <language>OCL</language>
-            <body>(!self.assemblyContext_AllocationContext.oclIsUndefined()) xor (!self.eventChannel__AllocationContext.oclIsUndefined())</body>
+            <body>not(self.assemblyContext_AllocationContext.oclIsUndefined()) xor not(self.eventChannel__AllocationContext.oclIsUndefined())</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_Yyn7QGdNEduCGaQAxkcIwA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
