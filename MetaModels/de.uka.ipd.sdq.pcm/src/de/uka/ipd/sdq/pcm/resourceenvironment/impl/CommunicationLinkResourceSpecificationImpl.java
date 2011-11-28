@@ -31,7 +31,6 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getFailureProbability <em>Failure Probability</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification <em>Communication Link Resource Type Communication Link Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getLatency_CommunicationLinkResourceSpecification <em>Latency Communication Link Resource Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getThroughput_CommunicationLinkResourceSpecification <em>Throughput Communication Link Resource Specification</em>}</li>
  * </ul>
  * </p>
@@ -85,26 +84,6 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl i
 	 * @ordered
 	 */
 	protected PCMRandomVariable latency_CommunicationLinkResourceSpecification;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getThroughput_CommunicationLinkResourceSpecification() <em>Throughput Communication Link Resource Specification</em>}' containment reference.
@@ -283,27 +262,6 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public PCMRandomVariable getThroughput_CommunicationLinkResourceSpecification() {
 		return throughput_CommunicationLinkResourceSpecification;
 	}
@@ -415,8 +373,6 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl i
 				return basicGetCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				return getLatency_CommunicationLinkResourceSpecification();
-			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__NAME:
-				return getName();
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				return getThroughput_CommunicationLinkResourceSpecification();
 		}
@@ -442,9 +398,6 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl i
 				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				setLatency_CommunicationLinkResourceSpecification((PCMRandomVariable)newValue);
-				return;
-			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__NAME:
-				setName((String)newValue);
 				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				setThroughput_CommunicationLinkResourceSpecification((PCMRandomVariable)newValue);
@@ -473,9 +426,6 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl i
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				setLatency_CommunicationLinkResourceSpecification((PCMRandomVariable)null);
 				return;
-			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				setThroughput_CommunicationLinkResourceSpecification((PCMRandomVariable)null);
 				return;
@@ -499,8 +449,6 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl i
 				return communicationLinkResourceType_CommunicationLinkResourceSpecification != null;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				return latency_CommunicationLinkResourceSpecification != null;
-			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
 				return throughput_CommunicationLinkResourceSpecification != null;
 		}
@@ -519,8 +467,6 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl i
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (failureProbability: ");
 		result.append(failureProbability);
-		result.append(", name: ");
-		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

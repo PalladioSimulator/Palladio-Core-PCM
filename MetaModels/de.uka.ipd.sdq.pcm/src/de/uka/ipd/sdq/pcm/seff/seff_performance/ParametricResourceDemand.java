@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TODO&nbsp;(Überarbeitung&nbsp;durch&nbsp;MH)<br />
+ * TODO&nbsp;(†berarbeitung&nbsp;durch&nbsp;MH)<br />
  * Parametric&nbsp;Resource&nbsp;Demand&nbsp;Specifies&nbsp;the&nbsp;amount&nbsp;of&nbsp;processing&nbsp;requested&nbsp;from&nbsp;a&nbsp;certain&nbsp;type&nbsp;of&nbsp;resource&nbsp;in&nbsp;a&nbsp;parametrised&nbsp;way.&nbsp;It&nbsp;assigns&nbsp;the&nbsp;demand&nbsp;specified&nbsp;as&nbsp;a&nbsp;Random-Variable&nbsp;to&nbsp;an&nbsp;abstract&nbsp;ProcessingResourceType&nbsp;(e.g.,&nbsp;CPU,&nbsp;hard&nbsp;disk)&nbsp;instead&nbsp;of&nbsp;a&nbsp;concrete&nbsp;ProcessingResourceSpecification&nbsp;(e.g.,&nbsp;5&nbsp;Ghz&nbsp;CPU,&nbsp;20&nbsp;MByte/s&nbsp;hard&nbsp;disk).&nbsp;This&nbsp;keeps&nbsp;the&nbsp;RDSEFF&nbsp;independent&nbsp;from&nbsp;a&nbsp;specific&nbsp;resource&nbsp;environment,&nbsp;and&nbsp;makes&nbsp;the&nbsp;concrete&nbsp;resources&nbsp;replaceable&nbsp;to&nbsp;answer&nbsp;sizing&nbsp;questions.<br />
  * The&nbsp;demand's&nbsp;unit&nbsp;is&nbsp;equal&nbsp;for&nbsp;all&nbsp;ProcessingResourceSpecifications&nbsp;referencing<br />
  * the&nbsp;same&nbsp;ProcessingResourceType.&nbsp;It&nbsp;can&nbsp;for&nbsp;example&nbsp;be&nbsp;"WorkUnits"<br />
@@ -43,7 +43,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  * the&nbsp;list&nbsp;the&nbsp;algorithm&nbsp;shall&nbsp;sort,&nbsp;which&nbsp;is&nbsp;an&nbsp;input&nbsp;parameter&nbsp;of&nbsp;the&nbsp;service.&nbsp;If&nbsp;the&nbsp;current<br />
  * characterisation&nbsp;of&nbsp;the&nbsp;list's&nbsp;length&nbsp;is&nbsp;100&nbsp;(as&nbsp;the&nbsp;modelled&nbsp;usage&nbsp;profile),&nbsp;analysis&nbsp;tools<br />
  * derive&nbsp;1002&nbsp;&nbsp;2000&nbsp;&nbsp;12000&nbsp;WorkUnits&nbsp;from&nbsp;the&nbsp;specification,&nbsp;thus&nbsp;resolving&nbsp;the&nbsp;usage<br />
- * profile&nbsp;dependency.&nbsp;If&nbsp;the&nbsp;CPU&nbsp;ProcessingResourceSpecification&nbsp;the&nbsp;service?s<br />
+ * profile&nbsp;dependency.&nbsp;If&nbsp;the&nbsp;CPU&nbsp;ProcessingResourceSpecification&nbsp;the&nbsp;service's<br />
  * 126<br />
  * 4.3.&nbsp;Resource&nbsp;Demanding&nbsp;Service&nbsp;Effect&nbsp;Specification<br />
  * component&nbsp;is&nbsp;allocated&nbsp;on&nbsp;then&nbsp;contains&nbsp;a&nbsp;processing&nbsp;rate&nbsp;of&nbsp;10000WorkUnits/s,&nbsp;analysis<br />

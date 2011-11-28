@@ -73,7 +73,6 @@ public class CommunicationLinkResourceSpecificationItemProvider
 
 			addFailureProbabilityPropertyDescriptor(object);
 			addCommunicationLinkResourceType_CommunicationLinkResourceSpecificationPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -118,28 +117,6 @@ public class CommunicationLinkResourceSpecificationItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CommunicationLinkResourceSpecification_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CommunicationLinkResourceSpecification_name_feature", "_UI_CommunicationLinkResourceSpecification_type"),
-				 ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -194,7 +171,7 @@ public class CommunicationLinkResourceSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CommunicationLinkResourceSpecification)object).getName();
+		String label = ((CommunicationLinkResourceSpecification)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CommunicationLinkResourceSpecification_type") :
 			getString("_UI_CommunicationLinkResourceSpecification_type") + " " + label;
@@ -213,7 +190,6 @@ public class CommunicationLinkResourceSpecificationItemProvider
 
 		switch (notification.getFeatureID(CommunicationLinkResourceSpecification.class)) {
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY:
-			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION:

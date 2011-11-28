@@ -411,22 +411,13 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__NAME = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Throughput Communication Link Resource Specification</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 5;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Communication Link Resource Specification</em>' class.
@@ -435,7 +426,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 6;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ContainerOperatingSystem <em>Container Operating System</em>}' enum.
@@ -751,17 +742,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EReference getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getName()
-	 * @see #getCommunicationLinkResourceSpecification()
-	 * @generated
-	 */
-	EAttribute getCommunicationLinkResourceSpecification_Name();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification <em>Throughput Communication Link Resource Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1039,14 +1019,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = eINSTANCE.getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMMUNICATION_LINK_RESOURCE_SPECIFICATION__NAME = eINSTANCE.getCommunicationLinkResourceSpecification_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Throughput Communication Link Resource Specification</b></em>' containment reference feature.
