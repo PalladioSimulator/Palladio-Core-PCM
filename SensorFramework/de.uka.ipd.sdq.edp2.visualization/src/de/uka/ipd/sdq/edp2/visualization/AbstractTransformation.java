@@ -128,13 +128,8 @@ public abstract class AbstractTransformation extends AbstractDataSource implemen
 		return null;
 	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getData()
-	 */
-	@Override
-	public Object getData() {
-		//transformations are no editor inputs, thus they cannot be displayed.
+	
+	public Object getCombinedData(IDataSink addedSink){
 		return null;
 	}
 

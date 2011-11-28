@@ -36,6 +36,7 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	private XYDataset dataset;
 	private XYPlot plot;
 	private XYItemRenderer renderer;
+	private JFreeChart chart;
 
 	/**
 	 * Empty constructor.
@@ -75,8 +76,7 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	@Override
 	public Object getInputData() {
 		
-		
-		dataset = (XYDataset) inputs.get(0).getDataTypeInstance();
+		/*dataset = (XYDataset) inputs.get(0).getDataTypeInstance();
 		if (dataset instanceof HistogramDataset) {
 			HistogramDataset histogramDataset = (HistogramDataset) dataset;
 			for (IDataSink input : inputs) {
@@ -95,17 +95,18 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 			plot.setDataset(xyDataset);
 		}
 		renderer = ((JFreeChartEditorInput) inputs.get(0)).createRenderer();
-
+	*/
 		return dataset;
 	}
 	
 	public XYPlot getPlot(){
-		plot = inputs.get(0).createPlot();
+		/*plot = inputs.get(0).createPlot();
 		plot.setRenderer(inputs.get(0).createRenderer());
 		plot.setDataset(inputs.get(0).createDataset());
 		
 		return plot = inputs.get(0).createPlot();
-		
+		*/
+		return null;
 	}
 
 	/*
@@ -218,6 +219,7 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	 */
 	public JFreeChart createChart() {
 		getInputData();
+		chart = getInputs().get(0).getChart();
 		NumberAxis domainAxis = new NumberAxis("x-Axis label");
 		NumberAxis rangeAxis = new NumberAxis("y-Axis label");
 		plot.setRenderer(renderer);

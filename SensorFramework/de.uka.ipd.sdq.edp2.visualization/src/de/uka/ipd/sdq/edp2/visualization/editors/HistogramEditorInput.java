@@ -31,6 +31,7 @@ import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties;
 import de.uka.ipd.sdq.edp2.visualization.properties.HistogramChartProperties;
 
@@ -70,6 +71,10 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 			.getLogger(HistogramEditorInput.class.getCanonicalName());
 
 	private HistogramChartProperties chartProperties;
+	private XYBarRenderer renderer;
+	private XYPlot plot;
+	private JFreeChart chart;
+	private HistogramDataset dataset;
 
 	/**
 	 * Empty constructor.
@@ -96,7 +101,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@SuppressWarnings("unchecked")
 	public void updateDataset() {
-
+		dataset = new HistogramDataset();
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
 		for (DataSeries series : getSource().getOutput()) {
@@ -120,6 +125,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 					listOfMeasures.get(0).get(i).getUnit());
 
 		}
+		dataset.addSeries(getName(), data, getNumberOfBins());
 		// set the title of the chart to the name of the input data series
 		setTitle(metrics[0].getName());
 	}
@@ -196,7 +202,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -249,18 +254,8 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public Object getData() {
-		return data;
-	}
-
-	@Override
 	public AbstractSeriesDataset getDataTypeInstance() {
 		return new HistogramDataset();
-	}
-
-	@Override
-	public XYPlot createPlot() {
-		return new XYPlot();
 	}
 
 	@Override
@@ -268,9 +263,24 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		return new XYBarRenderer();
 	}
 
+
+	public JFreeChart getChart() {
+		NumberAxis domainAxis = new NumberAxis("x-Axis label");
+		NumberAxis rangeAxis = new NumberAxis("y-Axis label");
+		plot = new XYPlot();
+		plot.setDataset(dataset);
+		renderer = new XYBarRenderer();
+		plot.setRenderer(renderer);
+		plot.setRangeAxis(rangeAxis);
+		plot.setDomainAxis(domainAxis);
+		chart = new JFreeChart(getName(),
+				JFreeChart.DEFAULT_TITLE_FONT, plot, true);
+		return chart;
+	}
+
 	@Override
-	public XYDataset createDataset() {
-		
+	public Object getCombinedData(IDataSink addedSink) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

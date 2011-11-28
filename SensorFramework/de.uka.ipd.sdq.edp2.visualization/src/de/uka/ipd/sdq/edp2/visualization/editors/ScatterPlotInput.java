@@ -72,9 +72,9 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 			.getLogger(ScatterPlotInput.class.getCanonicalName());
 
 	/**
-	 * The specific type of data provided by this {@link JFreeChartEditorInput}
+	 * The data provided by this {@link JFreeChartEditorInput}
 	 */
-	private double[][] data;
+	private double[][] rawData;
 
 	public ScatterPlotInput() {
 		super();
@@ -107,13 +107,13 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 		List<Measure> list2 = omdSeries2.getMeasurements();
 		
-		data = new double[2][list1.size()];
+		rawData = new double[2][list1.size()];
 
 		for (int i = 0; i < list1.size(); i++) {
 				Measure x = list1.get(i);
 				Measure y = list2.get(i);
-				data[0][i] = x.doubleValue(x.getUnit());
-				data[1][i] = y.doubleValue(y.getUnit());
+				rawData[0][i] = x.doubleValue(x.getUnit());
+				rawData[1][i] = y.doubleValue(y.getUnit());
 			}
 
 		/*
@@ -252,27 +252,27 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public XYPlot createPlot() {
-		return new XYPlot();
+	public AbstractSeriesDataset getDataTypeInstance() {
+		DefaultXYDataset dataset = new DefaultXYDataset();
+		dataset.addSeries(getName(), rawData);
+		return dataset;
 	}
 
 	@Override
 	public XYItemRenderer createRenderer() {
-		return new XYDotRenderer();
+		XYItemRenderer renderer = new XYDotRenderer();
+		return null;
+	}
+	
+
+	@Override
+	public Object getCombinedData(IDataSink addedSink) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public Object getData() {
-		return data;
-	}
-
-	@Override
-	public AbstractSeriesDataset getDataTypeInstance() {
-		return new DefaultXYDataset();
-	}
-
-	@Override
-	public XYDataset createDataset() {
+	public JFreeChart getChart() {
 		// TODO Auto-generated method stub
 		return null;
 	}

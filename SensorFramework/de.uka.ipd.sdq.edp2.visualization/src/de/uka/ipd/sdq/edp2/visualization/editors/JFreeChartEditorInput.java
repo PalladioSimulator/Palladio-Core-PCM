@@ -112,18 +112,7 @@ public abstract class JFreeChartEditorInput extends Observable implements IDataS
 	 * @return the new {@link XYItemRenderer}
 	 */
 	public abstract XYItemRenderer createRenderer(); 
-	
-	/**
-	 * Creates a new {@link XYPlot}.
-	 * @return the new {@link XYPlot}.
-	 */
-	public abstract XYPlot createPlot();
-	
-	/**
-	 * Creates a new {@link XYDataset}.
-	 * @return the new {@link XYDataset}.
-	 */
-	public abstract XYDataset createDataset();
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -155,5 +144,7 @@ public abstract class JFreeChartEditorInput extends Observable implements IDataS
 	public CommonChartProperties getCommonChartProperties(){
 		return new CommonChartProperties();
 	}
+
+	public abstract JFreeChart getChart();
 
 }
