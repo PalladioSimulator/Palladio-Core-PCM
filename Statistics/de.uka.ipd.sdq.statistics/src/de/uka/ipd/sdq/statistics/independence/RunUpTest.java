@@ -4,7 +4,9 @@ import java.util.Collection;
 
 import org.apache.log4j.Logger;
 
-import umontreal.iro.lecuyer.probdist.ChiSquareDist;
+import de.uka.ipd.sdq.probfunction.math.IChiSquareDistribution;
+import de.uka.ipd.sdq.probfunction.math.IContinousPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.apache.impl.PDFFactory;
 
 /**
  * Implements the "run test" algorithm which tests a data sequence for
@@ -18,7 +20,7 @@ import umontreal.iro.lecuyer.probdist.ChiSquareDist;
  */
 public class RunUpTest implements IIndependenceTest {
 
-	private Logger logger;
+    private static final Logger logger = Logger.getLogger(RunUpTest.class);
 	
 	private static final int LOWER_SAMPLE_LIMIT = 4000;
 
@@ -39,8 +41,16 @@ public class RunUpTest implements IIndependenceTest {
 	private static final double[] B = { 1.0 / 6, 5.0 / 24, 11.0 / 120,
 			19.0 / 720, 29.0 / 5040, 1.0 / 840 };
 	
+	private IContinousPDFFactory pdfFactory;
+	
 	public RunUpTest() {
-		logger = Logger.getLogger(RunUpTest.class);
+	    // use apache math factory as default
+	    this(new PDFFactory());
+	}
+	
+	public RunUpTest(IContinousPDFFactory pdfFactory) {
+        assert pdfFactory != null : "The passed PDF factory may not be null.";
+        this.pdfFactory = pdfFactory;
 	}
 
 	@Override
@@ -60,7 +70,7 @@ public class RunUpTest implements IIndependenceTest {
 		double V = 1.0 / (n - 6) * sum;
 
 		// test for chi-square distribution
-		ChiSquareDist dist = new ChiSquareDist(CHI_SQUARE_DOF);
+		IChiSquareDistribution dist = pdfFactory.createChiSquareDistribution(CHI_SQUARE_DOF);
 		double upperQuantile = dist.inverseF(CHI_SQUARE_UPPER_QUANTILE);
 		double lowerQuantile = dist.inverseF(CHI_SQUARE_LOWER_QUANTILE);
 

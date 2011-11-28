@@ -2,7 +2,9 @@ package de.uka.ipd.sdq.statistics.estimation;
 
 import java.util.List;
 
-import umontreal.iro.lecuyer.probdist.StudentDist;
+import de.uka.ipd.sdq.probfunction.math.IContinousPDFFactory;
+import de.uka.ipd.sdq.probfunction.math.IStudentTDistribution;
+import de.uka.ipd.sdq.probfunction.math.apache.impl.PDFFactory;
 
 /**
  * Estimator for the sample mean.
@@ -12,12 +14,23 @@ import umontreal.iro.lecuyer.probdist.StudentDist;
  */
 public class SampleMeanEstimator implements IPointEstimator, IConfidenceEstimator {
 
+    private IContinousPDFFactory pdfFactory;
+
+    public SampleMeanEstimator() {
+        this(new PDFFactory());
+    }
+
+    public SampleMeanEstimator(IContinousPDFFactory pdfFactory) {
+        assert pdfFactory != null : "The passed PDF factory may not be null.";
+        this.pdfFactory = pdfFactory;
+    }
+    
 	@Override
 	public ConfidenceInterval estimateConfidence(List<Double> samples,
 			double level) {
 		int degreesOfFreedom = samples.size() - 1;
 		if (degreesOfFreedom > 0){
-			StudentDist dist = new StudentDist(degreesOfFreedom);
+			IStudentTDistribution dist = this.pdfFactory.createStudentTDistribution(degreesOfFreedom);
 			double upperQuantile = dist.inverseF(level);
 
 			// calculate sample standard deviation
