@@ -5,7 +5,6 @@ Bundle-SymbolicName: de.uka.ipd.sdq.scheduler;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: de.uka.ipd.sdq.probfunction.math,
- ca.umontreal.iro.lecuyer.ssj,
  de.uka.ipd.sdq.scheduler.configuration,
  org.eclipse.emf.ecore.xmi,
  org.apache.log4j,
