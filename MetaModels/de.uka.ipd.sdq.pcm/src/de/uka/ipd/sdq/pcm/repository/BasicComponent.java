@@ -79,8 +79,6 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |
-	 *   p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID))
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
@@ -93,19 +91,6 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * -- BC has to provide the same interfaces like the implementationComponentType (if set) #
-	 * if
-	 * 	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
-	 * 	self.parentCompleteComponentTypes->notEmpty()
-	 * then
-	 * 	--own interface IDs:
-	 *     self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity_ProvidedRole.id)->asSet()
-	 *     =
-	 *     --complete type interface IDs:
-	 *     self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity_ProvidedRole.id)->asSet()
-	 * else
-	 * 	true
-	 * endif
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
@@ -118,19 +103,6 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * -- BC has to require the same interfaces like the implementationComponentType (if set) #
-	 * if
-	 * 	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
-	 * 	self.parentCompleteComponentTypes->notEmpty()
-	 * then
-	 * 	--own interface IDs:
-	 *     self.requiredRoles_InterfaceRequiringEntity->select(rr |rr.oclIsTypeOf(OperationRequiredRole))->collect(rr | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()
-	 *     =
-	 *     --complete type interface IDs:
-	 *     self.parentCompleteComponentTypes.requiredRoles_InterfaceRequiringEntity->select(rr |rr.oclIsTypeOf(OperationRequiredRole))->collect(rr | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()
-	 * else
-	 * 	true
-	 * endif
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

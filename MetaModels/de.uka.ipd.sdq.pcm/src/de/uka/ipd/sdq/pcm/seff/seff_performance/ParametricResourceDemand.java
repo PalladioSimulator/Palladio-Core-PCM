@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TODO&nbsp;(†berarbeitung&nbsp;durch&nbsp;MH)<br />
+ * TODO&nbsp;(Überarbeitung&nbsp;durch&nbsp;MH)<br />
  * Parametric&nbsp;Resource&nbsp;Demand&nbsp;Specifies&nbsp;the&nbsp;amount&nbsp;of&nbsp;processing&nbsp;requested&nbsp;from&nbsp;a&nbsp;certain&nbsp;type&nbsp;of&nbsp;resource&nbsp;in&nbsp;a&nbsp;parametrised&nbsp;way.&nbsp;It&nbsp;assigns&nbsp;the&nbsp;demand&nbsp;specified&nbsp;as&nbsp;a&nbsp;Random-Variable&nbsp;to&nbsp;an&nbsp;abstract&nbsp;ProcessingResourceType&nbsp;(e.g.,&nbsp;CPU,&nbsp;hard&nbsp;disk)&nbsp;instead&nbsp;of&nbsp;a&nbsp;concrete&nbsp;ProcessingResourceSpecification&nbsp;(e.g.,&nbsp;5&nbsp;Ghz&nbsp;CPU,&nbsp;20&nbsp;MByte/s&nbsp;hard&nbsp;disk).&nbsp;This&nbsp;keeps&nbsp;the&nbsp;RDSEFF&nbsp;independent&nbsp;from&nbsp;a&nbsp;specific&nbsp;resource&nbsp;environment,&nbsp;and&nbsp;makes&nbsp;the&nbsp;concrete&nbsp;resources&nbsp;replaceable&nbsp;to&nbsp;answer&nbsp;sizing&nbsp;questions.<br />
  * The&nbsp;demand's&nbsp;unit&nbsp;is&nbsp;equal&nbsp;for&nbsp;all&nbsp;ProcessingResourceSpecifications&nbsp;referencing<br />
  * the&nbsp;same&nbsp;ProcessingResourceType.&nbsp;It&nbsp;can&nbsp;for&nbsp;example&nbsp;be&nbsp;"WorkUnits"<br />

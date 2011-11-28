@@ -59,22 +59,6 @@ public interface OperationInterface extends Interface {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * -- full signature has to be unique 
-	 * -- (use of ocl-tupels) #
-	 * let sigs : Bag(
-	 * 	-- parameters: Sequence of DataType, NOT name #
-	 * 	-- exceptions have not to be considered #
-	 * 	Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) 
-	 * ) = 
-	 * self.signatures__OperationInterface->collect(sig : OperationSignature |
-	 * 	Tuple{
-	 * 		returnType : DataType = sig.returnType__OperationSignature,
-	 * 		serviceName : String = sig.entityName,
-	 * 		parameters : Sequence(DataType) = sig.parameters__OperationSignature.dataType__Parameter
-	 * 	}
-	 * )
-	 * in
-	 * sigs->isUnique(s|s)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

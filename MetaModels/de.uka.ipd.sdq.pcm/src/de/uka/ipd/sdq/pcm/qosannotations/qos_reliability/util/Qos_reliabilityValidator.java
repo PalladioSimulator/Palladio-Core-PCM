@@ -132,6 +132,7 @@ public class Qos_reliabilityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSpecifiedReliabilityAnnotation(SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(specifiedReliabilityAnnotation, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(specifiedReliabilityAnnotation, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(specifiedReliabilityAnnotation, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(specifiedReliabilityAnnotation, diagnostics, context);

@@ -122,22 +122,6 @@ public interface Allocation extends Entity {
 	 * Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocated. If it is not allocated, all BasicComponents and CompositeComponents contained in this SubSystem (also transitively over several nested and not-allocated SubSystems) need to be allocated. 
 	 * 
 	 * The constraint is realised wth a closure over the AssemblyContext contained in a ComposedStructure. 
-	 * -- Get all AssemblyContexts used by this system, that is 
-	 * -- 1) the AssemblyContexts directly used in the system and 
-	 * self.system_Allocation.assemblyContexts__ComposedStructure
-	 * -- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,
-	 * -- we need to get those AssemblyContexts too: Thus, we use a closure here
-	 * ->union(self.system_Allocation.assemblyContexts__ComposedStructure->closure(
-	 * encapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)
-	 * .assemblyContexts__ComposedStructure))
-	 * --Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated 
-	 * --and if yes, if they are allocated.
-	 * ->forAll(assemblyCtx|
-	 * --AssemblyContexts that contain SubSystems do not need to be allocated
-	 * assemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or
-	 * --All others need to be allocated. 
-	 * self.allocationContexts_Allocation->select(allocationCtx|
-	 * allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
@@ -150,30 +134,6 @@ public interface Allocation extends Entity {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.allocationContexts_Allocation->forAll(a | self.allocationContexts_Allocation->forAll(b | 
-	 *     --- if a and b are not on the same server
-	 *     (a.resourceContainer_AllocationContext <> b.resourceContainer_AllocationContext 
-	 *     and
-	 *     --  and if the assembly contexts of a and b are connected
-	 *       self.system_Allocation.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(pcm::core::composition::AssemblyConnector)->exists(conn | 
-	 *          (conn.providingAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext  
-	 *          and 
-	 *          conn.requiringAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext )
-	 *          or 
-	 *           (conn.providingAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext  
-	 *          and 
-	 *          conn.requiringAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext )
-	 *        )
-	 *      )
-	 *      -- then the servers have to be connected by a linking resource
-	 *      implies 
-	 *      self.targetResourceEnvironment_Allocation.linkingResources__ResourceEnvironment->exists(l | 
-	 *         -- l connects the two
-	 *         l.connectedResourceContainers_LinkingResource->includes(a.resourceContainer_AllocationContext)
-	 *         and 
-	 *         l.connectedResourceContainers_LinkingResource->includes(b.resourceContainer_AllocationContext)
-	 *      )
-	 *   ))
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

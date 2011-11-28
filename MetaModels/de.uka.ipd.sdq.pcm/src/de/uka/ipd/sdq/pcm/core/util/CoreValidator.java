@@ -116,6 +116,7 @@ public class CoreValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validatePCMRandomVariable(PCMRandomVariable pcmRandomVariable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(pcmRandomVariable, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(pcmRandomVariable, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmRandomVariable, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmRandomVariable, diagnostics, context);
