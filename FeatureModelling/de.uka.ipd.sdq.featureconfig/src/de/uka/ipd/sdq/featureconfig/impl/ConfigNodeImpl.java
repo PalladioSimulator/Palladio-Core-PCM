@@ -246,7 +246,8 @@ public class ConfigNodeImpl extends EObjectImpl implements ConfigNode {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CHECK_MULTIPLICITY_OF_FEATURE_GROUP__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.origin.featuregroup->isEmpty() implies (self.origin.featuregroup.children->size() <=  self.origin.featuregroup.max and self.origin.featuregroup.children->size() >=  self.origin.featuregroup.min)";
+	protected static final String CHECK_MULTIPLICITY_OF_FEATURE_GROUP__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "true"+
+"--not self.origin.featuregroup->isEmpty() implies (self.origin.featuregroup.children->size() <=  self.origin.featuregroup.max and self.origin.featuregroup.children->size() >=  self.origin.featuregroup.min)";
 
 	/**
 	 * The cached OCL invariant for the '{@link #CheckMultiplicityOfFeatureGroup(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Check Multiplicity Of Feature Group</em>}' invariant operation.
