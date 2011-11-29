@@ -241,6 +241,14 @@ litigation.
          id="de.uka.ipd.sdq.statistics.feature"
          version="0.0.0"/>
 
+   <includes
+         id="de.uka.ipd.sdq.simulation.abstractsimengine.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="de.uka.ipd.sdq.identifier"/>
       <import plugin="de.uka.ipd.sdq.probfunction"/>
@@ -261,7 +269,6 @@ litigation.
       <import plugin="org.eclipse.emf.ecore.change"/>
       <import plugin="de.uka.ipd.sdq.workflow.pcm" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="ca.umontreal.iro.lecuyer.ssj"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
       <import plugin="org.eclipse.debug.ui"/>
       <import plugin="org.eclipse.jdt.core"/>
@@ -314,7 +321,6 @@ litigation.
       <import plugin="de.fzi.se.accuracy" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.reliability.core" version="3.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.featuremodel" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="ca.umontreal.iro.lecuyer.ssj" version="2.1.3" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit.ui" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcmbench.ui" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.cip" version="2.0.0" match="greaterOrEqual"/>
@@ -457,13 +463,6 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.simulation.abstractsimengine.ssj"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="de.uka.ipd.sdq.statistics"
          download-size="0"
          install-size="0"
@@ -472,6 +471,13 @@ litigation.
 
    <plugin
          id="de.uka.ipd.sdq.simulation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj"
          download-size="0"
          install-size="0"
          version="0.0.0"
