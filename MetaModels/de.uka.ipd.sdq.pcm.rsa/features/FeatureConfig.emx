@@ -824,7 +824,7 @@ be stored. </body>
       <ownedRule xmi:id="_Zew_EHctEeCD3b1oyrExdQ" name="CheckMultiplicityOfFeatureGroup" constrainedElement="__AsOMHvxEdyOhKBWyuRGig">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_Zfq-AHctEeCD3b1oyrExdQ">
           <language>OCL</language>
-          <body>not self.origin.featuregroup->isEmpty() implies (self.origin.featuregroup.children->size() &lt;=  self.origin.featuregroup.max and self.origin.featuregroup.children->size() >=  self.origin.featuregroup.min)</body>
+          <body>true&#xD;&#xA;--not self.origin.featuregroup->isEmpty() implies (self.origin.featuregroup.children->size() &lt;=  self.origin.featuregroup.max and self.origin.featuregroup.children->size() >=  self.origin.featuregroup.min)</body>
         </specification>
       </ownedRule>
       <ownedAttribute xmi:id="_JRmdUHvyEdyOhKBWyuRGig" name="origin" visibility="public" association="_JRjaAHvyEdyOhKBWyuRGig">
