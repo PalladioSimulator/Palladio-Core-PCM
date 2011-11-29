@@ -223,10 +223,8 @@ litigation.
          version="0.0.0"/>
 
    <requires>
-      <import plugin="org.apache.commons.javaflow" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.simulation.abstractsimengine" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.apache.commons.javaflow" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
