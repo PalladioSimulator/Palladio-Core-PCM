@@ -219,6 +219,10 @@ litigation.
    </url>
 
    <includes
+         id="de.uka.ipd.sdq.simulation.abstractsimengine.ssj.feature.source"
+         version="0.0.0"/>
+
+   <includes
          id="de.uka.ipd.sdq.simulation.abstractsimengine.feature"
          version="0.0.0"/>
 

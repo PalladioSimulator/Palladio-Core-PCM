@@ -217,6 +217,10 @@ litigation.
    <url>
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
    </url>
+   
+   <includes
+     	id="de.uka.ipd.sdq.simulation.abstractsimengine.feature.source"
+     	version="0.0.0"/>
 
    <plugin
          id="de.uka.ipd.sdq.simulation.abstractsimengine"
