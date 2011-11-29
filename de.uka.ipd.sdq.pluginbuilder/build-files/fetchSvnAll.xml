@@ -1014,5 +1014,17 @@
   	  <param name="project.name" value="de.uka.ipd.sdq.simulation.abstractsimengine.ssj.feature"/>
   	  <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/SimuCom"/>
   	</antcall>
+  	<antcall target="svn.co">
+	  <param name="target" value="plugins"/>
+	  <param name="element.id" value="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj"/>
+  	  <param name="project.name" value="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj"/>
+  	  <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/SimuCom"/>
+	</antcall>
+	<antcall target="svn.co">
+  	  <param name="target" value="features"/>
+  	  <param name="element.id" value="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature"/>
+  	  <param name="project.name" value="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature"/>
+  	  <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/SimuCom"/>
+  	</antcall>
   </target>
 </project>
