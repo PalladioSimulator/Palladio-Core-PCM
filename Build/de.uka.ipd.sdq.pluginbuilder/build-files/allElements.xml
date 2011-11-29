@@ -139,6 +139,11 @@
  			<property name="zipargs" value="" />
  		</ant>
  	</target>
+ 	<target name="assemble.de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature">
+ 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
+ 			<property name="zipargs" value="" />
+ 		</ant>
+ 	</target>
 	<target name="assemble.de.uka.ipd.sdq.simucom.feature">
 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}">
 			<property name="zipargs" value="" />
