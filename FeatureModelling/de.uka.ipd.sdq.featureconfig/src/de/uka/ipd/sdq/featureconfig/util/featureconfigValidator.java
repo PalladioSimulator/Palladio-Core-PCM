@@ -185,11 +185,9 @@ public class featureconfigValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateConfigNode(ConfigNode configNode, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(configNode, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(configNode, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(configNode, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(configNode, diagnostics, context);
@@ -225,11 +223,9 @@ public class featureconfigValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAttributeValue(AttributeValue attributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(attributeValue, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(attributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(attributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(attributeValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(attributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(attributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(attributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(attributeValue, diagnostics, context);
@@ -262,11 +258,9 @@ public class featureconfigValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateIntegerAttributeValue(IntegerAttributeValue integerAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(integerAttributeValue, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(integerAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(integerAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(integerAttributeValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(integerAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(integerAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(integerAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(integerAttributeValue, diagnostics, context);
@@ -292,11 +286,9 @@ public class featureconfigValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateDoubleAttributeValue(DoubleAttributeValue doubleAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(doubleAttributeValue, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(doubleAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(doubleAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(doubleAttributeValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(doubleAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(doubleAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(doubleAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(doubleAttributeValue, diagnostics, context);
@@ -322,11 +314,9 @@ public class featureconfigValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateStringAttributeValue(StringAttributeValue stringAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(stringAttributeValue, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(stringAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(stringAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(stringAttributeValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(stringAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(stringAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(stringAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(stringAttributeValue, diagnostics, context);
@@ -352,11 +342,9 @@ public class featureconfigValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateExternalObjectAttributeValue(ExternalObjectAttributeValue externalObjectAttributeValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(externalObjectAttributeValue, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(externalObjectAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(externalObjectAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(externalObjectAttributeValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(externalObjectAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(externalObjectAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(externalObjectAttributeValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(externalObjectAttributeValue, diagnostics, context);

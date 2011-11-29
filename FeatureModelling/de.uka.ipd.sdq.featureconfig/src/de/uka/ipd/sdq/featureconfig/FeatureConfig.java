@@ -184,6 +184,12 @@ public interface FeatureConfig extends EObject {
 	 *     configurationDefault.defaultConfig. It is OVERRIDE, if it is included in its configurationOverrides.configOverrides. If
 	 *     neither of these conditions applies, the FeatureConfigState is NOT_SET</span></span>
 	 * </p>
+	 * if (configurationDefault->size() = 1 and configurationDefault.defaultConfig = self) then FeatureConfigState::DEFAULT
+	 *  else (
+	 *  if (configurationOverrides->size() = 1 and configurationOverrides.configOverrides->size() > 0 and configurationOverrides.configOverrides->includes(self)) then FeatureConfigState::OVERRIDE
+	 *  else FeatureConfigState::NOT_SET
+	 *  endif
+	 *  ) endif
 	 * <!-- end-model-doc -->
 	 * @model required="true" ordered="false"
 	 *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='if (configurationDefault->size() = 1 and configurationDefault.defaultConfig = self) then FeatureConfigState::DEFAULT\r\n else (\r\n if (configurationOverrides->size() = 1 and configurationOverrides.configOverrides->size() > 0 and configurationOverrides.configOverrides->includes(self)) then FeatureConfigState::OVERRIDE\r\n else FeatureConfigState::NOT_SET\r\n endif\r\n ) endif'"
