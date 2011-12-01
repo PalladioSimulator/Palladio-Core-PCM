@@ -124,7 +124,8 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 		boolean updated = false;
 		for (Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
 			if (e.getKey().equals(process)) {
-				if (demand == Double.NaN) {
+				if (Double.isNaN(demand)) {
+				    // TODO PM: Should an exception be thrown here? At least, a log entry should be written. 
 					System.out.println();
 				}
 				e.setValue(demand);
