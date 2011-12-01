@@ -17,9 +17,10 @@ public class ProcessQueueImpl implements IProcessQueue {
 	private ArrayDeque<IActiveProcess> queue;
 	private Hashtable<IActiveProcess, Double> waiting_time_table = new Hashtable<IActiveProcess, Double>();
 	
-	public ProcessQueueImpl(SchedulerModel model){
-		queue = new ArrayDeque<IActiveProcess>();
-	}
+    public ProcessQueueImpl(SchedulerModel model) {
+        this.model = model;
+        this.queue = new ArrayDeque<IActiveProcess>();
+    }
 
 	public void addLast(IActiveProcess process) {
 		waiting_time_table.put(process, model.getSimulationControl().getCurrentSimulationTime());
