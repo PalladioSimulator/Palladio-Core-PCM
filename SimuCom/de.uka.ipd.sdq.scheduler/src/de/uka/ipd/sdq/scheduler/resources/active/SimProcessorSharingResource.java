@@ -36,12 +36,13 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 		
 	}
 	
-	private ProcessingFinishedEvent processingFinished = new ProcessingFinishedEvent(null);
+	private ProcessingFinishedEvent processingFinished;
 	private Hashtable<ISchedulableProcess,Double> running_processes = new Hashtable<ISchedulableProcess, Double>();
 	private double last_time; 
 
 	public SimProcessorSharingResource(SchedulerModel model, String name, String id, int i) {
 		super(model, i, name, id);
+		this.processingFinished = new ProcessingFinishedEvent(model);
 	}
 
 	public void scheduleNextEvent() {
