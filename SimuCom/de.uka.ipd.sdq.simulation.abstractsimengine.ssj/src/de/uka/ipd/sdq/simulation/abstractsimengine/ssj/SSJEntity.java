@@ -10,9 +10,6 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.IEntity;
 /**
  * @author Steffen Becker
  * @author Philipp Merkle
- * 
- * @param <M>
- *            the type of the simulation model
  */
 public class SSJEntity implements IEntity {
 

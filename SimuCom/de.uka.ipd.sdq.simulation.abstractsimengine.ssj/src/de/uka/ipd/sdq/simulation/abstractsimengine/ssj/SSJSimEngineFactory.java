@@ -13,9 +13,6 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 /**
  * @author Steffen Becker
  * @author Philipp Merkle
- * 
- * @param <M>
- *            the type of the simulation model
  */
 public class SSJSimEngineFactory implements ISimEngineFactory {
 

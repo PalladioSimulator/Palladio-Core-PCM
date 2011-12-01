@@ -6,9 +6,6 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
 /**
  * @author Steffen Becker
  * @author Philipp Merkle
- * 
- * @param <M>
- *            the type of the simulation model
  */
 public class SSJConditionWrapper<M extends ISimulationModel> {
 

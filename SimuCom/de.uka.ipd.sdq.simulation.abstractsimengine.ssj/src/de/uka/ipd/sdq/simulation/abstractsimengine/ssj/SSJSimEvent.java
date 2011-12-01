@@ -10,8 +10,6 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEvent;
  * @author Steffen Becker
  * @author Philipp Merkle
  * 
- * @param <M>
- *            the type of the simulation model
  * @param <E>
  *            the type of the entity which is modified by this event
  */

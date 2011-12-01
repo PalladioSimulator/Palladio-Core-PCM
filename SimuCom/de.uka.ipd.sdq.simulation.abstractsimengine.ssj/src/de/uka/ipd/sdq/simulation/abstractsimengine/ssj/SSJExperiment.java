@@ -8,9 +8,6 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractExperiment;
 /**
  * @author Steffen Becker
  * @author Philipp Merkle
- * 
- * @param <M>
- *            the type of the simulation model
  */
 public class SSJExperiment extends AbstractExperiment {
 
