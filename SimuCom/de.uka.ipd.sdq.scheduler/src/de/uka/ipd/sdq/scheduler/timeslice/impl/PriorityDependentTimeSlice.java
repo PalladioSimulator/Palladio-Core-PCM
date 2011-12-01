@@ -26,7 +26,7 @@ public class PriorityDependentTimeSlice extends ContinuousTimeSlice {
 		IPriority max_prio = prio.getManager().getHighestPriority();
 		IPriority min_prio = prio.getManager().getLowestPriority();
 		int distance = min_prio.distance(prio) + 1;
-		double factor = (min_prio.distance(max_prio) + 1) / 2;
+		double factor = (min_prio.distance(max_prio) + 1) / 2.0;
 		return basic * distance / factor;
 	}
 
