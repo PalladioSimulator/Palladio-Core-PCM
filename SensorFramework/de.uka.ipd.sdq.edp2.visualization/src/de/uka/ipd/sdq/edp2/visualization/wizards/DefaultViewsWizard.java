@@ -99,7 +99,6 @@ public class DefaultViewsWizard extends Wizard implements INewWizard {
 	 */
 	@Override
 	public void createPageControls(Composite pageContainer) {
-		// TODO Auto-generated method stub
 		super.createPageControls(pageContainer);
 	}
 

@@ -4,19 +4,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.DropTarget;
+import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableEditor;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.internal.presentations.UpdatingActionContributionItem;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
@@ -30,8 +34,9 @@ import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandle;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.IVisualization;
+import de.uka.ipd.sdq.edp2.visualization.datasource.DatasourceDropTargetAdapter;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 
 /**
@@ -51,7 +56,7 @@ public abstract class AbstractEditor extends EditorPart implements
 	public static final String EDITOR_ID = "de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor";
 
 	/** The input for this Editor. */
-	protected IEditorInputHandle input;
+	protected IVisualizationInputHandle input;
 	/** Reference on the current {@link TabbedPropertySheetPage}. */
 	protected TabbedPropertySheetPage propertySheetPage;
 
@@ -92,7 +97,7 @@ public abstract class AbstractEditor extends EditorPart implements
 	public void init(IEditorSite site, IEditorInput input)
 			throws PartInitException {
 		setSite(site);
-		this.input = (IEditorInputHandle)input;
+		this.input = (IVisualizationInputHandle)input;
 		setInput(input);
 	}
 
@@ -211,6 +216,18 @@ public abstract class AbstractEditor extends EditorPart implements
 	 */
 	public IEditorInput getEditorInput(){
 		return getEditorInputHandle();
+	}
+	protected void addDropSupport(Control control) {
+
+		int operations = DND.DROP_COPY | DND.DROP_DEFAULT;
+		DropTarget target = new DropTarget(control, operations);
+
+		Transfer[] transferTypes = new Transfer[] { 
+				LocalSelectionTransfer.getTransfer()
+		};
+		target.setTransfer(transferTypes);
+		target.addDropListener(new DatasourceDropTargetAdapter(
+				getEditorInputHandle()));
 	}
 
 }

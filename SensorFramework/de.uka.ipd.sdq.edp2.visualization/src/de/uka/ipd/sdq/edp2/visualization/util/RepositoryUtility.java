@@ -368,8 +368,7 @@ public class RepositoryUtility {
 	 * {@link DataSeries} which is to be copied, is selected according to the
 	 * specified {@link MetricDescription}, i.e. the
 	 * {@link DataSeries} element, which has the specified metric is selected.
-	 * It is added to the data in {@link RawMeasurements}. TODO CURRENTLY NOT
-	 * WORKING AS INTENDED
+	 * It is added to the data in {@link RawMeasurements}.
 	 * 
 	 * @param forMetric the {@link MetricDescription} which is used for the copied {@link DataSeries}
 	 * @param fromDataSeries the list of {@link DataSeries}
@@ -380,7 +379,10 @@ public class RepositoryUtility {
 	public static EList<DataSeries> copySingleDataSeries(
 			MetricDescription forMetric, EList<DataSeries> fromDataSeries,
 			RawMeasurements toRawMeasurements) {
-		ArrayList<MetricDescription> mds = new ArrayList<MetricDescription>();
+		
+		throw new RuntimeException("Not working");
+		
+		/*ArrayList<MetricDescription> mds = new ArrayList<MetricDescription>();
 		BaseMetricDescription[] metrics = MetricDescriptionUtility
 				.toBaseMetricDescriptions(fromDataSeries.get(0)
 						.getRawMeasurements().getMeasurementsRange()
@@ -406,6 +408,7 @@ public class RepositoryUtility {
 					.getMeasurementsRange().getMeasurements(), measurement);
 		}
 		return toRawMeasurements.getDataSeries();
+		*/
 	}
 
 	/**

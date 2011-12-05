@@ -31,8 +31,10 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
+import de.uka.ipd.sdq.edp2.transformation.adapter.HistogramFrequencyAdapter;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
 
 /**
@@ -330,5 +332,10 @@ public class WarmupFilter extends AbstractFilter {
 	@Override
 	public void update(Observable o, Object arg) {
 		transformData();
+	}
+	public IDataSink createCopyForSource(AbstractDataSource source) {
+		WarmupFilter copy = new WarmupFilter();
+		copy.setSource(source);
+		return copy;
 	}
 }

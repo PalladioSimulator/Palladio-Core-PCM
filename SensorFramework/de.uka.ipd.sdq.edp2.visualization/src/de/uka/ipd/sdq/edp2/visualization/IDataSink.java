@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
  * {@link AbstractDataSource}. Objects, which implement only {@link IDataSink}
  * instead of subclassing {@link AbstractTransformation}, are inputs for
  * different {@link AbstractEditor}s or rather their specific
- * {@link IEditorInputHandle}. Because Editor inputs and transformations both
+ * {@link IVisualizationInputHandle}. Because Editor inputs and transformations both
  * may be (and typically are) located in separate plugins, all {@link IDataSink}
  * s extend {@link IExecutableExtension}.
  * 
@@ -50,16 +50,6 @@ public interface IDataSink extends IDataFlow, Observer, IExecutableExtension {
 	 *         source.
 	 */
 	boolean canAccept(AbstractDataSource source);
-
-	/**
-	 * 
-	 * @return a new Instance of the data type, which is required to display the
-	 *         data of this {@link IDataSink}.
-	 */
-	Object getDataTypeInstance();
-
-	/**
-	 * 
-	 */
-	Object getData();
+	
+	IDataSink createCopyForSource(AbstractDataSource source);
 }

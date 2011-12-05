@@ -11,45 +11,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
-import javax.xml.transform.Source;
 
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IMemento;
-import org.eclipse.ui.IPersistableElement;
-import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
-import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.DefaultXYItemRenderer;
-import org.jfree.chart.renderer.xy.XYBarRenderer;
-import org.jfree.chart.renderer.xy.XYDotRenderer;
-import org.jfree.chart.renderer.xy.XYItemRenderer;
-import org.jfree.data.general.AbstractSeriesDataset;
-import org.jfree.data.statistics.HistogramDataset;
-import org.jfree.data.xy.DefaultTableXYDataset;
 import org.jfree.data.xy.DefaultXYDataset;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
-import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
-import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
-import de.uka.ipd.sdq.edp2.models.Repository.Repository;
-import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
-import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2SourceFactory;
-import de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties;
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.properties.SpecificChartProperties;
 
 /**
@@ -297,6 +276,14 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	@Override
 	public double[][] getData() {
 		return rawData;
+	}
+
+	@Override
+	public IDataSink createCopyForSource(AbstractDataSource source) {
+		ScatterPlotInput copy = new ScatterPlotInput();
+		copy.setProperties(this.getProperties());
+		copy.setSource(source);
+		return null;
 	}
 
 }

@@ -23,11 +23,13 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
 
 /**
- * Implementation of an {@link AbstractAdapter}, which transforms the source data into
- * one, single-dimension series of data to be displayed in a histogram.
+ * Implementation of an {@link AbstractAdapter}, which transforms the source
+ * data into one, single-dimension series of data to be displayed in a
+ * histogram.
  * 
  * @author Dominik Ernst
  * 
@@ -132,7 +134,7 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 		setChanged();
 		notifyObservers();
 
-		logger.log(Level.INFO, "transformation END - dataseriesIndex is: "+getDataSeriesIndex());
+		logger.log(Level.INFO, "transformation END");
 	}
 
 	/*
@@ -238,7 +240,7 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 			setDataSeriesIndex(DEFAULT_VALUE_DATA_SERIES_INDEX);
 
 	}
-	
+
 	/**
 	 * @return the dataSeriesIndex
 	 */
@@ -247,10 +249,16 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 	}
 
 	/**
-	 * @param dataSeriesIndex the dataSeriesIndex to set
+	 * @param dataSeriesIndex
+	 *            the dataSeriesIndex to set
 	 */
 	public void setDataSeriesIndex(int dataSeriesIndex) {
 		this.dataSeriesIndex = dataSeriesIndex;
 	}
 
+	public IDataSink createCopyForSource(AbstractDataSource source) {
+		HistogramFrequencyAdapter copy = new HistogramFrequencyAdapter();
+		copy.setSource(source);
+		return copy;
+	}
 }

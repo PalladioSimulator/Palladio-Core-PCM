@@ -237,7 +237,7 @@ public class TeardownFilter extends AbstractFilter {
 	}
 
 	@Override
-	public Object getData() {
+	public IDataSink createCopyForSource(AbstractDataSource source) {
 		// TODO Auto-generated method stub
 		return null;
 	}

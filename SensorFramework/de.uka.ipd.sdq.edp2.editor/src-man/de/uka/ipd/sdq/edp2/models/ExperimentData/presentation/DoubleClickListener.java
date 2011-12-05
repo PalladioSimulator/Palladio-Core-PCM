@@ -14,6 +14,7 @@ import org.eclipse.ui.PartInitException;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandle;
@@ -80,7 +81,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 								selection.getSequenceElements().get(i - 1));
 					}
 
-					IDataSink visualization = selection.getVisualization();
+					IVisualizationInput visualization = selection.getVisualization();
 					visualization.setProperties(selection
 							.getVisualizationProperties());
 					if (selection.getSize() > 0) {
@@ -118,7 +119,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 									selection2.getSequenceElements().get(i - 1));
 						}
 
-						IDataSink visualization2 = selection2.getVisualization();
+						IVisualizationInput visualization2 = selection2.getVisualization();
 						visualization2.setProperties(selection2
 								.getVisualizationProperties());
 						if (selection2.getSize() > 0) {

@@ -13,6 +13,7 @@ import org.eclipse.ui.IMemento;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.FactoryConnector;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 
 /**
  * Factory class for {@link JFreeChartEditorInputHandle}. Invokes persistence of all {@link IDataSink}
@@ -55,7 +56,7 @@ public class JFreeChartEditorInputHandleFactory implements IElementFactory {
 	/**
 	 * A {@link FactoryConnector}.
 	 */
-	protected final static FactoryConnector factoryConnector = new FactoryConnector();
+	protected final static FactoryConnector factoryConnector = FactoryConnector.getInstance();
 	/**
 	 * @return this factory's ID.
 	 */
@@ -74,10 +75,10 @@ public class JFreeChartEditorInputHandleFactory implements IElementFactory {
 		IMemento[] inputMementos = memento.getChildren(INPUT_ELEMENT_KEY);
 		for (IMemento subMemento : inputMementos){
 			String elementName = subMemento.getString(INPUT_NAME_KEY);
-			Object sinkFactory = factoryConnector.getAdapter(elementName, IElementFactory.class);
-			IDataSink createdSink = (IDataSink) ((IElementFactory) sinkFactory)
+			Object inputFactory = factoryConnector.getAdapter(elementName, IElementFactory.class);
+			IVisualizationInput createdInput = (IVisualizationInput) ((IElementFactory) inputFactory)
 			.createElement(subMemento);
-			handle.addInput(createdSink);
+			handle.addInput(createdInput);
 		}
 		return handle;
 	}

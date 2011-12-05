@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 
 /**
  * @author Dominik Ernst
@@ -20,7 +21,7 @@ public class DefaultSequence {
 	private String inputMetricUUID;
 	private String inputDescription;
 	private ArrayList<HashMap<String, Object>> sequenceProperties;
-	private IDataSink visualization;
+	private IVisualizationInput visualization;
 	private HashMap<String, Object> visualizationProperties;
 
 	public DefaultSequence() {
@@ -92,14 +93,14 @@ public class DefaultSequence {
 	/**
 	 * @param visualization the visualization to set
 	 */
-	public void setVisualization(IDataSink visualization) {
+	public void setVisualization(IVisualizationInput visualization) {
 		this.visualization = visualization;
 	}
 
 	/**
 	 * @return the visualization
 	 */
-	public IDataSink getVisualization() {
+	public IVisualizationInput getVisualization() {
 		return visualization;
 	}
 

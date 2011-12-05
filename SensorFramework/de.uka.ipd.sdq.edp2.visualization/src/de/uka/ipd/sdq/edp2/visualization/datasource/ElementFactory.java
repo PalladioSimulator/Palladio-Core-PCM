@@ -27,7 +27,7 @@ public abstract class ElementFactory implements IElementFactory {
 	/**
 	 * A central {@link FactoryConnector}.
 	 */
-	protected final static FactoryConnector factoryConnector = new FactoryConnector();
+	protected final static FactoryConnector factoryConnector = FactoryConnector.getInstance();
 	/**
 	 * The name of the source element under which an elements' source is
 	 * persisted in an {@link IMemento}.

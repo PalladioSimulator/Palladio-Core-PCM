@@ -281,4 +281,10 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		return data;
 	}
 
+	@Override
+	public HistogramEditorInput createCopyForSource(AbstractDataSource source) {
+		HistogramEditorInput copy = new HistogramEditorInput(source);
+		return copy;
+	}
+
 }

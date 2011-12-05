@@ -38,8 +38,11 @@ import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 
 /**
- * @author Dominik Ernst TODO change such that it allows to select from a list
- *         of wizards see {@link WizardListSelectionPage}
+ * Implementation of a {@link WizardPage} that contains a list of visualizations
+ * which are able to display the selected data. The list contains both the basic defaults, 
+ * i.e. registered visualizations, and defaults as described by extensions to the extension point
+ * <de.uka.ipd.sdq.edp2.visualization.defaultSequences>.
+ * @author Dominik Ernst
  */
 public class SelectDefaultCombinationsPage extends WizardPage implements
 		ISelectionChangedListener {

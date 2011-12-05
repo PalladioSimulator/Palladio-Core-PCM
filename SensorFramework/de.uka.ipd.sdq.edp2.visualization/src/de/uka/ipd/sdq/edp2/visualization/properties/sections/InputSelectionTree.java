@@ -15,7 +15,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.jface.viewers.ViewerSorter;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandle;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.editors.EditorInputContentProvider;
 
 public class InputSelectionTree extends Composite {
@@ -49,7 +49,7 @@ public class InputSelectionTree extends Composite {
 	 * @param style
 	 */
 	public InputSelectionTree(Composite parent, int style,
-			IEditorInputHandle inputHandler) {
+			IVisualizationInputHandle inputHandler) {
 		super(parent, SWT.BORDER);
 		setLayout(new GridLayout(1, false));
 		

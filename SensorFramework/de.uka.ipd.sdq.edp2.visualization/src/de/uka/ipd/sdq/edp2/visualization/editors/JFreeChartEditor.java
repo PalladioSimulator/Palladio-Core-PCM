@@ -11,7 +11,7 @@ import org.jfree.chart.event.ChartChangeListener;
 import org.jfree.experimental.chart.swt.ChartComposite;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandle;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 
 /**
  * Implementation of an {@link EditorPart}, which is responsible for showing
@@ -56,6 +56,7 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 		chart = getEditorInputHandle().createChart();
 		chartContainer = new ChartComposite(parent, SWT.NONE, chart, true);
 		getSite().setSelectionProvider(createSelectionProvider());
+		addDropSupport(parent);
 	}
 	
 	/**

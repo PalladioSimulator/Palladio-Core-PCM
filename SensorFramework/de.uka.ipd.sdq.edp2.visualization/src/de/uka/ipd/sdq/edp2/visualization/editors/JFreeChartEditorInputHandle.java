@@ -23,14 +23,15 @@ import org.jfree.data.xy.DefaultXYDataset;
 import org.jfree.data.xy.XYDataset;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandle;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 
 /**
- * Implementation of an {@link IEditorInputHandle} for {@link JFreeChartEditorInput}s.
+ * Implementation of an {@link IVisualizationInputHandle} for {@link JFreeChartEditorInput}s.
  * @author Dominik Ernst
  * 
  */
-public class JFreeChartEditorInputHandle implements IEditorInputHandle {
+public class JFreeChartEditorInputHandle implements IVisualizationInputHandle {
 
 	private ArrayList<JFreeChartEditorInput> inputs;
 	private XYDataset dataset;
@@ -48,7 +49,7 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	/**
 	 * Constructor with a first input.
 	 */
-	public JFreeChartEditorInputHandle(IDataSink firstInput) {
+	public JFreeChartEditorInputHandle(IVisualizationInput firstInput) {
 		inputs = new ArrayList<JFreeChartEditorInput>();
 		addInput(firstInput);
 	}
@@ -61,7 +62,7 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	 * .ipd.sdq.edp2.visualization.IDataSink)
 	 */
 	@Override
-	public boolean addInput(IDataSink newInput) {
+	public boolean addInput(IVisualizationInput newInput) {
 		// if it is the first input, the <newInput> is added in any case.
 		inputs.add((JFreeChartEditorInput) newInput);
 		return true;
@@ -115,7 +116,7 @@ public class JFreeChartEditorInputHandle implements IEditorInputHandle {
 	 * uka.ipd.sdq.edp2.visualization.IDataSink)
 	 */
 	@Override
-	public boolean removeInput(IDataSink removedInput) {
+	public boolean removeInput(IVisualizationInput removedInput) {
 		// TODO Auto-generated method stub
 		return false;
 	}

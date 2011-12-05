@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2SourceFactory;
  */
 public class FactoryConnector implements IAdapterFactory {
 
+	private static FactoryConnector instance = new FactoryConnector();
 	/**
 	 * Logger for this class.
 	 */
@@ -49,6 +50,16 @@ public class FactoryConnector implements IAdapterFactory {
 	 */
 	private final static String FACTORY_ATTRIBUTE = "factory";
 
+	private static HashMap<AbstractAdapter, IElementFactory> adapterFactoryMap;
+	private static HashMap<AbstractFilter, IElementFactory> filterFactoryMap;
+	private static HashMap<IDataSink, IElementFactory> sinkFactoryMap;
+	
+	private FactoryConnector(){
+		adapterFactoryMap = getAdapterFactoryMap();
+		filterFactoryMap = getFilterFactoryMap();
+		sinkFactoryMap = getSinkFactoryMap();
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -58,10 +69,6 @@ public class FactoryConnector implements IAdapterFactory {
 	 */
 	@Override
 	public Object getAdapter(Object adaptableObject, Class adapterType) {
-		
-		HashMap<AbstractAdapter, IElementFactory> adapterFactoryMap = getAdapterFactoryMap();
-		HashMap<AbstractFilter, IElementFactory> filterFactoryMap = getFilterFactoryMap();
-		HashMap<IDataSink, IElementFactory> sinkFactoryMap = getSinkFactoryMap();
 		
 		IElementFactory resultingFactory = null;
 		
@@ -104,7 +111,7 @@ public class FactoryConnector implements IAdapterFactory {
 	 * 
 	 * @return a map of {@link AbstractFilter} - {@link IElementFactory} combinations.
 	 */
-	public HashMap<AbstractFilter, IElementFactory> getFilterFactoryMap() {
+	private static HashMap<AbstractFilter, IElementFactory> getFilterFactoryMap() {
 		HashMap<AbstractFilter, IElementFactory> filterFactoryMap = new HashMap<AbstractFilter, IElementFactory>();
 		// checks the extension registry for all registered adapters and adds
 		// them to the list
@@ -136,7 +143,7 @@ public class FactoryConnector implements IAdapterFactory {
 	 * 
 	 * @return a map of {@link AbstractAdapter} - {@link IElementFactory} combinations.
 	 */
-	public HashMap<AbstractAdapter, IElementFactory> getAdapterFactoryMap() {
+	private static HashMap<AbstractAdapter, IElementFactory> getAdapterFactoryMap() {
 		HashMap<AbstractAdapter, IElementFactory> adapterFactoryMap = new HashMap<AbstractAdapter, IElementFactory>();
 		// checks the extension registry for all registered adapters and adds
 		// them to the list
@@ -168,7 +175,7 @@ public class FactoryConnector implements IAdapterFactory {
 	 * 
 	 * @return a map of {@link IDataSink} - {@link IElementFactory} combinations.
 	 */
-	public HashMap<IDataSink, IElementFactory> getSinkFactoryMap() {
+	private static HashMap<IDataSink, IElementFactory> getSinkFactoryMap() {
 		HashMap<IDataSink, IElementFactory> sinkFactoryMap = new HashMap<IDataSink, IElementFactory>();
 		// checks the extension registry for all registered adapters and adds
 		// them to the list
@@ -205,5 +212,12 @@ public class FactoryConnector implements IAdapterFactory {
 		supportedAdapters[0] = IElementFactory.class;
 
 		return supportedAdapters;
+	}
+
+	/**
+	 * @return the instance
+	 */
+	public static FactoryConnector getInstance() {
+		return instance;
 	}
 }

@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
  * It has in particular a reference on the {@link DataSeries} attributes of some
  * experiment data. The only implementing classes of this interface should be {@link AbstractTransformation}
  * and {@link EDP2Source}. All other classes should extend {@link AbstractTransformation} or implement
- * {@link IDataSink} of they represent a transformation or an editor input, respectively.
+ * {@link IVisualizationInput} if they represent a transformation or an editor input, respectively.
  * 
  * @author Dominik Ernst, Roland Richter
  */

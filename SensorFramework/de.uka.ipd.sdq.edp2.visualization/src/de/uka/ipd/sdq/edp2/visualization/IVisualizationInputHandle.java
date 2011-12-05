@@ -18,28 +18,28 @@ import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
  * @author Dominik Ernst
  *
  */
-public interface IEditorInputHandle extends IEditorInput, Observer, ISelection, IPersistableElement {
+public interface IVisualizationInputHandle extends IEditorInput, Observer, ISelection, IPersistableElement {
 
 	/**
 	 * Method to retrieve all contained {@link IDataSink}s. These are intended to be displayed by the same
 	 * {@link IVisualization}.
 	 * @return the contained {@link IDataSink}s
 	 */
-	public ArrayList<? extends IDataSink> getInputs();
+	public ArrayList<? extends IVisualizationInput> getInputs();
 	
 	/**
-	 * Adds an {@link IDataSink} to this {@link IEditorInputHandle}'s list of inputs.
+	 * Adds an {@link IDataSink} to this {@link IVisualizationInputHandle}'s list of inputs.
 	 * @param newInput the {@link IDataSink} to add.
 	 * @return <true> if the {@link IDataSink} could be added successfully.
 	 */
-	public boolean addInput(IDataSink newInput);
+	public boolean addInput(IVisualizationInput newInput);
 	
 	/**
-	 * Removes an {@link IDataSink} from this {@link IEditorInputHandle}'s list of inputs.
+	 * Removes an {@link IDataSink} from this {@link IVisualizationInputHandle}'s list of inputs.
 	 * @param removedInput the {@link IDataSink} to add.
 	 * @return <true> if the {@link IDataSink} could found and removed.
 	 */
-	public boolean removeInput(IDataSink removedInput);
+	public boolean removeInput(IVisualizationInput removedInput);
 	
 	/**
 	 * 
@@ -54,7 +54,7 @@ public interface IEditorInputHandle extends IEditorInput, Observer, ISelection, 
 	public Object getInputData();
 	
 	/**
-	 * Method, which returns <true> if the {@link IEditorInputHandle} and its corresponding {@link AbstractEditor}
+	 * Method, which returns <true> if the {@link IVisualizationInputHandle} and its corresponding {@link AbstractEditor}
 	 * are able to display multiple {@link IDataSink} objects.
 	 * @return <true> if multiple inputs are supported.
 	 */

@@ -100,7 +100,6 @@ public abstract class AbstractTransformation extends AbstractDataSource implemen
 	@Override
 	public void setInitializationData(IConfigurationElement config,
 			String propertyName, Object data) throws CoreException {
-		// TODO Auto-generated method stub
 		// as long as it has no relevance, the empty method is added here to
 		// avoid unnecessary implementation
 		// or misunderstandings
@@ -118,20 +117,4 @@ public abstract class AbstractTransformation extends AbstractDataSource implemen
 				&& newProperties.get(key) != null);
 	}
 	
-	/*
-	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getDataTypeInstance()
-	 */
-	@Override
-	public Object getDataTypeInstance() {
-		//transformations are no editor inputs, thus they cannot be displayed.
-		return null;
-	}
-	
-	
-	public Object getData(){
-		//transformations are no editor inputs, thus they cannot be displayed.
-		return null;
-	}
-
 }

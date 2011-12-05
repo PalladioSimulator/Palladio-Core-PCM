@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandle;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 /**
  * 
  * @author Dominik Ernst
@@ -75,7 +75,7 @@ public class StatisticsText implements de.uka.ipd.sdq.edp2.visualization.IVisual
 	}
 
 	@Override
-	public IEditorInputHandle getEditorInputHandle() {
+	public IVisualizationInputHandle getEditorInputHandle() {
 		// TODO Auto-generated method stub
 		return null;
 	}

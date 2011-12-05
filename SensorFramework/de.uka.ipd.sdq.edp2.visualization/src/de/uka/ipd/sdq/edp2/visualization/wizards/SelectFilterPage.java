@@ -39,8 +39,6 @@ import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 
 /**
  * @author Dominik Ernst
- * TODO change such that it allows to select from a list of
- *         wizards see {@link WizardListSelectionPage}
  */
 public class SelectFilterPage extends WizardPage implements
 		ISelectionChangedListener {

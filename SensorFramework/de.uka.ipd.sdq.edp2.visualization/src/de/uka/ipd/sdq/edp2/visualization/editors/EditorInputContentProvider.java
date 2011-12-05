@@ -10,7 +10,7 @@ import org.eclipse.jface.viewers.Viewer;
 
 import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IEditorInputHandle;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 
 /**
  * @author Dominik Ernst
@@ -44,7 +44,7 @@ public class EditorInputContentProvider implements ITreeContentProvider {
 
 	@Override
 	public Object[] getElements(Object inputElement) {
-		return ((IEditorInputHandle)inputElement).getInputs().toArray();
+		return ((IVisualizationInputHandle)inputElement).getInputs().toArray();
 	}
 
 	@Override

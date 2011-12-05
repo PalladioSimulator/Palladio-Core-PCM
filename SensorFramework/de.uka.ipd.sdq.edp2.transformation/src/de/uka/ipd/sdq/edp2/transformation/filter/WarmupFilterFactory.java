@@ -35,7 +35,7 @@ public class WarmupFilterFactory extends ElementFactory{
 		//properties are set for the restored element
 		filter.setProperties(restoredProperties);
 		
-		FactoryConnector factoryConnector = new FactoryConnector();
+		FactoryConnector factoryConnector = FactoryConnector.getInstance();
 		Object sourceFactory = factoryConnector.getAdapter(memento.getString(SOURCE_KEY),
 				IElementFactory.class);
 		
