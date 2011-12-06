@@ -52,7 +52,7 @@
 	try {
 	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
 	«IF InternalAction.isInstance(call) || ExternalCallAction.isInstance(call)»
-	«EXPAND HandleRemoteExternalCall(prefix) FOR this»
+	«EXPAND m2t_transforms::calls::HandleRemoteExternalCallTM(prefix) FOR this»
 	«ENDIF»
 	«IF ExternalCallAction.isInstance(call)»
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR this.externalCallActionDescription(call)»
@@ -157,7 +157,7 @@
 	«EXPAND GenericPostCall(call,outParameterUsages) FOR this»
 	«IF ExternalCallAction.isInstance(call)»
 	
-		«EXPAND HandleRemoteExternalCall(prefix) FOR this»
+		«EXPAND m2t_transforms::calls::HandleRemoteExternalCallTM(prefix) FOR this»
 		
     	} // end of try block from the pre cal failure handling section
     	«LET (ExternalCallAction)call AS externalCall»
@@ -203,7 +203,7 @@
 «DEFINE PostCall(Object call, String prefix) FOR InfrastructureSignature»
 	«EXPAND GenericPostCall(call) FOR this»
 	«IF InternalAction.isInstance(call)»
-		«EXPAND HandleRemoteExternalCall(prefix) FOR this»
+		«EXPAND m2t_transforms::calls::HandleRemoteExternalCallTM(prefix) FOR this»
 	«ENDIF»
 «ENDDEFINE»
 

@@ -217,8 +217,14 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractCl
         //FIXME: declare and initialise sensors  
 
 		ctx.getStack().createAndPushNewStackFrame();
-		de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache
-				.initialiseStoExCache(new de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator());
+		
+		// de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache
+		//		.initialiseStoExCache(new de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator());
+		
+		de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory probFunctionFactory = de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl.getInstance();
+		
+		probFunctionFactory.setRandomGenerator(new de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator());
+		de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache.initialiseStoExCache(probFunctionFactory);
 
 «ENDDEFINE»
 
