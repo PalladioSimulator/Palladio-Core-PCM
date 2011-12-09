@@ -78,7 +78,7 @@
    <feature url="features/de.uka.ipd.sdq.simulation.abstractsimengine.feature.source_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.simulation.abstractsimengine.feature.source" version="3.1.0.qualifier">
       <category name="de.uka.ipd.sdq.pcm.source"/>
    </feature>
-   <feature url="features/de.uka.ipd.sdq.simulation.abstractsimengine.ssj.feature.source_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.simulation.abstractsimengine.ssj.feature.source" version="3.1.0.qualifier">
+   <feature url="features/de.uka.ipd.sdq.simulation.abstractsimengine.ssj.feature.source_1.0.0.qualifier.jar" id="de.uka.ipd.sdq.simulation.abstractsimengine.ssj.feature.source" version="1.0.0.qualifier">
       <category name="de.uka.ipd.sdq.other"/>
    </feature>
    <feature url="features/de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature_1.0.0.qualifier.jar" id="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature" version="1.0.0.qualifier">
@@ -93,10 +93,10 @@
    <feature url="features/de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature.source_1.0.0.qualifier.jar" id="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature.source" version="1.0.0.qualifier">
       <category name="de.uka.ipd.sdq.pcm.source"/>
    </feature>
-   <feature url="features/de.uka.ipd.sdq.pcm.feature_3.2.0.201112011849.jar" id="de.uka.ipd.sdq.pcm.feature" version="3.2.0.201112011849">
+   <feature url="features/de.uka.ipd.sdq.pcm.feature_3.2.0.qualifier.jar" id="de.uka.ipd.sdq.pcm.feature" version="3.2.0.qualifier">
       <category name="de.uka.ipd.sdq.pcm"/>
    </feature>
-   <feature url="features/de.uka.ipd.sdq.pcm.feature.source_3.2.0.201112011849.jar" id="de.uka.ipd.sdq.pcm.feature.source" version="3.2.0.201112011849">
+   <feature url="features/de.uka.ipd.sdq.pcm.feature.source_3.2.0.qualifier.jar" id="de.uka.ipd.sdq.pcm.feature.source" version="3.2.0.qualifier">
       <category name="de.uka.ipd.sdq.pcm.source"/>
    </feature>
    <feature url="features/de.uka.ipd.sdq.probespec.feature_1.0.0.qualifier.jar" id="de.uka.ipd.sdq.probespec.feature" version="1.0.0.qualifier">
