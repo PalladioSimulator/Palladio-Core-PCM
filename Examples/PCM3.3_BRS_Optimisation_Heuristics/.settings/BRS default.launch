@@ -77,7 +77,7 @@
 <stringAttribute key="costFile" value="platform:/resource/BRS Optimisation Tactics/brs.cost"/>
 <stringAttribute key="crossover rate" value="0.5"/>
 <intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="2"/>
-<stringAttribute key="designDecisionFile" value="New_configuration (1).designdecision"/>
+<stringAttribute key="designDecisionFile" value="platform:/resource/BRS Optimisation Tactics/brs.designdecision"/>
 <booleanAttribute key="designDecisionsOnly" value="false"/>
 <stringAttribute key="eventMiddlewareRepositoryFile" value="pathmap://PCM_MODELS/default_event_middleware.repository"/>
 <stringAttribute key="experimentRun" value="MyRun"/>
