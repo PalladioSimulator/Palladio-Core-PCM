@@ -24,8 +24,8 @@ public class ExpDistFunction extends AbstractProbDistFunction {
 	}
 
 	public Object evaluate(List<Object> parameters) {
-		double mean = NumberConverter.toDouble(parameters.get(0));
-		IExponentialDistribution distribution = factory.createExponentialDistribution(1.0/mean);
+		double lambda = NumberConverter.toDouble(parameters.get(0));
+		IExponentialDistribution distribution = factory.createExponentialDistribution(lambda);
 		return distribution.inverseF(randomGen.random());
 	}
 
