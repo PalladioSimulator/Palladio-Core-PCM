@@ -105,7 +105,7 @@
 <booleanAttribute key="numberOfEvaluatedSystemStatesEnabled" value="false"/>
 <intAttribute key="numberOfExactDecimalPlaces" value="1"/>
 <booleanAttribute key="numberOfExactDecimalPlacesEnabled" value="false"/>
-<booleanAttribute key="optimisationOnly" value="false"/>
+<booleanAttribute key="optimisationOnly" value="true"/>
 <stringAttribute key="outpath" value="de.uka.ipd.sdq.temporary"/>
 <stringAttribute key="output" value="XML Output"/>
 <stringAttribute key="persistenceFramework" value="SensorFramework"/>
