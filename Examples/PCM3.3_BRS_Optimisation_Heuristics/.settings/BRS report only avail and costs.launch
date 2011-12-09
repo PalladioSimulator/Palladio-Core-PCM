@@ -42,6 +42,7 @@
 <booleanAttribute key="Stop on initial failure" value="false"/>
 <intAttribute key="Time in minutes" value="1"/>
 <stringAttribute key="Type of the measured time" value="USER_TIME"/>
+<booleanAttribute key="Use Realocation for Link Usage Tactic" value="false"/>
 <booleanAttribute key="Use Termination Criteria" value="true"/>
 <booleanAttribute key="Use antipattern knowledge" value="false"/>
 <booleanAttribute key="Use processing rate heuristic" value="false"/>
@@ -58,9 +59,9 @@
 <stringAttribute key="analysisMethod_r_iViqCrEd-s9uTaURbrKA" value="Cost Analysis"/>
 <stringAttribute key="analysisMethod_r_iVjaCrEd-s9uTaURbrKA" value="Reliability Solver Analysis"/>
 <stringAttribute key="analysisMethod_r_iVkKCrEd-s9uTaURbrKA" value="none"/>
-<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.cost" value="Cost Analysis"/>
-<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.performance" value="LQN Solver Analysis"/>
-<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.reliability" value="Reliability Solver Analysis"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.cost" value="none"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.performance" value="none"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.reliability" value="none"/>
 <stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.security" value="none"/>
 <stringAttribute key="archiveCandidates" value=""/>
 <stringAttribute key="blocks" value=""/>
@@ -141,6 +142,7 @@
 <booleanAttribute key="store results as EMF" value="false"/>
 <stringAttribute key="strengthenResource_increaseFactor" value="1.1"/>
 <stringAttribute key="strengthenResource_threshold" value="0.7"/>
+<stringAttribute key="tactics probability when mating" value="0.6"/>
 <stringAttribute key="temporaryModelsPath" value=""/>
 <stringAttribute key="underCoeff" value="0.5"/>
 <stringAttribute key="usageFile" value="D:\code\Palladio.Examples_trunk\PCM3.3_BRS_Optimisation_Heuristics\reportOnly.usagemodel"/>
