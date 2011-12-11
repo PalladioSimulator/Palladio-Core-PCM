@@ -46,5 +46,6 @@ Export-Package: de.uka.ipd.sdq.pcmsolver,
  de.uka.ipd.sdq.pcmsolver.visitors,
  de.uka.ipd.sdq.pcmsolver.visualisation
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipse.ui.views.navigator
+Import-Package: org.eclipse.ui.part,
+ org.eclipse.ui.views.navigator
 Bundle-Vendor: sdq.ipd.uka.de

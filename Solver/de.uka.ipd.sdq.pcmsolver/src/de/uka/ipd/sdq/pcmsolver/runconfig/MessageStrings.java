@@ -10,6 +10,7 @@ public class MessageStrings {
 	public static final String MARKOV_STATISTICS = "markovStatistics";
 	public static final String SINGLE_RESULTS = "singleResults";
 
+	public static final String LQN_OUTPUT_HTML = "HTML Output";
 	public static final String LQN_OUTPUT_HUMAN = "Human Readable Output";
 	public static final String LQN_OUTPUT_XML = "XML Output";
 

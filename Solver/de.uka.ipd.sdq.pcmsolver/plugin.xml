@@ -23,4 +23,13 @@
 	        id="org.eclipse.jdt.debug.ui.launchConfigurationTabGroup.PCMSolver">
 	    </launchConfigurationTabGroup>
 	</extension>
+   <extension point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.pcmsolver.visualisation.LQNResultEditor"
+               extensions="lqnresult"
+               icon="icons/favicon.ico"
+               id="de.uka.ipd.sdq.pcmsolver.LQNResultEditor"
+               name="LQNS Analysis Results">
+         </editor>
+   </extension>
 </plugin>

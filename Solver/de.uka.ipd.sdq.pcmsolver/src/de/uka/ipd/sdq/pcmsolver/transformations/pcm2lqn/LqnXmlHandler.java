@@ -12,6 +12,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMIResource;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import LqnCore.LqnModelType;
@@ -34,11 +36,14 @@ public class LqnXmlHandler {
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
 				.put(Resource.Factory.Registry.DEFAULT_EXTENSION,
 						new XMIResourceFactoryImpl());
-
+		
 		URI fileURI = URI.createFileURI(new File(fileName).getAbsolutePath());
 		
-		Resource resource = resourceSet.createResource(fileURI);
+		//Resource resource = resourceSet.createResource(fileURI);
+		XMIResource resource = (XMIResource) resourceSet.createResource(fileURI);
 		resource.getContents().add(lqnModel);
+		
+		//resource.getDefaultSaveOptions().put(XMLResource.OPTION_KEEP_DEFAULT_CONTENT, true);
 		
 		try {
 			resource.save(Collections.EMPTY_MAP);

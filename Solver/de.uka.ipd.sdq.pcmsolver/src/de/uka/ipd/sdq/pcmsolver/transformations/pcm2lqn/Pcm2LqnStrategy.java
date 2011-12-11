@@ -13,6 +13,12 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+
+import LqnCore.LqnModelType;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
@@ -21,6 +27,8 @@ import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.transformations.SolverStrategy;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
+import de.uka.ipd.sdq.pcmsolver.visualisation.LQNHtmlResultGenerator;
+import de.uka.ipd.sdq.pcmsolver.visualisation.LQNResultEditorInput;
 
 /**
  * This is an excerpt of Heiko's dissertation (see below for link)
@@ -161,13 +169,15 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 						options += config.getPragmas();
 					}
 				}
-				if (lqnsOutputType.equals(MessageStrings.LQN_OUTPUT_HUMAN)) {
+				if (lqnsOutputType.equals(MessageStrings.LQN_OUTPUT_HUMAN)
+					) {
 					inputFile = filenameLQN;
 					resultFile = filenameResultHumanReadable;
 					command = solverProgram
 							+ options
 							+ " -o" + resultFile + " " + inputFile;
-				} else if (lqnsOutputType.equals(MessageStrings.LQN_OUTPUT_XML)) {
+				} else if (lqnsOutputType.equals(MessageStrings.LQN_OUTPUT_XML)
+						|| lqnsOutputType.equals(MessageStrings.LQN_OUTPUT_HTML)) {
 					// The lqns produces XML output when the input is as well in
 					// XML
 					inputFile = filenameResultXML;
@@ -191,7 +201,8 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 					options += " -P stop-on-message-loss=false";
 				}
 				
-				if (lqnSimOutputType.equals(MessageStrings.LQN_OUTPUT_HUMAN)) {
+				if (lqnSimOutputType.equals(MessageStrings.LQN_OUTPUT_HUMAN)
+					|| lqnSimOutputType.equals(MessageStrings.LQN_OUTPUT_HTML)) {
 					inputFile = filenameLQN;
 					resultFile = filenameResultHumanReadable;
 					command = solverProgram
@@ -243,6 +254,11 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 		/* return if results are available or throw exception. */
 		if (exitVal == LQNS_RETURN_SUCCESS) {
 			logger.warn("Analysis Result has been written to: " + resultFile);
+			if (lqnsOutputType.equals(MessageStrings.LQN_OUTPUT_HTML)){
+				//showOutput(resultFile);
+				LQNHtmlResultGenerator result = new LQNHtmlResultGenerator(resultFile);
+				result.display();
+			}
 			
 		} else if (exitVal == LQNS_RETURN_MODEL_FAILED_TO_CONVERGE){
 			logger.error(solverProgram + " exited with " + exitVal
@@ -307,8 +323,34 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 
 		String content = new String(b);
 
-		ResultWindow rw = new ResultWindow(content);
-		rw.open();
+		final String htmlText = getHtmlForLqnResult(content);
+		
+//		ResultWindow rw = new ResultWindow(content);
+//		rw.open();
+
+		Display.getDefault().asyncExec(new Runnable() {
+			public void run() {
+				IWorkbenchPage page = PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getActivePage();
+				if (page != null) {
+					try {
+						page.openEditor(new LQNResultEditorInput(htmlText),
+								"de.uka.ipd.sdq.pcmsolver.LQNResultEditor");
+					} catch (PartInitException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		
+	}
+
+	private String getHtmlForLqnResult(String lqnResult) {
+		String htmlText = "<html><head><title>LQN Results</title></head>" +
+				"<body><pre>" +
+				lqnResult +
+				"</pre></body></html>";
+		return htmlText;
 	}
 
 	public void storeTransformedModel(String fileName) {

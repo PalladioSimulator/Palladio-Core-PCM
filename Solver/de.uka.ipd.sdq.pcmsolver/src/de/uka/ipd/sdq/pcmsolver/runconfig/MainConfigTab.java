@@ -190,6 +190,7 @@ public class MainConfigTab extends FileNamesInputTab {
 		
 		comboLqsimOutput = new Combo(group, SWT.READ_ONLY);
 		comboLqsimOutput.setItems (new String [] {
+				MessageStrings.LQN_OUTPUT_HTML,
 				MessageStrings.LQN_OUTPUT_HUMAN,
 				MessageStrings.LQN_OUTPUT_XML
 				});
@@ -306,6 +307,7 @@ public class MainConfigTab extends FileNamesInputTab {
 		
 		comboLqnsOutput = new Combo(group, SWT.READ_ONLY);
 		comboLqnsOutput.setItems (new String [] {
+				MessageStrings.LQN_OUTPUT_HTML,
 				MessageStrings.LQN_OUTPUT_HUMAN,
 				MessageStrings.LQN_OUTPUT_XML
 				});
