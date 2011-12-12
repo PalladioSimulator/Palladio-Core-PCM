@@ -35,4 +35,6 @@ public class DatasourceDropTargetAdapter extends DropTargetAdapter {
 			inputHandle.addInput(firstInput.createTransformationsChainCopy(datasource));
 		}
 	}
+	
+	
 }

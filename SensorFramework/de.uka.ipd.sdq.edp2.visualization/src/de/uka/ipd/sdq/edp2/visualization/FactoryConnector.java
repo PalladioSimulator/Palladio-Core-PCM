@@ -23,7 +23,10 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2SourceFactory;
  */
 public class FactoryConnector implements IAdapterFactory {
 
-	private static FactoryConnector instance = new FactoryConnector();
+	/**
+	 * Singleton instance of {@link FactoryConnector}.
+	 */
+	public static FactoryConnector instance = new FactoryConnector();
 	/**
 	 * Logger for this class.
 	 */
@@ -215,7 +218,7 @@ public class FactoryConnector implements IAdapterFactory {
 	}
 
 	/**
-	 * @return the instance
+	 * @return the singleton instance
 	 */
 	public static FactoryConnector getInstance() {
 		return instance;

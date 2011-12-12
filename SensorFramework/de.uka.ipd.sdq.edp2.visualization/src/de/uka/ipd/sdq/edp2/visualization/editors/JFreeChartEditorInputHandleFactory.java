@@ -42,10 +42,6 @@ public class JFreeChartEditorInputHandleFactory implements IElementFactory {
 	 */
 	protected final static String INPUT_ELEMENT_KEY = "InputElement";
 	/**
-	 * The attribute under which the size of the input array is persisted.
-	 */
-	protected final static String INPUT_SIZE_KEY = "inputSize";
-	/**
 	 * The handle's name as a persisted element in the XML.
 	 */
 	protected final static String ELEMENT_NAME = "JFreeChartEditorInputHandle";
@@ -53,10 +49,6 @@ public class JFreeChartEditorInputHandleFactory implements IElementFactory {
 	 * Key for retrieving an element's name from its properties.
 	 */
 	protected final static String ELEMENT_KEY = "elementName";
-	/**
-	 * A {@link FactoryConnector}.
-	 */
-	protected final static FactoryConnector factoryConnector = FactoryConnector.getInstance();
 	/**
 	 * @return this factory's ID.
 	 */
@@ -71,11 +63,10 @@ public class JFreeChartEditorInputHandleFactory implements IElementFactory {
 	public IAdaptable createElement(IMemento memento) {
 		JFreeChartEditorInputHandle handle = new JFreeChartEditorInputHandle();
 		memento = memento.getChild(ELEMENT_NAME);
-		int size = memento.getInteger(INPUT_SIZE_KEY);
 		IMemento[] inputMementos = memento.getChildren(INPUT_ELEMENT_KEY);
 		for (IMemento subMemento : inputMementos){
 			String elementName = subMemento.getString(INPUT_NAME_KEY);
-			Object inputFactory = factoryConnector.getAdapter(elementName, IElementFactory.class);
+			Object inputFactory = FactoryConnector.instance.getAdapter(elementName, IElementFactory.class);
 			IVisualizationInput createdInput = (IVisualizationInput) ((IElementFactory) inputFactory)
 			.createElement(subMemento);
 			handle.addInput(createdInput);
@@ -85,7 +76,6 @@ public class JFreeChartEditorInputHandleFactory implements IElementFactory {
 	
 	public static void saveState(IMemento memento, JFreeChartEditorInputHandle inputHandle) {
 		memento = memento.createChild(ELEMENT_NAME);
-		memento.putInteger(INPUT_SIZE_KEY, inputHandle.getInputsSize());
 		for (IDataSink input : inputHandle.getInputs()) {
 			IMemento subMemento = memento.createChild(INPUT_ELEMENT_KEY);
 			subMemento.putString(INPUT_NAME_KEY, input.getClass().getCanonicalName());

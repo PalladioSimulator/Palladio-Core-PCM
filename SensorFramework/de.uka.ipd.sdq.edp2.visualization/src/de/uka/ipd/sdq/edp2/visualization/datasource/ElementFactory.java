@@ -25,10 +25,6 @@ public abstract class ElementFactory implements IElementFactory {
 	private static Logger logger = Logger.getLogger(ElementFactory.class
 			.getCanonicalName());
 	/**
-	 * A central {@link FactoryConnector}.
-	 */
-	protected final static FactoryConnector factoryConnector = FactoryConnector.getInstance();
-	/**
 	 * The name of the source element under which an elements' source is
 	 * persisted in an {@link IMemento}.
 	 */
@@ -96,7 +92,8 @@ public abstract class ElementFactory implements IElementFactory {
 	 */
 	protected static void overrideFromMemento(IMemento memento,
 			HashMap<String, Object> propertiesToOverride) {
-		
+		//don't replace the element name, it is not persisted and shouldn't be altered anyways
+		propertiesToOverride.remove(ELEMENT_KEY);
 		for (Object key : propertiesToOverride.keySet()) {
 			propertiesToOverride.put(key.toString(), memento.getString(key
 					.toString()));

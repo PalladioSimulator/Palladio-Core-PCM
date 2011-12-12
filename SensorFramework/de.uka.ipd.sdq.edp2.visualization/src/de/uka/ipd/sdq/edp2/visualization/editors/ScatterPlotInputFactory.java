@@ -49,8 +49,7 @@ public class ScatterPlotInputFactory extends ElementFactory {
 		//properties are set for the restored element
 		scatterPlotInput.setProperties(restoredProperties);
 		
-		FactoryConnector factoryConnector = FactoryConnector.getInstance();
-		Object sourceFactory = factoryConnector.getAdapter(memento.getString(SOURCE_KEY),
+		Object sourceFactory = FactoryConnector.instance.getAdapter(memento.getString(SOURCE_KEY),
 				IElementFactory.class);
 		
 		AbstractDataSource createdSource = (AbstractDataSource) ((IElementFactory) sourceFactory)

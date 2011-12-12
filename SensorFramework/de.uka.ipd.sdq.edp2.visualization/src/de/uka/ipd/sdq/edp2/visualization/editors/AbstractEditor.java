@@ -21,6 +21,7 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableEditor;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
@@ -223,7 +224,7 @@ public abstract class AbstractEditor extends EditorPart implements
 		DropTarget target = new DropTarget(control, operations);
 
 		Transfer[] transferTypes = new Transfer[] { 
-				LocalSelectionTransfer.getTransfer()
+			LocalSelectionTransfer.getTransfer()
 		};
 		target.setTransfer(transferTypes);
 		target.addDropListener(new DatasourceDropTargetAdapter(

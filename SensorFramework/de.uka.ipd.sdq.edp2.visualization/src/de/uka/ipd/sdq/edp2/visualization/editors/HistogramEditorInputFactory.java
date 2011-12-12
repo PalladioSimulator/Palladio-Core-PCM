@@ -53,7 +53,7 @@ public class HistogramEditorInputFactory extends ElementFactory {
 		//properties are set for the restored element
 		histogramInput.setProperties(restoredProperties);
 		
-		Object sourceFactory = factoryConnector.getAdapter(memento.getString(SOURCE_KEY),
+		Object sourceFactory = FactoryConnector.instance.getAdapter(memento.getString(SOURCE_KEY),
 				IElementFactory.class);
 		
 		AbstractDataSource createdSource = (AbstractDataSource) ((IElementFactory) sourceFactory)
