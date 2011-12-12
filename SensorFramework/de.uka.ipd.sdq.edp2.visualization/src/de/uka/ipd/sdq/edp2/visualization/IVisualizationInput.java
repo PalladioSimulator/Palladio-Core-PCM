@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.edp2.visualization;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  * Interface used to describe elements that are managed by an
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * @author Dominik Ernst
  * 
  */
-public interface IVisualizationInput extends IDataSink {
+public abstract class IVisualizationInput extends Observable implements IDataSink {
 	/**
 	 * Returns a new Instance of the data type, which is required to display the
 	 * data of this {@link IVisualizationInput}.
@@ -19,7 +20,7 @@ public interface IVisualizationInput extends IDataSink {
 	 * @return a new Instance of the data type, which is required to display the
 	 *         data of this {@link IVisualizationInput}.
 	 */
-	Object getDataTypeInstance();
+	public abstract Object getDataTypeInstance();
 
 	/**
 	 * Returns the Data in a Form that they can be wrapped by the type provided
@@ -28,7 +29,7 @@ public interface IVisualizationInput extends IDataSink {
 	 * @return the Data in a Form that they can be wrapped by the type provided
 	 *         in {@link #getDataTypeInstance()}.
 	 */
-	Object getData();
+	public abstract Object getData();
 
 	/**
 	 * Creates a copy of the transformations of this {@link IVisualizationInput}
@@ -42,5 +43,5 @@ public interface IVisualizationInput extends IDataSink {
 	 *            the {@link AbstractDataSource} for which the copy is created
 	 * @return the last element of the copied chain.
 	 */
-	IVisualizationInput createTransformationsChainCopy(AbstractDataSource source);
+	public abstract IVisualizationInput createTransformationsChainCopy(AbstractDataSource source);
 }

@@ -31,8 +31,7 @@ import de.uka.ipd.sdq.edp2.visualization.properties.SpecificChartProperties;
  * @author Dominik Ernst
  * 
  */
-public abstract class JFreeChartEditorInput extends Observable implements
-		IVisualizationInput, ISelection {
+public abstract class JFreeChartEditorInput extends IVisualizationInput implements ISelection {
 
 	/**
 	 * Key under which this class' name is stored in the properties.
@@ -171,12 +170,10 @@ public abstract class JFreeChartEditorInput extends Observable implements
 
 		//create copies of the elements, using the previously created copy as each element's source
 		if (!listOfTransformations.isEmpty()) {
-			AbstractTransformation firstTransformation = listOfTransformations.remove(0);
-			firstTransformation.createCopyForSource(source);
+			AbstractTransformation firstTransformation = (AbstractTransformation) listOfTransformations.remove(0).createCopyForSource(source);
 			AbstractTransformation lastTransformation = firstTransformation;
 			for (AbstractTransformation transformation : listOfTransformations) {
-				lastTransformation.createCopyForSource(transformation);
-				lastTransformation = transformation;
+				lastTransformation = (AbstractTransformation) transformation.createCopyForSource(lastTransformation);
 			}
 			inputSource = lastTransformation;
 		}

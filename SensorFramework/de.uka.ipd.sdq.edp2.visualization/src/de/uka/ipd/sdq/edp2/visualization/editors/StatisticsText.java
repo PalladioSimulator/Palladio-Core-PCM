@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.edp2.visualization.editors;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import javax.measure.Measure;
 
@@ -78,6 +79,12 @@ public class StatisticsText implements de.uka.ipd.sdq.edp2.visualization.IVisual
 	public IVisualizationInputHandle getEditorInputHandle() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

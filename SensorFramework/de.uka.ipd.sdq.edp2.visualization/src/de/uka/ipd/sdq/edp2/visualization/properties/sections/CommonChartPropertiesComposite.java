@@ -5,15 +5,13 @@ import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.wb.swt.layout.grouplayout.GroupLayout;
-import org.eclipse.wb.swt.layout.grouplayout.LayoutStyle;
-import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.GridData;
 
 public class CommonChartPropertiesComposite extends Composite {
 
@@ -37,60 +35,40 @@ public class CommonChartPropertiesComposite extends Composite {
 
 	public CommonChartPropertiesComposite(Composite parent, int style) {
 		super(parent, style);
+		setLayout(new GridLayout(1, false));
 
 		Group grpDescriptions = new Group(this, SWT.NONE);
 		grpDescriptions.setText("Descriptions");
-		GroupLayout groupLayout = new GroupLayout(this);
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(
-				GroupLayout.LEADING).add(
-				GroupLayout.TRAILING,
-				groupLayout.createSequentialGroup().addContainerGap().add(
-						grpDescriptions, GroupLayout.DEFAULT_SIZE, 409,
-						Short.MAX_VALUE).addContainerGap()));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(
-				GroupLayout.LEADING).add(
-				groupLayout.createSequentialGroup().addContainerGap().add(
-						grpDescriptions, GroupLayout.PREFERRED_SIZE, 159,
-						GroupLayout.PREFERRED_SIZE).addContainerGap(138,
-						Short.MAX_VALUE)));
-
-		labelYAxisText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
-		labelYAxisText.setBounds(72, 96, 169, 21);
-
-		labelXAxisText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
-		labelXAxisText.setBounds(72, 62, 169, 21);
-
-		titleText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
-		titleText.setBounds(72, 28, 169, 21);
+		grpDescriptions.setLayout(new GridLayout(3, false));
 
 		Label label_5 = new Label(grpDescriptions, SWT.NONE);
-		label_5.setBounds(4, 31, 26, 15);
 		label_5.setText("Title:");
-
-		Label label = new Label(grpDescriptions, SWT.NONE);
-		label.setBounds(4, 65, 62, 15);
-		label.setText("X-axis label:");
-
-		Label label_1 = new Label(grpDescriptions, SWT.NONE);
-		label_1.setBounds(4, 99, 62, 15);
-		label_1.setText("Y-axis label:");
-
-		showLabelYAxisButton = new Button(grpDescriptions, SWT.CHECK);
-		showLabelYAxisButton.setBounds(247, 98, 112, 16);
-		showLabelYAxisButton.setText("Show Y-axis label");
-
-		showLabelXAxisButton = new Button(grpDescriptions, SWT.CHECK);
-		showLabelXAxisButton.setBounds(247, 64, 112, 16);
-		showLabelXAxisButton.setText("Show X-axis label");
+		
+				titleText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
 
 		showTitleButton = new Button(grpDescriptions, SWT.CHECK);
-		showTitleButton.setBounds(247, 29, 120, 16);
 		showTitleButton.setText("Show diagram title");
+												
+														Label label = new Label(grpDescriptions, SWT.NONE);
+														label.setText("X-axis label:");
+										
+												labelXAxisText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
+								
+										showLabelXAxisButton = new Button(grpDescriptions, SWT.CHECK);
+										showLabelXAxisButton.setText("Show X-axis label");
+						
+								Label label_1 = new Label(grpDescriptions, SWT.NONE);
+								label_1.setText("Y-axis label:");
+				
+						labelYAxisText = new Text(grpDescriptions, SWT.BORDER | SWT.SINGLE);
+		
+				showLabelYAxisButton = new Button(grpDescriptions, SWT.CHECK);
+				showLabelYAxisButton.setText("Show Y-axis label");
 		
 		btnShowLegend = new Button(grpDescriptions, SWT.CHECK);
+		btnShowLegend.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
 		btnShowLegend.setText("Show legend");
-		btnShowLegend.setBounds(4, 133, 112, 16);
-		setLayout(groupLayout);
+		new Label(grpDescriptions, SWT.NONE);
 
 		if (commonChartProperties != null) {
 			m_bindingContext = initDataBindings();

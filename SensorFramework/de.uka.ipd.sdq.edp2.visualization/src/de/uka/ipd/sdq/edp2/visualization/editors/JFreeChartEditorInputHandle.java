@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.edp2.visualization.editors;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import org.eclipse.core.databinding.observable.set.SetChangeEvent;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
@@ -27,11 +28,13 @@ import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 
 /**
- * Implementation of an {@link IVisualizationInputHandle} for {@link JFreeChartEditorInput}s.
+ * Implementation of an {@link IVisualizationInputHandle} for
+ * {@link JFreeChartEditorInput}s.
+ * 
  * @author Dominik Ernst
  * 
  */
-public class JFreeChartEditorInputHandle implements IVisualizationInputHandle {
+public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 
 	private ArrayList<JFreeChartEditorInput> inputs;
 	private XYDataset dataset;
@@ -64,7 +67,15 @@ public class JFreeChartEditorInputHandle implements IVisualizationInputHandle {
 	@Override
 	public boolean addInput(IVisualizationInput newInput) {
 		// if it is the first input, the <newInput> is added in any case.
+		if (inputs.size() == 0) {
+			inputs.add((JFreeChartEditorInput) newInput);
+			newInput.addObserver(this);
+			return true;
+		}
 		inputs.add((JFreeChartEditorInput) newInput);
+		newInput.addObserver(this);
+		setChanged();
+		notifyObservers();
 		return true;
 	}
 
@@ -76,22 +87,24 @@ public class JFreeChartEditorInputHandle implements IVisualizationInputHandle {
 	 */
 	@Override
 	public Object getInputData() {
-		
+
 		dataset = (XYDataset) inputs.get(0).getDataTypeInstance();
-		
+
 		if (dataset instanceof HistogramDataset) {
 			HistogramDataset histogramDataset = (HistogramDataset) dataset;
-			
-			for (int i = 1; i< getInputsSize(); i++){
-				histogramDataset.addSeries(inputs.get(i).getName(), (double[]) inputs.get(i).getData(), Integer
-						.parseInt(inputs.get(i).getProperties().get("numberOfBins")
-								.toString()));
+
+			for (int i = 1; i < getInputsSize(); i++) {
+				histogramDataset.addSeries(inputs.get(i).getName(),
+						(double[]) inputs.get(i).getData(), Integer
+								.parseInt(inputs.get(i).getProperties().get(
+										"numberOfBins").toString()));
 			}
 			dataset = histogramDataset;
-		} else if (dataset instanceof DefaultXYDataset){
+		} else if (dataset instanceof DefaultXYDataset) {
 			DefaultXYDataset xyDataset = (DefaultXYDataset) dataset;
-			for (int i = 1; i< getInputsSize(); i++){
-				xyDataset.addSeries(inputs.get(i).getName(), (double[][]) inputs.get(i).getData());
+			for (int i = 1; i < getInputsSize(); i++) {
+				xyDataset.addSeries(inputs.get(i).getName(),
+						(double[][]) inputs.get(i).getData());
 			}
 			dataset = xyDataset;
 		}

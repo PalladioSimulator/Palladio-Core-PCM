@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.edp2.visualization;
 
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Observer;
 
 import org.eclipse.jface.viewers.ISelection;
@@ -18,46 +19,46 @@ import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
  * @author Dominik Ernst
  *
  */
-public interface IVisualizationInputHandle extends IEditorInput, Observer, ISelection, IPersistableElement {
+public abstract class IVisualizationInputHandle extends Observable implements IEditorInput, Observer, ISelection, IPersistableElement {
 
 	/**
 	 * Method to retrieve all contained {@link IDataSink}s. These are intended to be displayed by the same
 	 * {@link IVisualization}.
 	 * @return the contained {@link IDataSink}s
 	 */
-	public ArrayList<? extends IVisualizationInput> getInputs();
+	public abstract ArrayList<? extends IVisualizationInput> getInputs();
 	
 	/**
 	 * Adds an {@link IDataSink} to this {@link IVisualizationInputHandle}'s list of inputs.
 	 * @param newInput the {@link IDataSink} to add.
 	 * @return <true> if the {@link IDataSink} could be added successfully.
 	 */
-	public boolean addInput(IVisualizationInput newInput);
+	public abstract boolean addInput(IVisualizationInput newInput);
 	
 	/**
 	 * Removes an {@link IDataSink} from this {@link IVisualizationInputHandle}'s list of inputs.
 	 * @param removedInput the {@link IDataSink} to add.
 	 * @return <true> if the {@link IDataSink} could found and removed.
 	 */
-	public boolean removeInput(IVisualizationInput removedInput);
+	public abstract boolean removeInput(IVisualizationInput removedInput);
 	
 	/**
 	 * 
 	 * @return the inputs-Array's size
 	 */
-	public int getInputsSize();
+	public abstract int getInputsSize();
 	
 	/**
 	 * Method to return the combined set of input data, which can be displayed by an {@link IVisualization}.
 	 * @return
 	 */
-	public Object getInputData();
+	public abstract Object getInputData();
 	
 	/**
 	 * Method, which returns <true> if the {@link IVisualizationInputHandle} and its corresponding {@link AbstractEditor}
 	 * are able to display multiple {@link IDataSink} objects.
 	 * @return <true> if multiple inputs are supported.
 	 */
-	public boolean supportsMultipleInputs();
+	public abstract boolean supportsMultipleInputs();
 	
 }

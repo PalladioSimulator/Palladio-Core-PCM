@@ -164,10 +164,8 @@ public class TransformationsPropertySection extends AbstractPropertySection
 			@Override
 			public void handleEvent(Event event) {
 				
-				IDataSink input = editor.getEditorInputHandle().getInputs()
-						.get(0);
 				if (event.widget == buttonAdapter) {
-					AdapterWizard wizard = new AdapterWizard(null);
+					AdapterWizard wizard = new AdapterWizard(lastSelection);
 					AbstractAdapter adapter = null;
 					WizardDialog wdialog = new WizardDialog(Activator
 							.getDefault().getWorkbench()
@@ -179,7 +177,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 					}
 
 				} else if (event.widget == buttonFilter) {
-					FilterWizard wizard = new FilterWizard(null);
+					FilterWizard wizard = new FilterWizard(lastSelection);
 					AbstractFilter filter = null;
 					WizardDialog wdialog = new WizardDialog(Activator
 							.getDefault().getWorkbench()
@@ -187,7 +185,6 @@ public class TransformationsPropertySection extends AbstractPropertySection
 					wdialog.open();
 					if (wdialog.getReturnCode() == Window.OK) {
 						filter = wizard.getFilter();
-						input.setSource(filter);
 					}
 				}
 
@@ -409,6 +406,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	 * org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#refresh()
 	 */
 	public void refresh() {
+		treeViewer.refresh();
 	}
 
 	@Override

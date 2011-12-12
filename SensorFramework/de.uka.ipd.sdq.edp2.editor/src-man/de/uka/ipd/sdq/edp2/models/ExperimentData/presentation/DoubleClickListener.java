@@ -92,47 +92,6 @@ public class DoubleClickListener implements IDoubleClickListener {
 					}
 					JFreeChartEditorInputHandle input = new JFreeChartEditorInputHandle(visualization);
 					
-					
-					//add a second, identical series for testing
-					//STARTS HERE-------------------------------------
-					EDP2Source source2 = new EDP2Source(measurement);
-					DefaultViewsWizard wizard2 = new DefaultViewsWizard(source2);
-					WizardDialog wdialog2 = new WizardDialog(EDP2EditorPlugin
-							.getPlugin().getWorkbench().getActiveWorkbenchWindow()
-							.getShell(), wizard2);
-					wdialog2.open();
-
-					if (wdialog2.getReturnCode() == Window.OK) {
-						DefaultSequence selection2 = wizard2.getSelectedDefault();
-
-						if (selection2.getSize() > 0) {
-							if (selection2.getSequenceProperties().size() > 0) {
-								selection2.getFirstSequenceElement().setProperties(
-										selection2.getSequenceProperties().get(0));
-							}
-							selection2.getFirstSequenceElement().setSource(source2);
-						}
-						for (int i = 1; i < selection2.getSize(); i++) {
-							selection2.getSequenceElements().get(i).setProperties(
-									selection2.getSequenceProperties().get(i));
-							selection2.getSequenceElements().get(i).setSource(
-									selection2.getSequenceElements().get(i - 1));
-						}
-
-						IVisualizationInput visualization2 = selection2.getVisualization();
-						visualization2.setProperties(selection2
-								.getVisualizationProperties());
-						if (selection2.getSize() > 0) {
-							visualization2.setSource(selection2
-									.getLastSequenceElement());
-						} else {
-							visualization2.setSource(source2);
-						}
-						
-					input.addInput(visualization2);
-					//ENDS HERE------------------------------------------
-					
-					}
 					try {
 						IWorkbenchPage page = EDP2EditorPlugin.getPlugin()
 								.getWorkbench().getActiveWorkbenchWindow()

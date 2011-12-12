@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.edp2.visualization;
 
+import java.util.Observer;
+
 import org.eclipse.ui.IPersistableEditor;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
@@ -16,7 +18,7 @@ import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
  * 
  */
 public interface IVisualization extends IPersistableEditor,
-		ITabbedPropertySheetPageContributor {
+		ITabbedPropertySheetPageContributor, Observer {
 	
 	public IVisualizationInputHandle getEditorInputHandle();
 	

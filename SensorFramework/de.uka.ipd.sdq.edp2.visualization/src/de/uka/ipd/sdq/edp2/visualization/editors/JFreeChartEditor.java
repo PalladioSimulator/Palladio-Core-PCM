@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
+import java.util.Observable;
 import java.util.logging.Logger;
 
 import org.eclipse.swt.SWT;
@@ -43,7 +44,6 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 	 */
 	JFreeChart chart;
 	
-	
 	/*
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
@@ -78,5 +78,10 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 	@Override
 	public JFreeChartEditorInputHandle getEditorInputHandle() {
 		return (JFreeChartEditorInputHandle)input;
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		updateChart();
 	}
 }

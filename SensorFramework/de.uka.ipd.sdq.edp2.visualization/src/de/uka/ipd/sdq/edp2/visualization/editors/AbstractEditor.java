@@ -87,6 +87,10 @@ public abstract class AbstractEditor extends EditorPart implements
 		// TODO Auto-generated method stub
 
 	}
+	@Override
+	protected void setInput(IEditorInput input) {
+		super.setInput(input);
+    }
 
 	/*
 	 * (non-Javadoc)
@@ -99,6 +103,7 @@ public abstract class AbstractEditor extends EditorPart implements
 			throws PartInitException {
 		setSite(site);
 		this.input = (IVisualizationInputHandle)input;
+		this.input.addObserver(this);
 		setInput(input);
 	}
 
@@ -220,7 +225,7 @@ public abstract class AbstractEditor extends EditorPart implements
 	}
 	protected void addDropSupport(Control control) {
 
-		int operations = DND.DROP_COPY | DND.DROP_DEFAULT;
+		int operations = DND.DROP_LINK | DND.DROP_COPY;
 		DropTarget target = new DropTarget(control, operations);
 
 		Transfer[] transferTypes = new Transfer[] { 
