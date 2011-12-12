@@ -12,10 +12,36 @@
 */
 
 /*
-	Modified by Daniel Patejdl, 7th, 11th and 21st of November, 2011. I removed code
-	that I don't need. I also removed use of the up.gif and down.gif images. Instead,
-	I use normal text to indicate whether we're sorting ascendingly or descendingly.
+	Modified by Daniel Patejdl, 7th, 11th, 21st and 28th of November, and a few times
+	in December 2011. I removed code that I don't need. I also removed use of the up.gif
+	and down.gif images. Instead, I use normal text to indicate whether we're sorting
+	ascendingly or descendingly. I added some code which does exactly that.
 */
+
+
+
+var tables = new Array();	// will later on, for each table, store its column names
+
+function TableEntity(table_Name, table_Column_Names) {
+	this.tableName = table_Name;
+	this.tableColumnNames = table_Column_Names;
+}
+TableEntity.prototype.getTableName = function() {
+	return this.tableName;
+}
+TableEntity.prototype.getColumnNames = function() {
+	return this.tableColumnNames;
+}
+
+Object.prototype.clone = function() {
+  var newObj = (this instanceof Array) ? [] : {};
+  for (i in this) {
+    if (i == 'clone') continue;
+    if (this[i] && typeof this[i] == "object") {
+      newObj[i] = this[i].clone();
+    } else newObj[i] = this[i];
+  } return newObj;
+};
 
 
 
@@ -36,13 +62,13 @@ function addLoadEvent(func) {
 
 /* Event Utilities */
 function evtGetTarget(evt) {
-    var elem ;
+    var elem;
     if (evt.target) {
-        elem = (evt.target.nodeType == 3) ? evt.target.parentNode : evt.target ;
+        elem = (evt.target.nodeType == 3) ? evt.target.parentNode : evt.target;
     } else {
-        elem = evt.srcElement ;
+        elem = evt.srcElement;
     }
-    return elem ;
+    return elem;
 }
 
 /* 
@@ -63,8 +89,8 @@ if (document.addEventListener) {
 }
 
 /* XMLHttpRequestLoader - Class */
-function XMLHttpRequestLoader () {
-    var xmlhttp = false ;
+function XMLHttpRequestLoader() {
+    var xmlhttp = false;
     if (typeof(XMLHttpRequest) != "undefined") {
         xmlhttp = new XMLHttpRequest();
     } else {
@@ -80,9 +106,9 @@ function XMLHttpRequestLoader () {
         }
     }
 
-    function loadXML(url,cb) {
+    function loadXML(url, cb) {
         if (typeof(XMLHttpRequest) != "undefined") {
-            load(url,cb);
+            load(url, cb);
         } else if (xmlhttp) {
             loadIE(url,cb);
         } else {
@@ -90,31 +116,30 @@ function XMLHttpRequestLoader () {
         }
     }
 
-    function load(srcUrl,cb) {
+    function load(srcUrl, cb) {
         var req = new XMLHttpRequest();
         req.overrideMimeType('text/xml');
         req.open("GET", srcUrl, true);
-        
+
         req.onreadystatechange = function() {
             if (req.readyState == 4) {
                 if (cb) {
                     cb(req.responseXML);
                 }
-            } 
-                
+            }
         };
-        req.setRequestHeader('Content-Type', 'text/xml'); 
-        req.setRequestHeader('Cache-Control', 'no-cache'); 
+        req.setRequestHeader('Content-Type', 'text/xml');
+        req.setRequestHeader('Cache-Control', 'no-cache');
         req.send(null);
     }
 
-    function loadIE(srcUrl,cb) {
+    function loadIE(srcUrl, cb) {
         xmlhttp.open("GET", srcUrl);
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4) {
                 if (cb) {
                     var xmlObj = xmlhttp.responseXML;
-                    
+
                     if(!xmlObj.hasChildNodes) {
                         // seems that Mime-Type was not recognized
                         // we create the right object by hand
@@ -128,25 +153,25 @@ function XMLHttpRequestLoader () {
                         cb(xmlhttp.responseXML);
                     }
                 }
-            } 
+            }
         };
         xmlhttp.setRequestHeader('Content-Type', 'text/xml'); 
         xmlhttp.setRequestHeader('Cache-Control', 'no-cache'); 
         xmlhttp.send(null);
     }
-    this.loadXML = loadXML  ;
+    this.loadXML = loadXML;
 }
 
-function jsComponent (node) {
+function jsComponent(node) {
     try {
         eval("mfunc = "+node.className+";");
         mfunc(node);
     } catch (ev) {}
 }
 
-window.onload = function() { 
-    var divs = document.getElementsByTagName("DIV") ;
-    var l = divs.length ;
+window.onload = function() {
+    var divs = document.getElementsByTagName("DIV");
+    var l = divs.length;
     var head = document.getElementsByTagName("head");
 /*
 	var images = new Array("up.gif","down.gif");
@@ -179,38 +204,46 @@ window.onload = function() {
      */
 function JSTableStripe(div) {
     var table = div.getElementsByTagName("table")[0];
-    var types = new Array("even","odd");
+    var types = new Array("even", "odd");
     var trs = table.getElementsByTagName("tr") ;
     for (var i = 0 ; i < trs.length ;i++) {
         var mod = i % 2 ;
-        trs.item(i).className = types[mod] ;
+        trs.item(i).className = types[mod];
     }
 }
 
 function JSTableSort(div) {
-    var table = div.getElementsByTagName("table")[0];
+    var table = div.getElementsByTagName('table')[0];
     var types = new Array();
     var headers = table.getElementsByTagName('th');
-    var order = "asc" ;
-    var lastI = 100 ;
-    for (var i = 0; i < headers.length;i++) {
+    var order = "asc";
+    var lastI = 100;
+    for (var i = 0; i < headers.length; i++) {
         types[i] = headers.item(i).className;
     }
     for (var i = 0; i < headers.length;i++) {
         if (headers.item(i).className == "SortNumber") {
-            headers[i].onclick = build_sorter(table,i,"n") ;
-            
+            headers[i].onclick = build_sorter(table,i,"n");
         } else if (headers.item(i).className == "SortString") {
-            headers[i].onclick = build_sorter(table,i,"s") ;
+            headers[i].onclick = build_sorter(table,i,"s");
         }
-
     }
+
+    // save table column names in array...
+    var tableName = div.getElementsByTagName('b')[0].innerHTML;
+    var headersCopy = table.getElementsByTagName('th');//.clone();
+	// and save the table names as well as their column names in a list
+	var cols = new Array();	// column names of the currently considered table
+	for (var i = 0; i < headersCopy.length; i++) {
+	    cols.push(headersCopy.item(i).innerHTML);
+	}
+	tables.push(new TableEntity(tableName, cols));	// add the currently considered table to our list
 
     function sort_table (table,extract_fct,sort_fct) {
         var clones = new Array();
         var tbody = table.getElementsByTagName('tbody')[0];
         var rows = tbody.getElementsByTagName('tr');
-        var l = rows.length ;
+        var l = rows.length;
         for (var i = 0; i < l;i++) {
             var r = rows[i];
             var v = extract_fct(r);
@@ -223,7 +256,6 @@ function JSTableSort(div) {
             clones.sort(sort_fct);
         } else {
             clones.sort();
-            
         }
         if (order == "asc") {
             clones.reverse();
@@ -239,63 +271,63 @@ function JSTableSort(div) {
         }
     }
 
-    function compare_numbers(a,b) {
+    function compare_numbers(a, b) {
         return (a.value-b.value);
     }
 
-    function compare_strings(a,b) {
-        a = a.value ; b = b.value ;
-        if (""+a<""+b) return (-1) ;
-        if (""+a>""+b) return (1) ;
-        if (""+a==""+b) return (0) ;
+    function compare_strings(a, b) {
+        a = a.value ; b = b.value;
+        if (""+a<""+b) return (-1);
+        if (""+a>""+b) return (1);
+        if (""+a==""+b) return (0);
     }
-    
-    function extract_string_ci (r,i) {
+
+    function extract_string_ci(r, i) {
         var text = r.getElementsByTagName('td')[i].innerHTML.toLowerCase();
         text = text.replace(/<.+?>/g,"");
-        return String(text) ;
+        return String(text);
     }
 
-    function extract_string_c (r,i) {
+    function extract_string_c(r, i) {
         var text = r.getElementsByTagName('td')[i].innerHTML;
         text = text.replace(/<.+?>/g,"");
-        return String(text) ;
+        return String(text);
     }
 
-    function extract_number (r,i) {
+    function extract_number(r, i) {
         var n = r.getElementsByTagName('td')[i].innerHTML;
-        return parseFloat(n) ;
+        return parseFloat(n);
         
     }
 
-    function build_sorter(table,i,type) {	// table, i: table header index, type: "s" or "n" ("s" for "sort strings", "n" for "sort numbers")
+    function build_sorter(table, i, type) {	// table, i: table header index, type: "s" or "n" ("s" for "sort strings", "n" for "sort numbers")
         return function() {
             var ths = table.getElementsByTagName("th");
-            for (var j = 0 ; j < ths.length;j++) {
-                table.getElementsByTagName("th").item(j).className = types[j] ;
-                // First, we reset all header names to their original names, i.e., to their names
-            	// excluding the "(Ascending)" and "(Descending)" strings. Then, we alter header i's
-            	// name to indicate whether we're sorting ascendingly or descendinngly.
-                ths.item(j).innerHTML = ths.item(j).innerHTML.substring(0, ths.item(j).innerHTML.indexOf("&nbsp")) + "&nbsp;";	// reset first
+            for (var j = 0; j < ths.length; j++) {
+                table.getElementsByTagName("th").item(j).className = types[j];
             }
+			// First, we reset all header names to their original names, i.e., to their names
+            // excluding the "(Ascending)" and "(Descending)" strings. Then, we alter header i's
+            // name to indicate whether we're sorting ascendingly or descendinngly.
+			for (var j = 0; j < tables.length; j++) {
+				if (tables[j].getTableName() == table.parentNode.getElementsByTagName("b")[0].innerHTML) {	// look for correct table
+					for (var k = 0; k < ths.length; k++) {
+						ths.item(k).innerHTML = tables[j].getColumnNames()[k];	// reset header names to original state
+					}
+				}
+			}
             if (order == 'desc' && lastI == 1) {
-                order = "asc" ;
+                order = "asc";
                 table.getElementsByTagName('th').item(i).className="SortAsc";
-                var headerContent = table.getElementsByTagName('th').item(i).innerHTML;
-                headerContent = headerContent.substring(0, headerContent.indexOf("&nbsp;"));
                 // Now, we alter header i's name to indicate whether we're sorting ascendingly or descendingly.
                 // In this case, we sort descendingly:
-                table.getElementsByTagName('th').item(i).innerHTML = headerContent + "&nbsp;<br /><i>(Descending)</i>";
+				table.getElementsByTagName('th').item(i).innerHTML = table.getElementsByTagName('th').item(i).innerHTML + "<br /><i>(Descending)</i>";
             } else {
                 table.getElementsByTagName('th').item(i).className="SortDesc";
-                var headerContent = table.getElementsByTagName('th').item(i).innerHTML;
-                headerContent = headerContent.substring(0, headerContent.indexOf("&nbsp;"));
-                // Now, we alter header i's name to indicate whether we're sorting ascendingly or descendingly.
-                // In this case, we sort ascendingly:
-                table.getElementsByTagName('th').item(i).innerHTML = headerContent + "&nbsp;<br /><i>(Ascending)</i>";
-                order = "desc" ;
+				table.getElementsByTagName('th').item(i).innerHTML = table.getElementsByTagName('th').item(i).innerHTML + "<br /><i>(Ascending)</i>";
+                order = "desc";
             }
-            lastI = 1 ;
+            lastI = 1;
             if(type == 'n') {
                 sort_table(
                            table,function(r) {
