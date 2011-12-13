@@ -122,14 +122,21 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 	 * @return
 	 */
 	private boolean isCharactersationCompletionApplicable(int offset, String currentText){
-		return (
-		     // there is a dot (offset>=-1) and it's not the first char (offset>=0)	
-			 offset-1 >= 0 					
-			 // ???
-			 && offset-1 < currentText.length() 
-			 // the first char before the dot was a letter
-			 && Character.isLetter(currentText.charAt(offset-1))
-			 ); 
+		//Is letter or underscore
+		if(offset-1>=0 && offset-1 < currentText.length() && isIDChar(currentText.charAt(offset-1), 0))
+		 return true;
+		else if(offset-1>=0 && offset-1 < currentText.length() && isIDChar(currentText.charAt(offset-1), 1))
+		{
+			//Backtrace till we find an IDChar that is no DIGIT
+			int i = 2;
+			while( offset-i>=0 && !isIDChar(currentText.charAt(offset-i), 0) && isIDChar(currentText.charAt(offset-i), 1))
+			{
+				i++;
+			}
+			return offset-i>=0 && isIDChar(currentText.charAt(offset-i), 0);
+		}
+		
+		return false;
 	}
 	
 	
@@ -160,11 +167,18 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 		boolean hasIDChars = true;
 		for (int i=0; i<trimText.length(); i++){
 			char c = trimText.charAt(i);
-			if (!Character.isLetter(c) && c != '.' && c != '_' && !(i>0 && !Character.isDigit(c))) hasIDChars = false;
+			if (!isIDChar(c,i)) hasIDChars = false;
 		}
 		return hasIDChars;
 
 	}
+	
+	// As defined in the ANTLR grammar
+	private static boolean isIDChar(char c, int index)
+	{  
+		return Character.isLetter(c) || c == '.' || c == '_' || (index>0 && Character.isDigit(c));
+	}
+	
 
 	private int getLastIndexOfTemplatePrefix(int offset, String currentText) {
 		int lastIndex = -1;
