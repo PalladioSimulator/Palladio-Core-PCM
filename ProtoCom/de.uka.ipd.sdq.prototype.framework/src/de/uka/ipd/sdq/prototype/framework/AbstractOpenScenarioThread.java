@@ -23,14 +23,18 @@ public abstract class AbstractOpenScenarioThread extends AbstractScenarioThread 
 	@Override
 	protected void runAndMeasureUsageScenarioIteration() {
 
-		// TODO Lots of threads created here. Check if this is needed. (lehrig)
 		new Thread() {
 			public void run() {
-
-				Runnable us = getScenarioRunner(runProps);
+				if (logger.isDebugEnabled()) {
+					logger.debug("New Thread: Open Scenario (" + scenarioName + "), interarrival time: " + interarrivalTime);
+				}
+				
 				logger.debug("Starting my scenario");
 				long start = System.nanoTime();
-				new Thread(us).run();
+				logger.debug("New Thread: Open Scenario (" + scenarioName + "), inner thread");
+
+				getScenarioRunner(runProps).run();
+				
 				takeScenarioMeasurement(start);
 				logger.debug("Finished my scenario");
 
@@ -39,13 +43,8 @@ public abstract class AbstractOpenScenarioThread extends AbstractScenarioThread 
 
 		try {
 			
-			Object object = StackContext.evaluateStatic(this.interarrivalTime);
-			if (object instanceof Number){
-				//interarrival time in milliseconds
-				Double interarrivalTime = ((Number)object).doubleValue() * 1000.0;
-				// Wait for specified model time
-				Thread.sleep(interarrivalTime.longValue());
-			}
+			Double interarrivalTime = StackContext.evaluateStatic(this.interarrivalTime, Double.class) * 1000.0;
+			Thread.sleep(interarrivalTime.longValue());
 			
 		} catch (InterruptedException e) {
 			e.printStackTrace();

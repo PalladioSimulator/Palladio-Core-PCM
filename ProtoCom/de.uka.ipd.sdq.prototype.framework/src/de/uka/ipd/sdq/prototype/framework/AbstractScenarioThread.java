@@ -26,8 +26,9 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 	
 	ExperimentRun experimentRun = null;
 	protected boolean shouldContinue = true;
-	protected Runnable usageScenario;
 
+	protected String scenarioName;
+	
 	private TimeSpanSensor timeSpanSensor;
 	
 	static {
@@ -52,8 +53,8 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 			String scenarioName,
 			RunProperties runProps) 
 	{
-		this.usageScenario = getScenarioRunner(runProps);
 		this.experimentRun = expRun;
+		this.scenarioName = scenarioName;
 		this.timeSpanSensor = ExperimentManager.createOrReuseTimeSpanSensor(scenarioName);
 
 		
@@ -71,7 +72,7 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 		for (int i=0; i<warmupRuns; i++)
 		{
 			logger.info("Warmup started, cycle: "+i);
-			usageScenario.run();
+			getScenarioRunner(runProps).run();
 		}
 		logger.info("Warmup finished");
 		

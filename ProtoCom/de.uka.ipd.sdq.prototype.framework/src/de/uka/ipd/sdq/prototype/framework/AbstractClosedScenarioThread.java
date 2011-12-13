@@ -6,12 +6,16 @@ import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 
 public abstract class AbstractClosedScenarioThread extends AbstractScenarioThread {
 
+	protected final Runnable usageScenario;
+	
 	public AbstractClosedScenarioThread(
 			Experiment exp,
 			ExperimentRun expRun,
 			String scenarioName, 
 			RunProperties runProps) {
 		super(exp, expRun, scenarioName, runProps);
+		
+		this.usageScenario = getScenarioRunner(runProps);
 		
 	}
 
