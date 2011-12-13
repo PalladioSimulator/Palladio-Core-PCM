@@ -17,7 +17,7 @@ findStart(List[AbstractAction] actions) :
 
 // select Connectors only, no DelegationConnectors
 connectors(ComposedStructure s) :
-   s.connectors__ComposedStructure.select(connector|!s.connectors__ComposedStructure.typeSelect(DelegationConnector).contains(connector));
+   s.connectors__ComposedStructure.reject(connector|DelegationConnector.isInstance(connector));
 
 test(Connector conn, AssemblyContext ctx, RequiredRole r):
 	{}; // This should never be called
