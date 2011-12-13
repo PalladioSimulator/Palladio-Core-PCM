@@ -1,16 +1,12 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g 2010-12-30 17:15:16
+// $ANTLR 3.1.3 Mar 17, 2009 19:23:44 /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g 2011-12-13 13:31:45
 
   package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 
 
-import org.antlr.runtime.BaseRecognizer;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.DFA;
-import org.antlr.runtime.EarlyExitException;
-import org.antlr.runtime.Lexer;
-import org.antlr.runtime.MismatchedSetException;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.RecognizerSharedState;
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 public class PCMStoExLexer extends Lexer {
     public static final int INNER=43;
@@ -27,23 +23,23 @@ public class PCMStoExLexer extends Lexer {
     public static final int LPAREN=24;
     public static final int TYPE=41;
     public static final int NOTEQUAL=10;
+    public static final int T__55=55;
+    public static final int T__56=56;
     public static final int RPAREN=25;
-    public static final int STRING_LITERAL=21;
     public static final int GREATER=7;
+    public static final int STRING_LITERAL=21;
     public static final int POW=18;
-    public static final int T__53=53;
-    public static final int T__54=54;
     public static final int EQUAL=9;
     public static final int LESS=8;
     public static final int DEFINITION=46;
     public static final int PLUS=13;
     public static final int DIGIT=47;
-    public static final int COMMENT=51;
+    public static final int COMMENT=53;
     public static final int DOT=22;
     public static final int DOUBLEPDF=33;
     public static final int XOR=6;
     public static final int INTPMF=27;
-    public static final int LINE_COMMENT=52;
+    public static final int LINE_COMMENT=54;
     public static final int DOUBLEPMF=30;
     public static final int BOOL=45;
     public static final int NUMBER=20;
@@ -57,9 +53,11 @@ public class PCMStoExLexer extends Lexer {
     public static final int COLON=26;
     public static final int SQUARE_PAREN_R=29;
     public static final int UNIT=44;
-    public static final int WS=50;
+    public static final int WS=52;
     public static final int SQUARE_PAREN_L=28;
     public static final int OR=5;
+    public static final int IDPART=51;
+    public static final int IDSTART=50;
     public static final int BYTESIZE=38;
     public static final int DIV=16;
     public static final int ORDERED_DEF=32;
@@ -77,15 +75,15 @@ public class PCMStoExLexer extends Lexer {
         super(input,state);
 
     }
-    public String getGrammarFileName() { return "/Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g"; }
+    public String getGrammarFileName() { return "/Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g"; }
 
-    // $ANTLR start "T__53"
-    public final void mT__53() throws RecognitionException {
+    // $ANTLR start "T__55"
+    public final void mT__55() throws RecognitionException {
         try {
-            int _type = T__53;
+            int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:7:7: ( '?' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:7:9: '?'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:7:7: ( '?' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:7:9: '?'
             {
             match('?'); 
 
@@ -97,15 +95,15 @@ public class PCMStoExLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__53"
+    // $ANTLR end "T__55"
 
-    // $ANTLR start "T__54"
-    public final void mT__54() throws RecognitionException {
+    // $ANTLR start "T__56"
+    public final void mT__56() throws RecognitionException {
         try {
-            int _type = T__54;
+            int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:8:7: ( ':' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:8:9: ':'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:8:7: ( ':' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:8:9: ':'
             {
             match(':'); 
 
@@ -117,15 +115,15 @@ public class PCMStoExLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__54"
+    // $ANTLR end "T__56"
 
     // $ANTLR start "OR"
     public final void mOR() throws RecognitionException {
         try {
             int _type = OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:391:2: ( 'OR' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:391:4: 'OR'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:391:2: ( 'OR' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:391:4: 'OR'
             {
             match("OR"); 
 
@@ -145,8 +143,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = XOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:395:2: ( 'XOR' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:395:4: 'XOR'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:395:2: ( 'XOR' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:395:4: 'XOR'
             {
             match("XOR"); 
 
@@ -166,8 +164,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:399:2: ( 'AND' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:399:4: 'AND'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:399:2: ( 'AND' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:399:4: 'AND'
             {
             match("AND"); 
 
@@ -187,8 +185,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = NOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:403:2: ( 'NOT' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:403:4: 'NOT'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:403:2: ( 'NOT' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:403:4: 'NOT'
             {
             match("NOT"); 
 
@@ -208,8 +206,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = INTPMF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:407:2: ( 'IntPMF' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:407:4: 'IntPMF'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:407:2: ( 'IntPMF' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:407:4: 'IntPMF'
             {
             match("IntPMF"); 
 
@@ -229,8 +227,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = DOUBLEPMF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:411:2: ( 'DoublePMF' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:411:4: 'DoublePMF'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:411:2: ( 'DoublePMF' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:411:4: 'DoublePMF'
             {
             match("DoublePMF"); 
 
@@ -250,8 +248,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = ENUMPMF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:415:2: ( 'EnumPMF' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:415:4: 'EnumPMF'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:415:2: ( 'EnumPMF' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:415:4: 'EnumPMF'
             {
             match("EnumPMF"); 
 
@@ -271,8 +269,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = DOUBLEPDF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:419:2: ( 'DoublePDF' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:419:4: 'DoublePDF'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:419:2: ( 'DoublePDF' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:419:4: 'DoublePDF'
             {
             match("DoublePDF"); 
 
@@ -292,8 +290,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = BOOLPMF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:423:2: ( 'BoolPMF' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:423:4: 'BoolPMF'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:423:2: ( 'BoolPMF' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:423:4: 'BoolPMF'
             {
             match("BoolPMF"); 
 
@@ -313,8 +311,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = UNIT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:427:2: ( 'unit' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:427:4: 'unit'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:427:2: ( 'unit' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:427:4: 'unit'
             {
             match("unit"); 
 
@@ -334,8 +332,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = BOOL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:431:2: ( '\"bool\"' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:431:4: '\"bool\"'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:431:2: ( '\"bool\"' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:431:4: '\"bool\"'
             {
             match("\"bool\""); 
 
@@ -355,8 +353,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = FALSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:435:2: ( 'false' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:435:4: 'false'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:435:2: ( 'false' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:435:4: 'false'
             {
             match("false"); 
 
@@ -376,8 +374,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = TRUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:439:2: ( 'true' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:439:4: 'true'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:439:2: ( 'true' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:439:4: 'true'
             {
             match("true"); 
 
@@ -397,8 +395,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = BYTESIZE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:443:2: ( 'BYTESIZE' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:443:4: 'BYTESIZE'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:443:2: ( 'BYTESIZE' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:443:4: 'BYTESIZE'
             {
             match("BYTESIZE"); 
 
@@ -418,8 +416,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = STRUCTURE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:447:2: ( 'STRUCTURE' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:447:4: 'STRUCTURE'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:447:2: ( 'STRUCTURE' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:447:4: 'STRUCTURE'
             {
             match("STRUCTURE"); 
 
@@ -439,8 +437,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = NUMBER_OF_ELEMENTS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:451:2: ( 'NUMBER_OF_ELEMENTS' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:451:4: 'NUMBER_OF_ELEMENTS'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:451:2: ( 'NUMBER_OF_ELEMENTS' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:451:4: 'NUMBER_OF_ELEMENTS'
             {
             match("NUMBER_OF_ELEMENTS"); 
 
@@ -460,8 +458,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = TYPE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:455:2: ( 'TYPE' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:455:4: 'TYPE'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:455:2: ( 'TYPE' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:455:4: 'TYPE'
             {
             match("TYPE"); 
 
@@ -481,8 +479,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = VALUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:459:2: ( 'VALUE' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:459:4: 'VALUE'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:459:2: ( 'VALUE' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:459:4: 'VALUE'
             {
             match("VALUE"); 
 
@@ -502,8 +500,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = INNER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:463:2: ( 'INNER' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:463:4: 'INNER'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:463:2: ( 'INNER' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:463:4: 'INNER'
             {
             match("INNER"); 
 
@@ -523,8 +521,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = PLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:466:7: ( '+' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:466:9: '+'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:466:7: ( '+' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:466:9: '+'
             {
             match('+'); 
 
@@ -543,8 +541,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = MINUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:467:7: ( '-' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:467:9: '-'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:467:7: ( '-' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:467:9: '-'
             {
             match('-'); 
 
@@ -563,8 +561,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = MUL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:468:7: ( '*' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:468:9: '*'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:468:7: ( '*' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:468:9: '*'
             {
             match('*'); 
 
@@ -583,8 +581,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = DIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:469:7: ( '/' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:469:9: '/'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:469:7: ( '/' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:469:9: '/'
             {
             match('/'); 
 
@@ -603,8 +601,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = MOD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:470:7: ( '%' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:470:9: '%'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:470:7: ( '%' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:470:9: '%'
             {
             match('%'); 
 
@@ -623,8 +621,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = POW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:471:7: ( '^' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:471:9: '^'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:471:7: ( '^' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:471:9: '^'
             {
             match('^'); 
 
@@ -643,8 +641,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = LPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:472:7: ( '(' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:472:9: '('
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:472:7: ( '(' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:472:9: '('
             {
             match('('); 
 
@@ -663,8 +661,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = RPAREN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:473:7: ( ')' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:473:9: ')'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:473:7: ( ')' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:473:9: ')'
             {
             match(')'); 
 
@@ -683,8 +681,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = SEMI;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:474:7: ( ';' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:474:9: ';'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:474:7: ( ';' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:474:9: ';'
             {
             match(';'); 
 
@@ -703,8 +701,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = COLON;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:475:8: ( ',' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:475:10: ','
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:475:8: ( ',' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:475:10: ','
             {
             match(','); 
 
@@ -723,8 +721,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = DEFINITION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:476:12: ( '=' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:476:14: '='
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:476:12: ( '=' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:476:14: '='
             {
             match('='); 
 
@@ -743,8 +741,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = ORDERED_DEF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:478:2: ( 'ordered' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:478:4: 'ordered'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:478:2: ( 'ordered' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:478:4: 'ordered'
             {
             match("ordered"); 
 
@@ -764,8 +762,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:479:7: ( '==' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:479:9: '=='
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:479:7: ( '==' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:479:9: '=='
             {
             match("=="); 
 
@@ -785,8 +783,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = SQUARE_PAREN_L;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:480:16: ( '[' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:480:18: '['
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:480:16: ( '[' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:480:18: '['
             {
             match('['); 
 
@@ -805,8 +803,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = SQUARE_PAREN_R;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:481:16: ( ']' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:481:18: ']'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:481:16: ( ']' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:481:18: ']'
             {
             match(']'); 
 
@@ -823,8 +821,8 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start "DIGIT"
     public final void mDIGIT() throws RecognitionException {
         try {
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:482:16: ( '0' .. '9' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:482:18: '0' .. '9'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:482:16: ( '0' .. '9' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:482:18: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -841,10 +839,10 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = NUMBER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:8: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:11: ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:8: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:11: ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
             {
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:11: ( DIGIT )+
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:11: ( DIGIT )+
             int cnt1=0;
             loop1:
             do {
@@ -858,7 +856,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:12: DIGIT
+            	    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:12: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -874,7 +872,7 @@ public class PCMStoExLexer extends Lexer {
                 cnt1++;
             } while (true);
 
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:20: ( '.' ( DIGIT )+ )?
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:20: ( '.' ( DIGIT )+ )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -883,10 +881,10 @@ public class PCMStoExLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:21: '.' ( DIGIT )+
+                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:21: '.' ( DIGIT )+
                     {
                     match('.'); 
-                    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:25: ( DIGIT )+
+                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:25: ( DIGIT )+
                     int cnt2=0;
                     loop2:
                     do {
@@ -900,7 +898,7 @@ public class PCMStoExLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:26: DIGIT
+                    	    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:26: DIGIT
                     	    {
                     	    mDIGIT(); 
 
@@ -922,7 +920,7 @@ public class PCMStoExLexer extends Lexer {
 
             }
 
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:36: ( Exponent )?
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:36: ( Exponent )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -931,7 +929,7 @@ public class PCMStoExLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:36: Exponent
+                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:36: Exponent
                     {
                     mExponent(); 
 
@@ -954,8 +952,8 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start "Exponent"
     public final void mExponent() throws RecognitionException {
         try {
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -966,7 +964,7 @@ public class PCMStoExLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:22: ( '+' | '-' )?
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:22: ( '+' | '-' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -975,7 +973,7 @@ public class PCMStoExLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
+                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
                     {
                     if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                         input.consume();
@@ -992,7 +990,7 @@ public class PCMStoExLexer extends Lexer {
 
             }
 
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:33: ( '0' .. '9' )+
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:33: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -1006,7 +1004,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:34: '0' .. '9'
+            	    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:34: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1034,8 +1032,8 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start "ALPHA"
     public final void mALPHA() throws RecognitionException {
         try {
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:486:16: ( 'a' .. 'z' | 'A' .. 'Z' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:486:16: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1060,8 +1058,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = NOTEQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:487:10: ( '<>' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:487:12: '<>'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:487:10: ( '<>' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:487:12: '<>'
             {
             match("<>"); 
 
@@ -1081,8 +1079,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = GREATER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:488:9: ( '>' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:488:11: '>'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:488:9: ( '>' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:488:11: '>'
             {
             match('>'); 
 
@@ -1101,8 +1099,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = LESS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:489:6: ( '<' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:489:8: '<'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:489:6: ( '<' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:489:8: '<'
             {
             match('<'); 
 
@@ -1121,8 +1119,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = GREATEREQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:490:14: ( '>=' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:490:16: '>='
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:490:14: ( '>=' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:490:16: '>='
             {
             match(">="); 
 
@@ -1142,8 +1140,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = LESSEQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:491:11: ( '<=' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:491:13: '<='
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:491:11: ( '<=' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:491:13: '<='
             {
             match("<="); 
 
@@ -1163,11 +1161,11 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = STRING_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:16: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:16: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
             {
             match('\"'); 
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:23: ( ALPHA | '_' )+
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:23: ( ALPHA | '_' )+
             int cnt7=0;
             loop7:
             do {
@@ -1181,7 +1179,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
+            	    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
             	    {
             	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1222,8 +1220,8 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = DOT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:493:4: ( '.' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:493:6: '.'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:493:4: ( '.' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:493:6: '.'
             {
             match('.'); 
 
@@ -1242,45 +1240,33 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:494:3: ( ( ALPHA | '_' )+ )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:494:4: ( ALPHA | '_' )+
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:4: ( IDSTART ( IDPART )* )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:6: IDSTART ( IDPART )*
             {
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:494:4: ( ALPHA | '_' )+
-            int cnt8=0;
+            mIDSTART(); 
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:14: ( IDPART )*
             loop8:
             do {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( ((LA8_0>='A' && LA8_0<='Z')||LA8_0=='_'||(LA8_0>='a' && LA8_0<='z')) ) {
+                if ( ((LA8_0>='0' && LA8_0<='9')||(LA8_0>='A' && LA8_0<='Z')||LA8_0=='_'||(LA8_0>='a' && LA8_0<='z')) ) {
                     alt8=1;
                 }
 
 
                 switch (alt8) {
             	case 1 :
-            	    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
+            	    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:14: IDPART
             	    {
-            	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
-            	        input.consume();
-
-            	    }
-            	    else {
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        recover(mse);
-            	        throw mse;}
-
+            	    mIDPART(); 
 
             	    }
             	    break;
 
             	default :
-            	    if ( cnt8 >= 1 ) break loop8;
-                        EarlyExitException eee =
-                            new EarlyExitException(8, input);
-                        throw eee;
+            	    break loop8;
                 }
-                cnt8++;
             } while (true);
 
 
@@ -1294,13 +1280,61 @@ public class PCMStoExLexer extends Lexer {
     }
     // $ANTLR end "ID"
 
+    // $ANTLR start "IDSTART"
+    public final void mIDSTART() throws RecognitionException {
+        try {
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:497:18: ( ALPHA | '_' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
+            {
+            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "IDSTART"
+
+    // $ANTLR start "IDPART"
+    public final void mIDPART() throws RecognitionException {
+        try {
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:498:17: ( IDSTART | DIGIT )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
+            {
+            if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                recover(mse);
+                throw mse;}
+
+
+            }
+
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "IDPART"
+
     // $ANTLR start "WS"
     public final void mWS() throws RecognitionException {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:497:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:497:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:500:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:500:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ' ) {
                 input.consume();
@@ -1328,12 +1362,12 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:501:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:501:9: '/*' ( options {greedy=false; } : . )* '*/'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:9: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:501:14: ( options {greedy=false; } : . )*
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:14: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -1358,7 +1392,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:501:42: .
+            	    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:42: .
             	    {
             	    matchAny(); 
 
@@ -1389,12 +1423,12 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:505:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF ) )
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:505:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF ) )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF )
             {
             match("//"); 
 
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:505:12: (~ ( '\\n' | '\\r' ) )*
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:12: (~ ( '\\n' | '\\r' ) )*
             loop10:
             do {
                 int alt10=2;
@@ -1407,7 +1441,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:505:12: ~ ( '\\n' | '\\r' )
+            	    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:12: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1427,7 +1461,7 @@ public class PCMStoExLexer extends Lexer {
                 }
             } while (true);
 
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:505:26: ( '\\r' )?
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:26: ( '\\r' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1436,7 +1470,7 @@ public class PCMStoExLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:505:26: '\\r'
+                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:26: '\\r'
                     {
                     match('\r'); 
 
@@ -1445,7 +1479,7 @@ public class PCMStoExLexer extends Lexer {
 
             }
 
-            // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:505:32: ( '\\n' | EOF )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:32: ( '\\n' | EOF )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1456,14 +1490,14 @@ public class PCMStoExLexer extends Lexer {
                 alt12=2;}
             switch (alt12) {
                 case 1 :
-                    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:505:33: '\\n'
+                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:33: '\\n'
                     {
                     match('\n'); 
 
                     }
                     break;
                 case 2 :
-                    // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:505:38: EOF
+                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:38: EOF
                     {
                     match(EOF); 
 
@@ -1485,341 +1519,341 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR end "LINE_COMMENT"
 
     public void mTokens() throws RecognitionException {
-        // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:8: ( T__53 | T__54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
+        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:8: ( T__55 | T__56 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
         int alt13=48;
         alt13 = dfa13.predict(input);
         switch (alt13) {
             case 1 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:10: T__53
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:10: T__55
                 {
-                mT__53(); 
+                mT__55(); 
 
                 }
                 break;
             case 2 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:16: T__54
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:16: T__56
                 {
-                mT__54(); 
+                mT__56(); 
 
                 }
                 break;
             case 3 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:22: OR
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:22: OR
                 {
                 mOR(); 
 
                 }
                 break;
             case 4 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:25: XOR
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:25: XOR
                 {
                 mXOR(); 
 
                 }
                 break;
             case 5 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:29: AND
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:29: AND
                 {
                 mAND(); 
 
                 }
                 break;
             case 6 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:33: NOT
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:33: NOT
                 {
                 mNOT(); 
 
                 }
                 break;
             case 7 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:37: INTPMF
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:37: INTPMF
                 {
                 mINTPMF(); 
 
                 }
                 break;
             case 8 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:44: DOUBLEPMF
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:44: DOUBLEPMF
                 {
                 mDOUBLEPMF(); 
 
                 }
                 break;
             case 9 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:54: ENUMPMF
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:54: ENUMPMF
                 {
                 mENUMPMF(); 
 
                 }
                 break;
             case 10 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:62: DOUBLEPDF
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:62: DOUBLEPDF
                 {
                 mDOUBLEPDF(); 
 
                 }
                 break;
             case 11 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:72: BOOLPMF
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:72: BOOLPMF
                 {
                 mBOOLPMF(); 
 
                 }
                 break;
             case 12 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:80: UNIT
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:80: UNIT
                 {
                 mUNIT(); 
 
                 }
                 break;
             case 13 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:85: BOOL
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:85: BOOL
                 {
                 mBOOL(); 
 
                 }
                 break;
             case 14 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:90: FALSE
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:90: FALSE
                 {
                 mFALSE(); 
 
                 }
                 break;
             case 15 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:96: TRUE
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:96: TRUE
                 {
                 mTRUE(); 
 
                 }
                 break;
             case 16 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:101: BYTESIZE
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:101: BYTESIZE
                 {
                 mBYTESIZE(); 
 
                 }
                 break;
             case 17 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:110: STRUCTURE
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:110: STRUCTURE
                 {
                 mSTRUCTURE(); 
 
                 }
                 break;
             case 18 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:120: NUMBER_OF_ELEMENTS
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:120: NUMBER_OF_ELEMENTS
                 {
                 mNUMBER_OF_ELEMENTS(); 
 
                 }
                 break;
             case 19 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:139: TYPE
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:139: TYPE
                 {
                 mTYPE(); 
 
                 }
                 break;
             case 20 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:144: VALUE
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:144: VALUE
                 {
                 mVALUE(); 
 
                 }
                 break;
             case 21 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:150: INNER
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:150: INNER
                 {
                 mINNER(); 
 
                 }
                 break;
             case 22 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:156: PLUS
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:156: PLUS
                 {
                 mPLUS(); 
 
                 }
                 break;
             case 23 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:161: MINUS
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:161: MINUS
                 {
                 mMINUS(); 
 
                 }
                 break;
             case 24 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:167: MUL
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:167: MUL
                 {
                 mMUL(); 
 
                 }
                 break;
             case 25 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:171: DIV
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:171: DIV
                 {
                 mDIV(); 
 
                 }
                 break;
             case 26 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:175: MOD
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:175: MOD
                 {
                 mMOD(); 
 
                 }
                 break;
             case 27 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:179: POW
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:179: POW
                 {
                 mPOW(); 
 
                 }
                 break;
             case 28 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:183: LPAREN
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:183: LPAREN
                 {
                 mLPAREN(); 
 
                 }
                 break;
             case 29 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:190: RPAREN
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:190: RPAREN
                 {
                 mRPAREN(); 
 
                 }
                 break;
             case 30 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:197: SEMI
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:197: SEMI
                 {
                 mSEMI(); 
 
                 }
                 break;
             case 31 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:202: COLON
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:202: COLON
                 {
                 mCOLON(); 
 
                 }
                 break;
             case 32 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:208: DEFINITION
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:208: DEFINITION
                 {
                 mDEFINITION(); 
 
                 }
                 break;
             case 33 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:219: ORDERED_DEF
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:219: ORDERED_DEF
                 {
                 mORDERED_DEF(); 
 
                 }
                 break;
             case 34 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:231: EQUAL
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:231: EQUAL
                 {
                 mEQUAL(); 
 
                 }
                 break;
             case 35 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:237: SQUARE_PAREN_L
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:237: SQUARE_PAREN_L
                 {
                 mSQUARE_PAREN_L(); 
 
                 }
                 break;
             case 36 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:252: SQUARE_PAREN_R
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:252: SQUARE_PAREN_R
                 {
                 mSQUARE_PAREN_R(); 
 
                 }
                 break;
             case 37 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:267: NUMBER
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:267: NUMBER
                 {
                 mNUMBER(); 
 
                 }
                 break;
             case 38 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:274: NOTEQUAL
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:274: NOTEQUAL
                 {
                 mNOTEQUAL(); 
 
                 }
                 break;
             case 39 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:283: GREATER
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:283: GREATER
                 {
                 mGREATER(); 
 
                 }
                 break;
             case 40 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:291: LESS
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:291: LESS
                 {
                 mLESS(); 
 
                 }
                 break;
             case 41 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:296: GREATEREQUAL
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:296: GREATEREQUAL
                 {
                 mGREATEREQUAL(); 
 
                 }
                 break;
             case 42 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:309: LESSEQUAL
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:309: LESSEQUAL
                 {
                 mLESSEQUAL(); 
 
                 }
                 break;
             case 43 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:319: STRING_LITERAL
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:319: STRING_LITERAL
                 {
                 mSTRING_LITERAL(); 
 
                 }
                 break;
             case 44 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:334: DOT
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:334: DOT
                 {
                 mDOT(); 
 
                 }
                 break;
             case 45 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:338: ID
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:338: ID
                 {
                 mID(); 
 
                 }
                 break;
             case 46 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:341: WS
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:341: WS
                 {
                 mWS(); 
 
                 }
                 break;
             case 47 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:344: COMMENT
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:344: COMMENT
                 {
                 mCOMMENT(); 
 
                 }
                 break;
             case 48 :
-                // /Users/joerg/Documents/work/workspace-pcm/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:352: LINE_COMMENT
+                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:352: LINE_COMMENT
                 {
                 mLINE_COMMENT(); 
 
@@ -1846,17 +1880,17 @@ public class PCMStoExLexer extends Lexer {
     static final String DFA13_minS =
         "\1\11\2\uffff\1\122\1\117\1\116\1\117\1\116\1\157\1\156\1\131\1"+
         "\156\1\101\1\141\1\162\1\124\1\131\1\101\3\uffff\1\52\6\uffff\1"+
-        "\75\1\162\3\uffff\2\75\3\uffff\1\101\1\122\1\104\1\124\1\115\1\164"+
+        "\75\1\162\3\uffff\2\75\3\uffff\1\60\1\122\1\104\1\124\1\115\1\164"+
         "\1\116\2\165\1\157\1\124\1\151\1\42\1\uffff\1\154\1\165\1\122\1"+
-        "\120\1\114\5\uffff\1\144\6\uffff\3\101\1\102\1\120\1\105\1\142\1"+
+        "\120\1\114\5\uffff\1\144\6\uffff\3\60\1\102\1\120\1\105\1\142\1"+
         "\155\1\154\1\105\1\164\1\42\1\163\1\145\1\125\1\105\1\125\1\145"+
-        "\3\uffff\1\105\1\115\1\122\1\154\2\120\1\123\1\101\1\42\1\145\1"+
-        "\101\1\103\1\101\1\105\1\162\1\122\1\106\1\101\1\145\2\115\1\111"+
-        "\1\uffff\1\42\1\101\1\uffff\1\124\1\uffff\1\101\1\145\1\137\1\101"+
-        "\1\uffff\1\120\2\106\1\132\2\uffff\1\125\1\uffff\1\144\1\117\1\uffff"+
-        "\1\104\2\101\1\105\1\uffff\1\122\1\101\3\106\2\uffff\1\101\1\105"+
-        "\1\uffff\1\137\2\101\1\uffff\1\101\1\105\3\uffff\1\114\1\105\1\115"+
-        "\1\105\1\116\1\124\1\123\1\101\1\uffff";
+        "\3\uffff\1\105\1\115\1\122\1\154\2\120\1\123\1\60\1\42\1\145\1\60"+
+        "\1\103\1\60\1\105\1\162\1\122\1\106\1\60\1\145\2\115\1\111\1\uffff"+
+        "\1\42\1\60\1\uffff\1\124\1\uffff\1\60\1\145\1\137\1\60\1\uffff\1"+
+        "\120\2\106\1\132\2\uffff\1\125\1\uffff\1\144\1\117\1\uffff\1\104"+
+        "\2\60\1\105\1\uffff\1\122\1\60\3\106\2\uffff\1\60\1\105\1\uffff"+
+        "\1\137\2\60\1\uffff\1\60\1\105\3\uffff\1\114\1\105\1\115\1\105\1"+
+        "\116\1\124\1\123\1\60\1\uffff";
     static final String DFA13_maxS =
         "\1\172\2\uffff\1\122\1\117\1\116\1\125\1\156\1\157\1\156\1\157\1"+
         "\156\1\172\1\141\1\162\1\124\1\131\1\101\3\uffff\1\57\6\uffff\1"+
@@ -1925,7 +1959,7 @@ public class PCMStoExLexer extends Lexer {
             "",
             "",
             "",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\105",
             "\1\106",
             "\1\107",
@@ -1956,9 +1990,9 @@ public class PCMStoExLexer extends Lexer {
             "",
             "",
             "",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\132",
             "\1\133",
             "\1\134",
@@ -1984,31 +2018,31 @@ public class PCMStoExLexer extends Lexer {
             "\1\155",
             "\1\156",
             "\1\157",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\63\36\uffff\32\63\4\uffff\1\63\1\uffff\13\63\1\161\16\63",
             "\1\162",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\164",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\166",
             "\1\167",
             "\1\170",
             "\1\171",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\173",
             "\1\174",
             "\1\175",
             "\1\176",
             "",
             "\1\177\36\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "\1\u0081",
             "",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\u0083",
             "\1\u0084",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "\1\u0086",
             "\1\u0087",
@@ -2022,25 +2056,25 @@ public class PCMStoExLexer extends Lexer {
             "\1\u008d",
             "",
             "\1\u008f\10\uffff\1\u008e",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\u0092",
             "",
             "\1\u0093",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\u0095",
             "\1\u0096",
             "\1\u0097",
             "",
             "",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\u0099",
             "",
             "\1\u009a",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\u009e",
             "",
             "",
@@ -2052,7 +2086,7 @@ public class PCMStoExLexer extends Lexer {
             "\1\u00a3",
             "\1\u00a4",
             "\1\u00a5",
-            "\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             ""
     };
 
@@ -2086,7 +2120,7 @@ public class PCMStoExLexer extends Lexer {
             this.transition = DFA13_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__53 | T__54 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );";
+            return "1:1: Tokens : ( T__55 | T__56 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );";
         }
     }
  

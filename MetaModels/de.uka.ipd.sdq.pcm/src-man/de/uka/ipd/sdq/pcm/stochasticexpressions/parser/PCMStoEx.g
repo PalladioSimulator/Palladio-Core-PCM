@@ -491,8 +491,11 @@ GREATEREQUAL : '>=' ;
 LESSEQUAL : '<=' ;
 STRING_LITERAL : '\"' (ALPHA|'_')+ '\"' ;
 DOT: '.';
-ID:(ALPHA|'_')+;
 
+/* Inspired by Java grammar */
+ID : IDSTART IDPART*;
+fragment IDSTART : ALPHA|'_';
+fragment IDPART : IDSTART | DIGIT; 
 
 WS  :  (' '|'\r'|'\t'|'\u000C'|'\n') {$channel=HIDDEN;}
     ;
