@@ -157,13 +157,13 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 			// last character before current offset is one of the template prefixes 
 			return true;
 		
-		boolean hasOnlyChars = true;
+		boolean hasIDChars = true;
 		for (int i=0; i<trimText.length(); i++){
-			if (!Character.isLetter(trimText.charAt(i)) && trimText.charAt(i) != '.') hasOnlyChars = false;
+			char c = trimText.charAt(i);
+			if (!Character.isLetter(c) && c != '.' && c != '_' && !(i>0 && !Character.isDigit(c))) hasIDChars = false;
 		}
-		if (hasOnlyChars) return true;
-		
-		return false;
+		return hasIDChars;
+
 	}
 
 	private int getLastIndexOfTemplatePrefix(int offset, String currentText) {
