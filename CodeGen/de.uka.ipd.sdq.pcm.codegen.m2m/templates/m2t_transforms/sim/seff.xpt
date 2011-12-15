@@ -71,7 +71,8 @@
 			«ELSE»
 				«EXPAND BranchTransition(counterID) FOREACH this.branches_Branch SEPARATOR " else "»
 				else
-					throw new RuntimeException("No branch condition evaluated to true :-(");
+				    logger.warn("No branch condition evaluated to true in «this.entityName» :-(");  
+					//throw new RuntimeException("No branch condition evaluated to true :-(");
 			«ENDIF»
 		«ENDLET»
 	}

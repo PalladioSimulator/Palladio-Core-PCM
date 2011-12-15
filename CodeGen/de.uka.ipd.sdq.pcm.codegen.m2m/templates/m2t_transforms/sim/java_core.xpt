@@ -34,6 +34,10 @@ public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackfra
 «ENDDEFINE»
 
 «DEFINE ComponentConstructor FOR RepositoryComponent»
+	private static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(de.uka.ipd.sdq.simucomframework.model.SimuComModel.class.getName());
+			
+	
 	private String assemblyContextID = null;
 	
 	public String getAssemblyContextID() {
