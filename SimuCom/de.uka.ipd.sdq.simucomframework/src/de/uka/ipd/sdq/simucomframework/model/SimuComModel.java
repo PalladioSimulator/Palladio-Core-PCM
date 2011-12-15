@@ -110,7 +110,7 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
                 simControl);
         
         // initialise ProbeSpecification context
-        probeSpecContext.initialise(blackboard, new SimuComProbeStrategyRegistry(), new CalculatorFactory(this,
+        probeSpecContext.initialise(decoratedBlackboard, new SimuComProbeStrategyRegistry(), new CalculatorFactory(this,
                 new SetupPipesAndFiltersStrategy(this)));
 
         // install a garbage collector which keeps track of the samples stored on the blackboard and
