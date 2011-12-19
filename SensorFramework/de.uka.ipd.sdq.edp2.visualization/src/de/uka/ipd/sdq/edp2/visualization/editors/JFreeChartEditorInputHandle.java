@@ -70,6 +70,8 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 		if (inputs.size() == 0) {
 			inputs.add((JFreeChartEditorInput) newInput);
 			newInput.addObserver(this);
+			setChanged();
+			notifyObservers();
 			return true;
 		}
 		inputs.add((JFreeChartEditorInput) newInput);

@@ -3,6 +3,9 @@ package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 import java.util.logging.Logger;
 
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
@@ -13,6 +16,7 @@ import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandle;
 
 /**
  * GUI controls for displaying options of {@link AbstractEditor}s. Shows and
@@ -28,10 +32,11 @@ public class DisplayPropertySection extends AbstractPropertySection {
 			.getLogger(DisplayPropertySection.class.getCanonicalName());
 
 	/**
-	 * Key which must be the same as the key under which the ID's / names of
+	 * Key, which must be the same as the key under which the ID's / names of
 	 * {@link IDataSink}s are stored.
 	 */
 	private final static String NAME_KEY = "elementName";
+	private InputSelectionComposite selectionComposite;
 	/**
 	 * Composite for all properties of all JFreeCharts
 	 */
@@ -62,10 +67,11 @@ public class DisplayPropertySection extends AbstractPropertySection {
 		super.createControls(parent, aTabbedPropertySheetPage);
 		this.parent = parent;
 		if (getInput() != null) {
-			commonComposite = getInput().getCommonChartProperties()
-					.retrieveComposite(parent);
-			specificComposite = getInput().getChartProperties()
-					.retrieveComposite(parent);
+			selectionComposite = new InputSelectionComposite(parent,
+					SWT.EMBEDDED, getInput());
+			if (selectionComposite.getInputSelection() != null) {
+				createPropertyComposites();
+			}
 		}
 	}
 
@@ -86,14 +92,14 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	 * 
 	 * @return the current {@link IDataSink}
 	 */
-	public JFreeChartEditorInput getInput() {
+	public JFreeChartEditorInputHandle getInput() {
 		if (Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
 				.getActivePage() == null) {
 			return null;
 		}
 		editor = (JFreeChartEditor) Activator.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		return (JFreeChartEditorInput) editor.getEditorInput();
+		return (JFreeChartEditorInputHandle) editor.getEditorInput();
 	}
 
 	/*
@@ -107,13 +113,42 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	}
 
 	private void updateInput() {
-		if (getInput() != null) {
+		if (specificComposite != null) {
 			specificComposite.dispose();
+		}
+		if (selectionComposite != null) {
+			selectionComposite.dispose();
+		}
+		if (commonComposite != null) {
 			commonComposite.dispose();
 		}
-		commonComposite = getInput().getCommonChartProperties().retrieveComposite(parent);
-		specificComposite = getInput().getChartProperties().retrieveComposite(
-				parent);
+		selectionComposite = new InputSelectionComposite(parent, SWT.EMBEDDED,
+				getInput());
+		selectionComposite.getComboBox().addSelectionListener(
+				new SelectionListener() {
+
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						createPropertyComposites();
+
+					}
+
+					@Override
+					public void widgetDefaultSelected(SelectionEvent e) {
+						createPropertyComposites();
+					}
+				});
+		if (selectionComposite.getInputSelection() != null) {
+			createPropertyComposites();
+		}
+	}
+
+	private void createPropertyComposites() {
+
+		commonComposite = selectionComposite.getInputSelection()
+				.getCommonChartProperties().retrieveComposite(parent);
+		specificComposite = selectionComposite.getInputSelection()
+				.getChartProperties().retrieveComposite(parent);
 	}
 
 }

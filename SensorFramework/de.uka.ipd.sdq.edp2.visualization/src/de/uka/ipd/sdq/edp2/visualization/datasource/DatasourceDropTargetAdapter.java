@@ -13,6 +13,7 @@ import org.eclipse.swt.dnd.DropTargetAdapter;
 import org.eclipse.swt.dnd.DropTargetEvent;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.RawMeasurementsImpl;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 
@@ -32,11 +33,12 @@ public class DatasourceDropTargetAdapter extends DropTargetAdapter {
 	public void drop(DropTargetEvent event){
 		IStructuredSelection selection = (IStructuredSelection) LocalSelectionTransfer
 		.getTransfer().getSelection();
+		if (selection.getFirstElement() instanceof RawMeasurements){
 			EDP2Source newSource = new EDP2Source((RawMeasurements) selection.getFirstElement());
 			IVisualizationInput firstInput = inputHandle.getInputs().get(0);
 			inputHandle.addInput(firstInput.createTransformationsChainCopy(newSource));
 			logger.log(Level.INFO, "added new input:"+newSource.getRawMeasurementsUUID());
-			
+		}
 		logger.log(Level.INFO, "dropped element: "+selection.getFirstElement().toString());
 	}
 

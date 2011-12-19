@@ -30,6 +30,13 @@ public abstract class IVisualizationInput extends Observable implements IDataSin
 	 *         in {@link #getDataTypeInstance()}.
 	 */
 	public abstract Object getData();
+	
+	/**
+	 * Returns a list of all applied {@link AbstractTransformation}s before this
+	 * {@link IVisualizationInput}.
+	 * @return the list of applied {@link AbstractTransformation} elements.
+	 */
+	public abstract ArrayList<AbstractTransformation> getListOfTransformations();
 
 	/**
 	 * Creates a copy of the transformations of this {@link IVisualizationInput}

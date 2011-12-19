@@ -65,7 +65,6 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 	 */
 	@Override
 	public void handleEvent(Event event) {
-
 		if (event.widget == dataSeriesList) {
 			selectionStatus = statusOK;
 			if (dataSeriesList.getSelectionCount() == 0) {
@@ -73,7 +72,6 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 						"Must select a Series of Data to proceed.", null);
 			}
 		}
-
 		updatePageStatus();
 		getWizard().getContainer().updateButtons();
 	}
@@ -189,7 +187,7 @@ public class HistogramFrequencyAdapterSettingsPage extends WizardPage implements
 		logger.log(Level.INFO, "AdapterSettingsPage returned non-null adapter");
 		HistogramFrequencyAdapter adapter = new HistogramFrequencyAdapter();
 		HashMap<String, Object> properties = adapter.getProperties();
-		properties.put(properties.get("dataSeriesIndex").toString(),
+		properties.put("dataSeriesIndex",
 				dataSeriesList.getSelectionIndex());
 		adapter.setProperties(properties);
 		adapter.setSource(source);

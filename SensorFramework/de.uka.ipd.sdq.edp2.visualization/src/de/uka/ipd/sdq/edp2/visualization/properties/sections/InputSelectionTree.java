@@ -15,20 +15,20 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.jface.viewers.ViewerSorter;
 
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.editors.EditorInputContentProvider;
 
 public class InputSelectionTree extends Composite {
 
 	private TreeViewer treeViewer;
-	
+
 	/**
 	 * @return the treeViewer
 	 */
 	public TreeViewer getTreeViewer() {
 		return treeViewer;
 	}
-
 
 	private static class ViewerLabelProvider extends LabelProvider {
 		public Image getImage(Object element) {
@@ -38,6 +38,8 @@ public class InputSelectionTree extends Composite {
 		public String getText(Object element) {
 			if (element instanceof IDataSink)
 				return ((IDataSink) element).getName();
+			else if (element instanceof IVisualizationInput)
+				return ((IVisualizationInput) element).getName();
 			return super.getText(element);
 		}
 	}
@@ -52,7 +54,7 @@ public class InputSelectionTree extends Composite {
 			IVisualizationInputHandle inputHandler) {
 		super(parent, SWT.BORDER);
 		setLayout(new GridLayout(1, false));
-		
+
 		Label lblCurrentEditorInputs = new Label(this, SWT.NONE);
 		lblCurrentEditorInputs.setText("Current Editor Inputs:");
 
@@ -66,7 +68,6 @@ public class InputSelectionTree extends Composite {
 		treeViewer.setContentProvider(new EditorInputContentProvider());
 		treeViewer.setInput(inputHandler);
 	}
-	
 
 	@Override
 	protected void checkSubclass() {

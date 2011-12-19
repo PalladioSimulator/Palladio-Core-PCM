@@ -60,8 +60,10 @@ public abstract class AbstractEditor extends EditorPart implements
 	protected IVisualizationInputHandle input;
 	/** Reference on the current {@link TabbedPropertySheetPage}. */
 	protected TabbedPropertySheetPage propertySheetPage;
+	/** The composite of the parent element, for reference if a new chart is added.*/
+	protected Composite parent;
 
-	/** Default, empty constructor. */
+	/** Default constructor. */
 	public AbstractEditor() {
 	}
 
@@ -89,6 +91,8 @@ public abstract class AbstractEditor extends EditorPart implements
 	}
 	@Override
 	protected void setInput(IEditorInput input) {
+		this.input = (IVisualizationInputHandle)input;
+		this.input.addObserver(this);
 		super.setInput(input);
     }
 
@@ -102,8 +106,6 @@ public abstract class AbstractEditor extends EditorPart implements
 	public void init(IEditorSite site, IEditorInput input)
 			throws PartInitException {
 		setSite(site);
-		this.input = (IVisualizationInputHandle)input;
-		this.input.addObserver(this);
 		setInput(input);
 	}
 
@@ -140,7 +142,7 @@ public abstract class AbstractEditor extends EditorPart implements
 	 */
 	@Override
 	public void setFocus() {
-		// TODO Auto-generated method stub
+		parent.setFocus();
 	}
 
 	/*

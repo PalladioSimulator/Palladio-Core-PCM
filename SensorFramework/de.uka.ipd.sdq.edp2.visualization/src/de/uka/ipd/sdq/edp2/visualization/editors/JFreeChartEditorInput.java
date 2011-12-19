@@ -31,7 +31,8 @@ import de.uka.ipd.sdq.edp2.visualization.properties.SpecificChartProperties;
  * @author Dominik Ernst
  * 
  */
-public abstract class JFreeChartEditorInput extends IVisualizationInput implements ISelection {
+public abstract class JFreeChartEditorInput extends IVisualizationInput
+		implements ISelection {
 
 	/**
 	 * Key under which this class' name is stored in the properties.
@@ -150,13 +151,13 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput implemen
 
 	public abstract JFreeChart getChart();
 
-	public IVisualizationInput createTransformationsChainCopy(
-			AbstractDataSource source) {
-		//a list which holds all transformations (not the current datasource and not the current visualization)
+	public ArrayList<AbstractTransformation> getListOfTransformations() {
+		// a list which holds all transformations (not the current datasource
+		// and not the current visualization)
 		ArrayList<AbstractTransformation> listOfTransformations = new ArrayList<AbstractTransformation>();
-		//while it is not clear, whether there are any transformations at all, use the new source
+		// while it is not clear, whether there are any transformations at all,
+		// use the new source
 		// as the direct predecessor
-		AbstractDataSource inputSource = source;
 		AbstractDataSource previousElement = getSource();
 		// if the previousElement is also an implementation of IDataSink, it
 		// consequently is a transformation
@@ -165,15 +166,25 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput implemen
 			listOfTransformations.add(previousTransformation);
 			previousElement = previousTransformation.getSource();
 		}
-		// invert the list's order
-		Collections.reverse(listOfTransformations);
+		return listOfTransformations;
+	}
 
-		//create copies of the elements, using the previously created copy as each element's source
+	public IVisualizationInput createTransformationsChainCopy(
+			AbstractDataSource source) {
+		ArrayList<AbstractTransformation> listOfTransformations = (ArrayList<AbstractTransformation>) getListOfTransformations()
+				.clone();
+		// invert the list of transformations' order
+		Collections.reverse(listOfTransformations);
+		AbstractDataSource inputSource = source;
+		// create copies of the elements, using the previously created copy as
+		// each element's source
 		if (!listOfTransformations.isEmpty()) {
-			AbstractTransformation firstTransformation = (AbstractTransformation) listOfTransformations.remove(0).createCopyForSource(source);
+			AbstractTransformation firstTransformation = (AbstractTransformation) listOfTransformations
+					.remove(0).createCopyForSource(source);
 			AbstractTransformation lastTransformation = firstTransformation;
 			for (AbstractTransformation transformation : listOfTransformations) {
-				lastTransformation = (AbstractTransformation) transformation.createCopyForSource(lastTransformation);
+				lastTransformation = (AbstractTransformation) transformation
+						.createCopyForSource(lastTransformation);
 			}
 			inputSource = lastTransformation;
 		}

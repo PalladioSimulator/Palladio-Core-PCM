@@ -4,9 +4,6 @@ import java.util.HashMap;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExecutableExtension;
-import org.eclipse.ui.IPersistableElement;
-import org.jfree.data.general.AbstractSeriesDataset;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 
@@ -16,8 +13,8 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
  * 
  * @author Dominik Ernst, Roland Richter
  */
-public abstract class AbstractTransformation extends AbstractDataSource implements
-		IDataSink {
+public abstract class AbstractTransformation extends AbstractDataSource
+		implements IDataSink {
 
 	/**
 	 * The previous element in a chain of {@link IDataFlow} elements.
@@ -104,17 +101,23 @@ public abstract class AbstractTransformation extends AbstractDataSource implemen
 		// avoid unnecessary implementation
 		// or misunderstandings
 	}
-	
+
 	/**
-	 * Method which checks the existence of the given key in both {@link HashMap}s: <newProperties> and
-	 * the <properties> which are currently set for this {@link AbstractTransformation}.
-	 * @param newProperties the set of properties to set
-	 * @param key the key for which property to check non-null 
-	 * @return <true> if both the new and the old set of properties contain an entry with the given key
+	 * Method which checks the existence of the given key in two {@link HashMap}
+	 * s: the <code>newProperties</code> specified as a parameter and the
+	 * <code>properties</code>, which are currently set for this
+	 * {@link AbstractTransformation}.
+	 * 
+	 * @param newProperties
+	 *            the set of properties to set
+	 * @param key
+	 *            the key of a property, for which to check non-null
+	 * @return <code>true</code>, if both the new and the old set of properties
+	 *         contain a non-null entry with the given key
 	 */
-	public boolean validProperties(HashMap<String, Object> newProperties, String key){
-		return (properties.get(key) != null
-				&& newProperties.get(key) != null);
+	public boolean validProperties(HashMap<String, Object> newProperties,
+			String key) {
+		return (properties.get(key) != null && newProperties.get(key) != null);
 	}
-	
+
 }

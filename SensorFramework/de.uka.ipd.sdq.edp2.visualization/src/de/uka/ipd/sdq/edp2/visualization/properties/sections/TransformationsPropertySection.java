@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -9,7 +8,6 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableLayout;
@@ -20,43 +18,36 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowData;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
+import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
+import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
 import de.uka.ipd.sdq.edp2.visualization.Activator;
-import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
-import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
-import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
-import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.wizards.AdapterWizard;
+import de.uka.ipd.sdq.edp2.visualization.wizards.DefaultSequence;
+import de.uka.ipd.sdq.edp2.visualization.wizards.DefaultViewsWizard;
 import de.uka.ipd.sdq.edp2.visualization.wizards.FilterWizard;
 
 /**
@@ -103,8 +94,13 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	 * {@link ITabbedPropertySheetPageContributor}.
 	 */
 	private AbstractEditor editor;
-	
-	private AbstractTransformation lastSelection;
+
+	/**
+	 * Last, by the user selected item in the <treeViewer>.
+	 */
+	private AbstractTransformation selectedTransformation;
+
+	private IVisualizationInput selectedInput;
 
 	/**
 	 * Create the look and items of the properties. It is called, if one of the
@@ -119,26 +115,6 @@ public class TransformationsPropertySection extends AbstractPropertySection
 		Composite composite = getWidgetFactory()
 				.createFlatFormComposite(parent);
 
-		/*
-		 * try {
-		 * 
-		 * editor =
-		 * Activator.getDefault().getWorkbench().getActiveWorkbenchWindow
-		 * ().getActivePage();
-		 * 
-		 * // NPE may happen if the properties view is restored or opened while
-		 * // the editor is still or already closed } catch
-		 * (NullPointerException npe) {
-		 * 
-		 * logger.log(Level.SEVERE,
-		 * "Tried to open properties view without an active editor!"); throw new
-		 * RuntimeException(); }
-		 * 
-		 * // set the input to what is actually selected in the editor
-		 * setInput(editor, Activator.getDefault().getWorkbench()
-		 * .getActiveWorkbenchWindow().getSelectionService().getSelection(
-		 * editor.getSite().getId()));
-		 */
 		// initialize the layout
 		createLayout(composite);
 
@@ -148,7 +124,6 @@ public class TransformationsPropertySection extends AbstractPropertySection
 
 		treeViewer.addSelectionChangedListener(this);
 
-		// initialize the contents of the group
 		initTransformationTable(composite);
 
 		final Button buttonAdapter = new Button(composite, SWT.PUSH);
@@ -160,39 +135,46 @@ public class TransformationsPropertySection extends AbstractPropertySection
 
 		Listener btnListener = new Listener() {
 
-		//TODO fix references on previous transformations etc.
+			// TODO fix references on previous transformations etc.
 			@Override
 			public void handleEvent(Event event) {
-				
-				if (event.widget == buttonAdapter) {
-					AdapterWizard wizard = new AdapterWizard(lastSelection);
-					AbstractAdapter adapter = null;
-					WizardDialog wdialog = new WizardDialog(Activator
-							.getDefault().getWorkbench()
-							.getActiveWorkbenchWindow().getShell(), wizard);
-					wdialog.open();
-					if (wdialog.getReturnCode() == Window.OK) {
-						adapter = wizard.getAdapter();
-						handleSemanticChange(adapter);
+				if (selectedInput == null) {
+					MessageDialog.openError(Activator.getDefault()
+							.getWorkbench().getActiveWorkbenchWindow()
+							.getShell(), "No data series selected",
+							"To add a transformation, a data series, to which the transformation should "
+									+ "be added, must be selected first");
+				} else {
+					if (event.widget == buttonAdapter) {
+						AdapterWizard wizard = new AdapterWizard(selectedInput
+								.getSource());
+						AbstractAdapter adapter = null;
+						WizardDialog wdialog = new WizardDialog(Activator
+								.getDefault().getWorkbench()
+								.getActiveWorkbenchWindow().getShell(), wizard);
+						wdialog.open();
+						if (wdialog.getReturnCode() == Window.OK) {
+							adapter = wizard.getAdapter();
+							handleSemanticChange(adapter);
+						}
+
+					} else if (event.widget == buttonFilter) {
+						FilterWizard wizard = new FilterWizard(selectedInput
+								.getSource());
+						AbstractFilter filter = null;
+						WizardDialog wdialog = new WizardDialog(Activator
+								.getDefault().getWorkbench()
+								.getActiveWorkbenchWindow().getShell(), wizard);
+						wdialog.open();
+						if (wdialog.getReturnCode() == Window.OK) {
+							filter = wizard.getFilter();
+							selectedInput.setSource(filter);
+							refresh();
+						}
 					}
 
-				} else if (event.widget == buttonFilter) {
-					FilterWizard wizard = new FilterWizard(lastSelection);
-					AbstractFilter filter = null;
-					WizardDialog wdialog = new WizardDialog(Activator
-							.getDefault().getWorkbench()
-							.getActiveWorkbenchWindow().getShell(), wizard);
-					wdialog.open();
-					if (wdialog.getReturnCode() == Window.OK) {
-						filter = wizard.getFilter();
-					}
+					((JFreeChartEditor) editor).updateChart();
 				}
-
-				/*
-				 * if (editor instanceof JFreeChartEditor) { ((JFreeChartEditor)
-				 * editor).updateChart(); }
-				 */
-				editor.setFocus();
 			}
 		};
 		buttonAdapter.addListener(SWT.Selection, btnListener);
@@ -202,19 +184,83 @@ public class TransformationsPropertySection extends AbstractPropertySection
 
 	private void handleSemanticChange(AbstractAdapter adapter) {
 		// TODO perform actual check on compatible editors for new input.
-		/*
-		 * boolean result = MessageDialog .openQuestion(
-		 * Activator.getDefault().getWorkbench()
-		 * .getActiveWorkbenchWindow().getShell(), "Semantics of Data Changed",
-		 * "The applied data transformation cannot be displayed in the current dataset."
-		 * +
-		 * "A new dataset must be created to replace it. Do you want to proceed?"
-		 * );
-		 * 
-		 * if (result) {
-		 * 
-		 * IDataSink newInput = new HistogramEditorInput(adapter); }
-		 */
+		boolean adapterExistsAlready = false;
+		for (AbstractTransformation trafo : selectedInput
+				.getListOfTransformations()) {
+			if (trafo.getFactoryId().equals(adapter.getFactoryId())) {
+				MessageDialog
+						.openInformation(
+								Activator.getDefault().getWorkbench()
+										.getActiveWorkbenchWindow().getShell(),
+								"Adapter already exists",
+								"You tried to add an adapter, which already exists in the list"
+										+ "of transformations for the selected data series. "
+										+ "Please select a different series or change the settings of the existing adapter "
+										+ "in the properties view.");
+				adapterExistsAlready = true;
+			}
+		}
+
+		if (!adapterExistsAlready) {
+			boolean result = MessageDialog
+					.openQuestion(
+							Activator.getDefault().getWorkbench()
+									.getActiveWorkbenchWindow().getShell(),
+							"Semantics of Data Changed",
+							"The applied data transformation cannot be displayed in the current dataset."
+									+ "A new dataset in a new editor must be opened. Do you want to proceed?");
+			if (result) {
+
+				DefaultViewsWizard wizard = new DefaultViewsWizard(adapter);
+				WizardDialog wdialog = new WizardDialog(Activator.getDefault()
+						.getWorkbench().getActiveWorkbenchWindow().getShell(),
+						wizard);
+				wdialog.open();
+
+				if (wdialog.getReturnCode() == Window.OK) {
+					DefaultSequence selection = wizard.getSelectedDefault();
+
+					if (selection.getSize() > 0) {
+						if (selection.getSequenceProperties().size() > 0) {
+							selection.getFirstSequenceElement().setProperties(
+									selection.getSequenceProperties().get(0));
+						}
+						selection.getFirstSequenceElement().setSource(adapter);
+					}
+					for (int i = 1; i < selection.getSize(); i++) {
+						selection.getSequenceElements().get(i).setProperties(
+								selection.getSequenceProperties().get(i));
+						selection.getSequenceElements().get(i).setSource(
+								selection.getSequenceElements().get(i - 1));
+					}
+
+					IVisualizationInput visualization = selection
+							.getVisualization();
+					visualization.setProperties(selection
+							.getVisualizationProperties());
+					if (selection.getSize() > 0) {
+						visualization.setSource(selection
+								.getLastSequenceElement());
+					} else {
+						visualization.setSource(adapter);
+					}
+					JFreeChartEditorInputHandle input = new JFreeChartEditorInputHandle(
+							visualization);
+
+					try {
+						IWorkbenchPage page = Activator.getDefault()
+								.getWorkbench().getActiveWorkbenchWindow()
+								.getActivePage();
+						IEditorPart editor = page
+								.openEditor(input,
+										"de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor");
+					} catch (PartInitException e) {
+					}
+
+				}
+			}
+		}
+		refresh();
 	}
 
 	/**
@@ -250,9 +296,9 @@ public class TransformationsPropertySection extends AbstractPropertySection
 
 		transformationTable.setLinesVisible(true);
 		transformationTable.setHeaderVisible(true);
-		transformationTable.setLayoutData(new GridData(250,123));
+		transformationTable.setLayoutData(new GridData(250, 123));
 		// set width and height of the table
-		//transformationTable.setLayoutData(new RowData(250, 123));
+		// transformationTable.setLayoutData(new RowData(250, 123));
 		// set the weight of the table columns
 		TableLayout tableLayout = new TableLayout();
 		tableLayout.addColumnData(new ColumnWeightData(2));
@@ -346,6 +392,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	private void updateEditorReference() {
 		if (Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
 				.getActivePage() == null) {
+			// TODO wait for editor to be restored?
 		} else {
 			editor = (AbstractEditor) Activator.getDefault().getWorkbench()
 					.getActiveWorkbenchWindow().getActivePage()
@@ -364,7 +411,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 		transformationTable.clearAll();
 		transformationTable.setItemCount(0);
 
-		HashMap<String, Object> properties = lastSelection
+		HashMap<String, Object> properties = selectedTransformation
 				.getProperties();
 
 		properties.remove(NAME_KEY);
@@ -388,14 +435,15 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	 */
 	private void updateProperties(String key, Object value) {
 		// get properties for keys and old values
-		HashMap<String, Object> newProperties = lastSelection.getProperties();
-		logger.log(Level.INFO, ""+lastSelection.getName()+" updated with: "+key.toString()+", " + value.toString());
+		HashMap<String, Object> newProperties = selectedTransformation
+				.getProperties();
+		logger.log(Level.INFO, "" + selectedTransformation.getName()
+				+ " updated with: " + key.toString() + ", " + value.toString());
 		newProperties.put(key, value);
-		lastSelection.setProperties(newProperties);
-		lastSelection.transformData();
+		selectedTransformation.setProperties(newProperties);
+		selectedTransformation.transformData();
 
 		((JFreeChartEditor) editor).updateChart();
-		editor.setFocus();
 
 	}
 
@@ -414,8 +462,11 @@ public class TransformationsPropertySection extends AbstractPropertySection
 		ITreeSelection selection = (ITreeSelection) event
 				.getSelectionProvider().getSelection();
 		if (selection.getFirstElement() instanceof AbstractTransformation) {
-			lastSelection = (AbstractTransformation) selection.getFirstElement();
+			selectedTransformation = (AbstractTransformation) selection
+					.getFirstElement();
 			refreshPropertiesTable();
+		} else {
+			selectedInput = (IVisualizationInput) selection.getFirstElement();
 		}
 	}
 

@@ -35,8 +35,6 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 	private static Logger logger = Logger.getLogger(JFreeChartEditor.class
 			.getCanonicalName());
 	
-	/** The composite of the parent element, for reference if a new chart is added.*/
-	protected Composite parent;
 	/** The container in which a {@link JFreeChart} is contained. */
 	protected ChartComposite chartContainer;
 	/**
