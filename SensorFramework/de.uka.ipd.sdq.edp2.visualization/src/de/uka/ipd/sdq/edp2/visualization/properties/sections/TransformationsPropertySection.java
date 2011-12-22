@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
+import java.awt.Color;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -101,6 +102,8 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	private AbstractTransformation selectedTransformation;
 
 	private IVisualizationInput selectedInput;
+	
+	private Composite container;
 
 	/**
 	 * Create the look and items of the properties. It is called, if one of the
@@ -112,24 +115,28 @@ public class TransformationsPropertySection extends AbstractPropertySection
 
 		super.createControls(parent, aTabbedPropertySheetPage);
 
-		Composite composite = getWidgetFactory()
+		container = getWidgetFactory()
 				.createFlatFormComposite(parent);
+		container.setBackground(parent.getDisplay().getSystemColor(
+				SWT.COLOR_WIDGET_BACKGROUND));
 
 		// initialize the layout
-		createLayout(composite);
+		createLayout(container);
+		
+		if (editorExists()){
+			treeViewer = new InputSelectionTree(container, SWT.EMBEDDED, editor
+					.getEditorInputHandle()).getTreeViewer();
+			treeViewer.addSelectionChangedListener(this);
+		} else {
+			//TODO add dummy composite as placeholder
+		}
 
-		updateEditorReference();
-		treeViewer = new InputSelectionTree(composite, SWT.EMBEDDED, editor
-				.getEditorInputHandle()).getTreeViewer();
+		initTransformationTable(container);
 
-		treeViewer.addSelectionChangedListener(this);
-
-		initTransformationTable(composite);
-
-		final Button buttonAdapter = new Button(composite, SWT.PUSH);
+		final Button buttonAdapter = new Button(container, SWT.PUSH);
 		buttonAdapter.setText("Add new Adapter..");
 		buttonAdapter.pack();
-		final Button buttonFilter = new Button(composite, SWT.PUSH);
+		final Button buttonFilter = new Button(container, SWT.PUSH);
 		buttonFilter.setText("Add new Filter..");
 		buttonFilter.pack();
 
@@ -270,7 +277,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	 *            It is the parent.
 	 */
 	private void createLayout(Composite composite) {
-		GridLayout layout = new GridLayout(2, false);
+		GridLayout layout = new GridLayout(3, false);
 		layout.marginWidth = 2;
 		layout.marginHeight = 2;
 		composite.setLayout(layout);
@@ -389,14 +396,24 @@ public class TransformationsPropertySection extends AbstractPropertySection
 		super.setInput(part, selection);
 	}
 
-	private void updateEditorReference() {
-		if (Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
-				.getActivePage() == null) {
-			// TODO wait for editor to be restored?
+	private boolean editorExists() {
+		if (Activator.getDefault().getWorkbench().getActiveWorkbenchWindow() == null) {
+			editor = null;
+			return false;
+		} else if (Activator.getDefault().getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage() == null) {
+			editor = null;
+			return false;
+		} else if ((AbstractEditor) Activator.getDefault().getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage()
+				.getActiveEditor() == null) {
+			editor = null;
+			return false;
 		} else {
 			editor = (AbstractEditor) Activator.getDefault().getWorkbench()
 					.getActiveWorkbenchWindow().getActivePage()
 					.getActiveEditor();
+			return true;
 		}
 	}
 
@@ -454,7 +471,15 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	 * org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#refresh()
 	 */
 	public void refresh() {
-		treeViewer.refresh();
+		if (editorExists() && treeViewer == null) {
+			treeViewer = new InputSelectionTree(container, SWT.EMBEDDED, editor
+					.getEditorInputHandle()).getTreeViewer();
+			treeViewer.addSelectionChangedListener(this);
+		}
+		if (treeViewer != null) {
+			treeViewer.refresh();
+		}
+		
 	}
 
 	@Override

@@ -52,7 +52,7 @@ public class InputSelectionTree extends Composite {
 	 */
 	public InputSelectionTree(Composite parent, int style,
 			IVisualizationInputHandle inputHandler) {
-		super(parent, SWT.BORDER);
+		super(parent, SWT.EMBEDDED);
 		setLayout(new GridLayout(1, false));
 
 		Label lblCurrentEditorInputs = new Label(this, SWT.NONE);
