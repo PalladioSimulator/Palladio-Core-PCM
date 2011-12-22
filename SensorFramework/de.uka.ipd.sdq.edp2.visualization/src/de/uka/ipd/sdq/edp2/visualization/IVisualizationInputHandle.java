@@ -8,6 +8,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
 
@@ -31,14 +32,14 @@ public abstract class IVisualizationInputHandle extends Observable implements IE
 	/**
 	 * Adds an {@link IDataSink} to this {@link IVisualizationInputHandle}'s list of inputs.
 	 * @param newInput the {@link IDataSink} to add.
-	 * @return <true> if the {@link IDataSink} could be added successfully.
+	 * @return <code>true</code> if the {@link IDataSink} could be added successfully.
 	 */
 	public abstract boolean addInput(IVisualizationInput newInput);
 	
 	/**
 	 * Removes an {@link IDataSink} from this {@link IVisualizationInputHandle}'s list of inputs.
 	 * @param removedInput the {@link IDataSink} to add.
-	 * @return <true> if the {@link IDataSink} could found and removed.
+	 * @return <code>true</code> if the {@link IDataSink} could found and removed.
 	 */
 	public abstract boolean removeInput(IVisualizationInput removedInput);
 	
@@ -57,8 +58,19 @@ public abstract class IVisualizationInputHandle extends Observable implements IE
 	/**
 	 * Method, which returns <true> if the {@link IVisualizationInputHandle} and its corresponding {@link AbstractEditor}
 	 * are able to display multiple {@link IDataSink} objects.
-	 * @return <true> if multiple inputs are supported.
+	 * @return <code>true</code> if multiple inputs are supported.
 	 */
 	public abstract boolean supportsMultipleInputs();
+	
+	/**
+	 * Method that returns a {@link Composite}, which is displayed in the properties view.
+	 * The {@link Composite} should contain settings, that are identical for all {@link IVisualizationInput}s
+	 * handled by this {@link IVisualizationInputHandle}.
+	 * <br>
+	 * It is suggested to use a separate bean class and databinding to link the composite (View)
+	 * to this {@link IVisualizationInputHandle}s (Control) properties' (Model)
+	 * @return the composite showing and allowing to edit this {@link IVisualizationInput}'s display options.
+	 */
+	public abstract Composite getCommonPropertiesComposite();
 	
 }

@@ -3,6 +3,11 @@ package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 import java.util.logging.Logger;
 
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ListViewer;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -13,6 +18,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import de.uka.ipd.sdq.edp2.visualization.Activator;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
@@ -26,7 +32,8 @@ import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandle;
  * @author Roland Richter, Dominik Ernst
  * 
  */
-public class DisplayPropertySection extends AbstractPropertySection {
+public class DisplayPropertySection extends AbstractPropertySection implements
+		ISelectionChangedListener {
 	/** Logger */
 	private static Logger logger = Logger
 			.getLogger(DisplayPropertySection.class.getCanonicalName());
@@ -36,7 +43,6 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	 * {@link IDataSink}s are stored.
 	 */
 	private final static String NAME_KEY = "elementName";
-	private InputSelectionComposite selectionComposite;
 	/**
 	 * Composite for all properties of all JFreeCharts
 	 */
@@ -53,6 +59,13 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	 * The parent composite.
 	 */
 	private Composite parent;
+	/**
+	 * A tree, which contains the editor's inputs and their transformations (as
+	 * children)
+	 */
+	private ListViewer listViewer;
+
+	private JFreeChartEditorInput lastSelectedInput;
 
 	/*
 	 * (non-Javadoc)
@@ -67,11 +80,14 @@ public class DisplayPropertySection extends AbstractPropertySection {
 		super.createControls(parent, aTabbedPropertySheetPage);
 		this.parent = parent;
 		if (getInput() != null) {
-			selectionComposite = new InputSelectionComposite(parent,
-					SWT.EMBEDDED, getInput());
-			if (selectionComposite.getInputSelection() != null) {
-				createPropertyComposites();
-			}
+			// the common composite is for all JFreeCharts identical, so get the
+			// first input and display it
+			commonComposite = getInput().getInputs().get(0)
+					.getCommonChartProperties().retrieveComposite(parent);
+			// create a list viewer containing all editor inputs
+			listViewer = new InputElementList(parent, SWT.EMBEDDED, getInput())
+					.getListViewer();
+			listViewer.addSelectionChangedListener(this);
 		}
 	}
 
@@ -88,18 +104,29 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	}
 
 	/**
-	 * Retrieves the input of the currently active editor.
+	 * Retrieves the input of the last active editor. <code>null</code> if no
+	 * editor was active during the current session.
 	 * 
-	 * @return the current {@link IDataSink}
+	 * @return
 	 */
-	public JFreeChartEditorInputHandle getInput() {
-		if (Activator.getDefault().getWorkbench().getActiveWorkbenchWindow()
-				.getActivePage() == null) {
+	private JFreeChartEditorInputHandle getInput() {
+		if (Activator.getDefault().getWorkbench().getActiveWorkbenchWindow() == null) {
+			editor = null;
 			return null;
+		} else if (Activator.getDefault().getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage() == null) {
+			editor = null;
+			return null;
+		} else if (Activator.getDefault().getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor() == null) {
+			editor = null;
+			return null;
+		} else {
+			editor = (JFreeChartEditor) Activator.getDefault().getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage()
+					.getActiveEditor();
+			return (JFreeChartEditorInputHandle) editor.getEditorInput();
 		}
-		editor = (JFreeChartEditor) Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		return (JFreeChartEditorInputHandle) editor.getEditorInput();
 	}
 
 	/*
@@ -109,46 +136,33 @@ public class DisplayPropertySection extends AbstractPropertySection {
 	 * org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#refresh()
 	 */
 	public void refresh() {
-		updateInput();
+		if (getInput() != null && listViewer == null) {
+			listViewer = new InputElementList(parent, SWT.EMBEDDED, getInput())
+					.getListViewer();
+			listViewer.addSelectionChangedListener(this);
+		}
+		if (listViewer != null) {
+			listViewer.refresh();
+		}
+		createSpecificChartComposite();
 	}
 
-	private void updateInput() {
+	private void createSpecificChartComposite() {
 		if (specificComposite != null) {
 			specificComposite.dispose();
 		}
-		if (selectionComposite != null) {
-			selectionComposite.dispose();
-		}
-		if (commonComposite != null) {
-			commonComposite.dispose();
-		}
-		selectionComposite = new InputSelectionComposite(parent, SWT.EMBEDDED,
-				getInput());
-		selectionComposite.getComboBox().addSelectionListener(
-				new SelectionListener() {
-
-					@Override
-					public void widgetSelected(SelectionEvent e) {
-						createPropertyComposites();
-
-					}
-
-					@Override
-					public void widgetDefaultSelected(SelectionEvent e) {
-						createPropertyComposites();
-					}
-				});
-		if (selectionComposite.getInputSelection() != null) {
-			createPropertyComposites();
-		}
+		if (lastSelectedInput != null)
+			specificComposite = lastSelectedInput.getChartProperties()
+					.retrieveComposite(parent);
 	}
 
-	private void createPropertyComposites() {
-
-		commonComposite = selectionComposite.getInputSelection()
-				.getCommonChartProperties().retrieveComposite(parent);
-		specificComposite = selectionComposite.getInputSelection()
-				.getChartProperties().retrieveComposite(parent);
+	@Override
+	public void selectionChanged(SelectionChangedEvent event) {
+		IStructuredSelection selection = (IStructuredSelection) listViewer
+				.getSelection();
+		lastSelectedInput = (JFreeChartEditorInput) selection.getFirstElement();
+		refresh();
+		parent.redraw();
 	}
 
 }

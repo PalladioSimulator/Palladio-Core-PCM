@@ -46,7 +46,7 @@ public interface IDataSink extends IDataFlow, Observer, IExecutableExtension {
 
 	/**
 	 * 
-	 * @return <true> if there exists a MetricDescription that accepts the
+	 * @return <code>true</code> if there exists a MetricDescription that accepts the
 	 *         source.
 	 */
 	boolean canAccept(AbstractDataSource source);

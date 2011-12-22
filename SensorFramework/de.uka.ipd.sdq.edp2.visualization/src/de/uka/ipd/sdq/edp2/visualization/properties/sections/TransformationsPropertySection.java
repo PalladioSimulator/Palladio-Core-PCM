@@ -479,7 +479,6 @@ public class TransformationsPropertySection extends AbstractPropertySection
 		if (treeViewer != null) {
 			treeViewer.refresh();
 		}
-		
 	}
 
 	@Override

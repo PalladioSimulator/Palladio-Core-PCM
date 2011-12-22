@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp2.visualization.editors;
+package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
  * @author Dominik Ernst
  * 
  */
-public class EditorInputContentProvider implements ITreeContentProvider {
+public class InputSelectionContentProvider implements ITreeContentProvider {
 
 	@Override
 	public Object[] getChildren(Object parentElement) {

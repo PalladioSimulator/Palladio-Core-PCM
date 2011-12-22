@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.edp2.visualization.properties.HistogramChartProperties;
 public class HistogramChartPropertiesComposite extends Composite {
 
 	private DataBindingContext m_bindingContext;
-	private de.uka.ipd.sdq.edp2.visualization.properties.HistogramChartProperties histogramChartProperties = new de.uka.ipd.sdq.edp2.visualization.properties.HistogramChartProperties();
+	private de.uka.ipd.sdq.edp2.visualization.properties.HistogramChartProperties histogramChartProperties;
 	private Text numberOfBinsText;
 
 	public HistogramChartPropertiesComposite(
@@ -31,21 +31,22 @@ public class HistogramChartPropertiesComposite extends Composite {
 	public HistogramChartPropertiesComposite(Composite parent, int style) {
 		super(parent, style);
 		setLayout(new GridLayout(1, false));
-		
+
 		Group grpHistogram = new Group(this, SWT.NONE);
-		GridData gd_grpHistogram = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		GridData gd_grpHistogram = new GridData(SWT.LEFT, SWT.CENTER, false,
+				false, 1, 1);
 		gd_grpHistogram.widthHint = 169;
 		grpHistogram.setLayoutData(gd_grpHistogram);
 		grpHistogram.setText("Histogram");
-		
-				Label label = new Label(grpHistogram, SWT.NONE);
-				label.setLocation(10, 24);
-				label.setSize(86, 15);
-				label.setText("Number of bins:");
-				
-						numberOfBinsText = new Text(grpHistogram, SWT.BORDER | SWT.SINGLE);
-						numberOfBinsText.setLocation(115, 22);
-						numberOfBinsText.setSize(40, 21);
+
+		Label label = new Label(grpHistogram, SWT.NONE);
+		label.setLocation(10, 24);
+		label.setSize(86, 15);
+		label.setText("Number of bins:");
+
+		numberOfBinsText = new Text(grpHistogram, SWT.BORDER | SWT.SINGLE);
+		numberOfBinsText.setLocation(115, 22);
+		numberOfBinsText.setSize(40, 21);
 
 		if (histogramChartProperties != null) {
 			m_bindingContext = initDataBindings();

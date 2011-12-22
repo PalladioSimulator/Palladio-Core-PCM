@@ -8,6 +8,7 @@ import java.util.Observable;
 
 import org.eclipse.core.databinding.observable.set.SetChangeEvent;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
 import org.jfree.chart.JFreeChart;
@@ -143,8 +144,7 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 	 */
 	@Override
 	public boolean exists() {
-		// TODO Auto-generated method stub
-		return true;
+		return !inputs.isEmpty();
 	}
 
 	/*
@@ -245,6 +245,12 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 	@Override
 	public boolean supportsMultipleInputs() {
 		return true;
+	}
+
+	@Override
+	public Composite getCommonPropertiesComposite() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
