@@ -59,7 +59,7 @@ public class InputSelectionTree extends Composite {
 
 		treeViewer = new TreeViewer(this, SWT.BORDER);
 		Tree tree = treeViewer.getTree();
-		GridData gd_tree = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		GridData gd_tree = new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1);
 		gd_tree.heightHint = 168;
 		gd_tree.widthHint = 257;
 		tree.setLayoutData(gd_tree);

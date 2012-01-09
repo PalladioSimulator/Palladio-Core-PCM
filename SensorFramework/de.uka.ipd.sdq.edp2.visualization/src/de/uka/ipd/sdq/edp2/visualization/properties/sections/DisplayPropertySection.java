@@ -11,14 +11,20 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
+import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
 
 import de.uka.ipd.sdq.edp2.visualization.Activator;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
@@ -32,8 +38,8 @@ import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandle;
  * @author Roland Richter, Dominik Ernst
  * 
  */
-public class DisplayPropertySection extends AbstractPropertySection implements
-		ISelectionChangedListener {
+public class DisplayPropertySection implements ISelectionChangedListener,
+		ISection {
 	/** Logger */
 	private static Logger logger = Logger
 			.getLogger(DisplayPropertySection.class.getCanonicalName());
@@ -46,26 +52,30 @@ public class DisplayPropertySection extends AbstractPropertySection implements
 	/**
 	 * Composite for all properties of all JFreeCharts
 	 */
-	private CommonChartPropertiesComposite commonComposite;
+	private Composite commonPropertiesComposite;
 	/**
 	 * Composite for the properties of the currently displayed chart.
 	 */
-	private Composite specificComposite;
+	private Composite specificPropertiesComposite;
 	/**
 	 * The last active editor;
 	 */
-	private JFreeChartEditor editor;
-	/**
-	 * The parent composite.
-	 */
-	private Composite parent;
+	private AbstractEditor editor;
 	/**
 	 * A tree, which contains the editor's inputs and their transformations (as
 	 * children)
 	 */
 	private ListViewer listViewer;
 
-	private JFreeChartEditorInput lastSelectedInput;
+	private Composite composite;
+
+	private IVisualizationInput lastSelectedInput;
+
+	private ISelection selection;
+
+	private IWorkbenchPart part;
+
+	private TabbedPropertySheetPage tabbedPropertySheetPage;
 
 	/*
 	 * (non-Javadoc)
@@ -77,18 +87,12 @@ public class DisplayPropertySection extends AbstractPropertySection implements
 	 */
 	public void createControls(Composite parent,
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
-		super.createControls(parent, aTabbedPropertySheetPage);
-		this.parent = parent;
-		if (getInput() != null) {
-			// the common composite is for all JFreeCharts identical, so get the
-			// first input and display it
-			commonComposite = getInput().getInputs().get(0)
-					.getCommonChartProperties().retrieveComposite(parent);
-			// create a list viewer containing all editor inputs
-			listViewer = new InputElementList(parent, SWT.EMBEDDED, getInput())
-					.getListViewer();
-			listViewer.addSelectionChangedListener(this);
-		}
+		this.tabbedPropertySheetPage = aTabbedPropertySheetPage;
+		composite = getWidgetFactory().createFlatFormComposite(parent);
+		composite.setBackground(parent.getDisplay().getSystemColor(
+				SWT.COLOR_WIDGET_BACKGROUND));
+		composite.setSize(200, 250);
+		createLayout(composite);
 	}
 
 	/*
@@ -100,7 +104,8 @@ public class DisplayPropertySection extends AbstractPropertySection implements
 	 */
 	@Override
 	public void setInput(IWorkbenchPart part, ISelection selection) {
-		super.setInput(part, selection);
+		this.part = part;
+		this.selection = selection;
 	}
 
 	/**
@@ -109,60 +114,127 @@ public class DisplayPropertySection extends AbstractPropertySection implements
 	 * 
 	 * @return
 	 */
-	private JFreeChartEditorInputHandle getInput() {
-		if (Activator.getDefault().getWorkbench().getActiveWorkbenchWindow() == null) {
-			editor = null;
-			return null;
-		} else if (Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage() == null) {
-			editor = null;
-			return null;
-		} else if (Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor() == null) {
-			editor = null;
-			return null;
-		} else {
-			editor = (JFreeChartEditor) Activator.getDefault().getWorkbench()
-					.getActiveWorkbenchWindow().getActivePage()
-					.getActiveEditor();
-			return (JFreeChartEditorInputHandle) editor.getEditorInput();
-		}
+	private IVisualizationInputHandle getInput() {
+		return (IVisualizationInputHandle) editor.getEditorInput();
+
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#refresh()
+	 * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
 	 */
 	public void refresh() {
-		if (getInput() != null && listViewer == null) {
-			listViewer = new InputElementList(parent, SWT.EMBEDDED, getInput())
-					.getListViewer();
-			listViewer.addSelectionChangedListener(this);
+		if (editorExists()) {
+			// create a list viewer containing all editor inputs
+			if (listViewer == null) {
+				listViewer = new InputElementList(composite, SWT.EMBEDDED,
+						getInput()).getListViewer();
+
+				listViewer.addSelectionChangedListener(this);
+			}
+			// the common composite is identical for all JFreeCharts, so get the
+			// first input and display it
+			if (commonPropertiesComposite.isDisposed()){
+			createCommonChartComposite();
+			} else {
+				//TODO renew the reference on the associated properties class
+			}
+			// display the input-specific composite
+			if (lastSelectedInput != null)
+				createSpecificChartComposite();
 		}
-		if (listViewer != null) {
-			listViewer.refresh();
-		}
-		createSpecificChartComposite();
+
+		composite.layout();
+
 	}
 
 	private void createSpecificChartComposite() {
-		if (specificComposite != null) {
-			specificComposite.dispose();
+		if (specificPropertiesComposite != null) {
+			specificPropertiesComposite.dispose();
 		}
 		if (lastSelectedInput != null)
-			specificComposite = lastSelectedInput.getChartProperties()
-					.retrieveComposite(parent);
+			specificPropertiesComposite = lastSelectedInput
+					.getSpecificPropertiesComposite(composite);
+	}
+
+	private void createCommonChartComposite() {
+		if (commonPropertiesComposite != null) {
+			commonPropertiesComposite.dispose();
+		}
+		commonPropertiesComposite = getInput().getCommonPropertiesComposite(
+				composite);
+	}
+
+	private void createLayout(Composite composite) {
+		GridLayout layout = new GridLayout(2, false);
+		layout.marginWidth = 2;
+		layout.marginHeight = 2;
+		composite.setLayout(layout);
 	}
 
 	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
 		IStructuredSelection selection = (IStructuredSelection) listViewer
 				.getSelection();
-		lastSelectedInput = (JFreeChartEditorInput) selection.getFirstElement();
+		lastSelectedInput = (IVisualizationInput) selection.getFirstElement();
 		refresh();
-		parent.redraw();
+	}
+
+	@Override
+	public void aboutToBeHidden() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void aboutToBeShown() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int getMinimumHeight() {
+		return SWT.DEFAULT;
+	}
+
+	private boolean editorExists() {
+		IWorkbenchWindow window = Activator.getDefault().getWorkbench()
+				.getActiveWorkbenchWindow();
+		if (window == null) {
+			editor = null;
+			return false;
+		} else if (window.getActivePage() == null) {
+			editor = null;
+			return false;
+		} else if (window.getActivePage().getActiveEditor() == null) {
+			editor = null;
+			return false;
+		} else {
+			editor = (JFreeChartEditor) window.getActivePage()
+					.getActiveEditor();
+			return true;
+		}
+	}
+
+	@Override
+	public boolean shouldUseExtraSpace() {
+		return false;
+	}
+
+	/**
+	 * Get the widget factory for the property sheet page.
+	 * 
+	 * @return the widget factory.
+	 */
+	public TabbedPropertySheetWidgetFactory getWidgetFactory() {
+		return tabbedPropertySheetPage.getWidgetFactory();
 	}
 
 }

@@ -68,9 +68,10 @@ public abstract class IVisualizationInputHandle extends Observable implements IE
 	 * handled by this {@link IVisualizationInputHandle}.
 	 * <br>
 	 * It is suggested to use a separate bean class and databinding to link the composite (View)
-	 * to this {@link IVisualizationInputHandle}s (Control) properties' (Model)
+	 * to this {@link IVisualizationInputHandle}'s (Control) properties' (Model)
+	 * @param parent the parent {@link Composite}
 	 * @return the composite showing and allowing to edit this {@link IVisualizationInput}'s display options.
 	 */
-	public abstract Composite getCommonPropertiesComposite();
+	public abstract Composite getCommonPropertiesComposite(Composite parent);
 	
 }

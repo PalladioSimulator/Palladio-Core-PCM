@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.edp2.visualization;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import org.eclipse.swt.widgets.Composite;
+
 /**
  * Interface used to describe elements that are managed by an
  * {@link IVisualizationInputHandle}. It is important to note that the actual
@@ -51,4 +53,12 @@ public abstract class IVisualizationInput extends Observable implements IDataSin
 	 * @return the last element of the copied chain.
 	 */
 	public abstract IVisualizationInput createTransformationsChainCopy(AbstractDataSource source);
+	
+	/**
+	 * Returns a composite, which displays and allows to edit the specific properties for the implementing
+	 * class. 
+	 * @param parent the parent {@link Composite}
+	 * @return the {@link Composite} allowing to modify this input's properties
+	 */
+	public abstract Composite getSpecificPropertiesComposite(Composite parent);
 }

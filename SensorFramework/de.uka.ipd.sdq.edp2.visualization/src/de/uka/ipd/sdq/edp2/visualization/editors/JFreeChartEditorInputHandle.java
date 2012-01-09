@@ -8,6 +8,7 @@ import java.util.Observable;
 
 import org.eclipse.core.databinding.observable.set.SetChangeEvent;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
@@ -27,6 +28,8 @@ import org.jfree.data.xy.XYDataset;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
+import de.uka.ipd.sdq.edp2.visualization.properties.CommonJFreeChartProperties;
+import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonJFreeChartPropertiesComposite;
 
 /**
  * Implementation of an {@link IVisualizationInputHandle} for
@@ -248,9 +251,8 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 	}
 
 	@Override
-	public Composite getCommonPropertiesComposite() {
-		// TODO Auto-generated method stub
-		return null;
+	public Composite getCommonPropertiesComposite(Composite parent) {
+		return new CommonJFreeChartPropertiesComposite(parent, SWT.EMBEDDED, new CommonJFreeChartProperties(chart));
 	}
 
 }

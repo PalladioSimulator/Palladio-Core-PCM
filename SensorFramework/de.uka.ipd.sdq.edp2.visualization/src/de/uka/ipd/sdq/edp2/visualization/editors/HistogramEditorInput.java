@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 
 import javax.measure.Measure;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IMemento;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -32,8 +34,9 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties;
+import de.uka.ipd.sdq.edp2.visualization.properties.CommonJFreeChartProperties;
 import de.uka.ipd.sdq.edp2.visualization.properties.HistogramChartProperties;
+import de.uka.ipd.sdq.edp2.visualization.properties.sections.HistogramChartPropertiesComposite;
 
 /**
  * @author Dominik Ernst
@@ -285,6 +288,11 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	public HistogramEditorInput createCopyForSource(AbstractDataSource source) {
 		HistogramEditorInput copy = new HistogramEditorInput(source);
 		return copy;
+	}
+
+	@Override
+	public Composite getSpecificPropertiesComposite(Composite parent) {
+		return new HistogramChartPropertiesComposite(parent, SWT.EMBEDDED, getChartProperties());
 	}
 
 }

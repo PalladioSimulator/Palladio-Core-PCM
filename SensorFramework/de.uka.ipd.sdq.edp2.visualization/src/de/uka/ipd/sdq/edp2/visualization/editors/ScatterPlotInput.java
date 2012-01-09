@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 
 import javax.measure.Measure;
 
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.jfree.chart.JFreeChart;
@@ -283,6 +284,12 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		ScatterPlotInput copy = new ScatterPlotInput();
 		copy.setProperties(this.getProperties());
 		copy.setSource(source);
+		return null;
+	}
+
+	@Override
+	public Composite getSpecificPropertiesComposite(Composite parent) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

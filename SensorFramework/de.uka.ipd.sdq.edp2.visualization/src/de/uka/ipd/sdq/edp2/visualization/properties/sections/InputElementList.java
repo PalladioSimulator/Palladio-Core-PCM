@@ -50,7 +50,7 @@ public class InputElementList extends Composite {
 	 * @param style
 	 */
 	public InputElementList(Composite parent, int style,
-			IVisualizationInputHandle inputHandler) {
+			IVisualizationInputHandle inputHandle) {
 		super(parent, SWT.EMBEDDED);
 		setLayout(new GridLayout(1, false));
 
@@ -59,13 +59,13 @@ public class InputElementList extends Composite {
 
 		listViewer = new ListViewer(this, SWT.BORDER);
 		List list = listViewer.getList();
-		GridData gd_list = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		GridData gd_list = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 2);
 		gd_list.heightHint = 168;
 		gd_list.widthHint = 200;
 		list.setLayoutData(gd_list);
 		listViewer.setLabelProvider(new ViewerLabelProvider());
 		listViewer.setContentProvider(new InputElementContentProvider());
-		listViewer.setInput(inputHandler);
+		listViewer.setInput(inputHandle);
 	}
 
 	@Override

@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.edp2.visualization.IDataFlow;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
-import de.uka.ipd.sdq.edp2.visualization.properties.CommonChartProperties;
+import de.uka.ipd.sdq.edp2.visualization.properties.CommonJFreeChartProperties;
 import de.uka.ipd.sdq.edp2.visualization.properties.SpecificChartProperties;
 
 /**
@@ -144,10 +144,6 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 *         the {@link JFreeChart}
 	 */
 	public abstract SpecificChartProperties getChartProperties();
-
-	public CommonChartProperties getCommonChartProperties() {
-		return new CommonChartProperties();
-	}
 
 	public abstract JFreeChart getChart();
 

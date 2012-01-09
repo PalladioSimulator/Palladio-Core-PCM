@@ -8,14 +8,14 @@ import org.eclipse.swt.widgets.Composite;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.title.LegendTitle;
 
-import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonChartPropertiesComposite;
+import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonJFreeChartPropertiesComposite;
 
 /**
  * The properties wrapper with common settings for all JFreeCharts.
  * @author Dominik Ernst
  *
  */
-public class CommonChartProperties implements Serializable {
+public class CommonJFreeChartProperties implements Serializable {
 
 	private static final long serialVersionUID = 6964212270982799287L;
 
@@ -38,14 +38,14 @@ public class CommonChartProperties implements Serializable {
 	/**
 	 * Empty constructor.
 	 */
-	public CommonChartProperties(){
+	public CommonJFreeChartProperties(){
 	}
 	
 	/**
 	 * Constructor which assigns a chart to the properties.
 	 * @param chart the associated chart
 	 */
-	public CommonChartProperties(JFreeChart chart){
+	public CommonJFreeChartProperties(JFreeChart chart){
 		setChart(chart);
 	}
 
@@ -188,10 +188,10 @@ public class CommonChartProperties implements Serializable {
 	
 	/**
 	 * 
-	 * @return a new {@link Composite} to display the {@link CommonChartProperties} using the default style.
+	 * @return a new {@link Composite} to display the {@link CommonJFreeChartProperties} using the default style.
 	 */
-	public CommonChartPropertiesComposite retrieveComposite(Composite parent){
-		return new CommonChartPropertiesComposite(parent, STYLE, this);
+	public CommonJFreeChartPropertiesComposite retrieveComposite(Composite parent){
+		return new CommonJFreeChartPropertiesComposite(parent, STYLE, this);
 	}
 	
 }

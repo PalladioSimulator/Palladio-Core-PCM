@@ -33,6 +33,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
@@ -102,7 +103,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	private AbstractTransformation selectedTransformation;
 
 	private IVisualizationInput selectedInput;
-	
+
 	private Composite container;
 
 	/**
@@ -115,30 +116,30 @@ public class TransformationsPropertySection extends AbstractPropertySection
 
 		super.createControls(parent, aTabbedPropertySheetPage);
 
-		container = getWidgetFactory()
-				.createFlatFormComposite(parent);
+		container = getWidgetFactory().createFlatFormComposite(parent);
 		container.setBackground(parent.getDisplay().getSystemColor(
 				SWT.COLOR_WIDGET_BACKGROUND));
 
 		// initialize the layout
 		createLayout(container);
-		
-		if (editorExists()){
+
+		if (editorExists()) {
 			treeViewer = new InputSelectionTree(container, SWT.EMBEDDED, editor
 					.getEditorInputHandle()).getTreeViewer();
 			treeViewer.addSelectionChangedListener(this);
 		} else {
-			//TODO add dummy composite as placeholder
+			// TODO add dummy composite as placeholder
 		}
 
 		initTransformationTable(container);
 
 		final Button buttonAdapter = new Button(container, SWT.PUSH);
 		buttonAdapter.setText("Add new Adapter..");
-		buttonAdapter.pack();
+		GridData gridData = new GridData(GridData.FILL_HORIZONTAL, GridData.FILL_VERTICAL, false, false, 1, 1);
+		buttonAdapter.setLayoutData(gridData);
 		final Button buttonFilter = new Button(container, SWT.PUSH);
 		buttonFilter.setText("Add new Filter..");
-		buttonFilter.pack();
+		buttonFilter.setLayoutData(gridData);
 
 		Listener btnListener = new Listener() {
 
@@ -303,7 +304,11 @@ public class TransformationsPropertySection extends AbstractPropertySection
 
 		transformationTable.setLinesVisible(true);
 		transformationTable.setHeaderVisible(true);
-		transformationTable.setLayoutData(new GridData(250, 123));
+		GridData gridData = new GridData(GridData.FILL_HORIZONTAL, GridData.FILL_VERTICAL, false, true, 1, 1);
+		gridData.heightHint = 220;
+		gridData.widthHint = 180;
+		
+		transformationTable.setLayoutData(gridData);
 		// set width and height of the table
 		// transformationTable.setLayoutData(new RowData(250, 123));
 		// set the weight of the table columns
@@ -397,22 +402,19 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	}
 
 	private boolean editorExists() {
-		if (Activator.getDefault().getWorkbench().getActiveWorkbenchWindow() == null) {
+		IWorkbenchWindow window = Activator.getDefault().getWorkbench()
+				.getActiveWorkbenchWindow();
+		if (window == null) {
 			editor = null;
 			return false;
-		} else if (Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage() == null) {
+		} else if (window.getActivePage() == null) {
 			editor = null;
 			return false;
-		} else if ((AbstractEditor) Activator.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage()
-				.getActiveEditor() == null) {
+		} else if (window.getActivePage().getActiveEditor() == null) {
 			editor = null;
 			return false;
 		} else {
-			editor = (AbstractEditor) Activator.getDefault().getWorkbench()
-					.getActiveWorkbenchWindow().getActivePage()
-					.getActiveEditor();
+			editor = (AbstractEditor) window.getActivePage().getActiveEditor();
 			return true;
 		}
 	}
