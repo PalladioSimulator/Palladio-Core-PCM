@@ -113,7 +113,7 @@ public class ConcurrentSampleBlackboard extends SampleBlackboard {
 		}
 	}
 	
-	private void checkRunning() {
+	private synchronized void checkRunning() {
         if (!running) {
             running = true;
             threadManager.startThread(new ProcessQueuedActions(), "ProbeSpec Concurrent Blackboard");
