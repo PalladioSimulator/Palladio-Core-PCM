@@ -88,6 +88,14 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 	@Override
 	public void consumeResource(SimuComSimProcess process, int resourceServiceID,
 			double abstractDemand) {
+		
+		if (abstractDemand <= 0) {
+			// Do nothing.
+			// TODO throw an exception or add a warning?
+			return;
+		}
+		
+		
 		// If the resource can fail, simulate a failure with the given
 		// probability.
 		// This works for communication link resources (LAN), but only if the
