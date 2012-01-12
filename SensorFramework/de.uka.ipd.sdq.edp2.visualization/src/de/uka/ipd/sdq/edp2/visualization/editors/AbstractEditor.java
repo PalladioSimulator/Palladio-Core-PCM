@@ -150,7 +150,7 @@ public abstract class AbstractEditor extends EditorPart implements
 	 * @see org.eclipse.ui.IPersistableEditor#restoreState(org.eclipse.ui.IMemento)
 	 */
 	public void restoreState(IMemento memento) {
-
+		
 	}
 
 	/**

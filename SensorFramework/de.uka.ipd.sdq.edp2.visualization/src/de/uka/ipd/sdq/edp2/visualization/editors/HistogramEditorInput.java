@@ -267,14 +267,15 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	public JFreeChart getChart() {
 		updateDataset();
 		NumberAxis domainAxis = new NumberAxis(getTitle());
-		NumberAxis rangeAxis = new NumberAxis("Frequency");
+		domainAxis.setAutoRangeIncludesZero(false);
+		NumberAxis rangeAxis = new NumberAxis("Frequency (Abs)");
 		plot = new XYPlot();
 		plot.setDataset(dataset);
 		renderer = new XYBarRenderer();
 		plot.setRenderer(renderer);
 		plot.setRangeAxis(rangeAxis);
 		plot.setDomainAxis(domainAxis);
-		chart = new JFreeChart(getName(),
+		chart = new JFreeChart(getTitle(),
 				JFreeChart.DEFAULT_TITLE_FONT, plot, true);
 		return chart;
 	}

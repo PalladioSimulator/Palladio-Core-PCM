@@ -98,12 +98,18 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	private AbstractEditor editor;
 
 	/**
-	 * Last, by the user selected item in the <treeViewer>.
+	 * Last, by the user selected {@link AbstractTransformation} in the {@link #treeViewer}.
 	 */
 	private AbstractTransformation selectedTransformation;
 
+	/**
+	 * The last selected {@link IVisualizationInput} in the {@link #treeViewer}.
+	 */
 	private IVisualizationInput selectedInput;
 
+	/**
+	 * The parent container.
+	 */
 	private Composite container;
 
 	/**
@@ -122,20 +128,16 @@ public class TransformationsPropertySection extends AbstractPropertySection
 
 		// initialize the layout
 		createLayout(container);
-
-		if (editorExists()) {
-			treeViewer = new InputSelectionTree(container, SWT.EMBEDDED, editor
-					.getEditorInputHandle()).getTreeViewer();
-			treeViewer.addSelectionChangedListener(this);
-		} else {
-			// TODO add dummy composite as placeholder
-		}
+		//create the tree viewer with empty input
+		treeViewer = new InputSelectionTree(container, SWT.EMBEDDED, null)
+				.getTreeViewer();
 
 		initTransformationTable(container);
 
 		final Button buttonAdapter = new Button(container, SWT.PUSH);
 		buttonAdapter.setText("Add new Adapter..");
-		GridData gridData = new GridData(GridData.FILL_HORIZONTAL, GridData.FILL_VERTICAL, false, false, 1, 1);
+		GridData gridData = new GridData(GridData.FILL_HORIZONTAL,
+				GridData.FILL_VERTICAL, false, false, 1, 1);
 		buttonAdapter.setLayoutData(gridData);
 		final Button buttonFilter = new Button(container, SWT.PUSH);
 		buttonFilter.setText("Add new Filter..");
@@ -304,10 +306,11 @@ public class TransformationsPropertySection extends AbstractPropertySection
 
 		transformationTable.setLinesVisible(true);
 		transformationTable.setHeaderVisible(true);
-		GridData gridData = new GridData(GridData.FILL_HORIZONTAL, GridData.FILL_VERTICAL, false, true, 1, 1);
+		GridData gridData = new GridData(GridData.FILL_HORIZONTAL,
+				GridData.FILL_VERTICAL, false, true, 1, 1);
 		gridData.heightHint = 220;
 		gridData.widthHint = 180;
-		
+
 		transformationTable.setLayoutData(gridData);
 		// set width and height of the table
 		// transformationTable.setLayoutData(new RowData(250, 123));
@@ -461,8 +464,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 		newProperties.put(key, value);
 		selectedTransformation.setProperties(newProperties);
 		selectedTransformation.transformData();
-
-		((JFreeChartEditor) editor).updateChart();
+		
 
 	}
 
@@ -473,13 +475,10 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	 * org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#refresh()
 	 */
 	public void refresh() {
-		if (editorExists() && treeViewer == null) {
-			treeViewer = new InputSelectionTree(container, SWT.EMBEDDED, editor
-					.getEditorInputHandle()).getTreeViewer();
-			treeViewer.addSelectionChangedListener(this);
-		}
-		if (treeViewer != null) {
+		if (editorExists()) {
+			treeViewer.setInput(editor.getEditorInputHandle());
 			treeViewer.refresh();
+			treeViewer.addSelectionChangedListener(this);
 		}
 	}
 

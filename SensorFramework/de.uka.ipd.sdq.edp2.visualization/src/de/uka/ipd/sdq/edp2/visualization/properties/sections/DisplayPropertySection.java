@@ -93,6 +93,9 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				SWT.COLOR_WIDGET_BACKGROUND));
 		composite.setSize(200, 250);
 		createLayout(composite);
+		// create empty input list
+		listViewer = new InputElementList(composite, SWT.EMBEDDED, null)
+				.getListViewer();
 	}
 
 	/*
@@ -116,7 +119,6 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 */
 	private IVisualizationInputHandle getInput() {
 		return (IVisualizationInputHandle) editor.getEditorInput();
-
 	}
 
 	/*
@@ -125,28 +127,18 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
 	 */
 	public void refresh() {
-		if (editorExists()) {
-			// create a list viewer containing all editor inputs
-			if (listViewer == null) {
-				listViewer = new InputElementList(composite, SWT.EMBEDDED,
-						getInput()).getListViewer();
-
-				listViewer.addSelectionChangedListener(this);
-			}
-			// the common composite is identical for all JFreeCharts, so get the
-			// first input and display it
-			if (commonPropertiesComposite.isDisposed()){
-			createCommonChartComposite();
-			} else {
-				//TODO renew the reference on the associated properties class
-			}
-			// display the input-specific composite
-			if (lastSelectedInput != null)
-				createSpecificChartComposite();
+		if (editorExists() && listViewer.getInput() == null) {
+			listViewer.setInput(getInput());
+			listViewer.addSelectionChangedListener(this);
 		}
-
+		if (editorExists()) {
+			// the common composite is identical for all IVisualizationInputs
+			if (commonPropertiesComposite == null) {
+				createCommonChartComposite();
+			}
+		}
+		listViewer.refresh();
 		composite.layout();
-
 	}
 
 	private void createSpecificChartComposite() {
@@ -178,6 +170,8 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		IStructuredSelection selection = (IStructuredSelection) listViewer
 				.getSelection();
 		lastSelectedInput = (IVisualizationInput) selection.getFirstElement();
+		createSpecificChartComposite();
+		composite.layout();
 		refresh();
 	}
 
