@@ -702,6 +702,24 @@
       <param name="project.name" value="/de.uka.ipd.sdq.reliability.core"/>
       <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Reliability"/>
     </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.reliability.sensitivity"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.reliability.sensitivity"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Reliability"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.reliability.sensitivity.edit"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.reliability.sensitivity.edit"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Reliability"/>
+    </antcall>
+    <antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.uka.ipd.sdq.reliability.sensitivity.editor"/>
+      <param name="project.name" value="/de.uka.ipd.sdq.reliability.sensitivity.editor"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Reliability"/>
+    </antcall>
   	<antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.spa"/>

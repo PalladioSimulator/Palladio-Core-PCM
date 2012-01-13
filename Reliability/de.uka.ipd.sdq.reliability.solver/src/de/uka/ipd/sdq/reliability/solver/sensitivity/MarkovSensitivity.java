@@ -62,7 +62,7 @@ public abstract class MarkovSensitivity {
 	}
 
 	/**
-	 * The first value for the failure probability to alter.
+	 * The first value for the property to alter.
 	 */
 	protected double firstValue;
 
@@ -72,7 +72,7 @@ public abstract class MarkovSensitivity {
 	protected EMFHelper helper = new EMFHelper();
 
 	/**
-	 * The last value for the failure probability to alter.
+	 * The last value for the property to alter.
 	 */
 	protected double lastValue;
 

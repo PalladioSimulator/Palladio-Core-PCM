@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
 import de.uka.ipd.sdq.reliability.core.MarkovEvaluationType;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowConfigurationBuilder;
+import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 
 /**
  * This class can build PCM reliability solver specific configuration objects
@@ -55,6 +56,12 @@ public class PCMSolverReliabilityConfigurationBasedConfigBuilder extends
 				.setPrintMarkovSingleResults(hasAttribute(MessageStrings.SINGLE_RESULTS) ? getBooleanAttribute(MessageStrings.SINGLE_RESULTS)
 						: false);
 		config
+				.setSensitivityModelEnabled(hasAttribute(ConstantsContainer.DO_SENSITIVITY_ANALYSIS) ? getBooleanAttribute(ConstantsContainer.DO_SENSITIVITY_ANALYSIS)
+						: ConstantsContainer.DEFAULT_DO_SENSITIVITY_ANALYSIS);
+		config
+				.setSensitivityModelFileName(hasAttribute(ConstantsContainer.SENSITIVITY_MODEL_FILE) ? getStringAttribute(ConstantsContainer.SENSITIVITY_MODEL_FILE)
+						: ConstantsContainer.DEFAULT_SENSITIVITY_MODEL_FILE);
+		config
 				.setLogFile(hasAttribute(MessageStrings.LOG_FILE) ? getStringAttribute(MessageStrings.LOG_FILE)
 						: null);
 		config
@@ -92,7 +99,17 @@ public class PCMSolverReliabilityConfigurationBasedConfigBuilder extends
 						: null);
 		config
 				.setMarkovEvaluationMode(hasAttribute(MessageStrings.MARKOV_EVALUATION_MODE) ? getStringAttribute(MessageStrings.MARKOV_EVALUATION_MODE)
-						: MarkovEvaluationType.POINTSOFFAILURE.toString());	// POINTSOFFAILURE will be default evaluation mode if attribute cannot be found
+						: MarkovEvaluationType.POINTSOFFAILURE.toString()); // POINTSOFFAILURE
+		// will
+		// be
+		// default
+		// evaluation
+		// mode
+		// if
+		// attribute
+		// cannot
+		// be
+		// found
 		config
 				.setSaveResultsToFileEnabled(hasAttribute(MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED) ? getBooleanAttribute(MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED)
 						: true);

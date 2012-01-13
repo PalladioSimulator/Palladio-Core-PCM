@@ -6,6 +6,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -94,17 +95,41 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 			}
 		};
 
-		Composite container = new Composite(parent, SWT.NONE);
+		// Create a new Composite to hold the page's controls.
+		// The composite will show scroll bars if the size of
+		// the dialog decreases below the minimum size of the
+		// contained controls:
+		ScrolledComposite container = new ScrolledComposite(parent,
+				SWT.H_SCROLL | SWT.V_SCROLL);
+		container.setExpandHorizontal(true);
+		container.setExpandVertical(true);
+		Composite contentContainer = new Composite(container, SWT.NONE);
+		container.setContent(contentContainer);
+		GridLayout layout = new GridLayout();
+		contentContainer.setLayout(layout);
+
+		// Sets the scrolled composite to be the displayed
+		// top-level control in this tab:
 		setControl(container);
-		container.setLayout(new GridLayout());
 
 		// Create temporary data location section
-		createTemporaryDataLocationSection(container);
-		createDeleteTemporaryDataAfterAnalysisSection(container);
-		createAccuracySection(container);
+		createTemporaryDataLocationSection(contentContainer);
+		createDeleteTemporaryDataAfterAnalysisSection(contentContainer);
+		createAccuracySection(contentContainer);
+		
+		// Create further sections as required:
+		createFurtherSections(contentContainer);
 
 		// disabled widget
 		setTemporaryLocationElementsEnabled(false);
+		
+
+		// After all internal controls have been created,
+		// calculate the minimal size of the contentContainer.
+		// Scrollbars will be shown if the dialog size decreases
+		// below the calculated min size:
+		container.setMinSize(contentContainer.computeSize(SWT.DEFAULT,
+				SWT.DEFAULT));
 	}
 
 	/**Creates the section for the accuracy analysis.
@@ -193,6 +218,13 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 		temporaryLocationField.setLayoutData(gridData);
 		temporaryLocationField.setText(ConstantsContainer.DEFAULT_TEMPORARY_DATA_LOCATION);
 		temporaryLocationField.addModifyListener(modifyListener);
+	}
+
+	/**
+	 * Derived classes may add further sections here.
+	 * @param container Container in which the elements are created.
+	 */
+	protected void createFurtherSections(Composite container) {
 	}
 
 	/**Set the enable-state for the elements in the temporary location section.

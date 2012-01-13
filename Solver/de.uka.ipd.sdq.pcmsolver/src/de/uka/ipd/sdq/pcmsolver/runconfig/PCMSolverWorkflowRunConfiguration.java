@@ -44,6 +44,9 @@ public class PCMSolverWorkflowRunConfiguration extends
 
 	private boolean printMarkovSingleResults;
 	private boolean printMarkovStatistics;
+	
+	private boolean sensitivityModelEnabled;
+	private String sensitivityModelFileName;
 
 	private String psQuantum;
 
@@ -225,6 +228,14 @@ public class PCMSolverWorkflowRunConfiguration extends
 		return printMarkovStatistics;
 	}
 
+	public boolean isSensitivityModelEnabled() {
+		return sensitivityModelEnabled;
+	}
+	
+	public String getSensitivityModelFileName() {
+		return sensitivityModelFileName;
+	}
+
 	public boolean isReliabilityAnalysis() {
 		return this.isReliabilityAnalysis;
 	}
@@ -359,6 +370,14 @@ public class PCMSolverWorkflowRunConfiguration extends
 
 	public void setPrintMarkovStatistics(boolean printMarkovStatistics) {
 		this.printMarkovStatistics = printMarkovStatistics;
+	}
+
+	public void setSensitivityModelEnabled(boolean sensitivityModelEnabled) {
+		this.sensitivityModelEnabled = sensitivityModelEnabled;
+	}
+
+	public void setSensitivityModelFileName(String sensitivityModelFileName) {
+		this.sensitivityModelFileName = sensitivityModelFileName;
 	}
 
 	public void setPsQuantum(String psQuantum) {

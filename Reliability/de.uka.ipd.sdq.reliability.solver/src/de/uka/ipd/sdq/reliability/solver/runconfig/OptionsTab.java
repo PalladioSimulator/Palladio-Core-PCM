@@ -632,7 +632,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		checkMarkovStatistics = new Button(loggingGroup, SWT.CHECK);
 		checkMarkovStatistics.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				false, false, loggingLayout.numColumns, 1));
-		checkMarkovStatistics.setText("Print Markov statistics");
+		checkMarkovStatistics.setText("Print Markov statistics on console");
 		checkMarkovStatistics.setSelection(STATISTICSDEFAULT);
 		checkMarkovStatistics.addListener(SWT.Selection, listener);
 
@@ -641,7 +641,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		checkSingleResults.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				false, false, loggingLayout.numColumns, 1));
 		checkSingleResults
-				.setText("Log results of all Markov transformation runs");
+				.setText("Log results of individual Markov transformation runs");
 		checkSingleResults.setSelection(SINGLERESULTSDEFAULT);
 		checkSingleResults.addListener(SWT.Selection, listener);
 
