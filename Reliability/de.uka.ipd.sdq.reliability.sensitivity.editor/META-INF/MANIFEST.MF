@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: EMF Editor Plug-in for PCM Markov Sensitivity Model
 Bundle-SymbolicName: de.uka.ipd.sdq.reliability.sensitivity.editor;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 3.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.sensitivity.presentation.SensitivityEditorPlugin$Implementation
-Bundle-Vendor: %providerName
+Bundle-Vendor: sdq.ipd.uka.de
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.sensitivity.presentation
