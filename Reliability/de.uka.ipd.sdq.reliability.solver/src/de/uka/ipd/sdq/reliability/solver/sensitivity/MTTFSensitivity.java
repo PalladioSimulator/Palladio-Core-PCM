@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
+import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 
 /**
  * Alters all MTTF values of hardware resources in the model.
@@ -28,40 +29,16 @@ public class MTTFSensitivity extends MarkovSensitivity {
 	 * 
 	 * @param name
 	 *            the name of the sensitivity analysis
-	 * @param firstValue
-	 *            first value of sensitivity analysis
-	 * @param lastValue
-	 *            last value of sensitivity analysis
-	 * @param numberOfSteps
-	 *            number of steps of the analysis
+	 * @param variation
+	 *            the parameter variation
 	 * @param resultLogFile
 	 *            path where to log sensitivity analysis results
 	 */
-	public MTTFSensitivity(final String name, final double firstValue,
-			final double lastValue, final int numberOfSteps,
-			final String resultLogFile) {
+	public MTTFSensitivity(final String name,
+			final DoubleParameterVariation variation, final String resultLogFile) {
 
 		// Initialize basic variables:
-		super(name, firstValue, lastValue, numberOfSteps, resultLogFile);
-	}
-
-	/**
-	 * The constructor.
-	 * 
-	 * Takes a list of values instead of a first and last value.
-	 * 
-	 * @param name
-	 *            the name of the sensitivity analysis
-	 * @param list
-	 *            the list of values
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
-	 */
-	public MTTFSensitivity(final String name, final List<Double> list,
-			final String resultLogFile) {
-
-		// Initialize basic variables:
-		super(name, list, resultLogFile);
+		super(name, variation, resultLogFile);
 	}
 
 	/**
@@ -164,13 +141,8 @@ public class MTTFSensitivity extends MarkovSensitivity {
 	void setMTTF(final List<ProcessingResourceSpecification> specifications) {
 
 		// Determine the current failure probability:
-		if (values == null) {
-			currentMTTF = firstValue
-					+ ((lastValue - firstValue) / (numberOfSteps - 1))
-					* (getCurrentStepNumber() - 1);
-		} else {
-			currentMTTF = values.get(getCurrentStepNumber() - 1);
-		}
+		currentMTTF = calculator.calculateCurrentDoubleValue(
+				getDoubleVariation(), getCurrentStepNumber());
 
 		// Iterate through all specifications:
 		for (ProcessingResourceSpecification specification : specifications) {

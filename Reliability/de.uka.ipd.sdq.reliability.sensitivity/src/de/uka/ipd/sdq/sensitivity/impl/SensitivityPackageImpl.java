@@ -945,7 +945,7 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		initEAttribute(getDoubleParameterRange_FirstValue(), ecorePackage.getEDouble(), "firstValue", null, 1, 1, DoubleParameterRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getDoubleParameterRange_LastValue(), ecorePackage.getEDouble(), "lastValue", null, 1, 1, DoubleParameterRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getDoubleParameterRange_StepSize(), ecorePackage.getEDouble(), "stepSize", null, 1, 1, DoubleParameterRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getDoubleParameterRange_StepCount(), ecorePackage.getEDouble(), "stepCount", null, 1, 1, DoubleParameterRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDoubleParameterRange_StepCount(), ecorePackage.getEInt(), "stepCount", null, 1, 1, DoubleParameterRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(doubleParameterSequenceEClass, DoubleParameterSequence.class, "DoubleParameterSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDoubleParameterSequence_DoubleValues(), ecorePackage.getEDouble(), "doubleValues", null, 1, -1, DoubleParameterSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

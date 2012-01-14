@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
-
+import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 
 /**
  * This class provides rudimentary support for sensitivity analysis of a
@@ -54,52 +54,18 @@ public class ResourceMTTRSensitivity extends MarkovSensitivity {
 	 *            the resource container to alter
 	 * @param processingResourceTypeId
 	 *            the resource type to alter
-	 * @param firstValue
-	 *            first value of sensitivity analysis
-	 * @param lastValue
-	 *            last value of sensitivity analysis
-	 * @param numberOfSteps
-	 *            number of steps of the analysis
+	 * @param variation
+	 *            the parameter variation
 	 * @param resultLogFile
 	 *            path where to log sensitivity analysis results
 	 */
 	public ResourceMTTRSensitivity(final String name,
 			final String resourceContainerId,
-			final String processingResourceTypeId, final double firstValue,
-			final double lastValue, final int numberOfSteps,
-			final String resultLogFile) {
+			final String processingResourceTypeId,
+			final DoubleParameterVariation variation, final String resultLogFile) {
 
 		// Initialize basic variables:
-		super(name, firstValue, lastValue, numberOfSteps, resultLogFile);
-
-		// Further initializations:
-		this.resourceContainerId = resourceContainerId;
-		this.processingResourceTypeId = processingResourceTypeId;
-	}
-
-	/**
-	 * The constructor.
-	 * 
-	 * Takes a list of values instead of a first and last value.
-	 * 
-	 * @param name
-	 *            the name of the sensitivity analysis
-	 * @param resourceContainerId
-	 *            the resource container to alter
-	 * @param processingResourceTypeId
-	 *            the resource type to alter
-	 * @param list
-	 *            the list of values
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
-	 */
-	public ResourceMTTRSensitivity(final String name,
-			final String resourceContainerId,
-			final String processingResourceTypeId, final List<Double> list,
-			final String resultLogFile) {
-
-		// Initialize basic variables:
-		super(name, list, resultLogFile);
+		super(name, variation, resultLogFile);
 
 		// Further initializations:
 		this.resourceContainerId = resourceContainerId;
@@ -229,13 +195,8 @@ public class ResourceMTTRSensitivity extends MarkovSensitivity {
 	void setMTTF(final ProcessingResourceSpecification specification) {
 
 		// Determine the current failure probability:
-		if (values == null) {
-			currentMTTR = firstValue
-					+ ((lastValue - firstValue) / (numberOfSteps - 1))
-					* (getCurrentStepNumber() - 1);
-		} else {
-			currentMTTR = values.get(getCurrentStepNumber() - 1);
-		}
+		currentMTTR = calculator.calculateCurrentDoubleValue(
+				getDoubleVariation(), getCurrentStepNumber());
 
 		// Set the failure probability:
 		specification.setMTTR(currentMTTR);

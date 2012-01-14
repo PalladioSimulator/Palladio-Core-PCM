@@ -11,9 +11,14 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
+import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.VariableReference;
 
 /**
  * This class provides rudimentary support for sensitivity analysis of a system
@@ -34,17 +39,12 @@ public class SystemCallSensitivity extends MarkovSensitivity {
 	/**
 	 * The property of the input parameter to alter.
 	 */
-	private String parameterCharacterisation;
+	private VariableCharacterisationType parameterCharacterisation;
 
 	/**
 	 * The name of the input parameter to alter.
 	 */
 	private String parameterName;
-
-	/**
-	 * The specification of the input parameter to alter.
-	 */
-	private List<String> parameterSpecifications;
 
 	/**
 	 * The ID of the EntryLevelSystemCall to alter.
@@ -65,25 +65,23 @@ public class SystemCallSensitivity extends MarkovSensitivity {
 	 *            the name of the EntryLevelSystemCall to alter
 	 * @param parameterCharacterisation
 	 *            the property of the input parameter to alter
-	 * @param parameterSpecifications
-	 *            the Specification of the input parameter to alter
+	 * @param sequence
+	 *            the sequence of parameter specifications
 	 * @param resultLogFile
 	 *            path where to log sensitivity analysis results
 	 */
 	public SystemCallSensitivity(final String name, final String systemCallId,
-			final String parameterName, final String parameterCharacterisation,
-			final List<String> parameterSpecifications,
-			final String resultLogFile) {
+			final String parameterName,
+			final VariableCharacterisationType parameterCharacterisation,
+			final StringParameterSequence sequence, final String resultLogFile) {
 
 		// Initialize basic variables:
-		super(name, new ArrayList<Double>(), resultLogFile);
+		super(name, sequence, resultLogFile);
 
 		// Further initializations:
 		this.systemCallId = systemCallId;
 		this.parameterName = parameterName;
 		this.parameterCharacterisation = parameterCharacterisation;
-		this.parameterSpecifications = parameterSpecifications;
-		this.numberOfSteps = parameterSpecifications.size();
 	}
 
 	/**
@@ -120,14 +118,11 @@ public class SystemCallSensitivity extends MarkovSensitivity {
 		PCMRandomVariable specification = null;
 		for (VariableUsage usage : systemCall
 				.getInputParameterUsages_EntryLevelSystemCall()) {
-			if (usage.getNamedReference__VariableUsage().getReferenceName()
-					.equals(parameterName)) {
-				// TODO: also enable fully qualified references
-				// (with namespaces)
+			if (checkParameterName(usage.getNamedReference__VariableUsage(),
+					parameterName.split("\\."), 0)) {
 				for (VariableCharacterisation characterisation : usage
 						.getVariableCharacterisation_VariableUsage()) {
-					if (characterisation.getType().getLiteral().equals(
-							parameterCharacterisation)) {
+					if (characterisation.getType().equals(parameterCharacterisation)) {
 						specification = characterisation
 								.getSpecification_VariableCharacterisation();
 						break;
@@ -142,6 +137,28 @@ public class SystemCallSensitivity extends MarkovSensitivity {
 	}
 
 	/**
+	 * Checks if a given parameter name is compliant with a given named
+	 * reference.
+	 * 
+	 * @param reference
+	 *            the named reference
+	 * @param paramName
+	 *            the parameter name
+	 * @return TRUE if the parameter is compliant with the named reference
+	 */
+	private boolean checkParameterName(final AbstractNamedReference reference,
+			final String[] paramName, int index) {
+		if (!reference.getReferenceName().equals(paramName[index])) {
+			return false;
+		}
+		if (reference instanceof VariableReference) {
+			return (paramName.length == index + 1);
+		}
+		return checkParameterName(((NamespaceReference) reference)
+				.getInnerReference_NamespaceReference(), paramName, index + 1);
+	}
+
+	/**
 	 * Sets the current specification.
 	 * 
 	 * @param variable
@@ -150,8 +167,8 @@ public class SystemCallSensitivity extends MarkovSensitivity {
 	private void setSpecification(final PCMRandomVariable variable) {
 
 		// Determine the current failure probability:
-		currentSpecification = parameterSpecifications
-				.get(getCurrentStepNumber() - 1);
+		currentSpecification = calculator.calculateCurrentStringValue(
+				getStringSequence(), getCurrentStepNumber());
 
 		// Set the failure probability:
 		variable.setSpecification(currentSpecification);
@@ -214,7 +231,7 @@ public class SystemCallSensitivity extends MarkovSensitivity {
 		resultList.add(systemCallName);
 		resultList.add(systemCallId);
 		resultList.add(parameterName);
-		resultList.add(parameterCharacterisation);
+		resultList.add(parameterCharacterisation.getName());
 		resultList.add(currentSpecification);
 
 		// Return the result:

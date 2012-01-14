@@ -62,6 +62,9 @@ public class PCMSolverReliabilityConfigurationBasedConfigBuilder extends
 				.setSensitivityModelFileName(hasAttribute(ConstantsContainer.SENSITIVITY_MODEL_FILE) ? getStringAttribute(ConstantsContainer.SENSITIVITY_MODEL_FILE)
 						: ConstantsContainer.DEFAULT_SENSITIVITY_MODEL_FILE);
 		config
+				.setSensitivityLogFileName(hasAttribute(ConstantsContainer.SENSITIVITY_LOG_FILE) ? getStringAttribute(ConstantsContainer.SENSITIVITY_LOG_FILE)
+						: ConstantsContainer.DEFAULT_SENSITIVITY_LOG_FILE);
+		config
 				.setLogFile(hasAttribute(MessageStrings.LOG_FILE) ? getStringAttribute(MessageStrings.LOG_FILE)
 						: null);
 		config

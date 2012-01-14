@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
+import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 
 /**
  * Provides sensitivity support to alter the failure probabilities of all
@@ -29,40 +30,16 @@ public class NetworkSensitivity extends MarkovSensitivity {
 	 * 
 	 * @param name
 	 *            the name of the sensitivity analysis
-	 * @param firstValue
-	 *            first value of sensitivity analysis
-	 * @param lastValue
-	 *            last value of sensitivity analysis
-	 * @param numberOfSteps
-	 *            number of steps of the analysis
+	 * @param variation
+	 *            the parameter variation
 	 * @param resultLogFile
 	 *            path where to log sensitivity analysis results
 	 */
-	public NetworkSensitivity(final String name, final double firstValue,
-			final double lastValue, final int numberOfSteps,
-			final String resultLogFile) {
+	public NetworkSensitivity(final String name,
+			final DoubleParameterVariation variation, final String resultLogFile) {
 
 		// Initialize base variables:
-		super(name, firstValue, lastValue, numberOfSteps, resultLogFile);
-	}
-
-	/**
-	 * The constructor.
-	 * 
-	 * @param name
-	 *            the name of the sensitivity analysis
-	 * @param behaviourId
-	 *            the id of the involved branch behaviour
-	 * @param values
-	 *            the values for the sensitivity analysis
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
-	 */
-	public NetworkSensitivity(final String name, final List<Double> values,
-			final String resultLogFile) {
-
-		// Initialize base variables:
-		super(name, values, resultLogFile);
+		super(name, variation, resultLogFile);
 	}
 
 	/**
@@ -107,13 +84,8 @@ public class NetworkSensitivity extends MarkovSensitivity {
 			final List<CommunicationLinkResourceSpecification> commResources) {
 
 		// Determine the current failure probability:
-		if (values == null) {
-			currentFailureProbability = firstValue
-					+ ((lastValue - firstValue) / (numberOfSteps - 1))
-					* (getCurrentStepNumber() - 1);
-		} else {
-			currentFailureProbability = values.get(getCurrentStepNumber() - 1);
-		}
+		currentFailureProbability = calculator.calculateCurrentDoubleValue(
+				getDoubleVariation(), getCurrentStepNumber());
 
 		// Set the failure probability:
 		for (CommunicationLinkResourceSpecification commResource : commResources) {

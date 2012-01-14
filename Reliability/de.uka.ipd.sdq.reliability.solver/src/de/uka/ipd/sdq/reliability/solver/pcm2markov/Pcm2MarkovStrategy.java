@@ -239,7 +239,8 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		if (configuration.isSensitivityModelEnabled()) {
 			MarkovSensitivityBuilder builder = new MarkovSensitivityBuilder();
 			return builder.buildSensitivity(resolveFile(configuration
-					.getSensitivityModelFileName()));
+					.getSensitivityModelFileName()), resolveFile(configuration
+					.getSensitivityLogFileName()));
 		}
 		return null;
 

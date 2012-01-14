@@ -10,6 +10,9 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.reliability.core.helper.EMFHelper;
 import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
+import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
+import de.uka.ipd.sdq.sensitivity.SensitivityParameterVariation;
+import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
 
 /**
  * Base class for (rudimentary) sensitivity analysis.
@@ -20,6 +23,11 @@ import de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovTransformationResult;
  * 
  */
 public abstract class MarkovSensitivity {
+
+	/**
+	 * Character used to separate entries in the sensitivity log file.
+	 */
+	private static final String LOG_ENTRY_SEPARATOR = "\\";
 
 	/**
 	 * The model on which sensitivity analysis is based.
@@ -62,19 +70,9 @@ public abstract class MarkovSensitivity {
 	}
 
 	/**
-	 * The first value for the property to alter.
-	 */
-	protected double firstValue;
-
-	/**
 	 * Provides EMF utility functions.
 	 */
 	protected EMFHelper helper = new EMFHelper();
-
-	/**
-	 * The last value for the property to alter.
-	 */
-	protected double lastValue;
 
 	/**
 	 * Provides a writer to the log file.
@@ -97,9 +95,32 @@ public abstract class MarkovSensitivity {
 	protected String resultLogfile = null;
 
 	/**
-	 * A list of sensitivity values given optionally by the user.
+	 * The variation of this sensitivity analysis.
 	 */
-	protected List<Double> values = null;
+	private SensitivityParameterVariation variation = null;
+
+	/**
+	 * Returns the double parameter variation.
+	 * 
+	 * @return the double parameter variation
+	 */
+	protected DoubleParameterVariation getDoubleVariation() {
+		return (DoubleParameterVariation) variation;
+	}
+
+	/**
+	 * Returns the string parameter sequence.
+	 * 
+	 * @return the string parameter sequence
+	 */
+	protected StringParameterSequence getStringSequence() {
+		return (StringParameterSequence) variation;
+	}
+
+	/**
+	 * A calculator for variations and steps during the sensitivity analysis.
+	 */
+	protected SensitivityCalculator calculator = new SensitivityCalculator();
 
 	/**
 	 * The constructor.
@@ -108,42 +129,17 @@ public abstract class MarkovSensitivity {
 	 * 
 	 * @param name
 	 *            the name of the sensitivity analysis
-	 * @param firstValue
-	 *            first value of sensitivity analysis
-	 * @param lastValue
-	 *            last value of sensitivity analysis
-	 * @param numberOfSteps
-	 *            number of steps of the analysis
+	 * @param variation
+	 *            the parameter variation
 	 * @param resultLogFile
 	 *            path where to log sensitivity analysis results
 	 */
-	protected MarkovSensitivity(final String name, final double firstValue,
-			final double lastValue, final int numberOfSteps,
+	protected MarkovSensitivity(final String name,
+			final SensitivityParameterVariation variation,
 			final String resultLogFile) {
 		this.name = name;
-		this.firstValue = firstValue;
-		this.lastValue = lastValue;
-		this.numberOfSteps = numberOfSteps;
-		this.resultLogfile = resultLogFile;
-	}
-
-	/**
-	 * The constructor.
-	 * 
-	 * Takes a list of values instead of a first and last value.
-	 * 
-	 * @param name
-	 *            the name of the sensitivity analysis
-	 * @param list
-	 *            the list of values
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
-	 */
-	protected MarkovSensitivity(final String name, final List<Double> list,
-			final String resultLogFile) {
-		this.name = name;
-		this.values = list;
-		this.numberOfSteps = list.size();
+		this.variation = variation;
+		this.numberOfSteps = calculator.calculateNumberOfSteps(variation);
 		this.resultLogfile = resultLogFile;
 	}
 
@@ -219,7 +215,7 @@ public abstract class MarkovSensitivity {
 		List<String> logResults = getLogSingleResults(markovResults);
 		try {
 			for (int index = 0; index < logResults.size(); index++) {
-				logWriter.append(logResults.get(index) + ";");
+				logWriter.append(logResults.get(index) + LOG_ENTRY_SEPARATOR);
 			}
 			logWriter.append(System.getProperty("line.separator"));
 			logWriter.flush();
@@ -246,7 +242,8 @@ public abstract class MarkovSensitivity {
 		List<List<String>> headings = getLogHeadings();
 		for (int lineNumber = 0; lineNumber < headings.size(); lineNumber++) {
 			for (int index = 0; index < headings.get(lineNumber).size(); index++) {
-				logWriter.append(headings.get(lineNumber).get(index) + ";");
+				logWriter.append(headings.get(lineNumber).get(index)
+						+ LOG_ENTRY_SEPARATOR);
 			}
 			logWriter.append(System.getProperty("line.separator"));
 		}

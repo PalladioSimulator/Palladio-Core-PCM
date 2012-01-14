@@ -146,12 +146,12 @@ public interface DoubleParameterRange extends DoubleParameterVariation {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Step Count</em>' attribute.
-	 * @see #setStepCount(double)
+	 * @see #setStepCount(int)
 	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getDoubleParameterRange_StepCount()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	double getStepCount();
+	int getStepCount();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.DoubleParameterRange#getStepCount <em>Step Count</em>}' attribute.
@@ -161,6 +161,6 @@ public interface DoubleParameterRange extends DoubleParameterVariation {
 	 * @see #getStepCount()
 	 * @generated
 	 */
-	void setStepCount(double value);
+	void setStepCount(int value);
 
 } // DoubleParameterRange

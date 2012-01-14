@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
+import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 
 /**
  * This class provides rudimentary support for sensitivity analysis of an
@@ -56,48 +57,17 @@ public class InternalActionSensitivity extends MarkovSensitivity {
 	 *            the id of the internal action to alter
 	 * @param failureTypeId
 	 *            the id of the failure type to alter
-	 * @param firstValue
-	 *            first value of sensitivity analysis
-	 * @param lastValue
-	 *            last value of sensitivity analysis
-	 * @param numberOfSteps
-	 *            number of steps of the analysis
+	 * @param variation
+	 *            the parameter variation
 	 * @param resultLogFile
 	 *            path where to log sensitivity analysis results
 	 */
 	public InternalActionSensitivity(final String name,
 			final String internalActionId, final String failureTypeId,
-			final double firstValue, final double lastValue,
-			final int numberOfSteps, final String resultLogFile) {
+			final DoubleParameterVariation variation, final String resultLogFile) {
 
 		// Initialize base variables:
-		super(name, firstValue, lastValue, numberOfSteps, resultLogFile);
-
-		// Further initialization:
-		this.internalActionId = internalActionId;
-		this.failureTypeId = failureTypeId;
-	}
-
-	/**
-	 * The constructor.
-	 * 
-	 * @param name
-	 *            the name of the sensitivity analysis
-	 * @param internalActionId
-	 *            the id of the internal action to alter
-	 * @param failureTypeId
-	 *            the id of the failure type to alter
-	 * @param values
-	 *            the list of values for sensitivity analysis
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
-	 */
-	public InternalActionSensitivity(final String name,
-			final String internalActionId, final String failureTypeId,
-			final List<Double> values, final String resultLogFile) {
-
-		// Initialize base variables:
-		super(name, values, resultLogFile);
+		super(name, variation, resultLogFile);
 
 		// Further initialization:
 		this.internalActionId = internalActionId;
@@ -229,13 +199,8 @@ public class InternalActionSensitivity extends MarkovSensitivity {
 			final InternalFailureOccurrenceDescription description) {
 
 		// Determine the current failure probability:
-		if (values == null) {
-			currentFailureProbability = firstValue
-					+ ((lastValue - firstValue) / (numberOfSteps - 1))
-					* (getCurrentStepNumber() - 1);
-		} else {
-			currentFailureProbability = values.get(getCurrentStepNumber() - 1);
-		}
+		currentFailureProbability = calculator.calculateCurrentDoubleValue(
+				getDoubleVariation(), getCurrentStepNumber());
 
 		// Set the failure probability:
 		description.setFailureProbability(currentFailureProbability);

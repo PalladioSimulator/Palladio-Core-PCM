@@ -121,7 +121,7 @@ public class DoubleParameterRangeImpl extends DoubleParameterVariationImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double STEP_COUNT_EDEFAULT = 0.0;
+	protected static final int STEP_COUNT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getStepCount() <em>Step Count</em>}' attribute.
@@ -131,7 +131,7 @@ public class DoubleParameterRangeImpl extends DoubleParameterVariationImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected double stepCount = STEP_COUNT_EDEFAULT;
+	protected int stepCount = STEP_COUNT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -241,7 +241,7 @@ public class DoubleParameterRangeImpl extends DoubleParameterVariationImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getStepCount() {
+	public int getStepCount() {
 		return stepCount;
 	}
 
@@ -250,8 +250,8 @@ public class DoubleParameterRangeImpl extends DoubleParameterVariationImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStepCount(double newStepCount) {
-		double oldStepCount = stepCount;
+	public void setStepCount(int newStepCount) {
+		int oldStepCount = stepCount;
 		stepCount = newStepCount;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SensitivityPackage.DOUBLE_PARAMETER_RANGE__STEP_COUNT, oldStepCount, stepCount));
@@ -300,7 +300,7 @@ public class DoubleParameterRangeImpl extends DoubleParameterVariationImpl imple
 				setStepSize((Double)newValue);
 				return;
 			case SensitivityPackage.DOUBLE_PARAMETER_RANGE__STEP_COUNT:
-				setStepCount((Double)newValue);
+				setStepCount((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

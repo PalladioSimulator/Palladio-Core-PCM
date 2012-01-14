@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
+import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 
 /**
  * Provides sensitivity support to alter the failure probabilities of all
@@ -55,45 +56,16 @@ public class ComponentSensitivity extends MarkovSensitivity {
 	 *            the name of the sensitivity analysis
 	 * @param componentId
 	 *            the ID of the component to alter
-	 * @param firstValue
-	 *            first value of sensitivity analysis
-	 * @param lastValue
-	 *            last value of sensitivity analysis
-	 * @param numberOfSteps
-	 *            number of steps of the analysis
+	 * @param variation
+	 *            the parameter variation
 	 * @param resultLogFile
 	 *            path where to log sensitivity analysis results
 	 */
 	public ComponentSensitivity(final String name, final String componentId,
-			final double firstValue, final double lastValue,
-			final int numberOfSteps, final String resultLogFile) {
+			final DoubleParameterVariation variation, final String resultLogFile) {
 
 		// Initialize base variables:
-		super(name, firstValue, lastValue, numberOfSteps, resultLogFile);
-
-		// Further initialization:
-		this.componentId = componentId;
-	}
-
-	/**
-	 * The constructor.
-	 * 
-	 * @param name
-	 *            the name of the sensitivity analysis
-	 * @param componentId
-	 *            the ID of the component to alter
-	 * @param behaviourId
-	 *            the id of the involved branch behaviour
-	 * @param values
-	 *            the values for the sensitivity analysis
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
-	 */
-	public ComponentSensitivity(final String name, final String componentId,
-			final List<Double> values, final String resultLogFile) {
-
-		// Initialize base variables:
-		super(name, values, resultLogFile);
+		super(name, variation, resultLogFile);
 
 		// Further initialization:
 		this.componentId = componentId;
@@ -224,13 +196,8 @@ public class ComponentSensitivity extends MarkovSensitivity {
 			final List<InternalAction> internalActions) {
 
 		// Determine the current failure probability:
-		if (values == null) {
-			currentFailureProbability = firstValue
-					+ ((lastValue - firstValue) / (numberOfSteps - 1))
-					* (getCurrentStepNumber() - 1);
-		} else {
-			currentFailureProbability = values.get(getCurrentStepNumber() - 1);
-		}
+		currentFailureProbability = calculator.calculateCurrentDoubleValue(
+				getDoubleVariation(), getCurrentStepNumber());
 
 		// Set the failure probability:
 		for (InternalAction action : internalActions) {

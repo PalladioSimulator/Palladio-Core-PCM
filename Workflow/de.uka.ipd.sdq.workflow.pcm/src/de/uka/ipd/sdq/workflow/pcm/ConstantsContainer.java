@@ -18,6 +18,7 @@ public class ConstantsContainer {
 	public static final String EVENT_MIDDLEWARE_REPOSITORY_FILE = "eventMiddlewareRepositoryFile";
 	public static final String ACCURACY_QUALITY_ANNOTATION_FILE = "accuracyQualityAnnotationFile";
 	public static final String SENSITIVITY_MODEL_FILE = "sensitivityModelFile";
+	public static final String SENSITIVITY_LOG_FILE = "sensitivityLogFile";
 
 	// Template method value
 	public static final String AOP_TEMPLATE  = "aop_templates";
@@ -34,6 +35,7 @@ public class ConstantsContainer {
 	public static final String[] FEATURECONFIG_EXTENSION = new String[] { "*.featureconfig" };
 	public static final String[] ACCURACY_QUALITY_ANNOTATION_EXTENSION = new String[] { "*.quality" };
 	public static final String[] SENSITIVITY_ANALYSIS_EXTENSION = new String[] { "*.sensitivity" };
+	public static final String[] SENSITIVITY_LOG_EXTENSION = new String[] { "*.txt" };
 
 	// Configuration tab
 	public static final String TEMPORARY_DATA_LOCATION = "outpath";
@@ -67,10 +69,12 @@ public class ConstantsContainer {
 	// Default values
 	/** Default URI of the feature configuration file. */
 	public static final String DEFAULT_FEATURE_CONFIGURATION_FILE = "pathmap://PCM_MODELS/ConnectorConfig.featureconfig";
-	/** Default URI of the quality annotation file used for accuracy analysis . */
+	/** Default URI of the quality annotation file used for accuracy analysis. */
 	public static final String DEFAULT_ACCURACY_QUALITY_ANNOTATION_FILE = "";
-	/** Default URI of the sensitivity model file used for sensitivity analysis . */
+	/** Default URI of the sensitivity model file used for sensitivity analysis. */
 	public static final String DEFAULT_SENSITIVITY_MODEL_FILE = "";
+	/** Default URI of the sensitivity log file used for sensitivity result logging. */
+	public static final String DEFAULT_SENSITIVITY_LOG_FILE = "";
 	/** Default URI of the event middleware repository file. */
 	public static final String DEFAULT_EVENT_MIDDLEWARE_FILE = "pathmap://PCM_MODELS/default_event_middleware.repository";
 	

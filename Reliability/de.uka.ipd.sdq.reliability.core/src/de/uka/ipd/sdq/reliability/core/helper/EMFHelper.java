@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -40,6 +41,12 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * 
  */
 public class EMFHelper {
+
+	/**
+	 * Log4J logging support.
+	 */
+	private static Logger logger = Logger
+			.getLogger(EMFHelper.class.getName());
 
 	/**
 	 * Retrieves all model elements of a given EMF type under some root element.
@@ -83,8 +90,6 @@ public class EMFHelper {
 	 */
 	public static void saveToXMIFile(final EObject modelToSave, final String fileName) {
 		
-		Logger logger = Logger.getLogger("de.uka.ipd.sdq.dsexplore");
-		
 		logger.debug("Saving " + modelToSave.toString() + " to " + fileName);
 
 		// Create a resource set.
@@ -99,8 +104,6 @@ public class EMFHelper {
 		Resource resource = resourceSet.createResource(fileURI);
 		resource.getContents().add(modelToSave);
 		
-
-
 		try {
 			resource.save(Collections.EMPTY_MAP);
 		} catch (FileNotFoundException e){
@@ -117,10 +120,12 @@ public class EMFHelper {
 	/**
 	 * 
 	 * @param fileName
-	 *            the filename specifying the file to load from
-	 * @return The EObject loaded from the file
+	 * @param eNamespaceURI
+	 * @param ePackage
+	 * @return
 	 */
-	public static EObject loadFromXMIFile(final String fileName) {
+	public static EObject loadFromXMIFile(final String fileName, final String eNamespaceURI, final EPackage ePackage){
+
 		// Create a resource set to hold the resources.
 		ResourceSet resourceSet = new ResourceSetImpl();
 
@@ -131,8 +136,48 @@ public class EMFHelper {
 						new XMIResourceFactoryImpl());
 
 		// Register the package to ensure it is available during loading.
+		resourceSet.getPackageRegistry().put(eNamespaceURI,
+				ePackage);
+		
+		// Register standard PCM packages to ensure they are available during loading:
 		registerPackages(resourceSet);
 
+		// Load the file contents:
+		return loadXMI(fileName, resourceSet);
+	}
+	
+	/**
+	 * 
+	 * @param fileName
+	 *            the filename specifying the file to load from
+	 * @return The EObject loaded from the file
+	 */
+	public static EObject loadFromXMIFile(final String fileName) {
+
+		// Create a resource set to hold the resources.
+		ResourceSet resourceSet = new ResourceSetImpl();
+
+		// Register the appropriate resource factory to handle all file
+		// extensions.
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+				.put(Resource.Factory.Registry.DEFAULT_EXTENSION,
+						new XMIResourceFactoryImpl());
+
+		// Register standard PCM packages to ensure they are available during loading:
+		registerPackages(resourceSet);
+
+		// Load the file contents:
+		return loadXMI(fileName, resourceSet);
+	}
+
+	/**
+	 * 
+	 * @param fileName
+	 * @param resourceSet
+	 * @return
+	 */
+	private static EObject loadXMI(final String fileName,
+			ResourceSet resourceSet) {
 		// Construct the URI for the instance file.
 		// The argument is treated as a file path only if it denotes an existing
 		// file. Otherwise, it's directly treated as a URL.
@@ -145,27 +190,9 @@ public class EMFHelper {
 		try {
 			resource = resourceSet.getResource(uri, true);
 		} catch (Exception e) {
-			Logger.getLogger("de.uka.ipd.sdq.dsexplore").error(e.getMessage());
+			logger.error(e.getMessage());
 			return null;
 		}
-
-		// logger.debug("Loaded " + uri);
-
-		// if (!fileName.endsWith(".assembly") &&
-		// !fileName.endsWith("repository")) {
-		// // Validate the contents of the loaded resource.
-		// for (Iterator j = resource.getContents().iterator(); j.hasNext();) {
-		// EObject eObject = (EObject) j.next();
-		// Diagnostic diagnostic = Diagnostician.INSTANCE
-		// .validate(eObject);
-		// if (diagnostic.getSeverity() != Diagnostic.OK) {
-		// System.out.println();
-		// System.out.println(diagnostic.getMessage());
-		// // printDiagnostic(diagnostic, "");
-		//					
-		// }
-		// }
-		// }
 		EObject eObject = (EObject) resource.getContents().iterator().next();
 		return EcoreUtil.getRootContainer(eObject);
 	}
@@ -196,6 +223,5 @@ public class EMFHelper {
 				SystemPackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(UsagemodelPackage.eNS_URI,
 				UsagemodelPackage.eINSTANCE);
-		
 	}
 }

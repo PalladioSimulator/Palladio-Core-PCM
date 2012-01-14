@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
+import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 
 /**
  * Provides sensitivity support to alter the branch probability of a
@@ -44,22 +45,17 @@ public class ProbabilisticBranchSensitivity extends MarkovSensitivity {
 	 *            the name of the sensitivity analysis
 	 * @param branchTransitionId
 	 *            the id of the branch transition to alter
-	 * @param firstValue
-	 *            first value of sensitivity analysis
-	 * @param lastValue
-	 *            last value of sensitivity analysis
-	 * @param numberOfSteps
-	 *            number of steps of the analysis
+	 * @param variation
+	 *            the parameter variation
 	 * @param resultLogFile
 	 *            path where to log sensitivity analysis results
 	 */
 	public ProbabilisticBranchSensitivity(final String name,
-			final String branchTransitionId, final double firstValue,
-			final double lastValue, final int numberOfSteps,
-			final String resultLogFile) {
+			final String branchTransitionId,
+			final DoubleParameterVariation variation, final String resultLogFile) {
 
 		// Initialize base variables:
-		super(name, firstValue, lastValue, numberOfSteps, resultLogFile);
+		super(name, variation, resultLogFile);
 
 		// Further initialization:
 		this.branchTransitionId = branchTransitionId;
@@ -109,9 +105,8 @@ public class ProbabilisticBranchSensitivity extends MarkovSensitivity {
 			final ProbabilisticBranchTransition transition) {
 
 		// Determine the current branch probability:
-		currentBranchProbability = firstValue
-				+ ((lastValue - firstValue) / (numberOfSteps - 1))
-				* (getCurrentStepNumber() - 1);
+		currentBranchProbability = calculator.calculateCurrentDoubleValue(
+				getDoubleVariation(), getCurrentStepNumber());
 
 		// Set the branch probability:
 		transition.setBranchProbability(currentBranchProbability);

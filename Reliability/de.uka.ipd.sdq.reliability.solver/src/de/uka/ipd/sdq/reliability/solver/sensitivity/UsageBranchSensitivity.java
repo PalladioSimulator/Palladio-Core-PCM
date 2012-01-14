@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
+import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 
 /**
  * Provides sensitivity support to alter the branch probability of a
@@ -56,48 +57,17 @@ public class UsageBranchSensitivity extends MarkovSensitivity {
 	 *            the id of the usage branch to alter
 	 * @param behaviourId
 	 *            the id of the involved branch behaviour
-	 * @param firstValue
-	 *            first value of sensitivity analysis
-	 * @param lastValue
-	 *            last value of sensitivity analysis
-	 * @param numberOfSteps
-	 *            number of steps of the analysis
+	 * @param variation
+	 *            the parameter variation
 	 * @param resultLogFile
 	 *            path where to log sensitivity analysis results
 	 */
 	public UsageBranchSensitivity(final String name, final String branchId,
-			final String behaviourId, final double firstValue,
-			final double lastValue, final int numberOfSteps,
+			final String behaviourId, final DoubleParameterVariation variation,
 			final String resultLogFile) {
 
 		// Initialize base variables:
-		super(name, firstValue, lastValue, numberOfSteps, resultLogFile);
-
-		// Further initialization:
-		this.branchId = branchId;
-		this.behaviourId = behaviourId;
-	}
-
-	/**
-	 * The constructor.
-	 * 
-	 * @param name
-	 *            the name of the sensitivity analysis
-	 * @param branchId
-	 *            the id of the usage branch to alter
-	 * @param behaviourId
-	 *            the id of the involved branch behaviour
-	 * @param values
-	 *            the values for the sensitivity analysis
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
-	 */
-	public UsageBranchSensitivity(final String name, final String branchId,
-			final String behaviourId, final List<Double> values,
-			final String resultLogFile) {
-
-		// Initialize base variables:
-		super(name, values, resultLogFile);
+		super(name, variation, resultLogFile);
 
 		// Further initialization:
 		this.branchId = branchId;
@@ -223,13 +193,8 @@ public class UsageBranchSensitivity extends MarkovSensitivity {
 	void setBranchProbability(final BranchTransition transition) {
 
 		// Determine the current branch probability:
-		if (values == null) {
-			currentBranchProbability = firstValue
-					+ ((lastValue - firstValue) / (numberOfSteps - 1))
-					* (getCurrentStepNumber() - 1);
-		} else {
-			currentBranchProbability = values.get(getCurrentStepNumber() - 1);
-		}
+		currentBranchProbability = calculator.calculateCurrentDoubleValue(
+				getDoubleVariation(), getCurrentStepNumber());
 
 		// Set the branch probability:
 		transition.setBranchProbability(currentBranchProbability);

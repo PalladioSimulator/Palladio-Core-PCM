@@ -47,6 +47,7 @@ public class PCMSolverWorkflowRunConfiguration extends
 	
 	private boolean sensitivityModelEnabled;
 	private String sensitivityModelFileName;
+	private String sensitivityLogFileName;
 
 	private String psQuantum;
 
@@ -235,6 +236,10 @@ public class PCMSolverWorkflowRunConfiguration extends
 	public String getSensitivityModelFileName() {
 		return sensitivityModelFileName;
 	}
+	
+	public String getSensitivityLogFileName() {
+		return sensitivityLogFileName;
+	}
 
 	public boolean isReliabilityAnalysis() {
 		return this.isReliabilityAnalysis;
@@ -378,6 +383,10 @@ public class PCMSolverWorkflowRunConfiguration extends
 
 	public void setSensitivityModelFileName(String sensitivityModelFileName) {
 		this.sensitivityModelFileName = sensitivityModelFileName;
+	}
+
+	public void setSensitivityLogFileName(String sensitivityLogFileName) {
+		this.sensitivityLogFileName = sensitivityLogFileName;
 	}
 
 	public void setPsQuantum(String psQuantum) {
