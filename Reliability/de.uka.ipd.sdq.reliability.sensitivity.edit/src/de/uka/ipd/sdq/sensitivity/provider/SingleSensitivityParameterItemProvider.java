@@ -152,6 +152,11 @@ public class SingleSensitivityParameterItemProvider
 			(createChildParameter
 				(SensitivityPackage.Literals.SINGLE_SENSITIVITY_PARAMETER__SENSITIVITY_PARAMETER_VARIATION_SINGLE_SENSITIVITY_PARAMETER,
 				 SensitivityFactory.eINSTANCE.createDoubleParameterSequence()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SensitivityPackage.Literals.SINGLE_SENSITIVITY_PARAMETER__SENSITIVITY_PARAMETER_VARIATION_SINGLE_SENSITIVITY_PARAMETER,
+				 SensitivityFactory.eINSTANCE.createDoubleOffsetSequence()));
 	}
 
 }

@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.reliability.solver.sensitivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 
 /**
@@ -97,14 +96,13 @@ public class MultiSensitivity extends MarkovSensitivity {
 	 * @param isCombinatory
 	 *            indicates if all combinations of sensitivity parameters shall
 	 *            be examined
-	 * @param resultLogFile
 	 */
 	public MultiSensitivity(final String name,
 			final List<MarkovSensitivity> sensitivityParameters,
-			final boolean isCombinatory, final String resultLogFile) {
+			final boolean isCombinatory) {
 
 		// Initialize basic variables:
-		super(name, resultLogFile);
+		super(name, null);
 
 		// Further initializations:
 		this.sensitivityParameters = sensitivityParameters;
@@ -252,27 +250,10 @@ public class MultiSensitivity extends MarkovSensitivity {
 	}
 
 	/**
-	 * Builds the headings strings for logging.
-	 * 
-	 * @return the log headings strings
+	 * Extracts the relevant sensitivity information from the given model.
 	 */
-	protected List<List<String>> getLogHeadings() {
-
-		// Create a result list:
-		List<List<String>> resultList = getLogHeadingsMulti();
-		for (UsageScenario scenario : model.getUsageModel()
-				.getUsageScenario_UsageModel()) {
-			resultList.get(0).add(
-					"Success probability of UsageScenario \""
-							+ scenario.getEntityName() + "\" <"
-							+ scenario.getId() + ">");
-			for (int i = 1; i < resultList.size(); i++) {
-				resultList.get(i).add("");
-			}
-		}
-
-		// Return the result:
-		return resultList;
+	protected void extractSensitivityInformation() {
+		// Nothing to do in the MultiSensitivity.
 	}
 
 	/**

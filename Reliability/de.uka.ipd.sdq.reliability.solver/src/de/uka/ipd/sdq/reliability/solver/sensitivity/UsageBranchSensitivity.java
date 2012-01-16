@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
+import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
@@ -29,24 +30,19 @@ public class UsageBranchSensitivity extends MarkovSensitivity {
 	private String behaviourId;
 
 	/**
-	 * The name of the involved branch behaviour.
-	 */
-	private String behaviourName = null;
-
-	/**
 	 * The ID of the usage branch to alter.
 	 */
 	private String branchId;
 
 	/**
-	 * The name of the usage branch to alter.
+	 * The affected probabilistic branch transition;
 	 */
-	private String branchName = null;
+	private BranchTransition transition = null;
 
 	/**
-	 * Captures the current branch probability value.
+	 * The base value.
 	 */
-	private double currentBranchProbability;
+	private double baseValue;
 
 	/**
 	 * The constructor.
@@ -59,15 +55,12 @@ public class UsageBranchSensitivity extends MarkovSensitivity {
 	 *            the id of the involved branch behaviour
 	 * @param variation
 	 *            the parameter variation
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
 	 */
 	public UsageBranchSensitivity(final String name, final String branchId,
-			final String behaviourId, final DoubleParameterVariation variation,
-			final String resultLogFile) {
+			final String behaviourId, final DoubleParameterVariation variation) {
 
 		// Initialize base variables:
-		super(name, variation, resultLogFile);
+		super(name, variation);
 
 		// Further initialization:
 		this.branchId = branchId;
@@ -75,17 +68,34 @@ public class UsageBranchSensitivity extends MarkovSensitivity {
 	}
 
 	/**
-	 * Retrieves the probabilistic branch transition that shall be altered
-	 * during sensitivity analysis.
+	 * Alters the model according to the next sensitivity analysis step.
 	 * 
-	 * @return the relevant branch transition
+	 * @return indicates if the model could be successfully altered
 	 */
-	private BranchTransition getBranchTransition() {
+	protected boolean alterModel() {
+
+		// Check validity:
+		if (transition == null) {
+			return false;
+		}
+
+		// Set the branch probability:
+		transition.setBranchProbability(calculator.calculateCurrentDoubleValue(
+				getDoubleVariation(), getCurrentStepNumber(), baseValue));
+
+		// Everything ok:
+		return true;
+	}
+
+	/**
+	 * Extracts the relevant sensitivity information from the given model.
+	 */
+	protected void extractSensitivityInformation() {
 
 		// Retrieve all BranchTransitions in the PCM Repository:
 		if (getModel().getUsageModel() == null) {
 			// No repository found!
-			return null;
+			return;
 		}
 
 		// Search for the relevant branch:
@@ -96,47 +106,23 @@ public class UsageBranchSensitivity extends MarkovSensitivity {
 		for (EObject object : branches) {
 			if (((Branch) object).getId().equals(branchId)) {
 				branch = (Branch) object;
-				branchName = branch.getEntityName();
 				break;
 			}
 		}
 		if (branch == null) {
-			return null;
+			return;
 		}
 
 		// Search for the relevant branch transition:
-		for (BranchTransition transition : branch.getBranchTransitions_Branch()) {
-			if (transition.getBranchedBehaviour_BranchTransition().getId()
-					.equals(behaviourId)) {
-				behaviourName = transition
-						.getBranchedBehaviour_BranchTransition()
-						.getEntityName();
-				return transition;
+		for (BranchTransition branchTransition : branch
+				.getBranchTransitions_Branch()) {
+			if (branchTransition.getBranchedBehaviour_BranchTransition()
+					.getId().equals(behaviourId)) {
+				transition = branchTransition;
+				baseValue = branchTransition.getBranchProbability();
+				return;
 			}
 		}
-
-		// No corresponding transition found:
-		return null;
-	}
-
-	/**
-	 * Alters the model according to the next sensitivity analysis step.
-	 * 
-	 * @return indicates if the model could be successfully altered
-	 */
-	protected boolean alterModel() {
-
-		// Retrieve the relevant parameter that shall be altered:
-		BranchTransition transition = getBranchTransition();
-		if (transition == null) {
-			return false;
-		}
-
-		// Alter the parameter:
-		setBranchProbability(transition);
-
-		// Everything ok:
-		return true;
 	}
 
 	/**
@@ -173,30 +159,15 @@ public class UsageBranchSensitivity extends MarkovSensitivity {
 		List<String> resultList = new ArrayList<String>();
 
 		// Create the result strings:
-		resultList.add(branchName);
+		resultList.add(transition.getBranch_BranchTransition().getEntityName());
 		resultList.add(branchId);
-		resultList.add(behaviourName);
+		resultList.add(transition.getBranchedBehaviour_BranchTransition()
+				.getEntityName());
 		resultList.add(behaviourId);
-		resultList.add(((Double) currentBranchProbability).toString());
+		resultList.add(calculator.getCurrentLogEntry(getDoubleVariation(),
+				getCurrentStepNumber()));
 
 		// Return the result:
 		return resultList;
-	}
-
-	/**
-	 * Sets the branch probability of the given branch transition according to
-	 * the current sensitivity analysis step.
-	 * 
-	 * @param transition
-	 *            the branch transition
-	 */
-	void setBranchProbability(final BranchTransition transition) {
-
-		// Determine the current branch probability:
-		currentBranchProbability = calculator.calculateCurrentDoubleValue(
-				getDoubleVariation(), getCurrentStepNumber());
-
-		// Set the branch probability:
-		transition.setBranchProbability(currentBranchProbability);
 	}
 }

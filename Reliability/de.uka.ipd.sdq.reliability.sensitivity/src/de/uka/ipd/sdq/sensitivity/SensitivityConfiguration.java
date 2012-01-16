@@ -8,6 +8,8 @@ package de.uka.ipd.sdq.sensitivity;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Configuration</b></em>'.
@@ -24,6 +26,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.sensitivity.SensitivityConfiguration#getSensitivityParameters__SensitivityConfiguration <em>Sensitivity Parameters Sensitivity Configuration</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.sensitivity.SensitivityConfiguration#getSensitivityResultSpecifications__SensitivityConfiguration <em>Sensitivity Result Specifications Sensitivity Configuration</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,5 +62,21 @@ public interface SensitivityConfiguration extends Entity {
 	 * @generated
 	 */
 	void setSensitivityParameters__SensitivityConfiguration(SensitivityParameter value);
+
+	/**
+	 * Returns the value of the '<em><b>Sensitivity Result Specifications Sensitivity Configuration</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sensitivity Result Specifications Sensitivity Configuration</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sensitivity Result Specifications Sensitivity Configuration</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getSensitivityConfiguration_SensitivityResultSpecifications__SensitivityConfiguration()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<SensitivityResultSpecification> getSensitivityResultSpecifications__SensitivityConfiguration();
 
 } // SensitivityConfiguration

@@ -179,6 +179,42 @@ public interface SensitivityFactory extends EFactory {
 	UsageBranchParameter createUsageBranchParameter();
 
 	/**
+	 * Returns a new object of class '<em>Double Offset Sequence</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Double Offset Sequence</em>'.
+	 * @generated
+	 */
+	DoubleOffsetSequence createDoubleOffsetSequence();
+
+	/**
+	 * Returns a new object of class '<em>Software Failure Types Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Software Failure Types Parameter</em>'.
+	 * @generated
+	 */
+	SoftwareFailureTypesParameter createSoftwareFailureTypesParameter();
+
+	/**
+	 * Returns a new object of class '<em>Failure Type Result Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Failure Type Result Specification</em>'.
+	 * @generated
+	 */
+	FailureTypeResultSpecification createFailureTypeResultSpecification();
+
+	/**
+	 * Returns a new object of class '<em>Failure Dimension Result Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Failure Dimension Result Specification</em>'.
+	 * @generated
+	 */
+	FailureDimensionResultSpecification createFailureDimensionResultSpecification();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

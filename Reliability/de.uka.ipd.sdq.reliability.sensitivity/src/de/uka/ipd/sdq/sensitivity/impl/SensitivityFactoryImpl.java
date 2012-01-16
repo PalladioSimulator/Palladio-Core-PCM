@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.sensitivity.impl;
 import de.uka.ipd.sdq.sensitivity.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -77,8 +78,46 @@ public class SensitivityFactoryImpl extends EFactoryImpl implements SensitivityF
 			case SensitivityPackage.SOFTWARE_RELIABILITY_PARAMETER: return createSoftwareReliabilityParameter();
 			case SensitivityPackage.SYSTEM_CALL_PARAMETER: return createSystemCallParameter();
 			case SensitivityPackage.USAGE_BRANCH_PARAMETER: return createUsageBranchParameter();
+			case SensitivityPackage.DOUBLE_OFFSET_SEQUENCE: return createDoubleOffsetSequence();
+			case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER: return createSoftwareFailureTypesParameter();
+			case SensitivityPackage.FAILURE_TYPE_RESULT_SPECIFICATION: return createFailureTypeResultSpecification();
+			case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION: return createFailureDimensionResultSpecification();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case SensitivityPackage.DOUBLE_OFFSET_TYPE:
+				return createDoubleOffsetTypeFromString(eDataType, initialValue);
+			case SensitivityPackage.FAILURE_DIMENSION:
+				return createFailureDimensionFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case SensitivityPackage.DOUBLE_OFFSET_TYPE:
+				return convertDoubleOffsetTypeToString(eDataType, instanceValue);
+			case SensitivityPackage.FAILURE_DIMENSION:
+				return convertFailureDimensionToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -250,6 +289,86 @@ public class SensitivityFactoryImpl extends EFactoryImpl implements SensitivityF
 	public UsageBranchParameter createUsageBranchParameter() {
 		UsageBranchParameterImpl usageBranchParameter = new UsageBranchParameterImpl();
 		return usageBranchParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DoubleOffsetSequence createDoubleOffsetSequence() {
+		DoubleOffsetSequenceImpl doubleOffsetSequence = new DoubleOffsetSequenceImpl();
+		return doubleOffsetSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SoftwareFailureTypesParameter createSoftwareFailureTypesParameter() {
+		SoftwareFailureTypesParameterImpl softwareFailureTypesParameter = new SoftwareFailureTypesParameterImpl();
+		return softwareFailureTypesParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FailureTypeResultSpecification createFailureTypeResultSpecification() {
+		FailureTypeResultSpecificationImpl failureTypeResultSpecification = new FailureTypeResultSpecificationImpl();
+		return failureTypeResultSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FailureDimensionResultSpecification createFailureDimensionResultSpecification() {
+		FailureDimensionResultSpecificationImpl failureDimensionResultSpecification = new FailureDimensionResultSpecificationImpl();
+		return failureDimensionResultSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DoubleOffsetType createDoubleOffsetTypeFromString(EDataType eDataType, String initialValue) {
+		DoubleOffsetType result = DoubleOffsetType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDoubleOffsetTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FailureDimension createFailureDimensionFromString(EDataType eDataType, String initialValue) {
+		FailureDimension result = FailureDimension.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFailureDimensionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

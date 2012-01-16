@@ -106,14 +106,13 @@ public class NetworkInducedFailureTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NetworkInducedFailureType)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_NetworkInducedFailureType_type") :
-			getString("_UI_NetworkInducedFailureType_type") + " " + label;
+		return ((NetworkInducedFailureType)object).getEntityName()
+			+ " [ID: " + ((NetworkInducedFailureType)object).getId() + "]"
+			+ " <" + getString("_UI_NetworkInducedFailureType_type") + ">";
 	}
 
 	/**

@@ -8,19 +8,27 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
+import de.uka.ipd.sdq.pcm.reliability.ReliabilityFactory;
+import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 
 /**
- * Provides sensitivity support to alter the failure probabilities of all
- * internal actions within the whole PCM Repository.
+ * Provides sensitivity support to alter all software failure-on-demand
+ * probabilities of a given SoftwareInducedFailureType.
  * 
  * @author brosch
  * 
  */
-public class SoftwareSensitivity extends MarkovSensitivity {
+public class FailureTypeSensitivity extends MarkovSensitivity {
+
+	/**
+	 * The IDs of the affected software-induced failure type.
+	 */
+	private List<String> typeIds = null;
 
 	/**
 	 * The list of affected internal failure occurrence descriptions.
@@ -37,14 +45,19 @@ public class SoftwareSensitivity extends MarkovSensitivity {
 	 * 
 	 * @param name
 	 *            the name of the sensitivity analysis
+	 * @param typeIds
+	 *            the IDs of the software-induced failure type
 	 * @param variation
 	 *            the parameter variation
 	 */
-	public SoftwareSensitivity(final String name,
-			final DoubleParameterVariation variation) {
+	public FailureTypeSensitivity(final String name,
+			final List<String> typeIds, final DoubleParameterVariation variation) {
 
 		// Initialize base variables:
 		super(name, variation);
+
+		// Store further information:
+		this.typeIds = typeIds;
 	}
 
 	/**
@@ -82,25 +95,35 @@ public class SoftwareSensitivity extends MarkovSensitivity {
 			return;
 		}
 
-		// Search for the relevant BasicComponent:
+		// Search for the relevant failure type:
 		for (Repository repository : repositories) {
-			EList<EObject> internalActions = helper.getElements(repository,
-					SeffFactory.eINSTANCE.createInternalAction().eClass());
-			for (EObject object : internalActions) {
-				for (InternalFailureOccurrenceDescription description : ((InternalAction) object)
-						.getInternalFailureOccurrenceDescriptions__InternalAction()) {
-					descriptions.add(description);
-					baseValues.add(description.getFailureProbability());
+			EList<EObject> failureTypes = helper.getElements(repository,
+					ReliabilityFactory.eINSTANCE
+							.createSoftwareInducedFailureType().eClass());
+			for (EObject object : failureTypes) {
+				for (String typeId : typeIds) {
+					if (((SoftwareInducedFailureType) object).getId().equals(
+							typeId)) {
+						for (InternalFailureOccurrenceDescription occurrenceDescription : ((SoftwareInducedFailureType) object)
+								.getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType()) {
+							descriptions.add(occurrenceDescription);
+							baseValues.add(occurrenceDescription
+									.getFailureProbability());
+						}
+						break;
+					}
 				}
 			}
 		}
 	}
 
-	/**
-	 * Builds the headings strings for logging.
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @return the log headings strings
+	 * @seede.uka.ipd.sdq.reliability.solver.sensitivity.MarkovSensitivity#
+	 * getLogHeadingsMulti()
 	 */
+	@Override
 	protected List<List<String>> getLogHeadingsMulti() {
 
 		// Create a result list:
@@ -108,18 +131,20 @@ public class SoftwareSensitivity extends MarkovSensitivity {
 
 		// Create the headings:
 		ArrayList<String> headings = new ArrayList<String>();
-		headings.add("Software Failure Probabilities");
+		headings.add("Failure Probability");
 		resultList.add(headings);
 
 		// Return the result:
 		return resultList;
 	}
 
-	/**
-	 * Builds the results strings for sensitivity logging.
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @return the results strings
+	 * @seede.uka.ipd.sdq.reliability.solver.sensitivity.MarkovSensitivity#
+	 * getLogSingleResultsMulti()
 	 */
+	@Override
 	protected List<String> getLogSingleResultsMulti() {
 
 		// Create a result list:
@@ -132,4 +157,5 @@ public class SoftwareSensitivity extends MarkovSensitivity {
 		// Return the result:
 		return resultList;
 	}
+
 }

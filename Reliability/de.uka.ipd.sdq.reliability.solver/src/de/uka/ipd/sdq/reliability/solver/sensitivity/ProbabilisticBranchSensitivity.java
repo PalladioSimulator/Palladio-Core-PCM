@@ -26,17 +26,17 @@ public class ProbabilisticBranchSensitivity extends MarkovSensitivity {
 	/**
 	 * The ID of the branch transition to alter.
 	 */
-	private String branchTransitionId;
+	private String transitionId;
 
 	/**
-	 * The name of the branch transition to alter.
+	 * The affected probabilistic branch transition;
 	 */
-	private String branchTransitionName = null;
+	private ProbabilisticBranchTransition transition = null;
 
 	/**
-	 * Captures the current branch probability value.
+	 * The base value.
 	 */
-	private double currentBranchProbability;
+	private double baseValue;
 
 	/**
 	 * The constructor.
@@ -47,33 +47,48 @@ public class ProbabilisticBranchSensitivity extends MarkovSensitivity {
 	 *            the id of the branch transition to alter
 	 * @param variation
 	 *            the parameter variation
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
 	 */
 	public ProbabilisticBranchSensitivity(final String name,
 			final String branchTransitionId,
-			final DoubleParameterVariation variation, final String resultLogFile) {
+			final DoubleParameterVariation variation) {
 
 		// Initialize base variables:
-		super(name, variation, resultLogFile);
+		super(name, variation);
 
 		// Further initialization:
-		this.branchTransitionId = branchTransitionId;
+		this.transitionId = branchTransitionId;
 	}
 
 	/**
-	 * Retrieves the probabilistic branch transition that shall be altered
-	 * during sensitivity analysis.
+	 * Alters the model according to the next sensitivity analysis step.
 	 * 
-	 * @return the relevant branch transition
+	 * @return indicates if the model could be successfully altered
 	 */
-	private ProbabilisticBranchTransition getBranchTransition() {
+	protected boolean alterModel() {
+
+		// Check validity:
+		if (transition == null) {
+			return false;
+		}
+
+		// Set the branch probability:
+		transition.setBranchProbability(calculator.calculateCurrentDoubleValue(
+				getDoubleVariation(), getCurrentStepNumber(), baseValue));
+
+		// Everything ok:
+		return true;
+	}
+
+	/**
+	 * Extracts the relevant sensitivity information from the given model.
+	 */
+	protected void extractSensitivityInformation() {
 
 		// Retrieve all BranchTransitions in the PCM Repository:
 		List<Repository> repositories = getModel().getRepositories();
 		if (repositories.size() == 0) {
 			// No repository found!
-			return null;
+			return;
 		}
 
 		// Search for the relevant branch transition:
@@ -84,52 +99,14 @@ public class ProbabilisticBranchSensitivity extends MarkovSensitivity {
 							.eClass());
 			for (EObject object : branchTransitions) {
 				if (((ProbabilisticBranchTransition) object).getId().equals(
-						branchTransitionId)) {
-					branchTransition = (ProbabilisticBranchTransition) object;
-					branchTransitionName = branchTransition.getEntityName();
-					break;
+						transitionId)) {
+					transition = (ProbabilisticBranchTransition) object;
+					baseValue = ((ProbabilisticBranchTransition) object)
+							.getBranchProbability();
+					return;
 				}
 			}
 		}
-		return branchTransition;
-	}
-
-	/**
-	 * Sets the branch probability of the given branch transition according to
-	 * the current sensitivity analysis step.
-	 * 
-	 * @param transition
-	 *            the branch transition
-	 */
-	private void setBranchProbability(
-			final ProbabilisticBranchTransition transition) {
-
-		// Determine the current branch probability:
-		currentBranchProbability = calculator.calculateCurrentDoubleValue(
-				getDoubleVariation(), getCurrentStepNumber());
-
-		// Set the branch probability:
-		transition.setBranchProbability(currentBranchProbability);
-	}
-
-	/**
-	 * Alters the model according to the next sensitivity analysis step.
-	 * 
-	 * @return indicates if the model could be successfully altered
-	 */
-	protected boolean alterModel() {
-
-		// Retrieve the relevant parameter that shall be altered:
-		ProbabilisticBranchTransition transition = getBranchTransition();
-		if (transition == null) {
-			return false;
-		}
-
-		// Alter the parameter:
-		setBranchProbability(transition);
-
-		// Everything ok:
-		return true;
 	}
 
 	/**
@@ -164,9 +141,10 @@ public class ProbabilisticBranchSensitivity extends MarkovSensitivity {
 		List<String> resultList = new ArrayList<String>();
 
 		// Create the result strings:
-		resultList.add(branchTransitionName);
-		resultList.add(branchTransitionId);
-		resultList.add(((Double) currentBranchProbability).toString());
+		resultList.add(transition.getEntityName());
+		resultList.add(transitionId);
+		resultList.add(calculator.getCurrentLogEntry(getDoubleVariation(),
+				getCurrentStepNumber()));
 
 		// Return the result:
 		return resultList;

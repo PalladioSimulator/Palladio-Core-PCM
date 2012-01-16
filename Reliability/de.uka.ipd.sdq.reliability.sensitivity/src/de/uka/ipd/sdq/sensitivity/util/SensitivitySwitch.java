@@ -120,6 +120,15 @@ public class SensitivitySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SensitivityPackage.SENSITIVITY_RESULT_SPECIFICATION: {
+				SensitivityResultSpecification sensitivityResultSpecification = (SensitivityResultSpecification)theEObject;
+				T result = caseSensitivityResultSpecification(sensitivityResultSpecification);
+				if (result == null) result = caseEntity(sensitivityResultSpecification);
+				if (result == null) result = caseIdentifier(sensitivityResultSpecification);
+				if (result == null) result = caseNamedElement(sensitivityResultSpecification);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SensitivityPackage.SINGLE_SENSITIVITY_PARAMETER: {
 				SingleSensitivityParameter singleSensitivityParameter = (SingleSensitivityParameter)theEObject;
 				T result = caseSingleSensitivityParameter(singleSensitivityParameter);
@@ -306,6 +315,45 @@ public class SensitivitySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SensitivityPackage.DOUBLE_OFFSET_SEQUENCE: {
+				DoubleOffsetSequence doubleOffsetSequence = (DoubleOffsetSequence)theEObject;
+				T result = caseDoubleOffsetSequence(doubleOffsetSequence);
+				if (result == null) result = caseDoubleParameterVariation(doubleOffsetSequence);
+				if (result == null) result = caseSensitivityParameterVariation(doubleOffsetSequence);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER: {
+				SoftwareFailureTypesParameter softwareFailureTypesParameter = (SoftwareFailureTypesParameter)theEObject;
+				T result = caseSoftwareFailureTypesParameter(softwareFailureTypesParameter);
+				if (result == null) result = caseSingleSensitivityParameter(softwareFailureTypesParameter);
+				if (result == null) result = caseSensitivityParameter(softwareFailureTypesParameter);
+				if (result == null) result = caseEntity(softwareFailureTypesParameter);
+				if (result == null) result = caseIdentifier(softwareFailureTypesParameter);
+				if (result == null) result = caseNamedElement(softwareFailureTypesParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SensitivityPackage.FAILURE_TYPE_RESULT_SPECIFICATION: {
+				FailureTypeResultSpecification failureTypeResultSpecification = (FailureTypeResultSpecification)theEObject;
+				T result = caseFailureTypeResultSpecification(failureTypeResultSpecification);
+				if (result == null) result = caseSensitivityResultSpecification(failureTypeResultSpecification);
+				if (result == null) result = caseEntity(failureTypeResultSpecification);
+				if (result == null) result = caseIdentifier(failureTypeResultSpecification);
+				if (result == null) result = caseNamedElement(failureTypeResultSpecification);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION: {
+				FailureDimensionResultSpecification failureDimensionResultSpecification = (FailureDimensionResultSpecification)theEObject;
+				T result = caseFailureDimensionResultSpecification(failureDimensionResultSpecification);
+				if (result == null) result = caseSensitivityResultSpecification(failureDimensionResultSpecification);
+				if (result == null) result = caseEntity(failureDimensionResultSpecification);
+				if (result == null) result = caseIdentifier(failureDimensionResultSpecification);
+				if (result == null) result = caseNamedElement(failureDimensionResultSpecification);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -352,6 +400,21 @@ public class SensitivitySwitch<T> {
 	 * @generated
 	 */
 	public T caseCombinedSensitivityParameter(CombinedSensitivityParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Result Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Result Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSensitivityResultSpecification(SensitivityResultSpecification object) {
 		return null;
 	}
 
@@ -637,6 +700,66 @@ public class SensitivitySwitch<T> {
 	 * @generated
 	 */
 	public T caseUsageBranchParameter(UsageBranchParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Double Offset Sequence</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Double Offset Sequence</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDoubleOffsetSequence(DoubleOffsetSequence object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Software Failure Types Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Software Failure Types Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSoftwareFailureTypesParameter(SoftwareFailureTypesParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Failure Type Result Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Failure Type Result Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFailureTypeResultSpecification(FailureTypeResultSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Failure Dimension Result Specification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Failure Dimension Result Specification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFailureDimensionResultSpecification(FailureDimensionResultSpecification object) {
 		return null;
 	}
 

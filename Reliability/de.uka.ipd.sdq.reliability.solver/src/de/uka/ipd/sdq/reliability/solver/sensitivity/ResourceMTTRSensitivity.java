@@ -21,19 +21,9 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class ResourceMTTRSensitivity extends MarkovSensitivity {
 
 	/**
-	 * Captures the current MTTR value.
-	 */
-	private double currentMTTR;
-
-	/**
 	 * The resource type to alter.
 	 */
 	private String processingResourceTypeId;
-
-	/**
-	 * The name of the resource type to alter.
-	 */
-	private String processingResourceTypeName;
 
 	/**
 	 * The resource container to alter.
@@ -41,9 +31,14 @@ public class ResourceMTTRSensitivity extends MarkovSensitivity {
 	private String resourceContainerId;
 
 	/**
-	 * The name of the resource container to alter.
+	 * The affected processing resource specification.
 	 */
-	private String resourceContainerName;
+	private ProcessingResourceSpecification specification = null;
+
+	/**
+	 * The base value.
+	 */
+	private double baseValue;
 
 	/**
 	 * The constructor.
@@ -56,16 +51,14 @@ public class ResourceMTTRSensitivity extends MarkovSensitivity {
 	 *            the resource type to alter
 	 * @param variation
 	 *            the parameter variation
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
 	 */
 	public ResourceMTTRSensitivity(final String name,
 			final String resourceContainerId,
 			final String processingResourceTypeId,
-			final DoubleParameterVariation variation, final String resultLogFile) {
+			final DoubleParameterVariation variation) {
 
 		// Initialize basic variables:
-		super(name, variation, resultLogFile);
+		super(name, variation);
 
 		// Further initializations:
 		this.resourceContainerId = resourceContainerId;
@@ -79,17 +72,57 @@ public class ResourceMTTRSensitivity extends MarkovSensitivity {
 	 */
 	protected boolean alterModel() {
 
-		// Retrieve the relevant parameter that shall be altered:
-		ProcessingResourceSpecification specification = getProcessingResourceSpecification();
+		// Check validity:
 		if (specification == null) {
 			return false;
 		}
 
-		// Alter the parameter:
-		setMTTF(specification);
+		// Set the failure probability:
+		specification.setMTTR(calculator.calculateCurrentDoubleValue(
+				getDoubleVariation(), getCurrentStepNumber(), baseValue));
 
 		// Everything ok:
 		return true;
+	}
+
+	/**
+	 * Extracts the relevant sensitivity information from the given model.
+	 */
+	protected void extractSensitivityInformation() {
+
+		// Retrieve the PCM resource environment:
+		if (getModel().getResourceEnvironment() == null) {
+			// No resource environment found!
+			return;
+		}
+
+		// Search for the relevant resource container:
+		ResourceContainer resourceContainer = null;
+		EList<EObject> resourceContainers = helper.getElements(getModel()
+				.getResourceEnvironment(), ResourceenvironmentFactory.eINSTANCE
+				.createResourceContainer().eClass());
+		for (EObject object : resourceContainers) {
+			if (((ResourceContainer) object).getId()
+					.equals(resourceContainerId)) {
+				resourceContainer = (ResourceContainer) object;
+				break;
+			}
+		}
+		if (resourceContainer == null) {
+			// No corresponding resource container found!
+			return;
+		}
+
+		// Search for the relevant processing resource specification:
+		for (ProcessingResourceSpecification resourceSpecification : resourceContainer
+				.getActiveResourceSpecifications_ResourceContainer()) {
+			if (resourceSpecification
+					.getActiveResourceType_ActiveResourceSpecification()
+					.getId().equals(processingResourceTypeId)) {
+				specification = resourceSpecification;
+				return;
+			}
+		}
 	}
 
 	/**
@@ -126,79 +159,18 @@ public class ResourceMTTRSensitivity extends MarkovSensitivity {
 		List<String> resultList = new ArrayList<String>();
 
 		// Create the result strings:
-		resultList.add(resourceContainerName);
+		resultList.add(specification
+				.getResourceContainer_ProcessingResourceSpecification()
+				.getEntityName());
 		resultList.add(resourceContainerId);
-		resultList.add(processingResourceTypeName);
+		resultList.add(specification
+				.getActiveResourceType_ActiveResourceSpecification()
+				.getEntityName());
 		resultList.add(processingResourceTypeId);
-		resultList.add(((Double) currentMTTR).toString());
+		resultList.add(calculator.getCurrentLogEntry(getDoubleVariation(),
+				getCurrentStepNumber()));
 
 		// Return the result:
 		return resultList;
-	}
-
-	/**
-	 * Retrieves the ProcessingResourceSpecification that shall be altered
-	 * during sensitivity analysis.
-	 * 
-	 * @return the relevant ProcessingResourceSpecification
-	 */
-	ProcessingResourceSpecification getProcessingResourceSpecification() {
-
-		// Retrieve the PCM resource environment:
-		if (getModel().getResourceEnvironment() == null) {
-			// No resource environment found!
-			return null;
-		}
-
-		// Search for the relevant resource container:
-		ResourceContainer resourceContainer = null;
-		EList<EObject> resourceContainers = helper.getElements(getModel()
-				.getResourceEnvironment(), ResourceenvironmentFactory.eINSTANCE
-				.createResourceContainer().eClass());
-		for (EObject object : resourceContainers) {
-			if (((ResourceContainer) object).getId()
-					.equals(resourceContainerId)) {
-				resourceContainer = (ResourceContainer) object;
-				break;
-			}
-		}
-		if (resourceContainer == null) {
-			// No corresponding resource container found!
-			return null;
-		}
-		resourceContainerName = resourceContainer.getEntityName();
-
-		// Search for the relevant processing resource specification:
-		ProcessingResourceSpecification processingResourceSpecification = null;
-		for (ProcessingResourceSpecification specification : resourceContainer
-				.getActiveResourceSpecifications_ResourceContainer()) {
-			if (specification
-					.getActiveResourceType_ActiveResourceSpecification()
-					.getId().equals(processingResourceTypeId)) {
-				processingResourceSpecification = specification;
-				processingResourceTypeName = specification
-						.getActiveResourceType_ActiveResourceSpecification()
-						.getEntityName();
-				break;
-			}
-		}
-		return processingResourceSpecification;
-	}
-
-	/**
-	 * Sets the MTTF value of the given processing resource specification
-	 * according to the current sensitivity analysis step.
-	 * 
-	 * @param specification
-	 *            the processing resource specification
-	 */
-	void setMTTF(final ProcessingResourceSpecification specification) {
-
-		// Determine the current failure probability:
-		currentMTTR = calculator.calculateCurrentDoubleValue(
-				getDoubleVariation(), getCurrentStepNumber());
-
-		// Set the failure probability:
-		specification.setMTTR(currentMTTR);
 	}
 }

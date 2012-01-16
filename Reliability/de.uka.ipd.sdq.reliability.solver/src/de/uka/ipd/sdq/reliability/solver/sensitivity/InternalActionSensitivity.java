@@ -24,19 +24,9 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class InternalActionSensitivity extends MarkovSensitivity {
 
 	/**
-	 * Captures the current failure probability value.
-	 */
-	private double currentFailureProbability;
-
-	/**
 	 * The ID of the failure type.
 	 */
 	private String failureTypeId;
-
-	/**
-	 * The name of the failure type to alter.
-	 */
-	private String failureTypeName = null;
 
 	/**
 	 * The ID of the internal action to alter.
@@ -44,9 +34,14 @@ public class InternalActionSensitivity extends MarkovSensitivity {
 	private String internalActionId;
 
 	/**
-	 * The name of the internal action to alter.
+	 * The affected internal failure occurrence description.
 	 */
-	private String internalActionName = null;
+	private InternalFailureOccurrenceDescription description = null;
+
+	/**
+	 * The base value of this sensitivity.
+	 */
+	private double baseValue;
 
 	/**
 	 * The constructor.
@@ -59,15 +54,13 @@ public class InternalActionSensitivity extends MarkovSensitivity {
 	 *            the id of the failure type to alter
 	 * @param variation
 	 *            the parameter variation
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
 	 */
 	public InternalActionSensitivity(final String name,
 			final String internalActionId, final String failureTypeId,
-			final DoubleParameterVariation variation, final String resultLogFile) {
+			final DoubleParameterVariation variation) {
 
 		// Initialize base variables:
-		super(name, variation, resultLogFile);
+		super(name, variation);
 
 		// Further initialization:
 		this.internalActionId = internalActionId;
@@ -81,17 +74,59 @@ public class InternalActionSensitivity extends MarkovSensitivity {
 	 */
 	protected boolean alterModel() {
 
-		// Retrieve the relevant parameter that shall be altered:
-		InternalFailureOccurrenceDescription description = getFailureOccurrenceDescription();
+		// Check validity:
 		if (description == null) {
 			return false;
 		}
 
-		// Alter the parameter:
-		setFailureProbability(description);
+		// Set the failure probability:
+		description.setFailureProbability(calculator
+				.calculateCurrentDoubleValue(getDoubleVariation(),
+						getCurrentStepNumber(), baseValue));
 
 		// Everything ok:
 		return true;
+	}
+
+	/**
+	 * Extracts the relevant sensitivity information from the given model.
+	 */
+	protected void extractSensitivityInformation() {
+
+		// Retrieve all FailureOccurrenceDescriptions in the PCM Repository:
+		List<Repository> repositories = getModel().getRepositories();
+		if (repositories.size() == 0) {
+			// No repository found!
+			return;
+		}
+
+		// Search for the relevant internal action:
+		InternalAction internalAction = null;
+		for (Repository repository : repositories) {
+			EList<EObject> internalActions = helper.getElements(repository,
+					SeffFactory.eINSTANCE.createInternalAction().eClass());
+			for (EObject action : internalActions) {
+				if (((InternalAction) action).getId().equals(internalActionId)) {
+					internalAction = (InternalAction) action;
+					break;
+				}
+			}
+		}
+		if (internalAction == null) {
+			// No corresponding internal action found!
+			return;
+		}
+
+		// Search for the relevant failure occurrence description:
+		for (InternalFailureOccurrenceDescription occurrenceDescription : internalAction
+				.getInternalFailureOccurrenceDescriptions__InternalAction()) {
+			if (occurrenceDescription
+					.getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
+					.getId().equals(failureTypeId)) {
+				description = occurrenceDescription;
+				baseValue = occurrenceDescription.getFailureProbability();
+			}
+		}
 	}
 
 	/**
@@ -128,81 +163,19 @@ public class InternalActionSensitivity extends MarkovSensitivity {
 		List<String> resultList = new ArrayList<String>();
 
 		// Create the result strings:
-		resultList.add(internalActionName);
+		resultList.add(description
+				.getInternalAction__InternalFailureOccurrenceDescription()
+				.getEntityName());
 		resultList.add(internalActionId);
-		resultList.add(failureTypeName);
+		resultList
+				.add(description
+						.getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
+						.getEntityName());
 		resultList.add(failureTypeId);
-		resultList.add(((Double) currentFailureProbability).toString());
+		resultList.add(calculator.getCurrentLogEntry(getDoubleVariation(),
+				getCurrentStepNumber()));
 
 		// Return the result:
 		return resultList;
-	}
-
-	/**
-	 * Retrieves the FailureOccurrenceDescription that shall be altered during
-	 * sensitivity analysis.
-	 * 
-	 * @return the relevant FailureOccurrenceDescription
-	 */
-	InternalFailureOccurrenceDescription getFailureOccurrenceDescription() {
-
-		// Retrieve all FailureOccurrenceDescriptions in the PCM Repository:
-		List<Repository> repositories = getModel().getRepositories();
-		if (repositories.size() == 0) {
-			// No repository found!
-			return null;
-		}
-
-		// Search for the relevant internal action:
-		InternalAction internalAction = null;
-		for (Repository repository : repositories) {
-			EList<EObject> internalActions = helper.getElements(repository,
-					SeffFactory.eINSTANCE.createInternalAction().eClass());
-			for (EObject action : internalActions) {
-				if (((InternalAction) action).getId().equals(internalActionId)) {
-					internalAction = (InternalAction) action;
-					break;
-				}
-			}
-		}
-		if (internalAction == null) {
-			// No corresponding internal action found!
-			return null;
-		}
-		internalActionName = internalAction.getEntityName();
-
-		// Search for the relevant failure occurrence description:
-		InternalFailureOccurrenceDescription failureOccurrenceDescription = null;
-		for (InternalFailureOccurrenceDescription description : internalAction
-				.getInternalFailureOccurrenceDescriptions__InternalAction()) {
-			if (description
-					.getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
-					.getId().equals(failureTypeId)) {
-				failureOccurrenceDescription = description;
-				failureTypeName = description
-						.getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
-						.getEntityName();
-				break;
-			}
-		}
-		return failureOccurrenceDescription;
-	}
-
-	/**
-	 * Sets the failure probability of the given failure occurrence description
-	 * according to the current sensitivity analysis step.
-	 * 
-	 * @param description
-	 *            the failure occurrence description
-	 */
-	void setFailureProbability(
-			final InternalFailureOccurrenceDescription description) {
-
-		// Determine the current failure probability:
-		currentFailureProbability = calculator.calculateCurrentDoubleValue(
-				getDoubleVariation(), getCurrentStepNumber());
-
-		// Set the failure probability:
-		description.setFailureProbability(currentFailureProbability);
 	}
 }

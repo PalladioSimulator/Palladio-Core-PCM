@@ -106,14 +106,13 @@ public class SoftwareInducedFailureTypeItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SoftwareInducedFailureType)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SoftwareInducedFailureType_type") :
-			getString("_UI_SoftwareInducedFailureType_type") + " " + label;
+		return ((SoftwareInducedFailureType)object).getEntityName()
+			+ " [ID: " + ((SoftwareInducedFailureType)object).getId() + "]"
+			+ " <" + getString("_UI_SoftwareInducedFailureType_type") + ">";
 	}
 
 	/**

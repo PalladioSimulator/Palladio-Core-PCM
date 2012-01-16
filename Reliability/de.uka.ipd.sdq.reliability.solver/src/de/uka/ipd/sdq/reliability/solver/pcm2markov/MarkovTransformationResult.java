@@ -184,15 +184,17 @@ public class MarkovTransformationResult {
 	}
 
 	/**
-	 * Resolves a file's path in case it starts with "platform:/" and returns the entire
-	 * absolute path to the file, including the file's name.
+	 * Resolves a file's path in case it starts with "platform:/" and returns
+	 * the entire absolute path to the file, including the file's name.
 	 * 
-	 * @param fileURL the path to a file, including the file's name (and its extension)
+	 * @param fileURL
+	 *            the path to a file, including the file's name (and its
+	 *            extension)
 	 * @return the absolute path to the file, including the file's name
 	 */
 	private String resolveFile(String fileURL) {
 		// if this is a platform URL, first resolve it to an absolute path
-		if (fileURL.startsWith("platform:")){
+		if (fileURL.startsWith("platform:")) {
 			try {
 				URL solvedURL = FileLocator.resolve(new URL(fileURL));
 				fileURL = solvedURL.getPath();
@@ -243,7 +245,8 @@ public class MarkovTransformationResult {
 		// Check plausibility of Markov probabilities:
 		double successProbability = markovProbabilityMatrix[indexStart][indexSuccess];
 		if (successProbability < 0.0 || successProbability > 1.0) {
-			// It should never happen that the success probability is outside [0,1].
+			// It should never happen that the success probability is outside
+			// [0,1].
 			// The only feasible explanation is a rounding error (which has been
 			// observed for certain sample PCM instances):
 			double correctedSuccessProbability = (successProbability < 0.5) ? 0.0
@@ -310,8 +313,7 @@ public class MarkovTransformationResult {
 						f.delete(); // delete current ("old") file
 						f.createNewFile(); // create a new, empty file
 					}
-					out = new BufferedWriter(new FileWriter(configuration
-							.getLogFile(), true));
+					out = new BufferedWriter(new FileWriter(filePath, true));
 					logger
 							.info("Logging results of all Markov transformation runs to: "
 									+ filePath);
@@ -464,7 +466,7 @@ public class MarkovTransformationResult {
 		// Append resource states:
 		for (ProcessingResourceDescriptor descriptor : markovSource
 				.getUnreliableResourceDescriptors()) {
-			resultString.append(descriptor.getDefaultState().name() + ";");
+			resultString.append(descriptor.getCurrentState().name() + ";");
 		}
 
 		// Append success probability:

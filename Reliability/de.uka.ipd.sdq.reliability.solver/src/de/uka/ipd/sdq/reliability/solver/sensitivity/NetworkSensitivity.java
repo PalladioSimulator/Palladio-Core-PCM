@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.reliability.solver.sensitivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -21,9 +22,14 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class NetworkSensitivity extends MarkovSensitivity {
 
 	/**
-	 * Captures the current failure probability value.
+	 * The list of affected communication link resource specifications.
 	 */
-	private double currentFailureProbability;
+	private List<CommunicationLinkResourceSpecification> resources = null;
+
+	/**
+	 * The list of base values.
+	 */
+	private List<Double> baseValues = null;
 
 	/**
 	 * The constructor.
@@ -32,65 +38,12 @@ public class NetworkSensitivity extends MarkovSensitivity {
 	 *            the name of the sensitivity analysis
 	 * @param variation
 	 *            the parameter variation
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
 	 */
 	public NetworkSensitivity(final String name,
-			final DoubleParameterVariation variation, final String resultLogFile) {
+			final DoubleParameterVariation variation) {
 
 		// Initialize base variables:
-		super(name, variation, resultLogFile);
-	}
-
-	/**
-	 * Retrieves all communication link resource specifications in the model.
-	 * 
-	 * @return the list of communication link resource specifications
-	 */
-	private List<CommunicationLinkResourceSpecification> getCommResources() {
-
-		// Declare result list:
-		List<CommunicationLinkResourceSpecification> resultList = new ArrayList<CommunicationLinkResourceSpecification>();
-
-		// Retrieve the PCM Resource Environment:
-		ResourceEnvironment resourceEnvironment = getModel()
-				.getResourceEnvironment();
-		if (resourceEnvironment == null) {
-			// No repository found!
-			return null;
-		}
-
-		// Search for the relevant BasicComponent:
-		EList<EObject> commResources = helper.getElements(resourceEnvironment,
-				ResourceenvironmentFactory.eINSTANCE
-						.createCommunicationLinkResourceSpecification()
-						.eClass());
-		for (EObject object : commResources) {
-			resultList.add((CommunicationLinkResourceSpecification) object);
-		}
-
-		// Return the result:
-		return resultList;
-	}
-
-	/**
-	 * Sets the failure probability of the given comm resources according to the
-	 * current sensitivity analysis step.
-	 * 
-	 * @param commResources
-	 *            the comm resources
-	 */
-	private void setFailureProbability(
-			final List<CommunicationLinkResourceSpecification> commResources) {
-
-		// Determine the current failure probability:
-		currentFailureProbability = calculator.calculateCurrentDoubleValue(
-				getDoubleVariation(), getCurrentStepNumber());
-
-		// Set the failure probability:
-		for (CommunicationLinkResourceSpecification commResource : commResources) {
-			commResource.setFailureProbability(currentFailureProbability);
-		}
+		super(name, variation);
 	}
 
 	/**
@@ -100,17 +53,45 @@ public class NetworkSensitivity extends MarkovSensitivity {
 	 */
 	protected boolean alterModel() {
 
-		// Retrieve the relevant parameter that shall be altered:
-		List<CommunicationLinkResourceSpecification> commResources = getCommResources();
-		if (commResources == null) {
-			return false;
+		// Set the failure probabilities:
+		for (int i = 0; i < resources.size(); i++) {
+			resources.get(i).setFailureProbability(
+					calculator.calculateCurrentDoubleValue(
+							getDoubleVariation(), getCurrentStepNumber(),
+							baseValues.get(i)));
 		}
-
-		// Alter the parameter:
-		setFailureProbability(commResources);
 
 		// Everything ok:
 		return true;
+	}
+
+	/**
+	 * Extracts the relevant sensitivity information from the given model.
+	 */
+	protected void extractSensitivityInformation() {
+
+		// Declare result lists:
+		resources = new BasicEList<CommunicationLinkResourceSpecification>();
+		baseValues = new ArrayList<Double>();
+
+		// Retrieve the PCM Resource Environment:
+		ResourceEnvironment resourceEnvironment = getModel()
+				.getResourceEnvironment();
+		if (resourceEnvironment == null) {
+			// No repository found!
+			return;
+		}
+
+		// Search for the relevant BasicComponent:
+		EList<EObject> commResources = helper.getElements(resourceEnvironment,
+				ResourceenvironmentFactory.eINSTANCE
+						.createCommunicationLinkResourceSpecification()
+						.eClass());
+		for (EObject object : commResources) {
+			resources.add((CommunicationLinkResourceSpecification) object);
+			baseValues.add(((CommunicationLinkResourceSpecification) object)
+					.getFailureProbability());
+		}
 	}
 
 	/**
@@ -143,7 +124,8 @@ public class NetworkSensitivity extends MarkovSensitivity {
 		List<String> resultList = new ArrayList<String>();
 
 		// Create the result strings:
-		resultList.add(((Double) currentFailureProbability).toString());
+		resultList.add(calculator.getCurrentLogEntry(getDoubleVariation(),
+				getCurrentStepNumber()));
 
 		// Return the result:
 		return resultList;

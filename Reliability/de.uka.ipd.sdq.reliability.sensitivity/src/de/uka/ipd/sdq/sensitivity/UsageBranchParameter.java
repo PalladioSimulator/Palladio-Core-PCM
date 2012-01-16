@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.sensitivity;
 
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
-import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 
 import java.util.Map;
 

@@ -142,12 +142,20 @@ public class SensitivityValidator extends EObjectValidator {
 	public static final int USAGE_BRANCH_PARAMETER__USAGE_BRANCH_PARAMETER_MUST_HAVE_DOUBLE_VARIATION = 12;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Software Failure Type Reliability Parameter Must Have Double Variation' of 'Software Failure Types Parameter'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER_MUST_HAVE_DOUBLE_VARIATION = 13;
+
+	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 12;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 13;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -202,6 +210,8 @@ public class SensitivityValidator extends EObjectValidator {
 				return validateSensitivityParameter((SensitivityParameter)value, diagnostics, context);
 			case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER:
 				return validateCombinedSensitivityParameter((CombinedSensitivityParameter)value, diagnostics, context);
+			case SensitivityPackage.SENSITIVITY_RESULT_SPECIFICATION:
+				return validateSensitivityResultSpecification((SensitivityResultSpecification)value, diagnostics, context);
 			case SensitivityPackage.SINGLE_SENSITIVITY_PARAMETER:
 				return validateSingleSensitivityParameter((SingleSensitivityParameter)value, diagnostics, context);
 			case SensitivityPackage.SENSITIVITY_PARAMETER_VARIATION:
@@ -240,6 +250,18 @@ public class SensitivityValidator extends EObjectValidator {
 				return validateSystemCallParameter((SystemCallParameter)value, diagnostics, context);
 			case SensitivityPackage.USAGE_BRANCH_PARAMETER:
 				return validateUsageBranchParameter((UsageBranchParameter)value, diagnostics, context);
+			case SensitivityPackage.DOUBLE_OFFSET_SEQUENCE:
+				return validateDoubleOffsetSequence((DoubleOffsetSequence)value, diagnostics, context);
+			case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER:
+				return validateSoftwareFailureTypesParameter((SoftwareFailureTypesParameter)value, diagnostics, context);
+			case SensitivityPackage.FAILURE_TYPE_RESULT_SPECIFICATION:
+				return validateFailureTypeResultSpecification((FailureTypeResultSpecification)value, diagnostics, context);
+			case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION:
+				return validateFailureDimensionResultSpecification((FailureDimensionResultSpecification)value, diagnostics, context);
+			case SensitivityPackage.DOUBLE_OFFSET_TYPE:
+				return validateDoubleOffsetType((DoubleOffsetType)value, diagnostics, context);
+			case SensitivityPackage.FAILURE_DIMENSION:
+				return validateFailureDimension((FailureDimension)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -293,6 +315,23 @@ public class SensitivityValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(combinedSensitivityParameter, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(combinedSensitivityParameter, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(combinedSensitivityParameter, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSensitivityResultSpecification(SensitivityResultSpecification sensitivityResultSpecification, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(sensitivityResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(sensitivityResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(sensitivityResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(sensitivityResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(sensitivityResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(sensitivityResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(sensitivityResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(sensitivityResultSpecification, diagnostics, context);
 		return result;
 	}
 
@@ -701,6 +740,95 @@ public class SensitivityValidator extends EObjectValidator {
 	 */
 	public boolean validateUsageBranchParameter_UsageBranchParameterMustHaveDoubleVariation(UsageBranchParameter usageBranchParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return usageBranchParameter.UsageBranchParameterMustHaveDoubleVariation(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDoubleOffsetSequence(DoubleOffsetSequence doubleOffsetSequence, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(doubleOffsetSequence, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSoftwareFailureTypesParameter(SoftwareFailureTypesParameter softwareFailureTypesParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(softwareFailureTypesParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(softwareFailureTypesParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(softwareFailureTypesParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(softwareFailureTypesParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(softwareFailureTypesParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(softwareFailureTypesParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(softwareFailureTypesParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(softwareFailureTypesParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSoftwareFailureTypesParameter_SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation(softwareFailureTypesParameter, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation constraint of '<em>Software Failure Types Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSoftwareFailureTypesParameter_SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation(SoftwareFailureTypesParameter softwareFailureTypesParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return softwareFailureTypesParameter.SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFailureTypeResultSpecification(FailureTypeResultSpecification failureTypeResultSpecification, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(failureTypeResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(failureTypeResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(failureTypeResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(failureTypeResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(failureTypeResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(failureTypeResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(failureTypeResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(failureTypeResultSpecification, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFailureDimensionResultSpecification(FailureDimensionResultSpecification failureDimensionResultSpecification, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(failureDimensionResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(failureDimensionResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(failureDimensionResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(failureDimensionResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(failureDimensionResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(failureDimensionResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(failureDimensionResultSpecification, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(failureDimensionResultSpecification, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDoubleOffsetType(DoubleOffsetType doubleOffsetType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFailureDimension(FailureDimension failureDimension, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**

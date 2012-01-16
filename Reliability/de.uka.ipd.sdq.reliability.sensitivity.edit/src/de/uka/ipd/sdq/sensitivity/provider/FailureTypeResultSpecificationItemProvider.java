@@ -1,16 +1,21 @@
 /**
- * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.reliability.provider;
+package de.uka.ipd.sdq.sensitivity.provider;
 
+
+import de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification;
+import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -19,17 +24,14 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType;
-import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class HardwareInducedFailureTypeItemProvider
-	extends FailureTypeItemProvider
+public class FailureTypeResultSpecificationItemProvider
+	extends SensitivityResultSpecificationItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -37,19 +39,12 @@ public class HardwareInducedFailureTypeItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HardwareInducedFailureTypeItemProvider(AdapterFactory adapterFactory) {
+	public FailureTypeResultSpecificationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,25 +59,25 @@ public class HardwareInducedFailureTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addProcessingResourceType__HardwareInducedFailureTypePropertyDescriptor(object);
+			addFailureTypes__FailureTypeResultSpecificationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Processing Resource Type Hardware Induced Failure Type feature.
+	 * This adds a property descriptor for the Failure Types Failure Type Result Specification feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProcessingResourceType__HardwareInducedFailureTypePropertyDescriptor(Object object) {
+	protected void addFailureTypes__FailureTypeResultSpecificationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_HardwareInducedFailureType_processingResourceType__HardwareInducedFailureType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareInducedFailureType_processingResourceType__HardwareInducedFailureType_feature", "_UI_HardwareInducedFailureType_type"),
-				 ReliabilityPackage.Literals.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
+				 getString("_UI_FailureTypeResultSpecification_failureTypes__FailureTypeResultSpecification_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FailureTypeResultSpecification_failureTypes__FailureTypeResultSpecification_feature", "_UI_FailureTypeResultSpecification_type"),
+				 SensitivityPackage.Literals.FAILURE_TYPE_RESULT_SPECIFICATION__FAILURE_TYPES_FAILURE_TYPE_RESULT_SPECIFICATION,
 				 true,
 				 false,
 				 true,
@@ -92,14 +87,14 @@ public class HardwareInducedFailureTypeItemProvider
 	}
 
 	/**
-	 * This returns HardwareInducedFailureType.gif.
+	 * This returns FailureTypeResultSpecification.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/HardwareInducedFailureType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/FailureTypeResultSpecification"));
 	}
 
 	/**
@@ -110,9 +105,9 @@ public class HardwareInducedFailureTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return ((HardwareInducedFailureType)object).getEntityName()
-			+ " [ID: " + ((HardwareInducedFailureType)object).getId() + "]"
-			+ " <" + getString("_UI_HardwareInducedFailureType_type") + ">";
+		return ((FailureTypeResultSpecification)object).getEntityName()
+			+ " [ID: " + ((FailureTypeResultSpecification)object).getId() + "]"
+			+ " <" + getString("_UI_FailureTypeResultSpecification_type") + ">";
 	}
 
 	/**

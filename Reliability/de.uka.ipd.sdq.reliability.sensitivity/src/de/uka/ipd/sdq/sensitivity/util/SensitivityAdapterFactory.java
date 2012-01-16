@@ -89,6 +89,10 @@ public class SensitivityAdapterFactory extends AdapterFactoryImpl {
 				return createCombinedSensitivityParameterAdapter();
 			}
 			@Override
+			public Adapter caseSensitivityResultSpecification(SensitivityResultSpecification object) {
+				return createSensitivityResultSpecificationAdapter();
+			}
+			@Override
 			public Adapter caseSingleSensitivityParameter(SingleSensitivityParameter object) {
 				return createSingleSensitivityParameterAdapter();
 			}
@@ -165,6 +169,22 @@ public class SensitivityAdapterFactory extends AdapterFactoryImpl {
 				return createUsageBranchParameterAdapter();
 			}
 			@Override
+			public Adapter caseDoubleOffsetSequence(DoubleOffsetSequence object) {
+				return createDoubleOffsetSequenceAdapter();
+			}
+			@Override
+			public Adapter caseSoftwareFailureTypesParameter(SoftwareFailureTypesParameter object) {
+				return createSoftwareFailureTypesParameterAdapter();
+			}
+			@Override
+			public Adapter caseFailureTypeResultSpecification(FailureTypeResultSpecification object) {
+				return createFailureTypeResultSpecificationAdapter();
+			}
+			@Override
+			public Adapter caseFailureDimensionResultSpecification(FailureDimensionResultSpecification object) {
+				return createFailureDimensionResultSpecificationAdapter();
+			}
+			@Override
 			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
@@ -235,6 +255,20 @@ public class SensitivityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCombinedSensitivityParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification <em>Result Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification
+	 * @generated
+	 */
+	public Adapter createSensitivityResultSpecificationAdapter() {
 		return null;
 	}
 
@@ -501,6 +535,62 @@ public class SensitivityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUsageBranchParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence <em>Double Offset Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence
+	 * @generated
+	 */
+	public Adapter createDoubleOffsetSequenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter <em>Software Failure Types Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter
+	 * @generated
+	 */
+	public Adapter createSoftwareFailureTypesParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification <em>Failure Type Result Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification
+	 * @generated
+	 */
+	public Adapter createFailureTypeResultSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification <em>Failure Dimension Result Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification
+	 * @generated
+	 */
+	public Adapter createFailureDimensionResultSpecificationAdapter() {
 		return null;
 	}
 

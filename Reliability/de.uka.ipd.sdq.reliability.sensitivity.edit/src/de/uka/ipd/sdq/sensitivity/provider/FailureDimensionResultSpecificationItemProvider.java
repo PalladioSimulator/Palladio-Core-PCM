@@ -1,16 +1,21 @@
 /**
- * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
+ * <copyright>
+ * </copyright>
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.reliability.provider;
+package de.uka.ipd.sdq.sensitivity.provider;
 
+
+import de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification;
+import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -18,18 +23,17 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
-import de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType;
-import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class HardwareInducedFailureTypeItemProvider
-	extends FailureTypeItemProvider
+public class FailureDimensionResultSpecificationItemProvider
+	extends SensitivityResultSpecificationItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -37,19 +41,12 @@ public class HardwareInducedFailureTypeItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HardwareInducedFailureTypeItemProvider(AdapterFactory adapterFactory) {
+	public FailureDimensionResultSpecificationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,42 +61,42 @@ public class HardwareInducedFailureTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addProcessingResourceType__HardwareInducedFailureTypePropertyDescriptor(object);
+			addFailureDimension__FailureDimensionResultSpecificationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Processing Resource Type Hardware Induced Failure Type feature.
+	 * This adds a property descriptor for the Failure Dimension Failure Dimension Result Specification feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProcessingResourceType__HardwareInducedFailureTypePropertyDescriptor(Object object) {
+	protected void addFailureDimension__FailureDimensionResultSpecificationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_HardwareInducedFailureType_processingResourceType__HardwareInducedFailureType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HardwareInducedFailureType_processingResourceType__HardwareInducedFailureType_feature", "_UI_HardwareInducedFailureType_type"),
-				 ReliabilityPackage.Literals.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
+				 getString("_UI_FailureDimensionResultSpecification_failureDimension__FailureDimensionResultSpecification_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FailureDimensionResultSpecification_failureDimension__FailureDimensionResultSpecification_feature", "_UI_FailureDimensionResultSpecification_type"),
+				 SensitivityPackage.Literals.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns HardwareInducedFailureType.gif.
+	 * This returns FailureDimensionResultSpecification.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/HardwareInducedFailureType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/FailureDimensionResultSpecification"));
 	}
 
 	/**
@@ -110,9 +107,15 @@ public class HardwareInducedFailureTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return ((HardwareInducedFailureType)object).getEntityName()
-			+ " [ID: " + ((HardwareInducedFailureType)object).getId() + "]"
-			+ " <" + getString("_UI_HardwareInducedFailureType_type") + ">";
+		String failureDimensionName = "UNSPECIFIED";
+		try {
+			failureDimensionName = ((FailureDimensionResultSpecification)object).
+				getFailureDimension__FailureDimensionResultSpecification().getName();
+		} catch(Exception e) {}
+		return ((FailureDimensionResultSpecification)object).getEntityName()
+			+ " (" + failureDimensionName + ")"
+			+ " [ID: " + ((FailureDimensionResultSpecification)object).getId() + "]"
+			+ " <" + getString("_UI_FailureDimensionResultSpecification_type") + ">";
 	}
 
 	/**
@@ -125,6 +128,12 @@ public class HardwareInducedFailureTypeItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(FailureDimensionResultSpecification.class)) {
+			case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

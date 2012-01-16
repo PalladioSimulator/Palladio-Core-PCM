@@ -240,6 +240,11 @@ public class CombinedSensitivityParameterItemProvider
 			(createChildParameter
 				(SensitivityPackage.Literals.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER,
 				 SensitivityFactory.eINSTANCE.createUsageBranchParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SensitivityPackage.Literals.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER,
+				 SensitivityFactory.eINSTANCE.createSoftwareFailureTypesParameter()));
 	}
 
 }

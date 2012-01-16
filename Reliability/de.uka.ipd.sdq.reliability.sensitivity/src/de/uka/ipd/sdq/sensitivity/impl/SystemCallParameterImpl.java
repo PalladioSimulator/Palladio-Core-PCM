@@ -7,8 +7,8 @@
 package de.uka.ipd.sdq.sensitivity.impl;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
+
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
 import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 import de.uka.ipd.sdq.sensitivity.SystemCallParameter;
@@ -57,6 +57,7 @@ public class SystemCallParameterImpl extends SingleSensitivityParameterImpl impl
 	 * @ordered
 	 */
 	protected static final String INPUT_PARAMETER_NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getInputParameterName() <em>Input Parameter Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -66,6 +67,7 @@ public class SystemCallParameterImpl extends SingleSensitivityParameterImpl impl
 	 * @ordered
 	 */
 	protected String inputParameterName = INPUT_PARAMETER_NAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getEntryLevelSystemCall__SystemCallParameter() <em>Entry Level System Call System Call Parameter</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -75,6 +77,7 @@ public class SystemCallParameterImpl extends SingleSensitivityParameterImpl impl
 	 * @ordered
 	 */
 	protected EntryLevelSystemCall entryLevelSystemCall__SystemCallParameter;
+
 	/**
 	 * The default value of the '{@link #getVariableCharacterisationType__SystemCallParameter() <em>Variable Characterisation Type System Call Parameter</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -84,6 +87,7 @@ public class SystemCallParameterImpl extends SingleSensitivityParameterImpl impl
 	 * @ordered
 	 */
 	protected static final VariableCharacterisationType VARIABLE_CHARACTERISATION_TYPE_SYSTEM_CALL_PARAMETER_EDEFAULT = VariableCharacterisationType.STRUCTURE;
+
 	/**
 	 * The cached value of the '{@link #getVariableCharacterisationType__SystemCallParameter() <em>Variable Characterisation Type System Call Parameter</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -93,6 +97,7 @@ public class SystemCallParameterImpl extends SingleSensitivityParameterImpl impl
 	 * @ordered
 	 */
 	protected VariableCharacterisationType variableCharacterisationType__SystemCallParameter = VARIABLE_CHARACTERISATION_TYPE_SYSTEM_CALL_PARAMETER_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

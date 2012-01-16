@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -104,13 +105,22 @@ public interface SensitivityPackage extends EPackage {
 	int SENSITIVITY_CONFIGURATION__SENSITIVITY_PARAMETERS_SENSITIVITY_CONFIGURATION = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Sensitivity Result Specifications Sensitivity Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSITIVITY_CONFIGURATION__SENSITIVITY_RESULT_SPECIFICATIONS_SENSITIVITY_CONFIGURATION = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENSITIVITY_CONFIGURATION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+	int SENSITIVITY_CONFIGURATION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.impl.SensitivityParameterImpl <em>Parameter</em>}' class.
@@ -241,6 +251,43 @@ public interface SensitivityPackage extends EPackage {
 	int COMBINED_SENSITIVITY_PARAMETER_FEATURE_COUNT = SENSITIVITY_PARAMETER_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.impl.SensitivityResultSpecificationImpl <em>Result Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityResultSpecificationImpl
+	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getSensitivityResultSpecification()
+	 * @generated
+	 */
+	int SENSITIVITY_RESULT_SPECIFICATION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSITIVITY_RESULT_SPECIFICATION__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSITIVITY_RESULT_SPECIFICATION__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
+
+	/**
+	 * The number of structural features of the '<em>Result Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSITIVITY_RESULT_SPECIFICATION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.impl.SingleSensitivityParameterImpl <em>Single Sensitivity Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,7 +295,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getSingleSensitivityParameter()
 	 * @generated
 	 */
-	int SINGLE_SENSITIVITY_PARAMETER = 3;
+	int SINGLE_SENSITIVITY_PARAMETER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -312,7 +359,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getSensitivityParameterVariation()
 	 * @generated
 	 */
-	int SENSITIVITY_PARAMETER_VARIATION = 4;
+	int SENSITIVITY_PARAMETER_VARIATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Single Sensitivity Parameter Sensitivity Parameter Variation</b></em>' container reference.
@@ -340,7 +387,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getComponentReliabilityParameter()
 	 * @generated
 	 */
-	int COMPONENT_RELIABILITY_PARAMETER = 5;
+	int COMPONENT_RELIABILITY_PARAMETER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -413,7 +460,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getDoubleParameterVariation()
 	 * @generated
 	 */
-	int DOUBLE_PARAMETER_VARIATION = 6;
+	int DOUBLE_PARAMETER_VARIATION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Single Sensitivity Parameter Sensitivity Parameter Variation</b></em>' container reference.
@@ -441,7 +488,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getStringParameterSequence()
 	 * @generated
 	 */
-	int STRING_PARAMETER_SEQUENCE = 7;
+	int STRING_PARAMETER_SEQUENCE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Single Sensitivity Parameter Sensitivity Parameter Variation</b></em>' container reference.
@@ -478,7 +525,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getDoubleParameterRange()
 	 * @generated
 	 */
-	int DOUBLE_PARAMETER_RANGE = 8;
+	int DOUBLE_PARAMETER_RANGE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Single Sensitivity Parameter Sensitivity Parameter Variation</b></em>' container reference.
@@ -551,7 +598,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getDoubleParameterSequence()
 	 * @generated
 	 */
-	int DOUBLE_PARAMETER_SEQUENCE = 9;
+	int DOUBLE_PARAMETER_SEQUENCE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Single Sensitivity Parameter Sensitivity Parameter Variation</b></em>' container reference.
@@ -588,7 +635,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getDoubleParameterFunction()
 	 * @generated
 	 */
-	int DOUBLE_PARAMETER_FUNCTION = 10;
+	int DOUBLE_PARAMETER_FUNCTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Single Sensitivity Parameter Sensitivity Parameter Variation</b></em>' container reference.
@@ -616,7 +663,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getInternalActionReliabilityParameter()
 	 * @generated
 	 */
-	int INTERNAL_ACTION_RELIABILITY_PARAMETER = 11;
+	int INTERNAL_ACTION_RELIABILITY_PARAMETER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -698,7 +745,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getProbabilisticBranchParameter()
 	 * @generated
 	 */
-	int PROBABILISTIC_BRANCH_PARAMETER = 12;
+	int PROBABILISTIC_BRANCH_PARAMETER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -771,7 +818,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getHardwareMTTFParameter()
 	 * @generated
 	 */
-	int HARDWARE_MTTF_PARAMETER = 13;
+	int HARDWARE_MTTF_PARAMETER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -835,7 +882,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getHardwareMTTRParameter()
 	 * @generated
 	 */
-	int HARDWARE_MTTR_PARAMETER = 14;
+	int HARDWARE_MTTR_PARAMETER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -899,7 +946,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getResourceMTTFParameter()
 	 * @generated
 	 */
-	int RESOURCE_MTTF_PARAMETER = 15;
+	int RESOURCE_MTTF_PARAMETER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -981,7 +1028,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getResourceMTTRParameter()
 	 * @generated
 	 */
-	int RESOURCE_MTTR_PARAMETER = 16;
+	int RESOURCE_MTTR_PARAMETER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1063,7 +1110,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getNetworkReliabilityParameter()
 	 * @generated
 	 */
-	int NETWORK_RELIABILITY_PARAMETER = 17;
+	int NETWORK_RELIABILITY_PARAMETER = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1127,7 +1174,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getCommunicationLinkReliabilityParameter()
 	 * @generated
 	 */
-	int COMMUNICATION_LINK_RELIABILITY_PARAMETER = 18;
+	int COMMUNICATION_LINK_RELIABILITY_PARAMETER = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1200,7 +1247,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getSoftwareReliabilityParameter()
 	 * @generated
 	 */
-	int SOFTWARE_RELIABILITY_PARAMETER = 19;
+	int SOFTWARE_RELIABILITY_PARAMETER = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1264,7 +1311,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getSystemCallParameter()
 	 * @generated
 	 */
-	int SYSTEM_CALL_PARAMETER = 20;
+	int SYSTEM_CALL_PARAMETER = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1355,7 +1402,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getUsageBranchParameter()
 	 * @generated
 	 */
-	int USAGE_BRANCH_PARAMETER = 21;
+	int USAGE_BRANCH_PARAMETER = 22;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1429,6 +1476,237 @@ public interface SensitivityPackage extends EPackage {
 	 */
 	int USAGE_BRANCH_PARAMETER_FEATURE_COUNT = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 2;
 
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.impl.DoubleOffsetSequenceImpl <em>Double Offset Sequence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.sensitivity.impl.DoubleOffsetSequenceImpl
+	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getDoubleOffsetSequence()
+	 * @generated
+	 */
+	int DOUBLE_OFFSET_SEQUENCE = 23;
+
+	/**
+	 * The feature id for the '<em><b>Single Sensitivity Parameter Sensitivity Parameter Variation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_OFFSET_SEQUENCE__SINGLE_SENSITIVITY_PARAMETER_SENSITIVITY_PARAMETER_VARIATION = DOUBLE_PARAMETER_VARIATION__SINGLE_SENSITIVITY_PARAMETER_SENSITIVITY_PARAMETER_VARIATION;
+
+	/**
+	 * The feature id for the '<em><b>Offset Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_OFFSET_SEQUENCE__OFFSET_VALUES = DOUBLE_PARAMETER_VARIATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Double Offset Type Double Offset Sequence</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_OFFSET_SEQUENCE__DOUBLE_OFFSET_TYPE_DOUBLE_OFFSET_SEQUENCE = DOUBLE_PARAMETER_VARIATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Double Offset Sequence</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOUBLE_OFFSET_SEQUENCE_FEATURE_COUNT = DOUBLE_PARAMETER_VARIATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.impl.SoftwareFailureTypesParameterImpl <em>Software Failure Types Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.sensitivity.impl.SoftwareFailureTypesParameterImpl
+	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getSoftwareFailureTypesParameter()
+	 * @generated
+	 */
+	int SOFTWARE_FAILURE_TYPES_PARAMETER = 24;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_FAILURE_TYPES_PARAMETER__ID = SINGLE_SENSITIVITY_PARAMETER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_FAILURE_TYPES_PARAMETER__ENTITY_NAME = SINGLE_SENSITIVITY_PARAMETER__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parent Parameter Sensitivity Parameter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_FAILURE_TYPES_PARAMETER__PARENT_PARAMETER_SENSITIVITY_PARAMETER = SINGLE_SENSITIVITY_PARAMETER__PARENT_PARAMETER_SENSITIVITY_PARAMETER;
+
+	/**
+	 * The feature id for the '<em><b>Sensitivity Configuration Sensitivity Parameter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_FAILURE_TYPES_PARAMETER__SENSITIVITY_CONFIGURATION_SENSITIVITY_PARAMETER = SINGLE_SENSITIVITY_PARAMETER__SENSITIVITY_CONFIGURATION_SENSITIVITY_PARAMETER;
+
+	/**
+	 * The feature id for the '<em><b>Sensitivity Parameter Variation Single Sensitivity Parameter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_FAILURE_TYPES_PARAMETER__SENSITIVITY_PARAMETER_VARIATION_SINGLE_SENSITIVITY_PARAMETER = SINGLE_SENSITIVITY_PARAMETER__SENSITIVITY_PARAMETER_VARIATION_SINGLE_SENSITIVITY_PARAMETER;
+
+	/**
+	 * The feature id for the '<em><b>Software Induced Failure Types Software Failure Type Reliability Parameter</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Software Failure Types Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOFTWARE_FAILURE_TYPES_PARAMETER_FEATURE_COUNT = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.impl.FailureTypeResultSpecificationImpl <em>Failure Type Result Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.sensitivity.impl.FailureTypeResultSpecificationImpl
+	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getFailureTypeResultSpecification()
+	 * @generated
+	 */
+	int FAILURE_TYPE_RESULT_SPECIFICATION = 25;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILURE_TYPE_RESULT_SPECIFICATION__ID = SENSITIVITY_RESULT_SPECIFICATION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILURE_TYPE_RESULT_SPECIFICATION__ENTITY_NAME = SENSITIVITY_RESULT_SPECIFICATION__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Failure Types Failure Type Result Specification</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILURE_TYPE_RESULT_SPECIFICATION__FAILURE_TYPES_FAILURE_TYPE_RESULT_SPECIFICATION = SENSITIVITY_RESULT_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Failure Type Result Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILURE_TYPE_RESULT_SPECIFICATION_FEATURE_COUNT = SENSITIVITY_RESULT_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.impl.FailureDimensionResultSpecificationImpl <em>Failure Dimension Result Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.sensitivity.impl.FailureDimensionResultSpecificationImpl
+	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getFailureDimensionResultSpecification()
+	 * @generated
+	 */
+	int FAILURE_DIMENSION_RESULT_SPECIFICATION = 26;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILURE_DIMENSION_RESULT_SPECIFICATION__ID = SENSITIVITY_RESULT_SPECIFICATION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILURE_DIMENSION_RESULT_SPECIFICATION__ENTITY_NAME = SENSITIVITY_RESULT_SPECIFICATION__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Failure Dimension Failure Dimension Result Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION = SENSITIVITY_RESULT_SPECIFICATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Failure Dimension Result Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILURE_DIMENSION_RESULT_SPECIFICATION_FEATURE_COUNT = SENSITIVITY_RESULT_SPECIFICATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetType <em>Double Offset Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.sensitivity.DoubleOffsetType
+	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getDoubleOffsetType()
+	 * @generated
+	 */
+	int DOUBLE_OFFSET_TYPE = 27;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.FailureDimension <em>Failure Dimension</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.sensitivity.FailureDimension
+	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getFailureDimension()
+	 * @generated
+	 */
+	int FAILURE_DIMENSION = 28;
+
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.sensitivity.SensitivityConfiguration <em>Configuration</em>}'.
@@ -1450,6 +1728,17 @@ public interface SensitivityPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSensitivityConfiguration_SensitivityParameters__SensitivityConfiguration();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.sensitivity.SensitivityConfiguration#getSensitivityResultSpecifications__SensitivityConfiguration <em>Sensitivity Result Specifications Sensitivity Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sensitivity Result Specifications Sensitivity Configuration</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.SensitivityConfiguration#getSensitivityResultSpecifications__SensitivityConfiguration()
+	 * @see #getSensitivityConfiguration()
+	 * @generated
+	 */
+	EReference getSensitivityConfiguration_SensitivityResultSpecifications__SensitivityConfiguration();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.sensitivity.SensitivityParameter <em>Parameter</em>}'.
@@ -1514,6 +1803,16 @@ public interface SensitivityPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCombinedSensitivityParameter_ChildParameters__CombinedSensitivityParameter();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification <em>Result Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Result Specification</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification
+	 * @generated
+	 */
+	EClass getSensitivityResultSpecification();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.sensitivity.SingleSensitivityParameter <em>Single Sensitivity Parameter</em>}'.
@@ -1959,6 +2258,121 @@ public interface SensitivityPackage extends EPackage {
 	EReference getUsageBranchParameter_ScenarioBehaviour__UsageBranchParameter();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence <em>Double Offset Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Double Offset Sequence</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence
+	 * @generated
+	 */
+	EClass getDoubleOffsetSequence();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence#getOffsetValues <em>Offset Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Offset Values</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence#getOffsetValues()
+	 * @see #getDoubleOffsetSequence()
+	 * @generated
+	 */
+	EAttribute getDoubleOffsetSequence_OffsetValues();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence#getDoubleOffsetType__DoubleOffsetSequence <em>Double Offset Type Double Offset Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Double Offset Type Double Offset Sequence</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence#getDoubleOffsetType__DoubleOffsetSequence()
+	 * @see #getDoubleOffsetSequence()
+	 * @generated
+	 */
+	EAttribute getDoubleOffsetSequence_DoubleOffsetType__DoubleOffsetSequence();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter <em>Software Failure Types Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Software Failure Types Parameter</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter
+	 * @generated
+	 */
+	EClass getSoftwareFailureTypesParameter();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter#getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter <em>Software Induced Failure Types Software Failure Type Reliability Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Software Induced Failure Types Software Failure Type Reliability Parameter</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter#getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter()
+	 * @see #getSoftwareFailureTypesParameter()
+	 * @generated
+	 */
+	EReference getSoftwareFailureTypesParameter_SoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification <em>Failure Type Result Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Failure Type Result Specification</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification
+	 * @generated
+	 */
+	EClass getFailureTypeResultSpecification();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification#getFailureTypes__FailureTypeResultSpecification <em>Failure Types Failure Type Result Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Failure Types Failure Type Result Specification</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification#getFailureTypes__FailureTypeResultSpecification()
+	 * @see #getFailureTypeResultSpecification()
+	 * @generated
+	 */
+	EReference getFailureTypeResultSpecification_FailureTypes__FailureTypeResultSpecification();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification <em>Failure Dimension Result Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Failure Dimension Result Specification</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification
+	 * @generated
+	 */
+	EClass getFailureDimensionResultSpecification();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification#getFailureDimension__FailureDimensionResultSpecification <em>Failure Dimension Failure Dimension Result Specification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Failure Dimension Failure Dimension Result Specification</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification#getFailureDimension__FailureDimensionResultSpecification()
+	 * @see #getFailureDimensionResultSpecification()
+	 * @generated
+	 */
+	EAttribute getFailureDimensionResultSpecification_FailureDimension__FailureDimensionResultSpecification();
+
+	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetType <em>Double Offset Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Double Offset Type</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.DoubleOffsetType
+	 * @generated
+	 */
+	EEnum getDoubleOffsetType();
+
+	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.sensitivity.FailureDimension <em>Failure Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Failure Dimension</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.FailureDimension
+	 * @generated
+	 */
+	EEnum getFailureDimension();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1997,6 +2411,14 @@ public interface SensitivityPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SENSITIVITY_CONFIGURATION__SENSITIVITY_PARAMETERS_SENSITIVITY_CONFIGURATION = eINSTANCE.getSensitivityConfiguration_SensitivityParameters__SensitivityConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>Sensitivity Result Specifications Sensitivity Configuration</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENSITIVITY_CONFIGURATION__SENSITIVITY_RESULT_SPECIFICATIONS_SENSITIVITY_CONFIGURATION = eINSTANCE.getSensitivityConfiguration_SensitivityResultSpecifications__SensitivityConfiguration();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.impl.SensitivityParameterImpl <em>Parameter</em>}' class.
@@ -2049,6 +2471,16 @@ public interface SensitivityPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER = eINSTANCE.getCombinedSensitivityParameter_ChildParameters__CombinedSensitivityParameter();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.impl.SensitivityResultSpecificationImpl <em>Result Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityResultSpecificationImpl
+		 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getSensitivityResultSpecification()
+		 * @generated
+		 */
+		EClass SENSITIVITY_RESULT_SPECIFICATION = eINSTANCE.getSensitivityResultSpecification();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.impl.SingleSensitivityParameterImpl <em>Single Sensitivity Parameter</em>}' class.
@@ -2423,6 +2855,106 @@ public interface SensitivityPackage extends EPackage {
 		 * @generated
 		 */
 		EReference USAGE_BRANCH_PARAMETER__SCENARIO_BEHAVIOUR_USAGE_BRANCH_PARAMETER = eINSTANCE.getUsageBranchParameter_ScenarioBehaviour__UsageBranchParameter();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.impl.DoubleOffsetSequenceImpl <em>Double Offset Sequence</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.sensitivity.impl.DoubleOffsetSequenceImpl
+		 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getDoubleOffsetSequence()
+		 * @generated
+		 */
+		EClass DOUBLE_OFFSET_SEQUENCE = eINSTANCE.getDoubleOffsetSequence();
+
+		/**
+		 * The meta object literal for the '<em><b>Offset Values</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOUBLE_OFFSET_SEQUENCE__OFFSET_VALUES = eINSTANCE.getDoubleOffsetSequence_OffsetValues();
+
+		/**
+		 * The meta object literal for the '<em><b>Double Offset Type Double Offset Sequence</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOUBLE_OFFSET_SEQUENCE__DOUBLE_OFFSET_TYPE_DOUBLE_OFFSET_SEQUENCE = eINSTANCE.getDoubleOffsetSequence_DoubleOffsetType__DoubleOffsetSequence();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.impl.SoftwareFailureTypesParameterImpl <em>Software Failure Types Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.sensitivity.impl.SoftwareFailureTypesParameterImpl
+		 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getSoftwareFailureTypesParameter()
+		 * @generated
+		 */
+		EClass SOFTWARE_FAILURE_TYPES_PARAMETER = eINSTANCE.getSoftwareFailureTypesParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Software Induced Failure Types Software Failure Type Reliability Parameter</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER = eINSTANCE.getSoftwareFailureTypesParameter_SoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.impl.FailureTypeResultSpecificationImpl <em>Failure Type Result Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.sensitivity.impl.FailureTypeResultSpecificationImpl
+		 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getFailureTypeResultSpecification()
+		 * @generated
+		 */
+		EClass FAILURE_TYPE_RESULT_SPECIFICATION = eINSTANCE.getFailureTypeResultSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Failure Types Failure Type Result Specification</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FAILURE_TYPE_RESULT_SPECIFICATION__FAILURE_TYPES_FAILURE_TYPE_RESULT_SPECIFICATION = eINSTANCE.getFailureTypeResultSpecification_FailureTypes__FailureTypeResultSpecification();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.impl.FailureDimensionResultSpecificationImpl <em>Failure Dimension Result Specification</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.sensitivity.impl.FailureDimensionResultSpecificationImpl
+		 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getFailureDimensionResultSpecification()
+		 * @generated
+		 */
+		EClass FAILURE_DIMENSION_RESULT_SPECIFICATION = eINSTANCE.getFailureDimensionResultSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Failure Dimension Failure Dimension Result Specification</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION = eINSTANCE.getFailureDimensionResultSpecification_FailureDimension__FailureDimensionResultSpecification();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetType <em>Double Offset Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.sensitivity.DoubleOffsetType
+		 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getDoubleOffsetType()
+		 * @generated
+		 */
+		EEnum DOUBLE_OFFSET_TYPE = eINSTANCE.getDoubleOffsetType();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.FailureDimension <em>Failure Dimension</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.sensitivity.FailureDimension
+		 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getFailureDimension()
+		 * @generated
+		 */
+		EEnum FAILURE_DIMENSION = eINSTANCE.getFailureDimension();
 
 	}
 

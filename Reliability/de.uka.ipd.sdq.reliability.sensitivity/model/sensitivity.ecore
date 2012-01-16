@@ -13,6 +13,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensitivityParameters__SensitivityConfiguration"
         ordered="false" lowerBound="1" eType="#//SensitivityParameter" containment="true"
         eOpposite="#//SensitivityParameter/sensitivityConfiguration__SensitivityParameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensitivityResultSpecifications__SensitivityConfiguration"
+        ordered="false" upperBound="-1" eType="#//SensitivityResultSpecification"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SensitivityParameter" abstract="true"
       eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/Entity">
@@ -37,6 +40,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="childParameters__CombinedSensitivityParameter"
         ordered="false" lowerBound="1" upperBound="-1" eType="#//SensitivityParameter"
         containment="true" eOpposite="#//SensitivityParameter/parentParameter__SensitivityParameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SensitivityResultSpecification" abstract="true"
+      eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/Entity">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract base class for result specifications, i.e. specifications of the Markov transformation results of interest."/>
+    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SingleSensitivityParameter" abstract="true"
       eSuperTypes="#//SensitivityParameter">
@@ -425,5 +434,73 @@
         ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//usagemodel/Branch"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scenarioBehaviour__UsageBranchParameter"
         ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//usagemodel/ScenarioBehaviour"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DoubleOffsetSequence" eSuperTypes="#//DoubleParameterVariation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a sequence of values, to define a variation of a sensitivity parameter of type DOUBLE. The given values are used&#xD;&#xA;as offsets to adjust the original model value."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="offsetValues" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="doubleOffsetType__DoubleOffsetSequence"
+        ordered="false" lowerBound="1" eType="#//DoubleOffsetType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DoubleOffsetType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;p>&#xD;&#xA;    Specifies the type of offset represented by a double value (val_off) that is connected to an original value (val_orig)&#xD;&#xA;    to achieve a new result value (val_res):&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    ADD: val_res = val_orig + val_off&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    SUBTRACT: val_res = val_orig - val_off&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    MULTIPLY: val_res = val_orig * val_off&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    DIVIDE: val_res = val_orig / val_off&#xD;&#xA;&lt;/p>"/>
+    </eAnnotations>
+    <eLiterals name="ADD"/>
+    <eLiterals name="SUBTRACT" value="1"/>
+    <eLiterals name="MULTIPLY" value="2"/>
+    <eLiterals name="DIVIDE" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SoftwareFailureTypesParameter" eSuperTypes="#//SingleSensitivityParameter">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This parameter refers to all software failure probabilities specified for the given SoftwareInducedFailureType."/>
+    </eAnnotations>
+    <eOperations name="SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="self.sensitivityParameterVariation__SingleSensitivityParameter.oclIsTypeOf(DoubleParameterVariation)"/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The cache of context-specific information."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter"
+        ordered="false" lowerBound="1" upperBound="-1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//reliability/SoftwareInducedFailureType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FailureTypeResultSpecification" eSuperTypes="#//SensitivityResultSpecification">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Describes the overall failure potential&amp;nbsp;associated with&amp;nbsp;the specified set of failure types."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="failureTypes__FailureTypeResultSpecification"
+        ordered="false" lowerBound="1" upperBound="-1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//reliability/FailureType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FailureDimensionResultSpecification"
+      eSuperTypes="#//SensitivityResultSpecification">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Describes the overall failure potential associated with one dimension of failure types (software-induced, hardware-induced,&#xD;&#xA;network-induced)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureDimension__FailureDimensionResultSpecification"
+        ordered="false" lowerBound="1" eType="#//FailureDimension"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FailureDimension">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Describes a dimension of failure types (software-induced, hardware-induced or network-induced)."/>
+    </eAnnotations>
+    <eLiterals name="SOFTWARE"/>
+    <eLiterals name="HARDWARE" value="1"/>
+    <eLiterals name="NETWORK" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

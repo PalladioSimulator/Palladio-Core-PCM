@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
@@ -26,10 +27,15 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.sensitivity.CombinedSensitivityParameter;
 import de.uka.ipd.sdq.sensitivity.CommunicationLinkReliabilityParameter;
 import de.uka.ipd.sdq.sensitivity.ComponentReliabilityParameter;
+import de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence;
+import de.uka.ipd.sdq.sensitivity.DoubleOffsetType;
 import de.uka.ipd.sdq.sensitivity.DoubleParameterFunction;
 import de.uka.ipd.sdq.sensitivity.DoubleParameterRange;
 import de.uka.ipd.sdq.sensitivity.DoubleParameterSequence;
 import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
+import de.uka.ipd.sdq.sensitivity.FailureDimension;
+import de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification;
+import de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification;
 import de.uka.ipd.sdq.sensitivity.HardwareMTTFParameter;
 import de.uka.ipd.sdq.sensitivity.HardwareMTTRParameter;
 import de.uka.ipd.sdq.sensitivity.InternalActionReliabilityParameter;
@@ -42,7 +48,9 @@ import de.uka.ipd.sdq.sensitivity.SensitivityFactory;
 import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 import de.uka.ipd.sdq.sensitivity.SensitivityParameter;
 import de.uka.ipd.sdq.sensitivity.SensitivityParameterVariation;
+import de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification;
 import de.uka.ipd.sdq.sensitivity.SingleSensitivityParameter;
+import de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter;
 import de.uka.ipd.sdq.sensitivity.SoftwareReliabilityParameter;
 import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
 import de.uka.ipd.sdq.sensitivity.SystemCallParameter;
@@ -52,6 +60,7 @@ import de.uka.ipd.sdq.sensitivity.util.SensitivityValidator;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -87,6 +96,13 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	 * @generated
 	 */
 	private EClass combinedSensitivityParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sensitivityResultSpecificationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,6 +238,48 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	private EClass usageBranchParameterEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass doubleOffsetSequenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass softwareFailureTypesParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass failureTypeResultSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass failureDimensionResultSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum doubleOffsetTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum failureDimensionEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -317,6 +375,15 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSensitivityConfiguration_SensitivityResultSpecifications__SensitivityConfiguration() {
+		return (EReference)sensitivityConfigurationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSensitivityParameter() {
 		return sensitivityParameterEClass;
 	}
@@ -364,6 +431,15 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	 */
 	public EReference getCombinedSensitivityParameter_ChildParameters__CombinedSensitivityParameter() {
 		return (EReference)combinedSensitivityParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSensitivityResultSpecification() {
+		return sensitivityResultSpecificationEClass;
 	}
 
 	/**
@@ -749,6 +825,105 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDoubleOffsetSequence() {
+		return doubleOffsetSequenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDoubleOffsetSequence_OffsetValues() {
+		return (EAttribute)doubleOffsetSequenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDoubleOffsetSequence_DoubleOffsetType__DoubleOffsetSequence() {
+		return (EAttribute)doubleOffsetSequenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSoftwareFailureTypesParameter() {
+		return softwareFailureTypesParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSoftwareFailureTypesParameter_SoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter() {
+		return (EReference)softwareFailureTypesParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFailureTypeResultSpecification() {
+		return failureTypeResultSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFailureTypeResultSpecification_FailureTypes__FailureTypeResultSpecification() {
+		return (EReference)failureTypeResultSpecificationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFailureDimensionResultSpecification() {
+		return failureDimensionResultSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFailureDimensionResultSpecification_FailureDimension__FailureDimensionResultSpecification() {
+		return (EAttribute)failureDimensionResultSpecificationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDoubleOffsetType() {
+		return doubleOffsetTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getFailureDimension() {
+		return failureDimensionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SensitivityFactory getSensitivityFactory() {
 		return (SensitivityFactory)getEFactoryInstance();
 	}
@@ -774,6 +949,7 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		// Create classes and their features
 		sensitivityConfigurationEClass = createEClass(SENSITIVITY_CONFIGURATION);
 		createEReference(sensitivityConfigurationEClass, SENSITIVITY_CONFIGURATION__SENSITIVITY_PARAMETERS_SENSITIVITY_CONFIGURATION);
+		createEReference(sensitivityConfigurationEClass, SENSITIVITY_CONFIGURATION__SENSITIVITY_RESULT_SPECIFICATIONS_SENSITIVITY_CONFIGURATION);
 
 		sensitivityParameterEClass = createEClass(SENSITIVITY_PARAMETER);
 		createEReference(sensitivityParameterEClass, SENSITIVITY_PARAMETER__PARENT_PARAMETER_SENSITIVITY_PARAMETER);
@@ -782,6 +958,8 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		combinedSensitivityParameterEClass = createEClass(COMBINED_SENSITIVITY_PARAMETER);
 		createEAttribute(combinedSensitivityParameterEClass, COMBINED_SENSITIVITY_PARAMETER__IS_COMBINATORY);
 		createEReference(combinedSensitivityParameterEClass, COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER);
+
+		sensitivityResultSpecificationEClass = createEClass(SENSITIVITY_RESULT_SPECIFICATION);
 
 		singleSensitivityParameterEClass = createEClass(SINGLE_SENSITIVITY_PARAMETER);
 		createEReference(singleSensitivityParameterEClass, SINGLE_SENSITIVITY_PARAMETER__SENSITIVITY_PARAMETER_VARIATION_SINGLE_SENSITIVITY_PARAMETER);
@@ -843,6 +1021,23 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		usageBranchParameterEClass = createEClass(USAGE_BRANCH_PARAMETER);
 		createEReference(usageBranchParameterEClass, USAGE_BRANCH_PARAMETER__BRANCH_USAGE_BRANCH_PARAMETER);
 		createEReference(usageBranchParameterEClass, USAGE_BRANCH_PARAMETER__SCENARIO_BEHAVIOUR_USAGE_BRANCH_PARAMETER);
+
+		doubleOffsetSequenceEClass = createEClass(DOUBLE_OFFSET_SEQUENCE);
+		createEAttribute(doubleOffsetSequenceEClass, DOUBLE_OFFSET_SEQUENCE__OFFSET_VALUES);
+		createEAttribute(doubleOffsetSequenceEClass, DOUBLE_OFFSET_SEQUENCE__DOUBLE_OFFSET_TYPE_DOUBLE_OFFSET_SEQUENCE);
+
+		softwareFailureTypesParameterEClass = createEClass(SOFTWARE_FAILURE_TYPES_PARAMETER);
+		createEReference(softwareFailureTypesParameterEClass, SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER);
+
+		failureTypeResultSpecificationEClass = createEClass(FAILURE_TYPE_RESULT_SPECIFICATION);
+		createEReference(failureTypeResultSpecificationEClass, FAILURE_TYPE_RESULT_SPECIFICATION__FAILURE_TYPES_FAILURE_TYPE_RESULT_SPECIFICATION);
+
+		failureDimensionResultSpecificationEClass = createEClass(FAILURE_DIMENSION_RESULT_SPECIFICATION);
+		createEAttribute(failureDimensionResultSpecificationEClass, FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION);
+
+		// Create enums
+		doubleOffsetTypeEEnum = createEEnum(DOUBLE_OFFSET_TYPE);
+		failureDimensionEEnum = createEEnum(FAILURE_DIMENSION);
 	}
 
 	/**
@@ -886,6 +1081,7 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		sensitivityConfigurationEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		sensitivityParameterEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		combinedSensitivityParameterEClass.getESuperTypes().add(this.getSensitivityParameter());
+		sensitivityResultSpecificationEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		singleSensitivityParameterEClass.getESuperTypes().add(this.getSensitivityParameter());
 		componentReliabilityParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
 		doubleParameterVariationEClass.getESuperTypes().add(this.getSensitivityParameterVariation());
@@ -904,10 +1100,15 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		softwareReliabilityParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
 		systemCallParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
 		usageBranchParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
+		doubleOffsetSequenceEClass.getESuperTypes().add(this.getDoubleParameterVariation());
+		softwareFailureTypesParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
+		failureTypeResultSpecificationEClass.getESuperTypes().add(this.getSensitivityResultSpecification());
+		failureDimensionResultSpecificationEClass.getESuperTypes().add(this.getSensitivityResultSpecification());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(sensitivityConfigurationEClass, SensitivityConfiguration.class, "SensitivityConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSensitivityConfiguration_SensitivityParameters__SensitivityConfiguration(), this.getSensitivityParameter(), this.getSensitivityParameter_SensitivityConfiguration__SensitivityParameter(), "sensitivityParameters__SensitivityConfiguration", null, 1, 1, SensitivityConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSensitivityConfiguration_SensitivityResultSpecifications__SensitivityConfiguration(), this.getSensitivityResultSpecification(), null, "sensitivityResultSpecifications__SensitivityConfiguration", null, 0, -1, SensitivityConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(sensitivityParameterEClass, SensitivityParameter.class, "SensitivityParameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSensitivityParameter_ParentParameter__SensitivityParameter(), this.getCombinedSensitivityParameter(), this.getCombinedSensitivityParameter_ChildParameters__CombinedSensitivityParameter(), "parentParameter__SensitivityParameter", null, 0, 1, SensitivityParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -916,6 +1117,8 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		initEClass(combinedSensitivityParameterEClass, CombinedSensitivityParameter.class, "CombinedSensitivityParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCombinedSensitivityParameter_IsCombinatory(), ecorePackage.getEBoolean(), "isCombinatory", null, 1, 1, CombinedSensitivityParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCombinedSensitivityParameter_ChildParameters__CombinedSensitivityParameter(), this.getSensitivityParameter(), this.getSensitivityParameter_ParentParameter__SensitivityParameter(), "childParameters__CombinedSensitivityParameter", null, 1, -1, CombinedSensitivityParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(sensitivityResultSpecificationEClass, SensitivityResultSpecification.class, "SensitivityResultSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(singleSensitivityParameterEClass, SingleSensitivityParameter.class, "SingleSensitivityParameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSingleSensitivityParameter_SensitivityParameterVariation__SingleSensitivityParameter(), this.getSensitivityParameterVariation(), this.getSensitivityParameterVariation_SingleSensitivityParameter__SensitivityParameterVariation(), "sensitivityParameterVariation__SingleSensitivityParameter", null, 1, 1, SingleSensitivityParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1085,6 +1288,40 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(doubleOffsetSequenceEClass, DoubleOffsetSequence.class, "DoubleOffsetSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDoubleOffsetSequence_OffsetValues(), ecorePackage.getEDouble(), "offsetValues", null, 1, -1, DoubleOffsetSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDoubleOffsetSequence_DoubleOffsetType__DoubleOffsetSequence(), this.getDoubleOffsetType(), "doubleOffsetType__DoubleOffsetSequence", null, 1, 1, DoubleOffsetSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(softwareFailureTypesParameterEClass, SoftwareFailureTypesParameter.class, "SoftwareFailureTypesParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSoftwareFailureTypesParameter_SoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter(), theReliabilityPackage.getSoftwareInducedFailureType(), null, "softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter", null, 1, -1, SoftwareFailureTypesParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(softwareFailureTypesParameterEClass, ecorePackage.getEBoolean(), "SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(failureTypeResultSpecificationEClass, FailureTypeResultSpecification.class, "FailureTypeResultSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFailureTypeResultSpecification_FailureTypes__FailureTypeResultSpecification(), theReliabilityPackage.getFailureType(), null, "failureTypes__FailureTypeResultSpecification", null, 1, -1, FailureTypeResultSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(failureDimensionResultSpecificationEClass, FailureDimensionResultSpecification.class, "FailureDimensionResultSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFailureDimensionResultSpecification_FailureDimension__FailureDimensionResultSpecification(), this.getFailureDimension(), "failureDimension__FailureDimensionResultSpecification", null, 1, 1, FailureDimensionResultSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(doubleOffsetTypeEEnum, DoubleOffsetType.class, "DoubleOffsetType");
+		addEEnumLiteral(doubleOffsetTypeEEnum, DoubleOffsetType.ADD);
+		addEEnumLiteral(doubleOffsetTypeEEnum, DoubleOffsetType.SUBTRACT);
+		addEEnumLiteral(doubleOffsetTypeEEnum, DoubleOffsetType.MULTIPLY);
+		addEEnumLiteral(doubleOffsetTypeEEnum, DoubleOffsetType.DIVIDE);
+
+		initEEnum(failureDimensionEEnum, FailureDimension.class, "FailureDimension");
+		addEEnumLiteral(failureDimensionEEnum, FailureDimension.SOFTWARE);
+		addEEnumLiteral(failureDimensionEEnum, FailureDimension.HARDWARE);
+		addEEnumLiteral(failureDimensionEEnum, FailureDimension.NETWORK);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -7,8 +7,8 @@
 package de.uka.ipd.sdq.sensitivity.impl;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 
 import de.uka.ipd.sdq.sensitivity.ResourceMTTRParameter;
 import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
@@ -56,6 +56,7 @@ public class ResourceMTTRParameterImpl extends SingleSensitivityParameterImpl im
 	 * @ordered
 	 */
 	protected ResourceContainer resourceContainer__ResourceMTTRParameter;
+
 	/**
 	 * The cached value of the '{@link #getProcessingResourceType__ResourceMTTRParameter() <em>Processing Resource Type Resource MTTR Parameter</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -65,6 +66,7 @@ public class ResourceMTTRParameterImpl extends SingleSensitivityParameterImpl im
 	 * @ordered
 	 */
 	protected ProcessingResourceType processingResourceType__ResourceMTTRParameter;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

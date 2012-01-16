@@ -7,8 +7,8 @@
 package de.uka.ipd.sdq.sensitivity;
 
 import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
+
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
 
 import java.util.Map;
 

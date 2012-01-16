@@ -37,7 +37,7 @@ public class ComponentSensitivity extends MarkovSensitivity {
 	/**
 	 * The ID of the component to alter.
 	 */
-	private String componentId;
+	private String componentId = null;
 
 	/**
 	 * The name of the component to alter.
@@ -45,9 +45,14 @@ public class ComponentSensitivity extends MarkovSensitivity {
 	private String componentName = null;
 
 	/**
-	 * Captures the current failure probability value.
+	 * The list of affected internal failure occurrence descriptions.
 	 */
-	private double currentFailureProbability;
+	private List<InternalFailureOccurrenceDescription> descriptions = null;
+
+	/**
+	 * The list of base values of this sensitivity.
+	 */
+	private List<Double> baseValues = null;
 
 	/**
 	 * The constructor.
@@ -58,14 +63,12 @@ public class ComponentSensitivity extends MarkovSensitivity {
 	 *            the ID of the component to alter
 	 * @param variation
 	 *            the parameter variation
-	 * @param resultLogFile
-	 *            path where to log sensitivity analysis results
 	 */
 	public ComponentSensitivity(final String name, final String componentId,
-			final DoubleParameterVariation variation, final String resultLogFile) {
+			final DoubleParameterVariation variation) {
 
 		// Initialize base variables:
-		super(name, variation, resultLogFile);
+		super(name, variation);
 
 		// Further initialization:
 		this.componentId = componentId;
@@ -186,46 +189,47 @@ public class ComponentSensitivity extends MarkovSensitivity {
 	}
 
 	/**
-	 * Sets the failure probability of the given internal actions according to
-	 * the current sensitivity analysis step.
-	 * 
-	 * @param internalActions
-	 *            the internal actions
-	 */
-	private void setFailureProbability(
-			final List<InternalAction> internalActions) {
-
-		// Determine the current failure probability:
-		currentFailureProbability = calculator.calculateCurrentDoubleValue(
-				getDoubleVariation(), getCurrentStepNumber());
-
-		// Set the failure probability:
-		for (InternalAction action : internalActions) {
-			for (InternalFailureOccurrenceDescription description : action
-					.getInternalFailureOccurrenceDescriptions__InternalAction()) {
-				description.setFailureProbability(currentFailureProbability);
-			}
-		}
-	}
-
-	/**
 	 * Alters the model according to the next sensitivity analysis step.
 	 * 
 	 * @return indicates if the model could be successfully altered
 	 */
 	protected boolean alterModel() {
 
-		// Retrieve the relevant parameter that shall be altered:
-		List<InternalAction> internalActions = getInternalActions();
-		if (internalActions == null) {
-			return false;
+		// Determine the current failure probability:
+		for (int i = 0; i < descriptions.size(); i++) {
+			descriptions.get(i).setFailureProbability(
+					calculator.calculateCurrentDoubleValue(
+							getDoubleVariation(), getCurrentStepNumber(),
+							baseValues.get(i)));
 		}
-
-		// Alter the parameter:
-		setFailureProbability(internalActions);
 
 		// Everything ok:
 		return true;
+	}
+
+	/**
+	 * Extracts the relevant sensitivity information from the given model.
+	 */
+	protected void extractSensitivityInformation() {
+		
+		// Declare the result variables:
+		descriptions = new BasicEList<InternalFailureOccurrenceDescription>();
+		baseValues = new ArrayList<Double>();
+
+		// Retrieve the involved internal actions:
+		List<InternalAction> internalActions = getInternalActions();
+		if (internalActions == null) {
+			return;
+		}
+
+		// Build the list of internal failure occurrence descriptions:
+		for (InternalAction action : internalActions) {
+			for (InternalFailureOccurrenceDescription description : action
+					.getInternalFailureOccurrenceDescriptions__InternalAction()) {
+				descriptions.add(description);
+				baseValues.add(description.getFailureProbability());
+			}
+		}
 	}
 
 	/**
@@ -262,7 +266,8 @@ public class ComponentSensitivity extends MarkovSensitivity {
 		// Create the result strings:
 		resultList.add(componentName);
 		resultList.add(componentId);
-		resultList.add(((Double) currentFailureProbability).toString());
+		resultList.add(calculator.getCurrentLogEntry(getDoubleVariation(),
+				getCurrentStepNumber()));
 
 		// Return the result:
 		return resultList;

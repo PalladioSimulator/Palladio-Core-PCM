@@ -78,38 +78,6 @@ public class MarkovSoftwareInducedFailureType extends MarkovFailureType {
 				"", "", "");
 	}
 
-	// /**
-	// * Creates an external software-induced failure type.
-	// *
-	// * @param softwareFailureId
-	// * the ID of this software failure type
-	// * @param softwareFailureName
-	// * the name of this software failure type as determined in the
-	// * PCM Repository model
-	// * @param signatureId
-	// * the ID of a signature, as specified for a system-required role
-	// * in a PCM Repository model
-	// * @param signatureName
-	// * the name of a signature, as specified for a system-required
-	// * role in a PCM Repository model
-	// * @param systemRequiredRoleId
-	// * the ID of the system-required role, as specified in a PCM
-	// * System model
-	// * @param systemRequiredRoleName
-	// * the name of the system-required role, as specified in a PCM
-	// * System model
-	// * @return the created failure type
-	// */
-	// public static MarkovSoftwareInducedFailureType createExternalFailureType(
-	// final String softwareFailureId, final String softwareFailureName,
-	// final String signatureId, final String signatureName,
-	// final String systemRequiredRoleId,
-	// final String systemRequiredRoleName) {
-	// return new MarkovSoftwareInducedFailureType(softwareFailureId,
-	// softwareFailureName, signatureId, signatureName,
-	// systemRequiredRoleId, systemRequiredRoleName, "", "");
-	// }
-
 	/**
 	 * Creates an internal software-induced failure type.
 	 * 

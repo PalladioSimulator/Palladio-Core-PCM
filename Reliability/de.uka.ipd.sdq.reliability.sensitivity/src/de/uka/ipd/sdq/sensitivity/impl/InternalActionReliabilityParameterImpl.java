@@ -7,8 +7,8 @@
 package de.uka.ipd.sdq.sensitivity.impl;
 
 import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
+
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
 
 import de.uka.ipd.sdq.sensitivity.InternalActionReliabilityParameter;
 import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
@@ -56,6 +56,7 @@ public class InternalActionReliabilityParameterImpl extends SingleSensitivityPar
 	 * @ordered
 	 */
 	protected SoftwareInducedFailureType softwareInducedFailureType__InternalActionReliabilityParameter;
+
 	/**
 	 * The cached value of the '{@link #getInternalAction__InternalActionReliabilityParameter() <em>Internal Action Internal Action Reliability Parameter</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -65,6 +66,7 @@ public class InternalActionReliabilityParameterImpl extends SingleSensitivityPar
 	 * @ordered
 	 */
 	protected InternalAction internalAction__InternalActionReliabilityParameter;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

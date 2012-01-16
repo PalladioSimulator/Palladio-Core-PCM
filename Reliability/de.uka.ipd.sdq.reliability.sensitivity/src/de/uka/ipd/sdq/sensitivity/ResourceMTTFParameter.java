@@ -7,8 +7,8 @@
 package de.uka.ipd.sdq.sensitivity;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 
 import java.util.Map;
 

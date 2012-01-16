@@ -7,8 +7,8 @@
 package de.uka.ipd.sdq.sensitivity;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
+
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
 import java.util.Map;
 

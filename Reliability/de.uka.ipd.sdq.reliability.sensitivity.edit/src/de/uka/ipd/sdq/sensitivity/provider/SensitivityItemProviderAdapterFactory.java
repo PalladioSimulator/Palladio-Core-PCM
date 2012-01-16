@@ -466,6 +466,98 @@ public class SensitivityItemProviderAdapterFactory extends SensitivityAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DoubleOffsetSequenceItemProvider doubleOffsetSequenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDoubleOffsetSequenceAdapter() {
+		if (doubleOffsetSequenceItemProvider == null) {
+			doubleOffsetSequenceItemProvider = new DoubleOffsetSequenceItemProvider(this);
+		}
+
+		return doubleOffsetSequenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SoftwareFailureTypesParameterItemProvider softwareFailureTypesParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSoftwareFailureTypesParameterAdapter() {
+		if (softwareFailureTypesParameterItemProvider == null) {
+			softwareFailureTypesParameterItemProvider = new SoftwareFailureTypesParameterItemProvider(this);
+		}
+
+		return softwareFailureTypesParameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FailureTypeResultSpecificationItemProvider failureTypeResultSpecificationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFailureTypeResultSpecificationAdapter() {
+		if (failureTypeResultSpecificationItemProvider == null) {
+			failureTypeResultSpecificationItemProvider = new FailureTypeResultSpecificationItemProvider(this);
+		}
+
+		return failureTypeResultSpecificationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FailureDimensionResultSpecificationItemProvider failureDimensionResultSpecificationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFailureDimensionResultSpecificationAdapter() {
+		if (failureDimensionResultSpecificationItemProvider == null) {
+			failureDimensionResultSpecificationItemProvider = new FailureDimensionResultSpecificationItemProvider(this);
+		}
+
+		return failureDimensionResultSpecificationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -581,6 +673,10 @@ public class SensitivityItemProviderAdapterFactory extends SensitivityAdapterFac
 		if (softwareReliabilityParameterItemProvider != null) softwareReliabilityParameterItemProvider.dispose();
 		if (systemCallParameterItemProvider != null) systemCallParameterItemProvider.dispose();
 		if (usageBranchParameterItemProvider != null) usageBranchParameterItemProvider.dispose();
+		if (doubleOffsetSequenceItemProvider != null) doubleOffsetSequenceItemProvider.dispose();
+		if (softwareFailureTypesParameterItemProvider != null) softwareFailureTypesParameterItemProvider.dispose();
+		if (failureTypeResultSpecificationItemProvider != null) failureTypeResultSpecificationItemProvider.dispose();
+		if (failureDimensionResultSpecificationItemProvider != null) failureDimensionResultSpecificationItemProvider.dispose();
 	}
 
 }

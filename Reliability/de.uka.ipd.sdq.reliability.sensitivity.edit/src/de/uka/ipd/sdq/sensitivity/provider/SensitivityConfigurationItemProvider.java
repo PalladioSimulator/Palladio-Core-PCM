@@ -79,6 +79,7 @@ public class SensitivityConfigurationItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SensitivityPackage.Literals.SENSITIVITY_CONFIGURATION__SENSITIVITY_PARAMETERS_SENSITIVITY_CONFIGURATION);
+			childrenFeatures.add(SensitivityPackage.Literals.SENSITIVITY_CONFIGURATION__SENSITIVITY_RESULT_SPECIFICATIONS_SENSITIVITY_CONFIGURATION);
 		}
 		return childrenFeatures;
 	}
@@ -133,6 +134,7 @@ public class SensitivityConfigurationItemProvider
 
 		switch (notification.getFeatureID(SensitivityConfiguration.class)) {
 			case SensitivityPackage.SENSITIVITY_CONFIGURATION__SENSITIVITY_PARAMETERS_SENSITIVITY_CONFIGURATION:
+			case SensitivityPackage.SENSITIVITY_CONFIGURATION__SENSITIVITY_RESULT_SPECIFICATIONS_SENSITIVITY_CONFIGURATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -214,6 +216,21 @@ public class SensitivityConfigurationItemProvider
 			(createChildParameter
 				(SensitivityPackage.Literals.SENSITIVITY_CONFIGURATION__SENSITIVITY_PARAMETERS_SENSITIVITY_CONFIGURATION,
 				 SensitivityFactory.eINSTANCE.createUsageBranchParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SensitivityPackage.Literals.SENSITIVITY_CONFIGURATION__SENSITIVITY_PARAMETERS_SENSITIVITY_CONFIGURATION,
+				 SensitivityFactory.eINSTANCE.createSoftwareFailureTypesParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SensitivityPackage.Literals.SENSITIVITY_CONFIGURATION__SENSITIVITY_RESULT_SPECIFICATIONS_SENSITIVITY_CONFIGURATION,
+				 SensitivityFactory.eINSTANCE.createFailureTypeResultSpecification()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SensitivityPackage.Literals.SENSITIVITY_CONFIGURATION__SENSITIVITY_RESULT_SPECIFICATIONS_SENSITIVITY_CONFIGURATION,
+				 SensitivityFactory.eINSTANCE.createFailureDimensionResultSpecification()));
 	}
 
 	/**

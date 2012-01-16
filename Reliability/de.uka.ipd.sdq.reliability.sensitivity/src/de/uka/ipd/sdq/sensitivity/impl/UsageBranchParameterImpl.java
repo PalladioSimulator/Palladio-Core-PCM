@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.sensitivity.impl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
-import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 
 import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 import de.uka.ipd.sdq.sensitivity.UsageBranchParameter;
@@ -56,6 +55,7 @@ public class UsageBranchParameterImpl extends SingleSensitivityParameterImpl imp
 	 * @ordered
 	 */
 	protected Branch branch__UsageBranchParameter;
+
 	/**
 	 * The cached value of the '{@link #getScenarioBehaviour__UsageBranchParameter() <em>Scenario Behaviour Usage Branch Parameter</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -65,6 +65,7 @@ public class UsageBranchParameterImpl extends SingleSensitivityParameterImpl imp
 	 * @ordered
 	 */
 	protected ScenarioBehaviour scenarioBehaviour__UsageBranchParameter;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
