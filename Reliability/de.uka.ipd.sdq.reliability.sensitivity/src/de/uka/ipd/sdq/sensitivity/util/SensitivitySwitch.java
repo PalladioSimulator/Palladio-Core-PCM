@@ -293,14 +293,14 @@ public class SensitivitySwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SensitivityPackage.SYSTEM_CALL_PARAMETER: {
-				SystemCallParameter systemCallParameter = (SystemCallParameter)theEObject;
-				T result = caseSystemCallParameter(systemCallParameter);
-				if (result == null) result = caseSingleSensitivityParameter(systemCallParameter);
-				if (result == null) result = caseSensitivityParameter(systemCallParameter);
-				if (result == null) result = caseEntity(systemCallParameter);
-				if (result == null) result = caseIdentifier(systemCallParameter);
-				if (result == null) result = caseNamedElement(systemCallParameter);
+			case SensitivityPackage.VARIABLE_USAGE_PARAMETER: {
+				VariableUsageParameter variableUsageParameter = (VariableUsageParameter)theEObject;
+				T result = caseVariableUsageParameter(variableUsageParameter);
+				if (result == null) result = caseSingleSensitivityParameter(variableUsageParameter);
+				if (result == null) result = caseSensitivityParameter(variableUsageParameter);
+				if (result == null) result = caseEntity(variableUsageParameter);
+				if (result == null) result = caseIdentifier(variableUsageParameter);
+				if (result == null) result = caseNamedElement(variableUsageParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -674,17 +674,17 @@ public class SensitivitySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>System Call Parameter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Variable Usage Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>System Call Parameter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Variable Usage Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSystemCallParameter(SystemCallParameter object) {
+	public T caseVariableUsageParameter(VariableUsageParameter object) {
 		return null;
 	}
 

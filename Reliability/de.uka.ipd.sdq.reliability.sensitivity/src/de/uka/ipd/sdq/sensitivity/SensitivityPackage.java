@@ -1304,14 +1304,14 @@ public interface SensitivityPackage extends EPackage {
 	int SOFTWARE_RELIABILITY_PARAMETER_FEATURE_COUNT = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.impl.SystemCallParameterImpl <em>System Call Parameter</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.impl.VariableUsageParameterImpl <em>Variable Usage Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.sensitivity.impl.SystemCallParameterImpl
-	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getSystemCallParameter()
+	 * @see de.uka.ipd.sdq.sensitivity.impl.VariableUsageParameterImpl
+	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getVariableUsageParameter()
 	 * @generated
 	 */
-	int SYSTEM_CALL_PARAMETER = 21;
+	int VARIABLE_USAGE_PARAMETER = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1320,7 +1320,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_CALL_PARAMETER__ID = SINGLE_SENSITIVITY_PARAMETER__ID;
+	int VARIABLE_USAGE_PARAMETER__ID = SINGLE_SENSITIVITY_PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -1329,7 +1329,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_CALL_PARAMETER__ENTITY_NAME = SINGLE_SENSITIVITY_PARAMETER__ENTITY_NAME;
+	int VARIABLE_USAGE_PARAMETER__ENTITY_NAME = SINGLE_SENSITIVITY_PARAMETER__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Parent Parameter Sensitivity Parameter</b></em>' container reference.
@@ -1338,7 +1338,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_CALL_PARAMETER__PARENT_PARAMETER_SENSITIVITY_PARAMETER = SINGLE_SENSITIVITY_PARAMETER__PARENT_PARAMETER_SENSITIVITY_PARAMETER;
+	int VARIABLE_USAGE_PARAMETER__PARENT_PARAMETER_SENSITIVITY_PARAMETER = SINGLE_SENSITIVITY_PARAMETER__PARENT_PARAMETER_SENSITIVITY_PARAMETER;
 
 	/**
 	 * The feature id for the '<em><b>Sensitivity Configuration Sensitivity Parameter</b></em>' container reference.
@@ -1347,7 +1347,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_CALL_PARAMETER__SENSITIVITY_CONFIGURATION_SENSITIVITY_PARAMETER = SINGLE_SENSITIVITY_PARAMETER__SENSITIVITY_CONFIGURATION_SENSITIVITY_PARAMETER;
+	int VARIABLE_USAGE_PARAMETER__SENSITIVITY_CONFIGURATION_SENSITIVITY_PARAMETER = SINGLE_SENSITIVITY_PARAMETER__SENSITIVITY_CONFIGURATION_SENSITIVITY_PARAMETER;
 
 	/**
 	 * The feature id for the '<em><b>Sensitivity Parameter Variation Single Sensitivity Parameter</b></em>' containment reference.
@@ -1356,43 +1356,61 @@ public interface SensitivityPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_CALL_PARAMETER__SENSITIVITY_PARAMETER_VARIATION_SINGLE_SENSITIVITY_PARAMETER = SINGLE_SENSITIVITY_PARAMETER__SENSITIVITY_PARAMETER_VARIATION_SINGLE_SENSITIVITY_PARAMETER;
+	int VARIABLE_USAGE_PARAMETER__SENSITIVITY_PARAMETER_VARIATION_SINGLE_SENSITIVITY_PARAMETER = SINGLE_SENSITIVITY_PARAMETER__SENSITIVITY_PARAMETER_VARIATION_SINGLE_SENSITIVITY_PARAMETER;
 
 	/**
-	 * The feature id for the '<em><b>Input Parameter Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Variable Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_CALL_PARAMETER__INPUT_PARAMETER_NAME = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 0;
+	int VARIABLE_USAGE_PARAMETER__VARIABLE_NAME = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Entry Level System Call System Call Parameter</b></em>' reference.
+	 * The feature id for the '<em><b>Entry Level System Call Variable Usage Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_CALL_PARAMETER__ENTRY_LEVEL_SYSTEM_CALL_SYSTEM_CALL_PARAMETER = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 1;
+	int VARIABLE_USAGE_PARAMETER__ENTRY_LEVEL_SYSTEM_CALL_VARIABLE_USAGE_PARAMETER = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Variable Characterisation Type System Call Parameter</b></em>' attribute.
+	 * The feature id for the '<em><b>Variable Characterisation Type Variable Usage Parameter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_CALL_PARAMETER__VARIABLE_CHARACTERISATION_TYPE_SYSTEM_CALL_PARAMETER = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 2;
+	int VARIABLE_USAGE_PARAMETER__VARIABLE_CHARACTERISATION_TYPE_VARIABLE_USAGE_PARAMETER = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>System Call Parameter</em>' class.
+	 * The feature id for the '<em><b>Variable Usage Type Variable Usage Parameter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_CALL_PARAMETER_FEATURE_COUNT = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 3;
+	int VARIABLE_USAGE_PARAMETER__VARIABLE_USAGE_TYPE_VARIABLE_USAGE_PARAMETER = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Basic Component Variable Usage Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_USAGE_PARAMETER__BASIC_COMPONENT_VARIABLE_USAGE_PARAMETER = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Variable Usage Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_USAGE_PARAMETER_FEATURE_COUNT = SINGLE_SENSITIVITY_PARAMETER_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.impl.UsageBranchParameterImpl <em>Usage Branch Parameter</em>}' class.
@@ -1688,6 +1706,16 @@ public interface SensitivityPackage extends EPackage {
 	int FAILURE_DIMENSION_RESULT_SPECIFICATION_FEATURE_COUNT = SENSITIVITY_RESULT_SPECIFICATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.VariableUsageType <em>Variable Usage Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.sensitivity.VariableUsageType
+	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getVariableUsageType()
+	 * @generated
+	 */
+	int VARIABLE_USAGE_TYPE = 27;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetType <em>Double Offset Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1695,7 +1723,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getDoubleOffsetType()
 	 * @generated
 	 */
-	int DOUBLE_OFFSET_TYPE = 27;
+	int DOUBLE_OFFSET_TYPE = 28;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.sensitivity.FailureDimension <em>Failure Dimension</em>}' enum.
@@ -1705,7 +1733,7 @@ public interface SensitivityPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getFailureDimension()
 	 * @generated
 	 */
-	int FAILURE_DIMENSION = 28;
+	int FAILURE_DIMENSION = 29;
 
 
 	/**
@@ -2183,47 +2211,69 @@ public interface SensitivityPackage extends EPackage {
 	EClass getSoftwareReliabilityParameter();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.sensitivity.SystemCallParameter <em>System Call Parameter</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.sensitivity.VariableUsageParameter <em>Variable Usage Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>System Call Parameter</em>'.
-	 * @see de.uka.ipd.sdq.sensitivity.SystemCallParameter
+	 * @return the meta object for class '<em>Variable Usage Parameter</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.VariableUsageParameter
 	 * @generated
 	 */
-	EClass getSystemCallParameter();
+	EClass getVariableUsageParameter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.sensitivity.SystemCallParameter#getInputParameterName <em>Input Parameter Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.sensitivity.VariableUsageParameter#getVariableName <em>Variable Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Input Parameter Name</em>'.
-	 * @see de.uka.ipd.sdq.sensitivity.SystemCallParameter#getInputParameterName()
-	 * @see #getSystemCallParameter()
+	 * @return the meta object for the attribute '<em>Variable Name</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.VariableUsageParameter#getVariableName()
+	 * @see #getVariableUsageParameter()
 	 * @generated
 	 */
-	EAttribute getSystemCallParameter_InputParameterName();
+	EAttribute getVariableUsageParameter_VariableName();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.sensitivity.SystemCallParameter#getEntryLevelSystemCall__SystemCallParameter <em>Entry Level System Call System Call Parameter</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.sensitivity.VariableUsageParameter#getEntryLevelSystemCall__VariableUsageParameter <em>Entry Level System Call Variable Usage Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Entry Level System Call System Call Parameter</em>'.
-	 * @see de.uka.ipd.sdq.sensitivity.SystemCallParameter#getEntryLevelSystemCall__SystemCallParameter()
-	 * @see #getSystemCallParameter()
+	 * @return the meta object for the reference '<em>Entry Level System Call Variable Usage Parameter</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.VariableUsageParameter#getEntryLevelSystemCall__VariableUsageParameter()
+	 * @see #getVariableUsageParameter()
 	 * @generated
 	 */
-	EReference getSystemCallParameter_EntryLevelSystemCall__SystemCallParameter();
+	EReference getVariableUsageParameter_EntryLevelSystemCall__VariableUsageParameter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.sensitivity.SystemCallParameter#getVariableCharacterisationType__SystemCallParameter <em>Variable Characterisation Type System Call Parameter</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.sensitivity.VariableUsageParameter#getVariableCharacterisationType__VariableUsageParameter <em>Variable Characterisation Type Variable Usage Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Variable Characterisation Type System Call Parameter</em>'.
-	 * @see de.uka.ipd.sdq.sensitivity.SystemCallParameter#getVariableCharacterisationType__SystemCallParameter()
-	 * @see #getSystemCallParameter()
+	 * @return the meta object for the attribute '<em>Variable Characterisation Type Variable Usage Parameter</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.VariableUsageParameter#getVariableCharacterisationType__VariableUsageParameter()
+	 * @see #getVariableUsageParameter()
 	 * @generated
 	 */
-	EAttribute getSystemCallParameter_VariableCharacterisationType__SystemCallParameter();
+	EAttribute getVariableUsageParameter_VariableCharacterisationType__VariableUsageParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.sensitivity.VariableUsageParameter#getVariableUsageType__VariableUsageParameter <em>Variable Usage Type Variable Usage Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Variable Usage Type Variable Usage Parameter</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.VariableUsageParameter#getVariableUsageType__VariableUsageParameter()
+	 * @see #getVariableUsageParameter()
+	 * @generated
+	 */
+	EAttribute getVariableUsageParameter_VariableUsageType__VariableUsageParameter();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.sensitivity.VariableUsageParameter#getBasicComponent__VariableUsageParameter <em>Basic Component Variable Usage Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Basic Component Variable Usage Parameter</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.VariableUsageParameter#getBasicComponent__VariableUsageParameter()
+	 * @see #getVariableUsageParameter()
+	 * @generated
+	 */
+	EReference getVariableUsageParameter_BasicComponent__VariableUsageParameter();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.sensitivity.UsageBranchParameter <em>Usage Branch Parameter</em>}'.
@@ -2351,6 +2401,16 @@ public interface SensitivityPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getFailureDimensionResultSpecification_FailureDimension__FailureDimensionResultSpecification();
+
+	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.sensitivity.VariableUsageType <em>Variable Usage Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Variable Usage Type</em>'.
+	 * @see de.uka.ipd.sdq.sensitivity.VariableUsageType
+	 * @generated
+	 */
+	EEnum getVariableUsageType();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetType <em>Double Offset Type</em>}'.
@@ -2797,38 +2857,54 @@ public interface SensitivityPackage extends EPackage {
 		EClass SOFTWARE_RELIABILITY_PARAMETER = eINSTANCE.getSoftwareReliabilityParameter();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.impl.SystemCallParameterImpl <em>System Call Parameter</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.impl.VariableUsageParameterImpl <em>Variable Usage Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.sensitivity.impl.SystemCallParameterImpl
-		 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getSystemCallParameter()
+		 * @see de.uka.ipd.sdq.sensitivity.impl.VariableUsageParameterImpl
+		 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getVariableUsageParameter()
 		 * @generated
 		 */
-		EClass SYSTEM_CALL_PARAMETER = eINSTANCE.getSystemCallParameter();
+		EClass VARIABLE_USAGE_PARAMETER = eINSTANCE.getVariableUsageParameter();
 
 		/**
-		 * The meta object literal for the '<em><b>Input Parameter Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Variable Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SYSTEM_CALL_PARAMETER__INPUT_PARAMETER_NAME = eINSTANCE.getSystemCallParameter_InputParameterName();
+		EAttribute VARIABLE_USAGE_PARAMETER__VARIABLE_NAME = eINSTANCE.getVariableUsageParameter_VariableName();
 
 		/**
-		 * The meta object literal for the '<em><b>Entry Level System Call System Call Parameter</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Entry Level System Call Variable Usage Parameter</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SYSTEM_CALL_PARAMETER__ENTRY_LEVEL_SYSTEM_CALL_SYSTEM_CALL_PARAMETER = eINSTANCE.getSystemCallParameter_EntryLevelSystemCall__SystemCallParameter();
+		EReference VARIABLE_USAGE_PARAMETER__ENTRY_LEVEL_SYSTEM_CALL_VARIABLE_USAGE_PARAMETER = eINSTANCE.getVariableUsageParameter_EntryLevelSystemCall__VariableUsageParameter();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable Characterisation Type System Call Parameter</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Variable Characterisation Type Variable Usage Parameter</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SYSTEM_CALL_PARAMETER__VARIABLE_CHARACTERISATION_TYPE_SYSTEM_CALL_PARAMETER = eINSTANCE.getSystemCallParameter_VariableCharacterisationType__SystemCallParameter();
+		EAttribute VARIABLE_USAGE_PARAMETER__VARIABLE_CHARACTERISATION_TYPE_VARIABLE_USAGE_PARAMETER = eINSTANCE.getVariableUsageParameter_VariableCharacterisationType__VariableUsageParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable Usage Type Variable Usage Parameter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIABLE_USAGE_PARAMETER__VARIABLE_USAGE_TYPE_VARIABLE_USAGE_PARAMETER = eINSTANCE.getVariableUsageParameter_VariableUsageType__VariableUsageParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Basic Component Variable Usage Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_USAGE_PARAMETER__BASIC_COMPONENT_VARIABLE_USAGE_PARAMETER = eINSTANCE.getVariableUsageParameter_BasicComponent__VariableUsageParameter();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.impl.UsageBranchParameterImpl <em>Usage Branch Parameter</em>}' class.
@@ -2935,6 +3011,16 @@ public interface SensitivityPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION = eINSTANCE.getFailureDimensionResultSpecification_FailureDimension__FailureDimensionResultSpecification();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.VariableUsageType <em>Variable Usage Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.sensitivity.VariableUsageType
+		 * @see de.uka.ipd.sdq.sensitivity.impl.SensitivityPackageImpl#getVariableUsageType()
+		 * @generated
+		 */
+		EEnum VARIABLE_USAGE_TYPE = eINSTANCE.getVariableUsageType();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetType <em>Double Offset Type</em>}' enum.

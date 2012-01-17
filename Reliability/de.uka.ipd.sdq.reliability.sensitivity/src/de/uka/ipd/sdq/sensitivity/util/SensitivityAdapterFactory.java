@@ -161,8 +161,8 @@ public class SensitivityAdapterFactory extends AdapterFactoryImpl {
 				return createSoftwareReliabilityParameterAdapter();
 			}
 			@Override
-			public Adapter caseSystemCallParameter(SystemCallParameter object) {
-				return createSystemCallParameterAdapter();
+			public Adapter caseVariableUsageParameter(VariableUsageParameter object) {
+				return createVariableUsageParameterAdapter();
 			}
 			@Override
 			public Adapter caseUsageBranchParameter(UsageBranchParameter object) {
@@ -511,16 +511,16 @@ public class SensitivityAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.sensitivity.SystemCallParameter <em>System Call Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.sensitivity.VariableUsageParameter <em>Variable Usage Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.sensitivity.SystemCallParameter
+	 * @see de.uka.ipd.sdq.sensitivity.VariableUsageParameter
 	 * @generated
 	 */
-	public Adapter createSystemCallParameterAdapter() {
+	public Adapter createVariableUsageParameterAdapter() {
 		return null;
 	}
 

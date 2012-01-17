@@ -76,7 +76,7 @@ public class SensitivityFactoryImpl extends EFactoryImpl implements SensitivityF
 			case SensitivityPackage.NETWORK_RELIABILITY_PARAMETER: return createNetworkReliabilityParameter();
 			case SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER: return createCommunicationLinkReliabilityParameter();
 			case SensitivityPackage.SOFTWARE_RELIABILITY_PARAMETER: return createSoftwareReliabilityParameter();
-			case SensitivityPackage.SYSTEM_CALL_PARAMETER: return createSystemCallParameter();
+			case SensitivityPackage.VARIABLE_USAGE_PARAMETER: return createVariableUsageParameter();
 			case SensitivityPackage.USAGE_BRANCH_PARAMETER: return createUsageBranchParameter();
 			case SensitivityPackage.DOUBLE_OFFSET_SEQUENCE: return createDoubleOffsetSequence();
 			case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER: return createSoftwareFailureTypesParameter();
@@ -95,6 +95,8 @@ public class SensitivityFactoryImpl extends EFactoryImpl implements SensitivityF
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case SensitivityPackage.VARIABLE_USAGE_TYPE:
+				return createVariableUsageTypeFromString(eDataType, initialValue);
 			case SensitivityPackage.DOUBLE_OFFSET_TYPE:
 				return createDoubleOffsetTypeFromString(eDataType, initialValue);
 			case SensitivityPackage.FAILURE_DIMENSION:
@@ -112,6 +114,8 @@ public class SensitivityFactoryImpl extends EFactoryImpl implements SensitivityF
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case SensitivityPackage.VARIABLE_USAGE_TYPE:
+				return convertVariableUsageTypeToString(eDataType, instanceValue);
 			case SensitivityPackage.DOUBLE_OFFSET_TYPE:
 				return convertDoubleOffsetTypeToString(eDataType, instanceValue);
 			case SensitivityPackage.FAILURE_DIMENSION:
@@ -276,9 +280,9 @@ public class SensitivityFactoryImpl extends EFactoryImpl implements SensitivityF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SystemCallParameter createSystemCallParameter() {
-		SystemCallParameterImpl systemCallParameter = new SystemCallParameterImpl();
-		return systemCallParameter;
+	public VariableUsageParameter createVariableUsageParameter() {
+		VariableUsageParameterImpl variableUsageParameter = new VariableUsageParameterImpl();
+		return variableUsageParameter;
 	}
 
 	/**
@@ -329,6 +333,26 @@ public class SensitivityFactoryImpl extends EFactoryImpl implements SensitivityF
 	public FailureDimensionResultSpecification createFailureDimensionResultSpecification() {
 		FailureDimensionResultSpecificationImpl failureDimensionResultSpecification = new FailureDimensionResultSpecificationImpl();
 		return failureDimensionResultSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VariableUsageType createVariableUsageTypeFromString(EDataType eDataType, String initialValue) {
+		VariableUsageType result = VariableUsageType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVariableUsageTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

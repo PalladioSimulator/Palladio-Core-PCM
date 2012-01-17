@@ -126,12 +126,12 @@ public class SensitivityValidator extends EObjectValidator {
 	public static final int SOFTWARE_RELIABILITY_PARAMETER__SOFTWARE_RELIABILITY_PARAMETER_MUST_HAVE_DOUBLE_VARIATION = 10;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'System Call Parameter Must Have String Sequence' of 'System Call Parameter'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'System Call Parameter Must Have String Sequence' of 'Variable Usage Parameter'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int SYSTEM_CALL_PARAMETER__SYSTEM_CALL_PARAMETER_MUST_HAVE_STRING_SEQUENCE = 11;
+	public static final int VARIABLE_USAGE_PARAMETER__SYSTEM_CALL_PARAMETER_MUST_HAVE_STRING_SEQUENCE = 11;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Usage Branch Parameter Must Have Double Variation' of 'Usage Branch Parameter'.
@@ -246,8 +246,8 @@ public class SensitivityValidator extends EObjectValidator {
 				return validateCommunicationLinkReliabilityParameter((CommunicationLinkReliabilityParameter)value, diagnostics, context);
 			case SensitivityPackage.SOFTWARE_RELIABILITY_PARAMETER:
 				return validateSoftwareReliabilityParameter((SoftwareReliabilityParameter)value, diagnostics, context);
-			case SensitivityPackage.SYSTEM_CALL_PARAMETER:
-				return validateSystemCallParameter((SystemCallParameter)value, diagnostics, context);
+			case SensitivityPackage.VARIABLE_USAGE_PARAMETER:
+				return validateVariableUsageParameter((VariableUsageParameter)value, diagnostics, context);
 			case SensitivityPackage.USAGE_BRANCH_PARAMETER:
 				return validateUsageBranchParameter((UsageBranchParameter)value, diagnostics, context);
 			case SensitivityPackage.DOUBLE_OFFSET_SEQUENCE:
@@ -258,6 +258,8 @@ public class SensitivityValidator extends EObjectValidator {
 				return validateFailureTypeResultSpecification((FailureTypeResultSpecification)value, diagnostics, context);
 			case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION:
 				return validateFailureDimensionResultSpecification((FailureDimensionResultSpecification)value, diagnostics, context);
+			case SensitivityPackage.VARIABLE_USAGE_TYPE:
+				return validateVariableUsageType((VariableUsageType)value, diagnostics, context);
 			case SensitivityPackage.DOUBLE_OFFSET_TYPE:
 				return validateDoubleOffsetType((DoubleOffsetType)value, diagnostics, context);
 			case SensitivityPackage.FAILURE_DIMENSION:
@@ -691,27 +693,27 @@ public class SensitivityValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSystemCallParameter(SystemCallParameter systemCallParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(systemCallParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(systemCallParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(systemCallParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(systemCallParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(systemCallParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(systemCallParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(systemCallParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(systemCallParameter, diagnostics, context);
-		if (result || diagnostics != null) result &= validateSystemCallParameter_SystemCallParameterMustHaveStringSequence(systemCallParameter, diagnostics, context);
+	public boolean validateVariableUsageParameter(VariableUsageParameter variableUsageParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(variableUsageParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(variableUsageParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(variableUsageParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(variableUsageParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(variableUsageParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(variableUsageParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(variableUsageParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(variableUsageParameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateVariableUsageParameter_SystemCallParameterMustHaveStringSequence(variableUsageParameter, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the SystemCallParameterMustHaveStringSequence constraint of '<em>System Call Parameter</em>'.
+	 * Validates the SystemCallParameterMustHaveStringSequence constraint of '<em>Variable Usage Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateSystemCallParameter_SystemCallParameterMustHaveStringSequence(SystemCallParameter systemCallParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return systemCallParameter.SystemCallParameterMustHaveStringSequence(diagnostics, context);
+	public boolean validateVariableUsageParameter_SystemCallParameterMustHaveStringSequence(VariableUsageParameter variableUsageParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return variableUsageParameter.SystemCallParameterMustHaveStringSequence(diagnostics, context);
 	}
 
 	/**
@@ -811,6 +813,15 @@ public class SensitivityValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(failureDimensionResultSpecification, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(failureDimensionResultSpecification, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVariableUsageType(VariableUsageType variableUsageType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**

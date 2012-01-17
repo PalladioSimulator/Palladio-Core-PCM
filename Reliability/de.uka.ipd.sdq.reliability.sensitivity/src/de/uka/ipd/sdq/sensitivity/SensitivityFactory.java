@@ -161,13 +161,13 @@ public interface SensitivityFactory extends EFactory {
 	SoftwareReliabilityParameter createSoftwareReliabilityParameter();
 
 	/**
-	 * Returns a new object of class '<em>System Call Parameter</em>'.
+	 * Returns a new object of class '<em>Variable Usage Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>System Call Parameter</em>'.
+	 * @return a new object of class '<em>Variable Usage Parameter</em>'.
 	 * @generated
 	 */
-	SystemCallParameter createSystemCallParameter();
+	VariableUsageParameter createVariableUsageParameter();
 
 	/**
 	 * Returns a new object of class '<em>Usage Branch Parameter</em>'.

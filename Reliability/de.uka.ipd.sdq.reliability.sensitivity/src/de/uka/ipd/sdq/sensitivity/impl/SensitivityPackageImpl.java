@@ -53,8 +53,9 @@ import de.uka.ipd.sdq.sensitivity.SingleSensitivityParameter;
 import de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter;
 import de.uka.ipd.sdq.sensitivity.SoftwareReliabilityParameter;
 import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
-import de.uka.ipd.sdq.sensitivity.SystemCallParameter;
 import de.uka.ipd.sdq.sensitivity.UsageBranchParameter;
+import de.uka.ipd.sdq.sensitivity.VariableUsageParameter;
+import de.uka.ipd.sdq.sensitivity.VariableUsageType;
 
 import de.uka.ipd.sdq.sensitivity.util.SensitivityValidator;
 
@@ -228,7 +229,7 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass systemCallParameterEClass = null;
+	private EClass variableUsageParameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,6 +265,13 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	 * @generated
 	 */
 	private EClass failureDimensionResultSpecificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum variableUsageTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -762,8 +770,8 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSystemCallParameter() {
-		return systemCallParameterEClass;
+	public EClass getVariableUsageParameter() {
+		return variableUsageParameterEClass;
 	}
 
 	/**
@@ -771,8 +779,8 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSystemCallParameter_InputParameterName() {
-		return (EAttribute)systemCallParameterEClass.getEStructuralFeatures().get(0);
+	public EAttribute getVariableUsageParameter_VariableName() {
+		return (EAttribute)variableUsageParameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -780,8 +788,8 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSystemCallParameter_EntryLevelSystemCall__SystemCallParameter() {
-		return (EReference)systemCallParameterEClass.getEStructuralFeatures().get(1);
+	public EReference getVariableUsageParameter_EntryLevelSystemCall__VariableUsageParameter() {
+		return (EReference)variableUsageParameterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -789,8 +797,26 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSystemCallParameter_VariableCharacterisationType__SystemCallParameter() {
-		return (EAttribute)systemCallParameterEClass.getEStructuralFeatures().get(2);
+	public EAttribute getVariableUsageParameter_VariableCharacterisationType__VariableUsageParameter() {
+		return (EAttribute)variableUsageParameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariableUsageParameter_VariableUsageType__VariableUsageParameter() {
+		return (EAttribute)variableUsageParameterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableUsageParameter_BasicComponent__VariableUsageParameter() {
+		return (EReference)variableUsageParameterEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -906,6 +932,15 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getVariableUsageType() {
+		return variableUsageTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDoubleOffsetType() {
 		return doubleOffsetTypeEEnum;
 	}
@@ -1013,10 +1048,12 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 
 		softwareReliabilityParameterEClass = createEClass(SOFTWARE_RELIABILITY_PARAMETER);
 
-		systemCallParameterEClass = createEClass(SYSTEM_CALL_PARAMETER);
-		createEAttribute(systemCallParameterEClass, SYSTEM_CALL_PARAMETER__INPUT_PARAMETER_NAME);
-		createEReference(systemCallParameterEClass, SYSTEM_CALL_PARAMETER__ENTRY_LEVEL_SYSTEM_CALL_SYSTEM_CALL_PARAMETER);
-		createEAttribute(systemCallParameterEClass, SYSTEM_CALL_PARAMETER__VARIABLE_CHARACTERISATION_TYPE_SYSTEM_CALL_PARAMETER);
+		variableUsageParameterEClass = createEClass(VARIABLE_USAGE_PARAMETER);
+		createEAttribute(variableUsageParameterEClass, VARIABLE_USAGE_PARAMETER__VARIABLE_NAME);
+		createEReference(variableUsageParameterEClass, VARIABLE_USAGE_PARAMETER__ENTRY_LEVEL_SYSTEM_CALL_VARIABLE_USAGE_PARAMETER);
+		createEAttribute(variableUsageParameterEClass, VARIABLE_USAGE_PARAMETER__VARIABLE_CHARACTERISATION_TYPE_VARIABLE_USAGE_PARAMETER);
+		createEAttribute(variableUsageParameterEClass, VARIABLE_USAGE_PARAMETER__VARIABLE_USAGE_TYPE_VARIABLE_USAGE_PARAMETER);
+		createEReference(variableUsageParameterEClass, VARIABLE_USAGE_PARAMETER__BASIC_COMPONENT_VARIABLE_USAGE_PARAMETER);
 
 		usageBranchParameterEClass = createEClass(USAGE_BRANCH_PARAMETER);
 		createEReference(usageBranchParameterEClass, USAGE_BRANCH_PARAMETER__BRANCH_USAGE_BRANCH_PARAMETER);
@@ -1036,6 +1073,7 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		createEAttribute(failureDimensionResultSpecificationEClass, FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION);
 
 		// Create enums
+		variableUsageTypeEEnum = createEEnum(VARIABLE_USAGE_TYPE);
 		doubleOffsetTypeEEnum = createEEnum(DOUBLE_OFFSET_TYPE);
 		failureDimensionEEnum = createEEnum(FAILURE_DIMENSION);
 	}
@@ -1098,7 +1136,7 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		networkReliabilityParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
 		communicationLinkReliabilityParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
 		softwareReliabilityParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
-		systemCallParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
+		variableUsageParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
 		usageBranchParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
 		doubleOffsetSequenceEClass.getESuperTypes().add(this.getDoubleParameterVariation());
 		softwareFailureTypesParameterEClass.getESuperTypes().add(this.getSingleSensitivityParameter());
@@ -1262,12 +1300,14 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(systemCallParameterEClass, SystemCallParameter.class, "SystemCallParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSystemCallParameter_InputParameterName(), ecorePackage.getEString(), "inputParameterName", null, 1, 1, SystemCallParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSystemCallParameter_EntryLevelSystemCall__SystemCallParameter(), theUsagemodelPackage.getEntryLevelSystemCall(), null, "entryLevelSystemCall__SystemCallParameter", null, 1, 1, SystemCallParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getSystemCallParameter_VariableCharacterisationType__SystemCallParameter(), theParameterPackage.getVariableCharacterisationType(), "variableCharacterisationType__SystemCallParameter", null, 1, 1, SystemCallParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(variableUsageParameterEClass, VariableUsageParameter.class, "VariableUsageParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVariableUsageParameter_VariableName(), ecorePackage.getEString(), "VariableName", null, 1, 1, VariableUsageParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableUsageParameter_EntryLevelSystemCall__VariableUsageParameter(), theUsagemodelPackage.getEntryLevelSystemCall(), null, "entryLevelSystemCall__VariableUsageParameter", null, 0, 1, VariableUsageParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getVariableUsageParameter_VariableCharacterisationType__VariableUsageParameter(), theParameterPackage.getVariableCharacterisationType(), "variableCharacterisationType__VariableUsageParameter", null, 1, 1, VariableUsageParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getVariableUsageParameter_VariableUsageType__VariableUsageParameter(), this.getVariableUsageType(), "variableUsageType__VariableUsageParameter", null, 1, 1, VariableUsageParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableUsageParameter_BasicComponent__VariableUsageParameter(), theRepositoryPackage.getBasicComponent(), null, "basicComponent__VariableUsageParameter", null, 0, 1, VariableUsageParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = addEOperation(systemCallParameterEClass, ecorePackage.getEBoolean(), "SystemCallParameterMustHaveStringSequence", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(variableUsageParameterEClass, ecorePackage.getEBoolean(), "SystemCallParameterMustHaveStringSequence", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -1312,6 +1352,10 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		initEAttribute(getFailureDimensionResultSpecification_FailureDimension__FailureDimensionResultSpecification(), this.getFailureDimension(), "failureDimension__FailureDimensionResultSpecification", null, 1, 1, FailureDimensionResultSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(variableUsageTypeEEnum, VariableUsageType.class, "VariableUsageType");
+		addEEnumLiteral(variableUsageTypeEEnum, VariableUsageType.SYSTEM_CALL_INPUT);
+		addEEnumLiteral(variableUsageTypeEEnum, VariableUsageType.COMPONENT_CONFIGURATION);
+
 		initEEnum(doubleOffsetTypeEEnum, DoubleOffsetType.class, "DoubleOffsetType");
 		addEEnumLiteral(doubleOffsetTypeEEnum, DoubleOffsetType.ADD);
 		addEEnumLiteral(doubleOffsetTypeEEnum, DoubleOffsetType.SUBTRACT);
