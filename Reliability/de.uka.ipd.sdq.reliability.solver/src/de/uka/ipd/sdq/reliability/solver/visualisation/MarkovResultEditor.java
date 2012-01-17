@@ -18,6 +18,34 @@ import org.eclipse.ui.part.FileEditorInput;
 public class MarkovResultEditor extends EditorPart {
 
 	@Override
+	public void createPartControl(Composite parent) {
+		IEditorInput input = getEditorInput();
+		Browser browser = new Browser(parent, SWT.BORDER);
+		browser.setJavascriptEnabled(true);
+		if (input != null) {
+			if (input instanceof MarkovResultEditorInput) {
+				// display HTML code in browser
+				browser
+						.setText(((MarkovResultEditorInput) input)
+								.getHtmlCode());
+			} else {
+				// see if we can extract HTML code from the given input
+				String fileContent = getFileContent(input);
+				if (fileContent.trim().startsWith("<html>")) {
+					// assume we have an HTML file and try to display it
+					browser.setText(fileContent);
+				} else {
+					browser
+							.setText("<html><head><title>Markov Results</title></head>"
+									+ "<body><font color=\"red\">Error:"
+									+ " The given editor input could not be handled.</font>"
+									+ "</body></html>");
+				}
+			}
+		}
+	}
+
+	@Override
 	public void doSave(IProgressMonitor monitor) {
 		// TODO Auto-generated method stub
 
@@ -29,56 +57,13 @@ public class MarkovResultEditor extends EditorPart {
 
 	}
 
-	@Override
-	public void init(IEditorSite site, IEditorInput input)
-			throws PartInitException {
-		setSite(site); 
-		setInput(input);
-	}
-
-	@Override
-	public boolean isDirty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isSaveAsAllowed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void createPartControl(Composite parent) {
-		IEditorInput input = getEditorInput();
-		Browser browser = new Browser(parent, SWT.BORDER);
-		browser.setJavascriptEnabled(true);
-		if (input != null) {
-			if (input instanceof MarkovResultEditorInput) {
-				// display HTML code in browser
-				browser.setText(((MarkovResultEditorInput) input).getHtmlCode());
-			} else {
-				// see if we can extract HTML code from the given input
-				String fileContent = getFileContent(input);
-				if (fileContent.trim().startsWith("<html>")) {
-					// assume we have an HTML file and try to display it
-					browser.setText(fileContent);
-				} else {
-					browser.setText("<html><head><title>Markov Results</title></head>"
-							+ "<body><font color=\"red\">Error:"
-							+ " The given editor input could not be handled.</font>"
-							+ "</body></html>");
-				}
-			}
-		}
-	}
-
 	private String getFileContent(IEditorInput input) {
 		StringBuilder fileContent = null;
 		if (input instanceof FileEditorInput) {
 			FileEditorInput fileEditorInput = (FileEditorInput) input;
 			try {
-				FileReader fileReader = new FileReader(fileEditorInput.getPath().toOSString());
+				FileReader fileReader = new FileReader(fileEditorInput
+						.getPath().toOSString());
 				BufferedReader in = new BufferedReader(fileReader);
 				String line = null;
 				fileContent = new StringBuilder();
@@ -96,6 +81,25 @@ public class MarkovResultEditor extends EditorPart {
 			}
 		}
 		return fileContent.toString();
+	}
+
+	@Override
+	public void init(IEditorSite site, IEditorInput input)
+			throws PartInitException {
+		setSite(site);
+		setInput(input);
+	}
+
+	@Override
+	public boolean isDirty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isSaveAsAllowed() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override

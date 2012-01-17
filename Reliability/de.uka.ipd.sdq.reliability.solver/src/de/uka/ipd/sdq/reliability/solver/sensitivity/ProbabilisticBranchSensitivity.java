@@ -24,9 +24,9 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class ProbabilisticBranchSensitivity extends MarkovSensitivity {
 
 	/**
-	 * The ID of the branch transition to alter.
+	 * The base value.
 	 */
-	private String transitionId;
+	private double baseValue;
 
 	/**
 	 * The affected probabilistic branch transition;
@@ -34,9 +34,9 @@ public class ProbabilisticBranchSensitivity extends MarkovSensitivity {
 	private ProbabilisticBranchTransition transition = null;
 
 	/**
-	 * The base value.
+	 * The ID of the branch transition to alter.
 	 */
-	private double baseValue;
+	private String transitionId;
 
 	/**
 	 * The constructor.
@@ -92,7 +92,6 @@ public class ProbabilisticBranchSensitivity extends MarkovSensitivity {
 		}
 
 		// Search for the relevant branch transition:
-		ProbabilisticBranchTransition branchTransition = null;
 		for (Repository repository : repositories) {
 			EList<EObject> branchTransitions = helper.getElements(repository,
 					SeffFactory.eINSTANCE.createProbabilisticBranchTransition()

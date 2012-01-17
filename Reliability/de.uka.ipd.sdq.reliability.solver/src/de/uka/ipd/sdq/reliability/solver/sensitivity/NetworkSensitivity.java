@@ -22,14 +22,14 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class NetworkSensitivity extends MarkovSensitivity {
 
 	/**
-	 * The list of affected communication link resource specifications.
-	 */
-	private List<CommunicationLinkResourceSpecification> resources = null;
-
-	/**
 	 * The list of base values.
 	 */
 	private List<Double> baseValues = null;
+
+	/**
+	 * The list of affected communication link resource specifications.
+	 */
+	private List<CommunicationLinkResourceSpecification> resources = null;
 
 	/**
 	 * The constructor.

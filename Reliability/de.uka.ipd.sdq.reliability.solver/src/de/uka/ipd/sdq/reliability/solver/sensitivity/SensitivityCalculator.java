@@ -79,17 +79,149 @@ public class SensitivityCalculator {
 		} else if (variation instanceof DoubleParameterRange) {
 			DoubleParameterRange range = (DoubleParameterRange) variation;
 			if (range.isConsiderStepSize()) {
+				return range.getFirstValue() + range.getStepSize()
+						* (stepNumber - 1);
+			} else {
 				return range.getFirstValue()
 						+ ((range.getLastValue() - range.getFirstValue()) / (range
 								.getStepCount() - 1)) * (stepNumber - 1);
-			} else {
-				return range.getFirstValue() + range.getStepSize()
-						* (stepNumber - 1);
 			}
 		} else {
 			logger.error("Parameter variation type \""
 					+ variation.eClass().toString() + "\" not yet supported.");
 			return 0.0;
+		}
+	}
+
+	/**
+	 * Calculates the current string value from a given parameter variation and
+	 * step number.
+	 * 
+	 * @param sequence
+	 *            the parameter variation
+	 * @param stepNumber
+	 *            the step number
+	 * @return the current value
+	 */
+	public String calculateCurrentStringValue(
+			final StringParameterSequence sequence, final int stepNumber) {
+		return sequence.getStringValues().get(stepNumber - 1);
+	}
+
+	/**
+	 * Calculates the total failure potential associated to a given sensitivity
+	 * result specification.
+	 * 
+	 * @param markovResult
+	 *            the Markov transformation result
+	 * @param specification
+	 *            the result specification
+	 * @return the failure potential
+	 */
+	private double calculateFailurePotential(
+			MarkovTransformationResult markovResult,
+			FailureDimensionResultSpecification specification) {
+		double result = 0.0;
+		for (MarkovFailureType failureType : markovResult
+				.getCumulatedFailureTypeProbabilities().keySet()) {
+			if (isMatch(
+					specification
+							.getFailureDimension__FailureDimensionResultSpecification(),
+					failureType)) {
+				result += markovResult.getCumulatedFailureTypeProbabilities()
+						.get(failureType);
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * Calculates the total failure potential associated to a given sensitivity
+	 * result specification.
+	 * 
+	 * @param markovResult
+	 *            the Markov transformation result
+	 * @param specification
+	 *            the result specification
+	 * @return the failure potential
+	 */
+	private double calculateFailurePotential(
+			MarkovTransformationResult markovResult,
+			FailureTypeResultSpecification specification) {
+		double result = 0.0;
+		for (MarkovFailureType failureType : markovResult
+				.getCumulatedFailureTypeProbabilities().keySet()) {
+			for (FailureType resultType : specification
+					.getFailureTypes__FailureTypeResultSpecification()) {
+				if (isMatch(failureType, resultType)) {
+					result += markovResult
+							.getCumulatedFailureTypeProbabilities().get(
+									failureType);
+					break;
+				}
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * Calculates the total failure potential associated to a given sensitivity
+	 * result specification.
+	 * 
+	 * @param result
+	 *            the Markov transformation result
+	 * @param specification
+	 *            the result specification
+	 * @return the failure potential
+	 */
+	public double calculateFailurePotential(
+			final MarkovTransformationResult result,
+			final SensitivityResultSpecification specification) {
+		if (specification instanceof FailureTypeResultSpecification) {
+			return calculateFailurePotential(result,
+					(FailureTypeResultSpecification) specification);
+		} else if (specification instanceof FailureDimensionResultSpecification) {
+			return calculateFailurePotential(result,
+					(FailureDimensionResultSpecification) specification);
+		} else {
+			logger.error("Result specification type \""
+					+ specification.eClass().toString()
+					+ "\" not yet supported.");
+			return 0.0;
+		}
+	}
+
+	/**
+	 * Calculates the number of steps to perform for a given parameter
+	 * variation.
+	 * 
+	 * @param variation
+	 *            the parameter variation
+	 * @return the number of steps to perform
+	 */
+	public int calculateNumberOfSteps(
+			final SensitivityParameterVariation variation) {
+		if (variation instanceof DoubleParameterRange) {
+			if (((DoubleParameterRange) variation).isConsiderStepSize()) {
+				DoubleParameterRange range = (DoubleParameterRange) variation;
+				return (int) Math.floor(Math.abs(range.getLastValue()
+						- range.getFirstValue())
+						/ Math.abs(range.getStepSize())) + 1;
+			} else {
+				return ((DoubleParameterRange) variation).getStepCount();
+			}
+		} else if (variation instanceof DoubleParameterSequence) {
+			return ((DoubleParameterSequence) variation).getDoubleValues()
+					.size();
+		} else if (variation instanceof DoubleOffsetSequence) {
+			return ((DoubleOffsetSequence) variation).getOffsetValues().size();
+		} else if (variation instanceof StringParameterSequence) {
+			return ((StringParameterSequence) variation).getStringValues()
+					.size();
+		} else {
+			logger.error("Parameter variation type \""
+					+ variation.eClass().toString() + "\" not yet supported.");
+			return 0;
 		}
 	}
 
@@ -144,109 +276,6 @@ public class SensitivityCalculator {
 	}
 
 	/**
-	 * Calculates the current string value from a given parameter variation and
-	 * step number.
-	 * 
-	 * @param sequence
-	 *            the parameter variation
-	 * @param stepNumber
-	 *            the step number
-	 * @return the current value
-	 */
-	public String calculateCurrentStringValue(
-			final StringParameterSequence sequence, final int stepNumber) {
-		return sequence.getStringValues().get(stepNumber - 1);
-	}
-
-	/**
-	 * Calculates the number of steps to perform for a given parameter
-	 * variation.
-	 * 
-	 * @param variation
-	 *            the parameter variation
-	 * @return the number of steps to perform
-	 */
-	public int calculateNumberOfSteps(
-			final SensitivityParameterVariation variation) {
-		if (variation instanceof DoubleParameterRange) {
-			if (((DoubleParameterRange) variation).isConsiderStepSize()) {
-				DoubleParameterRange range = (DoubleParameterRange) variation;
-				return (int) Math.floor(Math.abs(range.getLastValue()
-						- range.getFirstValue())
-						/ Math.abs(range.getStepSize()));
-			} else {
-				return ((DoubleParameterRange) variation).getStepCount();
-			}
-		} else if (variation instanceof DoubleParameterSequence) {
-			return ((DoubleParameterSequence) variation).getDoubleValues()
-					.size();
-		} else if (variation instanceof DoubleOffsetSequence) {
-			return ((DoubleOffsetSequence) variation).getOffsetValues().size();
-		} else if (variation instanceof StringParameterSequence) {
-			return ((StringParameterSequence) variation).getStringValues()
-					.size();
-		} else {
-			logger.error("Parameter variation type \""
-					+ variation.eClass().toString() + "\" not yet supported.");
-			return 0;
-		}
-	}
-
-	/**
-	 * Calculates the total failure potential associated to a given sensitivity
-	 * result specification.
-	 * 
-	 * @param result
-	 *            the Markov transformation result
-	 * @param specification
-	 *            the result specification
-	 * @return the failure potential
-	 */
-	public double calculateFailurePotential(
-			final MarkovTransformationResult result,
-			final SensitivityResultSpecification specification) {
-		if (specification instanceof FailureTypeResultSpecification) {
-			return calculateFailurePotential(result,
-					(FailureTypeResultSpecification) specification);
-		} else if (specification instanceof FailureDimensionResultSpecification) {
-			return calculateFailurePotential(result,
-					(FailureDimensionResultSpecification) specification);
-		} else {
-			logger.error("Result specification type \""
-					+ specification.eClass().toString()
-					+ "\" not yet supported.");
-			return 0.0;
-		}
-	}
-
-	/**
-	 * Calculates the total failure potential associated to a given sensitivity
-	 * result specification.
-	 * 
-	 * @param markovResult
-	 *            the Markov transformation result
-	 * @param specification
-	 *            the result specification
-	 * @return the failure potential
-	 */
-	private double calculateFailurePotential(
-			MarkovTransformationResult markovResult,
-			FailureDimensionResultSpecification specification) {
-		double result = 0.0;
-		for (MarkovFailureType failureType : markovResult
-				.getCumulatedFailureTypeProbabilities().keySet()) {
-			if (isMatch(
-					specification
-							.getFailureDimension__FailureDimensionResultSpecification(),
-					failureType)) {
-				result += markovResult.getCumulatedFailureTypeProbabilities()
-						.get(failureType);
-			}
-		}
-		return result;
-	}
-
-	/**
 	 * Compares a failure dimension and a failure type with each other.
 	 * 
 	 * @param dimension
@@ -259,35 +288,6 @@ public class SensitivityCalculator {
 		return (dimension.equals(FailureDimension.SOFTWARE) && (type instanceof MarkovSoftwareInducedFailureType))
 				|| (dimension.equals(FailureDimension.HARDWARE) && (type instanceof MarkovHardwareInducedFailureType))
 				|| (dimension.equals(FailureDimension.NETWORK) && (type instanceof MarkovNetworkInducedFailureType));
-	}
-
-	/**
-	 * Calculates the total failure potential associated to a given sensitivity
-	 * result specification.
-	 * 
-	 * @param markovResult
-	 *            the Markov transformation result
-	 * @param specification
-	 *            the result specification
-	 * @return the failure potential
-	 */
-	private double calculateFailurePotential(
-			MarkovTransformationResult markovResult,
-			FailureTypeResultSpecification specification) {
-		double result = 0.0;
-		for (MarkovFailureType failureType : markovResult
-				.getCumulatedFailureTypeProbabilities().keySet()) {
-			for (FailureType resultType : specification
-					.getFailureTypes__FailureTypeResultSpecification()) {
-				if (isMatch(failureType, resultType)) {
-					result += markovResult
-							.getCumulatedFailureTypeProbabilities().get(
-									failureType);
-					break;
-				}
-			}
-		}
-		return result;
 	}
 
 	/**

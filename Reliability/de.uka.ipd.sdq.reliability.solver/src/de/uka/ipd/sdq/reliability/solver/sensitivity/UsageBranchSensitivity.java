@@ -9,7 +9,6 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
@@ -25,6 +24,11 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class UsageBranchSensitivity extends MarkovSensitivity {
 
 	/**
+	 * The base value.
+	 */
+	private double baseValue;
+
+	/**
 	 * The ID of the involved branch behaviour.
 	 */
 	private String behaviourId;
@@ -38,11 +42,6 @@ public class UsageBranchSensitivity extends MarkovSensitivity {
 	 * The affected probabilistic branch transition;
 	 */
 	private BranchTransition transition = null;
-
-	/**
-	 * The base value.
-	 */
-	private double baseValue;
 
 	/**
 	 * The constructor.

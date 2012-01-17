@@ -21,14 +21,14 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class MTTRSensitivity extends MarkovSensitivity {
 
 	/**
-	 * The list of affected processing resource specifications.
-	 */
-	List<ProcessingResourceSpecification> specifications = null;
-
-	/**
 	 * The list of base values.
 	 */
 	List<Double> baseValues = null;
+
+	/**
+	 * The list of affected processing resource specifications.
+	 */
+	List<ProcessingResourceSpecification> specifications = null;
 
 	/**
 	 * The constructor.

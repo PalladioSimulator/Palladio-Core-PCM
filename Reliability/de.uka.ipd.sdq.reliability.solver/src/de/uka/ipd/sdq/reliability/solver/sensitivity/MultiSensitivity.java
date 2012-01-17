@@ -15,76 +15,14 @@ import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 public class MultiSensitivity extends MarkovSensitivity {
 
 	/**
-	 * Retrieves the current step number.
-	 * 
-	 * @return the current step number
+	 * Determines if all combinations of parameter values shall be examined.
 	 */
-	protected int getCurrentStepNumber() {
-		if (isCombinatory) {
-			int stepNumber = 1;
-			for (int i = 0; i < sensitivityParameters.size(); i++) {
-				int step = sensitivityParameters.get(i).getCurrentStepNumber();
-				if (step == 0) {
-					return 0;
-				}
-				int weight = 1;
-				for (int j = i + 1; j < sensitivityParameters.size(); j++) {
-					weight *= sensitivityParameters.get(j).numberOfSteps;
-				}
-				stepNumber += weight * (step - 1);
-			}
-			return stepNumber;
-		} else {
-			int stepNumber = 0;
-			for (MarkovSensitivity sensitivity : sensitivityParameters) {
-				stepNumber = Math.max(stepNumber, sensitivity
-						.getCurrentStepNumber());
-			}
-			return stepNumber;
-		}
-	}
-
-	/**
-	 * Resets the current step number.
-	 * 
-	 */
-	protected void resetCurrentStepNumber() {
-		for (MarkovSensitivity sensitivity : sensitivityParameters) {
-			sensitivity.resetCurrentStepNumber();
-		}
-	}
-
-	/**
-	 * Increases the current step number.
-	 * 
-	 * @return indicates an overflow
-	 */
-	protected boolean increaseCurrentStepNumber() {
-		if (isCombinatory) {
-			if (sensitivityParameters.size() > 0) {
-				return increaseStepCountRecursively(0);
-			}
-			return true;
-		} else {
-			boolean overflow = true;
-			for (MarkovSensitivity sensitivity : sensitivityParameters) {
-				if (!sensitivity.increaseCurrentStepNumber()) {
-					overflow = false;
-				}
-			}
-			return overflow;
-		}
-	}
+	private boolean isCombinatory;
 
 	/**
 	 * List of sensitivity parameters.
 	 */
 	public List<MarkovSensitivity> sensitivityParameters;
-
-	/**
-	 * Determines if all combinations of parameter values shall be examined.
-	 */
-	private boolean isCombinatory;
 
 	/**
 	 * The constructor.
@@ -110,109 +48,6 @@ public class MultiSensitivity extends MarkovSensitivity {
 
 		// Determine the overall number of sensibility steps:
 		determineNumberOfSteps();
-	}
-
-	/**
-	 * Determines the overall number of sensitivity analysis steps.
-	 */
-	private void determineNumberOfSteps() {
-		numberOfSteps = (isCombinatory) ? 1 : 0;
-		for (MarkovSensitivity sensitivity : sensitivityParameters) {
-			if (!isCombinatory) {
-				if (sensitivity.numberOfSteps > numberOfSteps) {
-					numberOfSteps = sensitivity.numberOfSteps;
-				}
-			} else {
-				numberOfSteps *= sensitivity.numberOfSteps;
-			}
-		}
-	}
-
-	/**
-	 * Determines the number of lines in the given list of log headings.
-	 * 
-	 * @param logHeadingsList
-	 *            the list of log headings
-	 * @return the number of lines
-	 */
-	private int getMaxNumberOfLines(
-			ArrayList<List<List<String>>> logHeadingsList) {
-		int maxNumberOfLines = 0;
-		for (int i = 0; i < logHeadingsList.size(); i++) {
-			int numberOfLines = logHeadingsList.get(i).size();
-			maxNumberOfLines = Math.max(numberOfLines, maxNumberOfLines);
-		}
-		return maxNumberOfLines;
-	}
-
-	/**
-	 * Retrieves the current step count of a sensitivity parameter.
-	 * 
-	 * @param index
-	 *            the index of the {@link SensitivityStatus} parameter
-	 * @return the step count
-	 */
-	private int getStepCount(final int index) {
-		MarkovSensitivity sensitivity = sensitivityParameters.get(index);
-		return sensitivity.getCurrentStepNumber();
-	}
-
-	/**
-	 * Increases the combinatory step count of a sensitivity parameter.
-	 * 
-	 * @param index
-	 *            the index of sensitivity parameter
-	 * @return true if an overflow happened
-	 */
-	private boolean increaseStepCount(final int index) {
-		MarkovSensitivity sensitivity = sensitivityParameters.get(index);
-		if (!sensitivity.increaseCurrentStepNumber()) {
-			for (int i = index + 1; i < sensitivityParameters.size(); i++) {
-				sensitivityParameters.get(i).resetCurrentStepNumber();
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * Increases the combinatory step count over all sensitivity parameters.
-	 * 
-	 * @param index
-	 *            the index of the current sensitivity parameter
-	 * @return true if an overflow happened
-	 */
-	private boolean increaseStepCountRecursively(final int index) {
-
-		// Check for the cases of the recursion:
-		if (getStepCount(index) == 0) {
-			// Initial case, all step counts set to 1:
-			initStepCountRecusively(index);
-			return false;
-		} else if (sensitivityParameters.size() > index + 1) {
-			// Recursive case, increase counter:
-			if (increaseStepCountRecursively(index + 1)) {
-				return increaseStepCount(index);
-			}
-			return false;
-		} else {
-			// Base case, increase last counter:
-			return increaseStepCount(index);
-		}
-	}
-
-	/**
-	 * Initializes all sensitivity parameter step counts to 1.
-	 * 
-	 * @param index
-	 *            the index of the current sensitivity parameter
-	 */
-	private void initStepCountRecusively(final int index) {
-		if (sensitivityParameters.size() > index) {
-			MarkovSensitivity sensitivity = sensitivityParameters.get(index);
-			sensitivity.resetCurrentStepNumber();
-			initStepCountRecusively(index + 1);
-		}
 	}
 
 	/**
@@ -250,10 +85,56 @@ public class MultiSensitivity extends MarkovSensitivity {
 	}
 
 	/**
+	 * Determines the overall number of sensitivity analysis steps.
+	 */
+	private void determineNumberOfSteps() {
+		numberOfSteps = (isCombinatory) ? 1 : 0;
+		for (MarkovSensitivity sensitivity : sensitivityParameters) {
+			if (!isCombinatory) {
+				if (sensitivity.numberOfSteps > numberOfSteps) {
+					numberOfSteps = sensitivity.numberOfSteps;
+				}
+			} else {
+				numberOfSteps *= sensitivity.numberOfSteps;
+			}
+		}
+	}
+
+	/**
 	 * Extracts the relevant sensitivity information from the given model.
 	 */
 	protected void extractSensitivityInformation() {
 		// Nothing to do in the MultiSensitivity.
+	}
+
+	/**
+	 * Retrieves the current step number.
+	 * 
+	 * @return the current step number
+	 */
+	protected int getCurrentStepNumber() {
+		if (isCombinatory) {
+			int stepNumber = 1;
+			for (int i = 0; i < sensitivityParameters.size(); i++) {
+				int step = sensitivityParameters.get(i).getCurrentStepNumber();
+				if (step == 0) {
+					return 0;
+				}
+				int weight = 1;
+				for (int j = i + 1; j < sensitivityParameters.size(); j++) {
+					weight *= sensitivityParameters.get(j).numberOfSteps;
+				}
+				stepNumber += weight * (step - 1);
+			}
+			return stepNumber;
+		} else {
+			int stepNumber = 0;
+			for (MarkovSensitivity sensitivity : sensitivityParameters) {
+				stepNumber = Math.max(stepNumber, sensitivity
+						.getCurrentStepNumber());
+			}
+			return stepNumber;
+		}
 	}
 
 	/**
@@ -317,6 +198,125 @@ public class MultiSensitivity extends MarkovSensitivity {
 
 		// Return the result:
 		return resultList;
+	}
+
+	/**
+	 * Determines the number of lines in the given list of log headings.
+	 * 
+	 * @param logHeadingsList
+	 *            the list of log headings
+	 * @return the number of lines
+	 */
+	private int getMaxNumberOfLines(
+			ArrayList<List<List<String>>> logHeadingsList) {
+		int maxNumberOfLines = 0;
+		for (int i = 0; i < logHeadingsList.size(); i++) {
+			int numberOfLines = logHeadingsList.get(i).size();
+			maxNumberOfLines = Math.max(numberOfLines, maxNumberOfLines);
+		}
+		return maxNumberOfLines;
+	}
+
+	/**
+	 * Retrieves the current step count of a sensitivity parameter.
+	 * 
+	 * @param index
+	 *            the index of the {@link SensitivityStatus} parameter
+	 * @return the step count
+	 */
+	private int getStepCount(final int index) {
+		MarkovSensitivity sensitivity = sensitivityParameters.get(index);
+		return sensitivity.getCurrentStepNumber();
+	}
+
+	/**
+	 * Increases the current step number.
+	 * 
+	 * @return indicates an overflow
+	 */
+	protected boolean increaseCurrentStepNumber() {
+		if (isCombinatory) {
+			if (sensitivityParameters.size() > 0) {
+				return increaseStepCountRecursively(0);
+			}
+			return true;
+		} else {
+			boolean overflow = true;
+			for (MarkovSensitivity sensitivity : sensitivityParameters) {
+				if (!sensitivity.increaseCurrentStepNumber()) {
+					overflow = false;
+				}
+			}
+			return overflow;
+		}
+	}
+
+	/**
+	 * Increases the combinatory step count of a sensitivity parameter.
+	 * 
+	 * @param index
+	 *            the index of sensitivity parameter
+	 * @return true if an overflow happened
+	 */
+	private boolean increaseStepCount(final int index) {
+		MarkovSensitivity sensitivity = sensitivityParameters.get(index);
+		if (!sensitivity.increaseCurrentStepNumber()) {
+			for (int i = index + 1; i < sensitivityParameters.size(); i++) {
+				sensitivityParameters.get(i).resetCurrentStepNumber();
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Increases the combinatory step count over all sensitivity parameters.
+	 * 
+	 * @param index
+	 *            the index of the current sensitivity parameter
+	 * @return true if an overflow happened
+	 */
+	private boolean increaseStepCountRecursively(final int index) {
+
+		// Check for the cases of the recursion:
+		if (getStepCount(index) == 0) {
+			// Initial case, all step counts set to 1:
+			initStepCountRecusively(index);
+			return false;
+		} else if (sensitivityParameters.size() > index + 1) {
+			// Recursive case, increase counter:
+			if (increaseStepCountRecursively(index + 1)) {
+				return increaseStepCount(index);
+			}
+			return false;
+		} else {
+			// Base case, increase last counter:
+			return increaseStepCount(index);
+		}
+	}
+
+	/**
+	 * Initializes all sensitivity parameter step counts to 1.
+	 * 
+	 * @param index
+	 *            the index of the current sensitivity parameter
+	 */
+	private void initStepCountRecusively(final int index) {
+		if (sensitivityParameters.size() > index) {
+			MarkovSensitivity sensitivity = sensitivityParameters.get(index);
+			sensitivity.resetCurrentStepNumber();
+			initStepCountRecusively(index + 1);
+		}
+	}
+
+	/**
+	 * Resets the current step number.
+	 * 
+	 */
+	protected void resetCurrentStepNumber() {
+		for (MarkovSensitivity sensitivity : sensitivityParameters) {
+			sensitivity.resetCurrentStepNumber();
+		}
 	}
 
 	/**

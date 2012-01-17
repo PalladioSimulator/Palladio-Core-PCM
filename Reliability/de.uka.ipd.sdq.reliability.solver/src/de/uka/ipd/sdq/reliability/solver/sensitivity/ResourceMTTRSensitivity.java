@@ -21,6 +21,11 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class ResourceMTTRSensitivity extends MarkovSensitivity {
 
 	/**
+	 * The base value.
+	 */
+	private double baseValue;
+
+	/**
 	 * The resource type to alter.
 	 */
 	private String processingResourceTypeId;
@@ -34,11 +39,6 @@ public class ResourceMTTRSensitivity extends MarkovSensitivity {
 	 * The affected processing resource specification.
 	 */
 	private ProcessingResourceSpecification specification = null;
-
-	/**
-	 * The base value.
-	 */
-	private double baseValue;
 
 	/**
 	 * The constructor.

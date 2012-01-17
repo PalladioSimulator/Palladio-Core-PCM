@@ -91,13 +91,16 @@ public class MarkovHtmlGenerator {
 					continue; // table contains no rows, thus consider next
 					// table in list
 				}
-				htmlCode.append("<div class=\"JSTableStripe\"><div class=\"JSTableSort\">");
+				htmlCode
+						.append("<div class=\"JSTableStripe\"><div class=\"JSTableSort\">");
 				htmlCode.append("<b>" + table.getTableName() + ":</b><br />");
-				htmlCode.append("<table border=\"0\" style=\"margin-top: 1mm; border: 1px solid black;\">");
+				htmlCode
+						.append("<table border=\"0\" style=\"margin-top: 1mm; border: 1px solid black;\">");
 				// create header row
 				htmlCode.append("<thead><tr>");
 				for (String headerEntry : table.getHeaderRow()) {
-					htmlCode.append("<th class=\"SortString\" onselectstart=\"return false;\">"
+					htmlCode
+							.append("<th class=\"SortString\" onselectstart=\"return false;\">"
 									+ headerEntry + "</th>");
 				}
 				htmlCode.append("</tr></thead><tbody>");
@@ -118,14 +121,18 @@ public class MarkovHtmlGenerator {
 				htmlCode.append("<hr />");
 				// now, consider impact analysis tables
 				htmlCode.append("<h3>Impact Analysis</h3>");
-				for (MarkovReportingTable table : item.getImpactAnalysisTables()) {
+				for (MarkovReportingTable table : item
+						.getImpactAnalysisTables()) {
 					if (table.getRows().size() == 0) {
 						continue; // table contains no rows, thus consider next
 						// table in list
 					}
-					htmlCode.append("<div class=\"JSTableStripe\"><div class=\"JSTableSort\">");
-					htmlCode.append("<b>" + table.getTableName() + ":</b><br />");
-					htmlCode.append("<table border=\"0\" style=\"margin-top: 1mm; border: 1px solid black;\">");
+					htmlCode
+							.append("<div class=\"JSTableStripe\"><div class=\"JSTableSort\">");
+					htmlCode.append("<b>" + table.getTableName()
+							+ ":</b><br />");
+					htmlCode
+							.append("<table border=\"0\" style=\"margin-top: 1mm; border: 1px solid black;\">");
 					// create header row
 					htmlCode.append("<thead><tr>");
 					for (String headerEntry : table.getHeaderRow()) {

@@ -5,11 +5,11 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
 
 /**
- * Class that is responsible for displaying Markov transformation results
- * as HTML page inside a customized workbench editor of a target instance. 
+ * Class that is responsible for displaying Markov transformation results as
+ * HTML page inside a customized workbench editor of a target instance.
  * 
  * @author Daniel Patejdl
- *
+ * 
  */
 public class MarkovResultEditorInput implements IEditorInput {
 
@@ -19,25 +19,14 @@ public class MarkovResultEditorInput implements IEditorInput {
 	private String htmlCode;
 
 	/**
-	 * Gets the HTML code as string.
-	 * @return the HTML code as string
-	 */
-	public String getHtmlCode() {
-		return htmlCode;
-	}
-
-	/**
-	 * Sets the HTML code (string)
-	 * @param htmlCode the HTML code as string
-	 */
-	public void setHtmlCode(String htmlCode) {
-		this.htmlCode = htmlCode;
-	}
-
-	/**
-	 * Creates a new MarkovResultEditor, given a list of Markov transformation results.
-	 * @param markovResults the Markov transformation results
-	 * @param configuration the configuration properties for the reliability solver workflow
+	 * Creates a new MarkovResultEditor, given a list of Markov transformation
+	 * results.
+	 * 
+	 * @param markovResults
+	 *            the Markov transformation results
+	 * @param configuration
+	 *            the configuration properties for the reliability solver
+	 *            workflow
 	 */
 	public MarkovResultEditorInput(String htmlCode) {
 		this.htmlCode = htmlCode;
@@ -46,6 +35,21 @@ public class MarkovResultEditorInput implements IEditorInput {
 	@Override
 	public boolean exists() {
 		return false;
+	}
+
+	@Override
+	public Object getAdapter(Class adapter) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
+	 * Gets the HTML code as string.
+	 * 
+	 * @return the HTML code as string
+	 */
+	public String getHtmlCode() {
+		return htmlCode;
 	}
 
 	@Override
@@ -70,10 +74,14 @@ public class MarkovResultEditorInput implements IEditorInput {
 		return "Markov Result";
 	}
 
-	@Override
-	public Object getAdapter(Class adapter) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Sets the HTML code (string)
+	 * 
+	 * @param htmlCode
+	 *            the HTML code as string
+	 */
+	public void setHtmlCode(String htmlCode) {
+		this.htmlCode = htmlCode;
 	}
 
 }

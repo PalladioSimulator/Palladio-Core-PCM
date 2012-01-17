@@ -23,14 +23,14 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class SoftwareSensitivity extends MarkovSensitivity {
 
 	/**
-	 * The list of affected internal failure occurrence descriptions.
-	 */
-	private List<InternalFailureOccurrenceDescription> descriptions = null;
-
-	/**
 	 * The list of base values of this sensitivity.
 	 */
 	private List<Double> baseValues = null;
+
+	/**
+	 * The list of affected internal failure occurrence descriptions.
+	 */
+	private List<InternalFailureOccurrenceDescription> descriptions = null;
 
 	/**
 	 * The constructor.
