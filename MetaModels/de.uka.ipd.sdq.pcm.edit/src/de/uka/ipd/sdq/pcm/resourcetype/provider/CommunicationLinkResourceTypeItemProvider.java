@@ -105,15 +105,18 @@ public class CommunicationLinkResourceTypeItemProvider
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
+	 * FB: Adapted method to produce a more informative label for display in non-PCM editors.
+	 * In PCM editors, display is not controlled by this method but through a more general
+	 * mechanism (I'n not sure where it's actually controlled, maybe the
+	 * de.uka.ipd.sdq.pcmbench.tabs.PropertyLabelProvider.getText() method?)
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CommunicationLinkResourceType)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CommunicationLinkResourceType_type") :
-			getString("_UI_CommunicationLinkResourceType_type") + " " + label;
+		return ((CommunicationLinkResourceType)object).getEntityName()
+			+ " [ID: " + ((CommunicationLinkResourceType)object).getId() + "]"
+			+ " <" + getString("_UI_CommunicationLinkResourceType_type") + ">";
 	}
 
 	/**

@@ -420,26 +420,26 @@ public class SensitivityItemProviderAdapterFactory extends SensitivityAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.sensitivity.SystemCallParameter} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.sensitivity.VariableUsageParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SystemCallParameterItemProvider systemCallParameterItemProvider;
+	protected VariableUsageParameterItemProvider variableUsageParameterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.sensitivity.SystemCallParameter}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.sensitivity.VariableUsageParameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSystemCallParameterAdapter() {
-		if (systemCallParameterItemProvider == null) {
-			systemCallParameterItemProvider = new SystemCallParameterItemProvider(this);
+	public Adapter createVariableUsageParameterAdapter() {
+		if (variableUsageParameterItemProvider == null) {
+			variableUsageParameterItemProvider = new VariableUsageParameterItemProvider(this);
 		}
 
-		return systemCallParameterItemProvider;
+		return variableUsageParameterItemProvider;
 	}
 
 	/**
@@ -671,7 +671,7 @@ public class SensitivityItemProviderAdapterFactory extends SensitivityAdapterFac
 		if (networkReliabilityParameterItemProvider != null) networkReliabilityParameterItemProvider.dispose();
 		if (communicationLinkReliabilityParameterItemProvider != null) communicationLinkReliabilityParameterItemProvider.dispose();
 		if (softwareReliabilityParameterItemProvider != null) softwareReliabilityParameterItemProvider.dispose();
-		if (systemCallParameterItemProvider != null) systemCallParameterItemProvider.dispose();
+		if (variableUsageParameterItemProvider != null) variableUsageParameterItemProvider.dispose();
 		if (usageBranchParameterItemProvider != null) usageBranchParameterItemProvider.dispose();
 		if (doubleOffsetSequenceItemProvider != null) doubleOffsetSequenceItemProvider.dispose();
 		if (softwareFailureTypesParameterItemProvider != null) softwareFailureTypesParameterItemProvider.dispose();

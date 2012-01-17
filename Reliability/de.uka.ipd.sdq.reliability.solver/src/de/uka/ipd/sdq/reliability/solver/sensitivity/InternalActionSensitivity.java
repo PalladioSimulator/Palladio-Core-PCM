@@ -24,6 +24,16 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class InternalActionSensitivity extends MarkovSensitivity {
 
 	/**
+	 * The base value of this sensitivity.
+	 */
+	private double baseValue;
+
+	/**
+	 * The affected internal failure occurrence description.
+	 */
+	private InternalFailureOccurrenceDescription description = null;
+
+	/**
 	 * The ID of the failure type.
 	 */
 	private String failureTypeId;
@@ -32,16 +42,6 @@ public class InternalActionSensitivity extends MarkovSensitivity {
 	 * The ID of the internal action to alter.
 	 */
 	private String internalActionId;
-
-	/**
-	 * The affected internal failure occurrence description.
-	 */
-	private InternalFailureOccurrenceDescription description = null;
-
-	/**
-	 * The base value of this sensitivity.
-	 */
-	private double baseValue;
 
 	/**
 	 * The constructor.
@@ -110,6 +110,9 @@ public class InternalActionSensitivity extends MarkovSensitivity {
 					internalAction = (InternalAction) action;
 					break;
 				}
+			}
+			if(internalAction != null){
+				break;
 			}
 		}
 		if (internalAction == null) {

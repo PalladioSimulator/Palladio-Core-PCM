@@ -20,28 +20,29 @@ public class MarkovSolver {
 	 */
 	private static Logger logger = Logger.getLogger(MarkovSolver.class
 			.getName());
-	
+
 	/**
 	 * The static singleton instance.
 	 */
 	private static MarkovSolver singletonSolver;
-	
+
 	/**
 	 * Retrieves the singleton solver instance.
+	 * 
 	 * @return the singleton solver instance
 	 */
-	public static MarkovSolver getSingletonInstance(){
-		if(singletonSolver == null){
+	public static MarkovSolver getSingletonInstance() {
+		if (singletonSolver == null) {
 			singletonSolver = new MarkovSolver();
 		}
 		return singletonSolver;
 	}
-	
+
 	/**
 	 * Singleton instance - private constructor.
 	 */
-	private MarkovSolver(){
-		
+	private MarkovSolver() {
+
 	}
 
 	/**
@@ -63,9 +64,11 @@ public class MarkovSolver {
 
 		// Take over transition probabilities into the transition matrix:
 		for (int i = 0; i < markovChain.getTransitions().size(); i++) {
-			Transition transition=markovChain.getTransitions().get(i);
-			int index_from = markovChain.getStates().indexOf(transition.getFromState());
-			int index_to = markovChain.getStates().indexOf(transition.getToState());
+			Transition transition = markovChain.getTransitions().get(i);
+			int index_from = markovChain.getStates().indexOf(
+					transition.getFromState());
+			int index_to = markovChain.getStates().indexOf(
+					transition.getToState());
 			transitionMatrix[index_from][index_to] = markovChain
 					.getTransitions().get(i).getProbability();
 		}
@@ -73,10 +76,11 @@ public class MarkovSolver {
 		// Calculate (Identity Matrix - Transition Matrix):
 		for (int i = 0; i < transitionMatrix.length; i++) {
 			for (int j = 0; j < transitionMatrix[i].length; j++) {
-				transitionMatrix[i][j] = ((i == j)? 1 : 0) - transitionMatrix[i][j];
+				transitionMatrix[i][j] = ((i == j) ? 1 : 0)
+						- transitionMatrix[i][j];
 			}
 		}
-		
+
 		// Calculate the inverse matrix:
 		return Inverse.invert(transitionMatrix);
 	}

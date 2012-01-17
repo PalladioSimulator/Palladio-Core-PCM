@@ -11,9 +11,6 @@ import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
 import de.uka.ipd.sdq.pcm.reliability.ReliabilityFactory;
 import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 
 /**
@@ -26,9 +23,9 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class FailureTypeSensitivity extends MarkovSensitivity {
 
 	/**
-	 * The IDs of the affected software-induced failure type.
+	 * The list of base values of this sensitivity.
 	 */
-	private List<String> typeIds = null;
+	private List<Double> baseValues = null;
 
 	/**
 	 * The list of affected internal failure occurrence descriptions.
@@ -36,9 +33,9 @@ public class FailureTypeSensitivity extends MarkovSensitivity {
 	private List<InternalFailureOccurrenceDescription> descriptions = null;
 
 	/**
-	 * The list of base values of this sensitivity.
+	 * The IDs of the affected software-induced failure type.
 	 */
-	private List<Double> baseValues = null;
+	private List<String> typeIds = null;
 
 	/**
 	 * The constructor.

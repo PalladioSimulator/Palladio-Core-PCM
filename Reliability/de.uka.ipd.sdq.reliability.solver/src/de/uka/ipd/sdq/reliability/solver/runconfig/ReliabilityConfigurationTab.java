@@ -24,21 +24,21 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.ConfigurationTab;
  */
 public class ReliabilityConfigurationTab extends ConfigurationTab {
 
-	/** Title of the sensitivity analysis group. */
-	private static final String GROUP_SENSITIVITY_LABEL = "Sensitivity analysis";
 	/** Label for the sensitivity analysis setting. */
 	private static final String BUTTON_SENSITIVITY_LABEL = "Perform sensitivity analysis";
-	/** Label of the file selection field for the sensitivity model file. */
-	private static final String SENSITIVITY_FILE_LABEL = "Sensitivity Model File";
+	/** Title of the sensitivity analysis group. */
+	private static final String GROUP_SENSITIVITY_LABEL = "Sensitivity analysis";
 	/** Label of the file selection field for the sensitivity results log file. */
 	private static final String LOG_FILE_LABEL = "Sensitivity Result Log File";
+	/** Label of the file selection field for the sensitivity model file. */
+	private static final String SENSITIVITY_FILE_LABEL = "Sensitivity Model File";
 
 	/** Button used to enable/disable sensitivity analysis. */
 	private Button sensitivityButton;
 	/** Text containing the location of the sensitivity model file. */
-	private Text textSensitivityFile;
-	/** Text containing the location of the sensitivity model file. */
 	private Text textResultLogFile;
+	/** Text containing the location of the sensitivity model file. */
+	private Text textSensitivityFile;
 
 	/*
 	 * (non-Javadoc)
@@ -129,8 +129,7 @@ public class ReliabilityConfigurationTab extends ConfigurationTab {
 				return false;
 			}
 			if (!TabHelper.validateFilenameExtension(textResultLogFile
-					.getText(),
-					ConstantsContainer.SENSITIVITY_LOG_EXTENSION)) {
+					.getText(), ConstantsContainer.SENSITIVITY_LOG_EXTENSION)) {
 				setErrorMessage("Sensitivity Result Log File must be present for sensitivity analysis.");
 				return false;
 			}

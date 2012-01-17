@@ -210,7 +210,7 @@ public class SensitivityConfigurationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SensitivityPackage.Literals.SENSITIVITY_CONFIGURATION__SENSITIVITY_PARAMETERS_SENSITIVITY_CONFIGURATION,
-				 SensitivityFactory.eINSTANCE.createSystemCallParameter()));
+				 SensitivityFactory.eINSTANCE.createVariableUsageParameter()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
@@ -162,15 +163,18 @@ public class EntryLevelSystemCallItemProvider
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
+	 * FB: Adapted method to produce a more informative label for display in non-PCM editors.
+	 * In PCM editors, display is not controlled by this method but through a more general
+	 * mechanism (I'n not sure where it's actually controlled, maybe the
+	 * de.uka.ipd.sdq.pcmbench.tabs.PropertyLabelProvider.getText() method?)
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
-	public String getText(Object object) {
-		String label = ((EntryLevelSystemCall)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_EntryLevelSystemCall_type") :
-			getString("_UI_EntryLevelSystemCall_type") + " " + label;
+	public String getText(Object object) {		
+		return ((EntryLevelSystemCall)object).getEntityName()
+			+ " [ID: " + ((EntryLevelSystemCall)object).getId() + "]"
+			+ " <" + getString("_UI_EntryLevelSystemCall_type") + ">";
 	}
 
 	/**

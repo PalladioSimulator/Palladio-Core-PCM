@@ -56,6 +56,34 @@ public class MarkovResultApproximation {
 	}
 
 	/**
+	 * Replaces the approximation through a more coarse-grained one, in order to
+	 * reduce the number of decimal places of the bounds to the value of
+	 * accuracy.
+	 */
+	private void adjustBounds() {
+		adjustedLowerBound = Math
+				.floor(lowerBound * Math.pow(10, accuracy + 1))
+				/ Math.pow(10, accuracy + 1);
+		adjustedUpperBound = Math.ceil(upperBound * Math.pow(10, accuracy + 1))
+				/ Math.pow(10, accuracy + 1);
+	}
+
+	/**
+	 * Determines the accuracy of the approximation.
+	 */
+	private void calculateAccuracy() {
+		double delta = upperBound - lowerBound;
+		accuracy = 1;
+		while (delta < Math.pow(0.1, accuracy)) {
+			accuracy++;
+			if (accuracy > MAXACCURACY) {
+				break;
+			}
+		}
+		accuracy -= 1;
+	}
+
+	/**
 	 * Retrieves the accuracy (i.e., number of exact decimal values) of the
 	 * approximation.
 	 * 
@@ -111,32 +139,5 @@ public class MarkovResultApproximation {
 	 */
 	public boolean hasRequiredAccuracy(final int requiredAccuracy) {
 		return (accuracy >= requiredAccuracy);
-	}
-
-	/**
-	 * Replaces the approximation through a more coarse-grained one, in order to
-	 * reduce the number of decimal places of the bounds to the value of
-	 * accuracy.
-	 */
-	private void adjustBounds() {
-		adjustedLowerBound = Math.floor(lowerBound * Math.pow(10, accuracy + 1))
-				/ Math.pow(10, accuracy + 1);
-		adjustedUpperBound = Math.ceil(upperBound * Math.pow(10, accuracy + 1))
-				/ Math.pow(10, accuracy + 1);
-	}
-
-	/**
-	 * Determines the accuracy of the approximation.
-	 */
-	private void calculateAccuracy() {
-		double delta = upperBound - lowerBound;
-		accuracy = 1;
-		while (delta < Math.pow(0.1, accuracy)) {
-			accuracy++;
-			if (accuracy > MAXACCURACY) {
-				break;
-			}
-		}
-		accuracy -= 1;
 	}
 }

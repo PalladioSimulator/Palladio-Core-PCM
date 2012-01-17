@@ -73,6 +73,22 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	}
 
 	/**
+	 * Initializes sensitivity analysis parameters.
+	 * 
+	 * @return the sensitivity configuration; NULL if no sensitivity analysis
+	 *         shall be performed
+	 */
+	private MarkovSensitivity initSensitivityAnalysis() {
+		if (configuration.isSensitivityModelEnabled()) {
+			MarkovSensitivityBuilder builder = new MarkovSensitivityBuilder();
+			return builder.buildSensitivity(resolveFile(configuration
+					.getSensitivityModelFileName()), resolveFile(configuration
+					.getSensitivityLogFileName()));
+		}
+		return null;
+	}
+
+	/**
 	 * Loads an already existing Markov Chain from a given XMI file. Not yet
 	 * implemented.
 	 * 
@@ -81,66 +97,6 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	 */
 	public void loadTransformedModel(final String fileName) {
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * Solves the Markov Chain which has been created as a result of the
-	 * transformation or has been loaded from an XMI file.
-	 */
-	public void solve() {
-
-		// Solving of Markov Chain has already taken place during the
-		// transformation.
-
-	}
-
-	/**
-	 * Saves the Markov Chain resulting from the transformation into an XMI
-	 * file.
-	 * 
-	 * If the PCM instance has multiple usage scenarios, only the results for
-	 * the first usage scenario are written into the file.
-	 * 
-	 * @param fileName
-	 *            the name of the XMI file to create
-	 */
-	public void storeTransformedModel(final String fileName) {
-		MarkovTransformationResult result = (markovResults.size() > 0) ? markovResults
-				.get(0)
-				: null;
-		if (result != null) {
-			EMFHelper.saveToXMIFile(result.getResultChain(),
-					resolveFile(fileName));
-		}
-	}
-
-	/**
-	 * Transforms a PCM instance into a Markov Chain instance.
-	 * 
-	 * The transformation is performed either as a single transformation, or as
-	 * a repeated transformation to perform sensitivity analysis.
-	 * 
-	 * @param model
-	 *            the input PCM instance
-	 */
-	public void transform(final PCMInstance model) {
-		markovResults = new MarkovTransformation().runTransform(model,
-				configuration, markovSensitivity);
-		if (configuration.isMarkovModelStorageEnabled()) {
-			storeTransformedModel(configuration.getMarkovModelFile());
-		}
-
-		// embed results in HTML page
-		String htmlCode = new MarkovHtmlGenerator(new MarkovReporting(
-				markovResults, configuration)).getHtml();
-		// check whether the HTML page containing the results shall be saved to
-		// a file
-		if (configuration.isSaveResultsToFileEnabled()) {
-			saveResultsToFile(htmlCode);
-		} // else do nothing
-
-		// show the HTML page containing the results
-		showResults(htmlCode);
 	}
 
 	/**
@@ -230,18 +186,62 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 	}
 
 	/**
-	 * Initializes sensitivity analysis parameters.
-	 * 
-	 * @return the sensitivity configuration; NULL if no sensitivity analysis
-	 *         shall be performed
+	 * Solves the Markov Chain which has been created as a result of the
+	 * transformation or has been loaded from an XMI file.
 	 */
-	private MarkovSensitivity initSensitivityAnalysis() {
-		if (configuration.isSensitivityModelEnabled()) {
-			MarkovSensitivityBuilder builder = new MarkovSensitivityBuilder();
-			return builder.buildSensitivity(resolveFile(configuration
-					.getSensitivityModelFileName()), resolveFile(configuration
-					.getSensitivityLogFileName()));
+	public void solve() {
+
+		// Solving of Markov Chain has already taken place during the
+		// transformation.
+
+	}
+
+	/**
+	 * Saves the Markov Chain resulting from the transformation into an XMI
+	 * file.
+	 * 
+	 * If the PCM instance has multiple usage scenarios, only the results for
+	 * the first usage scenario are written into the file.
+	 * 
+	 * @param fileName
+	 *            the name of the XMI file to create
+	 */
+	public void storeTransformedModel(final String fileName) {
+		MarkovTransformationResult result = (markovResults.size() > 0) ? markovResults
+				.get(0)
+				: null;
+		if (result != null) {
+			EMFHelper.saveToXMIFile(result.getResultChain(),
+					resolveFile(fileName));
 		}
-		return null;
+	}
+
+	/**
+	 * Transforms a PCM instance into a Markov Chain instance.
+	 * 
+	 * The transformation is performed either as a single transformation, or as
+	 * a repeated transformation to perform sensitivity analysis.
+	 * 
+	 * @param model
+	 *            the input PCM instance
+	 */
+	public void transform(final PCMInstance model) {
+		markovResults = new MarkovTransformation().runTransform(model,
+				configuration, markovSensitivity);
+		if (configuration.isMarkovModelStorageEnabled()) {
+			storeTransformedModel(configuration.getMarkovModelFile());
+		}
+
+		// embed results in HTML page
+		String htmlCode = new MarkovHtmlGenerator(new MarkovReporting(
+				markovResults, configuration)).getHtml();
+		// check whether the HTML page containing the results shall be saved to
+		// a file
+		if (configuration.isSaveResultsToFileEnabled()) {
+			saveResultsToFile(htmlCode);
+		} // else do nothing
+
+		// show the HTML page containing the results
+		showResults(htmlCode);
 	}
 }

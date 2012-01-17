@@ -234,7 +234,7 @@ public class CombinedSensitivityParameterItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SensitivityPackage.Literals.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER,
-				 SensitivityFactory.eINSTANCE.createSystemCallParameter()));
+				 SensitivityFactory.eINSTANCE.createVariableUsageParameter()));
 
 		newChildDescriptors.add
 			(createChildParameter

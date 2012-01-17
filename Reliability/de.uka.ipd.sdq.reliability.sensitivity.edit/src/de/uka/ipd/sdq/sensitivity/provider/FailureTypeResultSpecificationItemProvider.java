@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.sensitivity.provider;
 
 
 import de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification;
+import de.uka.ipd.sdq.sensitivity.InternalActionReliabilityParameter;
 import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 
 import java.util.Collection;
@@ -105,7 +106,13 @@ public class FailureTypeResultSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
+		String numberOfFailureTypes = "UNSPECIFIED";
+		try {
+			numberOfFailureTypes = ((Integer)((FailureTypeResultSpecification)object).
+				getFailureTypes__FailureTypeResultSpecification().size()).toString();
+		} catch(Exception e) {}
 		return ((FailureTypeResultSpecification)object).getEntityName()
+			+ " (" + numberOfFailureTypes + ")"
 			+ " [ID: " + ((FailureTypeResultSpecification)object).getId() + "]"
 			+ " <" + getString("_UI_FailureTypeResultSpecification_type") + ">";
 	}

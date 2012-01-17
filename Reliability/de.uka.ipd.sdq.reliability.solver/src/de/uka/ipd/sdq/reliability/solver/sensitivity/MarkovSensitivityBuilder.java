@@ -3,15 +3,11 @@
  */
 package de.uka.ipd.sdq.reliability.solver.sensitivity;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
 import de.uka.ipd.sdq.reliability.core.helper.EMFHelper;
@@ -34,8 +30,8 @@ import de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification;
 import de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter;
 import de.uka.ipd.sdq.sensitivity.SoftwareReliabilityParameter;
 import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
-import de.uka.ipd.sdq.sensitivity.SystemCallParameter;
 import de.uka.ipd.sdq.sensitivity.UsageBranchParameter;
+import de.uka.ipd.sdq.sensitivity.VariableUsageParameter;
 
 /**
  * Creates sensitivity information from a given input sensitivity model.
@@ -73,6 +69,82 @@ public class MarkovSensitivityBuilder {
 				sensitivityConfig
 						.getSensitivityResultSpecifications__SensitivityConfiguration(),
 				sensitivityLogFileName);
+	}
+
+	/**
+	 * 
+	 * @param parameter
+	 * @return
+	 */
+	private ComponentSensitivity createComponentSensitivity(
+			final ComponentReliabilityParameter parameter) {
+		SensitivityParameterVariation variation = parameter
+				.getSensitivityParameterVariation__SingleSensitivityParameter();
+		if (variation instanceof DoubleParameterVariation) {
+			return new ComponentSensitivity(parameter.getEntityName(),
+					parameter
+							.getBasicComponent__ComponentReliabilityParameter()
+							.getId(), (DoubleParameterVariation) variation);
+		} else {
+			logger.error("Parameter variation type \""
+					+ variation.eClass().toString()
+					+ "\" not supported for parameter type \""
+					+ parameter.eClass().toString() + "\".");
+			return null;
+		}
+	}
+
+	/**
+	 * 
+	 * @param parameter
+	 * @return
+	 */
+	private FailureTypeSensitivity createFailureTypeSensitivity(
+			final SoftwareFailureTypesParameter parameter) {
+		SensitivityParameterVariation variation = parameter
+				.getSensitivityParameterVariation__SingleSensitivityParameter();
+		if (variation instanceof DoubleParameterVariation) {
+			ArrayList<String> failureTypeIds = new ArrayList<String>();
+			for (SoftwareInducedFailureType failureType : parameter
+					.getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter()) {
+				failureTypeIds.add(failureType.getId());
+			}
+			return new FailureTypeSensitivity(parameter.getEntityName(),
+					failureTypeIds, (DoubleParameterVariation) variation);
+		} else {
+			logger.error("Parameter variation type \""
+					+ variation.eClass().toString()
+					+ "\" not supported for parameter type \""
+					+ parameter.eClass().toString() + "\".");
+			return null;
+		}
+	}
+
+	/**
+	 * 
+	 * @param parameter
+	 * @return
+	 */
+	private InternalActionSensitivity createInternalActionSensitivity(
+			final InternalActionReliabilityParameter parameter) {
+		SensitivityParameterVariation variation = parameter
+				.getSensitivityParameterVariation__SingleSensitivityParameter();
+		if (variation instanceof DoubleParameterVariation) {
+			return new InternalActionSensitivity(
+					parameter.getEntityName(),
+					parameter
+							.getInternalAction__InternalActionReliabilityParameter()
+							.getId(),
+					parameter
+							.getSoftwareInducedFailureType__InternalActionReliabilityParameter()
+							.getId(), (DoubleParameterVariation) variation);
+		} else {
+			logger.error("Parameter variation type \""
+					+ variation.eClass().toString()
+					+ "\" not supported for parameter type \""
+					+ parameter.eClass().toString() + "\".");
+			return null;
+		}
 	}
 
 	/**
@@ -117,8 +189,8 @@ public class MarkovSensitivityBuilder {
 			result = createResourceMTTRSensitivity((ResourceMTTRParameter) parameter);
 		} else if (parameter instanceof SoftwareReliabilityParameter) {
 			result = createSoftwareSensitivity((SoftwareReliabilityParameter) parameter);
-		} else if (parameter instanceof SystemCallParameter) {
-			result = createSystemCallSensitivity((SystemCallParameter) parameter);
+		} else if (parameter instanceof VariableUsageParameter) {
+			result = createVariableUsageSensitivity((VariableUsageParameter) parameter);
 		} else if (parameter instanceof UsageBranchParameter) {
 			result = createUsageBranchSensitivity((UsageBranchParameter) parameter);
 		} else if (parameter instanceof SoftwareFailureTypesParameter) {
@@ -138,41 +210,12 @@ public class MarkovSensitivityBuilder {
 	 * @param parameter
 	 * @return
 	 */
-	private FailureTypeSensitivity createFailureTypeSensitivity(
-			final SoftwareFailureTypesParameter parameter) {
+	private MTTFSensitivity createMTTFSensitivity(
+			final HardwareMTTFParameter parameter) {
 		SensitivityParameterVariation variation = parameter
 				.getSensitivityParameterVariation__SingleSensitivityParameter();
 		if (variation instanceof DoubleParameterVariation) {
-			ArrayList<String> failureTypeIds = new ArrayList<String>();
-			for (SoftwareInducedFailureType failureType : parameter
-					.getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter()) {
-				failureTypeIds.add(failureType.getId());
-			}
-			return new FailureTypeSensitivity(parameter.getEntityName(),
-					failureTypeIds, (DoubleParameterVariation) variation);
-		} else {
-			logger.error("Parameter variation type \""
-					+ variation.eClass().toString()
-					+ "\" not supported for parameter type \""
-					+ parameter.eClass().toString() + "\".");
-			return null;
-		}
-	}
-
-	/**
-	 * 
-	 * @param parameter
-	 * @return
-	 */
-	private UsageBranchSensitivity createUsageBranchSensitivity(
-			final UsageBranchParameter parameter) {
-		SensitivityParameterVariation variation = parameter
-				.getSensitivityParameterVariation__SingleSensitivityParameter();
-		if (variation instanceof DoubleParameterVariation) {
-			return new UsageBranchSensitivity(parameter.getEntityName(),
-					parameter.getBranch__UsageBranchParameter().getId(),
-					parameter.getBranch__UsageBranchParameter()
-							.getScenarioBehaviour_AbstractUserAction().getId(),
+			return new MTTFSensitivity(parameter.getEntityName(),
 					(DoubleParameterVariation) variation);
 		} else {
 			logger.error("Parameter variation type \""
@@ -188,63 +231,78 @@ public class MarkovSensitivityBuilder {
 	 * @param parameter
 	 * @return
 	 */
-	private SystemCallSensitivity createSystemCallSensitivity(
-			final SystemCallParameter parameter) {
+	private MTTRSensitivity createMTTRSensitivity(
+			final HardwareMTTRParameter parameter) {
 		SensitivityParameterVariation variation = parameter
 				.getSensitivityParameterVariation__SingleSensitivityParameter();
-		if (variation instanceof StringParameterSequence) {
-			return new SystemCallSensitivity(
+		if (variation instanceof DoubleParameterVariation) {
+			return new MTTRSensitivity(parameter.getEntityName(),
+					(DoubleParameterVariation) variation);
+		} else {
+			logger.error("Parameter variation type \""
+					+ variation.eClass().toString()
+					+ "\" not supported for parameter type \""
+					+ parameter.eClass().toString() + "\".");
+			return null;
+		}
+	}
+
+	/**
+	 * 
+	 * @param parameter
+	 * @param resultSpecifications
+	 * @param logFileName
+	 * @return
+	 */
+	private MultiSensitivity createMultiSensitivity(
+			final CombinedSensitivityParameter parameter,
+			EList<SensitivityResultSpecification> resultSpecifications,
+			final String logFileName) {
+		List<MarkovSensitivity> subSensitivities = new ArrayList<MarkovSensitivity>();
+		for (SensitivityParameter subParameter : parameter
+				.getChildParameters__CombinedSensitivityParameter()) {
+			subSensitivities.add(createMarkovSensitivity(subParameter,
+					resultSpecifications, logFileName));
+		}
+		return new MultiSensitivity(parameter.getEntityName(),
+				subSensitivities, parameter.isCombinatory());
+	}
+
+	/**
+	 * 
+	 * @param parameter
+	 * @return
+	 */
+	private NetworkSensitivity createNetworkSensitivity(
+			final NetworkReliabilityParameter parameter) {
+		SensitivityParameterVariation variation = parameter
+				.getSensitivityParameterVariation__SingleSensitivityParameter();
+		if (variation instanceof DoubleParameterVariation) {
+			return new NetworkSensitivity(parameter.getEntityName(),
+					(DoubleParameterVariation) variation);
+		} else {
+			logger.error("Parameter variation type \""
+					+ variation.eClass().toString()
+					+ "\" not supported for parameter type \""
+					+ parameter.eClass().toString() + "\".");
+			return null;
+		}
+	}
+
+	/**
+	 * 
+	 * @param parameter
+	 * @return
+	 */
+	private ProbabilisticBranchSensitivity createProbabilisticBranchSensitivity(
+			final ProbabilisticBranchParameter parameter) {
+		SensitivityParameterVariation variation = parameter
+				.getSensitivityParameterVariation__SingleSensitivityParameter();
+		if (variation instanceof DoubleParameterVariation) {
+			return new ProbabilisticBranchSensitivity(
 					parameter.getEntityName(),
-					parameter.getEntryLevelSystemCall__SystemCallParameter()
-							.getId(),
-					parameter.getInputParameterName(),
 					parameter
-							.getVariableCharacterisationType__SystemCallParameter(),
-					(StringParameterSequence) variation);
-		} else {
-			logger.error("Parameter variation type \""
-					+ variation.eClass().toString()
-					+ "\" not supported for parameter type \""
-					+ parameter.eClass().toString() + "\".");
-			return null;
-		}
-	}
-
-	/**
-	 * 
-	 * @param parameter
-	 * @return
-	 */
-	private SoftwareSensitivity createSoftwareSensitivity(
-			final SoftwareReliabilityParameter parameter) {
-		SensitivityParameterVariation variation = parameter
-				.getSensitivityParameterVariation__SingleSensitivityParameter();
-		if (variation instanceof DoubleParameterVariation) {
-			return new SoftwareSensitivity(parameter.getEntityName(),
-					(DoubleParameterVariation) variation);
-		} else {
-			logger.error("Parameter variation type \""
-					+ variation.eClass().toString()
-					+ "\" not supported for parameter type \""
-					+ parameter.eClass().toString() + "\".");
-			return null;
-		}
-	}
-
-	/**
-	 * 
-	 * @param parameter
-	 * @return
-	 */
-	private ResourceMTTRSensitivity createResourceMTTRSensitivity(
-			final ResourceMTTRParameter parameter) {
-		SensitivityParameterVariation variation = parameter
-				.getSensitivityParameterVariation__SingleSensitivityParameter();
-		if (variation instanceof DoubleParameterVariation) {
-			return new ResourceMTTRSensitivity(parameter.getEntityName(),
-					parameter.getResourceContainer__ResourceMTTRParameter()
-							.getId(), parameter
-							.getProcessingResourceType__ResourceMTTRParameter()
+							.getProbabilisticBranchTransition__ProbabilisticBranchParameter()
 							.getId(), (DoubleParameterVariation) variation);
 		} else {
 			logger.error("Parameter variation type \""
@@ -284,16 +342,100 @@ public class MarkovSensitivityBuilder {
 	 * @param parameter
 	 * @return
 	 */
-	private ProbabilisticBranchSensitivity createProbabilisticBranchSensitivity(
-			final ProbabilisticBranchParameter parameter) {
+	private ResourceMTTRSensitivity createResourceMTTRSensitivity(
+			final ResourceMTTRParameter parameter) {
 		SensitivityParameterVariation variation = parameter
 				.getSensitivityParameterVariation__SingleSensitivityParameter();
 		if (variation instanceof DoubleParameterVariation) {
-			return new ProbabilisticBranchSensitivity(
+			return new ResourceMTTRSensitivity(parameter.getEntityName(),
+					parameter.getResourceContainer__ResourceMTTRParameter()
+							.getId(), parameter
+							.getProcessingResourceType__ResourceMTTRParameter()
+							.getId(), (DoubleParameterVariation) variation);
+		} else {
+			logger.error("Parameter variation type \""
+					+ variation.eClass().toString()
+					+ "\" not supported for parameter type \""
+					+ parameter.eClass().toString() + "\".");
+			return null;
+		}
+	}
+
+	/**
+	 * 
+	 * @param parameter
+	 * @return
+	 */
+	private SoftwareSensitivity createSoftwareSensitivity(
+			final SoftwareReliabilityParameter parameter) {
+		SensitivityParameterVariation variation = parameter
+				.getSensitivityParameterVariation__SingleSensitivityParameter();
+		if (variation instanceof DoubleParameterVariation) {
+			return new SoftwareSensitivity(parameter.getEntityName(),
+					(DoubleParameterVariation) variation);
+		} else {
+			logger.error("Parameter variation type \""
+					+ variation.eClass().toString()
+					+ "\" not supported for parameter type \""
+					+ parameter.eClass().toString() + "\".");
+			return null;
+		}
+	}
+
+	/**
+	 * 
+	 * @param parameter
+	 * @return
+	 */
+	private UsageBranchSensitivity createUsageBranchSensitivity(
+			final UsageBranchParameter parameter) {
+		SensitivityParameterVariation variation = parameter
+				.getSensitivityParameterVariation__SingleSensitivityParameter();
+		if (variation instanceof DoubleParameterVariation) {
+			return new UsageBranchSensitivity(parameter.getEntityName(),
+					parameter.getBranch__UsageBranchParameter().getId(),
+					parameter.getBranch__UsageBranchParameter()
+							.getScenarioBehaviour_AbstractUserAction().getId(),
+					(DoubleParameterVariation) variation);
+		} else {
+			logger.error("Parameter variation type \""
+					+ variation.eClass().toString()
+					+ "\" not supported for parameter type \""
+					+ parameter.eClass().toString() + "\".");
+			return null;
+		}
+	}
+
+	/**
+	 * 
+	 * @param parameter
+	 * @return
+	 */
+	private VariableUsageSensitivity createVariableUsageSensitivity(
+			final VariableUsageParameter parameter) {
+		SensitivityParameterVariation variation = parameter
+				.getSensitivityParameterVariation__SingleSensitivityParameter();
+		if (variation instanceof StringParameterSequence) {
+			String paramId = null;
+			switch (parameter.getVariableUsageType__VariableUsageParameter()) {
+			case SYSTEM_CALL_INPUT:
+				paramId = parameter
+						.getEntryLevelSystemCall__VariableUsageParameter()
+						.getId();
+				break;
+			case COMPONENT_CONFIGURATION:
+				paramId = parameter.getBasicComponent__VariableUsageParameter()
+						.getId();
+				break;
+			}
+			return new VariableUsageSensitivity(
 					parameter.getEntityName(),
+					paramId,
+					parameter.getVariableName(),
 					parameter
-							.getProbabilisticBranchTransition__ProbabilisticBranchParameter()
-							.getId(), (DoubleParameterVariation) variation);
+							.getVariableCharacterisationType__VariableUsageParameter(),
+					parameter.getVariableUsageType__VariableUsageParameter(),
+					(StringParameterSequence) variation);
 		} else {
 			logger.error("Parameter variation type \""
 					+ variation.eClass().toString()
@@ -301,139 +443,5 @@ public class MarkovSensitivityBuilder {
 					+ parameter.eClass().toString() + "\".");
 			return null;
 		}
-	}
-
-	/**
-	 * 
-	 * @param parameter
-	 * @return
-	 */
-	private NetworkSensitivity createNetworkSensitivity(
-			final NetworkReliabilityParameter parameter) {
-		SensitivityParameterVariation variation = parameter
-				.getSensitivityParameterVariation__SingleSensitivityParameter();
-		if (variation instanceof DoubleParameterVariation) {
-			return new NetworkSensitivity(parameter.getEntityName(),
-					(DoubleParameterVariation) variation);
-		} else {
-			logger.error("Parameter variation type \""
-					+ variation.eClass().toString()
-					+ "\" not supported for parameter type \""
-					+ parameter.eClass().toString() + "\".");
-			return null;
-		}
-	}
-
-	/**
-	 * 
-	 * @param parameter
-	 * @return
-	 */
-	private InternalActionSensitivity createInternalActionSensitivity(
-			final InternalActionReliabilityParameter parameter) {
-		SensitivityParameterVariation variation = parameter
-				.getSensitivityParameterVariation__SingleSensitivityParameter();
-		if (variation instanceof DoubleParameterVariation) {
-			return new InternalActionSensitivity(
-					parameter.getEntityName(),
-					parameter
-							.getInternalAction__InternalActionReliabilityParameter()
-							.getId(),
-					parameter
-							.getSoftwareInducedFailureType__InternalActionReliabilityParameter()
-							.getId(), (DoubleParameterVariation) variation);
-		} else {
-			logger.error("Parameter variation type \""
-					+ variation.eClass().toString()
-					+ "\" not supported for parameter type \""
-					+ parameter.eClass().toString() + "\".");
-			return null;
-		}
-	}
-
-	/**
-	 * 
-	 * @param parameter
-	 * @return
-	 */
-	private MTTRSensitivity createMTTRSensitivity(
-			final HardwareMTTRParameter parameter) {
-		SensitivityParameterVariation variation = parameter
-				.getSensitivityParameterVariation__SingleSensitivityParameter();
-		if (variation instanceof DoubleParameterVariation) {
-			return new MTTRSensitivity(parameter.getEntityName(),
-					(DoubleParameterVariation) variation);
-		} else {
-			logger.error("Parameter variation type \""
-					+ variation.eClass().toString()
-					+ "\" not supported for parameter type \""
-					+ parameter.eClass().toString() + "\".");
-			return null;
-		}
-	}
-
-	/**
-	 * 
-	 * @param parameter
-	 * @return
-	 */
-	private MTTFSensitivity createMTTFSensitivity(
-			final HardwareMTTFParameter parameter) {
-		SensitivityParameterVariation variation = parameter
-				.getSensitivityParameterVariation__SingleSensitivityParameter();
-		if (variation instanceof DoubleParameterVariation) {
-			return new MTTFSensitivity(parameter.getEntityName(),
-					(DoubleParameterVariation) variation);
-		} else {
-			logger.error("Parameter variation type \""
-					+ variation.eClass().toString()
-					+ "\" not supported for parameter type \""
-					+ parameter.eClass().toString() + "\".");
-			return null;
-		}
-	}
-
-	/**
-	 * 
-	 * @param parameter
-	 * @return
-	 */
-	private ComponentSensitivity createComponentSensitivity(
-			final ComponentReliabilityParameter parameter) {
-		SensitivityParameterVariation variation = parameter
-				.getSensitivityParameterVariation__SingleSensitivityParameter();
-		if (variation instanceof DoubleParameterVariation) {
-			return new ComponentSensitivity(parameter.getEntityName(),
-					parameter
-							.getBasicComponent__ComponentReliabilityParameter()
-							.getId(), (DoubleParameterVariation) variation);
-		} else {
-			logger.error("Parameter variation type \""
-					+ variation.eClass().toString()
-					+ "\" not supported for parameter type \""
-					+ parameter.eClass().toString() + "\".");
-			return null;
-		}
-	}
-
-	/**
-	 * 
-	 * @param parameter
-	 * @param resultSpecifications
-	 * @param logFileName
-	 * @return
-	 */
-	private MultiSensitivity createMultiSensitivity(
-			final CombinedSensitivityParameter parameter,
-			EList<SensitivityResultSpecification> resultSpecifications,
-			final String logFileName) {
-		List<MarkovSensitivity> subSensitivities = new ArrayList<MarkovSensitivity>();
-		for (SensitivityParameter subParameter : parameter
-				.getChildParameters__CombinedSensitivityParameter()) {
-			subSensitivities.add(createMarkovSensitivity(subParameter,
-					resultSpecifications, logFileName));
-		}
-		return new MultiSensitivity(parameter.getEntityName(),
-				subSensitivities, parameter.isCombinatory());
 	}
 }

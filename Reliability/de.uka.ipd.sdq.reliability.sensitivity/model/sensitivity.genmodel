@@ -31,6 +31,10 @@
   <foreignModel>file:/C:/temp/models/Units.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Sensitivity" basePackage="de.uka.ipd.sdq"
       resource="XML" disposableProviderFactory="true" ecorePackage="sensitivity.ecore#/">
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="sensitivity.ecore#//VariableUsageType">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//VariableUsageType/SYSTEM_CALL_INPUT"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//VariableUsageType/COMPONENT_CONFIGURATION"/>
+    </genEnums>
     <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="sensitivity.ecore#//DoubleOffsetType">
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//DoubleOffsetType/ADD"/>
       <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//DoubleOffsetType/SUBTRACT"/>
@@ -161,14 +165,17 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//SoftwareReliabilityParameter/SoftwareReliabilityParameterMustHaveDoubleVariation/context"/>
       </genOperations>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//SystemCallParameter">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//SystemCallParameter/inputParameterName"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//VariableUsageParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//VariableUsageParameter/VariableName"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//SystemCallParameter/entryLevelSystemCall__SystemCallParameter"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//SystemCallParameter/variableCharacterisationType__SystemCallParameter"/>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//SystemCallParameter/SystemCallParameterMustHaveStringSequence">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//SystemCallParameter/SystemCallParameterMustHaveStringSequence/diagnostics"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//SystemCallParameter/SystemCallParameterMustHaveStringSequence/context"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//VariableUsageParameter/entryLevelSystemCall__VariableUsageParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//VariableUsageParameter/variableCharacterisationType__VariableUsageParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//VariableUsageParameter/variableUsageType__VariableUsageParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//VariableUsageParameter/basicComponent__VariableUsageParameter"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//VariableUsageParameter/SystemCallParameterMustHaveStringSequence">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//VariableUsageParameter/SystemCallParameterMustHaveStringSequence/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//VariableUsageParameter/SystemCallParameterMustHaveStringSequence/context"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//UsageBranchParameter">

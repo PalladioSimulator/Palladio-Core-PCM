@@ -24,7 +24,9 @@ public class ReliabilityWorkflowJobBuilder extends PCMWorkflowJobBuilder {
 
 	/**
 	 * The constructor.
-	 * @param launch the launch object
+	 * 
+	 * @param launch
+	 *            the launch object
 	 */
 	public ReliabilityWorkflowJobBuilder(ILaunch launch) {
 		this.launch = launch;
@@ -32,7 +34,10 @@ public class ReliabilityWorkflowJobBuilder extends PCMWorkflowJobBuilder {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.workflow.pcm.jobs.PCMWorkflowJobBuilder#buildJob(de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.workflow.pcm.jobs.PCMWorkflowJobBuilder#buildJob(de.uka
+	 * .ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration)
 	 */
 	public IJob buildJob(AbstractPCMWorkflowRunConfiguration config) {
 		return new PCMSolverReliabilityJob(

@@ -105,15 +105,18 @@ public class ProcessingResourceTypeItemProvider
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
+	 * FB: Adapted method to produce a more informative label for display in non-PCM editors.
+	 * In PCM editors, display is not controlled by this method but through a more general
+	 * mechanism (I'n not sure where it's actually controlled, maybe the
+	 * de.uka.ipd.sdq.pcmbench.tabs.PropertyLabelProvider.getText() method?)
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProcessingResourceType)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ProcessingResourceType_type") :
-			getString("_UI_ProcessingResourceType_type") + " " + label;
+		return ((ProcessingResourceType)object).getEntityName()
+			+ " [ID: " + ((ProcessingResourceType)object).getId() + "]"
+			+ " <" + getString("_UI_ProcessingResourceType_type") + ">";
 	}
 
 	/**

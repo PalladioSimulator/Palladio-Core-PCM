@@ -5,7 +5,7 @@ package de.uka.ipd.sdq.reliability.solver.reporting;
  * FailureAnalysisFailureType when considering failure categories (classes).
  * 
  * @author Daniel Patejdl
- *
+ * 
  */
 public class ClassesFailureProbabilityAggregation {
 	/**
@@ -20,11 +20,25 @@ public class ClassesFailureProbabilityAggregation {
 	private FailureAnalysisFailureType failureType;
 
 	/**
-	 * Creates a new instance of this class, given the failure analysis failure type.
+	 * Creates a new instance of this class, given the failure analysis failure
+	 * type.
+	 * 
 	 * @param failureAggregationType
 	 */
-	public ClassesFailureProbabilityAggregation(FailureAnalysisFailureType failureType) {
+	public ClassesFailureProbabilityAggregation(
+			FailureAnalysisFailureType failureType) {
 		this.failureType = failureType;
+	}
+
+	/**
+	 * Adds to the current aggregated failure probability additional failure
+	 * probability.
+	 * 
+	 * @param failureProbability
+	 *            the failure probability to be added to the existing one
+	 */
+	public void addToFailureProbabilityBy(double failureProbability) {
+		this.failureProbability += failureProbability;
 	}
 
 	/**
@@ -34,16 +48,6 @@ public class ClassesFailureProbabilityAggregation {
 	 */
 	public double getFailureProbability() {
 		return failureProbability;
-	}
-
-	/**
-	 * Adds to the current aggregated failure probability additional
-	 * failure probability.
-	 * 
-	 * @param failureProbability the failure probability to be added to the existing one
-	 */
-	public void addToFailureProbabilityBy(double failureProbability) {
-		this.failureProbability += failureProbability;
 	}
 
 	/**
@@ -58,7 +62,8 @@ public class ClassesFailureProbabilityAggregation {
 	/**
 	 * Sets the failure type.
 	 * 
-	 * @param failureAggregationType the failure type
+	 * @param failureAggregationType
+	 *            the failure type
 	 */
 	public void setType(FailureAnalysisFailureType failureType) {
 		this.failureType = failureType;

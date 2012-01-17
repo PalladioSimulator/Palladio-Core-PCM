@@ -34,14 +34,14 @@ public class RunPCMReliabilityAnalysisJob implements
 			.getLogger(RunPCMReliabilityAnalysisJob.class.getName());
 
 	/**
-	 * The strategy for reliability modelling & transformation.
-	 */
-	private Pcm2MarkovStrategy strategy;
-
-	/**
 	 * Blackboard for passing EMF model resources between jobs in the workflow.
 	 */
 	private MDSDBlackboard blackboard;
+
+	/**
+	 * The strategy for reliability modelling & transformation.
+	 */
+	private Pcm2MarkovStrategy strategy;
 
 	/**
 	 * The constructor.
@@ -103,21 +103,21 @@ public class RunPCMReliabilityAnalysisJob implements
 		monitor.worked(50);
 	}
 
-	public SolverStrategy getStrategy() {
-		return strategy;
-	}
-
-	@Override
-	public void setBlackboard(MDSDBlackboard blackboard) {
-		this.blackboard = blackboard;
-	}
-
 	public String getName() {
 		return "Run PCM Reliability Analysis";
+	}
+
+	public SolverStrategy getStrategy() {
+		return strategy;
 	}
 
 	public void rollback(IProgressMonitor monitor)
 			throws RollbackFailedException {
 		// Nothing to do here
+	}
+
+	@Override
+	public void setBlackboard(MDSDBlackboard blackboard) {
+		this.blackboard = blackboard;
 	}
 }

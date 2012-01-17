@@ -28,20 +28,31 @@ public class PCMSolverReliabilityLaunchConfigurationDelegate extends
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate#createWorkflowJob(de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration, org.eclipse.debug.core.ILaunch)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate
+	 * #createWorkflowJob
+	 * (de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration,
+	 * org.eclipse.debug.core.ILaunch)
 	 */
 	protected IJob createWorkflowJob(PCMSolverWorkflowRunConfiguration config,
 			ILaunch launch) throws CoreException {
 
-		// To enable accuracy analysis, the former top-level job (PCMSolverReliabilityJob)
+		// To enable accuracy analysis, the former top-level job
+		// (PCMSolverReliabilityJob)
 		// is replaced through a new AccuracyInfluenceAnalysisJob:
-		ReliabilityWorkflowJobBuilder jobBuilder = new ReliabilityWorkflowJobBuilder(launch);
+		ReliabilityWorkflowJobBuilder jobBuilder = new ReliabilityWorkflowJobBuilder(
+				launch);
 		return new AccuracyInfluenceAnalysisJob(config, jobBuilder);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate#deriveConfiguration(org.eclipse.debug.core.ILaunchConfiguration, java.lang.String)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate
+	 * #deriveConfiguration(org.eclipse.debug.core.ILaunchConfiguration,
+	 * java.lang.String)
 	 */
 	protected PCMSolverWorkflowRunConfiguration deriveConfiguration(
 			ILaunchConfiguration configuration, String mode)
@@ -60,10 +71,12 @@ public class PCMSolverReliabilityLaunchConfigurationDelegate extends
 		return solverConfiguration;
 	}
 
-
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate#setupLogging(org.apache.log4j.Level)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate
+	 * #setupLogging(org.apache.log4j.Level)
 	 */
 	protected ArrayList<LoggerAppenderStruct> setupLogging(Level logLevel)
 			throws CoreException {

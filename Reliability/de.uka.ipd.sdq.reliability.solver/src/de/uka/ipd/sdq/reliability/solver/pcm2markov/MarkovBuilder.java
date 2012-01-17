@@ -55,6 +55,159 @@ public class MarkovBuilder {
 	}
 
 	/**
+	 * Adds a state of a given type and with a given name to a Markov chain.
+	 * 
+	 * @param chain
+	 *            the Markov chain
+	 * @param type
+	 *            the type of state to add
+	 * @param stateName
+	 *            the name for the state to add
+	 * @param prefixes
+	 *            the prefixes to add to the state name
+	 * @return the new state
+	 */
+	private State addState(final MarkovChain chain, final StateType type,
+			final String stateName, final List<String> prefixes) {
+		State state = markovFactory.createState();
+		state.setType(type);
+		state.setName(getStateName(stateName, prefixes));
+		state.getTraces().addAll(getStateTraces(stateName, prefixes));
+		chain.getStates().add(state);
+		return state;
+	}
+
+	/**
+	 * Adds a failure state to a given Markov chain.
+	 * 
+	 * @param chain
+	 *            the Markov chain
+	 * @param prefixes
+	 *            the prefixes of the state name
+	 * @param description
+	 *            the description of the failure type
+	 * @return the new failure state
+	 */
+	private State addStateForFailureDescription(final MarkovChain chain,
+			final List<String> prefixes, final FailureDescription description) {
+
+		// Create the new failure state and add it to the chain:
+		State failureState = addState(chain, StateType.FAILURE,
+				StateType.FAILURE.toString() + "("
+						+ description.getFailureType().getName() + ")",
+				prefixes);
+
+		// Add a label to the state for the failure id:
+		Label failureIdLabel = markovFactory.createLabel();
+		failureIdLabel.setKey(FAILURETYPEID);
+		failureIdLabel.setValue(description.getFailureType().getId());
+		failureState.getLabels().add(failureIdLabel);
+
+		// Add a label to the state for the failure name:
+		Label failureNameLabel = markovFactory.createLabel();
+		failureNameLabel.setKey(FAILURETYPENAME);
+		failureNameLabel.setValue(description.getFailureType().getName());
+		failureState.getLabels().add(failureNameLabel);
+
+		// Return the new Failure state:
+		return failureState;
+	}
+
+	/**
+	 * Incorporates one Markov chain into another to replace a failure state
+	 * with a new behavior.
+	 * 
+	 * @param aggregateChain
+	 *            the outer Markov chain
+	 * @param handlingChain
+	 *            the inner Markov chain to replace the failure state
+	 * @param failureState
+	 *            the failure state to replace
+	 * @param optimize
+	 *            indicates if Markov Chain reduction shall be performed during
+	 *            the transformation
+	 */
+	private void appendFailureHandlingChain(final MarkovChain aggregateChain,
+			final MarkovChain handlingChain, final State failureState,
+			final boolean optimize) {
+
+		// First validate both chains:
+		this.validateChain(aggregateChain);
+		this.validateChain(handlingChain);
+
+		// Create a copy of the specific Markov Chain to prevent reuse of any
+		// States or Transitions of the specific Markov Chain within the
+		// aggregate Markov Chain (this could lead to problems when one specific
+		// Markov Chain is incorporated several times into the same aggregate
+		// Markov Chain):
+		MarkovChain handlingChainCopy = copyMarkovChain(handlingChain);
+
+		// Find the relevant states:
+		State aggregateChainSuccessState = getSuccessState(aggregateChain);
+		List<State> aggregateChainFailureStates = getFailureStates(aggregateChain);
+
+		State handlingChainStartState = getStartState(handlingChainCopy);
+		State handlingChainSuccessState = getSuccessState(handlingChainCopy);
+
+		// Take over the specific Markov Chain into the aggregate Markov Chain:
+		aggregateChain.getStates().addAll(handlingChainCopy.getStates());
+		aggregateChain.getTransitions().addAll(
+				handlingChainCopy.getTransitions());
+
+		delegateIncommingTransitions(aggregateChain, failureState,
+				handlingChainStartState);
+		handlingChainStartState.setType(StateType.DEFAULT);
+		aggregateChain.getStates().remove(failureState);
+		aggregateChainFailureStates.remove(failureState);
+
+		connectStates(aggregateChain, handlingChainSuccessState,
+				aggregateChainSuccessState, 1.0);
+		handlingChainSuccessState.setType(StateType.DEFAULT);
+
+		// Optimize the aggregate MarkovChain:
+		if (optimize) {
+			reduceState(aggregateChain, handlingChainStartState);
+			reduceState(aggregateChain, handlingChainSuccessState);
+		}
+	}
+
+	/**
+	 * Incorporates one Markov Chain into another. The specific Markov Chain is
+	 * inserted into the aggregate Markov Chain replacing the failure state.
+	 * 
+	 * @param aggregateChain
+	 *            the Markov Chain which will incorporate the other chain
+	 * @param aggregateFailureStates
+	 *            the failure states of the aggregate chain that shall be
+	 *            considered
+	 * @param handlingChain
+	 *            the Markov Chain which will be incorporated into the other
+	 *            chain
+	 * @param handledFailureTypeIds
+	 *            the list of handled failure types
+	 * @param removeDuplicateFailureStates
+	 *            indicates if duplicateFailureStates shall be removed at the
+	 *            end of the procedure
+	 * @param optimize
+	 *            indicates if Markov Chain reduction shall be performed during
+	 *            the transformation
+	 */
+	private void appendFailureHandlingMarkovChain(
+			final MarkovChain aggregateChain,
+			final List<State> aggregateFailureStates,
+			final MarkovChain handlingChain,
+			final List<String> handledFailureTypeIds, final boolean optimize) {
+		for (State failureState : aggregateFailureStates) {
+			String failureTypeLabelValue = getFailureTypeId(failureState);
+			if (isFailureTypeHandled(handledFailureTypeIds,
+					failureTypeLabelValue)) {
+				appendFailureHandlingChain(aggregateChain, handlingChain,
+						failureState, optimize);
+			}
+		}
+	}
+
+	/**
 	 * Incorporates one Markov Chain into another. The specific Markov Chain is
 	 * inserted into the aggregate Markov Chain replacing the failure state.
 	 * 
@@ -108,6 +261,70 @@ public class MarkovBuilder {
 					handledFailureTypeIdLists.get(i), optimize);
 		}
 		removeDuplicateFailureStates(aggregateChain, optimize);
+	}
+
+	/**
+	 * Adds a new transition to a given Markov chain.
+	 * 
+	 * @param chain
+	 *            the Markov chain
+	 * @param from
+	 *            the source state
+	 * @param to
+	 *            the target state
+	 * @param probability
+	 *            the probability to annotate the new transition
+	 */
+	private void connectStates(final MarkovChain chain, final State from,
+			final State to, final double probability) {
+		Transition transition = markovFactory.createTransition();
+		transition.setFromState(from);
+		transition.setToState(to);
+		transition.setProbability(probability);
+		nameTransition(transition);
+		chain.getTransitions().add(transition);
+	}
+
+	/**
+	 * Adds the given Transition to the given Markov Chain. If the given Markov
+	 * Chain already has a Transition between the same source and target States,
+	 * the already existing Transition is merged with the new one by summing up
+	 * the probabilities of the two Transitions.
+	 * 
+	 * @param markovChain
+	 *            the Markov Chain
+	 * @param transitionToContribute
+	 *            the Transition
+	 */
+	private void contributeTransition(final MarkovChain markovChain,
+			final Transition transitionToContribute) {
+
+		// Go through the Transitions of the Markov Chain to find an already
+		// existing Transition that corresponds to the new one:
+		Transition transitionCorresponding = null;
+		for (int i = 0; i < markovChain.getTransitions().size(); i++) {
+			if ((markovChain.getTransitions().get(i).getFromState() == transitionToContribute
+					.getFromState())
+					&& (markovChain.getTransitions().get(i).getToState() == transitionToContribute
+							.getToState())) {
+				transitionCorresponding = markovChain.getTransitions().get(i);
+				break;
+			}
+		}
+
+		// Does a corresponding Transition already exist?
+		if (transitionCorresponding != null) {
+
+			// Add the probability of the new Transition to that of the already
+			// existing one:
+			transitionCorresponding.setProbability(transitionCorresponding
+					.getProbability()
+					+ transitionToContribute.getProbability());
+		} else {
+
+			// Simply add the new Transition to the Markov Chain:
+			markovChain.getTransitions().add(transitionToContribute);
+		}
 	}
 
 	/**
@@ -179,6 +396,226 @@ public class MarkovBuilder {
 	}
 
 	/**
+	 * Delegates incoming transitions from an original state to a new state.
+	 * 
+	 * @param chain
+	 *            the Markov chain
+	 * @param originalState
+	 *            the original state
+	 * @param newState
+	 *            the new state
+	 */
+	private void delegateIncommingTransitions(final MarkovChain chain,
+			final State originalState, final State newState) {
+		ArrayList<Transition> transitions = findTransitionsToState(chain,
+				originalState);
+		for (Transition transition : transitions) {
+			transition.setToState(newState);
+		}
+	}
+
+	/**
+	 * Delegates outgoing transitions from an original state to a new state.
+	 * 
+	 * @param chain
+	 *            the Markov chain
+	 * @param originalState
+	 *            the original state
+	 * @param newState
+	 *            the new state
+	 */
+	private void delegateOutgoingTransitions(final MarkovChain chain,
+			final State originalState, final State newState) {
+		ArrayList<Transition> transitions = findTransitionsFromState(chain,
+				originalState);
+		for (Transition transition : transitions) {
+			transition.setFromState(newState);
+		}
+	}
+
+	/**
+	 * Deletes all Transitions from the given Markov Model which are part of the
+	 * given transitions list.
+	 * 
+	 * @param markovChain
+	 *            the Markov Chain
+	 * @param transitionsToDelete
+	 *            the transition list
+	 */
+	private void deleteTransitions(final MarkovChain markovChain,
+			final ArrayList<Transition> transitionsToDelete) {
+
+		// Go through all transitions of the given list:
+		for (int i = 0; i < transitionsToDelete.size(); i++) {
+
+			// Remove this transition from the Markov Chain:
+			markovChain.getTransitions().remove(transitionsToDelete.get(i));
+		}
+	}
+
+	/**
+	 * Finds a failure state out of a given list of states.
+	 * 
+	 * @param states
+	 *            the list of states
+	 * @param failureTypeLabelValue
+	 *            the type of failure state to find
+	 * @return the failure state; NULL if no corresponding failure state could
+	 *         be found
+	 */
+	private State findFailureState(final List<State> states,
+			final String failureTypeLabelValue) {
+		for (State state : states) {
+			if (!state.getType().equals(StateType.FAILURE)) {
+				continue;
+			}
+			for (Label label : state.getLabels()) {
+				// TODO: this is linear search inside an outer loop! improve
+				// performance
+				if ((label.getKey().equals(FAILURETYPEID))
+						&& (label.getValue().equals(failureTypeLabelValue))) {
+					return state;
+				}
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Finds the failure states out of a given list of states.
+	 * 
+	 * @param states
+	 *            the list of states
+	 * @param failureTypeLabelValue
+	 *            the type of failure state to find
+	 * @return the failure states; NULL if no corresponding failure state could
+	 *         be found
+	 */
+	private List<State> findFailureStates(final List<State> states,
+			final String failureTypeLabelValue) {
+		List<State> resultList = new ArrayList<State>();
+		for (State state : states) {
+			if (!state.getType().equals(StateType.FAILURE)) {
+				continue;
+			}
+			for (Label label : state.getLabels()) {
+				// TODO: this is linear search inside an outer loop! improve
+				// performance
+				if ((label.getKey().equals(FAILURETYPEID))
+						&& (label.getValue().equals(failureTypeLabelValue))) {
+					resultList.add(state);
+				}
+			}
+		}
+		return resultList;
+	}
+
+	/**
+	 * Finds a failure state out of a given list of states.
+	 * 
+	 * @param states
+	 *            the list of states
+	 * @param failureState
+	 *            the failure state to match
+	 * @return the failure state; NULL if no corresponding failure state could
+	 *         be found
+	 */
+	private State findMatchingFailureState(final List<State> states,
+			final State failureState) {
+		String failureTypeLabelValue = getFailureTypeId(failureState);
+		return findFailureState(states, failureTypeLabelValue);
+	}
+
+	/**
+	 * Finds the failure states out of a given list of states.
+	 * 
+	 * @param states
+	 *            the list of states
+	 * @param failureState
+	 *            the failure state to match
+	 * @return the failure states
+	 */
+	private List<State> findMatchingFailureStates(final List<State> states,
+			final State failureState) {
+		String failureTypeLabelValue = getFailureTypeId(failureState);
+		return findFailureStates(states, failureTypeLabelValue);
+	}
+
+	/**
+	 * Retrieves all Markov states of a given type from a given state list.
+	 * 
+	 * @param states
+	 *            the list of states to search through
+	 * @param type
+	 *            the requested state type
+	 * @return the sub list if states of the requested type
+	 */
+	private List<State> findStates(final List<State> states,
+			final StateType type) {
+		List<State> resultList = new ArrayList<State>();
+		for (State state : states) {
+			if (state.getType().equals(type)) {
+				resultList.add(state);
+			}
+		}
+		return resultList;
+	}
+
+	/**
+	 * Creates a list of all Transitions in a Markov Chain that start from a
+	 * given source state.
+	 * 
+	 * @param markovChain
+	 *            the Markov Chain
+	 * @param sourceState
+	 *            the source state
+	 * @return the list of transitions
+	 */
+	private ArrayList<Transition> findTransitionsFromState(
+			final MarkovChain markovChain, final State sourceState) {
+
+		// Initialize the resulting List:
+		ArrayList<Transition> resultList = new ArrayList<Transition>();
+
+		// Go through all transitions of the Markov Chain:
+		for (int i = 0; i < markovChain.getTransitions().size(); i++) {
+			if (markovChain.getTransitions().get(i).getFromState() == sourceState) {
+				resultList.add(markovChain.getTransitions().get(i));
+			}
+		}
+
+		// Return the result:
+		return resultList;
+	}
+
+	/**
+	 * Creates a list of all Transitions in a Markov Chain that lead to a given
+	 * target state.
+	 * 
+	 * @param markovChain
+	 *            the Markov Chain
+	 * @param targetState
+	 *            the target state
+	 * @return the list of transitions
+	 */
+	private ArrayList<Transition> findTransitionsToState(
+			final MarkovChain markovChain, final State targetState) {
+
+		// Initialize the resulting List:
+		ArrayList<Transition> resultList = new ArrayList<Transition>();
+
+		// Go through all transitions of the Markov Chain:
+		for (int i = 0; i < markovChain.getTransitions().size(); i++) {
+			if (markovChain.getTransitions().get(i).getToState() == targetState) {
+				resultList.add(markovChain.getTransitions().get(i));
+			}
+		}
+
+		// Return the result:
+		return resultList;
+	}
+
+	/**
 	 * Gets all failure states out of a given Markov chain.
 	 * 
 	 * @param markovChain
@@ -235,6 +672,24 @@ public class MarkovBuilder {
 	}
 
 	/**
+	 * Retrieves a name from a given list of prefixes.
+	 * 
+	 * @param prefixes
+	 *            the list of prefixes
+	 * @return the resulting name
+	 */
+	private String getName(final List<String> prefixes) {
+		String result = "";
+		for (int i = 0; i < prefixes.size(); i++) {
+			result += prefixes.get(i);
+			if (i < prefixes.size() - 1) {
+				result += "::";
+			}
+		}
+		return result;
+	}
+
+	/**
 	 * Gets the start state out of a given Markov chain.
 	 * 
 	 * @param markovChain
@@ -253,6 +708,43 @@ public class MarkovBuilder {
 
 		// No start state found:
 		throw new MarkovException("Markov Chain has no start state.");
+	}
+
+	/**
+	 * Determines the composed name of a Markov state.
+	 * 
+	 * @param stateName
+	 *            the state name
+	 * @param prefixes
+	 *            the prefixes of the state name
+	 * @return the composed name
+	 */
+	private String getStateName(final String stateName,
+			final List<String> prefixes) {
+		if (prefixes.isEmpty()) {
+			return stateName;
+		} else {
+			return prefixes.get(prefixes.size() - 1) + "::" + stateName;
+		}
+	}
+
+	/**
+	 * Determines the traces of a Markov state.
+	 * 
+	 * @param stateName
+	 *            the state name
+	 * @param prefixes
+	 *            the prefixes of the state name
+	 * @return the trace list of the state
+	 */
+	private List<String> getStateTraces(final String stateName,
+			final List<String> prefixes) {
+		ArrayList<String> resultList = new ArrayList<String>();
+		if (recordTraces) {
+			resultList.addAll(prefixes);
+			resultList.add(stateName);
+		}
+		return resultList;
 	}
 
 	/**
@@ -739,498 +1231,6 @@ public class MarkovBuilder {
 
 		// Return the result:
 		return markovChain;
-	}
-
-	/**
-	 * Adds a state of a given type and with a given name to a Markov chain.
-	 * 
-	 * @param chain
-	 *            the Markov chain
-	 * @param type
-	 *            the type of state to add
-	 * @param stateName
-	 *            the name for the state to add
-	 * @param prefixes
-	 *            the prefixes to add to the state name
-	 * @return the new state
-	 */
-	private State addState(final MarkovChain chain, final StateType type,
-			final String stateName, final List<String> prefixes) {
-		State state = markovFactory.createState();
-		state.setType(type);
-		state.setName(getStateName(stateName, prefixes));
-		state.getTraces().addAll(getStateTraces(stateName, prefixes));
-		chain.getStates().add(state);
-		return state;
-	}
-
-	/**
-	 * Adds a failure state to a given Markov chain.
-	 * 
-	 * @param chain
-	 *            the Markov chain
-	 * @param prefixes
-	 *            the prefixes of the state name
-	 * @param description
-	 *            the description of the failure type
-	 * @return the new failure state
-	 */
-	private State addStateForFailureDescription(final MarkovChain chain,
-			final List<String> prefixes, final FailureDescription description) {
-
-		// Create the new failure state and add it to the chain:
-		State failureState = addState(chain, StateType.FAILURE,
-				StateType.FAILURE.toString() + "("
-						+ description.getFailureType().getName() + ")",
-				prefixes);
-
-		// Add a label to the state for the failure id:
-		Label failureIdLabel = markovFactory.createLabel();
-		failureIdLabel.setKey(FAILURETYPEID);
-		failureIdLabel.setValue(description.getFailureType().getId());
-		failureState.getLabels().add(failureIdLabel);
-
-		// Add a label to the state for the failure name:
-		Label failureNameLabel = markovFactory.createLabel();
-		failureNameLabel.setKey(FAILURETYPENAME);
-		failureNameLabel.setValue(description.getFailureType().getName());
-		failureState.getLabels().add(failureNameLabel);
-
-		// Return the new Failure state:
-		return failureState;
-	}
-
-	/**
-	 * Incorporates one Markov chain into another to replace a failure state
-	 * with a new behavior.
-	 * 
-	 * @param aggregateChain
-	 *            the outer Markov chain
-	 * @param handlingChain
-	 *            the inner Markov chain to replace the failure state
-	 * @param failureState
-	 *            the failure state to replace
-	 * @param optimize
-	 *            indicates if Markov Chain reduction shall be performed during
-	 *            the transformation
-	 */
-	private void appendFailureHandlingChain(final MarkovChain aggregateChain,
-			final MarkovChain handlingChain, final State failureState,
-			final boolean optimize) {
-
-		// First validate both chains:
-		this.validateChain(aggregateChain);
-		this.validateChain(handlingChain);
-
-		// Create a copy of the specific Markov Chain to prevent reuse of any
-		// States or Transitions of the specific Markov Chain within the
-		// aggregate Markov Chain (this could lead to problems when one specific
-		// Markov Chain is incorporated several times into the same aggregate
-		// Markov Chain):
-		MarkovChain handlingChainCopy = copyMarkovChain(handlingChain);
-
-		// Find the relevant states:
-		State aggregateChainSuccessState = getSuccessState(aggregateChain);
-		List<State> aggregateChainFailureStates = getFailureStates(aggregateChain);
-
-		State handlingChainStartState = getStartState(handlingChainCopy);
-		State handlingChainSuccessState = getSuccessState(handlingChainCopy);
-
-		// Take over the specific Markov Chain into the aggregate Markov Chain:
-		aggregateChain.getStates().addAll(handlingChainCopy.getStates());
-		aggregateChain.getTransitions().addAll(
-				handlingChainCopy.getTransitions());
-
-		delegateIncommingTransitions(aggregateChain, failureState,
-				handlingChainStartState);
-		handlingChainStartState.setType(StateType.DEFAULT);
-		aggregateChain.getStates().remove(failureState);
-		aggregateChainFailureStates.remove(failureState);
-
-		connectStates(aggregateChain, handlingChainSuccessState,
-				aggregateChainSuccessState, 1.0);
-		handlingChainSuccessState.setType(StateType.DEFAULT);
-
-		// Optimize the aggregate MarkovChain:
-		if (optimize) {
-			reduceState(aggregateChain, handlingChainStartState);
-			reduceState(aggregateChain, handlingChainSuccessState);
-		}
-	}
-
-	/**
-	 * Incorporates one Markov Chain into another. The specific Markov Chain is
-	 * inserted into the aggregate Markov Chain replacing the failure state.
-	 * 
-	 * @param aggregateChain
-	 *            the Markov Chain which will incorporate the other chain
-	 * @param aggregateFailureStates
-	 *            the failure states of the aggregate chain that shall be
-	 *            considered
-	 * @param handlingChain
-	 *            the Markov Chain which will be incorporated into the other
-	 *            chain
-	 * @param handledFailureTypeIds
-	 *            the list of handled failure types
-	 * @param removeDuplicateFailureStates
-	 *            indicates if duplicateFailureStates shall be removed at the
-	 *            end of the procedure
-	 * @param optimize
-	 *            indicates if Markov Chain reduction shall be performed during
-	 *            the transformation
-	 */
-	private void appendFailureHandlingMarkovChain(
-			final MarkovChain aggregateChain,
-			final List<State> aggregateFailureStates,
-			final MarkovChain handlingChain,
-			final List<String> handledFailureTypeIds, final boolean optimize) {
-		for (State failureState : aggregateFailureStates) {
-			String failureTypeLabelValue = getFailureTypeId(failureState);
-			if (isFailureTypeHandled(handledFailureTypeIds,
-					failureTypeLabelValue)) {
-				appendFailureHandlingChain(aggregateChain, handlingChain,
-						failureState, optimize);
-			}
-		}
-	}
-
-	/**
-	 * Adds a new transition to a given Markov chain.
-	 * 
-	 * @param chain
-	 *            the Markov chain
-	 * @param from
-	 *            the source state
-	 * @param to
-	 *            the target state
-	 * @param probability
-	 *            the probability to annotate the new transition
-	 */
-	private void connectStates(final MarkovChain chain, final State from,
-			final State to, final double probability) {
-		Transition transition = markovFactory.createTransition();
-		transition.setFromState(from);
-		transition.setToState(to);
-		transition.setProbability(probability);
-		nameTransition(transition);
-		chain.getTransitions().add(transition);
-	}
-
-	/**
-	 * Adds the given Transition to the given Markov Chain. If the given Markov
-	 * Chain already has a Transition between the same source and target States,
-	 * the already existing Transition is merged with the new one by summing up
-	 * the probabilities of the two Transitions.
-	 * 
-	 * @param markovChain
-	 *            the Markov Chain
-	 * @param transitionToContribute
-	 *            the Transition
-	 */
-	private void contributeTransition(final MarkovChain markovChain,
-			final Transition transitionToContribute) {
-
-		// Go through the Transitions of the Markov Chain to find an already
-		// existing Transition that corresponds to the new one:
-		Transition transitionCorresponding = null;
-		for (int i = 0; i < markovChain.getTransitions().size(); i++) {
-			if ((markovChain.getTransitions().get(i).getFromState() == transitionToContribute
-					.getFromState())
-					&& (markovChain.getTransitions().get(i).getToState() == transitionToContribute
-							.getToState())) {
-				transitionCorresponding = markovChain.getTransitions().get(i);
-				break;
-			}
-		}
-
-		// Does a corresponding Transition already exist?
-		if (transitionCorresponding != null) {
-
-			// Add the probability of the new Transition to that of the already
-			// existing one:
-			transitionCorresponding.setProbability(transitionCorresponding
-					.getProbability()
-					+ transitionToContribute.getProbability());
-		} else {
-
-			// Simply add the new Transition to the Markov Chain:
-			markovChain.getTransitions().add(transitionToContribute);
-		}
-	}
-
-	/**
-	 * Delegates incoming transitions from an original state to a new state.
-	 * 
-	 * @param chain
-	 *            the Markov chain
-	 * @param originalState
-	 *            the original state
-	 * @param newState
-	 *            the new state
-	 */
-	private void delegateIncommingTransitions(final MarkovChain chain,
-			final State originalState, final State newState) {
-		ArrayList<Transition> transitions = findTransitionsToState(chain,
-				originalState);
-		for (Transition transition : transitions) {
-			transition.setToState(newState);
-		}
-	}
-
-	/**
-	 * Delegates outgoing transitions from an original state to a new state.
-	 * 
-	 * @param chain
-	 *            the Markov chain
-	 * @param originalState
-	 *            the original state
-	 * @param newState
-	 *            the new state
-	 */
-	private void delegateOutgoingTransitions(final MarkovChain chain,
-			final State originalState, final State newState) {
-		ArrayList<Transition> transitions = findTransitionsFromState(chain,
-				originalState);
-		for (Transition transition : transitions) {
-			transition.setFromState(newState);
-		}
-	}
-
-	/**
-	 * Deletes all Transitions from the given Markov Model which are part of the
-	 * given transitions list.
-	 * 
-	 * @param markovChain
-	 *            the Markov Chain
-	 * @param transitionsToDelete
-	 *            the transition list
-	 */
-	private void deleteTransitions(final MarkovChain markovChain,
-			final ArrayList<Transition> transitionsToDelete) {
-
-		// Go through all transitions of the given list:
-		for (int i = 0; i < transitionsToDelete.size(); i++) {
-
-			// Remove this transition from the Markov Chain:
-			markovChain.getTransitions().remove(transitionsToDelete.get(i));
-		}
-	}
-
-	/**
-	 * Finds a failure state out of a given list of states.
-	 * 
-	 * @param states
-	 *            the list of states
-	 * @param failureTypeLabelValue
-	 *            the type of failure state to find
-	 * @return the failure state; NULL if no corresponding failure state could
-	 *         be found
-	 */
-	private State findFailureState(final List<State> states,
-			final String failureTypeLabelValue) {
-		for (State state : states) {
-			if (!state.getType().equals(StateType.FAILURE)) {
-				continue;
-			}
-			for (Label label : state.getLabels()) {
-				// TODO: this is linear search inside an outer loop! improve
-				// performance
-				if ((label.getKey().equals(FAILURETYPEID))
-						&& (label.getValue().equals(failureTypeLabelValue))) {
-					return state;
-				}
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Finds the failure states out of a given list of states.
-	 * 
-	 * @param states
-	 *            the list of states
-	 * @param failureTypeLabelValue
-	 *            the type of failure state to find
-	 * @return the failure states; NULL if no corresponding failure state could
-	 *         be found
-	 */
-	private List<State> findFailureStates(final List<State> states,
-			final String failureTypeLabelValue) {
-		List<State> resultList = new ArrayList<State>();
-		for (State state : states) {
-			if (!state.getType().equals(StateType.FAILURE)) {
-				continue;
-			}
-			for (Label label : state.getLabels()) {
-				// TODO: this is linear search inside an outer loop! improve
-				// performance
-				if ((label.getKey().equals(FAILURETYPEID))
-						&& (label.getValue().equals(failureTypeLabelValue))) {
-					resultList.add(state);
-				}
-			}
-		}
-		return resultList;
-	}
-
-	/**
-	 * Finds a failure state out of a given list of states.
-	 * 
-	 * @param states
-	 *            the list of states
-	 * @param failureState
-	 *            the failure state to match
-	 * @return the failure state; NULL if no corresponding failure state could
-	 *         be found
-	 */
-	private State findMatchingFailureState(final List<State> states,
-			final State failureState) {
-		String failureTypeLabelValue = getFailureTypeId(failureState);
-		return findFailureState(states, failureTypeLabelValue);
-	}
-
-	/**
-	 * Finds the failure states out of a given list of states.
-	 * 
-	 * @param states
-	 *            the list of states
-	 * @param failureState
-	 *            the failure state to match
-	 * @return the failure states
-	 */
-	private List<State> findMatchingFailureStates(final List<State> states,
-			final State failureState) {
-		String failureTypeLabelValue = getFailureTypeId(failureState);
-		return findFailureStates(states, failureTypeLabelValue);
-	}
-
-	/**
-	 * Retrieves all Markov states of a given type from a given state list.
-	 * 
-	 * @param states
-	 *            the list of states to search through
-	 * @param type
-	 *            the requested state type
-	 * @return the sub list if states of the requested type
-	 */
-	private List<State> findStates(final List<State> states,
-			final StateType type) {
-		List<State> resultList = new ArrayList<State>();
-		for (State state : states) {
-			if (state.getType().equals(type)) {
-				resultList.add(state);
-			}
-		}
-		return resultList;
-	}
-
-	/**
-	 * Creates a list of all Transitions in a Markov Chain that start from a
-	 * given source state.
-	 * 
-	 * @param markovChain
-	 *            the Markov Chain
-	 * @param sourceState
-	 *            the source state
-	 * @return the list of transitions
-	 */
-	private ArrayList<Transition> findTransitionsFromState(
-			final MarkovChain markovChain, final State sourceState) {
-
-		// Initialize the resulting List:
-		ArrayList<Transition> resultList = new ArrayList<Transition>();
-
-		// Go through all transitions of the Markov Chain:
-		for (int i = 0; i < markovChain.getTransitions().size(); i++) {
-			if (markovChain.getTransitions().get(i).getFromState() == sourceState) {
-				resultList.add(markovChain.getTransitions().get(i));
-			}
-		}
-
-		// Return the result:
-		return resultList;
-	}
-
-	/**
-	 * Creates a list of all Transitions in a Markov Chain that lead to a given
-	 * target state.
-	 * 
-	 * @param markovChain
-	 *            the Markov Chain
-	 * @param targetState
-	 *            the target state
-	 * @return the list of transitions
-	 */
-	private ArrayList<Transition> findTransitionsToState(
-			final MarkovChain markovChain, final State targetState) {
-
-		// Initialize the resulting List:
-		ArrayList<Transition> resultList = new ArrayList<Transition>();
-
-		// Go through all transitions of the Markov Chain:
-		for (int i = 0; i < markovChain.getTransitions().size(); i++) {
-			if (markovChain.getTransitions().get(i).getToState() == targetState) {
-				resultList.add(markovChain.getTransitions().get(i));
-			}
-		}
-
-		// Return the result:
-		return resultList;
-	}
-
-	/**
-	 * Retrieves a name from a given list of prefixes.
-	 * 
-	 * @param prefixes
-	 *            the list of prefixes
-	 * @return the resulting name
-	 */
-	private String getName(final List<String> prefixes) {
-		String result = "";
-		for (int i = 0; i < prefixes.size(); i++) {
-			result += prefixes.get(i);
-			if (i < prefixes.size() - 1) {
-				result += "::";
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * Determines the composed name of a Markov state.
-	 * 
-	 * @param stateName
-	 *            the state name
-	 * @param prefixes
-	 *            the prefixes of the state name
-	 * @return the composed name
-	 */
-	private String getStateName(final String stateName,
-			final List<String> prefixes) {
-		if (prefixes.isEmpty()) {
-			return stateName;
-		} else {
-			return prefixes.get(prefixes.size() - 1) + "::" + stateName;
-		}
-	}
-
-	/**
-	 * Determines the traces of a Markov state.
-	 * 
-	 * @param stateName
-	 *            the state name
-	 * @param prefixes
-	 *            the prefixes of the state name
-	 * @return the trace list of the state
-	 */
-	private List<String> getStateTraces(final String stateName,
-			final List<String> prefixes) {
-		ArrayList<String> resultList = new ArrayList<String>();
-		if (recordTraces) {
-			resultList.addAll(prefixes);
-			resultList.add(stateName);
-		}
-		return resultList;
 	}
 
 	/**

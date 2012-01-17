@@ -36,12 +36,9 @@ public class PCMSolverReliabilityTabGroup extends
 
 		// Assemble the tab pages:
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-				new FileNamesInputTab(),
-				new ReliabilityConfigurationTab(),
-				new OptionsTab(),
-				new DebugEnabledCommonTab()
-		};
-		
+				new FileNamesInputTab(), new ReliabilityConfigurationTab(),
+				new OptionsTab(), new DebugEnabledCommonTab() };
+
 		// Do the setup:
 		setTabs(tabs);
 	}

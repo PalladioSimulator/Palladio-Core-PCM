@@ -43,7 +43,7 @@ public class CompareAction implements IObjectActionDelegate {
 		new MarkovComparator().compare(((IFile) selectedObjects[0])
 				.getLocation().toString(), // first file
 				((IFile) selectedObjects[1]).getLocation().toString()); // second
-																		// file
+		// file
 	}
 
 	/**

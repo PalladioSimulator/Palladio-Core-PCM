@@ -23,6 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 
 /**
@@ -116,15 +117,18 @@ public class BasicComponentItemProvider
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
+	 * FB: Adapted method to produce a more informative label for display in non-PCM editors.
+	 * In PCM editors, display is not controlled by this method but through a more general
+	 * mechanism (I'n not sure where it's actually controlled, maybe the
+	 * de.uka.ipd.sdq.pcmbench.tabs.PropertyLabelProvider.getText() method?)
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BasicComponent)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BasicComponent_type") :
-			getString("_UI_BasicComponent_type") + " " + label;
+		return ((BasicComponent)object).getEntityName()
+			+ " [ID: " + ((BasicComponent)object).getId() + "]"
+			+ " <" + getString("_UI_BasicComponent_type") + ">";
 	}
 
 	/**

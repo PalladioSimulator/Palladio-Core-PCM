@@ -54,7 +54,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Default setting for physical states iteration.
 	 */
 	private static final boolean ITERATION_OVER_PHYSICAL_SYSTEM_STATES_ENABLED = true;
-	
+
 	/**
 	 * Default setting for logging.
 	 */
@@ -111,6 +111,16 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	private static final String PLUGIN_ID = "de.uka.ipd.sdq.reliability.solver";
 
 	/**
+	 * Default setting for saving results file.
+	 */
+	private static final String SAVE_FILE_DEFAULT = "";
+
+	/**
+	 * Default setting for saving results.
+	 */
+	private static final boolean SAVE_RESULTS_TO_FILE_ENABLED = false;
+
+	/**
 	 * Default setting for single result printing.
 	 */
 	private static final boolean SINGLERESULTSDEFAULT = false;
@@ -129,16 +139,6 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Default setting for Markov statistics.
 	 */
 	private static final boolean STATISTICSDEFAULT = false;
-	
-	/**
-	 * Default setting for saving results.
-	 */
-	private static final boolean SAVE_RESULTS_TO_FILE_ENABLED = false;
-	
-	/**
-	 * Default setting for saving results file.
-	 */
-	private static final String SAVE_FILE_DEFAULT = "";
 
 	/**
 	 * Button to a file dialog, starting in the user's file system.
@@ -149,7 +149,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Button to a file dialog, starting in the user's file system.
 	 */
 	private Button buttonFileSystemFileDialogModelFile = null;
-	
+
 	/**
 	 * Button to a file dialog, starting in the user's file system.
 	 */
@@ -164,12 +164,12 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Button to a file dialog, starting in the user's workspace.
 	 */
 	private Button buttonWorkspaceFileDialogModelFile = null;
-	
+
 	/**
 	 * Button to a file dialog, starting in the user's workspace.
 	 */
 	private Button buttonWorkspaceFileDialogSaveToFile = null;
-	
+
 	/**
 	 * Checks for iteration over physical system states.
 	 */
@@ -201,6 +201,11 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	private Button checkOptimize = null;
 
 	/**
+	 * Checks whether results should be saved to a file.
+	 */
+	private Button checkSaveResultsToFile = null;
+
+	/**
 	 * Checks for single result prints.
 	 */
 	private Button checkSingleResults = null;
@@ -214,11 +219,6 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	 * Checks for Markov model storage.
 	 */
 	private Button checkStoreMarkovModel = null;
-
-	/**
-	 * Checks whether results should be saved to a file.
-	 */
-	private Button checkSaveResultsToFile = null;
 
 	/**
 	 * Radio button for failure categories (simplified evaluation without
@@ -274,7 +274,10 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#activated(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.AbstractLaunchConfigurationTab#activated(org.eclipse
+	 * .debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void activated(final ILaunchConfigurationWorkingCopy workingCopy) {
 		// Leave this method empty to prevent unnecessary invocation of
@@ -284,7 +287,10 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse
+	 * .swt.widgets.Composite)
 	 */
 	public void createControl(final Composite parent) {
 
@@ -509,8 +515,10 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 							String newModelFile = file.getLocation()
 									.toOSString();
 							if (newModelFile != null) {
-								String portableString = file.getFullPath().toPortableString();
-								newModelFile = "platform:/resource" + portableString;
+								String portableString = file.getFullPath()
+										.toPortableString();
+								newModelFile = "platform:/resource"
+										+ portableString;
 								// did the user select "*.markov" as extension
 								// and
 								// not add ".markov" to the file they specified?
@@ -562,7 +570,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 							if (fileDiag.getFilterIndex() == 0
 									&& !modelFile.endsWith(".markov")) {
 								modelFile += ".markov"; // append ".txt"
-														// extension
+								// extension
 							}
 							textMarkovModelFile.setText(modelFile);
 							updateLaunchConfigurationDialog();
@@ -696,13 +704,15 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 						if (file != null) {
 							String newLogFile = file.getLocation().toOSString();
 							if (newLogFile != null) {
-								String portableString = file.getFullPath().toPortableString();
-								newLogFile = "platform:/resource" + portableString;
+								String portableString = file.getFullPath()
+										.toPortableString();
+								newLogFile = "platform:/resource"
+										+ portableString;
 								// did the user select "*.txt" as extension and
 								// not add ".txt" to the file they specified?
 								if (!newLogFile.endsWith(".txt")) {
 									newLogFile += ".txt"; // append ".txt"
-															// extension
+									// extension
 								}
 								textLogFile.setText(newLogFile);
 								updateLaunchConfigurationDialog();
@@ -759,29 +769,32 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		markovAnalysisResultsLayout.numColumns = 4;
 
 		// Create the Markov analysis Group
-		final Group markovAnalysisResultsGroup = new Group(contentContainer, SWT.NONE);
+		final Group markovAnalysisResultsGroup = new Group(contentContainer,
+				SWT.NONE);
 		markovAnalysisResultsGroup.setLayout(markovAnalysisResultsLayout);
 		markovAnalysisResultsGroup.setText("Markov Analysis Results");
-		markovAnalysisResultsGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
-				false));
+		markovAnalysisResultsGroup.setLayoutData(new GridData(SWT.FILL,
+				SWT.CENTER, true, false));
 
 		// Create the Markov statistics check box:
-		checkSaveResultsToFile = new Button(markovAnalysisResultsGroup, SWT.CHECK);
+		checkSaveResultsToFile = new Button(markovAnalysisResultsGroup,
+				SWT.CHECK);
 		checkSaveResultsToFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				false, false, markovAnalysisResultsLayout.numColumns, 1));
-		checkSaveResultsToFile
-				.setText("Save results to file");
+		checkSaveResultsToFile.setText("Save results to file");
 		checkSaveResultsToFile.setSelection(SAVE_RESULTS_TO_FILE_ENABLED);
 		checkSaveResultsToFile.addListener(SWT.Selection, listener);
 
 		// Add a label showing where to specify the results file
-		Label labelSaveResultsToFile = new Label(markovAnalysisResultsGroup, SWT.NONE);
+		Label labelSaveResultsToFile = new Label(markovAnalysisResultsGroup,
+				SWT.NONE);
 		labelSaveResultsToFile.setText("File:");
 
-		// Create the textbox to specify a file for saving the Markov analysis results
+		// Create the textbox to specify a file for saving the Markov analysis
+		// results
 		textSaveResultsToFile = new Text(markovAnalysisResultsGroup, SWT.BORDER);
-		textSaveResultsToFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
-				false));
+		textSaveResultsToFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				true, false));
 		textSaveResultsToFile.setText(SAVE_FILE_DEFAULT);
 		textSaveResultsToFile.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
 		textSaveResultsToFile.addKeyListener(new KeyListener() {
@@ -802,11 +815,13 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 		// Create the button responsible for triggering a file dialog,
 		// starting in the user's workspace
-		buttonWorkspaceFileDialogSaveToFile = new Button(markovAnalysisResultsGroup, SWT.NONE);
-		buttonWorkspaceFileDialogSaveToFile.setLayoutData(new GridData(SWT.FILL,
-				SWT.CENTER, false, false));
+		buttonWorkspaceFileDialogSaveToFile = new Button(
+				markovAnalysisResultsGroup, SWT.NONE);
+		buttonWorkspaceFileDialogSaveToFile.setLayoutData(new GridData(
+				SWT.FILL, SWT.CENTER, false, false));
 		buttonWorkspaceFileDialogSaveToFile.setText("Workspace...");
-		buttonWorkspaceFileDialogSaveToFile.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
+		buttonWorkspaceFileDialogSaveToFile
+				.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
 		buttonWorkspaceFileDialogSaveToFile
 				.addSelectionListener(new SelectionListener() {
 
@@ -820,18 +835,24 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 						IFile file = WorkspaceResourceDialog.openNewFile(
 								getShell(), "Save As",
 								"Select the parent folder:",
-								getRelativeFilePath(textSaveResultsToFile.getText()
-										.trim()), null);
+								getRelativeFilePath(textSaveResultsToFile
+										.getText().trim()), null);
 						if (file != null) {
-							String newSaveToFile = file.getLocation().toOSString();
+							String newSaveToFile = file.getLocation()
+									.toOSString();
 							if (newSaveToFile != null) {
-								String portableString = file.getFullPath().toPortableString();
-								newSaveToFile = "platform:/resource" + portableString;
-								// did the user select "*.markovresult" as extension and
-								// not add ".markovresult" to the file they specified?
+								String portableString = file.getFullPath()
+										.toPortableString();
+								newSaveToFile = "platform:/resource"
+										+ portableString;
+								// did the user select "*.markovresult" as
+								// extension and
+								// not add ".markovresult" to the file they
+								// specified?
 								if (!newSaveToFile.endsWith(".markovresult")) {
-									newSaveToFile += ".markovresult"; // append ".markovresult"
-															// extension
+									newSaveToFile += ".markovresult"; // append
+																		// ".markovresult"
+									// extension
 								}
 								textSaveResultsToFile.setText(newSaveToFile);
 								updateLaunchConfigurationDialog();
@@ -843,9 +864,10 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 		// Create the button responsible for triggering a file dialog,
 		// starting in the user's file system
-		buttonFileSystemFileDialogSaveToFile = new Button(markovAnalysisResultsGroup, SWT.NONE);
-		buttonFileSystemFileDialogSaveToFile.setLayoutData(new GridData(SWT.FILL,
-				SWT.CENTER, false, false));
+		buttonFileSystemFileDialogSaveToFile = new Button(
+				markovAnalysisResultsGroup, SWT.NONE);
+		buttonFileSystemFileDialogSaveToFile.setLayoutData(new GridData(
+				SWT.FILL, SWT.CENTER, false, false));
 		buttonFileSystemFileDialogSaveToFile.setText("File System...");
 		buttonFileSystemFileDialogSaveToFile.setEnabled(SINGLERESULTSDEFAULT);
 		buttonFileSystemFileDialogSaveToFile
@@ -860,20 +882,25 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 					public void widgetSelected(final SelectionEvent e) {
 						FileDialog fileDiag = new FileDialog(new Shell(),
 								SWT.SAVE);
-						fileDiag.setFilterPath(getDirectoryName(textSaveResultsToFile
+						fileDiag
+								.setFilterPath(getDirectoryName(textSaveResultsToFile
+										.getText().trim()));
+						fileDiag.setFilterExtensions(new String[] {
+								"*.markovresult", "*.*" });
+						fileDiag.setFileName(getFileName(textSaveResultsToFile
 								.getText().trim()));
-						fileDiag.setFilterExtensions(new String[] { "*.markovresult",
-								"*.*" });
-						fileDiag.setFileName(getFileName(textSaveResultsToFile.getText()
-								.trim()));
 						fileDiag.setOverwrite(true);
 						String saveToFile = fileDiag.open();
 						if (saveToFile != null) {
-							// did the user select "*.markovresult" as extension and
-							// not add ".markovresult" to the file they specified?
+							// did the user select "*.markovresult" as extension
+							// and
+							// not add ".markovresult" to the file they
+							// specified?
 							if (fileDiag.getFilterIndex() == 0
 									&& !saveToFile.endsWith(".markovresult")) {
-								saveToFile += ".markovresult"; // append ".markovresult" extension
+								saveToFile += ".markovresult"; // append
+																// ".markovresult"
+																// extension
 							}
 							textSaveResultsToFile.setText(saveToFile);
 							updateLaunchConfigurationDialog();
@@ -893,30 +920,103 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#deactivated(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.AbstractLaunchConfigurationTab#deactivated(org.eclipse
+	 * .debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void deactivated(final ILaunchConfigurationWorkingCopy workingCopy) {
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
+	/**
+	 * Returns the currently selected file path.
+	 * 
+	 * Only valid and absolute paths are accepted.
+	 * 
+	 * @return the currently selected file path
 	 */
-	public Image getImage() {
-		return RunConfigImages.getTabImage(PLUGIN_ID,FILENAME_TAB_IMAGE_PATH);
+	private Path getCurrentFilePath(final String path) {
+		if (Path.ROOT.isValidPath(path)) {
+			Path resultPath = new Path(path);
+			if (resultPath.isAbsolute()) {
+				return resultPath;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Returns the current file directory as a String.
+	 * 
+	 * @return the current file directory
+	 */
+	private String getDirectoryName(final String path) {
+		Path filePath = getCurrentFilePath(path);
+		if (filePath == null) {
+			return null;
+		}
+		if (filePath.toFile().isDirectory()) {
+			return filePath.toOSString();
+		}
+		return new Path(filePath.toFile().getParent()).toOSString();
+	}
+
+	/**
+	 * Returns the current file name as a String.
+	 * 
+	 * @return the current file name
+	 */
+	private String getFileName(String path) {
+		Path filePath = getCurrentFilePath(path);
+		if ((filePath == null) || (filePath.toFile().isDirectory())) {
+			return null;
+		}
+		return filePath.toFile().getName();
 	}
 
 	/*
 	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
+	 */
+	public Image getImage() {
+		return RunConfigImages.getTabImage(PLUGIN_ID, FILENAME_TAB_IMAGE_PATH);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
 	 */
 	public String getName() {
 		return "Analysis Options";
 	}
 
+	/**
+	 * Returns the currently selected file path, relative to the workspace.
+	 * 
+	 * Returns an empty path if the current file path is not valid or not within
+	 * the workspace.
+	 * 
+	 * @return the currently selected file path
+	 */
+	private Path getRelativeFilePath(final String path) {
+		Path logFilePath = getCurrentFilePath(path);
+		Path workspacePath = (Path) ResourcesPlugin.getWorkspace().getRoot()
+				.getLocation();
+		Path resultPath = new Path("");
+		if ((logFilePath != null) && (workspacePath.isPrefixOf(logFilePath))) {
+			resultPath = (Path) logFilePath.makeRelativeTo(workspacePath);
+		}
+		return resultPath;
+	}
+
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse.debug.core.ILaunchConfiguration)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse
+	 * .debug.core.ILaunchConfiguration)
 	 */
 	public void initializeFrom(final ILaunchConfiguration configuration) {
 		// Try to retrieve the settings from the given configuration:
@@ -987,13 +1087,16 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 					MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED,
 					SAVE_RESULTS_TO_FILE_ENABLED));
 			textSaveResultsToFile.setEnabled(configuration.getAttribute(
-					MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED, SAVE_RESULTS_TO_FILE_ENABLED));
+					MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED,
+					SAVE_RESULTS_TO_FILE_ENABLED));
 			textSaveResultsToFile.setText(configuration.getAttribute(
 					MessageStrings.SAVE_FILE_DEFAULT, SAVE_FILE_DEFAULT));
-			buttonWorkspaceFileDialogSaveToFile.setEnabled(configuration.getAttribute(
-					MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED, SAVE_RESULTS_TO_FILE_ENABLED));
-			buttonFileSystemFileDialogSaveToFile.setEnabled(configuration.getAttribute(
-					MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED, SAVE_RESULTS_TO_FILE_ENABLED));
+			buttonWorkspaceFileDialogSaveToFile.setEnabled(configuration
+					.getAttribute(MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED,
+							SAVE_RESULTS_TO_FILE_ENABLED));
+			buttonFileSystemFileDialogSaveToFile.setEnabled(configuration
+					.getAttribute(MessageStrings.SAVE_RESULTS_TO_FILE_ENABLED,
+							SAVE_RESULTS_TO_FILE_ENABLED));
 
 			MarkovEvaluationType evalType;
 			try {
@@ -1052,101 +1155,71 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 			checkSaveResultsToFile.setSelection(SAVE_RESULTS_TO_FILE_ENABLED);
 			textSaveResultsToFile.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
 			textSaveResultsToFile.setText(SAVE_FILE_DEFAULT);
-			buttonWorkspaceFileDialogSaveToFile.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
-			buttonFileSystemFileDialogSaveToFile.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
+			buttonWorkspaceFileDialogSaveToFile
+					.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
+			buttonFileSystemFileDialogSaveToFile
+					.setEnabled(SAVE_RESULTS_TO_FILE_ENABLED);
 		}
 
 		// Update the state of the dialog:
 		updateLaunchConfigurationDialog();
 		updateFieldsEnablement();
 	}
-	
-	/**returns the path including the last slash */
-	private String resolvePath(String fileURL) {
-		// if this is a platform URL, first resolve it to an absolute path
-		if (fileURL.startsWith("platform:")){
-			try {
-				URL solvedURL = FileLocator.resolve(new URL(fileURL));
-				fileURL =  solvedURL.getPath();
-			} catch (Exception e) {
-				e.printStackTrace();
-				return "";
-			} 
-		} 
-
-		// now this should be an absolute path, but it can have either slashes or backslashes
-		int indexBackslash = fileURL.lastIndexOf("\\");
-		int indexSlash = fileURL.lastIndexOf("/");
-		// the right directory separator is the one where the above results in the higher index (assuming that linux file systems do not allow backslashes in file names...)
-		int index = indexBackslash > indexSlash ? indexBackslash : indexSlash;
-		String folderPath = fileURL.substring(0, index+1);
-		return folderPath;
-	}
-	
-	/**
-	 * Resolves a file's path in case it starts with "platform:/" and returns the entire
-	 * absolute path to the file, including the file's name.
-	 * 
-	 * @param fileURL the path to a file, including the file's name (and its extension)
-	 * @return the absolute path to the file, including the file's name
-	 */
-	private String resolveFile(String fileURL) {
-		// if this is a platform URL, first resolve it to an absolute path
-		if (fileURL.startsWith("platform:")){
-			try {
-				URL solvedURL = FileLocator.resolve(new URL(fileURL));
-				fileURL = solvedURL.getPath();
-			} catch (Exception e) {
-				e.printStackTrace();
-				return "";
-			}
-		}
-		return fileURL;
-	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#isValid(org.eclipse.debug.core.ILaunchConfiguration)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.AbstractLaunchConfigurationTab#isValid(org.eclipse
+	 * .debug.core.ILaunchConfiguration)
 	 */
-	public boolean isValid(final ILaunchConfiguration configuration) {	
+	public boolean isValid(final ILaunchConfiguration configuration) {
 		// single result logging enabled?
 		if (checkSingleResults.getSelection()) {
 			if (getCurrentFilePath(resolvePath(textLogFile.getText().trim())) == null) {
 				setErrorMessage("Invalid log file!");
 				return false;
-			} else if (getCurrentFilePath(resolveFile(textLogFile.getText().trim()))
-					.toFile().isDirectory()) {
+			} else if (getCurrentFilePath(
+					resolveFile(textLogFile.getText().trim())).toFile()
+					.isDirectory()) {
 				setErrorMessage("Log file is a directory!");
 				return false;
-			} else if (!getCurrentFilePath(resolvePath(textLogFile.getText().trim()))
-					.toFile().getParentFile().exists()) {
+			} else if (!getCurrentFilePath(
+					resolvePath(textLogFile.getText().trim())).toFile()
+					.getParentFile().exists()) {
 				setErrorMessage("Log file directory does not exist!");
 				return false;
 			}
 		}
 		if (checkStoreMarkovModel.getSelection()) {
-			if (getCurrentFilePath(resolvePath(textMarkovModelFile.getText().trim())) == null) {
+			if (getCurrentFilePath(resolvePath(textMarkovModelFile.getText()
+					.trim())) == null) {
 				setErrorMessage("Invalid Markov model file!");
 				return false;
-			} else if (getCurrentFilePath(resolveFile(textMarkovModelFile.getText().trim()))
-					.toFile().isDirectory()) {
+			} else if (getCurrentFilePath(
+					resolveFile(textMarkovModelFile.getText().trim())).toFile()
+					.isDirectory()) {
 				setErrorMessage("Markov model file is a directory!");
 				return false;
-			} else if (!getCurrentFilePath(resolvePath(textMarkovModelFile.getText().trim()))
-					.toFile().getParentFile().exists()) {
+			} else if (!getCurrentFilePath(
+					resolvePath(textMarkovModelFile.getText().trim())).toFile()
+					.getParentFile().exists()) {
 				setErrorMessage("Markov model file directory does not exist!");
 				return false;
 			}
 		}
 		if (checkSaveResultsToFile.getSelection()) {
-			if (getCurrentFilePath(resolvePath(textSaveResultsToFile.getText().trim())) == null) {
+			if (getCurrentFilePath(resolvePath(textSaveResultsToFile.getText()
+					.trim())) == null) {
 				setErrorMessage("Invalid results file!");
 				return false;
-			} else if (getCurrentFilePath(resolveFile(textSaveResultsToFile.getText().trim()))
+			} else if (getCurrentFilePath(
+					resolveFile(textSaveResultsToFile.getText().trim()))
 					.toFile().isDirectory()) {
 				setErrorMessage("Results file is a directory!");
 				return false;
-			} else if (!getCurrentFilePath(resolvePath(textSaveResultsToFile.getText().trim()))
+			} else if (!getCurrentFilePath(
+					resolvePath(textSaveResultsToFile.getText().trim()))
 					.toFile().getParentFile().exists()) {
 				setErrorMessage("Results file directory does not exist!");
 				return false;
@@ -1159,7 +1232,10 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse
+	 * .debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(final ILaunchConfigurationWorkingCopy configuration) {
 		// Store the settings into the configuration:
@@ -1227,9 +1303,60 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 				textSaveResultsToFile.getText().trim());
 	}
 
+	/**
+	 * Resolves a file's path in case it starts with "platform:/" and returns
+	 * the entire absolute path to the file, including the file's name.
+	 * 
+	 * @param fileURL
+	 *            the path to a file, including the file's name (and its
+	 *            extension)
+	 * @return the absolute path to the file, including the file's name
+	 */
+	private String resolveFile(String fileURL) {
+		// if this is a platform URL, first resolve it to an absolute path
+		if (fileURL.startsWith("platform:")) {
+			try {
+				URL solvedURL = FileLocator.resolve(new URL(fileURL));
+				fileURL = solvedURL.getPath();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "";
+			}
+		}
+		return fileURL;
+	}
+
+	/** returns the path including the last slash */
+	private String resolvePath(String fileURL) {
+		// if this is a platform URL, first resolve it to an absolute path
+		if (fileURL.startsWith("platform:")) {
+			try {
+				URL solvedURL = FileLocator.resolve(new URL(fileURL));
+				fileURL = solvedURL.getPath();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "";
+			}
+		}
+
+		// now this should be an absolute path, but it can have either slashes
+		// or backslashes
+		int indexBackslash = fileURL.lastIndexOf("\\");
+		int indexSlash = fileURL.lastIndexOf("/");
+		// the right directory separator is the one where the above results in
+		// the higher index (assuming that linux file systems do not allow
+		// backslashes in file names...)
+		int index = indexBackslash > indexSlash ? indexBackslash : indexSlash;
+		String folderPath = fileURL.substring(0, index + 1);
+		return folderPath;
+	}
+
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+	 * 
+	 * @see
+	 * org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.
+	 * debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void setDefaults(final ILaunchConfigurationWorkingCopy configuration) {
 		// Load default settings into the configuration:
@@ -1271,71 +1398,6 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 	}
 
 	/**
-	 * Returns the currently selected file path.
-	 * 
-	 * Only valid and absolute paths are accepted.
-	 * 
-	 * @return the currently selected file path
-	 */
-	private Path getCurrentFilePath(final String path) {
-		if (Path.ROOT.isValidPath(path)) {
-			Path resultPath = new Path(path);
-			if (resultPath.isAbsolute()) {
-				return resultPath;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Returns the current file directory as a String.
-	 * 
-	 * @return the current file directory
-	 */
-	private String getDirectoryName(final String path) {
-		Path filePath = getCurrentFilePath(path);
-		if (filePath == null) {
-			return null;
-		}
-		if (filePath.toFile().isDirectory()) {
-			return filePath.toOSString();
-		}
-		return new Path(filePath.toFile().getParent()).toOSString();
-	}
-
-	/**
-	 * Returns the current file name as a String.
-	 * 
-	 * @return the current file name
-	 */
-	private String getFileName(String path) {
-		Path filePath = getCurrentFilePath(path);
-		if ((filePath == null) || (filePath.toFile().isDirectory())) {
-			return null;
-		}
-		return filePath.toFile().getName();
-	}
-
-	/**
-	 * Returns the currently selected file path, relative to the workspace.
-	 * 
-	 * Returns an empty path if the current file path is not valid or not within
-	 * the workspace.
-	 * 
-	 * @return the currently selected file path
-	 */
-	private Path getRelativeFilePath(final String path) {
-		Path logFilePath = getCurrentFilePath(path);
-		Path workspacePath = (Path) ResourcesPlugin.getWorkspace().getRoot()
-				.getLocation();
-		Path resultPath = new Path("");
-		if ((logFilePath != null) && (workspacePath.isPrefixOf(logFilePath))) {
-			resultPath = (Path) logFilePath.makeRelativeTo(workspacePath);
-		}
-		return resultPath;
-	}
-
-	/**
 	 * Updates the status of the spinner fields.
 	 */
 	private void updateFieldsEnablement() {
@@ -1356,7 +1418,9 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
 		buttonFileSystemFileDialogModelFile.setEnabled(checkStoreMarkovModel
 				.getSelection());
 		textSaveResultsToFile.setEnabled(checkSaveResultsToFile.getSelection());
-		buttonWorkspaceFileDialogSaveToFile.setEnabled(checkSaveResultsToFile.getSelection());
-		buttonFileSystemFileDialogSaveToFile.setEnabled(checkSaveResultsToFile.getSelection());
+		buttonWorkspaceFileDialogSaveToFile.setEnabled(checkSaveResultsToFile
+				.getSelection());
+		buttonFileSystemFileDialogSaveToFile.setEnabled(checkSaveResultsToFile
+				.getSelection());
 	}
 }

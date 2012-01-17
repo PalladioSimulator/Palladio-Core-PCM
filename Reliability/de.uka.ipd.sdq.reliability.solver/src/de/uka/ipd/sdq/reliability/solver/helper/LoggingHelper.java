@@ -16,49 +16,25 @@ public class LoggingHelper {
 	 * The singleton instance.
 	 */
 	private static LoggingHelper singletonInstance = null;
-	
+
 	/**
 	 * Retrieves the singleton instance.
 	 * 
 	 * @return the singleton instance
 	 */
-	public static LoggingHelper getSingletonInstance()
-	{
-		if(singletonInstance == null)
-		{
+	public static LoggingHelper getSingletonInstance() {
+		if (singletonInstance == null) {
 			singletonInstance = new LoggingHelper();
 		}
 		return singletonInstance;
 	}
-	
+
 	/**
 	 * Private constructor.
 	 * 
 	 * Prohibits external object creation.
 	 */
-	private LoggingHelper()
-	{
-	}
-
-	/**
-	 * Initializes the logging functionality.
-	 * 
-	 */
-	public void initializeLogging() {
-
-		// Retrieve a message console for the logging:
-		MessageConsole console = createOrReferenceMessageConsole();
-		console.activate();
-		console.clearConsole();
-		MessageConsoleStream stream = console.newMessageStream();
-
-		// Configure log4j:
-		PatternLayout myLayout = new PatternLayout(
-				"[%-10t] %-5p: %m%n");
-		WriterAppender writerAppender = new WriterAppender(myLayout, stream);
-		BasicConfigurator.resetConfiguration();
-		BasicConfigurator.configure(writerAppender);
-		Logger.getRootLogger().setLevel(Level.INFO);
+	private LoggingHelper() {
 	}
 
 	/**
@@ -87,5 +63,25 @@ public class LoggingHelper {
 		ConsolePlugin.getDefault().getConsoleManager().addConsoles(
 				new IConsole[] { console });
 		return console;
+	}
+
+	/**
+	 * Initializes the logging functionality.
+	 * 
+	 */
+	public void initializeLogging() {
+
+		// Retrieve a message console for the logging:
+		MessageConsole console = createOrReferenceMessageConsole();
+		console.activate();
+		console.clearConsole();
+		MessageConsoleStream stream = console.newMessageStream();
+
+		// Configure log4j:
+		PatternLayout myLayout = new PatternLayout("[%-10t] %-5p: %m%n");
+		WriterAppender writerAppender = new WriterAppender(myLayout, stream);
+		BasicConfigurator.resetConfiguration();
+		BasicConfigurator.configure(writerAppender);
+		Logger.getRootLogger().setLevel(Level.INFO);
 	}
 }

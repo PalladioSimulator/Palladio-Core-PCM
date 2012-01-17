@@ -39,28 +39,6 @@ public class MarkovTransformation {
 	private MarkovFailureTypeHelper helper = new MarkovFailureTypeHelper();
 
 	/**
-	 * Performs a PCM2Markov transformation.
-	 * 
-	 * @param model
-	 *            the input PCM instance
-	 * @param configuration
-	 *            configuration properties for the reliability solver workflow
-	 * @param sensitivity
-	 *            sensitivity analysis configuration
-	 * @return the transformation results
-	 */
-	public List<MarkovTransformationResult> runTransform(
-			final PCMInstance model,
-			final PCMSolverWorkflowRunConfiguration configuration,
-			final MarkovSensitivity sensitivity) {
-		if (sensitivity != null) {
-			return runTransformIteratively(model, configuration, sensitivity);
-		} else {
-			return runTransformSingle(model, configuration);
-		}
-	}
-
-	/**
 	 * Checks whether there exists a next permutation based on the current one
 	 * (which is given by the resources' current states). Generates the next
 	 * permutation, if it exists, according to Narayana Pandita's method of
@@ -128,6 +106,20 @@ public class MarkovTransformation {
 		}
 
 		return true; // next permutation successfully generated - return true
+	}
+
+	/**
+	 * Retrieves the failure types evaluation mode from a given analysis
+	 * configuration.
+	 * 
+	 * @param configuration
+	 *            the analysis configuration
+	 * @return the evaluation mode
+	 */
+	private MarkovEvaluationType getEvaluationMode(
+			PCMSolverWorkflowRunConfiguration configuration) {
+		return MarkovEvaluationType.valueOf(configuration
+				.getMarkovEvaluationMode());
 	}
 
 	/**
@@ -463,6 +455,92 @@ public class MarkovTransformation {
 	/**
 	 * Transforms a PCM instance into a Markov Chain instance.
 	 * 
+	 * The transformation is performed in two steps. In the first step,
+	 * parametric dependencies within the PCM instance are solved using the
+	 * dependency solver. The resulting PCM instance is then transformed into a
+	 * Markov Chain.
+	 * 
+	 * @param model
+	 *            the input PCM instance
+	 * @param configuration
+	 *            configuration properties for the reliability solver workflow
+	 * @param scenario
+	 *            the usage scenario to transform
+	 * @return the transformation results
+	 */
+	private MarkovTransformationResult runScenarioTransform(
+			final PCMInstance model,
+			final PCMSolverWorkflowRunConfiguration configuration,
+			final UsageScenario scenario) {
+
+		// Initialize failure type information:
+		List<MarkovFailureType> failureTypes = helper.getFailureTypes(
+				getEvaluationMode(configuration), model.getRepositories(),
+				model.getResourceEnvironment(), model.getSystem());
+
+		// Initialize state information:
+		MarkovTransformationSource markovSource = new MarkovTransformationSource(
+				model, true);
+		MarkovTransformationResult markovResult = new MarkovTransformationResult(
+				configuration, markovSource, scenario, failureTypes);
+		boolean approximate = false;
+
+		// As a first step, solve parametric dependencies of the PCM instance:
+		try {
+			runDSolver(scenario, markovSource);
+		} catch (Exception e) {
+
+			// The parametric dependencies could not be solved:
+			logger
+					.error("Solving of parametric dependencies caused exception: "
+							+ e.getMessage() + " [" + e.getClass() + "]");
+			e.printStackTrace();
+
+			return null;
+		}
+
+		// Second, the PCM instance is transformed into a Markov Chain instance
+		// and solved for determining system reliability:
+		try {
+			approximate = runPcm2Markov(configuration, scenario, markovSource,
+					markovResult);
+		} catch (Exception e) {
+			logger.error("PCM 2 Markov transformation caused exception: "
+					+ e.getMessage() + " [" + e.getClass() + "]");
+			e.printStackTrace();
+		}
+
+		markovResult.setApproximate(approximate);
+
+		// Return the transformation results:
+		return markovResult;
+	}
+
+	/**
+	 * Performs a PCM2Markov transformation.
+	 * 
+	 * @param model
+	 *            the input PCM instance
+	 * @param configuration
+	 *            configuration properties for the reliability solver workflow
+	 * @param sensitivity
+	 *            sensitivity analysis configuration
+	 * @return the transformation results
+	 */
+	public List<MarkovTransformationResult> runTransform(
+			final PCMInstance model,
+			final PCMSolverWorkflowRunConfiguration configuration,
+			final MarkovSensitivity sensitivity) {
+		if (sensitivity != null) {
+			return runTransformIteratively(model, configuration, sensitivity);
+		} else {
+			return runTransformSingle(model, configuration);
+		}
+	}
+
+	/**
+	 * Transforms a PCM instance into a Markov Chain instance.
+	 * 
 	 * The transformation is repeated to enable sensitivity analysis.
 	 * 
 	 * @param model
@@ -526,83 +604,5 @@ public class MarkovTransformation {
 
 		// Return all transformation results:
 		return resultList;
-	}
-
-	/**
-	 * Transforms a PCM instance into a Markov Chain instance.
-	 * 
-	 * The transformation is performed in two steps. In the first step,
-	 * parametric dependencies within the PCM instance are solved using the
-	 * dependency solver. The resulting PCM instance is then transformed into a
-	 * Markov Chain.
-	 * 
-	 * @param model
-	 *            the input PCM instance
-	 * @param configuration
-	 *            configuration properties for the reliability solver workflow
-	 * @param scenario
-	 *            the usage scenario to transform
-	 * @return the transformation results
-	 */
-	private MarkovTransformationResult runScenarioTransform(
-			final PCMInstance model,
-			final PCMSolverWorkflowRunConfiguration configuration,
-			final UsageScenario scenario) {
-
-		// Initialize failure type information:
-		List<MarkovFailureType> failureTypes = helper.getFailureTypes(
-				getEvaluationMode(configuration), model.getRepositories(),
-				model.getResourceEnvironment(), model.getSystem());
-
-		// Initialize state information:
-		MarkovTransformationSource markovSource = new MarkovTransformationSource(
-				model, true);
-		MarkovTransformationResult markovResult = new MarkovTransformationResult(
-				configuration, markovSource, scenario, failureTypes);
-		boolean approximate = false;
-
-		// As a first step, solve parametric dependencies of the PCM instance:
-		try {
-			runDSolver(scenario, markovSource);
-		} catch (Exception e) {
-
-			// The parametric dependencies could not be solved:
-			logger
-					.error("Solving of parametric dependencies caused exception: "
-							+ e.getMessage() + " [" + e.getClass() + "]");
-			e.printStackTrace();
-
-			return null;
-		}
-
-		// Second, the PCM instance is transformed into a Markov Chain instance
-		// and solved for determining system reliability:
-		try {
-			approximate = runPcm2Markov(configuration, scenario, markovSource,
-					markovResult);
-		} catch (Exception e) {
-			logger.error("PCM 2 Markov transformation caused exception: "
-					+ e.getMessage() + " [" + e.getClass() + "]");
-			e.printStackTrace();
-		}
-
-		markovResult.setApproximate(approximate);
-
-		// Return the transformation results:
-		return markovResult;
-	}
-
-	/**
-	 * Retrieves the failure types evaluation mode from a given analysis
-	 * configuration.
-	 * 
-	 * @param configuration
-	 *            the analysis configuration
-	 * @return the evaluation mode
-	 */
-	private MarkovEvaluationType getEvaluationMode(
-			PCMSolverWorkflowRunConfiguration configuration) {
-		return MarkovEvaluationType.valueOf(configuration
-				.getMarkovEvaluationMode());
 	}
 }

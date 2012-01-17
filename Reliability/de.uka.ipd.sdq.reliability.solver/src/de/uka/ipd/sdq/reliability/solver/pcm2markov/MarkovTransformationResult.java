@@ -34,6 +34,12 @@ public class MarkovTransformationResult {
 			.getLogger(MarkovTransformationResult.class.getName());
 
 	/**
+	 * Indicates if an approximation scheme shall be used for printing of
+	 * probabilities.
+	 */
+	private boolean approximate;
+
+	/**
 	 * Configuration options of the transformation.
 	 */
 	private PCMSolverWorkflowRunConfiguration configuration;
@@ -55,6 +61,11 @@ public class MarkovTransformationResult {
 	 * system states.
 	 */
 	private double cumulatedSuccessProbability;
+
+	/**
+	 * The list of potential failure types.
+	 */
+	private List<MarkovFailureType> failureTypes;
 
 	/**
 	 * A helper class providing functionality for Markov chains.
@@ -88,17 +99,6 @@ public class MarkovTransformationResult {
 	private UsageScenario scenario;
 
 	/**
-	 * The list of potential failure types.
-	 */
-	private List<MarkovFailureType> failureTypes;
-
-	/**
-	 * Indicates if an approximation scheme shall be used for printing of
-	 * probabilities.
-	 */
-	private boolean approximate;
-
-	/**
 	 * Creates a new Markov results aggregator.
 	 * 
 	 * @param configuration
@@ -126,84 +126,6 @@ public class MarkovTransformationResult {
 		this.resultChain = null;
 		this.scenario = scenario;
 		this.failureTypes = failureTypes;
-	}
-
-	/**
-	 * Gets the overall failure type probabilities, accumulated over all
-	 * considered physical system states.
-	 * 
-	 * @return the overall failure type probabilities
-	 */
-	public Map<MarkovFailureType, Double> getCumulatedFailureTypeProbabilities() {
-		return cumulatedFailureTypeProbabilities;
-	}
-
-	/**
-	 * Gets the overall physical state probability, accumulated over all
-	 * considered physical system states.
-	 * 
-	 * @return the overall physical state probability
-	 */
-	public double getCumulatedPhysicalStateProbability() {
-		return cumulatedPhysicalStateProbability;
-	}
-
-	/**
-	 * Gets the usage scenario which has been evaluated
-	 * 
-	 * @return the usage scenario
-	 */
-	public UsageScenario getScenario() {
-		return scenario;
-	}
-
-	/**
-	 * Indicates if an approximation scheme shall be used for printing of
-	 * probabilities.
-	 * 
-	 * @return <code>true</code>, if an approximation scheme shall be used for
-	 *         printing probabilities, <code>false</code> otherwise.
-	 */
-	public boolean isDoApproximate() {
-		return (configuration.isIterationOverPhysicalSystemStatesEnabled())
-				&& approximate
-				&& (physicalStateEvaluationCount < Math.pow(markovSource
-						.getUnreliableResourceDescriptors().size(), 2));
-	}
-
-	/**
-	 * Method for setting a value responsible for telling if an approximation
-	 * scheme shall be used for printing probabilities.
-	 * 
-	 * @param approximate
-	 *            the value indicating if an approximation scheme shall be used
-	 *            for printing probabilities
-	 */
-	public void setApproximate(boolean approximate) {
-		this.approximate = approximate;
-	}
-
-	/**
-	 * Resolves a file's path in case it starts with "platform:/" and returns
-	 * the entire absolute path to the file, including the file's name.
-	 * 
-	 * @param fileURL
-	 *            the path to a file, including the file's name (and its
-	 *            extension)
-	 * @return the absolute path to the file, including the file's name
-	 */
-	private String resolveFile(String fileURL) {
-		// if this is a platform URL, first resolve it to an absolute path
-		if (fileURL.startsWith("platform:")) {
-			try {
-				URL solvedURL = FileLocator.resolve(new URL(fileURL));
-				fileURL = solvedURL.getPath();
-			} catch (Exception e) {
-				e.printStackTrace();
-				return "";
-			}
-		}
-		return fileURL;
 	}
 
 	/**
@@ -343,6 +265,26 @@ public class MarkovTransformationResult {
 	}
 
 	/**
+	 * Gets the overall failure type probabilities, accumulated over all
+	 * considered physical system states.
+	 * 
+	 * @return the overall failure type probabilities
+	 */
+	public Map<MarkovFailureType, Double> getCumulatedFailureTypeProbabilities() {
+		return cumulatedFailureTypeProbabilities;
+	}
+
+	/**
+	 * Gets the overall physical state probability, accumulated over all
+	 * considered physical system states.
+	 * 
+	 * @return the overall physical state probability
+	 */
+	public double getCumulatedPhysicalStateProbability() {
+		return cumulatedPhysicalStateProbability;
+	}
+
+	/**
 	 * Retrieves the failure type with the given id.
 	 * 
 	 * @param failureTypeId
@@ -358,61 +300,6 @@ public class MarkovTransformationResult {
 		throw new IllegalArgumentException(
 				"MarkovTransformationResult: Failure type with ID \""
 						+ failureTypeId + "\" not found!");
-	}
-
-	/**
-	 * Retrieves the number of physical system states.
-	 * 
-	 * @return the number of physical system states
-	 */
-	public long getNumberOfPhysicalSystemStates() {
-		return numberOfPhysicalSystemStates;
-	}
-
-	/**
-	 * Retrieves the current number of evaluated physical system states.
-	 * 
-	 * @return the current number of evaluated physical system states
-	 */
-	public long getPhysicalStateEvaluationCount() {
-		return physicalStateEvaluationCount;
-	}
-
-	/**
-	 * Retrieves the Markov chain that results from the transformation.
-	 * 
-	 * @return the Markov chain that results from the transformation
-	 */
-	public MarkovChain getResultChain() {
-		return resultChain;
-	}
-
-	/**
-	 * Determines if the calculated success probability conforms to a given
-	 * required accuracy.
-	 * 
-	 * @param requiredAccuracy
-	 *            the required accuracy in decimal places
-	 * @return true if the required accuracy has been reached
-	 */
-	public boolean hasRequiredAccuracy(final int requiredAccuracy) {
-
-		// Create an approximation for the accumulated success probability:
-		MarkovResultApproximation approximation = new MarkovResultApproximation(
-				cumulatedSuccessProbability, cumulatedSuccessProbability
-						+ (1.0 - cumulatedPhysicalStateProbability));
-
-		// Check for the required accuracy:
-		return approximation.hasRequiredAccuracy(requiredAccuracy);
-	}
-
-	/**
-	 * Retrieves the overall success probability.
-	 * 
-	 * @return the success probability
-	 */
-	public double getSuccessProbability() {
-		return cumulatedSuccessProbability;
 	}
 
 	/**
@@ -477,5 +364,118 @@ public class MarkovTransformationResult {
 
 		// Return the result:
 		return resultString.toString();
+	}
+
+	/**
+	 * Retrieves the number of physical system states.
+	 * 
+	 * @return the number of physical system states
+	 */
+	public long getNumberOfPhysicalSystemStates() {
+		return numberOfPhysicalSystemStates;
+	}
+
+	/**
+	 * Retrieves the current number of evaluated physical system states.
+	 * 
+	 * @return the current number of evaluated physical system states
+	 */
+	public long getPhysicalStateEvaluationCount() {
+		return physicalStateEvaluationCount;
+	}
+
+	/**
+	 * Retrieves the Markov chain that results from the transformation.
+	 * 
+	 * @return the Markov chain that results from the transformation
+	 */
+	public MarkovChain getResultChain() {
+		return resultChain;
+	}
+
+	/**
+	 * Gets the usage scenario which has been evaluated
+	 * 
+	 * @return the usage scenario
+	 */
+	public UsageScenario getScenario() {
+		return scenario;
+	}
+
+	/**
+	 * Retrieves the overall success probability.
+	 * 
+	 * @return the success probability
+	 */
+	public double getSuccessProbability() {
+		return cumulatedSuccessProbability;
+	}
+
+	/**
+	 * Determines if the calculated success probability conforms to a given
+	 * required accuracy.
+	 * 
+	 * @param requiredAccuracy
+	 *            the required accuracy in decimal places
+	 * @return true if the required accuracy has been reached
+	 */
+	public boolean hasRequiredAccuracy(final int requiredAccuracy) {
+
+		// Create an approximation for the accumulated success probability:
+		MarkovResultApproximation approximation = new MarkovResultApproximation(
+				cumulatedSuccessProbability, cumulatedSuccessProbability
+						+ (1.0 - cumulatedPhysicalStateProbability));
+
+		// Check for the required accuracy:
+		return approximation.hasRequiredAccuracy(requiredAccuracy);
+	}
+
+	/**
+	 * Indicates if an approximation scheme shall be used for printing of
+	 * probabilities.
+	 * 
+	 * @return <code>true</code>, if an approximation scheme shall be used for
+	 *         printing probabilities, <code>false</code> otherwise.
+	 */
+	public boolean isDoApproximate() {
+		return (configuration.isIterationOverPhysicalSystemStatesEnabled())
+				&& approximate
+				&& (physicalStateEvaluationCount < Math.pow(markovSource
+						.getUnreliableResourceDescriptors().size(), 2));
+	}
+
+	/**
+	 * Resolves a file's path in case it starts with "platform:/" and returns
+	 * the entire absolute path to the file, including the file's name.
+	 * 
+	 * @param fileURL
+	 *            the path to a file, including the file's name (and its
+	 *            extension)
+	 * @return the absolute path to the file, including the file's name
+	 */
+	private String resolveFile(String fileURL) {
+		// if this is a platform URL, first resolve it to an absolute path
+		if (fileURL.startsWith("platform:")) {
+			try {
+				URL solvedURL = FileLocator.resolve(new URL(fileURL));
+				fileURL = solvedURL.getPath();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "";
+			}
+		}
+		return fileURL;
+	}
+
+	/**
+	 * Method for setting a value responsible for telling if an approximation
+	 * scheme shall be used for printing probabilities.
+	 * 
+	 * @param approximate
+	 *            the value indicating if an approximation scheme shall be used
+	 *            for printing probabilities
+	 */
+	public void setApproximate(boolean approximate) {
+		this.approximate = approximate;
 	}
 }

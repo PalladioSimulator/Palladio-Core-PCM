@@ -125,7 +125,8 @@ public class MarkovTransformationSource {
 				descriptor.setId(type.getId());
 				descriptor.setContainerName(container.getEntityName());
 				descriptor.setName(type.getEntityName());
-				descriptor.setRequiredByContainer(resource.isRequiredByContainer());
+				descriptor.setRequiredByContainer(resource
+						.isRequiredByContainer());
 				descriptor.setStateProbability(MarkovResourceState.OK,
 						resourceMTTF / (resourceMTTF + resourceMTTR));
 				descriptor.setStateProbability(MarkovResourceState.NA,

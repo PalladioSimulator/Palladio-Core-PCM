@@ -216,17 +216,24 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 		List<ContextWrapper> contextWrapperList;
 		// Create a new context wrapper for this entry level system call:
 		if (contextWrapper == null) {
-			contextWrapperList = ContextWrapper.getContextWrapperFor(call, transformationState
-					.getModel());
+			contextWrapperList = ContextWrapper.getContextWrapperFor(call,
+					transformationState.getModel());
 		} else {
 			contextWrapperList = contextWrapper.getContextWrapperFor(call);
 		}
-		
-		//FIXME: The Reliability solver does not support replication yet
-		if (contextWrapperList.size() > 1){
-			logger.error("The Reliability solver only supports one AllocationContext per AssemblyContext. Picking one of the called Allocation contexts for call "+call.getEntityName()+" "+call.getId()+" ignoring the others. Results will be inaccurate.");
-		} else if (contextWrapperList.size() == 0){
-			throw new RuntimeException("Internal Error: Could not create a Context Wrapper for call "+call.getEntityName()+" " +call.getId());
+
+		// FIXME: The Reliability solver does not support replication yet
+		if (contextWrapperList.size() > 1) {
+			logger
+					.error("The Reliability solver only supports one AllocationContext per AssemblyContext. Picking one of the called Allocation contexts for call "
+							+ call.getEntityName()
+							+ " "
+							+ call.getId()
+							+ " ignoring the others. Results will be inaccurate.");
+		} else if (contextWrapperList.size() == 0) {
+			throw new RuntimeException(
+					"Internal Error: Could not create a Context Wrapper for call "
+							+ call.getEntityName() + " " + call.getId());
 		}
 		contextWrapper = contextWrapperList.get(0);
 

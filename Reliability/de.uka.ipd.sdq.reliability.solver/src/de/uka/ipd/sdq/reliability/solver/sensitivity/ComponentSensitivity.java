@@ -35,6 +35,11 @@ import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 public class ComponentSensitivity extends MarkovSensitivity {
 
 	/**
+	 * The list of base values of this sensitivity.
+	 */
+	private List<Double> baseValues = null;
+
+	/**
 	 * The ID of the component to alter.
 	 */
 	private String componentId = null;
@@ -48,11 +53,6 @@ public class ComponentSensitivity extends MarkovSensitivity {
 	 * The list of affected internal failure occurrence descriptions.
 	 */
 	private List<InternalFailureOccurrenceDescription> descriptions = null;
-
-	/**
-	 * The list of base values of this sensitivity.
-	 */
-	private List<Double> baseValues = null;
 
 	/**
 	 * The constructor.
@@ -72,6 +72,50 @@ public class ComponentSensitivity extends MarkovSensitivity {
 
 		// Further initialization:
 		this.componentId = componentId;
+	}
+
+	/**
+	 * Alters the model according to the next sensitivity analysis step.
+	 * 
+	 * @return indicates if the model could be successfully altered
+	 */
+	protected boolean alterModel() {
+
+		// Determine the current failure probability:
+		for (int i = 0; i < descriptions.size(); i++) {
+			descriptions.get(i).setFailureProbability(
+					calculator.calculateCurrentDoubleValue(
+							getDoubleVariation(), getCurrentStepNumber(),
+							baseValues.get(i)));
+		}
+
+		// Everything ok:
+		return true;
+	}
+
+	/**
+	 * Extracts the relevant sensitivity information from the given model.
+	 */
+	protected void extractSensitivityInformation() {
+
+		// Declare the result variables:
+		descriptions = new BasicEList<InternalFailureOccurrenceDescription>();
+		baseValues = new ArrayList<Double>();
+
+		// Retrieve the involved internal actions:
+		List<InternalAction> internalActions = getInternalActions();
+		if (internalActions == null) {
+			return;
+		}
+
+		// Build the list of internal failure occurrence descriptions:
+		for (InternalAction action : internalActions) {
+			for (InternalFailureOccurrenceDescription description : action
+					.getInternalFailureOccurrenceDescriptions__InternalAction()) {
+				descriptions.add(description);
+				baseValues.add(description.getFailureProbability());
+			}
+		}
 	}
 
 	/**
@@ -186,50 +230,6 @@ public class ComponentSensitivity extends MarkovSensitivity {
 
 		// Return the result:
 		return resultList;
-	}
-
-	/**
-	 * Alters the model according to the next sensitivity analysis step.
-	 * 
-	 * @return indicates if the model could be successfully altered
-	 */
-	protected boolean alterModel() {
-
-		// Determine the current failure probability:
-		for (int i = 0; i < descriptions.size(); i++) {
-			descriptions.get(i).setFailureProbability(
-					calculator.calculateCurrentDoubleValue(
-							getDoubleVariation(), getCurrentStepNumber(),
-							baseValues.get(i)));
-		}
-
-		// Everything ok:
-		return true;
-	}
-
-	/**
-	 * Extracts the relevant sensitivity information from the given model.
-	 */
-	protected void extractSensitivityInformation() {
-		
-		// Declare the result variables:
-		descriptions = new BasicEList<InternalFailureOccurrenceDescription>();
-		baseValues = new ArrayList<Double>();
-
-		// Retrieve the involved internal actions:
-		List<InternalAction> internalActions = getInternalActions();
-		if (internalActions == null) {
-			return;
-		}
-
-		// Build the list of internal failure occurrence descriptions:
-		for (InternalAction action : internalActions) {
-			for (InternalFailureOccurrenceDescription description : action
-					.getInternalFailureOccurrenceDescriptions__InternalAction()) {
-				descriptions.add(description);
-				baseValues.add(description.getFailureProbability());
-			}
-		}
 	}
 
 	/**

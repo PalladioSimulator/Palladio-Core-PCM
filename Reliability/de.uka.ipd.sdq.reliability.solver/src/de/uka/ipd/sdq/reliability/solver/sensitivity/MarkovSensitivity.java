@@ -30,6 +30,11 @@ import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
 public abstract class MarkovSensitivity {
 
 	/**
+	 * Character used to separate entries in the sensitivity log file.
+	 */
+	private static final String LOG_ENTRY_SEPARATOR = "\\";
+
+	/**
 	 * A logger to give detailed information about the PCM instance
 	 * transformation.
 	 */
@@ -37,19 +42,9 @@ public abstract class MarkovSensitivity {
 			.getName());
 
 	/**
-	 * Character used to separate entries in the sensitivity log file.
+	 * A calculator for variations and steps during the sensitivity analysis.
 	 */
-	private static final String LOG_ENTRY_SEPARATOR = "\\";
-
-	/**
-	 * Stores the contents of the log file.
-	 */
-	private List<List<String>> logContents = null;
-
-	/**
-	 * The model on which sensitivity analysis is based.
-	 */
-	protected PCMInstance model;
+	protected SensitivityCalculator calculator = new SensitivityCalculator();
 
 	/**
 	 * The current sensitivity analysis step.
@@ -57,44 +52,24 @@ public abstract class MarkovSensitivity {
 	private int currentStepNumber = 0;
 
 	/**
-	 * Retrieves the current step number.
-	 * 
-	 * @return the current step number
-	 */
-	protected int getCurrentStepNumber() {
-		return currentStepNumber;
-	}
-
-	/**
-	 * Resets the current step number.
-	 * 
-	 */
-	protected void resetCurrentStepNumber() {
-		currentStepNumber = 1;
-	}
-
-	/**
-	 * Increases the current step number.
-	 * 
-	 * @return indicates an overflow
-	 */
-	protected boolean increaseCurrentStepNumber() {
-		if (currentStepNumber < numberOfSteps) {
-			currentStepNumber++;
-			return false;
-		}
-		return true;
-	}
-
-	/**
 	 * Provides EMF utility functions.
 	 */
 	protected EMFHelper helper = new EMFHelper();
 
 	/**
+	 * Stores the contents of the log file.
+	 */
+	private List<List<String>> logContents = null;
+
+	/**
 	 * Provides a writer to the log file.
 	 */
 	protected BufferedWriter logWriter = null;
+
+	/**
+	 * The model on which sensitivity analysis is based.
+	 */
+	protected PCMInstance model;
 
 	/**
 	 * The name of this sensitivity (for logging).
@@ -122,29 +97,6 @@ public abstract class MarkovSensitivity {
 	private SensitivityParameterVariation variation = null;
 
 	/**
-	 * Returns the double parameter variation.
-	 * 
-	 * @return the double parameter variation
-	 */
-	protected DoubleParameterVariation getDoubleVariation() {
-		return (DoubleParameterVariation) variation;
-	}
-
-	/**
-	 * Returns the string parameter sequence.
-	 * 
-	 * @return the string parameter sequence
-	 */
-	protected StringParameterSequence getStringSequence() {
-		return (StringParameterSequence) variation;
-	}
-
-	/**
-	 * A calculator for variations and steps during the sensitivity analysis.
-	 */
-	protected SensitivityCalculator calculator = new SensitivityCalculator();
-
-	/**
 	 * The constructor.
 	 * 
 	 * Only to be invoked by concrete sub classes.
@@ -160,6 +112,59 @@ public abstract class MarkovSensitivity {
 		if (variation != null) {
 			this.variation = variation;
 			this.numberOfSteps = calculator.calculateNumberOfSteps(variation);
+		}
+	}
+
+	/**
+	 * Alters the model according to the next sensitivity analysis step.
+	 * 
+	 * @return indicates if the model could be successfully altered
+	 */
+	protected abstract boolean alterModel();
+
+	/**
+	 * Assures a minimal number of three lines for the log headings.
+	 * 
+	 * @param list
+	 *            the log headings
+	 */
+	private void assureLogHeadingsSize(final List<List<String>> list) {
+		int numColumns = list.get(0).size();
+		int numLines = list.size();
+		if (numLines < 3) {
+			for (int i = numLines; i < 3; i++) {
+				ArrayList<String> newLine = new ArrayList<String>();
+				for (int y = 0; y < numColumns; y++) {
+					newLine.add("");
+				}
+				list.add(0, newLine);
+			}
+		}
+	}
+
+	/**
+	 * Extracts the relevant sensitivity information from the given model.
+	 */
+	protected abstract void extractSensitivityInformation();
+
+	/**
+	 * Fills empty entries of the given log headings list.
+	 * 
+	 * @param list
+	 *            the log headings list
+	 */
+	private void fillEmptyEntries(List<List<String>> list) {
+		int numLines = list.size();
+		int maxNumColumns = 0;
+		for (int i = 0; i < numLines; i++) {
+			if (list.get(i).size() > maxNumColumns) {
+				maxNumColumns = list.get(i).size();
+			}
+		}
+		for (int i = 0; i < numLines; i++) {
+			for (int y = list.get(i).size(); y < maxNumColumns; y++) {
+				list.get(i).add("");
+			}
 		}
 	}
 
@@ -185,67 +190,22 @@ public abstract class MarkovSensitivity {
 	}
 
 	/**
-	 * Retrieves the model to be used for the next step in the sensitivity
-	 * analysis.
+	 * Retrieves the current step number.
 	 * 
-	 * @return the model
+	 * @return the current step number
 	 */
-	public PCMInstance getNextModel() {
-
-		// Check if there are still steps to perform:
-		if (increaseCurrentStepNumber()) {
-			return null;
-		}
-
-		// Perform the next step:
-		if (!alterModel()) {
-			return null;
-		} else {
-			return model;
-		}
+	protected int getCurrentStepNumber() {
+		return currentStepNumber;
 	}
 
 	/**
-	 * Initializes the sensitivity analysis.
+	 * Returns the double parameter variation.
 	 * 
-	 * @param model
-	 *            the PCM instance
+	 * @return the double parameter variation
 	 */
-	public void initialize(final PCMInstance model) {
-		setModel(model);
-		try {
-			new File(resultLogfile).delete();
-			logWriter = new BufferedWriter(new FileWriter(resultLogfile, false));
-		} catch (IOException e) {
-			logger
-					.error("Log file could not be initialized :"
-							+ e.getMessage());
-			e.printStackTrace();
-		}
-		logContents = getLogHeadings();
+	protected DoubleParameterVariation getDoubleVariation() {
+		return (DoubleParameterVariation) variation;
 	}
-
-	/**
-	 * Logs the results of the current sensitivity analysis step.
-	 * 
-	 * @param markovResults
-	 *            the markov transformation results
-	 */
-	public void logResults(final List<MarkovTransformationResult> markovResults) {
-		logContents.add(getLogSingleResults(markovResults));
-	}
-
-	/**
-	 * Alters the model according to the next sensitivity analysis step.
-	 * 
-	 * @return indicates if the model could be successfully altered
-	 */
-	protected abstract boolean alterModel();
-
-	/**
-	 * Extracts the relevant sensitivity information from the given model.
-	 */
-	protected abstract void extractSensitivityInformation();
 
 	/**
 	 * Builds the headings strings for logging.
@@ -275,47 +235,6 @@ public abstract class MarkovSensitivity {
 
 		// Return the result:
 		return resultList;
-	}
-
-	/**
-	 * Fills empty entries of the given log headings list.
-	 * 
-	 * @param list
-	 *            the log headings list
-	 */
-	private void fillEmptyEntries(List<List<String>> list) {
-		int numLines = list.size();
-		int maxNumColumns = 0;
-		for (int i = 0; i < numLines; i++) {
-			if (list.get(i).size() > maxNumColumns) {
-				maxNumColumns = list.get(i).size();
-			}
-		}
-		for (int i = 0; i < numLines; i++) {
-			for (int y = list.get(i).size(); y < maxNumColumns; y++) {
-				list.get(i).add("");
-			}
-		}
-	}
-
-	/**
-	 * Assures a minimal number of three lines for the log headings.
-	 * 
-	 * @param list
-	 *            the log headings
-	 */
-	private void assureLogHeadingsSize(final List<List<String>> list) {
-		int numColumns = list.get(0).size();
-		int numLines = list.size();
-		if (numLines < 3) {
-			for (int i = numLines; i < 3; i++) {
-				ArrayList<String> newLine = new ArrayList<String>();
-				for (int y = 0; y < numColumns; y++) {
-					newLine.add("");
-				}
-				list.add(0, newLine);
-			}
-		}
 	}
 
 	/**
@@ -369,14 +288,84 @@ public abstract class MarkovSensitivity {
 	}
 
 	/**
-	 * Sets the PCM instance.
+	 * Retrieves the model to be used for the next step in the sensitivity
+	 * analysis.
+	 * 
+	 * @return the model
+	 */
+	public PCMInstance getNextModel() {
+
+		// Check if there are still steps to perform:
+		if (increaseCurrentStepNumber()) {
+			return null;
+		}
+
+		// Perform the next step:
+		if (!alterModel()) {
+			return null;
+		} else {
+			return model;
+		}
+	}
+
+	/**
+	 * Returns the string parameter sequence.
+	 * 
+	 * @return the string parameter sequence
+	 */
+	protected StringParameterSequence getStringSequence() {
+		return (StringParameterSequence) variation;
+	}
+
+	/**
+	 * Increases the current step number.
+	 * 
+	 * @return indicates an overflow
+	 */
+	protected boolean increaseCurrentStepNumber() {
+		if (currentStepNumber < numberOfSteps) {
+			currentStepNumber++;
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Initializes the sensitivity analysis.
 	 * 
 	 * @param model
 	 *            the PCM instance
 	 */
-	protected void setModel(final PCMInstance model) {
-		this.model = model;
-		extractSensitivityInformation();
+	public void initialize(final PCMInstance model) {
+		setModel(model);
+		try {
+			new File(resultLogfile).delete();
+			logWriter = new BufferedWriter(new FileWriter(resultLogfile, false));
+		} catch (IOException e) {
+			logger
+					.error("Log file could not be initialized :"
+							+ e.getMessage());
+			e.printStackTrace();
+		}
+		logContents = getLogHeadings();
+	}
+
+	/**
+	 * Logs the results of the current sensitivity analysis step.
+	 * 
+	 * @param markovResults
+	 *            the markov transformation results
+	 */
+	public void logResults(final List<MarkovTransformationResult> markovResults) {
+		logContents.add(getLogSingleResults(markovResults));
+	}
+
+	/**
+	 * Resets the current step number.
+	 * 
+	 */
+	protected void resetCurrentStepNumber() {
+		currentStepNumber = 1;
 	}
 
 	/**
@@ -387,6 +376,17 @@ public abstract class MarkovSensitivity {
 	 */
 	public void setLogFileName(final String logFileName) {
 		this.resultLogfile = logFileName;
+	}
+
+	/**
+	 * Sets the PCM instance.
+	 * 
+	 * @param model
+	 *            the PCM instance
+	 */
+	protected void setModel(final PCMInstance model) {
+		this.model = model;
+		extractSensitivityInformation();
 	}
 
 	/**

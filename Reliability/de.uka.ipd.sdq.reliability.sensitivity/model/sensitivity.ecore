@@ -377,9 +377,9 @@
       </eParameters>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemCallParameter" eSuperTypes="#//SingleSensitivityParameter">
+  <eClassifiers xsi:type="ecore:EClass" name="VariableUsageParameter" eSuperTypes="#//SingleSensitivityParameter">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="This parameter refers to a stochastic specification of an input parameter of an EntryLevelSystemCall."/>
+      <details key="documentation" value="This&amp;nbsp;parameter&amp;nbsp;refers&amp;nbsp;to&amp;nbsp;a&amp;nbsp;stochastic&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;a variable usage."/>
     </eAnnotations>
     <eOperations name="SystemCallParameterMustHaveStringSequence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -400,12 +400,23 @@
         </eGenericType>
       </eParameters>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputParameterName" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VariableName" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entryLevelSystemCall__SystemCallParameter"
-        ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//usagemodel/EntryLevelSystemCall"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableCharacterisationType__SystemCallParameter"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryLevelSystemCall__VariableUsageParameter"
+        ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//usagemodel/EntryLevelSystemCall"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableCharacterisationType__VariableUsageParameter"
         ordered="false" lowerBound="1" eType="ecore:EEnum ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//parameter/VariableCharacterisationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableUsageType__VariableUsageParameter"
+        ordered="false" lowerBound="1" eType="#//VariableUsageType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="basicComponent__VariableUsageParameter"
+        ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/BasicComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="VariableUsageType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a type of variable usage in a PCM Instance"/>
+    </eAnnotations>
+    <eLiterals name="SYSTEM_CALL_INPUT"/>
+    <eLiterals name="COMPONENT_CONFIGURATION" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UsageBranchParameter" eSuperTypes="#//SingleSensitivityParameter">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
