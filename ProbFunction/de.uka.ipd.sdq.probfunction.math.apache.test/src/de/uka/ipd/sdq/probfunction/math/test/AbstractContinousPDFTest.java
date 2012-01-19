@@ -94,7 +94,7 @@ public abstract class AbstractContinousPDFTest <T extends IContinousPDF>
 	@Test
 	public void testDensity()
 	{
-		double[] testValues = {0.0,0.1,0.5,0.9,1.0};
+		double[] testValues = {0.0,0.00001,0.1,0.5,0.9,1.0};
 		for(double x : testValues)
 			Assert.assertEquals("Density is differing! For x = " + x, a.density(x), b.density(x), EPSILON);
 		
@@ -109,7 +109,7 @@ public abstract class AbstractContinousPDFTest <T extends IContinousPDF>
 	@Test
 	public void testInverseF()
 	{
-		double[] testValues = {0.0,0.1,0.5,0.9,1.0};
+		double[] testValues = {0.0,0.00001,0.1,0.5,0.9,1.0};
 		for(double u : testValues)
 			Assert.assertEquals("InverseF is differing! For u = " + u, a.inverseF(u), b.inverseF(u), EPSILON);
 		

@@ -11,9 +11,9 @@ public class ExponentialDistributionTest extends AbstractContinousPDFTest <IExpo
 
 	public ExponentialDistributionTest() 
 	{
-		double mean = 0.5;
-		a = ssjFactory.createExponentialDistribution(mean);
-		b = apacheFactory.createExponentialDistribution(mean);
+		double rate = 10000;
+		a = ssjFactory.createExponentialDistribution(rate);
+		b = apacheFactory.createExponentialDistribution(rate);
 	}
 
 	@Test(expected=UnsupportedOperationException.class)
