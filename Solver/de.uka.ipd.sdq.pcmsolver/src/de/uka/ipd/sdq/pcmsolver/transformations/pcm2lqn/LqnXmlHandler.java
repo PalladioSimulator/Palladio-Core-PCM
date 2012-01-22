@@ -117,7 +117,18 @@ public class LqnXmlHandler {
 		//TODO: remove hard coded path to xsd file. 
 		String content = new String(b);
 		content = content.replaceAll("LqnModelType", "lqn-model");
-		content = content.replaceAll("xmlns=\"file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd\"", "xsi:noNamespaceSchemaLocation=\"file:///C:/Program Files/LQN Solvers/lqn.xsd\"");
+		
+//		String lqnDir = System.getenv("LQNDIR");
+//		if (lqnDir != null && lqnDir !=""){
+//			
+//			lqnDir = lqnDir.replaceAll("\\\\", "/");
+//			lqnDir = lqnDir.replaceAll(" ", "%20");
+//			content = content.replaceAll("xmlns=\"file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd\"", "xsi:noNamespaceSchemaLocation=\"file:///"+lqnDir+"lqn.xsd\"");
+//		} else {
+//			content = content.replaceAll("xmlns=\"file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd\"", "xsi:noNamespaceSchemaLocation=\"file:///C:/Program Files/LQN Solvers/lqn.xsd\"");
+//		}
+		
+		content = content.replaceAll("xmlns=\"file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd\"", "xsi:noNamespaceSchemaLocation=\"file:/C:/Program Files/LQN Solvers/lqn.xsd\"");
 		content = content.replaceAll("xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\"", "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
 
 		content = content.replaceAll("entryActivityGraph", "entry-activity-graph");
@@ -136,7 +147,9 @@ public class LqnXmlHandler {
 		content = content.replaceAll("callsMean", "calls-mean");
 		content = content.replaceAll("replyActivity", "reply-activity");
 		content = content.replaceAll("postOR", "post-OR");
+		content = content.replaceAll("postAND", "post-AND");
 		content = content.replaceAll("preOR", "pre-OR");
+		content = content.replaceAll("preAND", "pre-AND");
 		content = content.replaceAll("taskActivities", "task-activities");
 		content = content.replaceAll("boundToEntry", "bound-to-entry");
 		content = content.replaceAll("replyEntry", "reply-entry");
@@ -155,6 +168,7 @@ public class LqnXmlHandler {
 		content = content.replaceAll("phase1ProcWaiting", "phase1-procWaiting");
 		content = content.replaceAll("phase1ServiceTime", "phase1-serviceTime");
 		content = content.replaceAll("phase1ServiceTimeVariance", "phase1-serviceTime");
+		content = content.replaceAll("resultJoinDelay", "result-join-delay");
 		
 		FileOutputStream fos;
 		try {
@@ -194,7 +208,18 @@ public class LqnXmlHandler {
 
 		String content = new String(b);
 		content = content.replaceAll("lqn-model", "LqnModelType");
+		
+//		String lqnDir = System.getenv("LQNDIR");
+//		if (lqnDir != null && lqnDir !=""){
+//			lqnDir = lqnDir.replaceAll("\\\\", "/");
+//			//lqnDir = lqnDir.replaceAll(" ", "%20");
+//			content = content.replaceAll("xsi:noNamespaceSchemaLocation=\"file:///C:/Program Files/LQN Solvers/lqn.xsd\"", "xmlns=\"file:///"+lqnDir+"lqn-core.xsd\"");
+//		} else {
+//			content = content.replaceAll("xsi:noNamespaceSchemaLocation=\"file:///C:/Program Files/LQN Solvers/lqn.xsd\"", "xmlns=\"file:///C:/Program%20Files/LQN%20Solvers/lqn-core.xsd\"");
+//		}
 		content = content.replaceAll("xsi:noNamespaceSchemaLocation=\"file:///C:/Program Files/LQN Solvers/lqn.xsd\"", "xmlns=\"file:/C:/Program%20Files/LQN%20Solvers/lqn-core.xsd\"");
+		
+		
 		content = content.replaceAll("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"", "xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\"");
 
 		content = content.replaceAll("entry-activity-graph", "entryActivityGraph");
@@ -213,6 +238,9 @@ public class LqnXmlHandler {
 		content = content.replaceAll("reply-activity", "replyActivity");
 		content = content.replaceAll("post-OR", "postOR");
 		content = content.replaceAll("pre-OR", "preOR");
+		content = content.replaceAll("postAND", "post-AND");
+		content = content.replaceAll("preAND", "pre-AND");
+		
 		content = content.replaceAll("task-activities", "taskActivities");
 		content = content.replaceAll("bound-to-entry", "boundToEntry");
 		content = content.replaceAll("reply-entry", "replyEntry");
@@ -223,6 +251,9 @@ public class LqnXmlHandler {
 		
 		// the subsequent replacement rules are relevant only for result files
 		content = content.replaceAll("result-general", "resultGeneral");
+		content = content.replaceAll("result-join-delay", "resultJoinDelay");
+		content = content.replaceAll("join-variance", "joinVariance");
+		content = content.replaceAll("join-waiting", "joinWaiting");
 		content = content.replaceAll("conv-val", "convVal");
 		content = content.replaceAll("elapsed-time", "elapsedTime");
 		content = content.replaceAll("solver-info", "solverInfo");

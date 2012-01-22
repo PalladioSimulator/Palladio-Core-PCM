@@ -8,6 +8,7 @@ import java.util.Stack;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 import LqnCore.ActivityDefType;
 import LqnCore.ActivityListType;
@@ -15,6 +16,7 @@ import LqnCore.ActivityMakingCallType;
 import LqnCore.ActivityOrType;
 import LqnCore.ActivityPhasesType;
 import LqnCore.ActivityType;
+import LqnCore.AndJoinListType;
 import LqnCore.EntryType;
 import LqnCore.LqnCoreFactory;
 import LqnCore.LqnModelType;
@@ -403,13 +405,7 @@ public class LqnBuilder {
 			}
 		}
 
-		PrecedenceType ptBegin = lqnFactory.createPrecedenceType();
-		SingleActivityListType saltPreBegin = lqnFactory
-				.createSingleActivityListType();
-		ActivityType atPre = lqnFactory.createActivityType();
-		atPre.setName(id);
-		saltPreBegin.setActivity(atPre);
-		ptBegin.setPre(saltPreBegin);
+		PrecedenceType ptBegin = getInitialPrecedence(id);
 
 		OrListType oltPreBegin = lqnFactory.createOrListType(); // branch
 		ptBegin.setPostOR(oltPreBegin);
@@ -417,6 +413,51 @@ public class LqnBuilder {
 
 		return ptBegin;
 	}
+
+	private PrecedenceType getInitialPrecedence(String id) {
+		PrecedenceType ptBegin = lqnFactory.createPrecedenceType();
+		SingleActivityListType saltPreBegin = lqnFactory
+				.createSingleActivityListType();
+		ActivityType atPre = lqnFactory.createActivityType();
+		atPre.setName(id);
+		saltPreBegin.setActivity(atPre);
+		ptBegin.setPre(saltPreBegin);
+		return ptBegin;
+	}
+	
+	
+	public PrecedenceType addBeginForkPrecedence(String id){
+		EList<PrecedenceType> list = taskGraphStack.peek().getPrecedence();
+		for (PrecedenceType precType : list) {
+			if (precType.getPre()!= null){
+				if (precType.getPre().getActivity().getName().equals(id)) {
+					return precType;
+				}
+			}
+		}
+		
+		PrecedenceType ptBegin = getInitialPrecedence(id);
+		
+		ActivityListType alt = lqnFactory.createActivityListType();
+		ptBegin.setPostAND(alt);
+		taskGraphStack.peek().getPrecedence().add(ptBegin);
+		return ptBegin;		
+	}
+	
+	public PrecedenceType addEndForkPrecedence(){
+		PrecedenceType ptEnd = lqnFactory.createPrecedenceType();
+		AndJoinListType ajlt = lqnFactory.createAndJoinListType();
+		ptEnd.setPreAND(ajlt);
+		
+		SingleActivityListType saltPostEnd = lqnFactory.createSingleActivityListType();
+		ActivityType atPostEnd = lqnFactory.createActivityType();
+		saltPostEnd.setActivity(atPostEnd);
+		
+		ptEnd.setPost(saltPostEnd);
+		taskGraphStack.peek().getPrecedence().add(ptEnd);
+		return ptEnd;
+	}
+	
 
 	public PrecedenceType addEndBranchPrecedence() {
 		PrecedenceType ptEnd = lqnFactory.createPrecedenceType();
@@ -648,6 +689,26 @@ public class LqnBuilder {
 		this.isLQSimAnalysis = isQLSim;
 		Pcm2LqnHelper.shortenIds = this.isLQSimAnalysis;
 	}
+
+	public void addActivityToPostAnd(String startId, PrecedenceType ptBegin) {
+		ActivityType at = lqnFactory.createActivityType();
+		at.setName(startId);
+		ptBegin.getPostAND().getActivity().add(at);
+	}
+
+	public void addActivityToPreAnd(String stopId, PrecedenceType ptEnd) {
+		ActivityType at = lqnFactory.createActivityType();
+		at.setName(stopId);
+		ptEnd.getPreAND().getActivity().add(at);
+	}
+
+	public void setPoolCapacity(Integer poolCapacity) {
+		TaskActivityGraph tag = taskGraphStack.peek();		
+		TaskType task = (TaskType)tag.eContainer();
+		task.setMultiplicity(new BigInteger(poolCapacity.toString()));
+		task.setScheduling(TaskSchedulingType.FCFS);
+	}
+	
 }
 
 enum CallType {SYNCH, ASYNCH}

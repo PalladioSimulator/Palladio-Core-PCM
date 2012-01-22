@@ -16,12 +16,15 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
+import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.Loop;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
+import de.uka.ipd.sdq.pcmsolver.visitors.EMFQueryHelper;
 
 public class Pcm2LqnHelper {
 
@@ -215,6 +218,11 @@ public class Pcm2LqnHelper {
 		return shortenID(id + "Wait_Entry");
 	}
 
-	
+	public static String getIdForForkedBehaviour(ForkedBehaviour asyncBeh,
+			ContextWrapper myContextWrapper) {
+		StartAction startAction = (StartAction) EMFQueryHelper.getObjectByType(
+				asyncBeh.getSteps_Behaviour(), StartAction.class);
+		return shortenID("ForkedBehaviour_"+ getNumberForId(startAction));
+	}
 	
 }

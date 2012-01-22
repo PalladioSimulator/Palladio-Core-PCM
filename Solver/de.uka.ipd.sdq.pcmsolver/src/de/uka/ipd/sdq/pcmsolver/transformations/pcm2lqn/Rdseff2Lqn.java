@@ -40,6 +40,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
+import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
@@ -117,7 +118,13 @@ public class Rdseff2Lqn extends SeffSwitch<String> {
 			lqnBuilder.addSequencePrecedence(id, successorId);
 			return id;
 		} else {
-			logger.warn("Ignored release action because it is not supported by LQNS. Be aware that the passive resource is not analysed.");
+			if (object.getPassiveresource_AcquireAction().getEntityName().toLowerCase().contains("pool")){
+				logger.warn("Passive resource pool found. Support by PCM2LQN is limited. Please analyze the results carefully.");
+				Integer poolCapacity = Integer.valueOf(object.getPassiveresource_AcquireAction().getCapacity_PassiveResource().getSpecification());	
+				lqnBuilder.setPoolCapacity(poolCapacity);
+			} else {
+				logger.warn("Ignored release action because it is not supported by LQNS. Be aware that the passive resource is not analysed.");
+			}
 			successorId = (String) doSwitch(object
 					.getSuccessor_AbstractAction());
 			return successorId;
@@ -261,6 +268,13 @@ public class Rdseff2Lqn extends SeffSwitch<String> {
 			ActivityDefType adt = lqnBuilder.addActivityDef(id);
 			entryId = Pcm2LqnHelper.getId(cia, myContextWrapper)+"_Entry";
 			adt.setBoundToEntry(entryId);
+		} else if (object.eContainer().eContainer() instanceof SynchronisationPoint){
+			lqnBuilder.addActivityDef(id);
+		} else if (object.eContainer() instanceof ForkedBehaviour){
+			ForkedBehaviour fb = (ForkedBehaviour)object.eContainer();
+			ActivityDefType adt = lqnBuilder.addActivityDef(id);
+			entryId = Pcm2LqnHelper.getIdForForkedBehaviour(fb, myContextWrapper)+"_Entry";
+			adt.setBoundToEntry(entryId);
 		} else { //nested resource demanding behaviour
 			lqnBuilder.addActivityDef(id);
 		}
@@ -343,7 +357,7 @@ public class Rdseff2Lqn extends SeffSwitch<String> {
 		if (seff == null){
 			// this is a system external call
 			// we continue with the internal action added after this action
-			logger.warn("Call "+object.getId()+" does not call a seff, ignoring it. Note that time required for system external calls are not supported by PCM2LQN yet.");
+			//logger.warn("Call "+object.getId()+" does not call a seff, ignoring it. Note that time required for system external calls are not supported by PCM2LQN yet.");
 			return doSwitch(object.getSuccessor_AbstractAction());
 		} else {
 			ContextWrapper oldContextWrapper = (ContextWrapper)myContextWrapper.clone();
@@ -604,8 +618,8 @@ public class Rdseff2Lqn extends SeffSwitch<String> {
 		return stopAction;
 	}
 
-	@Override
-	public String caseForkAction(ForkAction object) {
+	
+	public String caseForkActionOld(ForkAction object) {
 		// if this fork action is asynchronous and only contains an external call, 
 		// it can be modelled in LQN by just changing the call to send-no-reply
 		// TODO: for now only support one forked behaviour. TODO add several ones, 
@@ -637,5 +651,64 @@ public class Rdseff2Lqn extends SeffSwitch<String> {
 		return super.caseForkAction(object);
 		
 	}
+	
+	@Override
+	public String caseForkAction(ForkAction object){
+		String id = Pcm2LqnHelper.getId(object, myContextWrapper);
+		ActivityDefType adt = lqnBuilder.addActivityDef(id);
+
+		String currentId = id;
+		String predecessorId = id;
+
+		EList<ForkedBehaviour> asyncBehList = object.getAsynchronousForkedBehaviours_ForkAction();
+		for (ForkedBehaviour asyncBeh : asyncBehList){
+			currentId = Pcm2LqnHelper.getIdForForkedBehaviour(asyncBeh, myContextWrapper);
+			
+			// create new task graph for the forked behaviour
+			ProcessorType pt = lqnBuilder.addProcessor(currentId);
+			TaskType tt = lqnBuilder.addTask(currentId,pt);
+			EntryType et = lqnBuilder.addEntry(currentId,tt);
+			lqnBuilder.addTaskActivityGraph(tt);
+
+			// create the actions of the new task graph by traversing the forked behavior's steps
+			doSwitch(getStartAction(asyncBeh));
+			
+			lqnBuilder.restoreFormerTaskActivityGraph();
+			
+			// create an asynchronous external call to the task representing the forked behaviour
+			lqnBuilder.addActivityDef(currentId+"_Action");
+			lqnBuilder.addActivityMakingCall(currentId+"_Action", currentId+"_Entry", CallType.ASYNCH);
+			
+			lqnBuilder.addSequencePrecedence(predecessorId, currentId+"_Action");
+			predecessorId = currentId+"_Action";
+			
+		}
+		
+		if (object.getSynchronisingBehaviours_ForkAction() != null
+			&& object.getSynchronisingBehaviours_ForkAction().getSynchronousForkedBehaviours_SynchronisationPoint().size() > 0) {
+			EList<ForkedBehaviour> syncBehList = object.getSynchronisingBehaviours_ForkAction().getSynchronousForkedBehaviours_SynchronisationPoint();
+		
+			PrecedenceType ptBegin = lqnBuilder.addBeginForkPrecedence(currentId+"_Action");
+			PrecedenceType ptEnd = lqnBuilder.addEndForkPrecedence();		
+
+			for (ForkedBehaviour syncBeh : syncBehList){
+				
+				String startId = doSwitch(getStartAction(syncBeh));
+				lqnBuilder.addActivityToPostAnd(startId, ptBegin);
+				
+				String stopId = Pcm2LqnHelper.getId(getStopAction(syncBeh), myContextWrapper);
+				lqnBuilder.addActivityToPreAnd(stopId, ptEnd);
+				
+			}
+			String successorId = (String) doSwitch(object.getSuccessor_AbstractAction());
+			ptEnd.getPost().getActivity().setName(successorId);
+		} else {
+			String successorId = (String) doSwitch(object.getSuccessor_AbstractAction());
+			lqnBuilder.addSequencePrecedence(currentId + "_Action", successorId);
+		}
+		
+		return id;
+	}
+	
 	
 }

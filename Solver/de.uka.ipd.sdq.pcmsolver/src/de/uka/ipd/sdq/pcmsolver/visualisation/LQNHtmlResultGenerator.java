@@ -32,7 +32,19 @@ public class LQNHtmlResultGenerator {
 	public LQNHtmlResultGenerator(String fileName) {
 		LqnModelType loadedModel = LqnXmlHandler.loadModelFromXMI(fileName);
 		this.lqnResultModel = loadedModel;
-		generateHtml();
+		if (this.lqnResultModel != null){
+			generateHtml();	
+		} else {
+			generateErrorMsg(fileName);
+		}
+	}
+
+	private void generateErrorMsg(String fileName) {
+		appendHtmlHeader();
+		htmlText.append("<h2>LQN Results</h2>");
+		htmlText.append("Error retrieving results from: "+fileName+"<br>");
+		htmlText.append("Check console output for error messages.");
+		htmlText.append("</body></html>");
 	}
 
 	/**
