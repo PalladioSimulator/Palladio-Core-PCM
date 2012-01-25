@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+
 import de.uka.ipd.sdq.featureconfig.Configuration;
 import de.uka.ipd.sdq.featureconfig.featureconfigFactory;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
@@ -98,6 +101,26 @@ public class PCMResourceSetPartition extends ResourceSetPartition {
 	 */
 	public ResourceEnvironment getResourceEnvironment() {
 		return (ResourceEnvironment) getElement(ResourceenvironmentFactory.eINSTANCE.createResourceEnvironment()).get(0);
+	}
+
+	/**
+	 * Helper to find root objects of a specified class.
+	 *
+	 * @param clazz The class to get elements for.
+	 * @return The list of found root elements. Empty list if none have been found.
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends EObject> List<T> getElement(final T targetType) {
+		ArrayList<T> result = new ArrayList<T>();
+		for (Resource r : rs.getResources()) {
+			if (r != null && r.getContents().size() > 0 && r.getContents().get(0).eClass() == targetType.eClass() ) {
+				result.add((T) r.getContents().get(0));
+			}
+		}
+		if (result.size() == 0)
+			throw new RuntimeException("Failed to retrieve PCM model element "+targetType.eClass().getName());
+		else
+			return result;
 	}
 
 }
