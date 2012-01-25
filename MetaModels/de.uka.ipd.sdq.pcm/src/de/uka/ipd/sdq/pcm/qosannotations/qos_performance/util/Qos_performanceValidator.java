@@ -122,7 +122,6 @@ public class Qos_performanceValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSystemSpecifiedExecutionTime(SystemSpecifiedExecutionTime systemSpecifiedExecutionTime, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(systemSpecifiedExecutionTime, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(systemSpecifiedExecutionTime, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(systemSpecifiedExecutionTime, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(systemSpecifiedExecutionTime, diagnostics, context);

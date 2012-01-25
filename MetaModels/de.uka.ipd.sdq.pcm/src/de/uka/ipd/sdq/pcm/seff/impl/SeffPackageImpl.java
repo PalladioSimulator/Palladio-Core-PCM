@@ -1204,9 +1204,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		Seff_performancePackage theSeff_performancePackage = (Seff_performancePackage)EPackage.Registry.INSTANCE.getEPackage(Seff_performancePackage.eNS_URI);
 		Seff_reliabilityPackage theSeff_reliabilityPackage = (Seff_reliabilityPackage)EPackage.Registry.INSTANCE.getEPackage(Seff_reliabilityPackage.eNS_URI);
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
-		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		ReliabilityPackage theReliabilityPackage = (ReliabilityPackage)EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI);
 
@@ -1222,6 +1222,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		stopActionEClass.getESuperTypes().add(this.getAbstractInternalControlFlowAction());
 		abstractInternalControlFlowActionEClass.getESuperTypes().add(this.getAbstractAction());
 		abstractActionEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		resourceDemandingBehaviourEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		abstractLoopActionEClass.getESuperTypes().add(this.getAbstractInternalControlFlowAction());
 		abstractBranchTransitionEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		branchActionEClass.getESuperTypes().add(this.getAbstractInternalControlFlowAction());

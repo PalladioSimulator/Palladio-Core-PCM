@@ -91,6 +91,7 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * self.primaryBehaviour__RecoveryAction <> null
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

@@ -141,7 +141,6 @@ public class QosannotationsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateQoSAnnotations(QoSAnnotations qoSAnnotations, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(qoSAnnotations, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(qoSAnnotations, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(qoSAnnotations, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(qoSAnnotations, diagnostics, context);

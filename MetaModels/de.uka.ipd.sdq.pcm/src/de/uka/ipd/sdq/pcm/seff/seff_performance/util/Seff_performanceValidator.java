@@ -130,7 +130,6 @@ public class Seff_performanceValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInfrastructureCall(InfrastructureCall infrastructureCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(infrastructureCall, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(infrastructureCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(infrastructureCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(infrastructureCall, diagnostics, context);
@@ -158,7 +157,6 @@ public class Seff_performanceValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceCall(ResourceCall resourceCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(resourceCall, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(resourceCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceCall, diagnostics, context);

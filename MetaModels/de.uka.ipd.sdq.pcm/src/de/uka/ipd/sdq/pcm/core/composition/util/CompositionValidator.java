@@ -249,7 +249,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateDelegationConnector(DelegationConnector delegationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(delegationConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(delegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(delegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(delegationConnector, diagnostics, context);
@@ -267,7 +266,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateConnector(Connector connector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(connector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(connector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(connector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(connector, diagnostics, context);
@@ -285,7 +283,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateProvidedDelegationConnector(ProvidedDelegationConnector providedDelegationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(providedDelegationConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(providedDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(providedDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(providedDelegationConnector, diagnostics, context);
@@ -325,7 +322,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAssemblyContext(AssemblyContext assemblyContext, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(assemblyContext, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(assemblyContext, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(assemblyContext, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(assemblyContext, diagnostics, context);
@@ -357,7 +353,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRequiredDelegationConnector(RequiredDelegationConnector requiredDelegationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(requiredDelegationConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(requiredDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(requiredDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(requiredDelegationConnector, diagnostics, context);
@@ -408,7 +403,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAssemblyConnector(AssemblyConnector assemblyConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(assemblyConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(assemblyConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(assemblyConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(assemblyConnector, diagnostics, context);
@@ -468,7 +462,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEventChannel(EventChannel eventChannel, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(eventChannel, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(eventChannel, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(eventChannel, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(eventChannel, diagnostics, context);
@@ -486,7 +479,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAssemblyEventConnector(AssemblyEventConnector assemblyEventConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(assemblyEventConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(assemblyEventConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(assemblyEventConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(assemblyEventConnector, diagnostics, context);
@@ -504,7 +496,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSourceDelegationConnector(SourceDelegationConnector sourceDelegationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(sourceDelegationConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(sourceDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(sourceDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(sourceDelegationConnector, diagnostics, context);
@@ -522,7 +513,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSinkDelegationConnector(SinkDelegationConnector sinkDelegationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(sinkDelegationConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(sinkDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(sinkDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(sinkDelegationConnector, diagnostics, context);
@@ -540,7 +530,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAssemblyInfrastructureConnector(AssemblyInfrastructureConnector assemblyInfrastructureConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(assemblyInfrastructureConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(assemblyInfrastructureConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(assemblyInfrastructureConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(assemblyInfrastructureConnector, diagnostics, context);
@@ -558,7 +547,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRequiredInfrastructureDelegationConnector(RequiredInfrastructureDelegationConnector requiredInfrastructureDelegationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(requiredInfrastructureDelegationConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(requiredInfrastructureDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(requiredInfrastructureDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(requiredInfrastructureDelegationConnector, diagnostics, context);
@@ -576,7 +564,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateProvidedInfrastructureDelegationConnector(ProvidedInfrastructureDelegationConnector providedInfrastructureDelegationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(providedInfrastructureDelegationConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(providedInfrastructureDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(providedInfrastructureDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(providedInfrastructureDelegationConnector, diagnostics, context);
@@ -594,7 +581,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRequiredResourceDelegationConnector(RequiredResourceDelegationConnector requiredResourceDelegationConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(requiredResourceDelegationConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(requiredResourceDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(requiredResourceDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(requiredResourceDelegationConnector, diagnostics, context);
@@ -612,7 +598,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEventChannelSinkConnector(EventChannelSinkConnector eventChannelSinkConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(eventChannelSinkConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(eventChannelSinkConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(eventChannelSinkConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(eventChannelSinkConnector, diagnostics, context);
@@ -630,7 +615,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEventChannelSourceConnector(EventChannelSourceConnector eventChannelSourceConnector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(eventChannelSourceConnector, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(eventChannelSourceConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(eventChannelSourceConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(eventChannelSourceConnector, diagnostics, context);
@@ -648,7 +632,6 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateComposedStructure(ComposedStructure composedStructure, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(composedStructure, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(composedStructure, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(composedStructure, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(composedStructure, diagnostics, context);

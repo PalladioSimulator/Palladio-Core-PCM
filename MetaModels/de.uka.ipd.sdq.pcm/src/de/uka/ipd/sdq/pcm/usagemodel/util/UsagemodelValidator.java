@@ -73,12 +73,20 @@ public class UsagemodelValidator extends EObjectValidator {
 	public static final int ENTRY_LEVEL_SYSTEM_CALL__ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM = 1;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Entry Level System Call Signature Must Match Its Provided Role' of 'Entry Level System Call'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int ENTRY_LEVEL_SYSTEM_CALL__ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE = 2;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Exactlyonestart' of 'Scenario Behaviour'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int SCENARIO_BEHAVIOUR__EXACTLYONESTART = 2;
+	public static final int SCENARIO_BEHAVIOUR__EXACTLYONESTART = 3;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Exactlyonestop' of 'Scenario Behaviour'.
@@ -86,7 +94,7 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int SCENARIO_BEHAVIOUR__EXACTLYONESTOP = 3;
+	public static final int SCENARIO_BEHAVIOUR__EXACTLYONESTOP = 4;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Eachuseractionexcept Startand Stopmusthaveapredecessorandsuccessor' of 'Scenario Behaviour'.
@@ -94,7 +102,7 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int SCENARIO_BEHAVIOUR__EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR = 4;
+	public static final int SCENARIO_BEHAVIOUR__EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR = 5;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'All Branch Probabilities Must Sum Up To1' of 'Branch'.
@@ -102,7 +110,7 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int BRANCH__ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1 = 5;
+	public static final int BRANCH__ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1 = 6;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Stop Has No Successor' of 'Stop'.
@@ -110,7 +118,7 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int STOP__STOP_HAS_NO_SUCCESSOR = 6;
+	public static final int STOP__STOP_HAS_NO_SUCCESSOR = 7;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Start Has No Predecessor' of 'Start'.
@@ -118,7 +126,7 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int START__START_HAS_NO_PREDECESSOR = 7;
+	public static final int START__START_HAS_NO_PREDECESSOR = 8;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Inter Arrival Time In Open Workload Needs To Be Specified' of 'Open Workload'.
@@ -126,7 +134,7 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int OPEN_WORKLOAD__INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED = 8;
+	public static final int OPEN_WORKLOAD__INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED = 9;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Population In Closed Workload Needs To Be Specified' of 'Closed Workload'.
@@ -134,7 +142,7 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int CLOSED_WORKLOAD__POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED = 9;
+	public static final int CLOSED_WORKLOAD__POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED = 10;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Think Time In Closed Workload Needs To Be Specified' of 'Closed Workload'.
@@ -142,7 +150,7 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int CLOSED_WORKLOAD__THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED = 10;
+	public static final int CLOSED_WORKLOAD__THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED = 11;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -150,7 +158,7 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 10;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 11;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -249,7 +257,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateUsageScenario(UsageScenario usageScenario, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(usageScenario, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(usageScenario, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(usageScenario, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(usageScenario, diagnostics, context);
@@ -267,7 +274,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateScenarioBehaviour(ScenarioBehaviour scenarioBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(scenarioBehaviour, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(scenarioBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(scenarioBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(scenarioBehaviour, diagnostics, context);
@@ -318,7 +324,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractUserAction(AbstractUserAction abstractUserAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(abstractUserAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(abstractUserAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractUserAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractUserAction, diagnostics, context);
@@ -345,7 +350,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateBranch(Branch branch, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(branch, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(branch, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(branch, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(branch, diagnostics, context);
@@ -374,7 +378,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateLoop(Loop loop, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(loop, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(loop, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(loop, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(loop, diagnostics, context);
@@ -401,7 +404,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateStop(Stop stop, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(stop, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(stop, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(stop, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(stop, diagnostics, context);
@@ -430,7 +432,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateStart(Start start, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(start, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(start, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(start, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(start, diagnostics, context);
@@ -459,7 +460,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateOpenWorkload(OpenWorkload openWorkload, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(openWorkload, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(openWorkload, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(openWorkload, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(openWorkload, diagnostics, context);
@@ -487,7 +487,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEntryLevelSystemCall(EntryLevelSystemCall entryLevelSystemCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(entryLevelSystemCall, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(entryLevelSystemCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(entryLevelSystemCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(entryLevelSystemCall, diagnostics, context);
@@ -497,6 +496,7 @@ public class UsagemodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(entryLevelSystemCall, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(entryLevelSystemCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validateEntryLevelSystemCall_EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(entryLevelSystemCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validateEntryLevelSystemCall_EntryLevelSystemCallSignatureMustMatchItsProvidedRole(entryLevelSystemCall, diagnostics, context);
 		return result;
 	}
 
@@ -511,12 +511,21 @@ public class UsagemodelValidator extends EObjectValidator {
 	}
 
 	/**
+	 * Validates the EntryLevelSystemCallSignatureMustMatchItsProvidedRole constraint of '<em>Entry Level System Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateEntryLevelSystemCall_EntryLevelSystemCallSignatureMustMatchItsProvidedRole(EntryLevelSystemCall entryLevelSystemCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return entryLevelSystemCall.EntryLevelSystemCallSignatureMustMatchItsProvidedRole(diagnostics, context);
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateClosedWorkload(ClosedWorkload closedWorkload, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(closedWorkload, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(closedWorkload, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(closedWorkload, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(closedWorkload, diagnostics, context);
@@ -569,7 +578,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateDelay(Delay delay, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(delay, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(delay, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(delay, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(delay, diagnostics, context);

@@ -292,7 +292,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateStopAction(StopAction stopAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(stopAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(stopAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(stopAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(stopAction, diagnostics, context);
@@ -321,7 +320,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractInternalControlFlowAction(AbstractInternalControlFlowAction abstractInternalControlFlowAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(abstractInternalControlFlowAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(abstractInternalControlFlowAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractInternalControlFlowAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractInternalControlFlowAction, diagnostics, context);
@@ -339,7 +337,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractAction(AbstractAction abstractAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(abstractAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(abstractAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractAction, diagnostics, context);
@@ -357,7 +354,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceDemandingBehaviour(ResourceDemandingBehaviour resourceDemandingBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(resourceDemandingBehaviour, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(resourceDemandingBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceDemandingBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceDemandingBehaviour, diagnostics, context);
@@ -365,6 +361,7 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(resourceDemandingBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceDemandingBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceDemandingBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(resourceDemandingBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStopAction(resourceDemandingBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStartAction(resourceDemandingBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(resourceDemandingBehaviour, diagnostics, context);
@@ -407,7 +404,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractLoopAction(AbstractLoopAction abstractLoopAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(abstractLoopAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(abstractLoopAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractLoopAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractLoopAction, diagnostics, context);
@@ -425,7 +421,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractBranchTransition(AbstractBranchTransition abstractBranchTransition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(abstractBranchTransition, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(abstractBranchTransition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractBranchTransition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractBranchTransition, diagnostics, context);
@@ -443,7 +438,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateBranchAction(BranchAction branchAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(branchAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(branchAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(branchAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(branchAction, diagnostics, context);
@@ -483,7 +477,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateStartAction(StartAction startAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(startAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(startAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(startAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(startAction, diagnostics, context);
@@ -512,7 +505,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceDemandingSEFF(ResourceDemandingSEFF resourceDemandingSEFF, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(resourceDemandingSEFF, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(resourceDemandingSEFF, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceDemandingSEFF, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceDemandingSEFF, diagnostics, context);
@@ -534,7 +526,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceDemandingInternalBehaviour(ResourceDemandingInternalBehaviour resourceDemandingInternalBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(resourceDemandingInternalBehaviour, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(resourceDemandingInternalBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceDemandingInternalBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceDemandingInternalBehaviour, diagnostics, context);
@@ -542,6 +533,7 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(resourceDemandingInternalBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceDemandingInternalBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceDemandingInternalBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(resourceDemandingInternalBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStopAction(resourceDemandingInternalBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStartAction(resourceDemandingInternalBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(resourceDemandingInternalBehaviour, diagnostics, context);
@@ -554,7 +546,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateReleaseAction(ReleaseAction releaseAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(releaseAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(releaseAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(releaseAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(releaseAction, diagnostics, context);
@@ -572,7 +563,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateLoopAction(LoopAction loopAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(loopAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(loopAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(loopAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(loopAction, diagnostics, context);
@@ -590,7 +580,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInternalAction(InternalAction internalAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(internalAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(internalAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(internalAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(internalAction, diagnostics, context);
@@ -644,7 +633,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateForkAction(ForkAction forkAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(forkAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(forkAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(forkAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(forkAction, diagnostics, context);
@@ -662,7 +650,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateForkedBehaviour(ForkedBehaviour forkedBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(forkedBehaviour, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(forkedBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(forkedBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(forkedBehaviour, diagnostics, context);
@@ -670,6 +657,7 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(forkedBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(forkedBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(forkedBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(forkedBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStopAction(forkedBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStartAction(forkedBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(forkedBehaviour, diagnostics, context);
@@ -691,7 +679,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateExternalCallAction(ExternalCallAction externalCallAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(externalCallAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(externalCallAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(externalCallAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(externalCallAction, diagnostics, context);
@@ -738,7 +725,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateProbabilisticBranchTransition(ProbabilisticBranchTransition probabilisticBranchTransition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(probabilisticBranchTransition, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(probabilisticBranchTransition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(probabilisticBranchTransition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(probabilisticBranchTransition, diagnostics, context);
@@ -756,7 +742,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAcquireAction(AcquireAction acquireAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(acquireAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(acquireAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(acquireAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(acquireAction, diagnostics, context);
@@ -785,7 +770,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCollectionIteratorAction(CollectionIteratorAction collectionIteratorAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(collectionIteratorAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(collectionIteratorAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(collectionIteratorAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(collectionIteratorAction, diagnostics, context);
@@ -803,7 +787,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateGuardedBranchTransition(GuardedBranchTransition guardedBranchTransition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(guardedBranchTransition, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(guardedBranchTransition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(guardedBranchTransition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(guardedBranchTransition, diagnostics, context);
@@ -821,7 +804,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSetVariableAction(SetVariableAction setVariableAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(setVariableAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(setVariableAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(setVariableAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(setVariableAction, diagnostics, context);
@@ -839,7 +821,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInternalCallAction(InternalCallAction internalCallAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(internalCallAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(internalCallAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(internalCallAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(internalCallAction, diagnostics, context);
@@ -857,7 +838,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEmitEventAction(EmitEventAction emitEventAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(emitEventAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(emitEventAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(emitEventAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(emitEventAction, diagnostics, context);
@@ -875,7 +855,6 @@ public class SeffValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateServiceEffectSpecification(ServiceEffectSpecification serviceEffectSpecification, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(serviceEffectSpecification, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(serviceEffectSpecification, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(serviceEffectSpecification, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(serviceEffectSpecification, diagnostics, context);

@@ -75,6 +75,7 @@ public interface InternalFailureOccurrenceDescription extends FailureOccurrenceD
 	 * <!-- begin-model-doc -->
 	 * ResourceTimeoutFailures are software-induced failure types, but are not annotated to InternalActions (they are only meant
 	 * for passive resource timeouts).
+	 * not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

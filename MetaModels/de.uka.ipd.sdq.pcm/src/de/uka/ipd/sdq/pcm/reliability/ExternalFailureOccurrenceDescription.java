@@ -102,6 +102,7 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
 	 * ResourceTimeoutFailures&nbsp;are&nbsp;software-induced&nbsp;failure&nbsp;types,&nbsp;but&nbsp;are&nbsp;not&nbsp;annotated&nbsp;to&nbsp;system-external
 	 * calls&nbsp;(they&nbsp;are&nbsp;only&nbsp;meant<br />
 	 * for&nbsp;passive&nbsp;resource&nbsp;timeouts).
+	 * not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

@@ -158,6 +158,7 @@ public class SeffSwitch<T> {
 			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR: {
 				ResourceDemandingBehaviour resourceDemandingBehaviour = (ResourceDemandingBehaviour)theEObject;
 				T result = caseResourceDemandingBehaviour(resourceDemandingBehaviour);
+				if (result == null) result = caseIdentifier(resourceDemandingBehaviour);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -218,9 +219,9 @@ public class SeffSwitch<T> {
 			case SeffPackage.RESOURCE_DEMANDING_SEFF: {
 				ResourceDemandingSEFF resourceDemandingSEFF = (ResourceDemandingSEFF)theEObject;
 				T result = caseResourceDemandingSEFF(resourceDemandingSEFF);
-				if (result == null) result = caseIdentifier(resourceDemandingSEFF);
 				if (result == null) result = caseServiceEffectSpecification(resourceDemandingSEFF);
 				if (result == null) result = caseResourceDemandingBehaviour(resourceDemandingSEFF);
+				if (result == null) result = caseIdentifier(resourceDemandingSEFF);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -228,6 +229,7 @@ public class SeffSwitch<T> {
 				ResourceDemandingInternalBehaviour resourceDemandingInternalBehaviour = (ResourceDemandingInternalBehaviour)theEObject;
 				T result = caseResourceDemandingInternalBehaviour(resourceDemandingInternalBehaviour);
 				if (result == null) result = caseResourceDemandingBehaviour(resourceDemandingInternalBehaviour);
+				if (result == null) result = caseIdentifier(resourceDemandingInternalBehaviour);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -269,6 +271,7 @@ public class SeffSwitch<T> {
 				ForkedBehaviour forkedBehaviour = (ForkedBehaviour)theEObject;
 				T result = caseForkedBehaviour(forkedBehaviour);
 				if (result == null) result = caseResourceDemandingBehaviour(forkedBehaviour);
+				if (result == null) result = caseIdentifier(forkedBehaviour);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 import java.util.Collection;
 import java.util.Map;
 
@@ -49,7 +50,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  *
  * @generated
  */
-public class ResourceDemandingBehaviourImpl extends EObjectImpl implements ResourceDemandingBehaviour {
+public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements ResourceDemandingBehaviour {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

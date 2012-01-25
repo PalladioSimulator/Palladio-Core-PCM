@@ -164,7 +164,6 @@ public class Seff_reliabilityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRecoveryActionBehaviour(RecoveryActionBehaviour recoveryActionBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(recoveryActionBehaviour, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(recoveryActionBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(recoveryActionBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(recoveryActionBehaviour, diagnostics, context);
@@ -218,7 +217,6 @@ public class Seff_reliabilityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRecoveryAction(RecoveryAction recoveryAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(recoveryAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(recoveryAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(recoveryAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(recoveryAction, diagnostics, context);
@@ -247,7 +245,6 @@ public class Seff_reliabilityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateFailureHandlingEntity(FailureHandlingEntity failureHandlingEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(failureHandlingEntity, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(failureHandlingEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(failureHandlingEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(failureHandlingEntity, diagnostics, context);

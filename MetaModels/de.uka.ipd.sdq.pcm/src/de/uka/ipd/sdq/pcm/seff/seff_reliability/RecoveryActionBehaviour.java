@@ -95,6 +95,10 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->
+	 * 	exists(x,y:RecoveryActionBehaviour | x<>y
+	 * 		and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)
+	 * 		and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
@@ -107,6 +111,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
@@ -119,6 +124,11 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * not self.failureHandlingAlternatives__RecoveryActionBehaviour->
+	 * 	exists(x,y:RecoveryActionBehaviour | x<>y and
+	 * 	x.failureTypes_FailureHandlingEntity->
+	 * 		exists(f:pcm::reliability::FailureType |
+	 * 		y.failureTypes_FailureHandlingEntity->includes(f)))
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
