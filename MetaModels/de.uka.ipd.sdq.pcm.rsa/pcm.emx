@@ -18099,6 +18099,29 @@ See the UserData meta class for a detailed explanation. </body>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_jhQWQrGYEd673PT6cWw0Kw" showStereotype="Label"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jhQWQ7GYEd673PT6cWw0Kw" x="12363" y="7925"/>
           </children>
+          <children xmi:id="_QLWk0Ed0EeGCjo1oTAP6DQ">
+            <children xmi:id="_QLqt4Ed0EeGCjo1oTAP6DQ" type="ImageCompartment">
+              <layoutConstraint xmi:type="notation:Size" xmi:id="_QLqt4Ud0EeGCjo1oTAP6DQ" width="1320" height="1320"/>
+            </children>
+            <children xmi:id="_QLrU8Ed0EeGCjo1oTAP6DQ" type="Stereotype"/>
+            <children xmi:id="_QLrU8Ud0EeGCjo1oTAP6DQ" type="Name"/>
+            <children xmi:id="_QLr8AEd0EeGCjo1oTAP6DQ" type="Parent"/>
+            <children xmi:id="_QLwNcEd0EeGCjo1oTAP6DQ" type="AttributeCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_QLwNcUd0EeGCjo1oTAP6DQ"/>
+            </children>
+            <children xmi:id="_QLw0gEd0EeGCjo1oTAP6DQ" type="OperationCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_QLw0gUd0EeGCjo1oTAP6DQ"/>
+            </children>
+            <children xmi:id="_QLyCoEd0EeGCjo1oTAP6DQ" visible="false" type="SignalCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_QLyCoUd0EeGCjo1oTAP6DQ"/>
+            </children>
+            <children xmi:id="_QLypsEd0EeGCjo1oTAP6DQ" visible="false" type="StructureCompartment">
+              <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_QLypsUd0EeGCjo1oTAP6DQ"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_QLWk0Ud0EeGCjo1oTAP6DQ" fontName="Segoe UI" showStereotype="Label"/>
+            <element xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QLWk0kd0EeGCjo1oTAP6DQ" x="-1773" y="9022"/>
+          </children>
           <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_OPNOwZDtEdu1yp0uU5FcVQ" description="Overview on the embedding of RDSEFFs into component specifications"/>
           <edges xmi:id="_T2VPUJDtEdu1yp0uU5FcVQ" element="_scghMBG0EdukS8Awn8hWLA" source="_T2LeUJDtEdu1yp0uU5FcVQ" target="_SvsXYJDtEdu1yp0uU5FcVQ">
             <children xmi:id="_T2VPU5DtEdu1yp0uU5FcVQ" type="NameLabel">
@@ -18365,6 +18388,24 @@ See the UserData meta class for a detailed explanation. </body>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_uO_rUbGYEd673PT6cWw0Kw" lineColor="0" showStereotype="Text"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uO_rUrGYEd673PT6cWw0Kw" points="[2673, 159, -4101, -238]$[4049, 159, -2725, -238]"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yxj3kLGYEd673PT6cWw0Kw" id="(0.06996381,0.42835596)"/>
+          </edges>
+          <edges xmi:id="_QL6lgEd0EeGCjo1oTAP6DQ" element="_ThBGsJApEdu_YZDnbUekcg" source="_T2LeUJDtEdu1yp0uU5FcVQ" target="_QLWk0Ed0EeGCjo1oTAP6DQ">
+            <children xmi:id="_QL_eAEd0EeGCjo1oTAP6DQ" type="NameLabel">
+              <children xmi:id="_QL_eAkd0EeGCjo1oTAP6DQ" type="Stereotype"/>
+              <children xmi:id="_QL_eA0d0EeGCjo1oTAP6DQ" type="Name"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QL_eAUd0EeGCjo1oTAP6DQ" y="-186"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_QL6lgUd0EeGCjo1oTAP6DQ" fontName="Segoe UI" lineWidth="1" showStereotype="Text"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QL6lgkd0EeGCjo1oTAP6DQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+          </edges>
+          <edges xmi:id="_RrlogEd0EeGCjo1oTAP6DQ" element="_RqZ8wEd0EeGCjo1oTAP6DQ" source="_VaUKkJDtEdu1yp0uU5FcVQ" target="_QLWk0Ed0EeGCjo1oTAP6DQ">
+            <children xmi:id="_RrmPkEd0EeGCjo1oTAP6DQ" type="NameLabel">
+              <children xmi:id="_RrmPkkd0EeGCjo1oTAP6DQ" type="Stereotype"/>
+              <children xmi:id="_RrmPk0d0EeGCjo1oTAP6DQ" type="Name"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RrmPkUd0EeGCjo1oTAP6DQ" y="-186"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_RrlogUd0EeGCjo1oTAP6DQ" fontName="Segoe UI" lineWidth="1" showStereotype="Text"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Rrlogkd0EeGCjo1oTAP6DQ" points="[-70, 24, 333, -127]$[-381, 125, 22, -26]"/>
           </edges>
         </contents>
         <contents xmi:type="notation:Diagram" xmi:id="_qqVqUC7oEdyfAdIlKmzI9Q" type="Class" element="_XZbScCh9Edue7oeC4NTCGg" name="Fork">
@@ -20851,6 +20892,9 @@ Each action in a ResourceDemandingBehaviour references a predecessor and a succe
             <body>not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())</body>
           </specification>
         </ownedRule>
+        <generalization xmi:id="_RqZ8wEd0EeGCjo1oTAP6DQ">
+          <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
+        </generalization>
         <ownedAttribute xmi:id="_RrAYIeDhEdq8ysXH3gTiEg" name="steps_Behaviour" type="_6qnlsODgEdq8ysXH3gTiEg" aggregation="composite" association="_RrAYIODhEdq8ysXH3gTiEg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RrAYJODhEdq8ysXH3gTiEg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RrAYI-DhEdq8ysXH3gTiEg"/>
