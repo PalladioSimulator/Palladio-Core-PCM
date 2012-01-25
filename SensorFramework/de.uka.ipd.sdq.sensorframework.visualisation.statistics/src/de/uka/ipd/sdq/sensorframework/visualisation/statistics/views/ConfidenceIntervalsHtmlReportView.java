@@ -101,6 +101,7 @@ public class ConfidenceIntervalsHtmlReportView extends AbstractHtmlReportView {
 					"</small>" +
 					"<h3>Simple Batch Means</h3>" +
 					"Simply takes batches of size " +batcheSize+" and calculates the confidence interval based on their means. Handle the results with care, as they may not be statistically valid (e.g. as a simulation stopping criterion), because this algorithm does not check the independence of single observations." +
+					" In particular, the reported mean itself may deviate because of rounding errors. "+
 					"</body></html>";
 			browser.setText(browserText);
 		}
