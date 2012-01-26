@@ -12,6 +12,11 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 public class SimProcessorSharingResource extends AbstractActiveResource {
 	
+	/**
+	 * The minimum amount of time used for scheduling an event 
+	 */
+	static double JIFFY = 1e-9;
+	
 	private class ProcessingFinishedEvent extends AbstractSimEventDelegator<ISchedulableProcess> {
 				
 		public ProcessingFinishedEvent(SchedulerModel model) {
@@ -57,7 +62,7 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 			double time = running_processes.get(shortest) * getSpeed();
 			
 			// avoid trouble caused by rounding issues
-			time = MathTools.equalsDouble(time, 0) ? 0.0 : time; 
+			time = time < JIFFY ? JIFFY : time; 
 			
 			assert time >= 0 : "Remaining time ("+ time +")small than zero!";
 			
