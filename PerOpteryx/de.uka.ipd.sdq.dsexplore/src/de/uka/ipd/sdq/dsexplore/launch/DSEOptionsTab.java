@@ -59,6 +59,13 @@ public class DSEOptionsTab extends FileNamesInputTab {
 
 	private Button outputAsEMF;
 	
+	/**
+	 * Option to start a number of DSE runs on the same settings, to get several samples for the 
+	 * runs and be able to draw statistically valid conclusions.   
+	 */
+	private Text numberOfDSERuns; 
+		
+	
 	//private QMLManager qmlManager;
 	//private QMLDefinitionsLoadListener qmlDefinitionsLoadListener;
 	
@@ -237,6 +244,21 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		outputAsEMF.setSelection(false);
 		outputAsEMF.setText("Output as EMF models");
 		outputAsEMF.addSelectionListener(selectionListener);
+		
+		final Group dseIterationsGroups = new Group(container, SWT.NONE);
+		final GridLayout dseIterationsGroup = new GridLayout();
+		dseIterationsGroup.numColumns = 2;
+		dseIterationsGroups.setLayout(dseIterationsGroup);
+		dseIterationsGroups.setText("Evolutionary algorithm parameters");
+		dseIterationsGroups.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				true, false));
+
+		final Label dseIterationsLabel = new Label(dseIterationsGroups, SWT.NONE);
+		dseIterationsLabel.setText("Number of DSE runs (optional, default is 1):");
+		
+		numberOfDSERuns = new Text(dseIterationsGroups, SWT.SINGLE	| SWT.BORDER);
+		numberOfDSERuns.setEnabled(true);
+		numberOfDSERuns.addModifyListener(modifyListener);
 
 	}
 
@@ -393,6 +415,12 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		} catch (CoreException e) {
 			this.outputAsEMF.setSelection(false);
 		}
+		try {
+			numberOfDSERuns.setText(configuration.getAttribute(
+					DSEConstantsContainer.DSE_ITERATIONS, ""));
+		} catch (CoreException e) {
+			RunConfigPlugin.errorLogger(getName(),"number of DSE iterations", e.getMessage());
+		}
 		//loadQML();
 	}
 
@@ -450,6 +478,9 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		configuration.setAttribute(
 				DSEConstantsContainer.STORE_RESULTS_AS_EMF,
 				this.outputAsEMF.getSelection());
+		configuration.setAttribute(
+				DSEConstantsContainer.DSE_ITERATIONS,
+				this.numberOfDSERuns.getText());
 	}
 
 	@Override
@@ -551,6 +582,15 @@ public class DSEOptionsTab extends FileNamesInputTab {
 		} else {
 			//Notify user about the default design decision file name. 
 			setMessage("If you do not specify a design decision file, the default name will be <name of this launch configuration>.designdecision.");
+		}
+		
+		if (this.numberOfDSERuns.getText().length() != 0) {
+			try {
+				Integer.parseInt(this.numberOfDSERuns.getText());
+			} catch (NumberFormatException e) {
+				setErrorMessage("Number of DSE iterations must be an integer value or empty.");
+				return false;
+			}
 		}
 		
 		//If rule-based search is selected, one should choose one of the tactics

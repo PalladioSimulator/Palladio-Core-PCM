@@ -123,6 +123,8 @@ public class DSEConstantsContainer {
 	public static final String UPPER_BOUND_CONFIDENCE = "upper bound confidence";
 	public static final String LOWER_BOUND_CONFIDENCE = "lower bound confidence";
 	
+	public static final String DSE_ITERATIONS = "number of DSE iterations";
+	
 	/*
 	 * Configuration of heuristics
 	 */

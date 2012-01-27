@@ -3,12 +3,14 @@ package de.uka.ipd.sdq.dsexplore.launch;
 import java.util.ArrayList;
 
 import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedLaunchConfigurationDelegate;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowConfigurationBuilder;
 import de.uka.ipd.sdq.workflow.launchconfig.LoggerAppenderStruct;
 import de.uka.ipd.sdq.workflow.launchconfig.WorkflowProcess;
@@ -28,8 +30,13 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.PCMWorkflowConfigurationBuilde
 public class DSELaunch extends AbstractPCMLaunchConfigurationDelegate<DSEWorkflowConfiguration>{
 	
 	WorkflowProcess myWorkflowProcess;
-
 	
+	/**
+	 * Logger of this class 
+	 */
+	private static Logger logger = Logger.getLogger(DSELaunch.class);
+	
+
 	private ILaunchConfiguration originalConfiguration;
 	private ILaunch originalLaunch;
 
@@ -47,7 +54,26 @@ public class DSELaunch extends AbstractPCMLaunchConfigurationDelegate<DSEWorkflo
 		
 		this.originalConfiguration = configuration;
 		this.originalLaunch = launch;
-		super.launch(configuration, mode, launch, monitor);
+		
+		int iterations = getNumberOfDSEIterations(configuration);
+		
+		logger.warn("Will start "+iterations+" analysis runs. Only first one may be visible on the console.");
+		for (int i = 0; i < iterations; i++) {
+			super.launch(configuration, mode, launch, monitor);
+		}
+		
+	}
+
+	private int getNumberOfDSEIterations(ILaunchConfiguration configuration) {
+		String stringValue;
+		try {
+			stringValue = configuration.getAttribute(DSEConstantsContainer.DSE_ITERATIONS, "0");
+			if (!stringValue.equals("")){
+				int i = Integer.parseInt(stringValue);
+				return i;
+			}
+		} catch (Exception e) { /* just use 1 */ }
+		return 1;
 	}
 
 	/**
