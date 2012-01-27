@@ -177,6 +177,7 @@ public class GenotypeReader {
 		ResourceSet pcmResourceSet = pcm.getAllocation().eResource().getResourceSet();
 				
 		EObject eCandidates = EMFHelper.loadFromXMIFile(filename, pcmResourceSet);
+		EcoreUtil.resolveAll(eCandidates);
 		FixDesignDecisionReferenceSwitch refSwitch = new FixDesignDecisionReferenceSwitch(Opt4JStarter.getProblem().getInitialInstance());
 		refSwitch.doSwitch(eCandidates);
 		

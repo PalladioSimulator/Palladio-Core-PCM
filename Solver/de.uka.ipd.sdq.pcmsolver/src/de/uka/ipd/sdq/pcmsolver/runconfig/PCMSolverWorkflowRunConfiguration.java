@@ -66,6 +66,7 @@ public class PCMSolverWorkflowRunConfiguration extends
 
 	private String saveFile;
 	private boolean saveResultsToFileEnabled;
+	private boolean isShowHtmlResults = true;
 
 	public boolean isInfiniteTaskMultiplicity() {
 		return isInfiniteTaskMultiplicity;
@@ -113,6 +114,10 @@ public class PCMSolverWorkflowRunConfiguration extends
 		return logFile;
 	}
 
+	/**
+	 * LQN output type. Uses constants {@link MessageStrings.LQN_OUTPUT_HTML} etc. 
+	 * @return
+	 */
 	public String getLqnsOutput() {
 		return lqnsOutput;
 	}
@@ -436,13 +441,27 @@ public class PCMSolverWorkflowRunConfiguration extends
 	public boolean isSaveResultsToFileEnabled() {
 		return saveResultsToFileEnabled;
 	}
+	
+	/**
+	 * Show HTML results of reliability analysis. For HTML results of LQN solver analysis, see 
+	 * {@link #getLqnsOutput()}. 
+	 * @return
+	 */
+	public boolean isShowHtmlResults() {
+		return this.isShowHtmlResults;
+	}
 
 	public void setSaveResultsToFileEnabled(boolean saveResultsToFileEnabled) {
 		this.saveResultsToFileEnabled = saveResultsToFileEnabled;
+	}
+	
+	public void setShowHtmlResults(boolean isShowHtmlResults) {
+		this.isShowHtmlResults = isShowHtmlResults;
 	}
 
 	public void setPragmas(String pragmaString) {
 		this.lqnPragmas = pragmaString;
 	}
+
 
 }

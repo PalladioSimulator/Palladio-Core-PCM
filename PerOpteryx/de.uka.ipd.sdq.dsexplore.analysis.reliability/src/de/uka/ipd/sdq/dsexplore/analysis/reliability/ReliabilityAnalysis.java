@@ -124,6 +124,8 @@ public class ReliabilityAnalysis implements IAnalysis {
 		
 		builder = new PCMSolverReliabilityConfigurationBasedConfigBuilder(this.config.getRawConfiguration(), ILaunchManager.RUN_MODE);
 		builder.fillConfiguration(solverConfiguration);
+		
+		solverConfiguration.setShowHtmlResults(false);
 
 		solverConfiguration.setInteractive(false);
 		

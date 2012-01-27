@@ -172,6 +172,8 @@ public class ExtensionHelper {
 					IAnalysisQualityAttributeDeclaration attribute = (IAnalysisQualityAttributeDeclaration)element.createExecutableExtension("qualityAttributeHandler");
 					return attribute.getDimensions();
 				} catch (CoreException e) {
+					logger.error("Error when querying analysis extension:");
+					e.printStackTrace();
 					return null;
 				}
 			}

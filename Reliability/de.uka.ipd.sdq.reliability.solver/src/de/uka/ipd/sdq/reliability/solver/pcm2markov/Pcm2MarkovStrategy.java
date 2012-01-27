@@ -242,6 +242,8 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
 		} // else do nothing
 
 		// show the HTML page containing the results
-		showResults(htmlCode);
+		if (configuration.isShowHtmlResults()){
+			showResults(htmlCode);
+		}
 	}
 }
