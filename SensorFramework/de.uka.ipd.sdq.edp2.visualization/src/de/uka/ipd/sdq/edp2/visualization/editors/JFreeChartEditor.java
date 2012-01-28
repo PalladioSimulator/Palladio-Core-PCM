@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
  * 
  * @author Dominik Ernst
  */
-public class JFreeChartEditor extends AbstractEditor implements ChartChangeListener {
+public class JFreeChartEditor extends AbstractEditor {
 	
 	/** This editor's ID, e.g. for Referencing in extension points. */
 	public static final String EDITOR_ID = "de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor";
@@ -63,16 +63,9 @@ public class JFreeChartEditor extends AbstractEditor implements ChartChangeListe
 	 * Method, which describes the default updating process of the current chart.
 	 */
 	public void updateChart() {
-		chart.removeChangeListener(this);
-		chart = ((JFreeChartEditorInputHandle)getEditorInput()).createChart();
-		chart.addChangeListener(this);
+		chart = getEditorInputHandle().createChart();
 		chartContainer.setChart(chart);
 		chartContainer.forceRedraw();
-	}
-
-	@Override
-	public void chartChanged(ChartChangeEvent event) {
-		updateChart();
 	}
 
 	@Override

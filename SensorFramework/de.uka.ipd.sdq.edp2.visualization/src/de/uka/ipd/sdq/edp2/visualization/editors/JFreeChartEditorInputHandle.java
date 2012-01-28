@@ -42,8 +42,9 @@ import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonJFreeChartPro
  */
 public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 
-	Logger logger = Logger.getLogger(JFreeChartEditorInputHandle.class.getCanonicalName());
-	
+	Logger logger = Logger.getLogger(JFreeChartEditorInputHandle.class
+			.getCanonicalName());
+
 	private ArrayList<JFreeChartEditorInput> inputs;
 	private XYDataset dataset;
 	private XYPlot plot;
@@ -81,12 +82,13 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 			setChanged();
 			notifyObservers();
 			return true;
+		} else {
+			inputs.add((JFreeChartEditorInput) newInput);
+			newInput.addObserver(this);
+			setChanged();
+			notifyObservers();
+			return true;
 		}
-		inputs.add((JFreeChartEditorInput) newInput);
-		newInput.addObserver(this);
-		setChanged();
-		notifyObservers();
-		return true;
 	}
 
 	/*
@@ -101,18 +103,19 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 		dataset = (XYDataset) inputs.get(0).getDataTypeInstance();
 
 		if (dataset instanceof HistogramDataset) {
-			HistogramDataset histogramDataset = (HistogramDataset) dataset;
+			HistogramDataset histogramDataset = new HistogramDataset();
 
-			for (int i = 1; i < getInputsSize(); i++) {
-				histogramDataset.addSeries(inputs.get(i).getName(),
-						(double[]) inputs.get(i).getData(), Integer
-								.parseInt(inputs.get(i).getProperties().get(
-										"numberOfBins").toString()));
+			for (int i = 0; i < getInputsSize(); i++) {
+				histogramDataset.addSeries(
+						inputs.get(i).getName(),
+						(double[]) inputs.get(i).getData(),
+						Integer.parseInt(inputs.get(i).getProperties()
+								.get("numberOfBins").toString()));
 			}
 			dataset = histogramDataset;
 		} else if (dataset instanceof DefaultXYDataset) {
-			DefaultXYDataset xyDataset = (DefaultXYDataset) dataset;
-			for (int i = 1; i < getInputsSize(); i++) {
+			DefaultXYDataset xyDataset = new DefaultXYDataset();
+			for (int i = 0; i < getInputsSize(); i++) {
 				xyDataset.addSeries(inputs.get(i).getName(),
 						(double[][]) inputs.get(i).getData());
 			}
@@ -259,7 +262,8 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 
 	@Override
 	public Composite getCommonPropertiesComposite(Composite parent) {
-		return new CommonJFreeChartPropertiesComposite(parent, SWT.EMBEDDED, new CommonJFreeChartProperties(chart));
+		return new CommonJFreeChartPropertiesComposite(parent, SWT.EMBEDDED,
+				new CommonJFreeChartProperties(chart));
 	}
 
 }
