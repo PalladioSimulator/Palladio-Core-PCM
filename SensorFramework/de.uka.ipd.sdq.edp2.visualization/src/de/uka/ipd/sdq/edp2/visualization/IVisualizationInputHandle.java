@@ -21,7 +21,9 @@ import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
  *
  */
 public abstract class IVisualizationInputHandle extends Observable implements IEditorInput, Observer, ISelection, IPersistableElement {
-
+	
+	protected AbstractEditor editor;
+	
 	/**
 	 * Method to retrieve all contained {@link IDataSink}s. These are intended to be displayed by the same
 	 * {@link IVisualization}.
@@ -73,5 +75,4 @@ public abstract class IVisualizationInputHandle extends Observable implements IE
 	 * @return the composite showing and allowing to edit this {@link IVisualizationInput}'s display options.
 	 */
 	public abstract Composite getCommonPropertiesComposite(Composite parent);
-	
 }

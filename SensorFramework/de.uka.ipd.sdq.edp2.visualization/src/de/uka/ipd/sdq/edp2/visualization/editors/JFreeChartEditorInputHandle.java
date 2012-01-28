@@ -5,6 +5,8 @@ package de.uka.ipd.sdq.edp2.visualization.editors;
 
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.eclipse.core.databinding.observable.set.SetChangeEvent;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -40,6 +42,8 @@ import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonJFreeChartPro
  */
 public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 
+	Logger logger = Logger.getLogger(JFreeChartEditorInputHandle.class.getCanonicalName());
+	
 	private ArrayList<JFreeChartEditorInput> inputs;
 	private XYDataset dataset;
 	private XYPlot plot;
@@ -211,7 +215,10 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 	 */
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
+		logger.log(Level.INFO, "update invoked");
+		createChart();
+		setChanged();
+		notifyObservers();
 	}
 
 	@Override

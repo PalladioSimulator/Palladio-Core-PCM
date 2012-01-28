@@ -199,6 +199,7 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 	 */
 	@Override
 	public void update(Observable arg0, Object arg1) {
+		logger.log(Level.INFO, "update invoked");
 		transformData();
 	}
 

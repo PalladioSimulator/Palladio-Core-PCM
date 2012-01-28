@@ -151,7 +151,7 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 		// a list which holds all transformations (not the current datasource
 		// and not the current visualization)
 		ArrayList<AbstractTransformation> listOfTransformations = new ArrayList<AbstractTransformation>();
-		// while it is not clear, whether there are any transformations at all,
+		// while it is not clear, if there are any transformations at all,
 		// use the new source
 		// as the direct predecessor
 		AbstractDataSource previousElement = getSource();

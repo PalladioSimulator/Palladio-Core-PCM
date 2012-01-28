@@ -464,8 +464,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 		newProperties.put(key, value);
 		selectedTransformation.setProperties(newProperties);
 		selectedTransformation.transformData();
-		
-
+		//TODO chart update
 	}
 
 	/*

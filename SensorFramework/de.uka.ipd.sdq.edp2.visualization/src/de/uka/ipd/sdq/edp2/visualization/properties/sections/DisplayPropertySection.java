@@ -145,9 +145,10 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		if (specificPropertiesComposite != null) {
 			specificPropertiesComposite.dispose();
 		}
-		if (lastSelectedInput != null)
+		if (lastSelectedInput != null) {
 			specificPropertiesComposite = lastSelectedInput
 					.getSpecificPropertiesComposite(composite);
+		}
 	}
 
 	private void createCommonChartComposite() {
@@ -171,7 +172,6 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				.getSelection();
 		lastSelectedInput = (IVisualizationInput) selection.getFirstElement();
 		createSpecificChartComposite();
-		composite.layout();
 		refresh();
 	}
 

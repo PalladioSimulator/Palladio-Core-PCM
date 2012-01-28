@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
@@ -105,6 +106,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@SuppressWarnings("unchecked")
 	public void updateDataset() {
+		logger.log(Level.INFO, "Transformation : BEGIN");
 		dataset = new HistogramDataset();
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
@@ -132,7 +134,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		// set the title of the chart to the name of the input data series
 		setTitle(metrics[0].getName());
 		dataset.addSeries(getTitle(), data, getNumberOfBins());
-		
+		setChanged();
+		notifyObservers();
+		logger.log(Level.INFO, "Transformation : END");
 	}
 
 	/*
@@ -197,6 +201,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public void update(Observable arg0, Object arg1) {
+		logger.log(Level.INFO, "update invoked");
 		updateDataset();
 	}
 
@@ -265,7 +270,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 
 	public JFreeChart getChart() {
-		updateDataset();
 		NumberAxis domainAxis = new NumberAxis(getTitle());
 		domainAxis.setAutoRangeIncludesZero(false);
 		NumberAxis rangeAxis = new NumberAxis("Frequency (Abs)");
