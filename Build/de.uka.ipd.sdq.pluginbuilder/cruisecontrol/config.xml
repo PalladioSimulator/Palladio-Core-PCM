@@ -198,7 +198,7 @@
   <project name="Palladio.ByCounter" requiremodification="true">
     <modificationset>
       <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
-	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/BySuite/Palladio.ByCounter/trunk/de.uka.ipd.sdq.ByCounter/" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
+	  <svn username="cruisecontrol" password="obREaglAkEmhaDwl" RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/BySuite/ByCounter/trunk/de.uka.ipd.sdq.ByCounter/"/>	
     </modificationset>
     <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
       <ant buildfile="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/build.xml" target="main" antworkingdir="/home/ccontrol/svn/code/de.uka.ipd.sdq.ByCounter/" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
