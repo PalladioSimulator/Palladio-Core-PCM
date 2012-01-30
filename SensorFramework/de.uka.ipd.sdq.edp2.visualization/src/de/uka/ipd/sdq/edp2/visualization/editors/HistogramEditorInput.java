@@ -56,7 +56,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	private final static String NUMBER_BINS_KEY = "numberOfBins";
 
 	/**
-	 * Default value for the <numberOfBins>
+	 * Default value for <code>numberOfBins</code>
 	 */
 	private final static int DEFAULT_NUMBER_BINS = 5;
 	/**
@@ -78,15 +78,15 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	private XYBarRenderer renderer;
 	private XYPlot plot;
 	private JFreeChart chart;
-	private HistogramDataset dataset;
+	private BasicDataset<HistogramDataset> dataset;
 	private NumberAxis domainAxis;
 
 	/**
 	 * Empty constructor.
 	 */
 	public HistogramEditorInput() {
-		super();
-		chartProperties = new HistogramChartProperties(this);
+		super(null);
+		new HistogramEditorInput(null);
 	}
 
 	/**
@@ -98,16 +98,17 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	public HistogramEditorInput(AbstractDataSource source) {
 		super(source);
 		chartProperties = new HistogramChartProperties(this);
+		dataset = new BasicDataset<HistogramDataset>(new HistogramDataset());
 	}
 
-	/**
-	 * Parses the data within the current source and updates the
-	 * {@link #dataset} in accordance.
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#updateInputData()
 	 */
 	@SuppressWarnings("unchecked")
-	public void updateDataset() {
+	public void updateInputData() {
 		logger.log(Level.INFO, "Transformation : BEGIN");
-		dataset = new HistogramDataset();
+		HistogramDataset defaultDataset = new HistogramDataset();
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
 		for (DataSeries series : getSource().getOutput()) {
@@ -133,7 +134,8 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		}
 		// set the title of the chart to the name of the input data series
 		setTitle(metrics[0].getName());
-		dataset.addSeries(getTitle(), data, getNumberOfBins());
+		defaultDataset.addSeries(getTitle(), data, getNumberOfBins());
+		dataset.addDataSeries(this);
 		setChanged();
 		notifyObservers();
 		logger.log(Level.INFO, "Transformation : END");
@@ -159,8 +161,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public ArrayList<MetricDescription> getMetricRoles() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException("Not implemented!");
 	}
 
 	/*
@@ -183,37 +184,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		HistogramEditorInputFactory.saveState(memento, this);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
-	 */
-	@Override
-	public Object getAdapter(Class adapter) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-	 */
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		logger.log(Level.INFO, "update invoked");
-		updateDataset();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jface.viewers.ISelection#isEmpty()
-	 */
-	@Override
-	public boolean isEmpty() {
-		return false;
-	}
 
 	/*
 	 * (non-Javadoc)
@@ -263,18 +233,12 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		setNumberOfBins(chartProperties.getNumberOfBins());
 	}
 
-	@Override
-	public HistogramDataset getDataTypeInstance() {
-		return dataset;
-	}
-
-
 	public JFreeChart getChart() {
 		NumberAxis domainAxis = new NumberAxis(getTitle());
 		domainAxis.setAutoRangeIncludesZero(false);
 		NumberAxis rangeAxis = new NumberAxis("Frequency (Abs)");
 		plot = new XYPlot();
-		plot.setDataset(dataset);
+		plot.setDataset(getBasicDataset().getDataset());
 		renderer = new XYBarRenderer();
 		plot.setRenderer(renderer);
 		plot.setRangeAxis(rangeAxis);
@@ -298,6 +262,17 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	@Override
 	public Composite getSpecificPropertiesComposite(Composite parent) {
 		return new HistogramChartPropertiesComposite(parent, SWT.EMBEDDED, getChartProperties());
+	}
+
+	@Override
+	public BasicDataset<HistogramDataset> getBasicDataset() {
+		return dataset;
+	}
+
+
+	@Override
+	public HistogramDataset getDataTypeInstance() {
+		return new HistogramDataset();
 	}
 
 }

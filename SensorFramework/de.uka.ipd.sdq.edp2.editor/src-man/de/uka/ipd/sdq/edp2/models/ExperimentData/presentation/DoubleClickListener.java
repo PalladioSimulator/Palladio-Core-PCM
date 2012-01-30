@@ -90,7 +90,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 					} else {
 						visualization.setSource(source);
 					}
-					JFreeChartEditorInputHandle input = new JFreeChartEditorInputHandle(visualization);
+					JFreeChartEditorInputHandle input = new JFreeChartEditorInputHandle((JFreeChartEditorInput) visualization);
 					
 					try {
 						IWorkbenchPage page = EDP2EditorPlugin.getPlugin()

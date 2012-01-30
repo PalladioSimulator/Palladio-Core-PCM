@@ -17,6 +17,7 @@ import org.eclipse.ui.IPersistableElement;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.xy.XYDataset;
 
 import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
@@ -39,29 +40,9 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 */
 	private String title;
 
-	public JFreeChartEditorInput() {
-		properties = new HashMap<String, Object>();
-	}
-
 	public JFreeChartEditorInput(AbstractDataSource source) {
 		properties = new HashMap<String, Object>();
 		setSource(source);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.uka.ipd.sdq.edp2.visualization.IDataSink#setSource(de.uka.ipd.sdq.
-	 * edp2.visualization.IDataSource)
-	 */
-	@Override
-	public void setSource(AbstractDataSource source) {
-		if (this.source != null)
-			getSource().deleteObserver(this);
-		this.source = source;
-		source.addObserver(this);
-		updateDataset();
 	}
 
 	/*
@@ -105,12 +86,6 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	}
 
 	/**
-	 * Retrieves actual measurements from repository and wraps them to into a
-	 * dataset. The dataset is used to be displayed in an JFreeChart editor.
-	 */
-	public abstract void updateDataset();
-
-	/**
 	 * This method delivers the particular bean-class, which is used to describe
 	 * the chart's properties.
 	 * 
@@ -124,5 +99,23 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 * @return a newly created {@link JFreeChart}
 	 */
 	public abstract JFreeChart getChart();
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ISelection#isEmpty()
+	 */
+	@Override
+	public boolean isEmpty() {
+		return this.source != null;
+	}
+	
+	/**
+	 * Generic method which returns a typed instance of the wrapper for datasets used by JFreeCharts. 
+	 * @return
+	 */
+	public abstract <T extends AbstractSeriesDataset> BasicDataset<T> getBasicDataset();
+	
+
 
 }

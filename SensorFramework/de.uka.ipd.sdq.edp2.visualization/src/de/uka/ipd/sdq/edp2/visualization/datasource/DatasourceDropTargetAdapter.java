@@ -35,7 +35,7 @@ public class DatasourceDropTargetAdapter extends DropTargetAdapter {
 		.getTransfer().getSelection();
 		if (selection.getFirstElement() instanceof RawMeasurements){
 			EDP2Source newSource = new EDP2Source((RawMeasurements) selection.getFirstElement());
-			IVisualizationInput firstInput = inputHandle.getInputs().get(0);
+			IVisualizationInput firstInput = (IVisualizationInput) inputHandle.getInputs().get(0);
 			inputHandle.addInput(firstInput.createTransformationsChainCopy(newSource));
 			logger.log(Level.INFO, "added new input:"+newSource.getRawMeasurementsUUID());
 		}

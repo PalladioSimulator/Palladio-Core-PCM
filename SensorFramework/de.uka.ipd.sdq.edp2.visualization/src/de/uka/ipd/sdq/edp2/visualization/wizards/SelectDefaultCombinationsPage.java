@@ -35,6 +35,7 @@ import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 
 /**
@@ -171,11 +172,11 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 			}
 		}
 		// get the list of registered visualizations
-		final IConfigurationElement[] chartExtensions = Platform
+		final IConfigurationElement[] visualizationExtensions = Platform
 				.getExtensionRegistry().getConfigurationElementsFor(
 						SINK_EXTENSION_POINT_ID);
-		HashMap<String, JFreeChartEditorInput> charts = new HashMap<String, JFreeChartEditorInput>();
-		for (IConfigurationElement e : chartExtensions) {
+		HashMap<String, IVisualizationInput> charts = new HashMap<String, IVisualizationInput>();
+		for (IConfigurationElement e : visualizationExtensions) {
 			try {
 				o = e.createExecutableExtension(CLASS_ATTRIBUTE);
 				id = e.getAttribute(ID_ATTRIBUTE);

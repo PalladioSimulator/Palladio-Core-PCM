@@ -40,13 +40,13 @@ import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonJFreeChartPro
  * @author Dominik Ernst
  * 
  */
-public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
+public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFreeChartEditorInput> {
 
 	Logger logger = Logger.getLogger(JFreeChartEditorInputHandle.class
 			.getCanonicalName());
 
 	private ArrayList<JFreeChartEditorInput> inputs;
-	private XYDataset dataset;
+	private BasicDataset<?> dataset;
 	private XYPlot plot;
 	private XYItemRenderer renderer;
 	private JFreeChart chart;
@@ -61,9 +61,10 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 	/**
 	 * Constructor with a first input.
 	 */
-	public JFreeChartEditorInputHandle(IVisualizationInput firstInput) {
+	public JFreeChartEditorInputHandle(JFreeChartEditorInput firstInput) {
 		inputs = new ArrayList<JFreeChartEditorInput>();
 		addInput(firstInput);
+		dataset = firstInput.getBasicDataset();
 	}
 
 	/*
@@ -74,16 +75,18 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 	 * .ipd.sdq.edp2.visualization.IDataSink)
 	 */
 	@Override
-	public boolean addInput(IVisualizationInput newInput) {
+	public boolean addInput(JFreeChartEditorInput newInput) {
 		// if it is the first input, the <newInput> is added in any case.
 		if (inputs.size() == 0) {
 			inputs.add((JFreeChartEditorInput) newInput);
+			dataset.addDataSeries(newInput);
 			newInput.addObserver(this);
 			setChanged();
 			notifyObservers();
 			return true;
 		} else {
 			inputs.add((JFreeChartEditorInput) newInput);
+			dataset.addDataSeries(newInput);
 			newInput.addObserver(this);
 			setChanged();
 			notifyObservers();
@@ -99,28 +102,7 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 	 */
 	@Override
 	public Object getInputData() {
-
-		dataset = (XYDataset) inputs.get(0).getDataTypeInstance();
-
-		if (dataset instanceof HistogramDataset) {
-			HistogramDataset histogramDataset = new HistogramDataset();
-
-			for (int i = 0; i < getInputsSize(); i++) {
-				histogramDataset.addSeries(
-						inputs.get(i).getName(),
-						(double[]) inputs.get(i).getData(),
-						Integer.parseInt(inputs.get(i).getProperties()
-								.get("numberOfBins").toString()));
-			}
-			dataset = histogramDataset;
-		} else if (dataset instanceof DefaultXYDataset) {
-			DefaultXYDataset xyDataset = new DefaultXYDataset();
-			for (int i = 0; i < getInputsSize(); i++) {
-				xyDataset.addSeries(inputs.get(i).getName(),
-						(double[][]) inputs.get(i).getData());
-			}
-			dataset = xyDataset;
-		}
+		
 		return dataset;
 	}
 
@@ -142,7 +124,7 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 	 * uka.ipd.sdq.edp2.visualization.IDataSink)
 	 */
 	@Override
-	public boolean removeInput(IVisualizationInput removedInput) {
+	public boolean removeInput(JFreeChartEditorInput removedInput) {
 		throw new RuntimeException("Not implemented.");
 	}
 

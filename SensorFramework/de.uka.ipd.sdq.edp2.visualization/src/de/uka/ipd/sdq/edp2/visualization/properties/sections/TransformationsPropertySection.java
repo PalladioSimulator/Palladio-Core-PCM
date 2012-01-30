@@ -46,6 +46,7 @@ import de.uka.ipd.sdq.edp2.visualization.Activator;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.wizards.AdapterWizard;
 import de.uka.ipd.sdq.edp2.visualization.wizards.DefaultSequence;
@@ -255,7 +256,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 						visualization.setSource(adapter);
 					}
 					JFreeChartEditorInputHandle input = new JFreeChartEditorInputHandle(
-							visualization);
+							(JFreeChartEditorInput) visualization);
 
 					try {
 						IWorkbenchPage page = Activator.getDefault()

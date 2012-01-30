@@ -19,6 +19,8 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.DefaultXYItemRenderer;
+import org.jfree.data.general.AbstractSeriesDataset;
+import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.xy.DefaultXYDataset;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
@@ -64,77 +66,21 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 	private NumberAxis rangeAxis;
 
-	private DefaultXYDataset dataset;
+	private BasicDataset<DefaultXYDataset> dataset;
 
 	private JFreeChart chart;
 
 	private DefaultXYItemRenderer renderer;
 
 	public ScatterPlotInput() {
-		super();
-		setTitle(DEFAULT_TITLE);
+		super(null);
+		new ScatterPlotInput(null);
 	}
 
 	public ScatterPlotInput(AbstractDataSource source) {
 		super(source);
 		setTitle(DEFAULT_TITLE);
-	}
-
-	/**
-	 * Retrieves actual measurements from repository and assigns them to the
-	 * dataset. this dataset is used by the editor to display in the
-	 * scatterplot.
-	 */
-	@SuppressWarnings("unchecked")
-	public void updateDataset() {
-		dataset = new DefaultXYDataset();
-		logger.log(Level.INFO, "Editor input updateDataSet begin");
-		ArrayList<OrdinalMeasurementsDao<Measure>> list = new ArrayList<OrdinalMeasurementsDao<Measure>>();
-		for (DataSeries data : getSource().getOutput()) {
-			list.add(MeasurementsUtility.getOrdinalMeasurementsDao(data));
-		}
-		OrdinalMeasurementsDao<Measure> omdSeries1 = MeasurementsUtility
-				.getOrdinalMeasurementsDao(getSource().getOutput().get(0));
-		OrdinalMeasurementsDao<Measure> omdSeries2 = MeasurementsUtility
-				.getOrdinalMeasurementsDao(getSource().getOutput().get(1));
-		List<Measure> list1 = omdSeries1.getMeasurements();
-
-		List<Measure> list2 = omdSeries2.getMeasurements();
-		
-		rawData = new double[2][list1.size()];
-
-		for (int i = 0; i < list1.size(); i++) {
-				Measure x = list1.get(i);
-				Measure y = list2.get(i);
-				rawData[0][i] = x.doubleValue(x.getUnit());
-				rawData[1][i] = y.doubleValue(y.getUnit());
-			}
-		
-		dataset.addSeries(getTitle(), rawData);
-		
-		MetricDescription[] metrics = MetricDescriptionUtility
-		.toBaseMetricDescriptions(getSource().getMeasurementsRange()
-				.getMeasurements().getMeasure().getMetric());
-		
-		domainAxis = new NumberAxis(metrics[0].getName());
-		rangeAxis = new NumberAxis(metrics[1].getName());
-
-		/*
-		 * setToolTipText(getSource().getMeasurementsRange().getMeasurements()
-		 * .getMeasure().getMetric().getTextualDescription());
-		 * 
-		 * // label data series according to metric definitions
-		 * MetricSetDescription md = (MetricSetDescription) getSource()
-		 * .getOutput().get(0).getRawMeasurements().getMeasurementsRange()
-		 * .getMeasurements().getMeasure().getMetric();
-		 * 
-		 * setLabelXScale(md.getSubsumedMetrics().get(0).getName() + " ( " +
-		 * ((Measure) list1.get(0)).getUnit() + ")");
-		 * setLabelYScale(md.getSubsumedMetrics().get(1).getName() + " ( " +
-		 * ((Measure) list2.get(0)).getUnit() + ")");
-		 */
-		logger.log(Level.INFO, "Editor input updateDataSet end");
-
+		dataset = new BasicDataset<DefaultXYDataset>(new DefaultXYDataset());
 	}
 
 	/*
@@ -168,8 +114,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public ArrayList<MetricDescription> getMetricRoles() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException("Not implemented!");
 	}
 
 	/*
@@ -179,7 +124,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public String getFactoryId() {
-		// TODO Auto-generated method stub
 		return ScatterPlotInputFactory.getFactoryId();
 	}
 
@@ -191,39 +135,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	@Override
 	public void saveState(IMemento memento) {
 		ScatterPlotInputFactory.saveState(memento, this);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
-	 */
-	@Override
-	public Object getAdapter(Class adapter) {
-		if (adapter == IPropertySource.class) {
-			return this;
-		}
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-	 */
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		updateDataset();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jface.viewers.ISelection#isEmpty()
-	 */
-	@Override
-	public boolean isEmpty() {
-		return false;
 	}
 
 	/*
@@ -250,21 +161,14 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 	@Override
 	public SpecificChartProperties getChartProperties() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException("Not implemented!");
 	}
-
-	@Override
-	public DefaultXYDataset getDataTypeInstance() {
-		return dataset;
-	}
-
 
 	@Override
 	public JFreeChart getChart() {
-		updateDataset();
+		updateInputData();
 		XYPlot plot = new XYPlot();
-		plot.setDataset(dataset);
+		plot.setDataset(dataset.getDataset());
 		renderer = new DefaultXYItemRenderer();
 		plot.setRenderer(renderer);
 		plot.setRangeAxis(rangeAxis);
@@ -284,13 +188,77 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		ScatterPlotInput copy = new ScatterPlotInput();
 		copy.setProperties(this.getProperties());
 		copy.setSource(source);
-		return null;
+		return copy;
 	}
 
 	@Override
 	public Composite getSpecificPropertiesComposite(Composite parent) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException("Not implemented!");
+	}
+
+	@Override
+	public DefaultXYDataset getDataTypeInstance() {
+		return new DefaultXYDataset();
+	}
+
+	@Override
+	public void updateInputData() {
+		DefaultXYDataset defaultDataset = new DefaultXYDataset();
+		logger.log(Level.INFO, "Editor input updateDataSet begin");
+		ArrayList<OrdinalMeasurementsDao<Measure>> list = new ArrayList<OrdinalMeasurementsDao<Measure>>();
+		for (DataSeries data : getSource().getOutput()) {
+			list.add(MeasurementsUtility.getOrdinalMeasurementsDao(data));
+		}
+		OrdinalMeasurementsDao<Measure> omdSeries1 = MeasurementsUtility
+				.getOrdinalMeasurementsDao(getSource().getOutput().get(0));
+		OrdinalMeasurementsDao<Measure> omdSeries2 = MeasurementsUtility
+				.getOrdinalMeasurementsDao(getSource().getOutput().get(1));
+		List<Measure> list1 = omdSeries1.getMeasurements();
+
+		List<Measure> list2 = omdSeries2.getMeasurements();
+		
+		rawData = new double[2][list1.size()];
+
+		for (int i = 0; i < list1.size(); i++) {
+				Measure x = list1.get(i);
+				Measure y = list2.get(i);
+				rawData[0][i] = x.doubleValue(x.getUnit());
+				rawData[1][i] = y.doubleValue(y.getUnit());
+			}
+		
+		defaultDataset.addSeries(getTitle(), rawData);
+		
+		MetricDescription[] metrics = MetricDescriptionUtility
+		.toBaseMetricDescriptions(getSource().getMeasurementsRange()
+				.getMeasurements().getMeasure().getMetric());
+		
+		domainAxis = new NumberAxis(metrics[0].getName());
+		rangeAxis = new NumberAxis(metrics[1].getName());
+		
+		dataset.addDataSeries(this);
+
+		/*
+		 * setToolTipText(getSource().getMeasurementsRange().getMeasurements()
+		 * .getMeasure().getMetric().getTextualDescription());
+		 * 
+		 * // label data series according to metric definitions
+		 * MetricSetDescription md = (MetricSetDescription) getSource()
+		 * .getOutput().get(0).getRawMeasurements().getMeasurementsRange()
+		 * .getMeasurements().getMeasure().getMetric();
+		 * 
+		 * setLabelXScale(md.getSubsumedMetrics().get(0).getName() + " ( " +
+		 * ((Measure) list1.get(0)).getUnit() + ")");
+		 * setLabelYScale(md.getSubsumedMetrics().get(1).getName() + " ( " +
+		 * ((Measure) list2.get(0)).getUnit() + ")");
+		 */
+		logger.log(Level.INFO, "Editor input updateDataSet end");
+		
+
+	}
+
+	@Override
+	public BasicDataset<DefaultXYDataset> getBasicDataset() {
+		return dataset;
 	}
 
 }

@@ -4,15 +4,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Observable;
+import java.util.logging.Level;
 
 import javax.measure.unit.Unit;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
+import org.jfree.data.general.AbstractSeriesDataset;
 
 import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NumericalBaseMetricDescription;
+import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
+import de.uka.ipd.sdq.edp2.visualization.editors.BasicDataset;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 
 /**
@@ -50,7 +54,7 @@ public abstract class IVisualizationInput extends Observable implements
 	 * @return a new Instance of the data type, which is required to display the
 	 *         data of this {@link IVisualizationInput}.
 	 */
-	public abstract Object getDataTypeInstance();
+	public abstract <T extends AbstractSeriesDataset> T getDataTypeInstance();
 
 	/**
 	 * Returns the Data in a Form that they can be wrapped by the type provided
@@ -140,6 +144,13 @@ public abstract class IVisualizationInput extends Observable implements
 		return source;
 	}
 
+	/**
+	 * Method which handles the retrieval of the experiment data and wraps them
+	 * or transforms them in a way they can be displayed by the corresponding
+	 * {@link AbstractEditor} for this {@link IVisualizationInput}.
+	 */
+	public abstract void updateInputData();
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -153,31 +164,55 @@ public abstract class IVisualizationInput extends Observable implements
 			getSource().deleteObserver(this);
 		this.source = source;
 		source.addObserver(this);
+		updateInputData();
 	}
 
 	/**
-	 * Returns a default String-representation, which describes this {@link IVisualizationInput}.
-	 * Further processing of this label is done by {@link IVisualizationInputHandle}s, which support multiple
-	 * inputs.
+	 * Returns a default String-representation, which describes this
+	 * {@link IVisualizationInput}. Further processing of this label is done by
+	 * {@link IVisualizationInputHandle}s, which support multiple inputs.
+	 * 
 	 * @return
 	 */
 	public String getDefaultName() {
-		return source.getMeasurementsRange().getMeasurements().getMeasure().getMeasuredObject();
+		return source.getMeasurementsRange().getMeasurements().getMeasure()
+				.getMeasuredObject();
 	}
-	
+
 	/**
 	 * Returns all {@link Unit}s, which may be used by Visualizations.
+	 * 
 	 * @return
 	 */
-	public Unit[] getDefaultUnits(){
-		BaseMetricDescription[] metrics = MetricDescriptionUtility.toBaseMetricDescriptions(source.getMeasurementsRange().getMeasurements().getMeasure().getMetric());
+	public Unit[] getDefaultUnits() {
+		BaseMetricDescription[] metrics = MetricDescriptionUtility
+				.toBaseMetricDescriptions(source.getMeasurementsRange()
+						.getMeasurements().getMeasure().getMetric());
 		ArrayList<Unit> units = new ArrayList<Unit>();
-		for (BaseMetricDescription metric : metrics){
-			if (metric instanceof NumericalBaseMetricDescription){
-				units.add(((NumericalBaseMetricDescription)metric).getDefaultUnit());
+		for (BaseMetricDescription metric : metrics) {
+			if (metric instanceof NumericalBaseMetricDescription) {
+				units.add(((NumericalBaseMetricDescription) metric)
+						.getDefaultUnit());
 			}
 		}
-		return units.toArray(new Unit[]{});
+		return units.toArray(new Unit[] {});
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		updateInputData();
+	}
+	
+
+	@Override
+	public Object getAdapter(Class adapter) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

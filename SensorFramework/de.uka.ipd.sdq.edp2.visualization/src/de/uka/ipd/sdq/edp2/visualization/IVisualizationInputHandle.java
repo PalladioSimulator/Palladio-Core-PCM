@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
  * @author Dominik Ernst
  *
  */
-public abstract class IVisualizationInputHandle extends Observable implements IEditorInput, Observer, ISelection, IPersistableElement {
+public abstract class IVisualizationInputHandle<T extends IVisualizationInput> extends Observable implements IEditorInput, Observer, ISelection, IPersistableElement {
 	
 	protected AbstractEditor editor;
 	
@@ -29,21 +29,21 @@ public abstract class IVisualizationInputHandle extends Observable implements IE
 	 * {@link IVisualization}.
 	 * @return the contained {@link IDataSink}s
 	 */
-	public abstract ArrayList<? extends IVisualizationInput> getInputs();
+	public abstract ArrayList<T> getInputs();
 	
 	/**
 	 * Adds an {@link IDataSink} to this {@link IVisualizationInputHandle}'s list of inputs.
 	 * @param newInput the {@link IDataSink} to add.
 	 * @return <code>true</code> if the {@link IDataSink} could be added successfully.
 	 */
-	public abstract boolean addInput(IVisualizationInput newInput);
+	public abstract boolean addInput(T newInput);
 	
 	/**
 	 * Removes an {@link IDataSink} from this {@link IVisualizationInputHandle}'s list of inputs.
 	 * @param removedInput the {@link IDataSink} to add.
 	 * @return <code>true</code> if the {@link IDataSink} could found and removed.
 	 */
-	public abstract boolean removeInput(IVisualizationInput removedInput);
+	public abstract boolean removeInput(T removedInput);
 	
 	/**
 	 * 

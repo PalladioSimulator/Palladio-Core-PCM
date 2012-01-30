@@ -67,7 +67,7 @@ public class JFreeChartEditorInputHandleFactory implements IElementFactory {
 		for (IMemento subMemento : inputMementos){
 			String elementName = subMemento.getString(INPUT_NAME_KEY);
 			Object inputFactory = FactoryConnector.instance.getAdapter(elementName, IElementFactory.class);
-			IVisualizationInput createdInput = (IVisualizationInput) ((IElementFactory) inputFactory)
+			JFreeChartEditorInput createdInput = (JFreeChartEditorInput) ((IElementFactory) inputFactory)
 			.createElement(subMemento);
 			handle.addInput(createdInput);
 		}
