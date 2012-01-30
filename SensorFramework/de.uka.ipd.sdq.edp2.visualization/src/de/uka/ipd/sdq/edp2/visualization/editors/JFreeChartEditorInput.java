@@ -35,20 +35,6 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 		implements ISelection {
 
 	/**
-	 * Key under which this class' name is stored in the properties.
-	 */
-	protected static final String ELEMENT_KEY = "elementName";
-
-	/**
-	 * The properties of this {@link JFreeChartEditorInput}, which are persisted
-	 * and displayed in the 'Display'-Tab of the Properties-View.
-	 */
-	protected HashMap<String, Object> properties;
-	/**
-	 * The {@link IEditorInput}'s or rather {@link IDataSink}'s predecessor.
-	 */
-	private AbstractDataSource source;
-	/**
 	 * The title for the chart.
 	 */
 	private String title;
@@ -60,16 +46,6 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	public JFreeChartEditorInput(AbstractDataSource source) {
 		properties = new HashMap<String, Object>();
 		setSource(source);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getSource()
-	 */
-	@Override
-	public AbstractDataSource getSource() {
-		return source;
 	}
 
 	/*
@@ -138,54 +114,15 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 * This method delivers the particular bean-class, which is used to describe
 	 * the chart's properties.
 	 * 
-	 * @param <T>
-	 *            the particular type of properties for this editor input.
 	 * @return the properties class, which forwards changes in its attributes to
 	 *         the {@link JFreeChart}
 	 */
 	public abstract SpecificChartProperties getChartProperties();
-
+	
+	/**
+	 * Returns the JFreeChart, using the specific dataset, which is required by the implementing class.
+	 * @return a newly created {@link JFreeChart}
+	 */
 	public abstract JFreeChart getChart();
-
-	public ArrayList<AbstractTransformation> getListOfTransformations() {
-		// a list which holds all transformations (not the current datasource
-		// and not the current visualization)
-		ArrayList<AbstractTransformation> listOfTransformations = new ArrayList<AbstractTransformation>();
-		// while it is not clear, if there are any transformations at all,
-		// use the new source
-		// as the direct predecessor
-		AbstractDataSource previousElement = getSource();
-		// if the previousElement is also an implementation of IDataSink, it
-		// consequently is a transformation
-		while (previousElement instanceof IDataSink) {
-			AbstractTransformation previousTransformation = (AbstractTransformation) previousElement;
-			listOfTransformations.add(previousTransformation);
-			previousElement = previousTransformation.getSource();
-		}
-		return listOfTransformations;
-	}
-
-	public IVisualizationInput createTransformationsChainCopy(
-			AbstractDataSource source) {
-		ArrayList<AbstractTransformation> listOfTransformations = (ArrayList<AbstractTransformation>) getListOfTransformations()
-				.clone();
-		// invert the list of transformations' order
-		Collections.reverse(listOfTransformations);
-		AbstractDataSource inputSource = source;
-		// create copies of the elements, using the previously created copy as
-		// each element's source
-		if (!listOfTransformations.isEmpty()) {
-			AbstractTransformation firstTransformation = (AbstractTransformation) listOfTransformations
-					.remove(0).createCopyForSource(source);
-			AbstractTransformation lastTransformation = firstTransformation;
-			for (AbstractTransformation transformation : listOfTransformations) {
-				lastTransformation = (AbstractTransformation) transformation
-						.createCopyForSource(lastTransformation);
-			}
-			inputSource = lastTransformation;
-		}
-		return (IVisualizationInput) createCopyForSource(inputSource);
-
-	}
 
 }

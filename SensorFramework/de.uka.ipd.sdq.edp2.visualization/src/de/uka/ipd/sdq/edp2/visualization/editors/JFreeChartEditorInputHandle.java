@@ -143,8 +143,7 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 	 */
 	@Override
 	public boolean removeInput(IVisualizationInput removedInput) {
-		// TODO Auto-generated method stub
-		return false;
+		throw new RuntimeException("Not implemented.");
 	}
 
 	/*
@@ -164,8 +163,7 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 	 */
 	@Override
 	public ImageDescriptor getImageDescriptor() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException("Not implemented.");
 	}
 
 	/*
@@ -175,7 +173,6 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle {
 	 */
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return "someName";
 	}
 
