@@ -78,7 +78,8 @@ public class NetworkSensitivity extends MarkovSensitivity {
 		ResourceEnvironment resourceEnvironment = getModel()
 				.getResourceEnvironment();
 		if (resourceEnvironment == null) {
-			// No repository found!
+			// No resource environment found!
+			logger.error("No PCM ResourceEnvironment found.");
 			return;
 		}
 
@@ -91,6 +92,11 @@ public class NetworkSensitivity extends MarkovSensitivity {
 			resources.add((CommunicationLinkResourceSpecification) object);
 			baseValues.add(((CommunicationLinkResourceSpecification) object)
 					.getFailureProbability());
+		}
+		if (resources.size() == 0) {
+			logger
+					.error("Did not find any CommunicationLinkResourceSpecifications "
+							+ "in the PCM ResourceEnvironment");
 		}
 	}
 

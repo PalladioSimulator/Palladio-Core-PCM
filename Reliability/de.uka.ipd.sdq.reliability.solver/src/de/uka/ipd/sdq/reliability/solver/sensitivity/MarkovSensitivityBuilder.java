@@ -394,9 +394,8 @@ public class MarkovSensitivityBuilder {
 		if (variation instanceof DoubleParameterVariation) {
 			return new UsageBranchSensitivity(parameter.getEntityName(),
 					parameter.getBranch__UsageBranchParameter().getId(),
-					parameter.getBranch__UsageBranchParameter()
-							.getScenarioBehaviour_AbstractUserAction().getId(),
-					(DoubleParameterVariation) variation);
+					parameter.getScenarioBehaviour__UsageBranchParameter()
+							.getId(), (DoubleParameterVariation) variation);
 		} else {
 			logger.error("Parameter variation type \""
 					+ variation.eClass().toString()

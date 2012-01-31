@@ -38,8 +38,7 @@ public abstract class MarkovSensitivity {
 	 * A logger to give detailed information about the PCM instance
 	 * transformation.
 	 */
-	private static Logger logger = Logger.getLogger(MarkovSensitivity.class
-			.getName());
+	protected Logger logger = null;
 
 	/**
 	 * A calculator for variations and steps during the sensitivity analysis.
@@ -109,6 +108,7 @@ public abstract class MarkovSensitivity {
 	protected MarkovSensitivity(final String name,
 			final SensitivityParameterVariation variation) {
 		this.name = name;
+		this.logger = Logger.getLogger(this.getClass().getName());
 		if (variation != null) {
 			this.variation = variation;
 			this.numberOfSteps = calculator.calculateNumberOfSteps(variation);
@@ -302,6 +302,7 @@ public abstract class MarkovSensitivity {
 
 		// Perform the next step:
 		if (!alterModel()) {
+			logger.error("PCM instance could not be successfully altered by Markov sensitivity analysis.");
 			return null;
 		} else {
 			return model;

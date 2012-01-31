@@ -77,6 +77,7 @@ public class MTTFSensitivity extends MarkovSensitivity {
 		// Retrieve the PCM resource environment:
 		if (getModel().getResourceEnvironment() == null) {
 			// No resource environment found!
+			logger.error("No PCM ResourceEnvironment found.");
 			return;
 		}
 
@@ -92,6 +93,10 @@ public class MTTFSensitivity extends MarkovSensitivity {
 				specifications.add(specification);
 				baseValues.add(specification.getMTTF());
 			}
+		}
+		if (specifications.size() == 0) {
+			logger.error("Did not find any ProcessingResourceSpecifications "
+					+ "in the PCM ResourceEnvironment");
 		}
 	}
 

@@ -89,6 +89,7 @@ public class FailureTypeSensitivity extends MarkovSensitivity {
 		List<Repository> repositories = getModel().getRepositories();
 		if (repositories.size() == 0) {
 			// No repository found!
+			logger.error("No PCM Repositories found.");
 			return;
 		}
 
@@ -111,6 +112,10 @@ public class FailureTypeSensitivity extends MarkovSensitivity {
 					}
 				}
 			}
+		}
+		if (descriptions.size() == 0) {
+			logger.error("Did not find any FailureOccurrenceDescriptions for "
+					+ "the specified SoftwareInducedFailureTypes");
 		}
 	}
 

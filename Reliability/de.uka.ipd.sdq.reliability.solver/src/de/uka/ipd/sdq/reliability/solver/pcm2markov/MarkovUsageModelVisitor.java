@@ -141,6 +141,9 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 		EList<BranchTransition> transitions = branch
 				.getBranchTransitions_Branch();
 		for (int i = 0; i < transitions.size(); i++) {
+			if (transitions.get(i).getBranchProbability() <= 0.0) {
+				continue;
+			}
 			branchProbabilities.add(transitions.get(i).getBranchProbability());
 			specificMarkovChains.add((MarkovChain) doSwitch(transitions.get(i)
 					.getBranchedBehaviour_BranchTransition()));
