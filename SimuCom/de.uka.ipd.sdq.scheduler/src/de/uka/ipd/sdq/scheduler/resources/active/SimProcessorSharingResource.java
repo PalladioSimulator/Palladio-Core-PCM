@@ -59,14 +59,14 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 		}
 		processingFinished.removeEvent();
 		if (shortest!=null){
-			double time = running_processes.get(shortest) * getSpeed();
+			double remainingTime = running_processes.get(shortest) * getSpeed();
 			
 			// avoid trouble caused by rounding issues
-			time = time < JIFFY ? JIFFY : time; 
+			remainingTime = remainingTime < JIFFY ? 0.0 : remainingTime; 
 			
-			assert time >= 0 : "Remaining time ("+ time +")small than zero!";
+			assert remainingTime >= 0 : "Remaining time ("+ remainingTime +")small than zero!";
 			
-			processingFinished.schedule(shortest, time);
+			processingFinished.schedule(shortest, remainingTime);
 		}
 	}
 
@@ -104,6 +104,12 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 	protected void doProcessing(ISchedulableProcess process, int resourceServiceID, double demand) {
 		toNow();
 		LoggingWrapper.log("PS: " + process + " demands " + demand);
+		if(demand < JIFFY)
+		{
+			demand = JIFFY;
+			LoggingWrapper.log("PS: " + process + " demand was increased to match JIFFY " + demand);
+		}
+	
 		running_processes.put(process, demand);
 		// fire changes of the queue length only, if there is one single core. 
 		// With more cores, one cannot say on which core a job has been processed.
