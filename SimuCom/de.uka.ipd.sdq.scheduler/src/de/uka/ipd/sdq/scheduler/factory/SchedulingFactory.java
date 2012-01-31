@@ -123,7 +123,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 		if (resource == null) {
 			SchedulerExtensionFactory factory = getSchedulerExtensionFactory(extensionId);
 			assert factory != null;
-			resource = factory.getExtensionScheduler(resourceName, resourceId);
+			resource = factory.getExtensionScheduler(model, resourceName, resourceId);
 			active_resource_map.put(resourceId, resource);
 		}
 		return resource;
