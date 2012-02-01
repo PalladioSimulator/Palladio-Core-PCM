@@ -1,0 +1,56 @@
+modeltype CFGD uses 'http://se.fzi.de/ControlFlowDescription/0.6';
+modeltype JJNPATHS uses 'http://se.fzi.de/ControlFlowDescription/jjnpaths/0.6';
+modeltype GRAPH uses 'http://se.fzi.de/ControlFlowDescription/Graph/0.6';
+
+/**
+ * Transformation of JJ-Paths to JJn-Paths.
+ * Multi-Path up to the limit.
+ *
+ * @author Henning Groenda
+ */
+transformation JJPaths2JJnPaths(inout descr : CFGD, in config : JJNPATHS);
+
+main() {
+	assert (config.objectsOfType(JJnPathsCreationParameter)->size() = 1) with log('Configuration model must contain exactly one JJnPathsCreationParameter instance with configuration parameters.');
+	var limit : Integer = config.objects()[JJnPathsCreationParameter]->any(true).n;
+	log('JJ1Paths2JJnPaths started with ' + limit.toString() + ' as limit');
+	descr.objects()[ControlFlowDescription]->createJJnPaths(limit);
+	log('JJ1Paths2JJnPaths completed')
+}
+
+mapping inout ControlFlowDescription:: createJJnPaths(limit : Integer)
+	when {self.jjpaths->notEmpty(); } {
+	jjnpathsets := null;
+	jjnpathsets += object JJnPathSet {
+		n := 1; jjnpaths += self.jjpaths->map createJJ1Path();
+	};
+	while (current : Integer = 2; current <= limit) {
+		jjnpathsets += jjnpathsets->select(predecessor | predecessor.n = current - 1)->map NextN(self.jjpaths);
+		current := current + 1;
+	};
+	log('overall ' + jjnpathsets.jjnpaths->size().toString() + ' JJn-Paths created');
+}
+
+mapping JJPath :: createJJ1Path() : JJnPath {
+	jjpaths += self.clone()[JJPath];
+}
+
+mapping JJnPathSet :: NextN(jjpaths : Set(JJPath)) : JJnPathSet {
+	var maxlength : Integer = 0;
+	n := self.n + 1;
+	self.jjnpaths->forEach(jjnpath) {
+		if (jjnpath.jjpaths->size() > maxlength) then {
+			maxlength := jjnpath.jjpaths->size();
+		} endif;
+			jjpaths->select(jjpath | jjpath._from = jjnpath.jumpTo)->forEach(combinedPath) {
+			result.jjnpaths += jjnpath.map AddToSequence(combinedPath);
+		};
+	};
+	result.jjnpaths += self.jjnpaths->select(jjnpath | jjnpath.jjpaths->size() != maxlength or jjnpath._from.number = 1).deepclone()[JJnPath];
+}
+mapping JJnPath :: AddToSequence(newPath : JJPath) : JJnPath {
+	var temp : OrderedSet(JJPath) = self.jjpaths;
+	temp->forEach(jjpath) {jjpaths += jjpath.clone()[JJPath]};
+	jjpaths += newPath.clone()[JJPath];
+	assert (jjpaths->size() = self.jjpaths->size() + 1) with log('Element was not successful added at the end. Error with behaviour of Sequence when adding the same element more than once.');
+}

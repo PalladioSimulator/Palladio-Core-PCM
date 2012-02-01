@@ -1,0 +1,57 @@
+modeltype CFGD uses 'http://se.fzi.de/ControlFlowDescription/0.6';
+modeltype GRAPH uses 'http://se.fzi.de/ControlFlowDescription/Graph/0.6';
+modeltype JJNPATHS uses 'http://se.fzi.de/ControlFlowDescription/jjnpaths/0.6';
+
+/**
+ * Transformation of a {@link Graph} to JJ1-Paths.
+ *
+ * @author Henning Groenda
+ */
+transformation controlFlowGraph2JJPaths(
+								inout descr : CFGD);
+
+main() {
+	log('Control-Flow Graph to JJ1-Paths transformation started');
+	descr.objects()[ControlFlowDescription]->map createJJPaths();
+	log('Control-Flow Graph to JJ1-Paths transformation completed');
+}
+
+/**Maps a control-flow description to its equivalent including JJ-Paths. */
+mapping inout ControlFlowDescription:: createJJPaths()
+	when { self.graph->notEmpty() }	{
+	jjpaths := null;
+	graph->Graph2JJPaths()->forEach(path) { jjpaths += path; };
+	log (self.jjpaths->size().toString() + ' paths created');
+}
+
+/**Maps a graph to its corresponding JJ-Paths. */
+helper Graph :: Graph2JJPaths() : Set(JJPath) {
+	var paths : Set(JJPath) = self.jumpTargets().jumpPaths()->asSet();
+	if (paths->size() = 0) then { // only a linear sequence
+		paths += object JJPath {
+			_from := self.vertices->any(v : Vertex | v.number = 1);
+			to := self.vertices->any(v : Vertex | v.number = self.vertices->size());
+			jumpTo := self.vertices->any(v : Vertex | v.number = self.vertices->size());
+		};
+	} endif;
+	return paths;
+}
+
+/**List of vertices which are jump targets. Including the initial/first vertex of the graph.
+ * @return List of vertices.
+ */
+query Graph :: jumpTargets() : Set(Vertex) {
+	return self.vertices->select(v : Vertex | v.number = 1)->union(self.vertices->select(v : Vertex | not v._from.number->excluding(v.number - 1)->isEmpty()));
+}
+
+/**List of sequential path with a jump at the end starting at the given vertex.
+ * @return List of jump paths.
+ */
+query Vertex :: jumpPaths() : Set(JJPath) {
+	var jjpaths : Set(JJPath) = Set {};
+	self.to->select(v : Vertex | v.number = self.number + 1).jumpPaths()->forEach(path) {path._from := self; jjpaths += path; };
+	self.to->select(v : Vertex | v.number != self.number + 1)->forEach(target) {
+		jjpaths += object JJPath { _from := self; to := self; jumpTo := target};
+	};
+	return jjpaths;
+}

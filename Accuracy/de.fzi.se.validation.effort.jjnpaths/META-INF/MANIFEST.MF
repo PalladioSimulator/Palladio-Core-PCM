@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JJn-Paths Validation Effort Estimation
+Bundle-SymbolicName: de.fzi.se.validation.effort.jjnpaths;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: FZI Forschungszentrum Informatik
+Require-Bundle: de.fzi.se.validation.effort;bundle-version="1.0.0",
+ de.uka.ipd.sdq.workflow.mdsd;bundle-version="1.0.0",
+ de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
+ de.uka.ipd.sdq.pcm;bundle-version="3.2.0",
+ de.fzi.se.controlflowdescription;bundle-version="1.0.0",
+ de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0",
+ org.eclipse.swt;bundle-version="3.5.2",
+ de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0"

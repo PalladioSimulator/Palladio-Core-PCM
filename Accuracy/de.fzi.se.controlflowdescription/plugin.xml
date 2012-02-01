@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://se.fzi.de/ControlFlowDescription/0.6"
+            class="de.fzi.se.controlflowdescription.ControlFlowDescriptionPackage"
+            genModel="model/ControlFlowDescription.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://se.fzi.de/ControlFlowDescription/Graph/0.6"
+            class="de.fzi.se.controlflowdescription.graph.GraphPackage"
+            genModel="model/ControlFlowDescription.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://se.fzi.de/ControlFlowDescription/jjnpaths/0.6"
+            class="de.fzi.se.controlflowdescription.jjnpaths.JJnPathsPackage"
+            genModel="model/ControlFlowDescription.genmodel"/>
+   </extension>
+
+</plugin>

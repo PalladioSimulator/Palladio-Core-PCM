@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Validation Effort Estimation
+Bundle-SymbolicName: de.fzi.se.validation.effort;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: FZI Forschungszentrum Informatik
+Require-Bundle: de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
+ de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0",
+ org.eclipse.swt;bundle-version="3.5.2",
+ org.eclipse.emf.ecore;bundle-version="2.5.0",
+ org.eclipse.jface;bundle-version="3.5.2",
+ de.uka.ipd.sdq.pcm.dialogs;bundle-version="1.0.0",
+ de.uka.ipd.sdq.dialogs;bundle-version="2.0.1",
+ de.uka.ipd.sdq.pcm;bundle-version="3.2.0",
+ de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
+ de.uka.ipd.sdq.workflow.mdsd;bundle-version="1.0.0"
+Export-Package: de.fzi.se.validation.effort,
+ de.fzi.se.validation.effort.ui,
+ de.fzi.se.validation.effort.workflow

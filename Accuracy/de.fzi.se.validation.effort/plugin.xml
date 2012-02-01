@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="de.fzi.se.validation.effort.estimation" name="estimation" schema="schema/estimation.exsd"/>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="de.fzi.se.validation.effort.ui.EstimatorTabGroup"
+            id="de.fzi.se.validation.effort.EstimatorTabGroup"
+            type="de.fzi.se.validation.effort.launchConfigurationEstimator">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="de.fzi.se.validation.effort.workflow.EstimatorWorkflowLauncher"
+            id="de.fzi.se.validation.effort.launchConfigurationEstimator"
+            modes="run, debug"
+            name="Validation Effort Estimation"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+
+</plugin>

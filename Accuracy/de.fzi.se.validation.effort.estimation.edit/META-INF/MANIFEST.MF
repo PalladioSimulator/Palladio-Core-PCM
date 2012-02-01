@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.fzi.se.validation.effort.estimation.edit;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Activator: de.fzi.se.validation.effort.estimation.provider.ValidationEffortEstimationEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: de.fzi.se.validation.effort.estimation.provider
+Require-Bundle: org.eclipse.core.runtime,
+ de.fzi.se.validation.effort.estimation;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.uml2.common.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,84 @@
+modeltype CFGD uses 'http://se.fzi.de/ControlFlowDescription/0.6';
+modeltype JJNPATHS uses 'http://se.fzi.de/ControlFlowDescription/jjnpaths/0.6';
+modeltype GRAPH uses 'http://se.fzi.de/ControlFlowDescription/Graph/0.6';
+
+/**
+ * Transformation of JJ-Paths to JJn-Paths.
+ * Generates only the set for the given configuration parameter.
+ *
+ * @author Henning Groenda
+ */
+transformation JJPaths2JJnPathSet(inout descr : CFGD, in config : JJNPATHS);
+
+main() {
+	assert (config.objectsOfType(JJnPathsCreationParameter)->size() = 1) with log('Configuration model must contain exactly one JJnPathsCreationParameter instance with configuration parameters.');
+	var n : Integer = config.objects()[JJnPathsCreationParameter]->any(true).n;
+	log('JJPathSet2JJnPathSet started with n=' + n.toString() + ' as limit');
+	descr.objects()[ControlFlowDescription]->createJJnPathSet(n);
+	log('JJPathSet2JJnPathSet completed')
+}
+
+/**Intermediate set of JJn-Paths used in calculation */
+intermediate property JJnPathSet::temppaths : OrderedSet(JJnPath);
+
+/**Creates JJn-Paths for a given description.
+ * @param limit N for which the JJn-Paths are created.
+ * @returns Modified description with JJn-Paths.
+ */
+mapping inout ControlFlowDescription:: createJJnPathSet(limit : Integer)
+	when {self.jjpaths->notEmpty(); } {
+	jjnpathsets := jjnpathsets-jjnpathsets->select(jjnpathset | jjnpathset.n = limit);
+	var jjnpathset : JJnPathSet  = object JJnPathSet {
+		n := 1; temppaths += self.jjpaths->map createJJ1Path();
+	};
+	log("n=1,#jjnpaths=" + jjnpathset.temppaths->size().toString());
+	while (current : Integer = 2; current <= limit) {
+		jjnpathset.n := current;
+		jjnpathset.temppaths := jjnpathset.NextN(self.jjpaths);
+		log('n=' + current.toString() + ",#jjnpaths=" + jjnpathset.temppaths->size().toString());
+		current := current + 1;
+	};
+	jjnpathset.jjnpaths := jjnpathset.temppaths;
+	jjnpathsets += jjnpathset;
+	log(jjnpathset.jjnpaths->size().toString() + ' JJn-Paths created');
+}
+
+/**Convert a JJ-Path to its corresponding JJ1-Path.
+ * @returns JJ1-Paths.
+ */
+mapping JJPath :: createJJ1Path() : JJnPath {
+	jjpaths += self.clone()[JJPath];
+}
+
+/**Step from n to n+1 for JJn-Paths.
+ * @param jjpaths JJ-Paths which define possible sequences.
+ * @returns Set of JJ(n+1)-Paths.
+ */
+helper JJnPathSet :: NextN(jjpaths : Set(JJPath)) : Set(JJnPath) {
+	var jjnpaths : Set(JJnPath) = Set {};
+	var maxlength : Integer = 0;
+	self.temppaths->forEach(jjnpath) {
+		if (jjnpath.jjpaths->size() > maxlength) then {
+			maxlength := jjnpath.jjpaths->size();
+		} endif;
+		jjpaths->select(jjpath | jjpath._from = jjnpath.jumpTo)->forEach(combinedPath) {
+			jjnpaths += jjnpath.map AddToSequence(combinedPath);
+		};
+	};
+	// Remove paths which are completely contained in newly added paths
+	self.temppaths->select(jjnpath | jjnpath.jjpaths->size() = maxlength and jjnpath._from.number != 1)->forEach(path) {descr.removeElement(path)};
+	jjnpaths += self.temppaths->select(jjnpath | jjnpath.jjpaths->size() != maxlength or jjnpath._from.number = 1);
+	return jjnpaths;
+}
+
+/**Create a cloned  instance of a JJ-Path and adds it to an exisiting JJn-Path.
+ * It is necessary to create a clone because EMF does not support ordered but non-unique sets.
+ * @param newPath JJ-Path to add.
+ * @returns Modified JJn-Path.
+ */
+mapping JJnPath :: AddToSequence(newPath : JJPath) : JJnPath {
+	var temp : OrderedSet(JJPath) = self.jjpaths;
+	temp->forEach(jjpath) {jjpaths += jjpath.clone()[JJPath]};
+	jjpaths += newPath.clone()[JJPath];
+}
+

@@ -1,0 +1,252 @@
+modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
+modeltype CFGD uses 'http://se.fzi.de/ControlFlowDescription/0.6';
+modeltype GRAPH uses 'http://se.fzi.de/ControlFlowDescription/Graph/0.6';
+modeltype ID uses 'http://sdq.ipd.uka.de/Identifier/1.0';
+modeltype JJNPATHS uses 'http://se.fzi.de/ControlFlowDescription/jjnpaths/0.6';
+modeltype PCMCORE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/4.0';
+modeltype STOEX uses 'http://sdq.ipd.uka.de/StochasticExpressions/1.0';
+modeltype PROBABILITYFUNCTION uses 'http://sdq.ipd.uka.de/ProbFunction/1.0';
+
+
+/**
+ * Transformation of a {@link ResourceDemandingBehaviour} to an abstract control-flow graph.
+ *
+ * @author Henning Groenda
+ */
+transformation behaviour2ControlFlowGraph(
+								in behaviour : PCM_SEFF,
+								out descr : CFGD,
+								in config : JJNPATHS);
+
+/**
+ * Entry point to the overall transformation from RD-SEFFs to Control-Flow Graphs.
+ */
+main() {
+		log('RD-SEFF to Control-Flow Graph transformation started');
+		assert (config.objects()[JJnPathsCreationParameter]->size() = 1) with log("Configuration input model must have exactly 1 creation parameter instance.");
+		var targetId : String = config.objects()[JJnPathsCreationParameter]->any(true).targetId;
+		var target : ResourceDemandingBehaviour = behaviour.objects()[ResourceDemandingBehaviour]->select(b | b.id = targetId)->any(true);
+		assert(target != null) with log ('Could not find the ResourceDemandingBehaviour with the id specified in the targetId of the configuration. targetId=' + targetId);
+
+		target.map createDescription();
+		descr.rootObjects()[TransitionProbability]->forEach (element) {descr.removeElement(element); };
+		log('RD-SEFF to Control-Flow Graph transformation completed');
+}
+
+/**Returns the start action of a {@link ResourceDemandingBehaviour} */
+helper getStartAction(b : ResourceDemandingBehaviour) : AbstractAction {
+	return b.steps_Behaviour->selectOne(a | a.oclIsKindOf(StartAction));
+}
+
+/** Maps a {@link ResourceDemandingBehaviour} to its control-flow description. */
+mapping ResourceDemandingBehaviour :: createDescription() : ControlFlowDescription {
+	log('ResourceDemandingBehaviour with id=' + self.id);
+	result.graph := object Graph {};
+	self.ToVertices(1)->forEach (vertex) {result.graph.vertices += vertex; };
+	log('ResourceDemandingBehaviour with id=' + self.id + ', #vertices=' + result.graph.vertices->size().toString());
+}
+
+/**Maps a {@link ResourceDemandingBehaviour} to a control-flow {@link Graph} */
+helper ResourceDemandingBehaviour :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) {
+	var newVertices : OrderedSet(Vertex) = OrderedSet {};
+	var currentAction : AbstractAction = getStartAction(self);
+	var currentVertices : OrderedSet(Vertex);
+	var oldVertices : OrderedSet(Vertex);
+	while (currentAction != null) {
+		currentVertices := currentAction.ToVertices(outerIterations);
+		if (oldVertices != null) then { // connect to predecessor action
+			oldVertices->last().to += currentVertices->first();
+			oldVertices->last().transitionProbability += new TransitionProbability(1);
+		} endif;
+		newVertices += currentVertices;
+		oldVertices := currentVertices;
+		currentAction := currentAction.successor_AbstractAction;
+	};
+	return newVertices;
+}
+
+helper AbstractAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) {
+	var vertex : Vertex = new Vertex(nextNumber(), outerIterations);
+	log('processing action: type=' + self.metaClassName() + ', name='+ self.entityName + ', vertex: number=' + vertex.number.toString());
+	return vertex->asOrderedSet();
+}
+
+helper AbstractLoopAction :: ToVertices() : OrderedSet(Vertex) {
+	assert (false) with log (' Transformation for this type of AbstractLoopAction is not implemented.');
+	return null;
+}
+
+helper LoopAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) {
+	log('processing action: type=' + self.metaClassName() + ', name='+ self.entityName);
+	var newVertices : OrderedSet(Vertex) = OrderedSet {};
+	var loopDecision : Vertex = new Vertex(nextNumber(), outerIterations);
+	newVertices += loopDecision;
+	var iterationExpression : Expression = self.iterationCount_LoopAction.expression;
+	var iterations : Real = iterationExpression.GetIterations();
+	var subVertices : OrderedSet(Vertex) = self.bodyBehaviour_Loop.ToVertices(outerIterations * iterations);
+	if (iterationExpression.oclIsKindOf(NumericLiteral) or iterationExpression.oclIsKindOf(ProbabilityFunctionLiteral)) then { // fixed number of loop iterations
+		if (iterationExpression.ProbabilityZero() != 1) then {
+			loopDecision.to += subVertices->first();
+			loopDecision.transitionProbability += new TransitionProbability(1 - iterationExpression.ProbabilityZero());
+			newVertices += subVertices;
+			var loopDecisionMerge : Vertex = new Vertex(nextNumber(), outerIterations);
+			newVertices += loopDecisionMerge;
+			if (iterationExpression.ProbabilityZero() != 0) then {
+				loopDecision.to += loopDecisionMerge;
+				loopDecision.transitionProbability += new TransitionProbability(iterationExpression.ProbabilityZero());
+			} else { // always iterates
+			} endif;
+			subVertices->last().to += loopDecisionMerge;
+			subVertices->last().transitionProbability += new TransitionProbability(1);
+		} else { // never iterates
+			currentNumber := currentNumber - subVertices->size();
+			subVertices.transitionProbability->forEach(element) {descr.removeElement(element); };
+			subVertices->forEach(element) {descr.removeElement(element); };
+		} endif;
+	} else { // variable number of loop iterations
+		loopDecision.to += subVertices->first();
+		loopDecision.transitionProbability += new TransitionProbability(1);
+		subVertices->last().to += loopDecision;
+		subVertices->last().transitionProbability += new TransitionProbability(1);
+		newVertices += subVertices;
+	} endif;
+	return newVertices;
+}
+
+helper CollectionIteratorAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) {
+	log('processing action: type=' + self.metaClassName() + ', name='+ self.entityName);
+	var newVertices : OrderedSet(Vertex) = OrderedSet {};
+	var loopDecision : Vertex = new Vertex(nextNumber(), outerIterations);
+	var subVertices : OrderedSet(Vertex) = self.bodyBehaviour_Loop.ToVertices(outerIterations);
+	loopDecision.to += subVertices->first();
+	loopDecision.transitionProbability += new TransitionProbability(1);
+	subVertices->last().to += loopDecision;
+	subVertices->last().transitionProbability += new TransitionProbability(1);
+	var loopDecisionMerge : Vertex = new Vertex(nextNumber(), outerIterations);
+	loopDecision.to += loopDecisionMerge;
+	loopDecision.transitionProbability += new TransitionProbability(1);
+	newVertices += loopDecision;
+	newVertices += subVertices;
+	newVertices += loopDecisionMerge;
+	return newVertices;
+}
+
+helper BranchAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) {
+	log('processing action: type=' + self.metaClassName() + ', name='+ self.entityName);
+	var newVertices : OrderedSet(Vertex) = OrderedSet {};
+	var fork : Vertex = new Vertex(nextNumber(), outerIterations);
+	var subVertices : Set(OrderedSet(Vertex));
+	self.branches_Branch->forEach (branch) {
+		var temp : OrderedSet(Vertex) = branch.branchBehaviour_BranchTransition.ToVertices(outerIterations);
+		subVertices := subVertices->including(temp);
+		fork.to += temp->first();
+		if (branch.oclIsKindOf(ProbabilisticBranchTransition)) then {
+			fork.transitionProbability += new TransitionProbability(branch[ProbabilisticBranchTransition].branchProbability->any(true));
+		} else {
+			fork.transitionProbability += new TransitionProbability(1);
+		} endif;
+	};
+	var join : Vertex = new Vertex(nextNumber(), outerIterations);
+	subVertices->forEach (orderedset) {
+		orderedset->last().to += join;
+		orderedset->last().transitionProbability += new TransitionProbability(1);
+	};
+	newVertices += fork;
+	newVertices += subVertices->flatten();
+	newVertices += join;
+	return newVertices;
+}
+
+helper ForkAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) {
+	log('processing action: type=' + self.metaClassName() + ', name='+ self.entityName);
+	var newVertices : OrderedSet(Vertex) = OrderedSet {};
+	var fork : Vertex = new Vertex(nextNumber(), outerIterations);
+	var subVertices : Set(OrderedSet(Vertex));
+	self.asynchronousForkedBehaviours_ForkAction->forEach (behaviour) {
+		var temp : OrderedSet(Vertex) = behaviour.ToVertices(outerIterations);
+		subVertices := subVertices->including(temp);
+		fork.to += temp->first();
+		fork.transitionProbability += new TransitionProbability(1);
+	};
+	self.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint->forEach (behaviour) {
+		var temp : OrderedSet(Vertex) = behaviour.ToVertices(outerIterations);
+		subVertices := subVertices->including(temp);
+		fork.to += temp->first();
+		fork.transitionProbability += new TransitionProbability(1);
+	};
+	var join : Vertex = new Vertex(nextNumber(), outerIterations);
+	subVertices->forEach (orderedset) {
+		orderedset->last().to += join;
+		orderedset->last().transitionProbability += new TransitionProbability(1);
+	};
+	newVertices += fork;
+	newVertices += subVertices->flatten();
+	newVertices += join;
+	return newVertices;
+}
+
+/** Calculates the probability of evaluating the expression to zero. */
+query Expression :: ProbabilityZero() : Real {
+	if (self.oclIsKindOf(DoubleLiteral)) then {
+		if (self[DoubleLiteral]->any(true).value = 0) then {
+			return 1;
+		} else {
+			return 0;
+		} endif;
+	} endif;
+	if (self.oclIsKindOf(IntLiteral)) then {
+		if (self[IntLiteral]->any(true).value = 0) then {
+			return 1;
+		} else {
+			return 0;
+		} endif;
+	} endif;
+	if (self.oclIsKindOf(ProbabilityFunctionLiteral)) then {
+		var pfl : ProbabilityFunctionLiteral = self[ProbabilityFunctionLiteral]->any(true);
+		assert (pfl.function_ProbabilityFunctionLiteral->size() = 1) with log ('Literal must belong to exactly on probability function.');
+		if (pfl.function_ProbabilityFunctionLiteral.oclIsKindOf(ProbabilityMassFunction)) then {
+			return pfl.function_ProbabilityFunctionLiteral[ProbabilityMassFunction].samples->any(value = 0.0).probability;
+		} endif;
+	} endif;
+	assert (false) with log ('Unsupported expression for calculation of probability equals zero.');
+	return -1;
+}
+
+query Expression :: GetIterations() : Real {
+	if (self.oclIsKindOf(DoubleLiteral)) then {
+		 return self[DoubleLiteral]->any(true).value;
+	} endif;
+	if (self.oclIsKindOf(IntLiteral)) then {
+		return self[IntLiteral]->any(true).value;
+	} endif;
+	if (self.oclIsKindOf(ProbabilityFunctionLiteral)) then {
+		var pfl : ProbabilityFunctionLiteral = self[ProbabilityFunctionLiteral]->any(true);
+		assert (pfl.function_ProbabilityFunctionLiteral->size() = 1) with log ('Literal must belong to exactly on probability function.');
+		if (pfl.function_ProbabilityFunctionLiteral.oclIsKindOf(ProbabilityMassFunction)) then {
+			var sum : Real = 0;
+			pfl.function_ProbabilityFunctionLiteral[ProbabilityMassFunction].samples->forEach(sample) {
+				sum := sum + (sample.value.oclAsType(Real) * sample.probability);
+			};
+			return sum;
+		} endif;
+	} endif;
+	assert (false) with log ('Unsupported expression for calculation of probability equals zero.');
+	return -1;
+}
+
+/** Number for vertex of control-flow graph which will be used next. */
+property currentNumber : Integer = 0;
+
+/**
+ * Generates and returns the next free number for a vertex.
+ */
+helper nextNumber() : Integer {
+	currentNumber := currentNumber + 1;
+	return currentNumber;
+}
+
+/** Construct a new Vertex.
+ * @param n Number assigned to the new vertex.
+ */
+constructor Vertex::Vertex(n : Integer, _iterations : Real) { number := n; iterations := _iterations };
+constructor TransitionProbability::TransitionProbability(_probability : Real) {probability := _probability; };

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" modelDirectory="/de.fzi.se.controlflowdescription/src"
+    modelPluginID="de.fzi.se.controlflowdescription" modelName="ControlFlowDescription"
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="5.0" copyrightFields="false">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+  </genAnnotations>
+  <foreignModel>ControlFlowDescription.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="ControlFlowDescription" basePackage="de.fzi.se"
+      disposableProviderFactory="true" ecorePackage="controlflowdescription.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//ControlFlowDescription">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//ControlFlowDescription/jjnpathsets"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//ControlFlowDescription/jjpaths"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference controlflowdescription.ecore#//ControlFlowDescription/controlflowdescriptions"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//ControlFlowDescription/graph"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="controlflowdescription.ecore#//ControlFlowDescription/GraphMustBeDefinedIfJJnPathsPresent">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//ControlFlowDescription/GraphMustBeDefinedIfJJnPathsPresent/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//ControlFlowDescription/GraphMustBeDefinedIfJJnPathsPresent/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//ControlFlowDescriptions">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//ControlFlowDescriptions/controlFlowDescription"/>
+    </genClasses>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Graph" basePackage="de.fzi.se.controlflowdescription"
+        disposableProviderFactory="true" ecorePackage="controlflowdescription.ecore#//graph">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//graph/Graph">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//graph/Graph/vertices"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//graph/Graph/controlflowdescription"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="controlflowdescription.ecore#//graph/Graph/GraphMustHaveAUniqueSourceVertex">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Graph/GraphMustHaveAUniqueSourceVertex/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Graph/GraphMustHaveAUniqueSourceVertex/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="controlflowdescription.ecore#//graph/Graph/GraphMustHaveAUniqueSinkVertex">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Graph/GraphMustHaveAUniqueSinkVertex/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Graph/GraphMustHaveAUniqueSinkVertex/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//graph/Vertex">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//graph/Vertex/to"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//graph/Vertex/from"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//graph/Vertex/number"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//graph/Vertex/iterations"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//graph/Vertex/transitionProbability"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//graph/Vertex/graph"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="controlflowdescription.ecore#//graph/Vertex/NumberMustBeUniqueForGraph">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Vertex/NumberMustBeUniqueForGraph/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Vertex/NumberMustBeUniqueForGraph/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="controlflowdescription.ecore#//graph/Vertex/SourceVertexMustHaveNumber1">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Vertex/SourceVertexMustHaveNumber1/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Vertex/SourceVertexMustHaveNumber1/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="controlflowdescription.ecore#//graph/Vertex/SinkVertexMustHaveTheNumberOfOverallVerticesInTheGraphAsNumber">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Vertex/SinkVertexMustHaveTheNumberOfOverallVerticesInTheGraphAsNumber/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Vertex/SinkVertexMustHaveTheNumberOfOverallVerticesInTheGraphAsNumber/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="controlflowdescription.ecore#//graph/Vertex/TransitionProbabilitiesMustBeDefinedForAllTargetVerticesOrForNone">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Vertex/TransitionProbabilitiesMustBeDefinedForAllTargetVerticesOrForNone/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//graph/Vertex/TransitionProbabilitiesMustBeDefinedForAllTargetVerticesOrForNone/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//graph/TransitionProbability">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//graph/TransitionProbability/probability"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//graph/TransitionProbability/vertex"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="JJnPaths" basePackage="de.fzi.se.controlflowdescription"
+        disposableProviderFactory="true" ecorePackage="controlflowdescription.ecore#//jjnpaths">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//jjnpaths/JJnPathTestSuite">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPathTestSuite/jjnhelperpaths"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPathTestSuite/jjnpathset"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPathTestSuite/testcases"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//jjnpaths/JJnPathTestSuite/requiredTests"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//jjnpaths/JJnPath">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPath/jjnpathset"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPath/jjpaths"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPath/from"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPath/jumpTo"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPath/jjnpathtestset"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//jjnpaths/JJPath">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJPath/from"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJPath/to"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJPath/jumpTo"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJPath/controlflowdescription"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJPath/jjnpath"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//jjnpaths/JJnPathTestCase">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPathTestCase/jjnpaths"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPathTestCase/jjnpathtestset"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//jjnpaths/JJnPathsCreationParameter">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//jjnpaths/JJnPathsCreationParameter/n"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//jjnpaths/JJnPathsCreationParameter/targetId"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//jjnpaths/JJnPathSet">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPathSet/jjnpaths"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPathSet/jjnpathtestset"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//jjnpaths/JJnPathSet/n"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPathSet/controlflowdescription"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="controlflowdescription.ecore#//jjnpaths/JJnPathSet/NMustBeGreaterOrEqualToOne">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//jjnpaths/JJnPathSet/NMustBeGreaterOrEqualToOne/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="controlflowdescription.ecore#//jjnpaths/JJnPathSet/NMustBeGreaterOrEqualToOne/context"/>
+        </genOperations>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

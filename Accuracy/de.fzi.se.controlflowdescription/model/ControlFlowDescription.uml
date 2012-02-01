@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/Default/1 Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Package xmi:id="_KvVXUEA9EeGF4PdswvfpHg" name="ControlFlowDescription">
+    <ownedComment xmi:id="_yyMxEEDyEeGF4PdswvfpHg" annotatedElement="_KvVXUEA9EeGF4PdswvfpHg">
+      <body>Model of control-flow descriptions. Control-flow descriptions contain a control-flow graph and additional informations on&#xD;
+possible paths within that graph.</body>
+    </ownedComment>
+    <packageImport xmi:id="_KvVXVEA9EeGF4PdswvfpHg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:id="_S27JgEA9EeGF4PdswvfpHg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_d7zzQEA9EeGF4PdswvfpHg" name="graph">
+      <ownedComment xmi:id="_mO96AEDyEeGF4PdswvfpHg" annotatedElement="_d7zzQEA9EeGF4PdswvfpHg">
+        <body>&lt;p>&#xD;
+    Model&amp;nbsp;for a generic&amp;nbsp;control-flow graph.&#xD;
+&lt;/p></body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_koJvcEA9EeGF4PdswvfpHg" name="Graph">
+        <ownedRule xmi:id="_3edMMEDvEeGF4PdswvfpHg" name="GraphMustHaveAUniqueSourceVertex" constrainedElement="_koJvcEA9EeGF4PdswvfpHg">
+          <ownedComment xmi:id="_GmqE8EDxEeGF4PdswvfpHg" annotatedElement="_3edMMEDvEeGF4PdswvfpHg">
+            <body>There must be exactly one source vertex for each graph.</body>
+          </ownedComment>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_3edzQEDvEeGF4PdswvfpHg">
+            <language>OCL</language>
+            <body>self.vertices->select(v : Vertex | v.from->size() = 0)->size() = 1</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="_OoRAYEDwEeGF4PdswvfpHg" name="GraphMustHaveAUniqueSinkVertex" constrainedElement="_koJvcEA9EeGF4PdswvfpHg">
+          <ownedComment xmi:id="_ILUVoEDxEeGF4PdswvfpHg" annotatedElement="_OoRAYEDwEeGF4PdswvfpHg">
+            <body>There must be exactly one sink vertex for each graph.</body>
+          </ownedComment>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_OoRAYUDwEeGF4PdswvfpHg">
+            <language>OCL</language>
+            <body>self.vertices->select(v : Vertex | v.to->size() = 0)->size() = 1</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:id="_not9cEA9EeGF4PdswvfpHg" name="vertices" visibility="public" type="_lkpM4EA9EeGF4PdswvfpHg" aggregation="composite" association="_nosIQEA9EeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nowZsEA9EeGF4PdswvfpHg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_novyoEA9EeGF4PdswvfpHg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_kdKyAEA-EeGF4PdswvfpHg" name="controlflowdescription" visibility="public" type="_eet2kEA-EeGF4PdswvfpHg" association="_kdHusEA-EeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kdLZEEA-EeGF4PdswvfpHg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kdKyAUA-EeGF4PdswvfpHg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_lkpM4EA9EeGF4PdswvfpHg" name="Vertex">
+        <ownedRule xmi:id="_pmVwYEDwEeGF4PdswvfpHg" name="NumberMustBeUniqueForGraph" constrainedElement="_lkpM4EA9EeGF4PdswvfpHg">
+          <ownedComment xmi:id="_A1Yp4EDxEeGF4PdswvfpHg" annotatedElement="_pmVwYEDwEeGF4PdswvfpHg">
+            <body>&lt;p>&#xD;
+    The number of this vertex must be unique in the context of the graph in which it is contained.&#xD;
+&lt;/p></body>
+          </ownedComment>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_pmWXcEDwEeGF4PdswvfpHg">
+            <language>OCL</language>
+            <body>self.graph.vertices->select(v : Vertex | v.number = self.number)->size() = 1</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="_Obq5YEDxEeGF4PdswvfpHg" name="SourceVertexMustHaveNumber1" constrainedElement="_lkpM4EA9EeGF4PdswvfpHg">
+          <ownedComment xmi:id="_VoUtUEDxEeGF4PdswvfpHg" annotatedElement="_Obq5YEDxEeGF4PdswvfpHg">
+            <body>The source vertex must have the number 1.</body>
+          </ownedComment>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_ObrgcEDxEeGF4PdswvfpHg">
+            <language>OCL</language>
+            <body>self.from->size() = 0 implies self.number = 0</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="_dCNsAEDxEeGF4PdswvfpHg" name="SinkVertexMustHaveTheNumberOfOverallVerticesInTheGraphAsNumber" constrainedElement="_lkpM4EA9EeGF4PdswvfpHg">
+          <ownedComment xmi:id="_o8j-IEDxEeGF4PdswvfpHg" annotatedElement="_dCNsAEDxEeGF4PdswvfpHg">
+            <body>&lt;p>&#xD;
+    The sink vertex must have the number of all vertices in the graph as its number.&#xD;
+&lt;/p></body>
+          </ownedComment>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_dCO6IEDxEeGF4PdswvfpHg">
+            <language>OCL</language>
+            <body>self.to->size() = 0 implies self.number = self.graph.vertices->size()</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="_ORiCYEf2EeG7F5FNMg94iw" name="TransitionProbabilitiesMustBeDefinedForAllTargetVerticesOrForNone" constrainedElement="_lkpM4EA9EeGF4PdswvfpHg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_ORjQgEf2EeG7F5FNMg94iw">
+            <language>OCL</language>
+            <body>transitionProbability->size() > 0 implies transitionProbability->size() = to->size()</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:id="_pqXFEEA9EeGF4PdswvfpHg" name="to" visibility="public" type="_lkpM4EA9EeGF4PdswvfpHg" isOrdered="true" association="_pqWeAEA9EeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pqYTMEA9EeGF4PdswvfpHg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pqXsIEA9EeGF4PdswvfpHg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_pqY6QEA9EeGF4PdswvfpHg" name="from" visibility="public" type="_lkpM4EA9EeGF4PdswvfpHg" association="_pqWeAEA9EeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pqZhUUA9EeGF4PdswvfpHg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pqZhUEA9EeGF4PdswvfpHg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_noxAwEA9EeGF4PdswvfpHg" name="graph" visibility="public" type="_koJvcEA9EeGF4PdswvfpHg" association="_nosIQEA9EeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_noxn0UA9EeGF4PdswvfpHg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_noxn0EA9EeGF4PdswvfpHg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_QD5y0EA-EeGF4PdswvfpHg" name="number" visibility="public">
+          <ownedComment xmi:id="_d2P7kEDyEeGF4PdswvfpHg" annotatedElement="_QD5y0EA-EeGF4PdswvfpHg">
+            <body>Unique number of the vertex in the control-flow graph. The source vertex must have number 1, the sink vertex the number of&#xD;
+vertices in the graph as number.</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Hl9gcEgxEeG7F5FNMg94iw" name="iterations" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_M5eBcEgxEeG7F5FNMg94iw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M5daYEgxEeG7F5FNMg94iw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_UqgTwEkAEeG7F5FNMg94iw" name="transitionProbability" visibility="public" type="_OXrq0EkAEeG7F5FNMg94iw" isOrdered="true" aggregation="composite" association="_UqfFoEkAEeG7F5FNMg94iw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Uqg60UkAEeG7F5FNMg94iw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Uqg60EkAEeG7F5FNMg94iw"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_nosIQEA9EeGF4PdswvfpHg" memberEnd="_not9cEA9EeGF4PdswvfpHg _noxAwEA9EeGF4PdswvfpHg"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_pqWeAEA9EeGF4PdswvfpHg" name="edge" memberEnd="_pqXFEEA9EeGF4PdswvfpHg _pqY6QEA9EeGF4PdswvfpHg"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_OXrq0EkAEeG7F5FNMg94iw" name="TransitionProbability">
+        <ownedAttribute xmi:id="_PbuhwEkAEeG7F5FNMg94iw" name="probability" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Uqhh4EkAEeG7F5FNMg94iw" name="vertex" visibility="public" type="_lkpM4EA9EeGF4PdswvfpHg" association="_UqfFoEkAEeG7F5FNMg94iw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UqiI8UkAEeG7F5FNMg94iw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UqiI8EkAEeG7F5FNMg94iw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_UqfFoEkAEeG7F5FNMg94iw" name="transitionProbability" memberEnd="_UqgTwEkAEeG7F5FNMg94iw _Uqhh4EkAEeG7F5FNMg94iw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_gsqKQEA9EeGF4PdswvfpHg" name="jjnpaths">
+      <ownedComment xmi:id="_pKhFIEDyEeGF4PdswvfpHg" annotatedElement="_gsqKQEA9EeGF4PdswvfpHg">
+        <body>Model for the JJn-Paths of a control-flow graph.</body>
+      </ownedComment>
+      <packagedElement xmi:type="uml:Class" xmi:id="_zOdnYENEEeGF4PdswvfpHg" name="JJnPathTestSuite">
+        <ownedAttribute xmi:id="_Ii084ENFEeGF4PdswvfpHg" name="jjnhelperpaths" visibility="public" type="_ELiU8EJzEeGF4PdswvfpHg" isOrdered="true" aggregation="composite" association="_Ii0V0ENFEeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IjJtAENFEeGF4PdswvfpHg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IjJF8ENFEeGF4PdswvfpHg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_SnQ2QENFEeGF4PdswvfpHg" name="jjnpathset" visibility="public" type="_1v4scEA9EeGF4PdswvfpHg" association="_SnNy8ENFEeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SnRdUUNFEeGF4PdswvfpHg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SnRdUENFEeGF4PdswvfpHg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_4U6GUENQEeGF4PdswvfpHg" name="testcases" visibility="public" type="_yTwcMENQEeGF4PdswvfpHg" aggregation="composite" association="_4U44MENQEeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U6tYUNQEeGF4PdswvfpHg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U6tYENQEeGF4PdswvfpHg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_cU_qUEjsEeG7F5FNMg94iw" name="requiredTests" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ig8PMEjsEeG7F5FNMg94iw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ig7oIEjsEeG7F5FNMg94iw"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_1v4scEA9EeGF4PdswvfpHg" name="JJnPathSet">
+        <ownedComment xmi:id="_7MVhQEDxEeGF4PdswvfpHg" annotatedElement="_1v4scEA9EeGF4PdswvfpHg">
+          <body>&lt;p>&#xD;
+    Set of&amp;nbsp;sequential JJ-Paths for the graph. JJ1-Paths are&amp;nbsp;all JJ-Paths, JJn-Paths are all JJ-Paths which are&#xD;
+    put up to&amp;nbsp;n times in sequence.&#xD;
+&lt;/p></body>
+        </ownedComment>
+        <ownedRule xmi:id="_CJK_IEJ0EeGF4PdswvfpHg" name="NMustBeGreaterOrEqualToOne" constrainedElement="_1v4scEA9EeGF4PdswvfpHg">
+          <ownedComment xmi:id="_U9zi0EJ0EeGF4PdswvfpHg" annotatedElement="_CJK_IEJ0EeGF4PdswvfpHg">
+            <body>&lt;p>&#xD;
+    The attribute n must be a number greater or equal to 1.&#xD;
+&lt;/p></body>
+          </ownedComment>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_CJLmMEJ0EeGF4PdswvfpHg">
+            <language>OCL</language>
+            <body>self.n >= 1</body>
+          </specification>
+        </ownedRule>
+        <ownedAttribute xmi:id="_BjmyIEA-EeGF4PdswvfpHg" name="jjnpaths" visibility="public" type="_ELiU8EJzEeGF4PdswvfpHg" aggregation="composite" association="_Bjk88EA-EeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BjnZMUA-EeGF4PdswvfpHg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BjnZMEA-EeGF4PdswvfpHg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Hw6B4EA-EeGF4PdswvfpHg" name="n" visibility="public">
+          <ownedComment xmi:id="_3ux1QEDxEeGF4PdswvfpHg" annotatedElement="_Hw6B4EA-EeGF4PdswvfpHg">
+            <body>The number of sequences of JJ-Paths described by this instance.</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_opiEwEA-EeGF4PdswvfpHg" name="controlflowdescription" visibility="public" type="_eet2kEA-EeGF4PdswvfpHg" association="_opfogEA-EeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_opir0UA-EeGF4PdswvfpHg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_opir0EA-EeGF4PdswvfpHg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_SnPBEENFEeGF4PdswvfpHg" name="jjnpathtestset" visibility="public" type="_zOdnYENEEeGF4PdswvfpHg" aggregation="composite" association="_SnNy8ENFEeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SnQPMENFEeGF4PdswvfpHg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SnPoIENFEeGF4PdswvfpHg"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_3mjTIEA9EeGF4PdswvfpHg" name="JJPath">
+        <ownedComment xmi:id="_9gR50EDxEeGF4PdswvfpHg" annotatedElement="_3mjTIEA9EeGF4PdswvfpHg">
+          <body>A single JJ-Path.</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_4ep_0EA9EeGF4PdswvfpHg" name="from" visibility="public" type="_lkpM4EA9EeGF4PdswvfpHg">
+          <ownedComment xmi:id="_O0qLsEDyEeGF4PdswvfpHg" annotatedElement="_4ep_0EA9EeGF4PdswvfpHg">
+            <body>Vertex of&amp;nbsp;the graph at which the JJ-Path begins.</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_8OV9oEA9EeGF4PdswvfpHg" name="to" visibility="public" type="_lkpM4EA9EeGF4PdswvfpHg">
+          <ownedComment xmi:id="_QteugEDyEeGF4PdswvfpHg" annotatedElement="_8OV9oEA9EeGF4PdswvfpHg">
+            <body>Vertex of the graph at which the JJ-Path ends.</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_-1e_AEA9EeGF4PdswvfpHg" name="jumpTo" visibility="public" type="_lkpM4EA9EeGF4PdswvfpHg">
+          <ownedComment xmi:id="_UlCO4EDyEeGF4PdswvfpHg" annotatedElement="_-1e_AEA9EeGF4PdswvfpHg">
+            <body>Vertex of the graph to which the jumpt at the end of the JJ-Path is made.</body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_fNe4UEJzEeGF4PdswvfpHg" name="controlflowdescription" visibility="public" type="_eet2kEA-EeGF4PdswvfpHg" association="_fNam4EJzEeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fNgtgEJzEeGF4PdswvfpHg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fNgGcEJzEeGF4PdswvfpHg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_M1lT8EJzEeGF4PdswvfpHg" name="jjnpath" visibility="public" type="_ELiU8EJzEeGF4PdswvfpHg" association="_M0JJgEJzEeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_M1tPwEJzEeGF4PdswvfpHg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M1sosEJzEeGF4PdswvfpHg"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Bjk88EA-EeGF4PdswvfpHg" name="jjnpaths" memberEnd="_BjmyIEA-EeGF4PdswvfpHg _BjoAQEA-EeGF4PdswvfpHg"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ELiU8EJzEeGF4PdswvfpHg" name="JJnPath">
+        <ownedComment xmi:id="_hyjnsEJ0EeGF4PdswvfpHg" annotatedElement="_ELiU8EJzEeGF4PdswvfpHg">
+          <body>A single sequence of JJ-Paths.</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_BjoAQEA-EeGF4PdswvfpHg" name="jjnpathset" visibility="public" type="_1v4scEA9EeGF4PdswvfpHg" association="_Bjk88EA-EeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BjonUEA-EeGF4PdswvfpHg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BjoAQUA-EeGF4PdswvfpHg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_M0LlwEJzEeGF4PdswvfpHg" name="jjpaths" visibility="public" type="_3mjTIEA9EeGF4PdswvfpHg" isOrdered="true" aggregation="composite" association="_M0JJgEJzEeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_M1jewEJzEeGF4PdswvfpHg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_M027MEJzEeGF4PdswvfpHg" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="__JX2EEKHEeGF4PdswvfpHg" name="from" visibility="public" type="_lkpM4EA9EeGF4PdswvfpHg" isDerived="true">
+          <ownedComment xmi:id="_VUcCsEKLEeGF4PdswvfpHg" annotatedElement="__JX2EEKHEeGF4PdswvfpHg">
+            <body>&lt;p>&#xD;
+    &lt;font color=&quot;#3F5FBF&quot; size=&quot;3&quot;>&lt;font color=&quot;#3F5FBF&quot; size=&quot;3&quot;>The from-Vertex of&amp;nbsp;first JJ-Path in the sequence of&#xD;
+    paths.&lt;/font>&lt;/font>&#xD;
+&lt;/p></body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_CmKGAEKIEeGF4PdswvfpHg" name="jumpTo" visibility="public" type="_lkpM4EA9EeGF4PdswvfpHg" isDerived="true">
+          <ownedComment xmi:id="_cchfsEKLEeGF4PdswvfpHg" annotatedElement="_CmKGAEKIEeGF4PdswvfpHg">
+            <body>&lt;p>&#xD;
+    &lt;font color=&quot;#3F5FBF&quot; size=&quot;3&quot;>&lt;font color=&quot;#3F5FBF&quot; size=&quot;3&quot;>The&amp;nbsp;jumpTo-Vertex of the last JJ-Path&amp;nbsp;in the&#xD;
+    sequence of paths.&lt;/font>&lt;/font>&#xD;
+&lt;/p></body>
+          </ownedComment>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_IjK7IENFEeGF4PdswvfpHg" name="jjnpathtestset" visibility="public" type="_zOdnYENEEeGF4PdswvfpHg" association="_Ii0V0ENFEeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IjLiMUNFEeGF4PdswvfpHg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IjLiMENFEeGF4PdswvfpHg"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_M0JJgEJzEeGF4PdswvfpHg" name="jjpaths" memberEnd="_M0LlwEJzEeGF4PdswvfpHg _M1lT8EJzEeGF4PdswvfpHg"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_wx4v8EKDEeGF4PdswvfpHg" name="JJnPathsCreationParameter">
+        <ownedAttribute xmi:id="_zB-jQEKDEeGF4PdswvfpHg" name="n" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_5GL4UEcsEeGF4PdswvfpHg" name="targetId" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_SnNy8ENFEeGF4PdswvfpHg" name="testset" memberEnd="_SnPBEENFEeGF4PdswvfpHg _SnQ2QENFEeGF4PdswvfpHg"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_Ii0V0ENFEeGF4PdswvfpHg" name="jjnhelperpaths" memberEnd="_Ii084ENFEeGF4PdswvfpHg _IjK7IENFEeGF4PdswvfpHg"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_f2IckENLEeGF4PdswvfpHg" name="jjntestpaths" memberEnd="_f2JqsENLEeGF4PdswvfpHg _f2K40ENLEeGF4PdswvfpHg">
+        <ownedEnd xmi:id="_f2K40ENLEeGF4PdswvfpHg" name="" visibility="private" type="_yTwcMENQEeGF4PdswvfpHg" association="_f2IckENLEeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f2Lf4UNLEeGF4PdswvfpHg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f2Lf4ENLEeGF4PdswvfpHg"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_yTwcMENQEeGF4PdswvfpHg" name="JJnPathTestCase">
+        <ownedAttribute xmi:id="_f2JqsENLEeGF4PdswvfpHg" name="jjnpaths" visibility="public" type="_ELiU8EJzEeGF4PdswvfpHg" isOrdered="true" association="_f2IckENLEeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f2KRwUNLEeGF4PdswvfpHg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f2KRwENLEeGF4PdswvfpHg"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_4U77gENQEeGF4PdswvfpHg" name="jjnpathtestset" visibility="public" type="_zOdnYENEEeGF4PdswvfpHg" association="_4U44MENQEeGF4PdswvfpHg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4U8ikUNQEeGF4PdswvfpHg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4U8ikENQEeGF4PdswvfpHg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_4U44MENQEeGF4PdswvfpHg" name="testcases" memberEnd="_4U6GUENQEeGF4PdswvfpHg _4U77gENQEeGF4PdswvfpHg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_cmzSsEA-EeGF4PdswvfpHg" name="ControlFlowDescriptions">
+      <ownedAttribute xmi:id="_r8ezQEDuEeGF4PdswvfpHg" name="controlFlowDescription" visibility="public" type="_eet2kEA-EeGF4PdswvfpHg" aggregation="composite" association="_r8SmAEDuEeGF4PdswvfpHg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r8gocUDuEeGF4PdswvfpHg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_r8gocEDuEeGF4PdswvfpHg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_eet2kEA-EeGF4PdswvfpHg" name="ControlFlowDescription">
+      <ownedRule xmi:id="_ZOz9wEDvEeGF4PdswvfpHg" name="GraphMustBeDefinedIfJJnPathsPresent" constrainedElement="_eet2kEA-EeGF4PdswvfpHg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_ZPO0gEDvEeGF4PdswvfpHg">
+          <language>OCL</language>
+          <body>(self.jjnpaths->size() > 0) implies self.graph->size() = 1&#xD;&#xA;</body>
+        </specification>
+      </ownedRule>
+      <ownedAttribute xmi:id="_kdI80EA-EeGF4PdswvfpHg" name="graph" visibility="public" type="_koJvcEA9EeGF4PdswvfpHg" aggregation="composite" association="_kdHusEA-EeGF4PdswvfpHg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kdJj4UA-EeGF4PdswvfpHg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kdJj4EA-EeGF4PdswvfpHg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_opg2oEA-EeGF4PdswvfpHg" name="jjnpathsets" visibility="public" type="_1v4scEA9EeGF4PdswvfpHg" aggregation="composite" association="_opfogEA-EeGF4PdswvfpHg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ophdsUA-EeGF4PdswvfpHg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ophdsEA-EeGF4PdswvfpHg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_r8hPgEDuEeGF4PdswvfpHg" name="controlflowdescriptions" visibility="public" type="_cmzSsEA-EeGF4PdswvfpHg" association="_r8SmAEDuEeGF4PdswvfpHg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r8h2kUDuEeGF4PdswvfpHg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_r8h2kEDuEeGF4PdswvfpHg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_fNccEEJzEeGF4PdswvfpHg" name="jjpaths" visibility="public" type="_3mjTIEA9EeGF4PdswvfpHg" aggregation="composite" association="_fNam4EJzEeGF4PdswvfpHg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fNeRQEJzEeGF4PdswvfpHg" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fNdqMEJzEeGF4PdswvfpHg"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kdHusEA-EeGF4PdswvfpHg" name="graph" memberEnd="_kdI80EA-EeGF4PdswvfpHg _kdKyAEA-EeGF4PdswvfpHg"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_opfogEA-EeGF4PdswvfpHg" name="jjnpathsets" memberEnd="_opg2oEA-EeGF4PdswvfpHg _opiEwEA-EeGF4PdswvfpHg"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_r8SmAEDuEeGF4PdswvfpHg" memberEnd="_r8ezQEDuEeGF4PdswvfpHg _r8hPgEDuEeGF4PdswvfpHg"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_fNam4EJzEeGF4PdswvfpHg" name="jjpaths" memberEnd="_fNccEEJzEeGF4PdswvfpHg _fNe4UEJzEeGF4PdswvfpHg"/>
+    <profileApplication xmi:id="_KvVXVUA9EeGF4PdswvfpHg">
+      <eAnnotations xmi:id="_KvVXVkA9EeGF4PdswvfpHg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_KvVXV0A9EeGF4PdswvfpHg">
+      <eAnnotations xmi:id="_KvVXWEA9EeGF4PdswvfpHg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw"/>
+      </eAnnotations>
+      <appliedProfile href="Default.profile.uml#_a_S3wNWLEdiy4IqP8whjFA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_KvVXWUA9EeGF4PdswvfpHg">
+      <eAnnotations xmi:id="_KvVXWkA9EeGF4PdswvfpHg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="Deployment.profile.uml#_IrdAUMmBEdqBcN1R6EvWUw"/>
+      </eAnnotations>
+      <appliedProfile href="Deployment.profile.uml#_vjbuwOvHEdiDX5bji0iVSA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_Y-lEQEA9EeGF4PdswvfpHg">
+      <eAnnotations xmi:id="_Y-p8wEA9EeGF4PdswvfpHg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Package>
+  <Ecore:EPackage xmi:id="_VIvo4EBCEeGF4PdswvfpHg" base_Package="_KvVXUEA9EeGF4PdswvfpHg" packageName="controlflowdescription" nsPrefix="controlflowdescription" nsURI="http://se.fzi.de/ControlFlowDescription/0.6" basePackage="de.fzi.se" prefix="ControlFlowDescription"/>
+  <Ecore:EPackage xmi:id="_2IzdUEDuEeGF4PdswvfpHg" base_Package="_d7zzQEA9EeGF4PdswvfpHg" packageName="graph" nsPrefix="graph" nsURI="http://se.fzi.de/ControlFlowDescription/Graph/0.6" basePackage="de.fzi.se.controlflowdescription" prefix="Graph"/>
+  <Ecore:EPackage xmi:id="_Bt204EDvEeGF4PdswvfpHg" base_Package="_gsqKQEA9EeGF4PdswvfpHg" packageName="jjnpaths" nsPrefix="jjnpaths" nsURI="http://se.fzi.de/ControlFlowDescription/jjnpaths/0.6" basePackage="de.fzi.se.controlflowdescription" prefix="JJnPaths"/>
+  <Default:Documentation xmi:id="_A1bGIEDxEeGF4PdswvfpHg" base_Comment="_A1Yp4EDxEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_GmshMEDxEeGF4PdswvfpHg" base_Comment="_GmqE8EDxEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_ILWx4EDxEeGF4PdswvfpHg" base_Comment="_ILUVoEDxEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_VoWigEDxEeGF4PdswvfpHg" base_Comment="_VoUtUEDxEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_o8lzUEDxEeGF4PdswvfpHg" base_Comment="_o8j-IEDxEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_3uzDYEDxEeGF4PdswvfpHg" base_Comment="_3ux1QEDxEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_7MYkkEDxEeGF4PdswvfpHg" base_Comment="_7MVhQEDxEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_9gTH8EDxEeGF4PdswvfpHg" base_Comment="_9gR50EDxEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_O0rZ0EDyEeGF4PdswvfpHg" base_Comment="_O0qLsEDyEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_QtgjsEDyEeGF4PdswvfpHg" base_Comment="_QteugEDyEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_UlErIEDyEeGF4PdswvfpHg" base_Comment="_UlCO4EDyEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_d2RwwEDyEeGF4PdswvfpHg" base_Comment="_d2P7kEDyEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_mPAWQEDyEeGF4PdswvfpHg" base_Comment="_mO96AEDyEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_pKjhYEDyEeGF4PdswvfpHg" base_Comment="_pKhFIEDyEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_yyN_MEDyEeGF4PdswvfpHg" base_Comment="_yyMxEEDyEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_U93NMEJ0EeGF4PdswvfpHg" base_Comment="_U9zi0EJ0EeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_hynSEEJ0EeGF4PdswvfpHg" base_Comment="_hyjnsEJ0EeGF4PdswvfpHg"/>
+  <Ecore:EReference xmi:id="_pVFN4EKIEeGF4PdswvfpHg" xmlName="jumpTo" isTransient="true" isVolatile="true" base_Property="_CmKGAEKIEeGF4PdswvfpHg" referenceName="jumpTo"/>
+  <Ecore:EReference xmi:id="_tuDZQEKIEeGF4PdswvfpHg" xmlName="from" isTransient="true" isVolatile="true" base_Property="__JX2EEKHEeGF4PdswvfpHg" referenceName="from"/>
+  <Default:Documentation xmi:id="_VUee8EKLEeGF4PdswvfpHg" base_Comment="_VUcCsEKLEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_ccj78EKLEeGF4PdswvfpHg" base_Comment="_cchfsEKLEeGF4PdswvfpHg"/>
+</xmi:XMI>
