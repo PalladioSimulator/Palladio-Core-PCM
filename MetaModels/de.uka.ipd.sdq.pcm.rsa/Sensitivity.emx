@@ -2615,7 +2615,7 @@ determined that constitutes the variation.</body>
 &lt;/p></body>
       </ownedComment>
       <generalization xmi:id="_icynQCiPEeCMt6B0BIb0hg" general="_NJg-QCiMEeCMt6B0BIb0hg"/>
-      <ownedAttribute xmi:id="_DRVUACiTEeCMt6B0BIb0hg" name="stringValues" visibility="public">
+      <ownedAttribute xmi:id="_DRVUACiTEeCMt6B0BIb0hg" name="stringValues" visibility="public" isUnique="false">
         <ownedComment xmi:id="_XutXICiTEeCMt6B0BIb0hg" annotatedElement="_DRVUACiTEeCMt6B0BIb0hg">
           <body>The&amp;nbsp;list&amp;nbsp;of&amp;nbsp;STRING&amp;nbsp;values.</body>
         </ownedComment>
@@ -2655,7 +2655,7 @@ variation&amp;nbsp;of&amp;nbsp;a&amp;nbsp;sensitivity parameter of type DOUBLE.<
         <body>Specifies&amp;nbsp;a sequence of values, to define&amp;nbsp;a variation&amp;nbsp;of&amp;nbsp;a&amp;nbsp;sensitivity parameter of type DOUBLE.</body>
       </ownedComment>
       <generalization xmi:id="_IZA08CiSEeCMt6B0BIb0hg" general="_pQ11UCiMEeCMt6B0BIb0hg"/>
-      <ownedAttribute xmi:id="_hMGJgCiREeCMt6B0BIb0hg" name="doubleValues" visibility="public">
+      <ownedAttribute xmi:id="_hMGJgCiREeCMt6B0BIb0hg" name="doubleValues" visibility="public" isOrdered="true" isUnique="false">
         <ownedComment xmi:id="_GmrUoCiSEeCMt6B0BIb0hg" annotatedElement="_hMGJgCiREeCMt6B0BIb0hg">
           <body>The&amp;nbsp;list&amp;nbsp;of&amp;nbsp;DOUBLE&amp;nbsp;values.</body>
         </ownedComment>
@@ -2964,7 +2964,7 @@ Branch.</body>
 as offsets to adjust the original model value.</body>
       </ownedComment>
       <generalization xmi:id="_2v26wD-EEeGy0cvFoU3GBg" general="_pQ11UCiMEeCMt6B0BIb0hg"/>
-      <ownedAttribute xmi:id="_9XXaQD-EEeGy0cvFoU3GBg" name="offsetValues" visibility="public">
+      <ownedAttribute xmi:id="_9XXaQD-EEeGy0cvFoU3GBg" name="offsetValues" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AJwCUD-FEeGy0cvFoU3GBg" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AJvbQD-FEeGy0cvFoU3GBg" value="1"/>

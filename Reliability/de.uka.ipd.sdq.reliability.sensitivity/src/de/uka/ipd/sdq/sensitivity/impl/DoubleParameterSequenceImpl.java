@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -67,7 +68,7 @@ public class DoubleParameterSequenceImpl extends DoubleParameterVariationImpl im
 	 */
 	public EList<Double> getDoubleValues() {
 		if (doubleValues == null) {
-			doubleValues = new EDataTypeUniqueEList<Double>(Double.class, this, SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES);
+			doubleValues = new EDataTypeEList<Double>(Double.class, this, SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES);
 		}
 		return doubleValues;
 	}

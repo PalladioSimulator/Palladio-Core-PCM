@@ -100,7 +100,7 @@
       <details key="documentation" value="&lt;p>&#xD;&#xA;    Specifies&amp;nbsp;a variation&amp;nbsp;of&amp;nbsp;a&amp;nbsp;sensitivity parameter of type STRING (e.g. for stochastic expressions).&#xD;&#xA;    The specification is given as a sequence of strings.&#xD;&#xA;&lt;/p>"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stringValues" ordered="false"
-        lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        unique="false" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The&amp;nbsp;list&amp;nbsp;of&amp;nbsp;STRING&amp;nbsp;values."/>
       </eAnnotations>
@@ -129,7 +129,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Specifies&amp;nbsp;a sequence of values, to define&amp;nbsp;a variation&amp;nbsp;of&amp;nbsp;a&amp;nbsp;sensitivity parameter of type DOUBLE."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="doubleValues" ordered="false"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="doubleValues" unique="false"
         lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The&amp;nbsp;list&amp;nbsp;of&amp;nbsp;DOUBLE&amp;nbsp;values."/>
@@ -451,7 +451,7 @@
       <details key="documentation" value="Specifies a sequence of values, to define a variation of a sensitivity parameter of type DOUBLE. The given values are used&#xD;&#xA;as offsets to adjust the original model value."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="offsetValues" ordered="false"
-        lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+        unique="false" lowerBound="1" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="doubleOffsetType__DoubleOffsetSequence"
         ordered="false" lowerBound="1" eType="#//DoubleOffsetType"/>
   </eClassifiers>

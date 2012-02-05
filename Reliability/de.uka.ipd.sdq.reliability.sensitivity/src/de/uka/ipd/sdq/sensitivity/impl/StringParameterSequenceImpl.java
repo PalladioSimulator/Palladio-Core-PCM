@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -67,7 +68,7 @@ public class StringParameterSequenceImpl extends SensitivityParameterVariationIm
 	 */
 	public EList<String> getStringValues() {
 		if (stringValues == null) {
-			stringValues = new EDataTypeUniqueEList<String>(String.class, this, SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES);
+			stringValues = new EDataTypeEList<String>(String.class, this, SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES);
 		}
 		return stringValues;
 	}

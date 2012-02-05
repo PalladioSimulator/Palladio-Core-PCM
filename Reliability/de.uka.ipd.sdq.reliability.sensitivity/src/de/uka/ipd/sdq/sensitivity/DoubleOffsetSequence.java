@@ -42,7 +42,7 @@ public interface DoubleOffsetSequence extends DoubleParameterVariation {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Offset Values</em>' attribute list.
 	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getDoubleOffsetSequence_OffsetValues()
-	 * @model required="true" ordered="false"
+	 * @model unique="false" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<Double> getOffsetValues();

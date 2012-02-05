@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -93,7 +94,7 @@ public class DoubleOffsetSequenceImpl extends DoubleParameterVariationImpl imple
 	 */
 	public EList<Double> getOffsetValues() {
 		if (offsetValues == null) {
-			offsetValues = new EDataTypeUniqueEList<Double>(Double.class, this, SensitivityPackage.DOUBLE_OFFSET_SEQUENCE__OFFSET_VALUES);
+			offsetValues = new EDataTypeEList<Double>(Double.class, this, SensitivityPackage.DOUBLE_OFFSET_SEQUENCE__OFFSET_VALUES);
 		}
 		return offsetValues;
 	}

@@ -39,7 +39,7 @@ public interface DoubleParameterSequence extends DoubleParameterVariation {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Double Values</em>' attribute list.
 	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getDoubleParameterSequence_DoubleValues()
-	 * @model required="true" ordered="false"
+	 * @model unique="false" required="true"
 	 * @generated
 	 */
 	EList<Double> getDoubleValues();

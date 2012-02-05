@@ -1179,7 +1179,7 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		initEClass(doubleParameterVariationEClass, DoubleParameterVariation.class, "DoubleParameterVariation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(stringParameterSequenceEClass, StringParameterSequence.class, "StringParameterSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStringParameterSequence_StringValues(), ecorePackage.getEString(), "stringValues", null, 1, -1, StringParameterSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getStringParameterSequence_StringValues(), ecorePackage.getEString(), "stringValues", null, 1, -1, StringParameterSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(doubleParameterRangeEClass, DoubleParameterRange.class, "DoubleParameterRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDoubleParameterRange_ConsiderStepSize(), ecorePackage.getEBoolean(), "considerStepSize", null, 1, 1, DoubleParameterRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1189,7 +1189,7 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		initEAttribute(getDoubleParameterRange_StepCount(), ecorePackage.getEInt(), "stepCount", null, 1, 1, DoubleParameterRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(doubleParameterSequenceEClass, DoubleParameterSequence.class, "DoubleParameterSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDoubleParameterSequence_DoubleValues(), ecorePackage.getEDouble(), "doubleValues", null, 1, -1, DoubleParameterSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDoubleParameterSequence_DoubleValues(), ecorePackage.getEDouble(), "doubleValues", null, 1, -1, DoubleParameterSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(doubleParameterFunctionEClass, DoubleParameterFunction.class, "DoubleParameterFunction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1330,7 +1330,7 @@ public class SensitivityPackageImpl extends EPackageImpl implements SensitivityP
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(doubleOffsetSequenceEClass, DoubleOffsetSequence.class, "DoubleOffsetSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDoubleOffsetSequence_OffsetValues(), ecorePackage.getEDouble(), "offsetValues", null, 1, -1, DoubleOffsetSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDoubleOffsetSequence_OffsetValues(), ecorePackage.getEDouble(), "offsetValues", null, 1, -1, DoubleOffsetSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getDoubleOffsetSequence_DoubleOffsetType__DoubleOffsetSequence(), this.getDoubleOffsetType(), "doubleOffsetType__DoubleOffsetSequence", null, 1, 1, DoubleOffsetSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(softwareFailureTypesParameterEClass, SoftwareFailureTypesParameter.class, "SoftwareFailureTypesParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

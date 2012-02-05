@@ -42,7 +42,7 @@ public interface StringParameterSequence extends SensitivityParameterVariation {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>String Values</em>' attribute list.
 	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getStringParameterSequence_StringValues()
-	 * @model required="true" ordered="false"
+	 * @model unique="false" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<String> getStringValues();
