@@ -194,6 +194,12 @@ public class WizardDatasourceLoadPage extends WizardPage implements Listener {
 					public void setValue(String string) {
 						containerNameField.setText(string);
 					}
+
+					@Override
+					public IResource getResource() {
+						// TODO Auto-generated method stub
+						return null;
+					}
 				});
 	}
 	
