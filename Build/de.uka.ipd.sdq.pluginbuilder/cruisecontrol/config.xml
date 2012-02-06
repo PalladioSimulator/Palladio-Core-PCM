@@ -1,6 +1,6 @@
 <cruisecontrol>
 <!-- #### BELOW: PCM Eclipse 3.5 Build ################################### -->
-	<project name="PCM Eclipse 3.5 build" requiremodification="true">
+	<project name="PCM Eclipse build" requiremodification="true">
 		<modificationset>
 			<!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
 			<svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk" username="cruisecontrol" password="obREaglAkEmhaDwl" />
@@ -11,56 +11,23 @@
 			<ant buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
 		</schedule>
 		<log>
-			<merge dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/results/testresults/xml" pattern="testReport*.xml"></merge>
+			<merge dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/xml" pattern="testReport*.xml"></merge>
 		</log>
 		<labelincrementer defaultlabel="3.1" prebuildincrementer="true"></labelincrementer>
 		<publishers>
 <htmlemail buildresultsurl="https://sdqweb.ipd.kit.edu/dashboard/" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="CruiseControl Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de" skipusers="true"> 
         <always address="palladio-dev@ira.uka.de"></always> 
       </htmlemail>  
-      <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.2/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
+      <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.2/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
 			<onsuccess>
-				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5" buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder" buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
 			</onsuccess>
 			<onfailure>
-				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5" buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
+				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder" buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
 			</onfailure>
 		</publishers>
 		<bootstrappers>
 			<svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder"></svnbootstrapper>
-		</bootstrappers>
-		<listeners></listeners>
-	</project>
-
-<!-- #### BELOW: PCM Eclipse 3.7 Build ################################### -->
-	<project name="PCM Eclipse 3.7 build" requiremodification="true">
-		<modificationset>
-			<!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
-			<svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk" username="cruisecontrol" password="obREaglAkEmhaDwl" />
-			<svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/ThirdPartyWrapper/trunk" username="cruisecontrol" password="obREaglAkEmhaDwl" />
-			<svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/WorkflowEngine/trunk" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
-		</modificationset>
-		<schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
-			<ant buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder.3.7/build.xml" target="main-cc" antworkingdir="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder.3.7" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
-		</schedule>
-		<log>
-			<merge dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.7/results/testresults/xml" pattern="testReport*.xml"></merge>
-		</log>
-		<labelincrementer defaultlabel="3.1" prebuildincrementer="true"></labelincrementer>
-		<publishers>
-			<htmlemail buildresultsurl="https://sdqweb.ipd.kit.edu/dashboard/" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="CruiseControl Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de" skipusers="true"> 
-        			<always address="palladio-dev@ira.uka.de"></always> 
-      			</htmlemail>  
-      <!-- <xsltlogpublisher directory="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/results/testresults/html" xsltfile="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.2/webapps/cruisecontrol/xsl/buildresults.xsl" outfilename="buildlog.html"></xsltlogpublisher> -->
-			<onsuccess>
-				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.7" buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder.3.7/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
-			</onsuccess>
-			<onfailure>
-				<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.7" buildfile="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder.3.7/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
-			</onfailure>
-		</publishers>
-		<bootstrappers>
-			<svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/palladio/de.uka.ipd.sdq.pluginbuilder.3.7"></svnbootstrapper>
 		</bootstrappers>
 		<listeners></listeners>
 	</project>
