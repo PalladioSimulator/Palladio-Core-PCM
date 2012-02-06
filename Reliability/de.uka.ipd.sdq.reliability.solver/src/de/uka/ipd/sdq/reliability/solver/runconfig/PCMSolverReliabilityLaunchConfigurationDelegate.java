@@ -11,7 +11,7 @@ import de.fzi.se.accuracy.jobs.AccuracyInfluenceAnalysisJob;
 import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate;
 import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
 import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.launchconfig.LoggerAppenderStruct;
+import de.uka.ipd.sdq.workflow.logging.console.LoggerAppenderStruct;
 
 /**
  * Launches the PCM Solver for Reliability analysis.

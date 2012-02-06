@@ -8,7 +8,7 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.launchconfig.LoggerAppenderStruct;
+import de.uka.ipd.sdq.workflow.logging.console.LoggerAppenderStruct;
 
 public interface ISimulationWorkflowLauncher {
     

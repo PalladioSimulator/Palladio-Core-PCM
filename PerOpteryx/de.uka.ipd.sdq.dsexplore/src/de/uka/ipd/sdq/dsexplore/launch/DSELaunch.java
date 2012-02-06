@@ -10,10 +10,9 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
 import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedLaunchConfigurationDelegate;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowConfigurationBuilder;
-import de.uka.ipd.sdq.workflow.launchconfig.LoggerAppenderStruct;
-import de.uka.ipd.sdq.workflow.launchconfig.WorkflowProcess;
+import de.uka.ipd.sdq.workflow.logging.console.LoggerAppenderStruct;
+import de.uka.ipd.sdq.workflow.ui.WorkflowProcess;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMLaunchConfigurationDelegate;
 import de.uka.ipd.sdq.workflow.pcm.configurations.PCMWorkflowConfigurationBuilder;
 
