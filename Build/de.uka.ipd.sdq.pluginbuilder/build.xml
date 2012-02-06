@@ -70,8 +70,12 @@
 		<!-- determine launcher -->
 		<!-- StB: Removed the locator as it is buggy and finds the .pack.gz file instead of the main .jar bundle, needs to be updated on upgrading of the build eclipse -->
 		<!-- <BundleFileLocator eclipseInstallationRoot="${eclipseDir}" bundleId="org.eclipse.equinox.launcher" property="equinoxjar" /> -->
-		<property name="equinoxjar" value="/home/ccontrol/eclipse-35-pcm/eclipse/plugins/org.eclipse.equinox.launcher_1.0.201.R35x_v20090715.jar" />
-
+		<path id="equinoxjar.path">
+		   <fileset dir="${eclipseDir}/plugins">
+		   		<include name="org.eclipse.equinox.launcher_*.jar"/>
+		   </fileset>
+		</path>
+		<property name="equinoxjar" refid="equinoxjar.path"/>
 	</target>
 	
 	<target name="-clean" if="is.clean">
