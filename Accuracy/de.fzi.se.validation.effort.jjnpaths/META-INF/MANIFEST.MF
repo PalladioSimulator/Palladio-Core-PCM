@@ -11,4 +11,5 @@ Require-Bundle: de.fzi.se.validation.effort;bundle-version="1.0.0",
  de.fzi.se.controlflowdescription;bundle-version="1.0.0",
  de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0",
  org.eclipse.swt;bundle-version="3.5.2",
- de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0"
+ de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
+ de.fzi.se.validation.effort.estimation;bundle-version="1.0.0"

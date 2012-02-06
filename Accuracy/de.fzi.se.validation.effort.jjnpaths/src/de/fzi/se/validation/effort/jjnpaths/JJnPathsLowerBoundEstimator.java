@@ -12,18 +12,19 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import de.fzi.se.controlflowdescription.ControlFlowDescription;
 import de.fzi.se.controlflowdescription.ControlFlowDescriptionFactory;
 import de.fzi.se.controlflowdescription.graph.Graph;
 import de.fzi.se.controlflowdescription.jjnpaths.JJPath;
 import de.fzi.se.controlflowdescription.jjnpaths.JJnPath;
-import de.fzi.se.controlflowdescription.jjnpaths.JJnPathSet;
 import de.fzi.se.controlflowdescription.jjnpaths.JJnPathTestSuite;
 import de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter;
 import de.fzi.se.controlflowdescription.jjnpaths.JJnPathsFactory;
 import de.fzi.se.validation.effort.IEstimator;
+import de.fzi.se.validation.effort.estimation.EffortEstimationResult;
+import de.fzi.se.validation.effort.estimation.EstimationFactory;
 import de.fzi.se.validation.effort.workflow.EstimatorConfiguration;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
@@ -37,19 +38,19 @@ import de.uka.ipd.sdq.workflow.mdsd.emf.qvto.QVTOTransformationJob;
 import de.uka.ipd.sdq.workflow.mdsd.emf.qvto.QVTOTransformationJobConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
-/**Validation effort estimation algorithm for JJn-Paths.
+/**Validation effort estimation algorithm for the lower bound of JJn-Paths.
  *
  * @author groenda
  *
  */
-public class JJnPathsEstimator implements IEstimator, IBlackboardInteractingJob<MDSDBlackboard> {
+public class JJnPathsLowerBoundEstimator implements IEstimator, IBlackboardInteractingJob<MDSDBlackboard> {
 	/** Logger of this class. */
-	private static final Logger logger = Logger.getLogger(PrepareEstimatorPartitions.class);
+	private static final Logger logger = Logger.getLogger(JJnPathsLowerBoundEstimator.class);
 
 	/** Name of the workflow job. */
 	public static final String NAME = "JJn-Paths Validation Effort Estimator Job";
 	/** Name of the criterion which is estimated by this class. */
-	public static final String CRITERION_NAME = "JJn-Paths";
+	public static final String CRITERION_NAME = "JJn-Paths (Lower Bound)";
 
 	/** Operational QVT transformation script URI which transforms {@link ResourceDemandingBehaviour} to {@link Graph}. */
 	protected static final String BEHAVIOUR_2_GRAPH_TRANSFORMATION_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/transforms/behaviour2ControlFlowGraph.qvto";
@@ -58,7 +59,7 @@ public class JJnPathsEstimator implements IEstimator, IBlackboardInteractingJob<
 	/** Operational QVT transformation script URI which transforms {@link JJPath} to {@link JJnPath}. */
 	protected static final String JJPATHS_2_JJNPATHS_TRANSFORMATION_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/transforms/JJPaths2JJnPathSet.qvto";
 	/** Operational QVT transformation script URI which transforms {@link JJnPath} to {@link JJnPathTestSuite}. */
-	protected static final String JJNPATHS_2_TESTSUITE_TRANSFORMATION_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/transforms/JJnPathSet2JJnPathTestSet.qvto";
+	protected static final String JJNPATHS_2_LOWER_BOUND_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/transforms/JJnPaths2LowerBoundEstimation.qvto";
 
 	/** Blackboard with models used by the job. */
 	private MDSDBlackboard blackboard;
@@ -68,6 +69,8 @@ public class JJnPathsEstimator implements IEstimator, IBlackboardInteractingJob<
 	private ModelLocation cfdModelLocation = null;
 	/** Model location of the (intermediate) configuration model for JJn-Path calculations. */
 	private ModelLocation cfdConfigurationModelLocation = null;
+	/** Model location containing the estimation result. */
+	private ModelLocation resultModelLocation = null;
 	/** Number of necessary test cases. {@code null} if there is no estimation available yet. */
 	private Long numberTestcases = null;
 
@@ -91,6 +94,7 @@ public class JJnPathsEstimator implements IEstimator, IBlackboardInteractingJob<
 		JJnPathsCreationParameter modelConfiguration = JJnPathsFactory.eINSTANCE.createJJnPathsCreationParameter();
 		modelConfiguration.setN(configuration.getN());
 		modelConfiguration.setTargetId(estimatorConfiguration.getBehaviourURI().substring(estimatorConfiguration.getBehaviourURI().lastIndexOf('#') + 1, estimatorConfiguration.getBehaviourURI().length()));
+		modelConfiguration.setAlpha(estimatorConfiguration.getConfidence());
 
 		ResourceSetPartition partition = blackboard.getPartition(PrepareEstimatorPartitions.CFG_CONFIGURATION_PARTITION_ID);
 		File tempFile;
@@ -107,22 +111,33 @@ public class JJnPathsEstimator implements IEstimator, IBlackboardInteractingJob<
 		return cfgUri;
 	}
 
-	/**Build location objects from blackboard. */
-	private void buildLocationObjects(URI cfgUri) {
-		targetBehaviour = new ModelLocation(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID, URI.createURI(estimatorConfiguration.getBehaviourURI()));
+	/**Creates a temporary file, stores the content in the file and returns the model location.
+	 * @param partitionId Identifier for the partition of the model.
+	 * @param fileExtension Used file extension.
+	 * @param content Content to add.
+	 * @return Model location.
+	 */
+	private ModelLocation createTempLocation(String partitionId, String fileExtension, EObject content) {
 		File tempFile;
 		URI descUri = null;
 		try {
-			tempFile = File.createTempFile("CFG_", ".controlflowdescription");
+			tempFile = File.createTempFile("TempModel_", "." + fileExtension);
 			tempFile.delete();
 			descUri = URI.createFileURI(tempFile.getAbsolutePath());
 		} catch (IOException e) {
 			logger.error("Could not create temporary file for storing control-flow description. Cannot proceed.", e);
 		}
-		Resource r = this.blackboard.getPartition(PrepareEstimatorPartitions.CFG_PARTITION_ID).getResourceSet().createResource(descUri);
-		r.getContents().add(ControlFlowDescriptionFactory.eINSTANCE.createControlFlowDescriptions());
-		cfdModelLocation = new ModelLocation(PrepareEstimatorPartitions.CFG_PARTITION_ID, descUri);
+		Resource r = this.blackboard.getPartition(partitionId).getResourceSet().createResource(descUri);
+		r.getContents().add(content);
+		return new ModelLocation(partitionId, descUri);
+	}
+
+	/**Build location objects from blackboard. */
+	private void buildLocationObjects(URI cfgUri) {
+		targetBehaviour = new ModelLocation(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID, URI.createURI(estimatorConfiguration.getBehaviourURI()));
 		cfdConfigurationModelLocation = new ModelLocation(PrepareEstimatorPartitions.CFG_CONFIGURATION_PARTITION_ID, cfgUri);
+		cfdModelLocation = createTempLocation(PrepareEstimatorPartitions.CFG_PARTITION_ID, "controlflowdescription", ControlFlowDescriptionFactory.eINSTANCE.createControlFlowDescriptions());
+		resultModelLocation = createTempLocation(PrepareEstimatorPartitions.ESTIMATION_RESULT_PARTITION_ID, "estimation", EstimationFactory.eINSTANCE.createEffortEstimationResult());
 	}
 
 	/* (non-Javadoc)
@@ -136,15 +151,10 @@ public class JJnPathsEstimator implements IEstimator, IBlackboardInteractingJob<
 		executeStep(monitor, new ModelLocation[] {targetBehaviour, cfdModelLocation, cfdConfigurationModelLocation}, BEHAVIOUR_2_GRAPH_TRANSFORMATION_SCRIPT);
 		executeStep(monitor, new ModelLocation[] {cfdModelLocation}, GRAPH_2_JJPATHS_TRANSFORMATION_SCRIPT);
 		executeStep(monitor, new ModelLocation[] {cfdModelLocation, cfdConfigurationModelLocation}, JJPATHS_2_JJNPATHS_TRANSFORMATION_SCRIPT);
-		ControlFlowDescription result = ((CFDResourceSetPartition) this.blackboard.getPartition(cfdModelLocation.getPartitionID())).getControlFlowDescription();
+		executeStep(monitor, new ModelLocation[] {cfdModelLocation, cfdConfigurationModelLocation, resultModelLocation}, JJNPATHS_2_LOWER_BOUND_SCRIPT);
+		EffortEstimationResult result = this.blackboard.getPartition(resultModelLocation.getPartitionID()).getElement(EstimationFactory.eINSTANCE.createEffortEstimationResult()).get(0);
 		assert (result != null);
-		for (JJnPathSet jjnpathset : result.getJjnpathsets()) {
-			if (jjnpathset.getN() == (configuration.getN())) {
-				JJnPathsTestSuiteSizeEstimator estimator = new JJnPathsTestSuiteSizeEstimator(jjnpathset);
-				numberTestcases = estimator.estimate(estimatorConfiguration.getConfidence());
-				break;
-			}
-		}
+		this.numberTestcases = new Long(result.getNumberTestcases());
 	}
 
 	/**Prepares the blackboard for Operation QVT execution.
@@ -159,6 +169,10 @@ public class JJnPathsEstimator implements IEstimator, IBlackboardInteractingJob<
 		CFDResourceSetPartition cfgConfigurationPartition = new CFDResourceSetPartition();
 		this.blackboard.addPartition(PrepareEstimatorPartitions.CFG_CONFIGURATION_PARTITION_ID, cfgConfigurationPartition);
 		cfgConfigurationPartition.initialiseResourceSetEPackages(JJnPathsEstimatorConstantsContainer.CFD_EPACKAGES);
+		// result
+		ResourceSetPartition resultPartition = new ResourceSetPartition();
+		this.blackboard.addPartition(PrepareEstimatorPartitions.ESTIMATION_RESULT_PARTITION_ID, resultPartition);
+		resultPartition.initialiseResourceSetEPackages(JJnPathsEstimatorConstantsContainer.RESULT_EPACKAGES);
 	}
 
 	/**Execute an operational QVT transformation step.
@@ -183,7 +197,7 @@ public class JJnPathsEstimator implements IEstimator, IBlackboardInteractingJob<
 	 * @see de.uka.ipd.sdq.workflow.IJob#getName()
 	 */
 	public String getName() {
-		return JJnPathsEstimator.NAME;
+		return JJnPathsLowerBoundEstimator.NAME;
 	}
 
 	/* (non-Javadoc)
@@ -193,6 +207,7 @@ public class JJnPathsEstimator implements IEstimator, IBlackboardInteractingJob<
 			throws RollbackFailedException {
 		this.blackboard.removePartition(PrepareEstimatorPartitions.CFG_PARTITION_ID);
 		this.blackboard.removePartition(PrepareEstimatorPartitions.CFG_CONFIGURATION_PARTITION_ID);
+		this.blackboard.removePartition(PrepareEstimatorPartitions.ESTIMATION_RESULT_PARTITION_ID);
 	}
 
 
@@ -209,9 +224,9 @@ public class JJnPathsEstimator implements IEstimator, IBlackboardInteractingJob<
 	 */
 	public String getCriterionName() {
 		if (configuration.isValid()) {
-			return JJnPathsEstimator.CRITERION_NAME.replace("n", Integer.toString(configuration.getN()));
+			return JJnPathsLowerBoundEstimator.CRITERION_NAME.replace("JJn", "JJ" + Integer.toString(configuration.getN()));
 		} else {
-			return JJnPathsEstimator.CRITERION_NAME;
+			return JJnPathsLowerBoundEstimator.CRITERION_NAME;
 		}
 	}
 

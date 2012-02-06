@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 
-/**
+/**Workflow job for handling the partitions responsible to store control-flow graphs, configuration information, and estimation results for JJn-Paths estimations.
  * @author groenda
  *
  */
@@ -26,9 +26,12 @@ public class PrepareEstimatorPartitions implements IJob, IBlackboardInteractingJ
 	public static final String CFG_PARTITION_ID = "de.fzi.se.validation.effort.jjnpaths.partition";
 	/** Blackboard partition ID for the configuration of control-flow graph JJn-Paths generation. */
 	public static final String CFG_CONFIGURATION_PARTITION_ID = "de.fzi.se.validation.effort.jjnpaths.partition.configuration";
+	/** Blackboard partition ID for estimation results. */
+	public static final String ESTIMATION_RESULT_PARTITION_ID = "de.fzi.se.validation.effort.estimation";
 
 	/** Logger of this class. */
 	private static final Logger logger = Logger.getLogger(PrepareEstimatorPartitions.class);
+
 	/** Blackboard used by this class. */
 	private MDSDBlackboard blackboard;
 
@@ -43,6 +46,8 @@ public class PrepareEstimatorPartitions implements IJob, IBlackboardInteractingJ
 		this.blackboard.addPartition(CFG_PARTITION_ID, cfdPartition);
 		ResourceSetPartition cfdConfigurationPartition = new ResourceSetPartition();
 		this.blackboard.addPartition(CFG_CONFIGURATION_PARTITION_ID, cfdConfigurationPartition);
+		ResourceSetPartition resultPartition = new ResourceSetPartition();
+		this.blackboard.addPartition(ESTIMATION_RESULT_PARTITION_ID, resultPartition);
 	}
 
 	/* (non-Javadoc)
@@ -61,6 +66,7 @@ public class PrepareEstimatorPartitions implements IJob, IBlackboardInteractingJ
 			throws RollbackFailedException {
 		this.blackboard.removePartition(CFG_PARTITION_ID);
 		this.blackboard.removePartition(CFG_CONFIGURATION_PARTITION_ID);
+		this.blackboard.removePartition(ESTIMATION_RESULT_PARTITION_ID);
 
 	}
 

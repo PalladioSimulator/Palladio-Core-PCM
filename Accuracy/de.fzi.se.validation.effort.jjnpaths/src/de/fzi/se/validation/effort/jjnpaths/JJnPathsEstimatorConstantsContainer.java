@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import de.fzi.se.controlflowdescription.ControlFlowDescriptionPackage;
 import de.fzi.se.controlflowdescription.graph.GraphPackage;
 import de.fzi.se.controlflowdescription.jjnpaths.JJnPathsPackage;
+import de.fzi.se.validation.effort.estimation.EstimationPackage;
 
 /**Constants container for the JJn-Paths estimation.
  *
@@ -29,5 +30,10 @@ public class JJnPathsEstimatorConstantsContainer {
 			ControlFlowDescriptionPackage.eINSTANCE,
 			GraphPackage.eINSTANCE,
 			JJnPathsPackage.eINSTANCE
+	};
+
+	/** EMF packages for the effort estimation result package. */
+	public static final EPackage[] RESULT_EPACKAGES = new EPackage[] {
+			EstimationPackage.eINSTANCE
 	};
 }

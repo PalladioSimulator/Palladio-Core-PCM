@@ -5,7 +5,14 @@
          point="de.fzi.se.validation.effort.estimation">
       <validationeffortestimator
             configurationTab="de.fzi.se.validation.effort.jjnpaths.ui.JJnPathsEstimatorConfigurationTab"
-            estimator="de.fzi.se.validation.effort.jjnpaths.JJnPathsEstimator">
+            estimator="de.fzi.se.validation.effort.jjnpaths.JJnPathsLowerBoundEstimator">
+      </validationeffortestimator>
+   </extension>
+   <extension
+         point="de.fzi.se.validation.effort.estimation">
+      <validationeffortestimator
+            configurationTab="de.fzi.se.validation.effort.jjnpaths.ui.JJnPathsEstimatorConfigurationTab"
+            estimator="de.fzi.se.validation.effort.jjnpaths.JJnPathsUpperBoundEstimator">
       </validationeffortestimator>
    </extension>
 
