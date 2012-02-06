@@ -280,33 +280,6 @@
     <listeners></listeners>
   </project>
   
-  <!-- #### BELOW: Workflow Engine Build for Eclipse 3.7 ################################### -->
-  <project name="Workflow Engine for Eclipse 3.7" requiremodification="true">
-    <modificationset>
-      <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
-	  <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/WorkflowEngine/branches/PCMIndigoMigration" username="cruisecontrol" password="obREaglAkEmhaDwl" />	
-    </modificationset>
-    <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
-      <ant buildfile="/home/ccontrol/svn/code/workflowEngine/de.uka.ipd.sdq.workflow.pluginbuilder.3.7/build.xml" target="main" antworkingdir="/home/ccontrol/svn/code/workflowEngine/de.uka.ipd.sdq.workflow.pluginbuilder.3.7" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
-    </schedule>
-    <labelincrementer defaultlabel="1.0" prebuildincrementer="true"></labelincrementer>
-    <publishers>
-      <htmlemail buildresultsurl="https://sdqweb.ipd.kit.edu/dashboard/" mailhost="smtp.ira.uni-karlsruhe.de" reportsuccess="fixes" returnname="CruiseControl Build" subjectprefix="[CruiseControl]: " spamwhilebroken="false" failasimportant="true" returnaddress="webmaster-sdq@ipd.uka.de" skipusers="true"> 
-        <always address="palladio-dev@ira.uka.de"></always> 
-      </htmlemail>
-      <onsuccess>
-		<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.workflow.pluginbuilder.3.7" buildfile="/home/ccontrol/svn/code/workflowEngine/de.uka.ipd.sdq.workflow.pluginbuilder.3.7/upload.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
-      </onsuccess>
-      <onfailure>
-      	<antpublisher antscript="/usr/bin/ant" antworkingdir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.workflow.pluginbuilder.3.7" buildfile="/home/ccontrol/svn/code/workflowEngine/de.uka.ipd.sdq.workflow.pluginbuilder.3.7/upload-on-fail.xml" uselogger="true" usedebug="false" target="upload"></antpublisher>
-      </onfailure>
-    </publishers>
-    <bootstrappers>
-      <svnbootstrapper username="cruisecontrol" password="obREaglAkEmhaDwl" localworkingcopy="/home/ccontrol/svn/code/workflowEngine/de.uka.ipd.sdq.workflow.pluginbuilder.3.7"></svnbootstrapper>
-    </bootstrappers>
-    <listeners></listeners>
-  </project>
-  
   <!-- #### BELOW: Ginpex Build ################################### -->
   <project name="Palladio Ginpex" requiremodification="true">
     <modificationset>
