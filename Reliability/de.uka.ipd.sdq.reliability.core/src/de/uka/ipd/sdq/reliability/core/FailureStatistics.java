@@ -437,20 +437,56 @@ public class FailureStatistics {
 		}
 		printHandledFailuresStatistics(logger);
 		logger.warn("---- System Failure Statistics: END -----");
+
+		// ************* TEMPORORY START **************************
+		//try {
+		//	// Append current results to log file:
+		//	java.io.FileWriter fstream = new java.io.FileWriter(
+		//			"C:\\temp\\log.txt", true);
+		//	java.io.BufferedWriter out = new java.io.BufferedWriter(fstream);
+		//	out
+		//			.write(runCount
+		//					+ ";"
+		//					+ failedRuns.size()
+		// 					+ ";"
+		//					+ getUnhandledFailureCount(MarkovSoftwareInducedFailureType.class)
+		//					+ ";"
+		//					+ getUnhandledFailureCount(MarkovHardwareInducedFailureType.class)
+		//					+ ";"
+		//					+ getUnhandledFailureCount(MarkovNetworkInducedFailureType.class)
+		//					+ ";");
+		//	out.newLine();
+		//	out.close();
+		//} catch (Exception e) {
+		//	System.err.println("Error: " + e.getMessage());
+		//}
+		// ************* TEMPORORY STOP ***************************
 	}
 
+	// /**
+	// * TEMPORARY
+	// */
+	//private long getUnhandledFailureCount(final Class clazz) {
+	//	int result = 0;
+	//	for (MarkovFailureType ft : unhandledFailureCounters.keySet()) {
+	//		if (ft.getClass() == clazz) {
+	//			result += unhandledFailureCounters.get(ft);
+	//		}
+	//	}
+	//	return result;
+	//}
+
 	/**
-	 * Prints every one out of 1000 run counts to a logger.
+	 * Prints intermediate failure statistics to logger.
 	 * 
 	 * @param logger
 	 *            The logger to write the statistics to
 	 */
 	public synchronized void printRunCount(final Logger logger) {
 		if ((runCount % 50000) == 0) {
-			// logger.warn("Current usage scenario runs: " + runCount);
 			printFailureStatistics(logger);
 		} else if ((runCount % 10000) == 0) {
-			logger.warn("Current usage scenario runs: " + runCount);
+			logger.warn("Current usage scenario run count: " + runCount);
 		}
 	}
 
@@ -468,6 +504,23 @@ public class FailureStatistics {
 		totalFailureCount = 0;
 
 		runCount = 0;
+
+		// ************* TEMPORORY START **************************
+		//try {
+		//	// Create Log file if not yet existent:
+		//	java.io.File f = new java.io.File("C:\\temp\\log.txt");
+		//	if (!f.exists()) {
+		//		f.createNewFile();
+		//		java.io.BufferedWriter out = new java.io.BufferedWriter(
+		//				new java.io.FileWriter(f));
+		//		out.write("TotalRuns;TotalFailed;SWFailed;HWFailed;NWFailed;");
+		//		out.newLine();
+		//		out.close();
+		//	}
+		//} catch (java.io.IOException e) {
+		//	System.err.println("IO Error: " + e.getMessage());
+		//}
+		// ************* TEMPORORY STOP ***************************
 	}
 
 	/**
