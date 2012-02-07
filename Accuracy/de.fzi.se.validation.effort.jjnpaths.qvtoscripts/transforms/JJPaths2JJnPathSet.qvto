@@ -13,10 +13,12 @@ transformation JJPaths2JJnPathSet(inout descr : CFGD, in config : JJNPATHS);
 main() {
 	assert (config.objectsOfType(JJnPathsCreationParameter)->size() = 1) with log('Configuration model must contain exactly one JJnPathsCreationParameter instance with configuration parameters.');
 	var n : Integer = config.objects()[JJnPathsCreationParameter]->any(true).n;
-	log('JJPathSet2JJnPathSet started with n=' + n.toString() + ' as limit');
+	log('JJPathSet2JJnPathSet started for n=' + n.toString() + '');
 	descr.objects()[ControlFlowDescription]->createJJnPathSet(n);
 	log('JJPathSet2JJnPathSet completed')
 }
+
+property finalNumber : Integer = -1;
 
 /**Intermediate set of JJn-Paths used in calculation */
 intermediate property JJnPathSet::temppaths : OrderedSet(JJnPath);
@@ -27,6 +29,7 @@ intermediate property JJnPathSet::temppaths : OrderedSet(JJnPath);
  */
 mapping inout ControlFlowDescription:: createJJnPathSet(limit : Integer)
 	when {self.jjpaths->notEmpty(); } {
+	finalNumber := self.graph.vertices->size();
 	jjnpathsets := jjnpathsets-jjnpathsets->select(jjnpathset | jjnpathset.n = limit);
 	var jjnpathset : JJnPathSet  = object JJnPathSet {
 		n := 1; temppaths += self.jjpaths->map createJJ1Path();
@@ -65,9 +68,15 @@ helper JJnPathSet :: NextN(jjpaths : Set(JJPath)) : Set(JJnPath) {
 			jjnpaths += jjnpath.map AddToSequence(combinedPath);
 		};
 	};
-	// Remove paths which are completely contained in newly added paths
-	self.temppaths->select(jjnpath | jjnpath.jjpaths->size() = maxlength and jjnpath._from.number != 1)->forEach(path) {descr.removeElement(path)};
-	jjnpaths += self.temppaths->select(jjnpath | jjnpath.jjpaths->size() != maxlength or jjnpath._from.number = 1);
+	/* Remove paths which are completely contained in newly added paths
+	 * These are paths which
+	 * 1) have maxlength (before the step) and do not end at final node
+	 *   -> superseded by added all combinable paths
+	 * 2) have maxlength (before the step) and do end at final node but do not begin with first node
+	 *   -> superseded by path starting one JJ-Path before the path and have just been added the path to the final node
+	 */
+	self.temppaths->select(jjnpath | jjnpath.jjpaths->size() = maxlength and (jjnpath._from.number != 1 or jjnpath.jumpTo.number != finalNumber))->forEach(path) {descr.removeElement(path); };
+	jjnpaths += self.temppaths->select(jjnpath | jjnpath.jjpaths->size() = maxlength and (jjnpath.jumpTo.number = finalNumber and jjnpath._from.number = 1));
 	return jjnpaths;
 }
 

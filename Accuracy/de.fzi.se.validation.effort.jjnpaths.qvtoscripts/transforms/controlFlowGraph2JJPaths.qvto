@@ -50,7 +50,7 @@ query Graph :: jumpTargets() : Set(Vertex) {
 query Vertex :: jumpPaths() : Set(JJPath) {
 	var jjpaths : Set(JJPath) = Set {};
 	self.to->select(v : Vertex | v.number = self.number + 1).jumpPaths()->forEach(path) {path._from := self; jjpaths += path; };
-	self.to->select(v : Vertex | v.number != self.number + 1)->forEach(target) {
+	self.to->select(v : Vertex | v.number != self.number + 1 or v.number = self.graph.vertices->size())->forEach(target) {
 		jjpaths += object JJPath { _from := self; to := self; jumpTo := target};
 	};
 	return jjpaths;

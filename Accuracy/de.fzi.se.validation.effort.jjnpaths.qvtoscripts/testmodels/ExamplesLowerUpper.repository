@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" xmlns:seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" id="_dzSg4FGKEeG6_OcpqwViDA" entityName="defaultRepository">
+  <components__Repository xsi:type="repository:BasicComponent" id="_hFkJ8FGKEeG6_OcpqwViDA" entityName="LowerBound">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_luAUsFGKEeG6_OcpqwViDA" entityName="Provided_ITest_LowerBound" providedInterface__OperationProvidedRole="_iXS3kFGKEeG6_OcpqwViDA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_luMh8FGKEeG6_OcpqwViDA" describedService__SEFF="_jp6WAFGKEeG6_OcpqwViDA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_luNJAFGKEeG6_OcpqwViDA" successor_AbstractAction="_MwFCEFGLEeG6_OcpqwViDA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_luNwEFGKEeG6_OcpqwViDA" predecessor_AbstractAction="_MwFCEFGLEeG6_OcpqwViDA"/>
+      <steps_Behaviour xsi:type="seff:BranchAction" id="_MwFCEFGLEeG6_OcpqwViDA" entityName="probabilisticBranch" predecessor_AbstractAction="_luNJAFGKEeG6_OcpqwViDA" successor_AbstractAction="_luNwEFGKEeG6_OcpqwViDA">
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_PaxtwFGLEeG6_OcpqwViDA" entityName="branch1" branchProbability="0.8">
+          <branchBehaviour_BranchTransition id="_PayU0FGLEeG6_OcpqwViDA">
+            <steps_Behaviour xsi:type="seff:StartAction" id="_Pay74FGLEeG6_OcpqwViDA" successor_AbstractAction="_Pay74VGLEeG6_OcpqwViDA"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_Pay74VGLEeG6_OcpqwViDA" predecessor_AbstractAction="_Pay74FGLEeG6_OcpqwViDA"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_RLUeUFGLEeG6_OcpqwViDA" entityName="branch2" branchProbability="0.2">
+          <branchBehaviour_BranchTransition id="_RLVFYFGLEeG6_OcpqwViDA">
+            <steps_Behaviour xsi:type="seff:StartAction" id="_RLVscFGLEeG6_OcpqwViDA" successor_AbstractAction="_RLVscVGLEeG6_OcpqwViDA"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_RLVscVGLEeG6_OcpqwViDA" predecessor_AbstractAction="_RLVscFGLEeG6_OcpqwViDA"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_kfPbgFGKEeG6_OcpqwViDA" entityName="UpperBound">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_mR8IMFGKEeG6_OcpqwViDA" entityName="Provided_ITest_UpperBound" providedInterface__OperationProvidedRole="_iXS3kFGKEeG6_OcpqwViDA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_mR8IMVGKEeG6_OcpqwViDA" describedService__SEFF="_jp6WAFGKEeG6_OcpqwViDA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_mR8vQFGKEeG6_OcpqwViDA" successor_AbstractAction="_yUQDgFGKEeG6_OcpqwViDA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_mR8vQVGKEeG6_OcpqwViDA" predecessor_AbstractAction="_yUQDgFGKEeG6_OcpqwViDA"/>
+      <steps_Behaviour xsi:type="seff:BranchAction" id="_yUQDgFGKEeG6_OcpqwViDA" entityName="deterministicBranch" predecessor_AbstractAction="_mR8vQFGKEeG6_OcpqwViDA" successor_AbstractAction="_mR8vQVGKEeG6_OcpqwViDA">
+        <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_0ay5QFGKEeG6_OcpqwViDA" entityName="branch1">
+          <branchBehaviour_BranchTransition id="_0a8DMFGKEeG6_OcpqwViDA">
+            <steps_Behaviour xsi:type="seff:StartAction" id="_0a8qQFGKEeG6_OcpqwViDA" successor_AbstractAction="_0a9RUFGKEeG6_OcpqwViDA"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_0a9RUFGKEeG6_OcpqwViDA" predecessor_AbstractAction="_0a8qQFGKEeG6_OcpqwViDA"/>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition/>
+        </branches_Branch>
+        <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_59K8sFGKEeG6_OcpqwViDA" entityName="branch2">
+          <branchBehaviour_BranchTransition id="_59LjwFGKEeG6_OcpqwViDA">
+            <steps_Behaviour xsi:type="seff:StartAction" id="_59MK0FGKEeG6_OcpqwViDA" successor_AbstractAction="_59MK0VGKEeG6_OcpqwViDA"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_59MK0VGKEeG6_OcpqwViDA" predecessor_AbstractAction="_59MK0FGKEeG6_OcpqwViDA"/>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_GuardedBranchTransition/>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_iXS3kFGKEeG6_OcpqwViDA" entityName="ITest">
+    <signatures__OperationInterface id="_jp6WAFGKEeG6_OcpqwViDA" entityName="test"/>
+  </interfaces__Repository>
+</repository:Repository>
