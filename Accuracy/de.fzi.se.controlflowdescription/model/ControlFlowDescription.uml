@@ -250,10 +250,24 @@ vertices in the graph as number.</body>
       <packagedElement xmi:type="uml:Association" xmi:id="_M0JJgEJzEeGF4PdswvfpHg" name="jjpaths" memberEnd="_M0LlwEJzEeGF4PdswvfpHg _M1lT8EJzEeGF4PdswvfpHg"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_wx4v8EKDEeGF4PdswvfpHg" name="JJnPathsCreationParameter">
         <ownedAttribute xmi:id="_zB-jQEKDEeGF4PdswvfpHg" name="n" visibility="public">
+          <ownedComment xmi:id="_eHmbsFDUEeG7F5FNMg94iw" annotatedElement="_zB-jQEKDEeGF4PdswvfpHg">
+            <body>Sequence number n&amp;nbsp;in&amp;nbsp;JJn-Path.</body>
+          </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_5GL4UEcsEeGF4PdswvfpHg" name="targetId" visibility="public">
+          <ownedComment xmi:id="_aQrNcFDUEeG7F5FNMg94iw" annotatedElement="_5GL4UEcsEeGF4PdswvfpHg">
+            <body>UUID&amp;nbsp;of&amp;nbsp;the&amp;nbsp;targeted&amp;nbsp;ResourceDemandingBehaviour&amp;nbsp;which&amp;nbsp;is&amp;nbsp;used&amp;nbsp;to&amp;nbsp;construct&amp;nbsp;the&amp;nbsp;graph&amp;nbsp;and&amp;nbsp;its&#xD;
+JJnPaths.</body>
+          </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_BSl_QFDUEeG7F5FNMg94iw" name="alpha" visibility="public">
+          <ownedComment xmi:id="_R5mNwFDUEeG7F5FNMg94iw" annotatedElement="_BSl_QFDUEeG7F5FNMg94iw">
+            <body>Confidence. Reasonable values are within (0,1). 0 means no tests are required, 1 can only be fulfilled if there are no&#xD;
+probabilistc transitions in the graph.</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_SnNy8ENFEeGF4PdswvfpHg" name="testset" memberEnd="_SnPBEENFEeGF4PdswvfpHg _SnQ2QENFEeGF4PdswvfpHg"/>
@@ -359,4 +373,7 @@ vertices in the graph as number.</body>
   <Ecore:EReference xmi:id="_tuDZQEKIEeGF4PdswvfpHg" xmlName="from" isTransient="true" isVolatile="true" base_Property="__JX2EEKHEeGF4PdswvfpHg" referenceName="from"/>
   <Default:Documentation xmi:id="_VUee8EKLEeGF4PdswvfpHg" base_Comment="_VUcCsEKLEeGF4PdswvfpHg"/>
   <Default:Documentation xmi:id="_ccj78EKLEeGF4PdswvfpHg" base_Comment="_cchfsEKLEeGF4PdswvfpHg"/>
+  <Default:Documentation xmi:id="_R5-BMFDUEeG7F5FNMg94iw" base_Comment="_R5mNwFDUEeG7F5FNMg94iw"/>
+  <Default:Documentation xmi:id="_aQtCoFDUEeG7F5FNMg94iw" base_Comment="_aQrNcFDUEeG7F5FNMg94iw"/>
+  <Default:Documentation xmi:id="_eHo38FDUEeG7F5FNMg94iw" base_Comment="_eHmbsFDUEeG7F5FNMg94iw"/>
 </xmi:XMI>

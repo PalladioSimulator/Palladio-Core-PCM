@@ -311,13 +311,22 @@ public interface JJnPathsPackage extends EPackage {
 	int JJN_PATHS_CREATION_PARAMETER__TARGET_ID = 1;
 
 	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JJN_PATHS_CREATION_PARAMETER__ALPHA = 2;
+
+	/**
 	 * The number of structural features of the '<em>Creation Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JJN_PATHS_CREATION_PARAMETER_FEATURE_COUNT = 2;
+	int JJN_PATHS_CREATION_PARAMETER_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathSetImpl <em>JJn Path Set</em>}' class.
@@ -624,6 +633,17 @@ public interface JJnPathsPackage extends EPackage {
 	EAttribute getJJnPathsCreationParameter_TargetId();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getAlpha <em>Alpha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alpha</em>'.
+	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getAlpha()
+	 * @see #getJJnPathsCreationParameter()
+	 * @generated
+	 */
+	EAttribute getJJnPathsCreationParameter_Alpha();
+
+	/**
 	 * Returns the meta object for class '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathSet <em>JJn Path Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -892,6 +912,14 @@ public interface JJnPathsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JJN_PATHS_CREATION_PARAMETER__TARGET_ID = eINSTANCE.getJJnPathsCreationParameter_TargetId();
+
+		/**
+		 * The meta object literal for the '<em><b>Alpha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JJN_PATHS_CREATION_PARAMETER__ALPHA = eINSTANCE.getJJnPathsCreationParameter_Alpha();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathSetImpl <em>JJn Path Set</em>}' class.

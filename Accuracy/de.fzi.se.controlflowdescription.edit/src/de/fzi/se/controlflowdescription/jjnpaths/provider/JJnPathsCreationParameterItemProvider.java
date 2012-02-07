@@ -68,6 +68,7 @@ public class JJnPathsCreationParameterItemProvider
 
 			addNPropertyDescriptor(object);
 			addTargetIdPropertyDescriptor(object);
+			addAlphaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -117,6 +118,28 @@ public class JJnPathsCreationParameterItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Alpha feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAlphaPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JJnPathsCreationParameter_alpha_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JJnPathsCreationParameter_alpha_feature", "_UI_JJnPathsCreationParameter_type"),
+				 JJnPathsPackage.Literals.JJN_PATHS_CREATION_PARAMETER__ALPHA,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns JJnPathsCreationParameter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,6 +176,7 @@ public class JJnPathsCreationParameterItemProvider
 		switch (notification.getFeatureID(JJnPathsCreationParameter.class)) {
 			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__N:
 			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__TARGET_ID:
+			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__ALPHA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

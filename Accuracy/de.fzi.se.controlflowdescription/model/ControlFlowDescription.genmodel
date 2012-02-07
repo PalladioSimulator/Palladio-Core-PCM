@@ -135,6 +135,7 @@
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//jjnpaths/JJnPathsCreationParameter">
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//jjnpaths/JJnPathsCreationParameter/n"/>
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//jjnpaths/JJnPathsCreationParameter/targetId"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//jjnpaths/JJnPathsCreationParameter/alpha"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//jjnpaths/JJnPathSet">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"

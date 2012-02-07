@@ -274,9 +274,23 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="JJnPathsCreationParameter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="n" ordered="false" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Sequence number n&amp;nbsp;in&amp;nbsp;JJn-Path."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetId" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="UUID&amp;nbsp;of&amp;nbsp;the&amp;nbsp;targeted&amp;nbsp;ResourceDemandingBehaviour&amp;nbsp;which&amp;nbsp;is&amp;nbsp;used&amp;nbsp;to&amp;nbsp;construct&amp;nbsp;the&amp;nbsp;graph&amp;nbsp;and&amp;nbsp;its&#xD;&#xA;JJnPaths."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="alpha" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Confidence. Reasonable values are within (0,1). 0 means no tests are required, 1 can only be fulfilled if there are no&#xD;&#xA;probabilistc transitions in the graph."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="JJnPathSet">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

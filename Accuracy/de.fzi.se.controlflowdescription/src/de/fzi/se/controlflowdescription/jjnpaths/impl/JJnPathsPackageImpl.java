@@ -374,6 +374,15 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJJnPathsCreationParameter_Alpha() {
+		return (EAttribute)jJnPathsCreationParameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJJnPathSet() {
 		return jJnPathSetEClass;
 	}
@@ -469,6 +478,7 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 		jJnPathsCreationParameterEClass = createEClass(JJN_PATHS_CREATION_PARAMETER);
 		createEAttribute(jJnPathsCreationParameterEClass, JJN_PATHS_CREATION_PARAMETER__N);
 		createEAttribute(jJnPathsCreationParameterEClass, JJN_PATHS_CREATION_PARAMETER__TARGET_ID);
+		createEAttribute(jJnPathsCreationParameterEClass, JJN_PATHS_CREATION_PARAMETER__ALPHA);
 
 		jJnPathSetEClass = createEClass(JJN_PATH_SET);
 		createEReference(jJnPathSetEClass, JJN_PATH_SET__JJNPATHS);
@@ -538,6 +548,7 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 		initEClass(jJnPathsCreationParameterEClass, JJnPathsCreationParameter.class, "JJnPathsCreationParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJJnPathsCreationParameter_N(), ecorePackage.getEInt(), "n", null, 1, 1, JJnPathsCreationParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getJJnPathsCreationParameter_TargetId(), ecorePackage.getEString(), "targetId", null, 1, 1, JJnPathsCreationParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getJJnPathsCreationParameter_Alpha(), ecorePackage.getEDouble(), "alpha", null, 1, 1, JJnPathsCreationParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(jJnPathSetEClass, JJnPathSet.class, "JJnPathSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJJnPathSet_Jjnpaths(), this.getJJnPath(), this.getJJnPath_Jjnpathset(), "jjnpaths", null, 0, -1, JJnPathSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -578,7 +589,7 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 		   source, 
 		   new String[] {
 			 "name", "jumpTo"
-		   });									
+		   });												
 	}
 
 } //JJnPathsPackageImpl

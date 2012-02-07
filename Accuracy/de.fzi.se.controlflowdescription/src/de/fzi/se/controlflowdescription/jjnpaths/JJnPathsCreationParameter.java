@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getN <em>N</em>}</li>
  *   <li>{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getTargetId <em>Target Id</em>}</li>
+ *   <li>{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getAlpha <em>Alpha</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,6 +35,9 @@ public interface JJnPathsCreationParameter extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Sequence number n&nbsp;in&nbsp;JJn-Path.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>N</em>' attribute.
 	 * @see #setN(int)
 	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsPackage#getJJnPathsCreationParameter_N()
@@ -60,6 +64,10 @@ public interface JJnPathsCreationParameter extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * UUID&nbsp;of&nbsp;the&nbsp;targeted&nbsp;ResourceDemandingBehaviour&nbsp;which&nbsp;is&nbsp;used&nbsp;to&nbsp;construct&nbsp;the&nbsp;graph&nbsp;and&nbsp;its
+	 * JJnPaths.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Target Id</em>' attribute.
 	 * @see #setTargetId(String)
 	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsPackage#getJJnPathsCreationParameter_TargetId()
@@ -77,5 +85,31 @@ public interface JJnPathsCreationParameter extends EObject {
 	 * @generated
 	 */
 	void setTargetId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Confidence. Reasonable values are within (0,1). 0 means no tests are required, 1 can only be fulfilled if there are no
+	 * probabilistc transitions in the graph.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Alpha</em>' attribute.
+	 * @see #setAlpha(double)
+	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsPackage#getJJnPathsCreationParameter_Alpha()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	double getAlpha();
+
+	/**
+	 * Sets the value of the '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getAlpha <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Alpha</em>' attribute.
+	 * @see #getAlpha()
+	 * @generated
+	 */
+	void setAlpha(double value);
 
 } // JJnPathsCreationParameter

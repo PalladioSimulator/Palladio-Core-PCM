@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsCreationParameterImpl#getN <em>N</em>}</li>
  *   <li>{@link de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsCreationParameterImpl#getTargetId <em>Target Id</em>}</li>
+ *   <li>{@link de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsCreationParameterImpl#getAlpha <em>Alpha</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +71,26 @@ public class JJnPathsCreationParameterImpl extends EObjectImpl implements JJnPat
 	 * @ordered
 	 */
 	protected String targetId = TARGET_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double ALPHA_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlpha()
+	 * @generated
+	 * @ordered
+	 */
+	protected double alpha = ALPHA_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,6 +158,27 @@ public class JJnPathsCreationParameterImpl extends EObjectImpl implements JJnPat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getAlpha() {
+		return alpha;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlpha(double newAlpha) {
+		double oldAlpha = alpha;
+		alpha = newAlpha;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__ALPHA, oldAlpha, alpha));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -144,6 +186,8 @@ public class JJnPathsCreationParameterImpl extends EObjectImpl implements JJnPat
 				return getN();
 			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__TARGET_ID:
 				return getTargetId();
+			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__ALPHA:
+				return getAlpha();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,6 +205,9 @@ public class JJnPathsCreationParameterImpl extends EObjectImpl implements JJnPat
 				return;
 			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__TARGET_ID:
 				setTargetId((String)newValue);
+				return;
+			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__ALPHA:
+				setAlpha((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,6 +227,9 @@ public class JJnPathsCreationParameterImpl extends EObjectImpl implements JJnPat
 			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__TARGET_ID:
 				setTargetId(TARGET_ID_EDEFAULT);
 				return;
+			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__ALPHA:
+				setAlpha(ALPHA_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,6 +246,8 @@ public class JJnPathsCreationParameterImpl extends EObjectImpl implements JJnPat
 				return n != N_EDEFAULT;
 			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__TARGET_ID:
 				return TARGET_ID_EDEFAULT == null ? targetId != null : !TARGET_ID_EDEFAULT.equals(targetId);
+			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER__ALPHA:
+				return alpha != ALPHA_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -214,6 +266,8 @@ public class JJnPathsCreationParameterImpl extends EObjectImpl implements JJnPat
 		result.append(n);
 		result.append(", targetId: ");
 		result.append(targetId);
+		result.append(", alpha: ");
+		result.append(alpha);
 		result.append(')');
 		return result.toString();
 	}
