@@ -3,5 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Blackbox
 Bundle-SymbolicName: de.fzi.se.validation.effort.blackbox;singleton:=true
 Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: FZI Forschungszentrum Informatik
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.m2m.qvt.oml;bundle-version="3.1.0"
