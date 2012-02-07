@@ -177,7 +177,7 @@ helper ForkAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) 
 	var join : Vertex = new Vertex(nextNumber(), outerIterations);
 	subVertices->forEach (orderedset) {
 		orderedset->last().to += join;
-		orderedset->last().transitionProbability += new TransitionProbability(1);
+		orderedset->last().transitionProbability += new TransitionProbability(1.0 / (self.asynchronousForkedBehaviours_ForkAction->size() + self.synchronisingBehaviours_ForkAction->size()));
 	};
 	newVertices += fork;
 	newVertices += subVertices->flatten();

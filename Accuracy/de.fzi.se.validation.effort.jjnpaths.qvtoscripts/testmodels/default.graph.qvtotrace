@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
+  <traceRecords>
+    <mappingOperation name="createDescription" package="behaviour2ControlFlowGraph" module="behaviour2ControlFlowGraph">
+      <runtimeMappingOperation href="qvto:/module.env#/0/createDescription"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="ResourceDemandingBehaviour">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.repository#_hTaCUEEbEeGqQKsRg9fxWQ"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="ControlFlowDescription">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#/"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+</trace:Trace>

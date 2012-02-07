@@ -37,7 +37,7 @@ mapping JJnPathSet :: Estimate() : EffortEstimationResult {
 	result.numberTestcases := requiredTests.ceiling();
 }
 
-/**Stores the probability of reaching a vertex for a single invocatino of the graph at each vertex.
+/**Stores the probability of reaching a vertex for a single invocation of the graph at each vertex.
  */
 helper Graph :: DetermineProbabilityOfReaching() {
 	var currentNumber := 1;
@@ -47,9 +47,6 @@ helper Graph :: DetermineProbabilityOfReaching() {
 		current := self.vertices->any(vertex | vertex.number = currentNumber);
 		current.to->forEach (target) {
 			target.probabilityOfReaching := target.probabilityOfReaching + current.transitionProbability->at(current.to->indexOf(target)).probability * current.probabilityOfReaching;
-			if (target.probabilityOfReaching > 1) then {
-				target.probabilityOfReaching := 1;
-				} endif;
 		};
 		currentNumber := currentNumber + 1;
 	};
@@ -66,21 +63,33 @@ mapping JJnPath :: DeterminePathProbability() {
 		// way to first node
 		if (currentNumber != 0) then {
 			index := self.getVertex(currentNumber).to->indexOf(self.getVertex(jjpath._from.number));
-			probability := probability * self.getVertex(currentNumber).transitionProbability->at(index).probability;
+			if (self.getVertex(currentNumber).to->size() = 1 and self.getVertex(currentNumber).transitionProbability->at(index).probability < 1) then {
+				probability := probability * 1;
+			} else {
+				probability := probability * self.getVertex(currentNumber).transitionProbability->at(index).probability;
+			} endif;
 		} endif;
 		// jump-free path
 		currentNumber := jjpath._from.number;
 		while (currentNumber < jjpath.to.number) {
 			self.minIterations := self.minIterations.min(self.getVertex(currentNumber).iterations);
 			index := self.getVertex(currentNumber).to->indexOf(self.getVertex(currentNumber + 1));
-			probability := probability * self.getVertex(currentNumber).transitionProbability->at(index).probability;
+			if (self.getVertex(currentNumber).to->size() = 1 and self.getVertex(currentNumber).transitionProbability->at(index).probability < 1) then {
+				probability := probability * 1;
+			} else {
+				probability := probability * self.getVertex(currentNumber).transitionProbability->at(index).probability;
+			} endif;
 			currentNumber := currentNumber + 1;
 		};
 		// jump at the end
 		currentNumber := jjpath.to.number;
 		self.minIterations := self.minIterations.min(self.getVertex(currentNumber).iterations);
 		index := self.getVertex(currentNumber).to->indexOf(self.getVertex(jjpath.jumpTo.number));
-		probability := probability * self.getVertex(currentNumber).transitionProbability->at(index).probability;
+		if (self.getVertex(currentNumber).to->size() = 1 and self.getVertex(currentNumber).transitionProbability->at(index).probability < 1) then {
+			probability := probability * 1;
+		} else {
+			probability := probability * self.getVertex(currentNumber).transitionProbability->at(index).probability;
+		} endif;
 		currentNumber := jjpath.jumpTo.number;
 		self.minIterations := self.minIterations.min(self.getVertex(currentNumber).iterations);
 	};
