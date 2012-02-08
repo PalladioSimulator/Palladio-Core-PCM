@@ -23,8 +23,8 @@ transformation behaviour2ControlFlowGraph(
  */
 main() {
 		log('RD-SEFF to Control-Flow Graph transformation started');
-		assert (config.objects()[JJnPathsCreationParameter]->size() = 1) with log("Configuration input model must have exactly 1 creation parameter instance.");
-		var targetId : String = config.objects()[JJnPathsCreationParameter]->any(true).targetId;
+		assert (config.objects()[JJnPathsEffortEstimationResult]->size() = 1) with log("Configuration input model must have exactly 1 creation parameter instance.");
+		var targetId : String = config.objects()[JJnPathsEffortEstimationResult]->any(true).targetId;
 		var target : ResourceDemandingBehaviour = behaviour.objects()[ResourceDemandingBehaviour]->select(b | b.id = targetId)->any(true);
 		assert(target != null) with log ('Could not find the ResourceDemandingBehaviour with the id specified in the targetId of the configuration. targetId=' + targetId);
 

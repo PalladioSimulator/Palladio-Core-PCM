@@ -9,15 +9,11 @@ modeltype ESTIMATION uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
 /**Estimation for the lower bound of required tests for a graph.
  * @author Henning Groenda
  */
-transformation JJnPaths2LowerBoundEstimation(in descr : CFGD, in config : JJNPATHS, out estimation : ESTIMATION);
+transformation JJnPaths2LowerBoundEstimation(in descr : CFGD, inout estimation : JJNPATHS);
 
 main() {
-	assert (config.objectsOfType(JJnPathsCreationParameter)->size() = 1) with log('Configuration model must contain exactly one JJnPathsCreationParameter instance with configuration parameters.');
-	var n : Integer = config.objects()[JJnPathsCreationParameter]->any(true).n;
-	alpha := config.objects()[JJnPathsCreationParameter]->any(true).alpha;
-	log('JJnPaths2LowerBoundEstimation started with n=' + n.toString() + ' and alpha=' + alpha.toString());
-	assert (descr.objects()[ControlFlowDescription].jjnpathsets->select(set | set.n = n)->size() = 1) with log('There must be exactly one JJnPathSet for the provided number.');
-	descr.objects()[ControlFlowDescription].jjnpathsets->select(set | set.n = n)->map Estimate();
+	log('JJnPaths2LowerBoundEstimation started ');
+	estimation.objects()[JJnPathsEffortEstimationResult].map Estimate();
 	log('JJnPaths2LowerBoundEstimation completed')
 }
 
@@ -30,17 +26,27 @@ intermediate property JJnPath :: minIterations : Real;
 /** Probability of reaching the vertex for an appropriate call to the overall graph. */
 intermediate property Vertex :: probabilityOfReaching : Real;
 
-/**Provide an effort estimation for the lower bound.
+/**Provide an estimate for the given effort configuration.
  */
-mapping JJnPathSet :: Estimate() : EffortEstimationResult {
+mapping inout JJnPathsEffortEstimationResult :: Estimate() {
+	log('Estimate started for targetId=' + self.targetId + ', n=' + self.n.toString() + ', alpha=' + self.alpha.toString());
+	assert (descr.objects()[ControlFlowDescription].jjnpathsets->select(set | set.n = n)->size() = 1) with log('There must be exactly one JJnPathSet for the provided number.');
+	alpha := self.alpha;
+	self.numberTestcases := descr.objects()[ControlFlowDescription].jjnpathsets->any(set | set.n = n).Estimate();
+	log('Estimate complete. numberTestcases=' + self.numberTestcases.toString());
+}
+
+/**Provide an effort estimation for the lower bound.
+ * @return Number of test cases
+ */
+helper JJnPathSet :: Estimate() : Integer {
 	self.controlflowdescription.graph.DetermineProbabilityOfReaching();
 	var requiredTests : Real = 0;
 	self.jjnpaths->forEach (jjnpath) {
 		jjnpath.map DeterminePathProbability();
 		requiredTests := requiredTests.max(testsForProbability(jjnpath._from.probabilityOfReaching * jjnpath.probabilityOfExperience) / jjnpath.minIterations);
 	};
-	result.numberTestcases := ceiling(requiredTests);
-	log('numberTestcases=' + result.numberTestcases.toString());
+	return ceiling(requiredTests);
 }
 
 /**Stores the probability of reaching a vertex for a single invocation of the graph at each vertex.

@@ -2,23 +2,17 @@
 <trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
   <traceRecords>
     <mappingOperation name="Estimate" package="JJnPaths2UpperBoundEstimation" module="JJnPaths2UpperBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//Estimate"/>
+      <runtimeMappingOperation href="qvto:/module.env#//Estimate.1"/>
     </mappingOperation>
     <context>
-      <context name="self" type="JJnPathSet">
+      <context kind="INOUT" name="self" type="JJnPathsEffortEstimationResult">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@jjnpathsets.0"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.jjnpaths#/"/>
         </value>
       </context>
     </context>
     <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="EffortEstimationResult">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lowerUpper.estimation#/"/>
-        </value>
-      </result>
-    </result>
+    <result/>
   </traceRecords>
   <traceRecords>
     <mappingOperation name="DeterminePathProbability" package="JJnPaths2UpperBoundEstimation" module="JJnPaths2UpperBoundEstimation">

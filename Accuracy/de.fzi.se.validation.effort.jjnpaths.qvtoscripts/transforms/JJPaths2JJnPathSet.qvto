@@ -11,8 +11,8 @@ modeltype GRAPH uses 'http://se.fzi.de/ControlFlowDescription/Graph/0.6';
 transformation JJPaths2JJnPathSet(inout descr : CFGD, in config : JJNPATHS);
 
 main() {
-	assert (config.objectsOfType(JJnPathsCreationParameter)->size() = 1) with log('Configuration model must contain exactly one JJnPathsCreationParameter instance with configuration parameters.');
-	var n : Integer = config.objects()[JJnPathsCreationParameter]->any(true).n;
+	assert (config.objectsOfType(JJnPathsEffortEstimationResult)->size() = 1) with log('Configuration model must contain exactly one JJnPathsCreationParameter instance with configuration parameters.');
+	var n : Integer = config.objects()[JJnPathsEffortEstimationResult]->any(true).n;
 	log('JJPathSet2JJnPathSet started for n=' + n.toString() + '');
 	descr.objects()[ControlFlowDescription]->createJJnPathSet(n);
 	log('JJPathSet2JJnPathSet completed')

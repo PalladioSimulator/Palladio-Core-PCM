@@ -2,340 +2,12 @@
 <trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
   <traceRecords>
     <mappingOperation name="Estimate" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//Estimate"/>
+      <runtimeMappingOperation href="qvto:/module.env#//Estimate.1"/>
     </mappingOperation>
     <context>
-      <context name="self" type="JJnPathSet">
+      <context kind="INOUT" name="self" type="JJnPathsEffortEstimationResult">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="EffortEstimationResult">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/defaultLower.estimation#/"/>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.13"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.62"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.54"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.26"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.4"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.2"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.55"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.23"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.16"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.29"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.39"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.24"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.18"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.0"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.1"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.42"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.28"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.61"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.43"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.20"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.47"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.22"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.60"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.jjnpaths#/"/>
         </value>
       </context>
     </context>
@@ -363,7 +35,49 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.49"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.44"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.51"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.60"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.59"/>
         </value>
       </context>
     </context>
@@ -391,35 +105,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.31"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.14"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.17"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.4"/>
         </value>
       </context>
     </context>
@@ -447,7 +133,147 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.39"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.33"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.5"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.41"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.29"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.49"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
           <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.21"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.25"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.19"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.10"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.7"/>
         </value>
       </context>
     </context>
@@ -475,7 +301,77 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.38"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.54"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.57"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.48"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.2"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.13"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.18"/>
         </value>
       </context>
     </context>
@@ -490,6 +386,146 @@
       <context name="self" type="JJnPath">
         <value>
           <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.32"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.6"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.61"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.38"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.8"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.55"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.45"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.26"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.42"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.35"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.1"/>
         </value>
       </context>
     </context>
@@ -531,90 +567,6 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.53"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.44"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.41"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.34"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.33"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.48"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
           <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.3"/>
         </value>
       </context>
@@ -629,7 +581,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.50"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.53"/>
         </value>
       </context>
     </context>
@@ -643,7 +595,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.8"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.62"/>
         </value>
       </context>
     </context>
@@ -657,21 +609,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.10"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.19"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.17"/>
         </value>
       </context>
     </context>
@@ -699,7 +637,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.45"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.50"/>
         </value>
       </context>
     </context>
@@ -713,7 +651,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.5"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.23"/>
         </value>
       </context>
     </context>
@@ -727,7 +665,21 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.30"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.34"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.0"/>
         </value>
       </context>
     </context>
@@ -755,7 +707,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.56"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.22"/>
         </value>
       </context>
     </context>
@@ -769,7 +721,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.35"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.20"/>
         </value>
       </context>
     </context>
@@ -783,7 +735,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.9"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.47"/>
         </value>
       </context>
     </context>
@@ -797,77 +749,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.59"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.6"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.57"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.25"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.51"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result/>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
-      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJnPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.7"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.30"/>
         </value>
       </context>
     </context>
@@ -895,7 +777,119 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.28"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
           <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.36"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.43"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.24"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.14"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.56"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.31"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.16"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph#//@jjnpathsets.0/@jjnpaths.9"/>
         </value>
       </context>
     </context>
