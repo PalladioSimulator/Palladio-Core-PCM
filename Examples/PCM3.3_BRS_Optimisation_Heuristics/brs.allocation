@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" id="_J3vPYLfXEd2PvvnrNadJLQ" entityName="BRS allocation">
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" id="_J3vPYLfXEd2PvvnrNadJLQ" entityName="BRS allocation">
   <targetResourceEnvironment_Allocation href="brs.resourceenvironment#/"/>
   <system_Allocation href="brs.system#_Mkm7gNo_EdyxgfK4Hy_RFA"/>
   <allocationContexts_Allocation id="_PZQ-QLfXEd2PvvnrNadJLQ" entityName="Allocation_AC_Webserver &lt;WebServer>">
@@ -38,4 +38,4 @@
     <resourceContainer_AllocationContext href="brs.resourceenvironment#_L0Dy4dpAEdyxgfK4Hy_RFA"/>
     <assemblyContext_AllocationContext href="brs.system#_Gnz2UHqQEd6uqIqMUZizUw"/>
   </allocationContexts_Allocation>
-</Allocation>
+</allocation:Allocation>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0">
+<resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0">
   <linkingResources__ResourceEnvironment id="_Sw3RcIbfEd-vRaQ65kIN7g" entityName="ConnectionForAllServers" connectedResourceContainers_LinkingResource="_8-cpgNo_EdyxgfK4Hy_RFA _EX6xcdpAEdyxgfK4Hy_RFA _U2Nv4dpAEdyxgfK4Hy_RFA _L0Dy4dpAEdyxgfK4Hy_RFA _IwYkwSYYEd-qOJxMJOMJYA _PQNu8SYYEd-qOJxMJOMJYA _PwyscSYYEd-qOJxMJOMJYA _QEbaISYYEd-qOJxMJOMJYA _QgPzcSYYEd-qOJxMJOMJYA">
     <communicationLinkResourceSpecifications_LinkingResource id="_TDUTYIbfEd-vRaQ65kIN7g">
       <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
@@ -61,4 +61,4 @@
       <processingRate_ProcessingResourceSpecification specification="10"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
-</ResourceEnvironment>
+</resourceenvironment:ResourceEnvironment>
