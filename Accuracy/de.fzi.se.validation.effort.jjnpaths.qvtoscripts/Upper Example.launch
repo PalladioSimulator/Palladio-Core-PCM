@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="de.fzi.se.validation.effort.launchConfigurationEstimator">
+<stringAttribute key="behaviourURI" value="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/ExamplesLowerUpper.repository#_mR8IMVGKEeG6_OcpqwViDA"/>
+<stringAttribute key="confidence" value="0.95"/>
+<intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="2"/>
+<stringAttribute key="n" value="2"/>
+<stringAttribute key="repositoryFile" value="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/ExamplesLowerUpper.repository"/>
+</launchConfiguration>
