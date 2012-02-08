@@ -40,4 +40,14 @@ public class MathFunctionsLibrary {
 	public Long ceiling(Double value) {
 		return new Double(Math.ceil(value)).longValue();
 	}
+
+	/**
+	 * Minimal normal {@link Double} value.
+	 * @see Double#MIN_NORMAL
+	 * @return {@link Double#MIN_NORMAL}
+	 */
+	@Operation(kind=Kind.QUERY, contextual=false)
+	public Double DoubleMinNormal() {
+		return Double.MIN_NORMAL;
+	}
 }
