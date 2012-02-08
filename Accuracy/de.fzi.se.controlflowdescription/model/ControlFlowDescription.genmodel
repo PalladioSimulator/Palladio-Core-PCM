@@ -3,7 +3,8 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" modelDirectory="/de.fzi.se.controlflowdescription/src"
     modelPluginID="de.fzi.se.controlflowdescription" modelName="ControlFlowDescription"
-    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="5.0" copyrightFields="false">
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units ../../de.fzi.se.validation.effort.estimation/model/ValidationEffortEstimation.genmodel#//estimation">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
     <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
     <details key="UNION_PROPERTIES" value="REPORT"/>
@@ -132,10 +133,8 @@
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference controlflowdescription.ecore#//jjnpaths/JJnPathTestCase/jjnpathtestset"/>
       </genClasses>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//jjnpaths/JJnPathsCreationParameter">
-        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//jjnpaths/JJnPathsCreationParameter/n"/>
-        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//jjnpaths/JJnPathsCreationParameter/targetId"/>
-        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//jjnpaths/JJnPathsCreationParameter/alpha"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//jjnpaths/JJnPathsEffortEstimationResult">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute controlflowdescription.ecore#//jjnpaths/JJnPathsEffortEstimationResult/n"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="controlflowdescription.ecore#//jjnpaths/JJnPathSet">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"

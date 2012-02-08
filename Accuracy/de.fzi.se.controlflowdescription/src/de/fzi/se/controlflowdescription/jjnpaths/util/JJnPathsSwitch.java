@@ -8,6 +8,7 @@ package de.fzi.se.controlflowdescription.jjnpaths.util;
 
 import de.fzi.se.controlflowdescription.jjnpaths.*;
 
+import de.fzi.se.validation.effort.estimation.EffortEstimationResult;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -111,9 +112,10 @@ public class JJnPathsSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER: {
-				JJnPathsCreationParameter jJnPathsCreationParameter = (JJnPathsCreationParameter)theEObject;
-				T result = caseJJnPathsCreationParameter(jJnPathsCreationParameter);
+			case JJnPathsPackage.JJN_PATHS_EFFORT_ESTIMATION_RESULT: {
+				JJnPathsEffortEstimationResult jJnPathsEffortEstimationResult = (JJnPathsEffortEstimationResult)theEObject;
+				T result = caseJJnPathsEffortEstimationResult(jJnPathsEffortEstimationResult);
+				if (result == null) result = caseEffortEstimationResult(jJnPathsEffortEstimationResult);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -188,17 +190,17 @@ public class JJnPathsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Creation Parameter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Effort Estimation Result</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Creation Parameter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Effort Estimation Result</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseJJnPathsCreationParameter(JJnPathsCreationParameter object) {
+	public T caseJJnPathsEffortEstimationResult(JJnPathsEffortEstimationResult object) {
 		return null;
 	}
 
@@ -214,6 +216,21 @@ public class JJnPathsSwitch<T> {
 	 * @generated
 	 */
 	public T caseJJnPathSet(JJnPathSet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Effort Estimation Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Effort Estimation Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEffortEstimationResult(EffortEstimationResult object) {
 		return null;
 	}
 

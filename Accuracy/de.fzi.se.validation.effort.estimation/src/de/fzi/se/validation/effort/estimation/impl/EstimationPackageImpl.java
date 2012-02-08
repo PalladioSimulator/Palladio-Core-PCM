@@ -10,10 +10,13 @@ import de.fzi.se.validation.effort.estimation.EffortEstimationResult;
 import de.fzi.se.validation.effort.estimation.EstimationFactory;
 import de.fzi.se.validation.effort.estimation.EstimationPackage;
 
+import de.uka.ipd.sdq.pcm.PcmPackage;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -76,6 +79,9 @@ public class EstimationPackageImpl extends EPackageImpl implements EstimationPac
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		PcmPackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theEstimationPackage.createPackageContents();
 
@@ -114,8 +120,35 @@ public class EstimationPackageImpl extends EPackageImpl implements EstimationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEffortEstimationResult_Intermediate() {
+	public EAttribute getEffortEstimationResult_TargetId() {
 		return (EAttribute)effortEstimationResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEffortEstimationResult_Alpha() {
+		return (EAttribute)effortEstimationResultEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEffortEstimationResult_TargetUri() {
+		return (EAttribute)effortEstimationResultEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEffortEstimationResult_ResourceDemandingBehaviour() {
+		return (EReference)effortEstimationResultEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -148,7 +181,10 @@ public class EstimationPackageImpl extends EPackageImpl implements EstimationPac
 		// Create classes and their features
 		effortEstimationResultEClass = createEClass(EFFORT_ESTIMATION_RESULT);
 		createEAttribute(effortEstimationResultEClass, EFFORT_ESTIMATION_RESULT__NUMBER_TESTCASES);
-		createEAttribute(effortEstimationResultEClass, EFFORT_ESTIMATION_RESULT__INTERMEDIATE);
+		createEAttribute(effortEstimationResultEClass, EFFORT_ESTIMATION_RESULT__TARGET_ID);
+		createEAttribute(effortEstimationResultEClass, EFFORT_ESTIMATION_RESULT__ALPHA);
+		createEAttribute(effortEstimationResultEClass, EFFORT_ESTIMATION_RESULT__TARGET_URI);
+		createEReference(effortEstimationResultEClass, EFFORT_ESTIMATION_RESULT__RESOURCE_DEMANDING_BEHAVIOUR);
 	}
 
 	/**
@@ -174,6 +210,9 @@ public class EstimationPackageImpl extends EPackageImpl implements EstimationPac
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -183,7 +222,10 @@ public class EstimationPackageImpl extends EPackageImpl implements EstimationPac
 		// Initialize classes and features; add operations and parameters
 		initEClass(effortEstimationResultEClass, EffortEstimationResult.class, "EffortEstimationResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEffortEstimationResult_NumberTestcases(), ecorePackage.getEInt(), "numberTestcases", null, 1, 1, EffortEstimationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getEffortEstimationResult_Intermediate(), ecorePackage.getEDouble(), "intermediate", null, 1, 1, EffortEstimationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getEffortEstimationResult_TargetId(), ecorePackage.getEString(), "targetId", null, 1, 1, EffortEstimationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getEffortEstimationResult_Alpha(), ecorePackage.getEDouble(), "alpha", null, 1, 1, EffortEstimationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getEffortEstimationResult_TargetUri(), ecorePackage.getEString(), "targetUri", null, 1, 1, EffortEstimationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getEffortEstimationResult_ResourceDemandingBehaviour(), theSeffPackage.getResourceDemandingBehaviour(), null, "resourceDemandingBehaviour", null, 0, 1, EffortEstimationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

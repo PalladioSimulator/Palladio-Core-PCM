@@ -37,6 +37,12 @@ public class EstimationsDialog extends Dialog  {
 	public static final String COLUMN_LABEL_CRITERION_NAME = "Criterion";
 	/** Label for the column containing the number of test cases. */
 	public static final String COLUMN_LABEL_NUMBER_TESTCASES = "Estimated number of test cases";
+	/** Label for the column containing the confidence level. */
+	public static final String COLUMN_LABEL_CONFIDENCE_LEVEL = "Confidence level";
+	/** Label for the column containing the target UUID. */
+	public static final String COLUMN_LABEL_TARGET_ID = "Target Behaviour ID";
+	/** Label for the column containing the URI. */
+	public static final String COLUMN_LABEL_URI = "URI containing the target";
 	/** Label for information which is not available. */
 	public static final String LABEL_INFO_NOT_AVAILABLE = "N/A";
 
@@ -70,12 +76,24 @@ public class EstimationsDialog extends Dialog  {
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
 		final TableColumn columnCriterionName = new TableColumn(table, SWT.NONE);
-		columnCriterionName.setWidth(100);
+		columnCriterionName.setWidth(140);
 		columnCriterionName.setText(EstimationsDialog.COLUMN_LABEL_CRITERION_NAME);
 
 		final TableColumn columnNumberTestcases = new TableColumn(table, SWT.NONE);
-		columnNumberTestcases.setWidth(200);
+		columnNumberTestcases.setWidth(180);
 		columnNumberTestcases.setText(EstimationsDialog.COLUMN_LABEL_NUMBER_TESTCASES);
+
+		final TableColumn confidenceLevelTestcases = new TableColumn(table, SWT.NONE);
+		confidenceLevelTestcases.setWidth(95);
+		confidenceLevelTestcases.setText(EstimationsDialog.COLUMN_LABEL_CONFIDENCE_LEVEL);
+
+		final TableColumn targetIdTestcases = new TableColumn(table, SWT.NONE);
+		targetIdTestcases.setWidth(165);
+		targetIdTestcases.setText(EstimationsDialog.COLUMN_LABEL_TARGET_ID);
+
+		final TableColumn uriTestcases = new TableColumn(table, SWT.NONE);
+		uriTestcases.setWidth(150);
+		uriTestcases.setText(EstimationsDialog.COLUMN_LABEL_URI);
 
 		fillTable(table);
 
@@ -119,13 +137,31 @@ public class EstimationsDialog extends Dialog  {
 						return estimator.getCriterionName();
 					}
 				case 1:
-					if (estimator.getNumberTestcases() == null) {
+					if (estimator.getEstimation() == null) {
 						return EstimationsDialog.LABEL_INFO_NOT_AVAILABLE;
 					} else {
-						return estimator.getNumberTestcases().toString();
+						return Long.toString(estimator.getEstimation().getNumberTestcases());
+					}
+				case 2:
+					if (estimator.getEstimation() == null) {
+						return EstimationsDialog.LABEL_INFO_NOT_AVAILABLE;
+					} else {
+						return Double.toString(estimator.getEstimation().getAlpha());
+					}
+				case 3:
+					if (estimator.getEstimation() == null) {
+						return EstimationsDialog.LABEL_INFO_NOT_AVAILABLE;
+					} else {
+						return estimator.getEstimation().getTargetId();
+					}
+				case 4:
+					if (estimator.getEstimation() == null) {
+						return EstimationsDialog.LABEL_INFO_NOT_AVAILABLE;
+					} else {
+						return estimator.getEstimation().getTargetUri();
 					}
 				default :
-					throw new IllegalArgumentException("Only two columns are supported.");
+					throw new IllegalArgumentException("Only five columns are supported.");
 				}
 			}
 

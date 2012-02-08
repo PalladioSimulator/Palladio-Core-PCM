@@ -5,6 +5,7 @@ package de.fzi.se.validation.effort;
 
 import org.eclipse.debug.core.ILaunchConfiguration;
 
+import de.fzi.se.validation.effort.estimation.EffortEstimationResult;
 import de.fzi.se.validation.effort.workflow.EstimatorConfiguration;
 import de.uka.ipd.sdq.workflow.IJob;
 
@@ -15,7 +16,7 @@ import de.uka.ipd.sdq.workflow.IJob;
 public interface IEstimator extends IJob {
 
 	/** @returns Estimation on the number of test cases necessary to cover the specification with respect to the criterion. */
-	public Long getNumberTestcases();
+	public EffortEstimationResult getEstimation();
 
 	/** @returns Name of the criterion for which the estimation is provided. */
 	public String getCriterionName();

@@ -17,5 +17,11 @@ Export-Package: de.fzi.se.controlflowdescription,
  de.fzi.se.controlflowdescription.jjnpaths.util,
  de.fzi.se.controlflowdescription.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ de.uka.ipd.sdq.identifier;visibility:=reexport,
+ de.uka.ipd.sdq.pcm;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction;visibility:=reexport,
+ de.uka.ipd.sdq.stoex;visibility:=reexport,
+ de.uka.ipd.sdq.units;visibility:=reexport,
+ de.fzi.se.validation.effort.estimation;visibility:=reexport
 Bundle-ActivationPolicy: lazy

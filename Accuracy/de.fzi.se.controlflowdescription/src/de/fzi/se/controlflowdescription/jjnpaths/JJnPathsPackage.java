@@ -6,6 +6,7 @@
  */
 package de.fzi.se.controlflowdescription.jjnpaths;
 
+import de.fzi.se.validation.effort.estimation.EstimationPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -283,23 +284,23 @@ public interface JJnPathsPackage extends EPackage {
 	int JJN_PATH_TEST_CASE_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsCreationParameterImpl <em>Creation Parameter</em>}' class.
+	 * The meta object id for the '{@link de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsEffortEstimationResultImpl <em>Effort Estimation Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsCreationParameterImpl
-	 * @see de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsPackageImpl#getJJnPathsCreationParameter()
+	 * @see de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsEffortEstimationResultImpl
+	 * @see de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsPackageImpl#getJJnPathsEffortEstimationResult()
 	 * @generated
 	 */
-	int JJN_PATHS_CREATION_PARAMETER = 4;
+	int JJN_PATHS_EFFORT_ESTIMATION_RESULT = 4;
 
 	/**
-	 * The feature id for the '<em><b>N</b></em>' attribute.
+	 * The feature id for the '<em><b>Number Testcases</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JJN_PATHS_CREATION_PARAMETER__N = 0;
+	int JJN_PATHS_EFFORT_ESTIMATION_RESULT__NUMBER_TESTCASES = EstimationPackage.EFFORT_ESTIMATION_RESULT__NUMBER_TESTCASES;
 
 	/**
 	 * The feature id for the '<em><b>Target Id</b></em>' attribute.
@@ -308,7 +309,7 @@ public interface JJnPathsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JJN_PATHS_CREATION_PARAMETER__TARGET_ID = 1;
+	int JJN_PATHS_EFFORT_ESTIMATION_RESULT__TARGET_ID = EstimationPackage.EFFORT_ESTIMATION_RESULT__TARGET_ID;
 
 	/**
 	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
@@ -317,16 +318,43 @@ public interface JJnPathsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JJN_PATHS_CREATION_PARAMETER__ALPHA = 2;
+	int JJN_PATHS_EFFORT_ESTIMATION_RESULT__ALPHA = EstimationPackage.EFFORT_ESTIMATION_RESULT__ALPHA;
 
 	/**
-	 * The number of structural features of the '<em>Creation Parameter</em>' class.
+	 * The feature id for the '<em><b>Target Uri</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JJN_PATHS_CREATION_PARAMETER_FEATURE_COUNT = 3;
+	int JJN_PATHS_EFFORT_ESTIMATION_RESULT__TARGET_URI = EstimationPackage.EFFORT_ESTIMATION_RESULT__TARGET_URI;
+
+	/**
+	 * The feature id for the '<em><b>Resource Demanding Behaviour</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JJN_PATHS_EFFORT_ESTIMATION_RESULT__RESOURCE_DEMANDING_BEHAVIOUR = EstimationPackage.EFFORT_ESTIMATION_RESULT__RESOURCE_DEMANDING_BEHAVIOUR;
+
+	/**
+	 * The feature id for the '<em><b>N</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JJN_PATHS_EFFORT_ESTIMATION_RESULT__N = EstimationPackage.EFFORT_ESTIMATION_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Effort Estimation Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JJN_PATHS_EFFORT_ESTIMATION_RESULT_FEATURE_COUNT = EstimationPackage.EFFORT_ESTIMATION_RESULT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathSetImpl <em>JJn Path Set</em>}' class.
@@ -601,47 +629,25 @@ public interface JJnPathsPackage extends EPackage {
 	EReference getJJnPathTestCase_Jjnpathtestset();
 
 	/**
-	 * Returns the meta object for class '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter <em>Creation Parameter</em>}'.
+	 * Returns the meta object for class '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsEffortEstimationResult <em>Effort Estimation Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Creation Parameter</em>'.
-	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter
+	 * @return the meta object for class '<em>Effort Estimation Result</em>'.
+	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsEffortEstimationResult
 	 * @generated
 	 */
-	EClass getJJnPathsCreationParameter();
+	EClass getJJnPathsEffortEstimationResult();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getN <em>N</em>}'.
+	 * Returns the meta object for the attribute '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsEffortEstimationResult#getN <em>N</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>N</em>'.
-	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getN()
-	 * @see #getJJnPathsCreationParameter()
+	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsEffortEstimationResult#getN()
+	 * @see #getJJnPathsEffortEstimationResult()
 	 * @generated
 	 */
-	EAttribute getJJnPathsCreationParameter_N();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getTargetId <em>Target Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Target Id</em>'.
-	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getTargetId()
-	 * @see #getJJnPathsCreationParameter()
-	 * @generated
-	 */
-	EAttribute getJJnPathsCreationParameter_TargetId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getAlpha <em>Alpha</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Alpha</em>'.
-	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter#getAlpha()
-	 * @see #getJJnPathsCreationParameter()
-	 * @generated
-	 */
-	EAttribute getJJnPathsCreationParameter_Alpha();
+	EAttribute getJJnPathsEffortEstimationResult_N();
 
 	/**
 	 * Returns the meta object for class '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathSet <em>JJn Path Set</em>}'.
@@ -888,14 +894,14 @@ public interface JJnPathsPackage extends EPackage {
 		EReference JJN_PATH_TEST_CASE__JJNPATHTESTSET = eINSTANCE.getJJnPathTestCase_Jjnpathtestset();
 
 		/**
-		 * The meta object literal for the '{@link de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsCreationParameterImpl <em>Creation Parameter</em>}' class.
+		 * The meta object literal for the '{@link de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsEffortEstimationResultImpl <em>Effort Estimation Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsCreationParameterImpl
-		 * @see de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsPackageImpl#getJJnPathsCreationParameter()
+		 * @see de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsEffortEstimationResultImpl
+		 * @see de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsPackageImpl#getJJnPathsEffortEstimationResult()
 		 * @generated
 		 */
-		EClass JJN_PATHS_CREATION_PARAMETER = eINSTANCE.getJJnPathsCreationParameter();
+		EClass JJN_PATHS_EFFORT_ESTIMATION_RESULT = eINSTANCE.getJJnPathsEffortEstimationResult();
 
 		/**
 		 * The meta object literal for the '<em><b>N</b></em>' attribute feature.
@@ -903,23 +909,7 @@ public interface JJnPathsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute JJN_PATHS_CREATION_PARAMETER__N = eINSTANCE.getJJnPathsCreationParameter_N();
-
-		/**
-		 * The meta object literal for the '<em><b>Target Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JJN_PATHS_CREATION_PARAMETER__TARGET_ID = eINSTANCE.getJJnPathsCreationParameter_TargetId();
-
-		/**
-		 * The meta object literal for the '<em><b>Alpha</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JJN_PATHS_CREATION_PARAMETER__ALPHA = eINSTANCE.getJJnPathsCreationParameter_Alpha();
+		EAttribute JJN_PATHS_EFFORT_ESTIMATION_RESULT__N = eINSTANCE.getJJnPathsEffortEstimationResult_N();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathSetImpl <em>JJn Path Set</em>}' class.

@@ -105,8 +105,8 @@ public class JJnPathsValidator extends EObjectValidator {
 				return validateJJPath((JJPath)value, diagnostics, context);
 			case JJnPathsPackage.JJN_PATH_TEST_CASE:
 				return validateJJnPathTestCase((JJnPathTestCase)value, diagnostics, context);
-			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER:
-				return validateJJnPathsCreationParameter((JJnPathsCreationParameter)value, diagnostics, context);
+			case JJnPathsPackage.JJN_PATHS_EFFORT_ESTIMATION_RESULT:
+				return validateJJnPathsEffortEstimationResult((JJnPathsEffortEstimationResult)value, diagnostics, context);
 			case JJnPathsPackage.JJN_PATH_SET:
 				return validateJJnPathSet((JJnPathSet)value, diagnostics, context);
 			default:
@@ -155,8 +155,8 @@ public class JJnPathsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateJJnPathsCreationParameter(JJnPathsCreationParameter jJnPathsCreationParameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(jJnPathsCreationParameter, diagnostics, context);
+	public boolean validateJJnPathsEffortEstimationResult(JJnPathsEffortEstimationResult jJnPathsEffortEstimationResult, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(jJnPathsEffortEstimationResult, diagnostics, context);
 	}
 
 	/**

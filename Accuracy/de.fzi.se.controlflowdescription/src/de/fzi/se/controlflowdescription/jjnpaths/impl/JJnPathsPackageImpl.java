@@ -19,12 +19,13 @@ import de.fzi.se.controlflowdescription.jjnpaths.JJnPath;
 import de.fzi.se.controlflowdescription.jjnpaths.JJnPathSet;
 import de.fzi.se.controlflowdescription.jjnpaths.JJnPathTestCase;
 import de.fzi.se.controlflowdescription.jjnpaths.JJnPathTestSuite;
-import de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter;
+import de.fzi.se.controlflowdescription.jjnpaths.JJnPathsEffortEstimationResult;
 import de.fzi.se.controlflowdescription.jjnpaths.JJnPathsFactory;
 import de.fzi.se.controlflowdescription.jjnpaths.JJnPathsPackage;
 
 import de.fzi.se.controlflowdescription.jjnpaths.util.JJnPathsValidator;
 
+import de.fzi.se.validation.effort.estimation.EstimationPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
@@ -75,7 +76,7 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass jJnPathsCreationParameterEClass = null;
+	private EClass jJnPathsEffortEstimationResultEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,7 +113,7 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link JJnPathsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -130,6 +131,9 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		EstimationPackage.eINSTANCE.eClass();
+
 		// Obtain or create and register interdependencies
 		ControlFlowDescriptionPackageImpl theControlFlowDescriptionPackage = (ControlFlowDescriptionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ControlFlowDescriptionPackage.eNS_URI) instanceof ControlFlowDescriptionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ControlFlowDescriptionPackage.eNS_URI) : ControlFlowDescriptionPackage.eINSTANCE);
 		GraphPackageImpl theGraphPackage = (GraphPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI) instanceof GraphPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI) : GraphPackage.eINSTANCE);
@@ -146,7 +150,7 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
-			(theJJnPathsPackage, 
+			(theJJnPathsPackage,
 			 new EValidator.Descriptor() {
 				 public EValidator getEValidator() {
 					 return JJnPathsValidator.INSTANCE;
@@ -156,7 +160,7 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 		// Mark meta-data to indicate it can't be changed
 		theJJnPathsPackage.freeze();
 
-  
+
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(JJnPathsPackage.eNS_URI, theJJnPathsPackage);
 		return theJJnPathsPackage;
@@ -347,8 +351,8 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getJJnPathsCreationParameter() {
-		return jJnPathsCreationParameterEClass;
+	public EClass getJJnPathsEffortEstimationResult() {
+		return jJnPathsEffortEstimationResultEClass;
 	}
 
 	/**
@@ -356,26 +360,8 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJJnPathsCreationParameter_N() {
-		return (EAttribute)jJnPathsCreationParameterEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJJnPathsCreationParameter_TargetId() {
-		return (EAttribute)jJnPathsCreationParameterEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJJnPathsCreationParameter_Alpha() {
-		return (EAttribute)jJnPathsCreationParameterEClass.getEStructuralFeatures().get(2);
+	public EAttribute getJJnPathsEffortEstimationResult_N() {
+		return (EAttribute)jJnPathsEffortEstimationResultEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -475,10 +461,8 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 		createEReference(jJnPathTestCaseEClass, JJN_PATH_TEST_CASE__JJNPATHS);
 		createEReference(jJnPathTestCaseEClass, JJN_PATH_TEST_CASE__JJNPATHTESTSET);
 
-		jJnPathsCreationParameterEClass = createEClass(JJN_PATHS_CREATION_PARAMETER);
-		createEAttribute(jJnPathsCreationParameterEClass, JJN_PATHS_CREATION_PARAMETER__N);
-		createEAttribute(jJnPathsCreationParameterEClass, JJN_PATHS_CREATION_PARAMETER__TARGET_ID);
-		createEAttribute(jJnPathsCreationParameterEClass, JJN_PATHS_CREATION_PARAMETER__ALPHA);
+		jJnPathsEffortEstimationResultEClass = createEClass(JJN_PATHS_EFFORT_ESTIMATION_RESULT);
+		createEAttribute(jJnPathsEffortEstimationResultEClass, JJN_PATHS_EFFORT_ESTIMATION_RESULT__N);
 
 		jJnPathSetEClass = createEClass(JJN_PATH_SET);
 		createEReference(jJnPathSetEClass, JJN_PATH_SET__JJNPATHS);
@@ -513,12 +497,14 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 		// Obtain other dependent packages
 		GraphPackage theGraphPackage = (GraphPackage)EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI);
 		ControlFlowDescriptionPackage theControlFlowDescriptionPackage = (ControlFlowDescriptionPackage)EPackage.Registry.INSTANCE.getEPackage(ControlFlowDescriptionPackage.eNS_URI);
+		EstimationPackage theEstimationPackage = (EstimationPackage)EPackage.Registry.INSTANCE.getEPackage(EstimationPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		jJnPathsEffortEstimationResultEClass.getESuperTypes().add(theEstimationPackage.getEffortEstimationResult());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(jJnPathTestSuiteEClass, JJnPathTestSuite.class, "JJnPathTestSuite", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -545,10 +531,8 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 		initEReference(getJJnPathTestCase_Jjnpaths(), this.getJJnPath(), null, "jjnpaths", null, 0, -1, JJnPathTestCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJJnPathTestCase_Jjnpathtestset(), this.getJJnPathTestSuite(), this.getJJnPathTestSuite_Testcases(), "jjnpathtestset", null, 1, 1, JJnPathTestCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(jJnPathsCreationParameterEClass, JJnPathsCreationParameter.class, "JJnPathsCreationParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJJnPathsCreationParameter_N(), ecorePackage.getEInt(), "n", null, 1, 1, JJnPathsCreationParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getJJnPathsCreationParameter_TargetId(), ecorePackage.getEString(), "targetId", null, 1, 1, JJnPathsCreationParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getJJnPathsCreationParameter_Alpha(), ecorePackage.getEDouble(), "alpha", null, 1, 1, JJnPathsCreationParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(jJnPathsEffortEstimationResultEClass, JJnPathsEffortEstimationResult.class, "JJnPathsEffortEstimationResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJJnPathsEffortEstimationResult_N(), ecorePackage.getEInt(), "n", null, 1, 1, JJnPathsEffortEstimationResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(jJnPathSetEClass, JJnPathSet.class, "JJnPathSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJJnPathSet_Jjnpaths(), this.getJJnPath(), this.getJJnPath_Jjnpathset(), "jjnpaths", null, 0, -1, JJnPathSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -577,19 +561,19 @@ public class JJnPathsPackageImpl extends EPackageImpl implements JJnPathsPackage
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";					
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
 		addAnnotation
-		  (getJJnPath_From(), 
-		   source, 
+		  (getJJnPath_From(),
+		   source,
 		   new String[] {
 			 "name", "from"
-		   });			
+		   });
 		addAnnotation
-		  (getJJnPath_JumpTo(), 
-		   source, 
+		  (getJJnPath_JumpTo(),
+		   source,
 		   new String[] {
 			 "name", "jumpTo"
-		   });												
+		   });
 	}
 
 } //JJnPathsPackageImpl

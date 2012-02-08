@@ -21,6 +21,7 @@ import de.fzi.se.controlflowdescription.jjnpaths.impl.JJnPathsPackageImpl;
 
 import de.fzi.se.controlflowdescription.util.ControlFlowDescriptionValidator;
 
+import de.fzi.se.validation.effort.estimation.EstimationPackage;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
@@ -96,6 +97,9 @@ public class ControlFlowDescriptionPackageImpl extends EPackageImpl implements C
 		ControlFlowDescriptionPackageImpl theControlFlowDescriptionPackage = (ControlFlowDescriptionPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ControlFlowDescriptionPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ControlFlowDescriptionPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		EstimationPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		GraphPackageImpl theGraphPackage = (GraphPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI) instanceof GraphPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI) : GraphPackage.eINSTANCE);

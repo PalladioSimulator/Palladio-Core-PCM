@@ -8,6 +8,7 @@ package de.fzi.se.controlflowdescription.jjnpaths.util;
 
 import de.fzi.se.controlflowdescription.jjnpaths.*;
 
+import de.fzi.se.validation.effort.estimation.EffortEstimationResult;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -88,12 +89,16 @@ public class JJnPathsAdapterFactory extends AdapterFactoryImpl {
 				return createJJnPathTestCaseAdapter();
 			}
 			@Override
-			public Adapter caseJJnPathsCreationParameter(JJnPathsCreationParameter object) {
-				return createJJnPathsCreationParameterAdapter();
+			public Adapter caseJJnPathsEffortEstimationResult(JJnPathsEffortEstimationResult object) {
+				return createJJnPathsEffortEstimationResultAdapter();
 			}
 			@Override
 			public Adapter caseJJnPathSet(JJnPathSet object) {
 				return createJJnPathSetAdapter();
+			}
+			@Override
+			public Adapter caseEffortEstimationResult(EffortEstimationResult object) {
+				return createEffortEstimationResultAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -172,16 +177,16 @@ public class JJnPathsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter <em>Creation Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsEffortEstimationResult <em>Effort Estimation Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter
+	 * @see de.fzi.se.controlflowdescription.jjnpaths.JJnPathsEffortEstimationResult
 	 * @generated
 	 */
-	public Adapter createJJnPathsCreationParameterAdapter() {
+	public Adapter createJJnPathsEffortEstimationResultAdapter() {
 		return null;
 	}
 
@@ -196,6 +201,20 @@ public class JJnPathsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJJnPathSetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.fzi.se.validation.effort.estimation.EffortEstimationResult <em>Effort Estimation Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.fzi.se.validation.effort.estimation.EffortEstimationResult
+	 * @generated
+	 */
+	public Adapter createEffortEstimationResultAdapter() {
 		return null;
 	}
 

@@ -168,26 +168,26 @@ public class JJnPathsItemProviderAdapterFactory extends JJnPathsAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter} instances.
+	 * This keeps track of the one adapter used for all {@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsEffortEstimationResult} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected JJnPathsCreationParameterItemProvider jJnPathsCreationParameterItemProvider;
+	protected JJnPathsEffortEstimationResultItemProvider jJnPathsEffortEstimationResultItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsCreationParameter}.
+	 * This creates an adapter for a {@link de.fzi.se.controlflowdescription.jjnpaths.JJnPathsEffortEstimationResult}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createJJnPathsCreationParameterAdapter() {
-		if (jJnPathsCreationParameterItemProvider == null) {
-			jJnPathsCreationParameterItemProvider = new JJnPathsCreationParameterItemProvider(this);
+	public Adapter createJJnPathsEffortEstimationResultAdapter() {
+		if (jJnPathsEffortEstimationResultItemProvider == null) {
+			jJnPathsEffortEstimationResultItemProvider = new JJnPathsEffortEstimationResultItemProvider(this);
 		}
 
-		return jJnPathsCreationParameterItemProvider;
+		return jJnPathsEffortEstimationResultItemProvider;
 	}
 
 	/**
@@ -316,7 +316,7 @@ public class JJnPathsItemProviderAdapterFactory extends JJnPathsAdapterFactory i
 		if (jJnPathItemProvider != null) jJnPathItemProvider.dispose();
 		if (jjPathItemProvider != null) jjPathItemProvider.dispose();
 		if (jJnPathTestCaseItemProvider != null) jJnPathTestCaseItemProvider.dispose();
-		if (jJnPathsCreationParameterItemProvider != null) jJnPathsCreationParameterItemProvider.dispose();
+		if (jJnPathsEffortEstimationResultItemProvider != null) jJnPathsEffortEstimationResultItemProvider.dispose();
 		if (jJnPathSetItemProvider != null) jJnPathSetItemProvider.dispose();
 	}
 

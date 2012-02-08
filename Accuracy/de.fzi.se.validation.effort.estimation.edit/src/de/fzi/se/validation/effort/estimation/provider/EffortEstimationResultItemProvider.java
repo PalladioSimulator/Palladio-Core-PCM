@@ -65,7 +65,10 @@ public class EffortEstimationResultItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNumberTestcasesPropertyDescriptor(object);
-			addIntermediatePropertyDescriptor(object);
+			addTargetIdPropertyDescriptor(object);
+			addAlphaPropertyDescriptor(object);
+			addTargetUriPropertyDescriptor(object);
+			addResourceDemandingBehaviourPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,23 +96,89 @@ public class EffortEstimationResultItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Intermediate feature.
+	 * This adds a property descriptor for the Target Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIntermediatePropertyDescriptor(Object object) {
+	protected void addTargetIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EffortEstimationResult_intermediate_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EffortEstimationResult_intermediate_feature", "_UI_EffortEstimationResult_type"),
-				 EstimationPackage.Literals.EFFORT_ESTIMATION_RESULT__INTERMEDIATE,
+				 getString("_UI_EffortEstimationResult_targetId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EffortEstimationResult_targetId_feature", "_UI_EffortEstimationResult_type"),
+				 EstimationPackage.Literals.EFFORT_ESTIMATION_RESULT__TARGET_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Alpha feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAlphaPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EffortEstimationResult_alpha_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EffortEstimationResult_alpha_feature", "_UI_EffortEstimationResult_type"),
+				 EstimationPackage.Literals.EFFORT_ESTIMATION_RESULT__ALPHA,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target Uri feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetUriPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EffortEstimationResult_targetUri_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EffortEstimationResult_targetUri_feature", "_UI_EffortEstimationResult_type"),
+				 EstimationPackage.Literals.EFFORT_ESTIMATION_RESULT__TARGET_URI,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Resource Demanding Behaviour feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResourceDemandingBehaviourPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EffortEstimationResult_resourceDemandingBehaviour_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EffortEstimationResult_resourceDemandingBehaviour_feature", "_UI_EffortEstimationResult_type"),
+				 EstimationPackage.Literals.EFFORT_ESTIMATION_RESULT__RESOURCE_DEMANDING_BEHAVIOUR,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -150,7 +219,9 @@ public class EffortEstimationResultItemProvider
 
 		switch (notification.getFeatureID(EffortEstimationResult.class)) {
 			case EstimationPackage.EFFORT_ESTIMATION_RESULT__NUMBER_TESTCASES:
-			case EstimationPackage.EFFORT_ESTIMATION_RESULT__INTERMEDIATE:
+			case EstimationPackage.EFFORT_ESTIMATION_RESULT__TARGET_ID:
+			case EstimationPackage.EFFORT_ESTIMATION_RESULT__ALPHA:
+			case EstimationPackage.EFFORT_ESTIMATION_RESULT__TARGET_URI:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -62,13 +62,13 @@ public interface JJnPathsFactory extends EFactory {
 	JJnPathTestCase createJJnPathTestCase();
 
 	/**
-	 * Returns a new object of class '<em>Creation Parameter</em>'.
+	 * Returns a new object of class '<em>Effort Estimation Result</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Creation Parameter</em>'.
+	 * @return a new object of class '<em>Effort Estimation Result</em>'.
 	 * @generated
 	 */
-	JJnPathsCreationParameter createJJnPathsCreationParameter();
+	JJnPathsEffortEstimationResult createJJnPathsEffortEstimationResult();
 
 	/**
 	 * Returns a new object of class '<em>JJn Path Set</em>'.

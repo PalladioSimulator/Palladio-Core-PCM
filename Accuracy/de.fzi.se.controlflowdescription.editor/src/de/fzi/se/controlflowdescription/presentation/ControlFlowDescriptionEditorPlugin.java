@@ -6,6 +6,12 @@
  */
 package de.fzi.se.controlflowdescription.presentation;
 
+import de.fzi.se.validation.effort.estimation.provider.ValidationEffortEstimationEditPlugin;
+import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
+import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
+import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
@@ -44,6 +50,12 @@ public final class ControlFlowDescriptionEditorPlugin extends EMFPlugin {
 	public ControlFlowDescriptionEditorPlugin() {
 		super
 			(new ResourceLocator [] {
+				IdentifierEditPlugin.INSTANCE,
+				PalladioComponentModelEditPlugin.INSTANCE,
+				ProbabilityFunctionEditPlugin.INSTANCE,
+				StoexEditPlugin.INSTANCE,
+				UnitsEditPlugin.INSTANCE,
+				ValidationEffortEstimationEditPlugin.INSTANCE,
 			});
 	}
 

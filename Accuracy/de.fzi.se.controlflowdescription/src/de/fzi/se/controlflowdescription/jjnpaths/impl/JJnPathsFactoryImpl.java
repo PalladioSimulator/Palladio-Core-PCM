@@ -64,7 +64,7 @@ public class JJnPathsFactoryImpl extends EFactoryImpl implements JJnPathsFactory
 			case JJnPathsPackage.JJN_PATH: return createJJnPath();
 			case JJnPathsPackage.JJ_PATH: return createJJPath();
 			case JJnPathsPackage.JJN_PATH_TEST_CASE: return createJJnPathTestCase();
-			case JJnPathsPackage.JJN_PATHS_CREATION_PARAMETER: return createJJnPathsCreationParameter();
+			case JJnPathsPackage.JJN_PATHS_EFFORT_ESTIMATION_RESULT: return createJJnPathsEffortEstimationResult();
 			case JJnPathsPackage.JJN_PATH_SET: return createJJnPathSet();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -116,9 +116,9 @@ public class JJnPathsFactoryImpl extends EFactoryImpl implements JJnPathsFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JJnPathsCreationParameter createJJnPathsCreationParameter() {
-		JJnPathsCreationParameterImpl jJnPathsCreationParameter = new JJnPathsCreationParameterImpl();
-		return jJnPathsCreationParameter;
+	public JJnPathsEffortEstimationResult createJJnPathsEffortEstimationResult() {
+		JJnPathsEffortEstimationResultImpl jJnPathsEffortEstimationResult = new JJnPathsEffortEstimationResultImpl();
+		return jJnPathsEffortEstimationResult;
 	}
 
 	/**

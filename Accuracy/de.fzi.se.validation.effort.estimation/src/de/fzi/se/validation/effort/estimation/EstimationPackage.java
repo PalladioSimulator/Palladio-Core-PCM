@@ -9,6 +9,7 @@ package de.fzi.se.validation.effort.estimation;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,13 +79,40 @@ public interface EstimationPackage extends EPackage {
 	int EFFORT_ESTIMATION_RESULT__NUMBER_TESTCASES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Intermediate</b></em>' attribute.
+	 * The feature id for the '<em><b>Target Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EFFORT_ESTIMATION_RESULT__INTERMEDIATE = 1;
+	int EFFORT_ESTIMATION_RESULT__TARGET_ID = 1;
+
+	/**
+	 * The feature id for the '<em><b>Alpha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFORT_ESTIMATION_RESULT__ALPHA = 2;
+
+	/**
+	 * The feature id for the '<em><b>Target Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFORT_ESTIMATION_RESULT__TARGET_URI = 3;
+
+	/**
+	 * The feature id for the '<em><b>Resource Demanding Behaviour</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFORT_ESTIMATION_RESULT__RESOURCE_DEMANDING_BEHAVIOUR = 4;
 
 	/**
 	 * The number of structural features of the '<em>Effort Estimation Result</em>' class.
@@ -93,7 +121,7 @@ public interface EstimationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EFFORT_ESTIMATION_RESULT_FEATURE_COUNT = 2;
+	int EFFORT_ESTIMATION_RESULT_FEATURE_COUNT = 5;
 
 
 	/**
@@ -118,15 +146,48 @@ public interface EstimationPackage extends EPackage {
 	EAttribute getEffortEstimationResult_NumberTestcases();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.fzi.se.validation.effort.estimation.EffortEstimationResult#getIntermediate <em>Intermediate</em>}'.
+	 * Returns the meta object for the attribute '{@link de.fzi.se.validation.effort.estimation.EffortEstimationResult#getTargetId <em>Target Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Intermediate</em>'.
-	 * @see de.fzi.se.validation.effort.estimation.EffortEstimationResult#getIntermediate()
+	 * @return the meta object for the attribute '<em>Target Id</em>'.
+	 * @see de.fzi.se.validation.effort.estimation.EffortEstimationResult#getTargetId()
 	 * @see #getEffortEstimationResult()
 	 * @generated
 	 */
-	EAttribute getEffortEstimationResult_Intermediate();
+	EAttribute getEffortEstimationResult_TargetId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.fzi.se.validation.effort.estimation.EffortEstimationResult#getAlpha <em>Alpha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alpha</em>'.
+	 * @see de.fzi.se.validation.effort.estimation.EffortEstimationResult#getAlpha()
+	 * @see #getEffortEstimationResult()
+	 * @generated
+	 */
+	EAttribute getEffortEstimationResult_Alpha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.fzi.se.validation.effort.estimation.EffortEstimationResult#getTargetUri <em>Target Uri</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Uri</em>'.
+	 * @see de.fzi.se.validation.effort.estimation.EffortEstimationResult#getTargetUri()
+	 * @see #getEffortEstimationResult()
+	 * @generated
+	 */
+	EAttribute getEffortEstimationResult_TargetUri();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.fzi.se.validation.effort.estimation.EffortEstimationResult#getResourceDemandingBehaviour <em>Resource Demanding Behaviour</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resource Demanding Behaviour</em>'.
+	 * @see de.fzi.se.validation.effort.estimation.EffortEstimationResult#getResourceDemandingBehaviour()
+	 * @see #getEffortEstimationResult()
+	 * @generated
+	 */
+	EReference getEffortEstimationResult_ResourceDemandingBehaviour();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -169,12 +230,36 @@ public interface EstimationPackage extends EPackage {
 		EAttribute EFFORT_ESTIMATION_RESULT__NUMBER_TESTCASES = eINSTANCE.getEffortEstimationResult_NumberTestcases();
 
 		/**
-		 * The meta object literal for the '<em><b>Intermediate</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Target Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EFFORT_ESTIMATION_RESULT__INTERMEDIATE = eINSTANCE.getEffortEstimationResult_Intermediate();
+		EAttribute EFFORT_ESTIMATION_RESULT__TARGET_ID = eINSTANCE.getEffortEstimationResult_TargetId();
+
+		/**
+		 * The meta object literal for the '<em><b>Alpha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EFFORT_ESTIMATION_RESULT__ALPHA = eINSTANCE.getEffortEstimationResult_Alpha();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Uri</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EFFORT_ESTIMATION_RESULT__TARGET_URI = eINSTANCE.getEffortEstimationResult_TargetUri();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Demanding Behaviour</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EFFORT_ESTIMATION_RESULT__RESOURCE_DEMANDING_BEHAVIOUR = eINSTANCE.getEffortEstimationResult_ResourceDemandingBehaviour();
 
 	}
 
