@@ -1,3 +1,5 @@
+import de.fzi.se.validation.effort.MathFunctionsLibrary;
+
 modeltype CFGD uses 'http://se.fzi.de/ControlFlowDescription/0.6';
 modeltype JJNPATHS uses 'http://se.fzi.de/ControlFlowDescription/jjnpaths/0.6';
 modeltype GRAPH uses 'http://se.fzi.de/ControlFlowDescription/Graph/0.6';
@@ -33,7 +35,7 @@ mapping JJnPathSet :: Estimate() : EffortEstimationResult {
 		jjnpath.map DeterminePathProbability();
 		requiredTests := requiredTests + testsForProbability(jjnpath._from.probabilityOfReaching) * testsForProbability(jjnpath.probabilityOfExperience);
 	};
-	result.numberTestcases := requiredTest.ceiling(requiredTests);
+	result.numberTestcases := ceiling(requiredTests);
 }
 
 /**Stores the probability of reaching a vertex for a single invocation of the graph at each vertex.
@@ -100,8 +102,7 @@ mapping JJnPath :: DeterminePathProbability() {
  * @return Required number of tests.
  */
 query testsForProbability(probability : Real) : Real {
-	// TODO: Use black-box library for log-calculation
-	return (1 - config.objects()[JJnPathsCreationParameter]->any(true).alpha) / (1 - probability);
+	return mathLog(1 - config.objects()[JJnPathsCreationParameter]->any(true).alpha) / mathLog(1 - probability);
 }
 
 /**Returns the vertex with a given number from the connected graph.
