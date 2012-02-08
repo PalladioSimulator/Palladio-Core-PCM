@@ -3,9 +3,12 @@
 <plugin>
    <extension
          point="org.eclipse.m2m.qvt.oml.javaBlackboxUnits">
-		<unit name="UtilitiesLibrary" namespace="de.fzi.se.validation.effort">
-		<library name="UtilitiesLibrary"
-		class="de.fzi.se.validation.effort.blackbox.UtilitiesLibrary">
+		<unit
+        description="This QVT Operational black-box library implements utility functions for mathematical operations, which are not included in OCL. Examples are the logarithm or the ceiling function."
+        name="MathFunctionsLibrary"
+        namespace="de.fzi.se.validation.effort">
+		<library name="MathFunctionsLibrary"
+		class="de.fzi.se.validation.effort.blackbox.MathFunctionsLibrary">
 		<metamodel nsURI="http://www.eclipse.org/emf/2002/Ecore"/>
 		</library>
 		</unit>
