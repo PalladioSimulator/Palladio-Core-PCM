@@ -27,7 +27,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/upper.graph#//@jjnpathsets.0/@jjnpaths.1"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/upper.graph#//@jjnpathsets.0/@jjnpaths.0"/>
         </value>
       </context>
     </context>
@@ -41,7 +41,7 @@
     <context>
       <context name="self" type="JJnPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/upper.graph#//@jjnpathsets.0/@jjnpaths.0"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/upper.graph#//@jjnpathsets.0/@jjnpaths.1"/>
         </value>
       </context>
     </context>
