@@ -14,11 +14,15 @@ transformation JJnPaths2UpperBoundEstimation(in descr : CFGD, in config : JJNPAT
 main() {
 	assert (config.objectsOfType(JJnPathsCreationParameter)->size() = 1) with log('Configuration model must contain exactly one JJnPathsCreationParameter instance with configuration parameters.');
 	var n : Integer = config.objects()[JJnPathsCreationParameter]->any(true).n;
-	log('JJnPaths2UpperBoundEstimation started with n=' + n.toString() + ' as limit');
+	alpha := config.objects()[JJnPathsCreationParameter]->any(true).alpha;
+	log('JJnPaths2UpperBoundEstimation started with n=' + n.toString() + ' and alpha=' + alpha.toString());
+	assert (descr.objects()[ControlFlowDescription].jjnpathsets->select(set | set.n = n)->size() = 1) with log('There must be exactly one JJnPathSet for the provided number.');
 	descr.objects()[ControlFlowDescription].jjnpathsets->select(set | set.n = n)->map Estimate();
 	log('JJnPaths2UpperBoundEstimation completed')
 }
 
+/** Confidence level alpha. */
+property alpha : Real = 0;
 /** Probability of following the JJn-Path. */
 intermediate property JJnPath :: probabilityOfExperience : Real;
 /** Minimal number of iterations for all nodes of the JJn-Path. */
@@ -33,9 +37,10 @@ mapping JJnPathSet :: Estimate() : EffortEstimationResult {
 	var requiredTests : Real = 0;
 	self.jjnpaths->forEach (jjnpath) {
 		jjnpath.map DeterminePathProbability();
-		requiredTests := requiredTests + testsForProbability(jjnpath._from.probabilityOfReaching) * testsForProbability(jjnpath.probabilityOfExperience);
+		requiredTests := requiredTests + testsForProbability(jjnpath._from.probabilityOfReaching * jjnpath.probabilityOfExperience);
 	};
 	result.numberTestcases := ceiling(requiredTests);
+	log('numberTestcases=' + result.numberTestcases.toString());
 }
 
 /**Stores the probability of reaching a vertex for a single invocation of the graph at each vertex.
@@ -43,33 +48,31 @@ mapping JJnPathSet :: Estimate() : EffortEstimationResult {
 helper Graph :: DetermineProbabilityOfReaching() {
 	var currentNumber := 1;
 	var current : Vertex;
+	self.vertices->forEach(vertex) { vertex.probabilityOfReaching := 0; };
 	self.vertices->any(v | v.number = currentNumber).probabilityOfReaching := 1;
 	while (currentNumber < self.vertices->size()) {
 		current := self.vertices->any(vertex | vertex.number = currentNumber);
 		current.to->forEach (target) {
-			target.probabilityOfReaching := target.probabilityOfReaching + current.transitionProbability->at(current.to->indexOf(target)).probability * current.probabilityOfReaching;
+			if (target.number > current.number) then { // ignore return edge for loops
+				target.probabilityOfReaching := target.probabilityOfReaching + current.transitionProbability->at(current.to->indexOf(target)).probability * current.probabilityOfReaching;
+			} endif;
 		};
 		currentNumber := currentNumber + 1;
 	};
+	assert (self.vertices->select(v | v.probabilityOfReaching > 1)->size() = 0) with log ('There must not be a probability greater than 1 to reach a vertex.');
+	//self.vertices->forEach(vertex) { log('vertex=' + vertex.number.toString() + ', probabilityOfReaching=' + vertex.probabilityOfReaching.toString()) };
 }
 
 /**Returns the probability of taking the path.
  */
 mapping JJnPath :: DeterminePathProbability() {
+	//log('Processing JJnPath');
 	var probability : Real = 1;
 	var currentNumber : Integer := 0;
 	var index : Integer;
 	self.minIterations := self._from.iterations;
 	self.jjpaths->forEach (jjpath) {
-		// way to first node
-		if (currentNumber != 0) then {
-			index := self.getVertex(currentNumber).to->indexOf(self.getVertex(jjpath._from.number));
-			if (self.getVertex(currentNumber).to->size() = 1 and self.getVertex(currentNumber).transitionProbability->at(index).probability < 1) then {
-				probability := probability * 1;
-			} else {
-				probability := probability * self.getVertex(currentNumber).transitionProbability->at(index).probability;
-			} endif;
-		} endif;
+		//log('(' + jjpath._from.number.toString() + '-' + jjpath.to.number.toString() + ',' + jjpath.jumpTo.number.toString() + ')');
 		// jump-free path
 		currentNumber := jjpath._from.number;
 		while (currentNumber < jjpath.to.number) {
@@ -77,7 +80,7 @@ mapping JJnPath :: DeterminePathProbability() {
 			index := self.getVertex(currentNumber).to->indexOf(self.getVertex(currentNumber + 1));
 			if (self.getVertex(currentNumber).to->size() = 1 and self.getVertex(currentNumber).transitionProbability->at(index).probability < 1) then {
 				probability := probability * 1;
-			} else {
+				} else {
 				probability := probability * self.getVertex(currentNumber).transitionProbability->at(index).probability;
 			} endif;
 			currentNumber := currentNumber + 1;
@@ -88,13 +91,15 @@ mapping JJnPath :: DeterminePathProbability() {
 		index := self.getVertex(currentNumber).to->indexOf(self.getVertex(jjpath.jumpTo.number));
 		if (self.getVertex(currentNumber).to->size() = 1 and self.getVertex(currentNumber).transitionProbability->at(index).probability < 1) then {
 			probability := probability * 1;
-		} else {
+			} else {
 			probability := probability * self.getVertex(currentNumber).transitionProbability->at(index).probability;
 		} endif;
 		currentNumber := jjpath.jumpTo.number;
 		self.minIterations := self.minIterations.min(self.getVertex(currentNumber).iterations);
 	};
 	self.probabilityOfExperience := probability;
+	assert (self.probabilityOfExperience > 0 and self.probabilityOfExperience <= 1) with log ('Probability of experiencing a JJnPath must be within the interval (0,1].');
+	//log('ProbabilityOfExperience=' + self.probabilityOfExperience.toString() + ', minIterations=' + self.minIterations.toString() + ', jjnPath=' + self._from.number.toString() + ' to ' + self.jumpTo.number.toString());
 }
 
 /**Returns the requires number of tests to cover a path with the provided probability and confidence (in configuration parameter of transformation).
@@ -102,7 +107,16 @@ mapping JJnPath :: DeterminePathProbability() {
  * @return Required number of tests.
  */
 query testsForProbability(probability : Real) : Real {
-	return mathLog(1 - config.objects()[JJnPathsCreationParameter]->any(true).alpha) / mathLog(1 - probability);
+	var tests : Real;
+	if (alpha = 0.0) then {
+		tests := 0;
+	} else {
+		tests := mathLog(1 - alpha) / mathLog(1 - probability);
+		if (tests = 0) then {
+			tests := DoubleMinNormal();
+		}endif;
+	} endif;
+	return tests;
 }
 
 /**Returns the vertex with a given number from the connected graph.
