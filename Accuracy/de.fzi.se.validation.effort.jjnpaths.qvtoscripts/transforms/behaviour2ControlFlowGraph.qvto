@@ -147,9 +147,15 @@ helper BranchAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex
 		} endif;
 	};
 	var join : Vertex = new Vertex(nextNumber(), outerIterations);
+	var mergeProbability : Real = -1;
+	if (self.branches_Branch[ProbabilisticBranchTransition]->size() > 0) then {
+		mergeProbability := 1;
+	} else {
+		mergeProbability := 1.0 / self.branches_Branch->size();
+	} endif;
 	subVertices->forEach (orderedset) {
 		orderedset->last().to += join;
-		orderedset->last().transitionProbability += new TransitionProbability(1);
+		orderedset->last().transitionProbability += new TransitionProbability(mergeProbability);
 	};
 	newVertices += fork;
 	newVertices += subVertices->flatten();

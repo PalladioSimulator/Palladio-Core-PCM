@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
+  <traceRecords>
+    <mappingOperation name="Estimate" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//Estimate"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPathSet">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/upper.graph#//@jjnpathsets.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="EffortEstimationResult">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/upperLower.estimation#/"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/upper.graph#//@jjnpathsets.0/@jjnpaths.1"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="DeterminePathProbability" package="JJnPaths2LowerBoundEstimation" module="JJnPaths2LowerBoundEstimation">
+      <runtimeMappingOperation href="qvto:/module.env#//DeterminePathProbability"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJnPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/upper.graph#//@jjnpathsets.0/@jjnpaths.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+</trace:Trace>

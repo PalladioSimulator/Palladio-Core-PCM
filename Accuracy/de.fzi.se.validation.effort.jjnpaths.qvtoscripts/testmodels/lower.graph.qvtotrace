@@ -25,7 +25,7 @@
     <context>
       <context name="self" type="JJPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@jjpaths.2"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@jjpaths.3"/>
         </value>
       </context>
     </context>
@@ -35,9 +35,9 @@
         <value modelElement="//@traceRecords.1/@result/@result.0/@value/@intermediateElement">
           <intermediateElement xsi:type="jjnpaths:JJnPath">
             <jjpaths>
-              <from href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.0"/>
-              <to href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.1"/>
-              <jumpTo href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.3"/>
+              <from href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.6"/>
+              <to href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.6"/>
+              <jumpTo href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.7"/>
             </jjpaths>
           </intermediateElement>
         </value>
@@ -51,7 +51,7 @@
     <context>
       <context name="self" type="JJPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@jjpaths.0"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@jjpaths.2"/>
         </value>
       </context>
     </context>
@@ -61,33 +61,7 @@
         <value modelElement="//@traceRecords.2/@result/@result.0/@value/@intermediateElement">
           <intermediateElement xsi:type="jjnpaths:JJnPath">
             <jjpaths>
-              <from href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.0"/>
-              <to href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.5"/>
-              <jumpTo href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.6"/>
-            </jjpaths>
-          </intermediateElement>
-        </value>
-      </result>
-    </result>
-  </traceRecords>
-  <traceRecords>
-    <mappingOperation name="createJJ1Path" package="JJPaths2JJnPathSet" module="JJPaths2JJnPathSet">
-      <runtimeMappingOperation href="qvto:/module.env#/0/createJJ1Path"/>
-    </mappingOperation>
-    <context>
-      <context name="self" type="JJPath">
-        <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@jjpaths.3"/>
-        </value>
-      </context>
-    </context>
-    <parameters/>
-    <result>
-      <result kind="OUT" name="result" type="JJnPath">
-        <value modelElement="//@traceRecords.3/@result/@result.0/@value/@intermediateElement">
-          <intermediateElement xsi:type="jjnpaths:JJnPath">
-            <jjpaths>
-              <from href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.3"/>
+              <from href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.5"/>
               <to href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.6"/>
               <jumpTo href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.7"/>
             </jjpaths>
@@ -110,12 +84,38 @@
     <parameters/>
     <result>
       <result kind="OUT" name="result" type="JJnPath">
+        <value modelElement="//@traceRecords.3/@result/@result.0/@value/@intermediateElement">
+          <intermediateElement xsi:type="jjnpaths:JJnPath">
+            <jjpaths>
+              <from href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.0"/>
+              <to href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.1"/>
+              <jumpTo href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.5"/>
+            </jjpaths>
+          </intermediateElement>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="createJJ1Path" package="JJPaths2JJnPathSet" module="JJPaths2JJnPathSet">
+      <runtimeMappingOperation href="qvto:/module.env#/0/createJJ1Path"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="JJPath">
+        <value>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@jjpaths.0"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="JJnPath">
         <value modelElement="//@traceRecords.4/@result/@result.0/@value/@intermediateElement">
           <intermediateElement xsi:type="jjnpaths:JJnPath">
             <jjpaths>
-              <from href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.6"/>
-              <to href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.6"/>
-              <jumpTo href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.7"/>
+              <from href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.0"/>
+              <to href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.2"/>
+              <jumpTo href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@graph/@vertices.6"/>
             </jjpaths>
           </intermediateElement>
         </value>
@@ -128,7 +128,7 @@
     </mappingOperation>
     <context>
       <context name="self" type="JJnPath">
-        <value modelElement="//@traceRecords.1/@result/@result.0/@value/@intermediateElement"/>
+        <value modelElement="//@traceRecords.4/@result/@result.0/@value/@intermediateElement"/>
       </context>
     </context>
     <parameters>
@@ -152,13 +152,13 @@
     </mappingOperation>
     <context>
       <context name="self" type="JJnPath">
-        <value modelElement="//@traceRecords.2/@result/@result.0/@value/@intermediateElement"/>
+        <value modelElement="//@traceRecords.3/@result/@result.0/@value/@intermediateElement"/>
       </context>
     </context>
     <parameters>
       <parameters name="newPath" type="JJPath">
         <value>
-          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@jjpaths.1"/>
+          <modelElement href="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/lower.graph#//@jjpaths.2"/>
         </value>
       </parameters>
     </parameters>
