@@ -43,7 +43,6 @@ helper JJnPathSet :: Estimate() : Integer {
 	var requiredTests : Integer = 0;
 	self.jjnpaths->forEach (jjnpath) {
 		jjnpath.map DeterminePathProbability();
-		log('+' + testsForProbability(jjnpath._from.probabilityOfReaching * jjnpath.probabilityOfExperience).toString());
 		requiredTests := requiredTests + ceiling(testsForProbability(jjnpath._from.probabilityOfReaching * jjnpath.probabilityOfExperience));
 	};
 	return requiredTests;
