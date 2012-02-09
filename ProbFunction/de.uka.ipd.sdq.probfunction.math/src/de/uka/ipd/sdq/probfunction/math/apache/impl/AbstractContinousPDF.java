@@ -18,12 +18,13 @@ import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnitNameNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnitNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
 
 
 public abstract class AbstractContinousPDF implements IContinousPDF {
 
 	protected AbstractContinuousDistribution internalFunction = null;
-	protected IRandomGenerator sampleDrawer = null;
+	protected IRandomGenerator sampleDrawer = new DefaultRandomGenerator();
 	
 		
 	public AbstractContinousPDF() {
