@@ -1,3 +1,5 @@
+import ProbabilityLib;
+
 modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
 modeltype CFGD uses 'http://se.fzi.de/ControlFlowDescription/0.6';
 modeltype GRAPH uses 'http://se.fzi.de/ControlFlowDescription/Graph/0.6';
@@ -189,55 +191,6 @@ helper ForkAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) 
 	newVertices += subVertices->flatten();
 	newVertices += join;
 	return newVertices;
-}
-
-/** Calculates the probability of evaluating the expression to zero. */
-query Expression :: ProbabilityZero() : Real {
-	if (self.oclIsKindOf(DoubleLiteral)) then {
-		if (self[DoubleLiteral]->any(true).value = 0) then {
-			return 1;
-		} else {
-			return 0;
-		} endif;
-	} endif;
-	if (self.oclIsKindOf(IntLiteral)) then {
-		if (self[IntLiteral]->any(true).value = 0) then {
-			return 1;
-		} else {
-			return 0;
-		} endif;
-	} endif;
-	if (self.oclIsKindOf(ProbabilityFunctionLiteral)) then {
-		var pfl : ProbabilityFunctionLiteral = self[ProbabilityFunctionLiteral]->any(true);
-		assert (pfl.function_ProbabilityFunctionLiteral->size() = 1) with log ('Literal must belong to exactly on probability function.');
-		if (pfl.function_ProbabilityFunctionLiteral.oclIsKindOf(ProbabilityMassFunction)) then {
-			return pfl.function_ProbabilityFunctionLiteral[ProbabilityMassFunction].samples->any(value = 0.0).probability;
-		} endif;
-	} endif;
-	assert (false) with log ('Unsupported expression for calculation of probability equals zero.');
-	return -1;
-}
-
-query Expression :: GetIterations() : Real {
-	if (self.oclIsKindOf(DoubleLiteral)) then {
-		 return self[DoubleLiteral]->any(true).value;
-	} endif;
-	if (self.oclIsKindOf(IntLiteral)) then {
-		return self[IntLiteral]->any(true).value;
-	} endif;
-	if (self.oclIsKindOf(ProbabilityFunctionLiteral)) then {
-		var pfl : ProbabilityFunctionLiteral = self[ProbabilityFunctionLiteral]->any(true);
-		assert (pfl.function_ProbabilityFunctionLiteral->size() = 1) with log ('Literal must belong to exactly on probability function.');
-		if (pfl.function_ProbabilityFunctionLiteral.oclIsKindOf(ProbabilityMassFunction)) then {
-			var sum : Real = 0;
-			pfl.function_ProbabilityFunctionLiteral[ProbabilityMassFunction].samples->forEach(sample) {
-				sum := sum + (sample.value.oclAsType(Real) * sample.probability);
-			};
-			return sum;
-		} endif;
-	} endif;
-	assert (false) with log ('Unsupported expression for calculation of probability equals zero.');
-	return -1;
 }
 
 /** Number for vertex of control-flow graph which will be used next. */

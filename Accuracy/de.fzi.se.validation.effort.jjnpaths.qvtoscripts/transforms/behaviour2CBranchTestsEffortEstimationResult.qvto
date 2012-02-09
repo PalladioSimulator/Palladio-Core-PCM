@@ -1,0 +1,69 @@
+import de.fzi.se.validation.effort.MathFunctionsLibrary;
+import ProbabilityLib;
+
+modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
+modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
+
+transformation behaviour2CBranchTestsEffortEstimation(in inbehaviour : PCM_SEFF, 
+									      			  out outdesc : EER) 
+access library ProbabilityLib();
+
+main() {
+	log('RD-SEFF to EffortEstimationResult (CActionTests) transformation started.');
+	inbehaviour.objects()[ResourceDemandingBehaviour]->map createEffortEstimation();
+	log('RD-SEFF to EffortEstimationResult (CActionTests) transformation finished.');
+}
+
+mapping ResourceDemandingBehaviour::createEffortEstimation() : EffortEstimationResult {
+	log('Processing ' + self.metaClassName() + ' ' + self.id + ' ...');
+	alpha := 0.5; // TODO: confidence?
+	numberTestcases := self.CBranchTests(alpha);
+	resourceDemandingBehaviour := self;
+}
+
+
+query ResourceDemandingBehaviour::CBranchTests(in confidence : Real) : Integer {
+	var required : Integer = 0;
+	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
+		required := required + action.getEffort(confidence);
+	};
+	return required;
+}
+
+helper AbstractAction::getEffort(in confidence : Real) : Integer {
+	log('AbstractAction::getEffort: self is ' + self.metaClassName());
+	return 1;
+}
+
+helper BranchAction::getEffort(in confidence : Real) : Integer {
+	var r : Integer; // result
+	log('Self: ' + self.id);
+	self.branches_Branch->forEach(branch) {
+		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
+			r := 1.max(branch.branchBehaviour_BranchTransition.CBranchTests(confidence));
+		} else { // ProbalilisticBranchCondition
+			var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
+			r := branch.branchBehaviour_BranchTransition.CBranchTests(confidence);
+			r := r * MinRequiredTests(probBranch.branchProbability, confidence);
+		} endif;
+	};
+	return r;
+}
+
+helper LoopAction::getEffort(in confidence : Real) : Integer {
+	log('Self: ' + self.id);
+	var r : Integer = self.bodyBehaviour_Loop.CBranchTests(confidence);
+	r = (1.0).max(confidence);
+	var probFreqGreaterZero : Real = 1 - self.iterationCount_LoopAction.expression.ProbabilityZero();
+	r = r * MinRequiredTests(probFreqGreaterZero, confidence);
+	return r;
+}
+
+helper ForkAction::getEffort(in confidence : Real) : Integer {
+	log('Self: ' + self.id);
+	var r : Integer = 0;
+	self.asynchronousForkedBehaviours_ForkAction->forEach(fb) {
+		r = r + fb.CBranchTests(confidence);
+	};
+	return r;
+}

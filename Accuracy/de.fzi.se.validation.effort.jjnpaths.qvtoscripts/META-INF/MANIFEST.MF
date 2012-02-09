@@ -5,3 +5,4 @@ Bundle-SymbolicName: de.fzi.se.validation.effort.jjnpaths.qvtoscripts
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: 
  FZI Forschungszentrum Informatik
+Require-Bundle: de.fzi.se.validation.effort.blackbox;bundle-version="1.0.0"

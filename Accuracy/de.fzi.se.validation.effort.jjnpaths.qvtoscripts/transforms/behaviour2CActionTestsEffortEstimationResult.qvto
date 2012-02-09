@@ -1,0 +1,51 @@
+import de.fzi.se.validation.effort.MathFunctionsLibrary;
+import ProbabilityLib;
+
+modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
+modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
+
+transformation behaviour2CActionTestsEffortEstimation(in inbehaviour : PCM_SEFF,
+													  out outdesc : EER)
+access ProbabilityLib();
+
+main() {
+	log('RD-SEFF to EffortEstimationResult (CActionTests) transformation started.');
+	inbehaviour.objects()[ResourceDemandingBehaviour]->map createEffortEstimation();
+	log('RD-SEFF to EffortEstimationResult (CActionTests) transformation finished.');
+}
+
+mapping ResourceDemandingBehaviour::createEffortEstimation() : EffortEstimationResult {
+	log('Processing ' + self.metaClassName() + ' ' + self.id + ' ...');
+	alpha := 0.5; // TODO: confidence?
+	numberTestcases := self.CActionTests(alpha);
+	resourceDemandingBehaviour := self;
+}
+
+query ResourceDemandingBehaviour::CActionTests(in confidence : Real) : Integer {
+	var required : Integer = 0;
+	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
+		if (action.oclIsKindOf(BranchAction)) then {
+			var branchAction : BranchAction = action.oclAsType(BranchAction);
+			branchAction.branches_Branch->forEach(branch) {
+				if (branch.oclIsKindOf(GuardedBranchTransition)) then {
+					required := branch.branchBehaviour_BranchTransition.CActionTests(confidence);
+				} else { // ProbalilisticBranchCondition
+					var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
+					required := branch.branchBehaviour_BranchTransition.CActionTests(confidence);
+					required := required * MinRequiredTests(probBranch.branchProbability, confidence);
+				} endif;
+			};
+		} else { 
+			if (action.oclIsKindOf(LoopAction)) then {
+				var loopAction : LoopAction = action.oclAsType(LoopAction);
+				required := loopAction.bodyBehaviour_Loop.CActionTests(confidence);
+				var probFreqGreaterZero : Real = 1 - loopAction.iterationCount_LoopAction.expression.ProbabilityZero();
+				required := required * MinRequiredTests(probFreqGreaterZero, confidence);
+			} endif;
+		} endif;
+		if (required = 0.0) then {
+			required := 1;
+		} endif;
+	};
+	return required;
+}

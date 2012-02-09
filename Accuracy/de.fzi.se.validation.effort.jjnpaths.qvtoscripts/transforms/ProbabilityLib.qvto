@@ -1,0 +1,66 @@
+import de.fzi.se.validation.effort.MathFunctionsLibrary;
+
+modeltype PCMCORE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/4.0';
+modeltype STOEX uses 'http://sdq.ipd.uka.de/StochasticExpressions/1.0';
+modeltype PROBABILITYFUNCTION uses 'http://sdq.ipd.uka.de/ProbFunction/1.0';
+
+library ProbabilityLib()
+{
+	/** Effort estimation of branches with the given probabilty. */
+	query MinRequiredTests(in probability : Real, in confidence : Real) : Integer {
+		var r : Real = mathLog(1 - confidence)/mathLog(1 - probability);
+		return ceiling(r);
+	}
+
+
+	/** Calculates the probability of evaluating the expression to zero. */
+	query Expression :: ProbabilityZero() : Real {
+		if (self.oclIsKindOf(DoubleLiteral)) then {
+			if (self[DoubleLiteral]->any(true).value = 0) then {
+				return 1;
+			} else {
+				return 0;
+			} endif;
+		} endif;
+		if (self.oclIsKindOf(IntLiteral)) then {
+			if (self[IntLiteral]->any(true).value = 0) then {
+				return 1;
+			} else {
+				return 0;
+			} endif;
+		} endif;
+		if (self.oclIsKindOf(ProbabilityFunctionLiteral)) then {
+			var pfl : ProbabilityFunctionLiteral = self[ProbabilityFunctionLiteral]->any(true);
+			assert (pfl.function_ProbabilityFunctionLiteral->size() = 1) with log ('Literal must belong to exactly on probability function.');
+			if (pfl.function_ProbabilityFunctionLiteral.oclIsKindOf(ProbabilityMassFunction)) then {
+				return pfl.function_ProbabilityFunctionLiteral[ProbabilityMassFunction].samples->any(value = 0.0).probability;
+			} endif;
+		} endif;
+		assert (false) with log ('Unsupported expression for calculation of probability equals zero.');
+		return -1;
+	}
+	
+	query Expression :: GetIterations() : Real {
+		if (self.oclIsKindOf(DoubleLiteral)) then {
+			 return self[DoubleLiteral]->any(true).value;
+		} endif;
+		if (self.oclIsKindOf(IntLiteral)) then {
+			return self[IntLiteral]->any(true).value;
+		} endif;
+		if (self.oclIsKindOf(ProbabilityFunctionLiteral)) then {
+			var pfl : ProbabilityFunctionLiteral = self[ProbabilityFunctionLiteral]->any(true);
+			assert (pfl.function_ProbabilityFunctionLiteral->size() = 1) with log ('Literal must belong to exactly on probability function.');
+			if (pfl.function_ProbabilityFunctionLiteral.oclIsKindOf(ProbabilityMassFunction)) then {
+				var sum : Real = 0;
+				pfl.function_ProbabilityFunctionLiteral[ProbabilityMassFunction].samples->forEach(sample) {
+					sum := sum + (sample.value.oclAsType(Real) * sample.probability);
+				};
+				return sum;
+			} endif;
+		} endif;
+		assert (false) with log ('Unsupported expression for calculation of probability equals zero.');
+		return -1;
+	}
+
+
+}
