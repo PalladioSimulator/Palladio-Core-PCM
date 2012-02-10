@@ -15,15 +15,20 @@ library ProbabilityLib()
 
 	/** Calculates the probability of evaluating the expression to zero. */
 	query Expression :: ProbabilityZero() : Real {
+		return self.Probability(0);
+	}
+	
+	/** Calculates the probability of evaluating the expression to k. */
+	query Expression :: Probability(in k : Integer) : Real {
 		if (self.oclIsKindOf(DoubleLiteral)) then {
-			if (self[DoubleLiteral]->any(true).value = 0) then {
+			if (self[DoubleLiteral]->any(true).value = k) then {
 				return 1;
 			} else {
 				return 0;
 			} endif;
 		} endif;
 		if (self.oclIsKindOf(IntLiteral)) then {
-			if (self[IntLiteral]->any(true).value = 0) then {
+			if (self[IntLiteral]->any(true).value = k) then {
 				return 1;
 			} else {
 				return 0;
@@ -33,12 +38,14 @@ library ProbabilityLib()
 			var pfl : ProbabilityFunctionLiteral = self[ProbabilityFunctionLiteral]->any(true);
 			assert (pfl.function_ProbabilityFunctionLiteral->size() = 1) with log ('Literal must belong to exactly on probability function.');
 			if (pfl.function_ProbabilityFunctionLiteral.oclIsKindOf(ProbabilityMassFunction)) then {
-				return pfl.function_ProbabilityFunctionLiteral[ProbabilityMassFunction].samples->any(value = 0.0).probability;
+				var kAsReal : Real = k;
+				return pfl.function_ProbabilityFunctionLiteral[ProbabilityMassFunction].samples->any(value = kAsReal).probability;
 			} endif;
 		} endif;
-		assert (false) with log ('Unsupported expression for calculation of probability equals zero.');
+		assert (false) with log ('Unsupported expression for calculation of probability equals ' + k.toString() + '.');
 		return -1;
 	}
+	
 	
 	query Expression :: GetIterations() : Real {
 		if (self.oclIsKindOf(DoubleLiteral)) then {

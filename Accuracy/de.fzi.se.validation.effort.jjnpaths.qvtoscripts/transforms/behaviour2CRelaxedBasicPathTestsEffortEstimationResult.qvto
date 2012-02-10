@@ -4,12 +4,12 @@ import ProbabilityLib;
 modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
 modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
 
-transformation behaviour2CSTPTestsEffortEstimation(in inbehaviour : PCM_SEFF, 
+transformation behaviour2CRelaxedBasicPathTestsEffortEstimation(in inbehaviour : PCM_SEFF, 
 									      			  out outdesc : EER) 
 access library ProbabilityLib();
 
 main() {
-	log('RD-SEFF to EffortEstimationResult (CSTPTests) transformation started.');
+	log('RD-SEFF to EffortEstimationResult (CRelaxedBasicPathTests) transformation started.');
 	inbehaviour.objects()[ResourceDemandingBehaviour]->map createEffortEstimation();
 	log('RD-SEFF to EffortEstimationResult (CSTPTests) transformation finished.');
 }
@@ -18,47 +18,45 @@ mapping ResourceDemandingBehaviour::createEffortEstimation() : EffortEstimationR
 	log('Processing ' + self.metaClassName() + ' ' + self.id + ' ...');
 	alpha := 0.5; // TODO: confidence?
 	var n : Integer = 5; // TODO: configuration
-	numberTestcases := self.CSPTTests(alpha, n);
+	numberTestcases := self.CRelaxedBasicPathTests(alpha);
 	resourceDemandingBehaviour := self;
 }
 
 
-query ResourceDemandingBehaviour::CSPTTests(in confidence : Real, in n : Integer) : Integer {
+query ResourceDemandingBehaviour::CRelaxedBasicPathTests(in confidence : Real) : Integer {
 	var required : Integer = 1;
 	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
 		var altRequired = 0;
-		altRequired := altRequired + action.getEffort(confidence, n);
+		altRequired := altRequired + action.getEffort(confidence);
 		required := required * altRequired;
 	};
 	return required;
 }
 
-helper AbstractAction::getEffort(in confidence : Real, in n : Integer) : Integer {
+helper AbstractAction::getEffort(in confidence : Real) : Integer {
 	return 1;
 }
 
-helper BranchAction::getEffort(in confidence : Real, in n : Integer) : Integer {
+helper BranchAction::getEffort(in confidence : Real) : Integer {
 	var r : Integer; // result
 	self.branches_Branch->forEach(branch) {
 		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
-			r := 1.max(branch.branchBehaviour_BranchTransition.CSPTTests(confidence, n));
+			r := 1.max(branch.branchBehaviour_BranchTransition.CRelaxedBasicPathTests(confidence));
 		} else { // ProbabilisticBranchCondition
 			var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
-			r := 1.max(branch.branchBehaviour_BranchTransition.CSPTTests(confidence, n));
+			r := 1.max(branch.branchBehaviour_BranchTransition.CRelaxedBasicPathTests(confidence));
 			r := r * MinRequiredTests(probBranch.branchProbability, confidence);
 		} endif;
 	};
 	return r;
 }
 
-helper LoopAction::getEffort(in confidence : Real, in n : Integer) : Integer {
-	var probFreqK : Real = self.iterationCount_LoopAction.expression.Probability(k);
-	var r : Integer = MinRequiredTests(probFreqK, confidence);
-	Set {1..n}->forEach(k) {
-		r = r + self.bodyBehaviour_Loop.CSPTTests(confidence, n);
-		probFreqK := self.iterationCount_LoopAction.expression.Probability(k);
-		r = r * MinRequiredTests(probFreqK, confidence);
-	};
+helper LoopAction::getEffort(in confidence : Real) : Integer {
+	var probFreqZero : Real = self.iterationCount_LoopAction.expression.ProbabilityZero();
+	var r : Integer = MinRequiredTests(probFreqZero, confidence);
+	var p : Integer = self.bodyBehaviour_Loop.CRelaxedBasicPathTests(confidence);
+	p = p * MinRequiredTests(1.0 - probFreqZero, confidence);
+	r = r + p;
 
 	return r;
 }
@@ -66,7 +64,7 @@ helper LoopAction::getEffort(in confidence : Real, in n : Integer) : Integer {
 helper ForkAction::getEffort(in confidence : Real, in n : Integer) : Integer {
 	var r : Integer = 1-self.asynchronousForkedBehaviours_ForkAction->size();
 	self.asynchronousForkedBehaviours_ForkAction->forEach(fb) {
-		r = r + fb.CSPTTests(confidence, n);
+		r = r + fb.CRelaxedBasicPathTests(confidence);
 	};
 	return r;
 }
