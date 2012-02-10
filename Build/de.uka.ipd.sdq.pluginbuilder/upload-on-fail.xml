@@ -1,4 +1,4 @@
-<project name="UpdateSite">
+<project name="UpdateSite" default="upload">
 
         <taskdef resource="org/pluginbuilder/anttasks/pluginbuildertasks.properties" classpath="build-files/pluginbuilder-anttasks.jar" />
 
@@ -25,7 +25,7 @@
 				keyfile="/home/ccontrol/.ssh/id_dsa" 
 				passphrase="" 
 				trust="true">
-			<fileset dir="/home/ccontrol/pluginbuilder/de.uka.ipd.sdq.pluginbuilder.3.5/">
+			<fileset dir="${buildDirectory}">
 				<include name="*.txt" />
 			</fileset>
 	  	</scp>	
