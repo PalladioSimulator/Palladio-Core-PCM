@@ -37,7 +37,6 @@ helper AbstractAction::getEffort(in confidence : Real) : Integer {
 
 helper BranchAction::getEffort(in confidence : Real) : Integer {
 	var r : Integer; // result
-	log('Self: ' + self.id);
 	self.branches_Branch->forEach(branch) {
 		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
 			r := 1.max(branch.branchBehaviour_BranchTransition.CBranchTests(confidence));
@@ -51,7 +50,6 @@ helper BranchAction::getEffort(in confidence : Real) : Integer {
 }
 
 helper LoopAction::getEffort(in confidence : Real) : Integer {
-	log('Self: ' + self.id);
 	var r : Integer = self.bodyBehaviour_Loop.CBranchTests(confidence);
 	r = (1.0).max(confidence);
 	var probFreqGreaterZero : Real = 1 - self.iterationCount_LoopAction.expression.ProbabilityZero();
@@ -60,7 +58,6 @@ helper LoopAction::getEffort(in confidence : Real) : Integer {
 }
 
 helper ForkAction::getEffort(in confidence : Real) : Integer {
-	log('Self: ' + self.id);
 	var r : Integer = 0;
 	self.asynchronousForkedBehaviours_ForkAction->forEach(fb) {
 		r = r + fb.CBranchTests(confidence);

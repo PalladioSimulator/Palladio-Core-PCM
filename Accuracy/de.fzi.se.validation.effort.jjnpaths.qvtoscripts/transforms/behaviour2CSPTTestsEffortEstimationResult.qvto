@@ -1,0 +1,72 @@
+import de.fzi.se.validation.effort.MathFunctionsLibrary;
+import ProbabilityLib;
+
+modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
+modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
+
+transformation behaviour2CSTPTestsEffortEstimation(in inbehaviour : PCM_SEFF, 
+									      			  out outdesc : EER) 
+access library ProbabilityLib();
+
+main() {
+	log('RD-SEFF to EffortEstimationResult (CSTPTests) transformation started.');
+	inbehaviour.objects()[ResourceDemandingBehaviour]->map createEffortEstimation();
+	log('RD-SEFF to EffortEstimationResult (CSTPTests) transformation finished.');
+}
+
+mapping ResourceDemandingBehaviour::createEffortEstimation() : EffortEstimationResult {
+	log('Processing ' + self.metaClassName() + ' ' + self.id + ' ...');
+	alpha := 0.5; // TODO: confidence?
+	var n : Integer = 5; // TODO: configuration
+	numberTestcases := self.CSPTTests(alpha, n);
+	resourceDemandingBehaviour := self;
+}
+
+
+query ResourceDemandingBehaviour::CSPTTests(in confidence : Real, in n : Integer) : Integer {
+	var required : Integer = 1;
+	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
+		var altRequired = 0;
+		altRequired := altRequired + action.getEffort(confidence, n);
+		required := required * altRequired;
+	};
+	return required;
+}
+
+helper AbstractAction::getEffort(in confidence : Real, in n : Integer) : Integer {
+	log('AbstractAction::getEffort: self is ' + self.metaClassName());
+	return 1;
+}
+
+helper BranchAction::getEffort(in confidence : Real, in n : Integer) : Integer {
+	var r : Integer; // result
+	self.branches_Branch->forEach(branch) {
+		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
+			r := 1.max(branch.branchBehaviour_BranchTransition.CSPTTests(confidence, n));
+		} else { // ProbalilisticBranchCondition
+			var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
+			r := branch.branchBehaviour_BranchTransition.CSPTTests(confidence, n);
+			r := r * MinRequiredTests(probBranch.branchProbability, confidence);
+		} endif;
+	};
+	return r;
+}
+
+helper LoopAction::getEffort(in confidence : Real, in n : Integer) : Integer {
+	var probFreqGreaterZero : Real = 1 - self.iterationCount_LoopAction.expression.ProbabilityZero();
+	var r : Integer = MinRequiredTests(probFreqGreaterZero, confidence);
+	Set {1..n}->forEach(idx) {
+		r = r + self.bodyBehaviour_Loop.CSPTTests(confidence, n);
+		r = r * MinRequiredTests(probFreqGreaterZero, confidence);
+	};
+
+	return r;
+}
+
+helper ForkAction::getEffort(in confidence : Real, in n : Integer) : Integer {
+	var r : Integer = 1-self.asynchronousForkedBehaviours_ForkAction->size();
+	self.asynchronousForkedBehaviours_ForkAction->forEach(fb) {
+		r = r + fb.CSPTTests(confidence, n);
+	};
+	return r;
+}
