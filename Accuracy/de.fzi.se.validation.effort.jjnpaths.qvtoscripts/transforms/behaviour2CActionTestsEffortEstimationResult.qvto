@@ -29,7 +29,7 @@ query ResourceDemandingBehaviour::CActionTests(in confidence : Real) : Integer {
 			branchAction.branches_Branch->forEach(branch) {
 				if (branch.oclIsKindOf(GuardedBranchTransition)) then {
 					required := branch.branchBehaviour_BranchTransition.CActionTests(confidence);
-				} else { // ProbalilisticBranchCondition
+				} else { // ProbabilisticBranchCondition
 					var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
 					required := branch.branchBehaviour_BranchTransition.CActionTests(confidence);
 					required := required * MinRequiredTests(probBranch.branchProbability, confidence);

@@ -40,9 +40,9 @@ helper BranchAction::getEffort(in confidence : Real) : Integer {
 	self.branches_Branch->forEach(branch) {
 		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
 			r := 1.max(branch.branchBehaviour_BranchTransition.CBranchTests(confidence));
-		} else { // ProbalilisticBranchCondition
+		} else { // ProbabilisticBranchCondition
 			var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
-			r := branch.branchBehaviour_BranchTransition.CBranchTests(confidence);
+			r := 1.max(branch.branchBehaviour_BranchTransition.CBranchTests(confidence));
 			r := r * MinRequiredTests(probBranch.branchProbability, confidence);
 		} endif;
 	};

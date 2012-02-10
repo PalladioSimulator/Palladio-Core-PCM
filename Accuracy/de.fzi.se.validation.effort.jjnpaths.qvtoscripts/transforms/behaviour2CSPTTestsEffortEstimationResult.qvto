@@ -34,7 +34,6 @@ query ResourceDemandingBehaviour::CSPTTests(in confidence : Real, in n : Integer
 }
 
 helper AbstractAction::getEffort(in confidence : Real, in n : Integer) : Integer {
-	log('AbstractAction::getEffort: self is ' + self.metaClassName());
 	return 1;
 }
 
@@ -43,9 +42,9 @@ helper BranchAction::getEffort(in confidence : Real, in n : Integer) : Integer {
 	self.branches_Branch->forEach(branch) {
 		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
 			r := 1.max(branch.branchBehaviour_BranchTransition.CSPTTests(confidence, n));
-		} else { // ProbalilisticBranchCondition
+		} else { // ProbabilisticBranchCondition
 			var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
-			r := branch.branchBehaviour_BranchTransition.CSPTTests(confidence, n);
+			r := 1.max(branch.branchBehaviour_BranchTransition.CSPTTests(confidence, n));
 			r := r * MinRequiredTests(probBranch.branchProbability, confidence);
 		} endif;
 	};
