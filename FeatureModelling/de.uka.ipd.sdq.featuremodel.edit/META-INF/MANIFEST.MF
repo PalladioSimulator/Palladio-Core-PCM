@@ -16,9 +16,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
  de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
- org.eclipse.uml2.common.edit;visibility:=reexport,
- edu.kit.ipd.sdq.qvtmodels;bundle-version="1.0.0",
- edu.kit.ipd.sdq.qvtmodels.edit;bundle-version="1.0.0",
- de.uka.ipd.sdq.copyexception;bundle-version="1.0.0",
- de.uka.ipd.sdq.copyexception.edit;bundle-version="1.0.0"
+ org.eclipse.uml2.common.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
