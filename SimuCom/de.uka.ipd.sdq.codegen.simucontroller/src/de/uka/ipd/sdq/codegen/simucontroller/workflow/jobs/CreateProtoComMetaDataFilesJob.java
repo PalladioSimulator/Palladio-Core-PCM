@@ -58,7 +58,6 @@ public class CreateProtoComMetaDataFilesJob extends AbstractCreateMetaDataFilesJ
 		 "de.uka.ipd.sdq.stoex.analyser",
 		 "de.uka.ipd.sdq.pcm.stochasticexpressions",
 		 "de.uka.ipd.sdq.pcm",
-		 "org.antlr",
 		 "de.uka.ipd.sdq.sensorframework.storage",
 		 "de.uka.ipd.sdq.probfunction.math",
 		 "org.apache.commons.math"
