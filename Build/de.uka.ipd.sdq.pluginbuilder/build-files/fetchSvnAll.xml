@@ -504,24 +504,12 @@
       <param name="project.name" value="/de.uka.ipd.sdq.simucomframework"/>
       <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/SimuCom"/>
     </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.simucomframework.desmoj"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.simucomframework.desmoj"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/SimuCom"/>
-    </antcall>
   	<antcall target="svn.co">
   	      <param name="target" value="plugins"/>
   	      <param name="element.id" value="org.apache.commons.javaflow"/>
   	      <param name="project.name" value="/org.apache.commons.javaflow"/>
   	      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/ThirdPartyWrapper/trunk"/>
   	</antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.simucomframework.ssj"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.simucomframework.ssj"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/SimuCom"/>
-    </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.simucomframework.variables"/>
