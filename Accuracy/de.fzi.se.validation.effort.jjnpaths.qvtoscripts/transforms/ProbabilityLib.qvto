@@ -2,6 +2,7 @@ import de.fzi.se.validation.effort.MathFunctionsLibrary;
 
 modeltype PCMCORE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/4.0';
 modeltype STOEX uses 'http://sdq.ipd.uka.de/StochasticExpressions/1.0';
+modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
 modeltype PROBABILITYFUNCTION uses 'http://sdq.ipd.uka.de/ProbFunction/1.0';
 
 library ProbabilityLib()
@@ -69,5 +70,12 @@ library ProbabilityLib()
 		return -1;
 	}
 
-
+	query AbstractAction::containsCalls() : Boolean {
+		log('ERROR: AbstractAction::containsCalls is not implemented!');
+		if(self.oclIsKindOf(CallAction)) then {
+			return true;
+		} endif;
+		// TODO: implement
+		return false;
+	}
 }
