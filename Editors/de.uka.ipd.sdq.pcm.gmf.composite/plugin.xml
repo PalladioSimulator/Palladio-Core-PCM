@@ -639,18 +639,6 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
       </context>
    </extension>
 
-<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
-      <?gmfgen generated="false"?>
-  	  <wizard
-  	     name="%newWizardName"
-  	     icon="icons/obj16/EntityDiagramFile.gif"
-  	     category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
-  	     class="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelCreationWizard"
-  	     id="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelCreationWizardID">
-  	  	 <description>%newWizardDesc</description>  
-      </wizard>
-   </extension>
-
 <extension point="org.eclipse.ui.commands" id="update-cmd">
       <?gmfgen generated="true"?>
       <command
