@@ -50,14 +50,8 @@ public class SimuConfigurationTab extends ConfigurationTab {
 	private Button fixedSeedButton;
 	private Text[] seedText;
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.codegen.runconfig.tabs.ConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
-	 */
 	@Override
-	public void createControl(Composite parent) {
-		super.createControl(parent);
-		Composite container = (Composite) getControl();
-
+	protected void createFurtherSections(Composite container) {
 		final Group sensitivityAnalysisParametersGroup = new Group(container, SWT.NONE);
 		sensitivityAnalysisParametersGroup.setText("Sensitivity Analysis Parameters");
 		final GridData gd_sensitivityAnalysisParametersGroup = new GridData(SWT.FILL, SWT.CENTER, true, false);
