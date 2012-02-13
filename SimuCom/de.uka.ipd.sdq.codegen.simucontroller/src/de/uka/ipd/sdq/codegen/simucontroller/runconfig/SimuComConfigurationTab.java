@@ -131,6 +131,56 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
             }
         });
         
+        /** Create Experiment Run section */
+		final Group experimentrunGroup = new Group(container, SWT.NONE);
+		experimentrunGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		final GridLayout gridLayout = new GridLayout();
+		gridLayout.numColumns = 2;
+		experimentrunGroup.setLayout(gridLayout);
+		experimentrunGroup.setText("Experiment Run");
+
+		Label nameLabel = new Label(experimentrunGroup, SWT.NONE);
+		nameLabel.setText("Experiment Name:");
+
+		nameField = new Text(experimentrunGroup, SWT.BORDER);
+		final GridData gd_nameField = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		gd_nameField.widthHint = 70;
+		nameField.setLayoutData(gd_nameField);
+		nameField.addModifyListener(modifyListener);
+
+		/** DataSet group */
+		final Group persistenceGroup = new Group(container, SWT.NONE);
+		persistenceGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
+				false));
+		persistenceGroup.setLayout(new GridLayout(2, false));
+		persistenceGroup.setText("Simulation Results");
+
+		final Label persistenceLabel = new Label(persistenceGroup, SWT.NONE);
+		persistenceLabel.setText("Persistence Framework:");
+
+		String[] recorderNames = null;
+		try {
+			recorderNames = RecorderExtensionHelper.getRecorderNames();
+		} catch (CoreException e1) {
+			logger.warn("Could not access RecorderNames.", e1);
+		}
+		persistenceCombo = new Combo(persistenceGroup, SWT.READ_ONLY);
+		persistenceCombo.setItems(recorderNames);
+		persistenceCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		persistenceCombo.addSelectionListener (new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				updateLaunchConfigurationDialog();
+			}
+		});
+
+		recorderTabGroup = new RecorderTabGroup();
+		CTabFolder tabFolder = TabHelper.createTabFolder(recorderTabGroup,
+				getLaunchConfigurationDialog(),
+				getLaunchConfigurationDialog().getMode(),
+				persistenceGroup, SWT.BORDER | SWT.FLAT);
+		tabFolder.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 2, 1));
+        
 		/** Create Stop Conditions section */
 		final Group stopConditionsGroup = new Group(container, SWT.NONE);
 		stopConditionsGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -256,57 +306,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		minNumberOfBatchesField = new Text(confidenceGroup, SWT.BORDER);
 		minNumberOfBatchesField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
 		minNumberOfBatchesField.addModifyListener(modifyListener);
-		minNumberOfBatchesField.setEnabled(false);
-
-		/** Create Experiment Run section */
-		final Group experimentrunGroup = new Group(container, SWT.NONE);
-		experimentrunGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-		final GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 2;
-		experimentrunGroup.setLayout(gridLayout);
-		experimentrunGroup.setText("Experiment Run");
-
-		Label nameLabel = new Label(experimentrunGroup, SWT.NONE);
-		nameLabel.setText("Experiment Name:");
-
-		nameField = new Text(experimentrunGroup, SWT.BORDER);
-		final GridData gd_nameField = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		gd_nameField.widthHint = 70;
-		nameField.setLayoutData(gd_nameField);
-		nameField.addModifyListener(modifyListener);
-
-		/** DataSet group */
-		final Group persistenceGroup = new Group(container, SWT.NONE);
-		persistenceGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
-				false));
-		persistenceGroup.setLayout(new GridLayout(2, false));
-		persistenceGroup.setText("Simulation Results");
-
-		final Label persistenceLabel = new Label(persistenceGroup, SWT.NONE);
-		persistenceLabel.setText("Persistence Framework:");
-
-		String[] recorderNames = null;
-		try {
-			recorderNames = RecorderExtensionHelper.getRecorderNames();
-		} catch (CoreException e1) {
-			logger.warn("Could not access RecorderNames.", e1);
-		}
-		persistenceCombo = new Combo(persistenceGroup, SWT.READ_ONLY);
-		persistenceCombo.setItems(recorderNames);
-		persistenceCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-		persistenceCombo.addSelectionListener (new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				updateLaunchConfigurationDialog();
-			}
-		});
-
-		recorderTabGroup = new RecorderTabGroup();
-		CTabFolder tabFolder = TabHelper.createTabFolder(recorderTabGroup,
-				getLaunchConfigurationDialog(),
-				getLaunchConfigurationDialog().getMode(),
-				persistenceGroup, SWT.BORDER | SWT.FLAT);
-		tabFolder.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 2, 1));
+		minNumberOfBatchesField.setEnabled(false);		
 
 		/** Logging group*/
 		final Group loggingGroup = new Group(container, SWT.NONE);
