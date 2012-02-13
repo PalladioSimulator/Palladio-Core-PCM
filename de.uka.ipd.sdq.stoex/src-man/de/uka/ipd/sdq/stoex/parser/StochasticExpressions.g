@@ -63,14 +63,14 @@ compareExpr returns [Comparison comp]
 				 	{compExp.setLeft(t1); compExp.setRight(t2); comp=compExp;})? ;
 
 sumExpr returns [Term t]
-	 : 
-	p1 = prodExpr {t = p1;} (
-			{TermExpression termExp = StoexFactory.eINSTANCE.createTermExpression();}			
-			(PLUS {termExp.setOperation(TermOperations.ADD);}|
-			MINUS  {termExp.setOperation(TermOperations.SUB);}) 
-			p2 = prodExpr
-				{termExp.setLeft(t); termExp.setRight(p2); t = termExp;}
-			)* 
+   : 
+  p1 = prodExpr {t = p1;} (
+      {TermExpression termExp = StoexFactory.eINSTANCE.createTermExpression();}     
+      (PLUS {termExp.setOperation(TermOperations.ADD);}|
+      MINUS {termExp.setOperation(TermOperations.SUB);}) 
+      p2 = prodExpr 
+        {termExp.setLeft(t); termExp.setRight(p2); t = termExp;}
+      )?
 ;
 		
 prodExpr returns [Product p] 
