@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
 /**
@@ -90,7 +91,7 @@ public class ExternalCallActionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_FailureHandlingEntity_failureTypes_FailureHandlingEntity_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_FailureHandlingEntity_failureTypes_FailureHandlingEntity_feature", "_UI_FailureHandlingEntity_type"),
-				 Seff_reliabilityPackage.Literals.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY,
+				 SeffReliabilityPackage.Literals.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY,
 				 true,
 				 false,
 				 true,

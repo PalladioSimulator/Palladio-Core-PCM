@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * <!-- end-model-doc -->
  *
  *
- * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage#getSystemSpecifiedExecutionTime()
+ * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#getSystemSpecifiedExecutionTime()
  * @model
  * @generated
  */
@@ -38,8 +38,6 @@ public interface SystemSpecifiedExecutionTime extends SpecifiedExecutionTime {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * (self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))
-	 * 
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

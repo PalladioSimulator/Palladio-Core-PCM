@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.core.composition.util;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**

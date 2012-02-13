@@ -28,6 +28,7 @@ import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory;
 
 /**
@@ -280,7 +281,7 @@ public class ResourceDemandingSEFFItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 Seff_reliabilityFactory.eINSTANCE.createRecoveryAction()));
+				 SeffReliabilityFactory.eINSTANCE.createRecoveryAction()));
 
 		newChildDescriptors.add
 			(createChildParameter

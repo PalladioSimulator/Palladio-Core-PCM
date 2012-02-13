@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
+import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import java.util.Collection;
 import java.util.List;
 
@@ -83,7 +84,10 @@ public class ForkedBehaviourItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ForkedBehaviour_type");
+		String label = ((ForkedBehaviour)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ForkedBehaviour_type") :
+			getString("_UI_ForkedBehaviour_type") + " " + label;
 	}
 
 	/**

@@ -42,7 +42,7 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
 	 */
 	public static EntityFactory init() {
 		try {
-			EntityFactory theEntityFactory = (EntityFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/4.0"); 
+			EntityFactory theEntityFactory = (EntityFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0"); 
 			if (theEntityFactory != null) {
 				return theEntityFactory;
 			}

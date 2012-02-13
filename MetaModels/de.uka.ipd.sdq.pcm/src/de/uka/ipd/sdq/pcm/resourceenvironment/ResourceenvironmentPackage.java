@@ -54,7 +54,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0";
 
 	/**
 	 * The package namespace name.
@@ -302,7 +302,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER = 2;
 
 	/**
-	 * The feature id for the '<em><b>Scheduling Policy</b></em>' attribute.
+	 * The feature id for the '<em><b>Scheduling Policy</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -437,17 +437,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	int CONTAINER_OPERATING_SYSTEM = 5;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getSchedulingPolicy()
-	 * @generated
-	 */
-	int SCHEDULING_POLICY = 6;
-
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment <em>Resource Environment</em>}'.
@@ -633,15 +622,15 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EAttribute getProcessingResourceSpecification_RequiredByContainer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scheduling Policy</em>'.
+	 * @return the meta object for the reference '<em>Scheduling Policy</em>'.
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy()
 	 * @see #getProcessingResourceSpecification()
 	 * @generated
 	 */
-	EAttribute getProcessingResourceSpecification_SchedulingPolicy();
+	EReference getProcessingResourceSpecification_SchedulingPolicy();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}'.
@@ -761,16 +750,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getContainerOperatingSystem();
-
-	/**
-	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Scheduling Policy</em>'.
-	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
-	 * @generated
-	 */
-	EEnum getSchedulingPolicy();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -939,12 +918,12 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EAttribute PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER = eINSTANCE.getProcessingResourceSpecification_RequiredByContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Scheduling Policy</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Scheduling Policy</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY = eINSTANCE.getProcessingResourceSpecification_SchedulingPolicy();
+		EReference PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY = eINSTANCE.getProcessingResourceSpecification_SchedulingPolicy();
 
 		/**
 		 * The meta object literal for the '<em><b>Active Resource Type Active Resource Specification</b></em>' reference feature.
@@ -1037,16 +1016,6 @@ public interface ResourceenvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum CONTAINER_OPERATING_SYSTEM = eINSTANCE.getContainerOperatingSystem();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
-		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getSchedulingPolicy()
-		 * @generated
-		 */
-		EEnum SCHEDULING_POLICY = eINSTANCE.getSchedulingPolicy();
 
 	}
 

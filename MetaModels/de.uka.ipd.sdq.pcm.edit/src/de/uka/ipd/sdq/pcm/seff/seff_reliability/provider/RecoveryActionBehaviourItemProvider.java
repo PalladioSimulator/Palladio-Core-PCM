@@ -10,6 +10,8 @@ import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
@@ -90,7 +92,7 @@ public class RecoveryActionBehaviourItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RecoveryActionBehaviour_failureHandlingAlternatives__RecoveryActionBehaviour_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RecoveryActionBehaviour_failureHandlingAlternatives__RecoveryActionBehaviour_feature", "_UI_RecoveryActionBehaviour_type"),
-				 Seff_reliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR,
+				 SeffReliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR,
 				 true,
 				 false,
 				 true,
@@ -166,7 +168,7 @@ public class RecoveryActionBehaviourItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RecoveryActionBehaviour.class)) {
-			case Seff_reliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
+			case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -187,7 +189,7 @@ public class RecoveryActionBehaviourItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 Seff_reliabilityFactory.eINSTANCE.createRecoveryAction()));
+				 SeffReliabilityFactory.eINSTANCE.createRecoveryAction()));
 
 		newChildDescriptors.add
 			(createChildParameter

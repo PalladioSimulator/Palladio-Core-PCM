@@ -69,7 +69,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getParametricResourceDemand()
+ * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand()
  * @model
  * @generated
  */
@@ -92,7 +92,7 @@ public interface ParametricResourceDemand extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Specification Parameteric Resource Demand</em>' containment reference.
 	 * @see #setSpecification_ParametericResourceDemand(PCMRandomVariable)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getParametricResourceDemand_Specification_ParametericResourceDemand()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_Specification_ParametericResourceDemand()
 	 * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getParametricResourceDemand_PCMRandomVariable
 	 * @model opposite="parametricResourceDemand_PCMRandomVariable" containment="true" required="true" ordered="false"
 	 * @generated
@@ -119,7 +119,7 @@ public interface ParametricResourceDemand extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required Resource Parametric Resource Demand</em>' reference.
 	 * @see #setRequiredResource_ParametricResourceDemand(ProcessingResourceType)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getParametricResourceDemand_RequiredResource_ParametricResourceDemand()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_RequiredResource_ParametricResourceDemand()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -146,7 +146,7 @@ public interface ParametricResourceDemand extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Action Parametric Resource Demand</em>' container reference.
 	 * @see #setAction_ParametricResourceDemand(AbstractInternalControlFlowAction)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getParametricResourceDemand_Action_ParametricResourceDemand()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_Action_ParametricResourceDemand()
 	 * @see de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action
 	 * @model opposite="resourceDemand_Action" required="true" transient="false" ordered="false"
 	 * @generated

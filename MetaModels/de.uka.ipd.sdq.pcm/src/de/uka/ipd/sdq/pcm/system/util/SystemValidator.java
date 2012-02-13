@@ -144,6 +144,7 @@ public class SystemValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSystem(de.uka.ipd.sdq.pcm.system.System system, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(system, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(system, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(system, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(system, diagnostics, context);

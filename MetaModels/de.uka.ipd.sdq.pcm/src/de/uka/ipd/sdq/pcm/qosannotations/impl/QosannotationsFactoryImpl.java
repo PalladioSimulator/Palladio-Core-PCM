@@ -38,7 +38,7 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
 	 */
 	public static QosannotationsFactory init() {
 		try {
-			QosannotationsFactory theQosannotationsFactory = (QosannotationsFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/4.0"); 
+			QosannotationsFactory theQosannotationsFactory = (QosannotationsFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/5.0"); 
 			if (theQosannotationsFactory != null) {
 				return theQosannotationsFactory;
 			}

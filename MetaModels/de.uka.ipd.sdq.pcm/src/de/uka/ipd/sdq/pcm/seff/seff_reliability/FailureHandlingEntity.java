@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.reliability.FailureType;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getFailureHandlingEntity()
+ * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getFailureHandlingEntity()
  * @model abstract="true"
  * @generated
  */
@@ -51,7 +51,7 @@ public interface FailureHandlingEntity extends Entity {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Failure Types Failure Handling Entity</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getFailureHandlingEntity_FailureTypes_FailureHandlingEntity()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getFailureHandlingEntity_FailureTypes_FailureHandlingEntity()
 	 * @model ordered="false"
 	 * @generated
 	 */

@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.pcm.seff.CallAction;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getResourceCall()
+ * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall()
  * @model
  * @generated
  */
@@ -53,7 +53,7 @@ public interface ResourceCall extends CallAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Action Resource Call</em>' container reference.
 	 * @see #setAction__ResourceCall(AbstractInternalControlFlowAction)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getResourceCall_Action__ResourceCall()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall_Action__ResourceCall()
 	 * @see de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getResourceCall__Action
 	 * @model opposite="resourceCall__Action" required="true" transient="false" ordered="false"
 	 * @generated
@@ -80,7 +80,7 @@ public interface ResourceCall extends CallAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resource Required Role Resource Call</em>' reference.
 	 * @see #setResourceRequiredRole__ResourceCall(ResourceRequiredRole)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getResourceCall_ResourceRequiredRole__ResourceCall()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall_ResourceRequiredRole__ResourceCall()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -106,7 +106,7 @@ public interface ResourceCall extends CallAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Signature Resource Call</em>' reference.
 	 * @see #setSignature__ResourceCall(ResourceSignature)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getResourceCall_Signature__ResourceCall()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall_Signature__ResourceCall()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -133,7 +133,7 @@ public interface ResourceCall extends CallAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Number Of Calls Resource Call</em>' containment reference.
 	 * @see #setNumberOfCalls__ResourceCall(PCMRandomVariable)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getResourceCall_NumberOfCalls__ResourceCall()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall_NumberOfCalls__ResourceCall()
 	 * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getResourceCall__PCMRandomVariable
 	 * @model opposite="resourceCall__PCMRandomVariable" containment="true" required="true" ordered="false"
 	 * @generated
@@ -154,7 +154,6 @@ public interface ResourceCall extends CallAction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

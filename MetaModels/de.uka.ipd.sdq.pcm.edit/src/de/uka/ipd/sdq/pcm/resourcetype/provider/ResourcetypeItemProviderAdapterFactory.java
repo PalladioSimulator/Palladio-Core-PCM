@@ -127,6 +127,29 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SchedulingPolicyItemProvider schedulingPolicyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSchedulingPolicyAdapter() {
+		if (schedulingPolicyItemProvider == null) {
+			schedulingPolicyItemProvider = new SchedulingPolicyItemProvider(this);
+		}
+
+		return schedulingPolicyItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -297,6 +320,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 		if (resourceSignatureItemProvider != null) resourceSignatureItemProvider.dispose();
 		if (processingResourceTypeItemProvider != null) processingResourceTypeItemProvider.dispose();
 		if (resourceRepositoryItemProvider != null) resourceRepositoryItemProvider.dispose();
+		if (schedulingPolicyItemProvider != null) schedulingPolicyItemProvider.dispose();
 		if (communicationLinkResourceTypeItemProvider != null) communicationLinkResourceTypeItemProvider.dispose();
 		if (resourceInterfaceItemProvider != null) resourceInterfaceItemProvider.dispose();
 	}

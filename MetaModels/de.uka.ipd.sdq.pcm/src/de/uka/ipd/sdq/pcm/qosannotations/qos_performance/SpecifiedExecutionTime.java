@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage#getSpecifiedExecutionTime()
+ * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#getSpecifiedExecutionTime()
  * @model abstract="true"
  * @generated
  */
@@ -58,7 +58,7 @@ public interface SpecifiedExecutionTime extends SpecifiedQoSAnnotation {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Specification Specified Execution Time</em>' containment reference.
 	 * @see #setSpecification_SpecifiedExecutionTime(PCMRandomVariable)
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage#getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime()
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime()
 	 * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable
 	 * @model opposite="specifiedExecutionTime_PCMRandomVariable" containment="true" required="true" ordered="false"
 	 * @generated

@@ -52,7 +52,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/4.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0";
 
 	/**
 	 * The package namespace name.
@@ -309,13 +309,22 @@ public interface ResourcetypePackage extends EPackage {
 	int RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY = 0;
 
 	/**
+	 * The feature id for the '<em><b>Scheduling Policies Resource Repository</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY = 1;
+
+	/**
 	 * The feature id for the '<em><b>Available Resource Types Resource Repository</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY = 1;
+	int RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY = 2;
 
 	/**
 	 * The number of structural features of the '<em>Resource Repository</em>' class.
@@ -324,7 +333,53 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_REPOSITORY_FEATURE_COUNT = 2;
+	int RESOURCE_REPOSITORY_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.SchedulingPolicyImpl <em>Scheduling Policy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.SchedulingPolicyImpl
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getSchedulingPolicy()
+	 * @generated
+	 */
+	int SCHEDULING_POLICY = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_POLICY__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_POLICY__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Resource Repository Scheduling Policy</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Scheduling Policy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_POLICY_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.CommunicationLinkResourceTypeImpl <em>Communication Link Resource Type</em>}' class.
@@ -334,7 +389,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getCommunicationLinkResourceType()
 	 * @generated
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE = 4;
+	int COMMUNICATION_LINK_RESOURCE_TYPE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -426,7 +481,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceInterface()
 	 * @generated
 	 */
-	int RESOURCE_INTERFACE = 5;
+	int RESOURCE_INTERFACE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -560,6 +615,17 @@ public interface ResourcetypePackage extends EPackage {
 	EReference getResourceRepository_ResourceInterfaces__ResourceRepository();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getSchedulingPolicies__ResourceRepository <em>Scheduling Policies Resource Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Scheduling Policies Resource Repository</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getSchedulingPolicies__ResourceRepository()
+	 * @see #getResourceRepository()
+	 * @generated
+	 */
+	EReference getResourceRepository_SchedulingPolicies__ResourceRepository();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getAvailableResourceTypes_ResourceRepository <em>Available Resource Types Resource Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -569,6 +635,27 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResourceRepository_AvailableResourceTypes_ResourceRepository();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy <em>Scheduling Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scheduling Policy</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy
+	 * @generated
+	 */
+	EClass getSchedulingPolicy();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy#getResourceRepository__SchedulingPolicy <em>Resource Repository Scheduling Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Resource Repository Scheduling Policy</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy#getResourceRepository__SchedulingPolicy()
+	 * @see #getSchedulingPolicy()
+	 * @generated
+	 */
+	EReference getSchedulingPolicy_ResourceRepository__SchedulingPolicy();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType <em>Communication Link Resource Type</em>}'.
@@ -737,12 +824,38 @@ public interface ResourcetypePackage extends EPackage {
 		EReference RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY = eINSTANCE.getResourceRepository_ResourceInterfaces__ResourceRepository();
 
 		/**
+		 * The meta object literal for the '<em><b>Scheduling Policies Resource Repository</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY = eINSTANCE.getResourceRepository_SchedulingPolicies__ResourceRepository();
+
+		/**
 		 * The meta object literal for the '<em><b>Available Resource Types Resource Repository</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY = eINSTANCE.getResourceRepository_AvailableResourceTypes_ResourceRepository();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.SchedulingPolicyImpl <em>Scheduling Policy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.SchedulingPolicyImpl
+		 * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getSchedulingPolicy()
+		 * @generated
+		 */
+		EClass SCHEDULING_POLICY = eINSTANCE.getSchedulingPolicy();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Repository Scheduling Policy</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY = eINSTANCE.getSchedulingPolicy_ResourceRepository__SchedulingPolicy();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.CommunicationLinkResourceTypeImpl <em>Communication Link Resource Type</em>}' class.

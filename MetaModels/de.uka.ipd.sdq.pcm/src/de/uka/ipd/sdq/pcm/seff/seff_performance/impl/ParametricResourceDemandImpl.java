@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 
 /**
@@ -80,7 +81,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Seff_performancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND;
+		return SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND;
 	}
 
 	/**
@@ -101,7 +102,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 		PCMRandomVariable oldSpecification_ParametericResourceDemand = specification_ParametericResourceDemand;
 		specification_ParametericResourceDemand = newSpecification_ParametericResourceDemand;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND, oldSpecification_ParametericResourceDemand, newSpecification_ParametericResourceDemand);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND, oldSpecification_ParametericResourceDemand, newSpecification_ParametericResourceDemand);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -123,7 +124,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND, newSpecification_ParametericResourceDemand, newSpecification_ParametericResourceDemand));
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND, newSpecification_ParametericResourceDemand, newSpecification_ParametericResourceDemand));
 	}
 
 	/**
@@ -137,7 +138,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 			requiredResource_ParametricResourceDemand = (ProcessingResourceType)eResolveProxy(oldRequiredResource_ParametricResourceDemand);
 			if (requiredResource_ParametricResourceDemand != oldRequiredResource_ParametricResourceDemand) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND, oldRequiredResource_ParametricResourceDemand, requiredResource_ParametricResourceDemand));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND, oldRequiredResource_ParametricResourceDemand, requiredResource_ParametricResourceDemand));
 			}
 		}
 		return requiredResource_ParametricResourceDemand;
@@ -161,7 +162,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 		ProcessingResourceType oldRequiredResource_ParametricResourceDemand = requiredResource_ParametricResourceDemand;
 		requiredResource_ParametricResourceDemand = newRequiredResource_ParametricResourceDemand;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND, oldRequiredResource_ParametricResourceDemand, requiredResource_ParametricResourceDemand));
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND, oldRequiredResource_ParametricResourceDemand, requiredResource_ParametricResourceDemand));
 	}
 
 	/**
@@ -170,7 +171,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 * @generated
 	 */
 	public AbstractInternalControlFlowAction getAction_ParametricResourceDemand() {
-		if (eContainerFeatureID() != Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND) return null;
+		if (eContainerFeatureID() != SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND) return null;
 		return (AbstractInternalControlFlowAction)eContainer();
 	}
 
@@ -180,7 +181,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 * @generated
 	 */
 	public NotificationChain basicSetAction_ParametricResourceDemand(AbstractInternalControlFlowAction newAction_ParametricResourceDemand, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newAction_ParametricResourceDemand, Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newAction_ParametricResourceDemand, SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND, msgs);
 		return msgs;
 	}
 
@@ -190,7 +191,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 * @generated
 	 */
 	public void setAction_ParametricResourceDemand(AbstractInternalControlFlowAction newAction_ParametricResourceDemand) {
-		if (newAction_ParametricResourceDemand != eInternalContainer() || (eContainerFeatureID() != Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND && newAction_ParametricResourceDemand != null)) {
+		if (newAction_ParametricResourceDemand != eInternalContainer() || (eContainerFeatureID() != SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND && newAction_ParametricResourceDemand != null)) {
 			if (EcoreUtil.isAncestor(this, newAction_ParametricResourceDemand))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -202,7 +203,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND, newAction_ParametricResourceDemand, newAction_ParametricResourceDemand));
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND, newAction_ParametricResourceDemand, newAction_ParametricResourceDemand));
 	}
 
 	/**
@@ -213,11 +214,11 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
 				if (specification_ParametericResourceDemand != null)
-					msgs = ((InternalEObject)specification_ParametericResourceDemand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND, null, msgs);
+					msgs = ((InternalEObject)specification_ParametericResourceDemand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND, null, msgs);
 				return basicSetSpecification_ParametericResourceDemand((PCMRandomVariable)otherEnd, msgs);
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetAction_ParametricResourceDemand((AbstractInternalControlFlowAction)otherEnd, msgs);
@@ -233,9 +234,9 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
 				return basicSetSpecification_ParametericResourceDemand(null, msgs);
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				return basicSetAction_ParametricResourceDemand(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -249,7 +250,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				return eInternalContainer().eInverseRemove(this, SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION, AbstractInternalControlFlowAction.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -263,12 +264,12 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
 				return getSpecification_ParametericResourceDemand();
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				if (resolve) return getRequiredResource_ParametricResourceDemand();
 				return basicGetRequiredResource_ParametricResourceDemand();
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				return getAction_ParametricResourceDemand();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -282,13 +283,13 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
 				setSpecification_ParametericResourceDemand((PCMRandomVariable)newValue);
 				return;
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				setRequiredResource_ParametricResourceDemand((ProcessingResourceType)newValue);
 				return;
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				setAction_ParametricResourceDemand((AbstractInternalControlFlowAction)newValue);
 				return;
 		}
@@ -303,13 +304,13 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
 				setSpecification_ParametericResourceDemand((PCMRandomVariable)null);
 				return;
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				setRequiredResource_ParametricResourceDemand((ProcessingResourceType)null);
 				return;
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				setAction_ParametricResourceDemand((AbstractInternalControlFlowAction)null);
 				return;
 		}
@@ -324,11 +325,11 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
 				return specification_ParametericResourceDemand != null;
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				return requiredResource_ParametricResourceDemand != null;
-			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
+			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
 				return getAction_ParametricResourceDemand() != null;
 		}
 		return super.eIsSet(featureID);

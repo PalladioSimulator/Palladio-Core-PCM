@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.provider.CallActionItemProvider;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 
 /**
@@ -89,7 +90,7 @@ public class ResourceCallItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ResourceCall_resourceRequiredRole__ResourceCall_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCall_resourceRequiredRole__ResourceCall_feature", "_UI_ResourceCall_type"),
-				 Seff_performancePackage.Literals.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL,
+				 SeffPerformancePackage.Literals.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL,
 				 true,
 				 false,
 				 true,
@@ -111,7 +112,7 @@ public class ResourceCallItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ResourceCall_signature__ResourceCall_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceCall_signature__ResourceCall_feature", "_UI_ResourceCall_type"),
-				 Seff_performancePackage.Literals.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL,
+				 SeffPerformancePackage.Literals.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL,
 				 true,
 				 false,
 				 true,
@@ -132,7 +133,7 @@ public class ResourceCallItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Seff_performancePackage.Literals.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL);
+			childrenFeatures.add(SeffPerformancePackage.Literals.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL);
 		}
 		return childrenFeatures;
 	}
@@ -184,7 +185,7 @@ public class ResourceCallItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ResourceCall.class)) {
-			case Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -204,7 +205,7 @@ public class ResourceCallItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Seff_performancePackage.Literals.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL,
+				(SeffPerformancePackage.Literals.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL,
 				 CoreFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 

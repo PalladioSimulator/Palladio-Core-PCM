@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.reliability.impl;
 
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -113,7 +114,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription != null)
-				msgs = ((InternalEObject)newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription).eInverseAdd(this, Qos_reliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION, SpecifiedReliabilityAnnotation.class, msgs);
+				msgs = ((InternalEObject)newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription).eInverseAdd(this, QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION, SpecifiedReliabilityAnnotation.class, msgs);
 			msgs = basicSetSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -249,7 +250,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-				return eInternalContainer().eInverseRemove(this, Qos_reliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION, SpecifiedReliabilityAnnotation.class, msgs);
+				return eInternalContainer().eInverseRemove(this, QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION, SpecifiedReliabilityAnnotation.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

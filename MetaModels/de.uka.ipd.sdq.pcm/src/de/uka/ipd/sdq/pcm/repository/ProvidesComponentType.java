@@ -35,9 +35,6 @@ public interface ProvidesComponentType extends RepositoryComponent {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.oclIsTypeOf(ProvidesComponentType)
-	 * implies
-	 * self.providedRoles_InterfaceProvidingEntity->size() >= 1
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
