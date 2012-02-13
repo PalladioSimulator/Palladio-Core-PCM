@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Resourcestrategies Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.resourcestrategies
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.apache.log4j,
  uc.ac.ucl.ee.flanagan,
