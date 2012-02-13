@@ -872,8 +872,8 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
-      <param name="element.id" value="ptolemy.plot"/>
-      <param name="project.name" value="ptolemy.plot"/>
+      <param name="element.id" value="com.google.inject"/>
+      <param name="project.name" value="com.google.inject"/>
       <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/ThirdPartyWrapper/trunk/"/>
     </antcall>
     <antcall target="svn.co">
