@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  * @see de.uka.ipd.sdq.pcm.qosannotations.util.QosannotationsResourceFactoryImpl
  * @generated
  */
-public class QosannotationsResourceImpl extends XMLResourceImpl {
+public class QosannotationsResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

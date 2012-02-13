@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  * @see de.uka.ipd.sdq.pcm.core.composition.util.CompositionResourceFactoryImpl
  * @generated
  */
-public class CompositionResourceImpl extends XMLResourceImpl {
+public class CompositionResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

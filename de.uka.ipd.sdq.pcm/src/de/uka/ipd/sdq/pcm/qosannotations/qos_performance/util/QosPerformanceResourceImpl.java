@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util;
 
 import org.eclipse.emf.common.util.URI;
 
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 /**
@@ -14,7 +15,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.QosPerformanceResourceFactoryImpl
  * @generated
  */
-public class QosPerformanceResourceImpl extends XMLResourceImpl {
+public class QosPerformanceResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

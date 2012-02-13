@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  * @see de.uka.ipd.sdq.pcm.allocation.util.AllocationResourceFactoryImpl
  * @generated
  */
-public class AllocationResourceImpl extends XMLResourceImpl {
+public class AllocationResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

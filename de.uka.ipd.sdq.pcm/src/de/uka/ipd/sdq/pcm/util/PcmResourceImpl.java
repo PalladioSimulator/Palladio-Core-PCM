@@ -1,22 +1,20 @@
 /**
  * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
- *
- * $Id$
  */
-package de.uka.ipd.sdq.pcm.core.util;
+package de.uka.ipd.sdq.pcm.util;
 
 import org.eclipse.emf.common.util.URI;
+
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.pcm.core.util.CoreResourceFactoryImpl
+ * @see de.uka.ipd.sdq.pcm.util.PcmResourceFactoryImpl
  * @generated
  */
-public class CoreResourceImpl extends XMIResourceImpl {
+public class PcmResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31,8 +29,8 @@ public class CoreResourceImpl extends XMIResourceImpl {
 	 * @param uri the URI of the new resource.
 	 * @generated
 	 */
-	public CoreResourceImpl(URI uri) {
+	public PcmResourceImpl(URI uri) {
 		super(uri);
 	}
 
-} //CoreResourceImpl
+} //PcmResourceImpl

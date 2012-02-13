@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  * @see de.uka.ipd.sdq.pcm.seff.util.SeffResourceFactoryImpl
  * @generated
  */
-public class SeffResourceImpl extends XMLResourceImpl {
+public class SeffResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

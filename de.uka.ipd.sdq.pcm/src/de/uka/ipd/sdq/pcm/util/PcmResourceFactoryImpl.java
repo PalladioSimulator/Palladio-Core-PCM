@@ -1,23 +1,24 @@
 /**
  * Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
- *
- * $Id$
  */
-package de.uka.ipd.sdq.pcm.parameter.util;
+package de.uka.ipd.sdq.pcm.util;
 
 import org.eclipse.emf.common.util.URI;
+
 import org.eclipse.emf.ecore.resource.Resource;
+
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
+
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Resource Factory</b> associated with the package.
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.pcm.parameter.util.ParameterResourceImpl
+ * @see de.uka.ipd.sdq.pcm.util.PcmResourceImpl
  * @generated
  */
-public class ParameterResourceFactoryImpl extends ResourceFactoryImpl {
+public class PcmResourceFactoryImpl extends ResourceFactoryImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31,7 +32,7 @@ public class ParameterResourceFactoryImpl extends ResourceFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterResourceFactoryImpl() {
+	public PcmResourceFactoryImpl() {
 		super();
 	}
 
@@ -43,8 +44,8 @@ public class ParameterResourceFactoryImpl extends ResourceFactoryImpl {
 	 */
 	@Override
 	public Resource createResource(URI uri) {
-		XMLResource result = new ParameterResourceImpl(uri);
+		XMLResource result = new PcmResourceImpl(uri);
 		return result;
 	}
 
-} //ParameterResourceFactoryImpl
+} //PcmResourceFactoryImpl

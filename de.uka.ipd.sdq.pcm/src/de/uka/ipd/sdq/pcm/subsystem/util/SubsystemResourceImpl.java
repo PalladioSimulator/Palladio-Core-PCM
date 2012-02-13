@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  * @see de.uka.ipd.sdq.pcm.subsystem.util.SubsystemResourceFactoryImpl
  * @generated
  */
-public class SubsystemResourceImpl extends XMLResourceImpl {
+public class SubsystemResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

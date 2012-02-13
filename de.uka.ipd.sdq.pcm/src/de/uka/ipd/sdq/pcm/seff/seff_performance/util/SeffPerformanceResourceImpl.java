@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcm.seff.seff_performance.util;
 
 import org.eclipse.emf.common.util.URI;
 
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 /**
@@ -14,7 +15,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * @see de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceResourceFactoryImpl
  * @generated
  */
-public class SeffPerformanceResourceImpl extends XMLResourceImpl {
+public class SeffPerformanceResourceImpl extends XMIResourceImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
