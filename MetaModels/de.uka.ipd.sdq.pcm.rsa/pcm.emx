@@ -11556,6 +11556,28 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_cxn-AUoqEeC1S_cnb630Xw" showStereotype="Label"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cxn-AkoqEeC1S_cnb630Xw" x="17118" y="4438"/>
           </children>
+          <children xmi:id="_V-dZAFZ0EeG-N6cC73ZRQw" element="_F3SCEJMnEdqSSImFLKDkSg">
+            <children xmi:id="_V-eAEFZ0EeG-N6cC73ZRQw" type="ImageCompartment">
+              <layoutConstraint xmi:type="notation:Size" xmi:id="_V-eAEVZ0EeG-N6cC73ZRQw" width="1320" height="1320"/>
+            </children>
+            <children xmi:id="_V-eAElZ0EeG-N6cC73ZRQw" type="Stereotype"/>
+            <children xmi:id="_V-enIFZ0EeG-N6cC73ZRQw" type="Name"/>
+            <children xmi:id="_V-enIVZ0EeG-N6cC73ZRQw" type="Parent"/>
+            <children xmi:id="_V-enIlZ0EeG-N6cC73ZRQw" type="AttributeCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_V-enI1Z0EeG-N6cC73ZRQw"/>
+            </children>
+            <children xmi:id="_V-enJFZ0EeG-N6cC73ZRQw" type="OperationCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_V-enJVZ0EeG-N6cC73ZRQw"/>
+            </children>
+            <children xmi:id="_V-fOMFZ0EeG-N6cC73ZRQw" visible="false" type="SignalCompartment">
+              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_V-fOMVZ0EeG-N6cC73ZRQw"/>
+            </children>
+            <children xmi:id="_V-fOMlZ0EeG-N6cC73ZRQw" visible="false" type="StructureCompartment">
+              <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_V-fOM1Z0EeG-N6cC73ZRQw"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_V-dZAVZ0EeG-N6cC73ZRQw" fontName="Segoe UI" showStereotype="Label"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V-dZAlZ0EeG-N6cC73ZRQw" x="17952"/>
+          </children>
           <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="__jzE0U-yEduuPYQnFiBybA" description="Overview on all elements of the resource environment"/>
           <edges xmi:id="_CqSUoE-zEduuPYQnFiBybA" element="_-zhHMOEAEdq8ysXH3gTiEg" source="_CpwwME-zEduuPYQnFiBybA" target="_CpoNUE-zEduuPYQnFiBybA">
             <children xmi:id="_CqSUo0-zEduuPYQnFiBybA" visible="false" type="NameLabel">
@@ -11938,7 +11960,7 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vC8fMKRPEd6yvqsRaRhDng" id="(0.51935655,0.08219178)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TUV0sKRQEd6yvqsRaRhDng" id="(0.50851166,0.9630467)"/>
           </edges>
-          <edges xmi:id="_LNUssE-zEduuPYQnFiBybA" element="_DjY60OMeEdqaQsPH3rPnBQ" source="_LMniEE-zEduuPYQnFiBybA" target="_LM09cE-zEduuPYQnFiBybA">
+          <edges xmi:id="_LNUssE-zEduuPYQnFiBybA" element="_DjY60OMeEdqaQsPH3rPnBQ" source="_LMniEE-zEduuPYQnFiBybA" target="_V-dZAFZ0EeG-N6cC73ZRQw">
             <children xmi:id="_LNUss0-zEduuPYQnFiBybA" type="NameLabel">
               <children xmi:id="_LNUstU-zEduuPYQnFiBybA" type="Stereotype" element="_DjY60OMeEdqaQsPH3rPnBQ"/>
               <children xmi:id="_LNVTwE-zEduuPYQnFiBybA" type="Name" element="_DjY60OMeEdqaQsPH3rPnBQ"/>
@@ -12399,6 +12421,15 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_lIEW8eK5EeCAjtHM2JahWQ" fontName="Segoe UI" lineWidth="1" showStereotype="Text"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lIEW8uK5EeCAjtHM2JahWQ" points="[-4920, 362, -4920, 362]$[-9922, 730, -9922, 730]$[-9922, -540, -9922, -540]$[-4920, -268, -4920, -268]"/>
+          </edges>
+          <edges xmi:id="_V-f1QFZ0EeG-N6cC73ZRQw" element="_rT4_YOD4Edq8ysXH3gTiEg" source="_LM09cE-zEduuPYQnFiBybA" target="_V-dZAFZ0EeG-N6cC73ZRQw">
+            <children xmi:id="_V-f1Q1Z0EeG-N6cC73ZRQw" type="NameLabel">
+              <children xmi:id="_V-gcUFZ0EeG-N6cC73ZRQw" type="Stereotype"/>
+              <children xmi:id="_V-gcUVZ0EeG-N6cC73ZRQw" type="Name"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V-f1RFZ0EeG-N6cC73ZRQw" y="-186"/>
+            </children>
+            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_V-f1QVZ0EeG-N6cC73ZRQw" fontName="Segoe UI" lineWidth="1" showStereotype="Text"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_V-f1QlZ0EeG-N6cC73ZRQw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
           </edges>
         </contents>
         <contents xmi:type="notation:Diagram" xmi:id="__nXOsEpDEdyyNsXlb1tNsw" type="Class" element="_LaA6ICh9Edue7oeC4NTCGg" name="CommunicationLinkResourceSpecification">
@@ -23713,7 +23744,7 @@ arbitrary resources in the future</body>
         <ownedComment xmi:id="_3W5osPxPEd68D51GrGx7ow" annotatedElement="__zoEgOMdEdqaQsPH3rPnBQ">
           <body>ResourceType representing communication links like, LAN, WAN, WiFi etc.</body>
         </ownedComment>
-        <generalization xmi:id="_DjY60OMeEdqaQsPH3rPnBQ" general="_n2nAMOD4Edq8ysXH3gTiEg"/>
+        <generalization xmi:id="_DjY60OMeEdqaQsPH3rPnBQ" general="_F3SCEJMnEdqSSImFLKDkSg"/>
         <ownedAttribute xmi:id="_UToQMCZKEeCvwZ8FxCt6_A" name="networkInducedFailureType__CommunicationLinkResourceType" visibility="public" type="_WrmpoCZJEeCvwZ8FxCt6_A" association="_US8TsCZKEeCvwZ8FxCt6_A">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UTqscCZKEeCvwZ8FxCt6_A" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UTqFYCZKEeCvwZ8FxCt6_A"/>
