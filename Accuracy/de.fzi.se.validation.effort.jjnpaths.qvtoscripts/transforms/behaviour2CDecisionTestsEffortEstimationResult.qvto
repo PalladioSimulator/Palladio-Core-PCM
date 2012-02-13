@@ -4,33 +4,28 @@ import ProbabilityLib;
 modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
 modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
 
-transformation behaviour2CCallSpecTestsEffortEstimation(in inbehaviour : PCM_SEFF, 
+transformation behaviour2CDecisionTestsEffortEstimation(in inbehaviour : PCM_SEFF, 
 									      			  out outdesc : EER) 
 access library ProbabilityLib();
 
 main() {
-	log('RD-SEFF to EffortEstimationResult (CCallSpecTests) transformation started.');
+	log('RD-SEFF to EffortEstimationResult (CDecisionTests) transformation started.');
 	inbehaviour.objects()[ResourceDemandingBehaviour]->map createEffortEstimation();
-	log('RD-SEFF to EffortEstimationResult (CCallSpecTests) transformation finished.');
+	log('RD-SEFF to EffortEstimationResult (CDecisionTests) transformation finished.');
 }
 
 mapping ResourceDemandingBehaviour::createEffortEstimation() : EffortEstimationResult {
 	log('Processing ' + self.metaClassName() + ' ' + self.id + ' ...');
 	alpha := 0.5; // TODO: confidence?
-	numberTestcases := self.CCallSpecTests(alpha);
+	numberTestcases := self.CDecisionTests(alpha);
 	resourceDemandingBehaviour := self;
 }
 
 
-query ResourceDemandingBehaviour::CCallSpecTests(in confidence : Real) : Integer {
+query ResourceDemandingBehaviour::CDecisionTests(in confidence : Real) : Integer {
 	var required : Integer = 0;
 	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
 		required := required + action.getEffort(confidence);
-		if(action.containsCalls()) then {
-			if(required = 0) then {
-				required := 1;
-			} endif;
-		} endif;
 	};
 	return required;
 }
@@ -43,10 +38,10 @@ helper BranchAction::getEffort(in confidence : Real) : Integer {
 	var r : Integer; // result
 	self.branches_Branch->forEach(branch) {
 		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
-			r := branch.branchBehaviour_BranchTransition.CCallSpecTests(confidence);
+			r := 1.max(branch.branchBehaviour_BranchTransition.CDecisionTests(confidence));
 		} else { // ProbabilisticBranchCondition
 			var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
-			r := branch.branchBehaviour_BranchTransition.CCallSpecTests(confidence);
+			r := 1.max(branch.branchBehaviour_BranchTransition.CDecisionTests(confidence));
 			r := r * MinRequiredTests(probBranch.branchProbability, confidence);
 		} endif;
 	};
@@ -54,16 +49,14 @@ helper BranchAction::getEffort(in confidence : Real) : Integer {
 }
 
 helper LoopAction::getEffort(in confidence : Real, in n : Integer) : Integer {
-	var r : Integer = self.bodyBehaviour_Loop.CCallSpecTests(confidence);
-	var probFreqGreaterZero : Real = 1 - self.iterationCount_LoopAction.expression.ProbabilityZero();
-	r := r * MinRequiredTests(probFreqGreaterZero, confidence);
+	var r : Integer = self.bodyBehaviour_Loop.CDecisionTests(confidence);
 	return r;
 }
 
 helper ForkAction::getEffort(in confidence : Real, in n : Integer) : Integer {
 	var r : Integer = 0;
 	self.asynchronousForkedBehaviours_ForkAction->forEach(fb) {
-		r = r + fb.CCallSpecTests(confidence);
+		r = r + fb.CDecisionTests(confidence);
 	};
 	return r;
 }
