@@ -52,8 +52,9 @@ helper BranchAction::getEffort(in confidence : Real, in n : Integer) : Integer {
 }
 
 helper LoopAction::getEffort(in confidence : Real, in n : Integer) : Integer {
-	var probFreqK : Real = self.iterationCount_LoopAction.expression.Probability(k);
-	var r : Integer = MinRequiredTests(probFreqK, confidence);
+	var probFreqN : Real = self.iterationCount_LoopAction.expression.Probability(n);	// TODO: verify: is n correct here?
+	var r : Integer = MinRequiredTests(probFreqN, confidence);
+	var probFreqK : Real;
 	Set {1..n}->forEach(k) {
 		r = r + self.bodyBehaviour_Loop.CSPTTests(confidence, n);
 		probFreqK := self.iterationCount_LoopAction.expression.Probability(k);
