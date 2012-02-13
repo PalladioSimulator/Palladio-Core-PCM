@@ -124,6 +124,9 @@ public interface Interface extends Entity {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * self.protocols__Interface->forAll(p1, p2 |
+	 * p1.protocolTypeID <> p2.protocolTypeID)
+	 * 
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

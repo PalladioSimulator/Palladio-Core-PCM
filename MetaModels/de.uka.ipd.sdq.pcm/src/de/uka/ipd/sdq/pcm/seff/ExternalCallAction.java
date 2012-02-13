@@ -133,6 +133,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
 	 * (declared in calledService_ExternalService attribute) belongs to the role
 	 * (declared in role_ExternalService attribute)
 	 * </pre>
+	 * self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

@@ -43,7 +43,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 	 */
 	public static ReliabilityFactory init() {
 		try {
-			ReliabilityFactory theReliabilityFactory = (ReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0"); 
+			ReliabilityFactory theReliabilityFactory = (ReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/4.0"); 
 			if (theReliabilityFactory != null) {
 				return theReliabilityFactory;
 			}

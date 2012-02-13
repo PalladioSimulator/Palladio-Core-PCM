@@ -33,7 +33,6 @@ import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
 import de.uka.ipd.sdq.pcm.core.util.CoreValidator;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
@@ -47,7 +46,6 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExParser;
@@ -230,7 +228,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newParametricResourceDemand_PCMRandomVariable != null)
-				msgs = ((InternalEObject)newParametricResourceDemand_PCMRandomVariable).eInverseAdd(this, SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND, ParametricResourceDemand.class, msgs);
+				msgs = ((InternalEObject)newParametricResourceDemand_PCMRandomVariable).eInverseAdd(this, Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND, ParametricResourceDemand.class, msgs);
 			msgs = basicSetParametricResourceDemand_PCMRandomVariable(newParametricResourceDemand_PCMRandomVariable, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -394,7 +392,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newSpecifiedExecutionTime_PCMRandomVariable != null)
-				msgs = ((InternalEObject)newSpecifiedExecutionTime_PCMRandomVariable).eInverseAdd(this, QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME, SpecifiedExecutionTime.class, msgs);
+				msgs = ((InternalEObject)newSpecifiedExecutionTime_PCMRandomVariable).eInverseAdd(this, Qos_performancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME, SpecifiedExecutionTime.class, msgs);
 			msgs = basicSetSpecifiedExecutionTime_PCMRandomVariable(newSpecifiedExecutionTime_PCMRandomVariable, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -517,7 +515,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newInfrastructureCall__PCMRandomVariable != null)
-				msgs = ((InternalEObject)newInfrastructureCall__PCMRandomVariable).eInverseAdd(this, SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL, InfrastructureCall.class, msgs);
+				msgs = ((InternalEObject)newInfrastructureCall__PCMRandomVariable).eInverseAdd(this, Seff_performancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL, InfrastructureCall.class, msgs);
 			msgs = basicSetInfrastructureCall__PCMRandomVariable(newInfrastructureCall__PCMRandomVariable, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -558,7 +556,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newResourceCall__PCMRandomVariable != null)
-				msgs = ((InternalEObject)newResourceCall__PCMRandomVariable).eInverseAdd(this, SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, ResourceCall.class, msgs);
+				msgs = ((InternalEObject)newResourceCall__PCMRandomVariable).eInverseAdd(this, Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, ResourceCall.class, msgs);
 			msgs = basicSetResourceCall__PCMRandomVariable(newResourceCall__PCMRandomVariable, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -1003,17 +1001,17 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 			case CorePackage.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION:
 				return eInternalContainer().eInverseRemove(this, ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION, VariableCharacterisation.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE:
-				return eInternalContainer().eInverseRemove(this, SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL, InfrastructureCall.class, msgs);
+				return eInternalContainer().eInverseRemove(this, Seff_performancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL, InfrastructureCall.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE:
-				return eInternalContainer().eInverseRemove(this, SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, ResourceCall.class, msgs);
+				return eInternalContainer().eInverseRemove(this, Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, ResourceCall.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE:
-				return eInternalContainer().eInverseRemove(this, SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND, ParametricResourceDemand.class, msgs);
+				return eInternalContainer().eInverseRemove(this, Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND, ParametricResourceDemand.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE:
 				return eInternalContainer().eInverseRemove(this, SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION, LoopAction.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE:
 				return eInternalContainer().eInverseRemove(this, SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION, GuardedBranchTransition.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE:
-				return eInternalContainer().eInverseRemove(this, QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME, SpecifiedExecutionTime.class, msgs);
+				return eInternalContainer().eInverseRemove(this, Qos_performancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME, SpecifiedExecutionTime.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION:
 				return eInternalContainer().eInverseRemove(this, CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR, EventChannelSinkConnector.class, msgs);
 			case CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION:

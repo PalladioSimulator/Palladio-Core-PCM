@@ -26,7 +26,6 @@ import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory;
 
 /**
@@ -172,7 +171,7 @@ public class AbstractBranchTransitionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
-				 SeffReliabilityFactory.eINSTANCE.createRecoveryActionBehaviour()));
+				 Seff_reliabilityFactory.eINSTANCE.createRecoveryActionBehaviour()));
 	}
 
 	/**

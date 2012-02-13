@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.reliability.FailureType;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
 /**
@@ -64,7 +63,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SeffReliabilityPackage.Literals.FAILURE_HANDLING_ENTITY;
+		return Seff_reliabilityPackage.Literals.FAILURE_HANDLING_ENTITY;
 	}
 
 	/**
@@ -74,7 +73,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 	 */
 	public EList<FailureType> getFailureTypes_FailureHandlingEntity() {
 		if (failureTypes_FailureHandlingEntity == null) {
-			failureTypes_FailureHandlingEntity = new EObjectResolvingEList<FailureType>(FailureType.class, this, SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY);
+			failureTypes_FailureHandlingEntity = new EObjectResolvingEList<FailureType>(FailureType.class, this, Seff_reliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY);
 		}
 		return failureTypes_FailureHandlingEntity;
 	}
@@ -87,7 +86,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
+			case Seff_reliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
 				return getFailureTypes_FailureHandlingEntity();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -102,7 +101,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
+			case Seff_reliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
 				getFailureTypes_FailureHandlingEntity().clear();
 				getFailureTypes_FailureHandlingEntity().addAll((Collection<? extends FailureType>)newValue);
 				return;
@@ -118,7 +117,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
+			case Seff_reliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
 				getFailureTypes_FailureHandlingEntity().clear();
 				return;
 		}
@@ -133,7 +132,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
+			case Seff_reliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
 				return failureTypes_FailureHandlingEntity != null && !failureTypes_FailureHandlingEntity.isEmpty();
 		}
 		return super.eIsSet(featureID);

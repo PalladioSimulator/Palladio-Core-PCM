@@ -31,10 +31,6 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.impl.QosReliabilityPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.Qos_performancePackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityPackage;
@@ -76,10 +72,6 @@ import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.impl.SeffPerformancePackageImpl;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.SeffReliabilityPackageImpl;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.impl.Seff_performancePackageImpl;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
@@ -357,11 +349,11 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
 		ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
-		SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
-		SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
+		Seff_performancePackageImpl theSeff_performancePackage = (Seff_performancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Seff_performancePackage.eNS_URI) instanceof Seff_performancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Seff_performancePackage.eNS_URI) : Seff_performancePackage.eINSTANCE);
+		Seff_reliabilityPackageImpl theSeff_reliabilityPackage = (Seff_reliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Seff_reliabilityPackage.eNS_URI) instanceof Seff_reliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Seff_reliabilityPackage.eNS_URI) : Seff_reliabilityPackage.eINSTANCE);
 		QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
-		QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
-		QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
+		Qos_performancePackageImpl theQos_performancePackage = (Qos_performancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Qos_performancePackage.eNS_URI) instanceof Qos_performancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Qos_performancePackage.eNS_URI) : Qos_performancePackage.eINSTANCE);
+		Qos_reliabilityPackageImpl theQos_reliabilityPackage = (Qos_reliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Qos_reliabilityPackage.eNS_URI) instanceof Qos_reliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Qos_reliabilityPackage.eNS_URI) : Qos_reliabilityPackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
@@ -379,11 +371,11 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		theProtocolPackage.createPackageContents();
 		theParameterPackage.createPackageContents();
 		theReliabilityPackage.createPackageContents();
-		theSeffPerformancePackage.createPackageContents();
-		theSeffReliabilityPackage.createPackageContents();
+		theSeff_performancePackage.createPackageContents();
+		theSeff_reliabilityPackage.createPackageContents();
 		theQosannotationsPackage.createPackageContents();
-		theQosPerformancePackage.createPackageContents();
-		theQosReliabilityPackage.createPackageContents();
+		theQos_performancePackage.createPackageContents();
+		theQos_reliabilityPackage.createPackageContents();
 		theSystemPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
@@ -401,11 +393,11 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		theProtocolPackage.initializePackageContents();
 		theParameterPackage.initializePackageContents();
 		theReliabilityPackage.initializePackageContents();
-		theSeffPerformancePackage.initializePackageContents();
-		theSeffReliabilityPackage.initializePackageContents();
+		theSeff_performancePackage.initializePackageContents();
+		theSeff_reliabilityPackage.initializePackageContents();
 		theQosannotationsPackage.initializePackageContents();
-		theQosPerformancePackage.initializePackageContents();
-		theQosReliabilityPackage.initializePackageContents();
+		theQos_performancePackage.initializePackageContents();
+		theQos_reliabilityPackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
@@ -1209,8 +1201,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		SeffPerformancePackage theSeffPerformancePackage = (SeffPerformancePackage)EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI);
-		SeffReliabilityPackage theSeffReliabilityPackage = (SeffReliabilityPackage)EPackage.Registry.INSTANCE.getEPackage(SeffReliabilityPackage.eNS_URI);
+		Seff_performancePackage theSeff_performancePackage = (Seff_performancePackage)EPackage.Registry.INSTANCE.getEPackage(Seff_performancePackage.eNS_URI);
+		Seff_reliabilityPackage theSeff_reliabilityPackage = (Seff_reliabilityPackage)EPackage.Registry.INSTANCE.getEPackage(Seff_reliabilityPackage.eNS_URI);
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
@@ -1219,8 +1211,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		ReliabilityPackage theReliabilityPackage = (ReliabilityPackage)EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI);
 
 		// Add subpackages
-		getESubpackages().add(theSeffPerformancePackage);
-		getESubpackages().add(theSeffReliabilityPackage);
+		getESubpackages().add(theSeff_performancePackage);
+		getESubpackages().add(theSeff_reliabilityPackage);
 
 		// Create type parameters
 
@@ -1245,7 +1237,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		forkedBehaviourEClass.getESuperTypes().add(this.getResourceDemandingBehaviour());
 		externalCallActionEClass.getESuperTypes().add(this.getAbstractAction());
 		externalCallActionEClass.getESuperTypes().add(this.getCallReturnAction());
-		externalCallActionEClass.getESuperTypes().add(theSeffReliabilityPackage.getFailureHandlingEntity());
+		externalCallActionEClass.getESuperTypes().add(theSeff_reliabilityPackage.getFailureHandlingEntity());
 		callReturnActionEClass.getESuperTypes().add(this.getCallAction());
 		probabilisticBranchTransitionEClass.getESuperTypes().add(this.getAbstractBranchTransition());
 		acquireActionEClass.getESuperTypes().add(this.getAbstractInternalControlFlowAction());
@@ -1271,9 +1263,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(abstractInternalControlFlowActionEClass, AbstractInternalControlFlowAction.class, "AbstractInternalControlFlowAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAbstractInternalControlFlowAction_ResourceDemand_Action(), theSeffPerformancePackage.getParametricResourceDemand(), theSeffPerformancePackage.getParametricResourceDemand_Action_ParametricResourceDemand(), "resourceDemand_Action", null, 0, -1, AbstractInternalControlFlowAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAbstractInternalControlFlowAction_InfrastructureCall__Action(), theSeffPerformancePackage.getInfrastructureCall(), theSeffPerformancePackage.getInfrastructureCall_Action__InfrastructureCall(), "infrastructureCall__Action", null, 0, -1, AbstractInternalControlFlowAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getAbstractInternalControlFlowAction_ResourceCall__Action(), theSeffPerformancePackage.getResourceCall(), theSeffPerformancePackage.getResourceCall_Action__ResourceCall(), "resourceCall__Action", null, 0, -1, AbstractInternalControlFlowAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAbstractInternalControlFlowAction_ResourceDemand_Action(), theSeff_performancePackage.getParametricResourceDemand(), theSeff_performancePackage.getParametricResourceDemand_Action_ParametricResourceDemand(), "resourceDemand_Action", null, 0, -1, AbstractInternalControlFlowAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAbstractInternalControlFlowAction_InfrastructureCall__Action(), theSeff_performancePackage.getInfrastructureCall(), theSeff_performancePackage.getInfrastructureCall_Action__InfrastructureCall(), "infrastructureCall__Action", null, 0, -1, AbstractInternalControlFlowAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAbstractInternalControlFlowAction_ResourceCall__Action(), theSeff_performancePackage.getResourceCall(), theSeff_performancePackage.getResourceCall_Action__ResourceCall(), "resourceCall__Action", null, 0, -1, AbstractInternalControlFlowAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(abstractActionEClass, AbstractAction.class, "AbstractAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAbstractAction_Predecessor_AbstractAction(), this.getAbstractAction(), this.getAbstractAction_Successor_AbstractAction(), "predecessor_AbstractAction", null, 0, 1, AbstractAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

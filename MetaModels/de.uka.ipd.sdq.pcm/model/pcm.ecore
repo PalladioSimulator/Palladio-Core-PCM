@@ -2,12 +2,12 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pcm"
-    nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/5.0" nsPrefix="pcm">
+    nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/4.0" nsPrefix="pcm">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="This package is the root package of all packages of the Palladio Component Model (PCM)."/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DummyClass"/>
-  <eSubpackages name="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/5.0"
+  <eSubpackages name="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/4.0"
       nsPrefix="core">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This package contains the PCM Core meta-classes used throughout the PCM: entities carrying a  globally unique ID (GUID), an abstract model for entities which provide and require interfaces, and  an abstract model to describe entities composed from other entities."/>
@@ -19,6 +19,9 @@
       <eOperations name="SpecificationMustNotBeNULL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="not self.specification.oclIsUndefined() and self.specification &lt;> ''"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.specification.oclIsUndefined() and self.specification &lt;> ''"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -75,7 +78,7 @@
           ordered="false" eType="#//resourceenvironment/CommunicationLinkResourceSpecification"
           eOpposite="#//resourceenvironment/CommunicationLinkResourceSpecification/latency_CommunicationLinkResourceSpecification"/>
     </eClassifiers>
-    <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0"
+    <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/4.0"
         nsPrefix="entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This  set of abstract meta-classes gives a conceptual view on interfaces, entities and their relationships: Two roles can be identified a software entity can take relative to an interface. Any entity can claim to implement the functionality specified in an interface as well as to request that functionality. &#xD;&#xA;&#xD;&#xA;Base of the inheritance hierarchy are Identifier and NamedElement, both of which Entity and all inheriting classes are derived from. &#xD;&#xA;&#xD;&#xA;The relationship of Entities and Interfaces is described with the three meta classes InterfaceProvidingEntity, InterfaceRequiringEntity, and InterfaceProvidingRequiringEntity. The abstract meta-class InterfaceProvidingEntity is inherited by all entities which can potentially offer interface implementations. Similarly, the meta-class InterfaceRequiringEntity is inherited by all entities which are allowed to request functionality offer by entities providing this functionality. InterfaceProvidingRequiringEntity inherits from both of them and thus combines their properties. "/>
@@ -143,7 +146,7 @@
             <details key="body" value="self.providedRoles_InterfaceProvidingEntity->forAll(role|self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces)."/>
+            <details key="documentation" value="This constraint ensures that all outer provided roles of a system have a provided delegation conector that binds them to something. It does not check whether the binding is correct (inner role not null and matching interfaces).&#xA;self.providedRoles_InterfaceProvidingEntity->forAll(role|self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -177,7 +180,7 @@
         </eAnnotations>
       </eClassifiers>
     </eSubpackages>
-    <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0"
+    <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0"
         nsPrefix="composition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A package holding all composable entities"/>
@@ -205,6 +208,9 @@
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->forAll( c1, c2 | c1 &lt;> c2 implies c1.outerProvidedRole_ProvidedDelegationConnector &lt;> c2.outerProvidedRole_ProvidedDelegationConnector)&#xD;&#xA;"/>
           </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->forAll( c1, c2 | c1 &lt;> c2 implies c1.outerProvidedRole_ProvidedDelegationConnector &lt;> c2.outerProvidedRole_ProvidedDelegationConnector)&#xD;&#xA;"/>
+          </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
               <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -223,6 +229,9 @@
         <eOperations name="MultipleConnectorsConstraintForAssemblyConnectors" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(AssemblyConnector)->forAll( c1, c2 | ( (c1 &lt;> c2) and ( c1.requiringAssemblyContext_AssemblyConnector = c2.requiringAssemblyContext_AssemblyConnector ) ) implies c1.requiredRole_AssemblyConnector &lt;> c2.requiredRole_AssemblyConnector )&#xD;&#xA;"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(AssemblyConnector)->forAll( c1, c2 | ( (c1 &lt;> c2) and ( c1.requiringAssemblyContext_AssemblyConnector = c2.requiringAssemblyContext_AssemblyConnector ) ) implies c1.requiredRole_AssemblyConnector &lt;> c2.requiredRole_AssemblyConnector )&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -306,6 +315,9 @@
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.parentStructure__Connector = self.assemblyContext_ProvidedDelegationConnector.parentStructure__AssemblyContext"/>
           </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.parentStructure__Connector = self.assemblyContext_ProvidedDelegationConnector.parentStructure__AssemblyContext"/>
+          </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
               <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -325,6 +337,9 @@
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent__AssemblyContext"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent__AssemblyContext"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -357,6 +372,9 @@
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.parentStructure__Connector = self.assemblyContext_RequiredDelegationConnector.parentStructure__AssemblyContext"/>
           </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.parentStructure__Connector = self.assemblyContext_RequiredDelegationConnector.parentStructure__AssemblyContext"/>
+          </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
               <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -377,6 +395,9 @@
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent__AssemblyContext"/>
           </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent__AssemblyContext"/>
+          </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
               <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -396,6 +417,9 @@
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure__Connector"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure__Connector"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -429,7 +453,7 @@
             <details key="body" value="self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. "/>
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a provided role on the provider side. This constraint ensures that the referenced provided role is really available in the referenced assembly context. &#xA;self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -452,7 +476,7 @@
             <details key="body" value="self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. "/>
+            <details key="documentation" value="An AssemblyConnector references an assembly context and a required role on the client side. This constraint ensures that the referenced required role is really available in the referenced assembly context. &#xA;self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -474,7 +498,7 @@
             <details key="body" value="self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole"/>
           </eAnnotations>
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="documentation" value="The Interfaces references by this Connector must match. This means that either &#xD;&#xA;1) the referenced providedRole and the referenced requiredRole refer to the same Interface (first part of the expression) or 2)  the Interface A referenced by the providedRole is a subtype of the Interface B referenced by the requiredRole as transitively defined by the parentInterface__Interface property. That means that either Interface A is the parentInterface__Interface of Interface B, or there is a set of Interfaces "/>
+            <details key="documentation" value="The Interfaces references by this Connector must match. This means that either &#xD;&#xA;1) the referenced providedRole and the referenced requiredRole refer to the same Interface (first part of the expression) or 2)  the Interface A referenced by the providedRole is a subtype of the Interface B referenced by the requiredRole as transitively defined by the parentInterface__Interface property. That means that either Interface A is the parentInterface__Interface of Interface B, or there is a set of Interfaces &#xA;self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -590,7 +614,7 @@
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
-  <eSubpackages name="usagemodel" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0"
+  <eSubpackages name="usagemodel" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0"
       nsPrefix="usagemodel">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="TODO:&amp;nbsp;Put&amp;nbsp;the&amp;nbsp;3.2.2&amp;nbsp;Context&amp;nbsp;Model&amp;nbsp;chapter&amp;nbsp;of&amp;nbsp;Steffens&amp;nbsp;Diss&amp;nbsp;somewhere&amp;nbsp;so&amp;nbsp;that&amp;nbsp;it&amp;nbsp;can&amp;nbsp;be&amp;nbsp;referred&amp;nbsp;to&amp;nbsp;here.&amp;nbsp;It&amp;nbsp;provides&amp;nbsp;an&amp;nbsp;important&amp;nbsp;overview&amp;nbsp;on&amp;nbsp;why&amp;nbsp;we&amp;nbsp;have&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;model.&amp;nbsp;&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;TODO:&amp;nbsp;Include&amp;nbsp;the&amp;nbsp;example&amp;nbsp;from&amp;nbsp;Heiko's&amp;nbsp;dissertation&amp;nbsp;here?&amp;nbsp;But&amp;nbsp;how&amp;nbsp;to&amp;nbsp;include&amp;nbsp;the&amp;nbsp;picture?&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;The&amp;nbsp;usage&amp;nbsp;of&amp;nbsp;a&amp;nbsp;software&amp;nbsp;system&amp;nbsp;by&amp;nbsp;external&amp;nbsp;clients&amp;nbsp;has&amp;nbsp;to&amp;nbsp;be&amp;nbsp;captured&amp;nbsp;in&amp;nbsp;models&amp;nbsp;to&amp;nbsp;enable&amp;nbsp;model-driven&lt;br />&#xD;&#xA;performance&amp;nbsp;predictions.&amp;nbsp;Here,&amp;nbsp;the&amp;nbsp;term&amp;nbsp;usage&amp;nbsp;refers&amp;nbsp;to&amp;nbsp;workload&amp;nbsp;(i.e.,&amp;nbsp;the&amp;nbsp;number&amp;nbsp;of&amp;nbsp;users&amp;nbsp;concurrently&lt;br />&#xD;&#xA;present&amp;nbsp;in&amp;nbsp;the&amp;nbsp;system),&amp;nbsp;usage&amp;nbsp;scenarios&amp;nbsp;(i.e.,&amp;nbsp;possible&amp;nbsp;sequences&amp;nbsp;of&amp;nbsp;invoking&amp;nbsp;services&amp;nbsp;at&amp;nbsp;system&amp;nbsp;provided&lt;br />&#xD;&#xA;roles),&amp;nbsp;waiting&amp;nbsp;delays&amp;nbsp;between&amp;nbsp;service&amp;nbsp;invocations,&amp;nbsp;and&amp;nbsp;values&amp;nbsp;for&amp;nbsp;parameters&amp;nbsp;and&amp;nbsp;component&amp;nbsp;configurations.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;This&amp;nbsp;package&amp;nbsp;contains&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;specification&amp;nbsp;language,&amp;nbsp;which&amp;nbsp;(i)&amp;nbsp;provides&amp;nbsp;more&amp;nbsp;expressiveness&amp;nbsp;for&lt;br />&#xD;&#xA;characterising&amp;nbsp;parameter&amp;nbsp;instances&amp;nbsp;than&amp;nbsp;previous&amp;nbsp;models,&amp;nbsp;but&amp;nbsp;(ii)&amp;nbsp;at&amp;nbsp;the&amp;nbsp;same&amp;nbsp;time&amp;nbsp;is&amp;nbsp;restricted&amp;nbsp;to&amp;nbsp;concepts&lt;br />&#xD;&#xA;familiar&amp;nbsp;to&amp;nbsp;domain&amp;nbsp;experts&amp;nbsp;to&amp;nbsp;create&amp;nbsp;a&amp;nbsp;domain&amp;nbsp;specific&amp;nbsp;language.&amp;nbsp;The&amp;nbsp;language&amp;nbsp;is&amp;nbsp;called&amp;nbsp;PCM&amp;nbsp;usage&lt;br />&#xD;&#xA;model.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;The&amp;nbsp;UsageModel&amp;nbsp;specifies&amp;nbsp;the&amp;nbsp;whole&amp;nbsp;user&amp;nbsp;interaction&amp;nbsp;with&amp;nbsp;a&amp;nbsp;system&amp;nbsp;from&amp;nbsp;a&amp;nbsp;performance&amp;nbsp;viewpoint.&amp;nbsp;It&amp;nbsp;consists&amp;nbsp;of&amp;nbsp;a&amp;nbsp;number&amp;nbsp;of&amp;nbsp;concurrently&amp;nbsp;executed&amp;nbsp;UsageScenarios&amp;nbsp;and&amp;nbsp;a&amp;nbsp;set&amp;nbsp;of&amp;nbsp;global&amp;nbsp;UserData&amp;nbsp;specifications.&amp;nbsp;Each&amp;nbsp;UsageScenario&amp;nbsp;includes&amp;nbsp;a&amp;nbsp;workload&amp;nbsp;and&amp;nbsp;a&amp;nbsp;scenario&amp;nbsp;behaviour.&amp;nbsp;The&amp;nbsp;concepts&amp;nbsp;are&amp;nbsp;explained&amp;nbsp;for&amp;nbsp;the&amp;nbsp;single&amp;nbsp;meta&amp;nbsp;classes&amp;nbsp;included&amp;nbsp;in&amp;nbsp;this&amp;nbsp;package.&amp;nbsp;&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;Note&amp;nbsp;that&amp;nbsp;UsageModels&amp;nbsp;are&amp;nbsp;completely&amp;nbsp;decoupled&amp;nbsp;from&amp;nbsp;the&amp;nbsp;inner&amp;nbsp;contents&amp;nbsp;of&amp;nbsp;a&amp;nbsp;system,&amp;nbsp;which&amp;nbsp;consists&amp;nbsp;of&amp;nbsp;an&amp;nbsp;assembly&amp;nbsp;and&amp;nbsp;a&amp;nbsp;connected&amp;nbsp;resource&amp;nbsp;environment.&amp;nbsp;The&amp;nbsp;UsageModel&amp;nbsp;only&amp;nbsp;refers&amp;nbsp;to&amp;nbsp;services&amp;nbsp;of&amp;nbsp;system&amp;nbsp;provided&amp;nbsp;roles.&amp;nbsp;It&amp;nbsp;regards&amp;nbsp;the&amp;nbsp;component&lt;br />&#xD;&#xA;architecture&amp;nbsp;(i.e.,&amp;nbsp;the&amp;nbsp;assembly)&amp;nbsp;as&amp;nbsp;well&amp;nbsp;as&amp;nbsp;used&amp;nbsp;resources&amp;nbsp;(i.e.,&amp;nbsp;hardware&amp;nbsp;devices&amp;nbsp;such&amp;nbsp;as&amp;nbsp;CPUs&lt;br />&#xD;&#xA;and&amp;nbsp;harddisks&amp;nbsp;or&amp;nbsp;software&amp;nbsp;entities&amp;nbsp;such&amp;nbsp;as&amp;nbsp;threads,&amp;nbsp;semaphores)&amp;nbsp;as&amp;nbsp;hidden&amp;nbsp;in&amp;nbsp;the&amp;nbsp;system.&amp;nbsp;Thus,&amp;nbsp;the&amp;nbsp;UsageModel&amp;nbsp;only&amp;nbsp;captures&amp;nbsp;information&amp;nbsp;that&amp;nbsp;is&amp;nbsp;available&amp;nbsp;to&amp;nbsp;domain&amp;nbsp;experts&amp;nbsp;and&amp;nbsp;can&amp;nbsp;be&amp;nbsp;changed&amp;nbsp;by&amp;nbsp;them.&amp;nbsp;Resource&lt;br />&#xD;&#xA;environment&amp;nbsp;and&amp;nbsp;component&amp;nbsp;architecture&amp;nbsp;may&amp;nbsp;be&amp;nbsp;changed&amp;nbsp;independently&amp;nbsp;from&amp;nbsp;the&amp;nbsp;UsageModel&amp;nbsp;&lt;br />&#xD;&#xA;by&amp;nbsp;system&amp;nbsp;architects,&amp;nbsp;if&amp;nbsp;the&amp;nbsp;system's&amp;nbsp;ProvidedRoles&amp;nbsp;remain&amp;nbsp;unchanged.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;Discussion:&amp;nbsp;&lt;br />&#xD;&#xA;Notice,&amp;nbsp;that&amp;nbsp;unlike&amp;nbsp;other&amp;nbsp;behavioural&amp;nbsp;description&amp;nbsp;languages&amp;nbsp;for&amp;nbsp;performance&amp;nbsp;prediction&amp;nbsp;(e.g.,&amp;nbsp;[162,&amp;nbsp;187,&lt;br />&#xD;&#xA;78]),&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;specifically&amp;nbsp;models&amp;nbsp;user&amp;nbsp;behaviour&amp;nbsp;and&amp;nbsp;for&amp;nbsp;example&amp;nbsp;does&amp;nbsp;not&amp;nbsp;refer&amp;nbsp;to&amp;nbsp;resources.&lt;br />&#xD;&#xA;Other&amp;nbsp;performance&amp;nbsp;meta-models&amp;nbsp;mix&amp;nbsp;up&amp;nbsp;the&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;user&amp;nbsp;behaviour,&amp;nbsp;component&amp;nbsp;behaviour,&amp;nbsp;and&lt;br />&#xD;&#xA;resources,&amp;nbsp;so&amp;nbsp;that&amp;nbsp;a&amp;nbsp;single&amp;nbsp;developer&amp;nbsp;role&amp;nbsp;(i.e.,&amp;nbsp;a&amp;nbsp;performance&amp;nbsp;analyst)&amp;nbsp;needs&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;performance&lt;br />&#xD;&#xA;model.&amp;nbsp;Opposed&amp;nbsp;to&amp;nbsp;this,&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;targets&amp;nbsp;a&amp;nbsp;division&amp;nbsp;of&amp;nbsp;work&amp;nbsp;for&amp;nbsp;multiple&amp;nbsp;developer&amp;nbsp;roles&amp;nbsp;(cf.&amp;nbsp;Section&amp;nbsp;3.1&amp;nbsp;of&amp;nbsp;Heiko&amp;nbsp;Koziolek's&amp;nbsp;dissertation).&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;Furthermore,&amp;nbsp;none&amp;nbsp;of&amp;nbsp;the&amp;nbsp;other&amp;nbsp;performance&amp;nbsp;meta-models&amp;nbsp;support&amp;nbsp;explicit&amp;nbsp;service&amp;nbsp;parameter&amp;nbsp;modelling.&lt;br />&#xD;&#xA;While&amp;nbsp;CSM&amp;nbsp;[162]&amp;nbsp;includes&amp;nbsp;a&amp;nbsp;meta-class&amp;nbsp;Message&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;amount&amp;nbsp;of&amp;nbsp;data&amp;nbsp;transferred&amp;nbsp;between&lt;br />&#xD;&#xA;two&amp;nbsp;steps&amp;nbsp;in&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;model,&amp;nbsp;and&amp;nbsp;KLAPER&amp;nbsp;[78]&amp;nbsp;allows&amp;nbsp;the&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;parameter&amp;nbsp;values&lt;br />&#xD;&#xA;in&amp;nbsp;principle,&amp;nbsp;none&amp;nbsp;of&amp;nbsp;these&amp;nbsp;language&amp;nbsp;uses&amp;nbsp;the&amp;nbsp;information&amp;nbsp;to&amp;nbsp;parameterise&amp;nbsp;resource&amp;nbsp;demands&amp;nbsp;or&amp;nbsp;component&lt;br />&#xD;&#xA;behaviour.&amp;nbsp;Additionally,&amp;nbsp;they&amp;nbsp;do&amp;nbsp;not&amp;nbsp;provide&amp;nbsp;the&amp;nbsp;information&amp;nbsp;readily&amp;nbsp;analysable&amp;nbsp;by&amp;nbsp;MDSD&amp;nbsp;tools.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;The&amp;nbsp;PCM&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;has&amp;nbsp;been&amp;nbsp;designed&amp;nbsp;based&amp;nbsp;on&amp;nbsp;meta&amp;nbsp;models&amp;nbsp;such&amp;nbsp;as&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;domain&amp;nbsp;model&lt;br />&#xD;&#xA;of&amp;nbsp;the&amp;nbsp;UML&amp;nbsp;SPT&amp;nbsp;profile&amp;nbsp;[31],&amp;nbsp;the&amp;nbsp;Core&amp;nbsp;Scenario&amp;nbsp;Model&amp;nbsp;(CSM)&amp;nbsp;[162],&amp;nbsp;and&amp;nbsp;KLAPER&amp;nbsp;[78].&amp;nbsp;It&amp;nbsp;is&amp;nbsp;furthermore&lt;br />&#xD;&#xA;related&amp;nbsp;to&amp;nbsp;usage&amp;nbsp;models&amp;nbsp;used&amp;nbsp;in&amp;nbsp;statistical&amp;nbsp;testing&amp;nbsp;[34].&amp;nbsp;Although&amp;nbsp;the&amp;nbsp;concepts&amp;nbsp;included&amp;nbsp;in&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;usage&lt;br />&#xD;&#xA;model&amp;nbsp;are&amp;nbsp;quite&amp;nbsp;similar&amp;nbsp;to&amp;nbsp;the&amp;nbsp;modelling&amp;nbsp;capabilities&amp;nbsp;of&amp;nbsp;the&amp;nbsp;UML&amp;nbsp;SPT&amp;nbsp;profile,&amp;nbsp;there&amp;nbsp;are&amp;nbsp;some&amp;nbsp;subtle&lt;br />&#xD;&#xA;differences:&lt;br />&#xD;&#xA;-&#xD;&#xA;The&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;is&amp;nbsp;aligned&amp;nbsp;with&amp;nbsp;the&amp;nbsp;role&amp;nbsp;of&amp;nbsp;the&amp;nbsp;domain&amp;nbsp;expert,&amp;nbsp;and&amp;nbsp;uses&amp;nbsp;only&amp;nbsp;concepts&amp;nbsp;known&amp;nbsp;to&lt;br />&#xD;&#xA;this&amp;nbsp;role.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;domain&amp;nbsp;specific&amp;nbsp;language,&amp;nbsp;whereas&amp;nbsp;the&amp;nbsp;UML&amp;nbsp;SPT&amp;nbsp;performance&amp;nbsp;domain&amp;nbsp;model&amp;nbsp;is&lt;br />&#xD;&#xA;a&amp;nbsp;general&amp;nbsp;purpose&amp;nbsp;language&amp;nbsp;that&amp;nbsp;includes&amp;nbsp;information,&amp;nbsp;which&amp;nbsp;is&amp;nbsp;usually&amp;nbsp;spread&amp;nbsp;over&amp;nbsp;multiple&amp;nbsp;developer&lt;br />&#xD;&#xA;roles&amp;nbsp;such&amp;nbsp;as&amp;nbsp;the&amp;nbsp;component&amp;nbsp;assembler&amp;nbsp;and&amp;nbsp;the&amp;nbsp;system&amp;nbsp;deployer,&amp;nbsp;so&amp;nbsp;that&amp;nbsp;a&amp;nbsp;domain&amp;nbsp;expert&amp;nbsp;without&amp;nbsp;a&amp;nbsp;technical&amp;nbsp;background&amp;nbsp;could&amp;nbsp;not&amp;nbsp;specify&amp;nbsp;an&amp;nbsp;instance&amp;nbsp;of&amp;nbsp;it.&amp;nbsp;Nevertheless,&amp;nbsp;domain&amp;nbsp;experts&lt;br />&#xD;&#xA;should&amp;nbsp;be&amp;nbsp;able&amp;nbsp;to&amp;nbsp;create&amp;nbsp;PCM&amp;nbsp;usage&amp;nbsp;models&amp;nbsp;with&amp;nbsp;appropriate&amp;nbsp;tools&amp;nbsp;independently&amp;nbsp;from&amp;nbsp;other&amp;nbsp;developer&lt;br />&#xD;&#xA;roles,&amp;nbsp;because&amp;nbsp;such&amp;nbsp;models&amp;nbsp;only&amp;nbsp;contain&amp;nbsp;concepts&amp;nbsp;known&amp;nbsp;to&amp;nbsp;them.&lt;br />&#xD;&#xA;-&#xD;&#xA;The&amp;nbsp;number&amp;nbsp;of&amp;nbsp;loop&amp;nbsp;iterations&amp;nbsp;is&amp;nbsp;not&amp;nbsp;bound&amp;nbsp;to&amp;nbsp;a&amp;nbsp;constant&amp;nbsp;value,&amp;nbsp;but&amp;nbsp;can&amp;nbsp;be&amp;nbsp;specified&amp;nbsp;as&amp;nbsp;a&amp;nbsp;random&lt;br />&#xD;&#xA;variable.&lt;br />&#xD;&#xA;-&#xD;&#xA;The&amp;nbsp;control&amp;nbsp;flow&amp;nbsp;constructs&amp;nbsp;are&amp;nbsp;arranged&amp;nbsp;in&amp;nbsp;a&amp;nbsp;hierarchical&amp;nbsp;fashion&amp;nbsp;to&amp;nbsp;enable&amp;nbsp;easy&amp;nbsp;analyses.&lt;br />&#xD;&#xA;-&#xD;&#xA;Users&amp;nbsp;are&amp;nbsp;restricted&amp;nbsp;to&amp;nbsp;non-concurrent&amp;nbsp;behaviour,&amp;nbsp;as&amp;nbsp;it&amp;nbsp;is&amp;nbsp;assumed,&amp;nbsp;that&amp;nbsp;users&amp;nbsp;only&amp;nbsp;execute&amp;nbsp;the&lt;br />&#xD;&#xA;services&amp;nbsp;of&amp;nbsp;a&amp;nbsp;system&amp;nbsp;one&amp;nbsp;at&amp;nbsp;a&amp;nbsp;time.&lt;br />&#xD;&#xA;-&#xD;&#xA;System&amp;nbsp;service&amp;nbsp;invocations&amp;nbsp;can&amp;nbsp;be&amp;nbsp;enhanced&amp;nbsp;with&amp;nbsp;characterisations&amp;nbsp;of&amp;nbsp;parameters&amp;nbsp;values.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[31]&amp;nbsp;Object&amp;nbsp;Management&amp;nbsp;Group&amp;nbsp;(OMG),&amp;nbsp;&quot;UML&amp;nbsp;Profile&amp;nbsp;for&amp;nbsp;Schedulability,&amp;nbsp;Performance&amp;nbsp;and&amp;nbsp;Time,&quot;&lt;br />&#xD;&#xA;http://www.omg.org/cgi-bin/doc?formal/2005-01-02,&amp;nbsp;January&amp;nbsp;2005.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[34]&amp;nbsp;James&amp;nbsp;A.&amp;nbsp;Whittaker&amp;nbsp;and&amp;nbsp;Michael&amp;nbsp;G.&amp;nbsp;Thomason,&amp;nbsp;&quot;A&amp;nbsp;Markov&amp;nbsp;chain&amp;nbsp;model&amp;nbsp;for&amp;nbsp;statistical&amp;nbsp;software&lt;br />&#xD;&#xA;testing,&quot;&amp;nbsp;IEEE&amp;nbsp;Transactions&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;Engineering,&amp;nbsp;vol.&amp;nbsp;20,&amp;nbsp;no.&amp;nbsp;10,&amp;nbsp;pp.&amp;nbsp;812-824,&amp;nbsp;Oct.&amp;nbsp;1994.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[78]&amp;nbsp;V.&amp;nbsp;Grassi,&amp;nbsp;R.&amp;nbsp;Mirandola,&amp;nbsp;and&amp;nbsp;A.&amp;nbsp;Sabetta,&amp;nbsp;&quot;From&amp;nbsp;design&amp;nbsp;to&amp;nbsp;analysis&amp;nbsp;models:&amp;nbsp;a&amp;nbsp;kernel&amp;nbsp;language&lt;br />&#xD;&#xA;for&amp;nbsp;performance&amp;nbsp;and&amp;nbsp;reliability&amp;nbsp;analysis&amp;nbsp;of&amp;nbsp;component-based&amp;nbsp;systems,&quot;&amp;nbsp;in&amp;nbsp;Proc.&amp;nbsp;5th&amp;nbsp;International&lt;br />&#xD;&#xA;Workshop&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;and&amp;nbsp;Performance&amp;nbsp;(WOSP&amp;nbsp;'05).&amp;nbsp;New&amp;nbsp;York,&amp;nbsp;NY,&amp;nbsp;USA:&amp;nbsp;ACM&amp;nbsp;Press,&amp;nbsp;2005,&lt;br />&#xD;&#xA;pp.&amp;nbsp;25-36.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[162]&amp;nbsp;D.&amp;nbsp;B.&amp;nbsp;Petriu&amp;nbsp;and&amp;nbsp;M.&amp;nbsp;Woodside,&amp;nbsp;&quot;A&amp;nbsp;metamodel&amp;nbsp;for&amp;nbsp;generating&amp;nbsp;performance&amp;nbsp;models&amp;nbsp;from&amp;nbsp;UML&amp;nbsp;designs,&quot;&lt;br />&#xD;&#xA;in&amp;nbsp;UML&amp;nbsp;2004&amp;nbsp;-&amp;nbsp;The&amp;nbsp;Unified&amp;nbsp;Modeling&amp;nbsp;Language.&amp;nbsp;Model&amp;nbsp;Languages&amp;nbsp;and&amp;nbsp;Applications.&amp;nbsp;7th&lt;br />&#xD;&#xA;International&amp;nbsp;Conference,&amp;nbsp;Lisbon,&amp;nbsp;Portugal,&amp;nbsp;October&amp;nbsp;11-15,&amp;nbsp;2004,&amp;nbsp;Proceedings,&amp;nbsp;ser.&amp;nbsp;LNCS,&amp;nbsp;T.&amp;nbsp;Baar,&lt;br />&#xD;&#xA;A.&amp;nbsp;Strohmeier,&amp;nbsp;A.&amp;nbsp;Moreira,&amp;nbsp;and&amp;nbsp;S.&amp;nbsp;J.&amp;nbsp;Mellor,&amp;nbsp;Eds.,&amp;nbsp;vol.&amp;nbsp;3273.&amp;nbsp;Springer,&amp;nbsp;2004,&amp;nbsp;pp.&amp;nbsp;41-53.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[187]&amp;nbsp;C.&amp;nbsp;U.&amp;nbsp;Smith,&amp;nbsp;C.&amp;nbsp;M.&amp;nbsp;Llado,&amp;nbsp;V.&amp;nbsp;Cortellessa,&amp;nbsp;A.&amp;nbsp;D.&amp;nbsp;Marco,&amp;nbsp;and&amp;nbsp;L.&amp;nbsp;G.&amp;nbsp;Williams,&amp;nbsp;&quot;From&amp;nbsp;UML&amp;nbsp;models&lt;br />&#xD;&#xA;to&amp;nbsp;software&amp;nbsp;performance&amp;nbsp;results:&amp;nbsp;an&amp;nbsp;SPE&amp;nbsp;process&amp;nbsp;based&amp;nbsp;on&amp;nbsp;XML&amp;nbsp;interchange&amp;nbsp;formats,&quot;&amp;nbsp;in&amp;nbsp;Proc.&amp;nbsp;5th&lt;br />&#xD;&#xA;international&amp;nbsp;workshop&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;and&amp;nbsp;performance&amp;nbsp;(WOSP'05).&amp;nbsp;New&amp;nbsp;York,&amp;nbsp;NY,&amp;nbsp;USA:&amp;nbsp;ACM&lt;br />&#xD;&#xA;Press,&amp;nbsp;2005,&amp;nbsp;pp.&amp;nbsp;87-98.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;&lt;br />"/>
@@ -646,6 +670,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.oclIsTypeOf(pcm::system::System)"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.oclIsTypeOf(pcm::system::System)"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -664,6 +691,9 @@
       <eOperations name="EntryLevelSystemCallSignatureMustMatchItsProvidedRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole.signatures__OperationInterface->includes(self.operationSignature__EntryLevelSystemCall)"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole.signatures__OperationInterface->includes(self.operationSignature__EntryLevelSystemCall)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -711,6 +741,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -729,6 +762,9 @@
       <eOperations name="Exactlyonestop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -749,6 +785,9 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -795,6 +834,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() &lt;1.001"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() &lt;1.001"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -832,6 +874,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.successor.oclIsUndefined()"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.successor.oclIsUndefined()"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -856,6 +901,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.predecessor.oclIsUndefined()"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.predecessor.oclIsUndefined()"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -879,6 +927,9 @@
       <eOperations name="InterArrivalTimeInOpenWorkloadNeedsToBeSpecified" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification &lt;> ''"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification &lt;> ''"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -915,6 +966,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="not self.population.oclIsUndefined() and self.population &lt;> ''"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.population.oclIsUndefined() and self.population &lt;> ''"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -933,6 +987,9 @@
       <eOperations name="ThinkTimeInClosedWorkloadNeedsToBeSpecified" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification &lt;> ''"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification &lt;> ''"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -956,7 +1013,7 @@
           eOpposite="#//core/PCMRandomVariable/closedWorkload_PCMRandomVariable"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0"
+  <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0"
       nsPrefix="repository">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The main package contributing component types and interfaces."/>
@@ -989,6 +1046,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |&#xD;&#xA;  p1 &lt;> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID &lt;> p2.seffTypeID))"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |&#xD;&#xA;  p1 &lt;> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID &lt;> p2.seffTypeID))"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -1008,6 +1068,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity_ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity_ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity_ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity_ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -1026,6 +1089,9 @@
       <eOperations name="RequireSameInterfacesAsImplementationType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->select(rr |rr.oclIsTypeOf(OperationRequiredRole))->collect(rr | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes.requiredRoles_InterfaceRequiringEntity->select(rr |rr.oclIsTypeOf(OperationRequiredRole))->collect(rr | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->select(rr |rr.oclIsTypeOf(OperationRequiredRole))->collect(rr | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes.requiredRoles_InterfaceRequiringEntity->select(rr |rr.oclIsTypeOf(OperationRequiredRole))->collect(rr | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1066,6 +1132,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="-- ImplementationTypes required Interfaces have to be a subset&#xD;&#xA;-- of CompleteComponentType required Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see 'lpar2005.pdf' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc2->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;))&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc4->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;))&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc6->union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;&#x9;))&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #&#xD;&#xA;--anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;self.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc7->union(p.requiredInterface.identifier.id->asBag())&#xD;&#xA;--&#x9;)&#x9;&#xD;&#xA;--)&#xD;&#xA;true"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- ImplementationTypes required Interfaces have to be a subset&#xD;&#xA;-- of CompleteComponentType required Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see 'lpar2005.pdf' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc2->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;))&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc4->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;))&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc6->union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;&#x9;))&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #&#xD;&#xA;--anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;self.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc7->union(p.requiredInterface.identifier.id->asBag())&#xD;&#xA;--&#x9;)&#x9;&#xD;&#xA;--)&#xD;&#xA;true"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -1085,6 +1154,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="-- ### EXACT COPY FROM ABOVE ###&#xD;&#xA;-- ImplementationComponentTypes provided Interfaces have to be a superset&#xD;&#xA;-- of CompleteComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see 'lpar2005.pdf' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;&#x9;-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;--&#x9;anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;&#x9;self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;&#x9;)&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;)&#xD;&#xA;true"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- ### EXACT COPY FROM ABOVE ###&#xD;&#xA;-- ImplementationComponentTypes provided Interfaces have to be a superset&#xD;&#xA;-- of CompleteComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see 'lpar2005.pdf' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;&#x9;-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;--&#x9;anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;&#x9;self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;&#x9;)&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;)&#xD;&#xA;true"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -1103,6 +1175,9 @@
       <eOperations name="ProvidedInterfaceHaveToConformToComponentType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="if self.componentType = ComponentType::INFRASTRUCTURE_COMPONENT then&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(OperationInterface) or role.oclIsTypeOf(EventGroup))->size() = 0&#xD;&#xA;else if self.componentType = ComponentType::BUSINESS_COMPONENT then&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(InfrastructureInterface))->size() = 0&#xD;&#xA;else&#xD;&#xA;&#x9;1 = 0&#xD;&#xA;endif&#xD;&#xA;endif"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="if self.componentType = ComponentType::INFRASTRUCTURE_COMPONENT then&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(OperationInterface) or role.oclIsTypeOf(EventGroup))->size() = 0&#xD;&#xA;else if self.componentType = ComponentType::BUSINESS_COMPONENT then&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(InfrastructureInterface))->size() = 0&#xD;&#xA;else&#xD;&#xA;&#x9;1 = 0&#xD;&#xA;endif&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1242,6 +1317,9 @@
       <eOperations name="NoProtocolTypeIDUsedTwice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.protocols__Interface->forAll(p1, p2 |&#xD;&#xA;p1.protocolTypeID &lt;> p2.protocolTypeID)&#xD;&#xA;"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.protocols__Interface->forAll(p1, p2 |&#xD;&#xA;p1.protocolTypeID &lt;> p2.protocolTypeID)&#xD;&#xA;"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1384,6 +1462,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.parameters__OperationSignature->isUnique(p : Parameter |&#xD;&#xA;&#x9;p.parameterName&#xD;&#xA;)"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.parameters__OperationSignature->isUnique(p : Parameter |&#xD;&#xA;&#x9;p.parameterName&#xD;&#xA;)"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -1426,6 +1507,9 @@
       <eOperations name="SignaturesHaveToBeUniqueForAnInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__OperationInterface->collect(sig : OperationSignature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returnType__OperationSignature,&#xD;&#xA;&#x9;&#x9;serviceName : String = sig.entityName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__OperationSignature.dataType__Parameter&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(s|s)"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__OperationInterface->collect(sig : OperationSignature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returnType__OperationSignature,&#xD;&#xA;&#x9;&#x9;serviceName : String = sig.entityName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__OperationSignature.dataType__Parameter&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(s|s)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1521,6 +1605,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="(&#xD;&#xA;&#x9;self.oclIsTypeOf(CompleteComponentType)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(ImplementationComponentType)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(CompositeComponent)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(BasicComponent)&#xD;&#xA;)&#xD;&#xA;implies&#xD;&#xA;(&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->size() >= 1&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.requiredRoles_InterfaceRequiringEntity->size() >= 1&#xD;&#xA;)"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="(&#xD;&#xA;&#x9;self.oclIsTypeOf(CompleteComponentType)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(ImplementationComponentType)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(CompositeComponent)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(BasicComponent)&#xD;&#xA;)&#xD;&#xA;implies&#xD;&#xA;(&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->size() >= 1&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.requiredRoles_InterfaceRequiringEntity->size() >= 1&#xD;&#xA;)"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -1539,6 +1626,9 @@
       <eOperations name="providedInterfacesHaveToConformToProvidedType2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="-- CompleteTypes provided Interfaces have to be a superset&#xD;&#xA;-- of ProvidesComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;--&#x9;-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;--&#x9;anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;&#x9;self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;&#x9;)&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;)&#xD;&#xA;true"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- CompleteTypes provided Interfaces have to be a superset&#xD;&#xA;-- of ProvidesComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;--&#x9;-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;--&#x9;anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;&#x9;self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;&#x9;)&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;)&#xD;&#xA;true"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1566,6 +1656,9 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.oclIsTypeOf(ProvidesComponentType)&#xD;&#xA;implies&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->size() >= 1"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.oclIsTypeOf(ProvidesComponentType)&#xD;&#xA;implies&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->size() >= 1"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1595,6 +1688,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -1613,6 +1709,9 @@
       <eOperations name="RequireSameInterfaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->select(pr|pr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes.requiredRoles_InterfaceRequiringEntity->select(pr|pr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->select(pr|pr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes.requiredRoles_InterfaceRequiringEntity->select(pr|pr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1701,7 +1800,7 @@
       </eAnnotations>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0"
+  <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/4.0"
       nsPrefix="resourcetype">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Package containing all resource types supported by the PCM"/>
@@ -1740,17 +1839,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceInterfaces__ResourceRepository"
           ordered="false" upperBound="-1" eType="#//resourcetype/ResourceInterface"
           containment="true" eOpposite="#//resourcetype/ResourceInterface/resourceRepository__ResourceInterface"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="schedulingPolicies__ResourceRepository"
-          ordered="false" upperBound="-1" eType="#//resourcetype/SchedulingPolicy"
-          containment="true" eOpposite="#//resourcetype/SchedulingPolicy/resourceRepository__SchedulingPolicy"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="availableResourceTypes_ResourceRepository"
           ordered="false" upperBound="-1" eType="#//resourcetype/ResourceType" containment="true"
           eOpposite="#//resourcetype/ResourceType/resourceRepository_ResourceType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SchedulingPolicy" eSuperTypes="#//core/entity/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRepository__SchedulingPolicy"
-          ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRepository"
-          eOpposite="#//resourcetype/ResourceRepository/schedulingPolicies__ResourceRepository"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1771,7 +1862,7 @@
           containment="true" eOpposite="#//resourcetype/ResourceSignature/resourceInterface__ResourceSignature"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/5.0"
+  <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/4.0"
       nsPrefix="protocol">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="&lt;p>&#xD;&#xA;    The PCM is prepared to support interface protocols. This package contains a protocol stub. Multiple protocols following&#xD;&#xA;    different formalisms are supported by the PCM and distinguished by a protocol ID.&#xD;&#xA;&lt;/p>"/>
@@ -1788,7 +1879,7 @@
       </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0"
+  <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0"
       nsPrefix="parameter">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The parameter package allows to model data dependent performance characteristics of software systems. It is mainly used to specify performance dependencies on input and output parameters of single service calls. It can also be used to describe dependencies on the state of components by the use of component parameters. The latter describe stochastically a component state which does not change over time. &#xD;&#xA;&#xD;&#xA;Parameters are described by the use of variable usages which on the one side contain a performance abstraction of the variable's value and on the other side the name of the variable for refering to the variable. Characterisations available include Structure (information on the data's internal structure like &quot;sorted&quot; or &quot;unsorted&quot; for an array), Number of Elements (size of a collection), Value (the actuall variable value), Bytesize (the variable's memory footprint), or type (the type of the variable in polymorphic cases).&#xD;&#xA;&#xD;&#xA;Example for variable usages may be a.NUMBER_OF_ELEMENTS = 10 (array &quot;a&quot; contains 10 elements), tree.STRUCTURE = &quot;balanced&quot; (tree &quot;tree&quot; is a balanced tree), and so on."/>
@@ -1889,7 +1980,7 @@
       </eLiterals>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0"
+  <eSubpackages name="reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/4.0"
       nsPrefix="reliability">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This package contains reliability-relevant classes such as the definition of failure types."/>
@@ -1901,6 +1992,9 @@
       <eOperations name="EnsureValidFailureProbabilityRange" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="(self.failureProbability.oclAsType(Real) &lt;= 1.0) and (self.failureProbability.oclAsType(Real) >= 0.0)"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="(self.failureProbability.oclAsType(Real) &lt;= 1.0) and (self.failureProbability.oclAsType(Real) >= 0.0)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1927,6 +2021,9 @@
       <eOperations name="HardwareInducedFailureTypeHasProcessingResourceType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="( self.processingResourceType__HardwareInducedFailureType &lt;> null ) and ( not ( self.processingResourceType__HardwareInducedFailureType.oclIsTypeOf( pcm::resourcetype::CommunicationLinkResourceType ) ) )"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="( self.processingResourceType__HardwareInducedFailureType &lt;> null ) and ( not ( self.processingResourceType__HardwareInducedFailureType.oclIsTypeOf( pcm::resourcetype::CommunicationLinkResourceType ) ) )"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1966,7 +2063,7 @@
           <details key="body" value="not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="ResourceTimeoutFailures are software-induced failure types, but are not annotated to InternalActions (they are only meant&#xD;&#xA;for passive resource timeouts)."/>
+          <details key="documentation" value="ResourceTimeoutFailures are software-induced failure types, but are not annotated to InternalActions (they are only meant&#xD;&#xA;for passive resource timeouts).&#xA;not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1998,6 +2095,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.communicationLinkResourceType__NetworkInducedFailureType &lt;> null"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.communicationLinkResourceType__NetworkInducedFailureType &lt;> null"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -2028,7 +2128,7 @@
           <details key="body" value="not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="ResourceTimeoutFailures&amp;nbsp;are&amp;nbsp;software-induced&amp;nbsp;failure&amp;nbsp;types,&amp;nbsp;but&amp;nbsp;are&amp;nbsp;not&amp;nbsp;annotated&amp;nbsp;to&amp;nbsp;system-external&#xD;&#xA;calls&amp;nbsp;(they&amp;nbsp;are&amp;nbsp;only&amp;nbsp;meant&lt;br />&#xD;&#xA;for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts)."/>
+          <details key="documentation" value="ResourceTimeoutFailures&amp;nbsp;are&amp;nbsp;software-induced&amp;nbsp;failure&amp;nbsp;types,&amp;nbsp;but&amp;nbsp;are&amp;nbsp;not&amp;nbsp;annotated&amp;nbsp;to&amp;nbsp;system-external&#xD;&#xA;calls&amp;nbsp;(they&amp;nbsp;are&amp;nbsp;only&amp;nbsp;meant&lt;br />&#xD;&#xA;for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).&#xA;not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2070,7 +2170,7 @@
           ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/failureTypes__Repository"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0"
+  <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0"
       nsPrefix="seff">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Package containing the abstract behaviour model of components"/>
@@ -2082,6 +2182,9 @@
       <eOperations name="StopActionSuccessorMustNotBeDefined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.successor_AbstractAction.oclIsUndefined()"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.successor_AbstractAction.oclIsUndefined()"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2133,6 +2236,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -2151,6 +2257,9 @@
       <eOperations name="ExactlyOneStartAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2171,6 +2280,9 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2222,6 +2334,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) &#xD;&#xA;or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) &#xD;&#xA;or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -2240,6 +2355,9 @@
       <eOperations name="AllProbabilisticBranchProbabilitiesMustSumUpTo1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then &#xD;&#xA;&#x9;self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.9999 &#xD;&#xA;&#x9;and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() &lt; 1.0001 &#xD;&#xA;&#x9;else true &#xD;&#xA;endif"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then &#xD;&#xA;&#x9;self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.9999 &#xD;&#xA;&#x9;and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() &lt; 1.0001 &#xD;&#xA;&#x9;else true &#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2276,6 +2394,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.predecessor_AbstractAction.oclIsUndefined()"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.predecessor_AbstractAction.oclIsUndefined()"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -2300,6 +2421,9 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="if self.describedService__SEFF.oclIsKindOf(pcm::repository::OperationSignature) then&#xD;&#xA;&#x9;self.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::OperationProvidedRole) and (p.oclAsType(pcm::repository::OperationProvidedRole).providedInterface__OperationProvidedRole = self.describedService__SEFF.oclAsType(pcm::repository::OperationSignature).interface__OperationSignature))&#xD;&#xA;else&#xD;&#xA;&#x9;if self.describedService__SEFF.oclIsKindOf(pcm::repository::EventType) then&#xD;&#xA;&#x9;&#x9;self.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::SinkRole) and (p.oclAsType(pcm::repository::SinkRole).eventGroup__SinkRole = self.describedService__SEFF.oclAsType(pcm::repository::EventType).eventGroup__EventType))&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;&#x9;true&#xD;&#xA;&#x9;endif&#xD;&#xA;endif"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="if self.describedService__SEFF.oclIsKindOf(pcm::repository::OperationSignature) then&#xD;&#xA;&#x9;self.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::OperationProvidedRole) and (p.oclAsType(pcm::repository::OperationProvidedRole).providedInterface__OperationProvidedRole = self.describedService__SEFF.oclAsType(pcm::repository::OperationSignature).interface__OperationSignature))&#xD;&#xA;else&#xD;&#xA;&#x9;if self.describedService__SEFF.oclIsKindOf(pcm::repository::EventType) then&#xD;&#xA;&#x9;&#x9;self.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::SinkRole) and (p.oclAsType(pcm::repository::SinkRole).eventGroup__SinkRole = self.describedService__SEFF.oclAsType(pcm::repository::EventType).eventGroup__EventType))&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;&#x9;true&#xD;&#xA;&#x9;endif&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2397,7 +2521,7 @@
           <details key="body" value="self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="&lt;pre id=&quot;comment_text_0&quot; class=&quot;bz_comment_text&quot;>&#xD;&#xA;check if the signature&#xD;&#xA;(declared in calledService_ExternalService attribute) belongs to the role&#xD;&#xA;(declared in role_ExternalService attribute)&#xD;&#xA;&lt;/pre>"/>
+          <details key="documentation" value="&lt;pre id=&quot;comment_text_0&quot; class=&quot;bz_comment_text&quot;>&#xD;&#xA;check if the signature&#xD;&#xA;(declared in calledService_ExternalService attribute) belongs to the role&#xD;&#xA;(declared in role_ExternalService attribute)&#xD;&#xA;&lt;/pre>&#xA;self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2448,6 +2572,9 @@
       <eOperations name="TimeoutValueOfAcquireActionMustNotBeNegative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.timeoutValue.oclAsType(Real) >= 0.0"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.timeoutValue.oclAsType(Real) >= 0.0"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2527,6 +2654,9 @@
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.internalFailureOccurrenceDescriptions__InternalAction->forAll(x:pcm::reliability::InternalFailureOccurrenceDescription,y:pcm::reliability::InternalFailureOccurrenceDescription  | x&lt;>y implies x.softwareInducedFailureType__InternalFailureOccurrenceDescription &lt;> y.softwareInducedFailureType__InternalFailureOccurrenceDescription )&#xD;&#xA;"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.internalFailureOccurrenceDescriptions__InternalAction->forAll(x:pcm::reliability::InternalFailureOccurrenceDescription,y:pcm::reliability::InternalFailureOccurrenceDescription  | x&lt;>y implies x.softwareInducedFailureType__InternalFailureOccurrenceDescription &lt;> y.softwareInducedFailureType__InternalFailureOccurrenceDescription )&#xD;&#xA;"/>
+        </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
             <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -2545,6 +2675,9 @@
       <eOperations name="SumOfInternalActionFailureProbabilitiesMustNotExceed1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.internalFailureOccurrenceDescriptions__InternalAction.failureProbability.oclAsType(Real)->sum()&lt;=1.0&#xD;&#xA;"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.internalFailureOccurrenceDescriptions__InternalAction.failureProbability.oclAsType(Real)->sum()&lt;=1.0&#xD;&#xA;"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2565,7 +2698,7 @@
           ordered="false" upperBound="-1" eType="#//reliability/InternalFailureOccurrenceDescription"
           containment="true" eOpposite="#//reliability/InternalFailureOccurrenceDescription/internalAction__InternalFailureOccurrenceDescription"/>
     </eClassifiers>
-    <eSubpackages name="seff_performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0"
+    <eSubpackages name="seff_performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/1.0"
         nsPrefix="seff_performance">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Package capturing performance aspects of an RDSEFF"/>
@@ -2574,6 +2707,9 @@
         <eOperations name="SignatureMustBelongToUsedRequiredRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="signature__InfrastructureCall.infrastructureInterface__InfrastructureSignature = requiredRole__InfrastructureCall.requiredInterface__InfrastructureRequiredRole"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="signature__InfrastructureCall.infrastructureInterface__InfrastructureSignature = requiredRole__InfrastructureCall.requiredInterface__InfrastructureRequiredRole"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2605,6 +2741,9 @@
         <eOperations name="ResourceSignatureBelongsToResourceRequiredRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2646,7 +2785,7 @@
             eOpposite="#//seff/AbstractInternalControlFlowAction/resourceDemand_Action"/>
       </eClassifiers>
     </eSubpackages>
-    <eSubpackages name="seff_reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0"
+    <eSubpackages name="seff_reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0"
         nsPrefix="seff_reliability">
       <eClassifiers xsi:type="ecore:EClass" name="RecoveryActionBehaviour" eSuperTypes="#//seff/seff_reliability/FailureHandlingEntity #//seff/ResourceDemandingBehaviour">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2655,6 +2794,9 @@
         <eOperations name="RecoveryActionBehaviourHasOnlyOnePredecessor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->&#xD;&#xA;&#x9;exists(x,y:RecoveryActionBehaviour | x&lt;>y&#xD;&#xA;&#x9;&#x9;and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)&#xD;&#xA;&#x9;&#x9;and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->&#xD;&#xA;&#x9;exists(x,y:RecoveryActionBehaviour | x&lt;>y&#xD;&#xA;&#x9;&#x9;and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)&#xD;&#xA;&#x9;&#x9;and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2675,6 +2817,9 @@
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)"/>
           </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)"/>
+          </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
               <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -2694,6 +2839,9 @@
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="not self.failureHandlingAlternatives__RecoveryActionBehaviour->&#xD;&#xA;&#x9;exists(x,y:RecoveryActionBehaviour | x&lt;>y and&#xD;&#xA;&#x9;x.failureTypes_FailureHandlingEntity->&#xD;&#xA;&#x9;&#x9;exists(f:pcm::reliability::FailureType |&#xD;&#xA;&#x9;&#x9;y.failureTypes_FailureHandlingEntity->includes(f)))"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="not self.failureHandlingAlternatives__RecoveryActionBehaviour->&#xD;&#xA;&#x9;exists(x,y:RecoveryActionBehaviour | x&lt;>y and&#xD;&#xA;&#x9;x.failureTypes_FailureHandlingEntity->&#xD;&#xA;&#x9;&#x9;exists(f:pcm::reliability::FailureType |&#xD;&#xA;&#x9;&#x9;y.failureTypes_FailureHandlingEntity->includes(f)))"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2723,6 +2871,9 @@
         <eOperations name="PrimaryBehaviourOfRecoveryActionMustBeSet" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.primaryBehaviour__RecoveryAction &lt;> null"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.primaryBehaviour__RecoveryAction &lt;> null"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2755,7 +2906,7 @@
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
-  <eSubpackages name="qosannotations" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/5.0"
+  <eSubpackages name="qosannotations" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/4.0"
       nsPrefix="qosannotations">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This package contains elements to specify fixed QoS attributes of system-external services."/>
@@ -2780,6 +2931,9 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.specifiedQoSAnnotations_QoSAnnotations->select(oclIsTypeOf(pcm::qosannotations::qos_reliability::SpecifiedReliabilityAnnotation))->forAll( x, y | ( x&lt;>y ) implies ( ( x.role_SpecifiedQoSAnnotation &lt;> y.role_SpecifiedQoSAnnotation )  or ( x.signature_SpecifiedQoSAnnation &lt;> y.signature_SpecifiedQoSAnnation ) ) )"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.specifiedQoSAnnotations_QoSAnnotations->select(oclIsTypeOf(pcm::qosannotations::qos_reliability::SpecifiedReliabilityAnnotation))->forAll( x, y | ( x&lt;>y ) implies ( ( x.role_SpecifiedQoSAnnotation &lt;> y.role_SpecifiedQoSAnnotation )  or ( x.signature_SpecifiedQoSAnnation &lt;> y.signature_SpecifiedQoSAnnation ) ) )"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2821,7 +2975,7 @@
           ordered="false" lowerBound="1" eType="#//qosannotations/QoSAnnotations"
           eOpposite="#//qosannotations/QoSAnnotations/specifiedOutputParameterAbstractions_QoSAnnotations"/>
     </eClassifiers>
-    <eSubpackages name="qos_performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Performance/5.0"
+    <eSubpackages name="qos_performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Performance/4.0"
         nsPrefix="">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Performance aspects of QoS annotations."/>
@@ -2834,6 +2988,9 @@
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="(self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))&#xD;&#xA;"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="(self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2869,7 +3026,7 @@
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
       </eClassifiers>
     </eSubpackages>
-    <eSubpackages name="qos_reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Reliability/5.0"
+    <eSubpackages name="qos_reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Reliability/4.0"
         nsPrefix="">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Reliability&amp;nbsp;aspects&amp;nbsp;of&amp;nbsp;QoS&amp;nbsp;annotations."/>
@@ -2883,6 +3040,9 @@
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="(self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="(self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2904,6 +3064,9 @@
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation.failureProbability.oclAsType(Real)->sum()&lt;=1.0"/>
           </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation.failureProbability.oclAsType(Real)->sum()&lt;=1.0"/>
+          </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
               <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
@@ -2923,6 +3086,9 @@
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation->forAll(x:pcm::reliability::ExternalFailureOccurrenceDescription,y:pcm::reliability::ExternalFailureOccurrenceDescription  | x&lt;>y implies x.failureType__ExternalFailureOccurrenceDescription &lt;> y.failureType__ExternalFailureOccurrenceDescription )"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation->forAll(x:pcm::reliability::ExternalFailureOccurrenceDescription,y:pcm::reliability::ExternalFailureOccurrenceDescription  | x&lt;>y implies x.failureType__ExternalFailureOccurrenceDescription &lt;> y.failureType__ExternalFailureOccurrenceDescription )"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2945,7 +3111,7 @@
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
-  <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/5.0"
+  <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0"
       nsPrefix="system">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The system package holds only the System meta class. A system is the most high-level and out-most compositional entity of the PCM. It defines the boundaries of a modelled application. Only systems (more precisely provided services of a system) can be accessed from usage profile. Systems also can carry QoS-Annotations, a special means to express fixed QoS properties of services that are required at the system boundary."/>
@@ -2957,6 +3123,9 @@
       <eOperations name="SystemMustHaveAtLeastOneProvidedRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="not self.providedRoles_InterfaceProvidingEntity->isEmpty()"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not self.providedRoles_InterfaceProvidingEntity->isEmpty()"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2982,7 +3151,7 @@
       </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="resourceenvironment" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0"
+  <eSubpackages name="resourceenvironment" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0"
       nsPrefix="resourceenvironment">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Package of entities representing the execution environment of a component based software system"/>
@@ -3062,8 +3231,8 @@
           <details key="documentation" value="&lt;p>&#xD;&#xA;    This attribute controls the handling of the resource&amp;nbsp;by the&amp;nbsp;reliability prediction.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    If set to TRUE, the unavailability of the resource automatically leads to the unavailability of the surrounding&#xD;&#xA;    resource container. Every attempt to execute a SEFF on an unavailable resource container leads to a corresponding&#xD;&#xA;    resource failure.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    If set to FALSE, the unavailability of the resource does not make the container unavailable. An attempt to execute a&#xD;&#xA;    SEFF on a container with an unavailable resource leads to a resource failure ONLY IF the SEFF contains an&#xD;&#xA;    InternalAction that accesses&amp;nbsp;the resource.&#xD;&#xA;&lt;/p>"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="schedulingPolicy" ordered="false"
-          lowerBound="1" eType="#//resourcetype/SchedulingPolicy"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedulingPolicy" ordered="false"
+          lowerBound="1" eType="#//resourceenvironment/SchedulingPolicy" defaultValueLiteral="FCFS"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceType_ActiveResourceSpecification"
           ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="processingRate_ProcessingResourceSpecification"
@@ -3079,6 +3248,16 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_ProcessingResourceSpecification"
           ordered="false" lowerBound="1" eType="#//resourceenvironment/ResourceContainer"
           eOpposite="#//resourceenvironment/ResourceContainer/activeResourceSpecifications_ResourceContainer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="SchedulingPolicy">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Supported scheduling policies of the PCM"/>
+      </eAnnotations>
+      <eLiterals name="EXACT"/>
+      <eLiterals name="DELAY" value="1"/>
+      <eLiterals name="PROCESSOR_SHARING" value="2"/>
+      <eLiterals name="FCFS" value="3"/>
+      <eLiterals name="GINPEX_DETECTED" value="4"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceSpecification"
         eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
@@ -3113,7 +3292,7 @@
       </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0"
+  <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0"
       nsPrefix="allocation">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="All PCM entities related to model allocation"/>
@@ -3125,6 +3304,9 @@
       <eOperations name="OneAssemblyContextOrOneEventChannelShouldBeReferred" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="not(self.assemblyContext_AllocationContext.oclIsUndefined()) xor not(self.eventChannel__AllocationContext.oclIsUndefined())"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="not(self.assemblyContext_AllocationContext.oclIsUndefined()) xor not(self.eventChannel__AllocationContext.oclIsUndefined())"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3160,7 +3342,7 @@
           <details key="body" value="-- Get all AssemblyContexts used by this system, that is &#xD;&#xA;-- 1) the AssemblyContexts directly used in the system and &#xD;&#xA;self.system_Allocation.assemblyContexts__ComposedStructure&#xD;&#xA;-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,&#xD;&#xA;-- we need to get those AssemblyContexts too: Thus, we use a closure here&#xD;&#xA;->union(self.system_Allocation.assemblyContexts__ComposedStructure->closure(&#xD;&#xA;encapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)&#xD;&#xA;.assemblyContexts__ComposedStructure))&#xD;&#xA;--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated &#xD;&#xA;--and if yes, if they are allocated.&#xD;&#xA;->forAll(assemblyCtx|&#xD;&#xA;--AssemblyContexts that contain SubSystems do not need to be allocated&#xD;&#xA;assemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or&#xD;&#xA;--All others need to be allocated. &#xD;&#xA;self.allocationContexts_Allocation->select(allocationCtx|&#xD;&#xA;allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Each Assembly of BasicComponents and CompositeComponents used in the referenced System must be allocated. &#xD;&#xA;&#xD;&#xA;Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocated. If it is not allocated, all BasicComponents and CompositeComponents contained in this SubSystem (also transitively over several nested and not-allocated SubSystems) need to be allocated. &#xD;&#xA;&#xD;&#xA;The constraint is realised wth a closure over the AssemblyContext contained in a ComposedStructure. "/>
+          <details key="documentation" value="Each Assembly of BasicComponents and CompositeComponents used in the referenced System must be allocated. &#xD;&#xA;&#xD;&#xA;Things are complicated by the introduction of SubSystems. Here, the Assembly of the SubSystem itself does not have to be allocated. If it is not allocated, all BasicComponents and CompositeComponents contained in this SubSystem (also transitively over several nested and not-allocated SubSystems) need to be allocated. &#xD;&#xA;&#xD;&#xA;The constraint is realised wth a closure over the AssemblyContext contained in a ComposedStructure. &#xA;-- Get all AssemblyContexts used by this system, that is &#xD;&#xA;-- 1) the AssemblyContexts directly used in the system and &#xD;&#xA;self.system_Allocation.assemblyContexts__ComposedStructure&#xD;&#xA;-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,&#xD;&#xA;-- we need to get those AssemblyContexts too: Thus, we use a closure here&#xD;&#xA;->union(self.system_Allocation.assemblyContexts__ComposedStructure->closure(&#xD;&#xA;encapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)&#xD;&#xA;.assemblyContexts__ComposedStructure))&#xD;&#xA;--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated &#xD;&#xA;--and if yes, if they are allocated.&#xD;&#xA;->forAll(assemblyCtx|&#xD;&#xA;--AssemblyContexts that contain SubSystems do not need to be allocated&#xD;&#xA;assemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or&#xD;&#xA;--All others need to be allocated. &#xD;&#xA;self.allocationContexts_Allocation->select(allocationCtx|&#xD;&#xA;allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3180,6 +3362,9 @@
       <eOperations name="CommunicatingServersHaveToBeConnectedByLinkingResource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.allocationContexts_Allocation->forAll(a | self.allocationContexts_Allocation->forAll(b | &#xD;&#xA;    --- if a and b are not on the same server&#xD;&#xA;    (a.resourceContainer_AllocationContext &lt;> b.resourceContainer_AllocationContext &#xD;&#xA;    and&#xD;&#xA;    --  and if the assembly contexts of a and b are connected&#xD;&#xA;      self.system_Allocation.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(pcm::core::composition::AssemblyConnector)->exists(conn | &#xD;&#xA;         (conn.providingAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext  &#xD;&#xA;         and &#xD;&#xA;         conn.requiringAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext )&#xD;&#xA;         or &#xD;&#xA;          (conn.providingAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext  &#xD;&#xA;         and &#xD;&#xA;         conn.requiringAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext )&#xD;&#xA;       )&#xD;&#xA;     )&#xD;&#xA;     -- then the servers have to be connected by a linking resource&#xD;&#xA;     implies &#xD;&#xA;     self.targetResourceEnvironment_Allocation.linkingResources__ResourceEnvironment->exists(l | &#xD;&#xA;        -- l connects the two&#xD;&#xA;        l.connectedResourceContainers_LinkingResource->includes(a.resourceContainer_AllocationContext)&#xD;&#xA;        and &#xD;&#xA;        l.connectedResourceContainers_LinkingResource->includes(b.resourceContainer_AllocationContext)&#xD;&#xA;     )&#xD;&#xA;  ))"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.allocationContexts_Allocation->forAll(a | self.allocationContexts_Allocation->forAll(b | &#xD;&#xA;    --- if a and b are not on the same server&#xD;&#xA;    (a.resourceContainer_AllocationContext &lt;> b.resourceContainer_AllocationContext &#xD;&#xA;    and&#xD;&#xA;    --  and if the assembly contexts of a and b are connected&#xD;&#xA;      self.system_Allocation.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(pcm::core::composition::AssemblyConnector)->exists(conn | &#xD;&#xA;         (conn.providingAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext  &#xD;&#xA;         and &#xD;&#xA;         conn.requiringAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext )&#xD;&#xA;         or &#xD;&#xA;          (conn.providingAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext  &#xD;&#xA;         and &#xD;&#xA;         conn.requiringAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext )&#xD;&#xA;       )&#xD;&#xA;     )&#xD;&#xA;     -- then the servers have to be connected by a linking resource&#xD;&#xA;     implies &#xD;&#xA;     self.targetResourceEnvironment_Allocation.linkingResources__ResourceEnvironment->exists(l | &#xD;&#xA;        -- l connects the two&#xD;&#xA;        l.connectedResourceContainers_LinkingResource->includes(a.resourceContainer_AllocationContext)&#xD;&#xA;        and &#xD;&#xA;        l.connectedResourceContainers_LinkingResource->includes(b.resourceContainer_AllocationContext)&#xD;&#xA;     )&#xD;&#xA;  ))"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3205,7 +3390,7 @@
           containment="true" eOpposite="#//allocation/AllocationContext/allocation_AllocationContext"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/5.0"
+  <eSubpackages name="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/4.0"
       nsPrefix="subsystem">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Package capturing the subsystem entity"/>

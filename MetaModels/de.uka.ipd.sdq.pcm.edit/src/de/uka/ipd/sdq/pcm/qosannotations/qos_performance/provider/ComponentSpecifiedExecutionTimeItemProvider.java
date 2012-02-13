@@ -6,7 +6,6 @@
 package de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider;
 
 
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -82,7 +81,7 @@ public class ComponentSpecifiedExecutionTimeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ComponentSpecifiedExecutionTime_assemblyContext_ComponentSpecifiedExecutionTime_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComponentSpecifiedExecutionTime_assemblyContext_ComponentSpecifiedExecutionTime_feature", "_UI_ComponentSpecifiedExecutionTime_type"),
-				 QosPerformancePackage.Literals.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
+				 Qos_performancePackage.Literals.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
 				 true,
 				 false,
 				 true,

@@ -163,8 +163,8 @@ public class ProcessingResourceSpecificationItemProvider
 				 ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -281,6 +281,7 @@ public class ProcessingResourceSpecificationItemProvider
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER:
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

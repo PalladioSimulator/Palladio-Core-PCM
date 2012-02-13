@@ -86,7 +86,6 @@ public class ResourceRepositoryItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY);
-			childrenFeatures.add(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY);
 			childrenFeatures.add(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY);
 		}
 		return childrenFeatures;
@@ -140,7 +139,6 @@ public class ResourceRepositoryItemProvider
 
 		switch (notification.getFeatureID(ResourceRepository.class)) {
 			case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-			case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
 			case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -163,11 +161,6 @@ public class ResourceRepositoryItemProvider
 			(createChildParameter
 				(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY,
 				 ResourcetypeFactory.eINSTANCE.createResourceInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY,
-				 ResourcetypeFactory.eINSTANCE.createSchedulingPolicy()));
 
 		newChildDescriptors.add
 			(createChildParameter

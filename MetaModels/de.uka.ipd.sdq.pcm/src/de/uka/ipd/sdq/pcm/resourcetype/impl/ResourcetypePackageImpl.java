@@ -28,10 +28,6 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.impl.QosReliabilityPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.Qos_performancePackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityPackage;
@@ -50,13 +46,8 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.impl.SeffPerformancePackageImpl;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.SeffReliabilityPackageImpl;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.impl.Seff_performancePackageImpl;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
@@ -111,13 +102,6 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 	 * @generated
 	 */
 	private EClass resourceRepositoryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass schedulingPolicyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,11 +178,11 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
 		ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
 		SeffPackageImpl theSeffPackage = (SeffPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-		SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
-		SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
+		Seff_performancePackageImpl theSeff_performancePackage = (Seff_performancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Seff_performancePackage.eNS_URI) instanceof Seff_performancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Seff_performancePackage.eNS_URI) : Seff_performancePackage.eINSTANCE);
+		Seff_reliabilityPackageImpl theSeff_reliabilityPackage = (Seff_reliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Seff_reliabilityPackage.eNS_URI) instanceof Seff_reliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Seff_reliabilityPackage.eNS_URI) : Seff_reliabilityPackage.eINSTANCE);
 		QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
-		QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
-		QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
+		Qos_performancePackageImpl theQos_performancePackage = (Qos_performancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Qos_performancePackage.eNS_URI) instanceof Qos_performancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Qos_performancePackage.eNS_URI) : Qos_performancePackage.eINSTANCE);
+		Qos_reliabilityPackageImpl theQos_reliabilityPackage = (Qos_reliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Qos_reliabilityPackage.eNS_URI) instanceof Qos_reliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Qos_reliabilityPackage.eNS_URI) : Qos_reliabilityPackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
@@ -216,11 +200,11 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		theParameterPackage.createPackageContents();
 		theReliabilityPackage.createPackageContents();
 		theSeffPackage.createPackageContents();
-		theSeffPerformancePackage.createPackageContents();
-		theSeffReliabilityPackage.createPackageContents();
+		theSeff_performancePackage.createPackageContents();
+		theSeff_reliabilityPackage.createPackageContents();
 		theQosannotationsPackage.createPackageContents();
-		theQosPerformancePackage.createPackageContents();
-		theQosReliabilityPackage.createPackageContents();
+		theQos_performancePackage.createPackageContents();
+		theQos_reliabilityPackage.createPackageContents();
 		theSystemPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
@@ -238,11 +222,11 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		theParameterPackage.initializePackageContents();
 		theReliabilityPackage.initializePackageContents();
 		theSeffPackage.initializePackageContents();
-		theSeffPerformancePackage.initializePackageContents();
-		theSeffReliabilityPackage.initializePackageContents();
+		theSeff_performancePackage.initializePackageContents();
+		theSeff_reliabilityPackage.initializePackageContents();
 		theQosannotationsPackage.initializePackageContents();
-		theQosPerformancePackage.initializePackageContents();
-		theQosReliabilityPackage.initializePackageContents();
+		theQos_performancePackage.initializePackageContents();
+		theQos_reliabilityPackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
@@ -352,35 +336,8 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceRepository_SchedulingPolicies__ResourceRepository() {
-		return (EReference)resourceRepositoryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getResourceRepository_AvailableResourceTypes_ResourceRepository() {
-		return (EReference)resourceRepositoryEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSchedulingPolicy() {
-		return schedulingPolicyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSchedulingPolicy_ResourceRepository__SchedulingPolicy() {
-		return (EReference)schedulingPolicyEClass.getEStructuralFeatures().get(0);
+		return (EReference)resourceRepositoryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -469,11 +426,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
 		resourceRepositoryEClass = createEClass(RESOURCE_REPOSITORY);
 		createEReference(resourceRepositoryEClass, RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY);
-		createEReference(resourceRepositoryEClass, RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY);
 		createEReference(resourceRepositoryEClass, RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY);
-
-		schedulingPolicyEClass = createEClass(SCHEDULING_POLICY);
-		createEReference(schedulingPolicyEClass, SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY);
 
 		communicationLinkResourceTypeEClass = createEClass(COMMUNICATION_LINK_RESOURCE_TYPE);
 		createEReference(communicationLinkResourceTypeEClass, COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE);
@@ -522,7 +475,6 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 		resourceTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		resourceTypeEClass.getESuperTypes().add(theUnitsPackage.getUnitCarryingElement());
 		resourceTypeEClass.getESuperTypes().add(theEntityPackage.getResourceInterfaceProvidingEntity());
-		schedulingPolicyEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		communicationLinkResourceTypeEClass.getESuperTypes().add(this.getProcessingResourceType());
 		resourceInterfaceEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
@@ -540,11 +492,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
 		initEClass(resourceRepositoryEClass, ResourceRepository.class, "ResourceRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceRepository_ResourceInterfaces__ResourceRepository(), this.getResourceInterface(), this.getResourceInterface_ResourceRepository__ResourceInterface(), "resourceInterfaces__ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getResourceRepository_SchedulingPolicies__ResourceRepository(), this.getSchedulingPolicy(), this.getSchedulingPolicy_ResourceRepository__SchedulingPolicy(), "schedulingPolicies__ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getResourceRepository_AvailableResourceTypes_ResourceRepository(), this.getResourceType(), this.getResourceType_ResourceRepository_ResourceType(), "availableResourceTypes_ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(schedulingPolicyEClass, SchedulingPolicy.class, "SchedulingPolicy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSchedulingPolicy_ResourceRepository__SchedulingPolicy(), this.getResourceRepository(), this.getResourceRepository_SchedulingPolicies__ResourceRepository(), "resourceRepository__SchedulingPolicy", null, 1, 1, SchedulingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(communicationLinkResourceTypeEClass, CommunicationLinkResourceType.class, "CommunicationLinkResourceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCommunicationLinkResourceType_NetworkInducedFailureType__CommunicationLinkResourceType(), theReliabilityPackage.getNetworkInducedFailureType(), theReliabilityPackage.getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType(), "networkInducedFailureType__CommunicationLinkResourceType", null, 0, 1, CommunicationLinkResourceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

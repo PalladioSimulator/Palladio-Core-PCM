@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#getComponentSpecifiedExecutionTime()
+ * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage#getComponentSpecifiedExecutionTime()
  * @model
  * @generated
  */
@@ -52,7 +52,7 @@ public interface ComponentSpecifiedExecutionTime extends SpecifiedExecutionTime 
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Assembly Context Component Specified Execution Time</em>' reference.
 	 * @see #setAssemblyContext_ComponentSpecifiedExecutionTime(AssemblyContext)
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#getComponentSpecifiedExecutionTime_AssemblyContext_ComponentSpecifiedExecutionTime()
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage#getComponentSpecifiedExecutionTime_AssemblyContext_ComponentSpecifiedExecutionTime()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */

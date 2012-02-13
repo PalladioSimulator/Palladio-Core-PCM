@@ -143,15 +143,6 @@ public class ResourcetypeSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourcetypePackage.SCHEDULING_POLICY: {
-				SchedulingPolicy schedulingPolicy = (SchedulingPolicy)theEObject;
-				T result = caseSchedulingPolicy(schedulingPolicy);
-				if (result == null) result = caseEntity(schedulingPolicy);
-				if (result == null) result = caseIdentifier(schedulingPolicy);
-				if (result == null) result = caseNamedElement(schedulingPolicy);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: {
 				CommunicationLinkResourceType communicationLinkResourceType = (CommunicationLinkResourceType)theEObject;
 				T result = caseCommunicationLinkResourceType(communicationLinkResourceType);
@@ -220,21 +211,6 @@ public class ResourcetypeSwitch<T> {
 	 * @generated
 	 */
 	public T caseResourceRepository(ResourceRepository object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Scheduling Policy</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Scheduling Policy</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSchedulingPolicy(SchedulingPolicy object) {
 		return null;
 	}
 

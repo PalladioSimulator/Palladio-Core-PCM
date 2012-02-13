@@ -42,7 +42,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 	 */
 	public static ResourcetypeFactory init() {
 		try {
-			ResourcetypeFactory theResourcetypeFactory = (ResourcetypeFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0"); 
+			ResourcetypeFactory theResourcetypeFactory = (ResourcetypeFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/4.0"); 
 			if (theResourcetypeFactory != null) {
 				return theResourcetypeFactory;
 			}
@@ -74,7 +74,6 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 			case ResourcetypePackage.RESOURCE_SIGNATURE: return createResourceSignature();
 			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: return createProcessingResourceType();
 			case ResourcetypePackage.RESOURCE_REPOSITORY: return createResourceRepository();
-			case ResourcetypePackage.SCHEDULING_POLICY: return createSchedulingPolicy();
 			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: return createCommunicationLinkResourceType();
 			case ResourcetypePackage.RESOURCE_INTERFACE: return createResourceInterface();
 			default:
@@ -100,16 +99,6 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 	public ResourceRepository createResourceRepository() {
 		ResourceRepositoryImpl resourceRepository = new ResourceRepositoryImpl();
 		return resourceRepository;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchedulingPolicy createSchedulingPolicy() {
-		SchedulingPolicyImpl schedulingPolicy = new SchedulingPolicyImpl();
-		return schedulingPolicy;
 	}
 
 	/**

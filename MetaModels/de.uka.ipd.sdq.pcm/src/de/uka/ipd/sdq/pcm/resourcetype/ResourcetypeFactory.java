@@ -50,15 +50,6 @@ public interface ResourcetypeFactory extends EFactory {
 	ResourceRepository createResourceRepository();
 
 	/**
-	 * Returns a new object of class '<em>Scheduling Policy</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scheduling Policy</em>'.
-	 * @generated
-	 */
-	SchedulingPolicy createSchedulingPolicy();
-
-	/**
 	 * Returns a new object of class '<em>Communication Link Resource Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

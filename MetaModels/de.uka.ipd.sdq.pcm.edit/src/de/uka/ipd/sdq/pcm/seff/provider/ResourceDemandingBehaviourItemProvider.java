@@ -6,7 +6,6 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -27,7 +26,6 @@ import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory;
 
 /**
@@ -37,7 +35,7 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory;
  * @generated
  */
 public class ResourceDemandingBehaviourItemProvider
-	extends IdentifierItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -125,10 +123,7 @@ public class ResourceDemandingBehaviourItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ResourceDemandingBehaviour)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ResourceDemandingBehaviour_type") :
-			getString("_UI_ResourceDemandingBehaviour_type") + " " + label;
+		return getString("_UI_ResourceDemandingBehaviour_type");
 	}
 
 	/**
@@ -229,7 +224,7 @@ public class ResourceDemandingBehaviourItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffReliabilityFactory.eINSTANCE.createRecoveryAction()));
+				 Seff_reliabilityFactory.eINSTANCE.createRecoveryAction()));
 	}
 
 	/**

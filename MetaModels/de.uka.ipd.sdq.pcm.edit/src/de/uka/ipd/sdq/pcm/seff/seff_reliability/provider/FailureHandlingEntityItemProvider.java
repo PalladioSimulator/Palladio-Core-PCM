@@ -23,7 +23,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
 /**
@@ -86,7 +85,7 @@ public class FailureHandlingEntityItemProvider
 				 getResourceLocator(),
 				 getString("_UI_FailureHandlingEntity_failureTypes_FailureHandlingEntity_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_FailureHandlingEntity_failureTypes_FailureHandlingEntity_feature", "_UI_FailureHandlingEntity_type"),
-				 SeffReliabilityPackage.Literals.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY,
+				 Seff_reliabilityPackage.Literals.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY,
 				 true,
 				 false,
 				 true,

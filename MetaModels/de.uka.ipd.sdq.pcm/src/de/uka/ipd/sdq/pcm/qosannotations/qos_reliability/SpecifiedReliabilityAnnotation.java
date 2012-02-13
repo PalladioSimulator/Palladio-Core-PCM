@@ -31,7 +31,7 @@ import de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage#getSpecifiedReliabilityAnnotation()
+ * @see de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityPackage#getSpecifiedReliabilityAnnotation()
  * @model
  * @generated
  */
@@ -54,7 +54,7 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage#getSpecifiedReliabilityAnnotation_ExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation()
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityPackage#getSpecifiedReliabilityAnnotation_ExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation()
 	 * @see de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription
 	 * @model opposite="specifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription" containment="true" required="true" ordered="false"
 	 * @generated
@@ -65,6 +65,10 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * (self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))
+	 * 
+	 * 
+	 * 
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
@@ -77,6 +81,7 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation.failureProbability.oclAsType(Real)->sum()<=1.0
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
@@ -89,6 +94,7 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation->forAll(x:pcm::reliability::ExternalFailureOccurrenceDescription,y:pcm::reliability::ExternalFailureOccurrenceDescription  | x<>y implies x.failureType__ExternalFailureOccurrenceDescription <> y.failureType__ExternalFailureOccurrenceDescription )
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

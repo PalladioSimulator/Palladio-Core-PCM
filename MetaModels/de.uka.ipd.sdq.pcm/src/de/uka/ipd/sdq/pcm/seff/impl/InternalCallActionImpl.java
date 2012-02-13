@@ -38,7 +38,6 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 
 /**
@@ -399,7 +398,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 	 */
 	public EList<ParametricResourceDemand> getResourceDemand_Action() {
 		if (resourceDemand_Action == null) {
-			resourceDemand_Action = new EObjectContainmentWithInverseEList<ParametricResourceDemand>(ParametricResourceDemand.class, this, SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION, SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND);
+			resourceDemand_Action = new EObjectContainmentWithInverseEList<ParametricResourceDemand>(ParametricResourceDemand.class, this, SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION, Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND);
 		}
 		return resourceDemand_Action;
 	}
@@ -411,7 +410,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 	 */
 	public EList<InfrastructureCall> getInfrastructureCall__Action() {
 		if (infrastructureCall__Action == null) {
-			infrastructureCall__Action = new EObjectContainmentWithInverseEList<InfrastructureCall>(InfrastructureCall.class, this, SeffPackage.INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION, SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL);
+			infrastructureCall__Action = new EObjectContainmentWithInverseEList<InfrastructureCall>(InfrastructureCall.class, this, SeffPackage.INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION, Seff_performancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL);
 		}
 		return infrastructureCall__Action;
 	}
@@ -423,7 +422,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 	 */
 	public EList<ResourceCall> getResourceCall__Action() {
 		if (resourceCall__Action == null) {
-			resourceCall__Action = new EObjectContainmentWithInverseEList<ResourceCall>(ResourceCall.class, this, SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION, SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL);
+			resourceCall__Action = new EObjectContainmentWithInverseEList<ResourceCall>(ResourceCall.class, this, SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION, Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL);
 		}
 		return resourceCall__Action;
 	}

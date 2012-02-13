@@ -26,7 +26,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 
 /**
@@ -89,7 +88,7 @@ public class ParametricResourceDemandItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ParametricResourceDemand_requiredResource_ParametricResourceDemand_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ParametricResourceDemand_requiredResource_ParametricResourceDemand_feature", "_UI_ParametricResourceDemand_type"),
-				 SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
+				 Seff_performancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
 				 true,
 				 false,
 				 true,
@@ -110,7 +109,7 @@ public class ParametricResourceDemandItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND);
+			childrenFeatures.add(Seff_performancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND);
 		}
 		return childrenFeatures;
 	}
@@ -162,7 +161,7 @@ public class ParametricResourceDemandItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ParametricResourceDemand.class)) {
-			case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
+			case Seff_performancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -182,7 +181,7 @@ public class ParametricResourceDemandItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND,
+				(Seff_performancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND,
 				 CoreFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 

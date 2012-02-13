@@ -22,7 +22,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performanceFactory;
 
 /**
@@ -152,17 +151,17 @@ public class AbstractInternalControlFlowActionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION,
-				 SeffPerformanceFactory.eINSTANCE.createParametricResourceDemand()));
+				 Seff_performanceFactory.eINSTANCE.createParametricResourceDemand()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION,
-				 SeffPerformanceFactory.eINSTANCE.createInfrastructureCall()));
+				 Seff_performanceFactory.eINSTANCE.createInfrastructureCall()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION,
-				 SeffPerformanceFactory.eINSTANCE.createResourceCall()));
+				 Seff_performanceFactory.eINSTANCE.createResourceCall()));
 	}
 
 }

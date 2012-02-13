@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 
 /**
  * <!-- begin-user-doc -->
@@ -136,26 +135,30 @@ public interface ProcessingResourceSpecification extends EObject {
 	void setRequiredByContainer(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Scheduling Policy</b></em>' reference.
+	 * Returns the value of the '<em><b>Scheduling Policy</b></em>' attribute.
+	 * The default value is <code>"FCFS"</code>.
+	 * The literals are from the enumeration {@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Scheduling Policy</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scheduling Policy</em>' reference.
+	 * @return the value of the '<em>Scheduling Policy</em>' attribute.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
 	 * @see #setSchedulingPolicy(SchedulingPolicy)
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_SchedulingPolicy()
-	 * @model required="true" ordered="false"
+	 * @model default="FCFS" required="true" ordered="false"
 	 * @generated
 	 */
 	SchedulingPolicy getSchedulingPolicy();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Scheduling Policy</em>' reference.
+	 * @param value the new value of the '<em>Scheduling Policy</em>' attribute.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
 	 * @see #getSchedulingPolicy()
 	 * @generated
 	 */

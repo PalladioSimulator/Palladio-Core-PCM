@@ -48,7 +48,7 @@ public interface PcmPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/5.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/4.0";
 
 	/**
 	 * The package namespace name.

@@ -24,7 +24,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.SpecifiedQoSAnnotationItemProvider;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime;
 
@@ -86,7 +85,7 @@ public class SpecifiedExecutionTimeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(QosPerformancePackage.Literals.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME);
+			childrenFeatures.add(Qos_performancePackage.Literals.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME);
 		}
 		return childrenFeatures;
 	}
@@ -127,7 +126,7 @@ public class SpecifiedExecutionTimeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SpecifiedExecutionTime.class)) {
-			case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
+			case Qos_performancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -147,7 +146,7 @@ public class SpecifiedExecutionTimeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(QosPerformancePackage.Literals.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME,
+				(Qos_performancePackage.Literals.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME,
 				 CoreFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 

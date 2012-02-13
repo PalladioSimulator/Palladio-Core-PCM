@@ -23,7 +23,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.SpecifiedQoSAnnotationItemProvider;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
 import de.uka.ipd.sdq.pcm.reliability.ReliabilityFactory;
@@ -86,7 +85,7 @@ public class SpecifiedReliabilityAnnotationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(QosReliabilityPackage.Literals.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION);
+			childrenFeatures.add(Qos_reliabilityPackage.Literals.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION);
 		}
 		return childrenFeatures;
 	}
@@ -138,7 +137,7 @@ public class SpecifiedReliabilityAnnotationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SpecifiedReliabilityAnnotation.class)) {
-			case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION:
+			case Qos_reliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -158,7 +157,7 @@ public class SpecifiedReliabilityAnnotationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(QosReliabilityPackage.Literals.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION,
+				(Qos_reliabilityPackage.Literals.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION,
 				 ReliabilityFactory.eINSTANCE.createExternalFailureOccurrenceDescription()));
 	}
 

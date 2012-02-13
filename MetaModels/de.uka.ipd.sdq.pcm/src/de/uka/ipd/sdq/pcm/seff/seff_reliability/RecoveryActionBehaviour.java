@@ -35,7 +35,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryActionBehaviour()
+ * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryActionBehaviour()
  * @model
  * @generated
  */
@@ -57,7 +57,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Failure Handling Alternatives Recovery Action Behaviour</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour()
 	 * @model ordered="false"
 	 * @generated
 	 */
@@ -74,7 +74,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Recovery Action Recovery Action Behaviour</em>' container reference.
 	 * @see #setRecoveryAction__RecoveryActionBehaviour(RecoveryAction)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour()
 	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
 	 * @model opposite="recoveryActionBehaviours__RecoveryAction" required="true" transient="false" ordered="false"
 	 * @generated
@@ -95,6 +95,10 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->
+	 * 	exists(x,y:RecoveryActionBehaviour | x<>y
+	 * 		and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)
+	 * 		and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
@@ -107,6 +111,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
@@ -119,6 +124,11 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * not self.failureHandlingAlternatives__RecoveryActionBehaviour->
+	 * 	exists(x,y:RecoveryActionBehaviour | x<>y and
+	 * 	x.failureTypes_FailureHandlingEntity->
+	 * 		exists(f:pcm::reliability::FailureType |
+	 * 		y.failureTypes_FailureHandlingEntity->includes(f)))
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

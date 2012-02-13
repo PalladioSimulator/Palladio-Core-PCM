@@ -25,8 +25,6 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformanceFactory;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performanceFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityFactory;
 
@@ -166,17 +164,17 @@ public class QoSAnnotationsItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
-				 QosPerformanceFactory.eINSTANCE.createSystemSpecifiedExecutionTime()));
+				 Qos_performanceFactory.eINSTANCE.createSystemSpecifiedExecutionTime()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
-				 QosPerformanceFactory.eINSTANCE.createComponentSpecifiedExecutionTime()));
+				 Qos_performanceFactory.eINSTANCE.createComponentSpecifiedExecutionTime()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
-				 QosReliabilityFactory.eINSTANCE.createSpecifiedReliabilityAnnotation()));
+				 Qos_reliabilityFactory.eINSTANCE.createSpecifiedReliabilityAnnotation()));
 	}
 
 	/**

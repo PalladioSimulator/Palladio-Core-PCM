@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.pcm.seff.CallAction;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall()
+ * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getInfrastructureCall()
  * @model
  * @generated
  */
@@ -52,7 +52,7 @@ public interface InfrastructureCall extends CallAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Signature Infrastructure Call</em>' reference.
 	 * @see #setSignature__InfrastructureCall(InfrastructureSignature)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_Signature__InfrastructureCall()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getInfrastructureCall_Signature__InfrastructureCall()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -79,7 +79,7 @@ public interface InfrastructureCall extends CallAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Number Of Calls Infrastructure Call</em>' containment reference.
 	 * @see #setNumberOfCalls__InfrastructureCall(PCMRandomVariable)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_NumberOfCalls__InfrastructureCall()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getInfrastructureCall_NumberOfCalls__InfrastructureCall()
 	 * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getInfrastructureCall__PCMRandomVariable
 	 * @model opposite="infrastructureCall__PCMRandomVariable" containment="true" required="true" ordered="false"
 	 * @generated
@@ -107,7 +107,7 @@ public interface InfrastructureCall extends CallAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Action Infrastructure Call</em>' container reference.
 	 * @see #setAction__InfrastructureCall(AbstractInternalControlFlowAction)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_Action__InfrastructureCall()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getInfrastructureCall_Action__InfrastructureCall()
 	 * @see de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getInfrastructureCall__Action
 	 * @model opposite="infrastructureCall__Action" required="true" transient="false" ordered="false"
 	 * @generated
@@ -134,7 +134,7 @@ public interface InfrastructureCall extends CallAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required Role Infrastructure Call</em>' reference.
 	 * @see #setRequiredRole__InfrastructureCall(InfrastructureRequiredRole)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_RequiredRole__InfrastructureCall()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage#getInfrastructureCall_RequiredRole__InfrastructureCall()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -154,6 +154,7 @@ public interface InfrastructureCall extends CallAction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * signature__InfrastructureCall.infrastructureInterface__InfrastructureSignature = requiredRole__InfrastructureCall.requiredInterface__InfrastructureRequiredRole
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

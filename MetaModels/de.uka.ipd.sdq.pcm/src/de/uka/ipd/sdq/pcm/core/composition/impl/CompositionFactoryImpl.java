@@ -52,7 +52,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 	 */
 	public static CompositionFactory init() {
 		try {
-			CompositionFactory theCompositionFactory = (CompositionFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0"); 
+			CompositionFactory theCompositionFactory = (CompositionFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0"); 
 			if (theCompositionFactory != null) {
 				return theCompositionFactory;
 			}

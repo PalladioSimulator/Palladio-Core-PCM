@@ -23,7 +23,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory;
 
 /**
@@ -169,7 +168,7 @@ public class AbstractLoopActionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
-				 SeffReliabilityFactory.eINSTANCE.createRecoveryActionBehaviour()));
+				 Seff_reliabilityFactory.eINSTANCE.createRecoveryActionBehaviour()));
 	}
 
 }

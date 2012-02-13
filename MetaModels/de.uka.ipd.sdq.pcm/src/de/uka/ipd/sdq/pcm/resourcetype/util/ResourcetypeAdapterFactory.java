@@ -104,10 +104,6 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 				return createResourceRepositoryAdapter();
 			}
 			@Override
-			public Adapter caseSchedulingPolicy(SchedulingPolicy object) {
-				return createSchedulingPolicyAdapter();
-			}
-			@Override
 			public Adapter caseCommunicationLinkResourceType(CommunicationLinkResourceType object) {
 				return createCommunicationLinkResourceTypeAdapter();
 			}
@@ -194,20 +190,6 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResourceRepositoryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy <em>Scheduling Policy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy
-	 * @generated
-	 */
-	public Adapter createSchedulingPolicyAdapter() {
 		return null;
 	}
 

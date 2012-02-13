@@ -132,8 +132,6 @@ import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.provider.PcmItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.Qos_performanceItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.Qos_reliabilityItemProviderAdapterFactory;
@@ -142,8 +140,6 @@ import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.provider.Seff_performanceItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.Seff_reliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;

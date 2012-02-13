@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryAction()
+ * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryAction()
  * @model
  * @generated
  */
@@ -53,7 +53,7 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Primary Behaviour Recovery Action</em>' reference.
 	 * @see #setPrimaryBehaviour__RecoveryAction(RecoveryActionBehaviour)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryAction_PrimaryBehaviour__RecoveryAction()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryAction_PrimaryBehaviour__RecoveryAction()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
@@ -80,7 +80,7 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Recovery Action Behaviours Recovery Action</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryAction_RecoveryActionBehaviours__RecoveryAction()
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryAction_RecoveryActionBehaviours__RecoveryAction()
 	 * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
 	 * @model opposite="recoveryAction__RecoveryActionBehaviour" containment="true" lower="2" ordered="false"
 	 * @generated
@@ -91,6 +91,7 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * self.primaryBehaviour__RecoveryAction <> null
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

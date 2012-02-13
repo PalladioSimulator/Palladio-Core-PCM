@@ -355,7 +355,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validatePassiveResource(PassiveResource passiveResource, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(passiveResource, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(passiveResource, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(passiveResource, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(passiveResource, diagnostics, context);
@@ -373,7 +372,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateBasicComponent(BasicComponent basicComponent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(basicComponent, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(basicComponent, diagnostics, context);
@@ -427,7 +425,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateImplementationComponentType(ImplementationComponentType implementationComponentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(implementationComponentType, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(implementationComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(implementationComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(implementationComponentType, diagnostics, context);
@@ -478,7 +475,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRepositoryComponent(RepositoryComponent repositoryComponent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(repositoryComponent, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(repositoryComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(repositoryComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(repositoryComponent, diagnostics, context);
@@ -496,7 +492,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRequiredRole(RequiredRole requiredRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(requiredRole, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(requiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(requiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(requiredRole, diagnostics, context);
@@ -514,7 +509,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRole(Role role, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(role, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(role, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(role, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(role, diagnostics, context);
@@ -532,7 +526,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInterface(Interface interface_, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(interface_, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(interface_, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(interface_, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(interface_, diagnostics, context);
@@ -561,7 +554,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRepository(Repository repository, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(repository, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(repository, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(repository, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(repository, diagnostics, context);
@@ -615,7 +607,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateOperationSignature(OperationSignature operationSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(operationSignature, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(operationSignature, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(operationSignature, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(operationSignature, diagnostics, context);
@@ -644,7 +635,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSignature(Signature signature, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(signature, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(signature, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(signature, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(signature, diagnostics, context);
@@ -671,7 +661,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateOperationInterface(OperationInterface operationInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(operationInterface, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(operationInterface, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(operationInterface, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(operationInterface, diagnostics, context);
@@ -701,7 +690,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInfrastructureSignature(InfrastructureSignature infrastructureSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(infrastructureSignature, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(infrastructureSignature, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(infrastructureSignature, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(infrastructureSignature, diagnostics, context);
@@ -719,7 +707,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInfrastructureRequiredRole(InfrastructureRequiredRole infrastructureRequiredRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(infrastructureRequiredRole, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(infrastructureRequiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(infrastructureRequiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(infrastructureRequiredRole, diagnostics, context);
@@ -737,7 +724,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEventType(EventType eventType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(eventType, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(eventType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(eventType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(eventType, diagnostics, context);
@@ -755,7 +741,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEventGroup(EventGroup eventGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(eventGroup, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(eventGroup, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(eventGroup, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(eventGroup, diagnostics, context);
@@ -774,7 +759,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCompleteComponentType(CompleteComponentType completeComponentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(completeComponentType, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(completeComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(completeComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(completeComponentType, diagnostics, context);
@@ -814,7 +798,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateProvidesComponentType(ProvidesComponentType providesComponentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(providesComponentType, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(providesComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(providesComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(providesComponentType, diagnostics, context);
@@ -843,7 +826,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateOperationRequiredRole(OperationRequiredRole operationRequiredRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(operationRequiredRole, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(operationRequiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(operationRequiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(operationRequiredRole, diagnostics, context);
@@ -861,7 +843,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSourceRole(SourceRole sourceRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(sourceRole, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(sourceRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(sourceRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(sourceRole, diagnostics, context);
@@ -879,7 +860,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInfrastructureProvidedRole(InfrastructureProvidedRole infrastructureProvidedRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(infrastructureProvidedRole, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(infrastructureProvidedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(infrastructureProvidedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(infrastructureProvidedRole, diagnostics, context);
@@ -897,7 +877,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateOperationProvidedRole(OperationProvidedRole operationProvidedRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(operationProvidedRole, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(operationProvidedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(operationProvidedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(operationProvidedRole, diagnostics, context);
@@ -915,7 +894,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCompositeComponent(CompositeComponent compositeComponent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(compositeComponent, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(compositeComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(compositeComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(compositeComponent, diagnostics, context);
@@ -961,7 +939,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateSinkRole(SinkRole sinkRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(sinkRole, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(sinkRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(sinkRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(sinkRole, diagnostics, context);
@@ -988,7 +965,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCollectionDataType(CollectionDataType collectionDataType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(collectionDataType, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(collectionDataType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(collectionDataType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(collectionDataType, diagnostics, context);
@@ -1006,7 +982,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCompositeDataType(CompositeDataType compositeDataType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(compositeDataType, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(compositeDataType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(compositeDataType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(compositeDataType, diagnostics, context);
@@ -1033,7 +1008,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInfrastructureInterface(InfrastructureInterface infrastructureInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(infrastructureInterface, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(infrastructureInterface, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(infrastructureInterface, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(infrastructureInterface, diagnostics, context);
@@ -1052,7 +1026,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateProvidedRole(ProvidedRole providedRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(providedRole, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(providedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(providedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(providedRole, diagnostics, context);

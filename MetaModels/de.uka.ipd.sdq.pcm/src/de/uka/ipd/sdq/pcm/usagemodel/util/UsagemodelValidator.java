@@ -257,7 +257,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateUsageScenario(UsageScenario usageScenario, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(usageScenario, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(usageScenario, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(usageScenario, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(usageScenario, diagnostics, context);
@@ -275,7 +274,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateScenarioBehaviour(ScenarioBehaviour scenarioBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(scenarioBehaviour, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(scenarioBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(scenarioBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(scenarioBehaviour, diagnostics, context);
@@ -326,7 +324,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAbstractUserAction(AbstractUserAction abstractUserAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(abstractUserAction, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(abstractUserAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(abstractUserAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(abstractUserAction, diagnostics, context);
@@ -353,7 +350,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateBranch(Branch branch, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(branch, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(branch, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(branch, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(branch, diagnostics, context);
@@ -382,7 +378,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateLoop(Loop loop, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(loop, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(loop, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(loop, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(loop, diagnostics, context);
@@ -409,7 +404,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateStop(Stop stop, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(stop, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(stop, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(stop, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(stop, diagnostics, context);
@@ -438,7 +432,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateStart(Start start, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(start, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(start, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(start, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(start, diagnostics, context);
@@ -467,7 +460,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateOpenWorkload(OpenWorkload openWorkload, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(openWorkload, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(openWorkload, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(openWorkload, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(openWorkload, diagnostics, context);
@@ -495,7 +487,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEntryLevelSystemCall(EntryLevelSystemCall entryLevelSystemCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(entryLevelSystemCall, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(entryLevelSystemCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(entryLevelSystemCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(entryLevelSystemCall, diagnostics, context);
@@ -535,7 +526,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateClosedWorkload(ClosedWorkload closedWorkload, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(closedWorkload, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(closedWorkload, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(closedWorkload, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(closedWorkload, diagnostics, context);
@@ -588,7 +578,6 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateDelay(Delay delay, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(delay, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(delay, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(delay, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(delay, diagnostics, context);

@@ -11,8 +11,6 @@ import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.provider.AbstractInternalControlFlowActionItemProvider;
 
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
@@ -95,7 +93,7 @@ public class RecoveryActionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_RecoveryAction_primaryBehaviour__RecoveryAction_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RecoveryAction_primaryBehaviour__RecoveryAction_feature", "_UI_RecoveryAction_type"),
-				 SeffReliabilityPackage.Literals.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION,
+				 Seff_reliabilityPackage.Literals.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION,
 				 true,
 				 false,
 				 true,
@@ -116,7 +114,7 @@ public class RecoveryActionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffReliabilityPackage.Literals.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION);
+			childrenFeatures.add(Seff_reliabilityPackage.Literals.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION);
 		}
 		return childrenFeatures;
 	}
@@ -171,7 +169,7 @@ public class RecoveryActionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RecoveryAction.class)) {
-			case SeffReliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION:
+			case Seff_reliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -191,8 +189,8 @@ public class RecoveryActionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffReliabilityPackage.Literals.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION,
-				 SeffReliabilityFactory.eINSTANCE.createRecoveryActionBehaviour()));
+				(Seff_reliabilityPackage.Literals.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION,
+				 Seff_reliabilityFactory.eINSTANCE.createRecoveryActionBehaviour()));
 	}
 
 	/**
