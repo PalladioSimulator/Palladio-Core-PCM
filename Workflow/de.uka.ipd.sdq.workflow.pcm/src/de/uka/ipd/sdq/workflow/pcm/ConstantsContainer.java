@@ -57,6 +57,7 @@ public class ConstantsContainer {
 
 	public static final String MODEL_TO_TEXT_CHOICE = "modelToTextTarget";
 	public static final String MODEL_TO_TEXT_TARGET_EJB = "Model Target EJB";
+	public static final String MODEL_TO_TEXT_TARGET_STUBS = "Model Target Code Stubs";
 	public static final String MODEL_TO_TEXT_TARGET_PROTO = "Model Target Protocom";
 
 	// Simulation features

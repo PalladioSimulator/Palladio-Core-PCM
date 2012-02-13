@@ -40,6 +40,8 @@ extends
 		String modelToCodeTarget = getStringAttribute(ConstantsContainer.MODEL_TO_TEXT_CHOICE);
 		if (ConstantsContainer.MODEL_TO_TEXT_TARGET_PROTO.equals(modelToCodeTarget)){
 			config.setCodeGenerationAdvicesFile(CodeGenerationAdvice.PROTO);
+		} else if (ConstantsContainer.MODEL_TO_TEXT_TARGET_STUBS.equals(modelToCodeTarget)) {
+			config.setCodeGenerationAdvicesFile(CodeGenerationAdvice.POJO);
 		} else {
 			config.setCodeGenerationAdvicesFile(CodeGenerationAdvice.EJB3);
 		}

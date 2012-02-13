@@ -53,9 +53,13 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		// 4. Generate the plugin's code using oAW
 		this.addJob(new TransformPCMToCodeJob(configuration));
 
-		if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO) {
+		if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO ||
+				configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3) {
 			this.addJob(new CreateProtoComMetaDataFilesJob(configuration));			
-		} 
+		} else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO) {
+			// TODO: Change to MANIFEST.MF with less dependencies
+			this.addJob(new CreateProtoComMetaDataFilesJob(configuration));						
+		}
 
 		// 5. Compile the plugin (otherwise the source files are not properly found)
 		this.addJob(new CompilePluginCodeJob(configuration));

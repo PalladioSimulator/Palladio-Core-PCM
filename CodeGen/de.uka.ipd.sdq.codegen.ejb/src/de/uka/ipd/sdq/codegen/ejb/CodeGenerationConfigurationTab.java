@@ -9,6 +9,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Group;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuConfigurationTab;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
@@ -20,27 +21,7 @@ public class CodeGenerationConfigurationTab extends SimuConfigurationTab {
 
 	@Override
 	public void createControl(Composite parent) {
-		super.createControl(parent);
-		
-		final ModifyListener modifyListener = new ModifyListener() {
-
-			public void modifyText(ModifyEvent e) {
-				CodeGenerationConfigurationTab.this.setDirty(true);
-				CodeGenerationConfigurationTab.this.updateLaunchConfigurationDialog();
-			}
-		};
-		
-		Composite container = (Composite) getControl();
-		
-		comboModelToTextTarget = new Combo (container, SWT.READ_ONLY);
-		comboModelToTextTarget.setItems (new String [] {
-				ConstantsContainer.MODEL_TO_TEXT_TARGET_EJB,
-				ConstantsContainer.MODEL_TO_TEXT_TARGET_PROTO
-				});
-		comboModelToTextTarget.setSize (400, 200);
-		comboModelToTextTarget.addModifyListener(modifyListener);
-		
-		
+		super.createControl(parent);		
 	}
 
 	@Override
@@ -73,6 +54,32 @@ public class CodeGenerationConfigurationTab extends SimuConfigurationTab {
 		
 	}
 
+	@Override
+	protected void createFurtherSections(Composite container) {
+		super.createFurtherSections(container);
+		
+		final Group modelTarget = new Group(container, SWT.NONE);
+		modelTarget.setText("Transformation Target");
+		
+		final ModifyListener modifyListener = new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				CodeGenerationConfigurationTab.this.setDirty(true);
+				CodeGenerationConfigurationTab.this.updateLaunchConfigurationDialog();
+			}
+		};
+
+		comboModelToTextTarget = new Combo (modelTarget, SWT.READ_ONLY);
+		comboModelToTextTarget.setItems (new String [] {
+				ConstantsContainer.MODEL_TO_TEXT_TARGET_EJB,
+				ConstantsContainer.MODEL_TO_TEXT_TARGET_STUBS,
+				ConstantsContainer.MODEL_TO_TEXT_TARGET_PROTO
+				});
+		comboModelToTextTarget.setSize (350, 50);
+		comboModelToTextTarget.addModifyListener(modifyListener);
+	}
+
+	
 	
 	
 }
