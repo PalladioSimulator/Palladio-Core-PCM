@@ -1,0 +1,23 @@
+import de.fzi.se.validation.effort.MathFunctionsLibrary;
+import ProbabilityLib;
+import behaviour2CSimpleConditionTestsEffortEstimationResult;
+
+modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
+modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
+
+transformation behaviour2CConditionDecisionTestsEffortEstimation(in inbehaviour : PCM_SEFF, 
+									      			  out outdesc : EER) 
+access library ProbabilityLib();
+
+main() {
+	log('RD-SEFF to EffortEstimationResult (CConditionDecisionTests) transformation started.');
+	inbehaviour.objects()[ResourceDemandingBehaviour]->map createEffortEstimation();
+	log('RD-SEFF to EffortEstimationResult (CConditionDecisionTests) transformation finished.');
+}
+
+mapping ResourceDemandingBehaviour::createEffortEstimation() : EffortEstimationResult {
+	log('Processing ' + self.metaClassName() + ' ' + self.id + ' ...');
+	alpha := 0.5; // TODO: confidence?
+	numberTestcases := self.CSimpleConditionTests(alpha);
+	resourceDemandingBehaviour := self;
+}

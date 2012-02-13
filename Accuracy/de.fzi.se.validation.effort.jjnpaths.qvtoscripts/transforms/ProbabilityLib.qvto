@@ -69,6 +69,15 @@ library ProbabilityLib()
 		assert (false) with log ('Unsupported expression for calculation of probability equals zero.');
 		return -1;
 	}
+	
+	query Expression :: NumberOfConditionAtoms() : Integer {
+		if(self.oclIsTypeOf(BoolLiteral)) then {
+			return 1;
+		} endif;
+		// TODO: implement for meaningful/complex conditions
+		assert (false) with log('Unsupported expression for calculation fo number of atoms.');
+		return -1;
+	}
 
 	query AbstractAction::containsCalls() : Boolean {
 		log('ERROR: AbstractAction::containsCalls is not implemented!');

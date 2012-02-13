@@ -38,7 +38,7 @@ query ResourceDemandingBehaviour::CCallObsTests(in confidence : Real) : Integer 
 }
 
 helper AbstractAction::getEffort(in confidence : Real) : Integer {
-	return 1;
+	return 0;
 }
 
 helper BranchAction::getEffort(in confidence : Real) : Integer {
