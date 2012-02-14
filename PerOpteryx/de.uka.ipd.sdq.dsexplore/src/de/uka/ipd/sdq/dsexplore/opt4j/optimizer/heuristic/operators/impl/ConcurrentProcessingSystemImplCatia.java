@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.eclipse.emf.ecore.EObject;
 import org.opt4j.core.Objective;
 import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
@@ -32,7 +33,6 @@ import de.uka.ipd.sdq.pcm.designdecision.Choice;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
-import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
@@ -41,8 +41,8 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resultdecorator.ResultDecoratorRepository;
 import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.ServiceResult;
 import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.PassiveResourceResult;
@@ -458,7 +458,7 @@ public class ConcurrentProcessingSystemImplCatia extends AbstractTactic {
 					activeResInfoList.add(new ActiveResInfo(resource.getResourceContainer_ProcessingResourceSpecification(),
 									resource.getActiveResourceType_ActiveResourceSpecification(),
 									activeProcUtilResult.getResourceUtilisation(),
-									activeProcUtilResult.getAverageQueueLength(), resource.getSchedulingPolicy().getName()));
+									activeProcUtilResult.getAverageQueueLength(), resource.getSchedulingPolicy().getId()));
 
 				}
 				// Other possible results are for network:
@@ -733,7 +733,7 @@ public class ConcurrentProcessingSystemImplCatia extends AbstractTactic {
 				
 				// @author catia: solution of the antipattern EP - "UnblockExecution" action
 				//maxUtilised.setSchedulingPolicy(SchedulingPolicy.PROCESSOR_SHARING);
-				listPairs.add(createUpdatedSchedulingCandidate(i,maxUtilised,SchedulingPolicy.PROCESSOR_SHARING));
+				listPairs.add(createUpdatedSchedulingCandidate(i,maxUtilised,true));
 
 				//listPairs.add(createUpdatedSchedulingCandidate(i,maxUtilised,SchedulingPolicy.DELAY));
 				//listPairs.add(createUpdatedSchedulingCandidate(i,maxUtilised,SchedulingPolicy.EXACT));
@@ -913,23 +913,34 @@ public class ConcurrentProcessingSystemImplCatia extends AbstractTactic {
 
 	private TacticsResultCandidate createUpdatedSchedulingCandidate(
 			DSEIndividual i, ActiveResInfo resourceToChange,
-			SchedulingPolicy schedulingPolicy) {
+			boolean useProcessorSharing) {
 		TacticsResultCandidate candidate = individualFactory.buildCandidate(
 				copy.copy(i.getGenotype()), i);
 
 		// apply change
 		for (Choice choice : candidate.getGenotype()) {
-			if (choice instanceof SchedulingPolicyChoice) {
-				SchedulingPolicyChoice ClassChoice = (SchedulingPolicyChoice) choice;
-				if (ClassChoice.getDegreeOfFreedomInstance() instanceof SchedulingPolicyDegree) {
+			if (choice instanceof ClassChoice) {
+				ClassChoice classChoice = (ClassChoice) choice;
+				if (classChoice.getDegreeOfFreedomInstance() instanceof SchedulingPolicyDegree) {
 
-					SchedulingPolicyDegree schedDegree = (SchedulingPolicyDegree)ClassChoice.getDegreeOfFreedomInstance();
+					SchedulingPolicyDegree schedDegree = (SchedulingPolicyDegree)classChoice.getDegreeOfFreedomInstance();
 					if (EMFHelper.checkIdentity(schedDegree.getPrimaryChanged(),resourceToChange.rc)
 							&& EMFHelper.checkIdentity(schedDegree.getProcessingresourcetype(),resourceToChange.type)) {
 
-						// if (ClassChoice.getDegreeOfFreedomInstance().g)
-
-						ClassChoice.setChosenValue(schedulingPolicy);
+						
+						SchedulingPolicy selectedStrategy = null;
+						List<EObject> options = schedDegree.getClassDesignOptions();
+						for (EObject eObject : options) {
+							if (eObject instanceof SchedulingPolicy){
+								SchedulingPolicy policy = (SchedulingPolicy)eObject;
+								if ((!useProcessorSharing && policy.getId().equals("FCFS"))
+									|| (useProcessorSharing && policy.getId().equals("ProcessorSharing"))){
+									selectedStrategy = policy;
+									break;
+								}
+							}
+						}
+						classChoice.setChosenValue(selectedStrategy);
 
 						// set weight to one for now, maybe later find a better
 						// value.
@@ -938,7 +949,7 @@ public class ConcurrentProcessingSystemImplCatia extends AbstractTactic {
 						increaseCounterOfGeneratedCandidates();
 
 						logger.info("Changed scheduling policy of "+resourceToChange.type.getEntityName()+" of "
-								+ resourceToChange.rc.getEntityName() + " to " + schedulingPolicy.getLiteral());
+								+ resourceToChange.rc.getEntityName() + " to " + useProcessorSharing);
 						return candidate;
 
 					}

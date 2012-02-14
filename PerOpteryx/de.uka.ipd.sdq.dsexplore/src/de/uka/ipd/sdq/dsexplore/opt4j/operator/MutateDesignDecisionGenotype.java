@@ -18,17 +18,15 @@ import de.uka.ipd.sdq.dsexplore.exception.ChoiceOutOfBoundsException;
 import de.uka.ipd.sdq.dsexplore.exception.InvalidChoiceForDegreeException;
 import de.uka.ipd.sdq.dsexplore.opt4j.genotype.DesignDecisionGenotype;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
+import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
+import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree;
-import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
-import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
 import de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree;
-import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice;
-import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree;
-import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
+
 
 /**
  * Mutator for {@link DesignDecisionGenotype}s. Calls the bound {@link MutateInteger} or {@link MutateDouble}, depending on 
@@ -68,8 +66,6 @@ public class MutateDesignDecisionGenotype implements Mutate<DesignDecisionGenoty
 					mutateEnum((ClassChoice)choice);
 				} else if (choice instanceof ContinousRangeChoice){
 					mutateContinous((ContinousRangeChoice)choice);
-				} else if (choice instanceof SchedulingPolicyChoice){
-					mutateSchedulingPolicyChoice((SchedulingPolicyChoice)choice);
 				} else {
 					throw new UnsupportedOperationException("Choice type "+choice+" not supported.");
 				}
@@ -77,26 +73,6 @@ public class MutateDesignDecisionGenotype implements Mutate<DesignDecisionGenoty
 		}
 	}
 	
-	private void mutateSchedulingPolicyChoice(SchedulingPolicyChoice choice) {
-		DegreeOfFreedomInstance degree = choice.getDegreeOfFreedomInstance();
-		if (degree instanceof SchedulingPolicyDegree){
-			SchedulingPolicyDegree schedDegree = (SchedulingPolicyDegree)degree;
-			List<SchedulingPolicy> domain = schedDegree.getDomainOfAllowedSchedulingPolicies();
-			
-			int oldIndex = domain.indexOf(choice.getChosenValue());
-			if (oldIndex == -1){
-				throw new ChoiceOutOfBoundsException(choice, "Error when mutating individual, old choice was invalid");
-			}
-			int newIndex = randomlySelectNewIndex(domain, oldIndex);
-			
-			choice.setChosenValue(domain.get(newIndex));
-			
-		} else {
-			throw new InvalidChoiceForDegreeException(choice);
-		}
-		
-	}
-
 	@SuppressWarnings("unchecked")
 	private int randomlySelectNewIndex(List domain,
 			int oldIndex) {

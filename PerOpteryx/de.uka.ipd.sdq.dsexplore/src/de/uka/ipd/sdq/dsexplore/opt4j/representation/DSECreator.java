@@ -10,22 +10,18 @@ import com.google.inject.Inject;
 
 import de.uka.ipd.sdq.dsexplore.opt4j.genotype.DesignDecisionGenotype;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
+import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
+import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree;
-import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
-import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
 import de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree;
-import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice;
-import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
 import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl;
-import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 
 /**
  * The {@link DSECreator} is responsible for randomly creating genotypes 
@@ -124,22 +120,9 @@ public class DSECreator implements Creator<DesignDecisionGenotype> {
 			ClassChoice enumChoice = factory.createClassChoice();
 			enumChoice.setChosenValue(createRandomEntity((ClassDegree)degree));
 			choice = enumChoice;
-		} else if (degree instanceof SchedulingPolicyDegree){
-			SchedulingPolicyChoice schedChoice = factory.createSchedulingPolicyChoice();
-			schedChoice.setChosenValue(createRandomSchedulingPolicy((SchedulingPolicyDegree)degree));	
-			choice = schedChoice;
 		} else throw new RuntimeException("Unknown degree "+degree.getClass().getName());
 		choice.setDegreeOfFreedomInstance(degree);
 		return choice;
-	}
-
-
-
-	private SchedulingPolicy createRandomSchedulingPolicy(
-			SchedulingPolicyDegree degree) {
-		List<SchedulingPolicy> domain = degree.getDomainOfAllowedSchedulingPolicies();
-		int index = this.random.nextInt(domain.size()); 
-		return domain.get(index);
 	}
 
 

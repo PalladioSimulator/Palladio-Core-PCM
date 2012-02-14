@@ -47,7 +47,6 @@ import de.uka.ipd.sdq.pcm.designdecision.ProcessingResourceDegree;
 import de.uka.ipd.sdq.pcm.designdecision.RangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange;
-import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
 import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl;
@@ -56,8 +55,8 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 
 /**
@@ -285,12 +284,12 @@ public class DSEDecoder implements Decoder<DesignDecisionGenotype, PCMPhenotype>
 	
 	private void applyChangeSchedulingDecision(
 			SchedulingPolicyDegree designDecision, Choice choice) {
-		if (!(choice instanceof SchedulingPolicyChoice)){
+		if (!(choice instanceof ClassChoice)){
 			throwNewInvalidChoiceException(designDecision, choice);
 		}
 		
-		SchedulingPolicyChoice schedChoice = (SchedulingPolicyChoice)choice;
-		SchedulingPolicy chosenPolicy = schedChoice.getChosenValue();
+		ClassChoice schedChoice = (ClassChoice)choice;
+		SchedulingPolicy chosenPolicy = (SchedulingPolicy) schedChoice.getChosenValue();
 		
 		ProcessingResourceSpecification rightPrs = getProcessingRateSpecification(designDecision);
 		
@@ -430,8 +429,6 @@ public class DSEDecoder implements Decoder<DesignDecisionGenotype, PCMPhenotype>
 			}
 		} else if (choice instanceof DiscreteRangeChoice){
 			result = String.valueOf(((DiscreteRangeChoice)choice).getChosenValue());
-		} else if (choice instanceof SchedulingPolicyChoice){
-			result = ((SchedulingPolicyChoice)choice).getChosenValue().getLiteral();
 		} else {
 			logger.warn("There was an unrecognised design decision "+designDecision.getClass());
 		}
@@ -490,10 +487,18 @@ public class DSEDecoder implements Decoder<DesignDecisionGenotype, PCMPhenotype>
 			choice = enumChoice;
 		} else if (designDecision instanceof SchedulingPolicyDegree){
 			
-			SchedulingPolicyChoice schedChoice = factory.createSchedulingPolicyChoice();
+			ClassChoice schedChoice = factory.createClassChoice();
+			SchedulingPolicy chosenPolicy = null;
 			
-			SchedulingPolicy chosenPolicy = SchedulingPolicy.get(decisionString);
-			
+			List<EObject> options = ((SchedulingPolicyDegree) designDecision).getClassDesignOptions();
+			for (EObject option : options) {
+				if (option instanceof SchedulingPolicy){
+					SchedulingPolicy policy = (SchedulingPolicy)option;
+					if (policy.getEntityName().equals(decisionString));
+					chosenPolicy = policy;
+				}
+			}
+					
 			if (chosenPolicy == null){
 				throw ExceptionHelper.createNewCoreException("Error: Decision string \""+decisionString+"\" is not a valid value for degree "+designDecision+" "+DegreeOfFreedomHelper.getDegreeDescription(designDecision));
 			}

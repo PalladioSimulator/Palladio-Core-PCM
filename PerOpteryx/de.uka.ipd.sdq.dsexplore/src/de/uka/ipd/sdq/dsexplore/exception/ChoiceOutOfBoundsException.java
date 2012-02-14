@@ -2,10 +2,9 @@ package de.uka.ipd.sdq.dsexplore.exception;
 
 import de.uka.ipd.sdq.dsexplore.helper.DegreeOfFreedomHelper;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
+import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
-import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
-import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice;
 
 /**
  * Thrown in the value of a {@link Choice} is not contained in the corresponding {@link DegreeOfFreedomInstance}.
@@ -28,11 +27,6 @@ public class ChoiceOutOfBoundsException extends RuntimeException {
 	
 	public ChoiceOutOfBoundsException(ClassChoice choice, String location){
 		super(location+": Chosen entity "+choice.getChosenValue()+" of choice "+choice.getClass().getSimpleName()+" does not exist in domain of degree "+DegreeOfFreedomHelper.getDegreeDescription(choice.getDegreeOfFreedomInstance())+" of type "+choice.getDegreeOfFreedomInstance().getClass().getSimpleName());
-	}
-
-	public ChoiceOutOfBoundsException(SchedulingPolicyChoice choice,
-			String location) {
-		super(location+": Chosen entity "+choice.getChosenValue().getLiteral()+" of choice "+choice.getClass().getSimpleName()+" does not exist in domain of degree "+DegreeOfFreedomHelper.getDegreeDescription(choice.getDegreeOfFreedomInstance())+" of type "+choice.getDegreeOfFreedomInstance().getClass().getSimpleName());
 	}
 
 	public ChoiceOutOfBoundsException(DiscreteRangeChoice discreteChoice) {
