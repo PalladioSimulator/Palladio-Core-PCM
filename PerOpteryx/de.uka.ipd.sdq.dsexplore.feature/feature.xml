@@ -425,7 +425,7 @@ litigation.
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.debug.ui"/>
       <import plugin="org.apache.log4j"/>
-      <import plugin="org.opt4j" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.opt4j" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.designdecision" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.cost" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow.launchconfig" version="1.1.0" match="greaterOrEqual"/>
@@ -488,6 +488,7 @@ litigation.
       <import plugin="de.uka.ipd.sdq.featuremodel.editor" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.cost.edit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.resultdecorator.edit" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="javax.inject" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="LQNModel" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.dsexplore" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="greaterOrEqual"/>
@@ -499,9 +500,6 @@ litigation.
       <import plugin="org.eclipse.ocl.ecore"/>
       <import plugin="de.uka.ipd.sdq.probespec.framework" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.simucomstatus" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.opt4j" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.apache.commons.collections15" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="javax.inject" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -589,13 +587,6 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="org.apache.commons.collections15"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="de.uka.ipd.sdq.tcfmoop"
          download-size="0"
          install-size="0"
@@ -632,6 +623,13 @@ litigation.
 
    <plugin
          id="de.uka.ipd.sdq.simulation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.collections15"
          download-size="0"
          install-size="0"
          version="0.0.0"
