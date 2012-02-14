@@ -30,6 +30,8 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceValidator;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.util.Seff_performanceValidator;
 
@@ -103,7 +105,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Seff_performancePackage.Literals.RESOURCE_CALL;
+		return SeffPerformancePackage.Literals.RESOURCE_CALL;
 	}
 
 	/**
@@ -112,7 +114,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	 * @generated
 	 */
 	public AbstractInternalControlFlowAction getAction__ResourceCall() {
-		if (eContainerFeatureID() != Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL) return null;
+		if (eContainerFeatureID() != SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL) return null;
 		return (AbstractInternalControlFlowAction)eContainer();
 	}
 
@@ -122,7 +124,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	 * @generated
 	 */
 	public NotificationChain basicSetAction__ResourceCall(AbstractInternalControlFlowAction newAction__ResourceCall, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newAction__ResourceCall, Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newAction__ResourceCall, SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL, msgs);
 		return msgs;
 	}
 
@@ -132,7 +134,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	 * @generated
 	 */
 	public void setAction__ResourceCall(AbstractInternalControlFlowAction newAction__ResourceCall) {
-		if (newAction__ResourceCall != eInternalContainer() || (eContainerFeatureID() != Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL && newAction__ResourceCall != null)) {
+		if (newAction__ResourceCall != eInternalContainer() || (eContainerFeatureID() != SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL && newAction__ResourceCall != null)) {
 			if (EcoreUtil.isAncestor(this, newAction__ResourceCall))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -144,7 +146,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL, newAction__ResourceCall, newAction__ResourceCall));
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL, newAction__ResourceCall, newAction__ResourceCall));
 	}
 
 	/**
@@ -158,7 +160,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 			resourceRequiredRole__ResourceCall = (ResourceRequiredRole)eResolveProxy(oldResourceRequiredRole__ResourceCall);
 			if (resourceRequiredRole__ResourceCall != oldResourceRequiredRole__ResourceCall) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Seff_performancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL, oldResourceRequiredRole__ResourceCall, resourceRequiredRole__ResourceCall));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SeffPerformancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL, oldResourceRequiredRole__ResourceCall, resourceRequiredRole__ResourceCall));
 			}
 		}
 		return resourceRequiredRole__ResourceCall;
@@ -182,7 +184,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 		ResourceRequiredRole oldResourceRequiredRole__ResourceCall = resourceRequiredRole__ResourceCall;
 		resourceRequiredRole__ResourceCall = newResourceRequiredRole__ResourceCall;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Seff_performancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL, oldResourceRequiredRole__ResourceCall, resourceRequiredRole__ResourceCall));
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPerformancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL, oldResourceRequiredRole__ResourceCall, resourceRequiredRole__ResourceCall));
 	}
 
 	/**
@@ -196,7 +198,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 			signature__ResourceCall = (ResourceSignature)eResolveProxy(oldSignature__ResourceCall);
 			if (signature__ResourceCall != oldSignature__ResourceCall) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Seff_performancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL, oldSignature__ResourceCall, signature__ResourceCall));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SeffPerformancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL, oldSignature__ResourceCall, signature__ResourceCall));
 			}
 		}
 		return signature__ResourceCall;
@@ -220,7 +222,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 		ResourceSignature oldSignature__ResourceCall = signature__ResourceCall;
 		signature__ResourceCall = newSignature__ResourceCall;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Seff_performancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL, oldSignature__ResourceCall, signature__ResourceCall));
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPerformancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL, oldSignature__ResourceCall, signature__ResourceCall));
 	}
 
 	/**
@@ -241,7 +243,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 		PCMRandomVariable oldNumberOfCalls__ResourceCall = numberOfCalls__ResourceCall;
 		numberOfCalls__ResourceCall = newNumberOfCalls__ResourceCall;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, oldNumberOfCalls__ResourceCall, newNumberOfCalls__ResourceCall);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, oldNumberOfCalls__ResourceCall, newNumberOfCalls__ResourceCall);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -263,7 +265,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, newNumberOfCalls__ResourceCall, newNumberOfCalls__ResourceCall));
+			eNotify(new ENotificationImpl(this, Notification.SET, SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, newNumberOfCalls__ResourceCall, newNumberOfCalls__ResourceCall));
 	}
 
 	/**
@@ -294,7 +296,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	public boolean ResourceSignatureBelongsToResourceRequiredRole(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(Seff_performancePackage.Literals.RESOURCE_CALL);
+			helper.setContext(SeffPerformancePackage.Literals.RESOURCE_CALL);
 			try {
 				RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			}
@@ -307,8 +309,8 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
-						 Seff_performanceValidator.DIAGNOSTIC_SOURCE,
-						 Seff_performanceValidator.RESOURCE_CALL__RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE,
+						 SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
+						 SeffPerformanceValidator.RESOURCE_CALL__RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ResourceSignatureBelongsToResourceRequiredRole", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
@@ -325,13 +327,13 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetAction__ResourceCall((AbstractInternalControlFlowAction)otherEnd, msgs);
-			case Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
 				if (numberOfCalls__ResourceCall != null)
-					msgs = ((InternalEObject)numberOfCalls__ResourceCall).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, null, msgs);
+					msgs = ((InternalEObject)numberOfCalls__ResourceCall).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, null, msgs);
 				return basicSetNumberOfCalls__ResourceCall((PCMRandomVariable)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -345,9 +347,9 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
 				return basicSetAction__ResourceCall(null, msgs);
-			case Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
 				return basicSetNumberOfCalls__ResourceCall(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -361,7 +363,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
 				return eInternalContainer().eInverseRemove(this, SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION, AbstractInternalControlFlowAction.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -375,15 +377,15 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
 				return getAction__ResourceCall();
-			case Seff_performancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL:
 				if (resolve) return getResourceRequiredRole__ResourceCall();
 				return basicGetResourceRequiredRole__ResourceCall();
-			case Seff_performancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL:
 				if (resolve) return getSignature__ResourceCall();
 				return basicGetSignature__ResourceCall();
-			case Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
 				return getNumberOfCalls__ResourceCall();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -397,16 +399,16 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
 				setAction__ResourceCall((AbstractInternalControlFlowAction)newValue);
 				return;
-			case Seff_performancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL:
 				setResourceRequiredRole__ResourceCall((ResourceRequiredRole)newValue);
 				return;
-			case Seff_performancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL:
 				setSignature__ResourceCall((ResourceSignature)newValue);
 				return;
-			case Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
 				setNumberOfCalls__ResourceCall((PCMRandomVariable)newValue);
 				return;
 		}
@@ -421,16 +423,16 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
 				setAction__ResourceCall((AbstractInternalControlFlowAction)null);
 				return;
-			case Seff_performancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL:
 				setResourceRequiredRole__ResourceCall((ResourceRequiredRole)null);
 				return;
-			case Seff_performancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL:
 				setSignature__ResourceCall((ResourceSignature)null);
 				return;
-			case Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
 				setNumberOfCalls__ResourceCall((PCMRandomVariable)null);
 				return;
 		}
@@ -445,13 +447,13 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Seff_performancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
 				return getAction__ResourceCall() != null;
-			case Seff_performancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL:
 				return resourceRequiredRole__ResourceCall != null;
-			case Seff_performancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL:
 				return signature__ResourceCall != null;
-			case Seff_performancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
+			case SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
 				return numberOfCalls__ResourceCall != null;
 		}
 		return super.eIsSet(featureID);

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl;
 
+import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -19,6 +20,7 @@ import org.eclipse.ocl.ecore.OCL;
 
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.QosPerformanceValidator;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.Qos_performanceValidator;
 
 /**
@@ -54,7 +56,7 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Qos_performancePackage.Literals.SYSTEM_SPECIFIED_EXECUTION_TIME;
+		return QosPerformancePackage.Literals.SYSTEM_SPECIFIED_EXECUTION_TIME;
 	}
 
 	/**
@@ -85,7 +87,7 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
 	public boolean SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(Qos_performancePackage.Literals.SYSTEM_SPECIFIED_EXECUTION_TIME);
+			helper.setContext(QosPerformancePackage.Literals.SYSTEM_SPECIFIED_EXECUTION_TIME);
 			try {
 				SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			}
@@ -98,8 +100,8 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
-						 Qos_performanceValidator.DIAGNOSTIC_SOURCE,
-						 Qos_performanceValidator.SYSTEM_SPECIFIED_EXECUTION_TIME__SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM,
+						 QosPerformanceValidator.DIAGNOSTIC_SOURCE,
+						 QosPerformanceValidator.SYSTEM_SPECIFIED_EXECUTION_TIME__SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}

@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour;
 import java.util.Collection;
 import java.util.List;
 
@@ -83,7 +84,10 @@ public class ResourceDemandingInternalBehaviourItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ResourceDemandingInternalBehaviour_type");
+		String label = ((ResourceDemandingInternalBehaviour)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ResourceDemandingInternalBehaviour_type") :
+			getString("_UI_ResourceDemandingInternalBehaviour_type") + " " + label;
 	}
 
 	/**

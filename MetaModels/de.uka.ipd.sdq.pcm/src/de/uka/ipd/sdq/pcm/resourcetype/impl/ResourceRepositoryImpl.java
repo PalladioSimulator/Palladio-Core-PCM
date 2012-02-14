@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +29,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl#getResourceInterfaces__ResourceRepository <em>Resource Interfaces Resource Repository</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl#getSchedulingPolicies__ResourceRepository <em>Scheduling Policies Resource Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl#getAvailableResourceTypes_ResourceRepository <em>Available Resource Types Resource Repository</em>}</li>
  * </ul>
  * </p>
@@ -51,6 +53,16 @@ public class ResourceRepositoryImpl extends EObjectImpl implements ResourceRepos
 	 * @ordered
 	 */
 	protected EList<ResourceInterface> resourceInterfaces__ResourceRepository;
+
+	/**
+	 * The cached value of the '{@link #getSchedulingPolicies__ResourceRepository() <em>Scheduling Policies Resource Repository</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchedulingPolicies__ResourceRepository()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SchedulingPolicy> schedulingPolicies__ResourceRepository;
 
 	/**
 	 * The cached value of the '{@link #getAvailableResourceTypes_ResourceRepository() <em>Available Resource Types Resource Repository</em>}' containment reference list.
@@ -98,6 +110,18 @@ public class ResourceRepositoryImpl extends EObjectImpl implements ResourceRepos
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SchedulingPolicy> getSchedulingPolicies__ResourceRepository() {
+		if (schedulingPolicies__ResourceRepository == null) {
+			schedulingPolicies__ResourceRepository = new EObjectContainmentWithInverseEList<SchedulingPolicy>(SchedulingPolicy.class, this, ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY, ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY);
+		}
+		return schedulingPolicies__ResourceRepository;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ResourceType> getAvailableResourceTypes_ResourceRepository() {
 		if (availableResourceTypes_ResourceRepository == null) {
 			availableResourceTypes_ResourceRepository = new EObjectContainmentWithInverseEList<ResourceType>(ResourceType.class, this, ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY, ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE);
@@ -116,6 +140,8 @@ public class ResourceRepositoryImpl extends EObjectImpl implements ResourceRepos
 		switch (featureID) {
 			case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResourceInterfaces__ResourceRepository()).basicAdd(otherEnd, msgs);
+			case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSchedulingPolicies__ResourceRepository()).basicAdd(otherEnd, msgs);
 			case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAvailableResourceTypes_ResourceRepository()).basicAdd(otherEnd, msgs);
 		}
@@ -132,6 +158,8 @@ public class ResourceRepositoryImpl extends EObjectImpl implements ResourceRepos
 		switch (featureID) {
 			case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
 				return ((InternalEList<?>)getResourceInterfaces__ResourceRepository()).basicRemove(otherEnd, msgs);
+			case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+				return ((InternalEList<?>)getSchedulingPolicies__ResourceRepository()).basicRemove(otherEnd, msgs);
 			case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
 				return ((InternalEList<?>)getAvailableResourceTypes_ResourceRepository()).basicRemove(otherEnd, msgs);
 		}
@@ -148,6 +176,8 @@ public class ResourceRepositoryImpl extends EObjectImpl implements ResourceRepos
 		switch (featureID) {
 			case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
 				return getResourceInterfaces__ResourceRepository();
+			case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+				return getSchedulingPolicies__ResourceRepository();
 			case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
 				return getAvailableResourceTypes_ResourceRepository();
 		}
@@ -166,6 +196,10 @@ public class ResourceRepositoryImpl extends EObjectImpl implements ResourceRepos
 			case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
 				getResourceInterfaces__ResourceRepository().clear();
 				getResourceInterfaces__ResourceRepository().addAll((Collection<? extends ResourceInterface>)newValue);
+				return;
+			case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+				getSchedulingPolicies__ResourceRepository().clear();
+				getSchedulingPolicies__ResourceRepository().addAll((Collection<? extends SchedulingPolicy>)newValue);
 				return;
 			case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
 				getAvailableResourceTypes_ResourceRepository().clear();
@@ -186,6 +220,9 @@ public class ResourceRepositoryImpl extends EObjectImpl implements ResourceRepos
 			case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
 				getResourceInterfaces__ResourceRepository().clear();
 				return;
+			case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+				getSchedulingPolicies__ResourceRepository().clear();
+				return;
 			case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
 				getAvailableResourceTypes_ResourceRepository().clear();
 				return;
@@ -203,6 +240,8 @@ public class ResourceRepositoryImpl extends EObjectImpl implements ResourceRepos
 		switch (featureID) {
 			case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
 				return resourceInterfaces__ResourceRepository != null && !resourceInterfaces__ResourceRepository.isEmpty();
+			case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+				return schedulingPolicies__ResourceRepository != null && !schedulingPolicies__ResourceRepository.isEmpty();
 			case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
 				return availableResourceTypes_ResourceRepository != null && !availableResourceTypes_ResourceRepository.isEmpty();
 		}

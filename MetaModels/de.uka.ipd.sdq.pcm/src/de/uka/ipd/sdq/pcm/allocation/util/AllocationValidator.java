@@ -145,6 +145,7 @@ public class AllocationValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAllocationContext(AllocationContext allocationContext, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(allocationContext, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(allocationContext, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(allocationContext, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(allocationContext, diagnostics, context);
@@ -173,6 +174,7 @@ public class AllocationValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAllocation(Allocation allocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(allocation, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(allocation, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(allocation, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(allocation, diagnostics, context);

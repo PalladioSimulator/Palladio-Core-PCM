@@ -36,6 +36,7 @@ import de.uka.ipd.sdq.pcm.seff.CallReturnAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
@@ -506,7 +507,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 		}
 		if (baseClass == FailureHandlingEntity.class) {
 			switch (derivedFeatureID) {
-				case SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY: return Seff_reliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY;
+				case SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY: return SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY;
 				default: return -1;
 			}
 		}
@@ -534,7 +535,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 		}
 		if (baseClass == FailureHandlingEntity.class) {
 			switch (baseFeatureID) {
-				case Seff_reliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY: return SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY;
+				case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY: return SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY;
 				default: return -1;
 			}
 		}

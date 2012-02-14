@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.provider.CallActionItemProvider;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 
 /**
@@ -89,7 +90,7 @@ public class InfrastructureCallItemProvider
 				 getResourceLocator(),
 				 getString("_UI_InfrastructureCall_signature__InfrastructureCall_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InfrastructureCall_signature__InfrastructureCall_feature", "_UI_InfrastructureCall_type"),
-				 Seff_performancePackage.Literals.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL,
+				 SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL,
 				 true,
 				 false,
 				 true,
@@ -111,7 +112,7 @@ public class InfrastructureCallItemProvider
 				 getResourceLocator(),
 				 getString("_UI_InfrastructureCall_requiredRole__InfrastructureCall_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_InfrastructureCall_requiredRole__InfrastructureCall_feature", "_UI_InfrastructureCall_type"),
-				 Seff_performancePackage.Literals.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL,
+				 SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL,
 				 true,
 				 false,
 				 true,
@@ -132,7 +133,7 @@ public class InfrastructureCallItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Seff_performancePackage.Literals.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL);
+			childrenFeatures.add(SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL);
 		}
 		return childrenFeatures;
 	}
@@ -184,7 +185,7 @@ public class InfrastructureCallItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(InfrastructureCall.class)) {
-			case Seff_performancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
+			case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -204,7 +205,7 @@ public class InfrastructureCallItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(Seff_performancePackage.Literals.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
+				(SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
 				 CoreFactory.eINSTANCE.createPCMRandomVariable()));
 	}
 

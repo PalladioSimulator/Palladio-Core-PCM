@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
+import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +45,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 */
 	public static ResourceenvironmentFactory init() {
 		try {
-			ResourceenvironmentFactory theResourceenvironmentFactory = (ResourceenvironmentFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0"); 
+			ResourceenvironmentFactory theResourceenvironmentFactory = (ResourceenvironmentFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0"); 
 			if (theResourceenvironmentFactory != null) {
 				return theResourceenvironmentFactory;
 			}
@@ -94,8 +94,6 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 		switch (eDataType.getClassifierID()) {
 			case ResourceenvironmentPackage.CONTAINER_OPERATING_SYSTEM:
 				return createContainerOperatingSystemFromString(eDataType, initialValue);
-			case ResourceenvironmentPackage.SCHEDULING_POLICY:
-				return createSchedulingPolicyFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -111,8 +109,6 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 		switch (eDataType.getClassifierID()) {
 			case ResourceenvironmentPackage.CONTAINER_OPERATING_SYSTEM:
 				return convertContainerOperatingSystemToString(eDataType, instanceValue);
-			case ResourceenvironmentPackage.SCHEDULING_POLICY:
-				return convertSchedulingPolicyToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -185,26 +181,6 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 * @generated
 	 */
 	public String convertContainerOperatingSystemToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchedulingPolicy createSchedulingPolicyFromString(EDataType eDataType, String initialValue) {
-		SchedulingPolicy result = SchedulingPolicy.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSchedulingPolicyToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

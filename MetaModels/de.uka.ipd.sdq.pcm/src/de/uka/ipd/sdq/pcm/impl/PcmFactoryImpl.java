@@ -38,7 +38,7 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
 	 */
 	public static PcmFactory init() {
 		try {
-			PcmFactory thePcmFactory = (PcmFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/4.0"); 
+			PcmFactory thePcmFactory = (PcmFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/5.0"); 
 			if (thePcmFactory != null) {
 				return thePcmFactory;
 			}

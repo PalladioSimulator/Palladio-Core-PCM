@@ -37,7 +37,7 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
 	 */
 	public static ProtocolFactory init() {
 		try {
-			ProtocolFactory theProtocolFactory = (ProtocolFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/4.0"); 
+			ProtocolFactory theProtocolFactory = (ProtocolFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/5.0"); 
 			if (theProtocolFactory != null) {
 				return theProtocolFactory;
 			}

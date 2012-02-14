@@ -38,7 +38,7 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
 	 */
 	public static SubsystemFactory init() {
 		try {
-			SubsystemFactory theSubsystemFactory = (SubsystemFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/4.0"); 
+			SubsystemFactory theSubsystemFactory = (SubsystemFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/5.0"); 
 			if (theSubsystemFactory != null) {
 				return theSubsystemFactory;
 			}

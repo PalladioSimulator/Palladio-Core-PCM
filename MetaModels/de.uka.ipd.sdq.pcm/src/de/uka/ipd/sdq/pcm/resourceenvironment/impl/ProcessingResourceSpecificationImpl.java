@@ -18,8 +18,8 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 
 /**
  * <!-- begin-user-doc -->
@@ -110,24 +110,14 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	protected boolean requiredByContainer = REQUIRED_BY_CONTAINER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}' attribute.
+	 * The cached value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSchedulingPolicy()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SchedulingPolicy SCHEDULING_POLICY_EDEFAULT = SchedulingPolicy.FCFS;
-
-	/**
-	 * The cached value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchedulingPolicy()
-	 * @generated
-	 * @ordered
-	 */
-	protected SchedulingPolicy schedulingPolicy = SCHEDULING_POLICY_EDEFAULT;
+	protected SchedulingPolicy schedulingPolicy;
 
 	/**
 	 * The cached value of the '{@link #getActiveResourceType_ActiveResourceSpecification() <em>Active Resource Type Active Resource Specification</em>}' reference.
@@ -257,6 +247,23 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 	public SchedulingPolicy getSchedulingPolicy() {
+		if (schedulingPolicy != null && schedulingPolicy.eIsProxy()) {
+			InternalEObject oldSchedulingPolicy = (InternalEObject)schedulingPolicy;
+			schedulingPolicy = (SchedulingPolicy)eResolveProxy(oldSchedulingPolicy);
+			if (schedulingPolicy != oldSchedulingPolicy) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY, oldSchedulingPolicy, schedulingPolicy));
+			}
+		}
+		return schedulingPolicy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchedulingPolicy basicGetSchedulingPolicy() {
 		return schedulingPolicy;
 	}
 
@@ -267,7 +274,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 */
 	public void setSchedulingPolicy(SchedulingPolicy newSchedulingPolicy) {
 		SchedulingPolicy oldSchedulingPolicy = schedulingPolicy;
-		schedulingPolicy = newSchedulingPolicy == null ? SCHEDULING_POLICY_EDEFAULT : newSchedulingPolicy;
+		schedulingPolicy = newSchedulingPolicy;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY, oldSchedulingPolicy, schedulingPolicy));
 	}
@@ -480,7 +487,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER:
 				return isRequiredByContainer();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
-				return getSchedulingPolicy();
+				if (resolve) return getSchedulingPolicy();
+				return basicGetSchedulingPolicy();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				if (resolve) return getActiveResourceType_ActiveResourceSpecification();
 				return basicGetActiveResourceType_ActiveResourceSpecification();
@@ -548,7 +556,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				setRequiredByContainer(REQUIRED_BY_CONTAINER_EDEFAULT);
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
-				setSchedulingPolicy(SCHEDULING_POLICY_EDEFAULT);
+				setSchedulingPolicy((SchedulingPolicy)null);
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				setActiveResourceType_ActiveResourceSpecification((ProcessingResourceType)null);
@@ -581,7 +589,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER:
 				return requiredByContainer != REQUIRED_BY_CONTAINER_EDEFAULT;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
-				return schedulingPolicy != SCHEDULING_POLICY_EDEFAULT;
+				return schedulingPolicy != null;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				return activeResourceType_ActiveResourceSpecification != null;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
@@ -610,8 +618,6 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 		result.append(mttf);
 		result.append(", requiredByContainer: ");
 		result.append(requiredByContainer);
-		result.append(", schedulingPolicy: ");
-		result.append(schedulingPolicy);
 		result.append(", numberOfReplicas: ");
 		result.append(numberOfReplicas);
 		result.append(')');

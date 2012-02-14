@@ -29,10 +29,10 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.Qos_performancePackageImpl;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.impl.Qos_reliabilityPackageImpl;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.impl.QosReliabilityPackageImpl;
 import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
 import de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -45,15 +45,15 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.impl.Seff_performancePackageImpl;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.Seff_reliabilityPackageImpl;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.impl.SeffPerformancePackageImpl;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.SeffReliabilityPackageImpl;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 import de.uka.ipd.sdq.pcm.subsystem.impl.SubsystemPackageImpl;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
@@ -119,13 +119,6 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	private EEnum containerOperatingSystemEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum schedulingPolicyEEnum = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -187,11 +180,11 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
 		ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
 		SeffPackageImpl theSeffPackage = (SeffPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-		Seff_performancePackageImpl theSeff_performancePackage = (Seff_performancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Seff_performancePackage.eNS_URI) instanceof Seff_performancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Seff_performancePackage.eNS_URI) : Seff_performancePackage.eINSTANCE);
-		Seff_reliabilityPackageImpl theSeff_reliabilityPackage = (Seff_reliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Seff_reliabilityPackage.eNS_URI) instanceof Seff_reliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Seff_reliabilityPackage.eNS_URI) : Seff_reliabilityPackage.eINSTANCE);
+		SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
+		SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
 		QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
-		Qos_performancePackageImpl theQos_performancePackage = (Qos_performancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Qos_performancePackage.eNS_URI) instanceof Qos_performancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Qos_performancePackage.eNS_URI) : Qos_performancePackage.eINSTANCE);
-		Qos_reliabilityPackageImpl theQos_reliabilityPackage = (Qos_reliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Qos_reliabilityPackage.eNS_URI) instanceof Qos_reliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Qos_reliabilityPackage.eNS_URI) : Qos_reliabilityPackage.eINSTANCE);
+		QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
+		QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
@@ -209,11 +202,11 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		theParameterPackage.createPackageContents();
 		theReliabilityPackage.createPackageContents();
 		theSeffPackage.createPackageContents();
-		theSeff_performancePackage.createPackageContents();
-		theSeff_reliabilityPackage.createPackageContents();
+		theSeffPerformancePackage.createPackageContents();
+		theSeffReliabilityPackage.createPackageContents();
 		theQosannotationsPackage.createPackageContents();
-		theQos_performancePackage.createPackageContents();
-		theQos_reliabilityPackage.createPackageContents();
+		theQosPerformancePackage.createPackageContents();
+		theQosReliabilityPackage.createPackageContents();
 		theSystemPackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
 		theSubsystemPackage.createPackageContents();
@@ -231,11 +224,11 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		theParameterPackage.initializePackageContents();
 		theReliabilityPackage.initializePackageContents();
 		theSeffPackage.initializePackageContents();
-		theSeff_performancePackage.initializePackageContents();
-		theSeff_reliabilityPackage.initializePackageContents();
+		theSeffPerformancePackage.initializePackageContents();
+		theSeffReliabilityPackage.initializePackageContents();
 		theQosannotationsPackage.initializePackageContents();
-		theQos_performancePackage.initializePackageContents();
-		theQos_reliabilityPackage.initializePackageContents();
+		theQosPerformancePackage.initializePackageContents();
+		theQosReliabilityPackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
 		theSubsystemPackage.initializePackageContents();
@@ -407,8 +400,8 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProcessingResourceSpecification_SchedulingPolicy() {
-		return (EAttribute)processingResourceSpecificationEClass.getEStructuralFeatures().get(3);
+	public EReference getProcessingResourceSpecification_SchedulingPolicy() {
+		return (EReference)processingResourceSpecificationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -515,15 +508,6 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getSchedulingPolicy() {
-		return schedulingPolicyEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ResourceenvironmentFactory getResourceenvironmentFactory() {
 		return (ResourceenvironmentFactory)getEFactoryInstance();
 	}
@@ -567,7 +551,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__MTTR);
 		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__MTTF);
 		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER);
-		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY);
+		createEReference(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY);
 		createEReference(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION);
 		createEReference(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION);
 		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS);
@@ -582,7 +566,6 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
 		// Create enums
 		containerOperatingSystemEEnum = createEEnum(CONTAINER_OPERATING_SYSTEM);
-		schedulingPolicyEEnum = createEEnum(SCHEDULING_POLICY);
 	}
 
 	/**
@@ -645,7 +628,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		initEAttribute(getProcessingResourceSpecification_MTTR(), ecorePackage.getEDouble(), "MTTR", "0.0", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getProcessingResourceSpecification_MTTF(), ecorePackage.getEDouble(), "MTTF", "0.0", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getProcessingResourceSpecification_RequiredByContainer(), ecorePackage.getEBoolean(), "requiredByContainer", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getProcessingResourceSpecification_SchedulingPolicy(), this.getSchedulingPolicy(), "schedulingPolicy", "FCFS", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProcessingResourceSpecification_SchedulingPolicy(), theResourcetypePackage.getSchedulingPolicy(), null, "schedulingPolicy", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification(), theResourcetypePackage.getProcessingResourceType(), null, "activeResourceType_ActiveResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification(), theCorePackage.getPCMRandomVariable(), theCorePackage.getPCMRandomVariable_ProcessingResourceSpecification_processingRate_PCMRandomVariable(), "processingRate_ProcessingResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getProcessingResourceSpecification_NumberOfReplicas(), ecorePackage.getEInt(), "numberOfReplicas", "1", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -667,13 +650,6 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		addEEnumLiteral(containerOperatingSystemEEnum, ContainerOperatingSystem.WINDOWS_7);
 		addEEnumLiteral(containerOperatingSystemEEnum, ContainerOperatingSystem.WINDOWS_2003);
 		addEEnumLiteral(containerOperatingSystemEEnum, ContainerOperatingSystem.ABSTRACT);
-
-		initEEnum(schedulingPolicyEEnum, SchedulingPolicy.class, "SchedulingPolicy");
-		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.EXACT);
-		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.DELAY);
-		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.PROCESSOR_SHARING);
-		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.FCFS);
-		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.GINPEX_DETECTED);
 	}
 
 } //ResourceenvironmentPackageImpl

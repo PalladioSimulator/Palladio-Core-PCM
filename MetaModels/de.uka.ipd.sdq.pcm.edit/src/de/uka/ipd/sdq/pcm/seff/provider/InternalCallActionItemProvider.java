@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.seff.InternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performanceFactory;
 
 /**
@@ -285,17 +286,17 @@ public class InternalCallActionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION,
-				 Seff_performanceFactory.eINSTANCE.createParametricResourceDemand()));
+				 SeffPerformanceFactory.eINSTANCE.createParametricResourceDemand()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION,
-				 Seff_performanceFactory.eINSTANCE.createInfrastructureCall()));
+				 SeffPerformanceFactory.eINSTANCE.createInfrastructureCall()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION,
-				 Seff_performanceFactory.eINSTANCE.createResourceCall()));
+				 SeffPerformanceFactory.eINSTANCE.createResourceCall()));
 	}
 
 }

@@ -37,19 +37,6 @@ public interface CompositeComponent extends ComposedProvidingRequiringEntity, Im
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * -- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#
-	 * if
-	 * 	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
-	 * 	self.parentCompleteComponentTypes->notEmpty()
-	 * then
-	 * 	--own interface IDs:
-	 *     self.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole.id)->asSet()
-	 *     =
-	 *     --complete type interface IDs:
-	 *     self.parentCompleteComponentTypes.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole.id)->asSet()
-	 * else
-	 * 	true
-	 * endif
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
@@ -62,19 +49,6 @@ public interface CompositeComponent extends ComposedProvidingRequiringEntity, Im
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * -- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #
-	 * if
-	 * 	 -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
-	 * 	self.parentCompleteComponentTypes->notEmpty()
-	 * then
-	 * 	--own interface IDs:
-	 *     self.requiredRoles_InterfaceRequiringEntity->select(pr|pr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()
-	 *     =
-	 *     --complete type interface IDs:
-	 *     self.parentCompleteComponentTypes.requiredRoles_InterfaceRequiringEntity->select(pr|pr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()
-	 * else
-	 * 	true
-	 * endif
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->

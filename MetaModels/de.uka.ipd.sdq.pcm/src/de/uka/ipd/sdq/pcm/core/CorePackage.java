@@ -51,7 +51,7 @@ public interface CorePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/Core/4.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/Core/5.0";
 
 	/**
 	 * The package namespace name.

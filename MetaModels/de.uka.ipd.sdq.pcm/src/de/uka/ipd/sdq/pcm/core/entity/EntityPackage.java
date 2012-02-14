@@ -58,7 +58,7 @@ public interface EntityPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/4.0";
+	String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0";
 
 	/**
 	 * The package namespace name.

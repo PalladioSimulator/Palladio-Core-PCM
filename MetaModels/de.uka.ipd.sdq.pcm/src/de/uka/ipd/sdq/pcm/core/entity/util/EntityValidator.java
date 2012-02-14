@@ -166,6 +166,7 @@ public class EntityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceProvidedRole(ResourceProvidedRole resourceProvidedRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(resourceProvidedRole, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(resourceProvidedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceProvidedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceProvidedRole, diagnostics, context);
@@ -192,6 +193,7 @@ public class EntityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceInterfaceProvidingRequiringEntity(ResourceInterfaceProvidingRequiringEntity resourceInterfaceProvidingRequiringEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(resourceInterfaceProvidingRequiringEntity, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(resourceInterfaceProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceInterfaceProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceInterfaceProvidingRequiringEntity, diagnostics, context);
@@ -209,6 +211,7 @@ public class EntityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInterfaceProvidingEntity(InterfaceProvidingEntity interfaceProvidingEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(interfaceProvidingEntity, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(interfaceProvidingEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(interfaceProvidingEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(interfaceProvidingEntity, diagnostics, context);
@@ -226,6 +229,7 @@ public class EntityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity interfaceProvidingRequiringEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(interfaceProvidingRequiringEntity, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(interfaceProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(interfaceProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(interfaceProvidingRequiringEntity, diagnostics, context);
@@ -243,6 +247,7 @@ public class EntityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInterfaceRequiringEntity(InterfaceRequiringEntity interfaceRequiringEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(interfaceRequiringEntity, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(interfaceRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(interfaceRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(interfaceRequiringEntity, diagnostics, context);
@@ -260,6 +265,7 @@ public class EntityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity resourceInterfaceRequiringEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(resourceInterfaceRequiringEntity, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(resourceInterfaceRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceInterfaceRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceInterfaceRequiringEntity, diagnostics, context);
@@ -277,6 +283,7 @@ public class EntityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceRequiredRole(ResourceRequiredRole resourceRequiredRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(resourceRequiredRole, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(resourceRequiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceRequiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceRequiredRole, diagnostics, context);
@@ -294,6 +301,7 @@ public class EntityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity composedProvidingRequiringEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(composedProvidingRequiringEntity, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(composedProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(composedProvidingRequiringEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(composedProvidingRequiringEntity, diagnostics, context);
@@ -324,6 +332,7 @@ public class EntityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity resourceInterfaceProvidingEntity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(resourceInterfaceProvidingEntity, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(resourceInterfaceProvidingEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceInterfaceProvidingEntity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceInterfaceProvidingEntity, diagnostics, context);
@@ -341,6 +350,7 @@ public class EntityValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateEntity(Entity entity, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(entity, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(entity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(entity, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(entity, diagnostics, context);
