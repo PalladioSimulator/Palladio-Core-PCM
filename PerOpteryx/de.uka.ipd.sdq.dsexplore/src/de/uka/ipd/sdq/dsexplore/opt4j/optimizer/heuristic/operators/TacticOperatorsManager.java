@@ -5,13 +5,13 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
 
 import de.uka.ipd.sdq.dsexplore.helper.ResultsWriter;
 import de.uka.ipd.sdq.dsexplore.launch.DSEWorkflowConfiguration;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualFactory;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 
 /**
@@ -31,11 +31,11 @@ public class TacticOperatorsManager {
 	
 	/**
 	 * @param copy Creates copy of genotypes
-	 * @param individualBuilder Builds individual
+	 * @param individualFactory Builds individual
 	 */
-	public TacticOperatorsManager(Copy<Genotype> copy, DSEIndividualBuilder individualBuilder) {
+	public TacticOperatorsManager(Copy<Genotype> copy, DSEIndividualFactory individualFactory) {
 		DSEWorkflowConfiguration configuration = Opt4JStarter.getDSEWorkflowConfig();
-		heuristics = TacticOperatorsFactory.getActivatedInstances(copy, individualBuilder, configuration);
+		heuristics = TacticOperatorsFactory.getActivatedInstances(copy, individualFactory, configuration);
 		this.writer = new ResultsWriter(Opt4JStarter.getDSEWorkflowConfig().getResultFolder()+"heuristicsInfo");
 		writer.writeToLogFile("Tactic;Candidate numeric id;Parent numeric id;Candidate genome (several cols);Parent genome (several cols);Utilization value and whether returned\n");
 	}

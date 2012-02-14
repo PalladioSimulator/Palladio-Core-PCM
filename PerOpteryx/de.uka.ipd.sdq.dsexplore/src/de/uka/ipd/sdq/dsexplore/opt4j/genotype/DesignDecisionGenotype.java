@@ -6,9 +6,10 @@ import java.util.List;
 import java.util.ListIterator;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.Genotype;
 import org.opt4j.genotype.ListGenotype;
 
+import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.pcm.designdecision.Candidate;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
 import de.uka.ipd.sdq.pcm.designdecision.DecisionSpace;
@@ -48,7 +49,7 @@ public class DesignDecisionGenotype implements ListGenotype<Choice> {
 		for (DegreeOfFreedomInstance dof : problem.getDegreesOfFreedom()) {
 			boolean foundChoice = false;
 			for (Choice choice : emfCandidate.getChoices()) {
-				if (choice.getDegreeOfFreedomInstance() == dof){
+				if (EMFHelper.checkIdentity(choice.getDegreeOfFreedomInstance(),dof)){
 					this.choices.getChoices().add(choice);
 					foundChoice = true;
 					break;

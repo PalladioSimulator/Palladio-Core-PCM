@@ -35,7 +35,6 @@ import de.uka.ipd.sdq.dsexplore.helper.ConstraintAndEvaluator;
 import de.uka.ipd.sdq.dsexplore.helper.CriterionAndEvaluator;
 import de.uka.ipd.sdq.dsexplore.helper.ObjectiveAndEvaluator;
 import de.uka.ipd.sdq.dsexplore.launch.MoveInitialPCMModelPartitionJob;
-import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
@@ -301,7 +300,7 @@ public class DSEEvaluator implements Evaluator<PCMPhenotype>{
 		
 	}
 	
-	@Override
+	//@Override
 	public Collection<Objective> getObjectives() {
 		return new ObjectiveAndEvaluatorListDecorator(this.objectives);
 	}

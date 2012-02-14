@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
-import org.opt4j.core.AbstractIndividualBuilder;
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.AbstractIndividualFactory;
+import org.opt4j.core.Genotype;
 import org.opt4j.core.problem.Creator;
 
 
@@ -12,13 +12,13 @@ import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticsResul
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 import de.uka.ipd.sdq.pcm.designdecision.DecisionSpace;
 
-public class DSEIndividualBuilder extends AbstractIndividualBuilder<DSEIndividual> {
+public class DSEIndividualFactory extends AbstractIndividualFactory<DSEIndividual> {
 
 	private DecisionSpace problem;
 
 	@SuppressWarnings("unchecked")
 	@Inject
-	public DSEIndividualBuilder(Provider<DSEIndividual> individualProvider,
+	public DSEIndividualFactory(Provider<DSEIndividual> individualProvider,
 			Creator creator) {
 		super(individualProvider, creator);
 		this.problem = Opt4JStarter.getProblem().getEMFProblem();
@@ -27,10 +27,10 @@ public class DSEIndividualBuilder extends AbstractIndividualBuilder<DSEIndividua
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.opt4j.core.IndividualBuilder#build()
+	 * @see org.opt4j.core.IndividualFactory#build()
 	 */
 	@Override
-	public DSEIndividual build() {
+	public DSEIndividual create() {
 		DSEIndividual individual = new DSEIndividual(problem);
 		individual.setIndividualStatusListeners(individualStateListeners);
 		Genotype genotype = creator.create();
@@ -42,10 +42,10 @@ public class DSEIndividualBuilder extends AbstractIndividualBuilder<DSEIndividua
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.opt4j.core.IndividualBuilder#build(org.opt4j.core.Genotype)
+	 * @see org.opt4j.core.IndividualFactory#build(org.opt4j.core.Genotype)
 	 */
 	@Override
-	public DSEIndividual build(Genotype genotype) {
+	public DSEIndividual create(Genotype genotype) {
 		DSEIndividual individual = new DSEIndividual(problem);
 		individual.setIndividualStatusListeners(individualStateListeners);
 		individual.setGenotype(genotype);

@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.impl;
 import java.util.Collection;
 
 import org.apache.log4j.Logger;
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
 
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.dsexplore.launch.DSEWorkflowConfiguration;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.AbstractTactic;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticsResultCandidate;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualFactory;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousProcessingRateDegree;
@@ -28,16 +28,16 @@ public abstract class AbstractProcessingRateTactic extends AbstractTactic {
 	protected static Logger logger = Logger.getLogger("de.uka.ipd.sdq.opt4j.optimizer.heuristic.operators.impl.ProcessingRateImpl");
 
 	public AbstractProcessingRateTactic(Copy<Genotype> copy,
-			DSEIndividualBuilder individualBuilder,
+			DSEIndividualFactory individualFactory,
 			DSEWorkflowConfiguration configuration,
 			String[] improvesDimensionPath) {
-		super(copy, individualBuilder, configuration, improvesDimensionPath);
+		super(copy, individualFactory, configuration, improvesDimensionPath);
 	}
 
 	protected void addNewProcRateCandidate(DSEIndividual individual, Collection<TacticsResultCandidate> candidates,
 			ProcessingResourceSpecificationResult utilisationResultToBeChanged, ProcessingResourceSpecification utilProcessingResourceToBeChanged) {
 		// 2. Copy current genotype
-		TacticsResultCandidate candidate = individualBuilder.buildCandidate(copy.copy(individual.getGenotype()), individual);
+		TacticsResultCandidate candidate = individualFactory.buildCandidate(copy.copy(individual.getGenotype()), individual);
 		// 3. Iterate through choices and find processing rate degree to change
 		boolean hasAppliedChange = false;
 		for (Choice choice : candidate.getGenotype()) {
@@ -83,7 +83,7 @@ public abstract class AbstractProcessingRateTactic extends AbstractTactic {
 			ProcessingResourceSpecificationResult maxUtilisationResult,
 			ProcessingResourceSpecification maxUtilProcessingResource) {
 		// 2. Copy current genotype
-		TacticsResultCandidate candidate = individualBuilder.buildCandidate(copy.copy(individual.getGenotype()), individual);
+		TacticsResultCandidate candidate = individualFactory.buildCandidate(copy.copy(individual.getGenotype()), individual);
 		// 3. Iterate through choices and find number of cores degree to change
 		for (Choice choice : candidate.getGenotype()) {
 			if (choice instanceof DiscreteRangeChoice && choice.getDegreeOfFreedomInstance() instanceof NumberOfCoresDegree) {

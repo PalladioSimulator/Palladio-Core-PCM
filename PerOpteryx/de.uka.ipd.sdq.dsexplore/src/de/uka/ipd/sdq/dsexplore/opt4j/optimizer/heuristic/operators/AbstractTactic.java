@@ -3,11 +3,11 @@ package de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
 
 import de.uka.ipd.sdq.dsexplore.launch.DSEWorkflowConfiguration;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualFactory;
 import de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.EvaluationAspect;
 import de.uka.ipd.sdq.dsexplore.qml.contracttype.QMLContractType.Dimension;
 import de.uka.ipd.sdq.dsexplore.qml.reader.QMLDimensionReader;
@@ -27,7 +27,7 @@ public abstract class AbstractTactic implements ITactic {
 	/**
 	 * Builds individual
 	 */
-	protected final DSEIndividualBuilder individualBuilder;
+	protected final DSEIndividualFactory individualFactory;
 	
 	/**
 	 * The paths of the QML dimension definition. These dimension are improved by applying this tactic
@@ -42,13 +42,13 @@ public abstract class AbstractTactic implements ITactic {
 	
 	/**
 	 * @param copy Creates copy of genotypes
-	 * @param individualBuilder Builds individual
+	 * @param individualFactory Builds individual
 	 */
 	public AbstractTactic(Copy<Genotype> copy,
-			DSEIndividualBuilder individualBuilder, DSEWorkflowConfiguration configuration,
+			DSEIndividualFactory individualFactory, DSEWorkflowConfiguration configuration,
 			String[] strings) {
 		this.copy = copy;
-		this.individualBuilder = individualBuilder;
+		this.individualFactory = individualFactory;
 		this.improvesDimensionPath = strings;
 	}
 

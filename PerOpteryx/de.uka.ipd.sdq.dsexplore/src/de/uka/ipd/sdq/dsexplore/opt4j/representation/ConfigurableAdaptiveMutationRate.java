@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 import static org.opt4j.core.Individual.State.EMPTY;
 
 import org.opt4j.core.Individual;
-import org.opt4j.core.IndividualBuilder;
+import org.opt4j.core.IndividualFactory;
 import org.opt4j.operator.mutate.AdaptiveMutationRate;
 import org.opt4j.start.Constant;
 
@@ -24,9 +24,9 @@ public class ConfigurableAdaptiveMutationRate extends AdaptiveMutationRate {
 
 	private double mutationIntensity = 1; 
 	
-	public ConfigurableAdaptiveMutationRate(IndividualBuilder individualBuilder, 
+	public ConfigurableAdaptiveMutationRate(IndividualFactory individualFactory, 
 			@Constant(value = "intensity", namespace = ConfigurableAdaptiveMutationRate.class) double intensity) {
-		super(individualBuilder);
+		super(individualFactory);
 		this.mutationIntensity = intensity;
 	}
 	
@@ -44,7 +44,7 @@ public class ConfigurableAdaptiveMutationRate extends AdaptiveMutationRate {
 			if (size > 0) {
 				set(Math.min(1.0, 1.0 / individual.getGenotype().size() * mutationIntensity));
 			}
-			individualBuilder.removeIndividualStateListener(this);
+			individualFactory.removeIndividualStateListener(this);
 			isInit = true;
 		}
 	}

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.eclipse.emf.ecore.EObject;
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
 
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.AbstractTact
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticsResultCandidate;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.UtilisationResultCacheAndHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualFactory;
 import de.uka.ipd.sdq.dsexplore.qml.handling.QMLConstantsContainer;
 import de.uka.ipd.sdq.pcm.designdecision.AllocationDegree;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
@@ -56,11 +56,11 @@ public class ServerExpansionImpl extends AbstractTactic {
 	
 	/**
 	 * @param copy Used to copy genotype
-	 * @param individualBuilder Used to build individual
+	 * @param individualFactory Used to build individual
 	 */
 	public ServerExpansionImpl(Copy<Genotype> copy,
-			DSEIndividualBuilder individualBuilder, DSEWorkflowConfiguration configuration) {
-		super(copy, individualBuilder, configuration, 
+			DSEIndividualFactory individualFactory, DSEWorkflowConfiguration configuration) {
+		super(copy, individualFactory, configuration, 
 				new String[] {
 					QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_RESPONSETIME_DEFINITION_PATH,
 					QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_THROUGHPUT_DEFINITION_PATH,
@@ -138,7 +138,7 @@ public class ServerExpansionImpl extends AbstractTactic {
 			ProcessingResourceSpecificationResult maxUtilisationResult,
 			ResourceContainer resourceContainer) {
 		
-		TacticsResultCandidate candidate = individualBuilder.buildCandidate(copy.copy(individual.getGenotype()), individual);
+		TacticsResultCandidate candidate = individualFactory.buildCandidate(copy.copy(individual.getGenotype()), individual);
 		
 		
 		// check whether changing the multiplicity is allowed
@@ -175,7 +175,7 @@ public class ServerExpansionImpl extends AbstractTactic {
 			ProcessingResourceSpecificationResult maxUtilisationResult,
 			ResourceContainer resourceContainer) {
 		
-		TacticsResultCandidate candidate = individualBuilder.buildCandidate(copy.copy(individual.getGenotype()), individual);
+		TacticsResultCandidate candidate = individualFactory.buildCandidate(copy.copy(individual.getGenotype()), individual);
 				
 		// 3. Get a new (unused) target resource container
 		// TODO: Must be one that some components of the current container can actually be moved to. This is 

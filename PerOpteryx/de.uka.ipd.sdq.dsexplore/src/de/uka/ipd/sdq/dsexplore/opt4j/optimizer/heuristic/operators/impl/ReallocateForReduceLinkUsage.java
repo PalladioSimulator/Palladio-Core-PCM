@@ -8,7 +8,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.opt4j.core.Objective;
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
 
 import de.uka.ipd.sdq.context.aggregatedUsageContext.AggregatedCommunication;
@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.AbstractTact
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticsResultCandidate;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.UtilisationResultCacheAndHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualFactory;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 import de.uka.ipd.sdq.dsexplore.qml.handling.QMLConstantsContainer;
 import de.uka.ipd.sdq.dsexplore.qml.reader.QMLDimensionReader;
@@ -46,9 +46,9 @@ public class ReallocateForReduceLinkUsage extends AbstractTactic {
 
 
 	public ReallocateForReduceLinkUsage(Copy<Genotype> copy,
-			DSEIndividualBuilder individualBuilder,
+			DSEIndividualFactory individualFactory,
 			DSEWorkflowConfiguration configuration) {
-		super(copy, individualBuilder, configuration, new String[] {QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_RESPONSETIME_DEFINITION_PATH,
+		super(copy, individualFactory, configuration, new String[] {QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_RESPONSETIME_DEFINITION_PATH,
 				QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_THROUGHPUT_DEFINITION_PATH});
 		
 		//setHeuristicWeight(configuration.getReallocationForLinkWeight());
@@ -187,7 +187,7 @@ public class ReallocateForReduceLinkUsage extends AbstractTactic {
 		
 		List<TacticsResultCandidate> result = new ArrayList<TacticsResultCandidate>(1);
 		
-		TacticsResultCandidate candidate = individualBuilder.buildCandidate(copy.copy(individual.getGenotype()), individual);
+		TacticsResultCandidate candidate = individualFactory.buildCandidate(copy.copy(individual.getGenotype()), individual);
 		candidate.setHeuristic(this);
 		candidate.setCandidateWeight(candidateWeight);
 		// find choice for the reallocated components degree

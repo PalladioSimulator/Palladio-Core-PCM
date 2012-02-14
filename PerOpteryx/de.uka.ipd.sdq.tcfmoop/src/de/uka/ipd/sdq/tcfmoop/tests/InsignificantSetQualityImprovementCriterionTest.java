@@ -9,12 +9,12 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.opt4j.common.archive.DefaultArchive;
-import org.opt4j.core.Archive;
+import org.opt4j.core.optimizer.Archive;
 import org.opt4j.core.Individual;
 import org.opt4j.core.IndividualStateListener;
 import org.opt4j.core.Objective;
 import org.opt4j.core.Objectives;
-import org.opt4j.core.Population;
+import org.opt4j.core.optimizer.Population;
 import org.opt4j.core.Objective.Sign;
 import org.opt4j.core.domination.ParetoDomination;
 

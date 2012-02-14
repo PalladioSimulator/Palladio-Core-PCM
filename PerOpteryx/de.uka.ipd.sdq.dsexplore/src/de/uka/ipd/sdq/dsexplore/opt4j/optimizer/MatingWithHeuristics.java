@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import org.opt4j.common.random.Rand;
 import org.opt4j.core.Individual;
-import org.opt4j.core.IndividualBuilder;
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.IndividualFactory;
+import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
 import org.opt4j.operator.crossover.Crossover;
 import org.opt4j.operator.mutate.Mutate;
+import org.opt4j.operator.mutate.MutationRate;
 import org.opt4j.optimizer.ea.Coupler;
 import org.opt4j.optimizer.ea.CrossoverRate;
 import org.opt4j.optimizer.ea.Mating;
+import org.opt4j.optimizer.ea.MatingCrossoverMutate;
 import org.opt4j.optimizer.ea.Pair;
 
 import com.google.inject.Inject;
@@ -26,7 +28,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
  * @author martens, beyer, noorshams
  *
  */
-public class MatingWithHeuristics extends Mating {
+public class MatingWithHeuristics extends MatingCrossoverMutate {
 	
 	private TacticOperatorsManager heuristicManager;
 	
@@ -36,16 +38,16 @@ public class MatingWithHeuristics extends Mating {
 	
 	@Inject
 	public MatingWithHeuristics(Crossover<Genotype> crossover, Mutate<Genotype> mutate, Copy<Genotype> copy,
-			Coupler coupler, CrossoverRate crossoverRate, Rand random,
-			IndividualBuilder individualBuilder, 
+			Coupler coupler, CrossoverRate crossoverRate, MutationRate mutationRate, Rand random,
+			IndividualFactory individualFactory, 
 			/*noorshams: inject this, I don't want to break the "injection chain"*/
 			QMLBoundDependentTacticOperatorsManager qmlTacticManager) {
-		super(crossover, mutate, copy, coupler, crossoverRate, random,
-				individualBuilder);
+		super(crossover, mutate, copy, coupler, crossoverRate, mutationRate, random,
+				individualFactory);
 		if (Opt4JStarter.getDSEWorkflowConfig().isConsiderQMLBoundsWhenApplyingHeuristics()) {
 			heuristicManager = qmlTacticManager;
 		} else if (Opt4JStarter.getDSEWorkflowConfig().isUseHeuristics()){
-			heuristicManager = new TacticOperatorsManager(copy, (DSEIndividualBuilder)individualBuilder);
+			heuristicManager = new TacticOperatorsManager(copy, (DSEIndividualFactory)individualFactory);
 		}
 	}
 	
@@ -91,7 +93,7 @@ public class MatingWithHeuristics extends Mating {
 	 *            indicates whether the coupler shall take place
 	 * @return the two offspring individuals
 	 */
-	private Pair<Individual> mate(Individual parent1, Individual parent2,
+	protected Pair<Individual> mate(Individual parent1, Individual parent2,
 			boolean doCrossover) {
 
 		Genotype p1 = parent1.getGenotype();
@@ -118,23 +120,23 @@ public class MatingWithHeuristics extends Mating {
 				o1 = offspring.getFirst();
 				o2 = offspring.getSecond();
 				// do mutate but don't use heuristics
-				mutate.mutate(o1);
-				mutate.mutate(o2);
+				mutate.mutate(o1, mutationRate.get());
+				mutate.mutate(o2, mutationRate.get());
 
-				i1 = individualBuilder.build(o1);
-				i2 = individualBuilder.build(o2);
+				i1 = individualFactory.create(o1);
+				i2 = individualFactory.create(o2);
 			} // else go into mutation code below as i1 and i2 are null.
 		}
 
 		if (i1 == null) {
 			o1 = copy.copy(p1);
-			mutate.mutate(o1);
-			i1 = individualBuilder.build(o1);
+			mutate.mutate(o1, mutationRate.get());
+			i1 = individualFactory.create(o1);
 		}
 		if (i2 == null) {
 			o2 = copy.copy(p2);
-			mutate.mutate(o2);
-			i2 = individualBuilder.build(o2);
+			mutate.mutate(o2, mutationRate.get());
+			i2 = individualFactory.create(o2);
 		}
 
 		Pair<Individual> individuals = new Pair<Individual>(i1, i2);

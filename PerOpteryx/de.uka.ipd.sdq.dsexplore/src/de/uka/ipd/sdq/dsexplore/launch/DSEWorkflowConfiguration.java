@@ -169,6 +169,8 @@ AbstractPCMWorkflowRunConfiguration {
 	private String archiveCandidateFileName = "";
 
 
+
+
 	/**
 	 * @return the useStartingPopulationHeuristic
 	 */
@@ -582,15 +584,20 @@ AbstractPCMWorkflowRunConfiguration {
 	public void setServerExpansionWeight(double serverExpansionWeight) {
 		this.serverExpansionWeight = serverExpansionWeight;
 	}
-
+	
 	public void setSearchMethod(SearchMethod searchMethod) {
 		this.searchMethod  = searchMethod;
 		
 	}
 
 	public boolean isUseHeuristics() {
-		//return getUseProcessingRate() || getUseReallocation() || getUseServerConsolidation() || getUseServerExpansion() || getUseAntipatternKnowledge();
-		return true;
+		return getUseReallocation() 
+		|| getUseProcessingRate() 
+		|| getUseServerConsolidation() 
+		|| getUseServerExpansion() 
+		|| getUseLinkReallocationTactic()
+		|| getUseAntipatternKnowledge();
+		//return true;
 	}
 
 	public void setEvaluators(List<IAnalysis> evaluators) {

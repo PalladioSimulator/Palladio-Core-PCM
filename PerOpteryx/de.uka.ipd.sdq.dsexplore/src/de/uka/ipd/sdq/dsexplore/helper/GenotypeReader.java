@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.genotype.DesignDecisionGenotype;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEDecoder;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualFactory;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEObjectives;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEProblem;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
@@ -140,8 +140,8 @@ public class GenotypeReader {
 			List<DesignDecisionGenotype> genotypes = loadGenotypesFromEMF(filename);
 			List<DSEIndividual> individuals = new ArrayList<DSEIndividual>(genotypes.size());
 			for (DesignDecisionGenotype designDecisionGenotype : genotypes) {
-				DSEIndividualBuilder builder = Opt4JStarter.getIndividualBuilder();
-				DSEIndividual individual = builder.build(designDecisionGenotype);
+				DSEIndividualFactory builder = Opt4JStarter.getIndividualFactory();
+				DSEIndividual individual = builder.create(designDecisionGenotype);
 				individuals.add(individual);
 			}
 			return individuals;
@@ -177,9 +177,9 @@ public class GenotypeReader {
 		ResourceSet pcmResourceSet = pcm.getAllocation().eResource().getResourceSet();
 				
 		EObject eCandidates = EMFHelper.loadFromXMIFile(filename, pcmResourceSet);
-		EcoreUtil.resolveAll(eCandidates);
-		FixDesignDecisionReferenceSwitch refSwitch = new FixDesignDecisionReferenceSwitch(Opt4JStarter.getProblem().getInitialInstance());
-		refSwitch.doSwitch(eCandidates);
+		//EcoreUtil.resolveAll(eCandidates);
+		//FixDesignDecisionReferenceSwitch refSwitch = new FixDesignDecisionReferenceSwitch(Opt4JStarter.getProblem().getInitialInstance());
+		//refSwitch.doSwitch(eCandidates);
 		
 		if (!(eCandidates instanceof Candidates)){
 			throw new RuntimeException("Cannot read candidate model file "+filename+". Please create a new one.", null);
@@ -343,8 +343,8 @@ public class GenotypeReader {
 					orderedDesignDecisions, lineArray);
 			
 	
-			DSEIndividualBuilder builder = Opt4JStarter.getIndividualBuilder();
-			DSEIndividual individual = builder.build(genotype);
+			DSEIndividualFactory builder = Opt4JStarter.getIndividualFactory();
+			DSEIndividual individual = builder.create(genotype);
 			results.add(individual);
 
 			if (hasObjectives){

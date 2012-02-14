@@ -7,9 +7,9 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.opt4j.config.Task;
 import org.opt4j.core.Individual;
-import org.opt4j.core.IndividualCollection;
-import org.opt4j.core.IndividualCollectionListener;
-import org.opt4j.core.Population;
+import org.opt4j.core.IndividualSet;
+import org.opt4j.core.IndividualSetListener;
+import org.opt4j.core.optimizer.Population;
 
 import com.google.inject.Inject;
 
@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
 /**
  * Stores all individuals ever added to the tracked population
  * 
- * This is an {@link IndividualCollectionListener} that listens on the 
+ * This is an {@link IndividualSetListener} that listens on the 
  * {@link Population} instance from the Opt4J {@link Task}.
  * 
  * Additionally, a set Pareto-optimal candidates is maintained that can be retrieved 
@@ -31,7 +31,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
  *
  */
 public class PopulationTracker implements
-		IndividualCollectionListener {
+		IndividualSetListener {
 	
 	private List<DSEIndividual> individuals = new LinkedList<DSEIndividual>();
 
@@ -47,7 +47,7 @@ public class PopulationTracker implements
 	}
 
 	@Override
-	public void individualAdded(IndividualCollection collection,
+	public void individualAdded(IndividualSet collection,
 			Individual individual) {
 		
 		if (individual instanceof DSEIndividual){
@@ -63,7 +63,7 @@ public class PopulationTracker implements
 	}
 
 	@Override
-	public void individualRemoved(IndividualCollection collection,
+	public void individualRemoved(IndividualSet collection,
 			Individual individual) {
 		// do nothing
 

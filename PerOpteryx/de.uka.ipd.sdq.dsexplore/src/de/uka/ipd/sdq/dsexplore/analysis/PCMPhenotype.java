@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.dsexplore.analysis;
 
 
-import org.opt4j.core.problem.Phenotype;
+import org.opt4j.core.Phenotype;
 
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 

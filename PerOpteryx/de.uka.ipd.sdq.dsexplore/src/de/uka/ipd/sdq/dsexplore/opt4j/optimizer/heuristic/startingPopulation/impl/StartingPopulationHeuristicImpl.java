@@ -8,8 +8,8 @@ import java.util.Random;
 
 import org.eclipse.emf.ecore.EObject;
 import org.opt4j.core.Individual;
-import org.opt4j.core.IndividualBuilder;
-import org.opt4j.core.optimizer.Completer;
+import org.opt4j.core.IndividualFactory;
+import org.opt4j.core.optimizer.IndividualCompleter;
 import org.opt4j.core.optimizer.TerminationException;
 
 import de.uka.ipd.sdq.dsexplore.launch.DSEWorkflowConfiguration;
@@ -90,28 +90,28 @@ public class StartingPopulationHeuristicImpl extends AbstractStartingPopulationH
 	 * 
 	 * FIXME: Must only use those servers that are allowed in designdecisions. 
 	 */
-	public Collection<DSEIndividual> getStartingPopulation(Completer completer, IndividualBuilder individualBuilder, DSEIndividual baseIndividual) {
+	public Collection<DSEIndividual> getStartingPopulation(IndividualCompleter completer, IndividualFactory individualFactory, DSEIndividual baseIndividual) {
 		Collection<DSEIndividual> result = new LinkedList<DSEIndividual>();
 		// default processing rate
-		Collection<DSEIndividual> population = getStartingPopulationWithDefaultProcessingRate(completer, individualBuilder, baseIndividual);
+		Collection<DSEIndividual> population = getStartingPopulationWithDefaultProcessingRate(completer, individualFactory, baseIndividual);
 		// max processing rate
-		result.addAll(getAdjustedProcessingRatePopulation(population, individualBuilder, PROCESSING_RATE_LEVEL.MAX));
+		result.addAll(getAdjustedProcessingRatePopulation(population, individualFactory, PROCESSING_RATE_LEVEL.MAX));
 		// min processing rate
-		result.addAll(getAdjustedProcessingRatePopulation(population, individualBuilder, PROCESSING_RATE_LEVEL.MIN));
+		result.addAll(getAdjustedProcessingRatePopulation(population, individualFactory, PROCESSING_RATE_LEVEL.MIN));
 		// less processing rate
-		result.addAll(getAdjustedProcessingRatePopulation(population, individualBuilder, PROCESSING_RATE_LEVEL.LESS));
+		result.addAll(getAdjustedProcessingRatePopulation(population, individualFactory, PROCESSING_RATE_LEVEL.LESS));
 		// more processing rate
-		result.addAll(getAdjustedProcessingRatePopulation(population, individualBuilder, PROCESSING_RATE_LEVEL.MORE));
+		result.addAll(getAdjustedProcessingRatePopulation(population, individualFactory, PROCESSING_RATE_LEVEL.MORE));
 		result.addAll(population);
 		return result;
 	}
 
 	
-	private Collection<DSEIndividual> getAdjustedProcessingRatePopulation(Collection<DSEIndividual> population, IndividualBuilder individualBuilder, PROCESSING_RATE_LEVEL processingRateLevel) {
+	private Collection<DSEIndividual> getAdjustedProcessingRatePopulation(Collection<DSEIndividual> population, IndividualFactory individualFactory, PROCESSING_RATE_LEVEL processingRateLevel) {
 		CopyDesignDecisionGenotype copy = new CopyDesignDecisionGenotype();
 		Collection<DSEIndividual> result = new LinkedList<DSEIndividual>();
 		for (DSEIndividual individual : population) {
-			DSEIndividual newIndividual = (DSEIndividual)individualBuilder.build(copy.copy((DesignDecisionGenotype)individual.getGenotype()));
+			DSEIndividual newIndividual = (DSEIndividual)individualFactory.create(copy.copy((DesignDecisionGenotype)individual.getGenotype()));
 			result.add(newIndividual);
 		}
 		for (DSEIndividual individual : result) {
@@ -149,7 +149,7 @@ public class StartingPopulationHeuristicImpl extends AbstractStartingPopulationH
 		return result;
 	}
 
-//	public Collection<DSEIndividual> getStartingPopulation(Completer completer, IndividualBuilder individualBuilder, int populationSize, DSEIndividual firstIndividual) {
+//	public Collection<DSEIndividual> getStartingPopulation(IndividualCompleter completer, IndividualFactory individualFactory, int populationSize, DSEIndividual firstIndividual) {
 //		Collection<DSEIndividual> population = new LinkedList<DSEIndividual>();
 //		CopyDesignDecisionGenotype copy = new CopyDesignDecisionGenotype();
 //		if (minNumberOfResourceContainers > maxNumberOfResourceContainers) {
@@ -162,7 +162,7 @@ public class StartingPopulationHeuristicImpl extends AbstractStartingPopulationH
 //		while (population.size() < populationSize && tries < populationSize + MAX_TRIES) {
 //			int randomNumberOfResourceContainers = getRandomInt(minNumberOfResourceContainers, maxNumberOfResourceContainers);
 //			ArrayList<Integer> allocation = getNumberOfComponentsPerResourceContainer(getAllocationContexts().size(), randomNumberOfResourceContainers);
-//			DSEIndividual newIndividual = (DSEIndividual)individualBuilder.build(copy.copy((DesignDecisionGenotype)firstIndividual.getGenotype()));
+//			DSEIndividual newIndividual = (DSEIndividual)individualFactory.build(copy.copy((DesignDecisionGenotype)firstIndividual.getGenotype()));
 //			newIndividual = (DSEIndividual) getRandomIndividual(allocation, newIndividual);
 //			if (!population.contains(newIndividual)) {
 //				try {
@@ -182,7 +182,7 @@ public class StartingPopulationHeuristicImpl extends AbstractStartingPopulationH
 //		return population;
 //	}
 	
-	private Collection<DSEIndividual> getStartingPopulationWithDefaultProcessingRate(Completer completer, IndividualBuilder individualBuilder,
+	private Collection<DSEIndividual> getStartingPopulationWithDefaultProcessingRate(IndividualCompleter completer, IndividualFactory individualFactory,
 			DSEIndividual firstIndividual) {
 		Collection<DSEIndividual> population = new LinkedList<DSEIndividual>();
 		CopyDesignDecisionGenotype copy = new CopyDesignDecisionGenotype();
@@ -199,7 +199,7 @@ public class StartingPopulationHeuristicImpl extends AbstractStartingPopulationH
 			while (individualsForAllocation.size() < numberOfCandidatesPerAllocationLevel && tries <= numberOfCandidatesPerAllocationLevel + MAX_TRIES) {
 				ArrayList<Integer> allocation = getNumberOfComponentsPerResourceContainer(getAllocationContexts()
 						.size(), numberOfResourceContainers);
-				DSEIndividual newIndividual = (DSEIndividual) individualBuilder.build(copy
+				DSEIndividual newIndividual = (DSEIndividual) individualFactory.create(copy
 						.copy((DesignDecisionGenotype) firstIndividual.getGenotype()));
 				newIndividual = (DSEIndividual) getRandomIndividual(allocation, newIndividual);
 				if (!individualsForAllocation.contains(newIndividual)) {

@@ -1,13 +1,16 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
-import org.opt4j.core.IndividualBuilder;
-import org.opt4j.operator.copy.CopyModule;
-import org.opt4j.operator.crossover.CrossoverModule;
-import org.opt4j.operator.mutate.MutateModule;
+import org.opt4j.core.Genotype;
+import org.opt4j.core.IndividualFactory;
+import org.opt4j.operator.copy.Copy;
+import org.opt4j.operator.crossover.Crossover;
+import org.opt4j.operator.mutate.Mutate;
 import org.opt4j.optimizer.ea.ConstantCrossoverRate;
 import org.opt4j.optimizer.ea.CrossoverRate;
 import org.opt4j.optimizer.ea.EvolutionaryAlgorithmModule;
 import org.opt4j.optimizer.ea.Mating;
+
+import com.google.inject.TypeLiteral;
 
 import de.uka.ipd.sdq.dsexplore.opt4j.operator.CopyDesignDecisionGenotype;
 import de.uka.ipd.sdq.dsexplore.opt4j.operator.MutateDesignDecisionGenotype;
@@ -32,13 +35,18 @@ public class DSEEvolutionaryAlgorithmModule extends EvolutionaryAlgorithmModule 
 
 		bind(CrossoverRate.class).to(ConstantCrossoverRate.class).in(SINGLETON);
 		
-		bind(IndividualBuilder.class).to(DSEIndividualBuilder.class);
+		bind(IndividualFactory.class).to(DSEIndividualFactory.class);
 		
-		CrossoverModule.addCrossover(binder(),UniformDesignDecisionGenotypeCrossover.class);
+		//CrossoverModule.addOperator
+		bind(new TypeLiteral<Crossover<Genotype>>() {}).to((Class<? extends Crossover<Genotype>>) UniformDesignDecisionGenotypeCrossover.class);
+		//CrossoverModule.addCrossover(binder(),UniformDesignDecisionGenotypeCrossover.class);
 		//CrossoverModule.addCrossover(binder(),DesignDecisionCrossover.class);
-		MutateModule.addMutate(binder(),MutateDesignDecisionGenotype.class);
 		
-		CopyModule.addCopy(binder(), CopyDesignDecisionGenotype.class);
+		bind(new TypeLiteral<Mutate<Genotype>>() {}).to((Class<? extends Mutate<Genotype>>) MutateDesignDecisionGenotype.class);
+		//MutateModule.addMutate(binder(),MutateDesignDecisionGenotype.class);
+		
+		bind(new TypeLiteral<Copy<Genotype>>() {}).to((Class<? extends Copy<Genotype>>) CopyDesignDecisionGenotype.class);
+		//CopyModule.addCopy(binder(), CopyDesignDecisionGenotype.class);
 
 		addOptimizerIterationListener(TerminationCriteriaManager.class);
 

@@ -6,11 +6,11 @@ package de.uka.ipd.sdq.tcfmoop.terminationcriteria;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.opt4j.core.Archive;
+import org.opt4j.core.optimizer.Archive;
 import org.opt4j.core.Individual;
 import org.opt4j.core.Objective;
 import org.opt4j.core.Objectives;
-import org.opt4j.core.Population;
+import org.opt4j.core.optimizer.Population;
 import org.opt4j.core.Value;
 import org.opt4j.core.Objective.Sign;
 

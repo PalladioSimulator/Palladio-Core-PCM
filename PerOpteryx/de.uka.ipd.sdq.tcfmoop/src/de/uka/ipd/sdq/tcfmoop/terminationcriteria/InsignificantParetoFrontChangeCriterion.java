@@ -6,10 +6,10 @@ package de.uka.ipd.sdq.tcfmoop.terminationcriteria;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import org.opt4j.core.Archive;
+import org.opt4j.core.optimizer.Archive;
 import org.opt4j.core.Individual;
 import org.opt4j.core.Objectives;
-import org.opt4j.core.Population;
+import org.opt4j.core.optimizer.Population;
 
 import de.uka.ipd.sdq.tcfmoop.config.IConfiguration;
 import de.uka.ipd.sdq.tcfmoop.config.InsignificantParetoFrontChangeConfig;

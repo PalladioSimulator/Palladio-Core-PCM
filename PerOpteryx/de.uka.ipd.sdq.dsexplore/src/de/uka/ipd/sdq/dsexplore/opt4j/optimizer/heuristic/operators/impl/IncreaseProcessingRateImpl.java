@@ -5,14 +5,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
 
 import de.uka.ipd.sdq.dsexplore.launch.DSEWorkflowConfiguration;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticsResultCandidate;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.UtilisationResultCacheAndHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualFactory;
 import de.uka.ipd.sdq.dsexplore.qml.handling.QMLConstantsContainer;
 import de.uka.ipd.sdq.pcm.designdecision.ContinousRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ContinuousProcessingRateDegree;
@@ -52,11 +52,11 @@ public class IncreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 	/**
 	 * @param copy
 	 *            Creates copy of genotypes
-	 * @param individualBuilder
+	 * @param individualFactory
 	 *            Builds individual
 	 */
-	public IncreaseProcessingRateImpl(Copy<Genotype> copy, DSEIndividualBuilder individualBuilder, DSEWorkflowConfiguration configuration) {
-		super(copy, individualBuilder, configuration, new String[] {
+	public IncreaseProcessingRateImpl(Copy<Genotype> copy, DSEIndividualFactory individualFactory, DSEWorkflowConfiguration configuration) {
+		super(copy, individualFactory, configuration, new String[] {
 				QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_RESPONSETIME_DEFINITION_PATH,
 				QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_THROUGHPUT_DEFINITION_PATH,
 				QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_MAX_UTIL_DEFINITION_PATH});

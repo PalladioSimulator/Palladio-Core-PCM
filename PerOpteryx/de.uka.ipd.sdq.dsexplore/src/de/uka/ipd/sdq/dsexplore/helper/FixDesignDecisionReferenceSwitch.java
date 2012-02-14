@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingResourceDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange;
+import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 import de.uka.ipd.sdq.pcm.designdecision.util.designdecisionSwitch;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
@@ -130,8 +131,9 @@ public class FixDesignDecisionReferenceSwitch extends designdecisionSwitch<EObje
 	public EObject caseChoice(Choice object) {
 		
 		DecisionSpace inMemoryProblem = Opt4JStarter.getProblem().getEMFProblem();
-				
-		DegreeOfFreedomInstance originalDegree = object.getDegreeOfFreedomInstance();
+		
+		DegreeOfFreedomInstance originalDegree = object.getDegreeOfFreedomInstance();		
+		
 		doSwitch(originalDegree);
 		
 		boolean foundDegree = false;

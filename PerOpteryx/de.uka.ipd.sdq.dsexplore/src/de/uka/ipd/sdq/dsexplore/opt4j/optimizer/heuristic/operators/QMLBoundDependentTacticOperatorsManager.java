@@ -14,13 +14,13 @@ import org.opt4j.core.Constraint;
 import org.opt4j.core.InfeasibilityConstraint;
 import org.opt4j.core.SatisfactionConstraint;
 import org.opt4j.core.Value;
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
 
 import com.google.inject.Inject;
 
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualFactory;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.EvaluationAspectWithContext;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.reader.PCMDeclarationsReader;
 
@@ -38,8 +38,8 @@ public class QMLBoundDependentTacticOperatorsManager extends TacticOperatorsMana
 
 	@Inject
 	public QMLBoundDependentTacticOperatorsManager(Copy<Genotype> copy,
-			DSEIndividualBuilder individualBuilder) {
-		super(copy, individualBuilder);
+			DSEIndividualFactory individualFactory) {
+		super(copy, individualFactory);
 	}
 	
 	/**

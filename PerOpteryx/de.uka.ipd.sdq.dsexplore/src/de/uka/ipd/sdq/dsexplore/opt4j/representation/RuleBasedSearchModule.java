@@ -2,11 +2,13 @@ package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
 import org.opt4j.config.annotations.Info;
 import org.opt4j.config.annotations.Order;
-import org.opt4j.core.IndividualBuilder;
-import org.opt4j.core.optimizer.Iterations;
+import org.opt4j.core.Genotype;
+import org.opt4j.core.IndividualFactory;
 import org.opt4j.core.optimizer.OptimizerModule;
-import org.opt4j.operator.copy.CopyModule;
+import org.opt4j.operator.copy.Copy;
 import org.opt4j.start.Constant;
+
+import com.google.inject.TypeLiteral;
 
 import de.uka.ipd.sdq.dsexplore.opt4j.operator.CopyDesignDecisionGenotype;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.RuleBasedSearch;
@@ -15,7 +17,6 @@ public class RuleBasedSearchModule extends OptimizerModule {
 
 	@Info("The number of generations.")
 	@Order(0)
-	@Iterations
 	protected int generations = 1000;
 	
 	@Info("Whether to perform a full search (true) or discard / prune suboptimal candidates (false)")
@@ -28,10 +29,10 @@ public class RuleBasedSearchModule extends OptimizerModule {
 	protected void config() {
 		bindOptimizer(RuleBasedSearch.class);
 		
-		bind(IndividualBuilder.class).to(DSEIndividualBuilder.class);
+		bind(IndividualFactory.class).to(DSEIndividualFactory.class);
 		
-		CopyModule.addCopy(binder(), CopyDesignDecisionGenotype.class);
-
+		bind(new TypeLiteral<Copy<Genotype>>() {}).to((Class<? extends Copy<Genotype>>) CopyDesignDecisionGenotype.class);
+		
 	}
 	
 	/**

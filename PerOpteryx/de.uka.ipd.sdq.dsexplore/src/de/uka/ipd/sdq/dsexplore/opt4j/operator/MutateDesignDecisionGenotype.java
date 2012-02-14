@@ -59,9 +59,9 @@ public class MutateDesignDecisionGenotype implements Mutate<DesignDecisionGenoty
 	 * for each gene.
 	 */
 	@Override
-	public void mutate(DesignDecisionGenotype genotype) {
+	public void mutate(DesignDecisionGenotype genotype, double mutationRate) {
 		for (Choice choice : genotype) {
-			if (random.nextDouble() < mutationRate.get()) {
+			if (random.nextDouble() < mutationRate) {
 				if (choice instanceof DiscreteRangeChoice){
 					mutateDiscrete((DiscreteRangeChoice)choice);
 				} else if (choice instanceof ClassChoice){
@@ -128,7 +128,7 @@ public class MutateDesignDecisionGenotype implements Mutate<DesignDecisionGenoty
 			ContinuousRangeDegree contDegree = (ContinuousRangeDegree)degree;
 			DoubleGenotype doubleList = new DoubleGenotype(contDegree.getFrom(),contDegree.getTo());
 			doubleList.add(choice.getChosenValue());
-			this.mutateDouble.mutate(doubleList);
+			this.mutateDouble.mutate(doubleList, this.mutationRate.get());
 			double newValue = doubleList.get(0);
 			choice.setChosenValue(newValue);
 		} else throw new InvalidChoiceForDegreeException(choice);
@@ -177,7 +177,7 @@ public class MutateDesignDecisionGenotype implements Mutate<DesignDecisionGenoty
 	private int mutateInteger(int oldValue, int lowerBound, int upperBound) {
 		IntegerGenotype integerGenotype = new IntegerGenotype(lowerBound, upperBound);
 		integerGenotype.add(oldValue);
-		this.mutateInteger.mutate(integerGenotype);
+		this.mutateInteger.mutate(integerGenotype, this.mutationRate.get());
 		int newValue = integerGenotype.get(0);
 		return newValue;
 	}

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.opt4j.core.Archive;
-import org.opt4j.core.Population;
+import org.opt4j.core.optimizer.Archive;
+import org.opt4j.core.optimizer.Population;
 import org.opt4j.core.optimizer.Control;
 import org.opt4j.core.optimizer.Optimizer;
 

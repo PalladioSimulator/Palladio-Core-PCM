@@ -11,17 +11,20 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.WriterAppender;
 import org.eclipse.core.runtime.CoreException;
-import org.opt4j.core.Archive;
+import org.opt4j.core.Genotype;
 import org.opt4j.core.Individual;
-import org.opt4j.core.IndividualBuilder;
-import org.opt4j.core.Population;
+import org.opt4j.core.IndividualFactory;
 import org.opt4j.core.optimizer.AbstractOptimizer;
-import org.opt4j.core.optimizer.Completer;
+import org.opt4j.core.optimizer.Archive;
+//import org.opt4j.core.optimizer.IndividualCompleter;
 import org.opt4j.core.optimizer.Control;
-import org.opt4j.core.optimizer.Iterations;
+//import org.opt4j.core.optimizer.Iterations;
+import org.opt4j.core.optimizer.IndividualCompleter;
+import org.opt4j.core.optimizer.Iteration;
+import org.opt4j.core.optimizer.Population;
 import org.opt4j.core.optimizer.StopException;
 import org.opt4j.core.optimizer.TerminationException;
-import org.opt4j.core.problem.Genotype;
+//import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
 import org.opt4j.start.Constant;
 
@@ -33,7 +36,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticOperat
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticsResultCandidate;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSECreator;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualFactory;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 
 /**
@@ -45,6 +48,7 @@ public class RuleBasedSearch extends AbstractOptimizer {
 
 	private TacticOperatorsManager tacticsManager;
 	private int generations;
+	private IndividualFactory individualFactory;
 	
 	private boolean fullSearch;
 	
@@ -54,19 +58,20 @@ public class RuleBasedSearch extends AbstractOptimizer {
 
 	@Inject
 	public RuleBasedSearch(Population population, Archive archive,
-			IndividualBuilder individualBuilder, Completer completer,
-			Control control, Copy<Genotype> copy, @Iterations int generations,
+			IndividualFactory individualFactory, IndividualCompleter completer,
+			Control control, Copy<Genotype> copy, Iteration iteration,
 			@Constant(value = "fullSearch", namespace = RuleBasedSearch.class) boolean fullSearch) {
-		super(population, archive, individualBuilder, completer, control);
-		this.tacticsManager = new TacticOperatorsManager(copy, (DSEIndividualBuilder)individualBuilder);
+		super(population, archive, completer, control, iteration);
+		this.tacticsManager = new TacticOperatorsManager(copy, (DSEIndividualFactory)individualFactory);
 		this.generations = generations;
 		this.fullSearch = fullSearch;
+		this.individualFactory = individualFactory;
 	}
 
 	@Override
 	public void optimize() throws StopException, TerminationException {
 		
-		Individual ind = individualBuilder.build();
+		Individual ind = individualFactory.create();
 		this.population.add(ind);
 		
 		try {
@@ -74,7 +79,7 @@ public class RuleBasedSearch extends AbstractOptimizer {
 			// 		also take additional predefined candidates, if any
 			int numberOfPredefinedOnes = creator.getNumberOfNotEvaluatedPredefinedOnes();
 			for (int i = 1; i <= numberOfPredefinedOnes; i++) {
-				Individual ind2 = individualBuilder.build();
+				Individual ind2 = individualFactory.create();
 				this.population.add(ind2);
 			}
 		} catch (CoreException e) {

@@ -17,23 +17,28 @@ import org.opt4j.common.archive.CrowdingArchive;
 import org.opt4j.common.archive.DefaultArchive;
 import org.opt4j.config.Task;
 import org.opt4j.config.Task.State;
-import org.opt4j.core.Archive;
+//import org.opt4j.core.optimizer.Archive;
 import org.opt4j.core.Individual;
-import org.opt4j.core.IndividualBuilder;
-import org.opt4j.core.IndividualCollection;
-import org.opt4j.core.IndividualCollectionListener;
+import org.opt4j.core.IndividualFactory;
+//import org.opt4j.core.IndividualFactory;
+//import org.opt4j.core.IndividualSet;
+//import org.opt4j.core.IndividualSetListener;
 import org.opt4j.core.Objective;
-import org.opt4j.core.Population;
+//import org.opt4j.core.optimizer.Population;
 import org.opt4j.core.Value;
 import org.opt4j.core.domination.ConstraintDominationModule;
 import org.opt4j.core.domination.ConstraintDominationModule.Strategy;
-import org.opt4j.core.optimizer.Completer;
+//import org.opt4j.core.optimizer.IndividualCompleter;
+import org.opt4j.core.optimizer.Archive;
 import org.opt4j.core.optimizer.Control;
+import org.opt4j.core.optimizer.IndividualCompleter;
 import org.opt4j.core.optimizer.Optimizer;
+import org.opt4j.core.optimizer.Population;
 import org.opt4j.core.problem.Evaluator;
 import org.opt4j.operator.mutate.BasicMutateModule;
 import org.opt4j.optimizer.ea.EvolutionaryAlgorithmModule;
 import org.opt4j.optimizer.ea.ScalingNsga2Module;
+//import org.opt4j.optimizer.ea.ScalingNsga2Module;
 import org.opt4j.optimizer.rs.RandomSearchModule;
 import org.opt4j.start.Opt4J;
 import org.opt4j.start.Opt4JTask;
@@ -53,7 +58,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEDecoder;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEEvolutionaryAlgorithmModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualFactory;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEMutateModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEProblem;
@@ -208,19 +213,19 @@ public class Opt4JStarter {
 			Opt4JStarter.creator = task.getInstance(DSECreator.class);
 			Optimizer opt = task.getInstance(Optimizer.class);
 			opt.addOptimizerIterationListener(listener);
-			IndividualBuilder indivBuilder = getIndividualBuilder();
+			IndividualFactory indivBuilder = getIndividualFactory();
 			//indivBuilder.addIndividualStateListener(new DSEIndividualStateListener(dseConfig));
 			
 			//add the previously defined all candidates to the custom PopulationTracker archive, 
 			PopulationTracker populationTracker = getAllIndividuals();
 			Archive archive = getArchiveIndividuals();
-			Completer completer = task.getInstance(Completer.class);
+			IndividualCompleter completer = task.getInstance(IndividualCompleter.class);
 			if (allCandidates != null && allCandidates.size() > 0){
-				if (indivBuilder instanceof DSEIndividualBuilder){
+				if (indivBuilder instanceof DSEIndividualFactory){
 					logger.debug("Reading in predefined all candidates.");
-					DSEIndividualBuilder dseBuilder = (DSEIndividualBuilder)indivBuilder;
+					DSEIndividualFactory dseBuilder = (DSEIndividualFactory)indivBuilder;
 					for (DesignDecisionGenotype designDecisionGenotype : allCandidates) {
-						DSEIndividual individual = dseBuilder.build(designDecisionGenotype);
+						DSEIndividual individual = dseBuilder.create(designDecisionGenotype);
 						completer.complete(individual);
 						populationTracker.addIndividualsManually(individual);
 					}
@@ -230,7 +235,7 @@ public class Opt4JStarter {
 				
 					try {
 						for (DesignDecisionGenotype designDecisionGenotype : archiveCandidates) {
-							Individual individual = dseBuilder.build(designDecisionGenotype);
+							Individual individual = dseBuilder.create(designDecisionGenotype);
 							completer.complete(individual);
 							archive.add(individual);
 						}
@@ -295,15 +300,15 @@ public class Opt4JStarter {
 	 * @return
 	 * @throws CoreException 
 	 */
-	public static DSEIndividualBuilder getIndividualBuilder() throws CoreException {
+	public static DSEIndividualFactory getIndividualFactory() throws CoreException {
 		if (task != null){
-			IndividualBuilder indivBuilder = task.getInstance(IndividualBuilder.class);
-			if (!(indivBuilder instanceof DSEIndividualBuilder)){
-				ExceptionHelper.createNewInitialisationException("Internal Error: IndividualBuilder is not a DSEIndividualBuilder, Opt4JStarter has not properly been initialised.");
+			IndividualFactory indivBuilder = task.getInstance(IndividualFactory.class);
+			if (!(indivBuilder instanceof DSEIndividualFactory)){
+				ExceptionHelper.createNewInitialisationException("Internal Error: IndividualFactory is not a DSEIndividualFactory, Opt4JStarter has not properly been initialised.");
 			}
-			return (DSEIndividualBuilder)indivBuilder;
+			return (DSEIndividualFactory)indivBuilder;
 		} else 
-			throw ExceptionHelper.createNewInitialisationException("Internal Error: Cannot access IndividualBuilder, Opt4JStarter has not properly been initialised.");
+			throw ExceptionHelper.createNewInitialisationException("Internal Error: Cannot access IndividualFactory, Opt4JStarter has not properly been initialised.");
 	}
 
 	private static void addPopulationModule(Collection<Module> modules) {
@@ -336,11 +341,11 @@ public class Opt4JStarter {
 				@Override
 				public void config(){
 					super.config();
-					bind(IndividualBuilder.class).to(DSEIndividualBuilder.class);
+					bind(IndividualFactory.class).to(DSEIndividualFactory.class);
 				}
 			};
 			rsm.setBatchsize(config.getIndividualsPerGeneration());
-			rsm.setEvaluations(maxIterations*rsm.getBatchsize());
+			rsm.setIterations(maxIterations);
 			modules.add(rsm);
 		} else {
 			EvolutionaryAlgorithmModule ea = new DSEEvolutionaryAlgorithmModule();
@@ -411,7 +416,7 @@ public class Opt4JStarter {
 
 	/**
 	 * Returns the instance of {@link Population} from the Opt4J {@link Task}, 
-	 * which is a plain {@link IndividualCollection}.
+	 * which is a plain {@link IndividualSet}.
 	 * 
 	 * Can only be called after calling {@link Opt4JStarter#init(List, DSEWorkflowConfiguration, PCMInstance, IProgressMonitor, MDSDBlackboard)}.
 	 *   
@@ -432,7 +437,7 @@ public class Opt4JStarter {
 
 	/**
 	 * Returns the instance of {@link PopulationTracker} from the Opt4J {@link Task}, 
-	 * which is an {@link IndividualCollectionListener} that listens on the 
+	 * which is an {@link IndividualSetListener} that listens on the 
 	 * {@link Population} instance from the Opt4J {@link Task}.  
 	 * 
 	 * Can only be called after calling {@link Opt4JStarter#init(List, DSEWorkflowConfiguration, PCMInstance, IProgressMonitor, MDSDBlackboard)}.

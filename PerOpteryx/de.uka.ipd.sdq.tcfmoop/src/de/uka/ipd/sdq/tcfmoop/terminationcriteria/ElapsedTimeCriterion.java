@@ -6,8 +6,8 @@ package de.uka.ipd.sdq.tcfmoop.terminationcriteria;
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadMXBean;
 
-import org.opt4j.core.Archive;
-import org.opt4j.core.Population;
+import org.opt4j.core.optimizer.Archive;
+import org.opt4j.core.optimizer.Population;
 
 import de.uka.ipd.sdq.tcfmoop.config.ElapsedTimeConfig;
 import de.uka.ipd.sdq.tcfmoop.config.IConfiguration;

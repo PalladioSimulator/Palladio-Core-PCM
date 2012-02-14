@@ -283,6 +283,8 @@ private IStatisticAnalysisResult findExperimentRunAndCreateResult(
 			pcmPartition.loadModel(featureConfigFile);
 		}
 		
+		this.simuComWorkflowConfiguration.setInteractive(false);
+		
 		SimuComJob job = new SimuComJob(this.simuComWorkflowConfiguration, null, false);
 		job.setBlackboard(this.blackboard);
 		

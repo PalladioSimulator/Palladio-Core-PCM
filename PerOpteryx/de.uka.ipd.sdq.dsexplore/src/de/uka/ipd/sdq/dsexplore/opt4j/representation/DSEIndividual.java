@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.Genotype;
 import org.opt4j.core.Individual;
 import org.opt4j.core.IndividualStateListener;
 import org.opt4j.core.Objectives;

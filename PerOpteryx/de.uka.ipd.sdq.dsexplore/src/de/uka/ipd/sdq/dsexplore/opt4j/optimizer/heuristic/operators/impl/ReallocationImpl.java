@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import org.opt4j.core.problem.Genotype;
+import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
 
 import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.AbstractTact
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticsResultCandidate;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.UtilisationResultCacheAndHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
-import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualFactory;
 import de.uka.ipd.sdq.dsexplore.qml.handling.QMLConstantsContainer;
 import de.uka.ipd.sdq.pcm.designdecision.AllocationDegree;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
@@ -53,10 +53,10 @@ public class ReallocationImpl extends AbstractTactic {
 	/**
 	 * 
 	 * @param copy Used to copy genotype
-	 * @param individualBuilder Used to build individual
+	 * @param individualFactory Used to build individual
 	 */
-	public ReallocationImpl(Copy<Genotype> copy, DSEIndividualBuilder individualBuilder, DSEWorkflowConfiguration configuration) {
-		super(copy, individualBuilder, configuration, new String[] {QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_RESPONSETIME_DEFINITION_PATH,
+	public ReallocationImpl(Copy<Genotype> copy, DSEIndividualFactory individualFactory, DSEWorkflowConfiguration configuration) {
+		super(copy, individualFactory, configuration, new String[] {QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_RESPONSETIME_DEFINITION_PATH,
 				QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_THROUGHPUT_DEFINITION_PATH});
 		// set config
 		setHeuristicWeight(configuration.getReallocationWeight());
@@ -98,7 +98,7 @@ public class ReallocationImpl extends AbstractTactic {
 			UtilisationResult minUtilisationResult = resultsCache.getMinProcUtilisationResult(individual, resourceType);
 			UtilisationResult maxUtilisationResult = resultCache.getMaxProcUtilisationResult(individual, resourceType);
 			// create candidate
-			TacticsResultCandidate candidate = individualBuilder.buildCandidate(copy.copy(individual.getGenotype()), individual);
+			TacticsResultCandidate candidate = individualFactory.buildCandidate(copy.copy(individual.getGenotype()), individual);
 			ProcessingResourceSpecification minProcessingResourceSpec = ((ProcessingResourceSpecificationResultImpl)minUtilisationResult).getProcessingResourceSpecification_ProcessingResourceSpecificationResult();
 			ProcessingResourceSpecification maxProcessingResourceSpec = ((ProcessingResourceSpecificationResultImpl)maxUtilisationResult).getProcessingResourceSpecification_ProcessingResourceSpecificationResult();
 			ResourceContainer targetResourceContainer = ((ResourceContainer)minProcessingResourceSpec.eContainer());
