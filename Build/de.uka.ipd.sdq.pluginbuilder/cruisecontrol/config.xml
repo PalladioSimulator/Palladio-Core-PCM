@@ -132,7 +132,8 @@
       <!-- <alwaysbuild username="webmaster-sdq@ipd.uka.de" property="forced by alwaysbuild" ></alwaysbuild> -->
           <svn RepositoryLocation="https://svnserver.informatik.kit.edu/i43/svn/code/WorkflowEngine/trunk" username="cruisecontrol" password="obREaglAkEmhaDwl" />	  
           <svn RepositoryLocation="http://svn.fzi.de/svn/sqools/projects/sissy/core/trunk/" />
-	  <buildstatus logdir="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.3/logs/PCM Eclipse 3.5 build/" /> 
+	 <!-- <buildstatus logdir="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.3/logs/PCM Eclipse 3.5 build/" /> -->
+	 	<buildstatus logdir="/usr/local/cruisecontrol/cruisecontrol-bin-2.8.3/logs/PCM Eclipse 3.7 Incubation build/" />
     </modificationset>
     <schedule interval="1000"> <!-- in seconds; 86400: 1 day -->
       <ant buildfile="/home/ccontrol/sissysvn/de.fzi.sissy.pluginbuilder/build.xml" target="main-cc" antworkingdir="/home/ccontrol/sissysvn/de.fzi.sissy.pluginbuilder" antscript="/usr/bin/ant" usedebug="false" uselogger="false" timeout="3600"></ant>
