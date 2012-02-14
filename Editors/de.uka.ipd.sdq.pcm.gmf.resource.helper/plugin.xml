@@ -9,13 +9,13 @@
                class="de.uka.ipd.sdq.pcm.gmf.resource.helper.ProcessingResourceSpecificationEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecificationAdvice"
                inheritance="all"
-               typeId="de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecification_3001">
+               typeId="de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecification_3003">
          </adviceBinding>
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.resource.helper.AddCommunicationLinkResourceSpecificationEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResourceAdvice"
                inheritance="all"
-               typeId="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResource_2003">
+               typeId="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResource_2005">
          </adviceBinding>
       </metamodel>
    </extension>

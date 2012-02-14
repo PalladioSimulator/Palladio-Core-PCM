@@ -49,13 +49,9 @@
             <features
                 href="../../pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/MTTR"/>
           </labelMappings>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping"
-              viewPattern="Scheduling Policy: {0}">
+          <labelMappings>
             <diagramLabel
                 href="resourceeditor.gmfgraph#SchedulingPolicyLabel"/>
-            <features
-                href="../../pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/schedulingPolicy"/>
           </labelMappings>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"

@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.commands.LinkingResource2CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.commands.LinkingResourceCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.commands.ResourceContainerCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
 
@@ -31,13 +32,13 @@ public class ResourceEnvironmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.ResourceContainer_2001 == req
+		if (PalladioComponentModelElementTypes.ResourceContainer_2004 == req
 				.getElementType()) {
 			return getGEFWrapper(new ResourceContainerCreateCommand(req));
 		}
-		if (PalladioComponentModelElementTypes.LinkingResource_2003 == req
+		if (PalladioComponentModelElementTypes.LinkingResource_2005 == req
 				.getElementType()) {
-			return getGEFWrapper(new LinkingResource2CreateCommand(req));
+			return getGEFWrapper(new LinkingResourceCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

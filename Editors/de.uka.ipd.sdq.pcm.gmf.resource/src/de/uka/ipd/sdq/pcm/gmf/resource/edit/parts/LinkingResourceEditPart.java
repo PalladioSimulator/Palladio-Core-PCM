@@ -3,8 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.resource.edit.parts;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RectangleFigure;
+import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -15,31 +19,33 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import de.uka.ipd.sdq.pcm.dialogs.resource.OpenLatencyDialog;
-import de.uka.ipd.sdq.pcm.dialogs.resource.OpenThroughputDialog;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.CommunicationLinkResourceSpecificationItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.LinkingResourceItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
 
 /**
  * @generated
  */
-public class CommunicationLinkResourceSpecificationEditPart extends
-		ShapeNodeEditPart {
+public class LinkingResourceEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3004;
+	public static final int VISUAL_ID = 2005;
 
 	/**
 	 * @generated
@@ -54,7 +60,7 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	/**
 	 * @generated
 	 */
-	public CommunicationLinkResourceSpecificationEditPart(View view) {
+	public LinkingResourceEditPart(View view) {
 		super(view);
 	}
 
@@ -62,10 +68,11 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(
-				EditPolicyRoles.SEMANTIC_ROLE,
-				new CommunicationLinkResourceSpecificationItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new LinkingResourceItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -101,41 +108,25 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		NetworkSwitchSpecificationFigure figure = new NetworkSwitchSpecificationFigure();
+		NetworkSwitchFigure figure = new NetworkSwitchFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public NetworkSwitchSpecificationFigure getPrimaryShape() {
-		return (NetworkSwitchSpecificationFigure) primaryShape;
+	public NetworkSwitchFigure getPrimaryShape() {
+		return (NetworkSwitchFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel6EditPart) {
-			((WrappingLabel6EditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureNetworkSwitchSpecificationNameFigure());
-			return true;
-		}
-		if (childEditPart instanceof CommunicationLinkResourceSpecificationLatencyLabelEditPart) {
-			((CommunicationLinkResourceSpecificationLatencyLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureLatencyLabelFigure());
-			return true;
-		}
-		if (childEditPart instanceof CommunicationLinkResourceSpecificationThroughputLabelEditPart) {
-			((CommunicationLinkResourceSpecificationThroughputLabelEditPart) childEditPart)
+		if (childEditPart instanceof LinkingResourceEntityNameEditPart) {
+			((LinkingResourceEntityNameEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigureThroughputLabelFigure());
-			return true;
-		}
-		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
-			((CommunicationLinkResourceSpecificationFailureProbabilityEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureFailureProbabilityFigure());
+							.getFigureNetworkSwitchNameFigure());
 			return true;
 		}
 		return false;
@@ -145,16 +136,7 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabel6EditPart) {
-			return true;
-		}
-		if (childEditPart instanceof CommunicationLinkResourceSpecificationLatencyLabelEditPart) {
-			return true;
-		}
-		if (childEditPart instanceof CommunicationLinkResourceSpecificationThroughputLabelEditPart) {
-			return true;
-		}
-		if (childEditPart instanceof CommunicationLinkResourceSpecificationFailureProbabilityEditPart) {
+		if (childEditPart instanceof LinkingResourceEntityNameEditPart) {
 			return true;
 		}
 		return false;
@@ -278,41 +260,85 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-				.getType(CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID));
+				.getType(LinkingResourceEntityNameEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class NetworkSwitchSpecificationFigure extends RectangleFigure {
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSource() {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		types
+				.add(PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003);
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		if (targetEditPart instanceof ResourceContainerEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForTarget(
+			IElementType relationshipType) {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		if (relationshipType == PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003) {
+			types
+					.add(PalladioComponentModelElementTypes.ResourceContainer_2004);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public EditPart getTargetEditPart(Request request) {
+		if (request instanceof CreateViewAndElementRequest) {
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+					.getViewAndElementDescriptor()
+					.getCreateElementRequestAdapter();
+			IElementType type = (IElementType) adapter
+					.getAdapter(IElementType.class);
+			if (type == PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004) {
+				return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+						.getType(LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID));
+			}
+		}
+		return super.getTargetEditPart(request);
+	}
+
+	/**
+	 * @generated
+	 */
+	public class NetworkSwitchFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureThroughputLabelFigure;
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureLatencyLabelFigure;
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureFailureProbabilityFigure;
+		private WrappingLabel fFigureNetworkSwitchNameFigure;
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureNetworkSwitchSpecificationNameFigure;
-
-		/**
-		 * @generated
-		 */
-		public NetworkSwitchSpecificationFigure() {
-			this.setFill(false);
-			this.setOutline(false);
+		public NetworkSwitchFigure() {
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(27),
+					getMapMode().DPtoLP(27)));
 			this.setLineWidth(1);
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0),
-					getMapMode().DPtoLP(0)));
+			this.setSize(getMapMode().DPtoLP(200), getMapMode().DPtoLP(40));
+
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(10),
+					getMapMode().DPtoLP(10), getMapMode().DPtoLP(10),
+					getMapMode().DPtoLP(10)));
 			createContents();
 		}
 
@@ -321,40 +347,10 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 		 */
 		private void createContents() {
 
-			fFigureNetworkSwitchSpecificationNameFigure = new WrappingLabel();
-			fFigureNetworkSwitchSpecificationNameFigure.setText("LAN");
+			fFigureNetworkSwitchNameFigure = new WrappingLabel();
+			fFigureNetworkSwitchNameFigure.setText("");
 
-			this.add(fFigureNetworkSwitchSpecificationNameFigure);
-
-			WrappingLabel latency0 = new WrappingLabel();
-			latency0.setText("Latency:");
-
-			this.add(latency0);
-
-			fFigureLatencyLabelFigure = new WrappingLabel();
-			fFigureLatencyLabelFigure.setText("");
-
-			this.add(fFigureLatencyLabelFigure);
-
-			WrappingLabel throughput0 = new WrappingLabel();
-			throughput0.setText("Throughput:");
-
-			this.add(throughput0);
-
-			fFigureThroughputLabelFigure = new WrappingLabel();
-			fFigureThroughputLabelFigure.setText("");
-
-			this.add(fFigureThroughputLabelFigure);
-
-			WrappingLabel failureProbabiliby0 = new WrappingLabel();
-			failureProbabiliby0.setText("Failure Probability:");
-
-			this.add(failureProbabiliby0);
-
-			fFigureFailureProbabilityFigure = new WrappingLabel();
-			fFigureFailureProbabilityFigure.setText("");
-
-			this.add(fFigureFailureProbabilityFigure);
+			this.add(fFigureNetworkSwitchNameFigure);
 
 		}
 
@@ -380,29 +376,8 @@ public class CommunicationLinkResourceSpecificationEditPart extends
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureThroughputLabelFigure() {
-			return fFigureThroughputLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureLatencyLabelFigure() {
-			return fFigureLatencyLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureFailureProbabilityFigure() {
-			return fFigureFailureProbabilityFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureNetworkSwitchSpecificationNameFigure() {
-			return fFigureNetworkSwitchSpecificationNameFigure;
+		public WrappingLabel getFigureNetworkSwitchNameFigure() {
+			return fFigureNetworkSwitchNameFigure;
 		}
 
 	}

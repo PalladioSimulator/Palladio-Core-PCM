@@ -78,7 +78,7 @@ public class LinkingResourceConnectedResourceContainers_LinkingResourceReorientC
 			return false;
 		}
 		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistLinkingResourceConnectedResourceContainers_LinkingResource_4002(
+				.canExistLinkingResourceConnectedResourceContainers_LinkingResource_4003(
 						getNewSource(), getOldTarget());
 	}
 
@@ -90,7 +90,7 @@ public class LinkingResourceConnectedResourceContainers_LinkingResourceReorientC
 			return false;
 		}
 		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistLinkingResourceConnectedResourceContainers_LinkingResource_4002(
+				.canExistLinkingResourceConnectedResourceContainers_LinkingResource_4003(
 						getOldSource(), getNewTarget());
 	}
 

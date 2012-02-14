@@ -315,7 +315,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateLinkingResourceConnectedResourceContainers_LinkingResource_4002(
+		public static boolean canCreateLinkingResourceConnectedResourceContainers_LinkingResource_4003(
 				LinkingResource source, ResourceContainer target) {
 			if (source != null) {
 				if (source.getConnectedResourceContainers_LinkingResource()
@@ -324,14 +324,14 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 				}
 			}
 
-			return canExistLinkingResourceConnectedResourceContainers_LinkingResource_4002(
+			return canExistLinkingResourceConnectedResourceContainers_LinkingResource_4003(
 					source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public static boolean canExistLinkingResourceConnectedResourceContainers_LinkingResource_4002(
+		public static boolean canExistLinkingResourceConnectedResourceContainers_LinkingResource_4003(
 				LinkingResource source, ResourceContainer target) {
 			return true;
 		}

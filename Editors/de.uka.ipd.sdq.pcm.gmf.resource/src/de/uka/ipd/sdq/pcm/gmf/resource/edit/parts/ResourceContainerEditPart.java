@@ -52,7 +52,7 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 2004;
 
 	/**
 	 * @generated
@@ -298,7 +298,7 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnTarget() {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
 		types
-				.add(PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4002);
+				.add(PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003);
 		return types;
 	}
 
@@ -308,8 +308,8 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForSource(
 			IElementType relationshipType) {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		if (relationshipType == PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4002) {
-			types.add(PalladioComponentModelElementTypes.LinkingResource_2003);
+		if (relationshipType == PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003) {
+			types.add(PalladioComponentModelElementTypes.LinkingResource_2005);
 		}
 		return types;
 	}
@@ -324,7 +324,7 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
-			if (type == PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001) {
+			if (type == PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003) {
 				return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
 						.getType(ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID));
 			}

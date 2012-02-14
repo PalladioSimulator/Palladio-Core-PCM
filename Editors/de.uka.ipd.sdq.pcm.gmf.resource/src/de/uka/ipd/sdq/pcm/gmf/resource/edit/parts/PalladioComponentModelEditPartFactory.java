@@ -41,8 +41,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ResourceContainerEntityNameEditPart.VISUAL_ID:
 				return new ResourceContainerEntityNameEditPart(view);
 
-			case LinkingResource2EditPart.VISUAL_ID:
-				return new LinkingResource2EditPart(view);
+			case LinkingResourceEditPart.VISUAL_ID:
+				return new LinkingResourceEditPart(view);
 
 			case LinkingResourceEntityNameEditPart.VISUAL_ID:
 				return new LinkingResourceEntityNameEditPart(view);
@@ -56,16 +56,17 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ProcessingResourceSpecificationMTTREditPart.VISUAL_ID:
 				return new ProcessingResourceSpecificationMTTREditPart(view);
 
-			case ProcessingResourceSpecificationSchedulingPolicyEditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationSchedulingPolicyEditPart(
+			case ProcessingResourceSpecificationSchedulingPolicyLabelEditPart.VISUAL_ID:
+				return new ProcessingResourceSpecificationSchedulingPolicyLabelEditPart(
 						view);
 
 			case ProcessingResourceSpecificationNumberOfReplicasEditPart.VISUAL_ID:
 				return new ProcessingResourceSpecificationNumberOfReplicasEditPart(
 						view);
 
-			case WrappingLabelEditPart.VISUAL_ID:
-				return new WrappingLabelEditPart(view);
+			case ProcessingResourceSpecificationProcessingRateLabelEditPart.VISUAL_ID:
+				return new ProcessingResourceSpecificationProcessingRateLabelEditPart(
+						view);
 
 			case ProcessingResourceSpecificationActiveResourceTypeLabelEditPart.VISUAL_ID:
 				return new ProcessingResourceSpecificationActiveResourceTypeLabelEditPart(
@@ -86,8 +87,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 				return new CommunicationLinkResourceSpecificationThroughputLabelEditPart(
 						view);
 
-			case WrappingLabel2EditPart.VISUAL_ID:
-				return new WrappingLabel2EditPart(view);
+			case WrappingLabel6EditPart.VISUAL_ID:
+				return new WrappingLabel6EditPart(view);
 
 			case ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
 				return new ResourceContainerResourceContainerCompartmentEditPart(

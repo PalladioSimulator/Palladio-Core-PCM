@@ -37,7 +37,7 @@ public class LinkingResourceNetworkSwitchCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getLinkingResourceNetworkSwitchCompartment_7003SemanticChildren(
+				.getLinkingResourceNetworkSwitchCompartment_7006SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((PalladioComponentModelNodeDescriptor) it.next())
 					.getModelElement());

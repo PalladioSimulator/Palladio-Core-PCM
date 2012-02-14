@@ -49,14 +49,14 @@ public class PalladioComponentModelPaletteFactory {
 	 */
 	private ToolEntry createResourceContainer1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(PalladioComponentModelElementTypes.ResourceContainer_2001);
+		types.add(PalladioComponentModelElementTypes.ResourceContainer_2004);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ResourceContainer1CreationTool_title,
 				Messages.ResourceContainer1CreationTool_desc, types);
 		entry.setId("createResourceContainer1CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.ResourceContainer_2001));
+						.getImageDescriptor(PalladioComponentModelElementTypes.ResourceContainer_2004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -66,14 +66,14 @@ public class PalladioComponentModelPaletteFactory {
 	 */
 	private ToolEntry createLinkingResource2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
-		types.add(PalladioComponentModelElementTypes.LinkingResource_2003);
+		types.add(PalladioComponentModelElementTypes.LinkingResource_2005);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.LinkingResource2CreationTool_title,
 				Messages.LinkingResource2CreationTool_desc, types);
 		entry.setId("createLinkingResource2CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.LinkingResource_2003));
+						.getImageDescriptor(PalladioComponentModelElementTypes.LinkingResource_2005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -84,7 +84,7 @@ public class PalladioComponentModelPaletteFactory {
 	private ToolEntry createProcessingResourceSpecification3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001);
+				.add(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ProcessingResourceSpecification3CreationTool_title,
 				Messages.ProcessingResourceSpecification3CreationTool_desc,
@@ -92,7 +92,7 @@ public class PalladioComponentModelPaletteFactory {
 		entry.setId("createProcessingResourceSpecification3CreationTool"); //$NON-NLS-1$
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001));
+						.getImageDescriptor(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -103,7 +103,7 @@ public class PalladioComponentModelPaletteFactory {
 	private ToolEntry createConnection4CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
-				.add(PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4002);
+				.add(PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003);
 		LinkToolEntry entry = new LinkToolEntry(
 				Messages.Connection4CreationTool_title,
 				Messages.Connection4CreationTool_desc, types);

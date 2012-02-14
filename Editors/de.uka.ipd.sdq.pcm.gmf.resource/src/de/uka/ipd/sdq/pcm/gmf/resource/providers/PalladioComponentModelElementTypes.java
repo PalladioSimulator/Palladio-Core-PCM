@@ -20,8 +20,8 @@ import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
@@ -61,26 +61,27 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ResourceContainer_2001 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.ResourceContainer_2001"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
-	public static final IElementType LinkingResource_2003 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.LinkingResource_2003"); //$NON-NLS-1$
+	public static final IElementType ResourceContainer_2004 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.ResourceContainer_2004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ProcessingResourceSpecification_3001 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecification_3001"); //$NON-NLS-1$
+	public static final IElementType LinkingResource_2005 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.LinkingResource_2005"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType CommunicationLinkResourceSpecification_3002 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3002"); //$NON-NLS-1$
+	public static final IElementType ProcessingResourceSpecification_3003 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecification_3003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType LinkingResourceConnectedResourceContainers_LinkingResource_4002 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.LinkingResourceConnectedResourceContainers_LinkingResource_4002"); //$NON-NLS-1$
+	public static final IElementType CommunicationLinkResourceSpecification_3004 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType LinkingResourceConnectedResourceContainers_LinkingResource_4003 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.LinkingResourceConnectedResourceContainers_LinkingResource_4003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -198,24 +199,24 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 							.getResourceEnvironment());
 
 			elements
-					.put(ResourceContainer_2001,
+					.put(ResourceContainer_2004,
 							ResourceenvironmentPackage.eINSTANCE
 									.getResourceContainer());
 
-			elements.put(LinkingResource_2003,
+			elements.put(LinkingResource_2005,
 					ResourceenvironmentPackage.eINSTANCE.getLinkingResource());
 
-			elements.put(ProcessingResourceSpecification_3001,
+			elements.put(ProcessingResourceSpecification_3003,
 					ResourceenvironmentPackage.eINSTANCE
 							.getProcessingResourceSpecification());
 
-			elements.put(CommunicationLinkResourceSpecification_3002,
+			elements.put(CommunicationLinkResourceSpecification_3004,
 					ResourceenvironmentPackage.eINSTANCE
 							.getCommunicationLinkResourceSpecification());
 
 			elements
 					.put(
-							LinkingResourceConnectedResourceContainers_LinkingResource_4002,
+							LinkingResourceConnectedResourceContainers_LinkingResource_4003,
 							ResourceenvironmentPackage.eINSTANCE
 									.getLinkingResource_ConnectedResourceContainers_LinkingResource());
 		}
@@ -236,13 +237,13 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet();
 			KNOWN_ELEMENT_TYPES.add(ResourceEnvironment_1000);
-			KNOWN_ELEMENT_TYPES.add(ResourceContainer_2001);
-			KNOWN_ELEMENT_TYPES.add(LinkingResource_2003);
-			KNOWN_ELEMENT_TYPES.add(ProcessingResourceSpecification_3001);
+			KNOWN_ELEMENT_TYPES.add(ResourceContainer_2004);
+			KNOWN_ELEMENT_TYPES.add(LinkingResource_2005);
+			KNOWN_ELEMENT_TYPES.add(ProcessingResourceSpecification_3003);
 			KNOWN_ELEMENT_TYPES
-					.add(CommunicationLinkResourceSpecification_3002);
+					.add(CommunicationLinkResourceSpecification_3004);
 			KNOWN_ELEMENT_TYPES
-					.add(LinkingResourceConnectedResourceContainers_LinkingResource_4002);
+					.add(LinkingResourceConnectedResourceContainers_LinkingResource_4003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -255,15 +256,15 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 		case ResourceEnvironmentEditPart.VISUAL_ID:
 			return ResourceEnvironment_1000;
 		case ResourceContainerEditPart.VISUAL_ID:
-			return ResourceContainer_2001;
-		case LinkingResource2EditPart.VISUAL_ID:
-			return LinkingResource_2003;
+			return ResourceContainer_2004;
+		case LinkingResourceEditPart.VISUAL_ID:
+			return LinkingResource_2005;
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
-			return ProcessingResourceSpecification_3001;
+			return ProcessingResourceSpecification_3003;
 		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-			return CommunicationLinkResourceSpecification_3002;
+			return CommunicationLinkResourceSpecification_3004;
 		case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
-			return LinkingResourceConnectedResourceContainers_LinkingResource_4002;
+			return LinkingResourceConnectedResourceContainers_LinkingResource_4003;
 		}
 		return null;
 	}

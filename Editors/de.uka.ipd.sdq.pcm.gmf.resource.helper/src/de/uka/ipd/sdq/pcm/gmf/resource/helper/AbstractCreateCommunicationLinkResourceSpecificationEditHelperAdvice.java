@@ -17,7 +17,7 @@ public class AbstractCreateCommunicationLinkResourceSpecificationEditHelperAdvic
 	@Override
 	protected ICommand getBeforeConfigureCommand(ConfigureRequest request) {
 		IElementType elementType = ElementTypeRegistry.getInstance().
-			getType("de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3002");
+			getType("de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3004");
 		
 		CreateElementRequest createElementRequest = new CreateElementRequest(
 				request.getElementToConfigure(), elementType);

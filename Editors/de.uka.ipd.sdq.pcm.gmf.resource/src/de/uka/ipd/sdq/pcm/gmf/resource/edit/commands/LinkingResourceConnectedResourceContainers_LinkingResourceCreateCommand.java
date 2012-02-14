@@ -59,7 +59,7 @@ public class LinkingResourceConnectedResourceContainers_LinkingResourceCreateCom
 		}
 		// target may be null here but it's possible to check constraint
 		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateLinkingResourceConnectedResourceContainers_LinkingResource_4002(
+				.canCreateLinkingResourceConnectedResourceContainers_LinkingResource_4003(
 						getSource(), getTarget());
 	}
 

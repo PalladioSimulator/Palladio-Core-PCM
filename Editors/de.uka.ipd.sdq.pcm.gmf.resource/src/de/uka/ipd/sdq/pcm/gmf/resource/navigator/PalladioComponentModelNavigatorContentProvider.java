@@ -25,8 +25,8 @@ import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceNetworkSwitchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
@@ -234,7 +234,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(LinkingResource2EditPart.VISUAL_ID));
+							.getType(LinkingResourceEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getDiagramLinksByType(
@@ -253,7 +253,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 		case ResourceContainerEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_ResourceContainer_2001_incominglinks,
+					Messages.NavigatorGroupName_ResourceContainer_2004_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
@@ -277,10 +277,10 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case LinkingResource2EditPart.VISUAL_ID: {
+		case LinkingResourceEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_LinkingResource_2003_outgoinglinks,
+					Messages.NavigatorGroupName_LinkingResource_2005_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(
 					Collections.singleton(view),
@@ -307,10 +307,10 @@ public class PalladioComponentModelNavigatorContentProvider implements
 		case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_LinkingResourceConnectedResourceContainers_LinkingResource_4002_target,
+					Messages.NavigatorGroupName_LinkingResourceConnectedResourceContainers_LinkingResource_4003_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_LinkingResourceConnectedResourceContainers_LinkingResource_4002_source,
+					Messages.NavigatorGroupName_LinkingResourceConnectedResourceContainers_LinkingResource_4003_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getLinksTargetByType(Collections
 					.singleton(view), PalladioComponentModelVisualIDRegistry
@@ -319,7 +319,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
-							.getType(LinkingResource2EditPart.VISUAL_ID));
+							.getType(LinkingResourceEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			if (!target.isEmpty()) {

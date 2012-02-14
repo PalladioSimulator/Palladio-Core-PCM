@@ -62,7 +62,7 @@ public class ProcessingResourceSpecificationMTTREditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5003;
+	public static final int VISUAL_ID = 5014;
 
 	/**
 	 * @generated
@@ -315,7 +315,7 @@ public class ProcessingResourceSpecificationMTTREditPart extends
 		if (parser == null) {
 			parser = PalladioComponentModelParserProvider
 					.getParser(
-							PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001,
+							PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003,
 							getParserElement(),
 							PalladioComponentModelVisualIDRegistry
 									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTREditPart.VISUAL_ID));

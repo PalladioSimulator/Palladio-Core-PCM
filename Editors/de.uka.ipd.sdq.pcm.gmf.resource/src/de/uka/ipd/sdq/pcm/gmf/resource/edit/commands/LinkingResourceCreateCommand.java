@@ -15,20 +15,19 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 
 /**
  * @generated
  */
-public class ProcessingResourceSpecificationCreateCommand extends
-		EditElementCommand {
+public class LinkingResourceCreateCommand extends EditElementCommand {
 
 	/**
 	 * @generated
 	 */
-	public ProcessingResourceSpecificationCreateCommand(CreateElementRequest req) {
+	public LinkingResourceCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
@@ -58,12 +57,11 @@ public class ProcessingResourceSpecificationCreateCommand extends
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		ProcessingResourceSpecification newElement = ResourceenvironmentFactory.eINSTANCE
-				.createProcessingResourceSpecification();
+		LinkingResource newElement = ResourceenvironmentFactory.eINSTANCE
+				.createLinkingResource();
 
-		ResourceContainer owner = (ResourceContainer) getElementToEdit();
-		owner.getActiveResourceSpecifications_ResourceContainer().add(
-				newElement);
+		ResourceEnvironment owner = (ResourceEnvironment) getElementToEdit();
+		owner.getLinkingResources__ResourceEnvironment().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 
@@ -74,7 +72,7 @@ public class ProcessingResourceSpecificationCreateCommand extends
 	/**
 	 * @generated
 	 */
-	protected void doConfigure(ProcessingResourceSpecification newElement,
+	protected void doConfigure(LinkingResource newElement,
 			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
 		IElementType elementType = ((CreateElementRequest) getRequest())

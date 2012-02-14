@@ -29,7 +29,7 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
@@ -79,7 +79,7 @@ public class ResourceEnvironmentCanonicalEditPolicy extends
 		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case ResourceContainerEditPart.VISUAL_ID:
-		case LinkingResource2EditPart.VISUAL_ID:
+		case LinkingResourceEditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
 			}
@@ -234,7 +234,7 @@ public class ResourceEnvironmentCanonicalEditPolicy extends
 		case ResourceContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
-						.getResourceContainer_2001ContainedLinks(view));
+						.getResourceContainer_2004ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -242,10 +242,10 @@ public class ResourceEnvironmentCanonicalEditPolicy extends
 			}
 			break;
 		}
-		case LinkingResource2EditPart.VISUAL_ID: {
+		case LinkingResourceEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
-						.getLinkingResource_2003ContainedLinks(view));
+						.getLinkingResource_2005ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -257,7 +257,7 @@ public class ResourceEnvironmentCanonicalEditPolicy extends
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(PalladioComponentModelDiagramUpdater
-								.getProcessingResourceSpecification_3001ContainedLinks(view));
+								.getProcessingResourceSpecification_3003ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -269,7 +269,7 @@ public class ResourceEnvironmentCanonicalEditPolicy extends
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result
 						.addAll(PalladioComponentModelDiagramUpdater
-								.getCommunicationLinkResourceSpecification_3002ContainedLinks(view));
+								.getCommunicationLinkResourceSpecification_3004ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

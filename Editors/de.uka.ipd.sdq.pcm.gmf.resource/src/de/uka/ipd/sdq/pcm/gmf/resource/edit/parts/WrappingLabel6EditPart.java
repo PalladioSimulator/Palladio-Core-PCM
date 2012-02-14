@@ -30,7 +30,6 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
@@ -49,26 +48,21 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.dialogs.resource.OpenActiveResourceSpecificationDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelParserProvider;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl;
-import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceTypeImpl;
 
 /**
  * @generated
  */
-public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
-		extends CompartmentEditPart implements ITextAwareEditPart {
+public class WrappingLabel6EditPart extends CompartmentEditPart implements
+		ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5018;
+	public static final int VISUAL_ID = 5023;
 
 	/**
 	 * @generated
@@ -93,8 +87,7 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	/**
 	 * @generated
 	 */
-	public ProcessingResourceSpecificationActiveResourceTypeLabelEditPart(
-			View view) {
+	public WrappingLabel6EditPart(View view) {
 		super(view);
 	}
 
@@ -217,15 +210,16 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	protected String getLabelText() {
-		ProcessingResourceSpecificationImpl specification = (ProcessingResourceSpecificationImpl) this
-				.resolveSemanticElement();
 		String text = null;
-		text = specification
-				.getActiveResourceType_ActiveResourceSpecification()
-				.getEntityName();
+		EObject parserElement = getParserElement();
+		if (parserElement != null && getParser() != null) {
+			text = getParser().getPrintString(
+					new EObjectAdapter(parserElement),
+					getParserOptions().intValue());
+		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -265,7 +259,7 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**
@@ -326,10 +320,10 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 		if (parser == null) {
 			parser = PalladioComponentModelParserProvider
 					.getParser(
-							PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003,
+							PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004,
 							getParserElement(),
 							PalladioComponentModelVisualIDRegistry
-									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationActiveResourceTypeLabelEditPart.VISUAL_ID));
+									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel6EditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -491,19 +485,33 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	protected void addSemanticListeners() {
-		ProcessingResourceSpecification spec = (ProcessingResourceSpecification) resolveSemanticElement();
-		addListenerFilter("SemanticModel", this, spec); //$NON-NLS-1$
-
+		if (getParser() instanceof ISemanticParser) {
+			EObject element = resolveSemanticElement();
+			parserElements = ((ISemanticParser) getParser())
+					.getSemanticElementsBeingParsed(element);
+			for (int i = 0; i < parserElements.size(); i++) {
+				addListenerFilter(
+						"SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
+			}
+		} else {
+			super.addSemanticListeners();
+		}
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	protected void removeSemanticListeners() {
-		removeListenerFilter("SemanticModel"); //$NON-NLS-1$
+		if (parserElements != null) {
+			for (int i = 0; i < parserElements.size(); i++) {
+				removeListenerFilter("SemanticModel" + i); //$NON-NLS-1$
+			}
+		} else {
+			super.removeSemanticListeners();
+		}
 	}
 
 	/**
@@ -545,7 +553,7 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -568,7 +576,21 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 						feature)) {
 			refreshFont();
 		} else {
-			refreshLabel();
+			if (getParser() != null
+					&& getParser().isAffectingEvent(event,
+							getParserOptions().intValue())) {
+				refreshLabel();
+			}
+			if (getParser() instanceof ISemanticParser) {
+				ISemanticParser modelParser = (ISemanticParser) getParser();
+				if (modelParser.areSemanticElementsAffected(null, event)) {
+					removeSemanticListeners();
+					if (resolveSemanticElement() != null) {
+						addSemanticListeners();
+					}
+					refreshLabel();
+				}
+			}
 		}
 		super.handleNotificationEvent(event);
 	}

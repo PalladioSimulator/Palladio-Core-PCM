@@ -20,7 +20,7 @@ public class LinkingResourceConnectedResourceContainers_LinkingResourceItemSeman
 	 */
 	public LinkingResourceConnectedResourceContainers_LinkingResourceItemSemanticEditPolicy() {
 		super(
-				PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4002);
+				PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003);
 	}
 
 	/**

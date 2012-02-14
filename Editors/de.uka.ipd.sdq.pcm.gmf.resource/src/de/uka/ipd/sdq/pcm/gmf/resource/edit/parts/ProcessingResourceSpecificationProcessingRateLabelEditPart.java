@@ -49,26 +49,23 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.dialogs.resource.OpenActiveResourceSpecificationDialog;
+import de.uka.ipd.sdq.pcm.dialogs.resource.OpenProcessingRateDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelParserProvider;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl;
-import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceTypeImpl;
 
 /**
  * @generated
  */
-public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
-		extends CompartmentEditPart implements ITextAwareEditPart {
+public class ProcessingResourceSpecificationProcessingRateLabelEditPart extends
+		CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5018;
+	public static final int VISUAL_ID = 5017;
 
 	/**
 	 * @generated
@@ -93,18 +90,15 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	/**
 	 * @generated
 	 */
-	public ProcessingResourceSpecificationActiveResourceTypeLabelEditPart(
-			View view) {
+	public ProcessingResourceSpecificationProcessingRateLabelEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
-				new PalladioComponentModelTextSelectionEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -114,7 +108,6 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 						List handles = new ArrayList();
 						NonResizableHandleKit.addMoveHandle(
 								(GraphicalEditPart) getHost(), handles);
-						((MoveHandle) handles.get(0)).setBorder(null);
 						return handles;
 					}
 
@@ -126,6 +119,8 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 						return false;
 					}
 				});
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenProcessingRateDialog());
 	}
 
 	/**
@@ -208,28 +203,22 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return PalladioComponentModelElementTypes.getImage(parserElement
-				.eClass());
+		return null;
 	}
 
 	/**
 	 * @generated not
 	 */
 	protected String getLabelText() {
-		ProcessingResourceSpecificationImpl specification = (ProcessingResourceSpecificationImpl) this
-				.resolveSemanticElement();
 		String text = null;
-		text = specification
-				.getActiveResourceType_ActiveResourceSpecification()
-				.getEntityName();
+		ProcessingResourceSpecification spec = (ProcessingResourceSpecification) resolveSemanticElement();
+		if (spec.getProcessingRate_ProcessingResourceSpecification() != null)
+			text = spec.getProcessingRate_ProcessingResourceSpecification()
+					.getSpecification();
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
-		return text;
+		return "Processing Rate: " + text; // custom code
 	}
 
 	/**
@@ -265,7 +254,7 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**
@@ -329,7 +318,7 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 							PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003,
 							getParserElement(),
 							PalladioComponentModelVisualIDRegistry
-									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationActiveResourceTypeLabelEditPart.VISUAL_ID));
+									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingRateLabelEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -495,7 +484,8 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	 */
 	protected void addSemanticListeners() {
 		ProcessingResourceSpecification spec = (ProcessingResourceSpecification) resolveSemanticElement();
-		addListenerFilter("SemanticModel", this, spec); //$NON-NLS-1$
+		addListenerFilter(
+				"SemanticModel", this, spec.getProcessingRate_ProcessingResourceSpecification()); //$NON-NLS-1$
 
 	}
 

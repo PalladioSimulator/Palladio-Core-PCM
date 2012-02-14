@@ -62,7 +62,7 @@ public class ProcessingResourceSpecificationNumberOfReplicasEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5006;
+	public static final int VISUAL_ID = 5016;
 
 	/**
 	 * @generated
@@ -315,7 +315,7 @@ public class ProcessingResourceSpecificationNumberOfReplicasEditPart extends
 		if (parser == null) {
 			parser = PalladioComponentModelParserProvider
 					.getParser(
-							PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001,
+							PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003,
 							getParserElement(),
 							PalladioComponentModelVisualIDRegistry
 									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationNumberOfReplicasEditPart.VISUAL_ID));

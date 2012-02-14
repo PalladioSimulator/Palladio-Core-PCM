@@ -62,7 +62,7 @@ public class LinkingResourceEntityNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5012;
+	public static final int VISUAL_ID = 5024;
 
 	/**
 	 * @generated
@@ -320,7 +320,7 @@ public class LinkingResourceEntityNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = PalladioComponentModelParserProvider
 					.getParser(
-							PalladioComponentModelElementTypes.LinkingResource_2003,
+							PalladioComponentModelElementTypes.LinkingResource_2005,
 							getParserElement(),
 							PalladioComponentModelVisualIDRegistry
 									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditPart.VISUAL_ID));

@@ -24,7 +24,7 @@ public class CommunicationLinkResourceSpecificationItemSemanticEditPolicy
 	 */
 	public CommunicationLinkResourceSpecificationItemSemanticEditPolicy() {
 		super(
-				PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002);
+				PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004);
 	}
 
 	/**

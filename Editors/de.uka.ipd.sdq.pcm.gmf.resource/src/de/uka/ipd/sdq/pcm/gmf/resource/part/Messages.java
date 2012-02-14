@@ -316,22 +316,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_ResourceContainer_2001_incominglinks;
+	public static String NavigatorGroupName_ResourceContainer_2004_incominglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LinkingResource_2003_outgoinglinks;
+	public static String NavigatorGroupName_LinkingResource_2005_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LinkingResourceConnectedResourceContainers_LinkingResource_4002_target;
+	public static String NavigatorGroupName_LinkingResourceConnectedResourceContainers_LinkingResource_4003_target;
 
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_LinkingResourceConnectedResourceContainers_LinkingResource_4002_source;
+	public static String NavigatorGroupName_LinkingResourceConnectedResourceContainers_LinkingResource_4003_source;
 
 	/**
 	 * @generated

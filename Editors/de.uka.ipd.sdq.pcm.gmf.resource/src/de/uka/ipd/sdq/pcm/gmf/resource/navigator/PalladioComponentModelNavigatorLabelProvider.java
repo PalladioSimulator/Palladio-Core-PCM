@@ -21,8 +21,8 @@ import org.eclipse.ui.navigator.ICommonLabelProvider;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
@@ -33,7 +33,6 @@ import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramEditorP
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelParserProvider;
-import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
@@ -100,22 +99,22 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case ResourceEnvironmentEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?ResourceEnvironment", PalladioComponentModelElementTypes.ResourceEnvironment_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ResourceEnvironment", PalladioComponentModelElementTypes.ResourceEnvironment_1000); //$NON-NLS-1$
 		case ResourceContainerEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?ResourceContainer", PalladioComponentModelElementTypes.ResourceContainer_2001); //$NON-NLS-1$
-		case LinkingResource2EditPart.VISUAL_ID:
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ResourceContainer", PalladioComponentModelElementTypes.ResourceContainer_2004); //$NON-NLS-1$
+		case LinkingResourceEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?LinkingResource", PalladioComponentModelElementTypes.LinkingResource_2003); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?LinkingResource", PalladioComponentModelElementTypes.LinkingResource_2005); //$NON-NLS-1$
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?ProcessingResourceSpecification", PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ProcessingResourceSpecification", PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003); //$NON-NLS-1$
 		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?CommunicationLinkResourceSpecification", PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?CommunicationLinkResourceSpecification", PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004); //$NON-NLS-1$
 		case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0?LinkingResource?connectedResourceContainers_LinkingResource", PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4002); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?LinkingResource?connectedResourceContainers_LinkingResource", PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -173,15 +172,15 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case ResourceEnvironmentEditPart.VISUAL_ID:
 			return getResourceEnvironment_1000Text(view);
 		case ResourceContainerEditPart.VISUAL_ID:
-			return getResourceContainer_2001Text(view);
-		case LinkingResource2EditPart.VISUAL_ID:
-			return getLinkingResource_2003Text(view);
+			return getResourceContainer_2004Text(view);
+		case LinkingResourceEditPart.VISUAL_ID:
+			return getLinkingResource_2005Text(view);
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
-			return getProcessingResourceSpecification_3001Text(view);
+			return getProcessingResourceSpecification_3003Text(view);
 		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-			return getCommunicationLinkResourceSpecification_3002Text(view);
+			return getCommunicationLinkResourceSpecification_3004Text(view);
 		case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
-			return getLinkingResourceConnectedResourceContainers_LinkingResource_4002Text(view);
+			return getLinkingResourceConnectedResourceContainers_LinkingResource_4003Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -204,10 +203,10 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getResourceContainer_2001Text(View view) {
+	private String getResourceContainer_2004Text(View view) {
 		IParser parser = PalladioComponentModelParserProvider
 				.getParser(
-						PalladioComponentModelElementTypes.ResourceContainer_2001,
+						PalladioComponentModelElementTypes.ResourceContainer_2004,
 						view.getElement() != null ? view.getElement() : view,
 						PalladioComponentModelVisualIDRegistry
 								.getType(ResourceContainerEntityNameEditPart.VISUAL_ID));
@@ -217,7 +216,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5001); //$NON-NLS-1$
+					"Parser was not found for label " + 5019); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -225,9 +224,9 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getLinkingResource_2003Text(View view) {
+	private String getLinkingResource_2005Text(View view) {
 		IParser parser = PalladioComponentModelParserProvider.getParser(
-				PalladioComponentModelElementTypes.LinkingResource_2003, view
+				PalladioComponentModelElementTypes.LinkingResource_2005, view
 						.getElement() != null ? view.getElement() : view,
 				PalladioComponentModelVisualIDRegistry
 						.getType(LinkingResourceEntityNameEditPart.VISUAL_ID));
@@ -237,7 +236,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5012); //$NON-NLS-1$
+					"Parser was not found for label " + 5024); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -245,10 +244,10 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getProcessingResourceSpecification_3001Text(View view) {
+	private String getProcessingResourceSpecification_3003Text(View view) {
 		IParser parser = PalladioComponentModelParserProvider
 				.getParser(
-						PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001,
+						PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003,
 						view.getElement() != null ? view.getElement() : view,
 						PalladioComponentModelVisualIDRegistry
 								.getType(ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID));
@@ -258,7 +257,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5002); //$NON-NLS-1$
+					"Parser was not found for label " + 5013); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -266,10 +265,10 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getCommunicationLinkResourceSpecification_3002Text(View view) {
+	private String getCommunicationLinkResourceSpecification_3004Text(View view) {
 		IParser parser = PalladioComponentModelParserProvider
 				.getParser(
-						PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002,
+						PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004,
 						view.getElement() != null ? view.getElement() : view,
 						PalladioComponentModelVisualIDRegistry
 								.getType(CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID));
@@ -279,7 +278,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelDiagramEditorPlugin.getInstance().logError(
-					"Parser was not found for label " + 5005); //$NON-NLS-1$
+					"Parser was not found for label " + 5020); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -287,7 +286,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getLinkingResourceConnectedResourceContainers_LinkingResource_4002Text(
+	private String getLinkingResourceConnectedResourceContainers_LinkingResource_4003Text(
 			View view) {
 		return ""; //$NON-NLS-1$
 	}

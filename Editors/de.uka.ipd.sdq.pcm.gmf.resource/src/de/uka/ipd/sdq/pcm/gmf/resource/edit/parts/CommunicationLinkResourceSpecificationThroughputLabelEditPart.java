@@ -65,7 +65,7 @@ public class CommunicationLinkResourceSpecificationThroughputLabelEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5008;
+	public static final int VISUAL_ID = 5022;
 
 	/**
 	 * @generated
@@ -315,7 +315,7 @@ public class CommunicationLinkResourceSpecificationThroughputLabelEditPart
 		if (parser == null) {
 			parser = PalladioComponentModelParserProvider
 					.getParser(
-							PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002,
+							PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004,
 							getParserElement(),
 							PalladioComponentModelVisualIDRegistry
 									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationThroughputLabelEditPart.VISUAL_ID));

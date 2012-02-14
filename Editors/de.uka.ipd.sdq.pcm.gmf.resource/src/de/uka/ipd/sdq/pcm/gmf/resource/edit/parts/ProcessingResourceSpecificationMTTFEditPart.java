@@ -64,7 +64,7 @@ public class ProcessingResourceSpecificationMTTFEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5002;
+	public static final int VISUAL_ID = 5013;
 
 	/**
 	 * @generated
@@ -121,7 +121,6 @@ public class ProcessingResourceSpecificationMTTFEditPart extends
 						return false;
 					}
 				});
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenStoExDialog());
 	}
 
 	/**
@@ -318,7 +317,7 @@ public class ProcessingResourceSpecificationMTTFEditPart extends
 		if (parser == null) {
 			parser = PalladioComponentModelParserProvider
 					.getParser(
-							PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001,
+							PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003,
 							getParserElement(),
 							PalladioComponentModelVisualIDRegistry
 									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID));

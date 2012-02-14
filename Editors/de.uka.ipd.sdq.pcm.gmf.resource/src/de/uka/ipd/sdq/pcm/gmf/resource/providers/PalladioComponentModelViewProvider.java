@@ -49,8 +49,8 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpeci
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationLatencyLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationThroughputLabelEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceNetworkSwitchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationActiveResourceTypeLabelEditPart;
@@ -58,14 +58,14 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificatio
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTREditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationNumberOfReplicasEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingRateLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationSchedulingPolicyEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationSchedulingPolicyLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel6EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 
 /**
@@ -164,7 +164,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 				}
 				switch (visualID) {
 				case ResourceContainerEditPart.VISUAL_ID:
-				case LinkingResource2EditPart.VISUAL_ID:
+				case LinkingResourceEditPart.VISUAL_ID:
 				case ProcessingResourceSpecificationEditPart.VISUAL_ID:
 				case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
 					if (domainElement == null
@@ -180,7 +180,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 			}
 		}
 		return ResourceContainerEditPart.VISUAL_ID == visualID
-				|| LinkingResource2EditPart.VISUAL_ID == visualID
+				|| LinkingResourceEditPart.VISUAL_ID == visualID
 				|| ProcessingResourceSpecificationEditPart.VISUAL_ID == visualID
 				|| CommunicationLinkResourceSpecificationEditPart.VISUAL_ID == visualID;
 	}
@@ -242,16 +242,16 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		}
 		switch (visualID) {
 		case ResourceContainerEditPart.VISUAL_ID:
-			return createResourceContainer_2001(domainElement, containerView,
+			return createResourceContainer_2004(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case LinkingResource2EditPart.VISUAL_ID:
-			return createLinkingResource_2003(domainElement, containerView,
+		case LinkingResourceEditPart.VISUAL_ID:
+			return createLinkingResource_2005(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case ProcessingResourceSpecificationEditPart.VISUAL_ID:
-			return createProcessingResourceSpecification_3001(domainElement,
+			return createProcessingResourceSpecification_3003(domainElement,
 					containerView, index, persisted, preferencesHint);
 		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-			return createCommunicationLinkResourceSpecification_3002(
+			return createCommunicationLinkResourceSpecification_3004(
 					domainElement, containerView, index, persisted,
 					preferencesHint);
 		}
@@ -270,7 +270,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		switch (PalladioComponentModelVisualIDRegistry
 				.getVisualID(elementTypeHint)) {
 		case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
-			return createLinkingResourceConnectedResourceContainers_LinkingResource_4002(
+			return createLinkingResourceConnectedResourceContainers_LinkingResource_4003(
 					containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
@@ -280,7 +280,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	public Node createResourceContainer_2001(EObject domainElement,
+	public Node createResourceContainer_2004(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -318,7 +318,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(node,
+		Node label5019 = createLabel(node,
 				PalladioComponentModelVisualIDRegistry
 						.getType(ResourceContainerEntityNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -332,13 +332,13 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	public Node createLinkingResource_2003(EObject domainElement,
+	public Node createLinkingResource_2005(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(PalladioComponentModelVisualIDRegistry
-				.getType(LinkingResource2EditPart.VISUAL_ID));
+				.getType(LinkingResourceEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		stampShortcut(containerView, node);
@@ -370,7 +370,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label5012 = createLabel(node,
+		Node label5024 = createLabel(node,
 				PalladioComponentModelVisualIDRegistry
 						.getType(LinkingResourceEntityNameEditPart.VISUAL_ID));
 		createCompartment(
@@ -384,7 +384,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	public Node createProcessingResourceSpecification_3001(
+	public Node createProcessingResourceSpecification_3003(
 			EObject domainElement, View containerView, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -421,26 +421,27 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label5002 = createLabel(
+		Node label5013 = createLabel(
 				node,
 				PalladioComponentModelVisualIDRegistry
 						.getType(ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID));
-		Node label5003 = createLabel(
+		Node label5014 = createLabel(
 				node,
 				PalladioComponentModelVisualIDRegistry
 						.getType(ProcessingResourceSpecificationMTTREditPart.VISUAL_ID));
-		Node label5004 = createLabel(
+		Node label5015 = createLabel(
 				node,
 				PalladioComponentModelVisualIDRegistry
-						.getType(ProcessingResourceSpecificationSchedulingPolicyEditPart.VISUAL_ID));
-		Node label5006 = createLabel(
+						.getType(ProcessingResourceSpecificationSchedulingPolicyLabelEditPart.VISUAL_ID));
+		Node label5016 = createLabel(
 				node,
 				PalladioComponentModelVisualIDRegistry
 						.getType(ProcessingResourceSpecificationNumberOfReplicasEditPart.VISUAL_ID));
-		Node label5009 = createLabel(node,
+		Node label5017 = createLabel(
+				node,
 				PalladioComponentModelVisualIDRegistry
-						.getType(WrappingLabelEditPart.VISUAL_ID));
-		Node label5010 = createLabel(
+						.getType(ProcessingResourceSpecificationProcessingRateLabelEditPart.VISUAL_ID));
+		Node label5018 = createLabel(
 				node,
 				PalladioComponentModelVisualIDRegistry
 						.getType(ProcessingResourceSpecificationActiveResourceTypeLabelEditPart.VISUAL_ID));
@@ -455,7 +456,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	public Node createCommunicationLinkResourceSpecification_3002(
+	public Node createCommunicationLinkResourceSpecification_3004(
 			EObject domainElement, View containerView, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -493,22 +494,74 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
 				.getFillStyle_FillColor(), FigureUtilities
 				.RGBToInteger(fillRGB));
-		Node label5005 = createLabel(
+		Node label5020 = createLabel(
 				node,
 				PalladioComponentModelVisualIDRegistry
 						.getType(CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID));
-		Node label5007 = createLabel(
+		Node label5021 = createLabel(
 				node,
 				PalladioComponentModelVisualIDRegistry
 						.getType(CommunicationLinkResourceSpecificationLatencyLabelEditPart.VISUAL_ID));
-		Node label5008 = createLabel(
+		Node label5022 = createLabel(
 				node,
 				PalladioComponentModelVisualIDRegistry
 						.getType(CommunicationLinkResourceSpecificationThroughputLabelEditPart.VISUAL_ID));
-		Node label5011 = createLabel(node,
+		Node label5023 = createLabel(node,
 				PalladioComponentModelVisualIDRegistry
-						.getType(WrappingLabel2EditPart.VISUAL_ID));
+						.getType(WrappingLabel6EditPart.VISUAL_ID));
 		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Edge createLinkingResourceConnectedResourceContainers_LinkingResource_4003(
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Connector edge = NotationFactory.eINSTANCE.createConnector();
+		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
+				.createRelativeBendpoints();
+		ArrayList points = new ArrayList(2);
+		points.add(new RelativeBendpoint());
+		points.add(new RelativeBendpoint());
+		bendpoints.setPoints(points);
+		edge.setBendpoints(bendpoints);
+		ViewUtil.insertChildView(containerView, edge, index, persisted);
+		edge
+				.setType(PalladioComponentModelVisualIDRegistry
+						.getType(LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID));
+		edge.setElement(null);
+		// initializePreferences
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle edgeFontStyle = (FontStyle) edge
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (edgeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			edgeFontStyle.setFontName(fontData.getName());
+			edgeFontStyle.setFontHeight(fontData.getHeight());
+			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Routing routing = Routing.get(prefStore
+				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+		if (routing != null) {
+			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
+					.getRoutingStyle_Routing(), routing);
+		}
+		return edge;
 	}
 
 	/**

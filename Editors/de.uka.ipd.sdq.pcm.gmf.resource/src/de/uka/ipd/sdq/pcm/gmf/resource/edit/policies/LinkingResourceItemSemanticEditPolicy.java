@@ -22,23 +22,23 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.commands.LinkingResourceConnectedResourceContainers_LinkingResourceCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.commands.LinkingResourceConnectedResourceContainers_LinkingResourceReorientCommand;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceNetworkSwitchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
 
 /**
  * @generated
  */
-public class ResourceContainerItemSemanticEditPolicy extends
+public class LinkingResourceItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
 	 */
-	public ResourceContainerItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.ResourceContainer_2004);
+	public LinkingResourceItemSemanticEditPolicy() {
+		super(PalladioComponentModelElementTypes.LinkingResource_2005);
 	}
 
 	/**
@@ -49,15 +49,15 @@ public class ResourceContainerItemSemanticEditPolicy extends
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
 				getEditingDomain(), null);
 		cmd.setTransactionNestingEnabled(false);
-		for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
-			Edge incomingLink = (Edge) it.next();
+		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+			Edge outgoingLink = (Edge) it.next();
 			if (PalladioComponentModelVisualIDRegistry
-					.getVisualID(incomingLink) == LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID) {
+					.getVisualID(outgoingLink) == LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(
-						incomingLink.getSource().getElement(), null,
-						incomingLink.getTarget().getElement(), false);
+						outgoingLink.getSource().getElement(), null,
+						outgoingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
 		}
@@ -82,13 +82,13 @@ public class ResourceContainerItemSemanticEditPolicy extends
 		for (Iterator nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
-			case ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
+			case LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID:
 				for (Iterator cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (PalladioComponentModelVisualIDRegistry
 							.getVisualID(cnode)) {
-					case ProcessingResourceSpecificationEditPart.VISUAL_ID:
+					case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true
@@ -119,7 +119,8 @@ public class ResourceContainerItemSemanticEditPolicy extends
 			CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003 == req
 				.getElementType()) {
-			return null;
+			return getGEFWrapper(new LinkingResourceConnectedResourceContainers_LinkingResourceCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
 		return null;
 	}
@@ -131,8 +132,7 @@ public class ResourceContainerItemSemanticEditPolicy extends
 			CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003 == req
 				.getElementType()) {
-			return getGEFWrapper(new LinkingResourceConnectedResourceContainers_LinkingResourceCreateCommand(
-					req, req.getSource(), req.getTarget()));
+			return null;
 		}
 		return null;
 	}

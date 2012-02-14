@@ -22,9 +22,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditP
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTREditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationNumberOfReplicasEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationSchedulingPolicyEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.parsers.MessageFormatParser;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
@@ -38,142 +36,121 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser resourceContainerEntityName_5001Parser;
+	private IParser resourceContainerEntityName_5019Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getResourceContainerEntityName_5001Parser() {
-		if (resourceContainerEntityName_5001Parser == null) {
+	private IParser getResourceContainerEntityName_5019Parser() {
+		if (resourceContainerEntityName_5019Parser == null) {
 			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 					.getNamedElement_EntityName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			resourceContainerEntityName_5001Parser = parser;
+			resourceContainerEntityName_5019Parser = parser;
 		}
-		return resourceContainerEntityName_5001Parser;
+		return resourceContainerEntityName_5019Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser linkingResourceEntityName_5012Parser;
+	private IParser linkingResourceEntityName_5024Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLinkingResourceEntityName_5012Parser() {
-		if (linkingResourceEntityName_5012Parser == null) {
+	private IParser getLinkingResourceEntityName_5024Parser() {
+		if (linkingResourceEntityName_5024Parser == null) {
 			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
 					.getNamedElement_EntityName() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			linkingResourceEntityName_5012Parser = parser;
+			linkingResourceEntityName_5024Parser = parser;
 		}
-		return linkingResourceEntityName_5012Parser;
+		return linkingResourceEntityName_5024Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser processingResourceSpecificationMTTF_5002Parser;
+	private IParser processingResourceSpecificationMTTF_5013Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getProcessingResourceSpecificationMTTF_5002Parser() {
-		if (processingResourceSpecificationMTTF_5002Parser == null) {
+	private IParser getProcessingResourceSpecificationMTTF_5013Parser() {
+		if (processingResourceSpecificationMTTF_5013Parser == null) {
 			EAttribute[] features = new EAttribute[] { ResourceenvironmentPackage.eINSTANCE
 					.getProcessingResourceSpecification_MTTF() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			parser.setViewPattern("MTTF: {0,number,#.#}"); //$NON-NLS-1$
 			parser.setEditorPattern("MTTF: {0,number,#.#}"); //$NON-NLS-1$
 			parser.setEditPattern("MTTF: {0,number,#.#}"); //$NON-NLS-1$
-			processingResourceSpecificationMTTF_5002Parser = parser;
+			processingResourceSpecificationMTTF_5013Parser = parser;
 		}
-		return processingResourceSpecificationMTTF_5002Parser;
+		return processingResourceSpecificationMTTF_5013Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser processingResourceSpecificationMTTR_5003Parser;
+	private IParser processingResourceSpecificationMTTR_5014Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getProcessingResourceSpecificationMTTR_5003Parser() {
-		if (processingResourceSpecificationMTTR_5003Parser == null) {
+	private IParser getProcessingResourceSpecificationMTTR_5014Parser() {
+		if (processingResourceSpecificationMTTR_5014Parser == null) {
 			EAttribute[] features = new EAttribute[] { ResourceenvironmentPackage.eINSTANCE
 					.getProcessingResourceSpecification_MTTR() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			parser.setViewPattern("MTTR: {0,number,#.#}"); //$NON-NLS-1$
 			parser.setEditorPattern("MTTR: {0,number,#.#}"); //$NON-NLS-1$
 			parser.setEditPattern("MTTR: {0,number,#.#}"); //$NON-NLS-1$
-			processingResourceSpecificationMTTR_5003Parser = parser;
+			processingResourceSpecificationMTTR_5014Parser = parser;
 		}
-		return processingResourceSpecificationMTTR_5003Parser;
+		return processingResourceSpecificationMTTR_5014Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser processingResourceSpecificationSchedulingPolicy_5004Parser;
+	private IParser processingResourceSpecificationNumberOfReplicas_5016Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getProcessingResourceSpecificationSchedulingPolicy_5004Parser() {
-		if (processingResourceSpecificationSchedulingPolicy_5004Parser == null) {
-			EAttribute[] features = new EAttribute[] { ResourceenvironmentPackage.eINSTANCE
-					.getProcessingResourceSpecification_SchedulingPolicy() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			parser.setViewPattern("Scheduling Policy: {0}"); //$NON-NLS-1$
-			parser.setEditorPattern("Scheduling Policy: {0}"); //$NON-NLS-1$
-			parser.setEditPattern("Scheduling Policy: {0}"); //$NON-NLS-1$
-			processingResourceSpecificationSchedulingPolicy_5004Parser = parser;
-		}
-		return processingResourceSpecificationSchedulingPolicy_5004Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser processingResourceSpecificationNumberOfReplicas_5006Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getProcessingResourceSpecificationNumberOfReplicas_5006Parser() {
-		if (processingResourceSpecificationNumberOfReplicas_5006Parser == null) {
+	private IParser getProcessingResourceSpecificationNumberOfReplicas_5016Parser() {
+		if (processingResourceSpecificationNumberOfReplicas_5016Parser == null) {
 			EAttribute[] features = new EAttribute[] { ResourceenvironmentPackage.eINSTANCE
 					.getProcessingResourceSpecification_NumberOfReplicas() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			parser.setViewPattern("Number of Replicas: {0}"); //$NON-NLS-1$
 			parser.setEditorPattern("Number of Replicas: {0}"); //$NON-NLS-1$
 			parser.setEditPattern("Number of Replicas: {0}"); //$NON-NLS-1$
-			processingResourceSpecificationNumberOfReplicas_5006Parser = parser;
+			processingResourceSpecificationNumberOfReplicas_5016Parser = parser;
 		}
-		return processingResourceSpecificationNumberOfReplicas_5006Parser;
+		return processingResourceSpecificationNumberOfReplicas_5016Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser communicationLinkResourceSpecificationFailureProbability_5005Parser;
+	private IParser communicationLinkResourceSpecificationFailureProbability_5020Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getCommunicationLinkResourceSpecificationFailureProbability_5005Parser() {
-		if (communicationLinkResourceSpecificationFailureProbability_5005Parser == null) {
+	private IParser getCommunicationLinkResourceSpecificationFailureProbability_5020Parser() {
+		if (communicationLinkResourceSpecificationFailureProbability_5020Parser == null) {
 			EAttribute[] features = new EAttribute[] { ResourceenvironmentPackage.eINSTANCE
 					.getCommunicationLinkResourceSpecification_FailureProbability() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			parser.setViewPattern("{0}"); //$NON-NLS-1$
 			parser.setEditorPattern("{0}"); //$NON-NLS-1$
 			parser.setEditPattern("{0}"); //$NON-NLS-1$
-			communicationLinkResourceSpecificationFailureProbability_5005Parser = parser;
+			communicationLinkResourceSpecificationFailureProbability_5020Parser = parser;
 		}
-		return communicationLinkResourceSpecificationFailureProbability_5005Parser;
+		return communicationLinkResourceSpecificationFailureProbability_5020Parser;
 	}
 
 	/**
@@ -182,19 +159,17 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ResourceContainerEntityNameEditPart.VISUAL_ID:
-			return getResourceContainerEntityName_5001Parser();
+			return getResourceContainerEntityName_5019Parser();
 		case LinkingResourceEntityNameEditPart.VISUAL_ID:
-			return getLinkingResourceEntityName_5012Parser();
+			return getLinkingResourceEntityName_5024Parser();
 		case ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID:
-			return getProcessingResourceSpecificationMTTF_5002Parser();
+			return getProcessingResourceSpecificationMTTF_5013Parser();
 		case ProcessingResourceSpecificationMTTREditPart.VISUAL_ID:
-			return getProcessingResourceSpecificationMTTR_5003Parser();
-		case ProcessingResourceSpecificationSchedulingPolicyEditPart.VISUAL_ID:
-			return getProcessingResourceSpecificationSchedulingPolicy_5004Parser();
+			return getProcessingResourceSpecificationMTTR_5014Parser();
 		case ProcessingResourceSpecificationNumberOfReplicasEditPart.VISUAL_ID:
-			return getProcessingResourceSpecificationNumberOfReplicas_5006Parser();
+			return getProcessingResourceSpecificationNumberOfReplicas_5016Parser();
 		case CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID:
-			return getCommunicationLinkResourceSpecificationFailureProbability_5005Parser();
+			return getCommunicationLinkResourceSpecificationFailureProbability_5020Parser();
 		}
 		return null;
 	}

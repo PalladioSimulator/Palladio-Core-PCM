@@ -19,14 +19,14 @@ public class ResourceContainerResourceContainerCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	public ResourceContainerResourceContainerCompartmentItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.ResourceContainer_2001);
+		super(PalladioComponentModelElementTypes.ResourceContainer_2004);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001 == req
+		if (PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003 == req
 				.getElementType()) {
 			return getGEFWrapper(new ProcessingResourceSpecificationCreateCommand(
 					req));

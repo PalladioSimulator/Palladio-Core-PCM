@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpeci
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationLatencyLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationThroughputLabelEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResource2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceNetworkSwitchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationActiveResourceTypeLabelEditPart;
@@ -21,14 +21,14 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificatio
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTREditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationNumberOfReplicasEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingRateLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationSchedulingPolicyEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationSchedulingPolicyLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel6EditPart;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
@@ -161,7 +161,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (ResourceenvironmentPackage.eINSTANCE.getLinkingResource()
 					.isSuperTypeOf(domainElement.eClass())) {
-				return LinkingResource2EditPart.VISUAL_ID;
+				return LinkingResourceEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -197,7 +197,7 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
-		case LinkingResource2EditPart.VISUAL_ID:
+		case LinkingResourceEditPart.VISUAL_ID:
 			if (LinkingResourceEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -212,13 +212,13 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (ProcessingResourceSpecificationMTTREditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (ProcessingResourceSpecificationSchedulingPolicyEditPart.VISUAL_ID == nodeVisualID) {
+			if (ProcessingResourceSpecificationSchedulingPolicyLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ProcessingResourceSpecificationNumberOfReplicasEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (WrappingLabelEditPart.VISUAL_ID == nodeVisualID) {
+			if (ProcessingResourceSpecificationProcessingRateLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (ProcessingResourceSpecificationActiveResourceTypeLabelEditPart.VISUAL_ID == nodeVisualID) {
@@ -238,7 +238,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (CommunicationLinkResourceSpecificationThroughputLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+			if (WrappingLabel6EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -256,7 +256,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (ResourceContainerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (LinkingResource2EditPart.VISUAL_ID == nodeVisualID) {
+			if (LinkingResourceEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

@@ -19,14 +19,14 @@ public class LinkingResourceNetworkSwitchCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	public LinkingResourceNetworkSwitchCompartmentItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.LinkingResource_2003);
+		super(PalladioComponentModelElementTypes.LinkingResource_2005);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002 == req
+		if (PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004 == req
 				.getElementType()) {
 			return getGEFWrapper(new CommunicationLinkResourceSpecificationCreateCommand(
 					req));

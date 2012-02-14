@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 public class AddCommunicationLinkResourceSpecificationEditHelperAdvice extends AbstractEditHelperAdvice implements
 		IEditHelperAdvice {
 
-	private static final String RESOURCE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = "de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3002";
+	private static final String RESOURCE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = "de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3004";
 
 	@Override
 	public ICommand getBeforeConfigureCommand(ConfigureRequest request) {

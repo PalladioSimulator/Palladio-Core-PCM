@@ -37,7 +37,7 @@ public class ResourceContainerResourceContainerCompartmentCanonicalEditPolicy
 		View viewObject = (View) getHost().getModel();
 		List result = new LinkedList();
 		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getResourceContainerResourceContainerCompartment_7001SemanticChildren(
+				.getResourceContainerResourceContainerCompartment_7004SemanticChildren(
 						viewObject).iterator(); it.hasNext();) {
 			result.add(((PalladioComponentModelNodeDescriptor) it.next())
 					.getModelElement());

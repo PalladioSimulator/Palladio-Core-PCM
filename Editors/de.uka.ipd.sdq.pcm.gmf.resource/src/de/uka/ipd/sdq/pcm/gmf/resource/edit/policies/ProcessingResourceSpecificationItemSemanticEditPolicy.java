@@ -30,7 +30,7 @@ public class ProcessingResourceSpecificationItemSemanticEditPolicy extends
 	 */
 	public ProcessingResourceSpecificationItemSemanticEditPolicy() {
 		super(
-				PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001);
+				PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003);
 	}
 
 	/**

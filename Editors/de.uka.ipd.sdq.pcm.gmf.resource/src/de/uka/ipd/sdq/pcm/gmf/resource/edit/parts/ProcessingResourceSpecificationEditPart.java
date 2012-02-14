@@ -39,7 +39,7 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3001;
+	public static final int VISUAL_ID = 3003;
 
 	/**
 	 * @generated
@@ -66,8 +66,6 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ProcessingResourceSpecificationItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenProcessingRateDialog());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -117,13 +115,19 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
-			((ProcessingResourceSpecificationMTTREditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureMTTRFigure());
+		if (childEditPart instanceof ProcessingResourceSpecificationProcessingRateLabelEditPart) {
+			((ProcessingResourceSpecificationProcessingRateLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureProcessingRateFigure());
 			return true;
 		}
-		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
-			((ProcessingResourceSpecificationSchedulingPolicyEditPart) childEditPart)
+		if (childEditPart instanceof ProcessingResourceSpecificationActiveResourceTypeLabelEditPart) {
+			((ProcessingResourceSpecificationActiveResourceTypeLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureActiveResourceTypeFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyLabelEditPart) {
+			((ProcessingResourceSpecificationSchedulingPolicyLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureSchedulingPolicyFigure());
 			return true;
@@ -133,20 +137,14 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureNoOfReplicasFigure());
 			return true;
 		}
-		if (childEditPart instanceof ProcessingResourceSpecificationActiveResourceTypeLabelEditPart) {
-			((ProcessingResourceSpecificationActiveResourceTypeLabelEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureActiveResourceTypeFigure());
-			return true;
-		}
-		if (childEditPart instanceof WrappingLabelEditPart) {
-			((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureProcessingRateFigure());
-			return true;
-		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
 			((ProcessingResourceSpecificationMTTFEditPart) childEditPart)
 					.setLabel(getPrimaryShape().getFigureMTTFFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
+			((ProcessingResourceSpecificationMTTREditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureMTTRFigure());
 			return true;
 		}
 		return false;
@@ -156,22 +154,22 @@ public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
-			return true;
-		}
-		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyEditPart) {
-			return true;
-		}
-		if (childEditPart instanceof ProcessingResourceSpecificationNumberOfReplicasEditPart) {
+		if (childEditPart instanceof ProcessingResourceSpecificationProcessingRateLabelEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof ProcessingResourceSpecificationActiveResourceTypeLabelEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof WrappingLabelEditPart) {
+		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyLabelEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationNumberOfReplicasEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
 			return true;
 		}
 		return false;

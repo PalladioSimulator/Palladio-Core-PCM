@@ -65,7 +65,7 @@ public class CommunicationLinkResourceSpecificationLatencyLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5007;
+	public static final int VISUAL_ID = 5021;
 
 	/**
 	 * @generated
@@ -314,7 +314,7 @@ public class CommunicationLinkResourceSpecificationLatencyLabelEditPart extends
 		if (parser == null) {
 			parser = PalladioComponentModelParserProvider
 					.getParser(
-							PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3002,
+							PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004,
 							getParserElement(),
 							PalladioComponentModelVisualIDRegistry
 									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationLatencyLabelEditPart.VISUAL_ID));

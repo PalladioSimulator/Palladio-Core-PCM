@@ -16,7 +16,7 @@ public class ProcessingResourceSpecificationProcessingResourceSpecificationCompa
 	 */
 	public ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentItemSemanticEditPolicy() {
 		super(
-				PalladioComponentModelElementTypes.ProcessingResourceSpecification_3001);
+				PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003);
 	}
 
 }

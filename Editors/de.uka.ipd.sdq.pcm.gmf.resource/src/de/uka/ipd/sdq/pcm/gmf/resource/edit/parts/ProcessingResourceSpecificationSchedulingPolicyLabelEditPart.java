@@ -49,26 +49,23 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.dialogs.resource.OpenActiveResourceSpecificationDialog;
+import de.uka.ipd.sdq.pcm.dialogs.resource.OpenSchedulingPolicyDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelParserProvider;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl;
-import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceTypeImpl;
 
 /**
  * @generated
  */
-public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
+public class ProcessingResourceSpecificationSchedulingPolicyLabelEditPart
 		extends CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5018;
+	public static final int VISUAL_ID = 5015;
 
 	/**
 	 * @generated
@@ -93,7 +90,7 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	/**
 	 * @generated
 	 */
-	public ProcessingResourceSpecificationActiveResourceTypeLabelEditPart(
+	public ProcessingResourceSpecificationSchedulingPolicyLabelEditPart(
 			View view) {
 		super(view);
 	}
@@ -126,6 +123,8 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 						return false;
 					}
 				});
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenSchedulingPolicyDialog());
 	}
 
 	/**
@@ -208,28 +207,23 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return PalladioComponentModelElementTypes.getImage(parserElement
-				.eClass());
+		return null;
 	}
 
 	/**
 	 * @generated not
 	 */
 	protected String getLabelText() {
-		ProcessingResourceSpecificationImpl specification = (ProcessingResourceSpecificationImpl) this
-				.resolveSemanticElement();
 		String text = null;
-		text = specification
-				.getActiveResourceType_ActiveResourceSpecification()
-				.getEntityName();
+		
+		ProcessingResourceSpecification spec = (ProcessingResourceSpecification) resolveSemanticElement();
+		if (spec.getSchedulingPolicy() != null)
+			text = spec.getSchedulingPolicy().getEntityName();
 		if (text == null || text.length() == 0) {
-			text = defaultText;
+			text = "NotDefined";
 		}
-		return text;
+		return "Scheduling: " + text; // custom code
+		
 	}
 
 	/**
@@ -329,7 +323,7 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 							PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003,
 							getParserElement(),
 							PalladioComponentModelVisualIDRegistry
-									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationActiveResourceTypeLabelEditPart.VISUAL_ID));
+									.getType(de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationSchedulingPolicyLabelEditPart.VISUAL_ID));
 		}
 		return parser;
 	}
@@ -495,8 +489,8 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 	 */
 	protected void addSemanticListeners() {
 		ProcessingResourceSpecification spec = (ProcessingResourceSpecification) resolveSemanticElement();
-		addListenerFilter("SemanticModel", this, spec); //$NON-NLS-1$
-
+		addListenerFilter(
+				"SemanticModel", this, spec); //$NON-NLS-1$
 	}
 
 	/**
@@ -568,8 +562,9 @@ public class ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
 						feature)) {
 			refreshFont();
 		} else {
-			refreshLabel();
+					refreshLabel();
 		}
+	
 		super.handleNotificationEvent(event);
 	}
 
