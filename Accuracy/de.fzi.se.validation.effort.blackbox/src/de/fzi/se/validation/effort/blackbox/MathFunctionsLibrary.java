@@ -50,4 +50,17 @@ public class MathFunctionsLibrary {
 	public Double DoubleMinNormal() {
 		return Double.MIN_NORMAL;
 	}
+	
+
+	/**
+	 * Power function from the {@link Math} library.
+	 * @see Math#pow(double, double)
+	 * @param a base
+	 * @param b exponent
+	 * @return Math.pow(a, b)
+	 */
+	@Operation(kind=Kind.QUERY, contextual=false)
+	public Long pow(Long a, Long b) {
+		return new Double(Math.pow(a, b)).longValue();
+	}
 }
