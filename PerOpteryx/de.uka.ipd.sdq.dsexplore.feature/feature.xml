@@ -8,7 +8,7 @@
 
    <description url="http://sdq.ipd.uka.de">
       The Palladio DSE Feature allows to optimise PCM instances for
-performancem reliability and cost. 
+performance, reliability, and cost. 
 See http://sdqweb.ipd.uka.de/wiki/PerOpteryx for details.
    </description>
 
@@ -602,13 +602,6 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="ptolemy.plot"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="de.uka.ipd.sdq.tcfmoop"
          download-size="0"
          install-size="0"
@@ -641,20 +634,6 @@ litigation.
          download-size="0"
          install-size="0"
          version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.sat4j.core"
-         download-size="0"
-         install-size="0"
-         version="2.1.0.v20090520"
-         unpack="false"/>
-
-   <plugin
-         id="org.sat4j.pb"
-         download-size="0"
-         install-size="0"
-         version="2.1.0.v20090520"
          unpack="false"/>
 
    <plugin
