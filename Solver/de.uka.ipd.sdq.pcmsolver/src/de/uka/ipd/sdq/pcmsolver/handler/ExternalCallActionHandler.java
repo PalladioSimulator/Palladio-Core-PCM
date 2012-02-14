@@ -24,9 +24,10 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
-import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
+import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -150,7 +151,11 @@ public class ExternalCallActionHandler {
 		rv.setSpecification("1.0");
 
 		res.setProcessingRate_ProcessingResourceSpecification(rv);
-		res.setSchedulingPolicy(SchedulingPolicy.PROCESSOR_SHARING);
+		SchedulingPolicy schedulingPolicy = getProcessorSharingSchedulingPolicy(visitor.getContextWrapper().getPcmInstance().getResourceRepository());
+		if (schedulingPolicy == null) {
+			//TODO: What to do here? Throw an exception?
+		}
+		res.setSchedulingPolicy(schedulingPolicy);
 		
 		ResourceContainer resCon = ResourceenvironmentFactory.eINSTANCE.createResourceContainer();
 		resCon.setEntityName("SystemExternalResourceContainer");
@@ -191,6 +196,17 @@ public class ExternalCallActionHandler {
 		}
 		logger.warn("No time specification was found for external call "+serviceToBeCalled.getEntityName()+". I'm assuming a demand of 0.");
 		return "0";
+	}
+	
+	private SchedulingPolicy getProcessorSharingSchedulingPolicy(ResourceRepository resourceRepository) {
+		for (SchedulingPolicy schedulingPolicy : resourceRepository.getSchedulingPolicies__ResourceRepository()) {
+			if (schedulingPolicy.getEntityName() != null) {
+				if (schedulingPolicy.getId().equals("ProcessorSharing")) {
+					return schedulingPolicy;
+				}
+			}
+		}
+		return null;
 	}
 
 	/**

@@ -158,11 +158,10 @@ public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 
 	private void setSchedulingPolicy(ProcessingResourceSpecification object,
 			ProcessorType pt) {
-		switch (object.getSchedulingPolicy()) {
-		case FCFS:
+		String schedulingPolicyID = object.getSchedulingPolicy().getId();
+		if (schedulingPolicyID.equals("FCFS")) {
 			pt.setScheduling(SchedulingType.FCFS);
-			break;
-		case DELAY:
+		} else if (schedulingPolicyID.equals("Delay")) {
 			// The SchedulingType.INF has been added manually to the generated code, so 
 			// there may appear a compile error here if the LQN code is regenerated again. 
 			// I purposefully did not set it to "generated not" so that this problem is 
@@ -170,26 +169,24 @@ public class ResourceEnvironment2Lqn extends ResourceenvironmentSwitch {
 			// However, if the model is successfully regenerated from the LQN version 4.3 or later XML schema
 			// the inf value should be available in the generated code and this note can be deleted.  
 			pt.setScheduling(SchedulingType.INF);
-			break;
-		case PROCESSOR_SHARING:
+		} else if (schedulingPolicyID.equals("ProcessorSharing")) {
 			pt.setScheduling(SchedulingType.PS);
 			pt.setQuantum(config.getPsQuantum());
-			break;
-		default : 
+		} else {
 			logger.warn("Unknown scheduling strategy "
-							+ object.getSchedulingPolicy().getName()
-							+ ", using PROCESSOR_SHARING for "
-							+ object
-									.getActiveResourceType_ActiveResourceSpecification()
-									.getEntityName()
-							+ " of server "
-							+ object
-									.getResourceContainer_ProcessingResourceSpecification()
-									.getEntityName()
-							+ " (id: "
-							+ object
-									.getResourceContainer_ProcessingResourceSpecification()
-									.getId() + ")");
+					+ object.getSchedulingPolicy().getId()
+					+ ", using PROCESSOR_SHARING for "
+					+ object
+							.getActiveResourceType_ActiveResourceSpecification()
+							.getEntityName()
+					+ " of server "
+					+ object
+							.getResourceContainer_ProcessingResourceSpecification()
+							.getEntityName()
+					+ " (id: "
+					+ object
+							.getResourceContainer_ProcessingResourceSpecification()
+							.getId() + ")");
 			pt.setScheduling(SchedulingType.PS);
 			pt.setQuantum(config.getPsQuantum());
 		}

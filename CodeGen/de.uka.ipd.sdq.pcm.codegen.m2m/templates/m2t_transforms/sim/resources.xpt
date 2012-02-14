@@ -191,7 +191,7 @@
 «ENDDEFINE»
 
 «DEFINE SchedulingStrategy(ResourceContainer container) FOR ProcessingResourceSpecification»
-	«IF this.schedulingPolicy.toString() == "EXACT"»
+	«IF this.schedulingPolicy.id == "Exact"»
 		«IF container.operatingSystem_ResourceContainer.toString() == "LINUX26_O1"»
 			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.LINUX_2_6_O1
 		«ENDIF»
@@ -211,14 +211,21 @@
 			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_SERVER_2003
 		«ENDIF»
 	«ELSE»
-		«IF this.schedulingPolicy.toString() == "GINPEX_DETECTED"»
+		«IF this.schedulingPolicy.id == "FCFS"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.FCFS
+		«ENDIF»
+		«IF this.schedulingPolicy.id == "ProcessorSharing"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.PROCESSOR_SHARING
+		«ENDIF»
+		«IF this.schedulingPolicy.id == "Delay"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.DELAY
+		«ENDIF»
+		«IF this.schedulingPolicy.id == "GinpexDisk"»
 			«IF this.activeResourceType_ActiveResourceSpecification.entityName == "HDD"»
 				de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.GINPEX_DISK
 			«ELSE»
 				de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.PROCESSOR_SHARING
 			«ENDIF»
-		«ELSE»
-		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»
 		«ENDIF»
 	«ENDIF»
 «ENDDEFINE»
