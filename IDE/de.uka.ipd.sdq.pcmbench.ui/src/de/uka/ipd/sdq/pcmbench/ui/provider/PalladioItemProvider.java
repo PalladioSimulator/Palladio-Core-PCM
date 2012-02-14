@@ -90,7 +90,11 @@ public class PalladioItemProvider extends ItemProviderDecorator implements
 				}
 			else
 				result += "N/A ";
-			result += "Scheduling: "+spec.getSchedulingPolicy().getLiteral();
+			if (spec.getSchedulingPolicy() != null) {
+				result += "Scheduling: "+spec.getSchedulingPolicy().getEntityName();
+			} else {
+				result += "Scheduling: N/A";
+			}
 		} else if (object instanceof Entity) {
 			result = ((Entity)object).getEntityName();
 		} else if (object instanceof ResourceDemandingSEFF){
