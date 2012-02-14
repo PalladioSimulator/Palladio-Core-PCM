@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Design Space Exploration (PerOpteryx)
 Bundle-SymbolicName: de.uka.ipd.sdq.dsexplore;singleton:=true
-Bundle-Version: 3.3.0.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.dsexplore.DSEPluginActivator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.debug.ui,
  org.apache.log4j,
- org.opt4j;bundle-version="1.0.0",
+ org.opt4j;bundle-version="2.5.0",
  de.uka.ipd.sdq.pcm.designdecision;bundle-version="1.0.0",
  de.uka.ipd.sdq.pcm.cost;bundle-version="1.0.0",
  de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0",
@@ -18,7 +18,6 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.workflow.mdsd;bundle-version="1.0.0",
  de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
  de.uka.ipd.sdq.pcm.resultdecorator;bundle-version="1.0.0",
- com.google.inject;bundle-version="1.0.2",
  org.eclipse.help,
  org.junit4,
  de.uka.ipd.sdq.context;bundle-version="2.0.0";visibility:=reexport,

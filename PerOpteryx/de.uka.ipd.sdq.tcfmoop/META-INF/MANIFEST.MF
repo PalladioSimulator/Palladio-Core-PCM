@@ -1,15 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Tcfmoop
+Bundle-Name: Tcfmoop Stop Criteria for PerOpteryx
 Bundle-SymbolicName: de.uka.ipd.sdq.tcfmoop; singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.tcfmoop.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.opt4j;bundle-version="1.0.0",
- com.google.inject;bundle-version="1.0.2",
- org.junit,
- org.junit4
+ org.junit4,
+ org.opt4j;bundle-version="2.5.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.tcfmoop.config,
