@@ -109,14 +109,14 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 				"DiagramModelFile", getSelection(), "system_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
 		diagramModelFilePage.setTitle("Create CompositeModel Diagram");
 		diagramModelFilePage
-				.setDescription("Select file that will contain diagram model.");
+				.setDescription("Select file that will contain composite diagram model.");
 		addPage(diagramModelFilePage);
 
 		domainModelFilePage = new PalladioComponentModelCreationWizardPage(
 				"DomainModelFile", getSelection(), "system"); //$NON-NLS-1$ //$NON-NLS-2$
-		domainModelFilePage.setTitle("Create CompositeModel Diagram");
+		domainModelFilePage.setTitle("Create CompositeModel");
 		domainModelFilePage
-				.setDescription("Select file that will contain domain model.");
+				.setDescription("Select file that will contain composite domain model.");
 		addPage(domainModelFilePage);
 	}
 
