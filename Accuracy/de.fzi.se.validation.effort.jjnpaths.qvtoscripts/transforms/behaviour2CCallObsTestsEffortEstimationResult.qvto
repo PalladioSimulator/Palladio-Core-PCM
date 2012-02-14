@@ -10,17 +10,18 @@ access library ProbabilityLib();
 
 main() {
 	log('RD-SEFF to EffortEstimationResult (CCallObsTests) transformation started.');
-	inbehaviour.objects()[ResourceDemandingBehaviour]->map createEffortEstimation();
+	inbehaviour.objects()[EffortEstimationResult]->map createEffortEstimation(inbehaviour);
 	log('RD-SEFF to EffortEstimationResult (CCallObsTests) transformation finished.');
 }
 
-mapping ResourceDemandingBehaviour::createEffortEstimation() : EffortEstimationResult {
-	log('Processing ' + self.metaClassName() + ' ' + self.id + ' ...');
-	alpha := 0.5; // TODO: confidence?
-	numberTestcases := self.CCallObsTests(alpha);
-	resourceDemandingBehaviour := self;
+mapping inout EffortEstimationResult::createEffortEstimation(in behaviour : PCM_SEFF) {
+	log('Estimate started for targetId=' + self.targetId + ', alpha=' + self.alpha.toString());
+	alpha := self.alpha;
+	targetId := self.targetId;
+	resourceDemandingBehaviour := behaviour.objects()[ResourceDemandingBehaviour]->selectOne(b : ResourceDemandingBehaviour | b.id = targetId);
+	numberTestcases := resourceDemandingBehaviour.CCallObsTests(alpha);
+	log('Estimate complete. numberTestcases=' + self.numberTestcases.toString());
 }
-
 
 query ResourceDemandingBehaviour::CCallObsTests(in confidence : Real) : Integer {
 	var required : Integer = 0;
@@ -66,6 +67,10 @@ helper ForkAction::getEffort(in confidence : Real, in n : Integer) : Integer {
 	var r : Integer = 0;
 	self.asynchronousForkedBehaviours_ForkAction->forEach(fb) {
 		r = r + fb.CCallObsTests(confidence);
+	};
+	self.synchronisingBehaviours_ForkAction->forEach(fb) {
+	//	r := r + fb.CBranchTests(confidence);
+		assert(false) with log('ERROR: synchronsing behaviours_forkaction not implemented.');
 	};
 	return r;
 }

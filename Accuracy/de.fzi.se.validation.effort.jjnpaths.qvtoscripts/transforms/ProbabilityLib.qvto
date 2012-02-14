@@ -80,7 +80,7 @@ library ProbabilityLib()
 	}
 
 	query AbstractAction::containsCalls() : Boolean {
-		log('ERROR: AbstractAction::containsCalls is not implemented!');
+		assert (false) with log('ERROR: AbstractAction::containsCalls is not implemented!');
 		if(self.oclIsKindOf(CallAction)) then {
 			return true;
 		} endif;

@@ -5,20 +5,22 @@ modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
 modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
 
 transformation behaviour2CActionTestsEffortEstimation(in inbehaviour : PCM_SEFF,
-													  out outdesc : EER)
+													  inout outdesc : EER)
 access ProbabilityLib();
 
 main() {
 	log('RD-SEFF to EffortEstimationResult (CActionTests) transformation started.');
-	inbehaviour.objects()[ResourceDemandingBehaviour]->map createEffortEstimation();
+	inbehaviour.objects()[EffortEstimationResult]->map createEffortEstimation(inbehaviour);
 	log('RD-SEFF to EffortEstimationResult (CActionTests) transformation finished.');
 }
 
-mapping ResourceDemandingBehaviour::createEffortEstimation() : EffortEstimationResult {
-	log('Processing ' + self.metaClassName() + ' ' + self.id + ' ...');
-	alpha := 0.5; // TODO: confidence?
-	numberTestcases := self.CActionTests(alpha);
-	resourceDemandingBehaviour := self;
+mapping inout EffortEstimationResult::createEffortEstimation(in behaviour : PCM_SEFF) {
+	log('Estimate started for targetId=' + self.targetId + ', alpha=' + self.alpha.toString());
+	alpha := self.alpha;
+	targetId := self.targetId;
+	resourceDemandingBehaviour := behaviour.objects()[ResourceDemandingBehaviour]->selectOne(b : ResourceDemandingBehaviour | b.id = targetId);
+	numberTestcases := resourceDemandingBehaviour.CActionTests(alpha);
+	log('Estimate complete. numberTestcases=' + self.numberTestcases.toString());
 }
 
 query ResourceDemandingBehaviour::CActionTests(in confidence : Real) : Integer {
@@ -43,7 +45,7 @@ query ResourceDemandingBehaviour::CActionTests(in confidence : Real) : Integer {
 				required := required * MinRequiredTests(probFreqGreaterZero, confidence);
 			} endif;
 		} endif;
-		if (required = 0.0) then {
+		if (required = 0) then {
 			required := 1;
 		} endif;
 	};
