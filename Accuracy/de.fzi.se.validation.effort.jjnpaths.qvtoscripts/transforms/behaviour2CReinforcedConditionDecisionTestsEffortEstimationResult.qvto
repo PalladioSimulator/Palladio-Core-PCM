@@ -1,0 +1,72 @@
+import de.fzi.se.validation.effort.MathFunctionsLibrary;
+import ProbabilityLib;
+
+modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
+modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
+
+transformation behaviour2CReinforcedConditionDecisionTestsEffortEstimation(in inbehaviour : PCM_SEFF, 
+									      			  inout outdesc : EER) 
+access library ProbabilityLib();
+
+main() {
+	log('RD-SEFF to EffortEstimationResult (CReinforcedConditionDecisionTests) transformation started.');
+	inbehaviour.objects()[EffortEstimationResult]->map createEffortEstimation(inbehaviour);
+	log('RD-SEFF to EffortEstimationResult (CReinforcedConditionDecisionTests) transformation finished.');
+}
+
+mapping inout EffortEstimationResult::createEffortEstimation(in behaviour : PCM_SEFF) {
+	log('Estimate started for targetId=' + self.targetId + ', alpha=' + self.alpha.toString());
+	alpha := self.alpha;
+	targetId := self.targetId;
+	resourceDemandingBehaviour := behaviour.objects()[ResourceDemandingBehaviour]->selectOne(b : ResourceDemandingBehaviour | b.id = targetId);
+	numberTestcases := resourceDemandingBehaviour.CReinforcedConditionDecisionTests(alpha);
+	log('Estimate complete. numberTestcases=' + self.numberTestcases.toString());
+}
+
+query ResourceDemandingBehaviour::CReinforcedConditionDecisionTests(in confidence : Real) : Integer {
+	var required : Integer = 0;
+	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
+		required := required + action.getEffort(confidence);
+	};
+	return required;
+}
+
+helper AbstractAction::getEffort(in confidence : Real) : Integer {
+	return 0;
+}
+
+helper BranchAction::getEffort(in confidence : Real) : Integer {
+	var r : Integer; // result
+	self.branches_Branch->forEach(branch) {
+		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
+			var gBranch : GuardedBranchTransition = branch.oclAsType(GuardedBranchTransition);
+			var a : Integer = gBranch.branchCondition_GuardedBranchTransition.expression.NumberOfConditionAtoms();
+			r := (6*a).max(branch.branchBehaviour_BranchTransition.CReinforcedConditionDecisionTests(confidence));
+		} else { // ProbabilisticBranchCondition
+			var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
+			r := 1.max(branch.branchBehaviour_BranchTransition.CReinforcedConditionDecisionTests(confidence));
+			r := r * MinRequiredTests(probBranch.branchProbability, confidence);
+		} endif;
+	};
+	return r;
+}
+
+helper LoopAction::getEffort(in confidence : Real, in n : Integer) : Integer {
+	var r : Integer = 1.max(self.bodyBehaviour_Loop.CReinforcedConditionDecisionTests(confidence));
+	var probFreqGreaterZero : Real = 1 - self.iterationCount_LoopAction.expression.ProbabilityZero();
+	r := r * MinRequiredTests(probFreqGreaterZero, confidence);
+	return r;
+}
+
+helper ForkAction::getEffort(in confidence : Real, in n : Integer) : Integer {
+	var r : Integer = 0;
+	self.asynchronousForkedBehaviours_ForkAction->forEach(fb) {
+		r = r + fb.CReinforcedConditionDecisionTests(confidence);
+	};
+	
+	self.synchronisingBehaviours_ForkAction->forEach(fb) {
+	//	r := r + fb.CBranchTests(confidence);
+		assert(false) with log('ERROR: synchronsing behaviours_forkaction not implemented.');
+	};
+	return r;
+}
