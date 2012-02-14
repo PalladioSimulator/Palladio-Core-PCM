@@ -425,6 +425,7 @@ litigation.
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.debug.ui"/>
       <import plugin="org.apache.log4j"/>
+      <import plugin="org.opt4j" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.designdecision" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.cost" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow.launchconfig" version="1.1.0" match="greaterOrEqual"/>
@@ -439,6 +440,7 @@ litigation.
       <import plugin="de.uka.ipd.sdq.context" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.tcfmoop" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.dsexplore.qml.handling" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.simulation" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm" version="3.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.ui" version="3.4.1" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow" version="1.1.0" match="greaterOrEqual"/>
@@ -454,6 +456,8 @@ litigation.
       <import plugin="de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.completions" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pipesandfilters.framework" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.simulation.abstractsimengine" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.cip" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.variables" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.apache.log4j" version="1.2.13" match="greaterOrEqual"/>
@@ -485,7 +489,6 @@ litigation.
       <import plugin="de.uka.ipd.sdq.pcm.cost.edit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.resultdecorator.edit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="LQNModel" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.opt4j" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.dsexplore" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.core" version="3.5.0" match="greaterOrEqual"/>
@@ -494,11 +497,11 @@ litigation.
       <import plugin="org.eclipse.swt" version="3.5.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.ocl.ecore"/>
-      <import plugin="de.uka.ipd.sdq.simulation" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.simulation.abstractsimengine" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.cip" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.probespec.framework" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.simucomstatus" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.opt4j" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.commons.collections15" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="javax.inject" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -568,7 +571,7 @@ litigation.
          id="org.opt4j"
          download-size="0"
          install-size="0"
-         version="2.5.0"
+         version="0.0.0"
          unpack="false"/>
 
    <plugin
