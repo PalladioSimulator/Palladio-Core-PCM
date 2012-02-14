@@ -99,6 +99,8 @@
 		        	dest="${buildDirectory}/plugins/org.sat4j.pb_2.1.0.v20090520.jar" /> 
 				<get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/plugins/com.google.inject_2.0.0.v201105231817.jar"
 		        	dest="${buildDirectory}/plugins/com.google.inject_2.0.0.v201105231817.jar" /> 
+		        <get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/plugins/javax.inject_1.0.0.v20091030.jar"
+				   	dest="${buildDirectory}/plugins/com.google.inject_2.0.0.v201105231817.jar" /> 
 				<get src="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/plugins/org.apache.commons.math_2.1.0.v201105210652.jar"
                 	dest="${buildDirectory}/plugins/org.apache.commons.math_2.1.0.v201105210652.jar" />
 		<antcall target="replaceVersions"/>		
