@@ -425,7 +425,6 @@ litigation.
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.debug.ui"/>
       <import plugin="org.apache.log4j"/>
-      <import plugin="org.opt4j" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.designdecision" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.cost" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow.launchconfig" version="1.1.0" match="greaterOrEqual"/>
@@ -435,7 +434,6 @@ litigation.
       <import plugin="de.uka.ipd.sdq.workflow.mdsd" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow.pcm" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.resultdecorator" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="com.google.inject" version="1.0.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.help"/>
       <import plugin="org.junit4"/>
       <import plugin="de.uka.ipd.sdq.context" version="2.0.0" match="greaterOrEqual"/>
@@ -486,22 +484,21 @@ litigation.
       <import plugin="de.uka.ipd.sdq.featuremodel.editor" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.cost.edit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.resultdecorator.edit" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="com.google.inject" version="1.0.1" match="greaterOrEqual"/>
-      <import plugin="org.apache.commons.collections15" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="ptolemy.plot" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="LQNModel" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.opt4j" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.dsexplore" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.core" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm" version="3.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.ui" version="3.5.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.swt" version="3.5.1" match="greaterOrEqual"/>
-      <import plugin="org.aopalliance"/>
-      <import plugin="org.junit"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.ocl.ecore"/>
-      <import plugin="org.sat4j.core" version="2.1.0" match="equivalent"/>
-      <import plugin="org.sat4j.pb" version="2.1.0" match="equivalent"/>
+      <import plugin="de.uka.ipd.sdq.simulation" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.simulation.abstractsimengine" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.cip" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probespec.framework" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.simucomframework.simucomstatus" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -571,7 +568,7 @@ litigation.
          id="org.opt4j"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="2.5.0"
          unpack="false"/>
 
    <plugin
