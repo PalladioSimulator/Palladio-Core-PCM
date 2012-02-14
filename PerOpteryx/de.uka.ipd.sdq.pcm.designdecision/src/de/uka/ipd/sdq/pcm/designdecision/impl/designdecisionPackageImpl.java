@@ -8,12 +8,7 @@ package de.uka.ipd.sdq.pcm.designdecision.impl;
 
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 import de.uka.ipd.sdq.pcm.cost.costPackage;
-import de.uka.ipd.sdq.pcm.PcmPackage;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-
-import de.uka.ipd.sdq.pcm.core.CorePackage;
-
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.designdecision.AllocationDegree;
 import de.uka.ipd.sdq.pcm.designdecision.AssembledComponentDegree;
@@ -34,7 +29,6 @@ import de.uka.ipd.sdq.pcm.designdecision.DecisionSpace;
 import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteComponentParamDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteDegree;
-import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteProcessingRateDegree;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree;
@@ -53,10 +47,6 @@ import de.uka.ipd.sdq.pcm.designdecision.OptionalFeatureDegree;
 import de.uka.ipd.sdq.pcm.designdecision.OrderedDataTypeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.OrderedIntegerDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree;
-import de.uka.ipd.sdq.pcm.designdecision.PrimitiveTypes.PrimitiveTypesPackage;
-
-import de.uka.ipd.sdq.pcm.designdecision.PrimitiveTypes.impl.PrimitiveTypesPackageImpl;
-
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingResourceDegree;
 import de.uka.ipd.sdq.pcm.designdecision.QualityProperties.QualityPropertiesPackage;
 import de.uka.ipd.sdq.pcm.designdecision.QualityProperties.impl.QualityPropertiesPackageImpl;
@@ -64,7 +54,6 @@ import de.uka.ipd.sdq.pcm.designdecision.RangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceSelectionDegree;
-import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree;
 import de.uka.ipd.sdq.pcm.designdecision.StringComponentParamDegree;
 import de.uka.ipd.sdq.pcm.designdecision.StringSetDegree;
@@ -75,29 +64,13 @@ import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 
 import de.uka.ipd.sdq.pcm.designdecision.util.designdecisionValidator;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
-import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import de.uka.ipd.sdq.pcm.resourcerepository.impl.resourcerepositoryPackageImpl;
 import de.uka.ipd.sdq.pcm.resourcerepository.resourcerepositoryPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 import de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorPackage;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
-
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
@@ -325,13 +298,6 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * @generated
 	 */
 	private EClass unorderedDegreeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass schedulingPolicyChoiceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -999,15 +965,6 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSchedulingPolicyDegree_DomainOfAllowedSchedulingPolicies() {
-		return (EAttribute)schedulingPolicyDegreeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getEnumDegree() {
 		return enumDegreeEClass;
 	}
@@ -1028,24 +985,6 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 	 */
 	public EClass getUnorderedDegree() {
 		return unorderedDegreeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSchedulingPolicyChoice() {
-		return schedulingPolicyChoiceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSchedulingPolicyChoice_ChosenValue() {
-		return (EAttribute)schedulingPolicyChoiceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1327,15 +1266,11 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		capacityDegreeEClass = createEClass(CAPACITY_DEGREE);
 
 		schedulingPolicyDegreeEClass = createEClass(SCHEDULING_POLICY_DEGREE);
-		createEAttribute(schedulingPolicyDegreeEClass, SCHEDULING_POLICY_DEGREE__DOMAIN_OF_ALLOWED_SCHEDULING_POLICIES);
 
 		enumDegreeEClass = createEClass(ENUM_DEGREE);
 		createEReference(enumDegreeEClass, ENUM_DEGREE__ENUMERATION);
 
 		unorderedDegreeEClass = createEClass(UNORDERED_DEGREE);
-
-		schedulingPolicyChoiceEClass = createEClass(SCHEDULING_POLICY_CHOICE);
-		createEAttribute(schedulingPolicyChoiceEClass, SCHEDULING_POLICY_CHOICE__CHOSEN_VALUE);
 
 		classWithCopyDegreeEClass = createEClass(CLASS_WITH_COPY_DEGREE);
 
@@ -1401,7 +1336,6 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
 		featuremodelPackage thefeaturemodelPackage = (featuremodelPackage)EPackage.Registry.INSTANCE.getEPackage(featuremodelPackage.eNS_URI);
-		ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		AllocationPackage theAllocationPackage = (AllocationPackage)EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI);
 
@@ -1439,11 +1373,10 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		discreteProcessingRateDegreeEClass.getESuperTypes().add(this.getDiscreteRangeDegree());
 		discreteProcessingRateDegreeEClass.getESuperTypes().add(this.getProcessingRateDegree());
 		capacityDegreeEClass.getESuperTypes().add(this.getDiscreteRangeDegree());
-		schedulingPolicyDegreeEClass.getESuperTypes().add(this.getEnumDegree());
+		schedulingPolicyDegreeEClass.getESuperTypes().add(this.getClassAsReferenceDegree());
 		schedulingPolicyDegreeEClass.getESuperTypes().add(this.getProcessingResourceDegree());
 		enumDegreeEClass.getESuperTypes().add(this.getUnorderedDegree());
 		unorderedDegreeEClass.getESuperTypes().add(this.getDataTypeDegree());
-		schedulingPolicyChoiceEClass.getESuperTypes().add(this.getChoice());
 		classWithCopyDegreeEClass.getESuperTypes().add(this.getClassDegree());
 		resourceSelectionDegreeEClass.getESuperTypes().add(this.getClassWithCopyDegree());
 		resourceSelectionDegreeEClass.getESuperTypes().add(this.getProcessingResourceDegree());
@@ -1552,15 +1485,11 @@ public class designdecisionPackageImpl extends EPackageImpl implements designdec
 		initEClass(capacityDegreeEClass, CapacityDegree.class, "CapacityDegree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(schedulingPolicyDegreeEClass, SchedulingPolicyDegree.class, "SchedulingPolicyDegree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSchedulingPolicyDegree_DomainOfAllowedSchedulingPolicies(), theResourceenvironmentPackage.getSchedulingPolicy(), "domainOfAllowedSchedulingPolicies", null, 0, -1, SchedulingPolicyDegree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(enumDegreeEClass, EnumDegree.class, "EnumDegree", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnumDegree_Enumeration(), theEcorePackage.getEEnum(), null, "enumeration", null, 0, 1, EnumDegree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(unorderedDegreeEClass, UnorderedDegree.class, "UnorderedDegree", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(schedulingPolicyChoiceEClass, SchedulingPolicyChoice.class, "SchedulingPolicyChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSchedulingPolicyChoice_ChosenValue(), theResourceenvironmentPackage.getSchedulingPolicy(), "chosenValue", null, 1, 1, SchedulingPolicyChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(classWithCopyDegreeEClass, ClassWithCopyDegree.class, "ClassWithCopyDegree", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

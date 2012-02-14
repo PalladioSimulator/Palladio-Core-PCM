@@ -204,10 +204,7 @@
       <details key="documentation" value="Capcity degree. Need to refer to a PassiveResource as changeable entity, plus a &#xD;&#xA;&#xD;&#xA;TODO: add OCL that changeable entity is PassiveResource. &#xD;&#xA;&#xD;&#xA;TODO conceptually: Currently the capacity of a passive resource is modelled at the type level. That is not useful for e.g. threadpools. CHange PCM!&#xD;&#xA;If PCM is changed, put AssemblyContext as changeable entity and add a ref to PassiveResource here. Then TODO: add OCL for changeableEntity to be an AssemblyContext, plus the PassiveResource must be available in the encapsulated BasicComponent. "/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SchedulingPolicyDegree" eSuperTypes="#//EnumDegree #//ProcessingResourceDegree">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domainOfAllowedSchedulingPolicies"
-        ordered="false" upperBound="-1" eType="ecore:EEnum ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/SchedulingPolicy"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchedulingPolicyDegree" eSuperTypes="#//ClassAsReferenceDegree #//ProcessingResourceDegree"/>
   <eClassifiers xsi:type="ecore:EClass" name="EnumDegree" abstract="true" eSuperTypes="#//UnorderedDegree">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Construct to model a special type of enumerated degree of freedom where the domain of values is a subset of an enumeration in the metamodel. Each concrete subclass of EnumDegree must model the domain explicitly (refer to the concrete Enum to choose from). &#xD;&#xA;&#xD;&#xA;This class is actually superflous as it does not add any properties to its subclasses. It is just used to conceptually group this type of degree of freedom. Maybe it can be used to implement some OCL checks (with reflection?). "/>
@@ -216,10 +213,6 @@
         eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UnorderedDegree" abstract="true" eSuperTypes="#//DataTypeDegree"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SchedulingPolicyChoice" eSuperTypes="#//Choice">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chosenValue" ordered="false"
-        lowerBound="1" eType="ecore:EEnum ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/SchedulingPolicy"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClassWithCopyDegree" abstract="true"
       eSuperTypes="#//ClassDegree">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

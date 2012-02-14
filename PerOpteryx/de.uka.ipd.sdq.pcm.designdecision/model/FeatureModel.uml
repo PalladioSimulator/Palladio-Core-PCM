@@ -231,6 +231,15 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
       </ownedAttribute>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_bcN5gOUmEeC5x7HepwhVXw" name="StringAttribute">
+      <generalization xmi:id="_gz03YOUmEeC5x7HepwhVXw" general="_DgA84DkmEd2yIp43-c7nBw"/>
+      <ownedAttribute xmi:id="_eIt8AOUmEeC5x7HepwhVXw" name="defaultValue" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_l3sW0PSxEeCjYYIn2yPhvA" name="ExternalObjectAttribute">
+      <generalization xmi:id="_nUcBoPSxEeCjYYIn2yPhvA" general="_DgA84DkmEd2yIp43-c7nBw"/>
+    </packagedElement>
     <profileApplication xmi:id="_nFRX5XvmEdyOhKBWyuRGig">
       <eAnnotations xmi:id="_nFRX5nvmEdyOhKBWyuRGig" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>

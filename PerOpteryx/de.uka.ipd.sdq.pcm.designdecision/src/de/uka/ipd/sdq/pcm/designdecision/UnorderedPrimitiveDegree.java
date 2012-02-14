@@ -6,11 +6,6 @@
  */
 package de.uka.ipd.sdq.pcm.designdecision;
 
-
-
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EDataType;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Unordered Primitive Degree</b></em>'.

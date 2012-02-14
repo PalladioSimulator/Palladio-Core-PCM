@@ -349,13 +349,8 @@ If PCM is changed, put AssemblyContext as changeable entity and add a ref to Pas
       <generalization xmi:id="_MlpT4LUXEd-iB5E5ZPm7Eg" general="_BBEi4PzyEd2sBa2PoI_LqA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_X4zqMLUXEd-iB5E5ZPm7Eg" name="SchedulingPolicyDegree">
-      <generalization xmi:id="_GaQ6QLUYEd-iB5E5ZPm7Eg" general="_EnlbsLUYEd-iB5E5ZPm7Eg"/>
+      <generalization xmi:id="_GaQ6QLUYEd-iB5E5ZPm7Eg" general="_gQHsQBmlEeCymqsKFYq-AA"/>
       <generalization xmi:id="_pom6QLW7Ed-iB5E5ZPm7Eg" general="_DfqE0EFdEd-8BKcv5MhVwA"/>
-      <ownedAttribute xmi:id="_14msQLW7Ed-iB5E5ZPm7Eg" name="domainOfAllowedSchedulingPolicies" visibility="private" association="_14kQALW7Ed-iB5E5ZPm7Eg">
-        <type xmi:type="uml:Enumeration" href="pcm.uml#_wuNVYBmsEdyaJvvdhGgDYg"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_14ohcLW7Ed-iB5E5ZPm7Eg" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_14n6YLW7Ed-iB5E5ZPm7Eg"/>
-      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_EnlbsLUYEd-iB5E5ZPm7Eg" name="EnumDegree" isAbstract="true">
       <ownedComment xmi:id="_LlU3YLW8Ed-iB5E5ZPm7Eg" annotatedElement="_EnlbsLUYEd-iB5E5ZPm7Eg">
@@ -369,18 +364,6 @@ This class is actually superflous as it does not add any properties to its subcl
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ldEygErrEeCgHJIR5Amnzw" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ldDkYErrEeCgHJIR5Amnzw"/>
       </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_G4dSILUYEd-iB5E5ZPm7Eg" name="SchedulingPolicyChoice">
-      <generalization xmi:id="_IYEqwLUYEd-iB5E5ZPm7Eg" general="_BHSOsPzpEd2sBa2PoI_LqA"/>
-      <ownedAttribute xmi:id="_PalrQLUYEd-iB5E5ZPm7Eg" name="chosenValue" visibility="public">
-        <type xmi:type="uml:Enumeration" href="pcm.uml#_wuNVYBmsEdyaJvvdhGgDYg"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_14kQALW7Ed-iB5E5ZPm7Eg" memberEnd="_14msQLW7Ed-iB5E5ZPm7Eg _1461ULW7Ed-iB5E5ZPm7Eg">
-      <ownedEnd xmi:id="_1461ULW7Ed-iB5E5ZPm7Eg" name="" visibility="private" type="_X4zqMLUXEd-iB5E5ZPm7Eg" association="_14kQALW7Ed-iB5E5ZPm7Eg">
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_148qgLW7Ed-iB5E5ZPm7Eg" value="*"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_148DcLW7Ed-iB5E5ZPm7Eg"/>
-      </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_k6PrUP7FEd-I0aX6Em3k2A" name="resourcerepository">
       <packagedElement xmi:type="uml:Class" xmi:id="_uJcl0P7FEd-I0aX6Em3k2A" name="ResourceDescriptionRepository">

@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.designdecision.impl;
 
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
 import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedomInstance;
-import de.uka.ipd.sdq.pcm.designdecision.DegreeOfFreedom;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 
 import org.eclipse.emf.common.notify.Notification;

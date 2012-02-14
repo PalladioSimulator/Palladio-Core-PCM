@@ -6,8 +6,6 @@
  */
 package de.uka.ipd.sdq.pcm.designdecision;
 
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Capacity Degree</b></em>'.

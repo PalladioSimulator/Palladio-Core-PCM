@@ -192,10 +192,6 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 				return createUnorderedDegreeAdapter();
 			}
 			@Override
-			public Adapter caseSchedulingPolicyChoice(SchedulingPolicyChoice object) {
-				return createSchedulingPolicyChoiceAdapter();
-			}
-			@Override
 			public Adapter caseClassWithCopyDegree(ClassWithCopyDegree object) {
 				return createClassWithCopyDegreeAdapter();
 			}
@@ -688,20 +684,6 @@ public class designdecisionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnorderedDegreeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice <em>Scheduling Policy Choice</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice
-	 * @generated
-	 */
-	public Adapter createSchedulingPolicyChoiceAdapter() {
 		return null;
 	}
 

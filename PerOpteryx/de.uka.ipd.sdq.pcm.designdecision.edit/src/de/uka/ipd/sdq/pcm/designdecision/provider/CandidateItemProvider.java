@@ -171,11 +171,6 @@ public class CandidateItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(designdecisionPackage.Literals.CANDIDATE__CHOICES,
-				 designdecisionFactory.eINSTANCE.createSchedulingPolicyChoice()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(designdecisionPackage.Literals.CANDIDATE__QUALITY_PROPERTY,
 				 QualityPropertiesFactory.eINSTANCE.createElementQualityProperty()));
 

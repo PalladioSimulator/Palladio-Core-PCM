@@ -6,8 +6,6 @@
  */
 package de.uka.ipd.sdq.pcm.designdecision;
 
-import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
-
 import org.eclipse.emf.common.util.EList;
 
 /**

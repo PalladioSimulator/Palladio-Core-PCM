@@ -1432,6 +1432,71 @@ public interface designdecisionPackage extends EPackage {
 	int UNORDERED_DEGREE = 29;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.EnumDegreeImpl <em>Enum Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.EnumDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getEnumDegree()
+	 * @generated
+	 */
+	int ENUM_DEGREE = 28;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.SchedulingPolicyDegreeImpl <em>Scheduling Policy Degree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.SchedulingPolicyDegreeImpl
+	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getSchedulingPolicyDegree()
+	 * @generated
+	 */
+	int SCHEDULING_POLICY_DEGREE = 27;
+
+	/**
+	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_POLICY_DEGREE__PRIMARY_CHANGED = CLASS_AS_REFERENCE_DEGREE__PRIMARY_CHANGED;
+
+	/**
+	 * The feature id for the '<em><b>Dof</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_POLICY_DEGREE__DOF = CLASS_AS_REFERENCE_DEGREE__DOF;
+
+	/**
+	 * The feature id for the '<em><b>Class Design Options</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_POLICY_DEGREE__CLASS_DESIGN_OPTIONS = CLASS_AS_REFERENCE_DEGREE__CLASS_DESIGN_OPTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Processingresourcetype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_POLICY_DEGREE__PROCESSINGRESOURCETYPE = CLASS_AS_REFERENCE_DEGREE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Scheduling Policy Degree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_POLICY_DEGREE_FEATURE_COUNT = CLASS_AS_REFERENCE_DEGREE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1457,16 +1522,6 @@ public interface designdecisionPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNORDERED_DEGREE_FEATURE_COUNT = DATA_TYPE_DEGREE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.EnumDegreeImpl <em>Enum Degree</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.EnumDegreeImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getEnumDegree()
-	 * @generated
-	 */
-	int ENUM_DEGREE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1496,16 +1551,6 @@ public interface designdecisionPackage extends EPackage {
 	int ENUM_DEGREE__ENUMERATION = UNORDERED_DEGREE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.SchedulingPolicyDegreeImpl <em>Scheduling Policy Degree</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.SchedulingPolicyDegreeImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getSchedulingPolicyDegree()
-	 * @generated
-	 */
-	int SCHEDULING_POLICY_DEGREE = 27;
-
-	/**
 	 * The number of structural features of the '<em>Enum Degree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1515,107 +1560,6 @@ public interface designdecisionPackage extends EPackage {
 	int ENUM_DEGREE_FEATURE_COUNT = UNORDERED_DEGREE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_POLICY_DEGREE__PRIMARY_CHANGED = ENUM_DEGREE__PRIMARY_CHANGED;
-
-	/**
-	 * The feature id for the '<em><b>Dof</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_POLICY_DEGREE__DOF = ENUM_DEGREE__DOF;
-
-	/**
-	 * The feature id for the '<em><b>Enumeration</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_POLICY_DEGREE__ENUMERATION = ENUM_DEGREE__ENUMERATION;
-
-	/**
-	 * The feature id for the '<em><b>Processingresourcetype</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_POLICY_DEGREE__PROCESSINGRESOURCETYPE = ENUM_DEGREE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Domain Of Allowed Scheduling Policies</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_POLICY_DEGREE__DOMAIN_OF_ALLOWED_SCHEDULING_POLICIES = ENUM_DEGREE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Scheduling Policy Degree</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_POLICY_DEGREE_FEATURE_COUNT = ENUM_DEGREE_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.SchedulingPolicyChoiceImpl <em>Scheduling Policy Choice</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.SchedulingPolicyChoiceImpl
-	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getSchedulingPolicyChoice()
-	 * @generated
-	 */
-	int SCHEDULING_POLICY_CHOICE = 30;
-
-	/**
-	 * The feature id for the '<em><b>Is Active</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_POLICY_CHOICE__IS_ACTIVE = CHOICE__IS_ACTIVE;
-
-	/**
-	 * The feature id for the '<em><b>Degree Of Freedom Instance</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_POLICY_CHOICE__DEGREE_OF_FREEDOM_INSTANCE = CHOICE__DEGREE_OF_FREEDOM_INSTANCE;
-
-	/**
-	 * The feature id for the '<em><b>Chosen Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_POLICY_CHOICE__CHOSEN_VALUE = CHOICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Scheduling Policy Choice</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULING_POLICY_CHOICE_FEATURE_COUNT = CHOICE_FEATURE_COUNT + 1;
-
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ClassWithCopyDegreeImpl <em>Class With Copy Degree</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1623,7 +1567,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getClassWithCopyDegree()
 	 * @generated
 	 */
-	int CLASS_WITH_COPY_DEGREE = 31;
+	int CLASS_WITH_COPY_DEGREE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1669,7 +1613,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceSelectionDegree()
 	 * @generated
 	 */
-	int RESOURCE_SELECTION_DEGREE = 32;
+	int RESOURCE_SELECTION_DEGREE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1724,7 +1668,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getStringSetDegree()
 	 * @generated
 	 */
-	int STRING_SET_DEGREE = 33;
+	int STRING_SET_DEGREE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1770,7 +1714,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getDiscreteComponentParamDegree()
 	 * @generated
 	 */
-	int DISCRETE_COMPONENT_PARAM_DEGREE = 34;
+	int DISCRETE_COMPONENT_PARAM_DEGREE = 33;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1843,7 +1787,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getContinuousComponentParamDegree()
 	 * @generated
 	 */
-	int CONTINUOUS_COMPONENT_PARAM_DEGREE = 35;
+	int CONTINUOUS_COMPONENT_PARAM_DEGREE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1916,7 +1860,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getStringComponentParamDegree()
 	 * @generated
 	 */
-	int STRING_COMPONENT_PARAM_DEGREE = 36;
+	int STRING_COMPONENT_PARAM_DEGREE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1962,7 +1906,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getUnorderedPrimitiveDegree()
 	 * @generated
 	 */
-	int UNORDERED_PRIMITIVE_DEGREE = 37;
+	int UNORDERED_PRIMITIVE_DEGREE = 36;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -1999,7 +1943,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getNumberOfCoresAsRangeDegree()
 	 * @generated
 	 */
-	int NUMBER_OF_CORES_AS_RANGE_DEGREE = 38;
+	int NUMBER_OF_CORES_AS_RANGE_DEGREE = 37;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -2081,7 +2025,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getNumberOfCoresDegree()
 	 * @generated
 	 */
-	int NUMBER_OF_CORES_DEGREE = 39;
+	int NUMBER_OF_CORES_DEGREE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -2128,7 +2072,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getResourceContainerReplicationDegreeWithComponentChange()
 	 * @generated
 	 */
-	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE = 40;
+	int RESOURCE_CONTAINER_REPLICATION_DEGREE_WITH_COMPONENT_CHANGE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -2211,7 +2155,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getExchangeComponentRule()
 	 * @generated
 	 */
-	int EXCHANGE_COMPONENT_RULE = 41;
+	int EXCHANGE_COMPONENT_RULE = 40;
 
 	/**
 	 * The feature id for the '<em><b>Repository Component</b></em>' reference list.
@@ -2249,7 +2193,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getOrderedDataTypeDegree()
 	 * @generated
 	 */
-	int ORDERED_DATA_TYPE_DEGREE = 42;
+	int ORDERED_DATA_TYPE_DEGREE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -2286,7 +2230,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getOrderedIntegerDegree()
 	 * @generated
 	 */
-	int ORDERED_INTEGER_DEGREE = 43;
+	int ORDERED_INTEGER_DEGREE = 42;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -2332,7 +2276,7 @@ public interface designdecisionPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getNumberOfCoresAsListDegree()
 	 * @generated
 	 */
-	int NUMBER_OF_CORES_AS_LIST_DEGREE = 44;
+	int NUMBER_OF_CORES_AS_LIST_DEGREE = 43;
 
 	/**
 	 * The feature id for the '<em><b>Primary Changed</b></em>' reference.
@@ -2936,17 +2880,6 @@ public interface designdecisionPackage extends EPackage {
 	EClass getSchedulingPolicyDegree();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree#getDomainOfAllowedSchedulingPolicies <em>Domain Of Allowed Scheduling Policies</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Domain Of Allowed Scheduling Policies</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree#getDomainOfAllowedSchedulingPolicies()
-	 * @see #getSchedulingPolicyDegree()
-	 * @generated
-	 */
-	EAttribute getSchedulingPolicyDegree_DomainOfAllowedSchedulingPolicies();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.EnumDegree <em>Enum Degree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2976,27 +2909,6 @@ public interface designdecisionPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUnorderedDegree();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice <em>Scheduling Policy Choice</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Scheduling Policy Choice</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice
-	 * @generated
-	 */
-	EClass getSchedulingPolicyChoice();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice#getChosenValue <em>Chosen Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Chosen Value</em>'.
-	 * @see de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice#getChosenValue()
-	 * @see #getSchedulingPolicyChoice()
-	 * @generated
-	 */
-	EAttribute getSchedulingPolicyChoice_ChosenValue();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.designdecision.ClassWithCopyDegree <em>Class With Copy Degree</em>}'.
@@ -3696,14 +3608,6 @@ public interface designdecisionPackage extends EPackage {
 		EClass SCHEDULING_POLICY_DEGREE = eINSTANCE.getSchedulingPolicyDegree();
 
 		/**
-		 * The meta object literal for the '<em><b>Domain Of Allowed Scheduling Policies</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEDULING_POLICY_DEGREE__DOMAIN_OF_ALLOWED_SCHEDULING_POLICIES = eINSTANCE.getSchedulingPolicyDegree_DomainOfAllowedSchedulingPolicies();
-
-		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.EnumDegreeImpl <em>Enum Degree</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3730,24 +3634,6 @@ public interface designdecisionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UNORDERED_DEGREE = eINSTANCE.getUnorderedDegree();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.SchedulingPolicyChoiceImpl <em>Scheduling Policy Choice</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.SchedulingPolicyChoiceImpl
-		 * @see de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl#getSchedulingPolicyChoice()
-		 * @generated
-		 */
-		EClass SCHEDULING_POLICY_CHOICE = eINSTANCE.getSchedulingPolicyChoice();
-
-		/**
-		 * The meta object literal for the '<em><b>Chosen Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEDULING_POLICY_CHOICE__CHOSEN_VALUE = eINSTANCE.getSchedulingPolicyChoice_ChosenValue();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.designdecision.impl.ClassWithCopyDegreeImpl <em>Class With Copy Degree</em>}' class.

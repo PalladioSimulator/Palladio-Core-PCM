@@ -7,7 +7,6 @@
 package de.uka.ipd.sdq.pcm.designdecision.provider;
 
 
-import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 
 import java.util.Collection;
@@ -23,8 +22,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree} object.
@@ -33,7 +30,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class SchedulingPolicyDegreeItemProvider
-	extends EnumDegreeItemProvider
+	extends ClassAsReferenceDegreeItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -62,7 +59,6 @@ public class SchedulingPolicyDegreeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addProcessingresourcetypePropertyDescriptor(object);
-			addDomainOfAllowedSchedulingPoliciesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,28 +81,6 @@ public class SchedulingPolicyDegreeItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Domain Of Allowed Scheduling Policies feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDomainOfAllowedSchedulingPoliciesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SchedulingPolicyDegree_domainOfAllowedSchedulingPolicies_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SchedulingPolicyDegree_domainOfAllowedSchedulingPolicies_feature", "_UI_SchedulingPolicyDegree_type"),
-				 designdecisionPackage.Literals.SCHEDULING_POLICY_DEGREE__DOMAIN_OF_ALLOWED_SCHEDULING_POLICIES,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -143,12 +117,6 @@ public class SchedulingPolicyDegreeItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(SchedulingPolicyDegree.class)) {
-			case designdecisionPackage.SCHEDULING_POLICY_DEGREE__DOMAIN_OF_ALLOWED_SCHEDULING_POLICIES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

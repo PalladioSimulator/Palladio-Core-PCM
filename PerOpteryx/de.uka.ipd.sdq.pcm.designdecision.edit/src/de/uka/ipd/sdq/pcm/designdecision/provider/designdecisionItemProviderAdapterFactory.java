@@ -513,29 +513,6 @@ public class designdecisionItemProviderAdapterFactory extends designdecisionAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SchedulingPolicyChoiceItemProvider schedulingPolicyChoiceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyChoice}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSchedulingPolicyChoiceAdapter() {
-		if (schedulingPolicyChoiceItemProvider == null) {
-			schedulingPolicyChoiceItemProvider = new SchedulingPolicyChoiceItemProvider(this);
-		}
-
-		return schedulingPolicyChoiceItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.designdecision.ResourceSelectionDegree} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -860,7 +837,6 @@ public class designdecisionItemProviderAdapterFactory extends designdecisionAdap
 		if (discreteProcessingRateDegreeItemProvider != null) discreteProcessingRateDegreeItemProvider.dispose();
 		if (capacityDegreeItemProvider != null) capacityDegreeItemProvider.dispose();
 		if (schedulingPolicyDegreeItemProvider != null) schedulingPolicyDegreeItemProvider.dispose();
-		if (schedulingPolicyChoiceItemProvider != null) schedulingPolicyChoiceItemProvider.dispose();
 		if (resourceSelectionDegreeItemProvider != null) resourceSelectionDegreeItemProvider.dispose();
 		if (discreteComponentParamDegreeItemProvider != null) discreteComponentParamDegreeItemProvider.dispose();
 		if (continuousComponentParamDegreeItemProvider != null) continuousComponentParamDegreeItemProvider.dispose();

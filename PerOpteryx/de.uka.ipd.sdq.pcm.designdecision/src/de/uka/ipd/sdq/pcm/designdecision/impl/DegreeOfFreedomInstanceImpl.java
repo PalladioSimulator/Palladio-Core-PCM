@@ -12,11 +12,7 @@ import de.uka.ipd.sdq.pcm.designdecision.GDoF.DegreeOfFreedom;
 
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -178,7 +174,6 @@ public abstract class DegreeOfFreedomInstanceImpl extends EObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

@@ -113,17 +113,12 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//DiscreteProcessingRateDegree/numberOfSteps"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//CapacityDegree"/>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//SchedulingPolicyDegree">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//SchedulingPolicyDegree/domainOfAllowedSchedulingPolicies"/>
-    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//SchedulingPolicyDegree"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//EnumDegree">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference designdecision.ecore#//EnumDegree/enumeration"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//UnorderedDegree"/>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//SchedulingPolicyChoice">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute designdecision.ecore#//SchedulingPolicyChoice/chosenValue"/>
-    </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ClassWithCopyDegree"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="designdecision.ecore#//ResourceSelectionDegree"/>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="designdecision.ecore#//StringSetDegree">

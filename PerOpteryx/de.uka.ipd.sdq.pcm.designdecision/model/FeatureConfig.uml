@@ -21,7 +21,7 @@ be stored. </body>
       <ownedRule xmi:id="_Zew_EHctEeCD3b1oyrExdQ" name="CheckMultiplicityOfFeatureGroup" constrainedElement="__AsOMHvxEdyOhKBWyuRGig">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_Zfq-AHctEeCD3b1oyrExdQ">
           <language>OCL</language>
-          <body>not self.origin.featuregroup->isEmpty() implies (self.origin.featuregroup.children->size() &lt;=  self.origin.featuregroup.max and self.origin.featuregroup.children->size() >=  self.origin.featuregroup.min)</body>
+          <body>true&#xD;&#xA;--not self.origin.featuregroup->isEmpty() implies (self.origin.featuregroup.children->size() &lt;=  self.origin.featuregroup.max and self.origin.featuregroup.children->size() >=  self.origin.featuregroup.min)</body>
         </specification>
       </ownedRule>
       <ownedAttribute xmi:id="_JRmdUHvyEdyOhKBWyuRGig" name="origin" visibility="public" association="_JRjaAHvyEdyOhKBWyuRGig">
@@ -52,13 +52,7 @@ aka NULL, not set, do not override</body>
       </ownedLiteral>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_2-grAHvyEdyOhKBWyuRGig" name="FeatureConfig">
-      <ownedRule xmi:id="_i6LkkHvzEdyOhKBWyuRGig" name="RootIsFeatureModel" constrainedElement="_2-grAHvyEdyOhKBWyuRGig">
-        <specification xmi:type="uml:OpaqueExpression" xmi:id="_i6MysHvzEdyOhKBWyuRGig">
-          <language>OCL</language>
-          <body>self.annotatedElement.oclIsKindOf(featuremodel::FeatureDiagram)</body>
-        </specification>
-      </ownedRule>
-      <ownedAttribute xmi:id="_9SMDgMcqEd6uiptR6cqsUw" name="featureConfigState" visibility="private" type="_D8LrwMcqEd6uiptR6cqsUw" isReadOnly="true" isDerived="true">
+      <ownedAttribute xmi:id="_9SMDgMcqEd6uiptR6cqsUw" name="featureConfigState" visibility="public" type="_D8LrwMcqEd6uiptR6cqsUw">
         <ownedComment xmi:id="_IpfTwCYyEd-we6LrevsdoA" annotatedElement="_9SMDgMcqEd6uiptR6cqsUw">
           <body>&lt;p>&#xD;
     &lt;span&#xD;
@@ -74,10 +68,10 @@ aka NULL, not set, do not override</body>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eqPfQDk2Ed2yIp43-c7nBw" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eqO4MDk2Ed2yIp43-c7nBw"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_d0XF0CxjEd-fSpCH--lS1g" name="annotatedElement" visibility="private" association="_d0UpkCxjEd-fSpCH--lS1g">
-        <type xmi:type="uml:Class" href="Ecore.uml#_SeWijsX_EduPJbEsMYXjUQ"/>
+      <ownedAttribute xmi:id="_d0XF0CxjEd-fSpCH--lS1g" name="annotatedElement" visibility="public" association="_d0UpkCxjEd-fSpCH--lS1g">
+        <type xmi:type="uml:Class" href="FeatureModel.uml#_7fgRUHvvEdyOhKBWyuRGig"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_d0Y7ACxjEd-fSpCH--lS1g" value="1"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d0YT8CxjEd-fSpCH--lS1g" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d0YT8CxjEd-fSpCH--lS1g"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_TxaAEHweEdyOhKBWyuRGig" name="configurationOverrides" visibility="private" type="_JTpAsHweEdyOhKBWyuRGig" association="_TxWVsHweEdyOhKBWyuRGig">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yl5WIMe9Ed6HwLqReLKGsQ" value="1"/>
@@ -148,6 +142,14 @@ aka NULL, not set, do not override</body>
       <ownedLiteral xmi:id="_FyWjMMcqEd6uiptR6cqsUw" name="DEFAULT"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_d0UpkCxjEd-fSpCH--lS1g" memberEnd="_d0XF0CxjEd-fSpCH--lS1g _d0aJICxjEd-fSpCH--lS1g">
+      <ownedComment xmi:id="_v2mvgOUlEeC5x7HepwhVXw" annotatedElement="_d0UpkCxjEd-fSpCH--lS1g">
+        <body>&lt;p>&#xD;
+    The annotatedElement reference can be used to refer to an external object holding arbitrary configuration data.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    For example, a complex matrix can be encoded in an external model and be used inside a FeatureConfig.&#xD;
+&lt;/p></body>
+      </ownedComment>
       <ownedEnd xmi:id="_d0aJICxjEd-fSpCH--lS1g" name="" visibility="private" type="_2-grAHvyEdyOhKBWyuRGig" association="_d0UpkCxjEd-fSpCH--lS1g">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_d0b-USxjEd-fSpCH--lS1g" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d0b-UCxjEd-fSpCH--lS1g"/>
@@ -170,6 +172,35 @@ aka NULL, not set, do not override</body>
         </specification>
       </ownedRule>
       <generalization xmi:id="_VvEO8EI2Ed-TiaMuXLH3qw" general="_PmyZEMcnEd6uiptR6cqsUw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_kLUXoOUmEeC5x7HepwhVXw" name="StringAttributeValue">
+      <ownedRule xmi:id="_rIEHUOUmEeC5x7HepwhVXw" name="AttributeValueIsDefinedInFeatureAndEqualsTypeString" constrainedElement="_kLUXoOUmEeC5x7HepwhVXw">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_rIEHUeUmEeC5x7HepwhVXw">
+          <language>OCL</language>
+          <body>self.confignode.origin.attributes->one(a | a.name = self.name)&#xD;&#xA; and&#xD;&#xA; self.confignode.origin.attributes->any(a | a.name = self.name).oclIsTypeOf(featuremodel::StringAttribute)</body>
+        </specification>
+      </ownedRule>
+      <generalization xmi:id="_lUKPAOUmEeC5x7HepwhVXw" general="_PmyZEMcnEd6uiptR6cqsUw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_OkjngPSxEeCjYYIn2yPhvA" name="ExternalObjectAttributeValue">
+      <ownedRule xmi:id="_Y57f4PSxEeCjYYIn2yPhvA" name="AttributeValueIsDefinedInFeatureAndEqualsTypeExternalObject" constrainedElement="_OkjngPSxEeCjYYIn2yPhvA">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_Y58uAPSxEeCjYYIn2yPhvA">
+          <language>OCL</language>
+          <body>self.confignode.origin.attributes->one(a | a.name = self.name)&#xD;&#xA; and&#xD;&#xA; self.confignode.origin.attributes->any(a | a.name = self.name).oclIsTypeOf(featuremodel::ExternalObjectAttribute)</body>
+        </specification>
+      </ownedRule>
+      <generalization xmi:id="_WICAAPSxEeCjYYIn2yPhvA" general="_PmyZEMcnEd6uiptR6cqsUw"/>
+      <ownedAttribute xmi:id="_gB2k0PSxEeCjYYIn2yPhvA" name="referencedObject" visibility="public" association="_gBy6cPSxEeCjYYIn2yPhvA">
+        <type xmi:type="uml:Class" href="Ecore.uml#_SeWijsX_EduPJbEsMYXjUQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gB4aAPSxEeCjYYIn2yPhvA" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gB3y8PSxEeCjYYIn2yPhvA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_gBy6cPSxEeCjYYIn2yPhvA" memberEnd="_gB2k0PSxEeCjYYIn2yPhvA _gB7dUPSxEeCjYYIn2yPhvA">
+      <ownedEnd xmi:id="_gB7dUPSxEeCjYYIn2yPhvA" name="" visibility="private" type="_OkjngPSxEeCjYYIn2yPhvA" association="_gBy6cPSxEeCjYYIn2yPhvA">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gB8EYfSxEeCjYYIn2yPhvA" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gB8EYPSxEeCjYYIn2yPhvA"/>
+      </ownedEnd>
     </packagedElement>
     <profileApplication xmi:id="_wDqOMnvxEdyOhKBWyuRGig">
       <eAnnotations xmi:id="_wDqOM3vxEdyOhKBWyuRGig" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -204,4 +235,5 @@ aka NULL, not set, do not override</body>
   <Default:Documentation xmi:id="_h5Wj8KwTEd2RCOCuXmp_aA" base_Comment="_h5My8KwTEd2RCOCuXmp_aA"/>
   <Default:Documentation xmi:id="_2fdzUCYxEd-we6LrevsdoA" base_Comment="_2fb-ICYxEd-we6LrevsdoA"/>
   <Default:Documentation xmi:id="_IphI8CYyEd-we6LrevsdoA" base_Comment="_IpfTwCYyEd-we6LrevsdoA"/>
+  <Default:Documentation xmi:id="_v2y8wOUlEeC5x7HepwhVXw" base_Comment="_v2mvgOUlEeC5x7HepwhVXw"/>
 </xmi:XMI>

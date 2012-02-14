@@ -10,12 +10,7 @@ package de.uka.ipd.sdq.pcm.designdecision.QualityProperties.impl;
 import de.uka.ipd.sdq.pcm.designdecision.QualityProperties.ElementQualityProperty;
 import de.uka.ipd.sdq.pcm.designdecision.QualityProperties.QualityPropertiesPackage;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->

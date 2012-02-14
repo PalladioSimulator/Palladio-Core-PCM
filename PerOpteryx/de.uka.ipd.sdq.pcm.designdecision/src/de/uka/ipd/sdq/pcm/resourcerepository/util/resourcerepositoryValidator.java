@@ -121,9 +121,11 @@ public class resourcerepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateResourceDescription(ResourceDescription resourceDescription, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(resourceDescription, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(resourceDescription, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceDescription, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceDescription, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(resourceDescription, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(resourceDescription, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(resourceDescription, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceDescription, diagnostics, context);

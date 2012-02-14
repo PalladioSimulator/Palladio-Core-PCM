@@ -8,36 +8,12 @@ package de.uka.ipd.sdq.pcm.designdecision.PrimitiveTypes.impl;
 
 import de.uka.ipd.sdq.featuremodel.featuremodelPackage;
 import de.uka.ipd.sdq.pcm.PcmPackage;
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-
-import de.uka.ipd.sdq.pcm.core.CorePackage;
-
 import de.uka.ipd.sdq.pcm.designdecision.PrimitiveTypes.PrimitiveTypesFactory;
 import de.uka.ipd.sdq.pcm.designdecision.PrimitiveTypes.PrimitiveTypesPackage;
 
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 
 import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionPackageImpl;
-
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
-import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
-
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;

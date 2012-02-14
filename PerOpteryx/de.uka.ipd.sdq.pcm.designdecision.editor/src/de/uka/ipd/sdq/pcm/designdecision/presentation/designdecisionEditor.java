@@ -128,29 +128,17 @@ import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.cost.provider.costItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.designdecision.GDoF.provider.GDoFItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.designdecision.QualityProperties.provider.QualityPropertiesItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.designdecision.provider.designdecisionItemProviderAdapterFactory;
-import de.uka.ipd.sdq.featuremodel.provider.featuremodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.provider.PcmItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.Qos_performanceItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.Qos_reliabilityItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.resourcerepository.provider.resourcerepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.resultdecorator.provider.ResultdecoratorItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.provider.RepositorydecoratorItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.provider.ResourceenvironmentdecoratorItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.provider.Seff_performanceItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.provider.Seff_performanceItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.Seff_reliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
@@ -158,7 +146,6 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 
 
 /**

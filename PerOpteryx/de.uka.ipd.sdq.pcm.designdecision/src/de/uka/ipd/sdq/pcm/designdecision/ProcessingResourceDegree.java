@@ -8,8 +8,6 @@ package de.uka.ipd.sdq.pcm.designdecision;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Processing Resource Degree</b></em>'.

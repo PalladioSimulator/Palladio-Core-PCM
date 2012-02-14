@@ -79,7 +79,6 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 			case designdecisionPackage.DISCRETE_PROCESSING_RATE_DEGREE: return createDiscreteProcessingRateDegree();
 			case designdecisionPackage.CAPACITY_DEGREE: return createCapacityDegree();
 			case designdecisionPackage.SCHEDULING_POLICY_DEGREE: return createSchedulingPolicyDegree();
-			case designdecisionPackage.SCHEDULING_POLICY_CHOICE: return createSchedulingPolicyChoice();
 			case designdecisionPackage.RESOURCE_SELECTION_DEGREE: return createResourceSelectionDegree();
 			case designdecisionPackage.DISCRETE_COMPONENT_PARAM_DEGREE: return createDiscreteComponentParamDegree();
 			case designdecisionPackage.CONTINUOUS_COMPONENT_PARAM_DEGREE: return createContinuousComponentParamDegree();
@@ -282,16 +281,6 @@ public class designdecisionFactoryImpl extends EFactoryImpl implements designdec
 	public SchedulingPolicyDegree createSchedulingPolicyDegree() {
 		SchedulingPolicyDegreeImpl schedulingPolicyDegree = new SchedulingPolicyDegreeImpl();
 		return schedulingPolicyDegree;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchedulingPolicyChoice createSchedulingPolicyChoice() {
-		SchedulingPolicyChoiceImpl schedulingPolicyChoice = new SchedulingPolicyChoiceImpl();
-		return schedulingPolicyChoice;
 	}
 
 	/**

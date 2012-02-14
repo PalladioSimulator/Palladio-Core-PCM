@@ -157,8 +157,6 @@ public class designdecisionValidator extends EObjectValidator {
 				return validateEnumDegree((EnumDegree)value, diagnostics, context);
 			case designdecisionPackage.UNORDERED_DEGREE:
 				return validateUnorderedDegree((UnorderedDegree)value, diagnostics, context);
-			case designdecisionPackage.SCHEDULING_POLICY_CHOICE:
-				return validateSchedulingPolicyChoice((SchedulingPolicyChoice)value, diagnostics, context);
 			case designdecisionPackage.CLASS_WITH_COPY_DEGREE:
 				return validateClassWithCopyDegree((ClassWithCopyDegree)value, diagnostics, context);
 			case designdecisionPackage.RESOURCE_SELECTION_DEGREE:
@@ -378,9 +376,11 @@ public class designdecisionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCandidates(Candidates candidates, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(candidates, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(candidates, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(candidates, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(candidates, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(candidates, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(candidates, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(candidates, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(candidates, diagnostics, context);
@@ -478,15 +478,6 @@ public class designdecisionValidator extends EObjectValidator {
 	 */
 	public boolean validateUnorderedDegree(UnorderedDegree unorderedDegree, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(unorderedDegree, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSchedulingPolicyChoice(SchedulingPolicyChoice schedulingPolicyChoice, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(schedulingPolicyChoice, diagnostics, context);
 	}
 
 	/**

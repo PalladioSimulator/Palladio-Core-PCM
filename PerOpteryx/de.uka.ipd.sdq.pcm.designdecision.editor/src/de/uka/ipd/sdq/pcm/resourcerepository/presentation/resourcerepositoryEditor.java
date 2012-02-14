@@ -189,10 +189,8 @@ import de.uka.ipd.sdq.pcm.provider.PcmItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
 
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.Qos_performanceItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.Qos_reliabilityItemProviderAdapterFactory;
-
+import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
@@ -209,10 +207,8 @@ import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.provider.
 
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 
-import de.uka.ipd.sdq.pcm.seff.seff_performance.provider.Seff_performanceItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.Seff_reliabilityItemProviderAdapterFactory;
-
+import de.uka.ipd.sdq.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
@@ -781,11 +777,11 @@ public class resourcerepositoryEditor
 		adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new Seff_performanceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new Seff_reliabilityItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SeffPerformanceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SeffReliabilityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new Qos_performanceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new Qos_reliabilityItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new QosPerformanceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new QosReliabilityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());

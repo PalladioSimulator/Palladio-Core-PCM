@@ -197,15 +197,6 @@ public interface designdecisionFactory extends EFactory {
 	SchedulingPolicyDegree createSchedulingPolicyDegree();
 
 	/**
-	 * Returns a new object of class '<em>Scheduling Policy Choice</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scheduling Policy Choice</em>'.
-	 * @generated
-	 */
-	SchedulingPolicyChoice createSchedulingPolicyChoice();
-
-	/**
 	 * Returns a new object of class '<em>Resource Selection Degree</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
