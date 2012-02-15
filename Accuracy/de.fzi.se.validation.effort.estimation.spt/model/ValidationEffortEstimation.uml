@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/Default/1 Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Package xmi:id="_I_1VsEzMEeG7F5FNMg94iw" name="ValidationEffortEstimation">
+    <packageImport xmi:id="_I_1VtEzMEeG7F5FNMg94iw">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_OdZFYEzeEeG7F5FNMg94iw" name="EffortEstimationResult">
+      <ownedAttribute xmi:id="_P-1C8EzeEeG7F5FNMg94iw" name="numberTestcases" visibility="public">
+        <ownedComment xmi:id="_k4NbcFJWEeG7F5FNMg94iw" annotatedElement="_P-1C8EzeEeG7F5FNMg94iw">
+          <body>&lt;p>&#xD;
+    Estimation on the number of test cases required to test the targeted ResourceDemandingBehaviour.&#xD;
+&lt;/p></body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_8lIygFJQEeG7F5FNMg94iw" name="targetId" visibility="public">
+        <ownedComment xmi:id="_X_HpIFJWEeG7F5FNMg94iw" annotatedElement="_8lIygFJQEeG7F5FNMg94iw">
+          <body>UUID of the targeted ResourceDemandingBehaviour.</body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_IKV7EFJREeG7F5FNMg94iw" name="alpha" visibility="public">
+        <ownedComment xmi:id="_RFwkoFJWEeG7F5FNMg94iw" annotatedElement="_IKV7EFJREeG7F5FNMg94iw">
+          <body>Confidence level. Reasonable values are within (0,1). 0 means no tests are required, 1 can only be fulfilled if there are&#xD;
+no&lt;br />&#xD;
+probabilistc transitions in the graph.</body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LbzSgFJWEeG7F5FNMg94iw" name="targetUri" visibility="public">
+        <ownedComment xmi:id="_ePYtUFJWEeG7F5FNMg94iw" annotatedElement="_LbzSgFJWEeG7F5FNMg94iw">
+          <body>String representation of the URI which identifies the resource containing the targeted ResourceDemandingBehaviour.</body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_p1DI4FJWEeG7F5FNMg94iw" name="resourceDemandingBehaviour" visibility="public" association="_p1BTsFJWEeG7F5FNMg94iw">
+        <ownedComment xmi:id="_vkD6IFJWEeG7F5FNMg94iw" annotatedElement="_p1DI4FJWEeG7F5FNMg94iw">
+          <body>&lt;p>&#xD;
+    Direct reference of the targeted ResourceDemandingBehaviour.&#xD;
+&lt;/p></body>
+        </ownedComment>
+        <type xmi:type="uml:Class" href="pcm.uml#_-kKR4OKHEdq6IvzVMFpuzg"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p1EXAFJWEeG7F5FNMg94iw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p1Dv8FJWEeG7F5FNMg94iw"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_p1BTsFJWEeG7F5FNMg94iw" memberEnd="_p1DI4FJWEeG7F5FNMg94iw _p1EXAVJWEeG7F5FNMg94iw">
+      <ownedEnd xmi:id="_p1EXAVJWEeG7F5FNMg94iw" name="" visibility="private" type="_OdZFYEzeEeG7F5FNMg94iw" association="_p1BTsFJWEeG7F5FNMg94iw">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_p1PWIFJWEeG7F5FNMg94iw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_p1OvEFJWEeG7F5FNMg94iw"/>
+      </ownedEnd>
+    </packagedElement>
+    <profileApplication xmi:id="_I_1VtUzMEeG7F5FNMg94iw">
+      <eAnnotations xmi:id="_I_1VtkzMEeG7F5FNMg94iw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_I_1Vt0zMEeG7F5FNMg94iw">
+      <eAnnotations xmi:id="_I_1VuEzMEeG7F5FNMg94iw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw"/>
+      </eAnnotations>
+      <appliedProfile href="Default.profile.uml#_a_S3wNWLEdiy4IqP8whjFA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_I_1VuUzMEeG7F5FNMg94iw">
+      <eAnnotations xmi:id="_I_1VukzMEeG7F5FNMg94iw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="Deployment.profile.uml#_IrdAUMmBEdqBcN1R6EvWUw"/>
+      </eAnnotations>
+      <appliedProfile href="Deployment.profile.uml#_vjbuwOvHEdiDX5bji0iVSA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_r46IMEzeEeG7F5FNMg94iw">
+      <eAnnotations xmi:id="_r-fLwEzeEeG7F5FNMg94iw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Package>
+  <Ecore:EPackage xmi:id="_sxpuEEzeEeG7F5FNMg94iw" base_Package="_I_1VsEzMEeG7F5FNMg94iw" packageName="estimation" nsPrefix="estimation" nsURI="http://se.fzi.de/ValidationEffortEstimation/0.5" basePackage="de.fzi.se.validation.effort" prefix="Estimation"/>
+  <Default:Documentation xmi:id="_RFyZ0FJWEeG7F5FNMg94iw" base_Comment="_RFwkoFJWEeG7F5FNMg94iw"/>
+  <Default:Documentation xmi:id="_X_JeUFJWEeG7F5FNMg94iw" base_Comment="_X_HpIFJWEeG7F5FNMg94iw"/>
+  <Default:Documentation xmi:id="_ePbJkFJWEeG7F5FNMg94iw" base_Comment="_ePYtUFJWEeG7F5FNMg94iw"/>
+  <Default:Documentation xmi:id="_k4PQoFJWEeG7F5FNMg94iw" base_Comment="_k4NbcFJWEeG7F5FNMg94iw"/>
+  <Default:Documentation xmi:id="_vkFvUFJWEeG7F5FNMg94iw" base_Comment="_vkD6IFJWEeG7F5FNMg94iw"/>
+</xmi:XMI>

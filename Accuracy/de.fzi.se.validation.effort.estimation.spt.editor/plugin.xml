@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.fzi.se.validation.effort.estimation.spt.presentation.SPTModelWizardID"
+            name="%_UI_SPTModelWizard_label"
+            class="de.fzi.se.validation.effort.estimation.spt.presentation.SPTModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SPTModelFile.gif">
+         <description>%_UI_SPTModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.fzi.se.validation.effort.estimation.spt.presentation.SPTEditorID"
+            name="%_UI_SPTEditor_label"
+            icon="icons/full/obj16/SPTModelFile.gif"
+            extensions="spt"
+            class="de.fzi.se.validation.effort.estimation.spt.presentation.SPTEditor"
+            contributorClass="de.fzi.se.validation.effort.estimation.spt.presentation.SPTActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
