@@ -6,8 +6,6 @@
  */
 package de.uka.ipd.sdq.pcm.cost;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Fixed Linking Resource Cost</b></em>'.

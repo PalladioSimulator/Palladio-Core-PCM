@@ -63,7 +63,7 @@ public class RuleBasedSearch extends AbstractOptimizer {
 			@Constant(value = "fullSearch", namespace = RuleBasedSearch.class) boolean fullSearch) {
 		super(population, archive, completer, control, iteration);
 		this.tacticsManager = new TacticOperatorsManager(copy, (DSEIndividualFactory)individualFactory);
-		this.generations = generations;
+		this.generations = iteration.max();
 		this.fullSearch = fullSearch;
 		this.individualFactory = individualFactory;
 	}
@@ -157,7 +157,6 @@ public class RuleBasedSearch extends AbstractOptimizer {
 
 	}
 	
-	@SuppressWarnings("unchecked")
 	public static void flushAllLogs()
 	{
 	    try

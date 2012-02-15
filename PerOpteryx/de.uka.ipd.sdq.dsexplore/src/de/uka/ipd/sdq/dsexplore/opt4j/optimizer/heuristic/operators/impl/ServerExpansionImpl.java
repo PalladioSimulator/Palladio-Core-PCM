@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.impl;
 
-import java.awt.image.ReplicateScaleFilter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;

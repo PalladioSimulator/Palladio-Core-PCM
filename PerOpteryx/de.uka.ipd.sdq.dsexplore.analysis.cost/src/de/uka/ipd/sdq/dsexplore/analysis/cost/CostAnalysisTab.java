@@ -15,7 +15,6 @@ import org.eclipse.swt.widgets.Text;
 import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer;
 import de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.TabHelper;
-import de.uka.ipd.sdq.workflow.pcm.runconfig.FileNamesInputTab;
 
 public class CostAnalysisTab extends de.uka.ipd.sdq.workflow.pcm.runconfig.FileNamesInputTab implements
 		ILaunchConfigurationTab {

@@ -78,7 +78,6 @@ public class FilterParetoOptimalIndividuals {
 	}
 	
 
-	@SuppressWarnings("unchecked")
 	private static void writeResults(String filenamePrefix, File oldFile, List<DSEIndividual> optimalIndividuals) {
 		
 		File file = new File(oldFile.getParentFile(),filenamePrefix+oldFile.getName());

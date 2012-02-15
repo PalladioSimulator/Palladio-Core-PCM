@@ -75,7 +75,6 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 
 import de.uka.ipd.sdq.pcm.cost.costFactory;
 import de.uka.ipd.sdq.pcm.cost.costPackage;
-import de.uka.ipd.sdq.pcm.cost.provider.CostModel3EditPlugin;
 import de.uka.ipd.sdq.pcm.cost.provider.CostModelEditPlugin;
 
 

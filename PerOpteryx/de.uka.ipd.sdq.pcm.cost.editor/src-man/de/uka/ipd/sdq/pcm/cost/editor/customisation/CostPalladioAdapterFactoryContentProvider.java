@@ -6,7 +6,6 @@ import org.eclipse.ui.views.properties.IPropertySource;
 
 import de.uka.ipd.sdq.pcm.cost.ScalarFunction;
 import de.uka.ipd.sdq.pcmbench.propertytabs.PalladioAdapterFactoryContentProvider;
-import de.uka.ipd.sdq.stoex.RandomVariable;
 
 public class CostPalladioAdapterFactoryContentProvider extends
 		PalladioAdapterFactoryContentProvider {

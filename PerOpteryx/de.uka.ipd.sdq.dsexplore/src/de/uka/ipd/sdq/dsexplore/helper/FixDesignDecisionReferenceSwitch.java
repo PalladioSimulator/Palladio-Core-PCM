@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.EqualityHelper;
 
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
@@ -26,7 +25,6 @@ import de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingResourceDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange;
-import de.uka.ipd.sdq.pcm.designdecision.designdecisionPackage;
 import de.uka.ipd.sdq.pcm.designdecision.util.designdecisionSwitch;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;

@@ -35,7 +35,6 @@ import org.opt4j.core.optimizer.IndividualCompleter;
 import org.opt4j.core.optimizer.Optimizer;
 import org.opt4j.core.optimizer.Population;
 import org.opt4j.core.problem.Evaluator;
-import org.opt4j.operator.mutate.BasicMutateModule;
 import org.opt4j.optimizer.ea.EvolutionaryAlgorithmModule;
 import org.opt4j.optimizer.ea.ScalingNsga2Module;
 //import org.opt4j.optimizer.ea.ScalingNsga2Module;

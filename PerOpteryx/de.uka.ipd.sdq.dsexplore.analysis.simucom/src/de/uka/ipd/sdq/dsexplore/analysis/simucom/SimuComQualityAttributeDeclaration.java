@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.dsexplore.analysis.simucom;
 
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.dsexplore.analysis.AbstractPerformanceAttributeDeclaration;
@@ -12,7 +11,6 @@ import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisQualityAttributeDeclaration;
 import de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.EvaluationAspect;
 import de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Mean;
 import de.uka.ipd.sdq.dsexplore.qml.contracttype.QMLContractType.Dimension;
-import de.uka.ipd.sdq.dsexplore.qml.reader.QMLDimensionReader;
 
 /**
  * This class declares, which {@code Dimension} and {@code EvaluationAspect} can 

@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.opt4j.core.problem.Decoder;
@@ -40,13 +39,11 @@ import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeChoice;
 import de.uka.ipd.sdq.pcm.designdecision.DiscreteRangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ClassChoice;
 import de.uka.ipd.sdq.pcm.designdecision.ClassDegree;
-import de.uka.ipd.sdq.pcm.designdecision.ExchangeComponentRule;
 import de.uka.ipd.sdq.pcm.designdecision.NumberOfCoresDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingRateDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ProcessingResourceDegree;
 import de.uka.ipd.sdq.pcm.designdecision.RangeDegree;
 import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegree;
-import de.uka.ipd.sdq.pcm.designdecision.ResourceContainerReplicationDegreeWithComponentChange;
 import de.uka.ipd.sdq.pcm.designdecision.SchedulingPolicyDegree;
 import de.uka.ipd.sdq.pcm.designdecision.designdecisionFactory;
 import de.uka.ipd.sdq.pcm.designdecision.impl.designdecisionFactoryImpl;
@@ -91,13 +88,10 @@ public class DSEDecoder implements Decoder<DesignDecisionGenotype, PCMPhenotype>
 		//get PCM Instance
 		PCMInstance pcm = Opt4JStarter.getProblem().getInitialInstance();
 		
-		int index = 0;
 		//adjust values as in genotype
 		for (Choice doubleGene : genotype) {
 			
 			applyChange(doubleGene.getDegreeOfFreedomInstance(), doubleGene);
-
-			index++;
 		}
 		
 		String genotypeString = getGenotypeString(genotype);
@@ -396,7 +390,6 @@ public class DSEDecoder implements Decoder<DesignDecisionGenotype, PCMPhenotype>
 		logger.debug("Handling a "+designDecision.getClass()+", using component "+componentToBeAssembled.getEntityName());
 	}
 	
-	@SuppressWarnings("unchecked")
 	private void throwInvalidEntityException(
 			DegreeOfFreedomInstance designDecision, EObject changeableEntity,
 			Class expectedClass) {

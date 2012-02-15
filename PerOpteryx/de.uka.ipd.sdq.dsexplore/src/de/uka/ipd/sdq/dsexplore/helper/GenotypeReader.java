@@ -27,7 +27,6 @@ import org.opt4j.start.Opt4JTask;
 import de.uka.ipd.sdq.context.aggregatedUsageContext.ComputedAggregatedUsage;
 import de.uka.ipd.sdq.dsexplore.analysis.AbstractPerformanceAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
-import de.uka.ipd.sdq.dsexplore.analysis.IAnalysisResult;
 import de.uka.ipd.sdq.dsexplore.analysis.PCMPhenotype;
 import de.uka.ipd.sdq.dsexplore.exception.ExceptionHelper;
 import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer;

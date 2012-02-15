@@ -73,7 +73,6 @@ public class MutateDesignDecisionGenotype implements Mutate<DesignDecisionGenoty
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
 	private int randomlySelectNewIndex(List domain,
 			int oldIndex) {
 		//use mutateInteger as that one already realises a uniform distribution among the possible values with a certain rate. 

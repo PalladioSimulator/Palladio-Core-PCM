@@ -3,8 +3,6 @@ package de.uka.ipd.sdq.dsexplore.analysis;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer.QualityAttribute;
 import de.uka.ipd.sdq.dsexplore.qml.contracttype.QMLContractType.Dimension;
 import de.uka.ipd.sdq.dsexplore.qml.handling.QMLConstantsContainer;

@@ -12,7 +12,6 @@ import org.opt4j.operator.mutate.Mutate;
 import org.opt4j.operator.mutate.MutationRate;
 import org.opt4j.optimizer.ea.Coupler;
 import org.opt4j.optimizer.ea.CrossoverRate;
-import org.opt4j.optimizer.ea.Mating;
 import org.opt4j.optimizer.ea.MatingCrossoverMutate;
 import org.opt4j.optimizer.ea.Pair;
 

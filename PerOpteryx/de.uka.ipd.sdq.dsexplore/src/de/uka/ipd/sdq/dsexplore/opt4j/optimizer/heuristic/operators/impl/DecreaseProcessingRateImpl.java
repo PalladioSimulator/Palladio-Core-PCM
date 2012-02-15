@@ -5,12 +5,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-import javax.management.RuntimeErrorException;
-
 import org.opt4j.core.Genotype;
 import org.opt4j.operator.copy.Copy;
 
-import de.uka.ipd.sdq.dsexplore.exception.InvalidChoiceForDegreeException;
 import de.uka.ipd.sdq.dsexplore.launch.DSEWorkflowConfiguration;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticsResultCandidate;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.UtilisationResultCacheAndHelper;

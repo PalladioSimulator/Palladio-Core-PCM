@@ -17,7 +17,6 @@ import de.uka.ipd.sdq.dsexplore.helper.EMFHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.genotype.DesignDecisionGenotype;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEObjectives;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.designdecision.AllocationDegree;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
 import de.uka.ipd.sdq.pcm.designdecision.DecisionSpace;

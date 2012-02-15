@@ -10,7 +10,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import de.uka.ipd.sdq.dsexplore.analysis.IAnalysis;
 import de.uka.ipd.sdq.dsexplore.helper.GenotypeReader;
 import de.uka.ipd.sdq.dsexplore.opt4j.genotype.DesignDecisionGenotype;
-import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.PredefinedInstanceEvaluator;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;

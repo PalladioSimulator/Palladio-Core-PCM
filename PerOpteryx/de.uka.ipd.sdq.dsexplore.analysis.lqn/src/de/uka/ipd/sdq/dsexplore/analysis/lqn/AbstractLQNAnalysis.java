@@ -28,7 +28,6 @@ import de.uka.ipd.sdq.dsexplore.launch.DSEConstantsContainer.QualityAttribute;
 import de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.EvaluationAspect;
 import de.uka.ipd.sdq.dsexplore.qml.contracttype.QMLContractType.Dimension;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.EvaluationAspectWithContext;
-import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedObjective;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.EntryLevelSystemCallInfeasibilityConstraintBuilder;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.EntryLevelSystemCallObjectiveBuilder;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.builder.EntryLevelSystemCallSatisfactionConstraintBuilder;

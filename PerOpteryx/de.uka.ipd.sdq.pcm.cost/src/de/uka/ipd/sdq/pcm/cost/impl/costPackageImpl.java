@@ -11,9 +11,6 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.cost.ComponentCost;
 import de.uka.ipd.sdq.pcm.cost.ComponentCostPerInstance;
-import de.uka.ipd.sdq.pcm.cost.ComponentCostPerType;
-import de.uka.ipd.sdq.pcm.core.CorePackage;
-
 import de.uka.ipd.sdq.pcm.cost.Cost;
 import de.uka.ipd.sdq.pcm.cost.CostRepository;
 import de.uka.ipd.sdq.pcm.cost.FixedLinkingResourceCost;
@@ -27,25 +24,9 @@ import de.uka.ipd.sdq.pcm.cost.VariableProcessingResourceCost;
 import de.uka.ipd.sdq.pcm.cost.costFactory;
 import de.uka.ipd.sdq.pcm.cost.costPackage;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
-import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
-
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import org.eclipse.emf.ecore.EAttribute;

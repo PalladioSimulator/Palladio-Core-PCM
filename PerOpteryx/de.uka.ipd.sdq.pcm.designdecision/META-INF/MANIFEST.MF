@@ -48,6 +48,7 @@ Require-Bundle: org.eclipse.emf.ecore.xmi;visibility:=reexport,
  de.uka.ipd.sdq.pcm.editor,
  de.uka.ipd.sdq.featuremodel;bundle-version="2.0.0",
  de.uka.ipd.sdq.dsexplore.qml;bundle-version="1.0.0",
- de.uka.ipd.sdq.pcm.cost;bundle-version="1.0.0"
+ de.uka.ipd.sdq.pcm.cost;bundle-version="1.0.0",
+ org.opt4j;bundle-version="2.5.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: de.uka.ipd.sdq.pcm.resultdecorator

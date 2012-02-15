@@ -16,7 +16,6 @@ public class DSEIndividualFactory extends AbstractIndividualFactory<DSEIndividua
 
 	private DecisionSpace problem;
 
-	@SuppressWarnings("unchecked")
 	@Inject
 	public DSEIndividualFactory(Provider<DSEIndividual> individualProvider,
 			Creator creator) {

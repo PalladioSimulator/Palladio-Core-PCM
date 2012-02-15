@@ -391,7 +391,6 @@ public class ResultsWriter {
 		DSEObjectives objs = ind.getObjectives();
 		//for (Entry<Objective, Value<?>> entry : objs) { 
 		for (Criterion o : criterionsToSave) {
-			double value = Double.NaN;
 			if (objs != null){
 				output.append(formatValue(objs.getValueForCriterion(o)) + ";");
 			} else {
