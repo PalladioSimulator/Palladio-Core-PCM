@@ -34,11 +34,11 @@ public abstract class AbstractEstimateJJnPaths extends AbstractEstimateQVTO {
 	private static final String NAME = "Estimate JJnPaths Lower Bound Job";
 
 	/** Operational QVT transformation script URI which transforms {@link ResourceDemandingBehaviour} to {@link Graph}. */
-	protected static final String BEHAVIOUR_2_GRAPH_TRANSFORMATION_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/transforms/behaviour2ControlFlowGraph.qvto";
+	protected static final String BEHAVIOUR_2_GRAPH_TRANSFORMATION_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.qvtoscripts/transforms/behaviour2ControlFlowGraph.qvto";
 	/** Operational QVT transformation script URI which transforms {@link Graph} to {@link JJPath}. */
-	protected static final String GRAPH_2_JJPATHS_TRANSFORMATION_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/transforms/controlFlowGraph2JJPaths.qvto";
+	protected static final String GRAPH_2_JJPATHS_TRANSFORMATION_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.qvtoscripts/transforms/controlFlowGraph2JJPaths.qvto";
 	/** Operational QVT transformation script URI which transforms {@link JJPath} to {@link JJnPath}. */
-	protected static final String JJPATHS_2_JJNPATHS_TRANSFORMATION_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/transforms/JJPaths2JJnPathSet.qvto";
+	protected static final String JJPATHS_2_JJNPATHS_TRANSFORMATION_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.qvtoscripts/transforms/JJPaths2JJnPathSet.qvto";
 
 	/** Model location containing the estimation result. */
 	protected ModelLocation cfdModelLocation = null;

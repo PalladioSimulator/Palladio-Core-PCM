@@ -8,13 +8,13 @@
 <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.featureName1" value=""/>
 <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.featureName2" value=""/>
 <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.featureName3" value=""/>
-<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.module" value="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/transforms/behaviour2ControlFlowGraph.qvto"/>
-<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel1" value="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.repository"/>
-<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel2" value="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph"/>
-<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel3" value="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.jjnpaths"/>
+<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.module" value="platform:/resource/de.fzi.se.validation.effort.qvtoscripts/transforms/behaviour2ControlFlowGraph.qvto"/>
+<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel1" value="platform:/resource/de.fzi.se.validation.effort.qvtoscripts/testmodels/default.repository"/>
+<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel2" value="platform:/resource/de.fzi.se.validation.effort.qvtoscripts/testmodels/default.graph"/>
+<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel3" value="platform:/resource/de.fzi.se.validation.effort.qvtoscripts/testmodels/default"/>
 <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetType1" value="NEW_MODEL"/>
 <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetType2" value="NEW_MODEL"/>
 <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetType3" value="NEW_MODEL"/>
-<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.traceFile" value="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/default.graph.qvtotrace"/>
+<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.traceFile" value="platform:/resource/de.fzi.se.validation.effort.qvtoscripts/testmodels/default.graph.qvtotrace"/>
 <booleanAttribute key="org.eclipse.m2m.qvt.oml.interpreter.useTraceFile" value="true"/>
 </launchConfiguration>

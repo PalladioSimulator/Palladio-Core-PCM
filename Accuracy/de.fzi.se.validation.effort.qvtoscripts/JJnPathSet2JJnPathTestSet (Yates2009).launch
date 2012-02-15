@@ -6,11 +6,11 @@
 <intAttribute key="org.eclipse.m2m.qvt.oml.interpreter.elemCount" value="2"/>
 <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.featureName1" value=""/>
 <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.featureName2" value=""/>
-<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.module" value="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/transforms/JJnPathSet2JJnPathTestSet.qvto"/>
-<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel1" value="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/Yates2009.graph"/>
-<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel2" value="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/Yates2009.jjnpaths"/>
+<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.module" value="platform:/resource/de.fzi.se.validation.effort.qvtoscripts/transforms/JJnPathSet2JJnPathTestSet.qvto"/>
+<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel1" value="platform:/resource/de.fzi.se.validation.effort.qvtoscripts/testmodels/Yates2009.graph"/>
+<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetModel2" value="platform:/resource/de.fzi.se.validation.effort.qvtoscripts/testmodels/Yates2009"/>
 <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetType1" value="NEW_MODEL"/>
 <stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.targetType2" value="NEW_MODEL"/>
-<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.traceFile" value="platform:/resource/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/testmodels/Yates2009.graph.qvtotrace"/>
+<stringAttribute key="org.eclipse.m2m.qvt.oml.interpreter.traceFile" value="platform:/resource/de.fzi.se.validation.effort.qvtoscripts/testmodels/Yates2009.graph.qvtotrace"/>
 <booleanAttribute key="org.eclipse.m2m.qvt.oml.interpreter.useTraceFile" value="true"/>
 </launchConfiguration>

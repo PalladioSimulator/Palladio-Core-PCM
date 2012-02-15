@@ -21,7 +21,7 @@ public class EstimateJJnPathsLowerBound extends AbstractEstimateJJnPaths {
 	private static final String NAME = "Estimate JJnPaths Lower Bound Job";
 
 	/** Operational QVT transformation script URI which transforms {@link JJnPath} to {@link JJnPathTestSuite}. */
-	protected static final String JJNPATHS_2_LOWER_BOUND_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.jjnpaths.qvtoscripts/transforms/JJnPaths2LowerBoundEstimation.qvto";
+	protected static final String JJNPATHS_2_LOWER_BOUND_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.qvtoscripts/transforms/JJnPaths2LowerBoundEstimation.qvto";
 
 	@Override
 	public String getName() {
