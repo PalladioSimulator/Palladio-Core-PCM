@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,7 +10,6 @@ import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
@@ -26,7 +24,6 @@ import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFQueryHelper;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
-import de.uka.ipd.sdq.spa.expression.Alternative;
 import de.uka.ipd.sdq.spa.expression.Expression;
 import de.uka.ipd.sdq.spa.expression.ExpressionFactory;
 import de.uka.ipd.sdq.spa.expression.Option;

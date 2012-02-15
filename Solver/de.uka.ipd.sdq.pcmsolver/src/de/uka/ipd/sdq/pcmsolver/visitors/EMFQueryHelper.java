@@ -3,12 +3,9 @@ package de.uka.ipd.sdq.pcmsolver.visitors;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.OCL;
-import org.eclipse.ocl.ecore.OCL.Query;
 import org.eclipse.ocl.ecore.OCLExpression;
 
 public class EMFQueryHelper {

@@ -33,7 +33,6 @@ import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.PDFConfiguration;
 import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
-import de.uka.ipd.sdq.spa.expression.Alternative;
 import de.uka.ipd.sdq.spa.expression.Expression;
 import de.uka.ipd.sdq.spa.expression.ExpressionFactory;
 import de.uka.ipd.sdq.spa.expression.Option;

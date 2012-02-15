@@ -1,13 +1,9 @@
 package de.uka.ipd.sdq.pcmsolver.visualisation;
 
-import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.swt.SWT;

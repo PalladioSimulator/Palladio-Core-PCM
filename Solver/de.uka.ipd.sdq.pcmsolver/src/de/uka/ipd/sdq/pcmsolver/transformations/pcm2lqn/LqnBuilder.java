@@ -8,8 +8,6 @@ import java.util.Stack;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-
 import LqnCore.ActivityDefType;
 import LqnCore.ActivityListType;
 import LqnCore.ActivityMakingCallType;

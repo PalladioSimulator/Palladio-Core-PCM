@@ -1,10 +1,7 @@
 package de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
@@ -44,7 +41,6 @@ import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
-import de.uka.ipd.sdq.pcmsolver.transformations.EMFHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFQueryHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.probfunction.math.IContinousPDF;
