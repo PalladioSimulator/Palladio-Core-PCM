@@ -3,7 +3,7 @@ PCM Model Instance of CoCoME
 --------------------------------------------------------------------
 see:
 - http://cocome.org/
-- http://sdqweb.ipd.uka.de/wiki/CoCoME-PCM
+- http://sdqweb.ipd.kit.edu/wiki/CoCoME-PCM
 --------------------------------------------------------------------
 
 --------------------------------------------------------------------
@@ -24,7 +24,7 @@ Short comings
 - Distribution: 1:n relations between StoreServer and EnterpriseServer has to be modelled
 explicitly
 - Simplified allocation: 3 on 3: inventory, data, gui
-- Inventory CC allocated - not system 
+- Inventory CC allocated - not system
 
 Signatures:
 - used int instead of long for all ids in signatures
@@ -45,7 +45,7 @@ SEFFs finished:
 	- orderProductsAvailableAtOtherStores(
 			EnterpriseTO enterpriseTO, StoreTO callingStore,
 			Collection<ProductAmountTO> productAmounts)
-	
+
 SEFF modeling problems:
 - only first call is a interface call. TransactionContext is returned --> NOT a pure data type.
 		PersistenceContext pctx = persistmanager.getPersistenceContext();
@@ -84,7 +84,7 @@ Making simulation work:
   (simulation can only cope with 1 System Provided Role for each Interface)
 - had to adapt SEFF "TradingSystem.Inventory.Application.ProductDispatcher.orderProductsAvailableAtOtherStores"
   (replaced numberOfStores.VALUE by 2 because only simplified SEFFS are available)
-  
+
 Remaining ToDos:
 - verify simulation results
 - model SEFFS and Data Types appropriately
