@@ -392,7 +392,7 @@ public class DSEDecoder implements Decoder<DesignDecisionGenotype, PCMPhenotype>
 	
 	private void throwInvalidEntityException(
 			DegreeOfFreedomInstance designDecision, EObject changeableEntity,
-			Class expectedClass) {
+			Class<?> expectedClass) {
 		throw new RuntimeException("Entity "+changeableEntity+" of type "+changeableEntity.getClass().getName()+" is not an applicable value for degree of freedom "+designDecision.getClass().getName()+", required type is "+expectedClass.getName());
 		
 	}

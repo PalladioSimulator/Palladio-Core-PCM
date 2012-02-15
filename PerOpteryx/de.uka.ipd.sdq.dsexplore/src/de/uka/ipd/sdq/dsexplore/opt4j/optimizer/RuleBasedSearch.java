@@ -47,7 +47,6 @@ import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 public class RuleBasedSearch extends AbstractOptimizer {
 
 	private TacticOperatorsManager tacticsManager;
-	private int generations;
 	private IndividualFactory individualFactory;
 	
 	private boolean fullSearch;
@@ -63,7 +62,6 @@ public class RuleBasedSearch extends AbstractOptimizer {
 			@Constant(value = "fullSearch", namespace = RuleBasedSearch.class) boolean fullSearch) {
 		super(population, archive, completer, control, iteration);
 		this.tacticsManager = new TacticOperatorsManager(copy, (DSEIndividualFactory)individualFactory);
-		this.generations = iteration.max();
 		this.fullSearch = fullSearch;
 		this.individualFactory = individualFactory;
 	}
@@ -91,7 +89,7 @@ public class RuleBasedSearch extends AbstractOptimizer {
 		nextIteration();
 		
 		int i = 0;
-		for (; i < this.generations; i++){
+		while (iteration.value() < iteration.max()) {
 			
 			List<Individual> nextGeneration = new LinkedList<Individual>();
 			
@@ -137,7 +135,7 @@ public class RuleBasedSearch extends AbstractOptimizer {
 			
 		}
 		logger.warn("Finished rule-based search after "+i+" iterations.");
-		if (i == this.generations){
+		if (iteration.value() == iteration.max()){
 			logger.warn("Stop condition was the configured maximum number of iterations, more rule applications may be possible. There were "+population.size()+" candidates in the final population.");
 		}
 		
@@ -162,14 +160,14 @@ public class RuleBasedSearch extends AbstractOptimizer {
 	    try
 	    {
 	        Set<WriterAppender> flushedFileAppenders = new HashSet<WriterAppender>();
-	        Enumeration currentLoggers = LogManager.getLoggerRepository().getCurrentLoggers();
+	        Enumeration<?> currentLoggers = LogManager.getLoggerRepository().getCurrentLoggers();
 	        while(currentLoggers.hasMoreElements())
 	        {
 	            Object nextLogger = currentLoggers.nextElement();
 	            if(nextLogger instanceof Logger)
 	            {
 	                Logger currentLogger = (Logger) nextLogger;
-	                Enumeration allAppenders = currentLogger.getAllAppenders();
+	                Enumeration<?> allAppenders = currentLogger.getAllAppenders();
 	                while(allAppenders.hasMoreElements())
 	                {
 	                    Object nextElement = allAppenders.nextElement();

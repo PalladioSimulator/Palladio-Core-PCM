@@ -18,7 +18,7 @@ public class DSEIndividualFactory extends AbstractIndividualFactory<DSEIndividua
 
 	@Inject
 	public DSEIndividualFactory(Provider<DSEIndividual> individualProvider,
-			Creator creator) {
+			Creator<?> creator) {
 		super(individualProvider, creator);
 		this.problem = Opt4JStarter.getProblem().getEMFProblem();
 	}

@@ -267,8 +267,7 @@ public class EMFHelper {
 		return null;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public static int indexOfByID(List entities, String id) {
+	public static int indexOfByID(List<? extends Entity> entities, String id) {
 		Entity entity = retrieveEntityByID(entities, id);
 		return entities.indexOf(entity);
 	}

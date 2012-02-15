@@ -73,7 +73,7 @@ public class MutateDesignDecisionGenotype implements Mutate<DesignDecisionGenoty
 		}
 	}
 	
-	private int randomlySelectNewIndex(List domain,
+	private int randomlySelectNewIndex(List<?> domain,
 			int oldIndex) {
 		//use mutateInteger as that one already realises a uniform distribution among the possible values with a certain rate. 
 		int newIndex = mutateInteger(oldIndex, 0, domain.size()-1);

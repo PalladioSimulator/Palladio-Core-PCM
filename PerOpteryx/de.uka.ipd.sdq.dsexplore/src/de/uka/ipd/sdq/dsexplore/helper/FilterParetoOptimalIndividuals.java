@@ -85,7 +85,7 @@ public class FilterParetoOptimalIndividuals {
 			BufferedWriter w = new BufferedWriter(new OutputStreamWriter( new FileOutputStream(file)));
 			
 			for (Individual indiv : optimalIndividuals) {
-				for (Value double1 : indiv.getObjectives().getValues()) {
+				for (Value<?> double1 : indiv.getObjectives().getValues()) {
 					w.write(double1.getDouble()+";");
 				}
 				w.newLine();
