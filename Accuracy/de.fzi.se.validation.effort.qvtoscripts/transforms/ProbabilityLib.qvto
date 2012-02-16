@@ -84,14 +84,39 @@ library ProbabilityLib()
 		assert (false) with log('Unsupported expression for calculation fo number of atoms.');
 		return -1;
 	}
-
-	query AbstractAction::containsCalls() : Boolean {
-		var a :AbstractInternalControlFlowAction;
-		assert (false) with log('ERROR: AbstractAction::containsCalls is not implemented!');
-		if(self.oclIsKindOf(CallAction)) then {
-			return true;
-		} endif;
-		// TODO: implement
-		return false;
+	
+	query Expression :: GetInt() : Integer {
+		assert (self.oclIsKindOf(IntLiteral)) with log('Expression::GetInt() must be called on Integer type expressions.');
+		return self[IntLiteral]->any(true).value;
+	}
+	
+	/** 
+	 * Calculates the calls of the action and their frequency.
+	 * Returns a Set(Integer) where each entry is a call and the 
+	 * value is the frequency of that call. 
+	 * Returns empty set if the action has no calls. 
+	 */
+	query AbstractAction::GetCallsFrequency() : Set(Integer) {
+		var r : Set(Integer) = Set {};
+		return r;
+	}
+	
+	query AbstractInternalControlFlowAction::GetCallsFrequency() : Set(Integer) {
+		var r : Set(Integer) = Set {};
+		self.infrastructureCall__Action->forEach(c) {
+			r += c.numberOfCalls__InfrastructureCall.expression.GetInt();
+		};
+		self.resourceCall__Action->forEach(c) {
+			r += c.numberOfCalls__ResourceCall.expression.GetInt();
+		};
+		self.resourceDemand_Action->forEach(d) {
+			r += d.specification_ParametericResourceDemand.expression.GetInt();	// strange spelling
+		};
+		return r;
+	}
+	
+	query ExternalCallAction::GetCallsFrequency() : Set(Integer) {
+		var r : Set(Integer) = Set {1};
+		return r;
 	}
 }

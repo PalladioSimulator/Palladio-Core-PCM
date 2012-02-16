@@ -27,7 +27,7 @@ query ResourceDemandingBehaviour::CCallSpecTests(in confidence : Real) : Integer
 	var required : Integer = 0;
 	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
 		required := required + action.getEffort(confidence);
-		if(action.containsCalls()) then {
+		if(action.GetCallsFrequency()->notEmpty()) then {
 			if(required = 0) then {
 				required := 1;
 			} endif;

@@ -27,13 +27,17 @@ query ResourceDemandingBehaviour::CCallObsTests(in confidence : Real) : Integer 
 	var required : Integer = 0;
 	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
 		required := required + action.getEffort(confidence);
-		if(action.containsCalls()) then {
-			var calls : Calls; // TODO
-			calls->forEach(c) {
-				var probFreqGreaterZero : Real = 1 - c.frequency.expression.ProbabilityZero();
-				required := required + MinRequiredTests(probFreqGreaterZero, confidence);
-			};
-		} endif;
+		// add effort for calls
+		var calls : Set(Integer) = action.GetCallsFrequency();
+		calls->forEach(cf) {
+			var probFreqGreaterZero : Real;
+			if(cf != 0) then {
+				probFreqGreaterZero := 1.0;
+			} else {
+				probFreqGreaterZero := 0.0;
+			} endif;
+			required := required + MinRequiredTests(probFreqGreaterZero, confidence);
+		};
 	};
 	return required;
 }
