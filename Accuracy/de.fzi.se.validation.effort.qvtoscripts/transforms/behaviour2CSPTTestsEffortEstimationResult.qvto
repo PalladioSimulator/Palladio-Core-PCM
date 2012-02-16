@@ -2,23 +2,23 @@ import de.fzi.se.validation.effort.MathFunctionsLibrary;
 import ProbabilityLib;
 
 modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
-modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
+modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/SPT/0.5';
 
 transformation behaviour2CSTPTestsEffortEstimation(in inbehaviour : PCM_SEFF, 
 									      			  inout outdesc : EER) 
 access library ProbabilityLib();
 
 main() {
-	log('RD-SEFF to EffortEstimationResult (CSTPTests) transformation started.');
-	inbehaviour.objects()[EffortEstimationResult]->map createEffortEstimation(inbehaviour);
-	log('RD-SEFF to EffortEstimationResult (CSTPTests) transformation finished.');
+	log('RD-SEFF to SPTEffortEstimationResult (CSTPTests) transformation started.');
+	inbehaviour.objects()[SPTEffortEstimationResult]->map createEffortEstimation(inbehaviour);
+	log('RD-SEFF to SPTEffortEstimationResult (CSTPTests) transformation finished.');
 }
-mapping inout EffortEstimationResult::createEffortEstimation(in behaviour : PCM_SEFF) {
+mapping inout SPTEffortEstimationResult::createEffortEstimation(in behaviour : PCM_SEFF) {
 	log('Estimate started for targetId=' + self.targetId + ', alpha=' + self.alpha.toString());
 	alpha := self.alpha;
 	targetId := self.targetId;
 	resourceDemandingBehaviour := behaviour.objects()[ResourceDemandingBehaviour]->selectOne(b : ResourceDemandingBehaviour | b.id = targetId);
-	var n : Integer = 5; // TODO: configuration
+	n := self.n;
 	numberTestcases := resourceDemandingBehaviour.CSPTTests(alpha, n);
 	log('Estimate complete. numberTestcases=' + self.numberTestcases.toString());
 }
@@ -52,8 +52,8 @@ helper BranchAction::getEffort(in confidence : Real, in n : Integer) : Integer {
 }
 
 helper LoopAction::getEffort(in confidence : Real, in n : Integer) : Integer {
-	var probFreqN : Real = self.iterationCount_LoopAction.expression.Probability(n);	// TODO: verify: is n correct here?
-	var r : Integer = MinRequiredTests(probFreqN, confidence);
+	var probFreqZero : Real = self.iterationCount_LoopAction.expression.ProbabilityZero();
+	var r : Integer = MinRequiredTests(probFreqZero, confidence);
 	var probFreqK : Real;
 	Set {1..n}->forEach(k) {
 		r = r + self.bodyBehaviour_Loop.CSPTTests(confidence, n);
@@ -68,10 +68,11 @@ helper ForkAction::getEffort(in confidence : Real, in n : Integer) : Integer {
 	var r : Integer = 1-self.asynchronousForkedBehaviours_ForkAction->size();
 	self.asynchronousForkedBehaviours_ForkAction->forEach(fb) {
 		r = r + fb.CSPTTests(confidence, n);
-	};	
+	};
 	self.synchronisingBehaviours_ForkAction->forEach(fb) {
-	//	r := r + fb.CBranchTests(confidence);
-		assert(false) with log('ERROR: synchronsing behaviours_forkaction not implemented.');
+		fb.synchronousForkedBehaviours_SynchronisationPoint->forEach(b) {
+			r := r + b.CSPTTests(confidence, n);
+		};
 	};
 	return r;
 }

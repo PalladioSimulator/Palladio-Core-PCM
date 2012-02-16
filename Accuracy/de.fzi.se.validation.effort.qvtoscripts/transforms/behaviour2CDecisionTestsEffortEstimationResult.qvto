@@ -60,8 +60,9 @@ helper ForkAction::getEffort(in confidence : Real, in n : Integer) : Integer {
 		r = r + fb.CDecisionTests(confidence);
 	};
 	self.synchronisingBehaviours_ForkAction->forEach(fb) {
-	//	r := r + fb.CBranchTests(confidence);
-		assert(false) with log('ERROR: synchronsing behaviours_forkaction not implemented.');
+		fb.synchronousForkedBehaviours_SynchronisationPoint->forEach(b) {
+			r := r + b.CDecisionTests(confidence);
+		};
 	};
 	return r;
 }
