@@ -23,7 +23,6 @@ Export-Package: de.uka.ipd.sdq.scheduler;
    org.apache.log4j,
    de.uka.ipd.sdq.scheduler.processes,
    de.uka.ipd.sdq.scheduler,
-   umontreal.iro.lecuyer.simevents,
    de.uka.ipd.sdq.scheduler.resources,
    de.uka.ipd.sdq.scheduler.resources.active",
  de.uka.ipd.sdq.scheduler.factory;
@@ -32,14 +31,12 @@ Export-Package: de.uka.ipd.sdq.scheduler;
    de.uka.ipd.sdq.scheduler.queueing,
    de.uka.ipd.sdq.scheduler.loaddistribution,
    de.uka.ipd.sdq.scheduler,
-   umontreal.iro.lecuyer.simevents,
    de.uka.ipd.sdq.scheduler.resources.active,
    de.uka.ipd.sdq.scheduler.resources",
  de.uka.ipd.sdq.scheduler.loaddistribution;uses:="de.uka.ipd.sdq.scheduler.queueing,de.uka.ipd.sdq.scheduler.processes,de.uka.ipd.sdq.scheduler.resources",
  de.uka.ipd.sdq.scheduler.loaddistribution.balancers;
   uses:="de.uka.ipd.sdq.scheduler.queueing.strategies,
    de.uka.ipd.sdq.scheduler.loaddistribution,
-   umontreal.iro.lecuyer.simevents,
    de.uka.ipd.sdq.scheduler.resources",
  de.uka.ipd.sdq.scheduler.loaddistribution.constraints;uses:="de.uka.ipd.sdq.scheduler.loaddistribution,de.uka.ipd.sdq.scheduler.resources",
  de.uka.ipd.sdq.scheduler.loaddistribution.selectors.instance;
