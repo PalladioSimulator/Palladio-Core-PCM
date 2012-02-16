@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.simulation.abstractsimengine.feature"
       label="%label"
-      version="1.0.0.qualifier"
+      version="3.1.0.qualifier"
       provider-name="sdq.ipd.kit.edu"
       plugin="de.uka.ipd.sdq.branding">
 
@@ -217,10 +217,10 @@ litigation.
    <url>
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
    </url>
-   
+
    <includes
-     	id="de.uka.ipd.sdq.simulation.abstractsimengine.feature.source"
-     	version="0.0.0"/>
+         id="de.uka.ipd.sdq.simulation.abstractsimengine.feature.source"
+         version="0.0.0"/>
 
    <plugin
          id="de.uka.ipd.sdq.simulation.abstractsimengine"
@@ -231,6 +231,19 @@ litigation.
 
    <plugin
          id="org.apache.log4j"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.desmoj"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj"
          download-size="0"
          install-size="0"
          version="0.0.0"

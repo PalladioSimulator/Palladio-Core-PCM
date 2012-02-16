@@ -380,12 +380,6 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="de.desmoj"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
          id="ch.ethz.iks.r_osgi.remote"
          download-size="0"
          install-size="0"
@@ -455,13 +449,6 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.simulation.abstractsimengine"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="de.uka.ipd.sdq.statistics"
          download-size="0"
          install-size="0"
@@ -470,13 +457,6 @@ litigation.
 
    <plugin
          id="de.uka.ipd.sdq.simulation"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj"
          download-size="0"
          install-size="0"
          version="0.0.0"

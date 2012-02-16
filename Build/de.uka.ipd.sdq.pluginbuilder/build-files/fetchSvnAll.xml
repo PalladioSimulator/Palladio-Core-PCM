@@ -572,12 +572,6 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
-      <param name="element.id" value="de.desmoj"/>
-      <param name="project.name" value="/de.desmoj"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/ThirdPartyWrapper/trunk"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
       <param name="element.id" value="edu.kit.ipd.sdq.completionfeaturemodel"/>
       <param name="project.name" value="/edu.kit.ipd.sdq.completionfeaturemodel"/>
       <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
@@ -1009,12 +1003,6 @@
       <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/ThirdPartyWrapper/trunk/"/>
     </antcall>
   	<antcall target="svn.co">
-	  <param name="target" value="plugins"/>
-	  <param name="element.id" value="de.uka.ipd.sdq.simulation.abstractsimengine"/>
-  	  <param name="project.name" value="de.uka.ipd.sdq.simulation.abstractsimengine"/>
-  	  <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/SimuCom"/>
-	</antcall>
-	<antcall target="svn.co">
   	  <param name="target" value="features"/>
   	  <param name="element.id" value="de.uka.ipd.sdq.simulation.abstractsimengine.feature"/>
   	  <param name="project.name" value="de.uka.ipd.sdq.simulation.abstractsimengine.feature"/>
@@ -1022,15 +1010,21 @@
   	</antcall>
   	<antcall target="svn.co">
 	  <param name="target" value="plugins"/>
+	  <param name="element.id" value="de.uka.ipd.sdq.simulation.abstractsimengine"/>
+  	  <param name="project.name" value="de.uka.ipd.sdq.simulation.abstractsimengine"/>
+  	  <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/SimuCom"/>
+	</antcall>
+  	<antcall target="svn.co">
+	  <param name="target" value="plugins"/>
 	  <param name="element.id" value="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj"/>
   	  <param name="project.name" value="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj"/>
   	  <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/SimuCom"/>
 	</antcall>
-	<antcall target="svn.co">
-  	  <param name="target" value="features"/>
-  	  <param name="element.id" value="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature"/>
-  	  <param name="project.name" value="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature"/>
-  	  <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/SimuCom"/>
-  	</antcall>
+  	<antcall target="svn.co">
+      <param name="target" value="plugins"/>
+      <param name="element.id" value="de.desmoj"/>
+      <param name="project.name" value="/de.desmoj"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/ThirdPartyWrapper/trunk"/>
+    </antcall>
   </target>
 </project>
