@@ -72,14 +72,8 @@
    <feature url="features/de.uka.ipd.sdq.simulation.abstractsimengine.feature_1.0.0.qualifier.jar" id="de.uka.ipd.sdq.simulation.abstractsimengine.feature" version="1.0.0.qualifier">
       <category name="de.uka.ipd.sdq.pcm"/>
    </feature>
-   <feature url="features/de.uka.ipd.sdq.simulation.abstractsimengine.ssj.feature_1.0.0.qualifier.jar" id="de.uka.ipd.sdq.simulation.abstractsimengine.ssj.feature" version="1.0.0.qualifier">
-      <category name="de.uka.ipd.sdq.other"/>
-   </feature>
    <feature url="features/de.uka.ipd.sdq.simulation.abstractsimengine.feature.source_3.1.0.qualifier.jar" id="de.uka.ipd.sdq.simulation.abstractsimengine.feature.source" version="3.1.0.qualifier">
       <category name="de.uka.ipd.sdq.pcm.source"/>
-   </feature>
-   <feature url="features/de.uka.ipd.sdq.simulation.abstractsimengine.ssj.feature.source_1.0.0.qualifier.jar" id="de.uka.ipd.sdq.simulation.abstractsimengine.ssj.feature.source" version="1.0.0.qualifier">
-      <category name="de.uka.ipd.sdq.other"/>
    </feature>
    <feature url="features/de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature_1.0.0.qualifier.jar" id="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature" version="1.0.0.qualifier">
       <category name="de.uka.ipd.sdq.pcm"/>
