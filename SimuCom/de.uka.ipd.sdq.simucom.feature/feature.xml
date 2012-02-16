@@ -245,10 +245,6 @@ litigation.
          id="de.uka.ipd.sdq.simulation.abstractsimengine.feature"
          version="0.0.0"/>
 
-   <includes
-         id="de.uka.ipd.sdq.simulation.abstractsimengine.desmoj.feature"
-         version="0.0.0"/>
-
    <requires>
       <import plugin="de.uka.ipd.sdq.identifier"/>
       <import plugin="de.uka.ipd.sdq.probfunction"/>
