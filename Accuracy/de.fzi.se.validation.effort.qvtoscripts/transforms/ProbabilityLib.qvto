@@ -71,15 +71,22 @@ library ProbabilityLib()
 	}
 	
 	query Expression :: NumberOfConditionAtoms() : Integer {
-		if(self.oclIsTypeOf(BoolLiteral)) then {
-			return 1;
+		if(self.oclIsKindOf(BooleanExpression)) then {
+			if(self.oclIsTypeOf(BooleanOperatorExpression)) then {
+				var e : BooleanOperatorExpression = self.oclAsType(BooleanOperatorExpression);
+				return e.left.NumberOfConditionAtoms() + e.right.NumberOfConditionAtoms();
+			} endif;
+			// All atoms inherit from Comparison
+			if(self.oclIsTypeOf(Comparison)) then {
+				return 1;
+			} endif;
 		} endif;
-		// TODO: implement for meaningful/complex conditions
 		assert (false) with log('Unsupported expression for calculation fo number of atoms.');
 		return -1;
 	}
 
 	query AbstractAction::containsCalls() : Boolean {
+		var a :AbstractInternalControlFlowAction;
 		assert (false) with log('ERROR: AbstractAction::containsCalls is not implemented!');
 		if(self.oclIsKindOf(CallAction)) then {
 			return true;
