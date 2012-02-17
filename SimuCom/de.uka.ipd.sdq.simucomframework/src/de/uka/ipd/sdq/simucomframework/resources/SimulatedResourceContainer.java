@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 public class SimulatedResourceContainer extends
 		AbstractSimulatedResourceContainer {
 
-	private SchedulingStrategy operatingSystem;
+	private String operatingSystem = null;
 	private AbstractScheduledResource managingResource = null;
 	protected SimulatedResourceContainer parentResourceContainer = null;
 	protected List<SimulatedResourceContainer> nestedResourceContainers = null;
@@ -37,24 +37,20 @@ public class SimulatedResourceContainer extends
 			r = getSimplePassiveResource(name, passiveResourceID,
 					assemblyContextID, combinedID, capacity);
 		} else {
-			switch (operatingSystem) {
-			case WINDOWS_SERVER_2003:
-			case WINDOWS_XP:
-			case WINDOWS_VISTA:
-			case WINDOWS_7:
+			if (operatingSystem.equals(SchedulingStrategy.WINDOWS_SERVER_2003) ||
+					operatingSystem.equals(SchedulingStrategy.WINDOWS_XP) || 
+					operatingSystem.equals(SchedulingStrategy.WINDOWS_VISTA) || 
+					operatingSystem.equals(SchedulingStrategy.WINDOWS_7)) {
 				r = getPassiveResourceWindows(name, passiveResourceID,
 						capacity, 1, true, true, managingResource
 								.getScheduledResource());
-				break;
-			case LINUX_2_6_O1:
+			} else if(operatingSystem.equals(SchedulingStrategy.LINUX_2_6_O1)) {
 				r = getPassiveResourceLinux(name, passiveResourceID, capacity,
 						true, managingResource.getScheduledResource());
-				break;
-			case LINUX_2_6_CFS:
+			} else if(operatingSystem.equals(SchedulingStrategy.LINUX_2_6_CFS)) {
 				// Use the same passive resource as for a processor sharing scheduler.
 				r = getSimplePassiveResource(name, passiveResourceID,
 						assemblyContextID, combinedID, capacity);
-				break;
 			}
 		}
 
@@ -102,7 +98,7 @@ public class SimulatedResourceContainer extends
 			Double mttf,
 			Double mttr,
 			String units,
-			SchedulingStrategy strategy,
+			String schedulingStrategyID,
 			int numberOfReplicas,
 			boolean requiredByContainer){
 		ScheduledResource r = new ScheduledResource(
@@ -114,7 +110,7 @@ public class SimulatedResourceContainer extends
 				processingRate,
 				mttf,
 				mttr,
-				strategy,
+				schedulingStrategyID,
 				numberOfReplicas,
 				requiredByContainer);
 		activeResources.put(typeID, r);
@@ -125,11 +121,18 @@ public class SimulatedResourceContainer extends
 				activeResourceProvidedInterfaces.put(providedInterfaceId, typeID);
 			}
 		}
-
-		if (SchedulingStrategyHelper.isExactSchedulingStrategy(strategy)) {
-			assert this.managingResource == null;
-			this.operatingSystem = strategy;
-			this.managingResource = activeResources.get(typeID);
+		
+		if (schedulingStrategyID.equals(SchedulingStrategy.LINUX_2_6_CFS) || 
+				schedulingStrategyID.equals(SchedulingStrategy.LINUX_2_6_O1) || 
+				schedulingStrategyID.equals(SchedulingStrategy.SPECIAL_LINUXO1) || 
+				schedulingStrategyID.equals(SchedulingStrategy.SPECIAL_WINDOWS) || 
+				schedulingStrategyID.equals(SchedulingStrategy.WINDOWS_7) || 
+				schedulingStrategyID.equals(SchedulingStrategy.WINDOWS_SERVER_2003) || 
+				schedulingStrategyID.equals(SchedulingStrategy.WINDOWS_VISTA) || 
+				schedulingStrategyID.equals(SchedulingStrategy.WINDOWS_XP)) {
+				assert this.managingResource == null;
+				this.operatingSystem = schedulingStrategyID;
+				this.managingResource = activeResources.get(typeID);
 		}
 
 		// setup calculators
@@ -139,27 +142,25 @@ public class SimulatedResourceContainer extends
 
 		// setup utilization calculators depending on their scheduling strategy
 		// and number of cores
-		if (strategy.equals(SchedulingStrategy.PROCESSOR_SHARING)) {
+		if (schedulingStrategyID.equals(SchedulingStrategy.PROCESSOR_SHARING)) {
 			if (r.getNumberOfInstances() == 1) {
 				CalculatorHelper.setupStateCalculator(r, this.myModel);	
 			} else {
 				CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);				
 			}
-		} else if (strategy.equals(SchedulingStrategy.DELAY)
-				|| strategy.equals(SchedulingStrategy.FCFS)) {
+		} else if (schedulingStrategyID.equals(SchedulingStrategy.DELAY)
+				|| schedulingStrategyID.equals(SchedulingStrategy.FCFS)) {
 			assert (r.getNumberOfInstances() == 1) : "DELAY and FCFS resources are expected to "
 					+ "have exactly one core";
 			CalculatorHelper.setupStateCalculator(r, this.myModel);
-		} else if (strategy.equals(SchedulingStrategy.GINPEX_DISK)) {
-			CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
-		} else if (SchedulingStrategyHelper.isExactSchedulingStrategy(strategy)) {
-			CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
 		} else {
-			throw new RuntimeException(
+			// Use an OverallUtilizationCalculator by default.
+			CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
+			/*throw new RuntimeException(
 					"Could not setup utilization calculator at resource "
 							+ description
 							+ " as it is unknown how to handle the scheduling strategy "
-							+ strategy.name() + ".");
+							+ strategy.name() + ".");*/
 		}
 	}
 

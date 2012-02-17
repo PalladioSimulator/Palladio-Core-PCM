@@ -211,21 +211,18 @@
 			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_SERVER_2003
 		«ENDIF»
 	«ELSE»
-		«IF this.schedulingPolicy.id == "FCFS"»
-			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.FCFS
-		«ENDIF»
-		«IF this.schedulingPolicy.id == "ProcessorSharing"»
-			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.PROCESSOR_SHARING
-		«ENDIF»
-		«IF this.schedulingPolicy.id == "Delay"»
-			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.DELAY
-		«ENDIF»
-		«IF this.schedulingPolicy.id == "GinpexDisk"»
-			«IF this.activeResourceType_ActiveResourceSpecification.entityName == "HDD"»
-				de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.GINPEX_DISK
-			«ELSE»
+		«IF (this.schedulingPolicy.id == "FCFS") || (this.schedulingPolicy.id == "ProcessorSharing") || (this.schedulingPolicy.id == "Delay")»
+			«IF this.schedulingPolicy.id == "FCFS"»
+				de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.FCFS
+			«ENDIF»
+			«IF this.schedulingPolicy.id == "ProcessorSharing"»
 				de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.PROCESSOR_SHARING
 			«ENDIF»
+			«IF this.schedulingPolicy.id == "Delay"»
+				de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.DELAY
+			«ENDIF»
+		«ELSE»
+			"«this.schedulingPolicy.id»"
 		«ENDIF»
 	«ENDIF»
 «ENDDEFINE»

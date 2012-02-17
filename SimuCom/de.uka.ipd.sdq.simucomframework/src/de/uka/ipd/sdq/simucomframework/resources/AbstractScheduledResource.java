@@ -69,17 +69,17 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 
 	protected int numberOfInstances;
 
-	protected SchedulingStrategy schedulingStrategy;
+	protected String schedulingStrategyID;
 	protected AbstractSimulatedResourceContainer resourceContainer = null;
 
 	public AbstractScheduledResource(SimuComModel myModel, String typeID,
 			String resourceContainerID, String resourceTypeID,
-			String description, SchedulingStrategy strategy,
+			String description, String schedulingStrategyID,
 			int numberOfInstances, boolean requiredByContainer) {
 		super(myModel, typeID);
 		this.description = description;
 		this.numberOfInstances = numberOfInstances;
-		this.schedulingStrategy = strategy;
+		this.schedulingStrategyID = schedulingStrategyID;
 		this.resourceTypeID = resourceTypeID;
 		this.resourceContainerID = resourceContainerID;
 		this.requiredByContainer = requiredByContainer;

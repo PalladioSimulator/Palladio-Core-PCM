@@ -37,11 +37,11 @@ public class ScheduledResource extends AbstractScheduledResource {
 			String processingRate,
 			Double mttf,
 			Double mttr,
-			SchedulingStrategy strategy,
+			String schedulingStrategyID,
 			int numberOfCores,
 			boolean requiredByContainer) {
 		super(myModel, typeID, resourceContainerID, resourceTypeID,
-				description, strategy, numberOfCores,
+				description, schedulingStrategyID, numberOfCores,
 				requiredByContainer);
 		this.processingRate = processingRate;
 
@@ -60,14 +60,14 @@ public class ScheduledResource extends AbstractScheduledResource {
 	@Override
 	protected IActiveResource createActiveResource(SimuComModel myModel) {
 		logger.debug("Creating scheduled resource with strategy "
-				+ this.schedulingStrategy.name() + " and "
+				+ this.schedulingStrategyID + " and "
 				+ this.numberOfInstances + " replicas!");
 		IActiveResource aResource = getScheduledResource(myModel,
-				this.schedulingStrategy, this.numberOfInstances,
+				schedulingStrategyID, this.numberOfInstances,
 				"Utilisation of " + this.getName() + " " + this.description);
 		return aResource;
 	}
-
+	
 	/* Loads scheduler configuration */
 	private IActiveResource getResource(String schedulerLibFileName,
 			String schedulerName, int numReplicas, String sensorDescription) {
@@ -93,75 +93,60 @@ public class ScheduledResource extends AbstractScheduledResource {
 		}
 		return null;
 	}
-
-	private IActiveResource getScheduledResource(SimuComModel simuComModel, SchedulingStrategy strategy,
+	
+	private IActiveResource getScheduledResource(SimuComModel simuComModel, String schedulingStrategyID,
 			int numberOfCores, String sensorDescription) {
 		IActiveResource scheduledResource = null;
-
-		switch (strategy) {
-
 		// active resources scheduled by standard scheduling techniques
-		case FCFS:
+		if (schedulingStrategyID.equals(SchedulingStrategy.FCFS)) {
 			scheduledResource = getModel().getSchedulingFactory()
-					.createSimFCFSResource(SchedulingStrategy.FCFS.toString(),
+					.createSimFCFSResource(SchedulingStrategy.FCFS,
 							getNextResourceId());
-			break;
-		case PROCESSOR_SHARING:
+		} else if (schedulingStrategyID.equals(SchedulingStrategy.PROCESSOR_SHARING)) {
 			scheduledResource = getModel().getSchedulingFactory()
 					.createSimProcessorSharingResource(
-							SchedulingStrategy.PROCESSOR_SHARING.toString(),
+							SchedulingStrategy.PROCESSOR_SHARING,
 							getNextResourceId(), numberOfCores);
-			break;
-		case DELAY:
+		} else if (schedulingStrategyID.equals(SchedulingStrategy.DELAY)) {
 			scheduledResource = getModel().getSchedulingFactory()
 					.createSimDelayResource(
-							SchedulingStrategy.DELAY.toString(),
+							SchedulingStrategy.DELAY,
 							getNextResourceId());
-			break;
+		} else if (schedulingStrategyID.equals(SchedulingStrategy.LINUX_2_6_O1)) {
 		// active resources scheduled by improved scheduler
-		case LINUX_2_6_O1:
 			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY,
 					"Linux 2.6.22", numberOfCores, sensorDescription);
-			break;
-		case LINUX_2_6_CFS:
+		} else if (schedulingStrategyID.equals(SchedulingStrategy.LINUX_2_6_CFS)) {
 			scheduledResource = getModel().getSchedulingFactory()
 					.createSimProcessorSharingResource(
-							SchedulingStrategy.LINUX_2_6_CFS.toString(),
+							SchedulingStrategy.LINUX_2_6_CFS,
 							getNextResourceId(), numberOfCores);
-			break;
-		case WINDOWS_7:
+		} else if (schedulingStrategyID.equals(SchedulingStrategy.WINDOWS_7) || schedulingStrategyID.equals(SchedulingStrategy.WINDOWS_VISTA) || schedulingStrategyID.equals(SchedulingStrategy.WINDOWS_SERVER_2003)) {
 			// Windows 7, Windows Vista and Windows Server 2003 share the same
 			// scheduler
-		case WINDOWS_VISTA:
-		case WINDOWS_SERVER_2003:
 			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY,
 					"Windows 2003", numberOfCores, sensorDescription);
-			break;
-		case WINDOWS_XP:
+		} else if (schedulingStrategyID.equals(SchedulingStrategy.WINDOWS_XP)) {
 			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY,
 					"Windows XP", numberOfCores, sensorDescription);
-			break;
-		case SPECIAL_WINDOWS:
+		} else if (schedulingStrategyID.equals(SchedulingStrategy.SPECIAL_WINDOWS)) {
 			scheduledResource = getModel().getSchedulingFactory()
 					.createSimProcessorSharingResourceWindows(
 							SchedulingStrategy.SPECIAL_WINDOWS.toString(),
 							getNextResourceId(), numberOfCores);
-			break;
-		case SPECIAL_LINUXO1:
+		} else if (schedulingStrategyID.equals(SchedulingStrategy.SPECIAL_LINUXO1)) {
 			scheduledResource = getModel().getSchedulingFactory()
 					.createSimProcessorSharingResourceLinuxO1(
 							SchedulingStrategy.SPECIAL_LINUXO1.toString(),
 							getNextResourceId(), numberOfCores);
-			break;
-		case GINPEX_DISK:
+		} else {
             scheduledResource = getModel().getSchedulingFactory().createResourceFromExtension(
-                    "de.uka.ipd.sdq.simucom.ginpex.scheduler.hdd", SchedulingStrategy.GINPEX_DISK.toString(),
+            		schedulingStrategyID,
                     getNextResourceId());
 			//scheduledResource = ISchedulingFactory.eINSTANCE
 			//		.createSimGinpexDiskResource(
 			//				SchedulingStrategy.GINPEX_DISK.toString(),
 			//				getNextResourceId(), getModel().getConfig().getHddParameterConfig());
-			break;
 		}
 		
 		if (scheduledResource instanceof SimuComExtensionResource) {

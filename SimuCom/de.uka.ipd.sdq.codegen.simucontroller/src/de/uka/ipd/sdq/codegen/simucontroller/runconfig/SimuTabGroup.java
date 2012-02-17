@@ -19,9 +19,6 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.FileNamesInputTab;
  */
 public class SimuTabGroup extends ExtendableTabGroup {
     
-    /** The id of the workflow extending configuration tabs have to register for. */
-    public static String WORKFLOW_ID = "workflow.extension.simucom";
-
     @Override
     public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
         List<ILaunchConfigurationTab> tabs = new ArrayList<ILaunchConfigurationTab>();

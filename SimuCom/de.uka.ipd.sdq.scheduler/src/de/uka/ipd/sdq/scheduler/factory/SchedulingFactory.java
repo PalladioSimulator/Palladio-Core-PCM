@@ -117,13 +117,13 @@ public class SchedulingFactory implements ISchedulingFactory {
 		return resource;
 	}
 	
-	public IActiveResource createResourceFromExtension(String extensionId, String resourceName, String resourceId)
+	public IActiveResource createResourceFromExtension(String extensionId, String resourceId)
 	{
 		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
 		if (resource == null) {
 			SchedulerExtensionFactory factory = getSchedulerExtensionFactory(extensionId);
 			assert factory != null;
-			resource = factory.getExtensionScheduler(model, resourceName, resourceId);
+			resource = factory.getExtensionScheduler(model, extensionId, resourceId);
 			active_resource_map.put(resourceId, resource);
 		}
 		return resource;

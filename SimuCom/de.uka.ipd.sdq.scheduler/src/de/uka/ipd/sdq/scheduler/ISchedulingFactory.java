@@ -8,7 +8,7 @@ public interface ISchedulingFactory {
 	
 	// Retrieves a scheduler implementation from a registered extension
 	// for the scheduler extension point.
-	public IActiveResource createResourceFromExtension(String extensionId, String resourceName, String resourceId);
+	public IActiveResource createResourceFromExtension(String extensionId, String resourceId);
 	
 	public IActiveResource createSimFCFSResource(String resourceName, String resourceId);
 	
