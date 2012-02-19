@@ -284,48 +284,6 @@
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.featureinstance.editor"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.featureinstance.editor"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.featureconfig"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.featureconfig"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.featureconfig.edit"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.featureconfig.edit"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.featureconfig.editor"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.featureconfig.editor"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.featuremodel"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.featuremodel"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.featuremodel.edit"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.featuremodel.edit"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
-      <param name="element.id" value="de.uka.ipd.sdq.featuremodel.editor"/>
-      <param name="project.name" value="/de.uka.ipd.sdq.featuremodel.editor"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
-    </antcall>
-    <antcall target="svn.co">
-      <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.copyexception"/>
       <param name="project.name" value="/de.uka.ipd.sdq.copyexception"/>
       <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
