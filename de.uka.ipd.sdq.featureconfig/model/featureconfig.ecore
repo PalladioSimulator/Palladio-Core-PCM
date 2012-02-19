@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="featureconfig"
+    nsURI="http://sdq.ipd.uka.de/FeatureConfig/2.0" nsPrefix="featureconfig">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="The Feature Config simply sets states selected, eliminated or default for single features. Thus, invalid configurations can be built, this is by purpose, so that invalid intermediate steps can &#xD;&#xA;be stored. "/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigNode">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Holds ConfigState of a Feature. For a Feature it holds the actual value. "/>
+    </eAnnotations>
+    <eOperations name="ConfigCardinalityInvalid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+        <details key="body" value="true &#xD;&#xA;--let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() &#xD;&#xA;--in &#xD;&#xA;--&#x9; if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then&#xD;&#xA;--&#x9; &#x9;childSelectedCount >= self.origin.min and (childSelectedCount &lt;= self.origin.max or self.origin.max = -1)&#xD;&#xA;--&#x9; else&#xD;&#xA;--&#x9; &#x9;self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)&#xD;&#xA;--&#x9; endif"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="true &#xD;&#xA;--let childSelectedCount : Integer = self.children->select(c|c.configState = ConfigState::USER_SELECTED or c.configState = ConfigState::MASCHINE_SELECTED)->size() &#xD;&#xA;--in &#xD;&#xA;--&#x9; if self.origin.oclIsTypeOf(featuremodel::FeatureGroup) then&#xD;&#xA;--&#x9; &#x9;childSelectedCount >= self.origin.min and (childSelectedCount &lt;= self.origin.max or self.origin.max = -1)&#xD;&#xA;--&#x9; else&#xD;&#xA;--&#x9; &#x9;self.origin.min  >= 1 implies (self.configState = ConfigState::USER_SELECTED or self.configState = ConfigState::MASCHINE_SELECTED)&#xD;&#xA;--&#x9; endif"/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The cache of context-specific information."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="CheckMultiplicityOfFeatureGroup" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+        <details key="body" value="true&#xD;&#xA;--not self.origin.featuregroup->isEmpty() implies (self.origin.featuregroup.children->size() &lt;=  self.origin.featuregroup.max and self.origin.featuregroup.children->size() >=  self.origin.featuregroup.min)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="true&#xD;&#xA;--not self.origin.featuregroup->isEmpty() implies (self.origin.featuregroup.children->size() &lt;=  self.origin.featuregroup.max and self.origin.featuregroup.children->size() >=  self.origin.featuregroup.min)"/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The cache of context-specific information."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="configState" ordered="false"
+        lowerBound="1" eType="#//ConfigState" defaultValueLiteral="DEFAULT">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="actual state for annotated Features; for FeatureGroups it is a derived attribute"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributevalue" ordered="false"
+        upperBound="-1" eType="#//AttributeValue" containment="true" eOpposite="#//AttributeValue/confignode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConfigState">
+    <eLiterals name="SELECTED"/>
+    <eLiterals name="ELIMINATED" value="1"/>
+    <eLiterals name="DEFAULT" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="use value from deaultConfig&#xD;&#xA;aka NULL, not set, do not override"/>
+      </eAnnotations>
+    </eLiterals>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValue" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="confignode" ordered="false"
+        lowerBound="1" eType="#//ConfigNode" eOpposite="#//ConfigNode/attributevalue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureConfig">
+    <eOperations name="showFeatureConfigState" ordered="false" lowerBound="1" eType="#//FeatureConfigState">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;p>&#xD;&#xA;    &lt;span&#xD;&#xA;    style=&quot;WIDOWS: 2; TEXT-TRANSFORM: none; TEXT-INDENT: 0px; BORDER-COLLAPSE: separate; FONT: medium 'Times New Roman'; WHITE-SPACE: normal; ORPHANS: 2; LETTER-SPACING: normal; COLOR: rgb(0,0,0); WORD-SPACING: 0px; -webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px&quot;&#xD;&#xA;     class=&quot;Apple-style-span&quot;>&lt;span&#xD;&#xA;    style=&quot;LINE-HEIGHT: 16px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 11px&quot;&#xD;&#xA;    class=&quot;Apple-style-span&quot;>The FeatureConfigState of a FeatureConfig is DEFAULT, if the FeatureConfig equals its&#xD;&#xA;    configurationDefault.defaultConfig. It is OVERRIDE, if it is included in its configurationOverrides.configOverrides. If&#xD;&#xA;    neither of these conditions applies, the FeatureConfigState is NOT_SET&lt;/span>&lt;/span>&#xD;&#xA;&lt;/p>&#xD;&#xA;if (configurationDefault->size() = 1 and configurationDefault.defaultConfig = self) then FeatureConfigState::DEFAULT&#xD;&#xA; else (&#xD;&#xA; if (configurationOverrides->size() = 1 and configurationOverrides.configOverrides->size() > 0 and configurationOverrides.configOverrides->includes(self)) then FeatureConfigState::OVERRIDE&#xD;&#xA; else FeatureConfigState::NOT_SET&#xD;&#xA; endif&#xD;&#xA; ) endif"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+        <details key="body" value="if (configurationDefault->size() = 1 and configurationDefault.defaultConfig = self) then FeatureConfigState::DEFAULT&#xD;&#xA; else (&#xD;&#xA; if (configurationOverrides->size() = 1 and configurationOverrides.configOverrides->size() > 0 and configurationOverrides.configOverrides->includes(self)) then FeatureConfigState::OVERRIDE&#xD;&#xA; else FeatureConfigState::NOT_SET&#xD;&#xA; endif&#xD;&#xA; ) endif"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="featureConfigState" ordered="false"
+        lowerBound="1" eType="#//FeatureConfigState" defaultValueLiteral="NOT_SET">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;p>&#xD;&#xA;    &lt;span&#xD;&#xA;    style=&quot;WIDOWS: 2; TEXT-TRANSFORM: none; TEXT-INDENT: 0px; BORDER-COLLAPSE: separate; FONT: medium 'Times New Roman'; WHITE-SPACE: normal; ORPHANS: 2; LETTER-SPACING: normal; COLOR: rgb(0,0,0); WORD-SPACING: 0px; -webkit-border-horizontal-spacing: 0px; -webkit-border-vertical-spacing: 0px; -webkit-text-decorations-in-effect: none; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px&quot;&#xD;&#xA;     class=&quot;Apple-style-span&quot;>&lt;span&#xD;&#xA;    style=&quot;LINE-HEIGHT: 16px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; FONT-SIZE: 11px&quot;&#xD;&#xA;    class=&quot;Apple-style-span&quot;>Returns the result of showFeatureConfigState()&lt;/span>&lt;/span>&#xD;&#xA;&lt;/p>"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="confignode" ordered="false"
+        upperBound="-1" eType="#//ConfigNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedElement" ordered="false"
+        eType="ecore:EClass ../../de.uka.ipd.sdq.featuremodel/model/featuremodel.ecore#//FeatureDiagram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurationOverrides"
+        ordered="false" eType="#//Configuration" eOpposite="#//Configuration/configOverrides"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurationDefault" ordered="false"
+        eType="#//Configuration" eOpposite="#//Configuration/defaultConfig"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FeatureConfigState">
+    <eLiterals name="NOT_SET"/>
+    <eLiterals name="OVERRIDE" value="1"/>
+    <eLiterals name="DEFAULT" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="External container for default and overrides config"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultConfig" ordered="false"
+        lowerBound="1" eType="#//FeatureConfig" containment="true" eOpposite="#//FeatureConfig/configurationDefault"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configOverrides" ordered="false"
+        upperBound="-1" eType="#//FeatureConfig" containment="true" eOpposite="#//FeatureConfig/configurationOverrides"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerAttributeValue" eSuperTypes="#//AttributeValue">
+    <eOperations name="AttributeValueIsDefinedInFeatureAndEqualsTypeInteger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+        <details key="body" value="self.confignode.origin.attributes->one(a | a.name = self.name)&#xD;&#xA; and&#xD;&#xA; self.confignode.origin.attributes->any(a | a.name = self.name).oclIsTypeOf(featuremodel::IntegerAttribute)&#xD;&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="self.confignode.origin.attributes->one(a | a.name = self.name)&#xD;&#xA; and&#xD;&#xA; self.confignode.origin.attributes->any(a | a.name = self.name).oclIsTypeOf(featuremodel::IntegerAttribute)&#xD;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The cache of context-specific information."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DoubleAttributeValue" eSuperTypes="#//AttributeValue">
+    <eOperations name="AttributeValueIsDefinedInFeatureAndEqualsTypeDouble" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+        <details key="body" value="self.confignode.origin.attributes->one(a | a.name = self.name)&#xD;&#xA; and&#xD;&#xA; self.confignode.origin.attributes->any(a | a.name = self.name).oclIsTypeOf(featuremodel::DoubleAttribute)&#xD;&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="self.confignode.origin.attributes->one(a | a.name = self.name)&#xD;&#xA; and&#xD;&#xA; self.confignode.origin.attributes->any(a | a.name = self.name).oclIsTypeOf(featuremodel::DoubleAttribute)&#xD;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The cache of context-specific information."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringAttributeValue" eSuperTypes="#//AttributeValue">
+    <eOperations name="AttributeValueIsDefinedInFeatureAndEqualsTypeString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+        <details key="body" value="self.confignode.origin.attributes->one(a | a.name = self.name)&#xD;&#xA; and&#xD;&#xA; self.confignode.origin.attributes->any(a | a.name = self.name).oclIsTypeOf(featuremodel::StringAttribute)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="self.confignode.origin.attributes->one(a | a.name = self.name)&#xD;&#xA; and&#xD;&#xA; self.confignode.origin.attributes->any(a | a.name = self.name).oclIsTypeOf(featuremodel::StringAttribute)"/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The cache of context-specific information."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalObjectAttributeValue" eSuperTypes="#//AttributeValue">
+    <eOperations name="AttributeValueIsDefinedInFeatureAndEqualsTypeExternalObject"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+        <details key="body" value="self.confignode.origin.attributes->one(a | a.name = self.name)&#xD;&#xA; and&#xD;&#xA; self.confignode.origin.attributes->any(a | a.name = self.name).oclIsTypeOf(featuremodel::ExternalObjectAttribute)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="self.confignode.origin.attributes->one(a | a.name = self.name)&#xD;&#xA; and&#xD;&#xA; self.confignode.origin.attributes->any(a | a.name = self.name).oclIsTypeOf(featuremodel::ExternalObjectAttribute)"/>
+      </eAnnotations>
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="context">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The cache of context-specific information."/>
+        </eAnnotations>
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedObject" ordered="false"
+        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+  </eClassifiers>
+</ecore:EPackage>

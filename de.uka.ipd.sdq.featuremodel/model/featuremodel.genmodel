@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" modelDirectory="/de.uka.ipd.sdq.featuremodel/src"
+    modelPluginID="de.uka.ipd.sdq.featuremodel" modelName="Featuremodel" importerID="org.eclipse.uml2.uml.ecore.importer"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="OPERATION_BODIES" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>file:/C:/111/FeatureModel.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="featuremodel" basePackage="de.uka.ipd.sdq"
+      resource="XML" disposableProviderFactory="true" ecorePackage="featuremodel.ecore#/">
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="featuremodel.ecore#//AttributeTypes">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="featuremodel.ecore#//AttributeTypes/INT"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="featuremodel.ecore#//AttributeTypes/STRING"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="featuremodel.ecore#//AttributeTypes/REAL"/>
+    </genEnums>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//Feature">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//Feature/attributes"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//Feature/childrelation"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference featuremodel.ecore#//Feature/simpleMandatory"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference featuremodel.ecore#//Feature/simpleOptional"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference featuremodel.ecore#//Feature/featuregroup"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featuremodel.ecore#//Feature/EachAttributeNameDefinedJustOnce">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//Feature/EachAttributeNameDefinedJustOnce/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//Feature/EachAttributeNameDefinedJustOnce/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="featuremodel.ecore#//NamedElement">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//Attribute">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//Attribute/range"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="featuremodel.ecore#//IntervalRange">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntervalRange/lowerBoundIncluded"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntervalRange/upperBoundIncluded"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="featuremodel.ecore#//ChildRelation"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//Simple">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//Simple/optionalChildren"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" propertyCategory="" ecoreFeature="ecore:EReference featuremodel.ecore#//Simple/mandatoryChildren"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featuremodel.ecore#//Simple/atLeastOneChild">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//Simple/atLeastOneChild/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//Simple/atLeastOneChild/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//FeatureGroup">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//FeatureGroup/min"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//FeatureGroup/max"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//FeatureGroup/children"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featuremodel.ecore#//FeatureGroup/XORorORImpliesChildrenAreMandatory">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//FeatureGroup/XORorORImpliesChildrenAreMandatory/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//FeatureGroup/XORorORImpliesChildrenAreMandatory/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featuremodel.ecore#//FeatureGroup/ALLImpliesCardinalitiesToBeMinusOne">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//FeatureGroup/ALLImpliesCardinalitiesToBeMinusOne/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//FeatureGroup/ALLImpliesCardinalitiesToBeMinusOne/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featuremodel.ecore#//FeatureGroup/ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOne">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//FeatureGroup/ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOne/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//FeatureGroup/ORImpliesCardinalitiesMinToBeOneAndMaxToBeMinusOne/context"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="featuremodel.ecore#//FeatureGroup/XORImpliesCardinalitiesToBeOne">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//FeatureGroup/XORImpliesCardinalitiesToBeOne/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="featuremodel.ecore#//FeatureGroup/XORImpliesCardinalitiesToBeOne/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//FeatureDiagram">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//FeatureDiagram/rootFeature"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference featuremodel.ecore#//FeatureDiagram/constraints"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference featuremodel.ecore#//FeatureDiagram/annotatableElement"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="featuremodel.ecore#//Constraint">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference featuremodel.ecore#//Constraint/source"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference featuremodel.ecore#//Constraint/target"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//Constraint/description"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//RequiredConstraint"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//ProhibitsConstraint"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//IntegerIntervalRange">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntegerIntervalRange/to"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntegerIntervalRange/from"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//ContinousIntervalRange">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//ContinousIntervalRange/to"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//ContinousIntervalRange/from"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//IntegerAttribute">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//IntegerAttribute/defaultValue"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//DoubleAttribute">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//DoubleAttribute/defaultValue"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//StringAttribute">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute featuremodel.ecore#//StringAttribute/defaultValue"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="featuremodel.ecore#//ExternalObjectAttribute"/>
+  </genPackages>
+</genmodel:GenModel>
