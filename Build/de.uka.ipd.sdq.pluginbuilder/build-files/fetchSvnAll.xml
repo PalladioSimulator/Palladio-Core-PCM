@@ -286,25 +286,25 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.copyexception"/>
       <param name="project.name" value="/de.uka.ipd.sdq.copyexception"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Completions"/>
     </antcall>  	
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="de.uka.ipd.sdq.copyexception.edit"/>
       <param name="project.name" value="/de.uka.ipd.sdq.copyexception.edit"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Completions"/>
     </antcall>  	
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="edu.kit.ipd.sdq.qvtmodels"/>
       <param name="project.name" value="/edu.kit.ipd.sdq.qvtmodels"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Completions"/>
     </antcall>  	
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="edu.kit.ipd.sdq.qvtmodels.edit"/>
       <param name="project.name" value="/edu.kit.ipd.sdq.qvtmodels.edit"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Completions"/>
     </antcall>  	
   	<antcall target="svn.co">
       <param name="target" value="features"/>
@@ -526,19 +526,19 @@
       <param name="target" value="plugins"/>
       <param name="element.id" value="edu.kit.ipd.sdq.completionfeaturemodel"/>
       <param name="project.name" value="/edu.kit.ipd.sdq.completionfeaturemodel"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Completions"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="edu.kit.ipd.sdq.completionfeaturemodel.edit"/>
       <param name="project.name" value="/edu.kit.ipd.sdq.completionfeaturemodel.edit"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Completions"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
       <param name="element.id" value="edu.kit.ipd.sdq.completionfeaturemodel.editor"/>
       <param name="project.name" value="/edu.kit.ipd.sdq.completionfeaturemodel.editor"/>
-      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/FeatureModelling"/>
+      <param name="url" value="https://svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Completions"/>
     </antcall>
     <antcall target="svn.co">
       <param name="target" value="plugins"/>
