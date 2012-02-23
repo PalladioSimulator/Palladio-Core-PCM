@@ -436,14 +436,14 @@ public class Pcm2LqnStrategy implements SolverStrategy {
 			proc.destroy();
 
 			if (exitVal == 0) {
-				logger.info("lqn2xml terminated sucessfully");
+				logger.info("lqn2xml terminated successfully");
 			} else {
-				logger
-						.warn("lqn2xml terminated unsuccessfully. Exit value was "
+				logger.error("lqn2xml terminated unsuccessfully. Exit value was "
 								+ exitVal + ".");
 			}
 
 		} catch (Throwable e) {
+			logger.error("lqn2xml terminated unsuccessfully. Exception "+e.getMessage());
 			e.printStackTrace();
 		}
 	}
