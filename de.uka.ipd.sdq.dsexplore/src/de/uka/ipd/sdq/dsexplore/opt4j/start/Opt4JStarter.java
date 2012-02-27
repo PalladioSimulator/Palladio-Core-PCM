@@ -59,6 +59,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEMutateModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEProblem;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.GivenInstanceModule;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.RuleBasedSearchModule;
+import de.uka.ipd.sdq.dsexplore.opt4j.representation.StaReconfigurationModule;
 import de.uka.ipd.sdq.dsexplore.qml.pcm.datastructures.UsageScenarioBasedObjective;
 import de.uka.ipd.sdq.pcm.cost.CostRepository;
 import de.uka.ipd.sdq.pcm.designdecision.Choice;
@@ -342,6 +343,9 @@ public class Opt4JStarter {
 			rsm.setBatchsize(config.getIndividualsPerGeneration());
 			rsm.setEvaluations(maxIterations*rsm.getBatchsize());
 			modules.add(rsm);
+		} else if (config.isStaReconfiguration()) {
+			StaReconfigurationModule staModule = new StaReconfigurationModule();
+			modules.add(staModule);
 		} else {
 			EvolutionaryAlgorithmModule ea = new DSEEvolutionaryAlgorithmModule();
 			ea.setGenerations(maxIterations);

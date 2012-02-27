@@ -573,7 +573,7 @@ public class ResultsWriter {
 	}
 
 
-	private static List<Criterion> determineCriterionsToSave(DSEIndividual i) {
+	public static List<Criterion> determineCriterionsToSave(DSEIndividual i) {
 		DSEObjectives objs = i.getObjectives();
 		
 		

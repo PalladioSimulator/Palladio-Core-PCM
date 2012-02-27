@@ -36,7 +36,8 @@ AbstractPCMWorkflowRunConfiguration {
 		EVOLUTIONARY,
 		RANDOM,
 		RULE,
-		RULE_OPT
+		RULE_OPT,
+		STA_PATTERN
 	};
 	
 	private ILaunchConfiguration rawConfiguration;
@@ -638,6 +639,9 @@ AbstractPCMWorkflowRunConfiguration {
 	
 	public void setResultsAsCSV(boolean resultsAsCVS){
 		this.resultsAsCSV = resultsAsCVS;
+	}
+	public boolean isStaReconfiguration() {
+		return this.searchMethod == SearchMethod.STA_PATTERN;
 	}
 
 

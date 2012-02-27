@@ -80,6 +80,8 @@ public class DSEWorkflowConfigurationBuilder extends
  			config.setSearchMethod(SearchMethod.RULE);
  		} else if (searchMethod.equals(DSEConstantsContainer.SEARCH_RULE_OPT)){
  			config.setSearchMethod(SearchMethod.RULE_OPT);
+ 		} else if (searchMethod.equals(DSEConstantsContainer.SEARCH_STA_PATTERN)) {
+ 			config.setSearchMethod(SearchMethod.STA_PATTERN);
  		}
 
 		

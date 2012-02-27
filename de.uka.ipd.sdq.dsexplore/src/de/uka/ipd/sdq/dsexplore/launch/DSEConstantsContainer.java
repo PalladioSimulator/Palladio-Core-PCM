@@ -29,6 +29,7 @@ public class DSEConstantsContainer {
 	/** Suboptimal candidates are pruned from the search tree and not further 
 	 * explored per iteration.*/ 
 	public static final String SEARCH_RULE_OPT = "Rule-based search optimal only";
+	public static final String SEARCH_STA_PATTERN = "Strategy/Tactics/Actions";
 
 	/**
 	 * This must not be used as a key directly, but the quality attribute has to be appended.

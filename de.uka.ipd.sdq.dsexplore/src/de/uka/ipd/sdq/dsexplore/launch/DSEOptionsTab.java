@@ -158,6 +158,7 @@ public class DSEOptionsTab extends FileNamesInputTab {
 				DSEConstantsContainer.SEARCH_RANDOM,
 				DSEConstantsContainer.SEARCH_RULE,
 				DSEConstantsContainer.SEARCH_RULE_OPT,
+				DSEConstantsContainer.SEARCH_STA_PATTERN,
 				});
 		useHeuristics.setSize (400, 200);
 		useHeuristics.addModifyListener(modifyListener);
@@ -571,6 +572,12 @@ public class DSEOptionsTab extends FileNamesInputTab {
 				setMessage("Make sure to select some tactics when choosing the rule-based search, otherwise nothing will happen.");
 				return false;
 			}
+		}
+		
+		
+		// TODO Niko Implement!
+		if (this.useHeuristics.getText().equals(DSEConstantsContainer.SEARCH_STA_PATTERN)){
+				setMessage("This is not implemented yet.");
 		}
 		
 		return true;
