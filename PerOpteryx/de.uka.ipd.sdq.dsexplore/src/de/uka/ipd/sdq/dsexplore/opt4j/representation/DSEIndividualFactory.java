@@ -8,6 +8,7 @@ import org.opt4j.core.problem.Creator;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
+import de.uka.ipd.sdq.dsexplore.opt4j.genotype.DesignDecisionGenotype;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticsResultCandidate;
 import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 import de.uka.ipd.sdq.pcm.designdecision.DecisionSpace;
@@ -18,7 +19,7 @@ public class DSEIndividualFactory extends AbstractIndividualFactory<DSEIndividua
 
 	@Inject
 	public DSEIndividualFactory(Provider<DSEIndividual> individualProvider,
-			Creator<?> creator) {
+			Creator<DesignDecisionGenotype> creator) {
 		super(individualProvider, creator);
 		this.problem = Opt4JStarter.getProblem().getEMFProblem();
 	}

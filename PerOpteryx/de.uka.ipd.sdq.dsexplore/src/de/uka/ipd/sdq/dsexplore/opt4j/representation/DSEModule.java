@@ -1,10 +1,17 @@
 package de.uka.ipd.sdq.dsexplore.opt4j.representation;
 
 import org.opt4j.config.annotations.Name;
+import org.opt4j.core.Genotype;
 import org.opt4j.core.problem.Creator;
 import org.opt4j.core.problem.Decoder;
 import org.opt4j.core.problem.Evaluator;
 import org.opt4j.core.problem.ProblemModule;
+import org.opt4j.operator.crossover.Crossover;
+
+import com.google.inject.TypeLiteral;
+
+import de.uka.ipd.sdq.dsexplore.opt4j.genotype.DesignDecisionGenotype;
+import de.uka.ipd.sdq.dsexplore.opt4j.operator.UniformDesignDecisionGenotypeCrossover;
 
 
 public class DSEModule extends ProblemModule {
@@ -20,14 +27,6 @@ public class DSEModule extends ProblemModule {
 		this.useGui = useGui;
 	}
 
-	@Override
-	public void configure() {
-		//bind(DSENeighbor.class).asEagerSingleton();
-		bindProblem(DSECreator.class, DSEDecoder.class,
-				DSEEvaluator.class);
-
-	}
-
 	//@Override
 	@Override
 	protected void config() {
@@ -37,6 +36,9 @@ public class DSEModule extends ProblemModule {
 		Class<? extends Creator<?>> creator = DSECreator.class;
 		Class<? extends Decoder<?, ?>> decoder = DSEDecoder.class;
 		Class<? extends Evaluator<?>> evaluator = DSEEvaluator.class;
+		
+		bind(new TypeLiteral<Creator<DesignDecisionGenotype>>() {}).to((Class<? extends Creator<DesignDecisionGenotype>>) DSECreator.class);
+		
 		
 		bindProblem(creator, decoder, evaluator);
 		
