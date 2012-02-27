@@ -1,0 +1,41 @@
+<h2>PCM Optimisation: PerOpteryx</h2>
+Optimise a given PCM instance within certain degrees of freedom. Click Help button below for more detail.
+
+<h3>Model File Tab</h3>
+Configure the PCM instance to optimise in the "Model files" tab as usual. 
+
+<h4>QML Criteria Definition</h4>
+QML is a language to describe quality attributes (e.g. response time) and quality criteria (i.e. 1. the quality attributes that should be optimised and 2. the requirements on the quality attributes). As QML is metamodelled in EMF, provide an according QML file to specify the quality attributes of the PCM instance that should be optimised and the requirements you have on those quality attributes (e.g. response time &lt; 5s).<br>
+For a QML quickstart and further information refer to <a href='http://sdqweb.ipd.kit.edu/wiki/QML_Quickstart'>our wiki page</a>.  
+
+<h3>DSE Options Tab</h3>
+The DSE Options tab lets you configure the optimisation. Specify a maximum number of iterations and a number of individuals per iteration here. Additionally, you can adjust the crossover rate for the genetic algorithm. 
+
+<h4>Choose Search Algorithm</h4>
+You can choose the search strategy here. Select evolutionary optimisation, random search, a full rule-based search, or a rule-based search using optimal candidates only. The rule-based searches use the tactics specified in the Tactics tab. The &quot;full rule-based search&quot; applies any matching tactic to any candidate in the population and thus spans the full search tree up to the depth specified as the iterations property. The &quot;rule-based search optimal only&quot; removes sub-optimal candidates after each iteration and then tries to apply tactics. Thus, the &quot;rule-based search optimal only&quot; prunes those search tree branches whose candidates are not optimal with respect to all candidates evaluated before.     
+
+If you choose rule-based search here, make sure to enable some tactics on the Tactics tab. If you specify random search, &quot;number of individuals per iteration&quot; times &quot;maximum number of iterations&quot; candidates will be randomly created and evaluated.
+
+<h4>Predefined Instances</h4>
+Next, you can define a starting population in the &quot;Predefined instances&quot; field. A .csv file is expected. it has to have the same format as the optimisation results file (thus, run the optimisation first if you are not sure how they look like). You can, however, omit the objective values in the predefined candidates. 
+
+<p>If you specify predefined candidates and set the maximum number of iterations to 0, then the tool will evaluate all candidates specified in the file, regardless of the specified &quot;number of individuals per iteration&quot; and of the specified search algorithm. 
+
+<h4>Degrees of Freedom</h4>
+The default run first determines the possible degrees of freedom and writes them in a .designdecision file. You can also predefine the degrees of freedoms to consider in a .designdecision file, and check the option &quot;Only optimise, using pre-existing design decisions&quot; in the DSE Options tab. Similarly, you can only let the tool determine the available degrees of freedom without optimising by checking &quot;Only determine design decisions, do not optimise&quot;.
+
+<p>You can also specify a custom name for the .designdecision file in the DSE Options tab. The default name is &lt;name of your launch config&gt;.designdecision, and the file is put in the same folder as you specified allocation model.
+
+<h3>Analysis Methods</h3>
+Choose the quality attributes to be optimised for in the analysis method tabs. You can configure each analysis method as usual.</description>
+
+<h3>Tactics</h3>
+PerOpteryx can try to use performance domain knowledge to make the search faster. Choose here which tactics should be used during the evolutionary search or during the rule-based search. 
+
+<h3>Common</h3>
+You can define the verboseness of the output here. Some more settings might be supported by Eclipse here. 
+
+<h3>Results</h3>
+The tool created a folder "PerOpteryx_results" in the same folder as your allocation. Here, you find the results for each iteration as csv files. 
+
+<p>The first colums contain the results for your selected quality attributes (currently, mean response time, probability of failure on demand, and/or cost). If confidence values are available for the result, the confidence intervals are added in the next few columns. Finally, the genome of the candidate is contained in the last columns.  

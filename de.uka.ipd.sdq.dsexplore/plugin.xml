@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="de.uka.ipd.sdq.dsexplore.analysis" name="de.uka.ipd.sdq.dsexplore.analysis" schema="schema/de.uka.ipd.sdq.dsexplore.analysis.exsd"/>
+   <extension-point id="de.uka.ipd.sdq.dsexplore.newcandidates" name="de.uka.ipd.sdq.dsexplore.newcandidates" schema="schema/de.uka.ipd.sdq.dsexplore.newcandidates.exsd"/>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="de.uka.ipd.sdq.dsexplore.launch.DSELaunch"
+            id="de.uka.ipd.sdq.dsexplore.launchDSE"
+            modes="run"
+            name="PCM Design Space Exploration"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="de.uka.ipd.sdq.dsexplore.launchDSE"
+            icon="icons/dse_launch.gif"
+            id="de.uka.ipd.sdq.dsexplore.DSEIcon">
+      </launchConfigurationTypeImage>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="de.uka.ipd.sdq.dsexplore.launch.DSETabGroup"
+            description="Optimise a given PCM instance within certain degrees of freedom. For help, click the help button (?) in the bottom-left corner."
+            helpContextId="de.uka.ipd.sdq.dsexplore.dse_launch_help"
+            id="de.uka.ipd.sdq.dsexplore.DSETabGroup"
+            type="de.uka.ipd.sdq.dsexplore.launchDSE">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         id="de.uka.ipd.sdq.dsexplore.help.context"
+         name="PerOpteryx Context Help"
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="doc/dseContextHelp.xml"
+            plugin="de.uka.ipd.sdq.dsexplore">
+      </contexts>
+   </extension>
+   <extension
+         id="de.uka.ipd.sdq.dsexplore.help.toc"
+         name="PerOpteryx Help TOC"
+         point="org.eclipse.help.toc">
+      <toc
+            file="doc/toc.xml"
+            primary="true">
+      </toc>
+   </extension>
+   
+    <!--extension
+       point="org.eclipse.ui.views">
+	<view
+          allowMultiple="false"
+          class="de.uka.ipd.sdq.dsexplore.launch.DSEDockStatusViewPart"
+          icon="icons/screen_blue_small.gif"
+          id="de.uka.ipd.sdq.dsexplore.DockStatusViewPart"
+          name="DSE Status">
+    </view>
+ </extension-->
+
+</plugin>
