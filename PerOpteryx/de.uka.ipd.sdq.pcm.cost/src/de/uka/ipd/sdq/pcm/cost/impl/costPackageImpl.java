@@ -468,6 +468,24 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCostRepository_TimePeriodYears() {
+		return (EAttribute)costRepositoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCostRepository_Interest() {
+		return (EAttribute)costRepositoryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getComponentCostPerInstance() {
 		return componentCostPerInstanceEClass;
 	}
@@ -549,6 +567,8 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 
 		costRepositoryEClass = createEClass(COST_REPOSITORY);
 		createEReference(costRepositoryEClass, COST_REPOSITORY__COST);
+		createEAttribute(costRepositoryEClass, COST_REPOSITORY__TIME_PERIOD_YEARS);
+		createEAttribute(costRepositoryEClass, COST_REPOSITORY__INTEREST);
 
 		componentCostPerInstanceEClass = createEClass(COMPONENT_COST_PER_INSTANCE);
 		createEReference(componentCostPerInstanceEClass, COMPONENT_COST_PER_INSTANCE__ALLOCATION);
@@ -644,6 +664,8 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 
 		initEClass(costRepositoryEClass, CostRepository.class, "CostRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCostRepository_Cost(), this.getCost(), null, "cost", null, 0, -1, CostRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCostRepository_TimePeriodYears(), ecorePackage.getEInt(), "timePeriodYears", null, 1, 1, CostRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCostRepository_Interest(), ecorePackage.getEDouble(), "interest", null, 1, 1, CostRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(componentCostPerInstanceEClass, ComponentCostPerInstance.class, "ComponentCostPerInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComponentCostPerInstance_Allocation(), theAllocationPackage.getAllocation(), null, "allocation", null, 0, 1, ComponentCostPerInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -669,7 +691,7 @@ public class costPackageImpl extends EPackageImpl implements costPackage {
 		   source, 
 		   new String[] {
 			 "namespace", ""
-		   });			
+		   });					
 	}
 
 } //costPackageImpl

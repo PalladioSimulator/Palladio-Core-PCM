@@ -48,24 +48,24 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 public class PCMDeclarationsReader {
 
 
-	protected final String PCMContractTypePath;
+	//protected final String PCMContractTypePath;
 	protected final String[] PCMProfilePaths;
 	
 	protected static HashMap<String, EvaluationAspectWithContext> retranslationMap = new HashMap<String, EvaluationAspectWithContext>();
 	
 	protected QMLDeclarationsReader qmlReader = new QMLDeclarationsReader();;
-	protected QMLContractType pcmContractType;
+	//protected QMLContractType pcmContractType;
 	//Refined are not supported yet
 	protected List<SimpleQMLProfile> pcmProfiles = new ArrayList<SimpleQMLProfile>();
 	protected List<EvaluationAspectWithContext> pcmConstraints = new ArrayList<EvaluationAspectWithContext>();
 	protected List<EvaluationAspectWithContext> pcmObjectives = new ArrayList<EvaluationAspectWithContext>();
 	
-	protected String pcmContractTypeId = null;
+//	protected String pcmContractTypeId = null;
 	
 
 	public PCMDeclarationsReader(String PCMProfilePath) {
 		
-		this.PCMContractTypePath = QMLConstantsContainer.STANDARD_CONTRACT_TYPE_PATH;
+		//this.PCMContractTypePath = QMLConstantsContainer.STANDARD_CONTRACT_TYPE_PATH;
 		this.PCMProfilePaths = new String[]{PCMProfilePath};
 		
 		init();		
@@ -73,22 +73,22 @@ public class PCMDeclarationsReader {
 	
 	protected void init() {
 
-		initPCMContractType();
+		//initPCMContractType();
 		initPCMProfiles();
 		initPCMConstraintsAndObjectives();
 				
-		initPCMContractTypeID();
+//		initPCMContractTypeID();
 	}
 	
-	private void initPCMContractType() {
-		//XXX: Be sure to read the declarations correctly
-		QMLDeclarations declarations = qmlReader.getQMLDeclarations(PCMContractTypePath);
-		List<QMLContractType> ctList = qmlReader.getQMLContractTypes(declarations);
-		if(declarations != null && ctList.size() > 1) {
-			throw new RuntimeException("The pcm contract type definition contains multiple contract types.");
-		}
-		pcmContractType = ctList.get(0);
-	}
+//	private void initPCMContractType() {
+//		//XXX: Be sure to read the declarations correctly
+//		QMLDeclarations declarations = qmlReader.getQMLDeclarations(PCMContractTypePath);
+//		List<QMLContractType> ctList = qmlReader.getQMLContractTypes(declarations);
+//		if(declarations != null && ctList.size() > 1) {
+//			throw new RuntimeException("The pcm contract type definition contains multiple contract types.");
+//		}
+//		pcmContractType = ctList.get(0);
+//	}
 	
 	private void initPCMProfiles() {
 		//XXX: Be sure to read the declarations correctly
@@ -129,9 +129,9 @@ public class PCMDeclarationsReader {
 		}
 	}
 	
-	private void initPCMContractTypeID() {
-		pcmContractTypeId = pcmContractType.getId();
-	}
+//	private void initPCMContractTypeID() {
+//		pcmContractTypeId = pcmContractType.getId();
+//	}
 	
 	public List<EvaluationAspectWithContext> getDimensionObjectiveContextsForUsageModel(UsageModel usageModel, String dimensionId) {
 		return new ArrayList<EvaluationAspectWithContext>(getDimensionCriterionContextsForUsageModel(usageModel, dimensionId, Objective.class));
@@ -175,11 +175,11 @@ public class PCMDeclarationsReader {
 		}
 	}
 	
-	protected List<EvaluationAspectWithContext> getDimensionCriterionContexts(String dimensionId, Class<? extends Criterion> CriterionClass) {
+	protected List<EvaluationAspectWithContext> getDimensionCriterionContexts(String dimensionId, Class<? extends Criterion> criterionClass) {
 		
 		List<EvaluationAspectWithContext> list = new ArrayList<EvaluationAspectWithContext>();		
 		List<EvaluationAspectWithContext> criterionList;		
-		if (CriterionClass == Objective.class) {
+		if (criterionClass == Objective.class) {
 			criterionList = pcmObjectives;
 		} else {
 			//CriterionClass == Constraint.class
@@ -188,11 +188,11 @@ public class PCMDeclarationsReader {
 		
 		for (Iterator<EvaluationAspectWithContext> iterator = criterionList.iterator(); iterator.hasNext();) {
 			EvaluationAspectWithContext aspect = iterator.next();
-			if(aspect.getContractType().getId().equals(pcmContractTypeId)) {
+//			if(aspect.getContractType().getId().equals(pcmContractTypeId)) {
 				if (aspect.getDimension().getId().equals(dimensionId)) {
 					list.add(aspect);
 				}
-			}
+//			}
 		}		
 		
 		return list;

@@ -977,7 +977,7 @@ public class QMLDeclarationsEditor
 		AddExtraResource("pathmap://PCM_MODELS/PCMStandardQMLProfile.qmldeclarations");
 		AddExtraResource("pathmap://PCM_MODELS/PCMStandardQMLContract.qmldeclarations");
 		AddExtraResource("pathmap://PCM_MODELS/PCMStandardQMLContractType.qmldeclarations");
-		AddExtraResource(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_COST_DEFINITION_PATH);
+		AddExtraResource(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_TOTAL_COST_DEFINITION_PATH);
 		AddExtraResource(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_POFOD_DEFINITION_PATH);
 		AddExtraResource(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_RESPONSETIME_DEFINITION_PATH);		
 		AddExtraResource(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_THROUGHPUT_DEFINITION_PATH);

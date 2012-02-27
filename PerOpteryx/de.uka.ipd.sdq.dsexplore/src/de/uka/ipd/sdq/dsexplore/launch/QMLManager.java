@@ -160,8 +160,12 @@ public class QMLManager {
 		//Activate or deactivate Evalutators depending on the qml definitions
 		//COST 
 		{
-			List<EvaluationAspectWithContext> costObjectives = pcmReader.getDimensionObjectiveContextsForUsageModel(usageModel, dimensionReader.getDimension(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_COST_DEFINITION_PATH).getId());
-			List<EvaluationAspectWithContext> costConstraints = pcmReader.getDimensionConstraintContextsForUsageModel(usageModel, dimensionReader.getDimension(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_COST_DEFINITION_PATH).getId());
+			List<EvaluationAspectWithContext> costObjectives = pcmReader.getDimensionObjectiveContextsForUsageModel(usageModel, dimensionReader.getDimension(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_TOTAL_COST_DEFINITION_PATH).getId());
+			costObjectives.addAll(pcmReader.getDimensionObjectiveContextsForUsageModel(usageModel, dimensionReader.getDimension(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_INITIAL_COST_DEFINITION_PATH).getId()));
+			costObjectives.addAll(pcmReader.getDimensionObjectiveContextsForUsageModel(usageModel, dimensionReader.getDimension(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_OPERATING_COST_DEFINITION_PATH).getId()));
+			List<EvaluationAspectWithContext> costConstraints = pcmReader.getDimensionConstraintContextsForUsageModel(usageModel, dimensionReader.getDimension(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_TOTAL_COST_DEFINITION_PATH).getId());
+			costConstraints.addAll(pcmReader.getDimensionConstraintContextsForUsageModel(usageModel, dimensionReader.getDimension(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_INITIAL_COST_DEFINITION_PATH).getId()));
+			costConstraints.addAll(pcmReader.getDimensionConstraintContextsForUsageModel(usageModel, dimensionReader.getDimension(QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_OPERATING_COST_DEFINITION_PATH).getId()));
 			List<EvaluationAspectWithContext> costCriteria = new ArrayList<EvaluationAspectWithContext>();
 			costCriteria.addAll(costObjectives);
 			costCriteria.addAll(costConstraints);

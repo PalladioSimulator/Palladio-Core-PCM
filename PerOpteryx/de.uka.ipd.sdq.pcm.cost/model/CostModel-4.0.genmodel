@@ -80,6 +80,8 @@
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//CostRepository">
       <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
           createChild="true" ecoreFeature="ecore:EReference cost.ecore#//CostRepository/cost"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//CostRepository/timePeriodYears"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute cost.ecore#//CostRepository/interest"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="cost.ecore#//ComponentCostPerInstance">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"

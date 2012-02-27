@@ -133,6 +133,21 @@ If we have FixedProcessingResourceCost for certain types of, for example, CPUs, 
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wzzgo_jsEd23O5YGd3Oe8g" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wzzgovjsEd23O5YGd3Oe8g"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_O1oVcGFGEeG1seYYX2YXPg" name="timePeriodYears" visibility="public">
+        <ownedComment xmi:id="_Vr9UEGFGEeG1seYYX2YXPg" annotatedElement="_O1oVcGFGEeG1seYYX2YXPg">
+          <body>Time period in which the operating costs are expected.</body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_sgEP8GFEEeGlHNaTUIdM5g" name="interest" visibility="public">
+        <ownedComment xmi:id="_OHgrMGFGEeG1seYYX2YXPg" annotatedElement="_sgEP8GFEEeGlHNaTUIdM5g">
+          <body>&lt;p>&#xD;
+    Assumed&amp;nbsp;interest&amp;nbsp;rate&amp;nbsp;per&amp;nbsp;year for calculating the present value based on the operating costs and&#xD;
+    the considered time frame in years given by timePeriodYears.&#xD;
+&lt;/p></body>
+        </ownedComment>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_wzzgoPjsEd23O5YGd3Oe8g" memberEnd="_wzzgofjsEd23O5YGd3Oe8g _wzzgpPjsEd23O5YGd3Oe8g">
       <ownedEnd xmi:id="_wzzgpPjsEd23O5YGd3Oe8g" name="" visibility="private" type="_vCZ0cPjsEd23O5YGd3Oe8g" association="_wzzgoPjsEd23O5YGd3Oe8g"/>
@@ -223,4 +238,6 @@ instance.</body>
   <Ecore:EReference xmi:id="_oKiLsCIsEd-VcevKbl3Efg" isTransient="true" isVolatile="true" isUnsettable="true" xmlNamespace="" visibility="ReadOnly" base_Property="_T0k_MCIsEd-VcevKbl3Efg" referenceName="term"/>
   <Ecore:EReference xmi:id="_r6Og0CI9Ed-VcevKbl3Efg" isTransient="true" isVolatile="true" isUnsettable="true" visibility="ReadOnly" base_Property="_EAbrwCKpEd64q9HNdQ0aqw" referenceName="annotatedElement"/>
   <Default:Documentation xmi:id="_lwi3QMG_EeCcG5_UlhoSUw" base_Comment="_ltVyQMG_EeCcG5_UlhoSUw"/>
+  <Default:Documentation xmi:id="_OHqcMGFGEeG1seYYX2YXPg" base_Comment="_OHgrMGFGEeG1seYYX2YXPg"/>
+  <Default:Documentation xmi:id="_VsGeAGFGEeG1seYYX2YXPg" base_Comment="_Vr9UEGFGEeG1seYYX2YXPg"/>
 </xmi:XMI>

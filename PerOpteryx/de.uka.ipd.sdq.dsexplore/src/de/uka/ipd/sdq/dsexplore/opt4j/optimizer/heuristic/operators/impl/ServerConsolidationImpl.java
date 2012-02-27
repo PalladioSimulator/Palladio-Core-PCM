@@ -61,7 +61,7 @@ public class ServerConsolidationImpl extends AbstractTactic {
 			DSEIndividualFactory individualFactory, DSEWorkflowConfiguration configuration) {
 		super(copy, individualFactory, configuration, 
 				new String[] {
-					QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_COST_DEFINITION_PATH,
+					QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_TOTAL_COST_DEFINITION_PATH,
 					QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_POFOD_DEFINITION_PATH});
 		// set config
 		setHeuristicWeight(configuration.getServerConsolidationWeight());

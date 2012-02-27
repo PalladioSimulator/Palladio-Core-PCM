@@ -290,15 +290,6 @@ public abstract class AbstractLQNAnalysis implements IAnalysis {
 							UsageScenario usageScenario = (UsageScenario) iterator2
 							.next();
 
-							//FIXME: hardcoded usage scenario selection. Delete after a while
-							String scenName = usageScenario.getEntityName();
-							if (scenName.contains("AlarmRetrieve") 
-									|| scenName.contains("Wrapper")
-									|| scenName.contains("HistoryRetrieve")){
-								// continue;
-								logger.warn("ABB usage scenarios encountered that used to be ignored, but this special case has been removed again. Check whether this is ok.");
-							}
-
 							if(aspectContext.getCriterion() instanceof de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Constraint) {
 								UsageScenarioBasedInfeasibilityConstraintBuilder builder = new UsageScenarioBasedInfeasibilityConstraintBuilder(usageScenario);
 								InfeasibilityConstraint c = 

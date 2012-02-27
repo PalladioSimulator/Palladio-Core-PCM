@@ -125,6 +125,10 @@ public class DSEConstantsContainer {
 	
 	public static final String DSE_ITERATIONS = "number of DSE iterations";
 	
+//	public static final String COST_COMBINE_COST_TYPES = "DSE combine cost types";
+//	public static final String COST_CONSIDER_INITIAL = "DSE consider initial costs";
+//	public static final String COST_CONSIDER_OPERATING = "DSE consider opearting costs";
+	
 	/*
 	 * Configuration of heuristics
 	 */
@@ -231,5 +235,7 @@ public class DSEConstantsContainer {
 	public static final String DEFAULT_DESIGN_DECISION_FILE = "";
 	/** Default URI for the QML criteria definitions file. */
 	public static final String DEFAULT_QML_CRITERIA_DEFINITIONS_FILE = "";
+
+	
 	
 }

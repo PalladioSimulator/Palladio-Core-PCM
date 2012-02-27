@@ -728,13 +728,31 @@ public interface costPackage extends EPackage {
 	int COST_REPOSITORY__COST = 0;
 
 	/**
+	 * The feature id for the '<em><b>Time Period Years</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COST_REPOSITORY__TIME_PERIOD_YEARS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Interest</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COST_REPOSITORY__INTEREST = 2;
+
+	/**
 	 * The number of structural features of the '<em>Cost Repository</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COST_REPOSITORY_FEATURE_COUNT = 1;
+	int COST_REPOSITORY_FEATURE_COUNT = 3;
 
 
 	/**
@@ -1140,6 +1158,28 @@ public interface costPackage extends EPackage {
 	EReference getCostRepository_Cost();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.cost.CostRepository#getTimePeriodYears <em>Time Period Years</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time Period Years</em>'.
+	 * @see de.uka.ipd.sdq.pcm.cost.CostRepository#getTimePeriodYears()
+	 * @see #getCostRepository()
+	 * @generated
+	 */
+	EAttribute getCostRepository_TimePeriodYears();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.cost.CostRepository#getInterest <em>Interest</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interest</em>'.
+	 * @see de.uka.ipd.sdq.pcm.cost.CostRepository#getInterest()
+	 * @see #getCostRepository()
+	 * @generated
+	 */
+	EAttribute getCostRepository_Interest();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.cost.ComponentCostPerInstance <em>Component Cost Per Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1443,6 +1483,22 @@ public interface costPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COST_REPOSITORY__COST = eINSTANCE.getCostRepository_Cost();
+
+		/**
+		 * The meta object literal for the '<em><b>Time Period Years</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COST_REPOSITORY__TIME_PERIOD_YEARS = eINSTANCE.getCostRepository_TimePeriodYears();
+
+		/**
+		 * The meta object literal for the '<em><b>Interest</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COST_REPOSITORY__INTEREST = eINSTANCE.getCostRepository_Interest();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.cost.impl.ComponentCostPerInstanceImpl <em>Component Cost Per Instance</em>}' class.

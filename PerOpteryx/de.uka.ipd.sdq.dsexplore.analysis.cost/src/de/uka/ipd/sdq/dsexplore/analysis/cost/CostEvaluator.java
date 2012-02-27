@@ -67,11 +67,8 @@ public class CostEvaluator implements IAnalysis{
 	private CostSolverQualityAttributeDeclaration costQualityAttribute = new CostSolverQualityAttributeDeclaration();
 
 	//Constraint handling
-	private List<Constraint> constraints = new ArrayList<Constraint>();
-	private Map<Constraint, EvaluationAspectWithContext> constraintToAspect = new HashMap<Constraint, EvaluationAspectWithContext>(); //This is needed to determine, what THE result is (Mean,  Variance, ...)
-	
-	private List<Objective> objectives = new ArrayList<Objective>();
-	private Map<Objective, EvaluationAspectWithContext> objectiveToAspect = new HashMap<Objective, EvaluationAspectWithContext>();
+	private List<Criterion> criteria = new ArrayList<Criterion>();
+	private Map<Criterion, EvaluationAspectWithContext> criterionToAspect = new HashMap<Criterion, EvaluationAspectWithContext>(); //This is needed to determine, what THE result is (Mean,  Variance, ...)
 	
 	private Map<Long, CostAnalysisResult> previousCostResults = new HashMap<Long, CostAnalysisResult>();
 	
@@ -168,25 +165,50 @@ public class CostEvaluator implements IAnalysis{
 	 * @return
 	 */
 	private double getOperatingCost(PCMInstance pcmInstance){
-		return 0.0;
+		List<Cost> costs = costModel.getCost();
+		double sum = 0;
+		for (Iterator<Cost> iterator = costs.iterator(); iterator.hasNext();) {
+			Cost cost = iterator.next();
+			if (doesCostApply(cost,pcmInstance)){
+				sum += cost.getOperatingCost();
+			}
+		}
+		
+		return sum;
 	}
 	
 	/**
 	 * This calculates the perpetuity (see http://en.wikipedia.org/wiki/Present_value) cost.
 	 * @param pcmInstance
 	 * @param interest If interest <= 0, no operating cost are taken into account.
+	 * @param numberOfYears 
 	 * @return
 	 */
-	public double getTotalCost(PCMInstance pcmInstance, double interest){
+	private double getTotalCost(double initialCost, double operatingCost, double interest, int numberOfYears){
 		
-		//Important: "Read in" the right PCM instance first.  
-		updateCostModel(pcmInstance);
+		double operatingCostWithInterest = 0;
 		
-		double operatingCost = 0;
-		if (interest > 0){
-			operatingCost = this.getOperatingCost(pcmInstance)/interest;
+		if (interest < 0 ){
+			logger.error("Negative interest rate not supported by cost evaluator");
+			return Double.NaN;
 		}
-		return this.getInitialCost(pcmInstance) + operatingCost;
+		
+		if (numberOfYears == 0){
+			if (interest == 0 ){
+				logger.warn("Interest rate of 0 and no time period lead to infinite costs over time ");
+				return Double.POSITIVE_INFINITY;
+			} else {
+				operatingCostWithInterest = operatingCost/interest;
+			}
+		} else {
+			if (interest == 0){
+				operatingCostWithInterest = operatingCost * numberOfYears;
+
+			} else {
+				operatingCostWithInterest = operatingCost * Math.pow(1 - (1 + interest), -1*numberOfYears)/interest;
+			}
+		}
+		return initialCost + operatingCostWithInterest;
 	}
 
 	private void updateCostModel(PCMInstance pcmInstance) {
@@ -343,7 +365,14 @@ public class CostEvaluator implements IAnalysis{
 			throws CoreException, UserCanceledException, JobFailedException,
 			AnalysisFailedException {
 		PCMInstance pcm = pheno.getPCMInstance();
-		this.previousCostResults.put(pheno.getNumericID(), new CostAnalysisResult(getTotalCost(pcm, 0), pcm));
+		//Important: "Read in" the right PCM instance first.  
+		updateCostModel(pcm);
+		
+		double initialCost = getInitialCost(pcm);
+		double operatingCost = getOperatingCost(pcm);
+		this.previousCostResults.put(pheno.getNumericID(), new CostAnalysisResult(
+				getTotalCost(initialCost, operatingCost, costModel.getInterest(), costModel.getTimePeriodYears()), initialCost, operatingCost, 
+				pcm, this.criterionToAspect, this.costQualityAttribute));
 		CostUtil.getInstance().resetCache();
 	}
 	
@@ -392,17 +421,17 @@ public class CostEvaluator implements IAnalysis{
 							
 							if(aspectContext.getCriterion() instanceof de.uka.ipd.sdq.dsexplore.qml.contract.QMLContract.Constraint) {
 								Constraint c = reader.translateEvalAspectToInfeasibilityConstraint(aspectContext, new InfeasibilityConstraintBuilder());
-								constraints.add(c);
-								constraintToAspect.put(c, aspectContext);
+								criteria.add(c);
+								criterionToAspect.put(c, aspectContext);
 							} else {
 								//instanceof Objective
 								Objective o = reader.translateEvalAspectToObjective(this.getQualityAttribute().getName(), aspectContext, new ObjectiveBuilder());
-								objectives.add(o);
-								objectiveToAspect.put(o, aspectContext);
+								criteria.add(o);
+								criterionToAspect.put(o, aspectContext);
 								
 								Constraint c = reader.translateEvalAspectToSatisfactionConstraint(aspectContext, o, new SatisfactionConstraintBuilder()); 
-								constraints.add(c);
-								constraintToAspect.put(c, aspectContext);
+								criteria.add(c);
+								criterionToAspect.put(c, aspectContext);
 							}
 						} else {
 							//XXX: This should never be the case if the optimization is started with the LaunchConfig the aspect is checked there as well
@@ -421,23 +450,7 @@ public class CostEvaluator implements IAnalysis{
 		return costQualityAttribute.canEvaluateAspectForDimension(aspect, dimension);
 	}
 	
-	//MOVED to PCMDeclarationsReader
-//	private Objective translateEvalAspectToObjective(EvaluationAspectWithContext aspect) {
-//		//Make sure, the aspect IS an objective
-//		try {
-//			if(aspect.getDimension().getType().getRelationSemantics().getRelSem() == EnumRelationSemantics.DECREASING) {
-//				return new Objective(this.getQualityAttribute(), Objective.Sign.MIN);
-//			} else {
-//				//INCREASING
-//				return new Objective(this.getQualityAttribute(), Objective.Sign.MAX);
-//			}
-//		} catch (CoreException e) {
-//			e.printStackTrace();
-//			throw new RuntimeException("Could not get cost quality attribute!");
-//		}
-//	}
-	
-	
+
 	/**
 	 * returns a cost model or throws an exception. 
 	 * @param configuration.getRawConfiguration()
@@ -462,24 +475,12 @@ public class CostEvaluator implements IAnalysis{
 		return false;
 	}
 
-//	@Override
-//	public List<Objective> getObjectives() throws CoreException {
-//		List<Objective> objectives = new ArrayList<Objective>(1);
-//		Objective o = new Objective(this.getQualityAttribute(), Objective.Sign.MIN);
-//		objectives.add(o);
-//		
-//		return objectives;
-//	}
-	
 	@Override
 	public List<Criterion> getCriterions() throws CoreException {
 		List<Criterion> criterions = new ArrayList<Criterion>();
 		 
-		//Objective o = new Objective(this.getQualityAttribute(), Objective.Sign.MIN);
-		criterions.addAll(objectives);
-		
-		criterions.addAll(constraints);
-		
+		criterions.addAll(criteria);
+
 		return criterions;
 	}
 

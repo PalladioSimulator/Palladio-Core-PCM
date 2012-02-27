@@ -103,6 +103,18 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cost" ordered="false" upperBound="-1"
         eType="#//Cost" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timePeriodYears" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Time period in which the operating costs are expected."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interest" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;p>&#xD;&#xA;    Assumed&amp;nbsp;interest&amp;nbsp;rate&amp;nbsp;per&amp;nbsp;year for calculating the present value based on the operating costs and&#xD;&#xA;    the considered time frame in years given by timePeriodYears.&#xD;&#xA;&lt;/p>"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentCostPerInstance" eSuperTypes="#//ComponentCost">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

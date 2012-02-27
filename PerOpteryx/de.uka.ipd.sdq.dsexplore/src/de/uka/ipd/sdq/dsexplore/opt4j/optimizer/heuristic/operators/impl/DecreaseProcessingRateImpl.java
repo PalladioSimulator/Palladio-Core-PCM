@@ -51,7 +51,7 @@ public class DecreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 	public DecreaseProcessingRateImpl(Copy<Genotype> copy,
 			DSEIndividualFactory individualFactory,
 			DSEWorkflowConfiguration configuration) {
-		super(copy, individualFactory, configuration, new String[] {QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_COST_DEFINITION_PATH});
+		super(copy, individualFactory, configuration, new String[] {QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_TOTAL_COST_DEFINITION_PATH});
 		setHeuristicWeight(configuration.getProcessingRateWeight());
 		
 		decreaseProcessingRateFactor = configuration.getProcessingRateDecreaseFactor();

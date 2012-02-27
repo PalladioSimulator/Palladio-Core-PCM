@@ -7,6 +7,8 @@ import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -20,6 +22,10 @@ public class CostAnalysisTab extends de.uka.ipd.sdq.workflow.pcm.runconfig.FileN
 		ILaunchConfigurationTab {
 
 	private Text textCostModel;
+	
+//	private Button combineCostTypesInObjective;
+//	private Button considerInitialCost;
+//	private Button considerOperatingCost;
 
 	@Override
 	public void createControl(Composite parent) {
@@ -33,6 +39,19 @@ public class CostAnalysisTab extends de.uka.ipd.sdq.workflow.pcm.runconfig.FileN
 			}
 		};
 		
+//		final SelectionListener selectionListener = new SelectionListener() {
+//
+//			public void widgetDefaultSelected(SelectionEvent e) {
+//				CostAnalysisTab.this.setDirty(true);
+//				CostAnalysisTab.this.updateLaunchConfigurationDialog();
+//			}
+//
+//			public void widgetSelected(SelectionEvent e) {
+//				CostAnalysisTab.this.setDirty(true);
+//				CostAnalysisTab.this.updateLaunchConfigurationDialog();
+//			}
+//		};
+		
 		// Create a new Composite to hold the page's controls:
 		final Composite container = new Composite(parent, SWT.NONE);
 		setControl(container);
@@ -43,6 +62,25 @@ public class CostAnalysisTab extends de.uka.ipd.sdq.workflow.pcm.runconfig.FileN
 		 */
 		this.textCostModel = new Text(container, SWT.SINGLE | SWT.BORDER);
 		TabHelper.createFileInputSection(container, modifyListener, "Cost Model File", DSEConstantsContainer.COST_MODEL_EXTENSION, textCostModel, getShell(), DSEConstantsContainer.DEFAULT_COST_MODEL_FILE);
+		
+//		this.combineCostTypesInObjective = new Button(container,  SWT.CHECK);
+//		this.combineCostTypesInObjective.setEnabled(true);
+//		this.combineCostTypesInObjective.setText("Combine all cost types in one objective");
+//		this.combineCostTypesInObjective.addSelectionListener(selectionListener);
+//		this.combineCostTypesInObjective.setSelection(true);
+//		
+//		this.considerInitialCost = new Button(container,  SWT.CHECK);
+//		this.considerInitialCost.setEnabled(true);
+//		this.considerInitialCost.setText("Consider inital costs annotations");
+//		this.considerInitialCost.addSelectionListener(selectionListener);
+//		this.considerInitialCost.setSelection(true);
+//		
+//		this.considerOperatingCost = new Button(container,  SWT.CHECK);
+//		this.considerOperatingCost.setEnabled(true);
+//		this.considerOperatingCost.setText("Consider operating costs annotations");
+//		this.considerOperatingCost.addSelectionListener(selectionListener);
+//		this.considerOperatingCost.setSelection(true);
+				
 	}
 
 	@Override
@@ -59,6 +97,27 @@ public class CostAnalysisTab extends de.uka.ipd.sdq.workflow.pcm.runconfig.FileN
 			RunConfigPlugin.errorLogger(getName(),DSEConstantsContainer.COST_FILE, e.getMessage());
 		}
 		
+//		try {
+//			this.combineCostTypesInObjective.setSelection(configuration.getAttribute(
+//					DSEConstantsContainer.COST_COMBINE_COST_TYPES, true));
+//		} catch (CoreException e) {
+//			this.combineCostTypesInObjective.setSelection(true);
+//		}
+//		
+//		try {
+//			this.considerInitialCost.setSelection(configuration.getAttribute(
+//					DSEConstantsContainer.COST_CONSIDER_INITIAL, true));
+//		} catch (CoreException e) {
+//			this.considerInitialCost.setSelection(true);
+//		}
+//		
+//		try {
+//			this.considerOperatingCost.setSelection(configuration.getAttribute(
+//					DSEConstantsContainer.COST_CONSIDER_OPERATING, true));
+//		} catch (CoreException e) {
+//			this.considerOperatingCost.setSelection(true);
+//		}
+		
 	}
 
 	@Override
@@ -66,6 +125,19 @@ public class CostAnalysisTab extends de.uka.ipd.sdq.workflow.pcm.runconfig.FileN
 		configuration.setAttribute(
 				DSEConstantsContainer.COST_FILE, 
 				this.textCostModel.getText());
+		
+//		configuration.setAttribute(
+//				DSEConstantsContainer.COST_COMBINE_COST_TYPES, 
+//				this.combineCostTypesInObjective.getSelection());
+//		
+//		configuration.setAttribute(
+//				DSEConstantsContainer.COST_CONSIDER_INITIAL, 
+//				this.considerInitialCost.getSelection());
+//		
+//		configuration.setAttribute(
+//				DSEConstantsContainer.COST_CONSIDER_OPERATING, 
+//				this.considerOperatingCost.getSelection());
+
 		
 	}
 

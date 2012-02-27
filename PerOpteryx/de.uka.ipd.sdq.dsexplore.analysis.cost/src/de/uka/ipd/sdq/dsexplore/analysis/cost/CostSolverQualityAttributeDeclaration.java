@@ -23,17 +23,39 @@ import de.uka.ipd.sdq.dsexplore.qml.reader.QMLDimensionReader;
  */
 public class CostSolverQualityAttributeDeclaration implements IAnalysisQualityAttributeDeclaration {
 
-	public static final String qualityAttribute = QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_COST_DEFINITION_PATH;
+	public static final String qualityAttributeTotalCost = QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_TOTAL_COST_DEFINITION_PATH;
+	public static final String qualityAttributeInitialCost = QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_INITIAL_COST_DEFINITION_PATH;
+	public static final String qualityAttributeOperatingCost = QMLConstantsContainer.QUALITY_ATTRIBUTE_DIMENSION_OPERATING_COST_DEFINITION_PATH;
+	
+	private Dimension totalCost;
+	private Dimension initialCost;
+	private Dimension operatingCost;
 	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.dsexplore.analysis.IQualityAttribute#getDimension()
 	 */
 	@Override
 	public List<Dimension> getDimensions() {
-		Dimension dimension = new QMLDimensionReader().getDimension(qualityAttribute);
+		this.totalCost = new QMLDimensionReader().getDimension(qualityAttributeTotalCost);
+		this.initialCost = new QMLDimensionReader().getDimension(qualityAttributeInitialCost);
+		this.operatingCost = new QMLDimensionReader().getDimension(qualityAttributeOperatingCost);
 		List<Dimension> result = new ArrayList<Dimension>(1);
-		result.add(dimension);
+		result.add(this.totalCost);
+		result.add(this.initialCost);
+		result.add(this.operatingCost);
 		return result;
+	}
+	
+	protected Dimension getTotalCostDimension(){
+		return this.totalCost;
+	}
+	
+	protected Dimension getInitialCostDimension(){
+		return this.initialCost;
+	}
+	
+	protected Dimension getOperatingCostDimension(){
+		return this.operatingCost;
 	}
 
 	/* (non-Javadoc)
