@@ -160,9 +160,12 @@ public class StaReconfigurator extends AbstractOptimizer {
 		
 		strategySargetAchieved = respTime < TARGET_RESP_TIME;
 		double respTimeImprovement = calcRespTimeImprovement();
-		if(respTimeImprovement > RESP_TIME_DELTA || respTimeImprovement == Double.NaN)
-		{
+		if(Double.isNaN(respTimeImprovement)){
 			// Stick to the current tactic
+			staManager.setActiveTacticNumber(staManager.getActiveTactic());
+		} else if (respTimeImprovement > RESP_TIME_DELTA) {
+			// Stick to the current tactic
+			staManager.setActiveTacticNumber(staManager.getActiveTactic());
 		} else {
 			// switch tactic
 			staManager.setActiveTacticNumber(TacticsManager.MIGRATE_COMPONENT);
