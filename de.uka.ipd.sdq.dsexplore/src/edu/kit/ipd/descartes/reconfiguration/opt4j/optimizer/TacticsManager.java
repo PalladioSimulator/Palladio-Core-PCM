@@ -19,12 +19,18 @@ import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 
 public class TacticsManager {
 
+	public static final int INCREASE_CPU = 1;
+	public static final int MIGRATE_COMPONENT = 2;
+
+	
 	protected ResultsWriter writer;
 	protected ITactic increaseProcRate;
 	protected ITactic relieveHighUtilizedServer;
+	private int activeTactic = -1;
 	
 	public TacticsManager(Copy<Genotype> copy, DSEIndividualBuilder individualBuilder) {
 		this.writer = new ResultsWriter(Opt4JStarter.getDSEWorkflowConfig().getResultFolder()+"heuristicsInfo");
+		
 		increaseProcRate = new IncreaseProcessingRateImpl(copy, individualBuilder, Opt4JStarter.getDSEWorkflowConfig());
 		relieveHighUtilizedServer = new ReallocationImpl(copy, individualBuilder, Opt4JStarter.getDSEWorkflowConfig());
 	}
@@ -39,13 +45,17 @@ public class TacticsManager {
 
 		List<TacticsResultCandidate> resultList = null;
 		
-//		for (ITactic heuristic : heuristics) {
+		switch (getActiveTacticNumber()) {
+		case 1:
+			resultList = increaseProcessingRate(currentCandidate);
+			break;
+		case 2:
+			resultList = relieveHighUtilizedServer(currentCandidate);
+			break;
+		default:
+			break;
+		}
 
-		resultList = increaseProcessingRate(currentCandidate);
-		resultList = relieveHighUtilizedServer(currentCandidate);
-		
-//		}
-		
 		// FIXME: Remove this hard-coded access to the first element in the list 
 		assert resultList.size() == 1;
 		return resultList;
@@ -83,6 +93,14 @@ public class TacticsManager {
 		}
 		return result;
 		
+	}
+
+	public void setActiveTacticNumber(int activeTactic) {
+		this.activeTactic = activeTactic;
+	}
+
+	public int getActiveTacticNumber() {
+		return activeTactic;
 	}
 
 }

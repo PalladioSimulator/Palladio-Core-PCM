@@ -23,7 +23,6 @@ import com.google.inject.Inject;
 
 import de.uka.ipd.sdq.dsexplore.helper.ResultsWriter;
 import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.TacticsResultCandidate;
-import de.uka.ipd.sdq.dsexplore.opt4j.optimizer.heuristic.operators.UtilisationResultCacheAndHelper;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividual;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEIndividualBuilder;
 import de.uka.ipd.sdq.dsexplore.opt4j.representation.DSEObjectives;
@@ -52,7 +51,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 		System.out.println("CURRENTLY NOTHING IS IMPLEMENTED! ADD THE TACTICS HERE!");
 		DSEIndividual currentCandidate = null;
 		
-		
+		staManager.setActiveTacticNumber(TacticsManager.INCREASE_CPU);
 		//1. Apply a tactic. Tactic is chosen according to the weights. 
 		//   Applying a tactic returns a new "candidate".
 		Individual ind = individualBuilder.build();
@@ -76,10 +75,10 @@ public class StaReconfigurator extends AbstractOptimizer {
 		//2. Evaluate new candidate according to the target of the strategy
 		
 		double respTime = getResponseTime(currentCandidate);
-		
+		System.out.println(respTime);
 
 		
-		//3. Reassing weights to tactics depending on the history and the evaluation result
+		//3. Reassign weights to tactics depending on the history and the evaluation result
 
 
 		int nextGenerationSize = nextGeneration.size();
@@ -127,20 +126,19 @@ public class StaReconfigurator extends AbstractOptimizer {
 		
 		DSEObjectives objs = currentCandidate.getObjectives();
 		List<Criterion> criteriaToSave = ResultsWriter.determineCriterionsToSave(currentCandidate);
-		formatValue(objs.getValueForCriterion(criteriaToSave.get(1)));
+		return formatValue(objs.getValueForCriterion(criteriaToSave.get(1)));
 		
-		return Double.NaN;
 	}
 
-	private static String formatValue(Value<?> value) {
+	private static double formatValue(Value<?> value) {
 		
 		if (value instanceof IntegerValue){
 			IntegerValue intValue = (IntegerValue)value;
-			return String.valueOf(intValue);
+			return intValue.getDouble();
 			
 		} else {
 			double d = value.getDouble();
-			return Double.toString(d);
+			return d;
 		}
 		
 	}
