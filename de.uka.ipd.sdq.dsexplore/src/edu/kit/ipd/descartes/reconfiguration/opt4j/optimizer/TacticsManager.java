@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 public class TacticsManager {
 
 	private static Logger logger = Logger
-	.getLogger(TacticsManager.class);
+	.getLogger("edu.kit.ipd.descartes.reconfiguration.opt4j.optimizer.TacticsManager");
 	
 	public static final int INCREASE_CPU = 1;
 	public static final int MIGRATE_COMPONENT = 2;
@@ -49,7 +49,7 @@ public class TacticsManager {
 
 		List<TacticsResultCandidate> resultList = null;
 		
-		switch (getActiveTacticNumber()) {
+		switch (getActiveTactic()) {
 		case 1:
 			logger.info("Applying INCREASE_PRCOCESSING_RATE_TACTIC");
 			resultList = increaseProcessingRate(currentCandidate);
@@ -105,7 +105,7 @@ public class TacticsManager {
 		this.activeTactic = activeTactic;
 	}
 
-	public int getActiveTacticNumber() {
+	public int getActiveTactic() {
 		return activeTactic;
 	}
 

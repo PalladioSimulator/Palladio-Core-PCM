@@ -32,7 +32,7 @@ import edu.kit.ipd.descartes.reconfiguration.opt4j.optimizer.TacticsManager;
 
 public class StaReconfigurator extends AbstractOptimizer {
 
-	private static final double TARGET_RESP_TIME = 4.0;
+	private static final double TARGET_RESP_TIME = 5.0;
 	private static final double RESP_TIME_DELTA = 0.1;
 	private List<Double> prevRespTimes = new ArrayList<Double>();
 	private boolean strategyTargetAchieved = false;
@@ -62,6 +62,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 
 		Individual ind = individualBuilder.build();
 		this.population.add(ind);
+		nextIteration();
 		evaluateCurrentPopulation();
 
 		while (!isStrategyTargetAchieved() && iteration <= 10) {
@@ -84,6 +85,12 @@ public class StaReconfigurator extends AbstractOptimizer {
 			}
 
 			int nextGenerationSize = nextGeneration.size();
+			// If population is zero but we have tactics left
+			if (nextGenerationSize == 0)
+			{
+				staManager.setActiveTacticNumber(TacticsManager.MIGRATE_COMPONENT);
+				continue;
+			}
 			nextGeneration.removeAll(population);
 			nextGeneration.removeAll(archive);
 			logger
@@ -93,6 +100,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 
 			completer.complete(nextGeneration);
 
+			
 			this.population.clear();
 			this.population.addAll(nextGeneration);
 
@@ -100,12 +108,6 @@ public class StaReconfigurator extends AbstractOptimizer {
 			nextIteration();
 			evaluateCurrentPopulation();
 			
-			// If population is zero but we have tactics left
-			if (this.population.size() == 0)
-			{
-				staManager.setActiveTacticNumber(TacticsManager.MIGRATE_COMPONENT);
-				continue;
-			}
 			
 			if (this.population.size() == 0) {
 				 logger.warn("No more individuals in population, aborting after iteration "+iteration);
