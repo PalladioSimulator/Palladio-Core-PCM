@@ -72,7 +72,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 			}
 		}
 
-		while (!isStrategyTargetAchieved() && iteration <= 5) {
+		while (!isStrategyTargetAchieved() && iteration <= 10) {
 
 			List<Individual> nextGeneration = new LinkedList<Individual>();
 			
@@ -160,8 +160,11 @@ public class StaReconfigurator extends AbstractOptimizer {
 		
 		strategySargetAchieved = respTime < TARGET_RESP_TIME;
 		double respTimeImprovement = calcRespTimeImprovement();
-		if(respTimeImprovement != Double.NaN && respTimeImprovement < RESP_TIME_DELTA)
+		if(respTimeImprovement > RESP_TIME_DELTA)
 		{
+			// Stick to the current tactic
+		} else {
+			// switch tactic
 			staManager.setActiveTacticNumber(TacticsManager.MIGRATE_COMPONENT);
 		}
 	}
