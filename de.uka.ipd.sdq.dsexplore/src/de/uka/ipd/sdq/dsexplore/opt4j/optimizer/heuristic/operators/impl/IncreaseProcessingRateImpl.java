@@ -182,8 +182,11 @@ public class IncreaseProcessingRateImpl extends AbstractProcessingRateTactic {
 	 */
 	private double getIncreasedProcessingRate(ContinousRangeChoice continousRangeChoice,
 			ContinuousProcessingRateDegree processingRateDegree) {
-		return Math.min(continousRangeChoice.getChosenValue() * (1 + increaseProcessingRateFactor),
+		// Niko's new implementation to increase stepwise
+		return Math.min(continousRangeChoice.getChosenValue() + increaseProcessingRateFactor,
 				processingRateDegree.getTo());
+//		return Math.min(continousRangeChoice.getChosenValue() * (1 + increaseProcessingRateFactor),
+//				processingRateDegree.getTo());
 	}
 
 	/**
