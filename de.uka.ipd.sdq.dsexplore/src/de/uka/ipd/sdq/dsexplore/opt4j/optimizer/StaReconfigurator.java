@@ -32,8 +32,8 @@ import edu.kit.ipd.descartes.reconfiguration.opt4j.optimizer.TacticsManager;
 
 public class StaReconfigurator extends AbstractOptimizer {
 
-	private static final double TARGET_RESP_TIME = 5.0;
-	private static final double RESP_TIME_DELTA = 0.1;
+	private static final double TARGET_RESP_TIME = 4.0;
+	private static final double RESP_TIME_DELTA = 1.0;
 	private List<Double> prevRespTimes = new ArrayList<Double>();
 	private boolean strategyTargetAchieved = false;
 	TacticsManager staManager;
@@ -86,9 +86,9 @@ public class StaReconfigurator extends AbstractOptimizer {
 
 			int nextGenerationSize = nextGeneration.size();
 			// If population is zero but we have tactics left
-			if (nextGenerationSize == 0)
+			if (nextGenerationSize == 0 && staManager.unusedTactic() != -1)
 			{
-				staManager.setActiveTacticNumber(TacticsManager.MIGRATE_COMPONENT);
+				staManager.setActiveTacticNumber(staManager.unusedTactic());
 				continue;
 			}
 			nextGeneration.removeAll(population);
@@ -157,14 +157,25 @@ public class StaReconfigurator extends AbstractOptimizer {
 		double respTimeImprovement = calcRespTimeImprovement();
 		
 		if(Double.isNaN(respTimeImprovement)){
-			// Stick to the current tactic
+			// Stick to the current tactic, because this
+			// is the case if the initial candidate is evaluated
 			staManager.setActiveTacticNumber(staManager.getActiveTactic());
 		} else if (respTimeImprovement > RESP_TIME_DELTA) {
 			// Stick to the current tactic
 			staManager.setActiveTacticNumber(staManager.getActiveTactic());
 		} else {
 			// switch tactic
-			staManager.setActiveTacticNumber(TacticsManager.INCREASE_CPU);
+			switch (staManager.getActiveTactic()){
+				case TacticsManager.LOOP_INCREASE_CPU: 
+					staManager.setActiveTacticNumber(TacticsManager.MIGRATE_COMPONENT);
+					break;
+				case TacticsManager.MIGRATE_COMPONENT:
+					staManager.setActiveTacticNumber(TacticsManager.LOOP_INCREASE_CPU);
+					break;
+				default:
+					staManager.setActiveTacticNumber(TacticsManager.INCREASE_CPU);
+					break;
+			}
 		}
 	}
 
