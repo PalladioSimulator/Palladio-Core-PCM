@@ -37,10 +37,11 @@ public class StaReconfigurator extends AbstractOptimizer {
 	private List<Double> prevRespTimes = new ArrayList<Double>();
 	private boolean strategySargetAchieved = false;
 	TacticsManager staManager;
+	private int iteration = 0;
 
 	/** Logger for log4j. */
 	private static Logger logger = Logger
-			.getLogger("de.uka.ipd.sdq.dsexplore.opt4j.optimizer.StaReconfigurator");
+			.getLogger(StaReconfigurator.class);
 
 	@Inject
 	public StaReconfigurator(Population population, Archive archive,
@@ -71,7 +72,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 			}
 		}
 
-		while (!isStrategyTargetAchieved()) {
+		while (!isStrategyTargetAchieved() && iteration <= 5) {
 
 			List<Individual> nextGeneration = new LinkedList<Individual>();
 			
@@ -115,8 +116,8 @@ public class StaReconfigurator extends AbstractOptimizer {
 			// }
 
 			if (this.population.size() == 0) {
-				// logger.warn("No more individuals in population, aborting after iteration "+i);
-				// break;
+				 logger.warn("No more individuals in population, aborting after iteration "+iteration);
+				 break;
 			}
 
 			// 2. Evaluate new candidate according to the target of the strategy
