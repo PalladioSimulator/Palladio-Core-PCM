@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 public class TacticsManager {
 
 	private static Logger logger = Logger
-	.getLogger("de.uka.ipd.sdq.dsexplore.opt4j.optimizer.TacticsManager");
+	.getLogger(TacticsManager.class);
 	
 	public static final int INCREASE_CPU = 1;
 	public static final int MIGRATE_COMPONENT = 2;
