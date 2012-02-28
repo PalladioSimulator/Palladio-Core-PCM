@@ -40,7 +40,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 
 	/** Logger for log4j. */
 	private static Logger logger = Logger
-			.getLogger("de.uka.ipd.sdq.dsexplore.opt4j.optimizer.RuleBasedSearch");
+			.getLogger("de.uka.ipd.sdq.dsexplore.opt4j.optimizer.StaReconfigurator");
 
 	@Inject
 	public StaReconfigurator(Population population, Archive archive,
@@ -53,9 +53,8 @@ public class StaReconfigurator extends AbstractOptimizer {
 
 	@Override
 	public void optimize() throws StopException, TerminationException {
-		// TODO Auto-generated method stub
-		System.out
-				.println("CURRENTLY NOTHING IS IMPLEMENTED! ADD THE TACTICS HERE!");
+
+		logger.info("Starting reconfiguration using Strategy/Tactics/Action approach");
 		DSEIndividual currentCandidate = null;
 
 		staManager.setActiveTacticNumber(TacticsManager.INCREASE_CPU);

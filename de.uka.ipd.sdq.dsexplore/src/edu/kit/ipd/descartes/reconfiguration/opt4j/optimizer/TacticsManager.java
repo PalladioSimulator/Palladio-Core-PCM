@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.opt4j.core.problem.Genotype;
 import org.opt4j.operator.copy.Copy;
 
@@ -19,6 +20,9 @@ import de.uka.ipd.sdq.dsexplore.opt4j.start.Opt4JStarter;
 
 public class TacticsManager {
 
+	private static Logger logger = Logger
+	.getLogger("de.uka.ipd.sdq.dsexplore.opt4j.optimizer.TacticsManager");
+	
 	public static final int INCREASE_CPU = 1;
 	public static final int MIGRATE_COMPONENT = 2;
 
@@ -47,9 +51,11 @@ public class TacticsManager {
 		
 		switch (getActiveTacticNumber()) {
 		case 1:
+			logger.info("Applying INCREASE_PRCOCESSING_RATE_TACTIC");
 			resultList = increaseProcessingRate(currentCandidate);
 			break;
 		case 2:
+			logger.info("Applying RELIEVE_HIGH_UTILIZED_SERVER_TACTIC");
 			resultList = relieveHighUtilizedServer(currentCandidate);
 			break;
 		default:
