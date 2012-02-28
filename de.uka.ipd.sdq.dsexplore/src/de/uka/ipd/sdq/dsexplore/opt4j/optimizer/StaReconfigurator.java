@@ -160,7 +160,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 		
 		strategySargetAchieved = respTime < TARGET_RESP_TIME;
 		double respTimeImprovement = calcRespTimeImprovement();
-		if(respTimeImprovement > RESP_TIME_DELTA)
+		if(respTimeImprovement > RESP_TIME_DELTA || respTimeImprovement == Double.NaN)
 		{
 			// Stick to the current tactic
 		} else {
