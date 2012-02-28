@@ -35,7 +35,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 	private static final double TARGET_RESP_TIME = 4.0;
 	private static final double RESP_TIME_DELTA = 0.1;
 	private List<Double> prevRespTimes = new ArrayList<Double>();
-	private boolean strategySargetAchieved = false;
+	private boolean strategyTargetAchieved = false;
 	TacticsManager staManager;
 	private int iteration = 0;
 
@@ -62,15 +62,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 
 		Individual ind = individualBuilder.build();
 		this.population.add(ind);
-		nextIteration();
-		
-		assert (this.population.size() == 1);
-		for (Individual individual : this.population) {
-			if (individual instanceof DSEIndividual) {
-				currentCandidate = (DSEIndividual) individual;
-				evaluateCandidate(currentCandidate);
-			}
-		}
+		evaluateCurrentPopulation();
 
 		while (!isStrategyTargetAchieved() && iteration <= 10) {
 
@@ -104,31 +96,21 @@ public class StaReconfigurator extends AbstractOptimizer {
 			this.population.clear();
 			this.population.addAll(nextGeneration);
 
-			// if (!this.fullSearch){
-			// List<Individual> archiveAndNewUnion = new
-			// ArrayList<Individual>(this.archive.size() +
-			// nextGeneration.size());
-			// archiveAndNewUnion.addAll(nextGeneration);
-			// archiveAndNewUnion.addAll(archive);
-			// List<Individual> optimalCandidates =
-			// FilterParetoOptimalIndividuals.filterPareto(archiveAndNewUnion);
-			// this.population.retainAll(optimalCandidates);
-			// }
-
+			// 2. Evaluate new candidate according to the target of the strategy
+			nextIteration();
+			evaluateCurrentPopulation();
+			
+			// If population is zero but we have tactics left
+			if (this.population.size() == 0)
+			{
+				staManager.setActiveTacticNumber(TacticsManager.MIGRATE_COMPONENT);
+				continue;
+			}
+			
 			if (this.population.size() == 0) {
 				 logger.warn("No more individuals in population, aborting after iteration "+iteration);
 				 break;
 			}
-
-			// 2. Evaluate new candidate according to the target of the strategy
-			evaluateCandidate(currentCandidate);
-			nextIteration();
-			
-
-
-			// 3. Reassign weights to tactics depending on the history and the
-			// evaluation result
-
 		}
 
 		// teardown
@@ -148,18 +130,30 @@ public class StaReconfigurator extends AbstractOptimizer {
 		writer.flush();
 	}
 
+	private void evaluateCurrentPopulation() {
+		DSEIndividual currentCandidate;
+		assert this.population.size() == 1;
+		for (Individual individual : this.population) {
+			if (individual instanceof DSEIndividual) {
+				currentCandidate = (DSEIndividual) individual;
+				evaluateCandidate(currentCandidate);
+			}
+		}
+	}
+
 	private boolean isStrategyTargetAchieved() {
-		return strategySargetAchieved;
+		return strategyTargetAchieved;
 	}
 	
 	private void evaluateCandidate(DSEIndividual currentCandidate)
 	{
 		double respTime = getResponseTime(currentCandidate);
+		strategyTargetAchieved = respTime < TARGET_RESP_TIME;
+
 		prevRespTimes.add(respTime);
 		logger.info("Current candidate response time " + respTime);
-		
-		strategySargetAchieved = respTime < TARGET_RESP_TIME;
 		double respTimeImprovement = calcRespTimeImprovement();
+		
 		if(Double.isNaN(respTimeImprovement)){
 			// Stick to the current tactic
 			staManager.setActiveTacticNumber(staManager.getActiveTactic());
@@ -168,7 +162,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 			staManager.setActiveTacticNumber(staManager.getActiveTactic());
 		} else {
 			// switch tactic
-			staManager.setActiveTacticNumber(TacticsManager.MIGRATE_COMPONENT);
+			staManager.setActiveTacticNumber(TacticsManager.INCREASE_CPU);
 		}
 	}
 
