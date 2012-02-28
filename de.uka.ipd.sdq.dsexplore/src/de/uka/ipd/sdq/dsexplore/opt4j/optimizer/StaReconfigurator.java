@@ -171,7 +171,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 		if (lastEntry == 0 || lastEntry == 1)
 			return Double.NaN;
 		else
-			return prevRespTimes.get(lastEntry - 1) - prevRespTimes.get(lastEntry - 2);
+			return prevRespTimes.get(lastEntry - 2) - prevRespTimes.get(lastEntry - 1);
 	}
 
 	private double getResponseTime(DSEIndividual currentCandidate) {
