@@ -211,15 +211,20 @@ public class VariableUsageLabelEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * Enhanced method to present the name of the 
-	 * VariableReference of the VariableUsage this 
-	 * wrapping label edit part is about
-	 * 
-	 * @generated not
+	 * @generated
 	 */
 	protected String getLabelText() {
-		VariableUsage usage = (VariableUsage) this.resolveSemanticElement();
-		return usage.getNamedReference__VariableUsage().getReferenceName();
+		String text = null;
+		EObject parserElement = getParserElement();
+		if (parserElement != null && getParser() != null) {
+			text = getParser().getPrintString(
+					new EObjectAdapter(parserElement),
+					getParserOptions().intValue());
+		}
+		if (text == null || text.length() == 0) {
+			text = defaultText;
+		}
+		return text;
 	}
 
 	/**
