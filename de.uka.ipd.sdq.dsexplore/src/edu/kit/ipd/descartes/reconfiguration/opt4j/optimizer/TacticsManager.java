@@ -102,6 +102,10 @@ public class TacticsManager {
 		{
 			candidatesFromCurrentHeuristic = increaseProcRate
 				.getHeuristicCandidates(currentCandidate, resultsCache);
+			
+			if (candidatesFromCurrentHeuristic.size() == 0)
+				break;
+			
 			currentCandidate = candidatesFromCurrentHeuristic.get(0);
 			i++;
 		}

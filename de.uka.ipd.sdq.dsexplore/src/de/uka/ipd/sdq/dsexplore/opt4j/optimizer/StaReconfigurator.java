@@ -32,7 +32,7 @@ import edu.kit.ipd.descartes.reconfiguration.opt4j.optimizer.TacticsManager;
 
 public class StaReconfigurator extends AbstractOptimizer {
 
-	private static final double TARGET_RESP_TIME = 4.0;
+	private static final double TARGET_RESP_TIME = 5.0;
 	private static final double RESP_TIME_DELTA = 1.0;
 	private List<Double> prevRespTimes = new ArrayList<Double>();
 	private boolean strategyTargetAchieved = false;
@@ -86,9 +86,13 @@ public class StaReconfigurator extends AbstractOptimizer {
 
 			int nextGenerationSize = nextGeneration.size();
 			// If population is zero but we have tactics left
-			if (nextGenerationSize == 0 && staManager.unusedTactic() != -1)
+			if (nextGenerationSize == 0)
 			{
-				staManager.setActiveTacticNumber(staManager.unusedTactic());
+				if (staManager.unusedTactic() != -1)
+					staManager.setActiveTacticNumber(staManager.unusedTactic());
+				else
+//					staManager.setActiveTacticNumber(staManager.unusedTactic());
+					staManager.setActiveTacticNumber(TacticsManager.LOOP_INCREASE_CPU);
 				continue;
 			}
 			nextGeneration.removeAll(population);
@@ -173,7 +177,7 @@ public class StaReconfigurator extends AbstractOptimizer {
 					staManager.setActiveTacticNumber(TacticsManager.LOOP_INCREASE_CPU);
 					break;
 				default:
-					staManager.setActiveTacticNumber(TacticsManager.INCREASE_CPU);
+					staManager.setActiveTacticNumber(TacticsManager.LOOP_INCREASE_CPU);
 					break;
 			}
 		}
