@@ -10,7 +10,7 @@ access ProbabilityLib();
 
 main() {
 	log('RD-SEFF to EffortEstimationResult (CActionTests) transformation started.');
-	inbehaviour.objects()[EffortEstimationResult]->map createEffortEstimation(inbehaviour);
+	outdesc.objects()[EffortEstimationResult]->map createEffortEstimation(inbehaviour);
 	log('RD-SEFF to EffortEstimationResult (CActionTests) transformation finished.');
 }
 
@@ -19,35 +19,63 @@ mapping inout EffortEstimationResult::createEffortEstimation(in behaviour : PCM_
 	alpha := self.alpha;
 	targetId := self.targetId;
 	resourceDemandingBehaviour := behaviour.objects()[ResourceDemandingBehaviour]->selectOne(b : ResourceDemandingBehaviour | b.id = targetId);
+	assert(resourceDemandingBehaviour != null) with log ('Could not find the ResourceDemandingBehaviour with the id specified in the targetId of the configuration. targetId=' + targetId);
 	numberTestcases := resourceDemandingBehaviour.CActionTests(alpha);
 	log('Estimate complete. numberTestcases=' + self.numberTestcases.toString());
 }
 
 query ResourceDemandingBehaviour::CActionTests(in confidence : Real) : Integer {
+	log('Processing ResourceDemandingBehaviour with id=' + self.id);
 	var required : Integer = 0;
+	var atLeastOnce : Boolean = false;
+	var testsForAction : Integer = 0;
 	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
-		if (action.oclIsKindOf(BranchAction)) then {
-			var branchAction : BranchAction = action.oclAsType(BranchAction);
-			branchAction.branches_Branch->forEach(branch) {
-				if (branch.oclIsKindOf(GuardedBranchTransition)) then {
-					required := branch.branchBehaviour_BranchTransition.CActionTests(confidence);
-				} else { // ProbabilisticBranchCondition
-					var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
-					required := branch.branchBehaviour_BranchTransition.CActionTests(confidence);
-					required := required * MinRequiredTests(probBranch.branchProbability, confidence);
-				} endif;
-			};
-		} else { 
-			if (action.oclIsKindOf(LoopAction)) then {
-				var loopAction : LoopAction = action.oclAsType(LoopAction);
-				required := loopAction.bodyBehaviour_Loop.CActionTests(confidence);
-				var probFreqGreaterZero : Real = 1 - loopAction.iterationCount_LoopAction.expression.ProbabilityZero();
-				required := required * MinRequiredTests(probFreqGreaterZero, confidence);
-			} endif;
-		} endif;
-		if (required = 0) then {
-			required := 1;
+		testsForAction := action.getEffort(confidence);
+		required := required + testsForAction - 1.min(required).min(testsForAction);
+		if(testsForAction > 0) then {
+			atLeastOnce := true;
 		} endif;
 	};
+	if (required = 0 and atLeastOnce = true) then {
+		required := 1;
+	} endif;
+	log('Processing ResourceDemandingBehaviour with id=' + self.id + ' requires ' + required.toString() + ' tests');
 	return required;
+}
+
+helper AbstractAction::getEffort(in confidence : Real) : Integer {
+	return 1;
+}
+
+helper BranchAction::getEffort(in confidence : Real) : Integer {
+	var r : Integer = 0; // result
+	self.branches_Branch->forEach(branch) {
+		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
+			r := r + 1.max(branch.branchBehaviour_BranchTransition.CActionTests(confidence));
+		} else { // ProbabilisticBranchCondition
+			var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
+			log('prob=' + probBranch.branchProbability.toString() + ',name=' + probBranch.entityName);
+			r := r + 1.max( branch.branchBehaviour_BranchTransition.CActionTests(confidence) * MinRequiredTests(probBranch.branchProbability, confidence) );
+		} endif;
+	};
+	return r;
+}
+
+helper LoopAction::getEffort(in confidence : Real) : Integer {
+	var r : Integer = self.bodyBehaviour_Loop.CActionTests(confidence);
+	r := 1.max(r) * self.iterationCount_LoopAction.expression.getNumberTestsNonZero(confidence);
+	return r;
+}
+
+helper ForkAction::getEffort(in confidence : Real) : Integer {
+	var r : Integer = 0;
+	self.asynchronousForkedBehaviours_ForkAction->forEach(fb) {
+		r := r + fb.CActionTests(confidence);
+	};
+	self.synchronisingBehaviours_ForkAction->forEach(fb) {
+		fb.synchronousForkedBehaviours_SynchronisationPoint->forEach(b) {
+			r := r + b.CActionTests(confidence);
+		};
+	};
+	return r;
 }

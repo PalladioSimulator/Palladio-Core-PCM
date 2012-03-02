@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<estimation:EffortEstimationResult xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:estimation="http://se.fzi.de/ValidationEffortEstimation/0.5" targetId="_luMh8FGKEeG6_OcpqwViDA" alpha="0.9" targetUri="ExamplesLowerUpper.repository"/>
+<estimation:EffortEstimationResult xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:estimation="http://se.fzi.de/ValidationEffortEstimation/0.5" numberTestcases="2" targetId="_luMh8FGKEeG6_OcpqwViDA" alpha="0.9" targetUri="ExamplesLowerUpper.repository">
+  <resourceDemandingBehaviour href="ExamplesLowerUpper.repository#_luMh8FGKEeG6_OcpqwViDA"/>
+</estimation:EffortEstimationResult>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<estimation:EffortEstimationResult xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:estimation="http://se.fzi.de/ValidationEffortEstimation/0.5" numberTestcases="6" targetId="orderProductsAvailableAtOtherStores" alpha="0.95" targetUri="platform:/resource/cocomePcmModel/cocome.repository">
+  <resourceDemandingBehaviour href="../../cocomePcmModel/cocome.repository#orderProductsAvailableAtOtherStores"/>
+</estimation:EffortEstimationResult>

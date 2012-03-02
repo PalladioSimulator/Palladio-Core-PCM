@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spt:SPTEffortEstimationResult xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:spt="http://se.fzi.de/ValidationEffortEstimation/SPT/0.5" numberTestcases="2" targetId="orderProductsAvailableAtOtherStores" alpha="0.95" targetUri="platform:/resource/cocomePcmModel/cocome.repository">
+  <resourceDemandingBehaviour href="../../cocomePcmModel/cocome.repository#orderProductsAvailableAtOtherStores"/>
+</spt:SPTEffortEstimationResult>

@@ -4,13 +4,13 @@ import ProbabilityLib;
 modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
 modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
 
-transformation behaviour2CDecisionTestsEffortEstimation(in inbehaviour : PCM_SEFF, 
-									      			  out outdesc : EER) 
+transformation behaviour2CDecisionTestsEffortEstimation(in inbehaviour : PCM_SEFF,
+									      			  inout outdesc : EER)
 access library ProbabilityLib();
 
 main() {
 	log('RD-SEFF to EffortEstimationResult (CDecisionTests) transformation started.');
-	inbehaviour.objects()[EffortEstimationResult]->map createEffortEstimation(inbehaviour);
+	outdesc.objects()[EffortEstimationResult]->map createEffortEstimation(inbehaviour);
 	log('RD-SEFF to EffortEstimationResult (CDecisionTests) transformation finished.');
 }
 
@@ -19,15 +19,27 @@ mapping inout EffortEstimationResult::createEffortEstimation(in behaviour : PCM_
 	alpha := self.alpha;
 	targetId := self.targetId;
 	resourceDemandingBehaviour := behaviour.objects()[ResourceDemandingBehaviour]->selectOne(b : ResourceDemandingBehaviour | b.id = targetId);
+	assert(resourceDemandingBehaviour != null) with log ('Could not find the ResourceDemandingBehaviour with the id specified in the targetId of the configuration. targetId=' + targetId);
 	numberTestcases := resourceDemandingBehaviour.CDecisionTests(alpha);
 	log('Estimate complete. numberTestcases=' + self.numberTestcases.toString());
 }
 
 query ResourceDemandingBehaviour::CDecisionTests(in confidence : Real) : Integer {
+	log('Processing ResourceDemandingBehaviour with id=' + self.id);
 	var required : Integer = 0;
+	var atLeastOnce : Boolean = false;
+	var testsForAction : Integer = 0;
 	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
-		required := required + action.getEffort(confidence);
+		testsForAction := action.getEffort(confidence);
+		required := required + testsForAction - 1.min(required).min(testsForAction);
+		if(testsForAction > 0) then {
+			atLeastOnce := true;
+		} endif;
 	};
+	if (required = 0 and atLeastOnce = true) then {
+		required := 1;
+	} endif;
+	log('Processing ResourceDemandingBehaviour with id=' + self.id + ' requires ' + required.toString() + ' tests');
 	return required;
 }
 
@@ -36,28 +48,29 @@ helper AbstractAction::getEffort(in confidence : Real) : Integer {
 }
 
 helper BranchAction::getEffort(in confidence : Real) : Integer {
-	var r : Integer; // result
+	var r : Integer = 0; // result
 	self.branches_Branch->forEach(branch) {
 		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
-			r := 1.max(branch.branchBehaviour_BranchTransition.CDecisionTests(confidence));
+			r := r + 1.max(branch.branchBehaviour_BranchTransition.CDecisionTests(confidence));
 		} else { // ProbabilisticBranchCondition
 			var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
-			r := 1.max(branch.branchBehaviour_BranchTransition.CDecisionTests(confidence));
-			r := r * MinRequiredTests(probBranch.branchProbability, confidence);
+			log('prob=' + probBranch.branchProbability.toString() + ',name=' + probBranch.entityName + ',mrt=' + MinRequiredTests(probBranch.branchProbability, confidence).toString()+ ',sub=' + branch.branchBehaviour_BranchTransition.CDecisionTests(confidence).toString());
+			r := r + 1.max( branch.branchBehaviour_BranchTransition.CDecisionTests(confidence) * MinRequiredTests(probBranch.branchProbability, confidence) );
 		} endif;
 	};
 	return r;
 }
 
-helper LoopAction::getEffort(in confidence : Real, in n : Integer) : Integer {
+helper LoopAction::getEffort(in confidence : Real) : Integer {
 	var r : Integer = self.bodyBehaviour_Loop.CDecisionTests(confidence);
+	r := r * self.iterationCount_LoopAction.expression.getNumberTestsNonZero(confidence);
 	return r;
 }
 
-helper ForkAction::getEffort(in confidence : Real, in n : Integer) : Integer {
+helper ForkAction::getEffort(in confidence : Real) : Integer {
 	var r : Integer = 0;
 	self.asynchronousForkedBehaviours_ForkAction->forEach(fb) {
-		r = r + fb.CDecisionTests(confidence);
+		r := r + fb.CDecisionTests(confidence);
 	};
 	self.synchronisingBehaviours_ForkAction->forEach(fb) {
 		fb.synchronousForkedBehaviours_SynchronisationPoint->forEach(b) {

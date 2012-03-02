@@ -5,13 +5,12 @@ import behaviour2CSimpleConditionTestsEffortEstimationResult;
 modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
 modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
 
-transformation behaviour2CModifiedConditionDecisionTestsEffortEstimation(in inbehaviour : PCM_SEFF, 
-									      			  inout outdesc : EER) 
-access library ProbabilityLib();
+transformation behaviour2CModifiedConditionDecisionTestsEffortEstimation(in inbehaviour : PCM_SEFF,
+									      			  inout outdesc : EER);
 
 main() {
 	log('RD-SEFF to EffortEstimationResult (CModifiedConditionDecisionTests) transformation started.');
-	inbehaviour.objects()[EffortEstimationResult]->map createEffortEstimation(inbehaviour);
+	outdesc.objects()[EffortEstimationResult]->map createEffortEstimation(inbehaviour);
 	log('RD-SEFF to EffortEstimationResult (CModifiedConditionDecisionTests) transformation finished.');
 }
 
@@ -20,6 +19,7 @@ mapping inout EffortEstimationResult::createEffortEstimation(in behaviour : PCM_
 	alpha := self.alpha;
 	targetId := self.targetId;
 	resourceDemandingBehaviour := behaviour.objects()[ResourceDemandingBehaviour]->selectOne(b : ResourceDemandingBehaviour | b.id = targetId);
+	assert(resourceDemandingBehaviour != null) with log ('Could not find the ResourceDemandingBehaviour with the id specified in the targetId of the configuration. targetId=' + targetId);
 	numberTestcases := resourceDemandingBehaviour.CSimpleConditionTests(alpha);
 	log('Estimate complete. numberTestcases=' + self.numberTestcases.toString());
 }

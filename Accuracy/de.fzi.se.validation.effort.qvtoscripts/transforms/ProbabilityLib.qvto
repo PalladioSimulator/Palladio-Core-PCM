@@ -9,17 +9,26 @@ library ProbabilityLib()
 {
 	/** Effort estimation of branches with the given probabilty. */
 	query MinRequiredTests(in probability : Real, in confidence : Real) : Integer {
-		var r : Real = mathLog(1 - confidence)/mathLog(1 - probability);
-		return ceiling(r);
+		var tests : Real;
+		if (confidence = 0.0) then {
+			tests := 0;
+		} else {
+			tests := mathLog(1 - confidence) / mathLog(1 - probability);
+			if (tests = 0) then {
+				tests := DoubleMinNormal();
+			}endif;
+		} endif;
+		return ceiling(tests);
 	}
 
-
-	/** Calculates the probability of evaluating the expression to zero. */
-	query Expression :: ProbabilityZero() : Real {
-		return self.Probability(0);
+	/** Returns true if the expression is a parametric dependency. */
+	query Expression :: IsParametricDependency() : Boolean {
+		return (self.oclIsKindOf(Variable))
 	}
-	
-	/** Calculates the probability of evaluating the expression to k. */
+
+	/** Calculates the probability of evaluating the expression to the value given as parameter.
+	 * @param k value.
+	 */
 	query Expression :: Probability(in k : Integer) : Real {
 		if (self.oclIsKindOf(DoubleLiteral)) then {
 			if (self[DoubleLiteral]->any(true).value = k) then {
@@ -40,14 +49,21 @@ library ProbabilityLib()
 			assert (pfl.function_ProbabilityFunctionLiteral->size() = 1) with log ('Literal must belong to exactly on probability function.');
 			if (pfl.function_ProbabilityFunctionLiteral.oclIsKindOf(ProbabilityMassFunction)) then {
 				var kAsReal : Real = k;
-				return pfl.function_ProbabilityFunctionLiteral[ProbabilityMassFunction].samples->any(value = kAsReal).probability;
+				var samples : Bag(Sample) = pfl.function_ProbabilityFunctionLiteral[ProbabilityMassFunction].samples->select(sample | sample.value = kAsReal);
+				if (samples->isEmpty()) then {
+					return 0;
+				} else {
+					return samples->any(true).probability;
+				} endif;
 			} endif;
 		} endif;
-		assert (false) with log ('Unsupported expression for calculation of probability equals ' + k.toString() + '.');
+		assert (false) with log ('Unsupported expression for calculation of probability equals ' + k.toString() + '. expression=' + self.repr());
 		return -1;
 	}
-	
-	
+
+
+	/**Expected value of the number of iterations.
+	 */
 	query Expression :: GetIterations() : Real {
 		if (self.oclIsKindOf(DoubleLiteral)) then {
 			 return self[DoubleLiteral]->any(true).value;
@@ -69,54 +85,56 @@ library ProbabilityLib()
 		assert (false) with log ('Unsupported expression for calculation of probability equals zero.');
 		return -1;
 	}
-	
+
+	/**@return The number of atoms in the condition.
+	 */
 	query Expression :: NumberOfConditionAtoms() : Integer {
 		if(self.oclIsKindOf(BooleanExpression)) then {
-			if(self.oclIsTypeOf(BooleanOperatorExpression)) then {
+			if(self.oclIsKindOf(BooleanOperatorExpression)) then {
 				var e : BooleanOperatorExpression = self.oclAsType(BooleanOperatorExpression);
 				return e.left.NumberOfConditionAtoms() + e.right.NumberOfConditionAtoms();
 			} endif;
 			// All atoms inherit from Comparison
-			if(self.oclIsTypeOf(Comparison)) then {
+			if(self.oclIsKindOf(Comparison)) then {
 				return 1;
 			} endif;
 		} endif;
-		assert (false) with log('Unsupported expression for calculation fo number of atoms.');
+		assert (false) with log('Unsupported expression for calculation of number of atoms. Expression=' + self.repr());
 		return -1;
 	}
-	
-	query Expression :: GetInt() : Integer {
-		assert (self.oclIsKindOf(IntLiteral)) with log('Expression::GetInt() must be called on Integer type expressions.');
-		return self[IntLiteral]->any(true).value;
-	}
-	
-	/** 
-	 * Calculates the calls of the action and their frequency.
-	 * Returns a Set(Integer) where each entry is a call and the 
-	 * value is the frequency of that call. 
-	 * Returns empty set if the action has no calls. 
+
+	/**@return Number of tests required for experiencing a non-zeor value.
 	 */
-	query AbstractAction::GetCallsFrequency() : Set(Integer) {
-		var r : Set(Integer) = Set {};
-		return r;
+	query Expression::getNumberTestsNonZero(confidence : Real) : Integer {
+		if (self.IsParametricDependency()) then {
+			return 1;
+		} else {
+			if (self.Probability(0) = 1) then {
+				log('Condition not satisfiable.');
+				return 0;
+			} else {
+				return MinRequiredTests(1 - self.Probability(0), confidence);
+			} endif;
+		} endif;
+		assert (false) with log ('Line is never reached.');
+		return -1;
 	}
-	
-	query AbstractInternalControlFlowAction::GetCallsFrequency() : Set(Integer) {
-		var r : Set(Integer) = Set {};
-		self.infrastructureCall__Action->forEach(c) {
-			r += c.numberOfCalls__InfrastructureCall.expression.GetInt();
-		};
-		self.resourceCall__Action->forEach(c) {
-			r += c.numberOfCalls__ResourceCall.expression.GetInt();
-		};
-		self.resourceDemand_Action->forEach(d) {
-			r += d.specification_ParametericResourceDemand.expression.GetInt();	// strange spelling
-		};
-		return r;
-	}
-	
-	query ExternalCallAction::GetCallsFrequency() : Set(Integer) {
-		var r : Set(Integer) = Set {1};
-		return r;
+
+	/**@param k Value experienced.
+	 * @return Number of tests required for experiencing the value.
+	 */
+		query Expression::getNumberTests(confidence : Real, k : Integer) : Integer {
+		if (self.IsParametricDependency()) then {
+			return 1;
+		} else {
+			if (self.Probability(k) = 0) then {
+				log('Condition not satisfiable.');
+				return 0;
+			} else {
+				return MinRequiredTests(self.Probability(k), confidence);
+			} endif;
+		} endif;
+		assert (false) with log ('Line is never reached.');
+		return -1;
 	}
 }
