@@ -3,6 +3,7 @@ package de.fzi.validation.effort.branchtests;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunchConfiguration;
 
+import de.fzi.se.validation.effort.estimation.EffortEstimationResult;
 import de.fzi.se.validation.effort.workflow.AbstractEstimateQVTO;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
@@ -16,7 +17,7 @@ import de.uka.ipd.sdq.workflow.mdsd.blackboard.ModelLocation;
  */
 public class EstimateCBranchTests  extends AbstractEstimateQVTO {
 
-	/** Operational QVT transformation script URI which transforms {@link ResourceDemandingBehaviour} to {@link Graph}. */
+	/** Operational QVT transformation script URI which transforms {@link ResourceDemandingBehaviour} to {@link EffortEstimationResult}. */
 	protected static final String CBRANCHTEST_TRANSFORMATION_SCRIPT = "platform:/plugin/de.fzi.se.validation.effort.qvtoscripts/transforms/behaviour2CBranchTestsEffortEstimationResult.qvto";
 
 	protected ILaunchConfiguration configuration = null;
