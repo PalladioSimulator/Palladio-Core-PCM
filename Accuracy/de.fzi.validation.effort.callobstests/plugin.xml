@@ -5,7 +5,7 @@
          point="de.fzi.se.validation.effort.estimation">
       <validationeffortestimator
             configurationTab=""
-            estimator="de.fzi.validation.effort.callobstests.CCallObsTestsEstimator">
+            estimator="de.fzi.se.validation.effort.callobstests.CCallObsTestsEstimator">
       </validationeffortestimator>
    </extension>
 

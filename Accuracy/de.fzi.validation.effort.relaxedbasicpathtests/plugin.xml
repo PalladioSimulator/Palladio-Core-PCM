@@ -5,7 +5,7 @@
          point="de.fzi.se.validation.effort.estimation">
       <validationeffortestimator
             configurationTab=""
-            estimator="de.fzi.validation.effort.relaxedbasicpathtests.CRelaxedBasicPathTestsEstimator">
+            estimator="de.fzi.se.validation.effort.relaxedbasicpathtests.CRelaxedBasicPathTestsEstimator">
       </validationeffortestimator>
    </extension>
 

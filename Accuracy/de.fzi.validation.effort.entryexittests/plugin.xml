@@ -5,7 +5,7 @@
          point="de.fzi.se.validation.effort.estimation">
       <validationeffortestimator
             configurationTab=""
-            estimator="de.fzi.validation.effort.entryexittests.CEntryExitTestsEstimator">
+            estimator="de.fzi.se.validation.effort.entryexittests.CEntryExitTestsEstimator">
       </validationeffortestimator>
    </extension>
 
