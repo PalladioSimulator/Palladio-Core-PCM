@@ -47,7 +47,10 @@ public class EstimatorTabGroup extends AbstractLaunchConfigurationTabGroup {
 			IConfigurationElement[] configElements = extension.getConfigurationElements();
 			assert(configElements.length == 1);
 			try {
-				tabs.add((ILaunchConfigurationTab) configElements[0].createExecutableExtension(EstimatorConstantsContainer.EXTENSION_POINT_ATTRIBUTE_CONFIGURATION_TAB));
+				String configurationTabAttribute = configElements[0].getAttribute(EstimatorConstantsContainer.EXTENSION_POINT_ATTRIBUTE_CONFIGURATION_TAB);
+				if(!configurationTabAttribute.isEmpty()) { // the attribute is optional; empty means no new tab
+					tabs.add((ILaunchConfigurationTab) configElements[0].createExecutableExtension(EstimatorConstantsContainer.EXTENSION_POINT_ATTRIBUTE_CONFIGURATION_TAB));
+				}
 			} catch (CoreException e) {
 				logger.error("Could not create estimator for registered validation effort estimator.", e);
 			}
