@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Decisiontests
-Bundle-SymbolicName: de.fzi.validation.effort.decisiontests;singleton:=true
+Bundle-SymbolicName: de.fzi.se.validation.effort.decisiontests;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  de.fzi.se.validation.effort,

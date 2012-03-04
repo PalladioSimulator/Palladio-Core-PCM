@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Branchtests
-Bundle-SymbolicName: de.fzi.validation.effort.branchtests;singleton:=true
+Bundle-SymbolicName: de.fzi.se.validation.effort.branchtests;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  de.fzi.se.validation.effort,

@@ -19,6 +19,6 @@ public class CFDResourceSetPartition extends ResourceSetPartition {
 	 * @return The first control flow description in the resource set.
 	 */
 	public ControlFlowDescription getControlFlowDescription() {
-		return getElement(ControlFlowDescriptionFactory.eINSTANCE.createControlFlowDescription()).get(0);
+		return /*getElement(*/ControlFlowDescriptionFactory.eINSTANCE.createControlFlowDescription()/*).get(0)*/;
 	}
 }
