@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SPTTests
+Bundle-SymbolicName: de.fzi.validation.effort.spttests;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ de.fzi.se.validation.effort,
+ de.uka.ipd.sdq.pcm;bundle-version="3.2.0",
+ de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
+ de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0",
+ de.uka.ipd.sdq.workflow.mdsd;bundle-version="1.0.0",
+ org.eclipse.debug.core;bundle-version="3.7.0",
+ de.fzi.se.validation.effort.estimation;bundle-version="1.0.0",
+ de.fzi.se.validation.effort.estimation.spt;bundle-version="1.0.0",
+ org.eclipse.swt;bundle-version="3.7.1",
+ de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: FZI Forschungszentrum Informatik
