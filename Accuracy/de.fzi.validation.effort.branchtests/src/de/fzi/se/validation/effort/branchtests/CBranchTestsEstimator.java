@@ -1,4 +1,4 @@
-package de.fzi.validation.effort.branchtests;
+package de.fzi.se.validation.effort.branchtests;
 
 import de.fzi.se.validation.effort.workflow.AbstractEstimateQVTO;
 import de.fzi.se.validation.effort.workflow.AbstractQVTOEstimator;

@@ -1,4 +1,4 @@
-package de.fzi.validation.effort.branchtests;
+package de.fzi.se.validation.effort.branchtests;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunchConfiguration;
