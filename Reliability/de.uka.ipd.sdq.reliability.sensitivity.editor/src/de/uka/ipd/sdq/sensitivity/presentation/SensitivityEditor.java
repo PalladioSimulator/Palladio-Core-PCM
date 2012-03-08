@@ -755,11 +755,11 @@ public class SensitivityEditor
 		adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new Seff_performanceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new Seff_reliabilityItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SeffPerformanceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SeffReliabilityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new Qos_performanceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new Qos_reliabilityItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new QosPerformanceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new QosReliabilityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
