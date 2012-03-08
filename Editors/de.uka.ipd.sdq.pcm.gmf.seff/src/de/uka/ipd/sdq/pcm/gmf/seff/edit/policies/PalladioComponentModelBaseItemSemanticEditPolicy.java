@@ -440,11 +440,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 					Map env = Collections
 							.singletonMap(
 									OPPOSITE_END_VAR,
-									de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+									de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 											.getRecoveryActionBehaviour());
 					RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_SourceExpression = PalladioComponentModelOCLFactory
 							.getExpression(
-									"not self.failureHandlingAlternatives__RecoveryActionBehaviour->exists(x,y:RecoveryActionBehaviour | x<>y and not x.failureTypes_FailureHandlingEntity->intersection(y.failureTypes_FailureHandlingEntity)->isEmpty())", de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE.getRecoveryActionBehaviour(), env); //$NON-NLS-1$
+									"not self.failureHandlingAlternatives__RecoveryActionBehaviour->exists(x,y:RecoveryActionBehaviour | x<>y and not x.failureTypes_FailureHandlingEntity->intersection(y.failureTypes_FailureHandlingEntity)->isEmpty())", de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryActionBehaviour(), env); //$NON-NLS-1$
 				}
 				Object sourceVal = RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_SourceExpression
 						.evaluate(source, Collections.singletonMap(
@@ -460,11 +460,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 					Map env = Collections
 							.singletonMap(
 									OPPOSITE_END_VAR,
-									de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+									de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 											.getRecoveryActionBehaviour());
 					RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_TargetExpression = PalladioComponentModelOCLFactory
 							.getExpression(
-									"(not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->exists(x,y:RecoveryActionBehaviour | x<>y and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self) and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))) and (self.recoveryAction__RecoveryActionBehaviour = oppositeEnd.recoveryAction__RecoveryActionBehaviour)", de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE.getRecoveryActionBehaviour(), env); //$NON-NLS-1$
+									"(not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->exists(x,y:RecoveryActionBehaviour | x<>y and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self) and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))) and (self.recoveryAction__RecoveryActionBehaviour = oppositeEnd.recoveryAction__RecoveryActionBehaviour)", de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryActionBehaviour(), env); //$NON-NLS-1$
 				}
 				Object targetVal = RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_TargetExpression
 						.evaluate(target, Collections.singletonMap(

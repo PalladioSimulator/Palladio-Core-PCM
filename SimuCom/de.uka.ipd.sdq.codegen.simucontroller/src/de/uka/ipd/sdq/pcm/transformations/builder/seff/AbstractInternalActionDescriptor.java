@@ -7,7 +7,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performanceFactory;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory;
 
 /**
  * @author  Snowball
@@ -38,7 +38,7 @@ public abstract class AbstractInternalActionDescriptor extends AbstractActionDes
 
 	private InternalAction createInternalAction(ProcessingResourceType type, String resourceDemandSpec) {
 		InternalAction action = SeffFactory.eINSTANCE.createInternalAction();
-		ParametricResourceDemand d = Seff_performanceFactory.eINSTANCE.createParametricResourceDemand();
+		ParametricResourceDemand d = SeffPerformanceFactory.eINSTANCE.createParametricResourceDemand();
 		d.setRequiredResource_ParametricResourceDemand(type);
 		PCMRandomVariable specification = CoreFactory.eINSTANCE.createPCMRandomVariable();
 		specification.setSpecification(getSaveResourceDemand(resourceDemandSpec));

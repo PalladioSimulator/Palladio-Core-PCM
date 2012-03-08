@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.*;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
@@ -245,13 +244,13 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return SetVariableAction2EditPart.VISUAL_ID;
 			}
-			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 					.getRecoveryAction().isSuperTypeOf(domainElement.eClass())) {
 				return RecoveryAction2EditPart.VISUAL_ID;
 			}
 			break;
 		case InternalActionResourceDemandEditPart.VISUAL_ID:
-			if (de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.eINSTANCE
 					.getParametricResourceDemand().isSuperTypeOf(
 							domainElement.eClass())) {
 				return ParametricResourceDemandEditPart.VISUAL_ID;
@@ -265,7 +264,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case InternalActionInfrastructureCallsCompartmentEditPart.VISUAL_ID:
-			if (de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.eINSTANCE
 					.getInfrastructureCall().isSuperTypeOf(
 							domainElement.eClass())) {
 				return InfrastructureCallEditPart.VISUAL_ID;
@@ -342,7 +341,7 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return SetVariableAction2EditPart.VISUAL_ID;
 			}
-			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 					.getRecoveryAction().isSuperTypeOf(domainElement.eClass())) {
 				return RecoveryAction2EditPart.VISUAL_ID;
 			}
@@ -420,7 +419,7 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return ForkAction2EditPart.VISUAL_ID;
 			}
-			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 					.getRecoveryAction().isSuperTypeOf(domainElement.eClass())) {
 				return RecoveryAction2EditPart.VISUAL_ID;
 			}
@@ -470,13 +469,13 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return ForkAction2EditPart.VISUAL_ID;
 			}
-			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 					.getRecoveryAction().isSuperTypeOf(domainElement.eClass())) {
 				return RecoveryAction2EditPart.VISUAL_ID;
 			}
 			break;
 		case RecoveryActionRecoveryBlockCompartmentEditPart.VISUAL_ID:
-			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 					.getRecoveryActionBehaviour().isSuperTypeOf(
 							domainElement.eClass())) {
 				return RecoveryActionBehaviourEditPart.VISUAL_ID;
@@ -531,7 +530,7 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return SetVariableAction2EditPart.VISUAL_ID;
 			}
-			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 					.getRecoveryAction().isSuperTypeOf(domainElement.eClass())) {
 				return RecoveryAction2EditPart.VISUAL_ID;
 			}
@@ -599,7 +598,7 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return ForkAction2EditPart.VISUAL_ID;
 			}
-			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 					.getRecoveryAction().isSuperTypeOf(domainElement.eClass())) {
 				return RecoveryAction2EditPart.VISUAL_ID;
 			}
@@ -653,7 +652,7 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return SetVariableAction2EditPart.VISUAL_ID;
 			}
-			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 					.getRecoveryAction().isSuperTypeOf(domainElement.eClass())) {
 				return RecoveryAction2EditPart.VISUAL_ID;
 			}
@@ -669,7 +668,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case InternalActionResourceDemand2EditPart.VISUAL_ID:
-			if (de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.eINSTANCE
 					.getParametricResourceDemand().isSuperTypeOf(
 							domainElement.eClass())) {
 				return ParametricResourceDemandEditPart.VISUAL_ID;
@@ -683,7 +682,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case InternalActionInfrastructureCallsCompartment2EditPart.VISUAL_ID:
-			if (de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.eINSTANCE
 					.getInfrastructureCall().isSuperTypeOf(
 							domainElement.eClass())) {
 				return InfrastructureCallEditPart.VISUAL_ID;
@@ -706,7 +705,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			break;
 		case RecoveryActionRecoveryBlockCompartment2EditPart.VISUAL_ID:
-			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 					.getRecoveryActionBehaviour().isSuperTypeOf(
 							domainElement.eClass())) {
 				return RecoveryActionBehaviourEditPart.VISUAL_ID;
@@ -761,7 +760,7 @@ public class PalladioComponentModelVisualIDRegistry {
 					domainElement.eClass())) {
 				return ForkActionEditPart.VISUAL_ID;
 			}
-			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+			if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 					.getRecoveryAction().isSuperTypeOf(domainElement.eClass())) {
 				return RecoveryActionEditPart.VISUAL_ID;
 			}

@@ -72,7 +72,7 @@ public class RecoveryActionRecoveryBlockCompartment2CanonicalEditPolicy extends
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize
-					.add(de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+					.add(de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 							.getRecoveryAction_RecoveryActionBehaviours__RecoveryAction());
 		}
 		return myFeaturesToSynchronize;

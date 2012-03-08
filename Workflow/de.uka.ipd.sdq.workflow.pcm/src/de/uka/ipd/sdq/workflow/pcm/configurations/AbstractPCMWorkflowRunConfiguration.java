@@ -14,13 +14,13 @@ import de.uka.ipd.sdq.pcm.PcmPackage;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
 import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
@@ -69,8 +69,8 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends
 			CorePackage.eINSTANCE,
 			CompletionsPackage.eINSTANCE,
 			ReliabilityPackage.eINSTANCE,
-			Qos_reliabilityPackage.eINSTANCE,
-			Seff_reliabilityPackage.eINSTANCE};
+			QosReliabilityPackage.eINSTANCE,
+			SeffReliabilityPackage.eINSTANCE};
 
 	protected String middlewareFile;
 	protected String eventMiddlewareFile;

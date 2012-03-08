@@ -147,14 +147,14 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 		factories.add(new ReliabilityItemProviderAdapterFactory());
 		factories.add(new SeffItemProviderAdapterFactory());
 		factories
-				.add(new de.uka.ipd.sdq.pcm.seff.seff_performance.provider.Seff_performanceItemProviderAdapterFactory());
+				.add(new de.uka.ipd.sdq.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory());
 		factories
-				.add(new de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.Seff_reliabilityItemProviderAdapterFactory());
+				.add(new de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory());
 		factories.add(new QosannotationsItemProviderAdapterFactory());
 		factories
-				.add(new de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.Qos_performanceItemProviderAdapterFactory());
+				.add(new de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory());
 		factories
-				.add(new de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.Qos_reliabilityItemProviderAdapterFactory());
+				.add(new de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());

@@ -12,18 +12,12 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
-import org.eclipse.jface.dialogs.Dialog;
-import org.eclipse.ui.PlatformUI;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
-import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 /**Configures a given {@link InfrastructureCall} instance to use given a given signature and role.
  * 
@@ -96,7 +90,7 @@ public class InfrastructureCallConfigureCommand extends ConfigureElementCommand 
 
 		ICommand cmd = new SetValueCommand(new SetRequest(request
 				.getElementToConfigure(), 
-				Seff_performancePackage.eINSTANCE.getInfrastructureCall_Signature__InfrastructureCall(),
+				SeffPerformancePackage.eINSTANCE.getInfrastructureCall_Signature__InfrastructureCall(),
 				signature));
 
 		cmd.execute(monitor, info);
@@ -118,7 +112,7 @@ public class InfrastructureCallConfigureCommand extends ConfigureElementCommand 
 			throw new ExecutionException("The provided element which should be configured was not of type InfrastructureCall.");
 		}
 		ICommand cmd = new SetValueCommand(new SetRequest(request
-				.getElementToConfigure(), Seff_performancePackage.eINSTANCE.getInfrastructureCall_RequiredRole__InfrastructureCall(),
+				.getElementToConfigure(), SeffPerformancePackage.eINSTANCE.getInfrastructureCall_RequiredRole__InfrastructureCall(),
 				requiredRole));
 
 		cmd.execute(monitor, info);

@@ -54,7 +54,7 @@ public class ParametricResourceDemandCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand newElement = de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performanceFactory.eINSTANCE
+		de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand newElement = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory.eINSTANCE
 				.createParametricResourceDemand();
 
 		AbstractInternalControlFlowAction owner = (AbstractInternalControlFlowAction) getElementToEdit();

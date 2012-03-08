@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
@@ -82,7 +82,7 @@ public class ParametricResourceDemandConfigureCommand extends
 		ICommand cmd = new SetValueCommand(
 				new SetRequest(
 						request.getElementToConfigure(),
-						Seff_performancePackage.eINSTANCE
+						SeffPerformancePackage.eINSTANCE
 								.getParametricResourceDemand_RequiredResource_ParametricResourceDemand(),
 						resource));
 		cmd.execute(monitor, info);

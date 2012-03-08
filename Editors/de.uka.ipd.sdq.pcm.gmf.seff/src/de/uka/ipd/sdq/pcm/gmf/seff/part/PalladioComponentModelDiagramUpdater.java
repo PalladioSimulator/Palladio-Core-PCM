@@ -3718,7 +3718,7 @@ public class PalladioComponentModelDiagramUpdater {
 		for (Iterator it = settings.iterator(); it.hasNext();) {
 			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
 					.next();
-			if (setting.getEStructuralFeature() == de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+			if (setting.getEStructuralFeature() == de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 					.getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour()) {
 				result
 						.add(new PalladioComponentModelLinkDescriptor(

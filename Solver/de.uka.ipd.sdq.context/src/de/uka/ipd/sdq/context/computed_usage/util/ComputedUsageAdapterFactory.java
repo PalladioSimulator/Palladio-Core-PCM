@@ -5,6 +5,10 @@
  */
 package de.uka.ipd.sdq.context.computed_usage.util;
 
+import de.uka.ipd.sdq.context.computed_usage.*;
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -19,9 +23,6 @@ import de.uka.ipd.sdq.context.computed_usage.ExternalCallOutput;
 import de.uka.ipd.sdq.context.computed_usage.Input;
 import de.uka.ipd.sdq.context.computed_usage.LoopIteration;
 import de.uka.ipd.sdq.context.computed_usage.Output;
-import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc -->

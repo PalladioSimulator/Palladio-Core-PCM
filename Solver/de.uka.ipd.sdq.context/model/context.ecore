@@ -84,7 +84,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceDemand">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parametricResourceDemand_ResourceDemand"
-          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/performance/ParametricResourceDemand"/>
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/seff_performance/ParametricResourceDemand"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ResourceDemand"
           ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/PCMRandomVariable"
           containment="true"/>

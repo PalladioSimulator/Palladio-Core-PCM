@@ -57,7 +57,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
@@ -125,7 +125,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 		installEditPolicy(
 				EditPolicyRoles.OPEN_ROLE,
 				new OpenStoExDialog(
-						Seff_performancePackage.eINSTANCE
+						SeffPerformancePackage.eINSTANCE
 								.getParametricResourceDemand_Specification_ParametericResourceDemand()));
 	}
 

@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.context.computed_allocation;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.context.computed_usage.ComputedUsageContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;

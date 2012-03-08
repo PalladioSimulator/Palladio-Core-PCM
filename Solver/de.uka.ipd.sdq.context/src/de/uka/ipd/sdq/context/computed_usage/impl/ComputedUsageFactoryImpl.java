@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.context.computed_usage.impl;
 
+import de.uka.ipd.sdq.context.computed_usage.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;

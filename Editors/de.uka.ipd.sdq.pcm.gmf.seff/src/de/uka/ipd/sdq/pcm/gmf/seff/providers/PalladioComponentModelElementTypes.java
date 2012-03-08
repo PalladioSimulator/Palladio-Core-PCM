@@ -19,7 +19,6 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEditPart;
@@ -500,7 +499,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements
 					.put(
 							RecoveryAction_2016,
-							de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+							de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 									.getRecoveryAction());
 
 			elements.put(VariableUsage_3042, ParameterPackage.eINSTANCE
@@ -539,7 +538,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements
 					.put(
 							ParametricResourceDemand_3051,
-							de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage.eINSTANCE
+							de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.eINSTANCE
 									.getParametricResourceDemand());
 
 			elements.put(InternalFailureOccurrenceDescription_3050,
@@ -549,7 +548,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements
 					.put(
 							InfrastructureCall_3053,
-							de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage.eINSTANCE
+							de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.eINSTANCE
 									.getInfrastructureCall());
 
 			elements.put(VariableUsage_3054, ParameterPackage.eINSTANCE
@@ -594,13 +593,13 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements
 					.put(
 							RecoveryAction_3057,
-							de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+							de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 									.getRecoveryAction());
 
 			elements
 					.put(
 							RecoveryActionBehaviour_3058,
-							de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+							de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 									.getRecoveryActionBehaviour());
 
 			elements.put(SetVariableAction_3024, SeffPackage.eINSTANCE
@@ -631,7 +630,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements
 					.put(
 							RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004,
-							de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage.eINSTANCE
+							de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
 									.getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour());
 		}
 		return (ENamedElement) elements.get(type);

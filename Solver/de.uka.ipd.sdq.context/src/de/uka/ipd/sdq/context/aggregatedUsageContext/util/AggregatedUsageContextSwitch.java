@@ -5,10 +5,10 @@
  */
 package de.uka.ipd.sdq.context.aggregatedUsageContext.util;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
+import de.uka.ipd.sdq.context.aggregatedUsageContext.*;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 
 import de.uka.ipd.sdq.context.aggregatedUsageContext.AggregatedCommunication;
 import de.uka.ipd.sdq.context.aggregatedUsageContext.AggregatedResourceDemand;
@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.context.aggregatedUsageContext.ServiceExecutionContext;
  * @see de.uka.ipd.sdq.context.aggregatedUsageContext.AggregatedUsageContextPackage
  * @generated
  */
-public class AggregatedUsageContextSwitch<T> {
+public class AggregatedUsageContextSwitch<T> extends Switch<T> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,14 +58,16 @@ public class AggregatedUsageContextSwitch<T> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @parameter ePackage the package in question.
+	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
-	public T doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
+		return ePackage == modelPackage;
 	}
 
 	/**
@@ -75,26 +77,7 @@ public class AggregatedUsageContextSwitch<T> {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(EClass theEClass, EObject theEObject) {
-		if (theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return
-				eSuperTypes.isEmpty() ?
-					defaultCase(theEObject) :
-					doSwitch(eSuperTypes.get(0), theEObject);
-		}
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case AggregatedUsageContextPackage.SERVICE_EXECUTION_CONTEXT: {
@@ -196,6 +179,7 @@ public class AggregatedUsageContextSwitch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
+	@Override
 	public T defaultCase(EObject object) {
 		return null;
 	}

@@ -53,7 +53,7 @@ public class RecoveryActionBehaviourCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour newElement = de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory.eINSTANCE
+		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour newElement = de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory.eINSTANCE
 				.createRecoveryActionBehaviour();
 
 		de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction owner = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) getElementToEdit();

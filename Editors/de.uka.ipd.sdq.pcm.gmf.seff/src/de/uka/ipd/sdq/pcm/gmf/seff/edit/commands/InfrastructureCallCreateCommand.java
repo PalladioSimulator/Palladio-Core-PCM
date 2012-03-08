@@ -62,7 +62,7 @@ public class InfrastructureCallCreateCommand extends EditElementCommand {
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
-		de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall newElement = de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performanceFactory.eINSTANCE
+		de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall newElement = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory.eINSTANCE
 				.createInfrastructureCall();
 		// add empty random variable
 		PCMRandomVariable numberOfCalls = CoreFactory.eINSTANCE

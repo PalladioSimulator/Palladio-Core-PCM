@@ -5,6 +5,10 @@
  */
 package de.uka.ipd.sdq.context.computed_allocation.util;
 
+import de.uka.ipd.sdq.context.computed_allocation.*;
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -14,9 +18,6 @@ import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocation;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationContext;
 import de.uka.ipd.sdq.context.computed_allocation.ComputedAllocationPackage;
 import de.uka.ipd.sdq.context.computed_allocation.ResourceDemand;
-import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc -->

@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performanceFactory;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.VariableUsageHelper;
@@ -49,7 +49,7 @@ public class ExternalCallActionHandler {
 	
 	private SeffFactory seffFactory = SeffFactory.eINSTANCE;
 	
-	private Seff_performanceFactory performanceFactory = Seff_performanceFactory.eINSTANCE;
+	private SeffPerformanceFactory performanceFactory = SeffPerformanceFactory.eINSTANCE;
 	
 	private static Logger logger = Logger.getLogger(ExternalCallActionHandler.class.getName());
 	
