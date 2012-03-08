@@ -67,6 +67,11 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
 
     public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory factory,
             boolean isRemoteRun) {
+    	this(config,status,factory,isRemoteRun,null);
+    }
+    
+    public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory factory,
+            boolean isRemoteRun, ProbeSpecContext probeSpecContext) {
 		this.config = config;
 		this.simulationEngineFactory = factory;
 		factory.setModel(this);
@@ -93,15 +98,15 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
 		schedulingFactory = new SchedulingFactory(this);
 		
         // set up the measurement framework
-        initialiseProbeSpecification();
+        this.probeSpecContext = probeSpecContext == null ? initialiseProbeSpecification() : probeSpecContext;
 	}
     
-    private void initialiseProbeSpecification() {
+    private ProbeSpecContext initialiseProbeSpecification() {
         // create ProbeSpecification context
-        probeSpecContext = new ProbeSpecContext();
+    	ProbeSpecContext result = new ProbeSpecContext();
         
         // create a blackboard of the specified type
-        ISampleBlackboard blackboard = BlackboardFactory.createBlackboard(config.getBlackboardType(), probeSpecContext
+        ISampleBlackboard blackboard = BlackboardFactory.createBlackboard(config.getBlackboardType(), result
                 .getThreadManager());
         
         // decorate the current blackboard in order to discard any measurement that arrives after
@@ -110,13 +115,15 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
                 simControl);
         
         // initialise ProbeSpecification context
-        probeSpecContext.initialise(decoratedBlackboard, new SimuComProbeStrategyRegistry(), new CalculatorFactory(this,
+        result.initialise(decoratedBlackboard, new SimuComProbeStrategyRegistry(), new CalculatorFactory(this,
                 new SetupPipesAndFiltersStrategy(this)));
 
         // install a garbage collector which keeps track of the samples stored on the blackboard and
         // removes samples when they become obsolete
         SimuComGarbageCollector garbageCollector = new SimuComGarbageCollector(decoratedBlackboard);
-        probeSpecContext.setBlackboardGarbageCollector(garbageCollector);
+        result.setBlackboardGarbageCollector(garbageCollector);
+        
+        return result;
     }
     
 	/**
