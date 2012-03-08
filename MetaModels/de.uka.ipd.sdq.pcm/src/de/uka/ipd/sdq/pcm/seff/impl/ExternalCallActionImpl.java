@@ -37,7 +37,6 @@ import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
 /**

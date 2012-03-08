@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl;
 
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -18,10 +17,9 @@ import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.QosPerformanceValidator;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.Qos_performanceValidator;
 
 /**
  * <!-- begin-user-doc -->

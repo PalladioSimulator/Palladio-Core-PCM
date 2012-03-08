@@ -25,7 +25,6 @@ import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.SpecifiedQoSAnnotationItemProvider;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime;
 
 /**

@@ -46,7 +46,6 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;

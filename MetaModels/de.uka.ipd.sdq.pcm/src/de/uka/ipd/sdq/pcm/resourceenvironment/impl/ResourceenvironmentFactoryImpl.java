@@ -21,7 +21,6 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 
 /**
  * <!-- begin-user-doc -->

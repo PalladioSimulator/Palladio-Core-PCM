@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.reliability.impl;
 
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -23,7 +22,7 @@ import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
 import de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription;
 import de.uka.ipd.sdq.pcm.reliability.FailureType;

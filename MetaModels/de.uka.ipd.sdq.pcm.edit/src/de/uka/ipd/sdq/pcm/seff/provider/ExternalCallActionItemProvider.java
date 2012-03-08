@@ -26,7 +26,6 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction} object.

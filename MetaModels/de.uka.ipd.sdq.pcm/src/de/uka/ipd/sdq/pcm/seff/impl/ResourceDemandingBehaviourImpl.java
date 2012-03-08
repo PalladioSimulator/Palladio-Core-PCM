@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 import java.util.Collection;
 import java.util.Map;
 
@@ -18,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
@@ -28,6 +26,7 @@ import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;

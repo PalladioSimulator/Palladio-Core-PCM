@@ -4,15 +4,17 @@
 package de.uka.ipd.sdq.pcm.seff.seff_performance.util;
 
 import de.uka.ipd.sdq.pcm.seff.seff_performance.*;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 
 /**
  * <!-- begin-user-doc -->

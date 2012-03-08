@@ -15,7 +15,6 @@ import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime;
 
 /**

@@ -22,7 +22,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 

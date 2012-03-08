@@ -24,7 +24,6 @@ import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction} object.

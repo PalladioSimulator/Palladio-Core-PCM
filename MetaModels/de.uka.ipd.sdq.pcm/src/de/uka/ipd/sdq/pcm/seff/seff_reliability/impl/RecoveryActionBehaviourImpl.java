@@ -5,49 +5,38 @@
  */
 package de.uka.ipd.sdq.pcm.seff.seff_reliability.impl;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.util.SeffReliabilityValidator;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
-
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.util.Seff_reliabilityValidator;
-import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
-
 import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.ocl.ParserException;
-
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
+
+import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
+import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.util.SeffReliabilityValidator;
+import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
 /**
  * <!-- begin-user-doc -->

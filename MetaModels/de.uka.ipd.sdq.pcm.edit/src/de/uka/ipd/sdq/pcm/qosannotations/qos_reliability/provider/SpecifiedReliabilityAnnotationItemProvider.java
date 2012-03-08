@@ -24,7 +24,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.SpecifiedQoSAnnotationItemProvider;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
 import de.uka.ipd.sdq.pcm.reliability.ReliabilityFactory;
 

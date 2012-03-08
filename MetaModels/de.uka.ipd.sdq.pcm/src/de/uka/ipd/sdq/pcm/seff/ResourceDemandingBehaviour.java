@@ -5,12 +5,12 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import de.uka.ipd.sdq.identifier.Identifier;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->

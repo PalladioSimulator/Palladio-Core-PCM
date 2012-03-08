@@ -15,7 +15,6 @@ import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.reliability.FailureType;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
 /**
  * <!-- begin-user-doc -->

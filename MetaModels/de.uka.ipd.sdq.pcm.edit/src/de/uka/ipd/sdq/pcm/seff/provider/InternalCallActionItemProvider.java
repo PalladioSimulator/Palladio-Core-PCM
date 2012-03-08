@@ -27,7 +27,6 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.seff.InternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performanceFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.InternalCallAction} object.

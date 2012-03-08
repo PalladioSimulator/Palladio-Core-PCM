@@ -25,10 +25,8 @@ import org.eclipse.ocl.ecore.OCL;
 
 import de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.util.QosReliabilityValidator;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.util.Qos_reliabilityValidator;
 import de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription;
 import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
 

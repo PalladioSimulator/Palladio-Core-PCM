@@ -32,8 +32,6 @@ import de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceValidator;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.util.Seff_performanceValidator;
 
 /**
  * <!-- begin-user-doc -->

@@ -6,7 +6,6 @@
 package de.uka.ipd.sdq.pcm.resourcetype.provider;
 
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -22,9 +21,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;

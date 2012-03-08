@@ -27,8 +27,6 @@ import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformanceFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityFactory;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performanceFactory;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations} object.

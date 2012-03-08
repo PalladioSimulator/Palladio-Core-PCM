@@ -24,7 +24,6 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity} object.

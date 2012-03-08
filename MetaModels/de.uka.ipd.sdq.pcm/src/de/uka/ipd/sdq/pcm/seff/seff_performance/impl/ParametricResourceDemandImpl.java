@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 
 /**
  * <!-- begin-user-doc -->

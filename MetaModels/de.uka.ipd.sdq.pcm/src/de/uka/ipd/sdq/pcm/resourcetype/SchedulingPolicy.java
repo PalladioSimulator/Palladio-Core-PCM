@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.pcm.resourcetype;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc -->

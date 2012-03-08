@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 import de.uka.ipd.sdq.units.UnitCarryingElement;
 
 /**

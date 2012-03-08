@@ -4,14 +4,17 @@
 package de.uka.ipd.sdq.pcm.seff.seff_performance.impl;
 
 import de.uka.ipd.sdq.pcm.seff.seff_performance.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 
 /**
  * <!-- begin-user-doc -->

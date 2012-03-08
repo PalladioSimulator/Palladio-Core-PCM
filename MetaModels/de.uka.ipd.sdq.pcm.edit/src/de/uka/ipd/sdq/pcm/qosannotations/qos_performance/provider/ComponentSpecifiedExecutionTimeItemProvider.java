@@ -6,7 +6,6 @@
 package de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider;
 
 
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,7 +19,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime} object.

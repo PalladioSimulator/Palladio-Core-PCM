@@ -27,7 +27,6 @@ import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand} object.

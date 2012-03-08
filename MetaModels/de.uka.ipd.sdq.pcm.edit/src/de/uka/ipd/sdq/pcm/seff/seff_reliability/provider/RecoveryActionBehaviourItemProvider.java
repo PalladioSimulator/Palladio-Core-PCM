@@ -6,23 +6,12 @@
 package de.uka.ipd.sdq.pcm.seff.seff_reliability.provider;
 
 
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -31,6 +20,12 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import de.uka.ipd.sdq.pcm.seff.SeffFactory;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour} object.

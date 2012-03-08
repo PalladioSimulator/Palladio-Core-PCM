@@ -23,7 +23,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performanceFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction} object.

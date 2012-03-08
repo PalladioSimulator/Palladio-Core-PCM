@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage;
 
 /**
  * <!-- begin-user-doc -->
