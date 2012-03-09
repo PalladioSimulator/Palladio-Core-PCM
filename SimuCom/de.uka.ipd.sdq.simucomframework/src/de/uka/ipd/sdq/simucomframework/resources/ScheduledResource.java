@@ -232,4 +232,12 @@ public class ScheduledResource extends AbstractScheduledResource {
 		return aResource;
 	}
 
+	/**
+	 * Method to alter processing rate at runtime, e.g., to model changing parameters of cloud environments at runtime
+	 * @param newProcessingRate The new processing rate of this resource
+	 */
+	public void setProcessingRate(String newProcessingRate) {
+		this.processingRate = newProcessingRate;
+	}
+
 }
