@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0">
-  <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_TlSckOVOEdyoTq75d0UHCA" entityName="CPU" unitSpecification="Intel(R) Xeon(R) CPU E5320 @ 1.86 GHz"/>
-  <availableResourceTypes_ResourceRepository xsi:type="ProcessingResourceType" id="_Vm3V8OVSEdyoTq75d0UHCA" entityName="HDD"/>
-  <availableResourceTypes_ResourceRepository xsi:type="CommunicationLinkResourceType" id="_uyg80fAYEdymBdRy-85PZg" entityName="LAN"/>
-</ResourceRepository>
