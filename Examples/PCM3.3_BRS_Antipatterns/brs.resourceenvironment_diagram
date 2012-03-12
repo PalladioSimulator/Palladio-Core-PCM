@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_9ahbEIt1Ed-W5_7p8M_GHg" type="ResourceEnvironmentModel" measurementUnit="Pixel">
-  <styles xmi:type="notation:DiagramStyle" xmi:id="_9ahbEYt1Ed-W5_7p8M_GHg"/>
-  <element xmi:type="ResourceEnvironment" href="brs.resourceenvironment#/"/>
-</notation:Diagram>
