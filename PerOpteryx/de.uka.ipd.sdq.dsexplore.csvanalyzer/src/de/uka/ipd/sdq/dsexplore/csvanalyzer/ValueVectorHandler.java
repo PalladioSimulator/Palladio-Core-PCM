@@ -15,15 +15,12 @@ import jmetal.qualityIndicator.Hypervolume;
 
 import org.opt4j.core.DoubleValue;
 import org.opt4j.core.Objective;
+import org.opt4j.core.Objective.Sign;
 import org.opt4j.core.Objectives;
 import org.opt4j.core.Value;
-import org.opt4j.core.Objective.Sign;
 import org.opt4j.core.domination.ParetoDomination;
-import org.opt4j.core.optimizer.Iterations;
-import org.opt4j.genotype.ListGenotype;
 
 import de.uka.ipd.sdq.dsexplore.csvanalyzer.ValueVector.ORIGIN;
-import de.uka.ipd.sdq.dsexplore.helper.GenotypeReader;
 
 public class ValueVectorHandler {
 	

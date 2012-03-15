@@ -45,7 +45,8 @@ public class Starter {
 	/**
 	 * Need to set the number of genes to read in heuristic statistics.
 	 */
-	private static final int NUMBER_OF_GENES = 26;
+	// private static final int NUMBER_OF_GENES = 26; // BRS Diss
+	private static final int NUMBER_OF_GENES = 11; // Hybrid experiment
 	//private static final int NUMBER_OF_GENES = 14;
 
 	/**
@@ -64,12 +65,16 @@ public class Starter {
 	 * Do not forget the trailing backslash.
 	 */
 	
+	private static final String PATH_RUNS_B = "C:\\Hybrid-experiments\\hybrid graphicalOnly 3D\\pure evol\\";
+	private static final String PATH_RUNS_A = "C:\\Hybrid-experiments\\hybrid graphicalOnly 3D\\hybrid\\";
+	
+	
 	// evaluation diss BRS
 	//private static final String PATH_RUNS_B = "D:\\uka\\stud\\AnneMartens\\thesis2\\trunk\\diss\\data\\BRS Opt Approach\\random\\";
 	//private static final String PATH_RUNS_B = "D:\\uka\\stud\\AnneMartens\\thesis2\\trunk\\diss\\data\\BRS Opt Approach\\pure evol\\";
 	//private static final String PATH_RUNS_B = "D:\\uka\\stud\\AnneMartens\\thesis2\\trunk\\diss\\data\\BRS Opt Approach\\tactics\\";
-	private static final String PATH_RUNS_B = "D:\\uka\\stud\\AnneMartens\\thesis2\\trunk\\diss\\data\\BRS Opt Approach\\tactics continued\\";
-	private static final String PATH_RUNS_A = "D:\\uka\\stud\\AnneMartens\\thesis2\\trunk\\diss\\data\\BRS Opt Approach\\intensification results for tactics run\\";
+	//private static final String PATH_RUNS_B = "D:\\uka\\stud\\AnneMartens\\thesis2\\trunk\\diss\\data\\BRS Opt Approach\\tactics continued\\";
+	//private static final String PATH_RUNS_A = "D:\\uka\\stud\\AnneMartens\\thesis2\\trunk\\diss\\data\\BRS Opt Approach\\intensification results for tactics run\\";
 	
 	//private static final String PATH_RUNS_A = "D:\\uka\\stud\\AnneMartens\\thesis2\\trunk\\diss\\data\\BRS Opt Approach\\rule based\\";
 	//private static final String PATH_RUNS_A = "D:\\uka\\stud\\AnneMartens\\thesis2\\trunk\\diss\\data\\BRS Opt Approach\\intensification results for tactics run\\" ;
@@ -589,11 +594,10 @@ public class Starter {
 		}
 	}
 	
+	/**
+	 * Print the hypervolume difference for the last iteration only
+	 */
 	private static void printHypervolumeDifferenceOfLastIteration() {
-		
-		// Print the hypervolume difference for all iterations between START_ITERATION and
-		// FINAL_ITERATION
-		// of the given runs.
 		System.out.println(ValueVector.ORIGIN.A + ": " + PATH_RUNS_A);
 		System.out.println(ValueVector.ORIGIN.B + ": " + PATH_RUNS_B);
 
@@ -609,6 +613,9 @@ public class Starter {
 		
 	}
 	
+	/**
+	 * Print the hypervolume difference for the given iteration.
+	 */
 	private static void printHypervolumeDifferenceForIteration(int iteration) {
 		Collection<HypervolumeResult> hypervolumes = calculateHypervolume(iteration);
 		String line = iteration + ";";
@@ -622,6 +629,9 @@ public class Starter {
 		System.out.println(line+";"+mean);
 	}
 	
+	/**
+	 * Print the hypervolume for all iterations.
+	 */
 	private static void printHypervolumeForAllIterations() {
 		// Print the coverage for all iterations between START_ITERATION and
 		// FINAL_ITERATION
@@ -1686,7 +1696,7 @@ public class Starter {
 					return getFilesOfDirectory(dirFile.toString(), getRegExp(iteration, fileType))[0];
 				} else {
 					if (iteration == Integer.MAX_VALUE){
-						File[] allFiles = getAllMatchingFiles(getRegExp(".", fileType), dirFile);
+						File[] allFiles = getAllMatchingFiles(getRegExp("[0-9]*", fileType), dirFile);
 						
 						List<File> allFilesList = Arrays.asList(allFiles);
 						
