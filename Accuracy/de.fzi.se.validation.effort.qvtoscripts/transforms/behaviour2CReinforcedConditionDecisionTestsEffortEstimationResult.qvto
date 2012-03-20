@@ -5,8 +5,7 @@ modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0';
 modeltype EER uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
 
 transformation behaviour2CReinforcedConditionDecisionTestsEffortEstimation(in inbehaviour : PCM_SEFF,
-									      			  inout outdesc : EER)
-access library ProbabilityLib();
+									      			  inout outdesc : EER);
 
 main() {
 	log('RD-SEFF to EffortEstimationResult (CReinforcedConditionDecisionTests) transformation started.');
@@ -31,12 +30,12 @@ query ResourceDemandingBehaviour::CReinforcedConditionDecisionTests(in confidenc
 	var testsForAction : Integer = 0;
 	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
 		testsForAction := action.getEffort(confidence);
-		required := required + testsForAction - 1.min(required).min(testsForAction);
+		required := required + testsForAction;
 		if(testsForAction > 0) then {
 			atLeastOnce := true;
 		} endif;
 	};
-	if (required = 0 and atLeastOnce = true) then {
+	if (required = 0) then {
 		required := 1;
 	} endif;
 	log('Processing ResourceDemandingBehaviour with id=' + self.id + ' requires ' + required.toString() + ' tests');
@@ -44,7 +43,7 @@ query ResourceDemandingBehaviour::CReinforcedConditionDecisionTests(in confidenc
 }
 
 helper AbstractAction::getEffort(in confidence : Real) : Integer {
-	return 1;
+	return 0;
 }
 
 helper BranchAction::getEffort(in confidence : Real) : Integer {
@@ -52,11 +51,11 @@ helper BranchAction::getEffort(in confidence : Real) : Integer {
 	self.branches_Branch->forEach(branch) {
 		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
 			var guarded : GuardedBranchTransition = branch.oclAsType(GuardedBranchTransition);
-			r := r + (guarded.branchCondition_GuardedBranchTransition.expression.NumberOfConditionAtoms() + 1).max(branch.branchBehaviour_BranchTransition.CReinforcedConditionDecisionTests(confidence));
+			r := r + (guarded.branchCondition_GuardedBranchTransition.expression.NumberOfConditionAtoms() * 6).min(pow(2, guarded.branchCondition_GuardedBranchTransition.expression.NumberOfConditionAtoms()))*(branch.branchBehaviour_BranchTransition.CReinforcedConditionDecisionTests(confidence));
 		} else { // ProbabilisticBranchCondition
 			var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
 			log('prob=' + probBranch.branchProbability.toString() + ',name=' + probBranch.entityName);
-			r := r + 1.max( branch.branchBehaviour_BranchTransition.CReinforcedConditionDecisionTests(confidence) * MinRequiredTests(probBranch.branchProbability, confidence) );
+			r := r + branch.branchBehaviour_BranchTransition.CReinforcedConditionDecisionTests(confidence) * MinRequiredTests(probBranch.branchProbability, confidence);
 		} endif;
 	};
 	return r;

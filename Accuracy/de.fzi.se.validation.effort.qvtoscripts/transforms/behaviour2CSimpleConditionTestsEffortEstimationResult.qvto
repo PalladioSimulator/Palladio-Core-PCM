@@ -31,12 +31,12 @@ query ResourceDemandingBehaviour::CSimpleConditionTests(in confidence : Real) : 
 	var testsForAction : Integer = 0;
 	self.steps_Behaviour->select(a | a.oclIsKindOf(AbstractAction))->forEach(action) {
 		testsForAction := action.getEffort(confidence);
-		required := required + testsForAction - 1.min(required).min(testsForAction);
+		required := required + testsForAction;
 		if(testsForAction > 0) then {
 			atLeastOnce := true;
 		} endif;
 	};
-	if (required = 0 and atLeastOnce = true) then {
+	if (required = 0) then {
 		required := 1;
 	} endif;
 	log('Processing ResourceDemandingBehaviour with id=' + self.id + ' requires ' + required.toString() + ' tests');
@@ -52,11 +52,11 @@ helper BranchAction::getEffort(in confidence : Real) : Integer {
 	self.branches_Branch->forEach(branch) {
 		if (branch.oclIsKindOf(GuardedBranchTransition)) then {
 			var guarded : GuardedBranchTransition = branch.oclAsType(GuardedBranchTransition);
-			r := r + (guarded.branchCondition_GuardedBranchTransition.expression.NumberOfConditionAtoms() + 1).max(branch.branchBehaviour_BranchTransition.CSimpleConditionTests(confidence));
+			r := r + (guarded.branchCondition_GuardedBranchTransition.expression.NumberOfConditionAtoms() + 1)*(branch.branchBehaviour_BranchTransition.CSimpleConditionTests(confidence));
 		} else { // ProbabilisticBranchCondition
 			var probBranch : ProbabilisticBranchTransition = branch.oclAsType(ProbabilisticBranchTransition);
 			log('prob=' + probBranch.branchProbability.toString() + ',name=' + probBranch.entityName);
-			r := r + 1.max( branch.branchBehaviour_BranchTransition.CSimpleConditionTests(confidence) * MinRequiredTests(probBranch.branchProbability, confidence) );
+			r := r + branch.branchBehaviour_BranchTransition.CSimpleConditionTests(confidence) * MinRequiredTests(probBranch.branchProbability, confidence);
 		} endif;
 	};
 	return r;
