@@ -119,11 +119,11 @@ context Signature ERROR 'Signature contains invalid characters, use only upperca
 	!(this.entityName.contains("(") || this.entityName.contains(")") || this.entityName.contains(",") || this.entityName.contains(":") || this.entityName.contains(";"));
 
 context ProcessingResourceSpecification ERROR 'Exact scheduling only available if container OS is not abstract':
-	!(this.schedulingPolicy.toString() == "EXACT" && ((ResourceContainer)this.eContainer).operatingSystem_ResourceContainer.toString() == "ABSTRACT");
+	!((this.schedulingPolicy.toString() != "EXACT" || this.schedulingPolicy.toString() != "Exact") && ((ResourceContainer)this.eContainer).operatingSystem_ResourceContainer.toString() == "ABSTRACT");
 
 context ProcessingResourceSpecification ERROR 'Abstract scheduling (FCFS, PS, or DELAY) only available if container OS is set to ABSTRACT':
 	if this.activeResourceType_ActiveResourceSpecification.entityName == "CPU" then
-		(if this.schedulingPolicy.toString() != "EXACT" then ((ResourceContainer)this.eContainer).operatingSystem_ResourceContainer.toString() == "ABSTRACT" else true)
+		(if (this.schedulingPolicy.toString() != "EXACT" || this.schedulingPolicy.toString() != "Exact") then ((ResourceContainer)this.eContainer).operatingSystem_ResourceContainer.toString() == "ABSTRACT" else true)
 	else
 		true;
 
