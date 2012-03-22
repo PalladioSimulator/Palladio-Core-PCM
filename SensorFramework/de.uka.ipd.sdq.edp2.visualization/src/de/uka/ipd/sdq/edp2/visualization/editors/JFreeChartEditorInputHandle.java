@@ -63,8 +63,8 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 	 */
 	public JFreeChartEditorInputHandle(JFreeChartEditorInput firstInput) {
 		inputs = new ArrayList<JFreeChartEditorInput>();
-		addInput(firstInput);
 		dataset = firstInput.getBasicDataset();
+		addInput(firstInput);
 	}
 
 	/*
@@ -77,14 +77,16 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 	@Override
 	public boolean addInput(JFreeChartEditorInput newInput) {
 		// if it is the first input, the <newInput> is added in any case.
-		if (inputs.size() == 0) {
+		if (inputs.isEmpty()) {
 			inputs.add((JFreeChartEditorInput) newInput);
-			dataset.addDataSeries(newInput);
 			newInput.addObserver(this);
 			setChanged();
 			notifyObservers();
 			return true;
 		} else {
+			if (dataset == null){
+				dataset = inputs.get(0).getBasicDataset();
+			}
 			inputs.add((JFreeChartEditorInput) newInput);
 			dataset.addDataSeries(newInput);
 			newInput.addObserver(this);
@@ -102,7 +104,6 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 	 */
 	@Override
 	public Object getInputData() {
-		
 		return dataset;
 	}
 
@@ -215,7 +216,6 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 	 */
 	public JFreeChart createChart() {
 		chart = getInputs().get(0).getChart();
-		getInputData();
 		return chart;
 	}
 

@@ -73,8 +73,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	private DefaultXYItemRenderer renderer;
 
 	public ScatterPlotInput() {
-		super(null);
-		new ScatterPlotInput(null);
+		super();
 	}
 
 	public ScatterPlotInput(AbstractDataSource source) {
@@ -204,6 +203,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	@Override
 	public void updateInputData() {
 		DefaultXYDataset defaultDataset = new DefaultXYDataset();
+		if (dataset == null) dataset = new BasicDataset<DefaultXYDataset>(getDataTypeInstance());
 		logger.log(Level.INFO, "Editor input updateDataSet begin");
 		ArrayList<OrdinalMeasurementsDao<Measure>> list = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		for (DataSeries data : getSource().getOutput()) {

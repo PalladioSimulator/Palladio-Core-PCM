@@ -8,6 +8,7 @@ import java.util.logging.Level;
 
 import javax.measure.unit.Unit;
 
+import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
 import org.jfree.data.general.AbstractSeriesDataset;
@@ -164,6 +165,7 @@ public abstract class IVisualizationInput extends Observable implements
 			getSource().deleteObserver(this);
 		this.source = source;
 		source.addObserver(this);
+		
 		updateInputData();
 	}
 

@@ -39,6 +39,10 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 * The title for the chart.
 	 */
 	private String title;
+	
+	public JFreeChartEditorInput(){
+		properties = new HashMap<String, Object>();
+	}
 
 	public JFreeChartEditorInput(AbstractDataSource source) {
 		properties = new HashMap<String, Object>();

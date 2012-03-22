@@ -85,8 +85,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 * Empty constructor.
 	 */
 	public HistogramEditorInput() {
-		super(null);
-		new HistogramEditorInput(null);
+		super();
 	}
 
 	/**
@@ -109,6 +108,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	public void updateInputData() {
 		logger.log(Level.INFO, "Transformation : BEGIN");
 		HistogramDataset defaultDataset = new HistogramDataset();
+		
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
 		for (DataSeries series : getSource().getOutput()) {
@@ -135,7 +135,10 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		// set the title of the chart to the name of the input data series
 		setTitle(metrics[0].getName());
 		defaultDataset.addSeries(getTitle(), data, getNumberOfBins());
-		dataset.addDataSeries(this);
+		if (dataset == null) {
+			dataset = new BasicDataset<HistogramDataset>(getDataTypeInstance());
+			dataset.addDataSeries(this);
+		}
 		setChanged();
 		notifyObservers();
 		logger.log(Level.INFO, "Transformation : END");
@@ -264,12 +267,14 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		return new HistogramChartPropertiesComposite(parent, SWT.EMBEDDED, getChartProperties());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public BasicDataset<HistogramDataset> getBasicDataset() {
 		return dataset;
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public HistogramDataset getDataTypeInstance() {
 		return new HistogramDataset();

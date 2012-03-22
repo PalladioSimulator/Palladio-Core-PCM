@@ -185,6 +185,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 				logger
 						.log(Level.SEVERE,
 								"Error in creating an Object referenced in an extension.");
+				logger.log(Level.SEVERE, e1.getMessage());
 				throw new RuntimeException();
 			}
 		}
