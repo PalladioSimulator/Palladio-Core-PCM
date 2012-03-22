@@ -84,9 +84,15 @@ helper LoopAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) 
 	var loopDecision : Vertex = new Vertex(nextNumber(), outerIterations);
 	newVertices += loopDecision;
 	var iterationExpression : Expression = self.iterationCount_LoopAction.expression;
-	var iterations : Real = iterationExpression.GetIterations();
+	var iterations : Real;
+	if (iterationExpression.IsParametricDependency()) then {
+		iterations = 1;
+	} else {
+		iterations = iterationExpression.GetIterations();
+	} endif;
 	var subVertices : OrderedSet(Vertex) = self.bodyBehaviour_Loop.ToVertices(outerIterations * iterations);
-	if (iterationExpression.oclIsKindOf(NumericLiteral) or iterationExpression.oclIsKindOf(ProbabilityFunctionLiteral)) then { // fixed number of loop iterations
+	if (iterationExpression.oclIsKindOf(NumericLiteral) or iterationExpression.oclIsKindOf(ProbabilityFunctionLiteral)) then {
+		log("fixed number of loop iterations");
 		if (iterationExpression.Probability(0) != 1) then {
 			loopDecision.to += subVertices->first();
 			loopDecision.transitionProbability += new TransitionProbability(1 - iterationExpression.Probability(0));
@@ -97,15 +103,18 @@ helper LoopAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) 
 				loopDecision.to += loopDecisionMerge;
 				loopDecision.transitionProbability += new TransitionProbability(iterationExpression.Probability(0));
 			} else { // always iterates
+				log("always iterates");
 			} endif;
 			subVertices->last().to += loopDecisionMerge;
 			subVertices->last().transitionProbability += new TransitionProbability(1);
 		} else { // never iterates
+			log("never iterates");
 			currentNumber := currentNumber - subVertices->size();
 			subVertices.transitionProbability->forEach(element) {descr.removeElement(element); };
 			subVertices->forEach(element) {descr.removeElement(element); };
 		} endif;
-	} else { // variable number of loop iterations
+	} else {
+		log("variable number of loop iterations");
 		loopDecision.to += subVertices->first();
 		loopDecision.transitionProbability += new TransitionProbability(1);
 		subVertices->last().to += loopDecision;

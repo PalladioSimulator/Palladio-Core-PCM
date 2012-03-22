@@ -82,7 +82,7 @@ library ProbabilityLib()
 				return sum;
 			} endif;
 		} endif;
-		assert (false) with log ('Unsupported expression for calculation of probability equals zero.');
+		assert (false) with log ('Unsupported expression for calculation of probability equals zero. Expression=' + self.repr());
 		return -1;
 	}
 
