@@ -7,20 +7,13 @@ import de.uka.ipd.sdq.edp2.visualization.IDataFlow;
  * @author Dominik Ernst
  *
  */
-public interface IProperty {
+public interface IProperty<T extends Object> {
 	
 	/**
-	 * The key, which identifies the property and is used for persistance.
+	 * The key, which identifies the property and is used for persistance - should be globally unique and static.
 	 * @return the unique property key
 	 */
 	public String getPropertyKey();
-	
-	/**
-	 * Sets the key to the specified {@link String} value.
-	 * Should be called only once: in the constructor
-	 * @param key the property's new key
-	 */
-	void setPropertyKey(String key);
 	
 	/**
 	 * A {@link String}, which is used to display the property's key more nicely in GUI elements.
@@ -55,24 +48,17 @@ public interface IProperty {
 	PropertyTypeEnum getPropertyType();
 	
 	/**
-	 * Sets this property's type to one of the types specified in {@link PropertyTypeEnum}.
-	 * Should be called only once: in the constructor.
-	 * @param type
-	 */
-	void setPropertyType(PropertyTypeEnum type);
-	
-	/**
 	 * Returns this property's current value.
 	 * @return the current value.
 	 */
-	Object getPropertyValue();
+	T getPropertyValue();
 	
 	/**
 	 * Sets the property's value.
 	 * @param value the value to set
 	 * @return true if it could be successfully set
 	 */
-	boolean setPropertyValue(Object value);
+	boolean setPropertyValue(T value);
 	
 	/**
 	 * A {@link String}-representation of the value, used for persistence.

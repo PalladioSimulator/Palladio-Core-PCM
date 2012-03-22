@@ -53,6 +53,9 @@
                 class="de.uka.ipd.sdq.edp2.visualization.properties.sections.DisplayPropertySection"
                 id="de.uka.ipd.sdq.edp2.visualization.propertySectionDisplay"
                 tab="de.uka.ipd.sdq.edp2.visualization.propertyTabDisplay">
+             <input
+                   type="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandle">
+             </input>
          </propertySection>
          
       </propertySections>

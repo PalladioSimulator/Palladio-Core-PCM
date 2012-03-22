@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
-import java.awt.Color;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +29,6 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -79,16 +77,12 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	 */
 	private TreeViewer treeViewer;
 	/**
-	 * A simple counter for the list
-	 */
-	private int counter = 0;
-	/**
 	 * The table for displaying attributes of a selected transformation.
 	 */
 	private Table transformationTable;
 
 	/**
-	 * Viewer for the table containing the list of transformations.
+	 * Viewer for the table containing the attributes of a transformation.
 	 */
 	private TableViewer transformationTableViewer;
 
@@ -99,7 +93,8 @@ public class TransformationsPropertySection extends AbstractPropertySection
 	private AbstractEditor editor;
 
 	/**
-	 * Last, by the user selected {@link AbstractTransformation} in the {@link #treeViewer}.
+	 * Last, by the user selected {@link AbstractTransformation} in the
+	 * {@link #treeViewer}.
 	 */
 	private AbstractTransformation selectedTransformation;
 
@@ -129,7 +124,7 @@ public class TransformationsPropertySection extends AbstractPropertySection
 
 		// initialize the layout
 		createLayout(container);
-		//create the tree viewer with empty input
+		// create the tree viewer with empty input
 		treeViewer = new InputSelectionTree(container, SWT.EMBEDDED, null)
 				.getTreeViewer();
 
@@ -157,8 +152,8 @@ public class TransformationsPropertySection extends AbstractPropertySection
 									+ "be added, must be selected first");
 				} else {
 					if (event.widget == buttonAdapter) {
-						AdapterWizard wizard = new AdapterWizard(selectedInput
-								.getSource());
+						AdapterWizard wizard = new AdapterWizard(
+								selectedInput.getSource());
 						AbstractAdapter adapter = null;
 						WizardDialog wdialog = new WizardDialog(Activator
 								.getDefault().getWorkbench()
@@ -170,8 +165,8 @@ public class TransformationsPropertySection extends AbstractPropertySection
 						}
 
 					} else if (event.widget == buttonFilter) {
-						FilterWizard wizard = new FilterWizard(selectedInput
-								.getSource());
+						FilterWizard wizard = new FilterWizard(
+								selectedInput.getSource());
 						AbstractFilter filter = null;
 						WizardDialog wdialog = new WizardDialog(Activator
 								.getDefault().getWorkbench()
@@ -239,10 +234,18 @@ public class TransformationsPropertySection extends AbstractPropertySection
 						selection.getFirstSequenceElement().setSource(adapter);
 					}
 					for (int i = 1; i < selection.getSize(); i++) {
-						selection.getSequenceElements().get(i).setProperties(
-								selection.getSequenceProperties().get(i));
-						selection.getSequenceElements().get(i).setSource(
-								selection.getSequenceElements().get(i - 1));
+						selection
+								.getSequenceElements()
+								.get(i)
+								.setProperties(
+										selection.getSequenceProperties()
+												.get(i));
+						selection
+								.getSequenceElements()
+								.get(i)
+								.setSource(
+										selection.getSequenceElements().get(
+												i - 1));
 					}
 
 					IVisualizationInput visualization = selection
@@ -262,9 +265,8 @@ public class TransformationsPropertySection extends AbstractPropertySection
 						IWorkbenchPage page = Activator.getDefault()
 								.getWorkbench().getActiveWorkbenchWindow()
 								.getActivePage();
-						IEditorPart editor = page
-								.openEditor(input,
-										"de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor");
+						page.openEditor(input,
+								"de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor");
 					} catch (PartInitException e) {
 					}
 

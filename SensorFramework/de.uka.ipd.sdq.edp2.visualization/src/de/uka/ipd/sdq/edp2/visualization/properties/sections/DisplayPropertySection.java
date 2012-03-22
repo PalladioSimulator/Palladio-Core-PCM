@@ -1,19 +1,37 @@
 package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
+import java.util.HashMap;
 import java.util.logging.Logger;
 
+import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.ColorCellEditor;
+import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.TableLayout;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CCombo;
+import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
@@ -49,6 +67,10 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * {@link IDataSink}s are stored.
 	 */
 	private final static String NAME_KEY = "elementName";
+	
+	private final static String LABEL_KEY = "Label";
+	private final static String COLOR_KEY = "Color";
+
 	/**
 	 * Composite for all properties of all JFreeCharts
 	 */
@@ -73,6 +95,18 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 
 	private ISelection selection;
 
+	/**
+	 * The table for displaying visual properties of the selected
+	 * transformation.
+	 */
+	private Table visualPropertiesTable;
+
+	/**
+	 * Viewer for the table containing the visual properties of the selected
+	 * transformation.
+	 */
+	private TableViewer visualPropertiesTableViewer;
+
 	private IWorkbenchPart part;
 
 	private TabbedPropertySheetPage tabbedPropertySheetPage;
@@ -96,6 +130,137 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		// create empty input list
 		listViewer = new InputElementList(composite, SWT.EMBEDDED, null)
 				.getListViewer();
+		createPropertiesTable(composite);
+	}
+
+	private void createPropertiesTable(Composite parent) {
+
+		// initialize the table, which shows the properties of transformations
+		visualPropertiesTable = new Table(parent, SWT.SINGLE | SWT.BORDER
+				| SWT.V_SCROLL | SWT.FULL_SELECTION);
+
+		visualPropertiesTable.setLinesVisible(true);
+		visualPropertiesTable.setHeaderVisible(true);
+		
+		//table layout
+		GridData gridData = new GridData(GridData.FILL_HORIZONTAL,
+				GridData.FILL_VERTICAL, false, true, 1, 1);
+		gridData.heightHint = 220;
+		gridData.widthHint = 230;
+		visualPropertiesTable.setLayoutData(gridData);
+		TableLayout tableLayout = new TableLayout();
+		tableLayout.addColumnData(new ColumnWeightData(2));
+		tableLayout.addColumnData(new ColumnWeightData(1));
+		visualPropertiesTable.setLayout(tableLayout);
+		
+		
+		Class<?>[] supportedClasses = { String.class, Boolean.class, Color.class,
+            Integer.class, Double.class };
+
+		visualPropertiesTableViewer = new TableViewer(visualPropertiesTable);
+		TableViewerColumn labelColumn = new TableViewerColumn(
+				visualPropertiesTableViewer, SWT.NONE);
+		labelColumn.getColumn().setText("Property");
+
+		TableViewerColumn valueColumn = new TableViewerColumn(
+				visualPropertiesTableViewer, SWT.NONE);
+		valueColumn.getColumn().setText("Value");
+
+		CellEditor[] editors = new CellEditor[10];
+		editors[0] = new TextCellEditor(visualPropertiesTable);
+		editors[1] = new ColorCellEditor(visualPropertiesTable);
+		
+		visualPropertiesTableViewer.setCellEditors(editors);
+		
+		
+		// the editor for the cells
+		final TableEditor editor = new TableEditor(visualPropertiesTable);
+		editor.horizontalAlignment = SWT.LEFT;
+		editor.grabHorizontal = true;
+		visualPropertiesTable.addListener(SWT.MouseDown, new Listener() {
+			public void handleEvent(Event event) {
+				Rectangle clientArea = visualPropertiesTable.getClientArea();
+				Point pt = new Point(event.x, event.y);
+				int index = visualPropertiesTable.getTopIndex();
+				while (index < visualPropertiesTable.getItemCount()) {
+					boolean visible = false;
+					final TableItem item = visualPropertiesTable.getItem(index);
+
+					// look if the mouse event is in an editable cell
+					Rectangle rect = item.getBounds(1);
+					if (rect.contains(pt)) {
+						final int editColumn = 1;
+						if (item.getText(0).equals(LABEL_KEY)) {
+
+						}
+						final Text text = new Text(visualPropertiesTable,
+								SWT.NONE);
+						Listener textListener = new Listener() {
+							public void handleEvent(final Event e) {
+								switch (e.type) {
+								case SWT.FocusOut:
+									item.setText(editColumn, text.getText());
+									text.dispose();
+									break;
+								case SWT.Traverse:
+									switch (e.detail) {
+									case SWT.TRAVERSE_RETURN:
+										item.setText(editColumn, text.getText());
+										// updateProperties(
+										// item.getText(0), text.getText());
+
+									case SWT.TRAVERSE_ESCAPE:
+										text.dispose();
+										e.doit = false;
+									}
+									break;
+								}
+							}
+						};
+						text.addListener(SWT.FocusOut, textListener);
+						text.addListener(SWT.Traverse, textListener);
+						editor.setEditor(text, item, 1);
+						text.setText(item.getText(1));
+						text.selectAll();
+						text.setFocus();
+						return;
+					}
+					if (!visible && rect.intersects(clientArea)) {
+						visible = true;
+					}
+					// }
+					if (!visible)
+						return;
+					index++;
+				}
+			}
+		});
+
+		refreshPropertiesTable();
+
+	}
+
+	private void refreshPropertiesTable() {
+
+		visualPropertiesTable.clearAll();
+		visualPropertiesTable.setItemCount(0);
+
+		TableItem labelItem = new TableItem(visualPropertiesTable, SWT.NONE);
+		labelItem.setText(0, LABEL_KEY);
+		TableItem colorItem = new TableItem(visualPropertiesTable, SWT.NONE);
+		colorItem.setText(0, COLOR_KEY);
+
+		/*
+		 * HashMap<String, Object> properties = lastSelectedInput
+		 * .getProperties();
+		 * 
+		 * properties.remove(NAME_KEY);
+		 * 
+		 * for (Object key : properties.keySet()) { TableItem item = new
+		 * TableItem(visualPropertiesTable, SWT.NONE); item.setText(0,
+		 * String.valueOf(key)); item.setText(1,
+		 * String.valueOf(properties.get(key))); }
+		 */
 	}
 
 	/*
@@ -137,6 +302,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				createCommonChartComposite();
 			}
 		}
+		refreshPropertiesTable();
 		listViewer.refresh();
 		composite.layout();
 	}
@@ -171,7 +337,6 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		IStructuredSelection selection = (IStructuredSelection) listViewer
 				.getSelection();
 		lastSelectedInput = (IVisualizationInput) selection.getFirstElement();
-		createSpecificChartComposite();
 		refresh();
 	}
 
