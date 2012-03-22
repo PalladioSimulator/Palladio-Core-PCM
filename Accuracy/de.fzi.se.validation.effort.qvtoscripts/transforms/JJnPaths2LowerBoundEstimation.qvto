@@ -9,7 +9,7 @@ modeltype ESTIMATION uses 'http://se.fzi.de/ValidationEffortEstimation/0.5';
 /**Estimation for the lower bound of required tests for a graph.
  * @author Henning Groenda
  */
-transformation JJnPaths2LowerBoundEstimation(in descr : CFGD, inout estimation : JJNPATHS);
+transformation JJnPaths2LowerBoundEstimation(in descr : CFGD, inout estimation : ESTIMATION);
 
 main() {
 	log('JJnPaths2LowerBoundEstimation started ');

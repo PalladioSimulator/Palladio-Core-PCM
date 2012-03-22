@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="de.fzi.se.validation.effort.launchConfigurationEstimator">
+<stringAttribute key="JJnPaths_n" value="1"/>
+<stringAttribute key="SPT_n" value="0"/>
 <stringAttribute key="behaviourURI" value="platform:/resource/cocomePcmModel/cocome.repository#orderProductsAvailableAtOtherStores"/>
 <stringAttribute key="confidence" value="0.95"/>
 <intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="2"/>
-<stringAttribute key="n" value="3"/>
+<stringAttribute key="n" value="0"/>
 <stringAttribute key="repositoryFile" value="platform:/resource/cocomePcmModel/cocome.repository"/>
 </launchConfiguration>
