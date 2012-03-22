@@ -69,7 +69,7 @@ helper ResourceDemandingBehaviour :: ToVertices(in outerIterations : Real) : Ord
 
 helper AbstractAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) {
 	var vertex : Vertex = new Vertex(nextNumber(), outerIterations);
-	log('processing action: type=' + self.metaClassName() + ', name='+ self.entityName + ', vertex: number=' + vertex.number.toString());
+	log('processing action: type=' + self.metaClassName() + ', name='+ self.entityName + ', vertex: number=' + vertex.number.toString()+ ', outerIterations=' + outerIterations.toString());
 	return vertex->asOrderedSet();
 }
 
@@ -79,16 +79,16 @@ helper AbstractLoopAction :: ToVertices() : OrderedSet(Vertex) {
 }
 
 helper LoopAction :: ToVertices(in outerIterations : Real) : OrderedSet(Vertex) {
-	log('processing action: type=' + self.metaClassName() + ', name='+ self.entityName);
+	log('processing action: type=' + self.metaClassName() + ', name='+ self.entityName + ', outerIterations=' + outerIterations.toString());
 	var newVertices : OrderedSet(Vertex) = OrderedSet {};
 	var loopDecision : Vertex = new Vertex(nextNumber(), outerIterations);
 	newVertices += loopDecision;
 	var iterationExpression : Expression = self.iterationCount_LoopAction.expression;
 	var iterations : Real;
 	if (iterationExpression.IsParametricDependency()) then {
-		iterations = 1;
+		iterations := 1;
 	} else {
-		iterations = iterationExpression.GetIterations();
+		iterations := iterationExpression.GetIterations();
 	} endif;
 	var subVertices : OrderedSet(Vertex) = self.bodyBehaviour_Loop.ToVertices(outerIterations * iterations);
 	if (iterationExpression.oclIsKindOf(NumericLiteral) or iterationExpression.oclIsKindOf(ProbabilityFunctionLiteral)) then {
