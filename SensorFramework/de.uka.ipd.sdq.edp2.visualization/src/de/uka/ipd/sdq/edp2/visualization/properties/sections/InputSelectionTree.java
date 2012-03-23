@@ -35,10 +35,10 @@ public class InputSelectionTree extends Composite {
 		}
 
 		public String getText(Object element) {
-			if (element instanceof IDataSink)
+			if (element instanceof IVisualizationInput)
+				return ((IVisualizationInput) element).getInputName();
+			else if (element instanceof IDataSink)
 				return ((IDataSink) element).getName();
-			else if (element instanceof IVisualizationInput)
-				return ((IVisualizationInput) element).getName();
 			return super.getText(element);
 		}
 	}
@@ -50,7 +50,7 @@ public class InputSelectionTree extends Composite {
 	 * @param style
 	 */
 	public InputSelectionTree(Composite parent, int style,
-			IVisualizationInputHandle inputHandler) {
+			IVisualizationInputHandle inputHandle) {
 		super(parent, SWT.EMBEDDED);
 		setLayout(new GridLayout(1, false));
 
@@ -65,7 +65,7 @@ public class InputSelectionTree extends Composite {
 		tree.setLayoutData(gd_tree);
 		treeViewer.setLabelProvider(new ViewerLabelProvider());
 		treeViewer.setContentProvider(new InputSelectionContentProvider());
-		treeViewer.setInput(inputHandler);
+		treeViewer.setInput(inputHandle);
 	}
 
 	@Override

@@ -6,21 +6,17 @@ package de.uka.ipd.sdq.edp2.visualization.editors;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
 
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IMemento;
-import org.eclipse.ui.views.properties.IPropertySource;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.DefaultXYItemRenderer;
 import org.jfree.data.general.AbstractSeriesDataset;
-import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.xy.DefaultXYDataset;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
@@ -32,7 +28,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.properties.SpecificChartProperties;
+import de.uka.ipd.sdq.edp2.visualization.properties.IProperty;
 
 /**
  * Input for {@link ScatterPlotEditor} .
@@ -159,11 +155,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public SpecificChartProperties getChartProperties() {
-		throw new RuntimeException("Not implemented!");
-	}
-
-	@Override
 	public JFreeChart getChart() {
 		updateInputData();
 		XYPlot plot = new XYPlot();
@@ -188,11 +179,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		copy.setProperties(this.getProperties());
 		copy.setSource(source);
 		return copy;
-	}
-
-	@Override
-	public Composite getSpecificPropertiesComposite(Composite parent) {
-		throw new RuntimeException("Not implemented!");
 	}
 
 	@Override
@@ -253,12 +239,10 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		 */
 		logger.log(Level.INFO, "Editor input updateDataSet end");
 		
-
 	}
 
 	@Override
 	public BasicDataset<DefaultXYDataset> getBasicDataset() {
 		return dataset;
 	}
-
 }

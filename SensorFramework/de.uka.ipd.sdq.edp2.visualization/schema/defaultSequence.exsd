@@ -51,7 +51,7 @@ An important role plays the &lt;b&gt;matchingMetric&lt;/b&gt; element: a specifi
    <element name="adapter">
       <complexType>
          <sequence>
-            <element ref="property" minOccurs="1" maxOccurs="unbounded"/>
+            <element ref="property" minOccurs="0" maxOccurs="unbounded"/>
          </sequence>
          <attribute name="adapterID" type="string" use="required">
             <annotation>
@@ -113,8 +113,8 @@ An important role plays the &lt;b&gt;matchingMetric&lt;/b&gt; element: a specifi
          <sequence>
             <element ref="adapter" minOccurs="0" maxOccurs="unbounded"/>
             <element ref="filter" minOccurs="0" maxOccurs="unbounded"/>
-            <element ref="visualization"/>
             <element ref="inputMetric"/>
+            <element ref="datasink"/>
          </sequence>
          <attribute name="name" type="string" use="required">
             <annotation>
@@ -133,12 +133,12 @@ An important role plays the &lt;b&gt;matchingMetric&lt;/b&gt; element: a specifi
       </complexType>
    </element>
 
-   <element name="visualization">
+   <element name="filter">
       <complexType>
          <sequence>
-            <element ref="property" minOccurs="1" maxOccurs="unbounded"/>
+            <element ref="property" minOccurs="0" maxOccurs="unbounded"/>
          </sequence>
-         <attribute name="visualizationID" type="string" use="required">
+         <attribute name="filterID" type="string" use="required">
             <annotation>
                <documentation>
                   
@@ -148,12 +148,12 @@ An important role plays the &lt;b&gt;matchingMetric&lt;/b&gt; element: a specifi
       </complexType>
    </element>
 
-   <element name="filter">
+   <element name="datasink">
       <complexType>
          <sequence>
-            <element ref="property" minOccurs="1" maxOccurs="unbounded"/>
+            <element ref="property" minOccurs="0" maxOccurs="unbounded"/>
          </sequence>
-         <attribute name="filterID" type="string" use="required">
+         <attribute name="sinkID" type="string" use="required">
             <annotation>
                <documentation>
                   

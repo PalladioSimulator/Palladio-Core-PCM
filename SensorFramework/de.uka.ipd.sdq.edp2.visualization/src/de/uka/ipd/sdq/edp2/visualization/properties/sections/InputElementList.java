@@ -38,7 +38,7 @@ public class InputElementList extends Composite {
 
 		public String getText(Object element) {
 			if (element instanceof IVisualizationInput)
-				return ((IVisualizationInput) element).getName();
+				return ((IVisualizationInput) element).getInputName();
 			return super.getText(element);
 		}
 	}

@@ -47,6 +47,12 @@ public abstract class IVisualizationInput extends Observable implements
 	 * predecessor.
 	 */
 	protected AbstractDataSource source;
+	
+	/**
+	 * A display name for this {@link IVisualizationInput}.
+	 */
+	private String inputName;
+
 
 	/**
 	 * Returns a new Instance of the data type, which is required to display the
@@ -125,15 +131,6 @@ public abstract class IVisualizationInput extends Observable implements
 
 	}
 
-	/**
-	 * Returns a composite, which displays and allows to edit the specific
-	 * properties for the implementing class.
-	 * 
-	 * @param parent
-	 *            the parent {@link Composite}
-	 * @return the {@link Composite} allowing to modify this input's properties
-	 */
-	public abstract Composite getSpecificPropertiesComposite(Composite parent);
 
 	/*
 	 * (non-Javadoc)
@@ -215,6 +212,14 @@ public abstract class IVisualizationInput extends Observable implements
 	public Object getAdapter(Class adapter) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public String getInputName() {
+		return inputName;
+	}
+	
+	public void setInputName(String inputName) {
+		this.inputName = inputName;
 	}
 
 }

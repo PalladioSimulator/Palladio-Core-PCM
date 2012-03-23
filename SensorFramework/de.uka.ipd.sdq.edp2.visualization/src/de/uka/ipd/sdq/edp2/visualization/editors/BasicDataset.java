@@ -7,19 +7,18 @@ import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.statistics.HistogramDataset;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.DataSeriesImpl;
-import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 
 public class BasicDataset<T extends AbstractSeriesDataset> {
 	private T dataset;
-	private List<IVisualizationInput> dataSeriesItems;
+	private List<JFreeChartEditorInput> dataSeriesItems;
 	private boolean datasetChanged;
 
 	public BasicDataset(T dataset) {
 		this.dataset = dataset;
-		this.dataSeriesItems = new ArrayList<IVisualizationInput>();
+		this.dataSeriesItems = new ArrayList<JFreeChartEditorInput>();
 	}
 
-	public boolean addDataSeries(IVisualizationInput fromInput) {
+	public boolean addDataSeries(JFreeChartEditorInput fromInput) {
 		boolean compatible = checkInputCompatibility(fromInput);
 		if (compatible) {
 			dataSeriesItems.add(fromInput);
@@ -40,9 +39,9 @@ public class BasicDataset<T extends AbstractSeriesDataset> {
 		if (datasetChanged) {
 			if (dataset instanceof HistogramDataset) {
 				HistogramDataset hds = new HistogramDataset();
-				for (IVisualizationInput input : dataSeriesItems) {
+				for (JFreeChartEditorInput input : dataSeriesItems) {
 					hds.addSeries(
-							input.getDefaultName(),
+							input.getInputName(),
 							(double[]) input.getData(),
 							Integer.parseInt(input.getProperties()
 									.get("numberOfBins").toString()));
@@ -53,8 +52,16 @@ public class BasicDataset<T extends AbstractSeriesDataset> {
 		return dataset;
 	}
 
-	public boolean checkInputCompatibility(IVisualizationInput withInput) {
+	public boolean checkInputCompatibility(JFreeChartEditorInput withInput) {
 		return dataset.getClass().getName()
 				.equals(withInput.getDataTypeInstance().getClass().getName());
+	}
+	
+	public String[] getColorProperties(){
+		String[] hexColors = new String[dataSeriesItems.size()];
+		for (int i = 0; i<dataSeriesItems.size();i++){
+			hexColors[i]=dataSeriesItems.get(i).getColor();
+		}
+		return hexColors;
 	}
 }

@@ -3,30 +3,18 @@
  */
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Observable;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IPersistableElement;
+import org.eclipse.swt.graphics.Color;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.general.AbstractSeriesDataset;
-import org.jfree.data.xy.XYDataset;
 
-import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
-import de.uka.ipd.sdq.edp2.visualization.IDataFlow;
-import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
-import de.uka.ipd.sdq.edp2.visualization.properties.CommonJFreeChartProperties;
-import de.uka.ipd.sdq.edp2.visualization.properties.SpecificChartProperties;
+import de.uka.ipd.sdq.edp2.visualization.properties.IProperty;
 
 /**
  * @author Dominik Ernst
@@ -35,12 +23,33 @@ import de.uka.ipd.sdq.edp2.visualization.properties.SpecificChartProperties;
 public abstract class JFreeChartEditorInput extends IVisualizationInput
 		implements ISelection {
 
+	public static final String TITLEY_KEY = "title";
+	public static final String DOMAIN_AXIS_LABEL_KEY = "domainAxisLabel";
+	public static final String RANGE_AXIS_LABEL_KEY = "rangeAxisLabel";
+	public static final String COLOR_KEY = "color";
+
 	/**
-	 * The title for the chart.
+	 * The title for the chart. Only used if the input is the main input, i.e.
+	 * the first input in case multiple inputs are supported by the editor.
 	 */
 	private String title;
+
+	/**
+	 * Label for the number axis (= horizontal axis)
+	 */
+	private String domainAxisLabel;
+
+	/**
+	 * Label for the range axis (= vertical axis)
+	 */
+	private String rangeAxisLabel;
 	
-	public JFreeChartEditorInput(){
+	/**
+	 * Color for this {@link JFreeChartEditorInput}'s data in the graph.
+	 */
+	private String hexColor;
+	
+	public JFreeChartEditorInput() {
 		properties = new HashMap<String, Object>();
 	}
 
@@ -71,6 +80,7 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 *            the title to set
 	 */
 	public void setTitle(String title) {
+		properties.put(TITLEY_KEY, title);
 		this.title = title;
 	}
 
@@ -85,25 +95,17 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	@Override
 	public void setInitializationData(IConfigurationElement config,
 			String propertyName, Object data) throws CoreException {
-		// TODO Auto-generated method stub
-		// not used so far
+		// not used/needed so far
 	}
 
 	/**
-	 * This method delivers the particular bean-class, which is used to describe
-	 * the chart's properties.
+	 * Returns the JFreeChart, using the specific dataset, which is required by
+	 * the implementing class.
 	 * 
-	 * @return the properties class, which forwards changes in its attributes to
-	 *         the {@link JFreeChart}
-	 */
-	public abstract SpecificChartProperties getChartProperties();
-	
-	/**
-	 * Returns the JFreeChart, using the specific dataset, which is required by the implementing class.
 	 * @return a newly created {@link JFreeChart}
 	 */
 	public abstract JFreeChart getChart();
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -113,13 +115,43 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	public boolean isEmpty() {
 		return this.source != null;
 	}
-	
+
 	/**
-	 * Generic method which returns a typed instance of the wrapper for datasets used by JFreeCharts. 
+	 * Generic method which returns a typed instance of the wrapper for datasets
+	 * used by JFreeCharts.
+	 * 
 	 * @return
 	 */
 	public abstract <T extends AbstractSeriesDataset> BasicDataset<T> getBasicDataset();
-	
 
+	public String getDomainAxisLabel() {
+		return domainAxisLabel;
+	}
+
+	public void setDomainAxisLabel(String domainAxisLabel) {
+		properties.put(DOMAIN_AXIS_LABEL_KEY, domainAxisLabel);
+		this.domainAxisLabel = domainAxisLabel;
+	}
+
+	public String getRangeAxisLabel() {
+		return rangeAxisLabel;
+	}
+
+	public void setRangeAxisLabel(String rangeAxisLabel) {
+		properties.put(RANGE_AXIS_LABEL_KEY, rangeAxisLabel);
+		this.rangeAxisLabel = rangeAxisLabel;
+	}
+
+	public String getColor() {
+		return hexColor;
+	}
+
+	public void setColor(Color color) {
+		int r=color.getRed();
+		int b = color.getBlue();
+		int g = color.getGreen();
+		this.hexColor = Integer.toHexString(r)+Integer.toHexString(b)+Integer.toHexString(g);
+		properties.put(COLOR_KEY, hexColor);
+	}
 
 }

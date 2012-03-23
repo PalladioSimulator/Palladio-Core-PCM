@@ -3,30 +3,22 @@
  */
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IMemento;
-import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.labels.StandardXYToolTipGenerator;
-import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
-import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.general.AbstractSeriesDataset;
-import org.jfree.data.general.Dataset;
 import org.jfree.data.statistics.HistogramDataset;
-import org.jfree.data.xy.XYDataset;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
@@ -34,10 +26,7 @@ import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
-import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.properties.CommonJFreeChartProperties;
-import de.uka.ipd.sdq.edp2.visualization.properties.HistogramChartProperties;
-import de.uka.ipd.sdq.edp2.visualization.properties.sections.HistogramChartPropertiesComposite;
+import de.uka.ipd.sdq.edp2.visualization.properties.IProperty;
 
 /**
  * @author Dominik Ernst
@@ -74,7 +63,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	private final static Logger logger = Logger
 			.getLogger(HistogramEditorInput.class.getCanonicalName());
 
-	private HistogramChartProperties chartProperties;
 	private XYBarRenderer renderer;
 	private XYPlot plot;
 	private JFreeChart chart;
@@ -96,7 +84,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	public HistogramEditorInput(AbstractDataSource source) {
 		super(source);
-		chartProperties = new HistogramChartProperties(this);
 		dataset = new BasicDataset<HistogramDataset>(new HistogramDataset());
 	}
 
@@ -132,9 +119,17 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 					listOfMeasures.get(0).get(i).getUnit());
 
 		}
-		// set the title of the chart to the name of the input data series
-		setTitle(metrics[0].getName());
-		defaultDataset.addSeries(getTitle(), data, getNumberOfBins());
+		
+		// set the textual information of the chart
+		if (getTitle() == null) setTitle("Frequency of "+metrics[0].getName());
+		
+		if (getInputName() == null) setInputName(getDefaultName());
+		
+		setDomainAxisLabel(metrics[0].getName()+" ["+getDefaultUnits()[0].toString()+"]");
+		
+		if (getRangeAxisLabel() == null) setRangeAxisLabel("Frequency (Absolute)");
+		
+		defaultDataset.addSeries(getInputName(), data, getNumberOfBins());
 		if (dataset == null) {
 			dataset = new BasicDataset<HistogramDataset>(getDataTypeInstance());
 			dataset.addDataSeries(this);
@@ -214,6 +209,8 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 					.toString()));
 		else
 			setNumberOfBins(DEFAULT_NUMBER_BINS);
+		if (properties.get(COLOR_KEY) != null
+				&& newProperties.get(COLOR_KEY) != null) setColor((org.eclipse.swt.graphics.Color)newProperties.get(COLOR_KEY));
 	}
 
 	private int getNumberOfBins() {
@@ -227,25 +224,20 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		this.numberOfBins = numberOfBins;
 	}
 
-	@Override
-	public HistogramChartProperties getChartProperties() {
-		return chartProperties;
-	}
-
-	public void updateChartProperties() {
-		setNumberOfBins(chartProperties.getNumberOfBins());
-	}
-
 	public JFreeChart getChart() {
-		NumberAxis domainAxis = new NumberAxis(getTitle());
+		NumberAxis domainAxis = new NumberAxis(getDomainAxisLabel());
 		domainAxis.setAutoRangeIncludesZero(false);
-		NumberAxis rangeAxis = new NumberAxis("Frequency (Abs)");
+		NumberAxis rangeAxis = new NumberAxis(getRangeAxisLabel());
 		plot = new XYPlot();
 		plot.setDataset(getBasicDataset().getDataset());
 		renderer = new XYBarRenderer();
 		plot.setRenderer(renderer);
 		plot.setRangeAxis(rangeAxis);
 		plot.setDomainAxis(domainAxis);
+		String[] hexColors = getBasicDataset().getColorProperties();
+		for (int i = 0; i < hexColors.length; i++){
+			renderer.setSeriesPaint(i, Color.decode(hexColors[i]));
+		}
 		chart = new JFreeChart(getTitle(),
 				JFreeChart.DEFAULT_TITLE_FONT, plot, true);
 		return chart;
@@ -263,18 +255,11 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public Composite getSpecificPropertiesComposite(Composite parent) {
-		return new HistogramChartPropertiesComposite(parent, SWT.EMBEDDED, getChartProperties());
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
 	public BasicDataset<HistogramDataset> getBasicDataset() {
 		return dataset;
 	}
 
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public HistogramDataset getDataTypeInstance() {
 		return new HistogramDataset();

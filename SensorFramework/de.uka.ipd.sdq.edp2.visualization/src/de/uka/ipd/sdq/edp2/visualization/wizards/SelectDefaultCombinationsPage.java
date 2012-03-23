@@ -41,8 +41,8 @@ import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 /**
  * Implementation of a {@link WizardPage} that contains a list of visualizations
  * which are able to display the selected data. The list contains both the basic defaults, 
- * i.e. registered visualizations, and defaults as described by extensions to the extension point
- * <de.uka.ipd.sdq.edp2.visualization.defaultSequences>.
+ * i.e. registered visualizations only, and defaults as described by extensions to the extension point
+ * <code>de.uka.ipd.sdq.edp2.visualization.defaultSequences</code>.
  * @author Dominik Ernst
  */
 public class SelectDefaultCombinationsPage extends WizardPage implements
@@ -68,7 +68,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	 */
 	private final static String ELEMENT_ID_ADAPTER = "adapter";
 	private final static String ELEMENT_ID_FILTER = "filter";
-	private final static String ELEMENT_ID_VISUALIZATION = "visualization";
+	private final static String ELEMENT_ID_DATASINK = "datasink";
 	private final static String ELEMENT_ID_PROPERTY = "property";
 	private final static String ELEMENT_ID_INPUT_METRIC = "inputMetric";
 	private final static String INPUT_METRIC_UUID_ATTRIBUTE = "UUID";
@@ -77,7 +77,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 	private final static String PROPERTY_VALUE_ATTRIBUTE = "value";
 	private final static String ADAPTER_ID_ATTRIBUTE = "adapterID";
 	private final static String FILTER_ID_ATTRIBUTE = "filterID";
-	private final static String VISUALIZATION_ID_ATTRIBUTE = "visualizationID";
+	private final static String DATASINK_ID_ATTRIBUTE = "sinkID";
 
 	private final static String CLASS_ATTRIBUTE = "class";
 	private final static String ID_ATTRIBUTE = "id";
@@ -234,11 +234,11 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 						tempDefault.addSequenceProperty(elementProperties);
 					}
 
-				} else if (element.getName().equals(ELEMENT_ID_VISUALIZATION)) {
+				} else if (element.getName().equals(ELEMENT_ID_DATASINK)) {
 					// the visualization is handled separately by the
 					// DefaultSequence class
 					tempDefault.setVisualization(charts.get(element
-							.getAttribute(VISUALIZATION_ID_ATTRIBUTE)));
+							.getAttribute(DATASINK_ID_ATTRIBUTE)));
 					final IConfigurationElement[] properties = element
 							.getChildren(ELEMENT_ID_PROPERTY);
 					for (IConfigurationElement property : properties) {

@@ -83,14 +83,6 @@
                   value="1">
             </property>
          </adapter>
-         <visualization
-               visualizationID="de.uka.ipd.sdq.edp2.visualization.Histogram">
-            <property
-                  key="numberOfBins"
-                  name="number of bins displayed"
-                  value="10">
-            </property>
-         </visualization>
          <filter
                filterID="de.uka.ipd.sdq.edp2.transformation.WarmupFilter">
             <property
@@ -104,6 +96,38 @@
                description="2-dimensional: Response Time + Simulation Time"
                name="Simulation: Response Time">
          </inputMetric>
+         <datasink
+               sinkID="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
+            <property
+                  key="numberOfBins"
+                  name="number of bins"
+                  value="10">
+            </property>
+         </datasink>
+      </defaultSequence>
+      <defaultSequence
+            id="histogram2"
+            name="Histogram 2">
+         <inputMetric
+               UUID="_MenvIiUREd6gmLudJva2Dw"
+               description="Simple Histogram with necessary Adapter">
+         </inputMetric>
+         <adapter
+               adapterID="de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter">
+            <property
+                  key="dataSeriesIndex"
+                  name="index"
+                  value="1">
+            </property>
+         </adapter>
+         <datasink
+               sinkID="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
+            <property
+                  key="numberOfBins"
+                  name="number of bins"
+                  value="10">
+            </property>
+         </datasink>
       </defaultSequence>
    </extension>
    <extension

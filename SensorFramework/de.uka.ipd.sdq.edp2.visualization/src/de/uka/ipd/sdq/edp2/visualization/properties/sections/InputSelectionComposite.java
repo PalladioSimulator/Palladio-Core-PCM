@@ -78,7 +78,7 @@ public class InputSelectionComposite extends Composite {
 
 			@Override
 			public String getText(Object element) {
-				return ((JFreeChartEditorInput) element).getName();
+				return ((JFreeChartEditorInput) element).getInputName();
 			}
 
 			@Override
