@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData.presentation;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.jface.viewers.DoubleClickEvent;
