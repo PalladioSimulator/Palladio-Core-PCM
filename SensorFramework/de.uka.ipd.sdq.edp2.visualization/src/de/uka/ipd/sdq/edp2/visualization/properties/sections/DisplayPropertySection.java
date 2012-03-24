@@ -1,12 +1,10 @@
 package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
 import java.util.HashMap;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.plaf.basic.BasicScrollPaneUI.VSBChangeListener;
-
 import org.eclipse.jface.viewers.CellEditor;
-import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ColorCellEditor;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
@@ -18,15 +16,9 @@ import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.TextCellEditor;
-import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.ViewerCell;
-import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.custom.TableEditor;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.graphics.Color;
+import java.awt.Color;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
@@ -41,11 +33,11 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.ISection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
 
+import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
 import de.uka.ipd.sdq.edp2.visualization.Activator;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
@@ -53,7 +45,6 @@ import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
-import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandle;
 
 /**
  * GUI controls for displaying options of {@link AbstractEditor}s. Shows and
@@ -75,17 +66,10 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 */
 	private final static String NAME_KEY = "elementName";
 
-	private final static String LABEL_KEY = "Label";
-	private final static String COLOR_KEY = "Color";
-
 	/**
 	 * Composite for all properties of all JFreeCharts
 	 */
-	private Composite commonPropertiesComposite;
-	/**
-	 * Composite for the properties of the currently displayed chart.
-	 */
-	private Composite specificPropertiesComposite;
+	private CommonJFreeChartPropertiesComposite commonPropertiesComposite;
 	/**
 	 * The last active editor;
 	 */
@@ -160,9 +144,6 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		tableLayout.addColumnData(new ColumnWeightData(1));
 		visualPropertiesTable.setLayout(tableLayout);
 
-		Class<?>[] supportedClasses = { String.class, Boolean.class,
-				Color.class, Integer.class, Double.class };
-
 		visualPropertiesTableViewer = new TableViewer(visualPropertiesTable);
 		TableViewerColumn labelColumn = new TableViewerColumn(
 				visualPropertiesTableViewer, SWT.NONE);
@@ -171,12 +152,6 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		TableViewerColumn valueColumn = new TableViewerColumn(
 				visualPropertiesTableViewer, SWT.NONE);
 		valueColumn.getColumn().setText("Value");
-
-		CellEditor[] editors = new CellEditor[10];
-		editors[0] = new TextCellEditor(visualPropertiesTable);
-		editors[1] = new ColorCellEditor(visualPropertiesTable);
-
-		visualPropertiesTableViewer.setCellEditors(editors);
 
 		// the editor for the cells
 		final TableEditor editor = new TableEditor(visualPropertiesTable);
@@ -196,7 +171,8 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 					Rectangle rect = item.getBounds(editColumn);
 					if (rect.contains(pt)) {
 
-						if (item.getText(labelColumn).equals(LABEL_KEY)) {
+						if (!item.getText(labelColumn).equals(
+								JFreeChartEditorInput.COLOR_KEY)) {
 							final Text text = new Text(visualPropertiesTable,
 									SWT.NONE);
 							Listener textListener = new Listener() {
@@ -211,8 +187,8 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 										case SWT.TRAVERSE_RETURN:
 											item.setText(editColumn,
 													text.getText());
-											// updateProperties(
-											// item.getText(0), text.getText());
+											updateProperties(item.getText(0),
+													text.getText());
 
 										case SWT.TRAVERSE_ESCAPE:
 											text.dispose();
@@ -231,16 +207,27 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 							return;
 						}
 
-						if (item.getText(labelColumn).equals(COLOR_KEY)) {
+						else {
 							ColorDialog colorPicker = new ColorDialog(
 									visualPropertiesTable.getShell());
-							colorPicker.setRGB(item.getBackground(editColumn)
-									.getRGB());
+							colorPicker.setRGB(item.getBackground().getRGB());
 							colorPicker.open();
-							item.setBackground(editColumn, new Color(
-									visualPropertiesTable.getDisplay(),
-									colorPicker.getRGB()));
+							RGB rgbColor = colorPicker.getRGB();
+							item.setBackground(editColumn,
+									new org.eclipse.swt.graphics.Color(
+											visualPropertiesTable.getDisplay(),
+											rgbColor));
+							updateProperties(
+									item.getText(0),
+									"#"
+											+ Integer.toHexString(
+													new Color(rgbColor.red,
+															rgbColor.green,
+															rgbColor.blue)
+															.getRGB())
+													.substring(2));
 						}
+						refreshPropertiesTable();
 					}
 					if (!visible && rect.intersects(clientArea)) {
 						visible = true;
@@ -260,11 +247,6 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		visualPropertiesTable.clearAll();
 		visualPropertiesTable.setItemCount(0);
 
-		TableItem labelItem = new TableItem(visualPropertiesTable, SWT.NONE);
-		labelItem.setText(0, LABEL_KEY);
-		TableItem colorItem = new TableItem(visualPropertiesTable, SWT.NONE);
-		colorItem.setText(0, COLOR_KEY);
-
 		HashMap<String, Object> properties = lastSelectedInput.getProperties();
 
 		properties.remove(NAME_KEY);
@@ -273,6 +255,18 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 			TableItem item = new TableItem(visualPropertiesTable, SWT.NONE);
 			item.setText(0, String.valueOf(key));
 			item.setText(1, String.valueOf(properties.get(key)));
+			if (String.valueOf(key).equals(JFreeChartEditorInput.COLOR_KEY)) {
+				String hexColor = String.valueOf(properties.get(key));
+				if (hexColor.equals(JFreeChartEditorInput.NO_COLOR)) {
+					item.setText(1, "(default)");
+				} else {
+					item.setText(1, "");
+					Color col = Color.decode(hexColor);
+					item.setBackground(1, new org.eclipse.swt.graphics.Color(
+							visualPropertiesTable.getDisplay(), col.getRed(),
+							col.getGreen(), col.getBlue()));
+				}
+			}
 		}
 
 	}
@@ -296,8 +290,8 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * 
 	 * @return
 	 */
-	private IVisualizationInputHandle getInput() {
-		return (IVisualizationInputHandle) editor.getEditorInput();
+	private IVisualizationInputHandle<?> getInput() {
+		return (IVisualizationInputHandle<?>) editor.getEditorInput();
 	}
 
 	/*
@@ -314,6 +308,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 			// the common composite is identical for all IVisualizationInputs
 			if (commonPropertiesComposite == null) {
 				createCommonChartComposite();
+			} else {
 			}
 		}
 		listViewer.refresh();
@@ -324,14 +319,12 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		if (commonPropertiesComposite != null) {
 			commonPropertiesComposite.dispose();
 		}
-		commonPropertiesComposite = getInput().getCommonPropertiesComposite(
-				composite);
+		commonPropertiesComposite = (CommonJFreeChartPropertiesComposite) getInput()
+				.getCommonPropertiesComposite(composite);
 	}
 
 	private void createLayout(Composite composite) {
 		GridLayout layout = new GridLayout(2, false);
-		layout.marginWidth = 2;
-		layout.marginHeight = 2;
 		composite.setLayout(layout);
 	}
 
@@ -340,7 +333,8 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		IStructuredSelection selection = (IStructuredSelection) listViewer
 				.getSelection();
 		lastSelectedInput = (IVisualizationInput) selection.getFirstElement();
-		if (lastSelectedInput != null) refreshPropertiesTable();
+		if (lastSelectedInput != null)
+			refreshPropertiesTable();
 		refresh();
 	}
 
@@ -398,6 +392,27 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 */
 	public TabbedPropertySheetWidgetFactory getWidgetFactory() {
 		return tabbedPropertySheetPage.getWidgetFactory();
+	}
+
+	/**
+	 * Update the properties of the selected filter. It use the method
+	 * {@link AbstractTransformation#setProperties(HashMap)} to update the
+	 * properties from the Filter.
+	 * 
+	 * @param key
+	 *            the key as String.
+	 * @param value
+	 *            the value as an Object.
+	 */
+	private void updateProperties(String key, Object value) {
+		// get properties for keys and old values
+		HashMap<String, Object> newProperties = lastSelectedInput
+				.getProperties();
+		logger.log(Level.INFO, "" + lastSelectedInput.getInputName()
+				+ " updated with: " + key.toString() + ", " + value.toString());
+		newProperties.put(key, value);
+		lastSelectedInput.setProperties(newProperties);
+		lastSelectedInput.updateInputData();
 	}
 
 }

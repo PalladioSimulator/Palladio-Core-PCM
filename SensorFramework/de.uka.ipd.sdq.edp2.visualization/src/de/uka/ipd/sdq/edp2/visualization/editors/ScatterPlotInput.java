@@ -37,6 +37,7 @@ import de.uka.ipd.sdq.edp2.visualization.properties.IProperty;
  */
 public class ScatterPlotInput extends JFreeChartEditorInput {
 
+
 	/**
 	 * Name constant, which is used to identify this class in properties.
 	 */
@@ -74,7 +75,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 	public ScatterPlotInput(AbstractDataSource source) {
 		super(source);
-		setTitle(DEFAULT_TITLE);
 		dataset = new BasicDataset<DefaultXYDataset>(new DefaultXYDataset());
 	}
 
@@ -212,7 +212,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 				rawData[1][i] = y.doubleValue(y.getUnit());
 			}
 		
-		defaultDataset.addSeries(getTitle(), rawData);
+		defaultDataset.addSeries(getInputName(), rawData);
 		
 		MetricDescription[] metrics = MetricDescriptionUtility
 		.toBaseMetricDescriptions(getSource().getMeasurementsRange()
@@ -242,7 +242,12 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public BasicDataset<DefaultXYDataset> getBasicDataset() {
+	public BasicDataset<DefaultXYDataset> getBasicDataset(JFreeChartEditorInputHandle handle) {
 		return dataset;
+	}
+	
+	@Override
+	public String getName() {
+		return ELEMENT_NAME;
 	}
 }

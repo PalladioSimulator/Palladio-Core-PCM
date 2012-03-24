@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.edp2.visualization;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -23,6 +24,7 @@ import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 public abstract class IVisualizationInputHandle<T extends IVisualizationInput> extends Observable implements IEditorInput, Observer, ISelection, IPersistableElement {
 	
 	protected AbstractEditor editor;
+	protected HashMap<String, Object> properties;
 	
 	/**
 	 * Method to retrieve all contained {@link IDataSink}s. These are intended to be displayed by the same
@@ -75,4 +77,17 @@ public abstract class IVisualizationInputHandle<T extends IVisualizationInput> e
 	 * @return the composite showing and allowing to edit this {@link IVisualizationInput}'s display options.
 	 */
 	public abstract Composite getCommonPropertiesComposite(Composite parent);
+	
+	/**
+	 * Returns the properties of this {@link IVisualizationInputHandle}. These properties
+	 * are typically the same for all {@link IVisualizationInput}s managed by this handle, such as chart titles.
+	 * @return the properties of this {@link IVisualizationInputHandle}
+	 */
+	public abstract HashMap<String, Object> getProperties();
+	
+	/**
+	 * Overwrites the current properties with the provided {@code newProperties}; may be partial overrides, as well.
+	 * @param newProperties the properties to overwrite
+	 */
+	public abstract void setProperties(HashMap<String, Object> newProperties);
 }

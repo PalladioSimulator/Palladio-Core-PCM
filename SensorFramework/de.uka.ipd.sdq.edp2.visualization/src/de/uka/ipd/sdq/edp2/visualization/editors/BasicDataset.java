@@ -1,8 +1,11 @@
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
+import java.awt.Color;
+import java.awt.Paint;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jfree.chart.ChartColor;
 import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.statistics.HistogramDataset;
 
@@ -39,11 +42,11 @@ public class BasicDataset<T extends AbstractSeriesDataset> {
 		if (datasetChanged) {
 			if (dataset instanceof HistogramDataset) {
 				HistogramDataset hds = new HistogramDataset();
-				for (JFreeChartEditorInput input : dataSeriesItems) {
+				for (int i = 0; i < dataSeriesItems.size(); i++) {
 					hds.addSeries(
-							input.getInputName(),
-							(double[]) input.getData(),
-							Integer.parseInt(input.getProperties()
+							dataSeriesItems.get(i).getInputName(),
+							(double[]) dataSeriesItems.get(i).getData(),
+							Integer.parseInt(dataSeriesItems.get(i).getProperties()
 									.get("numberOfBins").toString()));
 				}
 				dataset = (T) hds;
@@ -60,7 +63,7 @@ public class BasicDataset<T extends AbstractSeriesDataset> {
 	public String[] getColorProperties(){
 		String[] hexColors = new String[dataSeriesItems.size()];
 		for (int i = 0; i<dataSeriesItems.size();i++){
-			hexColors[i]=dataSeriesItems.get(i).getColor();
+			hexColors[i]= dataSeriesItems.get(i).getColor();
 		}
 		return hexColors;
 	}

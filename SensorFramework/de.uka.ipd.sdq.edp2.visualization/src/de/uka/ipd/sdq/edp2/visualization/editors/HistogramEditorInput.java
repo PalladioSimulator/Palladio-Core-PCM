@@ -48,6 +48,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 * Default value for <code>numberOfBins</code>
 	 */
 	private final static int DEFAULT_NUMBER_BINS = 5;
+	
 	/**
 	 * The number of bins, i.e. the number of intervals of equal length in which
 	 * the measurements are counted.
@@ -63,11 +64,26 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	private final static Logger logger = Logger
 			.getLogger(HistogramEditorInput.class.getCanonicalName());
 
+	/**
+	 * Renderer for 2D-Bar-Charts.
+	 */
 	private XYBarRenderer renderer;
+	/**
+	 * The plot, containing the data.
+	 */
 	private XYPlot plot;
+	/**
+	 * The chart, in which the plot is rendered.
+	 */
 	private JFreeChart chart;
+	/**
+	 * The dataset required by this input, as a typed instance of {@link BasicDataset}
+	 */
 	private BasicDataset<HistogramDataset> dataset;
-	private NumberAxis domainAxis;
+	/**
+	 * The handle, which manages this input.
+	 */
+	private JFreeChartEditorInputHandle handle;
 
 	/**
 	 * Empty constructor.
@@ -121,18 +137,13 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		}
 		
 		// set the textual information of the chart
-		if (getTitle() == null) setTitle("Frequency of "+metrics[0].getName());
-		
 		if (getInputName() == null) setInputName(getDefaultName());
-		
-		setDomainAxisLabel(metrics[0].getName()+" ["+getDefaultUnits()[0].toString()+"]");
-		
-		if (getRangeAxisLabel() == null) setRangeAxisLabel("Frequency (Absolute)");
 		
 		defaultDataset.addSeries(getInputName(), data, getNumberOfBins());
 		if (dataset == null) {
 			dataset = new BasicDataset<HistogramDataset>(getDataTypeInstance());
 			dataset.addDataSeries(this);
+			setColor(NO_COLOR);
 		}
 		setChanged();
 		notifyObservers();
@@ -191,6 +202,8 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	public HashMap<String, Object> getProperties() {
 		properties.put(ELEMENT_KEY, ELEMENT_NAME);
 		properties.put(NUMBER_BINS_KEY, getNumberOfBins());
+		properties.put(COLOR_KEY, getColor());
+		properties.put(INPUT_NAME_KEY, getInputName());
 		return properties;
 	}
 
@@ -210,7 +223,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		else
 			setNumberOfBins(DEFAULT_NUMBER_BINS);
 		if (properties.get(COLOR_KEY) != null
-				&& newProperties.get(COLOR_KEY) != null) setColor((org.eclipse.swt.graphics.Color)newProperties.get(COLOR_KEY));
+				&& newProperties.get(COLOR_KEY) != null) setColor(newProperties.get(COLOR_KEY).toString());
 	}
 
 	private int getNumberOfBins() {
@@ -225,20 +238,21 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	}
 
 	public JFreeChart getChart() {
-		NumberAxis domainAxis = new NumberAxis(getDomainAxisLabel());
+		NumberAxis domainAxis = new NumberAxis(handle.getDomainAxisLabel());
 		domainAxis.setAutoRangeIncludesZero(false);
-		NumberAxis rangeAxis = new NumberAxis(getRangeAxisLabel());
+		NumberAxis rangeAxis = new NumberAxis(handle.getRangeAxisLabel());
 		plot = new XYPlot();
-		plot.setDataset(getBasicDataset().getDataset());
+		plot.setDataset(getBasicDataset(handle).getDataset());
 		renderer = new XYBarRenderer();
 		plot.setRenderer(renderer);
 		plot.setRangeAxis(rangeAxis);
 		plot.setDomainAxis(domainAxis);
-		String[] hexColors = getBasicDataset().getColorProperties();
+		String[] hexColors = getBasicDataset(handle).getColorProperties();
 		for (int i = 0; i < hexColors.length; i++){
+			if (!hexColors[i].equals(NO_COLOR))
 			renderer.setSeriesPaint(i, Color.decode(hexColors[i]));
 		}
-		chart = new JFreeChart(getTitle(),
+		chart = new JFreeChart(handle.getTitle(),
 				JFreeChart.DEFAULT_TITLE_FONT, plot, true);
 		return chart;
 	}
@@ -255,7 +269,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public BasicDataset<HistogramDataset> getBasicDataset() {
+	public BasicDataset<HistogramDataset> getBasicDataset(JFreeChartEditorInputHandle handle) {
 		return dataset;
 	}
 
@@ -263,6 +277,11 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	@Override
 	public HistogramDataset getDataTypeInstance() {
 		return new HistogramDataset();
+	}
+
+	@Override
+	public String getName() {
+		return ELEMENT_NAME;
 	}
 
 }

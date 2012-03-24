@@ -63,6 +63,7 @@ public class JFreeChartEditorInputHandleFactory implements IElementFactory {
 	public IAdaptable createElement(IMemento memento) {
 		JFreeChartEditorInputHandle handle = new JFreeChartEditorInputHandle();
 		memento = memento.getChild(ELEMENT_NAME);
+		//TODO load common chart properties here
 		IMemento[] inputMementos = memento.getChildren(INPUT_ELEMENT_KEY);
 		for (IMemento subMemento : inputMementos){
 			String elementName = subMemento.getString(INPUT_NAME_KEY);
@@ -76,6 +77,7 @@ public class JFreeChartEditorInputHandleFactory implements IElementFactory {
 	
 	public static void saveState(IMemento memento, JFreeChartEditorInputHandle inputHandle) {
 		memento = memento.createChild(ELEMENT_NAME);
+		//TODO store common chart properties here
 		for (IDataSink input : inputHandle.getInputs()) {
 			IMemento subMemento = memento.createChild(INPUT_ELEMENT_KEY);
 			subMemento.putString(INPUT_NAME_KEY, input.getClass().getCanonicalName());

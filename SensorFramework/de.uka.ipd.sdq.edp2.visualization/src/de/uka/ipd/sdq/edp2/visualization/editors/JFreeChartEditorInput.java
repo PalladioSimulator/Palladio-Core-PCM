@@ -8,7 +8,7 @@ import java.util.HashMap;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.swt.graphics.Color;
+import java.awt.Color;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.AbstractSeriesDataset;
 
@@ -23,26 +23,15 @@ import de.uka.ipd.sdq.edp2.visualization.properties.IProperty;
 public abstract class JFreeChartEditorInput extends IVisualizationInput
 		implements ISelection {
 
-	public static final String TITLEY_KEY = "title";
-	public static final String DOMAIN_AXIS_LABEL_KEY = "domainAxisLabel";
-	public static final String RANGE_AXIS_LABEL_KEY = "rangeAxisLabel";
+	
 	public static final String COLOR_KEY = "color";
+	
+	public static final String INPUT_NAME_KEY = "inputName";
 
 	/**
-	 * The title for the chart. Only used if the input is the main input, i.e.
-	 * the first input in case multiple inputs are supported by the editor.
+	 * Constant, describing that no color is used for this input (actually, it's white).
 	 */
-	private String title;
-
-	/**
-	 * Label for the number axis (= horizontal axis)
-	 */
-	private String domainAxisLabel;
-
-	/**
-	 * Label for the range axis (= vertical axis)
-	 */
-	private String rangeAxisLabel;
+	public final static String NO_COLOR = "#ffffff";
 	
 	/**
 	 * Color for this {@link JFreeChartEditorInput}'s data in the graph.
@@ -56,32 +45,6 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	public JFreeChartEditorInput(AbstractDataSource source) {
 		properties = new HashMap<String, Object>();
 		setSource(source);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.ui.IEditorInput#getName()
-	 */
-	@Override
-	public String getName() {
-		return title;
-	}
-
-	/**
-	 * @return the title
-	 */
-	public String getTitle() {
-		return title;
-	}
-
-	/**
-	 * @param title
-	 *            the title to set
-	 */
-	public void setTitle(String title) {
-		properties.put(TITLEY_KEY, title);
-		this.title = title;
 	}
 
 	/*
@@ -118,40 +81,22 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 
 	/**
 	 * Generic method which returns a typed instance of the wrapper for datasets
-	 * used by JFreeCharts.
-	 * 
-	 * @return
+	 * used by JFreeCharts. Requires a reference to a {@link JFreeChartEditorInputHandle} for coordination of properties.
+	 * @param handle reference to the handle for all inputs
+	 * @return a typed Dataset
 	 */
-	public abstract <T extends AbstractSeriesDataset> BasicDataset<T> getBasicDataset();
-
-	public String getDomainAxisLabel() {
-		return domainAxisLabel;
-	}
-
-	public void setDomainAxisLabel(String domainAxisLabel) {
-		properties.put(DOMAIN_AXIS_LABEL_KEY, domainAxisLabel);
-		this.domainAxisLabel = domainAxisLabel;
-	}
-
-	public String getRangeAxisLabel() {
-		return rangeAxisLabel;
-	}
-
-	public void setRangeAxisLabel(String rangeAxisLabel) {
-		properties.put(RANGE_AXIS_LABEL_KEY, rangeAxisLabel);
-		this.rangeAxisLabel = rangeAxisLabel;
-	}
+	public abstract <T extends AbstractSeriesDataset> BasicDataset<T> getBasicDataset(JFreeChartEditorInputHandle handle);
 
 	public String getColor() {
 		return hexColor;
 	}
 
+	public void setColor(String color){
+		Color col = Color.decode(color);
+		setColor(col);
+	}
 	public void setColor(Color color) {
-		int r=color.getRed();
-		int b = color.getBlue();
-		int g = color.getGreen();
-		this.hexColor = Integer.toHexString(r)+Integer.toHexString(b)+Integer.toHexString(g);
-		properties.put(COLOR_KEY, hexColor);
+		this.hexColor = "#"+Integer.toHexString(color.getRGB()).substring(2);
 	}
 
 }
