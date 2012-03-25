@@ -11512,26 +11512,6 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_ONi8cU-zEduuPYQnFiBybA" fontName="Sans" showStereotype="Label"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ONi8ck-zEduuPYQnFiBybA" x="15576" y="22836"/>
           </children>
-          <children xmi:id="_vLVlETN8Ed-oDbJSXOQA-w" element="_vLVlEDN8Ed-oDbJSXOQA-w">
-            <children xmi:id="_vLfWEDN8Ed-oDbJSXOQA-w" type="ImageCompartment">
-              <layoutConstraint xmi:type="notation:Size" xmi:id="_vLfWETN8Ed-oDbJSXOQA-w" width="1320" height="1320"/>
-            </children>
-            <children xmi:id="_vLfWEjN8Ed-oDbJSXOQA-w" type="Stereotype"/>
-            <children xmi:id="_vLfWEzN8Ed-oDbJSXOQA-w" type="Kind"/>
-            <children xmi:id="_vLfWFDN8Ed-oDbJSXOQA-w" type="Name"/>
-            <children xmi:id="_vLfWFTN8Ed-oDbJSXOQA-w" type="Parent"/>
-            <children xmi:id="_vLfWFjN8Ed-oDbJSXOQA-w" type="EnumerationCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_vLfWFzN8Ed-oDbJSXOQA-w"/>
-            </children>
-            <children xmi:id="_vLfWGDN8Ed-oDbJSXOQA-w" visible="false" type="AttributeCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_vLfWGTN8Ed-oDbJSXOQA-w"/>
-            </children>
-            <children xmi:id="_vLfWGjN8Ed-oDbJSXOQA-w" visible="false" type="OperationCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_vLfWGzN8Ed-oDbJSXOQA-w"/>
-            </children>
-            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_vLVlEjN8Ed-oDbJSXOQA-w" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vLVlEzN8Ed-oDbJSXOQA-w" x="1561" y="18362" width="6057" height="4258"/>
-          </children>
           <children xmi:id="_cxn-AEoqEeC1S_cnb630Xw" element="_GIDLsPdxEdqB_7dkOscBPA">
             <children xmi:id="_cySFUEoqEeC1S_cnb630Xw" type="ImageCompartment">
               <layoutConstraint xmi:type="notation:Size" xmi:id="_cySFUUoqEeC1S_cnb630Xw" width="1320" height="1320"/>
@@ -12695,9 +12675,6 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <body>UML-like&amp;nbsp;container&amp;nbsp;of&amp;nbsp;a&amp;nbsp;number&amp;nbsp;of&amp;nbsp;processing&amp;nbsp;resources (e.g. hardware server)</body>
         </ownedComment>
         <generalization xmi:id="_aCNMEOMwEdqaQsPH3rPnBQ" general="_au_WlWA_EdqdHZdhXRxKVg"/>
-        <ownedAttribute xmi:id="_L199gDN9Ed-oDbJSXOQA-w" name="operatingSystem_ResourceContainer" visibility="public" type="_vLVlEDN8Ed-oDbJSXOQA-w">
-          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_sYOf4DXPEd-zYP5X4Q3jLQ" name="ABSTRACT" type="_vLVlEDN8Ed-oDbJSXOQA-w" instance="_x1p2QDN8Ed-oDbJSXOQA-w"/>
-        </ownedAttribute>
         <ownedAttribute xmi:id="_-zhHMeEAEdq8ysXH3gTiEg" name="activeResourceSpecifications_ResourceContainer" type="_wru2gODnEdq8ysXH3gTiEg" aggregation="composite" association="_-zhHMOEAEdq8ysXH3gTiEg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_hTweEBEdq8ysXH3gTiEg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_hTwOEBEdq8ysXH3gTiEg"/>
@@ -12857,15 +12834,6 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
       <packagedElement xmi:type="uml:Association" xmi:id="_Oy4cMBmoEdyaJvvdhGgDYg" memberEnd="_Oy4cMRmoEdyaJvvdhGgDYg _Oy4cMhmoEdyaJvvdhGgDYg"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_ElM9kDhwEdy4wo8LP9zxLA" memberEnd="_ElM9kThwEdy4wo8LP9zxLA _ElM9kjhwEdy4wo8LP9zxLA"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_HTP4MDhwEdy4wo8LP9zxLA" memberEnd="_HTP4MThwEdy4wo8LP9zxLA _HTP4MjhwEdy4wo8LP9zxLA"/>
-      <packagedElement xmi:type="uml:Enumeration" xmi:id="_vLVlEDN8Ed-oDbJSXOQA-w" name="ContainerOperatingSystem">
-        <ownedLiteral xmi:id="_AERREDN9Ed-oDbJSXOQA-w" name="WINDOWS_VISTA" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_8WmFcDN8Ed-oDbJSXOQA-w" name="LINUX26_CFS" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_5joOkDN8Ed-oDbJSXOQA-w" name="LINUX26_O1" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_3XHTsDN8Ed-oDbJSXOQA-w" name="WINDOWS_XP" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_DZgHgDN9Ed-oDbJSXOQA-w" name="WINDOWS_7" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_zhP1YDN8Ed-oDbJSXOQA-w" name="WINDOWS_2003" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_x1p2QDN8Ed-oDbJSXOQA-w" name="ABSTRACT" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-      </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_lHM0QOK5EeCAjtHM2JahWQ" memberEnd="_lHTh8OK5EeCAjtHM2JahWQ _lHa2sOK5EeCAjtHM2JahWQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_V8vSACh9Edue7oeC4NTCGg" name="usagemodel">
