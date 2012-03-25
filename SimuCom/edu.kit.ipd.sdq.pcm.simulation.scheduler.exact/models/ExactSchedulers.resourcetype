@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resourcetype:ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:resourcetype="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0">
+  <schedulingPolicies__ResourceRepository id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.winxp" entityName="Windows XP Scheduler"/>
+  <schedulingPolicies__ResourceRepository id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.winvista" entityName="Windows Vista Scheduler"/>
+  <schedulingPolicies__ResourceRepository id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.win7" entityName="Windows 7 Scheduler"/>
+  <schedulingPolicies__ResourceRepository id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.winserver2003" entityName="Windows Server 2003 Scheduler"/>
+  <schedulingPolicies__ResourceRepository id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.linux26o1" entityName="Linux 2.6 O(1) Scheduler"/>
+  <schedulingPolicies__ResourceRepository id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.linux26cfs" entityName="Linux 2.6 CFS Scheduler"/>
+</resourcetype:ResourceRepository>
