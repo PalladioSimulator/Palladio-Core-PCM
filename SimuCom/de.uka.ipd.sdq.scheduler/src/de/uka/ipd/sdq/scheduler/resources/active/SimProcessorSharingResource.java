@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 public class SimProcessorSharingResource extends AbstractActiveResource {
@@ -154,10 +155,10 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 	protected void enqueue(ISchedulableProcess process) {
 	}
 
-	public void registerProcess(IRunningProcess runningProcess) {
+	public void registerProcess(ISchedulableProcess process) {
 	}
 	
-	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+	public int getQueueLengthFor(SchedulerEntity schedulerEntity) {
 		return this.running_processes.size();
 	}
 

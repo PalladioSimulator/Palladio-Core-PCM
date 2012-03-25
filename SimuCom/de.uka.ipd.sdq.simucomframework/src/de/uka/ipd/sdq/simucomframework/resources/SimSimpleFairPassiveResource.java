@@ -10,7 +10,6 @@ import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.PassiveResourceObservee;
-import de.uka.ipd.sdq.scheduler.resources.passive.SimAbstractPassiveResource;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 

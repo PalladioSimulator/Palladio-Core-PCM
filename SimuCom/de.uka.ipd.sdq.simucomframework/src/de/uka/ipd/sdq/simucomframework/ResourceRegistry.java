@@ -89,6 +89,16 @@ public class ResourceRegistry {
 		return resourceContainers;
 	}
 	
+	public List<SimulatedResourceContainer> getSimulatedResourceContainers() {
+		List<SimulatedResourceContainer> resourceContainers = new ArrayList<SimulatedResourceContainer>();
+		for (AbstractSimulatedResourceContainer container : resourceContainerHash.values()) {
+			if (container instanceof SimulatedResourceContainer) {
+				resourceContainers.add((SimulatedResourceContainer)container);
+			}
+		}
+		return resourceContainers;
+	}
+	
 	/**
 	 * @param resourceContainerID ID of the container
 	 * @return True if the given ID is known in the resource registry

@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.scheduler;
 
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
+import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 
 
@@ -51,18 +51,18 @@ public interface IActiveResource {
 
 	public abstract void stop(); 
 
-	public abstract void registerProcess(IRunningProcess runningProcess);
+	public abstract void registerProcess(ISchedulableProcess runningProcess);
 	
 	public abstract void notifyTerminated(ISchedulableProcess simProcess);
 
 	/**
 	 * Get the number of processes currently having requests issued to this resource and waiting
 	 * for the request to complete.
-	 * @param simResourceInstance
+	 * @param schedulerEntity
 	 * @return
 	 */
 	public abstract int getQueueLengthFor(
-			SimResourceInstance simResourceInstance);
+			SchedulerEntity schedulerEntity);
 	
 	public void addObserver(IActiveResourceStateSensor observer);
 		

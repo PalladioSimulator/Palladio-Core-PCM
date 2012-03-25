@@ -3,15 +3,7 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
-import de.uka.ipd.sdq.scheduler.priority.IPriorityBoost;
-import de.uka.ipd.sdq.scheduler.priority.IPriorityUpdateStrategy;
-import de.uka.ipd.sdq.scheduler.priority.boost.StaticPriorityBoost;
-import de.uka.ipd.sdq.scheduler.priority.update.DecayToBaseUpdate;
-import de.uka.ipd.sdq.scheduler.resources.active.SimActiveResource;
-import de.uka.ipd.sdq.scheduler.resources.passive.SimFairPassiveResource;
-import de.uka.ipd.sdq.scheduler.resources.passive.SimUnfairPassiveResource;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -28,8 +20,22 @@ public class SimulatedResourceContainer extends
 		super(myModel, containerID);
 		nestedResourceContainers = new ArrayList<SimulatedResourceContainer>();
 	}
-
+	
 	public IPassiveResource createPassiveResource(String name,
+			String passiveResourceID, String assemblyContextID,
+			String combinedID, int capacity) {
+		IPassiveResource r = getSimplePassiveResource(name, passiveResourceID,
+				assemblyContextID, combinedID, capacity);
+
+		// setup calculators
+		CalculatorHelper.setupStateCalculator(r, this.myModel);
+		CalculatorHelper.setupWaitingTimeCalculator(r, this.myModel);
+		CalculatorHelper.setupHoldTimeCalculator(r, this.myModel); 
+		
+		return r;
+	}
+
+	/*public IPassiveResource createPassiveResource(String name,
 			String passiveResourceID, String assemblyContextID,
 			String combinedID, int capacity) {
 		IPassiveResource r = null;
@@ -60,7 +66,7 @@ public class SimulatedResourceContainer extends
 		CalculatorHelper.setupHoldTimeCalculator(r, this.myModel); 
 		
 		return r;
-	}
+	}*/
 	
 	public List<SimulatedResourceContainer> getNestedResourceContainers() {
 		return nestedResourceContainers;
@@ -122,7 +128,7 @@ public class SimulatedResourceContainer extends
 			}
 		}
 		
-		if (schedulingStrategyID.equals(SchedulingStrategy.LINUX_2_6_CFS) || 
+		/*if (schedulingStrategyID.equals(SchedulingStrategy.LINUX_2_6_CFS) || 
 				schedulingStrategyID.equals(SchedulingStrategy.LINUX_2_6_O1) || 
 				schedulingStrategyID.equals(SchedulingStrategy.SPECIAL_LINUXO1) || 
 				schedulingStrategyID.equals(SchedulingStrategy.SPECIAL_WINDOWS) || 
@@ -133,7 +139,7 @@ public class SimulatedResourceContainer extends
 				assert this.managingResource == null;
 				this.operatingSystem = schedulingStrategyID;
 				this.managingResource = activeResources.get(typeID);
-		}
+		}*/
 
 		// setup calculators
 		// TODO: setup waiting time calculator
@@ -164,7 +170,7 @@ public class SimulatedResourceContainer extends
 		}
 	}
 
-	private IPassiveResource getPassiveResourceWindows(String name, String id,
+	/*private IPassiveResource getPassiveResourceWindows(String name, String id,
 			int capacity, int bonus, boolean resetTimeSlice, boolean isFair,
 			IActiveResource managingResource) {
 		IPriorityUpdateStrategy update = new DecayToBaseUpdate();
@@ -189,7 +195,7 @@ public class SimulatedResourceContainer extends
 			return new SimUnfairPassiveResource(myModel, capacity, name, id, null,
 					(SimActiveResource) managingResource, 0.1, true);
 		}
-	}
+	}*/
 
 	private IPassiveResource getSimplePassiveResource(String name,
 			String passiveResourceID, String assemblyContextID,

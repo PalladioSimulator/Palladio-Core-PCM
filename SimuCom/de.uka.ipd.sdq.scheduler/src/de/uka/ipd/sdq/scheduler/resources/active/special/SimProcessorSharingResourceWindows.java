@@ -2,16 +2,16 @@ package de.uka.ipd.sdq.scheduler.resources.active.special;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Random;
 import java.util.Map.Entry;
+import java.util.Random;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
-import de.uka.ipd.sdq.scheduler.resources.active.SimResourceInstance;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.IEntity;
 import de.uka.ipd.sdq.simulation.abstractsimengine.NullEntity;
@@ -303,10 +303,10 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 		
 	}
 
-	public void registerProcess(IRunningProcess runningProcess) {
+	public void registerProcess(ISchedulableProcess process) {
 	}
 	
-	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+	public int getQueueLengthFor(SchedulerEntity schedulerEntity) {
 		// TODO where is this needed? Return hard coded queue length of first
 		// core.
 		return this.running_processesPerCore.get(0).size();

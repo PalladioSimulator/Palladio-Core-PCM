@@ -4,6 +4,7 @@ import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 import de.uka.ipd.sdq.scheduler.events.DelayEvent;
 
 public class SimDelayResource extends AbstractActiveResource {
@@ -54,12 +55,12 @@ public class SimDelayResource extends AbstractActiveResource {
 		
 	}
 
-	public void registerProcess(IRunningProcess runningProcess) {
+	public void registerProcess(ISchedulableProcess process) {
 		
 	}
 	
 
-	public int getQueueLengthFor(SimResourceInstance simResourceInstance) {
+	public int getQueueLengthFor(SchedulerEntity schedulerEntity) {
 		return this.num_running;
 	}
 

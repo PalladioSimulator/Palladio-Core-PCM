@@ -191,39 +191,18 @@
 «ENDDEFINE»
 
 «DEFINE SchedulingStrategy(ResourceContainer container) FOR ProcessingResourceSpecification»
-	«IF this.schedulingPolicy.id == "Exact"»
-		«IF container.operatingSystem_ResourceContainer.toString() == "LINUX26_O1"»
-			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.LINUX_2_6_O1
+	«IF (this.schedulingPolicy.id == "FCFS") || (this.schedulingPolicy.id == "ProcessorSharing") || (this.schedulingPolicy.id == "Delay")»
+		«IF this.schedulingPolicy.id == "FCFS"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.FCFS
 		«ENDIF»
-		«IF container.operatingSystem_ResourceContainer.toString() == "LINUX26_CFS"»
-			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.LINUX_2_6_CFS
+		«IF this.schedulingPolicy.id == "ProcessorSharing"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.PROCESSOR_SHARING
 		«ENDIF»
-		«IF container.operatingSystem_ResourceContainer.toString() == "WINDOWS_XP"»
-			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_XP
-		«ENDIF»
-		«IF container.operatingSystem_ResourceContainer.toString() == "WINDOWS_7"»
-			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_7
-		«ENDIF»
-		«IF container.operatingSystem_ResourceContainer.toString() == "WINDOWS_VISTA"»
-			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_VISTA
-		«ENDIF»
-		«IF container.operatingSystem_ResourceContainer.toString() == "WINDOWS_2003"»
-			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.WINDOWS_SERVER_2003
+		«IF this.schedulingPolicy.id == "Delay"»
+			de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.DELAY
 		«ENDIF»
 	«ELSE»
-		«IF (this.schedulingPolicy.id == "FCFS") || (this.schedulingPolicy.id == "ProcessorSharing") || (this.schedulingPolicy.id == "Delay")»
-			«IF this.schedulingPolicy.id == "FCFS"»
-				de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.FCFS
-			«ENDIF»
-			«IF this.schedulingPolicy.id == "ProcessorSharing"»
-				de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.PROCESSOR_SHARING
-			«ENDIF»
-			«IF this.schedulingPolicy.id == "Delay"»
-				de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.DELAY
-			«ENDIF»
-		«ELSE»
-			"«this.schedulingPolicy.id»"
-		«ENDIF»
+		"«this.schedulingPolicy.id»"
 	«ENDIF»
 «ENDDEFINE»
 

@@ -343,4 +343,8 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 	public String getResourceTypeId() {
 		return resourceTypeID;
 	}
+	
+	public String getSchedulingStrategyID() {
+		return schedulingStrategyID;
+	}
 }

@@ -3,15 +3,8 @@
  */
 package de.uka.ipd.sdq.simucomframework.resources;
 
-import scheduler.SchedulerLibrary;
-import scheduler.configuration.ConfigurationFactory;
-import scheduler.configuration.PriorityClass;
-import scheduler.configuration.ProcessConfiguration;
-import scheduler.configuration.SchedulerConfiguration;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
-import de.uka.ipd.sdq.scheduler.processes.impl.ProcessWithPriority;
-import de.uka.ipd.sdq.scheduler.tools.SchedulerTools;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -68,32 +61,6 @@ public class ScheduledResource extends AbstractScheduledResource {
 		return aResource;
 	}
 	
-	/* Loads scheduler configuration */
-	private IActiveResource getResource(String schedulerLibFileName,
-			String schedulerName, int numReplicas, String sensorDescription) {
-
-		SchedulerLibrary lib = (SchedulerLibrary) SchedulerTools
-				.loadFromXMI(schedulerLibFileName);
-		SchedulerConfiguration selectedConf = null;
-		for (SchedulerConfiguration conf : lib.getSchedulerConfiguration()) {
-			if (conf.getName().equals(schedulerName)) {
-				selectedConf = conf;
-				break;
-			}
-		}
-		if (selectedConf != null) {
-			resourceConf = ConfigurationFactory.eINSTANCE
-					.createActiveResourceConfiguration();
-			resourceConf.setName(schedulerName);
-			resourceConf.setReplicas(numReplicas);
-			resourceConf.setSchedulerConfiguration(selectedConf);
-			IActiveResource resource = getModel().getSchedulingFactory()
-					.createActiveResource(resourceConf);
-			return resource;
-		}
-		return null;
-	}
-	
 	private IActiveResource getScheduledResource(SimuComModel simuComModel, String schedulingStrategyID,
 			int numberOfCores, String sensorDescription) {
 		IActiveResource scheduledResource = null;
@@ -112,7 +79,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 					.createSimDelayResource(
 							SchedulingStrategy.DELAY,
 							getNextResourceId());
-		} else if (schedulingStrategyID.equals(SchedulingStrategy.LINUX_2_6_O1)) {
+		/*} else if (schedulingStrategyID.equals(SchedulingStrategy.LINUX_2_6_O1)) {
 		// active resources scheduled by improved scheduler
 			scheduledResource = getResource(PATHMAP_TO_SCHEDULER_LIBRARY,
 					"Linux 2.6.22", numberOfCores, sensorDescription);
@@ -138,11 +105,10 @@ public class ScheduledResource extends AbstractScheduledResource {
 			scheduledResource = getModel().getSchedulingFactory()
 					.createSimProcessorSharingResourceLinuxO1(
 							SchedulingStrategy.SPECIAL_LINUXO1.toString(),
-							getNextResourceId(), numberOfCores);
+							getNextResourceId(), numberOfCores);*/
 		} else {
             scheduledResource = getModel().getSchedulingFactory().createResourceFromExtension(
-            		schedulingStrategyID,
-                    getNextResourceId());
+            		schedulingStrategyID, getNextResourceId(), numberOfCores);
 			//scheduledResource = ISchedulingFactory.eINSTANCE
 			//		.createSimGinpexDiskResource(
 			//				SchedulingStrategy.GINPEX_DISK.toString(),
@@ -161,17 +127,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 
 	private void registerProcessWindows(ISchedulableProcess process,
 			IActiveResource resource) {
-		if (resourceConf != null) {
-			ProcessConfiguration processConf = ConfigurationFactory.eINSTANCE
-					.createProcessConfiguration();
-			processConf.setName(process.getId());
-			processConf.setPriority(PriorityClass.DEFAULT);
-			processConf.setReplicas(1);
-			ProcessWithPriority p = (ProcessWithPriority) getModel().getSchedulingFactory()
-					.createRunningProcess(process, processConf, resourceConf);
-
-			resource.registerProcess(p);
-		}
+		resource.registerProcess(process);
 	}
 
 	@Override
@@ -192,7 +148,8 @@ public class ScheduledResource extends AbstractScheduledResource {
 		// This works for the standard resource types (CPU, HDD, DELAY).
 		assertAvailability();
 
-		registerProcessWindows(process, aResource);
+		aResource.registerProcess(process);
+		//registerProcessWindows(process, aResource);
 		double concreteDemand = calculateDemand(abstractDemand);
 		fireDemand(concreteDemand);
 		this.totalDemandedTime += concreteDemand;
