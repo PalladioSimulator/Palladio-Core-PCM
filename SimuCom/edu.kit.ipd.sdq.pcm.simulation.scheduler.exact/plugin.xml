@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.winxp"
+         name="Windows XP Scheduler"
+         point="de.uka.ipd.sdq.scheduler">
+      <scheduler
+            class="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.factory.WindowsXPSchedulerFactory">
+      </scheduler>
+   </extension>
+   <extension
+         id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.winvista"
+         name="Windows Vista Scheduler"
+         point="de.uka.ipd.sdq.scheduler">
+      <scheduler
+            class="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.factory.WindowsVistaSchedulerFactory">
+      </scheduler>
+   </extension>
+   <extension
+         id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.win7"
+         name="Windows 7 Scheduler"
+         point="de.uka.ipd.sdq.scheduler">
+      <scheduler
+            class="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.factory.Windows7SchedulerFactory">
+      </scheduler>
+   </extension>
+   <extension
+         id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.winserver2003"
+         name="Windows Server 2003 Scheduler"
+         point="de.uka.ipd.sdq.scheduler">
+      <scheduler
+            class="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.factory.WindowsServer2003SchedulerFactory">
+      </scheduler>
+   </extension>
+   <extension
+         id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.linux26o1"
+         name="Linux 2.6 O(1) Scheduler"
+         point="de.uka.ipd.sdq.scheduler">
+      <scheduler
+            class="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.factory.Linux26O1SchedulerFactory">
+      </scheduler>
+   </extension>
+   <extension
+         id="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.linux26cfs"
+         name="Linux 2.6 CFS Scheduler"
+         point="de.uka.ipd.sdq.scheduler">
+      <scheduler
+            class="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.factory.Linux26CFSSchedulerFactory">
+      </scheduler>
+   </extension>
+   <extension
+         id="de.uka.ipd.sdq.pcm.simucom.exactscheduler"
+         name="Exact scheduler configuration for PCM SimuCom"
+         point="de.uka.ipd.sdq.workflow.extension">
+      <workflow_extension
+            extension_configurationbuilder="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.jobs.ExactSchedulerSimuComExtensionConfigurationBuilder"
+            extension_job="edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.jobs.ExactSchedulerSimuComExtensionJob"
+            name="Exact scheduler configuration"
+            priority="90"
+            workflow_id="workflow.extension.simucom.after.dock">
+      </workflow_extension>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://PCM_EXACT_SCHEDULER_MODELS/"
+            target="platform:/plugin/edu.kit.ipd.sdq.pcm.simulation.scheduler.exact/models/">
+      </mapping>
+   </extension>
+
+</plugin>
