@@ -4,6 +4,7 @@ import org.eclipse.core.runtime.CoreException;
 
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
+import de.uka.ipd.sdq.workflow.IJob;
 import de.uka.ipd.sdq.workflow.IJobWithResult;
 
 /**
@@ -30,6 +31,10 @@ public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfigurati
         // 1. Initialize Failure Type Information
         this.add(new DetermineFailureTypesJob(configuration));
         
+        // All Workflow extension jobs with the extension hook id
+        // WORKFLOW_ID_BEFORE_CODEGENERATION
+        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_BEFORE_CODEGENERATION,configuration);
+        
         // 2. Generate the plugin's code using oAW
         this.addJob(new TransformPCMToCodeJob(configuration));
         this.addJob(new CreateSimuComMetaDataFilesJob(configuration));
@@ -41,10 +46,24 @@ public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfigurati
         IJobWithResult<byte[]> buildBundleJob = new BuildPluginJarJob(configuration);
         this.addJob(buildBundleJob);
         
+        // All Workflow extension jobs with the extension hook id
+        // WORKFLOW_ID_BEFORE_DOCK
         handleJobExtensions(WorkflowHooks.WORKFLOW_ID_BEFORE_DOCK,configuration);
-
+        
         // 5. Transfer the JAR to a free simulation dock and simulate it
         this.addJob(new TransferSimulationBundleToDock(configuration, debugListener, buildBundleJob));
+        
+        // All Workflow extension jobs with the extension hook id
+        // WORKFLOW_ID_AFTER_SIMULATION
+        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_SIMULATION,configuration);
+        
+        // Initialize all Workflow extension jobs
+        for (IJob extensionJob : myJobs) {
+			if (extensionJob instanceof AbstractSimuComExtensionJob) {
+				((AbstractSimuComExtensionJob)extensionJob).initialize(configuration);
+			}
+		}
+
     }
     
     public String getWorkflowId() {

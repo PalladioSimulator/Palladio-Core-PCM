@@ -14,6 +14,12 @@ public class WorkflowHooks {
     /** The id of the workflow extending configuration tabs have to register for. */
     public static String WORKFLOW_ID_AFTER_LOAD_VALIDATE = "workflow.extension.simucom.after.load.validate";
     
+    /** The id of the workflow extending configuration tabs have to register for. */
+    public static String WORKFLOW_ID_BEFORE_CODEGENERATION= "workflow.extension.simucom.before.codegeneration";
+    
+    /** The id of the workflow extending configuration tabs have to register for. */
+    public static String WORKFLOW_ID_AFTER_SIMULATION = "workflow.extension.simucom.after.simulation";
+    
     /**
      * Get a list of ids of all extendible workflow extension points.
      * 

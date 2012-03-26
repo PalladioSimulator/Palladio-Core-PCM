@@ -128,6 +128,9 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 				getPCMOutlets(),
 				expression, globalVarDefs);
 		job.getAdvices().add(configuration.getCodeGenerationAdvicesFile());
+		for (String advice : configuration.getCodeGenerationAdvices()) {
+			job.getAdvices().add(advice);
+		}
 		job.setCheckProtectedRegions(true);
 
 		return job;

@@ -53,6 +53,8 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
         // 2. Validate PCM Models
         this.addJob(new ValidatePCMModelsJob(configuration));
         
+        // All Workflow extension jobs with the extension hook id
+        // WORKFLOW_ID_AFTER_LOAD_VALIDATE
         handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_LOAD_VALIDATE,configuration);
 
         // -- Stage Model modification

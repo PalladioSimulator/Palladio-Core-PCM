@@ -30,6 +30,11 @@ public abstract class AbstractCodeGenerationWorkflowRunConfiguration extends
 		}
 
 	}
+	
+	/**
+	 * Stores additional advices for the OAW code generation
+	 */
+	private List<String> codeGenerationAdvices = null;
 
 	protected boolean overwriteWithoutAsking = false;
 	protected boolean loadMiddlewareAndCompletionFiles = false;
@@ -41,6 +46,14 @@ public abstract class AbstractCodeGenerationWorkflowRunConfiguration extends
 	// generation purposes (e.g. Protocom), sensitivity analysis can make sense.
 	protected List<SensitivityAnalysisConfiguration> sensitivityAnalysisConfigurationList = new ArrayList<SensitivityAnalysisConfiguration>();
 	protected boolean sensitivityAnalysisEnabled;
+	
+	/**
+	 * Constructor
+	 */
+	public AbstractCodeGenerationWorkflowRunConfiguration() {
+		super();
+	    codeGenerationAdvices = new ArrayList<String>();
+	}
 
 	/**
 	 * @return Returns a string with information on the current sensitivity analysis run.
@@ -150,6 +163,23 @@ public abstract class AbstractCodeGenerationWorkflowRunConfiguration extends
 
 	public void setCodeGenerationAdvicesFile(CodeGenerationAdvice advice) {
 		this.codeGenerationAdvice = advice;
+	}
+	
+    
+	/**
+	 * Setter method
+	 * @param advice a code generation advice
+	 */
+	public void addCodeGenerationAdvice(String advice) {
+		this.codeGenerationAdvices.add(advice);
+	}
+	
+	/**
+	 * Getter method
+	 * @return the codeGenerationAdvices list.
+	 */
+	public List<String> getCodeGenerationAdvices() {
+		return this.codeGenerationAdvices;
 	}
 
 	/* (non-Javadoc)

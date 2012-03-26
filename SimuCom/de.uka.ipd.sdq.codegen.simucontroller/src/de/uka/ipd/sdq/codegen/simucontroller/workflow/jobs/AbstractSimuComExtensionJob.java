@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflowConfiguration;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.workflow.launchconfig.extension.AbstractWorkflowExtensionJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
@@ -8,22 +9,37 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfigur
 public abstract class AbstractSimuComExtensionJob extends AbstractWorkflowExtensionJob<MDSDBlackboard> {
 	
 	/**
-	 * The configuration of the workflow.
+	 * The configuration of the workflow. Maybe we don't want this configuration
+	 * to be accessible. It is currently not set.
 	 */
 	protected AbstractPCMWorkflowRunConfiguration configuration = null;
+
+	private SimuComModel simuComModel = null;
+
+	/**
+	 * The original simulation workflow configuration object. Is not directly readable or writable
+	 * for subclasses.
+	 */
+	private AbstractSimulationWorkflowConfiguration abstractSimulationWorkflowConfiguration = null;
 	
 	public void setConfiguration(AbstractPCMWorkflowRunConfiguration configuration) {
 		this.configuration = configuration;
 	}
 	
-	private SimuComModel simuComModel = null;
-
 	public SimuComModel getSimuComModel() {
 		return simuComModel;
 	}
 
 	public void setSimuComModel(SimuComModel simuComModel) {
 		this.simuComModel = simuComModel;
+	}
+	
+	public void initialize(AbstractSimulationWorkflowConfiguration abstractSimulationWorkflowConfiguration) {
+		this.abstractSimulationWorkflowConfiguration = abstractSimulationWorkflowConfiguration;
+	}
+
+	protected void addCodeGenerationAdvice(String advice) {
+		abstractSimulationWorkflowConfiguration.addCodeGenerationAdvice(advice);
 	}
 
 }
