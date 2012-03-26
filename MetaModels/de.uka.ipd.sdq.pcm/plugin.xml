@@ -3,22 +3,26 @@
 
 <!--
  Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany
-
- $Id$
 -->
 
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/5.0"
             class="de.uka.ipd.sdq.pcm.PcmPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="pcm"
+            class="de.uka.ipd.sdq.pcm.util.PcmResourceFactoryImpl"/>
+   </extension>
+
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/5.0"
             class="de.uka.ipd.sdq.pcm.core.CorePackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -31,7 +35,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0"
             class="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -44,7 +48,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0"
             class="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -57,20 +61,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/4.0"
-            class="de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage"
-            genModel="model/pcm.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <parser
-            type="connectors"
-            class="de.uka.ipd.sdq.pcm.core.connectors.util.ConnectorsResourceFactoryImpl"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0"
             class="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -83,20 +74,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/4.0"
-            class="de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage"
-            genModel="model/pcm.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <parser
-            type="resourcetype"
-            class="de.uka.ipd.sdq.pcm.resourcetype.util.ResourcetypeResourceFactoryImpl"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0"
             class="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -109,7 +87,20 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0"
+            class="de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage"
+            genModel="model/pcm.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="resourcetype"
+            class="de.uka.ipd.sdq.pcm.resourcetype.util.ResourcetypeResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/5.0"
             class="de.uka.ipd.sdq.pcm.protocol.ProtocolPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -122,7 +113,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0"
             class="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -135,7 +126,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0"
             class="de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -148,7 +139,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0"
             class="de.uka.ipd.sdq.pcm.seff.SeffPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -161,33 +152,33 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/1.0"
-            class="de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0"
+            class="de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            type="seff_performance"
-            class="de.uka.ipd.sdq.pcm.seff.seff_performance.util.Seff_performanceResourceFactoryImpl"/>
+            type="seffperformance"
+            class="de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0"
-            class="de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0"
+            class="de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            type="seff_reliability"
-            class="de.uka.ipd.sdq.pcm.seff.seff_reliability.util.Seff_reliabilityResourceFactoryImpl"/>
+            type="seffreliability"
+            class="de.uka.ipd.sdq.pcm.seff.seff_reliability.util.SeffReliabilityResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/5.0"
             class="de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -200,33 +191,33 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Performance/4.0"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.Qos_performancePackage"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Performance/5.0"
+            class="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            type="qos_performance"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.Qos_performanceResourceFactoryImpl"/>
+            type="qosperformance"
+            class="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.QosPerformanceResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Reliability/4.0"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.Qos_reliabilityPackage"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Reliability/5.0"
+            class="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            type="qos_reliability"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.util.Qos_reliabilityResourceFactoryImpl"/>
+            type="qosreliability"
+            class="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.util.QosReliabilityResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/System/5.0"
             class="de.uka.ipd.sdq.pcm.system.SystemPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -239,7 +230,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0"
             class="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -252,7 +243,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0"
             class="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
@@ -265,7 +256,7 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/4.0"
+            uri="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/5.0"
             class="de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
