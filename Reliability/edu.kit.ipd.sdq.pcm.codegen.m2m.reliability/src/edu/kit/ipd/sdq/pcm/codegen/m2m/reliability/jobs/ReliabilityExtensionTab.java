@@ -23,7 +23,7 @@ public class ReliabilityExtensionTab extends AbstractLaunchConfigurationTab {
 	private Button simulateFailuresButton;
 	
 	// Configuration attribute IDs
-	public static final String SIMULATE_FAILURES = "simulateFailures";
+	public static final String SIMULATE_FAILURES = "reliability.simulateFailures";
 
 	public void createControl(Composite parent) {
 
@@ -40,25 +40,25 @@ public class ReliabilityExtensionTab extends AbstractLaunchConfigurationTab {
 			}
 		};
 		// Create the top-level container:
-				Composite container = new Composite(parent, SWT.NONE);
+			Composite container = new Composite(parent, SWT.NONE);
 
-				setControl(container);
-				container.setLayout(new GridLayout());
+			setControl(container);
+			container.setLayout(new GridLayout());
 
-				// Create reliability section:
-				final Group reliabilityGroup = new Group(container, SWT.NONE);
-				reliabilityGroup.setText("Reliability");
-				final GridData gd_reliabilityGroup = new GridData(SWT.FILL, SWT.CENTER,
-						true, false);
-				reliabilityGroup.setLayoutData(gd_reliabilityGroup);
-				reliabilityGroup.setLayout(new GridLayout());
-				simulateFailuresButton = new Button(reliabilityGroup, SWT.CHECK);
-				final GridData gd_simulateFailuresButton = new GridData(
-						SWT.FILL, SWT.CENTER, true, false);
-				simulateFailuresButton
-						.setLayoutData(gd_simulateFailuresButton);
-				simulateFailuresButton.setText("Simulate failures");
-				simulateFailuresButton.addSelectionListener(selectionListener);
+			// Create reliability section:
+			final Group reliabilityGroup = new Group(container, SWT.NONE);
+			reliabilityGroup.setText("Reliability");
+			final GridData gd_reliabilityGroup = new GridData(SWT.FILL, SWT.CENTER,
+					true, false);
+			reliabilityGroup.setLayoutData(gd_reliabilityGroup);
+			reliabilityGroup.setLayout(new GridLayout());
+			simulateFailuresButton = new Button(reliabilityGroup, SWT.CHECK);
+			final GridData gd_simulateFailuresButton = new GridData(
+					SWT.FILL, SWT.CENTER, true, false);
+			simulateFailuresButton
+					.setLayoutData(gd_simulateFailuresButton);
+			simulateFailuresButton.setText("Simulate failures");
+			simulateFailuresButton.addSelectionListener(selectionListener);
 
 	}
 
