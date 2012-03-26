@@ -294,7 +294,7 @@ Copyright 2007, SDQ, IPD, U KA
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.allocation.Allocation_1000"
                name="%metatype.name.Allocation_1000"
@@ -304,7 +304,7 @@ Copyright 2007, SDQ, IPD, U KA
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.allocation.ResourceContainer_2002"
                name="%metatype.name.ResourceContainer_2002"
@@ -314,7 +314,7 @@ Copyright 2007, SDQ, IPD, U KA
             <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.allocation.AllocationContext_3001"
                name="%metatype.name.AllocationContext_3001"

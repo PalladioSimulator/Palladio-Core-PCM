@@ -124,76 +124,76 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case RepositoryEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?Repository", PalladioComponentModelElementTypes.Repository_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?Repository", PalladioComponentModelElementTypes.Repository_1000); //$NON-NLS-1$
 		case OperationInterfaceEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?OperationInterface", PalladioComponentModelElementTypes.OperationInterface_2107); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationInterface", PalladioComponentModelElementTypes.OperationInterface_2107); //$NON-NLS-1$
 		case EventGroupEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?EventGroup", PalladioComponentModelElementTypes.EventGroup_2108); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?EventGroup", PalladioComponentModelElementTypes.EventGroup_2108); //$NON-NLS-1$
 		case BasicComponentEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?BasicComponent", PalladioComponentModelElementTypes.BasicComponent_2102); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?BasicComponent", PalladioComponentModelElementTypes.BasicComponent_2102); //$NON-NLS-1$
 		case CompositeComponentEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?CompositeComponent", PalladioComponentModelElementTypes.CompositeComponent_2103); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?CompositeComponent", PalladioComponentModelElementTypes.CompositeComponent_2103); //$NON-NLS-1$
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?CompleteComponentType", PalladioComponentModelElementTypes.CompleteComponentType_2104); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?CompleteComponentType", PalladioComponentModelElementTypes.CompleteComponentType_2104); //$NON-NLS-1$
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?ProvidesComponentType", PalladioComponentModelElementTypes.ProvidesComponentType_2105); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?ProvidesComponentType", PalladioComponentModelElementTypes.ProvidesComponentType_2105); //$NON-NLS-1$
 		case SubSystemEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/4.0?SubSystem", PalladioComponentModelElementTypes.SubSystem_2106); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/5.0?SubSystem", PalladioComponentModelElementTypes.SubSystem_2106); //$NON-NLS-1$
 		case InfrastructureInterfaceEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?InfrastructureInterface", PalladioComponentModelElementTypes.InfrastructureInterface_2109); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?InfrastructureInterface", PalladioComponentModelElementTypes.InfrastructureInterface_2109); //$NON-NLS-1$
 		case OperationSignatureEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?OperationSignature", PalladioComponentModelElementTypes.OperationSignature_3106); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationSignature", PalladioComponentModelElementTypes.OperationSignature_3106); //$NON-NLS-1$
 		case EventTypeEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?EventType", PalladioComponentModelElementTypes.EventType_3107); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?EventType", PalladioComponentModelElementTypes.EventType_3107); //$NON-NLS-1$
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0?ResourceDemandingSEFF", PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ResourceDemandingSEFF", PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102); //$NON-NLS-1$
 		case PassiveResourceEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?PassiveResource", PalladioComponentModelElementTypes.PassiveResource_3103); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?PassiveResource", PalladioComponentModelElementTypes.PassiveResource_3103); //$NON-NLS-1$
 		case VariableUsageEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3104); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3104); //$NON-NLS-1$
 		case VariableCharacterisationEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3105); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3105); //$NON-NLS-1$
 		case InfrastructureSignatureEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?InfrastructureSignature", PalladioComponentModelElementTypes.InfrastructureSignature_3108); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?InfrastructureSignature", PalladioComponentModelElementTypes.InfrastructureSignature_3108); //$NON-NLS-1$
 		case OperationProvidedRoleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?OperationProvidedRole", PalladioComponentModelElementTypes.OperationProvidedRole_4105); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationProvidedRole", PalladioComponentModelElementTypes.OperationProvidedRole_4105); //$NON-NLS-1$
 		case InfrastructureProvidedRoleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?InfrastructureProvidedRole", PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?InfrastructureProvidedRole", PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111); //$NON-NLS-1$
 		case InfrastructureRequiredRoleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?InfrastructureRequiredRole", PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?InfrastructureRequiredRole", PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112); //$NON-NLS-1$
 		case SinkRoleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?SinkRole", PalladioComponentModelElementTypes.SinkRole_4109); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?SinkRole", PalladioComponentModelElementTypes.SinkRole_4109); //$NON-NLS-1$
 		case OperationRequiredRoleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?OperationRequiredRole", PalladioComponentModelElementTypes.OperationRequiredRole_4106); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationRequiredRole", PalladioComponentModelElementTypes.OperationRequiredRole_4106); //$NON-NLS-1$
 		case ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?ImplementationComponentType?parentCompleteComponentTypes", PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?ImplementationComponentType?parentCompleteComponentTypes", PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103); //$NON-NLS-1$
 		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?CompleteComponentType?parentProvidesComponentTypes", PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?CompleteComponentType?parentProvidesComponentTypes", PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104); //$NON-NLS-1$
 		case SourceRoleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0?SourceRole", PalladioComponentModelElementTypes.SourceRole_4110); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?SourceRole", PalladioComponentModelElementTypes.SourceRole_4110); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

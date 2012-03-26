@@ -287,7 +287,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_1000"
                name="%metatype.name.ResourceDemandingSEFF_1000"
@@ -297,7 +297,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2001"
                name="%metatype.name.StartAction_2001"
@@ -307,7 +307,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2002"
                name="%metatype.name.StopAction_2002"
@@ -317,7 +317,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2003"
                name="%metatype.name.ExternalCallAction_2003"
@@ -327,7 +327,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2003"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.EmitEventAction_2013"
                name="%metatype.name.EmitEventAction_2013"
@@ -337,7 +337,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2013"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2004"
                name="%metatype.name.LoopAction_2004"
@@ -347,7 +347,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2004"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2005"
                name="%metatype.name.BranchAction_2005"
@@ -356,7 +356,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2005"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2006"
                name="%metatype.name.InternalAction_2006"
@@ -366,7 +366,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2006"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_2007"
                name="%metatype.name.CollectionIteratorAction_2007"
@@ -376,7 +376,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2007"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_2008"
                name="%metatype.name.SetVariableAction_2008"
@@ -386,7 +386,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2008"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_2012"
                name="%metatype.name.AcquireAction_2012"
@@ -395,7 +395,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2012"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_2010"
                name="%metatype.name.ReleaseAction_2010"
@@ -405,7 +405,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2010"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_2011"
                name="%metatype.name.ForkAction_2011"
@@ -423,7 +423,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2016"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3042"
                name="%metatype.name.VariableUsage_3042"
@@ -433,7 +433,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3042"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3033"
                name="%metatype.name.VariableCharacterisation_3033"
@@ -443,7 +443,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3033"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3049"
                name="%metatype.name.VariableUsage_3049"
@@ -452,7 +452,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3049"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3035"
                name="%metatype.name.VariableCharacterisation_3035"
@@ -461,7 +461,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3035"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3047"
                name="%metatype.name.VariableUsage_3047"
@@ -470,7 +470,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3047"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3037"
                name="%metatype.name.VariableCharacterisation_3037"
@@ -479,7 +479,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3037"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3003"
                name="%metatype.name.ResourceDemandingBehaviour_3003"
@@ -489,7 +489,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3003"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_3004"
                name="%metatype.name.StartAction_3004"
@@ -499,7 +499,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3004"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_3005"
                name="%metatype.name.StopAction_3005"
@@ -509,7 +509,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3005"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_3006"
                name="%metatype.name.LoopAction_3006"
@@ -519,7 +519,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3006"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_3007"
                name="%metatype.name.InternalAction_3007"
@@ -539,7 +539,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3051"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.InternalFailureOccurrenceDescription_3050"
                name="%metatype.name.InternalFailureOccurrenceDescription_3050"
@@ -559,7 +559,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3053"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3054"
                name="%metatype.name.VariableUsage_3054"
@@ -568,7 +568,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3054"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3048"
                name="%metatype.name.VariableCharacterisation_3048"
@@ -577,7 +577,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3048"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_3009"
                name="%metatype.name.BranchAction_3009"
@@ -587,7 +587,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3009"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransition_3010"
                name="%metatype.name.ProbabilisticBranchTransition_3010"
@@ -597,7 +597,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3010"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3011"
                name="%metatype.name.ResourceDemandingBehaviour_3011"
@@ -607,7 +607,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3011"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_3012"
                name="%metatype.name.ExternalCallAction_3012"
@@ -617,7 +617,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3012"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.EmitEventAction_3046"
                name="%metatype.name.EmitEventAction_3046"
@@ -626,7 +626,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3046"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_3026"
                name="%metatype.name.AcquireAction_3026"
@@ -636,7 +636,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3026"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_3020"
                name="%metatype.name.ReleaseAction_3020"
@@ -646,7 +646,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3020"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_3023"
                name="%metatype.name.ForkAction_3023"
@@ -656,7 +656,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3023"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ForkedBehaviour_3027"
                name="%metatype.name.ForkedBehaviour_3027"
@@ -666,7 +666,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3027"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_3013"
                name="%metatype.name.CollectionIteratorAction_3013"
@@ -676,7 +676,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3013"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3014"
                name="%metatype.name.ResourceDemandingBehaviour_3014"
@@ -706,7 +706,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3058"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_3024"
                name="%metatype.name.SetVariableAction_3024"
@@ -716,7 +716,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3024"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3036"
                name="%metatype.name.VariableUsage_3036"
@@ -725,7 +725,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3036"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3055"
                name="%metatype.name.VariableCharacterisation_3055"
@@ -734,7 +734,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3055"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.SynchronisationPoint_3038"
                name="%metatype.name.SynchronisationPoint_3038"
@@ -744,7 +744,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3038"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ForkedBehaviour_3039"
                name="%metatype.name.ForkedBehaviour_3039"
@@ -753,7 +753,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3039"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017"
                name="%metatype.name.GuardedBranchTransition_3017"
@@ -763,7 +763,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3017"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3018"
                name="%metatype.name.ResourceDemandingBehaviour_3018"
@@ -772,7 +772,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3018"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.AbstractActionSuccessor_AbstractAction_4001"
                name="%metatype.name.AbstractActionSuccessor_AbstractAction_4001"

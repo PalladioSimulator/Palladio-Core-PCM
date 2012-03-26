@@ -316,7 +316,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.Repository_1000"
                name="%metatype.name.Repository_1000"
@@ -326,7 +326,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.OperationInterface_2107"
                name="%metatype.name.OperationInterface_2107"
@@ -336,7 +336,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="2107"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.EventGroup_2108"
                name="%metatype.name.EventGroup_2108"
@@ -346,7 +346,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="2108"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.BasicComponent_2102"
                name="%metatype.name.BasicComponent_2102"
@@ -356,7 +356,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="2102"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_2103"
                name="%metatype.name.CompositeComponent_2103"
@@ -366,7 +366,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="2103"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentType_2104"
                name="%metatype.name.CompleteComponentType_2104"
@@ -376,7 +376,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="2104"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.ProvidesComponentType_2105"
                name="%metatype.name.ProvidesComponentType_2105"
@@ -386,7 +386,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="2105"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.SubSystem_2106"
                name="%metatype.name.SubSystem_2106"
@@ -396,7 +396,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="2106"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.InfrastructureInterface_2109"
                name="%metatype.name.InfrastructureInterface_2109"
@@ -406,7 +406,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="2109"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.OperationSignature_3106"
                name="%metatype.name.OperationSignature_3106"
@@ -416,7 +416,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="3106"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.EventType_3107"
                name="%metatype.name.EventType_3107"
@@ -426,7 +426,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="3107"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.ResourceDemandingSEFF_3102"
                name="%metatype.name.ResourceDemandingSEFF_3102"
@@ -436,7 +436,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="3102"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.PassiveResource_3103"
                name="%metatype.name.PassiveResource_3103"
@@ -446,7 +446,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="3103"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.VariableUsage_3104"
                name="%metatype.name.VariableUsage_3104"
@@ -456,7 +456,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="3104"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.VariableCharacterisation_3105"
                name="%metatype.name.VariableCharacterisation_3105"
@@ -466,7 +466,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="3105"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.InfrastructureSignature_3108"
                name="%metatype.name.InfrastructureSignature_3108"
@@ -476,7 +476,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="3108"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.OperationProvidedRole_4105"
                name="%metatype.name.OperationProvidedRole_4105"
@@ -486,7 +486,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="4105"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.InfrastructureProvidedRole_4111"
                name="%metatype.name.InfrastructureProvidedRole_4111"
@@ -496,7 +496,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="4111"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.InfrastructureRequiredRole_4112"
                name="%metatype.name.InfrastructureRequiredRole_4112"
@@ -506,7 +506,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="4112"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.SinkRole_4109"
                name="%metatype.name.SinkRole_4109"
@@ -516,7 +516,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="4109"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.OperationRequiredRole_4106"
                name="%metatype.name.OperationRequiredRole_4106"
@@ -526,7 +526,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="4106"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.repository.ImplementationComponentTypeParentCompleteComponentTypes_4103"
                name="%metatype.name.ImplementationComponentTypeParentCompleteComponentTypes_4103"
@@ -535,7 +535,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="4103"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentTypeParentProvidesComponentTypes_4104"
                name="%metatype.name.CompleteComponentTypeParentProvidesComponentTypes_4104"
@@ -544,7 +544,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <param name="semanticHint" value="4104"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.SourceRole_4110"
                name="%metatype.name.SourceRole_4110"
