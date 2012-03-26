@@ -27,6 +27,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.ColorDialog;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
@@ -116,16 +118,23 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		composite = getWidgetFactory().createFlatFormComposite(parent);
 		composite.setBackground(parent.getDisplay().getSystemColor(
 				SWT.COLOR_WIDGET_BACKGROUND));
-		composite.setSize(200, 250);
+		composite.setSize(500, 250);
 		createLayout(composite);
+		
+		Group groupSpecific = new Group(composite, SWT.NONE);
+		groupSpecific.setText("Data Series Options");
+		groupSpecific.setLayout(new GridLayout(3, false));
+
 		// create empty input list
-		listViewer = new InputElementList(composite, SWT.EMBEDDED, null)
+		listViewer = new InputElementList(groupSpecific, SWT.EMBEDDED, null)
 				.getListViewer();
-		createPropertiesTable(composite);
+		Label arrowLabel = new Label(groupSpecific, SWT.EMBEDDED);
+		arrowLabel.setText("-->");
+		createPropertiesTable(groupSpecific);
 	}
 
 	private void createPropertiesTable(Composite parent) {
-
+		
 		// initialize the table, which shows the properties of transformations
 		visualPropertiesTable = new Table(parent, SWT.SINGLE | SWT.BORDER
 				| SWT.V_SCROLL | SWT.FULL_SELECTION);
@@ -136,8 +145,8 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		// table layout
 		GridData gridData = new GridData(GridData.FILL_HORIZONTAL,
 				GridData.FILL_VERTICAL, false, true, 1, 1);
-		gridData.heightHint = 220;
-		gridData.widthHint = 230;
+		gridData.heightHint = 180;
+		gridData.widthHint = 250;
 		visualPropertiesTable.setLayoutData(gridData);
 		TableLayout tableLayout = new TableLayout();
 		tableLayout.addColumnData(new ColumnWeightData(2));
@@ -300,16 +309,15 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
 	 */
 	public void refresh() {
-		if (editorExists() && listViewer.getInput() == null) {
-			listViewer.setInput(getInput());
-			listViewer.addSelectionChangedListener(this);
-		}
 		if (editorExists()) {
 			// the common composite is identical for all IVisualizationInputs
 			if (commonPropertiesComposite == null) {
 				createCommonChartComposite();
-			} else {
 			}
+		}
+		if (editorExists() && listViewer.getInput() == null) {
+			listViewer.setInput(getInput());
+			listViewer.addSelectionChangedListener(this);
 		}
 		listViewer.refresh();
 		composite.layout();

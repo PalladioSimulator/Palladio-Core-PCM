@@ -54,13 +54,10 @@ public class InputElementList extends Composite {
 		super(parent, SWT.EMBEDDED);
 		setLayout(new GridLayout(1, false));
 
-		Label lblCurrentEditorInputs = new Label(this, SWT.NONE);
-		lblCurrentEditorInputs.setText("Current Editor Inputs:");
-
 		listViewer = new ListViewer(this, SWT.BORDER);
 		List list = listViewer.getList();
 		GridData gd_list = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 2);
-		gd_list.heightHint = 168;
+		gd_list.heightHint = 180;
 		gd_list.widthHint = 200;
 		list.setLayoutData(gd_list);
 		listViewer.setLabelProvider(new ViewerLabelProvider());

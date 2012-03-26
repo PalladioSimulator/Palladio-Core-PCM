@@ -23,8 +23,11 @@ import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
  */
 public abstract class IVisualizationInputHandle<T extends IVisualizationInput> extends Observable implements IEditorInput, Observer, ISelection, IPersistableElement {
 	
-	protected AbstractEditor editor;
 	protected HashMap<String, Object> properties;
+	
+	public IVisualizationInputHandle(){
+		this.properties = new HashMap<String,Object>();
+	}
 	
 	/**
 	 * Method to retrieve all contained {@link IDataSink}s. These are intended to be displayed by the same

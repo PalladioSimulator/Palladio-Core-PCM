@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.edp2.visualization.datasource;
 
 import java.util.HashMap;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.ui.IElementFactory;
@@ -28,11 +29,11 @@ public abstract class ElementFactory implements IElementFactory {
 	 * The name of the source element under which an elements' source is
 	 * persisted in an {@link IMemento}.
 	 */
-	protected final static String SOURCE_KEY = "source";
+	public final static String SOURCE_KEY = "source";
 	/**
 	 * Key for retrieving an element's name from its properties.
 	 */
-	protected final static String ELEMENT_KEY = "elementName";
+	public final static String ELEMENT_KEY = "elementName";
 	/**
 	 * This factory's ID as it must be used when referenced in an extension.
 	 */

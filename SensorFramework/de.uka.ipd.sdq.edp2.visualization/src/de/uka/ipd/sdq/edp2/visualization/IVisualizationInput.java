@@ -33,9 +33,9 @@ public abstract class IVisualizationInput extends Observable implements
 		IDataSink {
 
 	/**
-	 * Key under which this class' name is stored in the properties.
+	 * Constant used in persistence of 
 	 */
-	protected static final String ELEMENT_KEY = "elementName";
+	public static final String INPUT_NAME_KEY = "inputName";
 
 	/**
 	 * The properties of this {@link IVisualizationInput}, which are persisted

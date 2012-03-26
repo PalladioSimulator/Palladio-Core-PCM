@@ -26,10 +26,10 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	
 	public static final String COLOR_KEY = "color";
 	
-	public static final String INPUT_NAME_KEY = "inputName";
+	
 
 	/**
-	 * Constant, describing that no color is used for this input (actually, it's white).
+	 * Constant, describing that no color is used for this input (actually, it is white).
 	 */
 	public final static String NO_COLOR = "#ffffff";
 	
@@ -81,11 +81,11 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 
 	/**
 	 * Generic method which returns a typed instance of the wrapper for datasets
-	 * used by JFreeCharts. Requires a reference to a {@link JFreeChartEditorInputHandle} for coordination of properties.
+	 * used by JFreeCharts.
 	 * @param handle reference to the handle for all inputs
 	 * @return a typed Dataset
 	 */
-	public abstract <T extends AbstractSeriesDataset> BasicDataset<T> getBasicDataset(JFreeChartEditorInputHandle handle);
+	public abstract <T extends AbstractSeriesDataset> BasicDataset<T> getBasicDataset();
 
 	public String getColor() {
 		return hexColor;
@@ -98,5 +98,11 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	public void setColor(Color color) {
 		this.hexColor = "#"+Integer.toHexString(color.getRGB()).substring(2);
 	}
+	
+	public abstract String getDefaultTitle();
+	
+	public abstract String getDefaultDomainAxisLabel();
+	
+	public abstract String getDefaultRangeAxisLabel();
 
 }

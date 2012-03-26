@@ -9,29 +9,14 @@ import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.eclipse.core.databinding.observable.set.SetChangeEvent;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.labels.StandardXYToolTipGenerator;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.XYBarRenderer;
-import org.jfree.chart.renderer.xy.XYItemRenderer;
-import org.jfree.data.general.AbstractSeriesDataset;
-import org.jfree.data.statistics.HistogramDataset;
-import org.jfree.data.xy.DefaultXYDataset;
-import org.jfree.data.xy.XYDataset;
 
-import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
-import de.uka.ipd.sdq.edp2.visualization.properties.CommonJFreeChartProperties;
 import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonJFreeChartPropertiesComposite;
 
 /**
@@ -56,6 +41,7 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 	public static final String SHOW_DOMAIN_AXIS_LABEL_KEY = "showDomainAxisLabel";
 	public static final String SHOW_TITLE_KEY = "showTitle";
 	public static final String SHOW_LEGEND_KEY = "showLegend";
+	public static final String INCLUDE_ZERO_KEY = "includeZero";
 	
 	/**
 	 * The title for the chart. Only used if the input is the main input, i.e.
@@ -77,6 +63,7 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 	private boolean showDomainAxisLabel;
 	private boolean showTitle;
 	private boolean showLegend;
+	private boolean includeZero;
 	
 	/**
 	 * The list of inputs managed by this handle.
@@ -103,7 +90,8 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 	 */
 	public JFreeChartEditorInputHandle(JFreeChartEditorInput firstInput) {
 		inputs = new ArrayList<JFreeChartEditorInput>();
-		dataset = firstInput.getBasicDataset(this);
+		dataset = firstInput.getBasicDataset();
+		dataset.setHandle(this);
 		addInput(firstInput);
 	}
 
@@ -122,10 +110,17 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 			newInput.addObserver(this);
 			setChanged();
 			notifyObservers();
+			setShowDomainAxisLabel(true);
+			setIncludeZero(true);
+			setShowLegend(true);
+			setShowRangeAxisLabel(true);
+			setShowTitle(true);
+			
 			return true;
 		} else {
 			if (dataset == null){
-				dataset = inputs.get(0).getBasicDataset(this);
+				dataset = inputs.get(0).getBasicDataset();
+				dataset.setHandle(this);
 			}
 			boolean result = dataset.addDataSeries(newInput);
 			if (result) {
@@ -284,8 +279,7 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 
 	@Override
 	public Composite getCommonPropertiesComposite(Composite parent) {
-		return new CommonJFreeChartPropertiesComposite(parent, SWT.EMBEDDED,
-				new CommonJFreeChartProperties(chart));
+		return new CommonJFreeChartPropertiesComposite(parent, SWT.EMBEDDED, this);
 	}
 
 	@Override
@@ -297,6 +291,7 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 		properties.put(SHOW_LEGEND_KEY, String.valueOf(isShowLegend()));
 		properties.put(SHOW_RANGE_AXIS_LABEL_KEY, String.valueOf(isShowRangeAxisLabel()));
 		properties.put(SHOW_TITLE_KEY, String.valueOf(isShowTitle()));
+		properties.put(INCLUDE_ZERO_KEY, String.valueOf(isIncludeZero()));
 		return properties;
 	}
 
@@ -330,30 +325,49 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 				&& newProperties.get(SHOW_TITLE_KEY) != null) {
 			setShowTitle(newProperties.get(SHOW_TITLE_KEY).toString().equals("true") ? true : false);
 		}
+		if (properties.get(INCLUDE_ZERO_KEY) != null
+				&& newProperties.get(INCLUDE_ZERO_KEY) != null) {
+			setIncludeZero(newProperties.get(INCLUDE_ZERO_KEY).toString().equals("true") ? true : false);
+		}
 	}
 
 	public String getTitle() {
+		if (title == null){
+			return getInputs().get(0).getDefaultTitle();
+		}
 		return title;
 	}
 
 	public void setTitle(String title) {
 		this.title = title;
+		setChanged();
+		notifyObservers();
 	}
 
 	public String getDomainAxisLabel() {
+		if (domainAxisLabel == null){
+			return getInputs().get(0).getDefaultDomainAxisLabel();
+		}
 		return domainAxisLabel;
 	}
 	
 	public void setDomainAxisLabel(String domainAxisLabel) {
 		this.domainAxisLabel = domainAxisLabel;
+		setChanged();
+		notifyObservers();
 	}
 
 	public void setRangeAxisLabel(String rangeAxisLabel) {
 		this.rangeAxisLabel = rangeAxisLabel;
+		setChanged();
+		notifyObservers();
 	}
 	
 
 	public String getRangeAxisLabel() {
+		if (rangeAxisLabel == null){
+			return getInputs().get(0).getDefaultRangeAxisLabel();
+		}
 		return rangeAxisLabel;
 	}
 
@@ -363,6 +377,8 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 
 	public void setShowRangeAxisLabel(boolean showRangeAxisLabel) {
 		this.showRangeAxisLabel = showRangeAxisLabel;
+		setChanged();
+		notifyObservers();
 	}
 
 	public boolean isShowDomainAxisLabel() {
@@ -371,6 +387,8 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 
 	public void setShowDomainAxisLabel(boolean showDomainAxisLabel) {
 		this.showDomainAxisLabel = showDomainAxisLabel;
+		setChanged();
+		notifyObservers();
 	}
 
 	public boolean isShowTitle() {
@@ -379,6 +397,8 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 
 	public void setShowTitle(boolean showTitle) {
 		this.showTitle = showTitle;
+		setChanged();
+		notifyObservers();
 	}
 
 	public boolean isShowLegend() {
@@ -387,6 +407,18 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 
 	public void setShowLegend(boolean showLegend) {
 		this.showLegend = showLegend;
+		setChanged();
+		notifyObservers();
+	}
+
+	public boolean isIncludeZero() {
+		return includeZero;
+	}
+
+	public void setIncludeZero(boolean includeZero) {
+		this.includeZero = includeZero;
+		setChanged();
+		notifyObservers();
 	}
 
 }

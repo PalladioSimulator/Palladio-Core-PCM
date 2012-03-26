@@ -28,6 +28,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
+import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 import de.uka.ipd.sdq.edp2.visualization.properties.IProperty;
 
 /**
@@ -42,11 +43,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 * Name constant, which is used to identify this class in properties.
 	 */
 	private static final String ELEMENT_NAME = "ScatterPlotInput";
-
-	/**
-	 * The default Title for newly created Plots.
-	 */
-	private static final String DEFAULT_TITLE = "ScatterPlot";
 
 	/**
 	 * Logger for this class.
@@ -139,7 +135,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public HashMap<String, Object> getProperties() {
-		properties.put(ELEMENT_KEY, ELEMENT_NAME);
+		properties.put(ElementFactory.ELEMENT_KEY, ELEMENT_NAME);
 		return properties;
 	}
 
@@ -242,12 +238,29 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public BasicDataset<DefaultXYDataset> getBasicDataset(JFreeChartEditorInputHandle handle) {
+	public BasicDataset<DefaultXYDataset> getBasicDataset() {
 		return dataset;
 	}
 	
 	@Override
 	public String getName() {
 		return ELEMENT_NAME;
+	}
+
+	@Override
+	public String getDefaultTitle() {
+		return "Scatterplot";
+	}
+
+	@Override
+	public String getDefaultDomainAxisLabel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getDefaultRangeAxisLabel() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
