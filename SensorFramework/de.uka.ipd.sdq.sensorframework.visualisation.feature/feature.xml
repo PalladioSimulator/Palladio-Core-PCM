@@ -243,13 +243,6 @@ litigation.
    </requires>
 
    <plugin
-         id="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="de.uka.ipd.sdq.sensorframework.visualisation"
          download-size="0"
          install-size="0"
@@ -275,13 +268,6 @@ litigation.
          download-size="0"
          install-size="0"
          version="0.0.0"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.sensorframework.dialogs"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
    <plugin
          id="org.rosuda.JRI"
