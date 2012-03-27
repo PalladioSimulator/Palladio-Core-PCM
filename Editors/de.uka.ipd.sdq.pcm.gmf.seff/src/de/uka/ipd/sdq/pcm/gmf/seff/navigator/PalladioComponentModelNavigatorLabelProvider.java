@@ -214,7 +214,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ForkAction", PalladioComponentModelElementTypes.ForkAction_2011); //$NON-NLS-1$
 		case RecoveryActionEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0?RecoveryAction", PalladioComponentModelElementTypes.RecoveryAction_2016); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryAction", PalladioComponentModelElementTypes.RecoveryAction_2016); //$NON-NLS-1$
 		case VariableUsageEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3042); //$NON-NLS-1$
@@ -250,13 +250,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?InternalAction", PalladioComponentModelElementTypes.InternalAction_3007); //$NON-NLS-1$
 		case ParametricResourceDemandEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/1.0?ParametricResourceDemand", PalladioComponentModelElementTypes.ParametricResourceDemand_3051); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0?ParametricResourceDemand", PalladioComponentModelElementTypes.ParametricResourceDemand_3051); //$NON-NLS-1$
 		case InternalFailureOccurrenceDescriptionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0?InternalFailureOccurrenceDescription", PalladioComponentModelElementTypes.InternalFailureOccurrenceDescription_3050); //$NON-NLS-1$
 		case InfrastructureCallEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/1.0?InfrastructureCall", PalladioComponentModelElementTypes.InfrastructureCall_3053); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0?InfrastructureCall", PalladioComponentModelElementTypes.InfrastructureCall_3053); //$NON-NLS-1$
 		case VariableUsage5EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3054); //$NON-NLS-1$
@@ -298,10 +298,10 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ResourceDemandingBehaviour", PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014); //$NON-NLS-1$
 		case RecoveryAction2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0?RecoveryAction", PalladioComponentModelElementTypes.RecoveryAction_3057); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryAction", PalladioComponentModelElementTypes.RecoveryAction_3057); //$NON-NLS-1$
 		case RecoveryActionBehaviourEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0?RecoveryActionBehaviour", PalladioComponentModelElementTypes.RecoveryActionBehaviour_3058); //$NON-NLS-1$
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryActionBehaviour", PalladioComponentModelElementTypes.RecoveryActionBehaviour_3058); //$NON-NLS-1$
 		case SetVariableAction2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?SetVariableAction", PalladioComponentModelElementTypes.SetVariableAction_3024); //$NON-NLS-1$
@@ -328,7 +328,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?AbstractAction?successor_AbstractAction", PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001); //$NON-NLS-1$
 		case RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0?RecoveryActionBehaviour?failureHandlingAlternatives__RecoveryActionBehaviour", PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004); //$NON-NLS-1$
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryActionBehaviour?failureHandlingAlternatives__RecoveryActionBehaviour", PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}

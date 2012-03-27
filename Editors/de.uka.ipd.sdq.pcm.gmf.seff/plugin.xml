@@ -414,7 +414,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="2011"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_2016"
                name="%metatype.name.RecoveryAction_2016"
@@ -529,7 +529,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3007"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/1.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_3051"
                name="%metatype.name.ParametricResourceDemand_3051"
@@ -549,7 +549,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3050"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/1.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.InfrastructureCall_3053"
                name="%metatype.name.InfrastructureCall_3053"
@@ -686,7 +686,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3014"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_3057"
                name="%metatype.name.RecoveryAction_3057"
@@ -696,7 +696,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3057"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviour_3058"
                name="%metatype.name.RecoveryActionBehaviour_3058"
@@ -782,7 +782,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="4001"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004"
                name="%metatype.name.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004"
