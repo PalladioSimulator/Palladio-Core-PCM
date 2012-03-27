@@ -13,6 +13,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
 
+import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 
 /**

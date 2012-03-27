@@ -25,6 +25,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
@@ -121,21 +122,30 @@ public class TransformationsPropertySection extends AbstractPropertySection
 		container = getWidgetFactory().createFlatFormComposite(parent);
 		container.setBackground(parent.getDisplay().getSystemColor(
 				SWT.COLOR_WIDGET_BACKGROUND));
-
+		GridLayout layout = new GridLayout(1, false);
+		layout.marginWidth = 2;
+		layout.marginHeight = 2;
+		container.setLayout(layout);
 		// initialize the layout
-		createLayout(container);
+		Group group = new Group(container, SWT.NONE);
+		group.setText("Editor Inputs");
+		group.setLayout(new GridLayout(3, false));
 		// create the tree viewer with empty input
-		treeViewer = new InputSelectionTree(container, SWT.EMBEDDED, null)
-				.getTreeViewer();
+		InputSelectionTree tree = new InputSelectionTree(group, SWT.EMBEDDED,
+				null);
+		GridData gridData = new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1);
+		tree.setLayoutData(gridData);
+		treeViewer = tree.getTreeViewer();
 
-		initTransformationTable(container);
+		initTransformationTable(group);
 
-		final Button buttonAdapter = new Button(container, SWT.PUSH);
+		final Button buttonAdapter = new Button(group, SWT.PUSH);
 		buttonAdapter.setText("Add new Adapter..");
-		GridData gridData = new GridData(GridData.FILL_HORIZONTAL,
-				GridData.FILL_VERTICAL, false, false, 1, 1);
+		gridData = new GridData(SWT.FILL,
+				SWT.FILL, false, false, 1, 1);
+		gridData.widthHint = 120;
 		buttonAdapter.setLayoutData(gridData);
-		final Button buttonFilter = new Button(container, SWT.PUSH);
+		final Button buttonFilter = new Button(group, SWT.PUSH);
 		buttonFilter.setText("Add new Filter..");
 		buttonFilter.setLayoutData(gridData);
 
@@ -274,19 +284,6 @@ public class TransformationsPropertySection extends AbstractPropertySection
 			}
 		}
 		refresh();
-	}
-
-	/**
-	 * Creates a RowLayout for this section of the properties
-	 * 
-	 * @param composite
-	 *            It is the parent.
-	 */
-	private void createLayout(Composite composite) {
-		GridLayout layout = new GridLayout(3, false);
-		layout.marginWidth = 2;
-		layout.marginHeight = 2;
-		composite.setLayout(layout);
 	}
 
 	/**

@@ -91,11 +91,6 @@
                   value="15">
             </property>
          </filter>
-         <inputMetric
-               UUID="_MenvIiUREd6gmLudJva2Dw"
-               description="2-dimensional: Response Time + Simulation Time"
-               name="Simulation: Response Time">
-         </inputMetric>
          <datasink
                sinkID="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
             <property
@@ -104,30 +99,10 @@
                   value="10">
             </property>
          </datasink>
-      </defaultSequence>
-      <defaultSequence
-            id="histogram2"
-            name="Histogram 2">
          <inputMetric
                UUID="_MenvIiUREd6gmLudJva2Dw"
-               description="Simple Histogram with necessary Adapter">
+               description="default combination for 2-dimensional measurements of respnse time">
          </inputMetric>
-         <adapter
-               adapterID="de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter">
-            <property
-                  key="dataSeriesIndex"
-                  name="index"
-                  value="1">
-            </property>
-         </adapter>
-         <datasink
-               sinkID="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
-            <property
-                  key="numberOfBins"
-                  name="number of bins"
-                  value="10">
-            </property>
-         </datasink>
       </defaultSequence>
    </extension>
    <extension

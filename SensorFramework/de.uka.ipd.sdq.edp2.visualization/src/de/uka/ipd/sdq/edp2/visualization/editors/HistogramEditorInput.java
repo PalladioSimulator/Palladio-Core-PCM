@@ -15,10 +15,15 @@ import javax.measure.Measure;
 import org.eclipse.ui.IMemento;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.labels.ItemLabelAnchor;
+import org.jfree.chart.labels.ItemLabelPosition;
+import org.jfree.chart.labels.StandardXYItemLabelGenerator;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
 import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.statistics.HistogramDataset;
+import org.jfree.data.statistics.HistogramType;
+import org.jfree.ui.TextAnchor;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
@@ -44,6 +49,10 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 * Keys for persistence of properties
 	 */
 	private final static String NUMBER_BINS_KEY = "numberOfBins";
+	private final static String SHOW_ITEM_VALUES_KEY = "showItemValues";
+	private final static String BAR_MARGIN_KEY = "barMargin";
+	private final static String ABSOLUTE_FREQUENCY_KEY = "absoluteFrequency";
+	private final static String MANUAL_BIN_WIDTHS = "manualBinWidths";
 	/**
 	 * Default value for <code>numberOfBins</code>
 	 */
@@ -54,6 +63,35 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 * the measurements are counted.
 	 */
 	private int numberOfBins;
+	/**
+	 * Option to show the value for each bar in the histogram, i.e. the absolute
+	 * or relative number of items contained in each bin.
+	 */
+	private boolean showItemValues;
+
+	/**
+	 * Wheter to use absolute frequency or relative frequency for the chart.
+	 * NOTE: this does affect other input items as well, but is specific for
+	 * histograms, thus it is located here.
+	 */
+	private boolean absoluteFrequency;
+
+	/**
+	 * The width of the whitespace between the bars in percentage of each bar's
+	 * width.
+	 */
+	private double barMargin;
+
+	/**
+	 * The lower bounds for the width of each bin, when manual settings are
+	 * used.
+	 */
+	private double[] binLowerBounds;
+
+	/**
+	 * Upper bounds for bin sizes.
+	 */
+	private double[] binUpperBounds;
 	/**
 	 * The specific type of data provided by this {@link JFreeChartEditorInput}.
 	 */
@@ -81,16 +119,16 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 * {@link BasicDataset}
 	 */
 	private BasicDataset<HistogramDataset> dataset;
-	/**
-	 * The handle, which manages this input.
-	 */
-	private JFreeChartEditorInputHandle handle;
 
 	/**
 	 * Empty constructor.
 	 */
 	public HistogramEditorInput() {
 		super();
+		setAbsoluteFrequency(true);
+		setBarMargin(20.0);
+		setNumberOfBins(DEFAULT_NUMBER_BINS);
+		setShowItemValues(false);
 	}
 
 	/**
@@ -100,8 +138,12 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 * @param source
 	 */
 	public HistogramEditorInput(AbstractDataSource source) {
-		super(source);
-		dataset = new BasicDataset<HistogramDataset>(new HistogramDataset());
+		setSource(source);
+		dataset = new BasicDataset<HistogramDataset>(getDataTypeInstance());
+		setAbsoluteFrequency(true);
+		setBarMargin(20.0);
+		setNumberOfBins(DEFAULT_NUMBER_BINS);
+		setShowItemValues(false);
 	}
 
 	/*
@@ -139,16 +181,11 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 		}
 
-		// set the textual information of the chart
-		if (getInputName() == null)
-			setInputName(getDefaultName());
-
 		defaultDataset.addSeries(getInputName(), data, getNumberOfBins());
 		if (dataset == null) {
 			dataset = new BasicDataset<HistogramDataset>(getDataTypeInstance());
 			dataset.addDataSeries(this);
-			//don't overwrite persisted color settings
-			if (getColor() == null) setColor(NO_COLOR);
+
 		}
 		setChanged();
 		notifyObservers();
@@ -208,6 +245,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		properties.put(NUMBER_BINS_KEY, getNumberOfBins());
 		properties.put(COLOR_KEY, getColor());
 		properties.put(INPUT_NAME_KEY, getInputName());
+		properties.put(SHOW_ITEM_VALUES_KEY, isShowItemValues());
+		properties.put(BAR_MARGIN_KEY, getBarMargin());
+		properties.put(ABSOLUTE_FREQUENCY_KEY, isAbsoluteFrequency());
 		return properties;
 	}
 
@@ -229,6 +269,25 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		if (properties.get(COLOR_KEY) != null
 				&& newProperties.get(COLOR_KEY) != null)
 			setColor(newProperties.get(COLOR_KEY).toString());
+		if (properties.get(SHOW_ITEM_VALUES_KEY) != null
+				&& newProperties.get(SHOW_ITEM_VALUES_KEY) != null)
+			setShowItemValues(Boolean.parseBoolean(newProperties.get(
+					SHOW_ITEM_VALUES_KEY).toString()));
+		if (properties.get(BAR_MARGIN_KEY) != null
+				&& newProperties.get(BAR_MARGIN_KEY) != null) {
+			setBarMargin(Double.parseDouble(newProperties.get(BAR_MARGIN_KEY)
+					.toString()));
+			logger.log(Level.INFO, newProperties.get(BAR_MARGIN_KEY).toString());
+		}
+		if (properties.get(ABSOLUTE_FREQUENCY_KEY) != null
+				&& newProperties.get(ABSOLUTE_FREQUENCY_KEY) != null) {
+			setAbsoluteFrequency(Boolean.parseBoolean(newProperties.get(
+					ABSOLUTE_FREQUENCY_KEY).toString()));
+		}
+		if (properties.get(INPUT_NAME_KEY) != null
+				&& newProperties.get(INPUT_NAME_KEY) != null) {
+			setInputName(newProperties.get(INPUT_NAME_KEY).toString());
+		}
 	}
 
 	private int getNumberOfBins() {
@@ -267,6 +326,18 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 						.getSeriesProperties()[i].get(
 						JFreeChartEditorInput.COLOR_KEY).toString()));
 		}
+
+		getBasicDataset().getDataset().setType(
+				isAbsoluteFrequency() ? HistogramType.FREQUENCY
+						: HistogramType.RELATIVE_FREQUENCY);
+		renderer.setMargin(getBarMargin() / 100);
+
+		renderer.setBaseItemLabelGenerator(new StandardXYItemLabelGenerator());
+		renderer.setBaseItemLabelPaint(Color.BLACK);
+		renderer.setBasePositiveItemLabelPosition(new ItemLabelPosition());
+		renderer.setBaseNegativeItemLabelPosition(new ItemLabelPosition(
+				ItemLabelAnchor.OUTSIDE12, TextAnchor.TOP_CENTER));
+		renderer.setBaseItemLabelsVisible(isShowItemValues());
 
 		chart = new JFreeChart(
 				getBasicDataset().getHandle().isShowTitle() ? getBasicDataset()
@@ -318,6 +389,35 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	@Override
 	public String getDefaultRangeAxisLabel() {
 		return "Frequency (Absolute)";
+	}
+
+	private boolean isAbsoluteFrequency() {
+		return absoluteFrequency;
+	}
+
+	private double getBarMargin() {
+		return barMargin;
+	}
+
+	private boolean isShowItemValues() {
+		return showItemValues;
+	}
+
+	private void setAbsoluteFrequency(boolean value) {
+		absoluteFrequency = value;
+	}
+
+	private void setBarMargin(double percentage) {
+		if (percentage < 0)
+			barMargin = 0.0;
+		else if (percentage > 100)
+			barMargin = 100.0;
+		else
+			barMargin = percentage;
+	}
+
+	private void setShowItemValues(boolean value) {
+		showItemValues = value;
 	}
 
 }

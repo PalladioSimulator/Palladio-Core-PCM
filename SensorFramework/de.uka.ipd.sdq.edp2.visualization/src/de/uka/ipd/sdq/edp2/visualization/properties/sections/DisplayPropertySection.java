@@ -82,8 +82,14 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 */
 	private ListViewer listViewer;
 
+	/**
+	 * The basic composite in this section.
+	 */
 	private Composite composite;
 
+	/**
+	 * The last selected input, the properties of which are displayed in the table.
+	 */
 	private IVisualizationInput lastSelectedInput;
 
 	/**
@@ -97,11 +103,10 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * transformation.
 	 */
 	private TableViewer visualPropertiesTableViewer;
-
-	private IWorkbenchPart part;
-
-	private ISelection selection;
-
+	
+	/**
+	 * The property sheet page containing this section.
+	 */
 	private TabbedPropertySheetPage tabbedPropertySheetPage;
 
 	/*
@@ -143,9 +148,9 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		visualPropertiesTable.setHeaderVisible(true);
 
 		// table layout
-		GridData gridData = new GridData(GridData.FILL_HORIZONTAL,
-				GridData.FILL_VERTICAL, false, true, 1, 1);
-		gridData.heightHint = 180;
+		GridData gridData = new GridData(SWT.FILL,
+				SWT.FILL, false, true, 1, 1);
+		gridData.heightHint = 168;
 		gridData.widthHint = 250;
 		visualPropertiesTable.setLayoutData(gridData);
 		TableLayout tableLayout = new TableLayout();
@@ -188,17 +193,16 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 								public void handleEvent(final Event e) {
 									switch (e.type) {
 									case SWT.FocusOut:
-										item.setText(editColumn, text.getText());
 										text.dispose();
+										e.doit = false;
 										break;
 									case SWT.Traverse:
 										switch (e.detail) {
 										case SWT.TRAVERSE_RETURN:
 											item.setText(editColumn,
 													text.getText());
-											updateProperties(item.getText(0),
+											updateProperties(item.getText(labelColumn),
 													text.getText());
-
 										case SWT.TRAVERSE_ESCAPE:
 											text.dispose();
 											e.doit = false;
@@ -209,8 +213,8 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 							};
 							text.addListener(SWT.FocusOut, textListener);
 							text.addListener(SWT.Traverse, textListener);
-							editor.setEditor(text, item, 1);
-							text.setText(item.getText(1));
+							editor.setEditor(text, item, editColumn);
+							text.setText(item.getText(editColumn));
 							text.selectAll();
 							text.setFocus();
 							return;
@@ -289,8 +293,8 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 */
 	@Override
 	public void setInput(IWorkbenchPart part, ISelection selection) {
-		this.part = part;
-		this.selection = selection;
+		//this.part = part;
+		//this.selection = selection;
 	}
 
 	/**
@@ -403,12 +407,12 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	}
 
 	/**
-	 * Update the properties of the selected filter. It use the method
+	 * Update the properties of the selected input. Uses
 	 * {@link AbstractTransformation#setProperties(HashMap)} to update the
-	 * properties from the Filter.
+	 * properties.
 	 * 
 	 * @param key
-	 *            the key as String.
+	 *            the key of the updated value as a String.
 	 * @param value
 	 *            the value as an Object.
 	 */
@@ -420,6 +424,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				+ " updated with: " + key.toString() + ", " + value.toString());
 		newProperties.put(key, value);
 		lastSelectedInput.setProperties(newProperties);
+		//update the input
 		lastSelectedInput.updateInputData();
 	}
 

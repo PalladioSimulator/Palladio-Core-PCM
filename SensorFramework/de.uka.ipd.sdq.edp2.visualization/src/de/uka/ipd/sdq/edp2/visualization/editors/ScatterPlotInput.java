@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +18,7 @@ import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.DefaultXYItemRenderer;
 import org.jfree.data.general.AbstractSeriesDataset;
+import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.xy.DefaultXYDataset;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
@@ -38,7 +40,6 @@ import de.uka.ipd.sdq.edp2.visualization.properties.IProperty;
  */
 public class ScatterPlotInput extends JFreeChartEditorInput {
 
-
 	/**
 	 * Name constant, which is used to identify this class in properties.
 	 */
@@ -55,10 +56,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	 */
 	private double[][] rawData;
 
-	private NumberAxis domainAxis;
-
-	private NumberAxis rangeAxis;
-
 	private BasicDataset<DefaultXYDataset> dataset;
 
 	private JFreeChart chart;
@@ -70,8 +67,8 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	}
 
 	public ScatterPlotInput(AbstractDataSource source) {
-		super(source);
-		dataset = new BasicDataset<DefaultXYDataset>(new DefaultXYDataset());
+		setSource(source);
+		dataset = new BasicDataset<DefaultXYDataset>(getDataTypeInstance());
 	}
 
 	/*
@@ -152,15 +149,36 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 	@Override
 	public JFreeChart getChart() {
-		updateInputData();
+		NumberAxis domainAxis = new NumberAxis(getBasicDataset().getHandle()
+				.isShowDomainAxisLabel() ? getBasicDataset().getHandle()
+				.getDomainAxisLabel() : null);
+		domainAxis.setAutoRangeIncludesZero(getBasicDataset().getHandle()
+				.isIncludeZero());
+		NumberAxis rangeAxis = new NumberAxis(getBasicDataset().getHandle()
+				.isShowRangeAxisLabel() ? getBasicDataset().getHandle()
+				.getRangeAxisLabel() : null);
 		XYPlot plot = new XYPlot();
-		plot.setDataset(dataset.getDataset());
+		plot.setDataset(getBasicDataset().getDataset());
 		renderer = new DefaultXYItemRenderer();
 		plot.setRenderer(renderer);
 		plot.setRangeAxis(rangeAxis);
 		plot.setDomainAxis(domainAxis);
-		chart = new JFreeChart(getName(),
-				JFreeChart.DEFAULT_TITLE_FONT, plot, true);
+		for (int i = 0; i < getBasicDataset().getSeriesProperties().length; i++) {
+			if ((getBasicDataset().getSeriesProperties()[i]
+					.get(JFreeChartEditorInput.COLOR_KEY) != null)
+					&& !getBasicDataset().getSeriesProperties()[i]
+							.get(JFreeChartEditorInput.COLOR_KEY).toString()
+							.equals(NO_COLOR))
+				renderer.setSeriesPaint(i, Color.decode(getBasicDataset()
+						.getSeriesProperties()[i].get(
+						JFreeChartEditorInput.COLOR_KEY).toString()));
+		}
+
+		chart = new JFreeChart(
+				getBasicDataset().getHandle().isShowTitle() ? getBasicDataset()
+						.getHandle().getTitle() : null,
+				JFreeChart.DEFAULT_TITLE_FONT, plot, getBasicDataset()
+						.getHandle().isShowLegend());
 		return chart;
 	}
 
@@ -185,7 +203,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	@Override
 	public void updateInputData() {
 		DefaultXYDataset defaultDataset = new DefaultXYDataset();
-		if (dataset == null) dataset = new BasicDataset<DefaultXYDataset>(getDataTypeInstance());
+
 		logger.log(Level.INFO, "Editor input updateDataSet begin");
 		ArrayList<OrdinalMeasurementsDao<Measure>> list = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		for (DataSeries data : getSource().getOutput()) {
@@ -198,50 +216,34 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		List<Measure> list1 = omdSeries1.getMeasurements();
 
 		List<Measure> list2 = omdSeries2.getMeasurements();
-		
+
 		rawData = new double[2][list1.size()];
 
 		for (int i = 0; i < list1.size(); i++) {
-				Measure x = list1.get(i);
-				Measure y = list2.get(i);
-				rawData[0][i] = x.doubleValue(x.getUnit());
-				rawData[1][i] = y.doubleValue(y.getUnit());
-			}
-		
-		defaultDataset.addSeries(getInputName(), rawData);
-		
-		MetricDescription[] metrics = MetricDescriptionUtility
-		.toBaseMetricDescriptions(getSource().getMeasurementsRange()
-				.getMeasurements().getMeasure().getMetric());
-		
-		domainAxis = new NumberAxis(metrics[0].getName());
-		rangeAxis = new NumberAxis(metrics[1].getName());
-		
-		dataset.addDataSeries(this);
+			Measure x = list1.get(i);
+			Measure y = list2.get(i);
+			rawData[0][i] = x.doubleValue(x.getUnit());
+			rawData[1][i] = y.doubleValue(y.getUnit());
+		}
 
-		/*
-		 * setToolTipText(getSource().getMeasurementsRange().getMeasurements()
-		 * .getMeasure().getMetric().getTextualDescription());
-		 * 
-		 * // label data series according to metric definitions
-		 * MetricSetDescription md = (MetricSetDescription) getSource()
-		 * .getOutput().get(0).getRawMeasurements().getMeasurementsRange()
-		 * .getMeasurements().getMeasure().getMetric();
-		 * 
-		 * setLabelXScale(md.getSubsumedMetrics().get(0).getName() + " ( " +
-		 * ((Measure) list1.get(0)).getUnit() + ")");
-		 * setLabelYScale(md.getSubsumedMetrics().get(1).getName() + " ( " +
-		 * ((Measure) list2.get(0)).getUnit() + ")");
-		 */
-		logger.log(Level.INFO, "Editor input updateDataSet end");
+		defaultDataset.addSeries(getInputName(), rawData);
+
+		if (dataset == null) {
+			dataset = new BasicDataset<DefaultXYDataset>(getDataTypeInstance());
+			dataset.addDataSeries(this);
+		}
 		
+		setChanged();
+		notifyObservers();
+		logger.log(Level.INFO, "Editor input updateDataSet end");
+
 	}
 
 	@Override
 	public BasicDataset<DefaultXYDataset> getBasicDataset() {
 		return dataset;
 	}
-	
+
 	@Override
 	public String getName() {
 		return ELEMENT_NAME;
@@ -254,13 +256,17 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 	@Override
 	public String getDefaultDomainAxisLabel() {
-		// TODO Auto-generated method stub
-		return null;
+		return MetricDescriptionUtility.toBaseMetricDescriptions(getSource()
+				.getMeasurementsRange().getMeasurements().getMeasure()
+				.getMetric())[0].getName()
+				+ " [" + getDefaultUnits()[0].toString() + "]";
 	}
 
 	@Override
 	public String getDefaultRangeAxisLabel() {
-		// TODO Auto-generated method stub
-		return null;
+		return MetricDescriptionUtility.toBaseMetricDescriptions(getSource()
+				.getMeasurementsRange().getMeasurements().getMeasure()
+				.getMetric())[1].getName()
+				+ " [" + getDefaultUnits()[1].toString() + "]";
 	}
 }

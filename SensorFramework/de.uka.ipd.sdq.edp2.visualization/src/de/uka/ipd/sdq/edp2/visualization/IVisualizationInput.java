@@ -16,6 +16,7 @@ import org.jfree.data.general.AbstractSeriesDataset;
 import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NumericalBaseMetricDescription;
+import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.BasicDataset;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
@@ -33,7 +34,7 @@ public abstract class IVisualizationInput extends Observable implements
 		IDataSink {
 
 	/**
-	 * Constant used in persistence of 
+	 * Keys used for persistence of properties.
 	 */
 	public static final String INPUT_NAME_KEY = "inputName";
 
@@ -53,6 +54,15 @@ public abstract class IVisualizationInput extends Observable implements
 	 */
 	private String inputName;
 
+	public IVisualizationInput(){
+		properties = new HashMap<String, Object>();
+	}
+	
+
+	public IVisualizationInput(AbstractDataSource source) {
+		properties = new HashMap<String, Object>();
+		setSource(source);
+	}
 
 	/**
 	 * Returns a new Instance of the data type, which is required to display the
@@ -161,8 +171,8 @@ public abstract class IVisualizationInput extends Observable implements
 		if (this.source != null)
 			getSource().deleteObserver(this);
 		this.source = source;
+		properties.put(INPUT_NAME_KEY, getInputName());
 		source.addObserver(this);
-		
 		updateInputData();
 	}
 
@@ -174,8 +184,10 @@ public abstract class IVisualizationInput extends Observable implements
 	 * @return
 	 */
 	public String getDefaultName() {
+		if (getSource() != null)
 		return source.getMeasurementsRange().getMeasurements().getMeasure()
 				.getMeasuredObject();
+		else return "noSourceSet";
 	}
 
 	/**
@@ -215,6 +227,7 @@ public abstract class IVisualizationInput extends Observable implements
 	}
 	
 	public String getInputName() {
+		if (inputName == null) return getDefaultName();
 		return inputName;
 	}
 	

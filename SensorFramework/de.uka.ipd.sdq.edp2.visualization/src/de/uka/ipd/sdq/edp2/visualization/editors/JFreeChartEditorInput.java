@@ -23,11 +23,11 @@ import de.uka.ipd.sdq.edp2.visualization.properties.IProperty;
 public abstract class JFreeChartEditorInput extends IVisualizationInput
 		implements ISelection {
 
-	
+	/**
+	 * Keys used for persistence of properties.
+	 */
 	public static final String COLOR_KEY = "color";
 	
-	
-
 	/**
 	 * Constant, describing that no color is used for this input (actually, it is white).
 	 */
@@ -38,13 +38,9 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 */
 	private String hexColor;
 	
-	public JFreeChartEditorInput() {
-		properties = new HashMap<String, Object>();
-	}
-
-	public JFreeChartEditorInput(AbstractDataSource source) {
-		properties = new HashMap<String, Object>();
-		setSource(source);
+	public JFreeChartEditorInput(){
+		properties.put(COLOR_KEY, NO_COLOR);
+		setColor(NO_COLOR);
 	}
 
 	/*
