@@ -133,15 +133,15 @@ public class LoopActionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof LoopActionEntityNameEditPart) {
-			((LoopActionEntityNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureLoopNameLabelFigure());
-			return true;
-		}
 		if (childEditPart instanceof LoopIterationsLabelEditPart) {
 			((LoopIterationsLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureLoopIterationsLabelFigure());
+			return true;
+		}
+		if (childEditPart instanceof LoopActionEntityNameEditPart) {
+			((LoopActionEntityNameEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureLoopNameLabelFigure());
 			return true;
 		}
 		return false;
@@ -151,10 +151,10 @@ public class LoopActionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof LoopActionEntityNameEditPart) {
+		if (childEditPart instanceof LoopIterationsLabelEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof LoopIterationsLabelEditPart) {
+		if (childEditPart instanceof LoopActionEntityNameEditPart) {
 			return true;
 		}
 		return false;

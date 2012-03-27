@@ -107,6 +107,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorP
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
+import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
@@ -869,7 +871,17 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getResourceDemandingBehaviour_3003Text(View view) {
-		return ""; //$NON-NLS-1$
+		ResourceDemandingBehaviour domainModelElement = (ResourceDemandingBehaviour) view
+				.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getId();
+		} else {
+			PalladioComponentModelSeffDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 3003); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**
@@ -1072,7 +1084,17 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getResourceDemandingBehaviour_3011Text(View view) {
-		return ""; //$NON-NLS-1$
+		ResourceDemandingBehaviour domainModelElement = (ResourceDemandingBehaviour) view
+				.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getId();
+		} else {
+			PalladioComponentModelSeffDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 3011); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**
@@ -1180,7 +1202,17 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getForkedBehaviour_3027Text(View view) {
-		return ""; //$NON-NLS-1$
+		ForkedBehaviour domainModelElement = (ForkedBehaviour) view
+				.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getId();
+		} else {
+			PalladioComponentModelSeffDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 3027); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**
@@ -1208,7 +1240,17 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getResourceDemandingBehaviour_3014Text(View view) {
-		return ""; //$NON-NLS-1$
+		ResourceDemandingBehaviour domainModelElement = (ResourceDemandingBehaviour) view
+				.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getId();
+		} else {
+			PalladioComponentModelSeffDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 3014); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**
@@ -1263,7 +1305,17 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getForkedBehaviour_3039Text(View view) {
-		return ""; //$NON-NLS-1$
+		ForkedBehaviour domainModelElement = (ForkedBehaviour) view
+				.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getId();
+		} else {
+			PalladioComponentModelSeffDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 3039); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**
@@ -1395,7 +1447,17 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getResourceDemandingBehaviour_3018Text(View view) {
-		return ""; //$NON-NLS-1$
+		ResourceDemandingBehaviour domainModelElement = (ResourceDemandingBehaviour) view
+				.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getId();
+		} else {
+			PalladioComponentModelSeffDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 3018); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
 	}
 
 	/**

@@ -122,10 +122,9 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
    <extension point="org.eclipse.ui.preferencePages" id="prefpages">
       <?gmfgen generated="true"?>
       <page
-            category="de.uka.ipd.sdq.pcmbench.palladio"
-            class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramGeneralPreferencePage"
             id="de.uka.ipd.sdq.pcm.diagram.seff"
-            name="%prefpage.de.uka.ipd.sdq.pcm.diagram.seff">
+            name="%prefpage.de.uka.ipd.sdq.pcm.diagram.seff"
+            class="de.uka.ipd.sdq.pcm.gmf.seff.preferences.DiagramGeneralPreferencePage">
       </page>
       <page
             id="de.uka.ipd.sdq.pcm.diagram.seff.appearance"
