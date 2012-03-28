@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package de.uka.ipd.sdq.sensorframework.visualisation.birt;
 
@@ -51,7 +51,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.actions.LoadCSVHistogram;
 
 /**
  * @author admin
- * 
+ *
  */
 public class HistogramChartVisualization implements IHistogramAccepter {
 
@@ -70,7 +70,7 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 		createEmptyChart();
 		addHistogram(new double[]{1,2,3,4}, new double[]{0.2,0.4,0.3999,0.11}, "Test");
 		addHistogram(new double[]{1,2,3,4}, new double[]{0.1,0.3,0.5,0.11}, "Test");
-	
+
 		try {
 			idr = ps.getDevice("dv.SWT");
 			viewer = new ChartSwtViewer(parent, 0, idr, getChart());
@@ -93,7 +93,7 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 		createChart();
 		initialisePlot();
 		cwa.getTitle().getLabel().getCaption().setValue("Response Time Histogram");
-		
+
 		configureLegend();
 		configureXAxis();
 		configureYAxis();
@@ -108,11 +108,11 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 		NumberFormatSpecifier nfs = NumberFormatSpecifierImpl.create();
 		nfs.setFractionDigits(2);
 		yAxisPrimary.setFormatSpecifier(nfs);
-		
+
 		DataElement de = NumberDataElementImpl.create(0);
 		yAxisPrimary.getScale().setMin(de);
 		yAxisPrimary.getTitle().getCaption().getFont().setSize(9);
-		
+
 		TextAlignment ta = TextAlignmentImpl.create();
 		ta.setHorizontalAlignment(HorizontalAlignment.CENTER_LITERAL);
 		ta.setVerticalAlignment(VerticalAlignment.CENTER_LITERAL);
@@ -162,7 +162,7 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 	public void initChart(Collection<IAdapter> adapters) {
 		xAxisPrimary.getSeriesDefinitions().clear();
 		yAxisPrimary.getSeriesDefinitions().clear();
-		
+
 		for (IAdapter histAdapter : adapters) {
 			Histogram hist = (Histogram) histAdapter.getAdaptedObject();
 			double[] values = new double[hist.getBucketInformation().size()];
@@ -189,23 +189,23 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 		series.getLabel().getCaption().setValue(label);
 		series.getLabel().setVisible(false);
 		series.setStacked(true);
-		
+
 		SeriesDefinition sdY = SeriesDefinitionImpl.create();
 		sdY.getSeriesPalette().update(ColorDefinitionImpl.BLUE());
 		sdY.setQuery(QueryImpl.create(""));
 		sdY.getSeries().add(series);
-		
+
 		return sdY;
 	}
 
 	@SuppressWarnings("unchecked")
 	private SeriesDefinition createXSeries(double[] seriesData) {
 		NumberDataSet categoryValues = NumberDataSetImpl.create(seriesData);
-		
+
 		Series seCategory = SeriesImpl.create();
 		seCategory.setDataSet(categoryValues);
 		seCategory.getDataDefinition().add(QueryImpl.create(""));
-		
+
 		SeriesDefinition sdX = SeriesDefinitionImpl.create();
 		sdX.getSeriesPalette().update(0);
 		sdX.getSeries().add(seCategory);
@@ -222,7 +222,7 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 		SeriesDefinition sdY = createYSeries(probabilities,label);
 		yAxisPrimary.getSeriesDefinitions().add(sdY);
 	}
-	
+
 	/**
 	 * @return the cwa
 	 */
@@ -230,7 +230,6 @@ public class HistogramChartVisualization implements IHistogramAccepter {
 		return cwa;
 	}
 
-	@Override
 	public void addHistogram(Histogram histogram) {
 		double[] values = new double[histogram.getBucketInformation().size()];
 		double[] probabilities = new double[histogram.getBucketInformation().size()];

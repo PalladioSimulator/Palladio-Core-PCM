@@ -5,8 +5,7 @@ Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation.RVisualisationPlugin
 Bundle-Vendor: sdq.ipd.uka.de
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.sensorframework.visualisation,
  org.eclipse.ui.views.properties.tabbed,
  de.uka.ipd.sdq.sensorframework,

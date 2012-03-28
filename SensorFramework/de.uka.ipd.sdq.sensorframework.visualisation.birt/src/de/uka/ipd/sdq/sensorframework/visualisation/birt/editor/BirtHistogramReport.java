@@ -21,9 +21,9 @@ public class BirtHistogramReport extends AbstractReportView implements
 		IVisualisation {
 
 	public static String EDITOR_ID = "de.uka.ipd.sdq.sensorframework.visualisation.birt.editor.BirtHistogramReport";
-	
+
 	HistogramChartVisualization visualization;
-	
+
 	public void createReportControls(Composite parent){
 		visualization = new HistogramChartVisualization(parent);
 	}
@@ -34,16 +34,13 @@ public class BirtHistogramReport extends AbstractReportView implements
 	public HistogramChartVisualization getVisualization() {
 		return visualization;
 	}
-	
-	@Override
+
 	public void addInput(Collection c) {
 	}
 
-	@Override
 	public void deleteInput(Collection c) {
 	}
 
-	@Override
 	public void setInput(Collection c) {
 		ArrayList<IAdapter> adapters = new ArrayList<IAdapter>();
 		for (Object o : c) {
@@ -58,13 +55,13 @@ public class BirtHistogramReport extends AbstractReportView implements
 	@Override
 	protected void generateVisualization(List<DataAdapter> list) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void setFocus() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

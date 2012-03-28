@@ -5,8 +5,7 @@ Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisu
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation.Activator
 Bundle-Vendor: sdq.ipd.uka.de
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.sensorframework.visualisation,
  de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes,
  de.uka.ipd.sdq.sensorframework,
@@ -14,11 +13,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.views.properties.tabbed,
  org.eclipse.draw2d,
  org.apache.batik.dom,
- org.apache.batik.dom.svg,
  org.apache.batik.svggen,
- org.apache.batik.ext.awt,
  org.jfree.jfreechart,
- org.apache.log4j;bundle-version="1.2.13"
+ org.apache.log4j;bundle-version="1.2.13",
+ org.apache.batik.ext.awt;bundle-version="1.6.0"
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

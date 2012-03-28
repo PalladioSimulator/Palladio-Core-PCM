@@ -16,69 +16,68 @@ import de.uka.ipd.sdq.statistics.estimation.SampleMeanEstimator;
 import de.uka.ipd.sdq.statistics.independence.RunUpTest;
 
 /**
- * Report that calls {@link PhiMixingBatchAlgorithm} to determine the confidence intervals, 
+ * Report that calls {@link PhiMixingBatchAlgorithm} to determine the confidence intervals,
  * also considering independence of the observations. The {@link RunUpTest} is used
- * as the default to test the data sequence for independence. 
+ * as the default to test the data sequence for independence.
  * @author martens
  * @see PhiMixingBatchAlgorithm
  * @see RunUpTest
  */
 public class ConfidenceIntervalsHtmlReportView extends AbstractHtmlReportView {
 
-	@Override
 	public void setInput(Collection<SensorAndMeasurements> c) {
-		
-		
+
+
 		int batcheSize = 100;
-		
+
 		if (c.isEmpty()) {
 			browser.setText("<html><body><h1>Error! </h1>At least "
 					+ "the measurements for one sensor must be "
 					+ "available!</body></html>");
 		} else {
 			String browserText = "<html><body><h1>Confidence intervals for mean values of sensors</h1>";
-			
-			// TODO: make alpha configurable. 
+
+			// TODO: make alpha configurable.
 			double alpha = 0.9;
-			
-			
+
+
 			for (SensorAndMeasurements sensorAndMeasurements : c) {
 				Sensor sensor = sensorAndMeasurements.getSensor();
 				if (sensor instanceof TimeSpanSensor){
 					PhiMixingBatchAlgorithm statisticChecker = new PhiMixingBatchAlgorithm();
-								
+
 					for (Measurement m : sensorAndMeasurements.getMeasurements()) {
 						TimeSpanMeasurement t = (TimeSpanMeasurement)m;
 						statisticChecker.offerSample(t.getTimeSpan());
 					}
 					browserText += "<h2>Sensor "+sensor.getSensorName()+"</h2>";
 					browserText += "<p>Number of observations: "+sensorAndMeasurements.getMeasurements().size()+"<br>";
-					
+
 					browserText += "<h3>Results of PhiMixingBatchAlgorithm</h3>";
 					browserText = evaluateBatchAlgorithm(browserText, alpha,
 							sensorAndMeasurements, statisticChecker);
-					
+
 
 					StaticBatchAlgorithm staticStatisticChecker = new StaticBatchAlgorithm(batcheSize,0);
-					
+
 					for (Measurement m : sensorAndMeasurements.getMeasurements()) {
 						TimeSpanMeasurement t = (TimeSpanMeasurement)m;
 						staticStatisticChecker.offerSample(t.getTimeSpan());
 					}
-					
+
 					browserText += "<h3>Results of Plain Batch Means Algorithm (batch size "+batcheSize+")</h3>";
 					browserText = evaluateBatchAlgorithm(browserText, alpha,
 							sensorAndMeasurements, staticStatisticChecker);
-					
+
 					/*better not use this as it will load all results of this sensor in memory.
 					StaticBatchAlgorithm singleStatisticChecker = new StaticBatchAlgorithm(1,0);
-					
+
 					for (Measurement m : sensorAndMeasurements.getMeasurements()) {
 						TimeSpanMeasurement t = (TimeSpanMeasurement)m;
 						singleStatisticChecker.offerSample(t.getTimeSpan());
 					}
-					
-					
+
+
 *                  browserText += "<h3>Results of Plain Confidence Interval Analysis on Single Samples</h3>";
 					browserText = evaluateBatchAlgorithm(browserText, alpha,
 							sensorAndMeasurements, statisticChecker);*/
@@ -105,7 +104,7 @@ public class ConfidenceIntervalsHtmlReportView extends AbstractHtmlReportView {
 					"</body></html>";
 			browser.setText(browserText);
 		}
-		
+
 	}
 
 	private String evaluateBatchAlgorithm(String browserText, double alpha,
@@ -130,12 +129,12 @@ public class ConfidenceIntervalsHtmlReportView extends AbstractHtmlReportView {
 			}
 			double mean = sum / sensorAndMeasurements.getMeasurements().size();
 			browserText += "Mean value: "+mean +"</p><p>";
-			
+
 			browserText += "Not enough information to calulate confidence interval: No valid batches could be determined to calculate the confidence interval. Maybe warmup effects influence the results.</p>";
 		}
 		return browserText;
 	}
-	
+
 
 
 }
