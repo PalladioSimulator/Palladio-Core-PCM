@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
 import java.awt.Color;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,10 +12,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
+import javax.measure.unit.UnitFormat;
 
 import org.eclipse.ui.IMemento;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.NumberTickUnit;
 import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.labels.StandardXYItemLabelGenerator;
@@ -48,11 +51,11 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	/**
 	 * Keys for persistence of properties
 	 */
-	private final static String NUMBER_BINS_KEY = "numberOfBins";
-	private final static String SHOW_ITEM_VALUES_KEY = "showItemValues";
-	private final static String BAR_MARGIN_KEY = "barMargin";
-	private final static String ABSOLUTE_FREQUENCY_KEY = "absoluteFrequency";
-	private final static String MANUAL_BIN_WIDTHS = "manualBinWidths";
+	public final static String NUMBER_BINS_KEY = "numberOfBins";
+	public final static String SHOW_ITEM_VALUES_KEY = "showItemValues";
+	public final static String BAR_MARGIN_KEY = "barMargin";
+	public final static String ABSOLUTE_FREQUENCY_KEY = "absoluteFrequency";
+	public final static String MANUAL_BIN_WIDTHS = "manualBinWidths";
 	/**
 	 * Default value for <code>numberOfBins</code>
 	 */
@@ -185,7 +188,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		if (dataset == null) {
 			dataset = new BasicDataset<HistogramDataset>(getDataTypeInstance());
 			dataset.addDataSeries(this);
-
 		}
 		setChanged();
 		notifyObservers();
@@ -260,8 +262,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
-		if (properties.get(NUMBER_BINS_KEY) != null
-				&& newProperties.get(NUMBER_BINS_KEY) != null)
+		//logger.log(Level.INFO, "Value to set: "+newProperties.get(NUMBER_BINS_KEY).toString());
+		//logger.log(Level.INFO, "Original value: "+properties.get(NUMBER_BINS_KEY).toString());
+		if (newProperties.get(NUMBER_BINS_KEY) != null)
 			setNumberOfBins(Integer.parseInt(newProperties.get(NUMBER_BINS_KEY)
 					.toString()));
 		else
@@ -310,8 +313,10 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		NumberAxis rangeAxis = new NumberAxis(getBasicDataset().getHandle()
 				.isShowRangeAxisLabel() ? getBasicDataset().getHandle()
 				.getRangeAxisLabel() : null);
+		
 		plot = new XYPlot();
 		plot.setDataset(getBasicDataset().getDataset());
+		
 		renderer = new XYBarRenderer();
 		plot.setRenderer(renderer);
 		plot.setRangeAxis(rangeAxis);

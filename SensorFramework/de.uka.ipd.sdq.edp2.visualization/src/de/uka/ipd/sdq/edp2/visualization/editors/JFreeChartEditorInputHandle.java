@@ -83,6 +83,11 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 	 */
 	public JFreeChartEditorInputHandle() {
 		inputs = new ArrayList<JFreeChartEditorInput>();
+		setShowDomainAxisLabel(true);
+		setIncludeZero(true);
+		setShowLegend(true);
+		setShowRangeAxisLabel(true);
+		setShowTitle(true);
 	}
 
 	/**
@@ -93,6 +98,11 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 		dataset = firstInput.getBasicDataset();
 		dataset.setHandle(this);
 		addInput(firstInput);
+		setShowDomainAxisLabel(true);
+		setIncludeZero(true);
+		setShowLegend(true);
+		setShowRangeAxisLabel(true);
+		setShowTitle(true);
 	}
 
 	/*
@@ -110,12 +120,6 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 			newInput.addObserver(this);
 			setChanged();
 			notifyObservers();
-			setShowDomainAxisLabel(true);
-			setIncludeZero(true);
-			setShowLegend(true);
-			setShowRangeAxisLabel(true);
-			setShowTitle(true);
-			
 			return true;
 		} else {
 			if (dataset == null){

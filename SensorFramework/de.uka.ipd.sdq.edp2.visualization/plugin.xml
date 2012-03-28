@@ -88,7 +88,7 @@
             <property
                   key="droppedValuesRelative"
                   name="dropped values in percentage"
-                  value="15">
+                  value="15.0">
             </property>
          </filter>
          <datasink

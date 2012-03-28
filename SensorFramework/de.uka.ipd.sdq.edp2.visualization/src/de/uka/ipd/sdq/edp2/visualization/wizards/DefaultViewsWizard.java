@@ -4,6 +4,8 @@
 package de.uka.ipd.sdq.edp2.visualization.wizards;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -26,6 +28,7 @@ import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
  */
 public class DefaultViewsWizard extends Wizard implements INewWizard {
 	
+	private final static Logger logger = Logger.getLogger(DefaultViewsWizard.class.getName());
 	/**
 	 * The page, which displays the list of available filters.
 	 */

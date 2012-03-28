@@ -166,7 +166,7 @@ public class DefaultSequence {
 	
 	/**
 	 * Convenience method.
-	 * @return the first element in <sequenceElements>
+	 * @return the last element in <sequenceElements>
 	 */
 	public AbstractTransformation getLastSequenceElement(){
 		return sequenceElements.get(getSize()-1);

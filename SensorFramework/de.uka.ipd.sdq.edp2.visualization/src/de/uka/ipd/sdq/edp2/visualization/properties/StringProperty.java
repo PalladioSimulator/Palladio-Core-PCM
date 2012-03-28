@@ -11,6 +11,10 @@ public class StringProperty extends AbstractProperty<String> {
 		setDescription(description);
 	}
 	
+	public StringProperty(String key, String value, String display){
+		new StringProperty(key,value,display,"");
+	}
+	
 	public StringProperty(String key, String value){
 		new StringProperty(key,value,"","");
 	}

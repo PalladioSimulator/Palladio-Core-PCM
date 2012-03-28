@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.CheckboxCellEditor;
 import org.eclipse.jface.viewers.ColorCellEditor;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
@@ -18,18 +19,25 @@ import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+
+import java.awt.Checkbox;
 import java.awt.Color;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.ColorDialog;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
@@ -45,6 +53,7 @@ import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
+import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 
@@ -88,7 +97,8 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	private Composite composite;
 
 	/**
-	 * The last selected input, the properties of which are displayed in the table.
+	 * The last selected input, the properties of which are displayed in the
+	 * table.
 	 */
 	private IVisualizationInput lastSelectedInput;
 
@@ -99,11 +109,22 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	private Table visualPropertiesTable;
 
 	/**
+	 * Index of the column in the {@link #visualPropertiesTable} containing the
+	 * properties' labels.
+	 */
+	private static int labelColumn = 0;
+	/**
+	 * Index of the column in the {@link #visualPropertiesTable} containing the
+	 * properties' editable values.
+	 */
+	private static int editColumn = 1;
+
+	/**
 	 * Viewer for the table containing the visual properties of the selected
 	 * transformation.
 	 */
 	private TableViewer visualPropertiesTableViewer;
-	
+
 	/**
 	 * The property sheet page containing this section.
 	 */
@@ -125,7 +146,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				SWT.COLOR_WIDGET_BACKGROUND));
 		composite.setSize(500, 250);
 		createLayout(composite);
-		
+
 		Group groupSpecific = new Group(composite, SWT.NONE);
 		groupSpecific.setText("Data Series Options");
 		groupSpecific.setLayout(new GridLayout(3, false));
@@ -139,7 +160,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	}
 
 	private void createPropertiesTable(Composite parent) {
-		
+
 		// initialize the table, which shows the properties of transformations
 		visualPropertiesTable = new Table(parent, SWT.SINGLE | SWT.BORDER
 				| SWT.V_SCROLL | SWT.FULL_SELECTION);
@@ -147,30 +168,28 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		visualPropertiesTable.setLinesVisible(true);
 		visualPropertiesTable.setHeaderVisible(true);
 
-		// table layout
-		GridData gridData = new GridData(SWT.FILL,
-				SWT.FILL, false, true, 1, 1);
+		// set the table layout
+		GridData gridData = new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1);
 		gridData.heightHint = 168;
 		gridData.widthHint = 250;
 		visualPropertiesTable.setLayoutData(gridData);
+
 		TableLayout tableLayout = new TableLayout();
 		tableLayout.addColumnData(new ColumnWeightData(2));
 		tableLayout.addColumnData(new ColumnWeightData(1));
 		visualPropertiesTable.setLayout(tableLayout);
 
 		visualPropertiesTableViewer = new TableViewer(visualPropertiesTable);
-		TableViewerColumn labelColumn = new TableViewerColumn(
+		TableViewerColumn keyColumn = new TableViewerColumn(
 				visualPropertiesTableViewer, SWT.NONE);
-		labelColumn.getColumn().setText("Property");
+		keyColumn.getColumn().setText("Property");
 
 		TableViewerColumn valueColumn = new TableViewerColumn(
 				visualPropertiesTableViewer, SWT.NONE);
 		valueColumn.getColumn().setText("Value");
 
 		// the editor for the cells
-		final TableEditor editor = new TableEditor(visualPropertiesTable);
-		editor.horizontalAlignment = SWT.LEFT;
-		editor.grabHorizontal = true;
+
 		visualPropertiesTable.addListener(SWT.MouseDown, new Listener() {
 			public void handleEvent(Event event) {
 				Rectangle clientArea = visualPropertiesTable.getClientArea();
@@ -179,79 +198,127 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				while (index < visualPropertiesTable.getItemCount()) {
 					boolean visible = false;
 					final TableItem item = visualPropertiesTable.getItem(index);
-					final int editColumn = 1;
-					final int labelColumn = 0;
-					// look if the mouse event is in an editable cell
+					// look if the mouse event is in the editable column
 					Rectangle rect = item.getBounds(editColumn);
 					if (rect.contains(pt)) {
-
-						if (!item.getText(labelColumn).equals(
+						// color properties
+						if (item.getText(labelColumn).equals(
 								JFreeChartEditorInput.COLOR_KEY)) {
-							final Text text = new Text(visualPropertiesTable,
-									SWT.NONE);
-							Listener textListener = new Listener() {
-								public void handleEvent(final Event e) {
-									switch (e.type) {
-									case SWT.FocusOut:
-										text.dispose();
-										e.doit = false;
-										break;
-									case SWT.Traverse:
-										switch (e.detail) {
-										case SWT.TRAVERSE_RETURN:
-											item.setText(editColumn,
-													text.getText());
-											updateProperties(item.getText(labelColumn),
-													text.getText());
-										case SWT.TRAVERSE_ESCAPE:
-											text.dispose();
-											e.doit = false;
-										}
-										break;
-									}
-								}
-							};
-							text.addListener(SWT.FocusOut, textListener);
-							text.addListener(SWT.Traverse, textListener);
-							editor.setEditor(text, item, editColumn);
-							text.setText(item.getText(editColumn));
-							text.selectAll();
-							text.setFocus();
-							return;
-						}
-
-						else {
-							ColorDialog colorPicker = new ColorDialog(
+							openColorAndTransparencyDialog(item,
 									visualPropertiesTable.getShell());
-							colorPicker.setRGB(item.getBackground().getRGB());
-							colorPicker.open();
-							RGB rgbColor = colorPicker.getRGB();
-							item.setBackground(editColumn,
-									new org.eclipse.swt.graphics.Color(
-											visualPropertiesTable.getDisplay(),
-											rgbColor));
-							updateProperties(
-									item.getText(0),
-									"#"
-											+ Integer.toHexString(
-													new Color(rgbColor.red,
-															rgbColor.green,
-															rgbColor.blue)
-															.getRGB())
-													.substring(2));
+							// boolean properties
+						} else if (item.getText(labelColumn).equals(
+								HistogramEditorInput.ABSOLUTE_FREQUENCY_KEY)
+								|| (item.getText(labelColumn)
+										.equals(HistogramEditorInput.SHOW_ITEM_VALUES_KEY))) {
+							openBooleanDialog(item, visualPropertiesTable);
+						}
+						// textual properties
+						else {
+							openTextDialog(item, visualPropertiesTable);
 						}
 						refreshPropertiesTable();
+						return;
 					}
 					if (!visible && rect.intersects(clientArea)) {
 						visible = true;
 					}
-					// }
 					if (!visible)
 						return;
 					index++;
 				}
 			}
 		});
+
+	}
+
+	protected void openTextDialog(final TableItem item,
+			Table visualPropertiesTable) {
+		final TableEditor editor = new TableEditor(visualPropertiesTable);
+		editor.horizontalAlignment = SWT.LEFT;
+		editor.grabHorizontal = true;
+
+		final Text text = new Text(visualPropertiesTable, SWT.NONE);
+		Listener textListener = new Listener() {
+			public void handleEvent(final Event e) {
+				switch (e.type) {
+				case SWT.FocusOut:
+					text.dispose();
+					e.doit = false;
+					break;
+				case SWT.Traverse:
+					switch (e.detail) {
+					case SWT.TRAVERSE_RETURN:
+						item.setText(editColumn, text.getText());
+						updateProperties(item.getText(labelColumn),
+								text.getText());
+					case SWT.TRAVERSE_ESCAPE:
+						text.dispose();
+						e.doit = false;
+					}
+					break;
+				}
+			}
+		};
+		text.addListener(SWT.FocusOut, textListener);
+		text.addListener(SWT.Traverse, textListener);
+		editor.setEditor(text, item, editColumn);
+		text.setText(item.getText(editColumn));
+		text.selectAll();
+		text.setFocus();
+	}
+
+	protected void openBooleanDialog(final TableItem item,
+			Table visualPropertiesTable) {
+		final TableEditor editor = new TableEditor(visualPropertiesTable);
+		editor.horizontalAlignment = SWT.LEFT;
+		editor.grabHorizontal = true;
+		final Combo comboBox = new Combo(visualPropertiesTable, SWT.DROP_DOWN);
+		comboBox.setItems(new String[] { "true", "false" });
+		comboBox.select(item.getText(editColumn).equals("true") ? 0 : 1);
+
+		final String key = item.getText(labelColumn);
+		comboBox.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				item.setText(editColumn,
+						comboBox.getItem(comboBox.getSelectionIndex()));
+				updateProperties(key,
+						comboBox.getItem(comboBox.getSelectionIndex()));
+			}
+
+			public void widgetDefaultSelected(SelectionEvent e) {
+				comboBox.dispose();
+			}
+		});
+		comboBox.addListener(SWT.FocusOut, new Listener() {
+			@Override
+			public void handleEvent(Event event) {
+				comboBox.dispose();
+				event.doit = false;
+				return;
+
+			}
+		});
+		editor.setEditor(comboBox, item, editColumn);
+
+	}
+
+	protected void openColorAndTransparencyDialog(TableItem item, Shell shell) {
+		ColorDialog colorPicker = new ColorDialog(
+				visualPropertiesTable.getShell());
+		colorPicker.setRGB(item.getBackground().getRGB());
+		RGB rgbColor = colorPicker.open();
+		if (rgbColor != null) {
+			item.setBackground(editColumn, new org.eclipse.swt.graphics.Color(
+					visualPropertiesTable.getDisplay(), rgbColor));
+			updateProperties(
+					item.getText(labelColumn),
+					"#"
+							+ Integer.toHexString(
+									new Color(rgbColor.red, rgbColor.green,
+											rgbColor.blue).getRGB()).substring(
+									2));
+		}
 
 	}
 
@@ -293,8 +360,8 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 */
 	@Override
 	public void setInput(IWorkbenchPart part, ISelection selection) {
-		//this.part = part;
-		//this.selection = selection;
+		// this.part = part;
+		// this.selection = selection;
 	}
 
 	/**
@@ -424,7 +491,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				+ " updated with: " + key.toString() + ", " + value.toString());
 		newProperties.put(key, value);
 		lastSelectedInput.setProperties(newProperties);
-		//update the input
+		// update the input
 		lastSelectedInput.updateInputData();
 	}
 
