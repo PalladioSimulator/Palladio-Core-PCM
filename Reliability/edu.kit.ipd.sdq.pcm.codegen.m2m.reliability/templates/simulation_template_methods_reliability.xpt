@@ -8,6 +8,8 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::sim::resources::ResourceDemand FOR ResourceCall»
+«REM»Call  «targetDef.proceed()» in order to execute the underlying template.
+Otherwise, this template replaces the original template, which is usually not wanted.«ENDREM»
 	«targetDef.proceed()»
 	«EXPAND ResourceDemand FOR this»
 «ENDAROUND»
