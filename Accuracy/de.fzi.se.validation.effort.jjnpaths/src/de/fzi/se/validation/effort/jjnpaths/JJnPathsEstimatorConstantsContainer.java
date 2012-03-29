@@ -18,7 +18,7 @@ import de.fzi.se.validation.effort.estimation.EstimationPackage;
 public class JJnPathsEstimatorConstantsContainer {
 	// launch configuration attributes
 	/** Launch configuration attribute name for the paramter n in JJn-Paths. */
-	public static final String N = "n";
+	public static final String N = "JJnPaths_n";
 
 	// default values
 	/** Default value for n. */

@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.workflow.AbstractJobConfiguration;
  */
 public class SPTEstimatorConfiguration extends AbstractJobConfiguration {
 	/** Constant marking an invalid value for n. Supremum of invalid values. */
-	public static final int INVALID_N = 0;
+	public static final int INVALID_N = -1;
 
 	/** Value of n in SPT-Tests. */
 	protected int n = INVALID_N;
@@ -27,8 +27,8 @@ public class SPTEstimatorConfiguration extends AbstractJobConfiguration {
 	 */
 	@Override
 	public String getErrorMessage() {
-		if (n < SPTEstimatorConfiguration.INVALID_N) {
-			return "The parameter n must have a value greater or equal to 1.";
+		if (n <= SPTEstimatorConfiguration.INVALID_N) {
+			return "The parameter n must have a value greater or equal to " + SPTEstimatorConfiguration.INVALID_N + ".";
 		}
 		return null;
 	}

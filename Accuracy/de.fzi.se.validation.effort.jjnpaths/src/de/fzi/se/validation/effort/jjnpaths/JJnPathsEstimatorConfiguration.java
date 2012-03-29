@@ -26,8 +26,8 @@ public class JJnPathsEstimatorConfiguration extends AbstractJobConfiguration {
 	 */
 	@Override
 	public String getErrorMessage() {
-		if (n < JJnPathsEstimatorConfiguration.INVALID_N) {
-			return "The parameter n must have a value greater or equal to 1.";
+		if (n <= JJnPathsEstimatorConfiguration.INVALID_N) {
+			return "The parameter n must have a value greater or equal to " + JJnPathsEstimatorConfiguration.INVALID_N + ".";
 		}
 		return null;
 	}

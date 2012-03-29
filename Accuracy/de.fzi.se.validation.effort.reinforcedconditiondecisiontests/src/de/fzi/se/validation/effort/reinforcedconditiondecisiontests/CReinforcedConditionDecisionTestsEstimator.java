@@ -4,13 +4,13 @@ import de.fzi.se.validation.effort.workflow.AbstractEstimateQVTO;
 import de.fzi.se.validation.effort.workflow.AbstractQVTOEstimator;
 import de.fzi.se.validation.effort.workflow.RunEstimationsJob;
 /**Validation effort estimation algorithm CReinforcedConditionDecisionTests.
- * IEstimator interface is needed so that this estimator can be called by 
+ * IEstimator interface is needed so that this estimator can be called by
  * the estimation job ({@link RunEstimationsJob}.
  * @author Martin Krogmann *
  */
 public class CReinforcedConditionDecisionTestsEstimator extends AbstractQVTOEstimator {
 	/** Name of the criterion which is estimated. */
-	public static final String CRITERION_NAME = "CReinforcedConditionDecisionTests";
+	public static final String CRITERION_NAME = "Reinforced Condition Decision";
 
 	/** {@inheritDoc} */
 	@Override

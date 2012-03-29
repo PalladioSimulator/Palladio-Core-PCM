@@ -71,7 +71,7 @@ public class JJnPathsEstimatorConfigurationTab extends AbstractEstimatorConfigur
 		try {
 			nText.setText(configuration.getAttribute(JJnPathsEstimatorConstantsContainer.N, JJnPathsEstimatorConstantsContainer.DEFAULT_N));
 		} catch (CoreException e) {
-			RunConfigPlugin.errorLogger(getName(),"JJn-Paths can only be calculated for n greater or equal to 1.", e.getMessage());
+			RunConfigPlugin.errorLogger(getName(),"Errors storing configuration. Please see error log for details.", e.getMessage());
 		}
 	}
 
@@ -94,7 +94,7 @@ public class JJnPathsEstimatorConfigurationTab extends AbstractEstimatorConfigur
 			return false;
 		}
 		if (Integer.parseInt(nText.getText()) < 1) {
-			setErrorMessage("The value for n mus be greater or equal to 1.");
+			setErrorMessage("The value for n must be greater or equal to 1.");
 			return false;
 		}
 		return true;

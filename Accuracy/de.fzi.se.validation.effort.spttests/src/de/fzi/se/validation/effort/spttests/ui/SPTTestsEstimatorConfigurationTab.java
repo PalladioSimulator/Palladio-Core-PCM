@@ -13,6 +13,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import de.fzi.se.validation.effort.spttests.SPTEstimatorConfiguration;
 import de.fzi.se.validation.effort.spttests.SPTTestsEstimatorConstantsContainer;
 import de.fzi.se.validation.effort.ui.AbstractEstimatorConfigurationTab;
 import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
@@ -27,7 +28,7 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.ConfigurationTab;
 public class SPTTestsEstimatorConfigurationTab extends AbstractEstimatorConfigurationTab {
 	private static final String NAME = "SPT-Tests Estimator";
 	/** Label of the estimator group. */
-	private static final String ESTIMATOR_GROUP_LABEL = "SPT-Tests";
+	private static final String ESTIMATOR_GROUP_LABEL = "SPT(n)-Tests";
 	/** Label of the parameter n. */
 	private static final String N_LABEL = "n:";
 
@@ -69,7 +70,7 @@ public class SPTTestsEstimatorConfigurationTab extends AbstractEstimatorConfigur
 		try {
 			nText.setText(configuration.getAttribute(SPTTestsEstimatorConstantsContainer.N, SPTTestsEstimatorConstantsContainer.DEFAULT_N));
 		} catch (CoreException e) {
-			RunConfigPlugin.errorLogger(getName(),"SPT-Tests can only be calculated for n greater or equal to 1.", e.getMessage());
+			RunConfigPlugin.errorLogger(getName(),"Error setting configuration. See error log for details.", e.getMessage());
 		}
 	}
 
@@ -91,8 +92,8 @@ public class SPTTestsEstimatorConfigurationTab extends AbstractEstimatorConfigur
 			setErrorMessage("A value for n is missing.");
 			return false;
 		}
-		if (Integer.parseInt(nText.getText()) < 1) {
-			setErrorMessage("The value for n mus be greater or equal to 1.");
+		if (Integer.parseInt(nText.getText()) <= SPTEstimatorConfiguration.INVALID_N) {
+			setErrorMessage("The value for n mus be greater or equal to " + SPTEstimatorConfiguration.INVALID_N + ".");
 			return false;
 		}
 		return true;
