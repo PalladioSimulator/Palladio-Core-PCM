@@ -26,7 +26,7 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 	}
 
 	private boolean canProceed(IRunningProcess process, int num) {
-		return (waiting_queue.isEmpty() || waiting_queue.peek().getProcess()
+		return (waiting_queue.isEmpty() || ((WaitingProcess)waiting_queue.peek()).getActiveProcess()
 				.equals(process))
 				&& num <= available;
 	}
@@ -76,7 +76,7 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 	}
 
 	private void notifyWaitingProcesses(IResourceInstance current) {
-		WaitingProcess waitingProcess = waiting_queue.peek();
+		WaitingProcess waitingProcess = (WaitingProcess)waiting_queue.peek();
 		if (waitingProcess != null) {
 			if (tryToDequeueProcess(waitingProcess))
 				fromWaitingToReady(waitingProcess, current);
@@ -102,9 +102,9 @@ public class SimFairPassiveResource extends SimAbstractPassiveResource {
 	 *         otherwise false.
 	 */
 	private boolean tryToDequeueProcess(WaitingProcess waitingProcess) {
-		if (canProceed(waitingProcess.getProcess(), waitingProcess
+		if (canProceed(waitingProcess.getActiveProcess(), waitingProcess
 				.getNumRequested())) {
-			grantAccess((ProcessWithPriority) waitingProcess.getProcess(),
+			grantAccess((ProcessWithPriority) waitingProcess.getActiveProcess(),
 					waitingProcess.getNumRequested());
 			return true;
 		}

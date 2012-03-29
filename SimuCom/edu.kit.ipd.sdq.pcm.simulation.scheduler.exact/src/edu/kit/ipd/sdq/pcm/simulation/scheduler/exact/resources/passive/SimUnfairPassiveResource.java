@@ -81,9 +81,9 @@ public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 	}
 
 	private void notifyNextWaitingProcess() {
-		WaitingProcess waiting_process = waiting_queue.peek();
+		WaitingProcess waiting_process = (WaitingProcess)waiting_queue.peek();
 		if (waiting_process != null) {
-			IActiveProcess process = waiting_process.getProcess();
+			IActiveProcess process = waiting_process.getActiveProcess();
 			process.setCurrentDemand(acquisition_demand);
 			process.setDelayedAction(new UnfairAccessAction(waiting_process));
 			fromWaitingToReady(waiting_process, process.getLastInstance());
@@ -101,7 +101,7 @@ public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 	protected boolean tryToDequeueProcess(WaitingProcess waitingProcess) {
 		if (waitingProcess.getNumRequested() <= available) {
 			grantAccess(waitingProcess.getNumRequested(),
-					(ProcessWithPriority) waitingProcess.getProcess());
+					(ProcessWithPriority) waitingProcess.getActiveProcess());
 			if (available > 0)
 				notifyNextWaitingProcess();
 			return true;
@@ -123,7 +123,7 @@ public class SimUnfairPassiveResource extends SimAbstractPassiveResource {
 				fromRunningToWaiting(waiting_process, true);
 				return false;
 			} else {
-				waiting_process.getProcess().getSchedulableProcess().activate();
+				waiting_process.getActiveProcess().getSchedulableProcess().activate();
 				return true;
 			}
 		}

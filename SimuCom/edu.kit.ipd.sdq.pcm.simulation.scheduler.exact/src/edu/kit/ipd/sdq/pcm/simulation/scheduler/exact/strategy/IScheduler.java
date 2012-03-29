@@ -2,6 +2,7 @@ package edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.strategy;
 
 import java.util.Deque;
 
+import de.uka.ipd.sdq.scheduler.processes.IWaitingProcess;
 import edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.IResourceInstance;
 import edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.processes.IActiveProcess;
 import edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.resources.active.SimResourceInstance;
@@ -42,7 +43,7 @@ public interface IScheduler {
 	 *            Queue where the process is waiting.
 	 */
 	public abstract void fromWaitingToReady(WaitingProcess waiting_process,
-			Deque<WaitingProcess> waiting_queue, IResourceInstance current);
+			Deque<IWaitingProcess> waiting_queue, IResourceInstance current);
 
 	/**
 	 * Notifies the scheduler, that a running process has to change its state to
@@ -59,7 +60,7 @@ public interface IScheduler {
 	 *            otherwise it is inserted at the end.
 	 */
 	public abstract void fromRunningToWaiting(WaitingProcess waiting_process,
-			Deque<WaitingProcess> waiting_queue, boolean in_front);
+			Deque<IWaitingProcess> waiting_queue, boolean in_front);
 
 	/**
 	 * Schedules the next event for the specified resource instance.

@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.simucomframework.resources;
 
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.scheduler.processes.SimpleWaitingProcess;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 /**

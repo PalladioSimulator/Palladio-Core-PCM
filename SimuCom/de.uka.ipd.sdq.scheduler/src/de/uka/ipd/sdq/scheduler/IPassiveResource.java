@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.scheduler;
 
-import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import java.util.Queue;
+
+import de.uka.ipd.sdq.scheduler.processes.IWaitingProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
 
 /**
@@ -63,5 +65,10 @@ public interface IPassiveResource {
 	 * Removes the given observer
 	 */
 	public void removeObserver(IPassiveResourceSensor observer);
+	
+	/**
+	 * Returns a queue containing the waiting processes for the passive resource.
+	 */
+	public Queue<IWaitingProcess> getWaitingProcesses();
 
 }

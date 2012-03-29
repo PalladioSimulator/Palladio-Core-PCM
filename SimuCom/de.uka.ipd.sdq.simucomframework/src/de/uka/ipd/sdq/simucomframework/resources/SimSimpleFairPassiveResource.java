@@ -1,13 +1,15 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.Queue;
 
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.scheduler.processes.IWaitingProcess;
+import de.uka.ipd.sdq.scheduler.processes.SimpleWaitingProcess;
 import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
 import de.uka.ipd.sdq.scheduler.resources.passive.PassiveResourceObservee;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
@@ -31,7 +33,7 @@ import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 		IPassiveResource {
 
-	protected Deque<SimpleWaitingProcess> waiting_queue;
+	protected Queue<IWaitingProcess> waiting_queue;
 	private SchedulerModel myModel;
 	private int available;
 	private String passiveResourceID;
@@ -44,7 +46,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
     public SimSimpleFairPassiveResource(SchedulerModel model, int capacity, String name, String passiveResourceID,
             String assemblyContextID, String combinedID, boolean simulateFailures) {
 		super(model, capacity, name, combinedID);
-		this.waiting_queue = new ArrayDeque<SimpleWaitingProcess>();
+		this.waiting_queue = new ArrayDeque<IWaitingProcess>();
 		this.myModel = model;
 		this.passiveResourceID = passiveResourceID;
 		this.assemblyContextID = assemblyContextID;
@@ -57,6 +59,10 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 		return (waiting_queue.isEmpty() || waiting_queue.peek().getProcess()
 				.equals(process))
 				&& num <= available;
+	}
+	
+	public Queue<IWaitingProcess> getWaitingProcesses() {
+		return waiting_queue;
 	}
 
 	private void grantAccess(ISchedulableProcess process, int num) {
@@ -158,7 +164,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 	}
 
 	private void notifyWaitingProcesses() {
-		SimpleWaitingProcess waitingProcess = waiting_queue.peek();
+		SimpleWaitingProcess waitingProcess = (SimpleWaitingProcess)waiting_queue.peek();
 		while (waitingProcess != null
 				&& canProceed(waitingProcess.getProcess(), waitingProcess
 						.getNumRequested())) {
@@ -166,7 +172,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 					.getNumRequested());
 			waiting_queue.remove();
 			waitingProcess.getProcess().activate();
-			waitingProcess = waiting_queue.peek();
+			waitingProcess = (SimpleWaitingProcess)waiting_queue.peek();
 		}
 	}
 

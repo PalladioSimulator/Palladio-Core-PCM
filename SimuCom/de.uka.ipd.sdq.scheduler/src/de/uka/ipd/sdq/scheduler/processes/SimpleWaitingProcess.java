@@ -1,10 +1,10 @@
-package de.uka.ipd.sdq.simucomframework.resources;
+package de.uka.ipd.sdq.scheduler.processes;
 
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 
-public class SimpleWaitingProcess extends SchedulerEntity {
+public class SimpleWaitingProcess extends SchedulerEntity implements IWaitingProcess {
 
 	private ISchedulableProcess sched_process;
 	private int num_requested;

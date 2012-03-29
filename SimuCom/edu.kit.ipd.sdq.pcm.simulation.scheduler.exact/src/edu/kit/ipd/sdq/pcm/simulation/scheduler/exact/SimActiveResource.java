@@ -12,11 +12,11 @@ import scheduler.configuration.ConfigurationFactory;
 import scheduler.configuration.PriorityClass;
 import scheduler.configuration.ProcessConfiguration;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
-import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
+import de.uka.ipd.sdq.scheduler.processes.IWaitingProcess;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 import edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.processes.IActiveProcess;
@@ -33,7 +33,7 @@ public class SimActiveResource extends AbstractActiveResource {
 	private List<IResourceInstance> instanceList;
 	private ProcessRegistry processRegistry;
 	private IResourceInstance main_instance;
-	private Deque<WaitingProcess> waiting_queue = new ArrayDeque<WaitingProcess>();
+	private Deque<IWaitingProcess> waiting_queue = new ArrayDeque<IWaitingProcess>();
 	private ExactSchedulingFactory exactSchedulingFactory = null;
 	private ActiveResourceConfiguration resourceConf = null;
 
@@ -119,7 +119,7 @@ public class SimActiveResource extends AbstractActiveResource {
 		WaitingProcess waiting_process = lookUpWaitingProcess(process);
 		
 		if (waiting_process != null) {
-			IResourceInstance instance = getInstanceFor(waiting_process.getProcess());
+			IResourceInstance instance = getInstanceFor(waiting_process.getActiveProcess());
 			scheduler.fromWaitingToReady(waiting_process, waiting_queue, instance);
 		} else {
 			IActiveProcess p = lookUp(process);
@@ -139,9 +139,9 @@ public class SimActiveResource extends AbstractActiveResource {
 	}
 
 	private WaitingProcess lookUpWaitingProcess(ISchedulableProcess process) {
-		for (WaitingProcess p : waiting_queue){
-			if (p.getProcess().getSchedulableProcess().equals(process))
-				return p;
+		for (IWaitingProcess p : waiting_queue){
+			if (((WaitingProcess)p).getActiveProcess().getSchedulableProcess().equals(process))
+				return (WaitingProcess)p;
 		}
 		return null;
 	}

@@ -4,6 +4,7 @@ import java.util.Deque;
 
 import scheduler.configuration.StarvationBoost;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
+import de.uka.ipd.sdq.scheduler.processes.IWaitingProcess;
 import edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.IResourceInstance;
 import edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.SimActiveResource;
 import edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.processes.IActiveProcess;
@@ -92,10 +93,10 @@ public abstract class AbstractScheduler implements IScheduler {
 
 	
 	public void fromRunningToWaiting(WaitingProcess waiting_process,
-			Deque<WaitingProcess> waiting_queue, boolean in_front) {
+			Deque<IWaitingProcess> waiting_queue, boolean in_front) {
 		LoggingWrapper.log(" From RUNNING to WAITING Process "
 				+ waiting_process.getProcess());
-		IActiveProcess process = waiting_process.getProcess();
+		IActiveProcess process = waiting_process.getActiveProcess();
 		assert process.isRunning() : "Process must be in running state.";
 
 		queueing_strategy.fromRunningToWaiting(process);
@@ -121,10 +122,10 @@ public abstract class AbstractScheduler implements IScheduler {
 
 	
 	public void fromWaitingToReady(WaitingProcess waiting_process,
-			Deque<WaitingProcess> waitingQueue, IResourceInstance current) {
+			Deque<IWaitingProcess> waitingQueue, IResourceInstance current) {
 		LoggingWrapper.log("From WAITING to READY Process "
 				+ waiting_process.getProcess());
-		IActiveProcess process = waiting_process.getProcess();
+		IActiveProcess process = waiting_process.getActiveProcess();
 		assert process.isWaiting() : "Process must be in waiting state";
 
 		waitingQueue.remove(waiting_process);

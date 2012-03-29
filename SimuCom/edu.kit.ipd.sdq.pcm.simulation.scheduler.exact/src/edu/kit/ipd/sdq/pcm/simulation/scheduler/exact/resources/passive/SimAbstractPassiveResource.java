@@ -2,10 +2,12 @@ package edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.resources.passive;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Queue;
 
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.scheduler.processes.IWaitingProcess;
 import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
 import edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.IResourceInstance;
 import edu.kit.ipd.sdq.pcm.simulation.scheduler.exact.SimActiveResource;
@@ -16,7 +18,7 @@ public abstract class SimAbstractPassiveResource extends AbstractSimResource
 		implements IPassiveResource {
 
 	private IPriorityBoost priority_boost;
-	protected Deque<WaitingProcess> waiting_queue;
+	protected Deque<IWaitingProcess> waiting_queue;
 	protected SimActiveResource main_resource;
 
 	public SimAbstractPassiveResource(SchedulerModel model, int capacity, String name, String id,
@@ -24,7 +26,7 @@ public abstract class SimAbstractPassiveResource extends AbstractSimResource
 		super(model, capacity, name, id);
 		this.priority_boost = priority_boost;
 		this.main_resource = managing_resource;
-		this.waiting_queue = new ArrayDeque<WaitingProcess>();
+		this.waiting_queue = new ArrayDeque<IWaitingProcess>();
 	}
 
 	protected void fromWaitingToReady(WaitingProcess waiting_process,
@@ -55,6 +57,10 @@ public abstract class SimAbstractPassiveResource extends AbstractSimResource
 			assert process instanceof ProcessWithPriority : "If priority boosts are used only ProcessWithPriorities can be used!";
 			priority_boost.punish((ProcessWithPriority) process);
 		}
+	}
+	
+	public Queue<IWaitingProcess> getWaitingProcesses() {
+		return waiting_queue;
 	}
 
 	@Override
