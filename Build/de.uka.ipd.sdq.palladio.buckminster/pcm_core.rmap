@@ -2,7 +2,7 @@
 <rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
 
   <rm:locator searchPathRef="localresources" failOnError="false"/>
-  <rm:locator searchPathRef="pcmsolver" failOnError="false" pattern="^de\.uka\.ipd\.sdq\.pcmsolver\.feature" >
+  <rm:locator searchPathRef="pcmsolver" failOnError="false" pattern="^de\.uka\.ipd\.sdq\.pcmsolver\.feature" />
   <rm:locator searchPathRef="SDQ_Commons" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
   <rm:locator searchPathRef="SDQ_Commons" failOnError="false" pattern="^edu\.kit\.ipd\.sdq\..*" />
   <rm:locator searchPathRef="SensorFramework" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
@@ -26,7 +26,7 @@
        <bc:propertyRef key="buckminster.component" />
        <bc:match pattern="^de\.uka\.ipd\.sdq\.pcmsolver\.feature"
                  replacement="de.uka.ipd.sdq.context.feature" />
-     </bc:replace>
+       </bc:replace>
       </rm:uri>
     </rm:provider>
   </rm:searchPath>
