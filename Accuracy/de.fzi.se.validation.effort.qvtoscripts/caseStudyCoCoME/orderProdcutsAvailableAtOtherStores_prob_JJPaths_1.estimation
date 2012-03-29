@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jjnpaths:JJnPathsEffortEstimationResult xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:jjnpaths="http://se.fzi.de/ControlFlowDescription/jjnpaths/0.6" numberTestcases="59" targetId="orderProductsAvailableAtOtherStores_prob" alpha="0.95" targetUri="" n="1">
-  <resourceDemandingBehaviour href="../../cocomePcmModel/cocome.repository#orderProductsAvailableAtOtherStores_prob"/>
-</jjnpaths:JJnPathsEffortEstimationResult>

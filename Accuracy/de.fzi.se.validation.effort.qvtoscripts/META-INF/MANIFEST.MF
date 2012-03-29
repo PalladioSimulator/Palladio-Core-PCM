@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Validation Effort Estimation (QVTO Scripts)
-Bundle-SymbolicName: de.fzi.se.validation.effort.qvtoscripts
-Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: 
- FZI Forschungszentrum Informatik
-Require-Bundle: de.fzi.se.validation.effort.blackbox;bundle-version="1.0.0"
