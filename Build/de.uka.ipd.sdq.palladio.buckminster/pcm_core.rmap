@@ -20,13 +20,8 @@
   
   <rm:searchPath name="pcmsolver">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="local">
-      <rm:uri format="file:///{0}/{1}/">
+      <rm:uri format="file:///{0}/de.uka.ipd.sdq.context.feature/">
        <bc:propertyRef key="workspace.root"/>
-       <bc:propertyRef key="buckminster.component" />
-       <bc:replace>
-       <bc:match pattern="de\.uka\.ipd\.sdq\.pcmsolver\.feature"
-                 replacement="de.uka.ipd.sdq.context.feature" />
-       </bc:replace>
       </rm:uri>
     </rm:provider>
   </rm:searchPath>
