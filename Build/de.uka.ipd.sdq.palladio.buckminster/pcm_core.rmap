@@ -8,7 +8,11 @@
   <rm:locator searchPathRef="ProbeSpec" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
   <rm:locator searchPathRef="FeatureModel" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
   <rm:locator searchPathRef="WorkflowEngine" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
+  <rm:locator searchPathRef="m2m" failOnError="false" pattern="^org\.eclipse\.m2m\..*" />
   <rm:locator searchPathRef="xtext" failOnError="false" pattern="^org\.eclipse\.xtend*" />
+  <rm:locator searchPathRef="xtext" failOnError="false" pattern="^org\.eclipse\.xtext*" />
+  <rm:locator searchPathRef="xtext" failOnError="false" pattern="^org\.eclipse\.emf\.mwe\..*" />
+  <rm:locator searchPathRef="xpand" failOnError="false" pattern="^org\.eclipse\.xpand" />
   <rm:locator searchPathRef="orbit" failOnError="false" />
   
   <rm:searchPath name="SDQ_Commons">
@@ -51,6 +55,18 @@
  	<rm:property key="buckminster.source" value="false"/>
     <rm:property key="buckminster.mutable" value="false"/>
   	<rm:uri format="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+  </rm:provider></rm:searchPath>
+    <rm:searchPath name="xpand">
+  <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+ 	<rm:property key="buckminster.source" value="false"/>
+    <rm:property key="buckminster.mutable" value="false"/>
+  	<rm:uri format="http://download.eclipse.org/modeling/m2t/xpand/updates/releases/"/>
+  </rm:provider></rm:searchPath>
+    <rm:searchPath name="m2m">
+  <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+ 	<rm:property key="buckminster.source" value="false"/>
+    <rm:property key="buckminster.mutable" value="false"/>
+  	<rm:uri format="http://download.eclipse.org/releases/indigo/"/>
   </rm:provider></rm:searchPath>
   <rm:searchPath name="orbit">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
