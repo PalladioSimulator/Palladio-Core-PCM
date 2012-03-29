@@ -9,9 +9,11 @@
   <rm:locator searchPathRef="FeatureModel" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
   <rm:locator searchPathRef="WorkflowEngine" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
   <rm:locator searchPathRef="m2m" failOnError="false" pattern="^org\.eclipse\.m2m\..*" />
+  <rm:locator searchPathRef="google_guava" failOnError="false" pattern="^com\.google\.guava*" />
   <rm:locator searchPathRef="xtext" failOnError="false" pattern="^org\.eclipse\.xtend*" />
   <rm:locator searchPathRef="xtext" failOnError="false" pattern="^org\.eclipse\.xtext*" />
   <rm:locator searchPathRef="xtext" failOnError="false" pattern="^org\.eclipse\.emf\.mwe\..*" />
+  <rm:locator searchPathRef="xtext" failOnError="false" pattern="^org\.eclipse\.emf\.mwe2\..*" />
   <rm:locator searchPathRef="xpand" failOnError="false" pattern="^org\.eclipse\.xpand" />
   <rm:locator searchPathRef="orbit" failOnError="false" />
   
@@ -50,6 +52,12 @@
       <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/workflowengine/releases/1.3_composite/" />
     </rm:provider>
   </rm:searchPath>
+    <rm:searchPath name="google_guava">
+  <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+ 	<rm:property key="buckminster.source" value="false"/>
+    <rm:property key="buckminster.mutable" value="false"/>
+  	<rm:uri format="http://guava-osgi.googlecode.com/svn/trunk/repository/"/>
+  </rm:provider></rm:searchPath>
   <rm:searchPath name="xtext">
   <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
  	<rm:property key="buckminster.source" value="false"/>
