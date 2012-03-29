@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uka.ipd.sdq.reliability.feature"
-      label="%label"
+      label="PCM Reliablity Solver Feature"
       version="3.1.0.qualifier"
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
@@ -280,5 +280,4 @@ litigation.
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
 </feature>

@@ -218,10 +218,6 @@ litigation.
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
    </url>
 
-   <includes
-         id="de.uka.ipd.sdq.sensorframework.visualisation.feature.source"
-         version="0.0.0"/>
-
    <requires>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
@@ -241,6 +237,13 @@ litigation.
       <import plugin="javax.servlet"/>
       <import feature="de.uka.ipd.sdq.statistics.feature" version="1.0.0.qualifier"/>
    </requires>
+
+   <plugin
+         id="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
    <plugin
          id="de.uka.ipd.sdq.sensorframework.visualisation"
@@ -264,10 +267,24 @@ litigation.
          unpack="false"/>
 
    <plugin
+         id="de.uka.ipd.sdq.branding"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="org.jfree.jfreechart"
          download-size="0"
          install-size="0"
          version="0.0.0"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.sensorframework.dialogs"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
    <plugin
          id="org.rosuda.JRI"

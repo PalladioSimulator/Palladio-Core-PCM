@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uka.ipd.sdq.pcm.diagram.feature"
-      label="%label"
+      label="Palladio Component Model Diagramming Feature"
       version="3.1.0.qualifier"
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
@@ -219,10 +219,6 @@ litigation.
    <url>
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
    </url>
-
-   <includes
-         id="de.uka.ipd.sdq.pcm.diagram.feature.source"
-         version="0.0.0"/>
 
    <requires>
       <import plugin="org.eclipse.core.runtime"/>

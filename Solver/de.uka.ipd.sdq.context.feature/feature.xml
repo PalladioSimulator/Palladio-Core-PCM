@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uka.ipd.sdq.pcmsolver.feature"
-      label="%label"
+      label="PCM Solver Feature"
       version="3.1.0.qualifier"
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
-   <description url="http://sdq.ipd.uka.de">
+<description url="http://sdq.ipd.uka.de">
       Contains the contexts and the solver generated when solving usage
 dependencies.
    </description>
@@ -221,10 +221,6 @@ litigation.
       <discovery label="Software Design and Quality" url="http://sdq.ipd.uka.de"/>
    </url>
 
-   <includes
-         id="de.uka.ipd.sdq.pcmsolver.feature.source"
-         version="0.0.0"/>
-
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
@@ -302,5 +298,4 @@ litigation.
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
 </feature>

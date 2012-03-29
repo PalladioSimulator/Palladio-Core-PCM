@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uka.ipd.sdq.simucom.feature"
-      label="%label"
+      label="SimuCom CBSE Simulation"
       version="3.1.0.qualifier"
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
@@ -222,10 +222,6 @@ litigation.
    </url>
 
    <includes
-         id="de.uka.ipd.sdq.simucom.feature.source"
-         version="0.0.0"/>
-
-   <includes
          id="de.uka.ipd.sdq.sensorframework.feature"
          version="0.0.0"/>
 
@@ -299,7 +295,6 @@ litigation.
       <import plugin="de.uka.ipd.sdq.units.edit"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.apache.log4j" version="1.2.13" match="greaterOrEqual"/>
-      <import feature="de.uka.ipd.sdq.workflow.feature" version="3.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.featuremodel"/>
       <import plugin="de.uka.ipd.sdq.scheduler" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.fzi.se.quality" version="1.0.0" match="greaterOrEqual"/>
