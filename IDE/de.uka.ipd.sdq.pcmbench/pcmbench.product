@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Palladio Component Model Modelling Bench" id="de.uka.ipd.sdq.pcmbench.product" application="de.uka.ipd.sdq.pcmbench.application" useFeatures="true" includeLaunchers="true">
+<product name="Palladio Component Model Modelling Bench" id="de.uka.ipd.sdq.pcmbench.product" application="de.uka.ipd.sdq.pcmbench.application" version="3.3" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <text>
