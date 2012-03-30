@@ -6,7 +6,7 @@
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
-<description url="http://sdq.ipd.uka.de">
+   <description url="http://sdq.ipd.uka.de">
       Contains the contexts and the solver generated when solving usage
 dependencies.
    </description>
@@ -217,8 +217,6 @@ litigation.
 
    <url>
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
-      <discovery label="Q-ImPrESS" url="http://www.q-impress.eu"/>
-      <discovery label="Software Design and Quality" url="http://sdq.ipd.uka.de"/>
    </url>
 
    <requires>
@@ -298,4 +296,5 @@ litigation.
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
 </feature>
