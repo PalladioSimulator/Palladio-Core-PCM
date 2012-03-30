@@ -218,8 +218,12 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 	 */
 	protected String getLabelText() {
 		String text = null;
-		VariableCharacterisation vc = (VariableCharacterisation) this
-				.resolveSemanticElement();
+		EObject semanticElement = this.resolveSemanticElement();
+		//Handle errors when element deleted
+		if(semanticElement == null || !(semanticElement instanceof VariableCharacterisation))
+				return "";
+		
+		VariableCharacterisation vc = (VariableCharacterisation) semanticElement;
 		text = vc.getType().getLiteral() + " = ";
 		Expression expression = vc.getSpecification_VariableCharacterisation()
 				.getExpression();
