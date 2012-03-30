@@ -6,11 +6,12 @@
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
-   <description url="http://www.example.com/description">
-      Contains the implementation of reliability modelling and prediction based on the Palladio component model.
+   <description>
+      Contains the implementation of reliability modelling and prediction
+based on the Palladio component model.
    </description>
 
-   <copyright url="http://www.example.com/copyright">
+   <copyright>
       This plugin is protected by copyright held by the members of
 the Palladio Research Group, University of Karlsruhe.
    </copyright>
@@ -280,4 +281,5 @@ litigation.
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
 </feature>
