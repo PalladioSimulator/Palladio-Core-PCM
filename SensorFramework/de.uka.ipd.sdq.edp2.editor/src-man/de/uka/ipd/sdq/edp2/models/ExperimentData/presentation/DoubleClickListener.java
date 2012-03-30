@@ -75,13 +75,16 @@ public class DoubleClickListener implements IDoubleClickListener {
 						}
 						selection.getFirstSequenceElement().setSource(source);
 					}
+					
 					for (int i = 1; i < selection.getSize(); i++) {
 						selection.getSequenceElements().get(i).setProperties(
 								selection.getSequenceProperties().get(i));
+						logger.log(Level.INFO, "Setting properties of element "+selection.getSequenceElements().get(i).getName()+" with "+selection.getSequenceProperties().get(i));
 						selection.getSequenceElements().get(i).setSource(
 								selection.getSequenceElements().get(i - 1));
 					}
-
+					logger.log(Level.INFO, selection
+							.getVisualizationProperties().toString());
 					IVisualizationInput visualization = selection.getVisualization();
 					visualization.setProperties(selection
 							.getVisualizationProperties());
@@ -92,6 +95,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 						visualization.setSource(source);
 					}
 					JFreeChartEditorInputHandle input = new JFreeChartEditorInputHandle((JFreeChartEditorInput) visualization);
+					logger.log(Level.INFO, input.getInputs().get(0).getBasicDataset().getSeriesProperties()[0].toString());
 					
 					try {
 						IWorkbenchPage page = EDP2EditorPlugin.getPlugin()

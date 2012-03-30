@@ -3,20 +3,19 @@
  */
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
-import java.util.HashMap;
+import java.awt.Color;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.viewers.ISelection;
-import java.awt.Color;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.AbstractSeriesDataset;
 
-import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
-import de.uka.ipd.sdq.edp2.visualization.properties.IProperty;
 
 /**
+ * Basic implementation of an {@link IVisualizationInput} for the {@link JFreeChartEditor}.
+ * Responsible for common properties of any subclass of {@link JFreeChartEditorInput}.
  * @author Dominik Ernst
  * 
  */
@@ -95,10 +94,23 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 		this.hexColor = "#"+Integer.toHexString(color.getRGB()).substring(2);
 	}
 	
+	/**
+	 * Method to return a default-title for the specific chart as provided by sub-classes.
+	 * Typically used during chart creation in {@link #getChart()}.
+	 * @return a {@link String} used as the default chart title.
+	 */
 	public abstract String getDefaultTitle();
 	
+	/**
+	 * Return a default label for the domain axis / horizontal axis.
+	 * @return a {@link String} used as the default label for the domain axis.
+	 */
 	public abstract String getDefaultDomainAxisLabel();
 	
+	/**
+	 * Return a default label for the range axis / vertical axis.
+	 * @return a {@link String} used as the default label for the range axis.
+	 */
 	public abstract String getDefaultRangeAxisLabel();
 
 }

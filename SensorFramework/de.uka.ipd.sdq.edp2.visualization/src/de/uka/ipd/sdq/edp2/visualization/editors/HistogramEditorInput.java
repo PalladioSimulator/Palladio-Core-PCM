@@ -128,10 +128,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	public HistogramEditorInput() {
 		super();
-		setAbsoluteFrequency(true);
-		setBarMargin(20.0);
-		setNumberOfBins(DEFAULT_NUMBER_BINS);
-		setShowItemValues(false);
+		new HistogramEditorInput(null);
 	}
 
 	/**
@@ -141,10 +138,12 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 * @param source
 	 */
 	public HistogramEditorInput(AbstractDataSource source) {
-		setSource(source);
-		dataset = new BasicDataset<HistogramDataset>(getDataTypeInstance());
+		if (source != null) {
+			setSource(source);
+			dataset = new BasicDataset<HistogramDataset>(getDataTypeInstance());
+		}
 		setAbsoluteFrequency(true);
-		setBarMargin(20.0);
+		setBarMargin(0.0);
 		setNumberOfBins(DEFAULT_NUMBER_BINS);
 		setShowItemValues(false);
 	}
@@ -262,33 +261,23 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
-		//logger.log(Level.INFO, "Value to set: "+newProperties.get(NUMBER_BINS_KEY).toString());
-		//logger.log(Level.INFO, "Original value: "+properties.get(NUMBER_BINS_KEY).toString());
 		if (newProperties.get(NUMBER_BINS_KEY) != null)
 			setNumberOfBins(Integer.parseInt(newProperties.get(NUMBER_BINS_KEY)
 					.toString()));
-		else
-			setNumberOfBins(DEFAULT_NUMBER_BINS);
-		if (properties.get(COLOR_KEY) != null
-				&& newProperties.get(COLOR_KEY) != null)
+		if (newProperties.get(COLOR_KEY) != null)
 			setColor(newProperties.get(COLOR_KEY).toString());
-		if (properties.get(SHOW_ITEM_VALUES_KEY) != null
-				&& newProperties.get(SHOW_ITEM_VALUES_KEY) != null)
+		if (newProperties.get(SHOW_ITEM_VALUES_KEY) != null)
 			setShowItemValues(Boolean.parseBoolean(newProperties.get(
 					SHOW_ITEM_VALUES_KEY).toString()));
-		if (properties.get(BAR_MARGIN_KEY) != null
-				&& newProperties.get(BAR_MARGIN_KEY) != null) {
+		if (newProperties.get(BAR_MARGIN_KEY) != null) {
 			setBarMargin(Double.parseDouble(newProperties.get(BAR_MARGIN_KEY)
 					.toString()));
-			logger.log(Level.INFO, newProperties.get(BAR_MARGIN_KEY).toString());
 		}
-		if (properties.get(ABSOLUTE_FREQUENCY_KEY) != null
-				&& newProperties.get(ABSOLUTE_FREQUENCY_KEY) != null) {
+		if (newProperties.get(ABSOLUTE_FREQUENCY_KEY) != null) {
 			setAbsoluteFrequency(Boolean.parseBoolean(newProperties.get(
 					ABSOLUTE_FREQUENCY_KEY).toString()));
 		}
-		if (properties.get(INPUT_NAME_KEY) != null
-				&& newProperties.get(INPUT_NAME_KEY) != null) {
+		if (newProperties.get(INPUT_NAME_KEY) != null) {
 			setInputName(newProperties.get(INPUT_NAME_KEY).toString());
 		}
 	}
@@ -304,7 +293,12 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		this.numberOfBins = numberOfBins;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getChart()
+	 */
 	public JFreeChart getChart() {
+		//create the axes for the chart; if an axis is not to be displayed, it must be null
 		NumberAxis domainAxis = new NumberAxis(getBasicDataset().getHandle()
 				.isShowDomainAxisLabel() ? getBasicDataset().getHandle()
 				.getDomainAxisLabel() : null);
@@ -313,14 +307,17 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		NumberAxis rangeAxis = new NumberAxis(getBasicDataset().getHandle()
 				.isShowRangeAxisLabel() ? getBasicDataset().getHandle()
 				.getRangeAxisLabel() : null);
-		
+
 		plot = new XYPlot();
 		plot.setDataset(getBasicDataset().getDataset());
-		
+
+		//the renderer for the chart
 		renderer = new XYBarRenderer();
 		plot.setRenderer(renderer);
 		plot.setRangeAxis(rangeAxis);
 		plot.setDomainAxis(domainAxis);
+		
+		//modifiy the colors of the data series, if there are persisted color properties
 		for (int i = 0; i < getBasicDataset().getSeriesProperties().length; i++) {
 			if ((getBasicDataset().getSeriesProperties()[i]
 					.get(JFreeChartEditorInput.COLOR_KEY) != null)
@@ -332,11 +329,15 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 						JFreeChartEditorInput.COLOR_KEY).toString()));
 		}
 
+		//absolute or relative frequency
 		getBasicDataset().getDataset().setType(
 				isAbsoluteFrequency() ? HistogramType.FREQUENCY
 						: HistogramType.RELATIVE_FREQUENCY);
+		//margin is the relative space of each bar, which remains uncolored
+		//NOTE: this prevents a clear visibility of the bins' upper / lower bounds
 		renderer.setMargin(getBarMargin() / 100);
 
+		//show values on each bar in the histogram if the property is set
 		renderer.setBaseItemLabelGenerator(new StandardXYItemLabelGenerator());
 		renderer.setBaseItemLabelPaint(Color.BLACK);
 		renderer.setBasePositiveItemLabelPosition(new ItemLabelPosition());
@@ -344,6 +345,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 				ItemLabelAnchor.OUTSIDE12, TextAnchor.TOP_CENTER));
 		renderer.setBaseItemLabelsVisible(isShowItemValues());
 
+		//finally, create the chart using the plot
 		chart = new JFreeChart(
 				getBasicDataset().getHandle().isShowTitle() ? getBasicDataset()
 						.getHandle().getTitle() : null,
@@ -352,37 +354,65 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		return chart;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#getData()
+	 */
 	@Override
 	public double[] getData() {
 		return data;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#createCopyForSource(de.uka.ipd.sdq.edp2.visualization.AbstractDataSource)
+	 */
 	@Override
 	public HistogramEditorInput createCopyForSource(AbstractDataSource source) {
 		HistogramEditorInput copy = new HistogramEditorInput(source);
 		return copy;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getBasicDataset()
+	 */
 	@Override
 	public BasicDataset<HistogramDataset> getBasicDataset() {
 		return dataset;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#getDataTypeInstance()
+	 */
 	@Override
 	public HistogramDataset getDataTypeInstance() {
 		return new HistogramDataset();
 	}
-
+	
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#getName()
+	 */
 	@Override
 	public String getName() {
 		return ELEMENT_NAME;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getDefaultTitle()
+	 */
 	@Override
 	public String getDefaultTitle() {
 		return "Histogram";
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getDefaultDomainAxisLabel()
+	 */
 	@Override
 	public String getDefaultDomainAxisLabel() {
 		return MetricDescriptionUtility.toBaseMetricDescriptions(getSource()
@@ -391,6 +421,10 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 				+ " [" + getDefaultUnits()[0].toString() + "]";
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getDefaultRangeAxisLabel()
+	 */
 	@Override
 	public String getDefaultRangeAxisLabel() {
 		return "Frequency (Absolute)";
