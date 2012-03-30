@@ -12,7 +12,7 @@ to generate a plugin which is executed directly using OSGi dynamic
 loader.
    </description>
 
-   <copyright url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
+   <copyright>
       This plugin is protected by copyright held by the members of
 the Palladio Research Group, University of Karlsruhe.
    </copyright>
@@ -218,7 +218,6 @@ litigation.
 
    <url>
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
-      <discovery label="oAW Update Site" url="http://www.openarchitectureware.org/updatesite/milestone/"/>
    </url>
 
    <includes
