@@ -2,8 +2,8 @@
 <feature
       id="de.uka.ipd.sdq.prototype.feature"
       label="POJO, EJB or RMI code or prototype generator feature"
-      version="3.2.0.qualifier"
-      provider-name="sdq.ipd.uka.de">
+      version="3.3.0.qualifier"
+      provider-name="sdq.ipd.kit.edu">
 
    <description url="http://sdq.ipd.kit.edu">
       Code generator for PCM models for QoS prototypes or POJO/EJB/RMI
