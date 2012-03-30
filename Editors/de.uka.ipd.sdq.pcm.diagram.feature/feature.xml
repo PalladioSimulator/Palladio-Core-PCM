@@ -6,13 +6,13 @@
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
-   <description url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
+   <description url="http://sdq.ipd.kit.edu">
       This plugin adds graphical (GMF-based) diagrams to the Palladio
 Component Model. This allows to model component model instances
 graphically.
    </description>
 
-   <copyright url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
+   <copyright>
       This plugin is protected by copyright held by the members of
 the Palladio Research Group, University of Karlsruhe.
    </copyright>

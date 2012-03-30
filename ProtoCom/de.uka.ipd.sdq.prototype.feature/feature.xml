@@ -5,11 +5,12 @@
       version="3.2.0.qualifier"
       provider-name="sdq.ipd.uka.de">
 
-   <description url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
-      Code generator for PCM models for QoS prototypes or POJO/EJB/RMI implementations.
+   <description url="http://sdq.ipd.kit.edu">
+      Code generator for PCM models for QoS prototypes or POJO/EJB/RMI
+implementations.
    </description>
 
-   <copyright url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
+   <copyright>
       This plugin is protected by copyright held by the members of
 the Palladio Research Group, University of Karlsruhe.
    </copyright>
@@ -215,9 +216,8 @@ litigation.
 
    <url>
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
-      <discovery label="oAW Update Site" url="http://www.openarchitectureware.org/updatesite/milestone/"/>
    </url>
-   
+
    <requires>
       <import plugin="org.junit4"/>
       <import plugin="org.apache.log4j"/>

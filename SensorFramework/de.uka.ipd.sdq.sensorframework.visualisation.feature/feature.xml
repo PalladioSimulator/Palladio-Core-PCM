@@ -6,11 +6,12 @@
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
-   <description url="http://sdq.ipd.uka.de">
-      Visualisations for Sensors of the Sensorframework, plotting charts of different kinds and complexities
+   <description url="http://sdq.ipd.kit.edu">
+      Visualisations for Sensors of the Sensorframework, plotting charts
+of different kinds and complexities
    </description>
 
-   <copyright url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
+   <copyright>
       This plugin is protected by copyright held by the members of
 the Palladio Research Group, University of Karlsruhe.
    </copyright>

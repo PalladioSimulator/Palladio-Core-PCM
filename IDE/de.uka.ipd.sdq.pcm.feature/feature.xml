@@ -6,12 +6,16 @@
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
-   <description url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
-      This feature installed the Palladio Component Model based on EMF. With this feature it is possible to model, persist and visualize instances of the Palladio Component Model. A basic graphical Service Effect Editor is also provided.
+   <description url="http://sdq.ipd.kit.edu">
+      This feature installed the Palladio Component Model based on
+EMF. With this feature it is possible to model, persist and visualize
+instances of the Palladio Component Model. A basic graphical
+Service Effect Editor is also provided.
    </description>
 
-   <copyright url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
-      This plugin is protected by copyright held by the members of the Palladio Research Group, University of Karlsruhe.
+   <copyright>
+      This plugin is protected by copyright held by the members of
+the Palladio Research Group, University of Karlsruhe.
    </copyright>
 
    <license url="http://sdqweb.ipd.uka.de/eclipse/PCM/">
@@ -105,7 +109,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <url>
       <update label="Palladio Component Model Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
-      <discovery label="Official PCM website" url="http://www.palladio-approach.net"/>
    </url>
 
    <requires>

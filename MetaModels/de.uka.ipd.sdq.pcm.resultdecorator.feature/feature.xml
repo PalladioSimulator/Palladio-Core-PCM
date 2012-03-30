@@ -5,7 +5,7 @@
       version="1.0.0.qualifier"
       provider-name="sdq.ipd.uka.de">
 
-   <description url="http://sdq.ipd.uka.de">
+   <description url="http://sdq.ipd.kit.edu">
       PCM Result Decorator Test
    </description>
 
@@ -212,11 +212,6 @@ Agreement more than one year after the cause of action arose.
 Each party waives its rights to a jury trial in any resulting
 litigation.
    </license>
-
-   <url>
-      <discovery label="Q-ImPrESS" url="http://www.q-impress.eu"/>
-      <discovery label="Software Design and Quality" url="http://sdq.ipd.uka.de"/>
-   </url>
 
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
