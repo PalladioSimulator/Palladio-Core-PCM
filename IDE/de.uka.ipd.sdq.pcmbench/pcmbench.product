@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?pde version="3.1"?>
+<?pde version="3.5"?>
 
-<product name="Palladio Component Model Modelling Bench" id="de.uka.ipd.sdq.pcmbench.product" application="de.uka.ipd.sdq.pcmbench.application" useFeatures="true">
+<product name="Palladio Component Model Modelling Bench" id="de.uka.ipd.sdq.pcmbench.product" application="de.uka.ipd.sdq.pcmbench.application" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <text>
@@ -13,7 +13,8 @@ Copyright 2007, SDQ, IPD
       </text>
    </aboutInfo>
 
-   <configIni use="default"/>
+   <configIni use="default">
+   </configIni>
 
    <launcherArgs>
    </launcherArgs>
@@ -36,7 +37,7 @@ Copyright 2007, SDQ, IPD
    <intro introId="de.uka.ipd.sdq.pcmbench.intro"/>
 
    <vm>
-      <windows type="jre">jre1.5.0_10</windows>
+      <windows include="true">jre1.5.0_10</windows>
    </vm>
 
    <plugins>
@@ -51,10 +52,10 @@ Copyright 2007, SDQ, IPD
       <plugin id="de.uka.ipd.sdq.probfunction.edit"/>
       <plugin id="de.uka.ipd.sdq.stoex"/>
       <plugin id="de.uka.ipd.sdq.stoex.edit"/>
-      <plugin id="net.sourceforge.lpg.lpgjavaruntime"/>
+      <plugin id="net.sourceforge.lpg.lpgjavaruntime" fragment=""/>
       <plugin id="org.antlr"/>
       <plugin id="org.apache.ant"/>
-      <plugin id="org.apache.batik"/>
+      <plugin id="org.apache.batik" fragment=""/>
       <plugin id="org.apache.lucene"/>
       <plugin id="org.apache.xerces"/>
       <plugin id="org.eclipse.ant.core"/>
@@ -86,7 +87,7 @@ Copyright 2007, SDQ, IPD
       <plugin id="org.eclipse.emf.ecore.xmi"/>
       <plugin id="org.eclipse.emf.edit"/>
       <plugin id="org.eclipse.emf.edit.ui"/>
-      <plugin id="org.eclipse.emf.ocl"/>
+      <plugin id="org.eclipse.emf.ocl" fragment=""/>
       <plugin id="org.eclipse.emf.transaction"/>
       <plugin id="org.eclipse.emf.validation"/>
       <plugin id="org.eclipse.emf.workspace"/>
@@ -156,7 +157,7 @@ Copyright 2007, SDQ, IPD
       <plugin id="org.eclipse.team.core"/>
       <plugin id="org.eclipse.team.ui"/>
       <plugin id="org.eclipse.text"/>
-      <plugin id="org.eclipse.tomcat"/>
+      <plugin id="org.eclipse.tomcat" fragment=""/>
       <plugin id="org.eclipse.ui"/>
       <plugin id="org.eclipse.ui.console"/>
       <plugin id="org.eclipse.ui.editors"/>
@@ -176,10 +177,5 @@ Copyright 2007, SDQ, IPD
       <plugin id="org.eclipse.update.ui"/>
    </plugins>
 
-   <features>
-      <feature id="de.uka.ipd.sdq.pcm.diagram.feature" version="2.0.0.qualifier"/>
-      <feature id="de.uka.ipd.sdq.pcm.feature" version="2.0.0.qualifier"/>
-      <feature id="de.uka.ipd.sdq.probfunction.feature" version="2.0.0.qualifier"/>
-   </features>
 
 </product>
