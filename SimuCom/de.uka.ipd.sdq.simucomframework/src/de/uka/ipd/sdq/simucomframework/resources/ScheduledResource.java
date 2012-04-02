@@ -15,7 +15,6 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  */
 public class ScheduledResource extends AbstractScheduledResource {
 
-	private static final String PATHMAP_TO_SCHEDULER_LIBRARY = "pathmap://PCM_MODELS/Library.scheduler";
 	private static long resourceId = 1;
 	private String processingRate = "0";
 

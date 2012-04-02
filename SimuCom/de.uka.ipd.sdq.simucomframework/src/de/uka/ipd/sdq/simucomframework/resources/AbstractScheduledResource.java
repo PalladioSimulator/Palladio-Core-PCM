@@ -102,6 +102,14 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 		this.aResource = createActiveResource(myModel);
 		this.aResource.addObserver(this);
 	}
+	
+	/**
+	 * Returns the underlying resource 
+	 * @return aResource
+	 */
+	public IActiveResource getUnderlyingResource() {
+		return aResource;
+	}
 
 	/**
 	 * Subclasses are responsible for creating the {@link IActiveResource} to
