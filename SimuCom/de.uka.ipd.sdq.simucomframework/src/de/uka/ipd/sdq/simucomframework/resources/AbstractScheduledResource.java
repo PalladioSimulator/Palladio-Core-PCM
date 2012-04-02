@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import scheduler.configuration.ActiveResourceConfiguration;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
@@ -19,7 +18,6 @@ import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.ActiveResouce;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
-import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntityDelegator;
 
 /**
  * Base class of all resources which have their own scheduler, i.e., active
@@ -40,7 +38,6 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 	private Map<Integer, List<IStateListener>> stateListener;
 	private List<IDemandListener> demandListener;
 	private List<IOverallUtilizationListener> overallUtilizationListener;
-	protected ActiveResourceConfiguration resourceConf = null;
 
 	// For resources that can become unavailable (SimulatedActiveResources):
 	protected double mttf = 0.0;

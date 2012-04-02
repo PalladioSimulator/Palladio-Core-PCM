@@ -1,8 +1,5 @@
 package de.uka.ipd.sdq.scheduler;
 
-import scheduler.configuration.ActiveResourceConfiguration;
-import scheduler.configuration.PassiveResourceConfiguration;
-import scheduler.configuration.ProcessConfiguration;
 
 public interface ISchedulingFactory {
 	

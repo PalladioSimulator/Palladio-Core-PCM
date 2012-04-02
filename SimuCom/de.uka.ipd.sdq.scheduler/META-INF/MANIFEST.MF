@@ -5,7 +5,6 @@ Bundle-SymbolicName: de.uka.ipd.sdq.scheduler;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: de.uka.ipd.sdq.probfunction.math,
- de.uka.ipd.sdq.scheduler.configuration,
  org.apache.log4j,
  de.uka.ipd.sdq.sensorframework.storage,
  de.uka.ipd.sdq.sensorframework,
