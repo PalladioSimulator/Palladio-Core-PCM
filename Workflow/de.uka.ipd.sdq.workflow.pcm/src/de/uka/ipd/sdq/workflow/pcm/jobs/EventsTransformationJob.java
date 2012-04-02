@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.workflow.pcm.jobs;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -29,6 +30,9 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfigur
  */
 public class EventsTransformationJob 
 	implements IBlackboardInteractingJob<MDSDBlackboard> {
+
+	/** Logger for this class. */
+	private Logger logger = Logger.getLogger(EventsTransformationJob.class);
 	
 	/** Path to the qvto transformation script */
 	protected static final String TRANSFORMATION_SCRIPT = "platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto";
@@ -75,7 +79,13 @@ public class EventsTransformationJob
 		// create and add the qvto job
 		QVTOTransformationJob job = new QVTOTransformationJob(qvtoConfig);
 		job.setBlackboard(blackboard);
-		job.execute(monitor);
+		
+		try {
+			job.execute(monitor);
+		} catch(JobFailedException e) {
+			logger.error("Failed to perform Event Transformation: "+e.getMessage());
+			logger.info("Trying to continue processing");
+		}
 		
 		// add the event middleware model to the blackboard
 		ResourceSetPartition partition = blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
