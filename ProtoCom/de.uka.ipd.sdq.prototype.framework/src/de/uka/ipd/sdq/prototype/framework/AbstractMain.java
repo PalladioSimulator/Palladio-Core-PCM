@@ -187,12 +187,6 @@ public abstract class AbstractMain {
 	}
 
 	protected void initMeasurement() {
-
-		if (runProps.hasOption('w')) {
-			logger.info("Please pin java runtime to a single processor if needed! Press a key to continue!");
-			waitForKey();
-		}
-
 		// init threads if configuration is active server (not -P) or only
 		// warmup requested.
 		if (!runProps.hasOption('P') || runProps.hasOption('W')) {
@@ -295,18 +289,6 @@ public abstract class AbstractMain {
 			logger.setLevel(Level.DEBUG);
 		else
 			logger.setLevel(Level.INFO);
-	}
-
-	private void waitForKey() {
-		try {
-			System.in.read();
-			while (System.in.available() > 0) {
-				System.in.read();
-			}
-		} catch (java.io.IOException e) {
-			logger.error("Failed to wait for key. " + e);
-			System.exit(-1);
-		}		
 	}
 
 	private void stop() {

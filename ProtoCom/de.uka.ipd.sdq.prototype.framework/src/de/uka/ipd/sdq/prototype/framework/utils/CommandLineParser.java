@@ -35,7 +35,6 @@ public class CommandLineParser
 	@SuppressWarnings("static-access")
 	private static void addOptions(Options o)
 	{
-		o.addOption("w", "wait", false, "Suspend program execution before starting to pin program to a single processor");
 		o.addOption("h", "help", false, "Show this help");
 		o.addOption("D", "debug", false, "Print debug information. Turn off for real experiments!");
 		o.addOption("P", "passive", false, "Make server passive, no load drivers are started. No warmup runs are executed, either.");
