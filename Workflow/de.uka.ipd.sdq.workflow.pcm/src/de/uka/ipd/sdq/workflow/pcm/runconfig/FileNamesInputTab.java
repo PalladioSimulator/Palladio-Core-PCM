@@ -49,7 +49,7 @@ public class FileNamesInputTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public Image getImage() {
-		return RunConfigImages.getTabImage(PLUGIN_ID,FILENAME_TAB_IMAGE_PATH);
+		return PCMRunconfigImages.getTabImage(PLUGIN_ID,FILENAME_TAB_IMAGE_PATH);
 	}
 
 	/* (non-Javadoc)
