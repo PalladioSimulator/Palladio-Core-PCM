@@ -71,7 +71,7 @@ public class SortArrayDemand extends AbstractDemandStrategy {
 	
 	@Override
 	protected String getCalibrationFileName() {
-		return getCalibrationPath() + getName() + "_"
+		return getCalibrationPath() + "/" + getName() + "_"
 				+ CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE + "_" + ARRAY_SIZE + "_" + this.degreeOfAccuracy.name() + ".ser";
 	}
 	

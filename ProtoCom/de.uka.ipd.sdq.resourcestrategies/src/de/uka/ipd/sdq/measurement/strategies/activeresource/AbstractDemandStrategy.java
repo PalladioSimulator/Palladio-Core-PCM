@@ -68,7 +68,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	protected DegreeOfAccuracyEnum degreeOfAccuracy;
 	private static Logger logger = Logger.getLogger(AbstractDemandStrategy.class.getName());
 
-	private static final String CONFIG_PATH = "./conf/";
+	private static final String CALIBRATION_PATH = "../ProtoComCalibration/";
 
 	// define constants
 	private static final int[] CALIBRATION_CYCLES = { 1024, 512, 256, 128, 64, 50, 40, 30, 25, 20, 15, 10 };
@@ -126,9 +126,12 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 */
 	@Override
 	public void initializeStrategy(DegreeOfAccuracyEnum degreeOfAccuracy, double processingRate, String calibrationPath) {
-		Properties props = new Properties();
-		props.setProperty(CALIBRATION_PATH_CONFIG_KEY, calibrationPath);
-		setProperties(props);
+		if(calibrationPath != null)
+		{
+			Properties props = new Properties();
+			props.setProperty(CALIBRATION_PATH_CONFIG_KEY, calibrationPath);
+			setProperties(props);
+		}
 		
 		initializeStrategy(degreeOfAccuracy, processingRate);
 	}
@@ -185,7 +188,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * @return The calibration table file name
 	 */
 	protected String getCalibrationFileName() {
-		return getCalibrationPath() + getName() + "_"
+		return getCalibrationPath() + "/" + getName() + "_"
 				+ CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE + "_" + this.degreeOfAccuracy.name() + ".ser";
 	}
 
@@ -193,18 +196,35 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * Query the calibration path from the properties of this object
 	 * @return The file system path used to load and store the calibration data, or the current working directory if it is not set
 	 */
-	protected String getCalibrationPath() {
-		String result = null;
+	protected File getCalibrationPath()
+	{
+		String pathString = null;
 		
-		// Test whether properties have been set externally
-		if (properties != null) {
-			result = properties.getProperty(CALIBRATION_PATH_CONFIG_KEY);
-			if ((result != null) && (!result.equals(""))) {
-				return result + "/";
-			}
+		// Check whether properties have been set externally or not
+		if (properties != null)
+		{
+			pathString = properties.getProperty(CALIBRATION_PATH_CONFIG_KEY) + "/";
+		}
+		else
+		{
+			pathString = CALIBRATION_PATH;
 		}
 		
-		return CONFIG_PATH;
+		// create File object
+		File path = null;
+		if(pathString != null)
+		{
+			path = new File(pathString);
+		}
+		
+		// Create path if it does not exist
+		if (!path.exists())
+		{
+			path.mkdirs();
+			logger.info("Created Calibration Path "+path);
+		}
+
+		return path;
 	}
 
 	/**
