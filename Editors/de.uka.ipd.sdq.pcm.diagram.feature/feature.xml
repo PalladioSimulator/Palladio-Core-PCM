@@ -345,13 +345,6 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.pcmbench"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="de.uka.ipd.sdq.pcm.gmf.repository.helper"
          download-size="0"
          install-size="0"
