@@ -22,4 +22,3 @@ Export-Package: de.uka.ipd.sdq.workflow.pcm,
  de.uka.ipd.sdq.workflow.pcm.jobs,
  de.uka.ipd.sdq.workflow.pcm.runconfig
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: de.uka.ipd.sdq.workflow.pcm.PCMWorkflowPlugin

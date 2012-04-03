@@ -66,7 +66,7 @@ public class ConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
 	public Image getImage() {
-		return PCMRunconfigImages.getTabImage(PLUGIN_ID,CONFIGURATION_TAB_IMAGE_PATH);
+		return RunConfigImages.getTabImage(PLUGIN_ID,CONFIGURATION_TAB_IMAGE_PATH);
 	}
 
 	/* (non-Javadoc)
