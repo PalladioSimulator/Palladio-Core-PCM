@@ -237,8 +237,8 @@ litigation.
       <import plugin="de.uka.ipd.sdq.workflow.launchconfig" version="1.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.common" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.ide" version="3.5.1" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.identifier"/>
       <import plugin="de.uka.ipd.sdq.pcm" version="3.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.identifier"/>
       <import plugin="de.uka.ipd.sdq.probfunction"/>
       <import plugin="de.uka.ipd.sdq.stoex"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
@@ -252,6 +252,11 @@ litigation.
       <import plugin="edu.kit.ipd.sdq.qvtmodels.edit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.copyexception.edit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="de.uka.ipd.sdq.qvtrengine.medini" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.completions" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.ui" version="3.5.1" match="greaterOrEqual"/>
    </requires>
 
    <plugin
