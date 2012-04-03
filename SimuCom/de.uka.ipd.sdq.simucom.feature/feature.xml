@@ -244,7 +244,6 @@ litigation.
       <import plugin="org.eclipse.emf.ecore.change"/>
       <import plugin="de.uka.ipd.sdq.statistics" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.scheduler.configuration" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow.pcm" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.probespec.framework" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pipesandfilters" version="1.0.0" match="greaterOrEqual"/>
@@ -286,11 +285,11 @@ litigation.
       <import plugin="de.uka.ipd.sdq.sensorframework.storage"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="de.uka.ipd.sdq.units"/>
       <import plugin="org.eclipse.equinox.event" version="1.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.query"/>
+      <import plugin="de.uka.ipd.sdq.units"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="de.uka.ipd.sdq.identifier.edit"/>
       <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
