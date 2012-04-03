@@ -257,6 +257,7 @@ litigation.
       <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
       <import plugin="org.eclipse.draw2d"/>
       <import plugin="de.uka.ipd.sdq.pcmbench.ui"/>
+      <import plugin="de.uka.ipd.sdq.dialogs"/>
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
       <import plugin="de.uka.ipd.sdq.pcmbench.propertytabs"/>
@@ -268,50 +269,15 @@ litigation.
       <import plugin="org.eclipse.emf"/>
       <import plugin="org.eclipse.emf.transaction"/>
       <import plugin="org.eclipse.ui"/>
-      <import plugin="com.ibm.icu"/>
-      <import plugin="org.eclipse.gmf.runtime.diagram.core"/>
-      <import plugin="org.eclipse.gmf.runtime.common.ui"/>
-      <import plugin="org.eclipse.gmf.runtime.common.ui.action"/>
-      <import plugin="org.eclipse.gmf.runtime.common.ui.action.ide"/>
-      <import plugin="org.eclipse.gmf.runtime.common.ui.printing"/>
-      <import plugin="org.eclipse.gmf.runtime.common.ui.services"/>
-      <import plugin="org.eclipse.gmf.runtime.common.ui.services.action"/>
-      <import plugin="org.eclipse.gmf.runtime.common.ui.services.dnd"/>
-      <import plugin="org.eclipse.gmf.runtime.common.ui.services.dnd.ide"/>
-      <import plugin="org.eclipse.gmf.runtime.common.ui.services.properties"/>
-      <import plugin="org.eclipse.gmf.runtime.diagram.ui.actions"/>
-      <import plugin="org.eclipse.gmf.runtime.diagram.ui.dnd"/>
-      <import plugin="org.eclipse.gmf.runtime.diagram.ui.geoshapes"/>
-      <import plugin="org.eclipse.pde.runtime"/>
-      <import plugin="org.eclipse.debug.ui"/>
-      <import plugin="de.uka.ipd.sdq.pcmbench.help"/>
       <import plugin="org.eclipse.gmf.runtime.common.core"/>
+      <import plugin="org.eclipse.gmf.runtime.common.ui"/>
       <import plugin="org.eclipse.gmf.runtime.emf.type.core"/>
       <import plugin="de.uka.ipd.sdq.pcm.editor"/>
       <import plugin="org.eclipse.jface.text"/>
       <import plugin="de.uka.ipd.sdq.errorhandling"/>
       <import plugin="org.eclipse.osgi.util"/>
-      <import plugin="org.eclipse.ui.editors"/>
-      <import plugin="de.uka.ipd.sdq.identifier.edit" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.debug.ui" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.workflow.launchconfig" version="1.1.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.featureconfig" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.featureconfig.edit" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.featuremodel" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.featuremodel.edit" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ocl.ecore" version="1.2.1" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.identifier" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.eclipse.emf.ecore.edit"/>
-      <import plugin="org.eclipse.uml2.common.edit"/>
-      <import plugin="edu.kit.ipd.sdq.qvtmodels" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="edu.kit.ipd.sdq.qvtmodels.edit" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.copyexception" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.copyexception.edit" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore" version="2.5.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ocl.ecore" version="1.3.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.dialogs"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.editors"/>
       <import plugin="de.uka.ipd.sdq.pcm.dialogs" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.query"/>
    </requires>
