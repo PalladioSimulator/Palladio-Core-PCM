@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PCM Workflow Jobs and Configurations
-Bundle-SymbolicName: de.uka.ipd.sdq.workflow.pcm
+Bundle-SymbolicName: de.uka.ipd.sdq.workflow.pcm;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: sdq.ipd.uka.de
+Bundle-Vendor: sdq.ipd.kit.edu
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: de.uka.ipd.sdq.pcm;bundle-version="3.1.0",
  de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
@@ -21,3 +21,4 @@ Export-Package: de.uka.ipd.sdq.workflow.pcm,
  de.uka.ipd.sdq.workflow.pcm.configurations,
  de.uka.ipd.sdq.workflow.pcm.jobs,
  de.uka.ipd.sdq.workflow.pcm.runconfig
+Bundle-ActivationPolicy: lazy
