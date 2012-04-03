@@ -79,38 +79,18 @@ public abstract class AbstractMain {
 		probFunctionFactory.setRandomGenerator(randomGen);
 		StoExCache.initialiseStoExCache(probFunctionFactory);
 	
-		handleStartOption();
+		createUserMenu();
 	}
 
 	/**
-	 * Handles the start option set via the M-parameter.
-	 * - If M has no option value, the user menu is displayed
-	 * - If M has a option value, the corresponding main method is invoked (currently this is an experimental feature)
-	 * - If M is not set, the default main method is invoked 
+	 * Creates the user menu with starting options item by item
 	 */
-	private void handleStartOption() 
+	private void createUserMenu() 
 	{
-		if (runProps.hasOption('M'))
+		List<Integer> itemIds = UserMenu.showUserMenu(getSystems());
+		for (int itemId : itemIds)
 		{
-			String mainClass = runProps.getOptionValue('M');
-			Method mainMethod = getMain(mainClass);
-	
-			if (!mainMethodFound(mainMethod))
-			{
-				List<Integer> itemIds = UserMenu.showUserMenu(getSystems());
-				for (int itemId : itemIds)
-				{
-					handleMenuItem(itemId);
-				}
-			}
-			else 
-			{
-				invokeMethod(mainMethod, new String[]{});
-			}
-		} 
-		else
-		{
-			startDefaultMain();
+			handleMenuItem(itemId);
 		}
 	}
 
@@ -204,11 +184,6 @@ public abstract class AbstractMain {
 		}
 
 		return null;
-	}
-	
-	private boolean mainMethodFound(Method mainMethod) {
-		logger.debug(mainMethod == null ? "Main method not found. Falling back" : "Main method passed on command line.");
-		return mainMethod != null;
 	}
 
 	protected void initMeasurement() {

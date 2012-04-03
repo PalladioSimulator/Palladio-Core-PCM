@@ -66,8 +66,5 @@ public class CommandLineParser
 				.create('H'));
 		o.addOption(OptionBuilder.hasArgs().withLongOpt("accuracy").withArgName("Accuracy").withDescription("Accuracy of CPU and HDD calibration: LOW, MEDIUM, or HIGH (default: MEDIUM). ")
 				.create('a'));
-		
-		o.addOption(OptionBuilder.hasOptionalArg().withArgName("main").withLongOpt("mainClass").withDescription("Remote address to the system component.")
-				.create("M"));
 	}
 }
