@@ -35,6 +35,11 @@ public abstract class AbstractCodeGenerationWorkflowRunConfiguration extends
 	 * Stores additional advices for the OAW code generation
 	 */
 	private List<String> codeGenerationAdvices = null;
+	
+	/**
+	 * Stores additional required bundle ids for the OAW code generation
+	 */
+	private List<String> codeGenerationRequiredBundles = null;
 
 	protected boolean overwriteWithoutAsking = false;
 	protected boolean loadMiddlewareAndCompletionFiles = false;
@@ -53,6 +58,7 @@ public abstract class AbstractCodeGenerationWorkflowRunConfiguration extends
 	public AbstractCodeGenerationWorkflowRunConfiguration() {
 		super();
 	    codeGenerationAdvices = new ArrayList<String>();
+	    codeGenerationRequiredBundles = new ArrayList<String>();
 	}
 
 	/**
@@ -175,11 +181,29 @@ public abstract class AbstractCodeGenerationWorkflowRunConfiguration extends
 	}
 	
 	/**
+	 * Setter method
+	 * @param advice a code generation advice
+	 */
+	public void addRequiredBundle(String bundleid) {
+		if (!codeGenerationRequiredBundles.contains(bundleid)) {
+			this.codeGenerationRequiredBundles.add(bundleid);
+		}
+	}
+	
+	/**
 	 * Getter method
 	 * @return the codeGenerationAdvices list.
 	 */
 	public List<String> getCodeGenerationAdvices() {
 		return this.codeGenerationAdvices;
+	}
+	
+	/**
+	 * Getter method
+	 * @return the codeGenerationRequiredBundles list.
+	 */
+	public List<String> getCodeGenerationRequiredBundles() {
+		return this.codeGenerationRequiredBundles;
 	}
 
 	/* (non-Javadoc)

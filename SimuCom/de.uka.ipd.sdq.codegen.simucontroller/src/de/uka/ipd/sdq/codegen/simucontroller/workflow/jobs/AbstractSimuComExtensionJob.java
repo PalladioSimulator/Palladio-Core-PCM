@@ -41,5 +41,9 @@ public abstract class AbstractSimuComExtensionJob extends AbstractWorkflowExtens
 	protected void addCodeGenerationAdvice(String advice) {
 		abstractSimulationWorkflowConfiguration.addCodeGenerationAdvice(advice);
 	}
+	
+	protected void addCodeGenerationRequiredBundle(String bundleid) {
+		abstractSimulationWorkflowConfiguration.addRequiredBundle(bundleid);
+	}
 
 }

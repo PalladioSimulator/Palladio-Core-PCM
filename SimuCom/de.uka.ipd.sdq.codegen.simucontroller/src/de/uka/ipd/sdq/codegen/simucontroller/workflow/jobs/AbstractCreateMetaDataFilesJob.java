@@ -3,6 +3,9 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.resources.IFile;
@@ -10,7 +13,6 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import de.uka.ipd.sdq.workflow.IJob;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
@@ -111,7 +113,11 @@ public abstract class AbstractCreateMetaDataFilesJob {
 		
 		out.print("Require-Bundle: ");
 		
-		out.println(StringUtils.join(getRequiredBundles(), ",\n "));
+		List<String> requiredBundles = new ArrayList<String>();
+		requiredBundles.addAll(Arrays.asList(getRequiredBundles()));
+		requiredBundles.addAll(configuration.getCodeGenerationRequiredBundles());
+		
+		out.println(StringUtils.join(requiredBundles, ",\n "));
 		
 	
 		
