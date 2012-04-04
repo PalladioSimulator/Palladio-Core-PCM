@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+Copyright 2007, IPD, SDQ, University of Karlsruhe
+-->
+<plugin>
+
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+
+      <editpartProvider class="de.uka.ipd.sdq.pcm.gmf.repository.custom.providers.CustomPalladioComponentModelEditPartProvider">
+         <Priority name="Low"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="PCM Repository Model"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2107,2108,2102,2103,2104,2105,2106,2109,3106,3107,3102,3103,3104,3105,3108"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4105,4111,4112,4109,4106,4103,4104,4110"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5108,5109,5102,5103,5104,5105,5107,5110,5106"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value="7106,7107,7102,7103,7104,7105,7108"/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+</plugin>
