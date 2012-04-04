@@ -49,7 +49,9 @@ public class DSEListener implements OptimizerIterationListener {
 			monitor.worked(1);
 			
 			//printStatistics(iteration);
-			storeIntermediateResults(iteration);
+			
+			// -1 to start with iteration 0, as Opt4J now newly starts with iteration 1 it seems.  
+			storeIntermediateResults(iteration-1);
 			
 		}
 		this.iteration = iteration;
