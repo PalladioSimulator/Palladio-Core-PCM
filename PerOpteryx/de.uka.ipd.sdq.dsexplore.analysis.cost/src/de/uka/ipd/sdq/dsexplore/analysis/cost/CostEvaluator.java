@@ -205,7 +205,9 @@ public class CostEvaluator implements IAnalysis{
 				operatingCostWithInterest = operatingCost * numberOfYears;
 
 			} else {
-				operatingCostWithInterest = operatingCost * Math.pow(1 - (1 + interest), -1*numberOfYears)/interest;
+				// FIXME: Fix this calculation, results of course in negative values!
+				//operatingCostWithInterest = operatingCost * Math.pow( 1- (1 + interest), -1*numberOfYears);
+				throw new UnsupportedOperationException("Perpetuity for a number of years not yet implemented. Contact developers.");
 			}
 		}
 		return initialCost + operatingCostWithInterest;
