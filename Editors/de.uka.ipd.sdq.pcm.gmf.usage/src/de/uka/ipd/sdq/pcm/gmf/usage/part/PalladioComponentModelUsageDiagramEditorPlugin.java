@@ -142,19 +142,22 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends
 		factories.add(new CoreItemProviderAdapterFactory());
 		factories.add(new EntityItemProviderAdapterFactory());
 		factories.add(new CompositionItemProviderAdapterFactory());
-		
 		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new RepositoryItemProviderAdapterFactory());
-		factories.add(new ProtocolItemProviderAdapterFactory());
-		factories.add(new ReliabilityItemProviderAdapterFactory());
-		factories.add(new QosannotationsItemProviderAdapterFactory());
-		factories.add(new QosPerformanceItemProviderAdapterFactory());
-		factories.add(new QosReliabilityItemProviderAdapterFactory());
-		factories.add(new ParameterItemProviderAdapterFactory());
-		factories.add(new SeffItemProviderAdapterFactory());
-		factories.add(new SeffPerformanceItemProviderAdapterFactory());
-		factories.add(new SeffReliabilityItemProviderAdapterFactory());
 		factories.add(new ResourcetypeItemProviderAdapterFactory());
+		factories.add(new ProtocolItemProviderAdapterFactory());
+		factories.add(new ParameterItemProviderAdapterFactory());
+		factories.add(new ReliabilityItemProviderAdapterFactory());
+		factories.add(new SeffItemProviderAdapterFactory());
+		factories
+				.add(new de.uka.ipd.sdq.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory());
+		factories
+				.add(new de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory());
+		factories.add(new QosannotationsItemProviderAdapterFactory());
+		factories
+				.add(new de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory());
+		factories
+				.add(new de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());

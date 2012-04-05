@@ -122,7 +122,7 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 					.getClosedWorkload_Population() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			parser.setViewPattern("Population: {0}"); //$NON-NLS-1$
-			parser.setEditorPattern("Population: {0}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}"); //$NON-NLS-1$
 			parser.setEditPattern("{0}"); //$NON-NLS-1$
 			closedWorkloadPopulation_5013Parser = parser;
 		}

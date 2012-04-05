@@ -116,12 +116,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ClosedWorkloadPopulationEditPart) {
-			((ClosedWorkloadPopulationEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureClosedWorkloadPopulationFigure());
-			return true;
-		}
 		if (childEditPart instanceof ClosedWorkloadTitleLabelEditPart) {
 			((ClosedWorkloadTitleLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
@@ -134,6 +128,12 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 							.getFigureClosedWorkloadThinkTimeLabelFigure());
 			return true;
 		}
+		if (childEditPart instanceof ClosedWorkloadPopulationEditPart) {
+			((ClosedWorkloadPopulationEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureClosedWorkloadPopulationFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -141,13 +141,13 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ClosedWorkloadPopulationEditPart) {
-			return true;
-		}
 		if (childEditPart instanceof ClosedWorkloadTitleLabelEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof ClosedWorkloadThinkTimeLabelEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ClosedWorkloadPopulationEditPart) {
 			return true;
 		}
 		return false;

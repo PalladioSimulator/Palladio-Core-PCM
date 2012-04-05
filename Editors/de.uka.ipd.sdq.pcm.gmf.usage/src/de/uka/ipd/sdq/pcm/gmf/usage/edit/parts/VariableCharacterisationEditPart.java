@@ -220,9 +220,10 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 		String text = null;
 		EObject semanticElement = this.resolveSemanticElement();
 		//Handle errors when element deleted
-		if(semanticElement == null || !(semanticElement instanceof VariableCharacterisation))
-				return "";
-		
+		if (semanticElement == null
+				|| !(semanticElement instanceof VariableCharacterisation))
+			return "";
+
 		VariableCharacterisation vc = (VariableCharacterisation) semanticElement;
 		text = vc.getType().getLiteral() + " = ";
 		Expression expression = vc.getSpecification_VariableCharacterisation()

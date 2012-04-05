@@ -232,7 +232,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 				text = defaultText;
 			}
 		}
-		
+
 		return text;
 	}
 
