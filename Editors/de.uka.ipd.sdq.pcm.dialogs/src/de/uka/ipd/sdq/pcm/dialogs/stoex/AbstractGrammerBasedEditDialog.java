@@ -24,6 +24,10 @@ import org.eclipse.jface.text.source.ImageUtilities;
 import org.eclipse.jface.text.source.SourceViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.custom.VerifyKeyListener;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
+import org.eclipse.swt.events.VerifyEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.RGB;
@@ -50,7 +54,7 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
  * @author Snowball
  */
 public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
-
+	private static final Object UNDERLINE= new Object();
 	private String DIALOG_TITLE = "Edit a stochastic expression";
 
 	public static final String ERROR_TYPE = "ERROR";
@@ -147,26 +151,59 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		final AbstractGrammarBasedViewerConfiguration config = new AbstractGrammarBasedViewerConfiguration(fAnnotationModel,context,getLexerClass(),getTokenMapper());
 		styledText.setFont(SWTResourceManager.getFont("Courier New", 12,
 				SWT.NONE));
-		styledText.addListener(SWT.KeyDown, new Listener(){
+		
+		styledText.addKeyListener(new KeyListener(){
 
-			public void handleEvent(Event event) {
-				if (event.character == ' ' && (event.stateMask & SWT.CTRL) == SWT.CTRL){
+			public void keyPressed(KeyEvent event) {			}
+
+			@Override
+			public void keyReleased(KeyEvent event) { // CTRL + SPACE
+				if (event.keyCode == 32 && (event.stateMask & SWT.CTRL) == SWT.CTRL){
 					config.getContentAssistant(textViewer).showPossibleCompletions();
 				}
-				
+			}
+			
+		});
+		
+		styledText.addVerifyKeyListener(new VerifyKeyListener(){
+
+			
+			@Override
+			public void verifyKey(VerifyEvent event) {
+				if (event.keyCode == 13) // ENTER
+				{
+					if(getButton(OK).isEnabled())
+						okPressed();
+					
+					event.doit = false;
+					
+				}
 			}
 			
 		});
 
 		// to paint the annotations
-		AnnotationPainter ap = new AnnotationPainter(textViewer,
-				fAnnotationAccess);
-		ap.addAnnotationType(ERROR_TYPE);
-		ap.setAnnotationTypeColor(ERROR_TYPE, new Color(Display.getDefault(),
-				new RGB(255, 0, 0)));
-		ap.addAnnotationType(WARNING_TYPE);
-		ap.setAnnotationTypeColor(WARNING_TYPE, new Color(Display.getDefault(),
-				new RGB(255, 255, 0)));
+				AnnotationPainter ap = new AnnotationPainter(textViewer,
+						fAnnotationAccess);
+				ap.addAnnotationType(ERROR_TYPE);
+				ap.setAnnotationTypeColor(ERROR_TYPE, new Color(Display.getDefault(),
+						new RGB(255, 0, 0)));
+				ap.addAnnotationType(WARNING_TYPE);
+				ap.setAnnotationTypeColor(WARNING_TYPE, new Color(Display.getDefault(),
+						new RGB(255, 255, 0)));
+		
+//TODO: Test new code		
+//		// to paint the annotations
+//		AnnotationPainter ap = new AnnotationPainter(textViewer,
+//				fAnnotationAccess);
+//		
+//		ap.addTextStyleStrategy(UNDERLINE, new AnnotationPainter.UnderlineStrategy(SWT.UNDERLINE_SQUIGGLE));
+//		ap.addAnnotationType(ERROR_TYPE, UNDERLINE);
+//		ap.setAnnotationTypeColor(ERROR_TYPE, new Color(Display.getDefault(),
+//				new RGB(255, 0, 0)));
+//		ap.addAnnotationType(WARNING_TYPE, UNDERLINE);
+//		ap.setAnnotationTypeColor(WARNING_TYPE, new Color(Display.getDefault(),
+//				new RGB(255, 255, 0)));
 
 		// this will draw the squigglies under the text
 		textViewer.addPainter(ap);
