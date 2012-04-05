@@ -8,6 +8,7 @@ Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelR
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: de.uka.ipd.sdq.pcm.gmf.repository.edit.parts,
+ de.uka.ipd.sdq.pcm.gmf.repository.edit.policies,
  de.uka.ipd.sdq.pcm.gmf.repository.part,
  de.uka.ipd.sdq.pcm.gmf.repository.providers
 Require-Bundle: org.eclipse.core.runtime,

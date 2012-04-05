@@ -286,6 +286,10 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 		return super.getTargetEditPart(request);
 	}
 
+	public static Color getThisBack() {
+		return THIS_BACK;
+	}
+
 	/**
 	 * @generated
 	 */
@@ -316,7 +320,7 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 			this.setLayoutManager(layoutThis);
 
 			this.setLineWidth(1);
-			this.setBackgroundColor(THIS_BACK);
+			this.setBackgroundColor(getThisBack());
 			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0),
 					getMapMode().DPtoLP(0)));
 			createContents();
@@ -379,6 +383,6 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 220, 220, 220);
+	private static final Color THIS_BACK = new Color(null, 220, 220, 220);
 
 }
