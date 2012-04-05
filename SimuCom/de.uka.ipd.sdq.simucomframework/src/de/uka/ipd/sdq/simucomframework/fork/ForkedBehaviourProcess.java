@@ -38,13 +38,14 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
 		this.assemblyContextID = assemblyContextID;
 		this.isAsync = isAsync;
         this.blackboardGarbageCollector = myContext.getModel().getProbeSpecContext().getBlackboardGarbageCollector();
+        
+        // prevent garbage collector to dispose measurements taken within the given request context
+        this.blackboardGarbageCollector.enterRegion(getRequestContext().rootContext());
 	}
 
 	@Override
 	protected void internalLifeCycle() {
-		blackboardGarbageCollector.enterRegion(getRequestContext().rootContext());
 		executeBehaviour();
-		blackboardGarbageCollector.leaveRegion(getRequestContext().rootContext());
 		this.isTerminated = true;
 
 		// if this has been synchronous call of the behaviour and the parent has
@@ -53,8 +54,13 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
 		// parent again.
 		if (!isAsync && !myParent.isTerminated() && simulationIsRunning())
 			myParent.scheduleAt(0);
-		else
+		else {
 			logger.debug("Asynch behaviour finished at simtime " + getModel().getSimulationControl().getCurrentSimulationTime());
+		}
+		
+        // tell garbage collector that this process is no longer interested in measurements taken
+        // within the given request context
+        blackboardGarbageCollector.leaveRegion(getRequestContext().rootContext());
 	}
 
 	private boolean simulationIsRunning() {
