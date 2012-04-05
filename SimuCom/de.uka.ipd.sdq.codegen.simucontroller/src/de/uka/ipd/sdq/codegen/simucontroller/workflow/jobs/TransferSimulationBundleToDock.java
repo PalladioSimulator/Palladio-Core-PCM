@@ -46,7 +46,15 @@ public class TransferSimulationBundleToDock extends AbstractExtendableJob<MDSDBl
 		this.myConfig = configuration;
 		this.debugListener = debugListener;
 		this.isDebug = configuration.isDebug();
-		handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_DOCK,configuration);
+		
+        // FIXME: this class should not be specific to a simulator implementation (like SimuCom or
+        // EventSim), but the workflow hooks currently have no means to refer to the simulator
+        // implementation to which a given extension applies. The hooks rather assume that SimuCom
+        // is used, which causes other implementations to fail. Therefore, as a workaround we have
+        // to check for SimuCom here.
+        if (isSimuComSimulationRun()) {
+            handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_DOCK, configuration);
+        }
 	}
 
 	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
@@ -69,7 +77,7 @@ public class TransferSimulationBundleToDock extends AbstractExtendableJob<MDSDBl
 			// TODO: don't call this here. Put TransferSimulationBundleToDock job logic into a separate job that is nested in a OrderPreservingCompositeJob
 			// together with the extension jobs
 			for (IJob extensionJob : myJobs) {
-				if (extensionJob instanceof AbstractSimuComExtensionJob) {
+				if (isSimuComSimulationRun() && extensionJob instanceof AbstractSimuComExtensionJob) {
 					((AbstractSimuComExtensionJob)extensionJob).setSimuComModel(((SimulationDockServiceImpl)simService).getSimuComModel());
 					((AbstractSimuComExtensionJob)extensionJob).initialize(myConfig);
 				}
@@ -92,6 +100,10 @@ public class TransferSimulationBundleToDock extends AbstractExtendableJob<MDSDBl
 				this.debugListener.simulationStoppedInDock();
 			}
 		}
+	}
+	
+	private boolean isSimuComSimulationRun() {
+	    return myConfig.getSimulationConfiguration().getSimulatorId().equals("de.uka.ipd.sdq.codegen.simucontroller.simucom");
 	}
 
 	public String getName() {
