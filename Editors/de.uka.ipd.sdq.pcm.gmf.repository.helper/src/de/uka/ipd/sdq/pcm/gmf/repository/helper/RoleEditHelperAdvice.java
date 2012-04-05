@@ -13,7 +13,15 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
+import de.uka.ipd.sdq.pcm.repository.SinkRole;
+import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
+/**
+ * EditHelper for assigning meaningful names to operational, infrastructure and event roles (associations).
+ * 
+ * @author joerg
+ *
+ */
 public class RoleEditHelperAdvice extends AbstractEditHelperAdvice implements
 		IEditHelperAdvice {
 
@@ -52,6 +60,22 @@ public class RoleEditHelperAdvice extends AbstractEditHelperAdvice implements
 			componentName = pr.getRequiringEntity_RequiredRole() == null ? "infrastructureComponent"
 					: pr.getRequiringEntity_RequiredRole().getEntityName();
 			prefix = "Required";
+		} else if (r instanceof SourceRole) {
+			SourceRole sr = (SourceRole) r;
+			interfaceName = sr
+					.getEventGroup__SourceRole() == null ? "eventGroup"
+					: sr.getEventGroup__SourceRole().getEntityName();
+			componentName = sr.getRequiringEntity_RequiredRole() == null ? "eventComponent"
+					: sr.getRequiringEntity_RequiredRole().getEntityName();
+			prefix = "Source";
+		} else if (r instanceof SinkRole) {
+			SinkRole sr = (SinkRole) r;
+			interfaceName = sr
+					.getEventGroup__SinkRole() == null ? "eventGroup"
+					: sr.getEventGroup__SinkRole().getEntityName();
+			componentName = sr.getProvidingEntity_ProvidedRole() == null ? "eventComponent"
+					: sr.getProvidingEntity_ProvidedRole().getEntityName();
+			prefix = "Sink";
 		}
 		SetRequest setRequest = new SetRequest(r, EntityPackage.eINSTANCE
 				.getNamedElement_EntityName(), prefix + "_" + interfaceName + "_"
