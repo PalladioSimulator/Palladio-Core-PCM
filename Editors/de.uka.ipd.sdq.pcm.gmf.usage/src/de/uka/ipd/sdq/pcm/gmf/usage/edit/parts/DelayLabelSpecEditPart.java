@@ -495,9 +495,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated not
 	 */
-	/**
-	 * @generated not
-	 */
 	protected void addSemanticListeners() {
 		Delay d = (Delay) resolveSemanticElement();
 		addListenerFilter("SemanticModel", this, d.getTimeSpecification_Delay()); //$NON-NLS-1$
