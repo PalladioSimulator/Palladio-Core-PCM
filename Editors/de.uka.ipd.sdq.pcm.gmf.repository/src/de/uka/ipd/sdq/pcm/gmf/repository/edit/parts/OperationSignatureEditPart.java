@@ -10,6 +10,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
@@ -53,7 +54,9 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTex
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
+import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
+import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
 
 /**
@@ -490,33 +493,39 @@ public class OperationSignatureEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-		if (getParser() instanceof ISemanticParser) {
-			EObject element = resolveSemanticElement();
-			parserElements = ((ISemanticParser) getParser())
-					.getSemanticElementsBeingParsed(element);
-			for (int i = 0; i < parserElements.size(); i++) {
-				addListenerFilter(
-						"SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
+			OperationSignature element = (OperationSignature) resolveSemanticElement();
+			addListenerFilter("SemanticModel", this, element); //$NON-NLS-1$
+			DataType returnType = element.getReturnType__OperationSignature();
+			if(returnType != null)
+				addListenerFilter("SemanticModel-RT", this, returnType); //$NON-NLS-1$
+			
+			EList<Parameter> params = element.getParameters__OperationSignature();
+			for (int i = 0; i < params.size(); i++) {
+				addListenerFilter("SemanticModel-Param" + i, this, (EObject) params.get(i)); //$NON-NLS-1$
 			}
-		} else {
-			super.addSemanticListeners();
-		}
+		
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void removeSemanticListeners() {
-		if (parserElements != null) {
-			for (int i = 0; i < parserElements.size(); i++) {
-				removeListenerFilter("SemanticModel" + i); //$NON-NLS-1$
-			}
-		} else {
-			super.removeSemanticListeners();
+
+		OperationSignature element = (OperationSignature) resolveSemanticElement();
+		removeListenerFilter("SemanticModel"); //$NON-NLS-1$
+		DataType returnType = element.getReturnType__OperationSignature();
+		if(returnType != null)
+			removeListenerFilter("SemanticModel-RT"); //$NON-NLS-1$
+		
+		EList<Parameter> params = element.getParameters__OperationSignature();
+		for (int i = 0; i < params.size(); i++) {
+			removeListenerFilter("SemanticModel-Param" + i); //$NON-NLS-1$
 		}
+		
+		
 	}
 
 	/**
@@ -558,7 +567,7 @@ public class OperationSignatureEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -595,6 +604,23 @@ public class OperationSignatureEditPart extends CompartmentEditPart implements
 					}
 					refreshLabel();
 				}
+			}
+			
+			//This is for refreshing the label when returntype or parameters change!
+			Object notifier = event.getNotifier();
+			if(notifier instanceof Parameter)
+			{
+				Parameter param = (Parameter) notifier;
+				notifier = param.getOperationSignature__Parameter();
+			}
+			
+			if(notifier == resolveSemanticElement())
+			{
+				removeSemanticListeners();
+				if (resolveSemanticElement() != null) {
+					addSemanticListeners();
+				}
+				refreshLabel();
 			}
 		}
 		super.handleNotificationEvent(event);
