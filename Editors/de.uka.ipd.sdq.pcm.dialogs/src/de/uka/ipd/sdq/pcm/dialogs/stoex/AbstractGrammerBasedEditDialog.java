@@ -3,6 +3,9 @@
  */
 package de.uka.ipd.sdq.pcm.dialogs.stoex;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.antlr.runtime.Lexer;
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.emf.ecore.EObject;
@@ -56,8 +59,13 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
 
 /**
  * @author Snowball
+ * @author joerg henss
  */
 public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
+	
+	
+	
+
 	private String DIALOG_TITLE = "Edit a stochastic expression";
 
 	public static final String ERROR_TYPE = "ERROR";
@@ -72,6 +80,8 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
     private static final String WARNING_TEXT_PREF = "warningIndication";
     private static final String WARNING_TEXT_STYLE = "warningTextStyle";
 	
+    private final static ISharedTextColors SHARED_COLORS = new GrammarSharedColors();
+    
 
 	// private Text editText;
 	private SourceViewer textViewer;
@@ -224,7 +234,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		});
 		
 		// to paint the annotations use the ViewerDecorationSupport
-		fSourceViewerDecorationSupport = new SourceViewerDecorationSupport(textViewer, null, fAnnotationAccess, EditorsPlugin.getDefault().getSharedTextColors());
+		fSourceViewerDecorationSupport = new SourceViewerDecorationSupport(textViewer, null, fAnnotationAccess, SHARED_COLORS);
 		
 		 AnnotationPreference ap = new AnnotationPreference();
 		 ap.setAnnotationType(ERROR_TYPE);
@@ -385,6 +395,27 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
 	public String getResultText() {
 		return resultText;
+	}
+}
+
+class GrammarSharedColors implements ISharedTextColors {
+	
+	Map<RGB, Color> colorMap = new HashMap<RGB, Color>();
+	
+	@Override
+	public Color getColor(RGB rgb) 
+	{
+		if(colorMap.containsKey(rgb))
+			return colorMap.get(rgb);
+		Color c = new Color(Display.getDefault(), rgb);
+		colorMap.put(rgb, c);
+		return c;
+	}
+
+	@Override
+	public void dispose() {
+		colorMap.clear();
+		
 	}
 }
 
