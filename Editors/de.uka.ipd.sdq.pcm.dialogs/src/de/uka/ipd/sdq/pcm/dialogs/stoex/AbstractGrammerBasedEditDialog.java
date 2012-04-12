@@ -16,6 +16,8 @@ import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.ITextListener;
 import org.eclipse.jface.text.Position;
 import org.eclipse.jface.text.TextEvent;
+import org.eclipse.jface.text.contentassist.ContentAssistant;
+import org.eclipse.jface.text.contentassist.IContentAssistant;
 import org.eclipse.jface.text.source.Annotation;
 import org.eclipse.jface.text.source.AnnotationModel;
 import org.eclipse.jface.text.source.AnnotationPainter;
@@ -209,10 +211,15 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 			public void verifyKey(VerifyEvent event) {
 				if (event.keyCode == 13) // ENTER
 				{
-					if(getButton(OK).isEnabled())
-						okPressed();
+					ContentAssistant ca = (ContentAssistant) config.getContentAssistant(textViewer);
+					boolean isAssistentFocus = ca.setFocus(textViewer);
+					if(!isAssistentFocus)
+					{
+						if(getButton(OK).isEnabled())
+							okPressed();
 					
-					event.doit = false;
+						event.doit = false;
+					}
 					
 				}
 			}
