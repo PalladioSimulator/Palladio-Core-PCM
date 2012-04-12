@@ -299,7 +299,7 @@ litigation.
       <import plugin="org.apache.log4j" version="1.2.13" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.simucomstatus" version="1.0.0" match="greaterOrEqual"/>
-      <import feature="de.uka.ipd.sdq.simulation.abstractsimengine.feature" version="3.3.0.qualifier" match="greaterOrEqual"/>
+      <import feature="de.uka.ipd.sdq.simulation.abstractsimengine.feature" version="3.3.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
