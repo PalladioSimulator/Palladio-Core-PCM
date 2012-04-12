@@ -12696,6 +12696,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <ownedComment xmi:id="_M3vwcPxPEd68D51GrGx7ow" annotatedElement="_wru2gODnEdq8ysXH3gTiEg">
           <body>Performance specification of processing resources (e.g. processing rate, scheduling policy)</body>
         </ownedComment>
+        <generalization xmi:id="_uQcX0IR3EeGQjuTqPWWIlQ">
+          <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
+        </generalization>
         <ownedAttribute xmi:id="_1lj7QEIxEd6xDqQsjkcxUg" name="MTTR" visibility="public">
           <ownedComment xmi:id="_ON0DYEIyEd6xDqQsjkcxUg" annotatedElement="_1lj7QEIxEd6xDqQsjkcxUg">
             <body>The Mean Time To Repair (MTTR) of a physical resource is the expected timespan from breakdown of this physical resource to its repair or replacement.</body>
