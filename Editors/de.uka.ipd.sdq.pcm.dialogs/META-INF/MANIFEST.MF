@@ -28,7 +28,8 @@ Require-Bundle: de.uka.ipd.sdq.stoex,
  org.eclipse.emf.edit.ui,
  de.uka.ipd.sdq.errorhandling,
  org.eclipse.osgi.util,
- org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.2.1"
+ org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.2.1",
+ org.eclipse.ui.editors;bundle-version="3.7.0"
 Bundle-Vendor: sdq.ipd.uka.de
 Eclipse-LazyStart: true
 Bundle-Activator: de.uka.ipd.sdq.pcm.dialogs.PCMDialogPluginActivator

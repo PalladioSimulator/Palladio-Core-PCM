@@ -20,6 +20,7 @@ import org.eclipse.jface.text.source.AnnotationRulerColumn;
 import org.eclipse.jface.text.source.CompositeRuler;
 import org.eclipse.jface.text.source.IAnnotationAccess;
 import org.eclipse.jface.text.source.IAnnotationAccessExtension;
+import org.eclipse.jface.text.source.ISharedTextColors;
 import org.eclipse.jface.text.source.ImageUtilities;
 import org.eclipse.jface.text.source.SourceViewer;
 import org.eclipse.swt.SWT;
@@ -43,6 +44,9 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.editors.text.EditorsPlugin;
+import org.eclipse.ui.texteditor.AnnotationPreference;
+import org.eclipse.ui.texteditor.SourceViewerDecorationSupport;
 
 import de.uka.ipd.sdq.errorhandling.IIssue;
 import de.uka.ipd.sdq.pcm.dialogs.DialogsImages;
@@ -54,14 +58,24 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
  * @author Snowball
  */
 public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
-	private static final Object UNDERLINE= new Object();
 	private String DIALOG_TITLE = "Edit a stochastic expression";
 
 	public static final String ERROR_TYPE = "ERROR";
+	private static final String ERROR_COLOR_PREF = "errorIndicationColor";
+    private static final String ERROR_HIGHLIGHT_PREF = "errorIndicationHighlighting";
+    private static final String ERROR_TEXT_PREF = "errorIndication";
+    private static final String ERROR_TEXT_STYLE = "errorTextStyle";
+	
 	public static final String WARNING_TYPE = "WARNING";
+	private static final String WARNING_COLOR_PREF = "warningIndicationColor";
+    private static final String WARNING_HIGHLIGHT_PREF = "warningIndicationHighlighting";
+    private static final String WARNING_TEXT_PREF = "warningIndication";
+    private static final String WARNING_TEXT_STYLE = "warningTextStyle";
+	
 
 	// private Text editText;
 	private SourceViewer textViewer;
+	private SourceViewerDecorationSupport fSourceViewerDecorationSupport;
 
 	protected String newText = null;
 
@@ -71,6 +85,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	private String resultText = null;
 	
 	protected Parameter[] context = null;
+	private IAnnotationAccess fAnnotationAccess;
 
 	/**
 	 * Constructor.
@@ -104,6 +119,14 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		this.setHelpAvailable(true);
 	}
 
+	
+	protected SourceViewer createSourceViewer(Composite parent, CompositeRuler ruler, int styles) {
+		
+		SourceViewer sourceViewer= new SourceViewer(parent, ruler, styles);
+		return sourceViewer;
+	}
+
+	
 	protected abstract String getInitialText();
 
 	public void setDisplayTitle(String newTitle) {
@@ -127,7 +150,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		this.setTitle(DIALOG_TITLE);
 		PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "de.uka.ipd.sdq.pcmbench.help.stoexdialog");
 
-		IAnnotationAccess fAnnotationAccess = new AnnotationMarkerAccess();
+		fAnnotationAccess = new AnnotationMarkerAccess();
 
 		final Group editStochasticExpressionGroup = new Group(container, SWT.NONE);
 		editStochasticExpressionGroup.setText("");
@@ -144,8 +167,12 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		// add what types are show on the different rulers
 		annotationRuler.addAnnotationType(ERROR_TYPE);
 		annotationRuler.addAnnotationType(WARNING_TYPE);
-		textViewer = new SourceViewer(editStochasticExpressionGroup,
+		
+		//create SourceViewer
+		textViewer = createSourceViewer(editStochasticExpressionGroup,
 				fCompositeRuler, SWT.V_SCROLL | SWT.MULTI | SWT.H_SCROLL | SWT.RESIZE);
+		
+		
 		final StyledText styledText = textViewer.getTextWidget();
 		styledText.setWordWrap(true);
 		final AbstractGrammarBasedViewerConfiguration config = new AbstractGrammarBasedViewerConfiguration(fAnnotationModel,context,getLexerClass(),getTokenMapper());
@@ -182,40 +209,8 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 			
 		});
 
-		// to paint the annotations
-				AnnotationPainter ap = new AnnotationPainter(textViewer,
-						fAnnotationAccess);
-				ap.addAnnotationType(ERROR_TYPE);
-				ap.setAnnotationTypeColor(ERROR_TYPE, new Color(Display.getDefault(),
-						new RGB(255, 0, 0)));
-				ap.addAnnotationType(WARNING_TYPE);
-				ap.setAnnotationTypeColor(WARNING_TYPE, new Color(Display.getDefault(),
-						new RGB(255, 255, 0)));
-		
-//TODO: Test new code		
-//		// to paint the annotations
-//		AnnotationPainter ap = new AnnotationPainter(textViewer,
-//				fAnnotationAccess);
-//		
-//		ap.addTextStyleStrategy(UNDERLINE, new AnnotationPainter.UnderlineStrategy(SWT.UNDERLINE_SQUIGGLE));
-//		ap.addAnnotationType(ERROR_TYPE, UNDERLINE);
-//		ap.setAnnotationTypeColor(ERROR_TYPE, new Color(Display.getDefault(),
-//				new RGB(255, 0, 0)));
-//		ap.addAnnotationType(WARNING_TYPE, UNDERLINE);
-//		ap.setAnnotationTypeColor(WARNING_TYPE, new Color(Display.getDefault(),
-//				new RGB(255, 255, 0)));
-
-		// this will draw the squigglies under the text
-		textViewer.addPainter(ap);
-
 		textViewer.configure(config);
-		GridData layoutData = new GridData(GridData.FILL_BOTH);//new GridData(GridData.FILL_BOTH
-				//| GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
-		//layoutData.heightHint = 300;
-		//layoutData.widthHint = 450;
-		
-		//textViewer.getControl().setLayoutData(layoutData);
-		// editText.setText(newText);
+
 		textViewer.setDocument(new Document(newText), fAnnotationModel);
 		textViewer.addTextListener(new ITextListener(){
 			
@@ -227,6 +222,41 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 			}
 			
 		});
+		
+		// to paint the annotations use the ViewerDecorationSupport
+		fSourceViewerDecorationSupport = new SourceViewerDecorationSupport(textViewer, null, fAnnotationAccess, EditorsPlugin.getDefault().getSharedTextColors());
+		
+		 AnnotationPreference ap = new AnnotationPreference();
+		 ap.setAnnotationType(ERROR_TYPE);
+		 ap.setColorPreferenceKey(ERROR_COLOR_PREF);
+		 ap.setHighlightPreferenceKey(ERROR_HIGHLIGHT_PREF);
+		 ap.setTextPreferenceKey(ERROR_TEXT_PREF);
+		 ap.setTextStylePreferenceKey(ERROR_TEXT_STYLE);
+		 fSourceViewerDecorationSupport.setAnnotationPreference(ap);
+
+		 ap = new AnnotationPreference();
+		 ap.setAnnotationType(WARNING_TYPE);
+		 ap.setColorPreferenceKey(WARNING_COLOR_PREF);
+		 ap.setHighlightPreferenceKey(WARNING_HIGHLIGHT_PREF);
+		 ap.setTextPreferenceKey(WARNING_TEXT_PREF);
+		 ap.setTextStylePreferenceKey(WARNING_TEXT_STYLE);
+ 		 fSourceViewerDecorationSupport.setAnnotationPreference(ap);
+		 
+		 fSourceViewerDecorationSupport.install(EditorsPlugin.getDefault().getPreferenceStore());
+		 
+		 
+		 
+		 
+		 
+		
+		//GridData layoutData = new GridData(GridData.FILL_BOTH);
+		//new GridData(GridData.FILL_BOTH
+		//| GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
+		//layoutData.heightHint = 300;
+		//layoutData.widthHint = 450;
+		
+		//textViewer.getControl().setLayoutData(layoutData);
+		// editText.setText(newText);
 		return textViewer.getControl();
 	}
 
@@ -409,4 +439,7 @@ class AnnotationMarkerAccess implements IAnnotationAccess,
 	public Object[] getSupertypes(Object annotationType) {
 		return new Object[0];
 	}
+	
+	
+	
 }
