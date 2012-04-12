@@ -250,7 +250,6 @@ litigation.
       <import plugin="de.uka.ipd.sdq.pipesandfilters.framework" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.jscience" version="4.1.3" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.simulation.abstractsimengine" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.fzi.se.accuracy" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.reliability.core" version="3.1.0" match="greaterOrEqual"/>
@@ -300,6 +299,7 @@ litigation.
       <import plugin="org.apache.log4j" version="1.2.13" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.simucomstatus" version="1.0.0" match="greaterOrEqual"/>
+      <import feature="de.uka.ipd.sdq.simulation.abstractsimengine.feature" version="3.3.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
