@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -41,7 +42,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
  *
  * @generated
  */
-public class ProcessingResourceSpecificationImpl extends EObjectImpl implements ProcessingResourceSpecification {
+public class ProcessingResourceSpecificationImpl extends IdentifierImpl implements ProcessingResourceSpecification {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

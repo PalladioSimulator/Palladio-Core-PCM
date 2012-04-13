@@ -156,7 +156,6 @@ public class ResourcetypeSwitch<T> {
 			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: {
 				CommunicationLinkResourceType communicationLinkResourceType = (CommunicationLinkResourceType)theEObject;
 				T result = caseCommunicationLinkResourceType(communicationLinkResourceType);
-				if (result == null) result = caseProcessingResourceType(communicationLinkResourceType);
 				if (result == null) result = caseResourceType(communicationLinkResourceType);
 				if (result == null) result = caseUnitCarryingElement(communicationLinkResourceType);
 				if (result == null) result = caseResourceInterfaceProvidingEntity(communicationLinkResourceType);

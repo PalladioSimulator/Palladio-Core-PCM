@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
+import de.uka.ipd.sdq.identifier.Identifier;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
@@ -38,7 +39,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
  * @model
  * @generated
  */
-public interface ProcessingResourceSpecification extends EObject {
+public interface ProcessingResourceSpecification extends Identifier {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -398,7 +398,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__ID = PROCESSING_RESOURCE_TYPE__ID;
+	int COMMUNICATION_LINK_RESOURCE_TYPE__ID = RESOURCE_TYPE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -407,7 +407,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__ENTITY_NAME = PROCESSING_RESOURCE_TYPE__ENTITY_NAME;
+	int COMMUNICATION_LINK_RESOURCE_TYPE__ENTITY_NAME = RESOURCE_TYPE__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Unit</b></em>' reference.
@@ -416,7 +416,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT = PROCESSING_RESOURCE_TYPE__UNIT;
+	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT = RESOURCE_TYPE__UNIT;
 
 	/**
 	 * The feature id for the '<em><b>Unit Specification</b></em>' attribute.
@@ -425,7 +425,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT_SPECIFICATION = PROCESSING_RESOURCE_TYPE__UNIT_SPECIFICATION;
+	int COMMUNICATION_LINK_RESOURCE_TYPE__UNIT_SPECIFICATION = RESOURCE_TYPE__UNIT_SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment reference list.
@@ -434,7 +434,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
+	int COMMUNICATION_LINK_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
 
 	/**
 	 * The feature id for the '<em><b>Resource Repository Resource Type</b></em>' container reference.
@@ -443,16 +443,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE = PROCESSING_RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Hardware Induced Failure Type Processing Resource Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE = PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE;
+	int COMMUNICATION_LINK_RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE = RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Network Induced Failure Type Communication Link Resource Type</b></em>' reference.
@@ -461,7 +452,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE = PROCESSING_RESOURCE_TYPE_FEATURE_COUNT + 0;
+	int COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE = RESOURCE_TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Communication Link Resource Type</em>' class.
@@ -470,7 +461,7 @@ public interface ResourcetypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_TYPE_FEATURE_COUNT = PROCESSING_RESOURCE_TYPE_FEATURE_COUNT + 1;
+	int COMMUNICATION_LINK_RESOURCE_TYPE_FEATURE_COUNT = RESOURCE_TYPE_FEATURE_COUNT + 1;
 
 
 	/**

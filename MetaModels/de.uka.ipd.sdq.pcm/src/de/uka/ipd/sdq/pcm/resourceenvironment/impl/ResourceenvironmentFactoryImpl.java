@@ -88,36 +88,6 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case ResourceenvironmentPackage.CONTAINER_OPERATING_SYSTEM:
-				return createContainerOperatingSystemFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case ResourceenvironmentPackage.CONTAINER_OPERATING_SYSTEM:
-				return convertContainerOperatingSystemToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ResourceEnvironment createResourceEnvironment() {
 		ResourceEnvironmentImpl resourceEnvironment = new ResourceEnvironmentImpl();
 		return resourceEnvironment;
@@ -161,26 +131,6 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	public CommunicationLinkResourceSpecification createCommunicationLinkResourceSpecification() {
 		CommunicationLinkResourceSpecificationImpl communicationLinkResourceSpecification = new CommunicationLinkResourceSpecificationImpl();
 		return communicationLinkResourceSpecification;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ContainerOperatingSystem createContainerOperatingSystemFromString(EDataType eDataType, String initialValue) {
-		ContainerOperatingSystem result = ContainerOperatingSystem.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertContainerOperatingSystemToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

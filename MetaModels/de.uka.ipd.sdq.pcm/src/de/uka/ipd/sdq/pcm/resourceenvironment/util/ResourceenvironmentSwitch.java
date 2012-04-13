@@ -130,6 +130,7 @@ public class ResourceenvironmentSwitch<T> {
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: {
 				ProcessingResourceSpecification processingResourceSpecification = (ProcessingResourceSpecification)theEObject;
 				T result = caseProcessingResourceSpecification(processingResourceSpecification);
+				if (result == null) result = caseIdentifier(processingResourceSpecification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

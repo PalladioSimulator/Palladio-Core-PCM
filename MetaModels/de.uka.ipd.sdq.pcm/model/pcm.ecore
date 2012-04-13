@@ -1752,7 +1752,7 @@
           ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRepository"
           eOpposite="#//resourcetype/ResourceRepository/schedulingPolicies__ResourceRepository"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType">
+    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ResourceType">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="ResourceType representing communication links like, LAN, WAN, WiFi etc."/>
       </eAnnotations>
@@ -3015,9 +3015,6 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="UML-like&amp;nbsp;container&amp;nbsp;of&amp;nbsp;a&amp;nbsp;number&amp;nbsp;of&amp;nbsp;processing&amp;nbsp;resources (e.g. hardware server)"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operatingSystem_ResourceContainer"
-          ordered="false" lowerBound="1" eType="#//resourceenvironment/ContainerOperatingSystem"
-          defaultValueLiteral="ABSTRACT"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceSpecifications_ResourceContainer"
           ordered="false" upperBound="-1" eType="#//resourceenvironment/ProcessingResourceSpecification"
           containment="true" eOpposite="#//resourceenvironment/ProcessingResourceSpecification/resourceContainer_ProcessingResourceSpecification"/>
@@ -3029,16 +3026,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentResourceContainer__ResourceContainer"
           ordered="false" eType="#//resourceenvironment/ResourceContainer" eOpposite="#//resourceenvironment/ResourceContainer/nestedResourceContainers__ResourceContainer"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="ContainerOperatingSystem">
-      <eLiterals name="WINDOWS_VISTA"/>
-      <eLiterals name="LINUX26_CFS" value="1"/>
-      <eLiterals name="LINUX26_O1" value="2"/>
-      <eLiterals name="WINDOWS_XP" value="3"/>
-      <eLiterals name="WINDOWS_7" value="4"/>
-      <eLiterals name="WINDOWS_2003" value="5"/>
-      <eLiterals name="ABSTRACT" value="6"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification">
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Performance specification of processing resources (e.g. processing rate, scheduling policy)"/>
       </eAnnotations>

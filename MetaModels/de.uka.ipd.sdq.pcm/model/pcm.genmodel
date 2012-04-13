@@ -1184,15 +1184,6 @@
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Resourceenvironment"
         basePackage="de.uka.ipd.sdq.pcm" resource="XMI" disposableProviderFactory="true"
         ecorePackage="pcm.ecore#//resourceenvironment">
-      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="pcm.ecore#//resourceenvironment/ContainerOperatingSystem">
-        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="pcm.ecore#//resourceenvironment/ContainerOperatingSystem/WINDOWS_VISTA"/>
-        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="pcm.ecore#//resourceenvironment/ContainerOperatingSystem/LINUX26_CFS"/>
-        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="pcm.ecore#//resourceenvironment/ContainerOperatingSystem/LINUX26_O1"/>
-        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="pcm.ecore#//resourceenvironment/ContainerOperatingSystem/WINDOWS_XP"/>
-        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="pcm.ecore#//resourceenvironment/ContainerOperatingSystem/WINDOWS_7"/>
-        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="pcm.ecore#//resourceenvironment/ContainerOperatingSystem/WINDOWS_2003"/>
-        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="pcm.ecore#//resourceenvironment/ContainerOperatingSystem/ABSTRACT"/>
-      </genEnums>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//resourceenvironment/ResourceEnvironment">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceEnvironment/linkingResources__ResourceEnvironment"/>
@@ -1208,7 +1199,6 @@
             createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/LinkingResource/resourceEnvironment_LinkingResource"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//resourceenvironment/ResourceContainer">
-        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/ResourceContainer/operatingSystem_ResourceContainer"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceContainer/activeResourceSpecifications_ResourceContainer"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"

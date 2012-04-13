@@ -9,4 +9,9 @@
         ordered="false" upperBound="-1" eType="#//Completion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DelegatingExternalCallAction" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ExternalCallAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkDemandParametricResourceDemand"
+      eSuperTypes="platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/seff_performance/ParametricResourceDemand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCommunicationLinkResource_ParametricResourceDemand"
+        ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourcetype/CommunicationLinkResourceType"/>
+  </eClassifiers>
 </ecore:EPackage>

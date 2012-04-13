@@ -71,31 +71,8 @@ public class ResourceContainerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOperatingSystem_ResourceContainerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Operating System Resource Container feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOperatingSystem_ResourceContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ResourceContainer_operatingSystem_ResourceContainer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceContainer_operatingSystem_ResourceContainer_feature", "_UI_ResourceContainer_type"),
-				 ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__OPERATING_SYSTEM_RESOURCE_CONTAINER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -169,9 +146,6 @@ public class ResourceContainerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ResourceContainer.class)) {
-			case ResourceenvironmentPackage.RESOURCE_CONTAINER__OPERATING_SYSTEM_RESOURCE_CONTAINER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

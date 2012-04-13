@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
  *
  * @generated
  */
-public class CommunicationLinkResourceTypeImpl extends ProcessingResourceTypeImpl implements CommunicationLinkResourceType {
+public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implements CommunicationLinkResourceType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

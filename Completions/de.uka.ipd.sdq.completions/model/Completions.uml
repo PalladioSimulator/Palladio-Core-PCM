@@ -26,6 +26,22 @@
         <general xmi:type="uml:Class" href="pcm.uml#_vEMNwODjEdq8ysXH3gTiEg"/>
       </generalization>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_p9gskISDEeGQjuTqPWWIlQ" name="NetworkDemandParametricResourceDemand">
+      <generalization xmi:id="_XFC8UISEEeGQjuTqPWWIlQ">
+        <general xmi:type="uml:Class" href="pcm.uml#_Y8AekOD3Edq8ysXH3gTiEg"/>
+      </generalization>
+      <ownedAttribute xmi:id="_f834oISEEeGQjuTqPWWIlQ" name="requiredCommunicationLinkResource_ParametricResourceDemand" visibility="public" association="_f8W7QISEEeGQjuTqPWWIlQ">
+        <type xmi:type="uml:Class" href="pcm.uml#__zoEgOMdEdqaQsPH3rPnBQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f9BpoISEEeGQjuTqPWWIlQ" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f9BCkISEEeGQjuTqPWWIlQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_f8W7QISEEeGQjuTqPWWIlQ" memberEnd="_f834oISEEeGQjuTqPWWIlQ _f9F7EISEEeGQjuTqPWWIlQ">
+      <ownedEnd xmi:id="_f9F7EISEEeGQjuTqPWWIlQ" name="" visibility="private" type="_p9gskISDEeGQjuTqPWWIlQ" association="_f8W7QISEEeGQjuTqPWWIlQ">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f9HJMYSEEeGQjuTqPWWIlQ" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f9HJMISEEeGQjuTqPWWIlQ"/>
+      </ownedEnd>
+    </packagedElement>
     <profileApplication xmi:id="_7IzgFgrGEdyeH8AJhDVfEA">
       <eAnnotations xmi:id="_7IzgFwrGEdyeH8AJhDVfEA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>

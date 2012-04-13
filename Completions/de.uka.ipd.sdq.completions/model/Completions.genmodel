@@ -32,5 +32,9 @@
           createChild="true" ecoreFeature="ecore:EReference completions.ecore#//CompletionRepository/completions_CompletionRepository"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="completions.ecore#//DelegatingExternalCallAction"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="completions.ecore#//NetworkDemandParametricResourceDemand">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference completions.ecore#//NetworkDemandParametricResourceDemand/requiredCommunicationLinkResource_ParametricResourceDemand"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

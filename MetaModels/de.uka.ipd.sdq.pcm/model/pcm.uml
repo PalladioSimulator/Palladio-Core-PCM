@@ -1776,9 +1776,6 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <body>UML-like&amp;nbsp;container&amp;nbsp;of&amp;nbsp;a&amp;nbsp;number&amp;nbsp;of&amp;nbsp;processing&amp;nbsp;resources (e.g. hardware server)</body>
         </ownedComment>
         <generalization xmi:id="_aCNMEOMwEdqaQsPH3rPnBQ" general="_au_WlWA_EdqdHZdhXRxKVg"/>
-        <ownedAttribute xmi:id="_L199gDN9Ed-oDbJSXOQA-w" name="operatingSystem_ResourceContainer" visibility="public" type="_vLVlEDN8Ed-oDbJSXOQA-w">
-          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_sYOf4DXPEd-zYP5X4Q3jLQ" name="ABSTRACT" type="_vLVlEDN8Ed-oDbJSXOQA-w" instance="_x1p2QDN8Ed-oDbJSXOQA-w"/>
-        </ownedAttribute>
         <ownedAttribute xmi:id="_-zhHMeEAEdq8ysXH3gTiEg" name="activeResourceSpecifications_ResourceContainer" type="_wru2gODnEdq8ysXH3gTiEg" aggregation="composite" association="_-zhHMOEAEdq8ysXH3gTiEg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_hTweEBEdq8ysXH3gTiEg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_hTwOEBEdq8ysXH3gTiEg"/>
@@ -1800,6 +1797,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
         <ownedComment xmi:id="_M3vwcPxPEd68D51GrGx7ow" annotatedElement="_wru2gODnEdq8ysXH3gTiEg">
           <body>Performance specification of processing resources (e.g. processing rate, scheduling policy)</body>
         </ownedComment>
+        <generalization xmi:id="_uQcX0IR3EeGQjuTqPWWIlQ">
+          <general xmi:type="uml:Class" href="identifier.uml#_UMp04JMWEdqSSImFLKDkSg"/>
+        </generalization>
         <ownedAttribute xmi:id="_1lj7QEIxEd6xDqQsjkcxUg" name="MTTR" visibility="public">
           <ownedComment xmi:id="_ON0DYEIyEd6xDqQsjkcxUg" annotatedElement="_1lj7QEIxEd6xDqQsjkcxUg">
             <body>The Mean Time To Repair (MTTR) of a physical resource is the expected timespan from breakdown of this physical resource to its repair or replacement.</body>
@@ -1938,15 +1938,6 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
       <packagedElement xmi:type="uml:Association" xmi:id="_Oy4cMBmoEdyaJvvdhGgDYg" memberEnd="_Oy4cMRmoEdyaJvvdhGgDYg _Oy4cMhmoEdyaJvvdhGgDYg"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_ElM9kDhwEdy4wo8LP9zxLA" memberEnd="_ElM9kThwEdy4wo8LP9zxLA _ElM9kjhwEdy4wo8LP9zxLA"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_HTP4MDhwEdy4wo8LP9zxLA" memberEnd="_HTP4MThwEdy4wo8LP9zxLA _HTP4MjhwEdy4wo8LP9zxLA"/>
-      <packagedElement xmi:type="uml:Enumeration" xmi:id="_vLVlEDN8Ed-oDbJSXOQA-w" name="ContainerOperatingSystem">
-        <ownedLiteral xmi:id="_AERREDN9Ed-oDbJSXOQA-w" name="WINDOWS_VISTA" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_8WmFcDN8Ed-oDbJSXOQA-w" name="LINUX26_CFS" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_5joOkDN8Ed-oDbJSXOQA-w" name="LINUX26_O1" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_3XHTsDN8Ed-oDbJSXOQA-w" name="WINDOWS_XP" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_DZgHgDN9Ed-oDbJSXOQA-w" name="WINDOWS_7" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_zhP1YDN8Ed-oDbJSXOQA-w" name="WINDOWS_2003" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_x1p2QDN8Ed-oDbJSXOQA-w" name="ABSTRACT" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-      </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_lHM0QOK5EeCAjtHM2JahWQ" memberEnd="_lHTh8OK5EeCAjtHM2JahWQ _lHa2sOK5EeCAjtHM2JahWQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_V8vSACh9Edue7oeC4NTCGg" name="usagemodel">
@@ -3408,7 +3399,7 @@ arbitrary resources in the future</body>
         <ownedComment xmi:id="_3W5osPxPEd68D51GrGx7ow" annotatedElement="__zoEgOMdEdqaQsPH3rPnBQ">
           <body>ResourceType representing communication links like, LAN, WAN, WiFi etc.</body>
         </ownedComment>
-        <generalization xmi:id="_DjY60OMeEdqaQsPH3rPnBQ" general="_n2nAMOD4Edq8ysXH3gTiEg"/>
+        <generalization xmi:id="_DjY60OMeEdqaQsPH3rPnBQ" general="_F3SCEJMnEdqSSImFLKDkSg"/>
         <ownedAttribute xmi:id="_UToQMCZKEeCvwZ8FxCt6_A" name="networkInducedFailureType__CommunicationLinkResourceType" visibility="public" type="_WrmpoCZJEeCvwZ8FxCt6_A" association="_US8TsCZKEeCvwZ8FxCt6_A">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UTqscCZKEeCvwZ8FxCt6_A" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UTqFYCZKEeCvwZ8FxCt6_A"/>

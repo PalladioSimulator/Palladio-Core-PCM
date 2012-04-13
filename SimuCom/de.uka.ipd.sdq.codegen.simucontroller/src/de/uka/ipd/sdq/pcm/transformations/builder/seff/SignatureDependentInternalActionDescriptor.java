@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.seff;
 
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 
 public abstract class SignatureDependentInternalActionDescriptor extends
 		AbstractInternalActionDescriptor implements ISignatureDependentAction {
@@ -9,7 +9,7 @@ public abstract class SignatureDependentInternalActionDescriptor extends
 	protected Signature currentSignature;
 
 	public SignatureDependentInternalActionDescriptor(
-			ProcessingResourceType resourceType) {
+			ResourceType resourceType) {
 		super(resourceType);
 	}
 

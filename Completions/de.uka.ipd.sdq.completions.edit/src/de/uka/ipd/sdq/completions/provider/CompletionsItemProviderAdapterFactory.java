@@ -144,6 +144,29 @@ public class CompletionsItemProviderAdapterFactory extends CompletionsAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NetworkDemandParametricResourceDemandItemProvider networkDemandParametricResourceDemandItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNetworkDemandParametricResourceDemandAdapter() {
+		if (networkDemandParametricResourceDemandItemProvider == null) {
+			networkDemandParametricResourceDemandItemProvider = new NetworkDemandParametricResourceDemandItemProvider(this);
+		}
+
+		return networkDemandParametricResourceDemandItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -245,6 +268,7 @@ public class CompletionsItemProviderAdapterFactory extends CompletionsAdapterFac
 		if (completionItemProvider != null) completionItemProvider.dispose();
 		if (completionRepositoryItemProvider != null) completionRepositoryItemProvider.dispose();
 		if (delegatingExternalCallActionItemProvider != null) delegatingExternalCallActionItemProvider.dispose();
+		if (networkDemandParametricResourceDemandItemProvider != null) networkDemandParametricResourceDemandItemProvider.dispose();
 	}
 
 }

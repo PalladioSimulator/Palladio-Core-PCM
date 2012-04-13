@@ -15,10 +15,13 @@ import de.uka.ipd.sdq.completions.CompletionRepository;
 import de.uka.ipd.sdq.completions.CompletionsFactory;
 import de.uka.ipd.sdq.completions.CompletionsPackage;
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
+import de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.PcmPackage;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +50,13 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 	 * @generated
 	 */
 	private EClass delegatingExternalCallActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass networkDemandParametricResourceDemandEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -153,6 +163,24 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNetworkDemandParametricResourceDemand() {
+		return networkDemandParametricResourceDemandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNetworkDemandParametricResourceDemand_RequiredCommunicationLinkResource_ParametricResourceDemand() {
+		return (EReference)networkDemandParametricResourceDemandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CompletionsFactory getCompletionsFactory() {
 		return (CompletionsFactory)getEFactoryInstance();
 	}
@@ -182,6 +210,9 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 		createEReference(completionRepositoryEClass, COMPLETION_REPOSITORY__COMPLETIONS_COMPLETION_REPOSITORY);
 
 		delegatingExternalCallActionEClass = createEClass(DELEGATING_EXTERNAL_CALL_ACTION);
+
+		networkDemandParametricResourceDemandEClass = createEClass(NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND);
+		createEReference(networkDemandParametricResourceDemandEClass, NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND);
 	}
 
 	/**
@@ -211,6 +242,8 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
+		SeffPerformancePackage theSeffPerformancePackage = (SeffPerformancePackage)EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI);
+		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -220,6 +253,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 		completionEClass.getESuperTypes().add(theEntityPackage.getComposedProvidingRequiringEntity());
 		completionEClass.getESuperTypes().add(theRepositoryPackage.getImplementationComponentType());
 		delegatingExternalCallActionEClass.getESuperTypes().add(theSeffPackage.getExternalCallAction());
+		networkDemandParametricResourceDemandEClass.getESuperTypes().add(theSeffPerformancePackage.getParametricResourceDemand());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(completionEClass, Completion.class, "Completion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -228,6 +262,9 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 		initEReference(getCompletionRepository_Completions_CompletionRepository(), this.getCompletion(), null, "completions_CompletionRepository", null, 0, -1, CompletionRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(delegatingExternalCallActionEClass, DelegatingExternalCallAction.class, "DelegatingExternalCallAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(networkDemandParametricResourceDemandEClass, NetworkDemandParametricResourceDemand.class, "NetworkDemandParametricResourceDemand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNetworkDemandParametricResourceDemand_RequiredCommunicationLinkResource_ParametricResourceDemand(), theResourcetypePackage.getCommunicationLinkResourceType(), null, "requiredCommunicationLinkResource_ParametricResourceDemand", null, 1, 1, NetworkDemandParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

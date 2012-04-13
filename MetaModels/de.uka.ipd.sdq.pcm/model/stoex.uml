@@ -68,11 +68,11 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_TjLPIFOqEduyKfhIjBdbtA" name="TermExpression">
       <generalization xmi:id="_ZAKcQFOqEduyKfhIjBdbtA" general="_dNNvkDpQEduKtOWw2f6nDA"/>
-      <ownedAttribute xmi:id="_VZpBgVOqEduyKfhIjBdbtA" name="left" visibility="private" type="_dNNvkDpQEduKtOWw2f6nDA" aggregation="composite" association="_VZpBgFOqEduyKfhIjBdbtA">
+      <ownedAttribute xmi:id="_VZpBgVOqEduyKfhIjBdbtA" name="left" visibility="private" type="_jsECUDpQEduKtOWw2f6nDA" aggregation="composite" association="_VZpBgFOqEduyKfhIjBdbtA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VZpBhFOqEduyKfhIjBdbtA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VZpBg1OqEduyKfhIjBdbtA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_W_j2cVOqEduyKfhIjBdbtA" name="right" visibility="private" type="_jsECUDpQEduKtOWw2f6nDA" aggregation="composite" association="_W_j2cFOqEduyKfhIjBdbtA">
+      <ownedAttribute xmi:id="_W_j2cVOqEduyKfhIjBdbtA" name="right" visibility="private" type="_dNNvkDpQEduKtOWw2f6nDA" aggregation="composite" association="_W_j2cFOqEduyKfhIjBdbtA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W_j2dFOqEduyKfhIjBdbtA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W_j2c1OqEduyKfhIjBdbtA" value="1"/>
       </ownedAttribute>
@@ -83,11 +83,11 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_uSRvAFOqEduyKfhIjBdbtA" name="ProductExpression">
       <generalization xmi:id="_7r1xIFOqEduyKfhIjBdbtA" general="_jsECUDpQEduKtOWw2f6nDA"/>
-      <ownedAttribute xmi:id="_v9kMIVOqEduyKfhIjBdbtA" name="left" visibility="private" type="_jsECUDpQEduKtOWw2f6nDA" aggregation="composite" association="_v9kMIFOqEduyKfhIjBdbtA">
+      <ownedAttribute xmi:id="_v9kMIVOqEduyKfhIjBdbtA" name="left" visibility="private" type="_CSYEUDpREduKtOWw2f6nDA" aggregation="composite" association="_v9kMIFOqEduyKfhIjBdbtA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_v9tWElOqEduyKfhIjBdbtA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v9tWEVOqEduyKfhIjBdbtA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_xOUpYVOqEduyKfhIjBdbtA" name="right" visibility="private" type="_CSYEUDpREduKtOWw2f6nDA" aggregation="composite" association="_xOUpYFOqEduyKfhIjBdbtA">
+      <ownedAttribute xmi:id="_xOUpYVOqEduyKfhIjBdbtA" name="right" visibility="private" type="_jsECUDpQEduKtOWw2f6nDA" aggregation="composite" association="_xOUpYFOqEduyKfhIjBdbtA">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xOUpZFOqEduyKfhIjBdbtA" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xOUpY1OqEduyKfhIjBdbtA" value="1"/>
       </ownedAttribute>

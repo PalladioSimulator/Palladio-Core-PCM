@@ -30,6 +30,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.CallAction;
 import de.uka.ipd.sdq.pcm.seff.CallReturnAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
 
 /**
@@ -101,6 +102,10 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 				return createDelegatingExternalCallActionAdapter();
 			}
 			@Override
+			public Adapter caseNetworkDemandParametricResourceDemand(NetworkDemandParametricResourceDemand object) {
+				return createNetworkDemandParametricResourceDemandAdapter();
+			}
+			@Override
 			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
@@ -165,6 +170,10 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 				return createExternalCallActionAdapter();
 			}
 			@Override
+			public Adapter caseParametricResourceDemand(ParametricResourceDemand object) {
+				return createParametricResourceDemandAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -223,6 +232,20 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDelegatingExternalCallActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand <em>Network Demand Parametric Resource Demand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand
+	 * @generated
+	 */
+	public Adapter createNetworkDemandParametricResourceDemandAdapter() {
 		return null;
 	}
 
@@ -447,6 +470,20 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExternalCallActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand <em>Parametric Resource Demand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
+	 * @generated
+	 */
+	public Adapter createParametricResourceDemandAdapter() {
 		return null;
 	}
 

@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
 
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -36,7 +37,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * @generated
  */
 public class ProcessingResourceSpecificationItemProvider
-	extends ItemProviderAdapter
+	extends IdentifierItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -262,8 +263,10 @@ public class ProcessingResourceSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ProcessingResourceSpecification processingResourceSpecification = (ProcessingResourceSpecification)object;
-		return getString("_UI_ProcessingResourceSpecification_type") + " " + processingResourceSpecification.getMTTR();
+		String label = ((ProcessingResourceSpecification)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ProcessingResourceSpecification_type") :
+			getString("_UI_ProcessingResourceSpecification_type") + " " + label;
 	}
 
 	/**

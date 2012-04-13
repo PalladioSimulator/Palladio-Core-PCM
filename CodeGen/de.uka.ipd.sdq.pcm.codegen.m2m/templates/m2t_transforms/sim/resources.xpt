@@ -3,6 +3,7 @@
 «IMPORT repository»
 «IMPORT seff::seff_performance»
 «IMPORT resourcetype»
+«IMPORT completions»
 «IMPORT resourceenvironment»
 
 // ----------------------------
@@ -11,10 +12,17 @@
 
 // Old: Load the resource demand on a simulated resource
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
-   {
+    {
       double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
       ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.entityName»",demand);
-   }
+    }
+«ENDDEFINE»
+
+«DEFINE ResourceDemand FOR NetworkDemandParametricResourceDemand»
+    {
+      double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
+      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredCommunicationLinkResource_ParametricResourceDemand.entityName»",demand);
+    }
 «ENDDEFINE»
 
 // New: Load resource demand using ResourceInterfaces

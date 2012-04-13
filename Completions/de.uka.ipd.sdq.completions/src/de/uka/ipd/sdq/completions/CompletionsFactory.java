@@ -52,6 +52,15 @@ public interface CompletionsFactory extends EFactory {
 	DelegatingExternalCallAction createDelegatingExternalCallAction();
 
 	/**
+	 * Returns a new object of class '<em>Network Demand Parametric Resource Demand</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Network Demand Parametric Resource Demand</em>'.
+	 * @generated
+	 */
+	NetworkDemandParametricResourceDemand createNetworkDemandParametricResourceDemand();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

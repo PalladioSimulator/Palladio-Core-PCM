@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -98,33 +99,6 @@ public interface CompletionsPackage extends EPackage {
 	int COMPLETION__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE;
 
 	/**
-	 * The feature id for the '<em><b>Assembly Connectors Composed Structure</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETION__ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
-
-	/**
-	 * The feature id for the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETION__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
-
-	/**
-	 * The feature id for the '<em><b>Required Delegation Connectors Composed Structure</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETION__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
-
-	/**
 	 * The feature id for the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,67 +108,22 @@ public interface CompletionsPackage extends EPackage {
 	int COMPLETION__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 
 	/**
-	 * The feature id for the '<em><b>Assembly Event Connectors Composed Structure</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Event Channel Composed Structure</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETION__ASSEMBLY_EVENT_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
+	int COMPLETION__EVENT_CHANNEL_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__EVENT_CHANNEL_COMPOSED_STRUCTURE;
 
 	/**
-	 * The feature id for the '<em><b>Source Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Connectors Composed Structure</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETION__SOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
-
-	/**
-	 * The feature id for the '<em><b>Sink Delegation Connectors Composed Structure</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETION__SINK_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
-
-	/**
-	 * The feature id for the '<em><b>Assembly Infrastructure Connectors Composed Structure</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETION__ASSEMBLY_INFRASTRUCTURE_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
-
-	/**
-	 * The feature id for the '<em><b>Required Infrastructure Delegation Connectors Composed Structure</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETION__REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
-
-	/**
-	 * The feature id for the '<em><b>Provided Infrastructure Delegation Connectors Composed Structure</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETION__PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
-
-	/**
-	 * The feature id for the '<em><b>Required Resource Delegation Connectors Composed Structure</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETION__REQUIRED_RESOURCE_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
+	int COMPLETION__CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
 
 	/**
 	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
@@ -416,6 +345,62 @@ public interface CompletionsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.completions.impl.NetworkDemandParametricResourceDemandImpl <em>Network Demand Parametric Resource Demand</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.completions.impl.NetworkDemandParametricResourceDemandImpl
+	 * @see de.uka.ipd.sdq.completions.impl.CompletionsPackageImpl#getNetworkDemandParametricResourceDemand()
+	 * @generated
+	 */
+	int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND = 3;
+
+	/**
+	 * The feature id for the '<em><b>Specification Parameteric Resource Demand</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND = SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND;
+
+	/**
+	 * The feature id for the '<em><b>Required Resource Parametric Resource Demand</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND;
+
+	/**
+	 * The feature id for the '<em><b>Action Parametric Resource Demand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND;
+
+	/**
+	 * The feature id for the '<em><b>Required Communication Link Resource Parametric Resource Demand</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Network Demand Parametric Resource Demand</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT + 1;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.completions.Completion <em>Completion</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -455,6 +440,27 @@ public interface CompletionsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDelegatingExternalCallAction();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand <em>Network Demand Parametric Resource Demand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Network Demand Parametric Resource Demand</em>'.
+	 * @see de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand
+	 * @generated
+	 */
+	EClass getNetworkDemandParametricResourceDemand();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand#getRequiredCommunicationLinkResource_ParametricResourceDemand <em>Required Communication Link Resource Parametric Resource Demand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Required Communication Link Resource Parametric Resource Demand</em>'.
+	 * @see de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand#getRequiredCommunicationLinkResource_ParametricResourceDemand()
+	 * @see #getNetworkDemandParametricResourceDemand()
+	 * @generated
+	 */
+	EReference getNetworkDemandParametricResourceDemand_RequiredCommunicationLinkResource_ParametricResourceDemand();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -515,6 +521,24 @@ public interface CompletionsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DELEGATING_EXTERNAL_CALL_ACTION = eINSTANCE.getDelegatingExternalCallAction();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.completions.impl.NetworkDemandParametricResourceDemandImpl <em>Network Demand Parametric Resource Demand</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.completions.impl.NetworkDemandParametricResourceDemandImpl
+		 * @see de.uka.ipd.sdq.completions.impl.CompletionsPackageImpl#getNetworkDemandParametricResourceDemand()
+		 * @generated
+		 */
+		EClass NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND = eINSTANCE.getNetworkDemandParametricResourceDemand();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Communication Link Resource Parametric Resource Demand</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = eINSTANCE.getNetworkDemandParametricResourceDemand_RequiredCommunicationLinkResource_ParametricResourceDemand();
 
 	}
 

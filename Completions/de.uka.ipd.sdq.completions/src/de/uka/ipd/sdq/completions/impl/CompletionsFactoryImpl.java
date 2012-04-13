@@ -65,6 +65,7 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 			case CompletionsPackage.COMPLETION: return createCompletion();
 			case CompletionsPackage.COMPLETION_REPOSITORY: return createCompletionRepository();
 			case CompletionsPackage.DELEGATING_EXTERNAL_CALL_ACTION: return createDelegatingExternalCallAction();
+			case CompletionsPackage.NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND: return createNetworkDemandParametricResourceDemand();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -98,6 +99,16 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 	public DelegatingExternalCallAction createDelegatingExternalCallAction() {
 		DelegatingExternalCallActionImpl delegatingExternalCallAction = new DelegatingExternalCallActionImpl();
 		return delegatingExternalCallAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NetworkDemandParametricResourceDemand createNetworkDemandParametricResourceDemand() {
+		NetworkDemandParametricResourceDemandImpl networkDemandParametricResourceDemand = new NetworkDemandParametricResourceDemandImpl();
+		return networkDemandParametricResourceDemand;
 	}
 
 	/**
