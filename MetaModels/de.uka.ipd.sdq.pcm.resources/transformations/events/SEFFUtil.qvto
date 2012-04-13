@@ -273,14 +273,19 @@ helper OperationSignature::SEFFUtil_createSEFFWithBranchAction(	component : Basi
 																requiredRole : OperationRequiredRole,
 																filterCondition : PCMRandomVariable) : ResourceDemandingSEFF {
 
-	// Set negotiation for the else-GuardedTransition
-	var notFilterCondition := object PCMRandomVariable {specification := 'NOT (' + filterCondition.specification + ')'};
-	var clonedFilterCondition := object PCMRandomVariable {specification := 'filterCondition.specification };	
+	// Setup filterCondition. If null assumed true.
+	var positiveFilterCondition := filterCondition;
+	if(filterCondition != null)
+			then {positiveFilterCondition := object PCMRandomVariable{specification := filterCondition.specification }}
+			else {positiveFilterCondition := object PCMRandomVariable{specification := 'true'}}
+	endif;	
+	var negativeFilterCondition := object PCMRandomVariable {specification := 'NOT (' + filterCondition.specification + ')'};
+	//var clonedFilterCondition := object PCMRandomVariable {specification := 'filterCondition.specification };	
 	// create the actions
 	var startAction := SEFFUtil_createStartAction();
 	var branchAction := SEFFUtil_createEmptyBranchAction(startAction);
-	branchAction.branches_Branch += SEFFUtil_createGuardedBranchTransitionWithExternalCall(requiredRole,self,clonedFilterCondition);
-	branchAction.branches_Branch += SEFFUtil_createGuardedBranchTransitionWithOnlyStartToStop(notFilterCondition);
+	branchAction.branches_Branch += SEFFUtil_createGuardedBranchTransitionWithExternalCall(requiredRole,self,positiveFilterCondition);
+	branchAction.branches_Branch += SEFFUtil_createGuardedBranchTransitionWithOnlyStartToStop(negativeFilterCondition);
 	var stopAction := SEFFUtil_createStopAction(branchAction);
 
 	var seff := object ResourceDemandingSEFF {

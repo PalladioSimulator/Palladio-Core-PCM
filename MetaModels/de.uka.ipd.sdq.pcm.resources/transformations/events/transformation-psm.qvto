@@ -529,11 +529,7 @@ helper 	processSourceRoleChannelConnection(sourceRole : SourceRole,
 			var sinkAssemblyContext 	:= connector.assemblyContext__EventChannelSinkConnector;
 			var resourceContainerSink	 := Finder_findResourceContainer(sinkAssemblyContext,pcmAllocation);
 			
-			// Setup filterCondition. If null assumed true.
-			var filterCondition := object PCMRandomVariable{specification := 'true'};			
-			if(connector.filterCondition__EventChannelSinkConnector != null)
-			then {filterCondition := connector.filterCondition__EventChannelSinkConnector}
-			endif;	
+			var filterCondition := connector.filterCondition__EventChannelSinkConnector;
 			
 			//-------------------------------------		
 			// Add Connection to Event Distribution
