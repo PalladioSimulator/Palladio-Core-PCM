@@ -190,7 +190,7 @@ public abstract class LQNResult extends AbstractPerformanceAnalysisResult implem
 		List<LinkingResource> links = pcm.getResourceEnvironment().getLinkingResources__ResourceEnvironment();
 		
 		for (LinkingResource linkingResource : links) {
-			String processorID = Pcm2LqnHelper.getIdForProcResource(linkingResource, linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource().getCommunicationLinkResourceType_CommunicationLinkResourceSpecification())+"_Processor";
+			String processorID = Pcm2LqnHelper.getIdForCommResource(linkingResource, linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource().getCommunicationLinkResourceType_CommunicationLinkResourceSpecification())+"_Processor";
 			
 			LinkingResourceResults result = ResourceenvironmentdecoratorFactory.eINSTANCE.createLinkingResourceResults();
 			
