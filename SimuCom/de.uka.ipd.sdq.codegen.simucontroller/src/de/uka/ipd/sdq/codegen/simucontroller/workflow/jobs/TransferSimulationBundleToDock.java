@@ -47,11 +47,18 @@ public class TransferSimulationBundleToDock extends AbstractExtendableJob<MDSDBl
 		this.debugListener = debugListener;
 		this.isDebug = configuration.isDebug();
 		
-        // FIXME: this class should not be specific to a simulator implementation (like SimuCom or
+        // FIXME: (Philipp): this class should not be specific to a simulator implementation (like SimuCom or
         // EventSim), but the workflow hooks currently have no means to refer to the simulator
         // implementation to which a given extension applies. The hooks rather assume that SimuCom
         // is used, which causes other implementations to fail. Therefore, as a workaround we have
         // to check for SimuCom here.
+		// Comment from hauck: To get rid of the workaround, a major refactoring is needed so
+		// we clearly distinguish between (1) workflow engine code, (2) pcm analysis workflow code,
+		// (3) simubench workflow code (simucom, eventsim, ...), and (4) simucom workflow code.
+		// Those parts can be seen as layers, (1) forming the most generic layer all lower layers are based on.
+		// Certain workflow hooks that have been defined may be applicable to layer (2),
+		// the workflow hook WORKFLOW_ID_AFTER_DOCK might be applicable to layer (4) only. 
+	    // See also JIRA PALLADIO-110
         if (isSimuComSimulationRun()) {
             handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_DOCK, configuration);
         }
