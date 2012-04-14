@@ -69,5 +69,19 @@
    <includes
          id="de.uka.ipd.sdq.simucom.feature"
          version="0.0.0"/>
+         
+   <plugin
+         id="de.uka.ipd.sdq.statistics.test"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
+   <plugin
+         id="de.uka.ipd.sdq.probfunction.math.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
