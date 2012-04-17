@@ -276,8 +276,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ParameterModifier/none"
             featureName="literal" dataValue="none"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/ParameterModifier"
           referenceName="eLiterals" element="pcm.ecore#//repository/ParameterModifier/in">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ParameterModifier/in"
@@ -287,8 +285,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ParameterModifier/in"
             featureName="literal" dataValue="in"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/ParameterModifier"
           referenceName="eLiterals" element="pcm.ecore#//repository/ParameterModifier/out">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ParameterModifier/out"
@@ -298,8 +294,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ParameterModifier/out"
             featureName="literal" dataValue="out"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/ParameterModifier"
           referenceName="eLiterals" element="pcm.ecore#//repository/ParameterModifier/inout">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ParameterModifier/inout"
@@ -309,8 +303,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ParameterModifier/inout"
             featureName="literal" dataValue="inout"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/ComponentType">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ComponentType"
@@ -339,8 +331,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//repository/PrimitiveDataType"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//repository/DataType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/PrimitiveTypeEnum">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/PrimitiveTypeEnum"
@@ -357,10 +347,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/PrimitiveDataType/type"
             featureName="eType" referenceValue="pcm.ecore#//repository/PrimitiveTypeEnum"/>
       </changes>
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/PrimitiveTypeEnum"
           referenceName="eLiterals" element="pcm.ecore#//repository/PrimitiveTypeEnum/INT">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/PrimitiveTypeEnum/INT"
@@ -429,8 +415,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//repository/InnerDeclaration"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/NamedElement"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/InnerDeclaration"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/InnerDeclaration/datatype_InnerDeclaration">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/InnerDeclaration/datatype_InnerDeclaration"
@@ -442,8 +426,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/InnerDeclaration/datatype_InnerDeclaration"
             featureName="eType" referenceValue="pcm.ecore#//repository/DataType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#/" referenceName="eSubpackages"
           element="pcm.ecore#//resourcetype">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourcetype" featureName="name"
@@ -453,15 +435,11 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourcetype" featureName="nsPrefix"
             dataValue="resourcetype"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourcetype" referenceName="eClassifiers"
           element="pcm.ecore#//resourcetype/ResourceRepository">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourcetype/ResourceRepository"
             featureName="name" dataValue="ResourceRepository"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#/" referenceName="eSubpackages"
           element="pcm.ecore#//protocol">
         <changes xsi:type="history:Set" element="pcm.ecore#//protocol" featureName="name"
@@ -471,8 +449,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//protocol" featureName="nsPrefix"
             dataValue="protocol"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//protocol" referenceName="eClassifiers"
           element="pcm.ecore#//protocol/Protocol">
         <changes xsi:type="history:Set" element="pcm.ecore#//protocol/Protocol" featureName="name"
@@ -480,8 +456,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//protocol/Protocol" featureName="abstract"
             dataValue="true" oldDataValue="false"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//protocol/Protocol" referenceName="eStructuralFeatures"
           element="pcm.ecore#//protocol/Protocol/protocolTypeID">
         <changes xsi:type="history:Set" element="pcm.ecore#//protocol/Protocol/protocolTypeID"
@@ -493,8 +467,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//protocol/Protocol/protocolTypeID"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#/" referenceName="eSubpackages"
           element="pcm.ecore#//parameter">
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter" featureName="name"
@@ -504,8 +476,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter" featureName="nsPrefix"
             dataValue="parameter"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//parameter" referenceName="eClassifiers"
           element="pcm.ecore#//parameter/VariableUsage">
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableUsage"
@@ -524,8 +494,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/UserData/userDataParameterUsages_UserData"
             featureName="eType" referenceValue="pcm.ecore#//parameter/VariableUsage"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//parameter/VariableUsage"
           referenceName="eStructuralFeatures" element="pcm.ecore#//parameter/VariableUsage/userData_VariableUsage">
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableUsage/userData_VariableUsage"
@@ -557,10 +525,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"
             featureName="eType" referenceValue="pcm.ecore#//parameter/VariableCharacterisation"/>
       </changes>
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//parameter/VariableCharacterisation"
           referenceName="eStructuralFeatures" element="pcm.ecore#//parameter/VariableCharacterisation/variableUsage_VariableCharacterisation">
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisation/variableUsage_VariableCharacterisation"
@@ -601,10 +565,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisation/type"
             featureName="eType" referenceValue="pcm.ecore#//parameter/VariableCharacterisationType"/>
       </changes>
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//parameter/VariableCharacterisationType"
           referenceName="eLiterals" element="pcm.ecore#//parameter/VariableCharacterisationType/STRUCTURE">
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisationType/STRUCTURE"
@@ -612,8 +572,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisationType/STRUCTURE"
             featureName="literal" dataValue="STRUCTURE"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//parameter/VariableCharacterisationType"
           referenceName="eLiterals" element="pcm.ecore#//parameter/VariableCharacterisationType/NUMBER_OF_ELEMENTS">
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisationType/NUMBER_OF_ELEMENTS"
@@ -623,8 +581,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisationType/NUMBER_OF_ELEMENTS"
             featureName="literal" dataValue="NUMBER_OF_ELEMENTS"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//parameter/VariableCharacterisationType"
           referenceName="eLiterals" element="pcm.ecore#//parameter/VariableCharacterisationType/VALUE">
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisationType/VALUE"
@@ -634,8 +590,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisationType/VALUE"
             featureName="literal" dataValue="VALUE"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//parameter/VariableCharacterisationType"
           referenceName="eLiterals" element="pcm.ecore#//parameter/VariableCharacterisationType/BYTESIZE">
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisationType/BYTESIZE"
@@ -645,8 +599,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisationType/BYTESIZE"
             featureName="literal" dataValue="BYTESIZE"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//parameter/VariableCharacterisationType"
           referenceName="eLiterals" element="pcm.ecore#//parameter/VariableCharacterisationType/TYPE">
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisationType/TYPE"
@@ -656,8 +608,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableCharacterisationType/TYPE"
             featureName="literal" dataValue="TYPE"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#/" referenceName="eSubpackages"
           element="pcm.ecore#//reliability">
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability" featureName="name"
@@ -667,8 +617,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability" featureName="nsPrefix"
             dataValue="reliability"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//reliability" referenceName="eClassifiers"
           element="pcm.ecore#//reliability/FailureOccurrenceDescription">
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability/FailureOccurrenceDescription"
@@ -676,18 +624,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability/FailureOccurrenceDescription"
             featureName="abstract" dataValue="true" oldDataValue="false"/>
       </changes>
-      
-       
-             
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//reliability/FailureOccurrenceDescription"
           referenceName="eStructuralFeatures" element="pcm.ecore#//reliability/FailureOccurrenceDescription/failureProbability">
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability/FailureOccurrenceDescription/failureProbability"
@@ -706,17 +642,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//reliability/InternalFailureOccurrenceDescription"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//reliability/FailureOccurrenceDescription"/>
       </changes>
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//reliability" referenceName="eClassifiers"
           element="pcm.ecore#//reliability/ExternalFailureOccurrenceDescription">
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability/ExternalFailureOccurrenceDescription"
@@ -724,17 +649,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//reliability/ExternalFailureOccurrenceDescription"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//reliability/FailureOccurrenceDescription"/>
       </changes>
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#/" referenceName="eSubpackages"
           element="pcm.ecore#//seff">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff" featureName="name"
@@ -744,48 +658,11 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//seff" featureName="nsPrefix"
             dataValue="seff"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff" referenceName="eClassifiers"
           element="pcm.ecore#//seff/ResourceDemandingBehaviour">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ResourceDemandingBehaviour"
             featureName="name" dataValue="ResourceDemandingBehaviour"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff" referenceName="eClassifiers"
           element="pcm.ecore#//seff/CallAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/CallAction" featureName="name"
@@ -802,8 +679,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableUsage/callAction__VariableUsage"
             featureName="eType" referenceValue="pcm.ecore#//seff/CallAction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/CallAction" referenceName="eStructuralFeatures"
           element="pcm.ecore#//seff/CallAction/inputVariableUsages__CallAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/CallAction/inputVariableUsages__CallAction"
@@ -828,19 +703,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ServiceEffectSpecification"
             featureName="abstract" dataValue="true" oldDataValue="false"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/ServiceEffectSpecification"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/ServiceEffectSpecification/seffTypeID">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ServiceEffectSpecification/seffTypeID"
@@ -861,8 +723,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/ResourceDemandingInternalBehaviour"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/ResourceDemandingBehaviour"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff" referenceName="eClassifiers"
           element="pcm.ecore#//seff/ForkedBehaviour">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ForkedBehaviour"
@@ -870,8 +730,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/ForkedBehaviour"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/ResourceDemandingBehaviour"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff" referenceName="eClassifiers"
           element="pcm.ecore#//seff/SynchronisationPoint">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/SynchronisationPoint"
@@ -886,8 +744,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ForkedBehaviour/synchronisationPoint_ForkedBehaviour"
             featureName="eType" referenceValue="pcm.ecore#//seff/SynchronisationPoint"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/SynchronisationPoint"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/SynchronisationPoint/outputParameterUsage_SynchronisationPoint">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/SynchronisationPoint/outputParameterUsage_SynchronisationPoint"
@@ -949,8 +805,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableUsage/callReturnAction__VariableUsage"
             featureName="eType" referenceValue="pcm.ecore#//seff/CallReturnAction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/CallReturnAction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/CallReturnAction/returnVariableUsage__CallReturnAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/CallReturnAction/returnVariableUsage__CallReturnAction"
@@ -977,8 +831,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_performance"
             featureName="nsPrefix" dataValue="seff_performance"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_performance"
           referenceName="eClassifiers" element="pcm.ecore#//seff/seff_performance/InfrastructureCall">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_performance/InfrastructureCall"
@@ -986,17 +838,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/seff_performance/InfrastructureCall"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/CallAction"/>
       </changes>
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_performance"
           referenceName="eClassifiers" element="pcm.ecore#//seff/seff_performance/ResourceCall">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_performance/ResourceCall"
@@ -1004,24 +845,11 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/seff_performance/ResourceCall"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/CallAction"/>
       </changes>
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_performance"
           referenceName="eClassifiers" element="pcm.ecore#//seff/seff_performance/ParametricResourceDemand">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_performance/ParametricResourceDemand"
             featureName="name" dataValue="ParametricResourceDemand"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff" referenceName="eSubpackages"
           element="pcm.ecore#//seff/seff_reliability">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability"
@@ -1040,8 +868,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations" featureName="nsPrefix"
             dataValue="qosannotations"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//qosannotations" referenceName="eClassifiers"
           element="pcm.ecore#//qosannotations/SpecifiedQoSAnnotation">
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/SpecifiedQoSAnnotation"
@@ -1049,8 +875,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/SpecifiedQoSAnnotation"
             featureName="abstract" dataValue="true" oldDataValue="false"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//qosannotations" referenceName="eClassifiers"
           element="pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction">
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction"
@@ -1067,8 +891,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/VariableUsage/specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage"
             featureName="eType" referenceValue="pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction/expectedExternalOutputs_SpecifiedOutputParameterAbstraction">
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction/expectedExternalOutputs_SpecifiedOutputParameterAbstraction"
@@ -1095,8 +917,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/qos_performance"
             featureName="nsPrefix" dataValue=""/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//qosannotations/qos_performance"
           referenceName="eClassifiers" element="pcm.ecore#//qosannotations/qos_performance/SpecifiedExecutionTime">
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/qos_performance/SpecifiedExecutionTime"
@@ -1113,21 +933,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//qosannotations/qos_performance/SystemSpecifiedExecutionTime"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//qosannotations/qos_performance/SpecifiedExecutionTime"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//qosannotations/qos_performance"
           referenceName="eClassifiers" element="pcm.ecore#//qosannotations/qos_performance/ComponentSpecifiedExecutionTime">
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/qos_performance/ComponentSpecifiedExecutionTime"
@@ -1135,8 +940,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//qosannotations/qos_performance/ComponentSpecifiedExecutionTime"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//qosannotations/qos_performance/SpecifiedExecutionTime"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//qosannotations" referenceName="eSubpackages"
           element="pcm.ecore#//qosannotations/qos_reliability">
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/qos_reliability"
@@ -1146,8 +949,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/qos_reliability"
             featureName="nsPrefix" dataValue=""/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//qosannotations/qos_reliability"
           referenceName="eClassifiers" element="pcm.ecore#//qosannotations/qos_reliability/SpecifiedReliabilityAnnotation">
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/qos_reliability/SpecifiedReliabilityAnnotation"
@@ -1155,41 +956,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//qosannotations/qos_reliability/SpecifiedReliabilityAnnotation"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//qosannotations/SpecifiedQoSAnnotation"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//qosannotations/qos_reliability/SpecifiedReliabilityAnnotation"
           referenceName="eStructuralFeatures" element="pcm.ecore#//qosannotations/qos_reliability/SpecifiedReliabilityAnnotation/externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation">
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/qos_reliability/SpecifiedReliabilityAnnotation/externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation"
@@ -1229,8 +995,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//system" featureName="nsPrefix"
             dataValue="system"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#/" referenceName="eSubpackages"
           element="pcm.ecore#//resourceenvironment">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment"
@@ -1240,8 +1004,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment"
             featureName="nsPrefix" dataValue="resourceenvironment"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment"
           referenceName="eClassifiers" element="pcm.ecore#//resourceenvironment/ResourceEnvironment">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/ResourceEnvironment"
@@ -1249,8 +1011,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//resourceenvironment/ResourceEnvironment"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/NamedElement"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment"
           referenceName="eClassifiers" element="#//@releases.1/@changes.46/@element">
         <changes xsi:type="history:Set" element="#//@releases.1/@changes.46/@element"
@@ -1322,8 +1082,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification"
             featureName="name" dataValue="ProcessingResourceSpecification"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/MTTR">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/MTTR"
@@ -1337,8 +1095,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/MTTR"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/MTTF">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/MTTF"
@@ -1352,8 +1108,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/MTTF"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/numberOfReplicas">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/numberOfReplicas"
@@ -1367,8 +1121,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/numberOfReplicas"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment"
           referenceName="eClassifiers" element="#//@releases.1/@changes.38/@changes.5/@element">
         <changes xsi:type="history:Set" element="#//@releases.1/@changes.38/@changes.5/@element"
@@ -1387,8 +1139,6 @@
         <changes xsi:type="history:Set" element="#//@releases.1/@changes.38/@changes.4/@element"
             featureName="eType" referenceValue="#//@releases.1/@changes.38/@changes.5/@element"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="#//@releases.1/@changes.38/@changes.5/@element"
           referenceName="eLiterals" element="#//@releases.1/@changes.38/@changes.5/@element/EXACT">
         <changes xsi:type="history:Set" element="#//@releases.1/@changes.38/@changes.5/@element/EXACT"
@@ -1432,8 +1182,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//allocation" featureName="nsPrefix"
             dataValue="allocation"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#/" referenceName="eSubpackages"
           element="pcm.ecore#//subsystem">
         <changes xsi:type="history:Set" element="pcm.ecore#//subsystem" featureName="name"
@@ -1443,8 +1191,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//subsystem" featureName="nsPrefix"
             dataValue="subsystem"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" element="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#/">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#/"
             featureName="name" dataValue="stoex"/>
@@ -1453,8 +1199,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#/"
             featureName="nsPrefix" dataValue="stoex"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#/"
           referenceName="eClassifiers" element="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
@@ -1714,8 +1458,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//parameter/CharacterisedVariable"
             featureName="eSuperTypes" referenceValue="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//parameter/CharacterisedVariable"
           referenceName="eStructuralFeatures" element="pcm.ecore#//parameter/CharacterisedVariable/characterisationType">
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/CharacterisedVariable/characterisationType"
@@ -1727,8 +1469,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//parameter/CharacterisedVariable/characterisationType"
             featureName="eType" referenceValue="pcm.ecore#//parameter/VariableCharacterisationType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable"
           referenceName="eStructuralFeatures" element="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable/id_Variable">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable/id_Variable"
@@ -2171,19 +1911,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/PCMRandomVariable"
             featureName="eSuperTypes" referenceValue="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/PCMRandomVariable"
           referenceName="eStructuralFeatures" element="pcm.ecore#//core/PCMRandomVariable/closedWorkload_PCMRandomVariable">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/PCMRandomVariable/closedWorkload_PCMRandomVariable"
@@ -2298,8 +2025,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//core/PCMRandomVariable/variableCharacterisation_Specification"
             featureName="eOpposite" referenceValue="pcm.ecore#//parameter/VariableCharacterisation/specification_VariableCharacterisation"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_performance/InfrastructureCall"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/seff_performance/InfrastructureCall/numberOfCalls__InfrastructureCall">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_performance/InfrastructureCall/numberOfCalls__InfrastructureCall"
@@ -2426,11 +2151,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/expression"
             featureName="eType" referenceValue="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Expression"/>
       </changes>
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" element="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#/">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#/"
             featureName="name" dataValue="identifier"/>
@@ -2439,10 +2159,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#/"
             featureName="nsPrefix" dataValue="identifier"/>
       </changes>
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#/"
           referenceName="eClassifiers" element="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"
@@ -2470,8 +2186,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/entity/InterfaceProvidingEntity"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/Entity"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/entity" referenceName="eClassifiers"
           element="pcm.ecore#//core/entity/ResourceInterfaceRequiringEntity">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/entity/ResourceInterfaceRequiringEntity"
@@ -2501,10 +2215,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/entity/InterfaceProvidingRequiringEntity"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/InterfaceRequiringEntity"/>
       </changes>
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/entity" referenceName="eClassifiers"
           element="pcm.ecore#//core/entity/ResourceInterfaceProvidingEntity">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/entity/ResourceInterfaceProvidingEntity"
@@ -2521,8 +2231,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/entity/ResourceInterfaceProvidingRequiringEntity"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/ResourceInterfaceProvidingEntity"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/composition" referenceName="eClassifiers"
           element="pcm.ecore#//core/composition/Connector">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/Connector"
@@ -2541,10 +2249,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/composition/DelegationConnector"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/composition/Connector"/>
       </changes>
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/composition" referenceName="eClassifiers"
           element="pcm.ecore#//core/composition/ComposedStructure">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/ComposedStructure"
@@ -2565,19 +2269,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/entity/ComposedProvidingRequiringEntity"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/InterfaceProvidingRequiringEntity"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/composition/Connector"
           referenceName="eStructuralFeatures" element="pcm.ecore#//core/composition/Connector/parentStructure__Connector">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/Connector/parentStructure__Connector"
@@ -2589,30 +2280,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/Connector/parentStructure__Connector"
             featureName="eType" referenceValue="pcm.ecore#//core/composition/ComposedStructure"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/composition/ComposedStructure"
           referenceName="eStructuralFeatures" element="pcm.ecore#//core/composition/ComposedStructure/resourceRequiredDelegationConnectors_ComposedStructure">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/ComposedStructure/resourceRequiredDelegationConnectors_ComposedStructure"
@@ -2665,30 +2332,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/composition/ProvidedDelegationConnector"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/composition/DelegationConnector"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/composition" referenceName="eClassifiers"
           element="pcm.ecore#//core/composition/RequiredDelegationConnector">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/RequiredDelegationConnector"
@@ -2696,41 +2339,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/composition/RequiredDelegationConnector"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/composition/DelegationConnector"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/composition" referenceName="eClassifiers"
           element="pcm.ecore#//core/composition/AssemblyConnector">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/AssemblyConnector"
@@ -2738,41 +2346,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/composition/AssemblyConnector"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/composition/Connector"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/composition" referenceName="eClassifiers"
           element="pcm.ecore#//core/composition/AssemblyEventConnector">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/AssemblyEventConnector"
@@ -2780,8 +2353,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/composition/AssemblyEventConnector"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/composition/Connector"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/composition" referenceName="eClassifiers"
           element="pcm.ecore#//core/composition/SourceDelegationConnector">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/SourceDelegationConnector"
@@ -2789,8 +2360,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/composition/SourceDelegationConnector"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/composition/DelegationConnector"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/composition" referenceName="eClassifiers"
           element="pcm.ecore#//core/composition/SinkDelegationConnector">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/SinkDelegationConnector"
@@ -2798,8 +2367,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//core/composition/SinkDelegationConnector"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/composition/DelegationConnector"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/composition" referenceName="eClassifiers"
           element="pcm.ecore#//core/composition/AssemblyInfrastructureConnector">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/AssemblyInfrastructureConnector"
@@ -2976,8 +2543,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/RequiredResourceDelegationConnector/assemblyContext__RequiredResourceDelegationConnector"
             featureName="eType" referenceValue="pcm.ecore#//core/composition/AssemblyContext"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/composition/AssemblyContext"
           referenceName="eStructuralFeatures" element="pcm.ecore#//core/composition/AssemblyContext/parentStructure__AssemblyContext">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/AssemblyContext/parentStructure__AssemblyContext"
@@ -3037,8 +2602,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/Workload/usageScenario_Workload"
             featureName="eType" referenceValue="pcm.ecore#//usagemodel/UsageScenario"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//usagemodel/UsageScenario"
           referenceName="eStructuralFeatures" element="pcm.ecore#//usagemodel/UsageScenario/workload_UsageScenario">
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/UsageScenario/workload_UsageScenario"
@@ -3111,19 +2674,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//usagemodel/EntryLevelSystemCall"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//usagemodel/AbstractUserAction"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//usagemodel/EntryLevelSystemCall"
           referenceName="eStructuralFeatures" element="pcm.ecore#//usagemodel/EntryLevelSystemCall/outputParameterUsages_EntryLevelSystemCall">
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/EntryLevelSystemCall/outputParameterUsages_EntryLevelSystemCall"
@@ -3150,8 +2700,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/EntryLevelSystemCall/inputParameterUsages_EntryLevelSystemCall"
             featureName="eType" referenceValue="pcm.ecore#//parameter/VariableUsage"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//usagemodel/AbstractUserAction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//usagemodel/AbstractUserAction/successor">
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/AbstractUserAction/successor"
@@ -3205,41 +2753,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/AbstractUserAction/scenarioBehaviour_AbstractUserAction"
             featureName="eType" referenceValue="pcm.ecore#//usagemodel/ScenarioBehaviour"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//usagemodel/ScenarioBehaviour"
           referenceName="eStructuralFeatures" element="pcm.ecore#//usagemodel/ScenarioBehaviour/usageScenario_SenarioBehaviour">
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/ScenarioBehaviour/usageScenario_SenarioBehaviour"
@@ -3303,19 +2816,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//usagemodel/Branch" featureName="eSuperTypes"
             referenceValue="pcm.ecore#//usagemodel/AbstractUserAction"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//usagemodel/Branch" referenceName="eStructuralFeatures"
           element="pcm.ecore#//usagemodel/Branch/branchTransitions_Branch">
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/Branch/branchTransitions_Branch"
@@ -3369,8 +2869,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/ScenarioBehaviour/loop_ScenarioBehaviour"
             featureName="eType" referenceValue="pcm.ecore#//usagemodel/Loop"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//usagemodel/Loop" referenceName="eStructuralFeatures"
           element="pcm.ecore#//usagemodel/Loop/loopIteration_Loop">
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/Loop/loopIteration_Loop"
@@ -3412,19 +2910,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//usagemodel/Stop" featureName="eSuperTypes"
             referenceValue="pcm.ecore#//usagemodel/AbstractUserAction"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//usagemodel" referenceName="eClassifiers"
           element="pcm.ecore#//usagemodel/Start">
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/Start" featureName="name"
@@ -3432,19 +2917,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//usagemodel/Start" featureName="eSuperTypes"
             referenceValue="pcm.ecore#//usagemodel/AbstractUserAction"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//usagemodel" referenceName="eClassifiers"
           element="pcm.ecore#//usagemodel/Delay">
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/Delay" featureName="name"
@@ -3461,8 +2933,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//core/PCMRandomVariable/delay_TimeSpecification"
             featureName="eType" referenceValue="pcm.ecore#//usagemodel/Delay"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//usagemodel/Delay" referenceName="eStructuralFeatures"
           element="pcm.ecore#//usagemodel/Delay/timeSpecification_Delay">
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/Delay/timeSpecification_Delay"
@@ -3487,8 +2957,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//repository/PassiveResource"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/Entity"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/PassiveResource"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/PassiveResource/capacity_PassiveResource">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/PassiveResource/capacity_PassiveResource"
@@ -3515,8 +2983,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/PassiveResource/capacity_PassiveResource"
             featureName="eOpposite" referenceValue="pcm.ecore#//core/PCMRandomVariable/passiveResource_capacity_PCMRandomVariable"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/RepositoryComponent">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/RepositoryComponent"
@@ -3553,41 +3019,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//repository/BasicComponent"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//repository/ImplementationComponentType"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/BasicComponent"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/BasicComponent/passiveResource_BasicComponent">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/BasicComponent/passiveResource_BasicComponent"
@@ -3616,43 +3047,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/BasicComponent/passiveResource_BasicComponent"
             featureName="eOpposite" referenceValue="pcm.ecore#//repository/PassiveResource/basicComponent_PassiveResource"/>
       </changes>
-      
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/ImplementationComponentType"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/ImplementationComponentType/componentParameterUsage_ImplementationComponentType">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ImplementationComponentType/componentParameterUsage_ImplementationComponentType"
@@ -3666,8 +3060,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ImplementationComponentType/componentParameterUsage_ImplementationComponentType"
             featureName="eType" referenceValue="pcm.ecore#//parameter/VariableUsage"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/ImplementationComponentType"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/ImplementationComponentType/componentType">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ImplementationComponentType/componentType"
@@ -3681,8 +3073,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ImplementationComponentType/componentType"
             featureName="eType" referenceValue="pcm.ecore#//repository/ComponentType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/Repository">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Repository"
@@ -3701,10 +3091,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/DataType/repository__DataType"
             featureName="eType" referenceValue="pcm.ecore#//repository/Repository"/>
       </changes>
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/Repository"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/Repository/repositoryDescription">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Repository/repositoryDescription"
@@ -3716,8 +3102,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Repository/repositoryDescription"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/Repository"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/Repository/components__Repository">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Repository/components__Repository"
@@ -3746,10 +3130,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Repository/components__Repository"
             featureName="eOpposite" referenceValue="pcm.ecore#//repository/RepositoryComponent/repository__RepositoryComponent"/>
       </changes>
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/Repository"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/Repository/dataTypes__Repository">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Repository/dataTypes__Repository"
@@ -3767,8 +3147,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/DataType/repository__DataType"
             featureName="eOpposite" referenceValue="pcm.ecore#//repository/Repository/dataTypes__Repository"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/Interface">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Interface"
@@ -3791,21 +3169,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Repository/interfaces__Repository"
             featureName="eType" referenceValue="pcm.ecore#//repository/Interface"/>
       </changes>
-      
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/Interface"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/Interface/parentInterfaces__Interface">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Interface/parentInterfaces__Interface"
@@ -3817,8 +3180,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Interface/parentInterfaces__Interface"
             featureName="eType" referenceValue="pcm.ecore#//repository/Interface"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/Interface"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/Interface/protocols__Interface">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Interface/protocols__Interface"
@@ -3832,8 +3193,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Interface/protocols__Interface"
             featureName="eType" referenceValue="pcm.ecore#//protocol/Protocol"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/Interface"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/Interface/repository__Interface">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Interface/repository__Interface"
@@ -3849,8 +3208,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Repository/interfaces__Repository"
             featureName="eOpposite" referenceValue="pcm.ecore#//repository/Interface/repository__Interface"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/RequiredCharacterisation"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/RequiredCharacterisation/interface_RequiredCharacterisation">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/RequiredCharacterisation/interface_RequiredCharacterisation"
@@ -3879,8 +3236,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/RequiredCharacterisation/interface_RequiredCharacterisation"
             featureName="eOpposite" referenceValue="pcm.ecore#//repository/Interface/requiredCharacterisations"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/OperationInterface">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationInterface"
@@ -3888,19 +3243,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//repository/OperationInterface"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//repository/Interface"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/Signature">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Signature"
@@ -3941,21 +3283,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationInterface/signatures__OperationInterface"
             featureName="eType" referenceValue="pcm.ecore#//repository/OperationSignature"/>
       </changes>
-      
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/OperationSignature"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/OperationSignature/parameters__OperationSignature">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationSignature/parameters__OperationSignature"
@@ -3980,10 +3307,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationSignature/parameters__OperationSignature"
             featureName="eOpposite" referenceValue="pcm.ecore#//repository/Parameter/operationSignature__Parameter"/>
       </changes>
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/OperationSignature"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/OperationSignature/returnType__OperationSignature">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationSignature/returnType__OperationSignature"
@@ -3993,8 +3316,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationSignature/returnType__OperationSignature"
             featureName="eType" referenceValue="pcm.ecore#//repository/DataType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/OperationSignature"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/OperationSignature/interface__OperationSignature">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationSignature/interface__OperationSignature"
@@ -4010,10 +3331,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationInterface/signatures__OperationInterface"
             featureName="eOpposite" referenceValue="pcm.ecore#//repository/OperationSignature/interface__OperationSignature"/>
       </changes>
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/Signature"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/Signature/exceptions__Signature">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Signature/exceptions__Signature"
@@ -4027,8 +3344,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Signature/exceptions__Signature"
             featureName="eType" referenceValue="pcm.ecore#//repository/ExceptionType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/InfrastructureSignature">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/InfrastructureSignature"
@@ -4113,8 +3428,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Parameter/eventType__Parameter"
             featureName="eType" referenceValue="pcm.ecore#//repository/EventType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/EventType"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/EventType/parameter__EventType">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/EventType/parameter__EventType"
@@ -4139,8 +3452,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//repository/EventGroup"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//repository/Interface"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/EventGroup"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/EventGroup/eventTypes__EventGroup">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/EventGroup/eventTypes__EventGroup"
@@ -4187,30 +3498,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ImplementationComponentType/parentCompleteComponentTypes"
             featureName="eType" referenceValue="pcm.ecore#//repository/CompleteComponentType"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/ProvidesComponentType">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ProvidesComponentType"
@@ -4229,19 +3516,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/CompleteComponentType/parentProvidesComponentTypes"
             featureName="eType" referenceValue="pcm.ecore#//repository/ProvidesComponentType"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/CompositeComponent">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/CompositeComponent"
@@ -4251,30 +3525,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//repository/CompositeComponent"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//repository/ImplementationComponentType"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/CollectionDataType">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/CollectionDataType"
@@ -4284,8 +3534,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//repository/CollectionDataType"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//repository/DataType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/CollectionDataType"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/CollectionDataType/innerType_CollectionDataType">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/CollectionDataType/innerType_CollectionDataType"
@@ -4297,8 +3545,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/CollectionDataType/innerType_CollectionDataType"
             featureName="eType" referenceValue="pcm.ecore#//repository/DataType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/CompositeDataType">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/CompositeDataType"
@@ -4308,8 +3554,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//repository/CompositeDataType"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//repository/DataType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/CompositeDataType"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/CompositeDataType/parentType_CompositeDataType">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/CompositeDataType/parentType_CompositeDataType"
@@ -4321,8 +3565,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/CompositeDataType/parentType_CompositeDataType"
             featureName="eType" referenceValue="pcm.ecore#//repository/CompositeDataType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/InnerDeclaration"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/InnerDeclaration/compositeDataType_InnerDeclaration">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/InnerDeclaration/compositeDataType_InnerDeclaration"
@@ -4351,8 +3593,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/InnerDeclaration/compositeDataType_InnerDeclaration"
             featureName="eOpposite" referenceValue="pcm.ecore#//repository/CompositeDataType/innerDeclaration_CompositeDataType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/Role">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Role" featureName="name"
@@ -4400,8 +3640,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//core/entity/ResourceInterfaceRequiringEntity/resourceRequiredRoles__ResourceInterfaceRequiringEntity"
             featureName="eType" referenceValue="pcm.ecore#//core/entity/ResourceRequiredRole"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//core/entity/ResourceRequiredRole"
           referenceName="eStructuralFeatures" element="pcm.ecore#//core/entity/ResourceRequiredRole/resourceInterfaceRequiringEntity__ResourceRequiredRole">
         <changes xsi:type="history:Set" element="pcm.ecore#//core/entity/ResourceRequiredRole/resourceInterfaceRequiringEntity__ResourceRequiredRole"
@@ -4500,8 +3738,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//core/entity/InterfaceProvidingEntity/providedRoles_InterfaceProvidingEntity"
             featureName="eType" referenceValue="pcm.ecore#//repository/ProvidedRole"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/ProvidedRole"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/ProvidedRole/providingEntity_ProvidedRole">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/ProvidedRole/providingEntity_ProvidedRole"
@@ -4517,8 +3753,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//core/entity/InterfaceProvidingEntity/providedRoles_InterfaceProvidingEntity"
             featureName="eOpposite" referenceValue="pcm.ecore#//repository/ProvidedRole/providingEntity_ProvidedRole"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/OperationProvidedRole">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationProvidedRole"
@@ -4570,8 +3804,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//usagemodel/EntryLevelSystemCall/providedRole_EntryLevelSystemCall"
             featureName="eType" referenceValue="pcm.ecore#//repository/OperationProvidedRole"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/OperationProvidedRole"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/OperationProvidedRole/providedInterface__OperationProvidedRole">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationProvidedRole/providedInterface__OperationProvidedRole"
@@ -4583,8 +3815,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationProvidedRole/providedInterface__OperationProvidedRole"
             featureName="eType" referenceValue="pcm.ecore#//repository/OperationInterface"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/RequiredRole">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/RequiredRole"
@@ -4658,8 +3888,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/InfrastructureRequiredRole/requiredInterface__InfrastructureRequiredRole"
             featureName="eType" referenceValue="pcm.ecore#//repository/InfrastructureInterface"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/RequiredRole"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/RequiredRole/requiringEntity_RequiredRole">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/RequiredRole/requiringEntity_RequiredRole"
@@ -4675,8 +3903,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity"
             featureName="eOpposite" referenceValue="pcm.ecore#//repository/RequiredRole/requiringEntity_RequiredRole"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/OperationRequiredRole">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationRequiredRole"
@@ -4717,8 +3943,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/AssemblyConnector/requiredRole_AssemblyConnector"
             featureName="eType" referenceValue="pcm.ecore#//repository/OperationRequiredRole"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/OperationRequiredRole"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/OperationRequiredRole/requiredInterface__OperationRequiredRole">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationRequiredRole/requiredInterface__OperationRequiredRole"
@@ -4730,8 +3954,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/OperationRequiredRole/requiredInterface__OperationRequiredRole"
             featureName="eType" referenceValue="pcm.ecore#//repository/OperationInterface"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository" referenceName="eClassifiers"
           element="pcm.ecore#//repository/SourceRole">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/SourceRole"
@@ -4823,8 +4045,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//core/composition/SinkDelegationConnector/outerSinkRole__SinkRole"
             featureName="eType" referenceValue="pcm.ecore#//repository/SinkRole"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//repository/SinkRole"
           referenceName="eStructuralFeatures" element="pcm.ecore#//repository/SinkRole/eventGroup__SinkRole">
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/SinkRole/eventGroup__SinkRole"
@@ -4887,8 +4107,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/InfrastructureProvidedRole/providedInterface__InfrastructureProvidedRole"
             featureName="eType" referenceValue="pcm.ecore#//repository/InfrastructureInterface"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourcetype" referenceName="eClassifiers"
           element="pcm.ecore#//resourcetype/ResourceSignature">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourcetype/ResourceSignature"
@@ -4896,8 +4114,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//resourcetype/ResourceSignature"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/Entity"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourcetype/ResourceSignature"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourcetype/ResourceSignature/parameter__ResourceSignature">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourcetype/ResourceSignature/parameter__ResourceSignature"
@@ -4973,8 +4189,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourcetype/ResourceSignature/resourceInterface__ResourceSignature"
             featureName="eType" referenceValue="pcm.ecore#//resourcetype/ResourceInterface"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourcetype/ResourceInterface"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourcetype/ResourceInterface/resourceRepository__ResourceInterface">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourcetype/ResourceInterface/resourceRepository__ResourceInterface"
@@ -5092,8 +4306,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/Signature/failureType"
             featureName="eType" referenceValue="pcm.ecore#//reliability/FailureType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//reliability" referenceName="eClassifiers"
           element="pcm.ecore#//reliability/HardwareInducedFailureType">
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability/HardwareInducedFailureType"
@@ -5101,19 +4313,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//reliability/HardwareInducedFailureType"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//reliability/FailureType"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//reliability" referenceName="eClassifiers"
           element="pcm.ecore#//reliability/SoftwareInducedFailureType">
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability/SoftwareInducedFailureType"
@@ -5121,8 +4320,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//reliability/SoftwareInducedFailureType"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//reliability/FailureType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//reliability/SoftwareInducedFailureType"
           referenceName="eStructuralFeatures" element="pcm.ecore#//reliability/SoftwareInducedFailureType/internalFailureOccurrenceDescriptions__SoftwareInducedFailureType">
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability/SoftwareInducedFailureType/internalFailureOccurrenceDescriptions__SoftwareInducedFailureType"
@@ -5156,19 +4353,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//reliability/NetworkInducedFailureType"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//reliability/FailureType"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//reliability/ExternalFailureOccurrenceDescription"
           referenceName="eStructuralFeatures" element="pcm.ecore#//reliability/ExternalFailureOccurrenceDescription/failureType__ExternalFailureOccurrenceDescription">
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability/ExternalFailureOccurrenceDescription/failureType__ExternalFailureOccurrenceDescription"
@@ -5211,8 +4395,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//repository/PassiveResource/resourceTimeoutFailureType__PassiveResource"
             featureName="eOpposite" referenceValue="pcm.ecore#//reliability/ResourceTimeoutFailureType/passiveResource__ResourceTimeoutFailureType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//reliability/FailureType"
           referenceName="eStructuralFeatures" element="pcm.ecore#//reliability/FailureType/repository__FailureType">
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability/FailureType/repository__FailureType"
@@ -5253,21 +4435,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/StopAction" featureName="eSuperTypes"
             referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/AbstractInternalControlFlowAction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/AbstractInternalControlFlowAction/infrastructureCall__Action">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/AbstractInternalControlFlowAction/infrastructureCall__Action"
@@ -5281,8 +4448,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/AbstractInternalControlFlowAction/infrastructureCall__Action"
             featureName="eType" referenceValue="pcm.ecore#//seff/seff_performance/InfrastructureCall"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/AbstractAction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/AbstractAction/predecessor_AbstractAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/AbstractAction/predecessor_AbstractAction"
@@ -5340,8 +4505,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/AbstractLoopAction"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/AbstractLoopAction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/AbstractLoopAction/bodyBehaviour_Loop">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/AbstractLoopAction/bodyBehaviour_Loop"
@@ -5377,8 +4540,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/AbstractBranchTransition"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/Entity"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/AbstractBranchTransition"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/AbstractBranchTransition/branchBehaviour_BranchTransition">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/AbstractBranchTransition/branchBehaviour_BranchTransition"
@@ -5412,30 +4573,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/BranchAction" featureName="eSuperTypes"
             referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/BranchAction" referenceName="eStructuralFeatures"
           element="pcm.ecore#//seff/BranchAction/branches_Branch">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/BranchAction/branches_Branch"
@@ -5471,19 +4608,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/StartAction" featureName="eSuperTypes"
             referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/ServiceEffectSpecification"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/ServiceEffectSpecification/describedService__SEFF">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ServiceEffectSpecification/describedService__SEFF"
@@ -5523,8 +4647,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ServiceEffectSpecification/basicComponent_ServiceEffectSpecification"
             featureName="eOpposite" referenceValue="pcm.ecore#//repository/BasicComponent/serviceEffectSpecifications__BasicComponent"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff" referenceName="eClassifiers"
           element="pcm.ecore#//seff/ResourceDemandingSEFF">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ResourceDemandingSEFF"
@@ -5536,8 +4658,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/ResourceDemandingSEFF"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/ResourceDemandingBehaviour"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/ResourceDemandingSEFF"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/ResourceDemandingSEFF/resourceDemandingInternalBehaviours">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ResourceDemandingSEFF/resourceDemandingInternalBehaviours"
@@ -5573,8 +4693,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/ReleaseAction" featureName="eSuperTypes"
             referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/ReleaseAction" referenceName="eStructuralFeatures"
           element="pcm.ecore#//seff/ReleaseAction/passiveResource_ReleaseAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ReleaseAction/passiveResource_ReleaseAction"
@@ -5602,8 +4720,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//core/PCMRandomVariable/loopAction_PCMRandomVariable"
             featureName="eType" referenceValue="pcm.ecore#//seff/LoopAction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/LoopAction" referenceName="eStructuralFeatures"
           element="pcm.ecore#//seff/LoopAction/iterationCount_LoopAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/LoopAction/iterationCount_LoopAction"
@@ -5628,8 +4744,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/ForkAction" featureName="eSuperTypes"
             referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/ForkAction" referenceName="eStructuralFeatures"
           element="pcm.ecore#//seff/ForkAction/asynchronousForkedBehaviours_ForkAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ForkAction/asynchronousForkedBehaviours_ForkAction"
@@ -5689,8 +4803,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/ProbabilisticBranchTransition"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/AbstractBranchTransition"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/ProbabilisticBranchTransition"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/ProbabilisticBranchTransition/branchProbability">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ProbabilisticBranchTransition/branchProbability"
@@ -5709,19 +4821,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/AcquireAction" featureName="eSuperTypes"
             referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/AcquireAction" referenceName="eStructuralFeatures"
           element="pcm.ecore#//seff/AcquireAction/passiveresource_AcquireAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/AcquireAction/passiveresource_AcquireAction"
@@ -5744,8 +4843,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/AcquireAction/timeout"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/AcquireAction" referenceName="eStructuralFeatures"
           element="pcm.ecore#//seff/AcquireAction/timeoutValue">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/AcquireAction/timeoutValue"
@@ -5757,8 +4854,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/AcquireAction/timeoutValue"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff" referenceName="eClassifiers"
           element="pcm.ecore#//seff/CollectionIteratorAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/CollectionIteratorAction"
@@ -5766,8 +4861,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/CollectionIteratorAction"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/AbstractLoopAction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/CollectionIteratorAction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/CollectionIteratorAction/parameter_CollectionIteratorAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/CollectionIteratorAction/parameter_CollectionIteratorAction"
@@ -5786,8 +4879,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/GuardedBranchTransition"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/AbstractBranchTransition"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/GuardedBranchTransition"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/GuardedBranchTransition/branchCondition_GuardedBranchTransition">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/GuardedBranchTransition/branchCondition_GuardedBranchTransition"
@@ -5821,8 +4912,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/SetVariableAction"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/SetVariableAction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/SetVariableAction/localVariableUsages_SetVariableAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/SetVariableAction/localVariableUsages_SetVariableAction"
@@ -5858,8 +4947,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/InternalCallAction"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/InternalCallAction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/InternalCallAction/calledResourceDemandingInternalBehaviour">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/InternalCallAction/calledResourceDemandingInternalBehaviour"
@@ -5880,8 +4967,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/EmitEventAction"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/CallAction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/EmitEventAction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/EmitEventAction/eventType__EmitEventAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/EmitEventAction/eventType__EmitEventAction"
@@ -5922,30 +5007,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//reliability/InternalFailureOccurrenceDescription/internalAction__InternalFailureOccurrenceDescription"
             featureName="eType" referenceValue="pcm.ecore#//seff/InternalAction"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/InternalAction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/InternalAction/internalFailureOccurrenceDescriptions__InternalAction">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/InternalAction/internalFailureOccurrenceDescriptions__InternalAction"
@@ -6079,25 +5140,12 @@
             featureName="eOpposite" referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction/resourceDemand_Action"/>
       </changes>
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability"
-          referenceName="eClassifiers" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction">
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction"
+          referenceName="eClassifiers" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour">
+        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"
             featureName="name" dataValue="RecoveryBlockAction"/>
-        <changes xsi:type="history:Add" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction"
+        <changes xsi:type="history:Add" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability"
           referenceName="eClassifiers" element="pcm.ecore#//seff/seff_reliability/FailureHandlingEntity">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/FailureHandlingEntity"
@@ -6118,19 +5166,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//seff/ExternalCallAction"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/seff_reliability/FailureHandlingEntity"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/ExternalCallAction"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/ExternalCallAction/calledService_ExternalService">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ExternalCallAction/calledService_ExternalService"
@@ -6166,60 +5201,54 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/ExternalCallAction/retryCount"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability"
-          referenceName="eClassifiers" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour">
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour"
+          referenceName="eClassifiers" element="#//@releases.1/@changes.51/@element">
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.51/@element"
             featureName="name" dataValue="RecoveryBlockAlternativeBehaviour"/>
-        <changes xsi:type="history:Add" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour"
+        <changes xsi:type="history:Add" element="#//@releases.1/@changes.51/@element"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/seff_reliability/FailureHandlingEntity"/>
-        <changes xsi:type="history:Add" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour"
+        <changes xsi:type="history:Add" element="#//@releases.1/@changes.51/@element"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/ResourceDemandingBehaviour"/>
       </changes>
-      
-       
-      <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour"
-          referenceName="eStructuralFeatures" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/nextAlternative_RecoveryBlockAlternativeBehaviour">
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/nextAlternative_RecoveryBlockAlternativeBehaviour"
+      <changes xsi:type="history:Create" target="#//@releases.1/@changes.51/@element"
+          referenceName="eStructuralFeatures" element="#//@releases.1/@changes.51/@element/nextAlternative_RecoveryBlockAlternativeBehaviour">
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.51/@element/nextAlternative_RecoveryBlockAlternativeBehaviour"
             featureName="name" dataValue="nextAlternative_RecoveryBlockAlternativeBehaviour"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/nextAlternative_RecoveryBlockAlternativeBehaviour"
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.51/@element/nextAlternative_RecoveryBlockAlternativeBehaviour"
             featureName="ordered" dataValue="false" oldDataValue="true"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/nextAlternative_RecoveryBlockAlternativeBehaviour"
-            featureName="eType" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour"/>
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.51/@element/nextAlternative_RecoveryBlockAlternativeBehaviour"
+            featureName="eType" referenceValue="#//@releases.1/@changes.51/@element"/>
       </changes>
-      <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour"
-          referenceName="eStructuralFeatures" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/recoveryBlockAction_RecoveryBlockAlternativeBehaviour">
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
+      <changes xsi:type="history:Create" target="#//@releases.1/@changes.51/@element"
+          referenceName="eStructuralFeatures" element="#//@releases.1/@changes.51/@element/recoveryBlockAction_RecoveryBlockAlternativeBehaviour">
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.51/@element/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
             featureName="name" dataValue="recoveryBlockAction_RecoveryBlockAlternativeBehaviour"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.51/@element/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
             featureName="ordered" dataValue="false" oldDataValue="true"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.51/@element/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
             featureName="lowerBound" dataValue="1" oldDataValue="0"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
-            featureName="eType" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction"/>
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.51/@element/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
+            featureName="eType" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"/>
       </changes>
-      <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction"
-          referenceName="eStructuralFeatures" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction">
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"
+      <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"
+          referenceName="eStructuralFeatures" element="#//@releases.1/@changes.55/@element">
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.55/@element"
             featureName="name" dataValue="recoveryBlockAlternativeBehaviours_RecoveryBlockAction"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.55/@element"
             featureName="ordered" dataValue="false" oldDataValue="true"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.55/@element"
             featureName="lowerBound" dataValue="2" oldDataValue="0"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.55/@element"
             featureName="upperBound" dataValue="-1" oldDataValue="1"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.55/@element"
             featureName="containment" dataValue="true" oldDataValue="false"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"
-            featureName="eType" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"
-            featureName="eOpposite" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"/>
-        <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryBlockAlternativeBehaviour/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
-            featureName="eOpposite" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryBlockAction/recoveryBlockAlternativeBehaviours_RecoveryBlockAction"/>
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.55/@element"
+            featureName="eType" referenceValue="#//@releases.1/@changes.51/@element"/>
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.55/@element"
+            featureName="eOpposite" referenceValue="#//@releases.1/@changes.51/@element/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"/>
+        <changes xsi:type="history:Set" element="#//@releases.1/@changes.51/@element/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
+            featureName="eOpposite" referenceValue="#//@releases.1/@changes.55/@element"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability/FailureHandlingEntity"
           referenceName="eStructuralFeatures" element="pcm.ecore#//seff/seff_reliability/FailureHandlingEntity/failureTypes_FailureHandlingEntity">
         <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/FailureHandlingEntity/failureTypes_FailureHandlingEntity"
@@ -6260,19 +5289,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//qosannotations/QoSAnnotations"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/Entity"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//qosannotations/QoSAnnotations"
           referenceName="eStructuralFeatures" element="pcm.ecore#//qosannotations/QoSAnnotations/specifiedQoSAnnotations_QoSAnnotations">
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/QoSAnnotations/specifiedQoSAnnotations_QoSAnnotations"
@@ -6382,19 +5398,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/QoSAnnotations/system_QoSAnnotations"
             featureName="eType" referenceValue="pcm.ecore#//system/System"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//system/System" referenceName="eStructuralFeatures"
           element="pcm.ecore#//system/System/qosAnnotations_System">
         <changes xsi:type="history:Set" element="pcm.ecore#//system/System/qosAnnotations_System"
@@ -6412,8 +5415,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//qosannotations/QoSAnnotations/system_QoSAnnotations"
             featureName="eOpposite" referenceValue="pcm.ecore#//system/System/qosAnnotations_System"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment"
           referenceName="eClassifiers" element="pcm.ecore#//resourceenvironment/LinkingResource">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/LinkingResource"
@@ -6421,8 +5422,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//resourceenvironment/LinkingResource"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/Entity"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment/LinkingResource"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourceenvironment/LinkingResource/resourceEnvironment_LinkingResource">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/LinkingResource/resourceEnvironment_LinkingResource"
@@ -6482,8 +5481,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/LinkingResource/connectedResourceContainers_LinkingResource"
             featureName="eType" referenceValue="pcm.ecore#//resourceenvironment/ResourceContainer"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment/ResourceContainer"
           referenceName="eStructuralFeatures" element="#//@releases.1/@changes.2/@changes.0/@element">
         <changes xsi:type="history:Set" element="#//@releases.1/@changes.2/@changes.0/@element"
@@ -6547,8 +5544,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification"
             featureName="eSuperTypes" referenceValue="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/linkingResource_CommunicationLinkResourceSpecification">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/linkingResource_CommunicationLinkResourceSpecification"
@@ -6590,8 +5585,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/failureProbability"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/latency_CommunicationLinkResourceSpecification">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/latency_CommunicationLinkResourceSpecification"
@@ -6618,8 +5611,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/latency_CommunicationLinkResourceSpecification"
             featureName="eOpposite" referenceValue="pcm.ecore#//core/PCMRandomVariable/communicationLinkResourceSpecification_latency_PCMRandomVariable"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/throughput_CommunicationLinkResourceSpecification">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/throughput_CommunicationLinkResourceSpecification"
@@ -6646,8 +5637,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/throughput_CommunicationLinkResourceSpecification"
             featureName="eOpposite" referenceValue="pcm.ecore#//core/PCMRandomVariable/communicationLinkResourceSpecifcation_throughput_PCMRandomVariable"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//allocation" referenceName="eClassifiers"
           element="pcm.ecore#//allocation/AllocationContext">
         <changes xsi:type="history:Set" element="pcm.ecore#//allocation/AllocationContext"
@@ -6655,8 +5644,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//allocation/AllocationContext"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//core/entity/Entity"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//allocation/AllocationContext"
           referenceName="eStructuralFeatures" element="pcm.ecore#//allocation/AllocationContext/resourceContainer_AllocationContext">
         <changes xsi:type="history:Set" element="pcm.ecore#//allocation/AllocationContext/resourceContainer_AllocationContext"
@@ -6697,30 +5684,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//allocation/AllocationContext/allocation_AllocationContext"
             featureName="eType" referenceValue="pcm.ecore#//allocation/Allocation"/>
       </changes>
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//allocation/Allocation"
           referenceName="eStructuralFeatures" element="pcm.ecore#//allocation/Allocation/targetResourceEnvironment_Allocation">
         <changes xsi:type="history:Set" element="pcm.ecore#//allocation/Allocation/targetResourceEnvironment_Allocation"
@@ -6767,19 +5730,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//subsystem/SubSystem"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//repository/RepositoryComponent"/>
       </changes>
-      
-       
-      
-       
-       
-      
-       
-       
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"
           referenceName="eStructuralFeatures" element="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier/id">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier/id"
@@ -6793,11 +5743,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier/id"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </changes>
-      
-       
-      
-       
-       
       <changes xsi:type="history:Create" element="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#/">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#/"
             featureName="name" dataValue="units"/>
@@ -6806,8 +5751,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#/"
             featureName="nsPrefix" dataValue="units"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#/"
           referenceName="eClassifiers" element="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement"
@@ -6835,8 +5778,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//resourcetype/ProcessingResourceType"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//resourcetype/ResourceType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourcetype/ProcessingResourceType"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourcetype/ProcessingResourceType/hardwareInducedFailureType__ProcessingResourceType">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourcetype/ProcessingResourceType/hardwareInducedFailureType__ProcessingResourceType"
@@ -6846,8 +5787,6 @@
         <changes xsi:type="history:Set" element="pcm.ecore#//resourcetype/ProcessingResourceType/hardwareInducedFailureType__ProcessingResourceType"
             featureName="eType" referenceValue="pcm.ecore#//reliability/HardwareInducedFailureType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourcetype/ResourceType"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourcetype/ResourceType/resourceRepository_ResourceType">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourcetype/ResourceType/resourceRepository_ResourceType"
@@ -6883,8 +5822,6 @@
         <changes xsi:type="history:Add" element="pcm.ecore#//resourcetype/CommunicationLinkResourceType"
             featureName="eSuperTypes" referenceValue="pcm.ecore#//resourcetype/ProcessingResourceType"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="pcm.ecore#//resourcetype/CommunicationLinkResourceType"
           referenceName="eStructuralFeatures" element="pcm.ecore#//resourcetype/CommunicationLinkResourceType/networkInducedFailureType__CommunicationLinkResourceType">
         <changes xsi:type="history:Set" element="pcm.ecore#//resourcetype/CommunicationLinkResourceType/networkInducedFailureType__CommunicationLinkResourceType"
@@ -7035,11 +5972,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement/unit"
             featureName="eType" referenceValue="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//Unit"/>
       </changes>
-      
-       
-       
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#/"
           referenceName="eClassifiers" element="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//BaseUnit">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//BaseUnit"
@@ -7058,9 +5990,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//BaseUnit/name"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </changes>
-      
-       
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#/"
           referenceName="eClassifiers" element="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitRepository">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitRepository"
@@ -7158,8 +6087,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#/"
             featureName="nsPrefix" dataValue="probfunction"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#/"
           referenceName="eClassifiers" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityFunction">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityFunction"
@@ -7422,8 +6349,6 @@
         <changes xsi:type="history:Add" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//LognormalDistribution"
             featureName="eSuperTypes" referenceValue="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ContinuousPDF"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//LognormalDistribution"
           referenceName="eStructuralFeatures" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//LognormalDistribution/mu">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//LognormalDistribution/mu"
@@ -7435,8 +6360,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//LognormalDistribution/mu"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//LognormalDistribution"
           referenceName="eStructuralFeatures" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//LognormalDistribution/sigma">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//LognormalDistribution/sigma"
@@ -7448,8 +6371,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//LognormalDistribution/sigma"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#/"
           referenceName="eClassifiers" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//GammaDistribution">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//GammaDistribution"
@@ -7457,8 +6378,6 @@
         <changes xsi:type="history:Add" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//GammaDistribution"
             featureName="eSuperTypes" referenceValue="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ContinuousPDF"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//GammaDistribution"
           referenceName="eStructuralFeatures" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//GammaDistribution/alpha">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//GammaDistribution/alpha"
@@ -7470,8 +6389,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//GammaDistribution/alpha"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </changes>
-      
-       
       <changes xsi:type="history:Create" target="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//GammaDistribution"
           referenceName="eStructuralFeatures" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//GammaDistribution/theta">
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//GammaDistribution/theta"
@@ -7483,8 +6400,6 @@
         <changes xsi:type="history:Set" element="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//GammaDistribution/theta"
             featureName="eType" referenceValue="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </changes>
-      
-       
     </changes>
   </releases>
   <releases date="2012-04-16T17:33:15.503+0200" label="PCM 3.3-2012-04-16">
@@ -7893,6 +6808,95 @@
         <eLiterals name="WINDOWS_2003" value="5"/>
         <eLiterals name="ABSTRACT" value="6"/>
       </element>
+    </changes>
+    <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"
+        referenceName="eStructuralFeatures" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/recoveryAction__RecoveryActionBehaviour">
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/recoveryAction__RecoveryActionBehaviour"
+          featureName="name" dataValue="recoveryAction__RecoveryActionBehaviour"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/recoveryAction__RecoveryActionBehaviour"
+          featureName="ordered" dataValue="false" oldDataValue="true"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/recoveryAction__RecoveryActionBehaviour"
+          featureName="lowerBound" dataValue="1" oldDataValue="0"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/recoveryAction__RecoveryActionBehaviour"
+          featureName="eType" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryAction"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/recoveryAction__RecoveryActionBehaviour"
+          featureName="eOpposite" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"
+          featureName="eOpposite" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/recoveryAction__RecoveryActionBehaviour"/>
+    </changes>
+    <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability"
+        referenceName="eClassifiers" element="pcm.ecore#//seff/seff_reliability/RecoveryAction">
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction"
+          featureName="name" dataValue="RecoveryAction"/>
+      <changes xsi:type="history:Add" element="pcm.ecore#//seff/seff_reliability/RecoveryAction"
+          featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
+    </changes>
+    <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability/RecoveryAction"
+        referenceName="eStructuralFeatures" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/primaryBehaviour__RecoveryAction">
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/primaryBehaviour__RecoveryAction"
+          featureName="name" dataValue="primaryBehaviour__RecoveryAction"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/primaryBehaviour__RecoveryAction"
+          featureName="ordered" dataValue="false" oldDataValue="true"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/primaryBehaviour__RecoveryAction"
+          featureName="lowerBound" dataValue="1" oldDataValue="0"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/primaryBehaviour__RecoveryAction"
+          featureName="eType" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"/>
+    </changes>
+    <changes xsi:type="history:Create" target="pcm.ecore#//seff/seff_reliability/RecoveryAction"
+        referenceName="eStructuralFeatures" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction">
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"
+          featureName="name" dataValue="recoveryActionBehaviours__RecoveryAction"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"
+          featureName="ordered" dataValue="false" oldDataValue="true"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"
+          featureName="lowerBound" dataValue="2" oldDataValue="0"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"
+          featureName="upperBound" dataValue="-1" oldDataValue="1"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"
+          featureName="containment" dataValue="true" oldDataValue="false"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"
+          featureName="eType" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"
+          featureName="eOpposite" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/recoveryAction__RecoveryActionBehaviour"/>
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour/recoveryAction__RecoveryActionBehaviour"
+          featureName="eOpposite" referenceValue="pcm.ecore#//seff/seff_reliability/RecoveryAction/recoveryActionBehaviours__RecoveryAction"/>
+    </changes>
+    <changes xsi:type="history:Delete" target="pcm.ecore#//seff/seff_reliability"
+        referenceName="eClassifiers">
+      <element xsi:type="ecore:EClass" name="RecoveryBlockAlternativeBehaviour" eSuperTypes="pcm.ecore#//seff/seff_reliability/FailureHandlingEntity pcm.ecore#//seff/ResourceDemandingBehaviour">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="&lt;p>&#xD;&#xA;    Recovery block alternative haviours represent alternatives of recovery blocks. They are resource demanding behaviours,&#xD;&#xA;    thus any behaviour can be defined as an alternative.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    The alternatives of a recovery block form a chain. They are failure handling entities, i.e.&amp;nbsp;they can handle&#xD;&#xA;    failures that occur in previous alternatives. If one alternative fails, the next alternative is executed that can&#xD;&#xA;    handle the failure type.&#xD;&#xA;&lt;/p>"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="nextAlternative_RecoveryBlockAlternativeBehaviour"
+            ordered="false" eType="#//@releases.1/@changes.51/@element"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="recoveryBlockAction_RecoveryBlockAlternativeBehaviour"
+            ordered="false" lowerBound="1" eType="ecore:EClass pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"
+            eOpposite="#//@releases.1/@changes.55/@element"/>
+      </element>
+    </changes>
+    <changes xsi:type="history:Remove" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"
+        featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/AbstractInternalControlFlowAction"/>
+    <changes xsi:type="history:Add" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"
+        featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/seff_reliability/FailureHandlingEntity"/>
+    <changes xsi:type="history:Add" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"
+        featureName="eSuperTypes" referenceValue="pcm.ecore#//seff/ResourceDemandingBehaviour"/>
+    <changes xsi:type="history:Delete" target="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"
+        referenceName="eStructuralFeatures">
+      <element xsi:type="ecore:EReference" name="recoveryBlockAlternativeBehaviours_RecoveryBlockAction"
+          ordered="false" lowerBound="2" upperBound="-1" eType="#//@releases.1/@changes.51/@element"
+          containment="true" eOpposite="#//@releases.1/@changes.51/@element/recoveryBlockAction_RecoveryBlockAlternativeBehaviour"/>
+    </changes>
+    <changes xsi:type="history:OperationChange">
+      <changes xsi:type="history:Set" element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"
+          featureName="name" dataValue="RecoveryActionBehaviour" oldDataValue="RecoveryBlockAction"/>
+      <operation name="rename">
+        <parameters name="element">
+          <referenceValue element="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour"/>
+        </parameters>
+        <parameters name="name">
+          <dataValue>RecoveryActionBehaviour</dataValue>
+        </parameters>
+      </operation>
     </changes>
   </releases>
   <releases/>
