@@ -439,11 +439,24 @@ public class ValueVectorHandler {
 		return max;
 	}
 	
-	public Objective getObjectiveForHeadline(String headlineEntry){
+
+	/**
+	 * helper variable only needed in the method below. 
+	 */
+	private static boolean hasNotifiedAboutEquivalentCost = false; 	
+	
+		public Objective getObjectiveForHeadline(String headlineEntry){
 		
 		// check cache 
 		for (Objective objective : this.objectiveCache) {
 			if (objective.getName().equals(headlineEntry)){
+				return objective;
+			}
+			if (objective.getName().contains("cost") && headlineEntry.contains("cost")){
+				if (!hasNotifiedAboutEquivalentCost){
+					System.out.println("Warning: handling "+ objective.getName() +" and "+headlineEntry+" as equivalent, change ValueVector line 450 if not wanted anymore.");
+					hasNotifiedAboutEquivalentCost = true;
+				}
 				return objective;
 			}
 		}

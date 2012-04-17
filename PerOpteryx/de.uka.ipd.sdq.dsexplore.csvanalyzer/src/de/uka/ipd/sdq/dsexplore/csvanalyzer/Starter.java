@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.dsexplore.csvanalyzer;
 
-import java.io.BufferedReader;
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -28,14 +28,10 @@ import java.util.Random;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
-import javax.management.RuntimeErrorException;
-
 import org.opt4j.core.Objective;
 import org.opt4j.core.Objectives;
 import org.opt4j.core.Value;
-import org.opt4j.core.Objective.Sign;
 import org.opt4j.core.domination.ParetoDomination;
-import org.opt4j.genotype.ListGenotype;
 
 import de.uka.ipd.sdq.dsexplore.csvanalyzer.ValueVector.ORIGIN;
 import de.uka.ipd.sdq.dsexplore.helper.Pair;
@@ -65,8 +61,18 @@ public class Starter {
 	 * Do not forget the trailing backslash.
 	 */
 	
-	private static final String PATH_RUNS_B = "C:\\Hybrid-experiments\\hybrid graphicalOnly 3D\\pure evol\\";
-	private static final String PATH_RUNS_A = "C:\\Hybrid-experiments\\hybrid graphicalOnly 3D\\hybrid\\";
+	// 3D
+//	private static final String PATH_RUNS_B = "C:\\Hybrid-experiments\\hybrid graphicalOnly 3D\\pure evol\\";
+//	private static final String PATH_RUNS_A = "C:\\Hybrid-experiments\\hybrid graphicalOnly 3D\\hybrid\\";
+	
+	// performance and costs
+//	private static final String PATH_RUNS_B = "C:\\Hybrid-experiments\\hybrid graphicalOnly perf costs\\pure evol\\";
+//	private static final String PATH_RUNS_A = "C:\\Hybrid-experiments\\hybrid graphicalOnly perf costs\\hybrid\\";
+
+	// reliability and costs
+	private static final String PATH_RUNS_B = "C:\\Hybrid-experiments\\hybrid graphicalOnly rel costs\\pure evol\\";
+	private static final String PATH_RUNS_A = "C:\\Hybrid-experiments\\hybrid graphicalOnly rel costs\\hybrid\\";
+	
 	
 	
 	// evaluation diss BRS
@@ -173,7 +179,7 @@ public class Starter {
 
 
 	private static final int START_ITERATION = 0;
-	private static final int FINAL_ITERATION = Integer.MAX_VALUE; // final iteration = Integer.maxvalue means as far as data is available
+	private static final int FINAL_ITERATION = 200; //Integer.MAX_VALUE; // final iteration = Integer.maxvalue means as far as data is available
 
 	private static final String FILENAME_REGEXP_PREFIX = "archiveCandidates";
 	private static final String FILENAME_REGEXP_PREFIX_ALL_CANDIDATES = "allCandidates";
@@ -266,14 +272,20 @@ public class Starter {
 		
 		//printMaxValues();
 		
-		printHypervolumeDifferenceOfLastIteration();
+		//printHypervolumeDifferenceOfLastIteration();
 		
 		//printHypervolumeStatisticsForIteration(21);
 		//printHypervolumeIndicatorForIteration(200);
 		//printHypervolumeDifferenceForIteration(24);
 		
+		//printHypervolumeForAllIterations();
+		printHypervolumeDifferenceForAllIterations();
+		
+		// mean, min, max, variance for all iterations
 		//printCoverageStatisticsForAllIterations();
-		printCoverageOfLastIterations();
+		//printCoverageOfLastIterations();
+		
+		//printCoverageForAllIterations();
 		
 		//printCoverageForGivenIteration(29);
 
@@ -633,7 +645,7 @@ public class Starter {
 	 * Print the hypervolume for all iterations.
 	 */
 	private static void printHypervolumeForAllIterations() {
-		// Print the coverage for all iterations between START_ITERATION and
+		// Print the hypervolume for all iterations between START_ITERATION and
 		// FINAL_ITERATION
 		// of the given runs.
 		System.out.println(ValueVector.ORIGIN.A + ": " + PATH_RUNS_A);
@@ -683,18 +695,24 @@ public class Starter {
 		List<Collection<ValueVector>> resultsOfAllRunsA = new ArrayList<Collection<ValueVector>>(RUNS.length);
 		List<Collection<ValueVector>> resultsOfAllRunsB = new ArrayList<Collection<ValueVector>>(RUNS.length);
 		
-		for (int j = 0; j <= RUNS.length -1; j++) {
-			int run = RUNS[j];
-			
-			// first pair element will contain front of run A, second of run B
-			Pair<Collection<ValueVector>,Collection<ValueVector>> frontsToCompare = getFrontsToCompare(iteration, run, handler);
+		try {
 
-			//nur zur info wie groﬂ front
-			getFrontsToCompare(0, run, handler);
-			
-			resultsOfAllRunsA.add(frontsToCompare.getFirst());
-			resultsOfAllRunsB.add(frontsToCompare.getSecond());
+			for (int j = 0; j <= RUNS.length -1; j++) {
+				int run = RUNS[j];
+
+				// first pair element will contain front of run A, second of run B
+				Pair<Collection<ValueVector>,Collection<ValueVector>> frontsToCompare = getFrontsToCompare(iteration, run, handler);
+
+				//nur zur info wie groﬂ front
+				//getFrontsToCompare(0, run, handler);
+
+				resultsOfAllRunsA.add(frontsToCompare.getFirst());
+				resultsOfAllRunsB.add(frontsToCompare.getSecond());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		
 		
 		Objectives constraints = determineOverallReferencePointForHypervolume(
 				resultsOfAllRunsA, resultsOfAllRunsB);
@@ -777,7 +795,7 @@ public class Starter {
 				ValueVector.ORIGIN.B);
 		frontsToCompare.setSecond(setB);
 		
-		System.out.println("Comparing iteration "+iteration+" with iteration "+iterationForB+", desired "+numberOfEvaluationsInA+" evaluations.");
+		//System.out.println("Comparing iteration "+iteration+" with iteration "+iterationForB+", desired "+numberOfEvaluationsInA+" evaluations.");
 		
 		return frontsToCompare;
 	}
