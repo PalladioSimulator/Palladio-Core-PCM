@@ -1,6 +1,0 @@
-
-The problematic point is the specification of alternative Tasks. In our example, we had the Tasks A and A', amongst others. I first thought about introducing a subclass of Task that can refer to its original Task, and which does not specify any Edges itself, because it just replaces the Task. 
-
-However, in this way the probability of execution of different Tasks cannot change in an alternative. Additionally, the calculations your student has to do might be more difficult, because the traversing of the graph becomes more difficult. 
-
-So, the additional idea is to specify different sets of Edges in the model. Each graph would have several sets of Edges, one set for each alternative. A consequence is that the Edges cannot be defined as a successor property of a Task taskA.successor = taskB, but we need a separate Edge concept like edge(taskA, taskB). This makes the traversing of the graph again more difficult, I guess. 
