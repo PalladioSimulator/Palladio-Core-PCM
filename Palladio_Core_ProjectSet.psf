@@ -235,7 +235,6 @@
 <item elementID="=de.uka.ipd.sdq.dsexplore.qml" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=de.uka.ipd.sdq.pcm.cost.editor" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSets>
-</workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1313754662256_15" label="ProbFunction" name="ProbFunction">
 <item elementID="=de.uka.ipd.sdq.probfunction" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/de.uka.ipd.sdq.probfunction.feature" type="4"/>
