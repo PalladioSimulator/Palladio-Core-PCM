@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_rzzAsHJ0Ed2efr_U4e1c6Q" entityName="defaultRepository">
+<Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0" xmlns:_1="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_rzzAsHJ0Ed2efr_U4e1c6Q" entityName="defaultRepository">
   <components__Repository xsi:type="BasicComponent" id="_us3fkHJ0Ed2efr_U4e1c6Q" entityName="HardDiskModel">
-    <providedRoles_InterfaceProvidingEntity id="_A9RU0HJ1Ed2efr_U4e1c6Q" entityName="Provided_IHardDiskAccess_aName" providedInterface__ProvidedRole="_vfrckHJ0Ed2efr_U4e1c6Q"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="OperationProvidedRole" id="_A9RU0HJ1Ed2efr_U4e1c6Q" entityName="Provided_IHardDiskAccess_aName" providedInterface__OperationProvidedRole="_vfrckHJ0Ed2efr_U4e1c6Q"/>
     <componentParameterUsage_ImplementationComponentType>
       <variableCharacterisation_VariableUsage type="VALUE">
         <specification_VariableCharacterisation specification="48*1024"/>
       </variableCharacterisation_VariableUsage>
-      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="seekSize"/>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="seekSize"/>
     </componentParameterUsage_ImplementationComponentType>
     <componentParameterUsage_ImplementationComponentType>
       <variableCharacterisation_VariableUsage type="VALUE">
         <specification_VariableCharacterisation specification="1"/>
       </variableCharacterisation_VariableUsage>
-      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="fragmented"/>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fragmented"/>
     </componentParameterUsage_ImplementationComponentType>
     <componentParameterUsage_ImplementationComponentType>
       <variableCharacterisation_VariableUsage type="VALUE">
         <specification_VariableCharacterisation specification="8.9"/>
       </variableCharacterisation_VariableUsage>
-      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="seekTime"/>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="seekTime"/>
     </componentParameterUsage_ImplementationComponentType>
-    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_A9RU0XJ1Ed2efr_U4e1c6Q" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+    <serviceEffectSpecifications__BasicComponent xsi:type="_1:ResourceDemandingSEFF" id="_A9RU0XJ1Ed2efr_U4e1c6Q" describedService__SEFF="//@interfaces__Repository.0/@signatures__OperationInterface.0">
       <steps_Behaviour xsi:type="_1:StartAction" id="_A-KFoHJ1Ed2efr_U4e1c6Q" successor_AbstractAction="_ZDv6sHJ3Ed2efr_U4e1c6Q"/>
       <steps_Behaviour xsi:type="_1:StopAction" id="_A-KFoXJ1Ed2efr_U4e1c6Q" predecessor_AbstractAction="_ZDv6sHJ3Ed2efr_U4e1c6Q"/>
       <steps_Behaviour xsi:type="_1:LoopAction" id="_ZDv6sHJ3Ed2efr_U4e1c6Q" entityName="number of seeks" predecessor_AbstractAction="_A-KFoHJ1Ed2efr_U4e1c6Q" successor_AbstractAction="_A-KFoXJ1Ed2efr_U4e1c6Q">
@@ -49,14 +49,14 @@
       <capacity_PassiveResource specification="1"/>
     </passiveResource_BasicComponent>
   </components__Repository>
-  <interfaces__Repository id="_vfrckHJ0Ed2efr_U4e1c6Q" entityName="IHardDiskAccess">
-    <signatures__Interface serviceName="read">
-      <parameters__Signature parameterName="data">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.5"/>
-      </parameters__Signature>
-      <parameters__Signature parameterName="numberOfThreads">
-        <datatype__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@datatypes_Repository.0"/>
-      </parameters__Signature>
-    </signatures__Interface>
+  <interfaces__Repository xsi:type="OperationInterface" id="_vfrckHJ0Ed2efr_U4e1c6Q" entityName="IHardDiskAccess">
+    <signatures__OperationInterface entityName="read">
+      <parameters__OperationSignature parameterName="data">
+        <dataType__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.5"/>
+      </parameters__OperationSignature>
+      <parameters__OperationSignature parameterName="numberOfThreads">
+        <dataType__Parameter xsi:type="PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+      </parameters__OperationSignature>
+    </signatures__OperationInterface>
   </interfaces__Repository>
 </Repository>
