@@ -20,12 +20,46 @@ for /f %%a IN ('dir /b *.allocation') do (
  sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/Allocation\/4.0/sdq.ipd.uka.de\/PalladioComponentModel\/Allocation\/5.0/g" %%a
 )
 
-for /f %%a IN ('dir /b *.repository *.system') do (
+for /f %%a IN ('dir /b *.repository') do (
 
   sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/Core\/Composition\/4.0/sdq.ipd.uka.de\/PalladioComponentModel\/Core\/Composition\/5.0/g" %%a
   sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/Repository\/4.0/sdq.ipd.uka.de\/PalladioComponentModel\/Repository\/5.0/g" %%a
   sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/SEFF\/4.0/sdq.ipd.uka.de\/PalladioComponentModel\/SEFF\/5.0/g" %%a
   sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/System\/4.0/sdq.ipd.uka.de\/PalladioComponentModel\/System\/5.0/g" %%a
+  sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/Reliability\/4.0/sdq.ipd.uka.de\/PalladioComponentModel\/Reliability\/5.0/g" %%a
+
+)
+
+for /f %%a IN ('dir /b *.system') do (
+
+  sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/Core\/Composition\/4.0/sdq.ipd.uka.de\/PalladioComponentModel\/Core\/Composition\/5.0/g" %%a
+  sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/System\/4.0/sdq.ipd.uka.de\/PalladioComponentModel\/System\/5.0/g" %%a
+  sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/Repository\/4.0/sdq.ipd.uka.de\/PalladioComponentModel\/Repository\/5.0/g" %%a
+  
+  sed -i "s/assemblyContexts_ComposedStructure/assemblyContexts__ComposedStructure/g" %%a
+
+  sed -i "s/encapsulatedComponent_AssemblyContext/encapsulatedComponent__AssemblyContext/g" %%a
+
+  sed -i "s/configParameterUsages_AssemblyContext/configParameterUsages__AssemblyContext/g" %%a
+
+  sed -i "s/XMLSchema-instance\"/XMLSchema-instance\" xmlns:composition=\"http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0\"/g" %%a
+
+  sed -i "s/assemblyConnectors_ComposedStructure id/connectors__ComposedStructure xsi:type=\"composition:AssemblyConnector\" id/g" %%a
+
+  sed -i "s/providedDelegationConnectors_ComposedStructure id/connectors__ComposedStructure xsi:type=\"composition:ProvidedDelegationConnector\" id/g" %%a
+
+  sed -i "s/providedDelegationConnectors_ComposedStructure/connectors__ComposedStructure/g" %%a
+ 
+  sed -i "s/requiredDelegationConnectors_ComposedStructure id/connectors__ComposedStructure xsi:type=\"composition:RequiredDelegationConnector\" id/g" %%a
+
+  sed -i "s/requiredDelegationConnectors_ComposedStructure/connectors__ComposedStructure/g" %%a
+
+  sed -i "s/assemblyConnectors_ComposedStructure/connectors__ComposedStructure/g" %%a
+
+  sed -i "s/QoSAnnotations\/Performance/QoSAnnotations\/QoS_Performance/g" %%a
+  sed -i "s/QoSAnnotations\/Reliability/QoSAnnotations\/QoS_Reliability/g" %%a
+  sed -i "s/SEFF\/Performance/SEFF\/SEFF_Performance/g" %%a
+  sed -i "s/SEFF\/Reliability/SEFF\/SEFF_Reliability/g" %%a
 
 )
 
