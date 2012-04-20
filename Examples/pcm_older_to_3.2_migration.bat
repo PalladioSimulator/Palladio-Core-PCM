@@ -31,13 +31,17 @@ sed -i "s/__Signature>/__OperationSignature>/g" %%a
 sed -i "s/__Signature=/__OperationSignature=/g" %%a
 
 sed -i "s/returntype/returnType/g" %%a
+
+sed -i "s/childComponentContext/assemblyContext/g" %%a
+sed -i "s/_ChildComponentContext/__AssemblyContext xsi:type=\"repository:BasicComponent\"/g" %%a
+
 )
 
 for /f %%a IN ('dir /b *.system') do (
 
-sed -i "s/providedRoles_InterfaceProvidingEntity id/providedRoles_InterfaceProvidingEntity xsi:type=\"_1:OperationProvidedRole\" id/g" %%a
+sed -i "s/providedRoles_InterfaceProvidingEntity id/providedRoles_InterfaceProvidingEntity xsi:type=\"repository:OperationProvidedRole\" id/g" %%a
 
-sed -i "s/requiredRoles_InterfaceRequiringEntity id/requiredRoles_InterfaceRequiringEntity  xsi:type=\"_1:OperationRequiredRole\" id/g" %%a
+sed -i "s/requiredRoles_InterfaceRequiringEntity id/requiredRoles_InterfaceRequiringEntity  xsi:type=\"repository:OperationRequiredRole\" id/g" %%a
 
 sed -i "s/__ProvidedRole/__OperationProvidedRole/g" %%a
 
@@ -53,6 +57,11 @@ sed -i "s/serviceName/entityName/g" %%a
 sed -i "s/__Signature /__OperationSignature /g" %%a
 sed -i "s/__Signature>/__OperationSignature>/g" %%a
 sed -i "s/__Signature=/__OperationSignature=/g" %%a
+
+sed -i "s/childComponentContext/assemblyContext/g" %%a
+sed -i "s/_ChildComponentContext/__AssemblyContext xsi:type=\"repository:BasicComponent\"/g" %%a
+
+sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/System\/..0/sdq.ipd.uka.de\/PalladioComponentModel\/System\/4.0\" xmlns:composition=\"http:\/\/sdq.ipd.uka.de\/PalladioComponentModel\/Core\/Composition\/4.0\" xmlns:repository=\"http:\/\/sdq.ipd.uka.de\/PalladioComponentModel\/Repository\/4.0/g" %%a
 
 )
 
