@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
 import java.awt.Color;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,18 +11,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
-import javax.measure.unit.UnitFormat;
 
 import org.eclipse.ui.IMemento;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.NumberTickUnit;
 import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.labels.StandardXYItemLabelGenerator;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYBarRenderer;
-import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
 import org.jfree.ui.TextAnchor;
@@ -35,7 +31,6 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
-import de.uka.ipd.sdq.edp2.visualization.properties.IProperty;
 
 /**
  * @author Dominik Ernst
@@ -73,7 +68,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	private boolean showItemValues;
 
 	/**
-	 * Wheter to use absolute frequency or relative frequency for the chart.
+	 * Whether to use absolute frequency or relative frequency for the chart.
 	 * NOTE: this does affect other input items as well, but is specific for
 	 * histograms, thus it is located here.
 	 */
@@ -295,10 +290,14 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getChart()
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getChart
+	 * ()
 	 */
 	public JFreeChart getChart() {
-		//create the axes for the chart; if an axis is not to be displayed, it must be null
+		// create the axes for the chart; if an axis is not to be displayed, it
+		// must be null
 		NumberAxis domainAxis = new NumberAxis(getBasicDataset().getHandle()
 				.isShowDomainAxisLabel() ? getBasicDataset().getHandle()
 				.getDomainAxisLabel() : null);
@@ -311,33 +310,41 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		plot = new XYPlot();
 		plot.setDataset(getBasicDataset().getDataset());
 
-		//the renderer for the chart
+		// the renderer for the chart
 		renderer = new XYBarRenderer();
 		plot.setRenderer(renderer);
 		plot.setRangeAxis(rangeAxis);
 		plot.setDomainAxis(domainAxis);
-		
-		//modifiy the colors of the data series, if there are persisted color properties
+
+		// modifiy the colors of the data series, if there are persisted color
+		// properties
 		for (int i = 0; i < getBasicDataset().getSeriesProperties().length; i++) {
 			if ((getBasicDataset().getSeriesProperties()[i]
 					.get(JFreeChartEditorInput.COLOR_KEY) != null)
 					&& !getBasicDataset().getSeriesProperties()[i]
 							.get(JFreeChartEditorInput.COLOR_KEY).toString()
-							.equals(NO_COLOR))
-				renderer.setSeriesPaint(i, Color.decode(getBasicDataset()
+							.equals(NO_COLOR)){
+				Color opaque = Color.decode(getBasicDataset()
 						.getSeriesProperties()[i].get(
-						JFreeChartEditorInput.COLOR_KEY).toString()));
+						JFreeChartEditorInput.COLOR_KEY).toString());
+				float alpha = Float.parseFloat(getBasicDataset().getSeriesProperties()[i]
+						.get(JFreeChartEditorInput.ALPHA_KEY).toString());
+				float[] comp = opaque.getRGBColorComponents(null);
+				Color col = new Color(comp[0], comp[1], comp[2], alpha);
+				renderer.setSeriesPaint(i, col);
+			}
 		}
 
-		//absolute or relative frequency
+		// absolute or relative frequency
 		getBasicDataset().getDataset().setType(
 				isAbsoluteFrequency() ? HistogramType.FREQUENCY
 						: HistogramType.RELATIVE_FREQUENCY);
-		//margin is the relative space of each bar, which remains uncolored
-		//NOTE: this prevents a clear visibility of the bins' upper / lower bounds
+		// margin is the relative space of each bar, which remains uncolored
+		// NOTE: this prevents a clear visibility of the bins' upper / lower
+		// bounds
 		renderer.setMargin(getBarMargin() / 100);
 
-		//show values on each bar in the histogram if the property is set
+		// show values on each bar in the histogram if the property is set
 		renderer.setBaseItemLabelGenerator(new StandardXYItemLabelGenerator());
 		renderer.setBaseItemLabelPaint(Color.BLACK);
 		renderer.setBasePositiveItemLabelPosition(new ItemLabelPosition());
@@ -345,7 +352,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 				ItemLabelAnchor.OUTSIDE12, TextAnchor.TOP_CENTER));
 		renderer.setBaseItemLabelsVisible(isShowItemValues());
 
-		//finally, create the chart using the plot
+		// finally, create the chart using the plot
 		chart = new JFreeChart(
 				getBasicDataset().getHandle().isShowTitle() ? getBasicDataset()
 						.getHandle().getTitle() : null,
@@ -356,6 +363,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#getData()
 	 */
 	@Override
@@ -365,7 +373,10 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#createCopyForSource(de.uka.ipd.sdq.edp2.visualization.AbstractDataSource)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataSink#createCopyForSource(de.uka
+	 * .ipd.sdq.edp2.visualization.AbstractDataSource)
 	 */
 	@Override
 	public HistogramEditorInput createCopyForSource(AbstractDataSource source) {
@@ -375,7 +386,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getBasicDataset()
+	 * 
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#
+	 * getBasicDataset()
 	 */
 	@Override
 	public BasicDataset<HistogramDataset> getBasicDataset() {
@@ -384,15 +397,19 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#getDataTypeInstance()
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#getDataTypeInstance
+	 * ()
 	 */
 	@Override
 	public HistogramDataset getDataTypeInstance() {
 		return new HistogramDataset();
 	}
-	
+
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#getName()
 	 */
 	@Override
@@ -402,7 +419,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getDefaultTitle()
+	 * 
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#
+	 * getDefaultTitle()
 	 */
 	@Override
 	public String getDefaultTitle() {
@@ -411,7 +430,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getDefaultDomainAxisLabel()
+	 * 
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#
+	 * getDefaultDomainAxisLabel()
 	 */
 	@Override
 	public String getDefaultDomainAxisLabel() {
@@ -423,7 +444,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getDefaultRangeAxisLabel()
+	 * 
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#
+	 * getDefaultRangeAxisLabel()
 	 */
 	@Override
 	public String getDefaultRangeAxisLabel() {

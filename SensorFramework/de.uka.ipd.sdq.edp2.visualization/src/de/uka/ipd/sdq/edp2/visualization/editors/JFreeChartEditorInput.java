@@ -14,8 +14,10 @@ import org.jfree.data.general.AbstractSeriesDataset;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 
 /**
- * Basic implementation of an {@link IVisualizationInput} for the {@link JFreeChartEditor}.
- * Responsible for common properties of any subclass of {@link JFreeChartEditorInput}.
+ * Basic implementation of an {@link IVisualizationInput} for the
+ * {@link JFreeChartEditor}. Responsible for common properties of any subclass
+ * of {@link JFreeChartEditorInput}.
+ * 
  * @author Dominik Ernst
  * 
  */
@@ -26,20 +28,29 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 * Keys used for persistence of properties.
 	 */
 	public static final String COLOR_KEY = "color";
-	
+	public final static String ALPHA_KEY = "alpha";
+
 	/**
-	 * Constant, describing that no color is used for this input (actually, it is white).
+	 * Constant, describing that no color is used for this input (actually, it
+	 * is white).
 	 */
 	public final static String NO_COLOR = "#ffffff";
-	
 	/**
 	 * Color for this {@link JFreeChartEditorInput}'s data in the graph.
 	 */
 	private String hexColor;
-	
-	public JFreeChartEditorInput(){
-		properties.put(COLOR_KEY, NO_COLOR);
+	/**
+	 * The alpha value for this {@link JFreeChartEditorInput}'s color.
+	 */
+	private float alpha;
+
+	public JFreeChartEditorInput() {
+		//set default values
 		setColor(NO_COLOR);
+		setAlpha(1.0f);
+		//add to properties
+		properties.put(COLOR_KEY, NO_COLOR);
+		properties.put(ALPHA_KEY, getAlpha());
 	}
 
 	/*
@@ -77,7 +88,9 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	/**
 	 * Generic method which returns a typed instance of the wrapper for datasets
 	 * used by JFreeCharts.
-	 * @param handle reference to the handle for all inputs
+	 * 
+	 * @param handle
+	 *            reference to the handle for all inputs
 	 * @return a typed Dataset
 	 */
 	public abstract <T extends AbstractSeriesDataset> BasicDataset<T> getBasicDataset();
@@ -86,31 +99,49 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 		return hexColor;
 	}
 
-	public void setColor(String color){
+	public void setColor(String color) {
 		Color col = Color.decode(color);
 		setColor(col);
 	}
+
 	public void setColor(Color color) {
-		this.hexColor = "#"+Integer.toHexString(color.getRGB()).substring(2);
+		this.hexColor = "#" + Integer.toHexString(color.getRGB()).substring(2);
 	}
-	
+
 	/**
-	 * Method to return a default-title for the specific chart as provided by sub-classes.
-	 * Typically used during chart creation in {@link #getChart()}.
+	 * Method to return a default-title for the specific chart as provided by
+	 * sub-classes. Typically used during chart creation in {@link #getChart()}.
+	 * 
 	 * @return a {@link String} used as the default chart title.
 	 */
 	public abstract String getDefaultTitle();
-	
+
 	/**
 	 * Return a default label for the domain axis / horizontal axis.
+	 * 
 	 * @return a {@link String} used as the default label for the domain axis.
 	 */
 	public abstract String getDefaultDomainAxisLabel();
-	
+
 	/**
 	 * Return a default label for the range axis / vertical axis.
+	 * 
 	 * @return a {@link String} used as the default label for the range axis.
 	 */
 	public abstract String getDefaultRangeAxisLabel();
+
+	public float getAlpha() {
+		return alpha;
+	}
+
+	public void setAlpha(float alpha) {
+		if (alpha < 0) {
+			this.alpha = 0.0f;
+		} else if (alpha > 1) {
+			this.alpha = 1.0f;
+		} else {
+			this.alpha = alpha;
+		}
+	}
 
 }
