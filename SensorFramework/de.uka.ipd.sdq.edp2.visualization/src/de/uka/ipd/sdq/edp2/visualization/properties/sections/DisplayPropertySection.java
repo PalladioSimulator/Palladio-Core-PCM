@@ -1,12 +1,10 @@
 package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
+import java.awt.Color;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.eclipse.jface.viewers.CellEditor;
-import org.eclipse.jface.viewers.CheckboxCellEditor;
-import org.eclipse.jface.viewers.ColorCellEditor;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -16,20 +14,15 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
-import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
-import java.awt.Checkbox;
-import java.awt.Color;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.ColorDialog;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
@@ -52,21 +45,21 @@ import de.uka.ipd.sdq.edp2.visualization.Activator;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
-import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 
 /**
- * GUI controls for displaying options of {@link AbstractEditor}s. Shows and
+ * GUI controls for displaying options of {@link JFreeChartEditor}s. Shows and
  * allows to edit visual settings of the current Editor in the Eclipse
- * Properties View if an {@link AbstractEditor} is the currently active editor.
+ * Properties View if an {@link JFreeChartEditor} is the currently active editor.
  * 
  * @author Roland Richter, Dominik Ernst
  * 
  */
 public class DisplayPropertySection implements ISelectionChangedListener,
 		ISection {
+
 	/** Logger */
 	private static Logger logger = Logger
 			.getLogger(DisplayPropertySection.class.getCanonicalName());
@@ -84,7 +77,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	/**
 	 * The last active editor;
 	 */
-	private AbstractEditor editor;
+	private JFreeChartEditor editor;
 	/**
 	 * A tree, which contains the editor's inputs and their transformations (as
 	 * children)
@@ -197,7 +190,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				int index = visualPropertiesTable.getTopIndex();
 				while (index < visualPropertiesTable.getItemCount()) {
 					boolean visible = false;
-					final TableItem item = visualPropertiesTable.getItem(index);
+					TableItem item = visualPropertiesTable.getItem(index);
 					// look if the mouse event is in the editable column
 					Rectangle rect = item.getBounds(editColumn);
 					if (rect.contains(pt)) {
@@ -211,11 +204,11 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 								HistogramEditorInput.ABSOLUTE_FREQUENCY_KEY)
 								|| (item.getText(labelColumn)
 										.equals(HistogramEditorInput.SHOW_ITEM_VALUES_KEY))) {
-							openBooleanDialog(item, visualPropertiesTable);
+							openBooleanDialog(index);
 						}
 						// textual properties
 						else {
-							openTextDialog(item, visualPropertiesTable);
+							openTextDialog(index);
 						}
 						refreshPropertiesTable();
 						return;
@@ -232,8 +225,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 
 	}
 
-	protected void openTextDialog(final TableItem item,
-			Table visualPropertiesTable) {
+	protected void openTextDialog(final int index) {
 		final TableEditor editor = new TableEditor(visualPropertiesTable);
 		editor.horizontalAlignment = SWT.LEFT;
 		editor.grabHorizontal = true;
@@ -249,8 +241,8 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				case SWT.Traverse:
 					switch (e.detail) {
 					case SWT.TRAVERSE_RETURN:
-						item.setText(editColumn, text.getText());
-						updateProperties(item.getText(labelColumn),
+						visualPropertiesTable.getItem(index).setText(editColumn, text.getText());
+						updateProperties(visualPropertiesTable.getItem(index).getText(labelColumn),
 								text.getText());
 					case SWT.TRAVERSE_ESCAPE:
 						text.dispose();
@@ -262,25 +254,25 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		};
 		text.addListener(SWT.FocusOut, textListener);
 		text.addListener(SWT.Traverse, textListener);
-		editor.setEditor(text, item, editColumn);
-		text.setText(item.getText(editColumn));
+		editor.setEditor(text, visualPropertiesTable.getItem(index), editColumn);
+		text.setText(visualPropertiesTable.getItem(index).getText(editColumn));
 		text.selectAll();
 		text.setFocus();
 	}
 
-	protected void openBooleanDialog(final TableItem item,
-			Table visualPropertiesTable) {
-		final TableEditor editor = new TableEditor(visualPropertiesTable);
+	protected void openBooleanDialog(final int index) {
+		TableEditor editor = new TableEditor(visualPropertiesTable);
 		editor.horizontalAlignment = SWT.LEFT;
 		editor.grabHorizontal = true;
 		final Combo comboBox = new Combo(visualPropertiesTable, SWT.DROP_DOWN);
 		comboBox.setItems(new String[] { "true", "false" });
-		comboBox.select(item.getText(editColumn).equals("true") ? 0 : 1);
+		//set the currently selected item to the value stored in the cell
+		comboBox.select(visualPropertiesTable.getItem(index).getText(editColumn).equals("true") ? 0 : 1);
 
-		final String key = item.getText(labelColumn);
+		final String key = visualPropertiesTable.getItem(index).getText(labelColumn);
 		comboBox.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				item.setText(editColumn,
+				visualPropertiesTable.getItem(index).setText(editColumn,
 						comboBox.getItem(comboBox.getSelectionIndex()));
 				updateProperties(key,
 						comboBox.getItem(comboBox.getSelectionIndex()));
@@ -299,7 +291,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 
 			}
 		});
-		editor.setEditor(comboBox, item, editColumn);
+		editor.setEditor(comboBox, visualPropertiesTable.getItem(index), editColumn);
 
 	}
 
