@@ -450,7 +450,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	@Override
 	public String getDefaultRangeAxisLabel() {
-		return "Frequency (Absolute)";
+		return "Frequency ["+ (isAbsoluteFrequency() ? "absolute" : "relative") + "]";
 	}
 
 	private boolean isAbsoluteFrequency() {

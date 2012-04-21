@@ -48,11 +48,13 @@ import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandle;
 
 /**
  * GUI controls for displaying options of {@link JFreeChartEditor}s. Shows and
  * allows to edit visual settings of the current Editor in the Eclipse
- * Properties View if an {@link JFreeChartEditor} is the currently active editor.
+ * Properties View if an {@link JFreeChartEditor} is the currently active
+ * editor.
  * 
  * @author Roland Richter, Dominik Ernst
  * 
@@ -225,6 +227,13 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 
 	}
 
+	/**
+	 * Opens a text dialog for editing cells in the
+	 * {@link #visualPropertiesTable} by entering text.
+	 * 
+	 * @param index
+	 *            the row-index of the cell to be edited
+	 */
 	protected void openTextDialog(final int index) {
 		final TableEditor editor = new TableEditor(visualPropertiesTable);
 		editor.horizontalAlignment = SWT.LEFT;
@@ -241,9 +250,10 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				case SWT.Traverse:
 					switch (e.detail) {
 					case SWT.TRAVERSE_RETURN:
-						visualPropertiesTable.getItem(index).setText(editColumn, text.getText());
-						updateProperties(visualPropertiesTable.getItem(index).getText(labelColumn),
-								text.getText());
+						visualPropertiesTable.getItem(index).setText(
+								editColumn, text.getText());
+						updateProperties(visualPropertiesTable.getItem(index)
+								.getText(labelColumn), text.getText());
 					case SWT.TRAVERSE_ESCAPE:
 						text.dispose();
 						e.doit = false;
@@ -260,22 +270,41 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		text.setFocus();
 	}
 
+	/**
+	 * Opens a dropdown ({@link Combo}) for editing cells in the
+	 * {@link #visualPropertiesTable}, which can only have boolean values.
+	 * 
+	 * @param index
+	 *            the row-index of the cell to be edited
+	 */
 	protected void openBooleanDialog(final int index) {
 		TableEditor editor = new TableEditor(visualPropertiesTable);
 		editor.horizontalAlignment = SWT.LEFT;
 		editor.grabHorizontal = true;
 		final Combo comboBox = new Combo(visualPropertiesTable, SWT.DROP_DOWN);
 		comboBox.setItems(new String[] { "true", "false" });
-		//set the currently selected item to the value stored in the cell
-		comboBox.select(visualPropertiesTable.getItem(index).getText(editColumn).equals("true") ? 0 : 1);
+		// set the currently selected item to the value stored in the cell
+		comboBox.select(visualPropertiesTable.getItem(index)
+				.getText(editColumn).equals("true") ? 0 : 1);
 
-		final String key = visualPropertiesTable.getItem(index).getText(labelColumn);
+		final String key = visualPropertiesTable.getItem(index).getText(
+				labelColumn);
 		comboBox.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				visualPropertiesTable.getItem(index).setText(editColumn,
 						comboBox.getItem(comboBox.getSelectionIndex()));
 				updateProperties(key,
 						comboBox.getItem(comboBox.getSelectionIndex()));
+				// if the changed field was the frequency, reset the label of
+				// the range
+				// axis to default
+				if (visualPropertiesTable.getItem(index).getText(labelColumn)
+						.equals(HistogramEditorInput.ABSOLUTE_FREQUENCY_KEY)) {
+					((JFreeChartEditorInputHandle) getInput())
+							.setRangeAxisLabel(((JFreeChartEditorInput) getInput()
+									.getInputs().get(0))
+									.getDefaultRangeAxisLabel());
+				}
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -288,13 +317,21 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				comboBox.dispose();
 				event.doit = false;
 				return;
-
 			}
 		});
-		editor.setEditor(comboBox, visualPropertiesTable.getItem(index), editColumn);
-
+		editor.setEditor(comboBox, visualPropertiesTable.getItem(index),
+				editColumn);
 	}
 
+	/**
+	 * Opens a {@link ColorDialog} to change the color of the last selected
+	 * {@link JFreeChartEditorInput}.
+	 * 
+	 * @param item
+	 *            index the row-index of the cell to be edited
+	 * @param shell
+	 *            the Shell in which the dialog is displayed.
+	 */
 	protected void openColorAndTransparencyDialog(TableItem item, Shell shell) {
 		ColorDialog colorPicker = new ColorDialog(
 				visualPropertiesTable.getShell());
@@ -314,6 +351,10 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 
 	}
 
+	/**
+	 * Update the table containing the properties of the
+	 * {@link #lastSelectedInput}.
+	 */
 	private void refreshPropertiesTable() {
 
 		visualPropertiesTable.clearAll();
