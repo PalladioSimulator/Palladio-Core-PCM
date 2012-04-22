@@ -22,6 +22,7 @@ public class ExperimentRunner {
 	 * is reached
 	 * @param model Simulation model to execute
 	 * @param simTime Maximum simulation time to run the simulation for
+	 * @deprecated Use run(SimuComModel) instead as time is already stored in SimuComModel
 	 */
 	public static double run(SimuComModel model, long simTime) {
 		logger.debug("Setting up experiment runner");
@@ -36,11 +37,21 @@ public class ExperimentRunner {
 	}
 
 	/**
+	 * Run the given simulation model until the given simulation time
+	 * is reached
+	 * @param model Simulation model to execute
+	 * @param simTime Maximum simulation time to run the simulation for
+	 */
+	public static double run(SimuComModel model) {
+		return run(model,model.getConfiguration().getSimuTime());
+	}
+	
+	/**
 	 * @param model
 	 * @param simTime
 	 */
 	private static void setupStopConditions(SimuComModel model, long simTime) {
-		if (model.getConfig().getMaxMeasurementsCount() <= 0 && simTime <= 0) {
+		if (model.getConfiguration().getMaxMeasurementsCount() <= 0 && simTime <= 0) {
 			logger.debug("Deactivating maximum simulation time stop condition per user request");
 			model.getSimulationControl().setMaxSimTime(0); 
 		} else {
