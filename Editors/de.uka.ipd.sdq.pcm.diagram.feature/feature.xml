@@ -277,9 +277,12 @@ litigation.
       <import plugin="de.uka.ipd.sdq.errorhandling"/>
       <import plugin="org.eclipse.osgi.util"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.2.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.editors"/>
       <import plugin="de.uka.ipd.sdq.pcm.dialogs" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.query"/>
+      <import plugin="org.eclipse.ui.editors" version="3.7.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm.gmf.allocation" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.type.core" version="1.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.3.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
