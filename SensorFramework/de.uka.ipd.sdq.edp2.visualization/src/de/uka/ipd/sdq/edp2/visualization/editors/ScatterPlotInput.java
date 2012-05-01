@@ -31,7 +31,6 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
-import de.uka.ipd.sdq.edp2.visualization.properties.IProperty;
 
 /**
  * Input for {@link ScatterPlotEditor} .

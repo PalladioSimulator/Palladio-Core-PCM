@@ -104,6 +104,17 @@
             </property>
          </datasink>
       </defaultSequence>
+      <defaultSequence
+            id="utilization"
+            name="Utilization">
+         <inputMetric
+               UUID="_MenvIiUREd6gmLudJva2Dw"
+               description="2-dimensional data with repeating values">
+         </inputMetric>
+         <datasink
+               sinkID="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditor">
+         </datasink>
+      </defaultSequence>
    </extension>
    <extension
          point="de.uka.ipd.sdq.edp2.visualization.datasink">
@@ -118,6 +129,12 @@
             editor="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
             factory="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInputFactory"
             id="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput">
+      </datasink>
+      <datasink
+            class="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditorInput"
+            editor="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
+            factory="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditorInputFactory"
+            id="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditor">
       </datasink>
    </extension>
 

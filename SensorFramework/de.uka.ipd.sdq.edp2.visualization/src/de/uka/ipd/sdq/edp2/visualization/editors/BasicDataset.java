@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 import org.jfree.chart.ChartColor;
 import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.general.Dataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
 import org.jfree.data.xy.DefaultXYDataset;
@@ -22,8 +24,9 @@ public class BasicDataset<T extends Dataset> {
 	private List<JFreeChartEditorInput> dataSeriesItems;
 	private boolean datasetChanged;
 	private JFreeChartEditorInputHandle handle;
-	
-	private final static Logger logger = Logger.getLogger(BasicDataset.class.getName());
+
+	private final static Logger logger = Logger.getLogger(BasicDataset.class
+			.getName());
 
 	public BasicDataset(T dataset) {
 		this.dataset = dataset;
@@ -61,18 +64,23 @@ public class BasicDataset<T extends Dataset> {
 					hds.addSeries(
 							dataSeriesItems.get(i).getInputName(),
 							(double[]) dataSeriesItems.get(i).getData(),
-							Integer.parseInt(getSeriesProperties()[i].get("numberOfBins")
-									.toString()));
+							Integer.parseInt(getSeriesProperties()[i].get(
+									"numberOfBins").toString()));
 				}
 				dataset = (T) hds;
 			} else if (dataset instanceof DefaultXYDataset) {
-				DefaultXYDataset xyds= new DefaultXYDataset();
+				DefaultXYDataset xyds = new DefaultXYDataset();
 				for (int i = 0; i < dataSeriesItems.size(); i++) {
 					xyds.addSeries(dataSeriesItems.get(i).getInputName(),
 							(double[][]) dataSeriesItems.get(i).getData());
 				}
 				dataset = (T) xyds;
 			}
+		} else if (dataset instanceof PieDataset) {
+			DefaultPieDataset pds = new DefaultPieDataset();
+			pds.setValue("key1", 1.0);
+			pds.setValue("key2", 2.0);
+			dataset = (T) pds;
 		}
 		return dataset;
 	}
@@ -95,7 +103,7 @@ public class BasicDataset<T extends Dataset> {
 	 * are of relevance to the chart as a whole. TODO at the moment simply
 	 * returns all properties.
 	 * 
-	 * @return an array of {@link HashMap}, containing the inputs properties.
+	 * @return an array of {@link HashMap}, containing the inputs' properties.
 	 */
 	public HashMap<String, Object>[] getSeriesProperties() {
 		HashMap<String, Object>[] allProperties = new HashMap[dataSeriesItems

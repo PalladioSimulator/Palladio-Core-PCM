@@ -2,12 +2,25 @@ package de.uka.ipd.sdq.edp2.visualization.editors;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.measure.Measure;
 
 import org.eclipse.ui.IMemento;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.AbstractSeriesDataset;
+import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
+import org.jfree.data.statistics.HistogramDataset;
 
+import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
+import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
+import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
@@ -19,6 +32,10 @@ public class PieChartEditorInput extends JFreeChartEditorInput {
 	 * Name constant, which is used to identify this class in properties and
 	 * persistence.
 	 */
+
+	private final static Logger logger = Logger
+			.getLogger(PieChartEditorInput.class.getCanonicalName());
+
 	private static final String ELEMENT_NAME = "PieChartEditorInput";
 
 	/**
@@ -29,6 +46,8 @@ public class PieChartEditorInput extends JFreeChartEditorInput {
 
 	private boolean showRelativeAmount;
 	private boolean showAbsoluteAmount;
+
+	private double[] data;
 
 	private BasicDataset<PieDataset> dataset;
 
@@ -53,7 +72,7 @@ public class PieChartEditorInput extends JFreeChartEditorInput {
 
 	@Override
 	public boolean canAccept(AbstractDataSource source) {
-		return source.getOutput().size() >= 2;
+		return true;
 	}
 
 	@Override
@@ -96,19 +115,23 @@ public class PieChartEditorInput extends JFreeChartEditorInput {
 
 	@Override
 	public void saveState(IMemento memento) {
-		// TODO Auto-generated method stub
+		PieChartEditorInputFactory.saveState(memento, this);
 	}
 
 	@Override
 	public JFreeChart getChart() {
-		// TODO Auto-generated method stub
-		return null;
+		PiePlot plot = new PiePlot(getBasicDataset().getDataset());
+		plot.setNoDataMessage("No data available.");
+		JFreeChart chart = new JFreeChart(getBasicDataset().getHandle()
+				.isShowTitle() ? getBasicDataset().getHandle().getTitle()
+				: null, JFreeChart.DEFAULT_TITLE_FONT, plot, getBasicDataset()
+				.getHandle().isShowLegend());
+		return chart;
 	}
 
 	@Override
 	public BasicDataset<PieDataset> getBasicDataset() {
-		// TODO Auto-generated method stub
-		return null;
+		return dataset;
 	}
 
 	@Override
@@ -131,19 +154,59 @@ public class PieChartEditorInput extends JFreeChartEditorInput {
 
 	@Override
 	public PieDataset getDataTypeInstance() {
-		// TODO Auto-generated method stub
-		return null;
+		return new DefaultPieDataset();
 	}
 
 	@Override
-	public Object getData() {
-		// TODO Auto-generated method stub
-		return null;
+	public double[] getData() {
+		return data;
 	}
 
 	@Override
 	public void updateInputData() {
-		// TODO Auto-generated method stub
+		logger.log(Level.INFO, "Transformation : BEGIN");
+		DefaultPieDataset defaultDataset = new DefaultPieDataset();
+
+		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
+		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
+		for (DataSeries series : getSource().getOutput()) {
+			listOfDaos.add(MeasurementsUtility
+					.getOrdinalMeasurementsDao(series));
+		}
+		for (OrdinalMeasurementsDao<Measure> dao : listOfDaos) {
+			listOfMeasures.add(dao.getMeasurements());
+		}
+
+		MetricDescription[] metrics = MetricDescriptionUtility
+				.toBaseMetricDescriptions(getSource().getMeasurementsRange()
+						.getMeasurements().getMeasure().getMetric());
+
+		int length = listOfMeasures.get(0).size();
+		
+		double[] rawData = new double[length];
+		for (int i = 0; i < length; i++) {
+			rawData[i] = listOfMeasures.get(0).get(i)
+					.doubleValue(listOfMeasures.get(0).get(i).getUnit());
+		}
+		//TODO count DIFFERENT values and add them to the list
+
+		defaultDataset.setValue("value 1", 1.0);
+		defaultDataset.setValue("value 2", 2.0);
+		/*
+		 * data = new double[listOfMeasures.get(0).size()];
+		 * 
+		 * for (int i = 0; i < listOfMeasures.get(0).size(); i++) { data[i] =
+		 * listOfMeasures.get(0).get(i)
+		 * .doubleValue(listOfMeasures.get(0).get(i).getUnit()); }
+		 */
+
+		if (dataset == null) {
+			dataset = new BasicDataset<PieDataset>(getDataTypeInstance());
+			dataset.addDataSeries(this);
+		}
+		setChanged();
+		notifyObservers();
+		logger.log(Level.INFO, "Transformation : END");
 
 	}
 
