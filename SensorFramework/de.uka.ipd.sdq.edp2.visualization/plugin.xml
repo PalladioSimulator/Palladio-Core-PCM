@@ -91,18 +91,18 @@
                   value="15.0">
             </property>
          </filter>
-         <datasink
-               sinkID="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
-            <property
-                  key="numberOfBins"
-                  name="number of bins"
-                  value="10">
-            </property>
-         </datasink>
          <inputMetric
                UUID="_MenvIiUREd6gmLudJva2Dw"
                description="default combination for 2-dimensional measurements of respnse time">
          </inputMetric>
+         <datasink
+               sinkID="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
+            <property
+                  key="numberOfBins"
+                  name="the number of bins"
+                  value="10">
+            </property>
+         </datasink>
       </defaultSequence>
    </extension>
    <extension

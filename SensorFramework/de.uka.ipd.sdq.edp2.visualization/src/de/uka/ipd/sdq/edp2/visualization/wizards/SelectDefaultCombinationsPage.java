@@ -178,8 +178,8 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		HashMap<String, IVisualizationInput> charts = new HashMap<String, IVisualizationInput>();
 		for (IConfigurationElement e : visualizationExtensions) {
 			try {
-				o = e.createExecutableExtension(CLASS_ATTRIBUTE);
 				id = e.getAttribute(ID_ATTRIBUTE);
+				o = e.createExecutableExtension(CLASS_ATTRIBUTE);
 				charts.put(id, (JFreeChartEditorInput) o);
 			} catch (CoreException e1) {
 				logger

@@ -101,18 +101,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 			.getLogger(HistogramEditorInput.class.getCanonicalName());
 
 	/**
-	 * Renderer for 2D-Bar-Charts.
-	 */
-	private XYBarRenderer renderer;
-	/**
-	 * The plot, containing the data.
-	 */
-	private XYPlot plot;
-	/**
-	 * The chart, in which the plot is rendered.
-	 */
-	private JFreeChart chart;
-	/**
 	 * The dataset required by this input, as a typed instance of
 	 * {@link BasicDataset}
 	 */
@@ -298,6 +286,8 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	public JFreeChart getChart() {
 		// create the axes for the chart; if an axis is not to be displayed, it
 		// must be null
+		XYPlot plot = null;
+		XYBarRenderer renderer = null;
 		NumberAxis domainAxis = new NumberAxis(getBasicDataset().getHandle()
 				.isShowDomainAxisLabel() ? getBasicDataset().getHandle()
 				.getDomainAxisLabel() : null);
@@ -353,7 +343,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		renderer.setBaseItemLabelsVisible(isShowItemValues());
 
 		// finally, create the chart using the plot
-		chart = new JFreeChart(
+		JFreeChart chart = new JFreeChart(
 				getBasicDataset().getHandle().isShowTitle() ? getBasicDataset()
 						.getHandle().getTitle() : null,
 				JFreeChart.DEFAULT_TITLE_FONT, plot, getBasicDataset()

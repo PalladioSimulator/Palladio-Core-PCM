@@ -10,6 +10,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.viewers.ISelection;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.AbstractSeriesDataset;
+import org.jfree.data.general.Dataset;
 
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 
@@ -93,7 +94,7 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 *            reference to the handle for all inputs
 	 * @return a typed Dataset
 	 */
-	public abstract <T extends AbstractSeriesDataset> BasicDataset<T> getBasicDataset();
+	public abstract <T extends Dataset> BasicDataset<T> getBasicDataset();
 
 	public String getColor() {
 		return hexColor;

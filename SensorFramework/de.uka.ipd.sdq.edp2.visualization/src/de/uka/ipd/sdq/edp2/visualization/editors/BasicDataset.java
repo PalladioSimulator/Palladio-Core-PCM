@@ -10,13 +10,14 @@ import java.util.logging.Logger;
 
 import org.jfree.chart.ChartColor;
 import org.jfree.data.general.AbstractSeriesDataset;
+import org.jfree.data.general.Dataset;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.statistics.HistogramType;
 import org.jfree.data.xy.DefaultXYDataset;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.impl.DataSeriesImpl;
 
-public class BasicDataset<T extends AbstractSeriesDataset> {
+public class BasicDataset<T extends Dataset> {
 	private T dataset;
 	private List<JFreeChartEditorInput> dataSeriesItems;
 	private boolean datasetChanged;

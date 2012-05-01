@@ -9,29 +9,20 @@ import java.util.logging.Logger;
 
 import javax.measure.Measure;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExecutableExtension;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IMemento;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
-import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.Measurement;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
-import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
-import de.uka.ipd.sdq.edp2.models.Repository.Repository;
-import de.uka.ipd.sdq.edp2.transformation.adapter.HistogramFrequencyAdapter;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
@@ -39,8 +30,8 @@ import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
 
 /**
  * A WarmupFilter cuts off the first n values of the {@link DataSeries} from
- * {@link AbstractDataSource}. Metrics and other metadata remain untouched. TODO At the
- * moment works with a local copy in local directory.
+ * {@link AbstractDataSource}. Metrics and other metadata remain untouched. TODO
+ * At the moment works with a local copy in local directory.
  * 
  * @author Dominik Ernst, Roland Richter
  * 
@@ -98,7 +89,8 @@ public class WarmupFilter extends AbstractFilter {
 
 	/**
 	 * 
-	 * @param droppedValues the number of dropped values to set (as an absolute value)
+	 * @param droppedValues
+	 *            the number of dropped values to set (as an absolute value)
 	 */
 	public void setDroppedValues(int droppedValues) {
 		this.droppedValues = droppedValues;
@@ -115,7 +107,8 @@ public class WarmupFilter extends AbstractFilter {
 
 	/**
 	 * 
-	 * @param droppedValuesPercentage the number of dropped values to set (as an absolute value)
+	 * @param droppedValuesPercentage
+	 *            the number of dropped values to set (as an absolute value)
 	 */
 	public void setDroppedValuesPercentage(float droppedValuesPercentage) {
 		this.droppedValuesPercentage = droppedValuesPercentage;
@@ -129,7 +122,8 @@ public class WarmupFilter extends AbstractFilter {
 	};
 
 	/**
-	 * Default constructor 
+	 * Default constructor
+	 * 
 	 * @param source
 	 */
 	public WarmupFilter(AbstractDataSource source) {
@@ -223,8 +217,8 @@ public class WarmupFilter extends AbstractFilter {
 		Measurements measurements = RepositoryUtility
 				.createMeasurements(edp2measure);
 		// copy measurementsRange from source using the new measurements
-		measurementsRange = RepositoryUtility.copyMeasurementsRange(source
-				.getMeasurementsRange(), measurements);
+		measurementsRange = RepositoryUtility.copyMeasurementsRange(
+				source.getMeasurementsRange(), measurements);
 
 		// create new RawMeasurements, connected to the new measurements via the
 		// measurementsRange
@@ -296,22 +290,28 @@ public class WarmupFilter extends AbstractFilter {
 		return properties;
 	}
 
-
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#setProperties(java.util.HashMap)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataFlow#setProperties(java.util.HashMap
+	 * )
 	 */
 	public void setProperties(HashMap<String, Object> newProperties) {
-		if (validProperties(newProperties, DROPPED_VALUES_ABS_KEY))
-			setDroppedValues(Integer.parseInt(newProperties.get(DROPPED_VALUES_ABS_KEY)
-					.toString()));
-		else
+		if (validProperties(newProperties, DROPPED_VALUES_ABS_KEY)) {
+			setDroppedValues(Integer.parseInt(newProperties.get(
+					DROPPED_VALUES_ABS_KEY).toString()));
+		} else {
 			setDroppedValues(DEFAULT_VALUE_DROPPED_VALUES_ABS);
-		if (validProperties(newProperties, DROPPED_VALUES_REL_KEY))
+		}
+		if (validProperties(newProperties, DROPPED_VALUES_REL_KEY)) {
 			setDroppedValuesPercentage(Float.parseFloat(newProperties.get(
 					DROPPED_VALUES_REL_KEY).toString()));
-		else
+			logger.log(Level.INFO, newProperties.get(DROPPED_VALUES_REL_KEY)
+					.toString());
+		} else {
 			setDroppedValuesPercentage(DEFAULT_VALUE_DROPPED_VALUES_REL);
+		}
 	}
 
 	/*
@@ -333,6 +333,11 @@ public class WarmupFilter extends AbstractFilter {
 	public void update(Observable o, Object arg) {
 		transformData();
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#createCopyForSource(de.uka.ipd.sdq.edp2.visualization.AbstractDataSource)
+	 */
 	public IDataSink createCopyForSource(AbstractDataSource source) {
 		WarmupFilter copy = new WarmupFilter();
 		copy.setSource(source);

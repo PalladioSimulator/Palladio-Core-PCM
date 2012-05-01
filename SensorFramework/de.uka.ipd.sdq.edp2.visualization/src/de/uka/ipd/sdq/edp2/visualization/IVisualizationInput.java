@@ -71,7 +71,7 @@ public abstract class IVisualizationInput extends Observable implements
 	 * @return a new Instance of the data type, which is required to display the
 	 *         data of this {@link IVisualizationInput}.
 	 */
-	public abstract <T extends AbstractSeriesDataset> T getDataTypeInstance();
+	public abstract Object getDataTypeInstance();
 
 	/**
 	 * Returns the Data in a Form that they can be wrapped by the type provided
