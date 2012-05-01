@@ -20,6 +20,7 @@ import org.jfree.chart.renderer.xy.DefaultXYItemRenderer;
 import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.statistics.HistogramDataset;
 import org.jfree.data.xy.DefaultXYDataset;
+import org.jfree.data.xy.XYDataset;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
@@ -37,7 +38,7 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
  * 
  * @author Dominik Ernst, Roland Richter
  */
-public class ScatterPlotInput extends JFreeChartEditorInput {
+public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 
 	/**
 	 * Name constant, which is used to identify this class in properties.
@@ -148,8 +149,8 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 
 	@Override
 	public JFreeChart getChart() {
-		NumberAxis domainAxis = new NumberAxis(getBasicDataset().getHandle()
-				.isShowDomainAxisLabel() ? getBasicDataset().getHandle()
+		NumberAxis domainAxis = new NumberAxis(getHandle()
+				.isShowDomainAxisLabel() ? getHandle()
 				.getDomainAxisLabel() : null);
 		domainAxis.setAutoRangeIncludesZero(getBasicDataset().getHandle()
 				.isIncludeZero());
@@ -239,11 +240,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public BasicDataset<DefaultXYDataset> getBasicDataset() {
-		return dataset;
-	}
-
-	@Override
 	public String getName() {
 		return ELEMENT_NAME;
 	}
@@ -253,7 +249,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 		return "Scatterplot";
 	}
 
-	@Override
 	public String getDefaultDomainAxisLabel() {
 		return MetricDescriptionUtility.toBaseMetricDescriptions(getSource()
 				.getMeasurementsRange().getMeasurements().getMeasure()
@@ -261,11 +256,15 @@ public class ScatterPlotInput extends JFreeChartEditorInput {
 				+ " [" + getDefaultUnits()[0].toString() + "]";
 	}
 
-	@Override
 	public String getDefaultRangeAxisLabel() {
 		return MetricDescriptionUtility.toBaseMetricDescriptions(getSource()
 				.getMeasurementsRange().getMeasurements().getMeasure()
 				.getMetric())[1].getName()
 				+ " [" + getDefaultUnits()[1].toString() + "]";
+	}
+
+	@Override
+	public boolean supportsMultipleInputs() {
+		return true;
 	}
 }

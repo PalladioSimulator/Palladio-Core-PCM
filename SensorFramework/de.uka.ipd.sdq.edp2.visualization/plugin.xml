@@ -75,6 +75,10 @@
             description="Histogram for 2-dimensional Data"
             id="responseTime"
             name="Response Time">
+         <inputMetric
+               UUID="_MenvIiUREd6gmLudJva2Dw"
+               description="default combination for 2-dimensional measurements of respnse time">
+         </inputMetric>
          <adapter
                adapterID="de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter">
             <property
@@ -91,10 +95,6 @@
                   value="15.0">
             </property>
          </filter>
-         <inputMetric
-               UUID="_MenvIiUREd6gmLudJva2Dw"
-               description="default combination for 2-dimensional measurements of respnse time">
-         </inputMetric>
          <datasink
                sinkID="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
             <property
@@ -111,6 +111,13 @@
                UUID="_MenvIiUREd6gmLudJva2Dw"
                description="2-dimensional data with repeating values">
          </inputMetric>
+         <adapter
+               adapterID="de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter">
+            <property
+                  key="dataSeriesIndex"
+                  value="1">
+            </property>
+         </adapter>
          <datasink
                sinkID="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditor">
          </datasink>

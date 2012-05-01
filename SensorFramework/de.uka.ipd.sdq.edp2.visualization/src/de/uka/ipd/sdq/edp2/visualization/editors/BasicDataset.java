@@ -53,6 +53,7 @@ public class BasicDataset<T extends Dataset> {
 	public T getDataset() {
 		if (datasetChanged) {
 			if (dataset instanceof HistogramDataset) {
+				
 				HistogramDataset hds = new HistogramDataset();
 				hds.setType(Boolean
 						.parseBoolean(getSeriesProperties()[0].get(
@@ -77,9 +78,12 @@ public class BasicDataset<T extends Dataset> {
 				dataset = (T) xyds;
 			}
 		} else if (dataset instanceof PieDataset) {
+			logger.log(Level.INFO, "reached Pie-chart branch");
 			DefaultPieDataset pds = new DefaultPieDataset();
-			pds.setValue("key1", 1.0);
-			pds.setValue("key2", 2.0);
+			HashMap<Double, Integer> data = ((PieChartEditorInput)(dataSeriesItems.get(0))).getData();
+			for (double key : data.keySet()){
+				pds.setValue(Double.valueOf(key), data.get(key));
+			}
 			dataset = (T) pds;
 		}
 		return dataset;

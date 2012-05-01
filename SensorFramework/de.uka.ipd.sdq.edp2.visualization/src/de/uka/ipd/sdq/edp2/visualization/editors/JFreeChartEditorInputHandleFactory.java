@@ -84,10 +84,6 @@ public class JFreeChartEditorInputHandleFactory extends ElementFactory
 			JFreeChartEditorInput createdInput = (JFreeChartEditorInput) ((IElementFactory) inputFactory)
 					.createElement(subMemento);
 			handle.addInput(createdInput);
-			if (firstInput) {
-				createdInput.getBasicDataset().setHandle(handle);
-				firstInput = false;
-			}
 		}
 
 		// then restore the handle's properties

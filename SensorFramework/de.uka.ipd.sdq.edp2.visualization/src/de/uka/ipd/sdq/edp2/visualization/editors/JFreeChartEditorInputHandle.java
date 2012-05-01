@@ -26,45 +26,27 @@ import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonJFreeChartPro
  * @author Dominik Ernst
  * 
  */
-public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFreeChartEditorInput> {
+public class JFreeChartEditorInputHandle extends
+		IVisualizationInputHandle<JFreeChartEditorInput> {
 
 	Logger logger = Logger.getLogger(JFreeChartEditorInputHandle.class
 			.getCanonicalName());
-	
+
 	/**
 	 * Constants used in property-persistence.
 	 */
 	public static final String TITLE_KEY = "title";
-	public static final String DOMAIN_AXIS_LABEL_KEY = "domainAxisLabel";
-	public static final String RANGE_AXIS_LABEL_KEY = "rangeAxisLabel";
-	public static final String SHOW_RANGE_AXIS_LABEL_KEY = "showRangeAxisLabel";
-	public static final String SHOW_DOMAIN_AXIS_LABEL_KEY = "showDomainAxisLabel";
 	public static final String SHOW_TITLE_KEY = "showTitle";
 	public static final String SHOW_LEGEND_KEY = "showLegend";
-	public static final String INCLUDE_ZERO_KEY = "includeZero";
-	
+
 	/**
 	 * The title for the chart. Only used if the input is the main input, i.e.
 	 * the first input in case multiple inputs are supported by the editor.
 	 */
 	private String title;
-
-	/**
-	 * Label for the number axis (= horizontal axis)
-	 */
-	private String domainAxisLabel;
-
-	/**
-	 * Label for the range axis (= vertical axis)
-	 */
-	private String rangeAxisLabel;
-
-	private boolean showRangeAxisLabel;
-	private boolean showDomainAxisLabel;
 	private boolean showTitle;
 	private boolean showLegend;
-	private boolean includeZero;
-	
+
 	/**
 	 * The list of inputs managed by this handle.
 	 */
@@ -83,10 +65,7 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 	 */
 	public JFreeChartEditorInputHandle() {
 		inputs = new ArrayList<JFreeChartEditorInput>();
-		setShowDomainAxisLabel(true);
-		setIncludeZero(true);
 		setShowLegend(true);
-		setShowRangeAxisLabel(true);
 		setShowTitle(true);
 	}
 
@@ -95,13 +74,9 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 	 */
 	public JFreeChartEditorInputHandle(JFreeChartEditorInput firstInput) {
 		inputs = new ArrayList<JFreeChartEditorInput>();
-		dataset = firstInput.getBasicDataset();
 		dataset.setHandle(this);
 		addInput(firstInput);
-		setShowDomainAxisLabel(true);
-		setIncludeZero(true);
 		setShowLegend(true);
-		setShowRangeAxisLabel(true);
 		setShowTitle(true);
 	}
 
@@ -118,12 +93,12 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 		if (inputs.isEmpty()) {
 			inputs.add((JFreeChartEditorInput) newInput);
 			newInput.addObserver(this);
+			newInput.setHandle(this);
 			setChanged();
 			notifyObservers();
 			return true;
 		} else {
-			if (dataset == null){
-				dataset = inputs.get(0).getBasicDataset();
+			if (dataset == null) {
 				dataset.setHandle(this);
 			}
 			boolean result = dataset.addDataSeries(newInput);
@@ -133,8 +108,8 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 				setChanged();
 				notifyObservers();
 				return true;
-			}
-			else return false;
+			} else
+				return false;
 		}
 	}
 
@@ -283,19 +258,15 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 
 	@Override
 	public Composite getCommonPropertiesComposite(Composite parent) {
-		return new CommonJFreeChartPropertiesComposite(parent, SWT.EMBEDDED, this);
+		return new CommonJFreeChartPropertiesComposite(parent, SWT.EMBEDDED,
+				this);
 	}
 
 	@Override
 	public HashMap<String, Object> getProperties() {
 		properties.put(TITLE_KEY, getTitle());
-		properties.put(RANGE_AXIS_LABEL_KEY, getRangeAxisLabel());
-		properties.put(DOMAIN_AXIS_LABEL_KEY, getDomainAxisLabel());
-		properties.put(SHOW_DOMAIN_AXIS_LABEL_KEY, String.valueOf(isShowDomainAxisLabel()));
 		properties.put(SHOW_LEGEND_KEY, String.valueOf(isShowLegend()));
-		properties.put(SHOW_RANGE_AXIS_LABEL_KEY, String.valueOf(isShowRangeAxisLabel()));
 		properties.put(SHOW_TITLE_KEY, String.valueOf(isShowTitle()));
-		properties.put(INCLUDE_ZERO_KEY, String.valueOf(isIncludeZero()));
 		return properties;
 	}
 
@@ -305,38 +276,21 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 				&& newProperties.get(TITLE_KEY) != null) {
 			setTitle(newProperties.get(TITLE_KEY).toString());
 		}
-		if (properties.get(RANGE_AXIS_LABEL_KEY) != null
-				&& newProperties.get(RANGE_AXIS_LABEL_KEY) != null) {
-			setRangeAxisLabel(newProperties.get(RANGE_AXIS_LABEL_KEY).toString());
-		}
-		if (properties.get(DOMAIN_AXIS_LABEL_KEY) != null
-				&& newProperties.get(DOMAIN_AXIS_LABEL_KEY) != null) {
-			setDomainAxisLabel(newProperties.get(DOMAIN_AXIS_LABEL_KEY).toString());
-		}
-		if (properties.get(SHOW_DOMAIN_AXIS_LABEL_KEY) != null
-				&& newProperties.get(SHOW_DOMAIN_AXIS_LABEL_KEY) != null) {
-			setShowDomainAxisLabel(newProperties.get(SHOW_DOMAIN_AXIS_LABEL_KEY).toString().equals("true") ? true : false);
-		}
 		if (properties.get(SHOW_LEGEND_KEY) != null
 				&& newProperties.get(SHOW_LEGEND_KEY) != null) {
-			setShowLegend(newProperties.get(SHOW_LEGEND_KEY).toString().equals("true") ? true : false);
-		}
-		if (properties.get(SHOW_RANGE_AXIS_LABEL_KEY) != null
-				&& newProperties.get(SHOW_RANGE_AXIS_LABEL_KEY) != null) {
-			setShowRangeAxisLabel(newProperties.get(SHOW_RANGE_AXIS_LABEL_KEY).toString().equals("true") ? true : false);
+			setShowLegend(newProperties.get(SHOW_LEGEND_KEY).toString()
+					.equals("true") ? true : false);
 		}
 		if (properties.get(SHOW_TITLE_KEY) != null
 				&& newProperties.get(SHOW_TITLE_KEY) != null) {
-			setShowTitle(newProperties.get(SHOW_TITLE_KEY).toString().equals("true") ? true : false);
+			setShowTitle(newProperties.get(SHOW_TITLE_KEY).toString()
+					.equals("true") ? true : false);
 		}
-		if (properties.get(INCLUDE_ZERO_KEY) != null
-				&& newProperties.get(INCLUDE_ZERO_KEY) != null) {
-			setIncludeZero(newProperties.get(INCLUDE_ZERO_KEY).toString().equals("true") ? true : false);
-		}
+
 	}
 
 	public String getTitle() {
-		if (title == null){
+		if (title == null) {
 			return getInputs().get(0).getDefaultTitle();
 		}
 		return title;
@@ -344,53 +298,6 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 
 	public void setTitle(String title) {
 		this.title = title;
-		setChanged();
-		notifyObservers();
-	}
-
-	public String getDomainAxisLabel() {
-		if (domainAxisLabel == null){
-			return getInputs().get(0).getDefaultDomainAxisLabel();
-		}
-		return domainAxisLabel;
-	}
-	
-	public void setDomainAxisLabel(String domainAxisLabel) {
-		this.domainAxisLabel = domainAxisLabel;
-		setChanged();
-		notifyObservers();
-	}
-
-	public void setRangeAxisLabel(String rangeAxisLabel) {
-		this.rangeAxisLabel = rangeAxisLabel;
-		setChanged();
-		notifyObservers();
-	}
-	
-
-	public String getRangeAxisLabel() {
-		if (rangeAxisLabel == null){
-			return getInputs().get(0).getDefaultRangeAxisLabel();
-		}
-		return rangeAxisLabel;
-	}
-
-	public boolean isShowRangeAxisLabel() {
-		return showRangeAxisLabel;
-	}
-
-	public void setShowRangeAxisLabel(boolean showRangeAxisLabel) {
-		this.showRangeAxisLabel = showRangeAxisLabel;
-		setChanged();
-		notifyObservers();
-	}
-
-	public boolean isShowDomainAxisLabel() {
-		return showDomainAxisLabel;
-	}
-
-	public void setShowDomainAxisLabel(boolean showDomainAxisLabel) {
-		this.showDomainAxisLabel = showDomainAxisLabel;
 		setChanged();
 		notifyObservers();
 	}
@@ -415,14 +322,12 @@ public class JFreeChartEditorInputHandle extends IVisualizationInputHandle<JFree
 		notifyObservers();
 	}
 
-	public boolean isIncludeZero() {
-		return includeZero;
-	}
-
-	public void setIncludeZero(boolean includeZero) {
-		this.includeZero = includeZero;
-		setChanged();
-		notifyObservers();
+	public HashMap<String, Object>[] getInputProperties() {
+		HashMap<String, Object>[] allProperties = new HashMap[getInputsSize()];
+		for (int i = 0; i < getInputsSize(); i++) {
+			allProperties[i] = getInputs().get(i).getProperties();
+		}
+		return allProperties;
 	}
 
 }

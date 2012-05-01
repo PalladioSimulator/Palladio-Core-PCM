@@ -22,8 +22,8 @@ import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
  * @author Dominik Ernst
  * 
  */
-public abstract class JFreeChartEditorInput extends IVisualizationInput
-		implements ISelection {
+public abstract class JFreeChartEditorInput<T extends Dataset> extends
+		IVisualizationInput implements ISelection {
 
 	/**
 	 * Keys used for persistence of properties.
@@ -45,11 +45,15 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 */
 	private float alpha;
 
+	private JFreeChartEditorInputHandle handle;
+
+	protected T dataset;
+
 	public JFreeChartEditorInput() {
-		//set default values
+		// set default values
 		setColor(NO_COLOR);
 		setAlpha(1.0f);
-		//add to properties
+		// add to properties
 		properties.put(COLOR_KEY, NO_COLOR);
 		properties.put(ALPHA_KEY, getAlpha());
 	}
@@ -94,7 +98,9 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 *            reference to the handle for all inputs
 	 * @return a typed Dataset
 	 */
-	public abstract <T extends Dataset> BasicDataset<T> getBasicDataset();
+	public T getDataset() {
+		return dataset;
+	}
 
 	public String getColor() {
 		return hexColor;
@@ -117,20 +123,6 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 	 */
 	public abstract String getDefaultTitle();
 
-	/**
-	 * Return a default label for the domain axis / horizontal axis.
-	 * 
-	 * @return a {@link String} used as the default label for the domain axis.
-	 */
-	public abstract String getDefaultDomainAxisLabel();
-
-	/**
-	 * Return a default label for the range axis / vertical axis.
-	 * 
-	 * @return a {@link String} used as the default label for the range axis.
-	 */
-	public abstract String getDefaultRangeAxisLabel();
-
 	public float getAlpha() {
 		return alpha;
 	}
@@ -144,5 +136,26 @@ public abstract class JFreeChartEditorInput extends IVisualizationInput
 			this.alpha = alpha;
 		}
 	}
+
+	public void setHandle(JFreeChartEditorInputHandle toHandle) {
+		this.handle = toHandle;
+	}
+
+	public boolean hasHandle() {
+		return handle != null;
+	}
+
+	public JFreeChartEditorInputHandle getHandle() {
+		if (handle == null)
+			throw new RuntimeException(
+					"No Handle set for this JFreeChartEditorInput!");
+		return handle;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract boolean supportsMultipleInputs();
 
 }

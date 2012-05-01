@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
  * @author Dominik Ernst
  * 
  */
-public class HistogramEditorInput extends JFreeChartEditorInput {
+public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset> {
 
 	/**
 	 * Name constant, which is used to identify this class in properties and
@@ -46,6 +46,11 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	/**
 	 * Keys for persistence of properties
 	 */
+	public static final String DOMAIN_AXIS_LABEL_KEY = "domainAxisLabel";
+	public static final String RANGE_AXIS_LABEL_KEY = "rangeAxisLabel";
+	public static final String SHOW_RANGE_AXIS_LABEL_KEY = "showRangeAxisLabel";
+	public static final String SHOW_DOMAIN_AXIS_LABEL_KEY = "showDomainAxisLabel";
+	public static final String INCLUDE_ZERO_KEY = "includeZero";
 	public final static String NUMBER_BINS_KEY = "numberOfBins";
 	public final static String SHOW_ITEM_VALUES_KEY = "showItemValues";
 	public final static String BAR_MARGIN_KEY = "barMargin";
@@ -94,17 +99,25 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 * The specific type of data provided by this {@link JFreeChartEditorInput}.
 	 */
 	private double[] data;
+
+	/**
+	 * Label for the number axis (= horizontal axis)
+	 */
+	private String domainAxisLabel;
+
+	/**
+	 * Label for the range axis (= vertical axis)
+	 */
+	private String rangeAxisLabel;
+
+	private boolean showRangeAxisLabel;
+	private boolean showDomainAxisLabel;
+	private boolean includeZero;
 	/**
 	 * Logger for this class
 	 */
 	private final static Logger logger = Logger
 			.getLogger(HistogramEditorInput.class.getCanonicalName());
-
-	/**
-	 * The dataset required by this input, as a typed instance of
-	 * {@link BasicDataset}
-	 */
-	private BasicDataset<HistogramDataset> dataset;
 
 	/**
 	 * Empty constructor.
@@ -123,7 +136,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	public HistogramEditorInput(AbstractDataSource source) {
 		if (source != null) {
 			setSource(source);
-			dataset = new BasicDataset<HistogramDataset>(getDataTypeInstance());
 		}
 		setAbsoluteFrequency(true);
 		setBarMargin(0.0);
@@ -140,8 +152,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	@SuppressWarnings("unchecked")
 	public void updateInputData() {
 		logger.log(Level.INFO, "Transformation : BEGIN");
-		HistogramDataset defaultDataset = new HistogramDataset();
-
+		
+		dataset = new HistogramDataset();
+		
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
 		for (DataSeries series : getSource().getOutput()) {
@@ -166,11 +179,8 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 		}
 
-		defaultDataset.addSeries(getInputName(), data, getNumberOfBins());
-		if (dataset == null) {
-			dataset = new BasicDataset<HistogramDataset>(getDataTypeInstance());
-			dataset.addDataSeries(this);
-		}
+		dataset.addSeries(getInputName(), data, getNumberOfBins());
+		
 		setChanged();
 		notifyObservers();
 		logger.log(Level.INFO, "Transformation : END");
@@ -226,6 +236,11 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	 */
 	public HashMap<String, Object> getProperties() {
 		properties.put(ElementFactory.ELEMENT_KEY, ELEMENT_NAME);
+		properties.put(RANGE_AXIS_LABEL_KEY, getRangeAxisLabel());
+		properties.put(DOMAIN_AXIS_LABEL_KEY, getDomainAxisLabel());
+		properties.put(SHOW_DOMAIN_AXIS_LABEL_KEY, String.valueOf(isShowDomainAxisLabel()));
+		properties.put(SHOW_RANGE_AXIS_LABEL_KEY, String.valueOf(isShowRangeAxisLabel()));
+		properties.put(INCLUDE_ZERO_KEY, String.valueOf(isIncludeZero()));
 		properties.put(NUMBER_BINS_KEY, getNumberOfBins());
 		properties.put(COLOR_KEY, getColor());
 		properties.put(INPUT_NAME_KEY, getInputName());
@@ -263,8 +278,85 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		if (newProperties.get(INPUT_NAME_KEY) != null) {
 			setInputName(newProperties.get(INPUT_NAME_KEY).toString());
 		}
+		if (properties.get(RANGE_AXIS_LABEL_KEY) != null
+				&& newProperties.get(RANGE_AXIS_LABEL_KEY) != null) {
+			setRangeAxisLabel(newProperties.get(RANGE_AXIS_LABEL_KEY).toString());
+		}
+		if (properties.get(DOMAIN_AXIS_LABEL_KEY) != null
+				&& newProperties.get(DOMAIN_AXIS_LABEL_KEY) != null) {
+			setDomainAxisLabel(newProperties.get(DOMAIN_AXIS_LABEL_KEY).toString());
+		}
+		if (properties.get(SHOW_DOMAIN_AXIS_LABEL_KEY) != null
+				&& newProperties.get(SHOW_DOMAIN_AXIS_LABEL_KEY) != null) {
+			setShowDomainAxisLabel(newProperties.get(SHOW_DOMAIN_AXIS_LABEL_KEY).toString().equals("true") ? true : false);
+		}
+		if (properties.get(SHOW_RANGE_AXIS_LABEL_KEY) != null
+				&& newProperties.get(SHOW_RANGE_AXIS_LABEL_KEY) != null) {
+			setShowRangeAxisLabel(newProperties.get(SHOW_RANGE_AXIS_LABEL_KEY).toString().equals("true") ? true : false);
+		}
+		if (properties.get(INCLUDE_ZERO_KEY) != null
+				&& newProperties.get(INCLUDE_ZERO_KEY) != null) {
+			setIncludeZero(newProperties.get(INCLUDE_ZERO_KEY).toString().equals("true") ? true : false);
+		}
 	}
 
+	public String getDomainAxisLabel() {
+		if (domainAxisLabel == null){
+			return getDefaultDomainAxisLabel();
+		}
+		return domainAxisLabel;
+	}
+	
+	public void setDomainAxisLabel(String domainAxisLabel) {
+		this.domainAxisLabel = domainAxisLabel;
+		setChanged();
+		notifyObservers();
+	}
+
+	public void setRangeAxisLabel(String rangeAxisLabel) {
+		this.rangeAxisLabel = rangeAxisLabel;
+		setChanged();
+		notifyObservers();
+	}
+	
+
+	public String getRangeAxisLabel() {
+		if (rangeAxisLabel == null){
+			return getDefaultRangeAxisLabel();
+		}
+		return rangeAxisLabel;
+	}
+
+	public boolean isShowRangeAxisLabel() {
+		return showRangeAxisLabel;
+	}
+
+	public void setShowRangeAxisLabel(boolean showRangeAxisLabel) {
+		this.showRangeAxisLabel = showRangeAxisLabel;
+		setChanged();
+		notifyObservers();
+	}
+
+	public boolean isShowDomainAxisLabel() {
+		return showDomainAxisLabel;
+	}
+
+	public void setShowDomainAxisLabel(boolean showDomainAxisLabel) {
+		this.showDomainAxisLabel = showDomainAxisLabel;
+		setChanged();
+		notifyObservers();
+	}
+	
+	public boolean isIncludeZero() {
+		return includeZero;
+	}
+
+	public void setIncludeZero(boolean includeZero) {
+		this.includeZero = includeZero;
+		setChanged();
+		notifyObservers();
+	}
+	
 	private int getNumberOfBins() {
 		if (numberOfBins != 0) {
 			return numberOfBins;
@@ -288,17 +380,13 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		// must be null
 		XYPlot plot = null;
 		XYBarRenderer renderer = null;
-		NumberAxis domainAxis = new NumberAxis(getBasicDataset().getHandle()
-				.isShowDomainAxisLabel() ? getBasicDataset().getHandle()
-				.getDomainAxisLabel() : null);
-		domainAxis.setAutoRangeIncludesZero(getBasicDataset().getHandle()
-				.isIncludeZero());
-		NumberAxis rangeAxis = new NumberAxis(getBasicDataset().getHandle()
-				.isShowRangeAxisLabel() ? getBasicDataset().getHandle()
-				.getRangeAxisLabel() : null);
+		NumberAxis domainAxis = new NumberAxis(isShowDomainAxisLabel() ? 
+				getDomainAxisLabel() : null);
+		domainAxis.setAutoRangeIncludesZero(isIncludeZero());
+		NumberAxis rangeAxis = new NumberAxis(isShowRangeAxisLabel() ? getRangeAxisLabel() : null);
 
 		plot = new XYPlot();
-		plot.setDataset(getBasicDataset().getDataset());
+		plot.setDataset(dataset);
 
 		// the renderer for the chart
 		renderer = new XYBarRenderer();
@@ -308,16 +396,15 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 		// modifiy the colors of the data series, if there are persisted color
 		// properties
-		for (int i = 0; i < getBasicDataset().getSeriesProperties().length; i++) {
-			if ((getBasicDataset().getSeriesProperties()[i]
+		for (int i = 0; i < getHandle().getInputsSize(); i++) {
+			if ((getHandle().getInputProperties()[i]
 					.get(JFreeChartEditorInput.COLOR_KEY) != null)
-					&& !getBasicDataset().getSeriesProperties()[i]
+					&& !getHandle().getInputProperties()[i]
 							.get(JFreeChartEditorInput.COLOR_KEY).toString()
 							.equals(NO_COLOR)){
-				Color opaque = Color.decode(getBasicDataset()
-						.getSeriesProperties()[i].get(
+				Color opaque = Color.decode(getHandle().getInputProperties()[i].get(
 						JFreeChartEditorInput.COLOR_KEY).toString());
-				float alpha = Float.parseFloat(getBasicDataset().getSeriesProperties()[i]
+				float alpha = Float.parseFloat(getHandle().getInputProperties()[i]
 						.get(JFreeChartEditorInput.ALPHA_KEY).toString());
 				float[] comp = opaque.getRGBColorComponents(null);
 				Color col = new Color(comp[0], comp[1], comp[2], alpha);
@@ -326,7 +413,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		}
 
 		// absolute or relative frequency
-		getBasicDataset().getDataset().setType(
+		getDataset().setType(
 				isAbsoluteFrequency() ? HistogramType.FREQUENCY
 						: HistogramType.RELATIVE_FREQUENCY);
 		// margin is the relative space of each bar, which remains uncolored
@@ -344,10 +431,8 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 		// finally, create the chart using the plot
 		JFreeChart chart = new JFreeChart(
-				getBasicDataset().getHandle().isShowTitle() ? getBasicDataset()
-						.getHandle().getTitle() : null,
-				JFreeChart.DEFAULT_TITLE_FONT, plot, getBasicDataset()
-						.getHandle().isShowLegend());
+				getHandle().isShowTitle() ? getHandle().getTitle() : null,
+				JFreeChart.DEFAULT_TITLE_FONT, plot, getHandle().isShowLegend());
 		return chart;
 	}
 
@@ -372,17 +457,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 	public HistogramEditorInput createCopyForSource(AbstractDataSource source) {
 		HistogramEditorInput copy = new HistogramEditorInput(source);
 		return copy;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#
-	 * getBasicDataset()
-	 */
-	@Override
-	public BasicDataset<HistogramDataset> getBasicDataset() {
-		return dataset;
 	}
 
 	/*
@@ -418,13 +492,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 		return "Histogram";
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#
-	 * getDefaultDomainAxisLabel()
-	 */
-	@Override
+
 	public String getDefaultDomainAxisLabel() {
 		return MetricDescriptionUtility.toBaseMetricDescriptions(getSource()
 				.getMeasurementsRange().getMeasurements().getMeasure()
@@ -432,13 +500,6 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 				+ " [" + getDefaultUnits()[0].toString() + "]";
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#
-	 * getDefaultRangeAxisLabel()
-	 */
-	@Override
 	public String getDefaultRangeAxisLabel() {
 		return "Frequency ["+ (isAbsoluteFrequency() ? "absolute" : "relative") + "]";
 	}
@@ -470,6 +531,11 @@ public class HistogramEditorInput extends JFreeChartEditorInput {
 
 	private void setShowItemValues(boolean value) {
 		showItemValues = value;
+	}
+
+	@Override
+	public boolean supportsMultipleInputs() {
+		return true;
 	}
 
 }

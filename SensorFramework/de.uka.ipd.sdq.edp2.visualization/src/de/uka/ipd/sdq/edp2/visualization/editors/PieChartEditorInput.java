@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 
-public class PieChartEditorInput extends JFreeChartEditorInput {
+public class PieChartEditorInput extends JFreeChartEditorInput<PieDataset> {
 
 	/**
 	 * Name constant, which is used to identify this class in properties and
@@ -47,7 +47,7 @@ public class PieChartEditorInput extends JFreeChartEditorInput {
 	private boolean showRelativeAmount;
 	private boolean showAbsoluteAmount;
 
-	private double[] data;
+	private HashMap<Double, Integer> data;
 
 	private BasicDataset<PieDataset> dataset;
 
@@ -120,34 +120,16 @@ public class PieChartEditorInput extends JFreeChartEditorInput {
 
 	@Override
 	public JFreeChart getChart() {
-		PiePlot plot = new PiePlot(getBasicDataset().getDataset());
+		PiePlot plot = new PiePlot(getDataset());
 		plot.setNoDataMessage("No data available.");
-		JFreeChart chart = new JFreeChart(getBasicDataset().getHandle()
-				.isShowTitle() ? getBasicDataset().getHandle().getTitle()
-				: null, JFreeChart.DEFAULT_TITLE_FONT, plot, getBasicDataset()
-				.getHandle().isShowLegend());
+		JFreeChart chart = new JFreeChart(
+				getHandle().isShowTitle() ? getHandle().getTitle() : null,
+				JFreeChart.DEFAULT_TITLE_FONT, plot, getHandle().isShowLegend());
 		return chart;
 	}
 
 	@Override
-	public BasicDataset<PieDataset> getBasicDataset() {
-		return dataset;
-	}
-
-	@Override
 	public String getDefaultTitle() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getDefaultDomainAxisLabel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getDefaultRangeAxisLabel() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -158,7 +140,7 @@ public class PieChartEditorInput extends JFreeChartEditorInput {
 	}
 
 	@Override
-	public double[] getData() {
+	public HashMap<Double, Integer> getData() {
 		return data;
 	}
 
@@ -181,24 +163,24 @@ public class PieChartEditorInput extends JFreeChartEditorInput {
 				.toBaseMetricDescriptions(getSource().getMeasurementsRange()
 						.getMeasurements().getMeasure().getMetric());
 
-		int length = listOfMeasures.get(0).size();
-		
-		double[] rawData = new double[length];
-		for (int i = 0; i < length; i++) {
+		data = new HashMap<Double, Integer>();
+
+		double[] rawData = new double[listOfMeasures.get(0).size()];
+		for (int i = 0; i < listOfMeasures.get(0).size(); i++) {
 			rawData[i] = listOfMeasures.get(0).get(i)
 					.doubleValue(listOfMeasures.get(0).get(i).getUnit());
+			if (!data.containsKey(rawData[i])) {
+				data.put(rawData[i], 1);
+			} else {
+				data.put(rawData[i], data.get(rawData[i]) + 1);
+			}
 		}
-		//TODO count DIFFERENT values and add them to the list
 
-		defaultDataset.setValue("value 1", 1.0);
-		defaultDataset.setValue("value 2", 2.0);
-		/*
-		 * data = new double[listOfMeasures.get(0).size()];
-		 * 
-		 * for (int i = 0; i < listOfMeasures.get(0).size(); i++) { data[i] =
-		 * listOfMeasures.get(0).get(i)
-		 * .doubleValue(listOfMeasures.get(0).get(i).getUnit()); }
-		 */
+		for (double key : data.keySet()) {
+			defaultDataset.setValue(Double.valueOf(key), data.get(key));
+		}
+
+		logger.log(Level.INFO, data.toString());
 
 		if (dataset == null) {
 			dataset = new BasicDataset<PieDataset>(getDataTypeInstance());
@@ -224,6 +206,11 @@ public class PieChartEditorInput extends JFreeChartEditorInput {
 
 	public void setShowAbsoluteAmount(boolean showAbsoluteAmount) {
 		this.showAbsoluteAmount = showAbsoluteAmount;
+	}
+
+	@Override
+	public boolean supportsMultipleInputs() {
+		return false;
 	}
 
 }
