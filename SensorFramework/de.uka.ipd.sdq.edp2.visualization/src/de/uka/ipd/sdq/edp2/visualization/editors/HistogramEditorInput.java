@@ -169,7 +169,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 				.toBaseMetricDescriptions(getSource().getMeasurementsRange()
 						.getMeasurements().getMeasure().getMetric());
 
-		// TODO sorting seems to have no effect
+		// sorting seems to have no effect
 		// Collections.sort(listOfMeasures.get(0));
 		data = new double[listOfMeasures.get(0).size()];
 
@@ -385,9 +385,20 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 		domainAxis.setAutoRangeIncludesZero(isIncludeZero());
 		NumberAxis rangeAxis = new NumberAxis(isShowRangeAxisLabel() ? getRangeAxisLabel() : null);
 
+		if (dataset.getSeriesCount() < getHandle().getInputsSize()){
+			//add all inputs anew
+			for (int i = 1; i < getHandle().getInputsSize(); i++) {
+				dataset.addSeries(
+						getHandle().getInputs().get(i).getInputName(),
+						(double[]) getHandle().getInputs().get(i).getData(),
+						Integer.parseInt(getHandle().getInputProperties()[i].get(
+								"numberOfBins").toString()));
+		}
+		
+		}
 		plot = new XYPlot();
-		plot.setDataset(dataset);
-
+		plot.setDataset(getDataset());
+		
 		// the renderer for the chart
 		renderer = new XYBarRenderer();
 		plot.setRenderer(renderer);
@@ -532,7 +543,11 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 	private void setShowItemValues(boolean value) {
 		showItemValues = value;
 	}
-
+	
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#supportsMultipleInputs()
+	 */
 	@Override
 	public boolean supportsMultipleInputs() {
 		return true;

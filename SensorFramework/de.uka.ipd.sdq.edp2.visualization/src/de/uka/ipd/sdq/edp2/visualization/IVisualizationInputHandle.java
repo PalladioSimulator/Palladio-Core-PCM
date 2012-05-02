@@ -58,19 +58,6 @@ public abstract class IVisualizationInputHandle<T extends IVisualizationInput> e
 	public abstract int getInputsSize();
 	
 	/**
-	 * Method to return the combined set of input data, which can be displayed by an {@link IVisualization}.
-	 * @return
-	 */
-	public abstract Object getInputData();
-	
-	/**
-	 * Method, which returns <true> if the {@link IVisualizationInputHandle} and its corresponding {@link AbstractEditor}
-	 * are able to display multiple {@link IDataSink} objects.
-	 * @return <code>true</code> if multiple inputs are supported.
-	 */
-	public abstract boolean supportsMultipleInputs();
-	
-	/**
 	 * Method that returns a {@link Composite}, which is displayed in the properties view.
 	 * The {@link Composite} should contain settings, that are identical for all {@link IVisualizationInput}s
 	 * handled by this {@link IVisualizationInputHandle}.

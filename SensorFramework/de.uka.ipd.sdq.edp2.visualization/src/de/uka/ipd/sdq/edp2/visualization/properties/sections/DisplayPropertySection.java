@@ -73,10 +73,6 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	private final static String NAME_KEY = "elementName";
 
 	/**
-	 * Composite for all properties of all JFreeCharts
-	 */
-	private CommonJFreeChartPropertiesComposite commonPropertiesComposite;
-	/**
 	 * The last active editor;
 	 */
 	private JFreeChartEditor editor;
@@ -101,7 +97,12 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * The table for displaying visual properties of the selected
 	 * transformation.
 	 */
-	private Table visualPropertiesTable;
+	private Table specificPropertiesTable;
+
+	/**
+	 * The table for displaying visual properties all current inputs.
+	 */
+	private Table commonPropertiesTable;
 
 	/**
 	 * Index of the column in the {@link #visualPropertiesTable} containing the
@@ -118,7 +119,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * Viewer for the table containing the visual properties of the selected
 	 * transformation.
 	 */
-	private TableViewer visualPropertiesTableViewer;
+	private TableViewer specificPropertiesTableViewer;
 
 	/**
 	 * The property sheet page containing this section.
@@ -139,60 +140,129 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		composite = getWidgetFactory().createFlatFormComposite(parent);
 		composite.setBackground(parent.getDisplay().getSystemColor(
 				SWT.COLOR_WIDGET_BACKGROUND));
-		composite.setSize(500, 250);
+		composite.setSize(800, 275);
 		createLayout(composite);
 
 		Group groupSpecific = new Group(composite, SWT.NONE);
-		groupSpecific.setText("Data Series Options");
-		groupSpecific.setLayout(new GridLayout(3, false));
+		groupSpecific.setText("Input-specific Options");
+		groupSpecific.setLayout(new GridLayout(2, false));
+		
+		Group groupCommon = new Group(composite, SWT.NONE);
+		groupCommon.setText("Common Options");
+		groupCommon.setLayout(new GridLayout(1, false));
 
 		// create empty input list
 		listViewer = new InputElementList(groupSpecific, SWT.EMBEDDED, null)
 				.getListViewer();
-		Label arrowLabel = new Label(groupSpecific, SWT.EMBEDDED);
-		arrowLabel.setText("-->");
-		createPropertiesTable(groupSpecific);
+		createCommonPropertiesTable(groupSpecific);
+		createSpecificPropertiesTable(groupCommon);
 	}
 
-	private void createPropertiesTable(Composite parent) {
+	private void createCommonPropertiesTable(Group groupSpecific) {
+		commonPropertiesTable = new Table(groupSpecific, SWT.SINGLE
+				| SWT.BORDER | SWT.V_SCROLL | SWT.FULL_SELECTION);
 
-		// initialize the table, which shows the properties of transformations
-		visualPropertiesTable = new Table(parent, SWT.SINGLE | SWT.BORDER
-				| SWT.V_SCROLL | SWT.FULL_SELECTION);
-
-		visualPropertiesTable.setLinesVisible(true);
-		visualPropertiesTable.setHeaderVisible(true);
+		commonPropertiesTable.setLinesVisible(true);
+		commonPropertiesTable.setHeaderVisible(true);
 
 		// set the table layout
 		GridData gridData = new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1);
-		gridData.heightHint = 168;
+		gridData.heightHint = 250;
 		gridData.widthHint = 250;
-		visualPropertiesTable.setLayoutData(gridData);
+		commonPropertiesTable.setLayoutData(gridData);
 
 		TableLayout tableLayout = new TableLayout();
 		tableLayout.addColumnData(new ColumnWeightData(2));
 		tableLayout.addColumnData(new ColumnWeightData(1));
-		visualPropertiesTable.setLayout(tableLayout);
+		commonPropertiesTable.setLayout(tableLayout);
 
-		visualPropertiesTableViewer = new TableViewer(visualPropertiesTable);
+		TableViewer commonPropertiesTableViewer = new TableViewer(
+				commonPropertiesTable);
 		TableViewerColumn keyColumn = new TableViewerColumn(
-				visualPropertiesTableViewer, SWT.NONE);
+				commonPropertiesTableViewer, SWT.NONE);
 		keyColumn.getColumn().setText("Property");
 
 		TableViewerColumn valueColumn = new TableViewerColumn(
-				visualPropertiesTableViewer, SWT.NONE);
+				commonPropertiesTableViewer, SWT.NONE);
 		valueColumn.getColumn().setText("Value");
 
 		// the editor for the cells
 
-		visualPropertiesTable.addListener(SWT.MouseDown, new Listener() {
+		commonPropertiesTable.addListener(SWT.MouseDown, new Listener() {
 			public void handleEvent(Event event) {
-				Rectangle clientArea = visualPropertiesTable.getClientArea();
+				Rectangle clientArea = commonPropertiesTable.getClientArea();
 				Point pt = new Point(event.x, event.y);
-				int index = visualPropertiesTable.getTopIndex();
-				while (index < visualPropertiesTable.getItemCount()) {
+				int index = commonPropertiesTable.getTopIndex();
+				while (index < commonPropertiesTable.getItemCount()) {
 					boolean visible = false;
-					TableItem item = visualPropertiesTable.getItem(index);
+					TableItem item = commonPropertiesTable.getItem(index);
+					// look if the mouse event is in the editable column
+					Rectangle rect = item.getBounds(editColumn);
+					if (rect.contains(pt)) {
+						// boolean properties
+						if (item.getText(labelColumn).equals(
+								HistogramEditorInput.ABSOLUTE_FREQUENCY_KEY)
+								|| (item.getText(labelColumn)
+										.equals(HistogramEditorInput.SHOW_ITEM_VALUES_KEY))) {
+							openBooleanDialog(index, commonPropertiesTable);
+						}
+						// textual properties
+						else {
+							openTextDialog(index, commonPropertiesTable);
+						}
+						return;
+					}
+					if (!visible && rect.intersects(clientArea)) {
+						visible = true;
+					}
+					if (!visible)
+						return;
+					index++;
+				}
+			}
+		});
+
+	}
+
+	private void createSpecificPropertiesTable(Composite parent) {
+
+		// initialize the table, which shows the properties of transformations
+		specificPropertiesTable = new Table(parent, SWT.SINGLE | SWT.BORDER
+				| SWT.V_SCROLL | SWT.FULL_SELECTION);
+
+		specificPropertiesTable.setLinesVisible(true);
+		specificPropertiesTable.setHeaderVisible(true);
+
+		// set the table layout
+		GridData gridData = new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1);
+		gridData.heightHint = 250;
+		gridData.widthHint = 400;
+		specificPropertiesTable.setLayoutData(gridData);
+
+		TableLayout tableLayout = new TableLayout();
+		tableLayout.addColumnData(new ColumnWeightData(2));
+		tableLayout.addColumnData(new ColumnWeightData(1));
+		specificPropertiesTable.setLayout(tableLayout);
+
+		specificPropertiesTableViewer = new TableViewer(specificPropertiesTable);
+		TableViewerColumn keyColumn = new TableViewerColumn(
+				specificPropertiesTableViewer, SWT.NONE);
+		keyColumn.getColumn().setText("Property");
+
+		TableViewerColumn valueColumn = new TableViewerColumn(
+				specificPropertiesTableViewer, SWT.NONE);
+		valueColumn.getColumn().setText("Value");
+
+		// the editor for the cells
+
+		specificPropertiesTable.addListener(SWT.MouseDown, new Listener() {
+			public void handleEvent(Event event) {
+				Rectangle clientArea = specificPropertiesTable.getClientArea();
+				Point pt = new Point(event.x, event.y);
+				int index = specificPropertiesTable.getTopIndex();
+				while (index < specificPropertiesTable.getItemCount()) {
+					boolean visible = false;
+					TableItem item = specificPropertiesTable.getItem(index);
 					// look if the mouse event is in the editable column
 					Rectangle rect = item.getBounds(editColumn);
 					if (rect.contains(pt)) {
@@ -200,19 +270,18 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 						if (item.getText(labelColumn).equals(
 								JFreeChartEditorInput.COLOR_KEY)) {
 							openColorAndTransparencyDialog(item,
-									visualPropertiesTable.getShell());
+									specificPropertiesTable);
 							// boolean properties
 						} else if (item.getText(labelColumn).equals(
 								HistogramEditorInput.ABSOLUTE_FREQUENCY_KEY)
 								|| (item.getText(labelColumn)
 										.equals(HistogramEditorInput.SHOW_ITEM_VALUES_KEY))) {
-							openBooleanDialog(index);
+							openBooleanDialog(index, specificPropertiesTable);
 						}
 						// textual properties
 						else {
-							openTextDialog(index);
+							openTextDialog(index, specificPropertiesTable);
 						}
-						refreshPropertiesTable();
 						return;
 					}
 					if (!visible && rect.intersects(clientArea)) {
@@ -234,12 +303,12 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * @param index
 	 *            the row-index of the cell to be edited
 	 */
-	protected void openTextDialog(final int index) {
-		final TableEditor editor = new TableEditor(visualPropertiesTable);
+	protected void openTextDialog(final int index, final Table table) {
+		final TableEditor editor = new TableEditor(table);
 		editor.horizontalAlignment = SWT.LEFT;
 		editor.grabHorizontal = true;
 
-		final Text text = new Text(visualPropertiesTable, SWT.NONE);
+		final Text text = new Text(table, SWT.NONE);
 		Listener textListener = new Listener() {
 			public void handleEvent(final Event e) {
 				switch (e.type) {
@@ -250,10 +319,13 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				case SWT.Traverse:
 					switch (e.detail) {
 					case SWT.TRAVERSE_RETURN:
-						visualPropertiesTable.getItem(index).setText(
-								editColumn, text.getText());
-						updateProperties(visualPropertiesTable.getItem(index)
-								.getText(labelColumn), text.getText());
+						table.getItem(index)
+								.setText(editColumn, text.getText());
+						updateProperties(
+								table.getItem(index).getText(labelColumn),
+								text.getText(), table);
+						refreshSpecificPropertiesTable();
+						refreshCommonPropertiesTable();
 					case SWT.TRAVERSE_ESCAPE:
 						text.dispose();
 						e.doit = false;
@@ -264,8 +336,9 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		};
 		text.addListener(SWT.FocusOut, textListener);
 		text.addListener(SWT.Traverse, textListener);
-		editor.setEditor(text, visualPropertiesTable.getItem(index), editColumn);
-		text.setText(visualPropertiesTable.getItem(index).getText(editColumn));
+		editor.setEditor(text, table.getItem(index),
+				editColumn);
+		text.setText(table.getItem(index).getText(editColumn));
 		text.selectAll();
 		text.setFocus();
 	}
@@ -277,33 +350,32 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * @param index
 	 *            the row-index of the cell to be edited
 	 */
-	protected void openBooleanDialog(final int index) {
-		TableEditor editor = new TableEditor(visualPropertiesTable);
+	protected void openBooleanDialog(final int index, final Table table) {
+		TableEditor editor = new TableEditor(table);
 		editor.horizontalAlignment = SWT.LEFT;
 		editor.grabHorizontal = true;
-		final Combo comboBox = new Combo(visualPropertiesTable, SWT.DROP_DOWN);
+		final Combo comboBox = new Combo(table, SWT.DROP_DOWN);
 		comboBox.setItems(new String[] { "true", "false" });
 		// set the currently selected item to the value stored in the cell
-		comboBox.select(visualPropertiesTable.getItem(index)
-				.getText(editColumn).equals("true") ? 0 : 1);
+		comboBox.select(table.getItem(index).getText(editColumn).equals("true") ? 0
+				: 1);
 
-		final String key = visualPropertiesTable.getItem(index).getText(
-				labelColumn);
+		final String key = table.getItem(index).getText(labelColumn);
 		comboBox.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				visualPropertiesTable.getItem(index).setText(editColumn,
+				table.getItem(index).setText(editColumn,
 						comboBox.getItem(comboBox.getSelectionIndex()));
 				updateProperties(key,
-						comboBox.getItem(comboBox.getSelectionIndex()));
+						comboBox.getItem(comboBox.getSelectionIndex()), table);
 				// if the changed field was the frequency, reset the label of
 				// the range
 				// axis to default
-				if (visualPropertiesTable.getItem(index).getText(labelColumn)
+				if (table.getItem(index).getText(labelColumn)
 						.equals(HistogramEditorInput.ABSOLUTE_FREQUENCY_KEY)) {
-					((JFreeChartEditorInputHandle) getInput())
-							.setRangeAxisLabel(((JFreeChartEditorInput) getInput()
-									.getInputs().get(0))
-									.getDefaultRangeAxisLabel());
+					HistogramEditorInput firstInput = ((HistogramEditorInput) ((JFreeChartEditorInputHandle) getInput())
+							.getInputs().get(0));
+					firstInput.setRangeAxisLabel(firstInput
+							.getDefaultRangeAxisLabel());
 				}
 			}
 
@@ -319,7 +391,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				return;
 			}
 		});
-		editor.setEditor(comboBox, visualPropertiesTable.getItem(index),
+		editor.setEditor(comboBox, table.getItem(index),
 				editColumn);
 	}
 
@@ -332,21 +404,20 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * @param shell
 	 *            the Shell in which the dialog is displayed.
 	 */
-	protected void openColorAndTransparencyDialog(TableItem item, Shell shell) {
-		ColorDialog colorPicker = new ColorDialog(
-				visualPropertiesTable.getShell());
+	protected void openColorAndTransparencyDialog(TableItem item, Table table) {
+		ColorDialog colorPicker = new ColorDialog(table.getShell());
 		colorPicker.setRGB(item.getBackground().getRGB());
 		RGB rgbColor = colorPicker.open();
 		if (rgbColor != null) {
 			item.setBackground(editColumn, new org.eclipse.swt.graphics.Color(
-					visualPropertiesTable.getDisplay(), rgbColor));
+					table.getDisplay(), rgbColor));
 			updateProperties(
 					item.getText(labelColumn),
 					"#"
 							+ Integer.toHexString(
 									new Color(rgbColor.red, rgbColor.green,
 											rgbColor.blue).getRGB()).substring(
-									2));
+									2), table);
 		}
 
 	}
@@ -355,17 +426,17 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * Update the table containing the properties of the
 	 * {@link #lastSelectedInput}.
 	 */
-	private void refreshPropertiesTable() {
+	private void refreshSpecificPropertiesTable() {
 
-		visualPropertiesTable.clearAll();
-		visualPropertiesTable.setItemCount(0);
+		specificPropertiesTable.clearAll();
+		specificPropertiesTable.setItemCount(0);
 
 		HashMap<String, Object> properties = lastSelectedInput.getProperties();
 
 		properties.remove(NAME_KEY);
 
 		for (Object key : properties.keySet()) {
-			TableItem item = new TableItem(visualPropertiesTable, SWT.NONE);
+			TableItem item = new TableItem(specificPropertiesTable, SWT.NONE);
 			item.setText(0, String.valueOf(key));
 			item.setText(1, String.valueOf(properties.get(key)));
 			if (String.valueOf(key).equals(JFreeChartEditorInput.COLOR_KEY)) {
@@ -376,12 +447,30 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 					item.setText(1, "");
 					Color col = Color.decode(hexColor);
 					item.setBackground(1, new org.eclipse.swt.graphics.Color(
-							visualPropertiesTable.getDisplay(), col.getRed(),
+							specificPropertiesTable.getDisplay(), col.getRed(),
 							col.getGreen(), col.getBlue()));
 				}
 			}
 		}
 
+	}
+	
+	/**
+	 * Update the table containing the properties of the
+	 * {@link #lastSelectedInput}.
+	 */
+	private void refreshCommonPropertiesTable() {
+		commonPropertiesTable.clearAll();
+		commonPropertiesTable.setItemCount(0);
+
+		HashMap<String, Object> commonProperties = getInput().getProperties();
+		commonProperties.remove(NAME_KEY);
+
+		for (Object key : commonProperties.keySet()) {
+			TableItem item = new TableItem(commonPropertiesTable, SWT.NONE);
+			item.setText(0, String.valueOf(key));
+			item.setText(1, String.valueOf(commonProperties.get(key)));
+		}
 	}
 
 	/*
@@ -413,26 +502,16 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#refresh()
 	 */
 	public void refresh() {
-		if (editorExists()) {
-			// the common composite is identical for all IVisualizationInputs
-			if (commonPropertiesComposite == null) {
-				createCommonChartComposite();
-			}
-		}
+
 		if (editorExists() && listViewer.getInput() == null) {
 			listViewer.setInput(getInput());
 			listViewer.addSelectionChangedListener(this);
 		}
 		listViewer.refresh();
-		composite.layout();
-	}
-
-	private void createCommonChartComposite() {
-		if (commonPropertiesComposite != null) {
-			commonPropertiesComposite.dispose();
+		if (getInput() != null) {
+			refreshCommonPropertiesTable();
 		}
-		commonPropertiesComposite = (CommonJFreeChartPropertiesComposite) getInput()
-				.getCommonPropertiesComposite(composite);
+		composite.layout();
 	}
 
 	private void createLayout(Composite composite) {
@@ -445,8 +524,9 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		IStructuredSelection selection = (IStructuredSelection) listViewer
 				.getSelection();
 		lastSelectedInput = (IVisualizationInput) selection.getFirstElement();
-		if (lastSelectedInput != null)
-			refreshPropertiesTable();
+		if (lastSelectedInput != null) {
+			refreshSpecificPropertiesTable();
+		}
 		refresh();
 	}
 
@@ -516,16 +596,24 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 	 * @param value
 	 *            the value as an Object.
 	 */
-	private void updateProperties(String key, Object value) {
+	private void updateProperties(String key, Object value, Table table) {
 		// get properties for keys and old values
-		HashMap<String, Object> newProperties = lastSelectedInput
-				.getProperties();
-		logger.log(Level.INFO, "" + lastSelectedInput.getInputName()
-				+ " updated with: " + key.toString() + ", " + value.toString());
-		newProperties.put(key, value);
-		lastSelectedInput.setProperties(newProperties);
-		// update the input
-		lastSelectedInput.updateInputData();
+		if (table == specificPropertiesTable) {
+			HashMap<String, Object> newProperties = lastSelectedInput
+					.getProperties();
+			logger.log(Level.INFO, "" + lastSelectedInput.getInputName()
+					+ " updated with: " + key.toString() + ", " + value.toString());
+			newProperties.put(key, value);
+			lastSelectedInput.setProperties(newProperties);
+			// update the input
+			lastSelectedInput.updateInputData();
+		} else {
+			HashMap<String, Object> newProperties = getInput().getProperties();
+			newProperties.put(key, value);
+			getInput().setProperties(newProperties);
+
+		}
+		
 	}
 
 }

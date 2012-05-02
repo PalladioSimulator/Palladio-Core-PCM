@@ -95,7 +95,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 						visualization.setSource(source);
 					}
 					JFreeChartEditorInputHandle input = new JFreeChartEditorInputHandle((JFreeChartEditorInput) visualization);
-					logger.log(Level.INFO, input.getInputs().get(0).getBasicDataset().getSeriesProperties()[0].toString());
+					logger.log(Level.INFO, input.getInputProperties()[0].toString());
 					
 					try {
 						IWorkbenchPage page = EDP2EditorPlugin.getPlugin()

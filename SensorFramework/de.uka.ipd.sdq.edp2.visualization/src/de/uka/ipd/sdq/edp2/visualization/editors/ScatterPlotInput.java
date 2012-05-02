@@ -149,7 +149,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 
 	@Override
 	public JFreeChart getChart() {
-		NumberAxis domainAxis = new NumberAxis(getHandle()
+		/*NumberAxis domainAxis = new NumberAxis(getHandle()
 				.isShowDomainAxisLabel() ? getHandle()
 				.getDomainAxisLabel() : null);
 		domainAxis.setAutoRangeIncludesZero(getBasicDataset().getHandle()
@@ -178,7 +178,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 				getBasicDataset().getHandle().isShowTitle() ? getBasicDataset()
 						.getHandle().getTitle() : null,
 				JFreeChart.DEFAULT_TITLE_FONT, plot, getBasicDataset()
-						.getHandle().isShowLegend());
+						.getHandle().isShowLegend()); */
 		return chart;
 	}
 

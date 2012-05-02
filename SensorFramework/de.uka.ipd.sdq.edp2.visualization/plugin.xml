@@ -16,9 +16,7 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
-            contributorId="de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor"
-            labelProvider="de.uka.ipd.sdq.edp2.visualization.properties.EditorLabelProvider"
-            typeMapper="de.uka.ipd.sdq.edp2.visualization.properties.PropertyTypeMapper">
+            contributorId="de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor">
          <propertyCategory category="sample"/>
       </propertyContributor>
    </extension>

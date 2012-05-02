@@ -52,10 +52,6 @@ public class JFreeChartEditorInputHandle extends
 	 */
 	private ArrayList<JFreeChartEditorInput> inputs;
 	/**
-	 * The dataset for this editor. Its type depends on the first input.
-	 */
-	private BasicDataset<?> dataset;
-	/**
 	 * The chart, which ultimately displays the data from this handle.
 	 */
 	private JFreeChart chart;
@@ -74,7 +70,6 @@ public class JFreeChartEditorInputHandle extends
 	 */
 	public JFreeChartEditorInputHandle(JFreeChartEditorInput firstInput) {
 		inputs = new ArrayList<JFreeChartEditorInput>();
-		dataset.setHandle(this);
 		addInput(firstInput);
 		setShowLegend(true);
 		setShowTitle(true);
@@ -97,31 +92,16 @@ public class JFreeChartEditorInputHandle extends
 			setChanged();
 			notifyObservers();
 			return true;
+		} else if (inputs.get(0).supportsMultipleInputs()){
+			inputs.add((JFreeChartEditorInput) newInput);
+			newInput.addObserver(this);
+			newInput.setHandle(this);
+			setChanged();
+			notifyObservers();
+			return true;
 		} else {
-			if (dataset == null) {
-				dataset.setHandle(this);
-			}
-			boolean result = dataset.addDataSeries(newInput);
-			if (result) {
-				inputs.add((JFreeChartEditorInput) newInput);
-				newInput.addObserver(this);
-				setChanged();
-				notifyObservers();
-				return true;
-			} else
-				return false;
+			return false;
 		}
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.uka.ipd.sdq.edp2.visualization.IEditorInputHandler#getInputDataset()
-	 */
-	@Override
-	public Object getInputData() {
-		return dataset;
 	}
 
 	/*
@@ -249,11 +229,6 @@ public class JFreeChartEditorInputHandle extends
 	@Override
 	public void saveState(IMemento memento) {
 		JFreeChartEditorInputHandleFactory.saveState(memento, this);
-	}
-
-	@Override
-	public boolean supportsMultipleInputs() {
-		return true;
 	}
 
 	@Override

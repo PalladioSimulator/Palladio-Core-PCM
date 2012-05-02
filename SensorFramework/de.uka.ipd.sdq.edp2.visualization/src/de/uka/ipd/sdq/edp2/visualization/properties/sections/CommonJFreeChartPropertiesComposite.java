@@ -13,6 +13,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
 
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandle;
 
 public class CommonJFreeChartPropertiesComposite extends Composite {
@@ -26,6 +27,7 @@ public class CommonJFreeChartPropertiesComposite extends Composite {
 	private Text titleText;
 	private Button btnShowLegend;
 	private JFreeChartEditorInputHandle handle;
+	private JFreeChartEditorInput firstInput;
 
 	public CommonJFreeChartPropertiesComposite(
 			Composite parent,
@@ -96,6 +98,7 @@ public class CommonJFreeChartPropertiesComposite extends Composite {
 	public void setHandle(
 			JFreeChartEditorInputHandle handle,			boolean update) {
 		this.handle = handle;
+		this.firstInput = handle.getInputs().get(0);
 		if (update) {
 			if (m_bindingContext != null) {
 				m_bindingContext.dispose();

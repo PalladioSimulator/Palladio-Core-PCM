@@ -151,11 +151,5 @@ public abstract class JFreeChartEditorInput<T extends Dataset> extends
 					"No Handle set for this JFreeChartEditorInput!");
 		return handle;
 	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public abstract boolean supportsMultipleInputs();
 
 }

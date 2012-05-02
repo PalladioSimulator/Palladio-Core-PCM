@@ -234,5 +234,12 @@ public abstract class IVisualizationInput extends Observable implements
 	public void setInputName(String inputName) {
 		this.inputName = inputName;
 	}
+	
+	/**
+	 * Method, which returns <true> if the {@link IVisualizationInputHandle} and its corresponding {@link AbstractEditor}
+	 * are able to display multiple {@link IDataSink} objects.
+	 * @return <code>true</code> if multiple inputs are supported.
+	 */
+	public abstract boolean supportsMultipleInputs();
 
 }
