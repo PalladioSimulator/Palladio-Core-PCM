@@ -67,6 +67,13 @@ public abstract class AbstractSimProcessDelegator extends AbstractSimEntityDeleg
         delegate.scheduleAt(d);
     }
 
+    /**
+     * {@inheritDoc}
+     */    
+    public void passivate(double delay) {
+        delegate.passivate(delay);
+    }
+
     public void addProcessListener(ISimProcessListener l) {
         delegate.addProcessListener(l);
     }

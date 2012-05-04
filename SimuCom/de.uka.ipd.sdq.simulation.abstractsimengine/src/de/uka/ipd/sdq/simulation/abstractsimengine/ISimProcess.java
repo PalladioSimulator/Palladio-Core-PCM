@@ -26,6 +26,14 @@ public interface ISimProcess extends IEntity {
      *            the period of simulated time to wait before this process is activated again.
      */
     public void scheduleAt(double delay);
+    
+    /**
+     * Puts the process asleep and resumes after waiting <code>delay</code> simulated time units.
+     * 
+     * @param delay
+     *            the period of simulated time to wait before this process is activated again.
+     */
+    public void passivate(double delay);
 
     /**
      * Returns whether this process has finished its execution.

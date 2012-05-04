@@ -58,6 +58,31 @@ public class DesmoJSimProcess extends SimulatedProcess {
             }.schedule(new TimeSpan(delay));
         }
     }
+    
+    public void passivate(double delay) {
+        if (!isTerminated()) {
+            if (this.myProcessState != ProcessState.RUNNING) {
+                throw new IllegalStateException("Tried to passivate thread which was not running ["
+                        + this.myAbstractProcess.getId() + "]");
+            }
+
+            // Resume process immediately to force process cleanup
+            if (!simIsRunning()) {
+                resume();
+            }
+
+            new ExternalEvent(this.model, "Passivate " + this.myAbstractProcess.getId(), false) {
+                @Override
+                public void eventRoutine() {
+                    if (!isTerminated()) {
+                        resume();
+                    }
+                }
+            }.schedule(new TimeSpan(delay));
+            
+            suspend();
+        }
+    }
 
     private boolean simIsRunning() {
         // do not use isRunning method here, since !isRunning != isStopped
