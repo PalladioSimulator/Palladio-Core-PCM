@@ -1,7 +1,5 @@
 package de.uka.ipd.sdq.simulation.abstractsimengine.example;
 
-import org.osgi.framework.BundleContext;
-
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimulationModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.preferences.SimulationPreferencesHelper;
@@ -27,10 +25,9 @@ public class BusModel extends AbstractSimulationModel {
      * 
      * @param config
      *            the simulation configuration
-     * @param bundleContext
      * @return the created simulation model
      */
-    public static BusModel create(final BusSimConfig config, final BundleContext bundleContext) {
+    public static BusModel create(final BusSimConfig config) {
         // load factory for the preferred simulation engine
         ISimEngineFactory factory = SimulationPreferencesHelper.getPreferredSimulationEngine();
         if (factory == null) {

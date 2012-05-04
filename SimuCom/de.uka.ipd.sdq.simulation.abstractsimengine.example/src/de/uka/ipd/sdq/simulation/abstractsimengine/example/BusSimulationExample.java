@@ -15,7 +15,7 @@ public class BusSimulationExample implements IApplication {
 
     public BusSimulationExample() {
         this.config = new BusSimConfig();
-        this.model = BusModel.create(config, null);
+        this.model = BusModel.create(config);
         this.simControl = model.getSimulationControl();
         this.simControl.setMaxSimTime(MAX_SIMULATION_TIME);
     }
