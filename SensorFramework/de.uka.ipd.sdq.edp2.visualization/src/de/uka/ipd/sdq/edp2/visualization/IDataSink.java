@@ -51,5 +51,11 @@ public interface IDataSink extends IDataFlow, Observer, IExecutableExtension {
 	 */
 	boolean canAccept(AbstractDataSource source);
 	
+	/**
+	 * Method which creates a new instance of this {@link IDataSink} with the provided source.
+	 * Also responsible for taking over appropriate properties of the existing instance to the newly created.
+	 * @param source the source for which the copy is created
+	 * @return a copy of this {@link IDataSink}
+	 */
 	IDataSink createCopyForSource(AbstractDataSource source);
 }

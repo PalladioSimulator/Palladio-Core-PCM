@@ -12,6 +12,7 @@ import javax.measure.Measure;
 import org.eclipse.ui.IMemento;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.Measurement;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
@@ -41,24 +42,24 @@ public class WarmupFilter extends AbstractFilter {
 	/**
 	 * This elements Name as used in extension points and for persistence.
 	 */
-	private final static String ELEMENT_NAME = "WarmupFilter";
+	public final static String ELEMENT_NAME = "WarmupFilter";
 	/**
 	 * Property key for persistence of <droppedValues>.
 	 */
-	private final static String DROPPED_VALUES_ABS_KEY = "droppedValuesAbsolute";
+	public final static String DROPPED_VALUES_ABS_KEY = "droppedValuesAbsolute";
 	/**
 	 * Property key for persistence of <droppedValuesPercentage>.
 	 */
-	private final static String DROPPED_VALUES_REL_KEY = "droppedValuesRelative";
+	public final static String DROPPED_VALUES_REL_KEY = "droppedValuesRelative";
 
 	/**
 	 * Default value for <droppedValuesPercentage>.
 	 */
-	private final static int DEFAULT_VALUE_DROPPED_VALUES_REL = 10;
+	public final static int DEFAULT_VALUE_DROPPED_VALUES_REL = 10;
 	/**
 	 * Default value for <droppedValues>.
 	 */
-	private final static int DEFAULT_VALUE_DROPPED_VALUES_ABS = 0;
+	public final static int DEFAULT_VALUE_DROPPED_VALUES_ABS = 100;
 
 	/**
 	 * Logger for this class
@@ -233,22 +234,31 @@ public class WarmupFilter extends AbstractFilter {
 					.getOrdinalMeasurementsDao(series));
 		}
 		for (OrdinalMeasurementsDao<Measure> dao : listOfDaos) {
+			if (!dao.isOpen()) {
+				try {
+					dao.open();
+				} catch (DataNotAccessibleException e) {
+					logger.log(Level.SEVERE, e.getMessage());
+				}
+			}
 			listOfMeasures.add(dao.getMeasurements());
 		}
 		/**
-		 * filter droppedValues: if @code{droppedValues} = 0 don't throw values;
+		 * filter droppedValues: if @code{droppedValues} = 0 don't remove any
+		 * values;
 		 */
 		int droppedValuesTemp = 0;
 		if (droppedValuesPercentage > 0) {
 			droppedValuesTemp = (int) (droppedValuesPercentage
 					* listOfMeasures.get(0).size() / 100);
 		} else if (droppedValues > 0) {
-			droppedValuesTemp = droppedValues;
-			// droppedValuesPercentage = (float) (Math.floor(10000*
-			// droppedValues / listOfMeasures.get(0).size()) / 100);
+			droppedValuesTemp = Math.min(droppedValues, listOfMeasures.get(0)
+					.size());
+			setDroppedValues(droppedValuesTemp);
 		}
 		MeasurementsUtility.createDAOsForRawMeasurements(rawMeasurements);
-		for (int i = droppedValuesTemp; i < listOfMeasures.get(0).size(); i++) {
+		for (int i = droppedValuesTemp; i < listOfMeasures.get(0).size()
+				&& i > -1; i++) {
 			Measurement measurement = new Measurement(metricDescription);
 			for (int dimension = 0; dimension < listOfMeasures.size(); dimension++) {
 				Measure m = listOfMeasures.get(dimension).get(i);
@@ -336,11 +346,16 @@ public class WarmupFilter extends AbstractFilter {
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#createCopyForSource(de.uka.ipd.sdq.edp2.visualization.AbstractDataSource)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataSink#createCopyForSource(de.uka
+	 * .ipd.sdq.edp2.visualization.AbstractDataSource)
 	 */
 	public IDataSink createCopyForSource(AbstractDataSource source) {
 		WarmupFilter copy = new WarmupFilter();
 		copy.setSource(source);
+		copy.setDroppedValuesPercentage(getDroppedValuesPercentage());
+		copy.setDroppedValues(getDroppedValues());
 		return copy;
 	}
 }

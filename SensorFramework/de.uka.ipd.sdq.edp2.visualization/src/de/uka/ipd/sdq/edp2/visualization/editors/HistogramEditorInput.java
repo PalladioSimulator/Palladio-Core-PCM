@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
 import java.awt.Color;
+import java.awt.Paint;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.logging.Logger;
 import javax.measure.Measure;
 
 import org.eclipse.ui.IMemento;
+import org.jfree.chart.ChartColor;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.labels.ItemLabelAnchor;
@@ -36,7 +38,8 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
  * @author Dominik Ernst
  * 
  */
-public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset> {
+public class HistogramEditorInput extends
+		JFreeChartEditorInput<HistogramDataset> {
 
 	/**
 	 * Name constant, which is used to identify this class in properties and
@@ -141,6 +144,10 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 		setBarMargin(0.0);
 		setNumberOfBins(DEFAULT_NUMBER_BINS);
 		setShowItemValues(false);
+		setAlpha(1.0f);
+		setShowDomainAxisLabel(true);
+		setShowRangeAxisLabel(true);
+		setIncludeZero(false);
 	}
 
 	/*
@@ -152,9 +159,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 	@SuppressWarnings("unchecked")
 	public void updateInputData() {
 		logger.log(Level.INFO, "Transformation : BEGIN");
-		
+
 		dataset = new HistogramDataset();
-		
+
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
 		for (DataSeries series : getSource().getOutput()) {
@@ -180,7 +187,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 		}
 
 		dataset.addSeries(getInputName(), data, getNumberOfBins());
-		
+
 		setChanged();
 		notifyObservers();
 		logger.log(Level.INFO, "Transformation : END");
@@ -238,8 +245,10 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 		properties.put(ElementFactory.ELEMENT_KEY, ELEMENT_NAME);
 		properties.put(RANGE_AXIS_LABEL_KEY, getRangeAxisLabel());
 		properties.put(DOMAIN_AXIS_LABEL_KEY, getDomainAxisLabel());
-		properties.put(SHOW_DOMAIN_AXIS_LABEL_KEY, String.valueOf(isShowDomainAxisLabel()));
-		properties.put(SHOW_RANGE_AXIS_LABEL_KEY, String.valueOf(isShowRangeAxisLabel()));
+		properties.put(SHOW_DOMAIN_AXIS_LABEL_KEY,
+				String.valueOf(isShowDomainAxisLabel()));
+		properties.put(SHOW_RANGE_AXIS_LABEL_KEY,
+				String.valueOf(isShowRangeAxisLabel()));
 		properties.put(INCLUDE_ZERO_KEY, String.valueOf(isIncludeZero()));
 		properties.put(NUMBER_BINS_KEY, getNumberOfBins());
 		properties.put(COLOR_KEY, getColor());
@@ -278,35 +287,36 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 		if (newProperties.get(INPUT_NAME_KEY) != null) {
 			setInputName(newProperties.get(INPUT_NAME_KEY).toString());
 		}
-		if (properties.get(RANGE_AXIS_LABEL_KEY) != null
-				&& newProperties.get(RANGE_AXIS_LABEL_KEY) != null) {
-			setRangeAxisLabel(newProperties.get(RANGE_AXIS_LABEL_KEY).toString());
+		if (newProperties.get(RANGE_AXIS_LABEL_KEY) != null) {
+			setRangeAxisLabel(newProperties.get(RANGE_AXIS_LABEL_KEY)
+					.toString());
 		}
-		if (properties.get(DOMAIN_AXIS_LABEL_KEY) != null
-				&& newProperties.get(DOMAIN_AXIS_LABEL_KEY) != null) {
-			setDomainAxisLabel(newProperties.get(DOMAIN_AXIS_LABEL_KEY).toString());
+		if (newProperties.get(DOMAIN_AXIS_LABEL_KEY) != null) {
+			setDomainAxisLabel(newProperties.get(DOMAIN_AXIS_LABEL_KEY)
+					.toString());
 		}
-		if (properties.get(SHOW_DOMAIN_AXIS_LABEL_KEY) != null
-				&& newProperties.get(SHOW_DOMAIN_AXIS_LABEL_KEY) != null) {
-			setShowDomainAxisLabel(newProperties.get(SHOW_DOMAIN_AXIS_LABEL_KEY).toString().equals("true") ? true : false);
+		if (newProperties.get(SHOW_DOMAIN_AXIS_LABEL_KEY) != null) {
+			setShowDomainAxisLabel(newProperties
+					.get(SHOW_DOMAIN_AXIS_LABEL_KEY).toString().equals("true") ? true
+					: false);
 		}
-		if (properties.get(SHOW_RANGE_AXIS_LABEL_KEY) != null
-				&& newProperties.get(SHOW_RANGE_AXIS_LABEL_KEY) != null) {
-			setShowRangeAxisLabel(newProperties.get(SHOW_RANGE_AXIS_LABEL_KEY).toString().equals("true") ? true : false);
+		if (newProperties.get(SHOW_RANGE_AXIS_LABEL_KEY) != null) {
+			setShowRangeAxisLabel(newProperties.get(SHOW_RANGE_AXIS_LABEL_KEY)
+					.toString().equals("true") ? true : false);
 		}
-		if (properties.get(INCLUDE_ZERO_KEY) != null
-				&& newProperties.get(INCLUDE_ZERO_KEY) != null) {
-			setIncludeZero(newProperties.get(INCLUDE_ZERO_KEY).toString().equals("true") ? true : false);
+		if (newProperties.get(INCLUDE_ZERO_KEY) != null) {
+			setIncludeZero(newProperties.get(INCLUDE_ZERO_KEY).toString()
+					.equals("true") ? true : false);
 		}
 	}
 
 	public String getDomainAxisLabel() {
-		if (domainAxisLabel == null){
+		if (domainAxisLabel == null) {
 			return getDefaultDomainAxisLabel();
 		}
 		return domainAxisLabel;
 	}
-	
+
 	public void setDomainAxisLabel(String domainAxisLabel) {
 		this.domainAxisLabel = domainAxisLabel;
 		setChanged();
@@ -318,10 +328,9 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 		setChanged();
 		notifyObservers();
 	}
-	
 
 	public String getRangeAxisLabel() {
-		if (rangeAxisLabel == null){
+		if (rangeAxisLabel == null) {
 			return getDefaultRangeAxisLabel();
 		}
 		return rangeAxisLabel;
@@ -346,7 +355,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 		setChanged();
 		notifyObservers();
 	}
-	
+
 	public boolean isIncludeZero() {
 		return includeZero;
 	}
@@ -356,7 +365,7 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 		setChanged();
 		notifyObservers();
 	}
-	
+
 	private int getNumberOfBins() {
 		if (numberOfBins != 0) {
 			return numberOfBins;
@@ -380,25 +389,27 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 		// must be null
 		XYPlot plot = null;
 		XYBarRenderer renderer = null;
-		NumberAxis domainAxis = new NumberAxis(isShowDomainAxisLabel() ? 
-				getDomainAxisLabel() : null);
+		NumberAxis domainAxis = new NumberAxis(
+				isShowDomainAxisLabel() ? getDomainAxisLabel() : null);
 		domainAxis.setAutoRangeIncludesZero(isIncludeZero());
-		NumberAxis rangeAxis = new NumberAxis(isShowRangeAxisLabel() ? getRangeAxisLabel() : null);
+		NumberAxis rangeAxis = new NumberAxis(
+				isShowRangeAxisLabel() ? getRangeAxisLabel() : null);
 
-		if (dataset.getSeriesCount() < getHandle().getInputsSize()){
-			//add all inputs anew
-			for (int i = 1; i < getHandle().getInputsSize(); i++) {
-				dataset.addSeries(
-						getHandle().getInputs().get(i).getInputName(),
-						(double[]) getHandle().getInputs().get(i).getData(),
-						Integer.parseInt(getHandle().getInputProperties()[i].get(
-								"numberOfBins").toString()));
+		dataset = new HistogramDataset();
+		// add all inputs anew
+		// assume that if the getChart()-Method of this input is called, the
+		// remaining inputs have the same type of data
+		for (int i = 0; i < getHandle().getInputsSize(); i++) {
+			dataset.addSeries(
+					getHandle().getInputs().get(i).getInputName(),
+					(double[]) getHandle().getInputs().get(i).getData(),
+					Integer.parseInt(getHandle().getInputProperties()[i].get(
+							"numberOfBins").toString()));
 		}
-		
-		}
+
 		plot = new XYPlot();
 		plot.setDataset(getDataset());
-		
+
 		// the renderer for the chart
 		renderer = new XYBarRenderer();
 		plot.setRenderer(renderer);
@@ -408,16 +419,23 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 		// modifiy the colors of the data series, if there are persisted color
 		// properties
 		for (int i = 0; i < getHandle().getInputsSize(); i++) {
+			float alpha = Float.parseFloat(getHandle().getInputProperties()[i]
+					.get(JFreeChartEditorInput.ALPHA_KEY).toString());
 			if ((getHandle().getInputProperties()[i]
 					.get(JFreeChartEditorInput.COLOR_KEY) != null)
 					&& !getHandle().getInputProperties()[i]
 							.get(JFreeChartEditorInput.COLOR_KEY).toString()
-							.equals(NO_COLOR)){
-				Color opaque = Color.decode(getHandle().getInputProperties()[i].get(
-						JFreeChartEditorInput.COLOR_KEY).toString());
-				float alpha = Float.parseFloat(getHandle().getInputProperties()[i]
-						.get(JFreeChartEditorInput.ALPHA_KEY).toString());
+							.equals(NO_COLOR)) {
+				Color opaque = Color.decode(getHandle().getInputProperties()[i]
+						.get(JFreeChartEditorInput.COLOR_KEY).toString());
+
 				float[] comp = opaque.getRGBColorComponents(null);
+				Color col = new Color(comp[0], comp[1], comp[2], alpha);
+				renderer.setSeriesPaint(i, col);
+			} else {
+				Color defaultColor = (Color) ChartColor
+						.createDefaultPaintArray()[i];
+				float[] comp = defaultColor.getRGBColorComponents(null);
 				Color col = new Color(comp[0], comp[1], comp[2], alpha);
 				renderer.setSeriesPaint(i, col);
 			}
@@ -503,16 +521,25 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 		return "Histogram";
 	}
 
-
 	public String getDefaultDomainAxisLabel() {
-		return MetricDescriptionUtility.toBaseMetricDescriptions(getSource()
-				.getMeasurementsRange().getMeasurements().getMeasure()
-				.getMetric())[0].getName()
-				+ " [" + getDefaultUnits()[0].toString() + "]";
+		if (getSource() != null) {
+			return MetricDescriptionUtility
+					.toBaseMetricDescriptions(getSource()
+							.getMeasurementsRange().getMeasurements()
+							.getMeasure().getMetric())[0].getName()
+					+ " [" + getDefaultUnits()[0].toString() + "]";
+		} else {
+			return "noDefaultLabelAvailable";
+		}
 	}
 
 	public String getDefaultRangeAxisLabel() {
-		return "Frequency ["+ (isAbsoluteFrequency() ? "absolute" : "relative") + "]";
+		if (getSource() != null) {
+			return "Frequency ["
+					+ (isAbsoluteFrequency() ? "absolute" : "relative") + "]";
+		} else {
+			return "noDefaultLabelAvailable";
+		}
 	}
 
 	private boolean isAbsoluteFrequency() {
@@ -543,10 +570,13 @@ public class HistogramEditorInput extends JFreeChartEditorInput<HistogramDataset
 	private void setShowItemValues(boolean value) {
 		showItemValues = value;
 	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#supportsMultipleInputs()
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#supportsMultipleInputs
+	 * ()
 	 */
 	@Override
 	public boolean supportsMultipleInputs() {

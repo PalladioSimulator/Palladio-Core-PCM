@@ -143,24 +143,30 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		composite.setSize(800, 275);
 		createLayout(composite);
 
-		Group groupSpecific = new Group(composite, SWT.NONE);
-		groupSpecific.setText("Input-specific Options");
-		groupSpecific.setLayout(new GridLayout(2, false));
-		
 		Group groupCommon = new Group(composite, SWT.NONE);
 		groupCommon.setText("Common Options");
 		groupCommon.setLayout(new GridLayout(1, false));
 
+		Group groupSpecific = new Group(composite, SWT.NONE);
+		groupSpecific.setText("Input-specific Options");
+		groupSpecific.setLayout(new GridLayout(2, false));
+
 		// create empty input list
 		listViewer = new InputElementList(groupSpecific, SWT.EMBEDDED, null)
 				.getListViewer();
-		createCommonPropertiesTable(groupSpecific);
-		createSpecificPropertiesTable(groupCommon);
+		createCommonPropertiesTable(groupCommon);
+		createSpecificPropertiesTable(groupSpecific);
 	}
 
-	private void createCommonPropertiesTable(Group groupSpecific) {
-		commonPropertiesTable = new Table(groupSpecific, SWT.SINGLE
-				| SWT.BORDER | SWT.V_SCROLL | SWT.FULL_SELECTION);
+	/**
+	 * Creates the table for properties, which are common for all inputs.
+	 * 
+	 * @param composite
+	 *            the composite in which the table is created
+	 */
+	private void createCommonPropertiesTable(Composite composite) {
+		commonPropertiesTable = new Table(composite, SWT.SINGLE | SWT.BORDER
+				| SWT.V_SCROLL | SWT.FULL_SELECTION);
 
 		commonPropertiesTable.setLinesVisible(true);
 		commonPropertiesTable.setHeaderVisible(true);
@@ -201,9 +207,9 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 					if (rect.contains(pt)) {
 						// boolean properties
 						if (item.getText(labelColumn).equals(
-								HistogramEditorInput.ABSOLUTE_FREQUENCY_KEY)
+								JFreeChartEditorInputHandle.SHOW_LEGEND_KEY)
 								|| (item.getText(labelColumn)
-										.equals(HistogramEditorInput.SHOW_ITEM_VALUES_KEY))) {
+										.equals(JFreeChartEditorInputHandle.SHOW_TITLE_KEY))) {
 							openBooleanDialog(index, commonPropertiesTable);
 						}
 						// textual properties
@@ -224,6 +230,12 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 
 	}
 
+	/**
+	 * Creates the table for input-specific properties.
+	 * 
+	 * @param parent
+	 *            the composite in which the table is created
+	 */
 	private void createSpecificPropertiesTable(Composite parent) {
 
 		// initialize the table, which shows the properties of transformations
@@ -275,7 +287,13 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 						} else if (item.getText(labelColumn).equals(
 								HistogramEditorInput.ABSOLUTE_FREQUENCY_KEY)
 								|| (item.getText(labelColumn)
-										.equals(HistogramEditorInput.SHOW_ITEM_VALUES_KEY))) {
+										.equals(HistogramEditorInput.SHOW_ITEM_VALUES_KEY))
+								|| (item.getText(labelColumn)
+										.equals(HistogramEditorInput.SHOW_DOMAIN_AXIS_LABEL_KEY))
+								|| (item.getText(labelColumn)
+										.equals(HistogramEditorInput.SHOW_RANGE_AXIS_LABEL_KEY))
+								|| (item.getText(labelColumn)
+										.equals(HistogramEditorInput.INCLUDE_ZERO_KEY))) {
 							openBooleanDialog(index, specificPropertiesTable);
 						}
 						// textual properties
@@ -336,8 +354,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		};
 		text.addListener(SWT.FocusOut, textListener);
 		text.addListener(SWT.Traverse, textListener);
-		editor.setEditor(text, table.getItem(index),
-				editColumn);
+		editor.setEditor(text, table.getItem(index), editColumn);
 		text.setText(table.getItem(index).getText(editColumn));
 		text.selectAll();
 		text.setFocus();
@@ -377,6 +394,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 					firstInput.setRangeAxisLabel(firstInput
 							.getDefaultRangeAxisLabel());
 				}
+				comboBox.dispose();
 			}
 
 			public void widgetDefaultSelected(SelectionEvent e) {
@@ -391,8 +409,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 				return;
 			}
 		});
-		editor.setEditor(comboBox, table.getItem(index),
-				editColumn);
+		editor.setEditor(comboBox, table.getItem(index), editColumn);
 	}
 
 	/**
@@ -454,7 +471,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		}
 
 	}
-	
+
 	/**
 	 * Update the table containing the properties of the
 	 * {@link #lastSelectedInput}.
@@ -601,8 +618,9 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 		if (table == specificPropertiesTable) {
 			HashMap<String, Object> newProperties = lastSelectedInput
 					.getProperties();
-			logger.log(Level.INFO, "" + lastSelectedInput.getInputName()
-					+ " updated with: " + key.toString() + ", " + value.toString());
+			logger.log(Level.INFO,
+					"" + lastSelectedInput.getInputName() + " updated with: "
+							+ key.toString() + ", " + value.toString());
 			newProperties.put(key, value);
 			lastSelectedInput.setProperties(newProperties);
 			// update the input
@@ -613,7 +631,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 			getInput().setProperties(newProperties);
 
 		}
-		
+
 	}
 
 }

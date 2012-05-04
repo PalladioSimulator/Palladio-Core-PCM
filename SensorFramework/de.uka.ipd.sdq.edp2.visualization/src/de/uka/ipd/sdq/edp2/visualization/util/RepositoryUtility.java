@@ -11,6 +11,7 @@ import javax.measure.Measure;
 
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.Measurement;
@@ -30,6 +31,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NumericalBaseMetricDescription;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifierBasedMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.TextualBaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
@@ -82,11 +84,12 @@ public class RepositoryUtility {
 	/**
 	 * One-time initialization is done here.
 	 */
-	public RepositoryUtility(){
-		RepositoryManager.addRepository(RepositoryManager
-				.getCentralRepository(), LOCAL_REPO);
+	public RepositoryUtility() {
+		RepositoryManager.addRepository(
+				RepositoryManager.getCentralRepository(), LOCAL_REPO);
 		LOCAL_REPO_URI.deleteOnExit();
 	}
+
 	/**
 	 * 
 	 * @return The URI (String) to the static local repository.
@@ -100,8 +103,8 @@ public class RepositoryUtility {
 	 * @return The reference to the static local repository.
 	 */
 	public static Repository getDefaultLocalRepository() {
-		RepositoryManager.addRepository(RepositoryManager
-				.getCentralRepository(), LOCAL_REPO);
+		RepositoryManager.addRepository(
+				RepositoryManager.getCentralRepository(), LOCAL_REPO);
 		return LOCAL_REPO;
 	}
 
@@ -178,8 +181,8 @@ public class RepositoryUtility {
 	 * {@link MetricSetDescription}. Returns null if the input is neither a
 	 * {@link BaseMetricDescription} nor a {@link MetricSetDescription}.
 	 * 
-	 * @param metricDescriptionToCopy the
-	 *            {@link MetricDescription}, which is to be copied.
+	 * @param metricDescriptionToCopy
+	 *            the {@link MetricDescription}, which is to be copied.
 	 * @param targetRepository
 	 *            the {@link Repository} to which the {@link MetricDescription}
 	 *            is to be copied.
@@ -193,32 +196,34 @@ public class RepositoryUtility {
 			if (baseDescToCopy instanceof NumericalBaseMetricDescription) {
 				NumericalBaseMetricDescription numDescToCopy = (NumericalBaseMetricDescription) baseDescToCopy;
 				NumericalBaseMetricDescription metricDescription = factory
-						.createNumericalBaseMetricDescription(numDescToCopy
-								.getName(), numDescToCopy
-								.getTextualDescription(), numDescToCopy
-								.getCaptureType(), numDescToCopy.getScale(),
-								numDescToCopy.getDataType(), numDescToCopy
-										.getDefaultUnit(), numDescToCopy
-										.getMonotonic(), numDescToCopy
-										.getPersistenceKind());
+						.createNumericalBaseMetricDescription(
+								numDescToCopy.getName(),
+								numDescToCopy.getTextualDescription(),
+								numDescToCopy.getCaptureType(),
+								numDescToCopy.getScale(),
+								numDescToCopy.getDataType(),
+								numDescToCopy.getDefaultUnit(),
+								numDescToCopy.getMonotonic(),
+								numDescToCopy.getPersistenceKind());
 				targetRepository.getDescriptions().add(metricDescription);
 				return metricDescription;
 			} else if (baseDescToCopy instanceof TextualBaseMetricDescription) {
 				TextualBaseMetricDescription textDescToCopy = (TextualBaseMetricDescription) baseDescToCopy;
 				TextualBaseMetricDescription metricDescription = factory
-						.createTextualBaseMetricDescription(textDescToCopy
-								.getName(), textDescToCopy
-								.getTextualDescription(), textDescToCopy
-								.getScale(), textDescToCopy.getDataType(),
+						.createTextualBaseMetricDescription(
+								textDescToCopy.getName(),
+								textDescToCopy.getTextualDescription(),
+								textDescToCopy.getScale(),
+								textDescToCopy.getDataType(),
 								textDescToCopy.getMonotonic());
 				targetRepository.getDescriptions().add(metricDescription);
 				return metricDescription;
 			}
 		} else if (metricDescriptionToCopy instanceof MetricSetDescription) {
 			MetricSetDescription metricDescription = factory
-					.createMetricSetDescription(metricDescriptionToCopy
-							.getName(), metricDescriptionToCopy
-							.getTextualDescription());
+					.createMetricSetDescription(
+							metricDescriptionToCopy.getName(),
+							metricDescriptionToCopy.getTextualDescription());
 			for (MetricDescription metricsToCopy : ((MetricSetDescription) metricDescriptionToCopy)
 					.getSubsumedMetrics()) {
 				metricDescription.getSubsumedMetrics().add(
@@ -249,8 +254,8 @@ public class RepositoryUtility {
 			MetricDescription targetMetricDescription,
 			ExperimentGroup targetExperimentGroup,
 			ExperimentSetting targetExperimentSetting) {
-		Edp2Measure edp2measure = factory.createEdp2Measure(edp2measureToCopy
-				.getMeasuredObject(), targetMetricDescription);
+		Edp2Measure edp2measure = factory.createEdp2Measure(
+				edp2measureToCopy.getMeasuredObject(), targetMetricDescription);
 		targetExperimentGroup.getMeasure().add(edp2measure);
 		targetExperimentSetting.getMeasure().add(edp2measure);
 		return edp2measure;
@@ -339,76 +344,95 @@ public class RepositoryUtility {
 		MetricDescription metric = forMeasurementsRange.getMeasurements()
 				.getMeasure().getMetric();
 
-		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
-		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
-
-		for (DataSeries series : rawMeasurementsToCopy.getDataSeries()) {
-			listOfDaos.add(MeasurementsUtility
-					.getOrdinalMeasurementsDao(series));
-		}
-		for (OrdinalMeasurementsDao<Measure> dao : listOfDaos) {
-			listOfMeasures.add(dao.getMeasurements());
-		}
-		MeasurementsUtility.createDAOsForRawMeasurements(rawMeasurements);
-		for (int j = 0; j < listOfMeasures.get(0).size(); j++) {
-			Measurement measurement = new Measurement(metric);
-			for (int dimension = 0; dimension < listOfMeasures.size(); dimension++) {
-				Measure m = listOfMeasures.get(dimension).get(j);
-				measurement.setMeasuredValue(dimension, m);
+		if (metric instanceof TextualBaseMetricDescription) {
+			ArrayList<ObservedIdentifierBasedMeasurements> listOfMeasures = new ArrayList<ObservedIdentifierBasedMeasurements>();
+			ArrayList<NominalMeasurementsDao> listOfDaos = new ArrayList<NominalMeasurementsDao>();
+			for (DataSeries series : rawMeasurementsToCopy.getDataSeries()) {
+				listOfDaos.add(MeasurementsUtility
+						.getNominalMeasurementsDao(series));
 			}
-			MeasurementsUtility.storeMeasurement(forMeasurementsRange
-					.getMeasurements(), measurement);
+			for (NominalMeasurementsDao dao : listOfDaos) {
+				listOfMeasures.add(dao.getObservedIdentifierBasedMeasurements());
+			}
+			MeasurementsUtility.createDAOsForRawMeasurements(rawMeasurements);
+			for (int i = 0; i < listOfMeasures.size(); i++) {
+				throw new RuntimeException();
+				//TODO copy Measurements!
+			}
+			
+		} else if (metric instanceof NumericalBaseMetricDescription) {
+			ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
+			ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
+
+			for (DataSeries series : rawMeasurementsToCopy.getDataSeries()) {
+				listOfDaos.add(MeasurementsUtility
+						.getOrdinalMeasurementsDao(series));
+				
+			}
+			for (OrdinalMeasurementsDao<Measure> dao : listOfDaos) {
+				listOfMeasures.add(dao.getMeasurements());
+			}
+			MeasurementsUtility.createDAOsForRawMeasurements(rawMeasurements);
+			for (int j = 0; j < listOfMeasures.get(0).size(); j++) {
+				Measurement measurement = new Measurement(metric);
+				for (int dimension = 0; dimension < listOfMeasures.size(); dimension++) {
+					Measure m = listOfMeasures.get(dimension).get(j);
+					measurement.setMeasuredValue(dimension, m);
+				}
+				MeasurementsUtility.storeMeasurement(
+						forMeasurementsRange.getMeasurements(), measurement);
+			}
+		} else {
+			logger.log(Level.SEVERE, "Unsupported Base Metric: the selected measurements could not be opened, because it is neither described by a TextualBaseMetricDescription nor a NumericalBaseMetricDescription.");
+			throw new RuntimeException("Unsupported Base Metric.");
 		}
 		return rawMeasurements;
 	}
 
 	/**
 	 * This method copies one single {@link DataSeries} from the list of all
-	 * available {@link DataSeries}. The
-	 * {@link DataSeries} which is to be copied, is selected according to the
-	 * specified {@link MetricDescription}, i.e. the
-	 * {@link DataSeries} element, which has the specified metric is selected.
-	 * It is added to the data in {@link RawMeasurements}.
+	 * available {@link DataSeries}. The {@link DataSeries} which is to be
+	 * copied, is selected according to the specified {@link MetricDescription},
+	 * i.e. the {@link DataSeries} element, which has the specified metric is
+	 * selected. It is added to the data in {@link RawMeasurements}.
 	 * 
-	 * @param forMetric the {@link MetricDescription} which is used for the copied {@link DataSeries}
-	 * @param fromDataSeries the list of {@link DataSeries}
-	 * @param toRawMeasurements the target {@link RawMeasurements}
+	 * @param forMetric
+	 *            the {@link MetricDescription} which is used for the copied
+	 *            {@link DataSeries}
+	 * @param fromDataSeries
+	 *            the list of {@link DataSeries}
+	 * @param toRawMeasurements
+	 *            the target {@link RawMeasurements}
 	 * @return reference to the list of {@link DataSeries}, to which the copied
 	 *         element is added.
 	 */
 	public static EList<DataSeries> copySingleDataSeries(
 			MetricDescription forMetric, EList<DataSeries> fromDataSeries,
 			RawMeasurements toRawMeasurements) {
-		
-		throw new RuntimeException("Not working");
-		
-		/*ArrayList<MetricDescription> mds = new ArrayList<MetricDescription>();
-		BaseMetricDescription[] metrics = MetricDescriptionUtility
-				.toBaseMetricDescriptions(fromDataSeries.get(0)
-						.getRawMeasurements().getMeasurementsRange()
-						.getMeasurements().getMeasure().getMetric());
-		for (int i = 0; i < metrics.length; i++) {
-			mds.add(metrics[i]);
-		}
-		DataSeries selectedDS = null;
-		for (MetricDescription md : mds) {
-			if (md.getName().equals(forMetric.getName())) {
-				logger.log(Level.FINE, "found a metric match");
-			}
-		}
-		OrdinalMeasurementsDao dao = MeasurementsUtility
-				.getOrdinalMeasurementsDao(selectedDS);
-		List<?> measures = dao.getMeasurements();
 
-		for (int j = 0; j < measures.size(); j++) {
-			Measurement measurement = new Measurement(forMetric);
-			Measure m = (Measure) measures.get(j);
-			measurement.setMeasuredValue(0, m);
-			MeasurementsUtility.storeMeasurement(toRawMeasurements
-					.getMeasurementsRange().getMeasurements(), measurement);
-		}
-		return toRawMeasurements.getDataSeries();
-		*/
+		throw new RuntimeException("Not working");
+
+		/*
+		 * ArrayList<MetricDescription> mds = new
+		 * ArrayList<MetricDescription>(); BaseMetricDescription[] metrics =
+		 * MetricDescriptionUtility
+		 * .toBaseMetricDescriptions(fromDataSeries.get(0)
+		 * .getRawMeasurements().getMeasurementsRange()
+		 * .getMeasurements().getMeasure().getMetric()); for (int i = 0; i <
+		 * metrics.length; i++) { mds.add(metrics[i]); } DataSeries selectedDS =
+		 * null; for (MetricDescription md : mds) { if
+		 * (md.getName().equals(forMetric.getName())) { logger.log(Level.FINE,
+		 * "found a metric match"); } } OrdinalMeasurementsDao dao =
+		 * MeasurementsUtility .getOrdinalMeasurementsDao(selectedDS); List<?>
+		 * measures = dao.getMeasurements();
+		 * 
+		 * for (int j = 0; j < measures.size(); j++) { Measurement measurement =
+		 * new Measurement(forMetric); Measure m = (Measure) measures.get(j);
+		 * measurement.setMeasuredValue(0, m);
+		 * MeasurementsUtility.storeMeasurement(toRawMeasurements
+		 * .getMeasurementsRange().getMeasurements(), measurement); } return
+		 * toRawMeasurements.getDataSeries();
+		 */
 	}
 
 	/**
@@ -442,8 +466,8 @@ public class RepositoryUtility {
 	 */
 	public static Edp2Measure createEdp2Measure(Edp2Measure edp2measureToCopy,
 			MetricDescription targetMetricDescription) {
-		Edp2Measure edp2measure = factory.createEdp2Measure(edp2measureToCopy
-				.getMeasuredObject(), targetMetricDescription);
+		Edp2Measure edp2measure = factory.createEdp2Measure(
+				edp2measureToCopy.getMeasuredObject(), targetMetricDescription);
 		ExperimentGroup dummyGroup = factory.createExperimentGroup();
 		dummyGroup.setRepository(getDefaultLocalRepository());
 		edp2measure.setExperimentGroup(dummyGroup);

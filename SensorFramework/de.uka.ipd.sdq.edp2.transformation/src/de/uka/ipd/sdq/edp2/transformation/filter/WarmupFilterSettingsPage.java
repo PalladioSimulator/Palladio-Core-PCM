@@ -1,7 +1,10 @@
 package de.uka.ipd.sdq.edp2.transformation.filter;
 
 import java.util.HashMap;
+import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.measure.Measure;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -20,6 +23,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 
+import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
+import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 
@@ -53,13 +59,14 @@ public class WarmupFilterSettingsPage extends WizardPage implements
 				"Press 'Finish' to create the Filter using the chosen settings.",
 				null);
 		numberStatus = statusOK;
-		// TODO set the number of measurements in source and insert them into
-		// the additional information
-		// field of the measurementsRange
-		/*
-		 * numberOfMeasurements = Long.valueOf(source.getMeasurementsRange()
-		 * .getAdditionalInformation().get("numberOfMeasurements") .toString());
-		 */
+		OrdinalMeasurementsDao<Measure> dao = MeasurementsUtility
+				.getOrdinalMeasurementsDao(source.getOutput().get(0));
+		numberOfMeasurements = dao.getMeasurements().size();
+		try {
+			dao.close();
+		} catch (DataNotAccessibleException e) {
+			logger.log(Level.SEVERE, e.getMessage());
+		}
 	}
 
 	private void setDroppedValuesPercentage(float droppedValuesPercentage) {
@@ -69,7 +76,6 @@ public class WarmupFilterSettingsPage extends WizardPage implements
 		if (droppedAbsText != null)
 			droppedAbsText.setText("");
 		droppedAbsText.addModifyListener(this);
-
 	}
 
 	private void setDroppedValuesAbsolute(int droppedValuesAbsolute) {
@@ -223,7 +229,7 @@ public class WarmupFilterSettingsPage extends WizardPage implements
 			int temp = 0;
 			try {
 				temp = Integer.parseInt(droppedAbsText.getText());
-				validNumber = temp < 1000 && temp > 1;
+				validNumber = temp < numberOfMeasurements && temp > 1;
 			} catch (NumberFormatException nfe) {
 				isNumber = false;
 			} finally {

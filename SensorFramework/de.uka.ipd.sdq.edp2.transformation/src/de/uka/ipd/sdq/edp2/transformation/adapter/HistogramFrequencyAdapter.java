@@ -256,10 +256,14 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 	public void setDataSeriesIndex(int dataSeriesIndex) {
 		this.dataSeriesIndex = dataSeriesIndex;
 	}
-
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#createCopyForSource(de.uka.ipd.sdq.edp2.visualization.AbstractDataSource)
+	 */
 	public IDataSink createCopyForSource(AbstractDataSource source) {
 		HistogramFrequencyAdapter copy = new HistogramFrequencyAdapter();
 		copy.setSource(source);
+		copy.setDataSeriesIndex(getDataSeriesIndex());
 		return copy;
 	}
 }
