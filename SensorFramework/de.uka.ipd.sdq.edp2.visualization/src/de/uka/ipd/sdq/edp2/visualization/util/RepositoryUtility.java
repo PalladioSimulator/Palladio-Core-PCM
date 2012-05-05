@@ -27,6 +27,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifier;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
@@ -391,7 +392,7 @@ public class RepositoryUtility {
 						newMeasurements.add(measurement);
 					}
 					measurement = new Measurement(metric);
-					ObservedIdentifier measure = obsId.get(j);
+					Identifier measure = obsId.get(j).getIdentifier();
 					measurement.setMeasuredValue(i, measure);
 					MeasurementsUtility.storeMeasurement(forMeasurementsRange.getMeasurements(), measurement);
 				}
