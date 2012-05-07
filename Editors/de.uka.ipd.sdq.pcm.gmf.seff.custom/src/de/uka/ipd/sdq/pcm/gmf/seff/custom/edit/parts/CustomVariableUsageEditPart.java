@@ -27,11 +27,11 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
 
 	@Override
 	protected IFigure createNodeShape() {
-		ParametricParameterUsageFigure figure = new ParametricParameterUsageFigure();
+		ParametricParameterUsageFigure figure = new CustomParametricParameterUsageFigure();
 		return primaryShape = figure;
 	}
 
-	public class ParametricParameterUsageFigure extends RectangleFigure {
+	public class CustomParametricParameterUsageFigure extends ParametricParameterUsageFigure {
 		/**
 		 * @generated
 		 */
@@ -45,7 +45,7 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
 		/**
 		 * @generated
 		 */
-		public ParametricParameterUsageFigure() {
+		public CustomParametricParameterUsageFigure() {
 
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
