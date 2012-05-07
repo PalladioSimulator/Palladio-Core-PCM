@@ -21,8 +21,9 @@ public class CustomComponentExternalCallNameLabelEditPart extends ComponentExter
 	protected String getLabelText() {
 		String text = null;
 		EntryLevelSystemCall call = (EntryLevelSystemCall) resolveSemanticElement();
-		if (call != null && call.getProvidedRole_EntryLevelSystemCall() != null
-				&& call.getOperationSignature__EntryLevelSystemCall() != null) {
+        if (call != null && call.getProvidedRole_EntryLevelSystemCall() != null
+                && call.getProvidedRole_EntryLevelSystemCall().getProvidedInterface__OperationProvidedRole() != null
+                && call.getOperationSignature__EntryLevelSystemCall() != null) {
 			text = call.getProvidedRole_EntryLevelSystemCall()
 					.getProvidedInterface__OperationProvidedRole()
 					.getEntityName()
