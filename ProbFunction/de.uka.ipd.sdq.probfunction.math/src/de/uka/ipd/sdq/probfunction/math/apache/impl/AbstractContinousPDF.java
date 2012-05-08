@@ -26,13 +26,11 @@ public abstract class AbstractContinousPDF implements IContinousPDF {
 	protected AbstractContinuousDistribution internalFunction = null;
 	protected IRandomGenerator sampleDrawer = new DefaultRandomGenerator();
 	
-		
-	public AbstractContinousPDF() {
+	public AbstractContinousPDF(IRandomGenerator rng) {
 		super();
+		sampleDrawer = rng;
 	}
-
-	
-
+		
 	public double getCoefficientOfVariance() {
 		return this.getStandardDeviation() / this.getArithmeticMeanValue();
 	}

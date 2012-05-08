@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.probfunction.math.apache.impl;
 
 import org.apache.commons.math.MathException;
 
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.IUniformDistribution;
 import de.uka.ipd.sdq.probfunction.math.apache.distribution.UniformDistributionImpl;
 import de.uka.ipd.sdq.probfunction.math.apache.distribution.UniformIntDistributionImpl;
@@ -19,8 +20,8 @@ import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
  */
 public class UniformDistribution extends AbstractContinousPDF implements IUniformDistribution{
 	
-	public UniformDistribution(double a, double b) 
-	{
+	public UniformDistribution(double a, double b, IRandomGenerator rng){
+		super(rng);
 		try {
 			this.internalFunction = new UniformDistributionImpl(a, b);
 		} catch (MathException e) {

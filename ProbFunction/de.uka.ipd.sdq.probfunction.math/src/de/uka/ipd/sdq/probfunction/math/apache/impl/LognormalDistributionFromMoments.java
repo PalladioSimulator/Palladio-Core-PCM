@@ -4,6 +4,7 @@ package de.uka.ipd.sdq.probfunction.math.apache.impl;
 import org.apache.commons.math.MathException;
 
 
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.apache.distribution.LognormalDistributionFromMomentsImpl;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 
@@ -16,7 +17,8 @@ public class LognormalDistributionFromMoments extends LognormalDistribution  {
 	 * @param coefficient of variance ( = standard deviation / mean)  
 	 * @throws MathException 
 	 */
-	public LognormalDistributionFromMoments(double mean, double variance)  {
+	public LognormalDistributionFromMoments(double mean, double variance, IRandomGenerator rng){
+		super(rng);
 		
 		
 		try {

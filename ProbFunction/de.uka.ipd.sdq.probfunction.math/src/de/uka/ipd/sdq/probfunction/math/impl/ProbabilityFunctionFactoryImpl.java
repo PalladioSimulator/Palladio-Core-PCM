@@ -816,6 +816,7 @@ public class ProbabilityFunctionFactoryImpl implements
 	}
 
 	public void setRandomGenerator(IRandomGenerator randomGenerator) {
+		this.pdfFactory.setRandomGenerator(randomGenerator);
 		this.randomGenerator  = randomGenerator;
 	}
 

@@ -4,6 +4,7 @@ import org.apache.commons.math.distribution.ChiSquaredDistributionImpl;
 
 import de.uka.ipd.sdq.probfunction.math.IChiSquareDistribution;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
@@ -39,7 +40,8 @@ public class ChiSquareDistribution extends AbstractContinousPDF implements IChiS
      * @param degreesOfFreedom
      *            the parameter of this distribution, which must be a positive integer
      */
-    public ChiSquareDistribution(int degreesOfFreedom) {
+    public ChiSquareDistribution(int degreesOfFreedom, IRandomGenerator rng){
+		super(rng);
         assert (degreesOfFreedom > 0) : "The parameter degrees of freedom must be a positive integer.";
         this.degreesOfFreedom = degreesOfFreedom;
         this.internalFunction = new ChiSquaredDistributionImpl(degreesOfFreedom);

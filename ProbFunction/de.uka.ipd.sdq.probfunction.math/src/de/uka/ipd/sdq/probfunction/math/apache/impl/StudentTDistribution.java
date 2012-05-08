@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.probfunction.math.apache.impl;
 import org.apache.commons.math.distribution.TDistributionImpl;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.IStudentTDistribution;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
@@ -38,7 +39,8 @@ public class StudentTDistribution extends AbstractContinousPDF implements IStude
      * @param degreesOfFreedom
      *            the parameter of this distribution, which must be a positive integer
      */
-    public StudentTDistribution(int degreesOfFreedom) {
+    public StudentTDistribution(int degreesOfFreedom, IRandomGenerator rng){
+		super(rng);
         assert (degreesOfFreedom > 0) : "The parameter degrees of freedom must be a positive integer.";
         this.degreesOfFreedom = degreesOfFreedom;
         this.internalFunction = new TDistributionImpl(degreesOfFreedom);

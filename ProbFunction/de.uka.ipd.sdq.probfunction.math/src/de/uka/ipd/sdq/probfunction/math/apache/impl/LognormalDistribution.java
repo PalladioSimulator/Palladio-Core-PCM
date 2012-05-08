@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.probfunction.math.apache.distribution.LognormalDistributio
 //import umontreal.iro.lecuyer.probdist.LognormalDistFromMoments;
 import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
@@ -24,17 +25,18 @@ import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 
 public class LognormalDistribution extends AbstractContinousPDF  implements ILognormalDistribution {
 	
-	public LognormalDistribution(double mu, double sigma) {
-		super();
+	public LognormalDistribution(double mu, double sigma, IRandomGenerator rng){
+		super(rng);
+		
 		this.internalFunction = new LognormalDistributionImpl(mu, sigma);
 	}
 	
-	protected LognormalDistribution(){
-		super();
+	protected LognormalDistribution(IRandomGenerator rng){
+		super(rng);
 	}
 
-	private LognormalDistribution(LognormalDistributionImpl internal){
-		super();
+	private LognormalDistribution(LognormalDistributionImpl internal, IRandomGenerator rng){
+		super(rng);
 		this.internalFunction = internal;
 	}
 	
@@ -180,7 +182,7 @@ public class LognormalDistribution extends AbstractContinousPDF  implements ILog
 		double newMean = this.getArithmeticMeanValue() + scalar;
 		double newVariance = this.getVariance();
 		try {
-			return new LognormalDistribution(new LognormalDistributionFromMomentsImpl(newMean, newVariance));
+			return new LognormalDistribution(new LognormalDistributionFromMomentsImpl(newMean, newVariance), sampleDrawer);
 		} catch (MathException e) {
 			throw new ProbabilityFunctionException(e.getLocalizedMessage());
 		}
@@ -191,7 +193,7 @@ public class LognormalDistribution extends AbstractContinousPDF  implements ILog
 		double newMean = this.getArithmeticMeanValue() * scalar;
 		double newVariance = this.getVariance() * scalar * scalar;
 		try {
-			return new LognormalDistribution(new LognormalDistributionFromMomentsImpl(newMean, newVariance));
+			return new LognormalDistribution(new LognormalDistributionFromMomentsImpl(newMean, newVariance), sampleDrawer);
 		} catch (MathException e) {
 			throw new ProbabilityFunctionException(e.getLocalizedMessage());
 		}

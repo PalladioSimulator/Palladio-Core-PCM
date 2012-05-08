@@ -12,22 +12,30 @@ import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
 import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.INormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.IPoissonDistribution;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.IStudentTDistribution;
 import de.uka.ipd.sdq.probfunction.math.IUniformDistribution;
 import de.uka.ipd.sdq.probfunction.math.IUniformIntDistribution;
+import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
 
 /**
  * @author joerg
  *
  */
 public class PDFFactory implements IPDFFactory{
+	
+	private IRandomGenerator rng = new DefaultRandomGenerator();
+
+	public void setRandomGenerator(IRandomGenerator randomGenerator) {
+		this.rng = randomGenerator;
+	}
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.probfunction.math.impl.IContinousPDFFactory#createExponentialDistribution(double)
 	 */
 	@Override
 	public IExponentialDistribution createExponentialDistribution(double rate) {
-		return new ExponentialDistribution(rate);
+		return new ExponentialDistribution(rate, rng);
 	}
 
 	/* (non-Javadoc)
@@ -35,7 +43,7 @@ public class PDFFactory implements IPDFFactory{
 	 */
 	@Override
 	public IGammaDistribution createGammaDistribution(double alpha, double theta) {
-		return new GammaDistribution(alpha, theta);
+		return new GammaDistribution(alpha, theta, rng);
 	}
 
 	/* (non-Javadoc)
@@ -43,7 +51,7 @@ public class PDFFactory implements IPDFFactory{
 	 */
 	@Override
 	public ILognormalDistribution createLognormalDistribution(double mu, double sigma) {
-		return new LognormalDistribution(mu, sigma);
+		return new LognormalDistribution(mu, sigma, rng);
 	}
 
 	/* (non-Javadoc)
@@ -51,7 +59,7 @@ public class PDFFactory implements IPDFFactory{
 	 */
 	@Override
 	public INormalDistribution createNormalDistribution(double mu, double sigma) {
-		return new NormalDistribution(mu, sigma);
+		return new NormalDistribution(mu, sigma, rng);
 	}
 
 	/* (non-Javadoc)
@@ -61,7 +69,7 @@ public class PDFFactory implements IPDFFactory{
 	public IGammaDistribution createGammaDistributionFromMoments(double mean,
 			double coeffVar) {
 		
-		return new GammaDistributionFromMoments(mean, coeffVar);
+		return new GammaDistributionFromMoments(mean, coeffVar, rng);
 	}
 
 	/* (non-Javadoc)
@@ -71,7 +79,7 @@ public class PDFFactory implements IPDFFactory{
 	public ILognormalDistribution createLognormalDistributionFromMoments(
 			double mean, double variance)  {
 
-		return new LognormalDistributionFromMoments(mean, variance);
+		return new LognormalDistributionFromMoments(mean, variance, rng);
 	}
 
 	@Override
@@ -96,17 +104,17 @@ public class PDFFactory implements IPDFFactory{
 	@Override
 	public IUniformDistribution createUniformDistribution(double a, double b) {
 		
-		return new UniformDistribution(a, b);
+		return new UniformDistribution(a, b, rng);
 	}
 
     @Override
     public IChiSquareDistribution createChiSquareDistribution(int degreesOfFreedom) {
-        return new ChiSquareDistribution(degreesOfFreedom);
+        return new ChiSquareDistribution(degreesOfFreedom, rng);
     }
 
     @Override
     public IStudentTDistribution createStudentTDistribution(int degreesOfFreedom) {
-        return new StudentTDistribution(degreesOfFreedom);
+        return new StudentTDistribution(degreesOfFreedom, rng);
     }
 
 }

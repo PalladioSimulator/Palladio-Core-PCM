@@ -6,6 +6,7 @@ import org.apache.commons.math.distribution.GammaDistributionImpl;
 //import umontreal.iro.lecuyer.probdist.GammaDistFromMoments;
 import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.apache.distribution.GammaDistributionFromMomentsImpl;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
@@ -32,8 +33,8 @@ public class GammaDistribution extends AbstractContinousPDF implements IGammaDis
 	 * @param alpha shape parameter
 	 * @param theta scale parameter = 1 / rate parameter
 	 */
-	public GammaDistribution(double alpha, double theta) {
-		super();
+	public GammaDistribution(double alpha, double theta, IRandomGenerator rng){
+		super(rng);
 		/* 
 		 * In contrast to SSJ apache common math uses beta as a direct replacement of theta! 
 		 * No 1/theta required!
@@ -50,12 +51,12 @@ public class GammaDistribution extends AbstractContinousPDF implements IGammaDis
 		return super.density(x);
 	}
 
-	protected GammaDistribution(){
-		super();
+	protected GammaDistribution(IRandomGenerator rng){
+		super(rng);
 	}
 
-	private GammaDistribution(GammaDistributionImpl internal) {
-		super();
+	private GammaDistribution(GammaDistributionImpl internal, IRandomGenerator rng){
+		super(rng);
 		this.internalFunction = internal;
 	}
 
@@ -176,7 +177,7 @@ public class GammaDistribution extends AbstractContinousPDF implements IGammaDis
 			throws DomainNotNumbersException {
 		double newMean = this.getArithmeticMeanValue() + scalar;
 		double newVariance = this.getVariance();
-		return new GammaDistribution(new GammaDistributionFromMomentsImpl(newMean, newVariance));
+		return new GammaDistribution(new GammaDistributionFromMomentsImpl(newMean, newVariance), sampleDrawer);
 	}
 
 	
@@ -190,7 +191,7 @@ public class GammaDistribution extends AbstractContinousPDF implements IGammaDis
 	public IProbabilityDensityFunction stretchDomain(double scalar) {
 		double newMean = this.getArithmeticMeanValue() * scalar;
 		double newVariance = this.getVariance() * scalar * scalar;
-		return new GammaDistribution(new GammaDistributionFromMomentsImpl(newMean, newVariance));
+		return new GammaDistribution(new GammaDistributionFromMomentsImpl(newMean, newVariance), sampleDrawer);
 	}
 
 	@Override

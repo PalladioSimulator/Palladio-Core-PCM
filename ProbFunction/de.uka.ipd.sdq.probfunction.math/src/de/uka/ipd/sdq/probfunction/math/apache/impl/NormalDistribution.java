@@ -5,6 +5,7 @@ import org.apache.commons.math.distribution.NormalDistributionImpl;
 //import umontreal.iro.lecuyer.probdist.NormalDist;
 import de.uka.ipd.sdq.probfunction.math.INormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
@@ -29,7 +30,8 @@ import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 public class NormalDistribution extends AbstractContinousPDF implements
 		INormalDistribution {
 	
-	public NormalDistribution(double mean, double sigma){
+	public NormalDistribution(double mean, double sigma, IRandomGenerator rng){
+		super(rng);
 		double sd = sigma;
 		this.internalFunction = new NormalDistributionImpl(mean, sd);
 	}
@@ -120,7 +122,7 @@ public class NormalDistribution extends AbstractContinousPDF implements
 			throws DomainNotNumbersException {
 		double newMean = this.getArithmeticMeanValue() + scalar;
 		double newSigma = this.getSigma();
-		return new NormalDistribution(newMean, newSigma);
+		return new NormalDistribution(newMean, newSigma, sampleDrawer);
 	}
 
 	@Override
@@ -132,7 +134,7 @@ public class NormalDistribution extends AbstractContinousPDF implements
 	public IProbabilityDensityFunction stretchDomain(double scalar) {
 		double newMean = this.getArithmeticMeanValue() * scalar;
 		double newSigma = this.getSigma() * scalar;
-		return new NormalDistribution(newMean, newSigma);
+		return new NormalDistribution(newMean, newSigma, sampleDrawer);
 	}
 
 	@Override

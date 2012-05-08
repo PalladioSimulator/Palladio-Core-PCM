@@ -4,6 +4,7 @@ import org.apache.commons.math.distribution.ExponentialDistributionImpl;
 //import umontreal.iro.lecuyer.probdist.ExponentialDist;
 import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
@@ -31,7 +32,8 @@ import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
  */
 public class ExponentialDistribution extends AbstractContinousPDF implements IExponentialDistribution {
 	
-	public ExponentialDistribution(double rate){
+	public ExponentialDistribution(double rate, IRandomGenerator rng){
+		super(rng);
 		double mean = 1.0/rate;
 		this.internalFunction = new ExponentialDistributionImpl(mean);
 	}
@@ -130,7 +132,7 @@ public class ExponentialDistribution extends AbstractContinousPDF implements IEx
 	}
 
 	public IProbabilityDensityFunction stretchDomain(double scalar) {
-		return new ExponentialDistribution(this.getRate() / scalar);
+		return new ExponentialDistribution(this.getRate() / scalar, sampleDrawer);
 	}
 
 	@Override
