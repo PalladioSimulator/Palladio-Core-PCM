@@ -125,6 +125,8 @@ public class WarmupFilterSettingsPage extends WizardPage implements
 						return;
 					}
 				}
+				updatePageStatus();
+				getWizard().getContainer().updateButtons();
 			}
 		});
 		Label absLabel = new Label(composite, SWT.NONE);
@@ -144,10 +146,10 @@ public class WarmupFilterSettingsPage extends WizardPage implements
 						return;
 					}
 				}
+				updatePageStatus();
 				getWizard().getContainer().updateButtons();
 			}
 		});
-
 		setDroppedValuesPercentage(DEFAULT_DROPPED);
 
 	}
@@ -214,8 +216,8 @@ public class WarmupFilterSettingsPage extends WizardPage implements
 	public WarmupFilter getFilter() {
 		WarmupFilter filter = new WarmupFilter();
 		HashMap<String, Object> properties = filter.getProperties();
-		properties.put("droppedValuesAbsolute", droppedValuesAbsolute);
-		properties.put("droppedValuesRelative", droppedValuesPercentage);
+		properties.put(WarmupFilter.DROPPED_VALUES_ABS_KEY, droppedValuesAbsolute);
+		properties.put(WarmupFilter.DROPPED_VALUES_REL_KEY, droppedValuesPercentage);
 		filter.setProperties(properties);
 		filter.setSource(source);
 		return filter;
@@ -229,7 +231,7 @@ public class WarmupFilterSettingsPage extends WizardPage implements
 			int temp = 0;
 			try {
 				temp = Integer.parseInt(droppedAbsText.getText());
-				validNumber = temp < numberOfMeasurements && temp > 1;
+				validNumber = temp < numberOfMeasurements && temp > 0;
 			} catch (NumberFormatException nfe) {
 				isNumber = false;
 			} finally {

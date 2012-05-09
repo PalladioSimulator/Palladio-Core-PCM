@@ -120,6 +120,7 @@ public class WarmupFilter extends AbstractFilter {
 	 * Empty constructor.
 	 */
 	public WarmupFilter() {
+		new WarmupFilter(null);
 	};
 
 	/**
@@ -129,6 +130,8 @@ public class WarmupFilter extends AbstractFilter {
 	 */
 	public WarmupFilter(AbstractDataSource source) {
 		super(source);
+		setDroppedValues(DEFAULT_VALUE_DROPPED_VALUES_ABS);
+		setDroppedValuesPercentage(DEFAULT_VALUE_DROPPED_VALUES_REL);
 	}
 
 	/*
@@ -308,19 +311,21 @@ public class WarmupFilter extends AbstractFilter {
 	 * )
 	 */
 	public void setProperties(HashMap<String, Object> newProperties) {
+		int droppedAbsTemp = 0;
 		if (validProperties(newProperties, DROPPED_VALUES_ABS_KEY)) {
+			droppedAbsTemp = Integer.parseInt(newProperties.get(
+					DROPPED_VALUES_ABS_KEY).toString());
+			if (droppedAbsTemp > 0) {
 			setDroppedValues(Integer.parseInt(newProperties.get(
 					DROPPED_VALUES_ABS_KEY).toString()));
-		} else {
-			setDroppedValues(DEFAULT_VALUE_DROPPED_VALUES_ABS);
+			}
 		}
 		if (validProperties(newProperties, DROPPED_VALUES_REL_KEY)) {
-			setDroppedValuesPercentage(Float.parseFloat(newProperties.get(
-					DROPPED_VALUES_REL_KEY).toString()));
-			logger.log(Level.INFO, newProperties.get(DROPPED_VALUES_REL_KEY)
-					.toString());
-		} else {
-			setDroppedValuesPercentage(DEFAULT_VALUE_DROPPED_VALUES_REL);
+			float droppedRelTemp = Float.parseFloat(newProperties.get(
+					DROPPED_VALUES_REL_KEY).toString());
+			if (droppedRelTemp > 0 && droppedAbsTemp < 1) {
+				setDroppedValuesPercentage(droppedRelTemp);
+				}
 		}
 	}
 

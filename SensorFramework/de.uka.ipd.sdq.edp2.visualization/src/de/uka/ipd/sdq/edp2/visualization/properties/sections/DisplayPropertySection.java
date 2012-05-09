@@ -459,7 +459,7 @@ public class DisplayPropertySection implements ISelectionChangedListener,
 			if (String.valueOf(key).equals(JFreeChartEditorInput.COLOR_KEY)) {
 				String hexColor = String.valueOf(properties.get(key));
 				if (hexColor.equals(JFreeChartEditorInput.NO_COLOR)) {
-					item.setText(1, "(default)");
+					item.setText(1, "(default Color)");
 				} else {
 					item.setText(1, "");
 					Color col = Color.decode(hexColor);

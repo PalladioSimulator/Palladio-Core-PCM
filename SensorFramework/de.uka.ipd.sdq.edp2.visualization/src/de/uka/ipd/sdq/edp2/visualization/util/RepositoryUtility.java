@@ -37,6 +37,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifier;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifierBasedMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.TextualBaseMetricDescription;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 
@@ -339,8 +340,8 @@ public class RepositoryUtility {
 	 * @return reference to the newly created {@link RawMeasurements}.
 	 */
 	public static RawMeasurements copyRawMeasurements(
-			RawMeasurements rawMeasurementsToCopy,
-			MeasurementsRange forMeasurementsRange) {
+			final RawMeasurements rawMeasurementsToCopy,
+			final MeasurementsRange forMeasurementsRange) {
 
 		RawMeasurements rawMeasurements = factory
 				.createRawMeasurements(forMeasurementsRange);
@@ -351,58 +352,46 @@ public class RepositoryUtility {
 				.getMeasure().getMetric();
 		BaseMetricDescription[] baseMetrics = MetricDescriptionUtility
 				.toBaseMetricDescriptions(metric);
-
+		//TODO need loop here and number of measurements!
+		final Measurement measurement = new Measurement(metric);
 		for (int i = 0; i < rawMeasurementsToCopy.getDataSeries().size(); i++) {
-			if (baseMetrics[i] instanceof NumericalBaseMetricDescription) {
-				OrdinalMeasurementsDao<Measure> dao = MeasurementsUtility
-						.getOrdinalMeasurementsDao(rawMeasurementsToCopy
-								.getDataSeries().get(i));
-				List<Measurement> newMeasurements = new ArrayList<Measurement>();
-				List<Measure> measures = dao.getMeasurements();
-				for (int j = 0; j < measures.size(); j++) {
-					Measurement measurement;
-					//if i > 0, then there are multiple series, i.e. multidimensional data
-					//thus, the existing measurements have to be used
-					if (i > 0) {
-						measurement = newMeasurements.get(j);
-					} else {
-						measurement = new Measurement(metric);
-						newMeasurements.add(measurement);
+			final int dimension = i;
+			new ExperimentDataSwitch<Boolean>() {
+				public Boolean caseNumericalBaseMetricDescription(NumericalBaseMetricDescription object) {
+					OrdinalMeasurementsDao<Measure> dao = MeasurementsUtility
+							.getOrdinalMeasurementsDao(rawMeasurementsToCopy
+									.getDataSeries().get(dimension));
+					List<Measurement> newMeasurements = new ArrayList<Measurement>();
+					List<Measure> measures = dao.getMeasurements();
+					for (int j = 0; j < measures.size(); j++) {
+						Measure measure = measures.get(j);
+						measurement.setMeasuredValue(dimension, measure);
+						MeasurementsUtility.storeMeasurement(forMeasurementsRange.getMeasurements(), measurement);
 					}
-					Measure measure = measures.get(j);
-					measurement.setMeasuredValue(i, measure);
-					MeasurementsUtility.storeMeasurement(forMeasurementsRange.getMeasurements(), measurement);
-				}
-			} else if (baseMetrics[i] instanceof TextualBaseMetricDescription) {
-				NominalMeasurementsDao dao = MeasurementsUtility
-						.getNominalMeasurementsDao(rawMeasurementsToCopy
-								.getDataSeries().get(i));
-				ObservedIdentifierBasedMeasurements mms = dao
-						.getObservedIdentifierBasedMeasurements();
-				List<ObservedIdentifier> obsId = mms.getObservedIdentifiers();
-				List<Measurement> newMeasurements = new ArrayList<Measurement>();
-				for (int j = 0; j < obsId.size(); j++) {
-					Measurement measurement;
-					//if i > 0, then there are multiple series, i.e. multidimensional data
-					//thus, the existing measurements have to be used
-					if (i > 0) {
-						measurement = newMeasurements.get(j);
-					} else {
-						measurement = new Measurement(metric);
-						newMeasurements.add(measurement);
+					return true;
+				};
+				public Boolean caseTextualBaseMetricDescription(TextualBaseMetricDescription object) {
+					NominalMeasurementsDao dao = MeasurementsUtility
+							.getNominalMeasurementsDao(rawMeasurementsToCopy
+									.getDataSeries().get(dimension));
+					ObservedIdentifierBasedMeasurements mms = dao
+							.getObservedIdentifierBasedMeasurements();
+					List<ObservedIdentifier> obsId = mms.getObservedIdentifiers();
+					List<Measurement> newMeasurements = new ArrayList<Measurement>();
+					for (int j = 0; j < obsId.size(); j++) {
+						Identifier measure = obsId.get(j).getIdentifier();
+						measurement.setMeasuredValue(dimension, measure);
+						MeasurementsUtility.storeMeasurement(forMeasurementsRange.getMeasurements(), measurement);
 					}
-					measurement = new Measurement(metric);
-					Identifier measure = obsId.get(j).getIdentifier();
-					measurement.setMeasuredValue(i, measure);
-					MeasurementsUtility.storeMeasurement(forMeasurementsRange.getMeasurements(), measurement);
-				}
-
-			} else {
-				logger.log(
-						Level.SEVERE,
-						"Unsupported Base Metric: the selected measurements could not be opened, because it is neither described by a TextualBaseMetricDescription nor a NumericalBaseMetricDescription.");
-				throw new RuntimeException("Unsupported Base Metric.");
-			}
+					return true;
+				};
+				public Boolean caseBaseMetricDescription(BaseMetricDescription object) {
+					logger.log(
+							Level.SEVERE,
+							"Unsupported Base Metric: the selected measurements could not be opened, because it is neither described by a TextualBaseMetricDescription nor a NumericalBaseMetricDescription.");
+					throw new RuntimeException("Unsupported Base Metric.");
+				};
+			}.doSwitch(baseMetrics[i]);
 		}
 		return rawMeasurements;
 	}

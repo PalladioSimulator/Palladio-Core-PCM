@@ -101,8 +101,7 @@ public class JFreeChartEditorInputHandleFactory extends ElementFactory
 		memento.createChild(ELEMENT_NAME);
 		memento = memento.getChild(ELEMENT_NAME);
 		props.remove(ELEMENT_KEY);
-		// save all properties TODO elements name is both as an attribute and
-		// xml-element's name persisted
+		// save all properties
 		for (String key : props.keySet()) {
 			memento.putString(key, props.get(key).toString());
 		}

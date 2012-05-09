@@ -13,6 +13,7 @@ import org.eclipse.ui.IMemento;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.AbstractSeriesDataset;
+import org.jfree.data.general.DatasetGroup;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.data.statistics.HistogramDataset;
@@ -26,7 +27,7 @@ import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 
-public class PieChartEditorInput extends JFreeChartEditorInput<PieDataset> {
+public class PieChartEditorInput extends JFreeChartEditorInput<DefaultPieDataset> {
 
 	/**
 	 * Name constant, which is used to identify this class in properties and
@@ -49,18 +50,12 @@ public class PieChartEditorInput extends JFreeChartEditorInput<PieDataset> {
 
 	private HashMap<Double, Integer> data;
 
-	private BasicDataset<PieDataset> dataset;
-
 	public PieChartEditorInput() {
 		super();
 		new PieChartEditorInput(null);
 	}
 
 	public PieChartEditorInput(AbstractDataSource source) {
-		if (source != null) {
-			setSource(source);
-			dataset = new BasicDataset<PieDataset>(getDataTypeInstance());
-		}
 		setShowAbsoluteAmount(false);
 		setShowRelativeAmount(true);
 	}
@@ -135,11 +130,6 @@ public class PieChartEditorInput extends JFreeChartEditorInput<PieDataset> {
 	}
 
 	@Override
-	public PieDataset getDataTypeInstance() {
-		return new DefaultPieDataset();
-	}
-
-	@Override
 	public HashMap<Double, Integer> getData() {
 		return data;
 	}
@@ -147,7 +137,7 @@ public class PieChartEditorInput extends JFreeChartEditorInput<PieDataset> {
 	@Override
 	public void updateInputData() {
 		logger.log(Level.INFO, "Transformation : BEGIN");
-		DefaultPieDataset defaultDataset = new DefaultPieDataset();
+		dataset = new DefaultPieDataset();
 
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
@@ -165,7 +155,7 @@ public class PieChartEditorInput extends JFreeChartEditorInput<PieDataset> {
 
 		data = new HashMap<Double, Integer>();
 
-		double[] rawData = new double[listOfMeasures.get(0).size()];
+		/*double[] rawData = new double[listOfMeasures.get(0).size()];
 		for (int i = 0; i < listOfMeasures.get(0).size(); i++) {
 			rawData[i] = listOfMeasures.get(0).get(i)
 					.doubleValue(listOfMeasures.get(0).get(i).getUnit());
@@ -174,18 +164,19 @@ public class PieChartEditorInput extends JFreeChartEditorInput<PieDataset> {
 			} else {
 				data.put(rawData[i], data.get(rawData[i]) + 1);
 			}
-		}
+		}*/
+		
+		data.put(20.0, 15);
+		data.put(25.0, 10);
+		data.put(30.0, 14);
 
+		
 		for (double key : data.keySet()) {
-			defaultDataset.setValue(Double.valueOf(key), data.get(key));
+			dataset.setValue(Double.valueOf(key), data.get(key));
 		}
 
 		logger.log(Level.INFO, data.toString());
 
-		if (dataset == null) {
-			dataset = new BasicDataset<PieDataset>(getDataTypeInstance());
-			dataset.addDataSeries(this);
-		}
 		setChanged();
 		notifyObservers();
 		logger.log(Level.INFO, "Transformation : END");

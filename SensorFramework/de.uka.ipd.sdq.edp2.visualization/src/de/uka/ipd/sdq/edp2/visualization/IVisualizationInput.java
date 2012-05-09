@@ -4,22 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Observable;
-import java.util.logging.Level;
 
 import javax.measure.unit.Unit;
-
-import org.eclipse.core.runtime.IExecutableExtension;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.IEditorInput;
-import org.jfree.data.general.AbstractSeriesDataset;
 
 import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NumericalBaseMetricDescription;
-import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
-import de.uka.ipd.sdq.edp2.visualization.editors.BasicDataset;
-import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 
 /**
  * Interface used to describe elements that are managed by an
@@ -61,17 +52,10 @@ public abstract class IVisualizationInput extends Observable implements
 
 	public IVisualizationInput(AbstractDataSource source) {
 		properties = new HashMap<String, Object>();
-		setSource(source);
+		if (source != null) {
+			setSource(source);
+		}
 	}
-
-	/**
-	 * Returns a new Instance of the data type, which is required to display the
-	 * data of this {@link IVisualizationInput}.
-	 * 
-	 * @return a new Instance of the data type, which is required to display the
-	 *         data of this {@link IVisualizationInput}.
-	 */
-	public abstract Object getDataTypeInstance();
 
 	/**
 	 * Returns the Data in a Form that they can be wrapped by the type provided
@@ -236,7 +220,7 @@ public abstract class IVisualizationInput extends Observable implements
 	}
 	
 	/**
-	 * Method, which returns <true> if the {@link IVisualizationInputHandle} and its corresponding {@link AbstractEditor}
+	 * Method, which returns <true> if the {@link IVisualizationInput} and its corresponding {@link AbstractEditor}
 	 * are able to display multiple {@link IDataSink} objects.
 	 * @return <code>true</code> if multiple inputs are supported.
 	 */

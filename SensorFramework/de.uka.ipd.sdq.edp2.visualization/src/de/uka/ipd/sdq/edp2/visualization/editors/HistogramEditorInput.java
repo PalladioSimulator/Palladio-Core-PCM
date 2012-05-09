@@ -137,9 +137,6 @@ public class HistogramEditorInput extends
 	 * @param source
 	 */
 	public HistogramEditorInput(AbstractDataSource source) {
-		if (source != null) {
-			setSource(source);
-		}
 		setAbsoluteFrequency(true);
 		setBarMargin(0.0);
 		setNumberOfBins(DEFAULT_NUMBER_BINS);
@@ -185,7 +182,6 @@ public class HistogramEditorInput extends
 					.doubleValue(listOfMeasures.get(0).get(i).getUnit());
 
 		}
-
 		dataset.addSeries(getInputName(), data, getNumberOfBins());
 
 		setChanged();
@@ -486,18 +482,6 @@ public class HistogramEditorInput extends
 	public HistogramEditorInput createCopyForSource(AbstractDataSource source) {
 		HistogramEditorInput copy = new HistogramEditorInput(source);
 		return copy;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#getDataTypeInstance
-	 * ()
-	 */
-	@Override
-	public HistogramDataset getDataTypeInstance() {
-		return new HistogramDataset();
 	}
 
 	/*

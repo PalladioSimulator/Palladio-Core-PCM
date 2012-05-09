@@ -8,8 +8,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 
 /**
- * Provides a default implementation of a transformation. Should be subclassed
- * by all transformations.
+ * Provides a default implementation of a transformation.
  * 
  * @author Dominik Ernst, Roland Richter
  */
@@ -41,7 +40,9 @@ public abstract class AbstractTransformation extends AbstractDataSource
 	 */
 
 	public AbstractTransformation(AbstractDataSource source) {
-		setSource(source);
+		if (source != null) {
+			setSource(source);
+		}
 	}
 
 	/*

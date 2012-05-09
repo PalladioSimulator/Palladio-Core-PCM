@@ -13,6 +13,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IMemento;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.Measurement;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
@@ -115,6 +116,14 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 		OrdinalMeasurementsDao<Measure> daoForSelectedSeries = MeasurementsUtility
 				.getOrdinalMeasurementsDao(source.getOutput().get(
 						dataSeriesIndex));
+		if (!daoForSelectedSeries.isOpen()) {
+		try {
+			daoForSelectedSeries.open();
+		} catch (DataNotAccessibleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
 		List<Measure> listOfMeasures = daoForSelectedSeries.getMeasurements();
 		// TODO sort data in ascending order
 		// Collections.sort(listOfMeasures);

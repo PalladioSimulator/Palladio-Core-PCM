@@ -56,8 +56,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 	 */
 	private double[][] rawData;
 
-	private BasicDataset<DefaultXYDataset> dataset;
-
 	private JFreeChart chart;
 
 	private DefaultXYItemRenderer renderer;
@@ -67,8 +65,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 	}
 
 	public ScatterPlotInput(AbstractDataSource source) {
-		setSource(source);
-		dataset = new BasicDataset<DefaultXYDataset>(getDataTypeInstance());
 	}
 
 	/*
@@ -196,11 +192,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 	}
 
 	@Override
-	public DefaultXYDataset getDataTypeInstance() {
-		return new DefaultXYDataset();
-	}
-
-	@Override
 	public void updateInputData() {
 		DefaultXYDataset defaultDataset = new DefaultXYDataset();
 
@@ -227,11 +218,6 @@ public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 		}
 
 		defaultDataset.addSeries(getInputName(), rawData);
-
-		if (dataset == null) {
-			dataset = new BasicDataset<DefaultXYDataset>(getDataTypeInstance());
-			dataset.addDataSeries(this);
-		}
 		
 		setChanged();
 		notifyObservers();
