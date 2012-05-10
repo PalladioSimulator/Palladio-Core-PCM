@@ -326,6 +326,53 @@ public class RepositoryUtility {
 		return rawMeasurements;
 	}
 
+	static class MeasurementsSwitch extends ExperimentDataSwitch<Boolean> {
+
+		RawMeasurements rawMeasurementsToCopy;
+		int index;
+		int dimension;
+		Measurement measurement;
+
+		public MeasurementsSwitch(RawMeasurements rawMeasurementsToCopy,
+				int index, int dimension, Measurement measurement) {
+			this.rawMeasurementsToCopy = rawMeasurementsToCopy;
+			this.index = index;
+			this.dimension = dimension;
+			this.measurement = measurement;
+		}
+
+		public Boolean caseNumericalBaseMetricDescription(
+				NumericalBaseMetricDescription object) {
+			OrdinalMeasurementsDao<Measure> dao = MeasurementsUtility
+					.getOrdinalMeasurementsDao(rawMeasurementsToCopy
+							.getDataSeries().get(dimension));
+			List<Measure> measures = dao.getMeasurements();
+			Measure measure = measures.get(index);
+			measurement.setMeasuredValue(dimension, measure);
+			return true;
+		}
+
+		public Boolean caseTextualBaseMetricDescription(
+				TextualBaseMetricDescription object) {
+			NominalMeasurementsDao dao = MeasurementsUtility
+					.getNominalMeasurementsDao(rawMeasurementsToCopy
+							.getDataSeries().get(dimension));
+			ObservedIdentifierBasedMeasurements mms = dao
+					.getObservedIdentifierBasedMeasurements();
+			List<ObservedIdentifier> obsId = mms.getObservedIdentifiers();
+			Identifier measure = obsId.get(index).getIdentifier();
+			measurement.setMeasuredValue(dimension, measure);
+			return true;
+		}
+
+		public Boolean caseBaseMetricDescription(BaseMetricDescription object) {
+			logger.log(
+					Level.SEVERE,
+					"Unsupported Base Metric: the selected measurements could not be opened, because it is neither described by a TextualBaseMetricDescription nor a NumericalBaseMetricDescription.");
+			throw new RuntimeException("Unsupported Base Metric.");
+		}
+	}
+
 	/**
 	 * Creates a copy of a {@link RawMeasurements} for a given
 	 * {@link MeasurementsRange}. <b>Copies all subsumed DataSeries!</b>
@@ -352,46 +399,50 @@ public class RepositoryUtility {
 				.getMeasure().getMetric();
 		BaseMetricDescription[] baseMetrics = MetricDescriptionUtility
 				.toBaseMetricDescriptions(metric);
-		//TODO need loop here and number of measurements!
-		final Measurement measurement = new Measurement(metric);
-		for (int i = 0; i < rawMeasurementsToCopy.getDataSeries().size(); i++) {
-			final int dimension = i;
-			new ExperimentDataSwitch<Boolean>() {
-				public Boolean caseNumericalBaseMetricDescription(NumericalBaseMetricDescription object) {
-					OrdinalMeasurementsDao<Measure> dao = MeasurementsUtility
-							.getOrdinalMeasurementsDao(rawMeasurementsToCopy
-									.getDataSeries().get(dimension));
-					List<Measurement> newMeasurements = new ArrayList<Measurement>();
-					List<Measure> measures = dao.getMeasurements();
-					for (int j = 0; j < measures.size(); j++) {
-						Measure measure = measures.get(j);
-						measurement.setMeasuredValue(dimension, measure);
-						MeasurementsUtility.storeMeasurement(forMeasurementsRange.getMeasurements(), measurement);
-					}
-					return true;
-				};
-				public Boolean caseTextualBaseMetricDescription(TextualBaseMetricDescription object) {
-					NominalMeasurementsDao dao = MeasurementsUtility
-							.getNominalMeasurementsDao(rawMeasurementsToCopy
-									.getDataSeries().get(dimension));
-					ObservedIdentifierBasedMeasurements mms = dao
-							.getObservedIdentifierBasedMeasurements();
-					List<ObservedIdentifier> obsId = mms.getObservedIdentifiers();
-					List<Measurement> newMeasurements = new ArrayList<Measurement>();
-					for (int j = 0; j < obsId.size(); j++) {
-						Identifier measure = obsId.get(j).getIdentifier();
-						measurement.setMeasuredValue(dimension, measure);
-						MeasurementsUtility.storeMeasurement(forMeasurementsRange.getMeasurements(), measurement);
-					}
-					return true;
-				};
-				public Boolean caseBaseMetricDescription(BaseMetricDescription object) {
-					logger.log(
-							Level.SEVERE,
-							"Unsupported Base Metric: the selected measurements could not be opened, because it is neither described by a TextualBaseMetricDescription nor a NumericalBaseMetricDescription.");
-					throw new RuntimeException("Unsupported Base Metric.");
-				};
-			}.doSwitch(baseMetrics[i]);
+
+		Measurement measurement = new Measurement(metric);
+
+		int numberOfItems = new ExperimentDataSwitch<Integer>() {
+			public Integer caseNumericalBaseMetricDescription(
+					NumericalBaseMetricDescription object) {
+				OrdinalMeasurementsDao<Measure> dao = MeasurementsUtility
+						.getOrdinalMeasurementsDao(rawMeasurementsToCopy
+								.getDataSeries().get(0));
+				List<Measure> measures = dao.getMeasurements();
+				return measures.size();
+			}
+
+			public Integer caseTextualBaseMetricDescription(
+					TextualBaseMetricDescription object) {
+				NominalMeasurementsDao dao = MeasurementsUtility
+						.getNominalMeasurementsDao(rawMeasurementsToCopy
+								.getDataSeries().get(0));
+				ObservedIdentifierBasedMeasurements mms = dao
+						.getObservedIdentifierBasedMeasurements();
+				List<ObservedIdentifier> obsId = mms.getObservedIdentifiers();
+				return obsId.size();
+			}
+
+			public Integer caseBaseMetricDescription(
+					BaseMetricDescription object) {
+				logger.log(
+						Level.SEVERE,
+						"Unsupported Base Metric: the selected measurements could not be opened, because it is neither described by a TextualBaseMetricDescription nor a NumericalBaseMetricDescription.");
+				throw new RuntimeException("Unsupported Base Metric.");
+			}
+		}.doSwitch(baseMetrics[0]);
+
+		logger.log(Level.INFO, "Number of measurements: " + numberOfItems);
+
+		for (int i = 0; i < numberOfItems; i++) {
+			measurement = new Measurement(metric);
+			for (int dimension = 0; dimension < rawMeasurementsToCopy
+					.getDataSeries().size(); dimension++) {
+				new MeasurementsSwitch(rawMeasurementsToCopy, i, dimension,
+						measurement).doSwitch(baseMetrics[dimension]);
+			}
+			MeasurementsUtility.storeMeasurement(
+					forMeasurementsRange.getMeasurements(), measurement);
 		}
 		return rawMeasurements;
 	}
