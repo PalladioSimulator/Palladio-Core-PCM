@@ -5,6 +5,9 @@ package de.uka.ipd.sdq.edp2.impl;
 
 import javax.measure.Measure;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import de.uka.ipd.sdq.edp2.internal.BaseMetricFromMetricSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
@@ -35,7 +38,12 @@ public class MetricDescriptionUtility {
 	public static boolean isValidValue(BaseMetricDescription description, Object value) {
 		if (description.getCaptureType() == CaptureType.IDENTIFIER) {
 			if (value instanceof Identifier) {
-				boolean isDefinedAtMetric = ((TextualBaseMetricDescription)description).getIdentifiers().contains(value);
+				boolean isDefinedAtMetric = false;
+				for (Identifier ident : ((TextualBaseMetricDescription)description).getIdentifiers()) {
+					if (ident.getUuid().equals(((Identifier) value).getUuid())) {
+						isDefinedAtMetric = true;
+					}
+				}
 				if (!isDefinedAtMetric) throw new IllegalArgumentException("The provided identifier " + (Identifier)value + " does not exists for the metric " + description + ".");
 				return true;
 			} else {
