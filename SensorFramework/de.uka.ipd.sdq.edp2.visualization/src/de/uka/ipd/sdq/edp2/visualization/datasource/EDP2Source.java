@@ -178,15 +178,7 @@ public class EDP2Source extends AbstractDataSource {
 							if (range.getRawMeasurements().getUuid().equals(
 									rmUUID)) {
 								originalMeasurementsRange = range;
-								ExperimentGroup copyOfExpGroup = RepositoryUtility.copyExperimentGroup(group, RepositoryUtility.getDefaultLocalRepository());
-								ExperimentSetting copyOfExpSetting = RepositoryUtility.copyExperimentSetting(setting, copyOfExpGroup);
-								ExperimentRun copyOfExperimentRun = RepositoryUtility.copyExperimentRun(run, copyOfExpSetting);
-								MetricDescription copyOfMetric = RepositoryUtility.copyMetricDescription(range.getMeasurements().getMeasure().getMetric(), RepositoryUtility.getDefaultLocalRepository());
-								Edp2Measure copyOfMeasure = RepositoryUtility.copyEdp2Measure(range.getMeasurements().getMeasure(), copyOfMetric, copyOfExpGroup, copyOfExpSetting);
-								Measurements copyOfMeasurements = RepositoryUtility.copyMeasurements(copyOfMeasure, copyOfMetric, copyOfExperimentRun);
-								MeasurementsRange copyOfMeasurementsRange = RepositoryUtility.copyMeasurementsRange(range, copyOfMeasurements);
-								RepositoryUtility.copyRawMeasurements(range.getRawMeasurements(), copyOfMeasurementsRange);
-								measurementsRange = copyOfMeasurementsRange;
+								measurementsRange = RepositoryUtility.copyRawMeasurements(range.getRawMeasurements());
 							}
 						}
 					}

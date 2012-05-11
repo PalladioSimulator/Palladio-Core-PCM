@@ -12,6 +12,7 @@ import javax.measure.Measure;
 import org.eclipse.ui.IMemento;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
+import org.jfree.data.KeyedValues;
 import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.general.DatasetGroup;
 import org.jfree.data.general.DefaultPieDataset;
@@ -138,7 +139,7 @@ public class PieChartEditorInput extends JFreeChartEditorInput<DefaultPieDataset
 	public void updateInputData() {
 		logger.log(Level.INFO, "Transformation : BEGIN");
 		dataset = new DefaultPieDataset();
-
+		
 		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
 		for (DataSeries series : getSource().getOutput()) {
@@ -165,6 +166,7 @@ public class PieChartEditorInput extends JFreeChartEditorInput<DefaultPieDataset
 				data.put(rawData[i], data.get(rawData[i]) + 1);
 			}
 		}*/
+		
 		
 		data.put(20.0, 15);
 		data.put(25.0, 10);

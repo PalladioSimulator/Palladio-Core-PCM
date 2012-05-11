@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.edp2.visualization.util;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.logging.Logger;
 import javax.measure.Measure;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDao;
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
@@ -74,16 +76,9 @@ public class RepositoryUtility {
 	private final static ExperimentDataFactory factory = ExperimentDataFactory.eINSTANCE;
 
 	/**
-	 * Path to a {@link LocalDirectoryRepository}, which is typically used for
-	 * temporary storage.
-	 */
-	private final static File LOCAL_REPO_URI = new File("C:\\Temp");
-
-	/**
 	 * The initialization of the local Repository.
 	 */
-	private final static Repository LOCAL_REPO = RepositoryManager
-			.initializeLocalDirectoryRepository(LOCAL_REPO_URI);
+	private final static Repository LOCAL_REPO = createTemporaryRepository();
 
 	/**
 	 * One-time initialization is done here.
@@ -91,15 +86,34 @@ public class RepositoryUtility {
 	public RepositoryUtility() {
 		RepositoryManager.addRepository(
 				RepositoryManager.getCentralRepository(), LOCAL_REPO);
-		LOCAL_REPO_URI.deleteOnExit();
 	}
 
 	/**
+	 * Create a temporary directory. Only used once.
 	 * 
-	 * @return The URI (String) to the static local repository.
+	 * @return the {@link File}-reference to the temporary directory.
 	 */
-	public static String getDefaultLocalRepositoryURI() {
-		return LOCAL_REPO_URI.getAbsolutePath();
+	private static Repository createTemporaryRepository() {
+		File temp = null;
+		try {
+			temp = File
+					.createTempFile("temp", Long.toString(System.nanoTime()));
+			if (!(temp.delete())) {
+				throw new IOException("Could not delete temp file: "
+						+ temp.getAbsolutePath());
+			}
+
+			if (!(temp.mkdir())) {
+				throw new IOException("Could not create temp directory: "
+						+ temp.getAbsolutePath());
+			}
+
+		} catch (IOException ioe) {
+			logger.log(Level.SEVERE,
+					"Could not modify a temp-directory. Check the VMs user priviliges:"
+							+ ioe.getMessage());
+		}
+		return RepositoryManager.initializeLocalDirectoryRepository(temp);
 	}
 
 	/**
@@ -360,8 +374,13 @@ public class RepositoryUtility {
 			ObservedIdentifierBasedMeasurements mms = dao
 					.getObservedIdentifierBasedMeasurements();
 			List<ObservedIdentifier> obsId = mms.getObservedIdentifiers();
-			Identifier measure = obsId.get(index).getIdentifier();
-			measurement.setMeasuredValue(dimension, measure);
+			// ObservedIdentifier oidentifier =
+			// EcoreUtil.copy(obsId.get(index));
+			// ObservedIdentifier oidentifier =
+			// factory.createObservedIdentifier();
+			// oidentifier.setIdentifier(obsId.get(index).getIdentifier());
+			measurement.setMeasuredValue(dimension, obsId.get(index)
+					.getIdentifier());
 			return true;
 		}
 
@@ -545,5 +564,33 @@ public class RepositoryUtility {
 			MetricDescription metricDescriptionToCopy) {
 		return copyMetricDescription(metricDescriptionToCopy,
 				getDefaultLocalRepository());
+	}
+
+	/**
+	 * 
+	 * @param rmTocopy
+	 * @return
+	 */
+	public static MeasurementsRange copyRawMeasurements(RawMeasurements rmTocopy) {
+		ExperimentGroup copyOfExpGroup = copyExperimentGroup(rmTocopy
+				.getMeasurementsRange().getMeasurements().getExperimentRun()
+				.getExperimentSetting().getExperimentGroup(), getDefaultLocalRepository());
+		ExperimentSetting copyOfExpSetting = copyExperimentSetting(rmTocopy
+				.getMeasurementsRange().getMeasurements().getExperimentRun()
+				.getExperimentSetting(), copyOfExpGroup);
+		ExperimentRun copyOfExperimentRun = copyExperimentRun(rmTocopy
+				.getMeasurementsRange().getMeasurements().getExperimentRun(),
+				copyOfExpSetting);
+		Edp2Measure copyOfMeasure = copyEdp2Measure(rmTocopy
+				.getMeasurementsRange().getMeasurements().getMeasure(),
+				rmTocopy.getMeasurementsRange().getMeasurements().getMeasure()
+						.getMetric(), copyOfExpGroup, copyOfExpSetting);
+		Measurements copyOfMeasurements = copyMeasurements(copyOfMeasure,
+				rmTocopy.getMeasurementsRange().getMeasurements().getMeasure()
+						.getMetric(), copyOfExperimentRun);
+		MeasurementsRange copyOfMeasurementsRange = copyMeasurementsRange(
+				rmTocopy.getMeasurementsRange(), copyOfMeasurements);
+		copyRawMeasurements(rmTocopy, copyOfMeasurementsRange);
+		return copyOfMeasurementsRange;
 	}
 }

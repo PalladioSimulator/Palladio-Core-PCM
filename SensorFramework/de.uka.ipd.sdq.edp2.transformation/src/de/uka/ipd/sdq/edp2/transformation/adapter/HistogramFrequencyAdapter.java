@@ -173,8 +173,7 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 	 */
 	@Override
 	public Object getAdapter(Class adapter) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException("Not implemented.");
 	}
 
 	/*
@@ -198,7 +197,7 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 	@Override
 	public ArrayList<MetricDescription> getMetricRoles() {
 		// TODO Auto-generated method stub
-		return null;
+		throw new RuntimeException("Not implemented.");
 	}
 
 	/*
