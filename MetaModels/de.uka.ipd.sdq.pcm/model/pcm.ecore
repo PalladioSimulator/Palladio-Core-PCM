@@ -690,6 +690,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameterUsages_EntryLevelSystemCall"
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
           eOpposite="#//parameter/VariableUsage/entryLevelSystemCall_InputParameterUsage"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractUserAction" abstract="true"
         eSuperTypes="#//core/entity/Entity">

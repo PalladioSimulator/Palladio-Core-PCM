@@ -174,7 +174,7 @@
 		de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[] forks =
 			new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[]{
 			«FOREACH this.asynchronousForkedBehaviours_ForkAction AS f SEPARATOR ","»
-				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx,assemblyContextID,true){
+				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx,assemblyContextID,true, ctx.getThread().getPriority()){
 					public void executeBehaviour() {
 						try {
 							«EXPAND m2t_transforms::java_core::Actions FOR f.steps_Behaviour.findStart()»

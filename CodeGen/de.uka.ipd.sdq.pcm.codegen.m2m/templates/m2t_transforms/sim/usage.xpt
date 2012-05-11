@@ -93,6 +93,23 @@
 		implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
 		{
 			«EXPAND m2t_transforms::usage::SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
+			
+			
+			// Workaround to specify and retrieve the priority for a system call
+			public int getPriorityForEntryLevelSystemCallID(String id){
+				int defaultPriority = 0;
+			«FOREACH this.querySystemCalls() AS entrycall»
+				// priority for EntrySystemLevelCall «entrycall.providedRole_EntryLevelSystemCall.entityName»: «entrycall.priority»
+				if(id.equalsIgnoreCase("«entrycall.providedRole_EntryLevelSystemCall.id»")){
+					return «entrycall.priority»;
+				} 
+			«ENDFOREACH»
+				return defaultPriority;
+			}
+			
+			
+
+			
 			private de.uka.ipd.sdq.simucomframework.Context ctx = null;
 			«EXPAND UsageScenarioConstructor(a) FOR this»
 			
@@ -110,10 +127,10 @@
 		
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName»
 		{
-		
+							
 			// Here comes the usage scenario code...
 			«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
-		
+			
 		}
 		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName»
 		

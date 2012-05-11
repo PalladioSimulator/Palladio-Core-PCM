@@ -42,6 +42,11 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
         // prevent garbage collector to dispose measurements taken within the given request context
         this.blackboardGarbageCollector.enterRegion(getRequestContext().rootContext());
 	}
+	
+	public ForkedBehaviourProcess(Context myContext, String assemblyContextID, boolean isAsync, int priority) {
+		this(myContext, assemblyContextID, isAsync);
+		setPriority(priority);
+	}
 
 	@Override
 	protected void internalLifeCycle() {

@@ -45,7 +45,17 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
     
     private String timeoutFailureTypeId = null;
     
-    protected SimuComSimProcess(SimuComModel model, String name) {
+    private int priority = 0;
+    
+    public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+
+	protected SimuComSimProcess(SimuComModel model, String name) {
         this(model, name, null);
     }
     
@@ -216,4 +226,5 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
         return (SimuComModel) super.getModel();
     }
     
+
 }

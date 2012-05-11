@@ -18,6 +18,8 @@
 «ENDDEFINE»
 
 «DEFINE UserAction FOR EntryLevelSystemCall»
+			// Set the priority for «this.entityName»	
+			thread.setPriority(«this.priority»);
     «EXPAND m2t_transforms::calls::Call(
     	this, 
     	this.providedRole_EntryLevelSystemCall.portMemberVar()+".",

@@ -571,13 +571,22 @@ public interface UsagemodelPackage extends EPackage {
 	int ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Priority</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_LEVEL_SYSTEM_CALL__PRIORITY = ABSTRACT_USER_ACTION_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Entry Level System Call</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 4;
+	int ENTRY_LEVEL_SYSTEM_CALL_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1400,6 +1409,17 @@ public interface UsagemodelPackage extends EPackage {
 	EReference getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getPriority <em>Priority</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Priority</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getPriority()
+	 * @see #getEntryLevelSystemCall()
+	 * @generated
+	 */
+	EAttribute getEntryLevelSystemCall_Priority();
+
+	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall <em>Provided Role Entry Level System Call</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1837,6 +1857,14 @@ public interface UsagemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall();
+
+		/**
+		 * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTRY_LEVEL_SYSTEM_CALL__PRIORITY = eINSTANCE.getEntryLevelSystemCall_Priority();
 
 		/**
 		 * The meta object literal for the '<em><b>Provided Role Entry Level System Call</b></em>' reference feature.

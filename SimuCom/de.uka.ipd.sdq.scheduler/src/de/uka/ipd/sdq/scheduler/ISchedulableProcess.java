@@ -50,6 +50,10 @@ public interface ISchedulableProcess extends IEntity {
 	public abstract void addTerminatedObserver(IActiveResource o);
 
 	public abstract void removeTerminatedObserver(IActiveResource o);
+	
+	public abstract int getPriority();
+	
+	public abstract void setPriority(int prio);
 
 	/**
 	 * Forces a suspended process to run into a timeout failure.
