@@ -25,13 +25,13 @@ import de.uka.ipd.sdq.edp2.visualization.wizards.DefaultViewsWizard;
 /**
  * Listener for selections in the TreeViewer of {@link ExperimentDataEditor}.
  * Creates a new {@link EDP2Source}, which is associated with the selected
- * {@link RawMeasurements}. Upon Doubleklick on a {@link RawMeasurements}-object
+ * {@link RawMeasurements}. Upon Double-click on a {@link RawMeasurements}-object
  * it opens a Dialog and offers possible combinations of visualizations and
  * transformations to display the data encapsulated by the object. All
  * combinations are objects of the Type {@link DefaultSequence} and displayed in
  * the {@link DefaultViewsWizard}.
  * 
- * @author ernst
+ * @author Dominik Ernst
  * 
  */
 public class DoubleClickListener implements IDoubleClickListener {
@@ -70,6 +70,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 
 					if (selection.getSize() > 0) {
 						if (selection.getSequenceProperties().size() > 0) {
+							logger.log(Level.INFO, "Setting properties of element "+selection.getSequenceElements().get(0).getName()+" with "+selection.getSequenceProperties().get(0));
 							selection.getFirstSequenceElement().setProperties(
 									selection.getSequenceProperties().get(0));
 						}
@@ -86,8 +87,7 @@ public class DoubleClickListener implements IDoubleClickListener {
 					logger.log(Level.INFO, selection
 							.getVisualizationProperties().toString());
 					IVisualizationInput visualization = selection.getVisualization();
-					visualization.setProperties(selection
-							.getVisualizationProperties());
+					visualization.setProperties(selection.getVisualizationProperties());
 					if (selection.getSize() > 0) {
 						visualization.setSource(selection
 								.getLastSequenceElement());
