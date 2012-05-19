@@ -94,7 +94,7 @@
             </property>
          </filter>
          <datasink
-               sinkID="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
+               sinkID="de.uka.ipd.sdq.edp2.visualization.inputs.HistogramEditorInput">
             <property
                   key="numberOfBins"
                   name="the number of bins"
@@ -117,7 +117,7 @@
             </property>
          </adapter>
          <datasink
-               sinkID="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditor">
+               sinkID="de.uka.ipd.sdq.edp2.visualization.inputs.PieChartEditorInput">
          </datasink>
       </defaultSequence>
    </extension>
@@ -127,19 +127,19 @@
             class="de.uka.ipd.sdq.edp2.visualization.inputs.HistogramEditorInput"
             editor="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
             factory="de.uka.ipd.sdq.edp2.visualization.inputs.HistogramEditorInputFactory"
-            id="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
+            id="de.uka.ipd.sdq.edp2.visualization.inputs.HistogramEditorInput">
       </datasink>
       <datasink
             class="de.uka.ipd.sdq.edp2.visualization.inputs.ScatterPlotInput"
             editor="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
             factory="de.uka.ipd.sdq.edp2.visualization.inputs.ScatterPlotInputFactory"
-            id="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput">
+            id="de.uka.ipd.sdq.edp2.visualization.inputs.ScatterPlotInput">
       </datasink>
       <datasink
             class="de.uka.ipd.sdq.edp2.visualization.inputs.PieChartEditorInput"
             editor="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
             factory="de.uka.ipd.sdq.edp2.visualization.inputs.PieChartEditorInputFactory"
-            id="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditor">
+            id="de.uka.ipd.sdq.edp2.visualization.inputs.PieChartEditorInput">
       </datasink>
    </extension>
 

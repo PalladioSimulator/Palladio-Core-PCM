@@ -58,18 +58,6 @@ public abstract class IVisualizationInputHandle<T extends IVisualizationInput> e
 	public abstract int getInputsSize();
 	
 	/**
-	 * Method that returns a {@link Composite}, which is displayed in the properties view.
-	 * The {@link Composite} should contain settings, that are identical for all {@link IVisualizationInput}s
-	 * handled by this {@link IVisualizationInputHandle}.
-	 * <br>
-	 * It is suggested to use a separate bean class and databinding to link the composite (View)
-	 * to this {@link IVisualizationInputHandle}'s (Control) properties' (Model)
-	 * @param parent the parent {@link Composite}
-	 * @return the composite showing and allowing to edit this {@link IVisualizationInput}'s display options.
-	 */
-	public abstract Composite getCommonPropertiesComposite(Composite parent);
-	
-	/**
 	 * Returns the properties of this {@link IVisualizationInputHandle}. These properties
 	 * are typically the same for all {@link IVisualizationInput}s managed by this handle, such as chart titles.
 	 * @return the properties of this {@link IVisualizationInputHandle}

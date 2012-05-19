@@ -274,7 +274,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 				.addSequenceElement(adapters
 						.get("de.uka.ipd.sdq.edp2.transformation.HistogramFrequencyAdapter"));
 		basicSequence1.setVisualization(charts
-				.get("de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput"));
+				.get("de.uka.ipd.sdq.edp2.visualization.inputs.HistogramEditorInput"));
 		// The scatterplot is added independently of Default Combinations in
 		// extension points
 		DefaultSequence basicSequence2 = new DefaultSequence();
@@ -282,7 +282,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		basicSequence2.setSequenceName("Scatterplot");
 		basicSequence2.setInputMetricUUID("no_UUID");
 		basicSequence2.setVisualization(charts
-				.get("de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput"));
+				.get("de.uka.ipd.sdq.edp2.visualization.inputs.ScatterPlotInput"));
 		
 		// experimental sequence with histogram only (for multiple dataseries)
 		DefaultSequence basicSequence3 = new DefaultSequence();
@@ -290,7 +290,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		basicSequence3.setSequenceName("Histogram (EXPERIMENTAL)");
 		basicSequence3.setInputMetricUUID("no_UUID");
 		basicSequence3.setVisualization(charts
-				.get("de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput"));
+				.get("de.uka.ipd.sdq.edp2.visualization.inputs.HistogramEditorInput"));
 
 		defaultSequences.add(basicSequence1);
 		defaultSequences.add(basicSequence2);

@@ -10,14 +10,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
 import org.jfree.chart.JFreeChart;
 
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
-import de.uka.ipd.sdq.edp2.visualization.properties.sections.CommonJFreeChartPropertiesComposite;
 
 /**
  * Implementation of an {@link IVisualizationInputHandle} for
@@ -229,12 +226,6 @@ public class JFreeChartEditorInputHandle extends
 	@Override
 	public void saveState(IMemento memento) {
 		JFreeChartEditorInputHandleFactory.saveState(memento, this);
-	}
-
-	@Override
-	public Composite getCommonPropertiesComposite(Composite parent) {
-		return new CommonJFreeChartPropertiesComposite(parent, SWT.EMBEDDED,
-				this);
 	}
 
 	@Override

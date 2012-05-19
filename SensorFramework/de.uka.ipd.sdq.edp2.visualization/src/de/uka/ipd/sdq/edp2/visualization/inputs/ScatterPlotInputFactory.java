@@ -27,7 +27,7 @@ public class ScatterPlotInputFactory extends ElementFactory {
 	 * The factory's ID. Must match the ID specified in the extension point
 	 * "org.eclipse.ui.elementFactories".
 	 */
-	private static final String FACTORY_ID = "de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInputFactory";
+	private static final String FACTORY_ID = "de.uka.ipd.sdq.edp2.visualization.inputs.ScatterPlotInputFactory";
 
 	/**
 	 * Method for restoring {@link ScatterPlotInput} elements. Should call

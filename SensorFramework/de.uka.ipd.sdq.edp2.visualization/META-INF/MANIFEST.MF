@@ -50,14 +50,6 @@ Export-Package: de.uka.ipd.sdq.edp2.visualization;
    org.eclipse.swt.widgets,
    org.jfree.experimental.chart.swt,
    de.uka.ipd.sdq.edp2.visualization",
- de.uka.ipd.sdq.edp2.visualization.filter;
-  uses:="org.eclipse.core.runtime,
-   de.uka.ipd.sdq.edp2.models.ExperimentData,
-   org.eclipse.jface.resource,
-   org.eclipse.emf.common.util,
-   org.eclipse.ui,
-   de.uka.ipd.sdq.edp2.models.Repository,
-   de.uka.ipd.sdq.edp2.visualization",
  de.uka.ipd.sdq.edp2.visualization.util,
  de.uka.ipd.sdq.edp2.visualization.wizards;
   uses:="de.uka.ipd.sdq.edp2.visualization.adapter,

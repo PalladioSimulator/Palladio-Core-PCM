@@ -31,7 +31,7 @@ public class HistogramEditorInputFactory extends ElementFactory {
 	 * The factory's ID. Must match the ID specified in the extension point
 	 * "org.eclipse.ui.elementFactories".
 	 */
-	private static final String FACTORY_ID = "de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput";
+	private static final String FACTORY_ID = "de.uka.ipd.sdq.edp2.visualization.inputs.HistogramEditorInput";
 
 	/**
 	 * Method for restoring {@link HistogramEditorInput} elements. Should call
