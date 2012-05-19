@@ -1,10 +1,9 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp2.visualization.editors;
+package de.uka.ipd.sdq.edp2.visualization.inputs;
 
 import java.awt.Color;
-import java.awt.Paint;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,6 +32,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 
 /**
  * @author Dominik Ernst
@@ -126,7 +126,6 @@ public class HistogramEditorInput extends
 	 * Empty constructor.
 	 */
 	public HistogramEditorInput() {
-		super();
 		new HistogramEditorInput(null);
 	}
 
@@ -292,17 +291,16 @@ public class HistogramEditorInput extends
 					.toString());
 		}
 		if (newProperties.get(SHOW_DOMAIN_AXIS_LABEL_KEY) != null) {
-			setShowDomainAxisLabel(newProperties
-					.get(SHOW_DOMAIN_AXIS_LABEL_KEY).toString().equals("true") ? true
-					: false);
+			setShowDomainAxisLabel(Boolean.parseBoolean(newProperties.get(
+					SHOW_DOMAIN_AXIS_LABEL_KEY).toString()));
 		}
 		if (newProperties.get(SHOW_RANGE_AXIS_LABEL_KEY) != null) {
-			setShowRangeAxisLabel(newProperties.get(SHOW_RANGE_AXIS_LABEL_KEY)
-					.toString().equals("true") ? true : false);
+			setShowRangeAxisLabel(Boolean.parseBoolean(newProperties.get(
+					SHOW_RANGE_AXIS_LABEL_KEY).toString()));
 		}
 		if (newProperties.get(INCLUDE_ZERO_KEY) != null) {
-			setIncludeZero(newProperties.get(INCLUDE_ZERO_KEY).toString()
-					.equals("true") ? true : false);
+			setIncludeZero(Boolean.parseBoolean(newProperties.get(
+					INCLUDE_ZERO_KEY).toString()));
 		}
 	}
 
@@ -315,14 +313,10 @@ public class HistogramEditorInput extends
 
 	public void setDomainAxisLabel(String domainAxisLabel) {
 		this.domainAxisLabel = domainAxisLabel;
-		setChanged();
-		notifyObservers();
 	}
 
 	public void setRangeAxisLabel(String rangeAxisLabel) {
 		this.rangeAxisLabel = rangeAxisLabel;
-		setChanged();
-		notifyObservers();
 	}
 
 	public String getRangeAxisLabel() {
@@ -338,8 +332,6 @@ public class HistogramEditorInput extends
 
 	public void setShowRangeAxisLabel(boolean showRangeAxisLabel) {
 		this.showRangeAxisLabel = showRangeAxisLabel;
-		setChanged();
-		notifyObservers();
 	}
 
 	public boolean isShowDomainAxisLabel() {
@@ -348,8 +340,6 @@ public class HistogramEditorInput extends
 
 	public void setShowDomainAxisLabel(boolean showDomainAxisLabel) {
 		this.showDomainAxisLabel = showDomainAxisLabel;
-		setChanged();
-		notifyObservers();
 	}
 
 	public boolean isIncludeZero() {
@@ -358,8 +348,6 @@ public class HistogramEditorInput extends
 
 	public void setIncludeZero(boolean includeZero) {
 		this.includeZero = includeZero;
-		setChanged();
-		notifyObservers();
 	}
 
 	private int getNumberOfBins() {

@@ -45,10 +45,10 @@ import de.uka.ipd.sdq.edp2.visualization.Activator;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
-import de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInputHandle;
+import de.uka.ipd.sdq.edp2.visualization.inputs.HistogramEditorInput;
 
 /**
  * GUI controls for displaying options of {@link JFreeChartEditor}s. Shows and

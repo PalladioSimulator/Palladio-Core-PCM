@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.edp2.visualization.editors;
+package de.uka.ipd.sdq.edp2.visualization.inputs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +27,7 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
+import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
 
 public class PieChartEditorInput extends JFreeChartEditorInput<DefaultPieDataset> {
 

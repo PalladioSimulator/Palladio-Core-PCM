@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.edp2.visualization.editors;
+package de.uka.ipd.sdq.edp2.visualization.inputs;
 
 import java.util.HashMap;
 

@@ -124,21 +124,21 @@
    <extension
          point="de.uka.ipd.sdq.edp2.visualization.datasink">
       <datasink
-            class="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput"
+            class="de.uka.ipd.sdq.edp2.visualization.inputs.HistogramEditorInput"
             editor="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
-            factory="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInputFactory"
+            factory="de.uka.ipd.sdq.edp2.visualization.inputs.HistogramEditorInputFactory"
             id="de.uka.ipd.sdq.edp2.visualization.editors.HistogramEditorInput">
       </datasink>
       <datasink
-            class="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput"
+            class="de.uka.ipd.sdq.edp2.visualization.inputs.ScatterPlotInput"
             editor="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
-            factory="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInputFactory"
+            factory="de.uka.ipd.sdq.edp2.visualization.inputs.ScatterPlotInputFactory"
             id="de.uka.ipd.sdq.edp2.visualization.editors.ScatterPlotInput">
       </datasink>
       <datasink
-            class="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditorInput"
+            class="de.uka.ipd.sdq.edp2.visualization.inputs.PieChartEditorInput"
             editor="de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditor"
-            factory="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditorInputFactory"
+            factory="de.uka.ipd.sdq.edp2.visualization.inputs.PieChartEditorInputFactory"
             id="de.uka.ipd.sdq.edp2.visualization.editors.PieChartEditor">
       </datasink>
    </extension>

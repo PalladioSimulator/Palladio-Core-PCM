@@ -2,20 +2,10 @@ package de.uka.ipd.sdq.edp2.visualization.util;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.measure.Measure;
-
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
-import de.uka.ipd.sdq.edp2.MeasurementsDao;
-import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
-import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.Measurement;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
@@ -23,24 +13,19 @@ import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifier;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NumericalBaseMetricDescription;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifier;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifierBasedMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.TextualBaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
-import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 
 /**
@@ -342,60 +327,12 @@ public class RepositoryUtility {
 
 	static class MeasurementsSwitch extends ExperimentDataSwitch<Boolean> {
 
-		RawMeasurements rawMeasurementsToCopy;
-		int index;
-		int dimension;
-		Measurement measurement;
-
-		public MeasurementsSwitch(RawMeasurements rawMeasurementsToCopy,
-				int index, int dimension, Measurement measurement) {
-			this.rawMeasurementsToCopy = rawMeasurementsToCopy;
-			this.index = index;
-			this.dimension = dimension;
-			this.measurement = measurement;
-		}
-
-		public Boolean caseNumericalBaseMetricDescription(
-				NumericalBaseMetricDescription object) {
-			OrdinalMeasurementsDao<Measure> dao = MeasurementsUtility
-					.getOrdinalMeasurementsDao(rawMeasurementsToCopy
-							.getDataSeries().get(dimension));
-			List<Measure> measures = dao.getMeasurements();
-			Measure measure = measures.get(index);
-			measurement.setMeasuredValue(dimension, measure);
-			return true;
-		}
-
-		public Boolean caseTextualBaseMetricDescription(
-				TextualBaseMetricDescription object) {
-			NominalMeasurementsDao dao = MeasurementsUtility
-					.getNominalMeasurementsDao(rawMeasurementsToCopy
-							.getDataSeries().get(dimension));
-			ObservedIdentifierBasedMeasurements mms = dao
-					.getObservedIdentifierBasedMeasurements();
-			List<ObservedIdentifier> obsId = mms.getObservedIdentifiers();
-			// ObservedIdentifier oidentifier =
-			// EcoreUtil.copy(obsId.get(index));
-			// ObservedIdentifier oidentifier =
-			// factory.createObservedIdentifier();
-			// oidentifier.setIdentifier(obsId.get(index).getIdentifier());
-			measurement.setMeasuredValue(dimension, obsId.get(index)
-					.getIdentifier());
-			return true;
-		}
-
-		public Boolean caseBaseMetricDescription(BaseMetricDescription object) {
-			logger.log(
-					Level.SEVERE,
-					"Unsupported Base Metric: the selected measurements could not be opened, because it is neither described by a TextualBaseMetricDescription nor a NumericalBaseMetricDescription.");
-			throw new RuntimeException("Unsupported Base Metric.");
-		}
 	}
 
 	/**
 	 * Creates a copy of a {@link RawMeasurements} for a given
-	 * {@link MeasurementsRange}. <b>Copies all subsumed DataSeries!</b>
-	 * Currently works for ordinal Measurements only!
+	 * {@link MeasurementsRange}. <b>Copies all subsumed DataSeries!</b> This
+	 * method is used internally only. For a public method, see {@link RepositoryUtility#copyRawMeasurements(RawMeasurements)}
 	 * 
 	 * @param rawMeasurementsToCopy
 	 *            the {@link RawMeasurements} which are to be copied.
@@ -405,9 +342,9 @@ public class RepositoryUtility {
 	 *            {@link MetricDescription} and {@link Edp2Measure}.
 	 * @return reference to the newly created {@link RawMeasurements}.
 	 */
-	public static RawMeasurements copyRawMeasurements(
-			final RawMeasurements rawMeasurementsToCopy,
-			final MeasurementsRange forMeasurementsRange) {
+	private static RawMeasurements copyRawMeasurements(
+			RawMeasurements rawMeasurementsToCopy,
+			MeasurementsRange forMeasurementsRange) {
 
 		RawMeasurements rawMeasurements = factory
 				.createRawMeasurements(forMeasurementsRange);
@@ -421,35 +358,8 @@ public class RepositoryUtility {
 
 		Measurement measurement = new Measurement(metric);
 
-		int numberOfItems = new ExperimentDataSwitch<Integer>() {
-			public Integer caseNumericalBaseMetricDescription(
-					NumericalBaseMetricDescription object) {
-				OrdinalMeasurementsDao<Measure> dao = MeasurementsUtility
-						.getOrdinalMeasurementsDao(rawMeasurementsToCopy
-								.getDataSeries().get(0));
-				List<Measure> measures = dao.getMeasurements();
-				return measures.size();
-			}
-
-			public Integer caseTextualBaseMetricDescription(
-					TextualBaseMetricDescription object) {
-				NominalMeasurementsDao dao = MeasurementsUtility
-						.getNominalMeasurementsDao(rawMeasurementsToCopy
-								.getDataSeries().get(0));
-				ObservedIdentifierBasedMeasurements mms = dao
-						.getObservedIdentifierBasedMeasurements();
-				List<ObservedIdentifier> obsId = mms.getObservedIdentifiers();
-				return obsId.size();
-			}
-
-			public Integer caseBaseMetricDescription(
-					BaseMetricDescription object) {
-				logger.log(
-						Level.SEVERE,
-						"Unsupported Base Metric: the selected measurements could not be opened, because it is neither described by a TextualBaseMetricDescription nor a NumericalBaseMetricDescription.");
-				throw new RuntimeException("Unsupported Base Metric.");
-			}
-		}.doSwitch(baseMetrics[0]);
+		int numberOfItems = new NumberOfMeasurementsSwitch(
+				rawMeasurementsToCopy).doSwitch(baseMetrics[0]);
 
 		logger.log(Level.INFO, "Number of measurements: " + numberOfItems);
 
@@ -457,59 +367,13 @@ public class RepositoryUtility {
 			measurement = new Measurement(metric);
 			for (int dimension = 0; dimension < rawMeasurementsToCopy
 					.getDataSeries().size(); dimension++) {
-				new MeasurementsSwitch(rawMeasurementsToCopy, i, dimension,
+				new CopyMeasurementsSwitch(rawMeasurementsToCopy, i, dimension,
 						measurement).doSwitch(baseMetrics[dimension]);
 			}
 			MeasurementsUtility.storeMeasurement(
 					forMeasurementsRange.getMeasurements(), measurement);
 		}
 		return rawMeasurements;
-	}
-
-	/**
-	 * This method copies one single {@link DataSeries} from the list of all
-	 * available {@link DataSeries}. The {@link DataSeries} which is to be
-	 * copied, is selected according to the specified {@link MetricDescription},
-	 * i.e. the {@link DataSeries} element, which has the specified metric is
-	 * selected. It is added to the data in {@link RawMeasurements}.
-	 * 
-	 * @param forMetric
-	 *            the {@link MetricDescription} which is used for the copied
-	 *            {@link DataSeries}
-	 * @param fromDataSeries
-	 *            the list of {@link DataSeries}
-	 * @param toRawMeasurements
-	 *            the target {@link RawMeasurements}
-	 * @return reference to the list of {@link DataSeries}, to which the copied
-	 *         element is added.
-	 */
-	public static EList<DataSeries> copySingleDataSeries(
-			MetricDescription forMetric, EList<DataSeries> fromDataSeries,
-			RawMeasurements toRawMeasurements) {
-
-		throw new RuntimeException("Not working");
-
-		/*
-		 * ArrayList<MetricDescription> mds = new
-		 * ArrayList<MetricDescription>(); BaseMetricDescription[] metrics =
-		 * MetricDescriptionUtility
-		 * .toBaseMetricDescriptions(fromDataSeries.get(0)
-		 * .getRawMeasurements().getMeasurementsRange()
-		 * .getMeasurements().getMeasure().getMetric()); for (int i = 0; i <
-		 * metrics.length; i++) { mds.add(metrics[i]); } DataSeries selectedDS =
-		 * null; for (MetricDescription md : mds) { if
-		 * (md.getName().equals(forMetric.getName())) { logger.log(Level.FINE,
-		 * "found a metric match"); } } OrdinalMeasurementsDao dao =
-		 * MeasurementsUtility .getOrdinalMeasurementsDao(selectedDS); List<?>
-		 * measures = dao.getMeasurements();
-		 * 
-		 * for (int j = 0; j < measures.size(); j++) { Measurement measurement =
-		 * new Measurement(forMetric); Measure m = (Measure) measures.get(j);
-		 * measurement.setMeasuredValue(0, m);
-		 * MeasurementsUtility.storeMeasurement(toRawMeasurements
-		 * .getMeasurementsRange().getMeasurements(), measurement); } return
-		 * toRawMeasurements.getDataSeries();
-		 */
 	}
 
 	/**
@@ -567,14 +431,18 @@ public class RepositoryUtility {
 	}
 
 	/**
+	 * Creates a full copy of a provided {@link RawMeasurements} instance, using
+	 * the same {@link MetricDescription} as for the original measurements.
 	 * 
 	 * @param rmTocopy
-	 * @return
+	 *            the {@link RawMeasurements} to be copied
+	 * @return reference to the associated copy of {@link MeasurementsRange}
 	 */
 	public static MeasurementsRange copyRawMeasurements(RawMeasurements rmTocopy) {
 		ExperimentGroup copyOfExpGroup = copyExperimentGroup(rmTocopy
 				.getMeasurementsRange().getMeasurements().getExperimentRun()
-				.getExperimentSetting().getExperimentGroup(), getDefaultLocalRepository());
+				.getExperimentSetting().getExperimentGroup(),
+				getDefaultLocalRepository());
 		ExperimentSetting copyOfExpSetting = copyExperimentSetting(rmTocopy
 				.getMeasurementsRange().getMeasurements().getExperimentRun()
 				.getExperimentSetting(), copyOfExpGroup);
