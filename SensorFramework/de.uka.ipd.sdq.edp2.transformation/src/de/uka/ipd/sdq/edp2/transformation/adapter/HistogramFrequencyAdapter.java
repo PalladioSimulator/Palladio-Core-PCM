@@ -2,26 +2,14 @@ package de.uka.ipd.sdq.edp2.transformation.adapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.measure.Measure;
-
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IMemento;
 
-import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
-import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
-import de.uka.ipd.sdq.edp2.impl.Measurement;
-import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
-import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
@@ -29,7 +17,7 @@ import de.uka.ipd.sdq.edp2.visualization.util.RepositoryUtility;
 
 /**
  * Implementation of an {@link AbstractAdapter}, which transforms the source
- * data into one, single-dimension series of data to be displayed in a
+ * data into one, single-dimension series of data, for example to be displayed in a
  * histogram.
  * 
  * @author Dominik Ernst
@@ -45,12 +33,12 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 	/**
 	 * Keys for persistence of properties
 	 */
-	private final static String DATA_SERIES_KEY = "dataSeriesIndex";
+	public final static String DATA_SERIES_KEY = "dataSeriesIndex";
 
 	/**
-	 * Default value for <dataSeriesIndex>.
+	 * Default value for {@link #dataSeriesIndex}
 	 */
-	private final static int DEFAULT_VALUE_DATA_SERIES_INDEX = 0;
+	private final static int DEFAULT_DATA_SERIES_INDEX = 0;
 
 	/**
 	 * Logger for this class.
@@ -86,59 +74,22 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 	 * @see
 	 * de.uka.ipd.sdq.edp2.visualization.AbstractTransformation#transformData()
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void transformData() {
 		logger.log(Level.INFO, "transformation BEGIN");
-		// get the MetricDescription of the data series, which will be displayed
-		// in the histogram - data series will have one dimension
-		MetricDescription metricDescription = RepositoryUtility
-				.copyMetricDescriptionSilent(MetricDescriptionUtility
-						.toBaseMetricDescriptions(source.getMeasurementsRange()
-								.getMeasurements().getMeasure().getMetric())[dataSeriesIndex]);
-		Edp2Measure edp2measure = RepositoryUtility.createEdp2Measure(source
-				.getMeasurementsRange().getMeasurements().getMeasure(),
-				metricDescription);
-		// create a new Measurements object
-		Measurements measurements = RepositoryUtility
-				.createMeasurements(edp2measure);
-		// copy measurementsRange from source using the new measurements
-		measurementsRange = RepositoryUtility.copyMeasurementsRange(source
-				.getOriginalMeasurementsRange(), measurements);
-
-		// create new RawMeasurements, connected to the new measurements via the
-		// measurementsRange
-		RawMeasurements rawMeasurements = RepositoryUtility
-				.createRawMeasurements(measurementsRange);
-
-		// create dao for the selected data series - data becomes
-		// one-dimensional
-		OrdinalMeasurementsDao<Measure> daoForSelectedSeries = MeasurementsUtility
-				.getOrdinalMeasurementsDao(source.getOutput().get(
-						dataSeriesIndex));
-		if (!daoForSelectedSeries.isOpen()) {
-		try {
-			daoForSelectedSeries.open();
-		} catch (DataNotAccessibleException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		//create a full copy of the data
+		measurementsRange = RepositoryUtility.copyRawMeasurements(source
+				.getMeasurementsRange().getRawMeasurements());
+		//remove all series, which do not equal the index of the selected one
+		for (int i = 0; i < measurementsRange.getRawMeasurements()
+				.getDataSeries().size(); i++) {
+			if (i != dataSeriesIndex) {
+				measurementsRange.getRawMeasurements().getDataSeries()
+						.remove(i);
+			}
 		}
-		}
-		List<Measure> listOfMeasures = daoForSelectedSeries.getMeasurements();
-		// TODO sort data in ascending order
-		// Collections.sort(listOfMeasures);
-
-		// copy all values of the selected data series to the local measurements
-		MeasurementsUtility.createDAOsForRawMeasurements(rawMeasurements);
-		for (int j = 0; j < listOfMeasures.size(); j++) {
-			Measurement measurement = new Measurement(metricDescription);
-			Measure m = listOfMeasures.get(j);
-			measurement.setMeasuredValue(0, m);
-			MeasurementsUtility.storeMeasurement(measurements, measurement);
-		}
-
 		// important: set the reference of the dataSeries
-		this.dataSeries = rawMeasurements.getDataSeries();
+		this.dataSeries = measurementsRange.getRawMeasurements().getDataSeries();
 
 		setChanged();
 		notifyObservers();
@@ -171,6 +122,7 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 	 * 
 	 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
 	 */
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Class adapter) {
 		throw new RuntimeException("Not implemented.");
@@ -196,7 +148,6 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 	 */
 	@Override
 	public ArrayList<MetricDescription> getMetricRoles() {
-		// TODO Auto-generated method stub
 		throw new RuntimeException("Not implemented.");
 	}
 
@@ -246,7 +197,7 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 			setDataSeriesIndex(Integer.parseInt(newProperties.get(
 					DATA_SERIES_KEY).toString()));
 		else
-			setDataSeriesIndex(DEFAULT_VALUE_DATA_SERIES_INDEX);
+			setDataSeriesIndex(DEFAULT_DATA_SERIES_INDEX);
 
 	}
 
@@ -264,9 +215,13 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 	public void setDataSeriesIndex(int dataSeriesIndex) {
 		this.dataSeriesIndex = dataSeriesIndex;
 	}
+
 	/*
 	 * (non-Javadoc)
-	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#createCopyForSource(de.uka.ipd.sdq.edp2.visualization.AbstractDataSource)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.edp2.visualization.IDataSink#createCopyForSource(de.uka
+	 * .ipd.sdq.edp2.visualization.AbstractDataSource)
 	 */
 	public IDataSink createCopyForSource(AbstractDataSource source) {
 		HistogramFrequencyAdapter copy = new HistogramFrequencyAdapter();

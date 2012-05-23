@@ -15,6 +15,11 @@ import org.eclipse.ui.part.EditorInputTransfer;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 
+/**
+ * Listener for drag-support of the {@link ExperimentDataEditor}.
+ * @author Dominik Ernst
+ *
+ */
 public class DataSourceDragSourceListener implements DragSourceListener {
 
 	private final static Logger logger = Logger.getLogger(DataSourceDragSourceListener.class.getName());

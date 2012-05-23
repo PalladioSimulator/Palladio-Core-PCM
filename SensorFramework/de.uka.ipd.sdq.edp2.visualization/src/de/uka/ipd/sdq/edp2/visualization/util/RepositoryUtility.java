@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.Measurement;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
@@ -25,7 +24,6 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NumericalBaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.TextualBaseMetricDescription;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 
 /**
@@ -105,24 +103,10 @@ public class RepositoryUtility {
 	 * 
 	 * @return The reference to the static local repository.
 	 */
-	public static Repository getDefaultLocalRepository() {
+	private static Repository getDefaultLocalRepository() {
 		RepositoryManager.addRepository(
 				RepositoryManager.getCentralRepository(), LOCAL_REPO);
 		return LOCAL_REPO;
-	}
-
-	/**
-	 * Method which closes the local repository. Should be called as soon as no
-	 * longer any date are required, i.e. the editor/view is closed.
-	 */
-	public static void closeDefaultRepository() {
-		try {
-			MeasurementsUtility.ensureClosedRepository(LOCAL_REPO);
-		} catch (DataNotAccessibleException e) {
-			logger.log(Level.SEVERE,
-					"local default repository could not be closed!");
-			throw new RuntimeException();
-		}
 	}
 
 	/**
@@ -135,7 +119,7 @@ public class RepositoryUtility {
 	 *            be stored.
 	 * @return reference to the newly created {@link ExperimentGroup}
 	 */
-	public static ExperimentGroup copyExperimentGroup(
+	private static ExperimentGroup copyExperimentGroup(
 			ExperimentGroup groupToCopy, Repository targetRepository) {
 		ExperimentGroup experimentGroup = factory.createExperimentGroup();
 		experimentGroup.setPurpose(groupToCopy.getPurpose());
@@ -152,7 +136,7 @@ public class RepositoryUtility {
 	 *            {@link ExperimentSetting} is to be copied.
 	 * @return reference to the newly created {@link ExperimentSetting}
 	 */
-	public static ExperimentSetting copyExperimentSetting(
+	private static ExperimentSetting copyExperimentSetting(
 			ExperimentSetting settingToCopy, ExperimentGroup targetGroup) {
 		ExperimentSetting experimentSetting = factory.createExperimentSetting(
 				targetGroup, settingToCopy.getDescription());
@@ -168,7 +152,7 @@ public class RepositoryUtility {
 	 *            {@link ExperimentRun} is to be copied.
 	 * @return reference to the newly created {@link ExperimentRun}
 	 */
-	public static ExperimentRun copyExperimentRun(ExperimentRun runToCopy,
+	private static ExperimentRun copyExperimentRun(ExperimentRun runToCopy,
 			ExperimentSetting targetSetting) {
 		ExperimentRun experimentRun = factory
 				.createExperimentRun(targetSetting);
@@ -191,7 +175,7 @@ public class RepositoryUtility {
 	 *            is to be copied.
 	 * @return reference to the newly created {@link MetricDescription}
 	 */
-	public static MetricDescription copyMetricDescription(
+	private static MetricDescription copyMetricDescription(
 			MetricDescription metricDescriptionToCopy,
 			Repository targetRepository) {
 		if (metricDescriptionToCopy instanceof BaseMetricDescription) {
@@ -253,7 +237,7 @@ public class RepositoryUtility {
 	 * 
 	 * @return the copy of the {@link Edp2Measure}
 	 */
-	public static Edp2Measure copyEdp2Measure(Edp2Measure edp2measureToCopy,
+	private static Edp2Measure copyEdp2Measure(Edp2Measure edp2measureToCopy,
 			MetricDescription targetMetricDescription,
 			ExperimentGroup targetExperimentGroup,
 			ExperimentSetting targetExperimentSetting) {
@@ -281,7 +265,7 @@ public class RepositoryUtility {
 	 *            assigned.
 	 * @return reference to the newly created {@link MetricDescription}
 	 */
-	public static Measurements copyMeasurements(Edp2Measure forEdp2measure,
+	private static Measurements copyMeasurements(Edp2Measure forEdp2measure,
 			MetricDescription targetMetricDescription,
 			ExperimentRun targetExperimentRun) {
 
@@ -325,10 +309,6 @@ public class RepositoryUtility {
 		return rawMeasurements;
 	}
 
-	static class MeasurementsSwitch extends ExperimentDataSwitch<Boolean> {
-
-	}
-
 	/**
 	 * Creates a copy of a {@link RawMeasurements} for a given
 	 * {@link MeasurementsRange}. <b>Copies all subsumed DataSeries!</b> This
@@ -356,12 +336,24 @@ public class RepositoryUtility {
 		BaseMetricDescription[] baseMetrics = MetricDescriptionUtility
 				.toBaseMetricDescriptions(metric);
 
+		//check if the direct submetrics are BaseMetricDescriptions
+		//throw an exception if not, because there will be problems with transformations
+		if (metric instanceof MetricSetDescription) {
+			MetricDescription[] subMetrics = ((MetricSetDescription)metric).getSubsumedMetrics().toArray(new MetricDescription[1]);
+			for (MetricDescription subMetric : subMetrics){
+				if (subMetric instanceof MetricSetDescription) {
+					logger.log(
+							Level.SEVERE,
+							"Unsupported Base Metric: the selected measurements could not be opened, because it is not describe by a BaseMetricDescription");
+					throw new RuntimeException("Unsupported Metric (MetricSetDescription).");
+				}
+			}
+		}
+		
 		Measurement measurement = new Measurement(metric);
 
 		int numberOfItems = new NumberOfMeasurementsSwitch(
 				rawMeasurementsToCopy).doSwitch(baseMetrics[0]);
-
-		logger.log(Level.INFO, "Number of measurements: " + numberOfItems);
 
 		for (int i = 0; i < numberOfItems; i++) {
 			measurement = new Measurement(metric);

@@ -4,6 +4,8 @@
 package de.uka.ipd.sdq.edp2.visualization.inputs;
 
 import java.awt.Color;
+import java.text.ParseException;
+import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
+import javax.measure.unit.Unit;
+import javax.measure.unit.UnitFormat;
 
 import org.eclipse.ui.IMemento;
 import org.jfree.chart.ChartColor;
@@ -33,8 +37,13 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
+import de.uka.ipd.sdq.edp2.visualization.util.DefaultUnitSwitch;
 
 /**
+ * A HistogramEditorInput displays the input data in a histogram either in
+ * absolute or relative frequency. Options include the number of bins into which
+ * the data is split and whether axis and values are labeled.
+ * 
  * @author Dominik Ernst
  * 
  */
@@ -58,11 +67,16 @@ public class HistogramEditorInput extends
 	public final static String SHOW_ITEM_VALUES_KEY = "showItemValues";
 	public final static String BAR_MARGIN_KEY = "barMargin";
 	public final static String ABSOLUTE_FREQUENCY_KEY = "absoluteFrequency";
-	public final static String MANUAL_BIN_WIDTHS = "manualBinWidths";
+	public final static String UNIT_KEY = "unit";
 	/**
 	 * Default value for <code>numberOfBins</code>
 	 */
 	private final static int DEFAULT_NUMBER_BINS = 5;
+
+	/**
+	 * Default value if no unit is specified.
+	 */
+	private static final String NO_UNIT = "noUnit";
 
 	/**
 	 * The number of bins, i.e. the number of intervals of equal length in which
@@ -87,17 +101,6 @@ public class HistogramEditorInput extends
 	 * width.
 	 */
 	private double barMargin;
-
-	/**
-	 * The lower bounds for the width of each bin, when manual settings are
-	 * used.
-	 */
-	private double[] binLowerBounds;
-
-	/**
-	 * Upper bounds for bin sizes.
-	 */
-	private double[] binUpperBounds;
 	/**
 	 * The specific type of data provided by this {@link JFreeChartEditorInput}.
 	 */
@@ -113,9 +116,21 @@ public class HistogramEditorInput extends
 	 */
 	private String rangeAxisLabel;
 
+	/**
+	 * The unit of the horizontal axis as a String.
+	 */
+	private String unit;
+
+	/**
+	 * Show different labels?
+	 */
 	private boolean showRangeAxisLabel;
 	private boolean showDomainAxisLabel;
+	/**
+	 * Always include zero in the diagram?
+	 */
 	private boolean includeZero;
+	private Unit jscienceUnit;
 	/**
 	 * Logger for this class
 	 */
@@ -126,7 +141,7 @@ public class HistogramEditorInput extends
 	 * Empty constructor.
 	 */
 	public HistogramEditorInput() {
-		new HistogramEditorInput(null);
+		this(null);
 	}
 
 	/**
@@ -136,6 +151,7 @@ public class HistogramEditorInput extends
 	 * @param source
 	 */
 	public HistogramEditorInput(AbstractDataSource source) {
+		super();
 		setAbsoluteFrequency(true);
 		setBarMargin(0.0);
 		setNumberOfBins(DEFAULT_NUMBER_BINS);
@@ -144,6 +160,7 @@ public class HistogramEditorInput extends
 		setShowDomainAxisLabel(true);
 		setShowRangeAxisLabel(true);
 		setIncludeZero(false);
+		setUnit(NO_UNIT);
 	}
 
 	/*
@@ -168,17 +185,12 @@ public class HistogramEditorInput extends
 			listOfMeasures.add(dao.getMeasurements());
 		}
 
-		MetricDescription[] metrics = MetricDescriptionUtility
-				.toBaseMetricDescriptions(getSource().getMeasurementsRange()
-						.getMeasurements().getMeasure().getMetric());
-
 		// sorting seems to have no effect
 		// Collections.sort(listOfMeasures.get(0));
 		data = new double[listOfMeasures.get(0).size()];
 
 		for (int i = 0; i < listOfMeasures.get(0).size(); i++) {
-			data[i] = listOfMeasures.get(0).get(i)
-					.doubleValue(listOfMeasures.get(0).get(i).getUnit());
+			data[i] = listOfMeasures.get(0).get(i).doubleValue(getUnit());
 
 		}
 		dataset.addSeries(getInputName(), data, getNumberOfBins());
@@ -495,11 +507,14 @@ public class HistogramEditorInput extends
 
 	public String getDefaultDomainAxisLabel() {
 		if (getSource() != null) {
-			return MetricDescriptionUtility
+			MetricDescription metric = MetricDescriptionUtility
 					.toBaseMetricDescriptions(getSource()
 							.getMeasurementsRange().getMeasurements()
-							.getMeasure().getMetric())[0].getName()
-					+ " [" + getDefaultUnits()[0].toString() + "]";
+							.getMeasure().getMetric())[0];
+			if (getUnitAsString().equals(NO_UNIT)) {
+				setUnit(new DefaultUnitSwitch(metric).doSwitch(metric));
+			}
+			return metric.getName() + " [" + getUnitAsString() + "]";
 		} else {
 			return "noDefaultLabelAvailable";
 		}
@@ -553,6 +568,37 @@ public class HistogramEditorInput extends
 	@Override
 	public boolean supportsMultipleInputs() {
 		return true;
+	}
+
+	private void parseJScienceUnit(String unit) {
+		ParsePosition pos = new ParsePosition(0);
+		Unit parsedUnit = null;
+		try {
+			parsedUnit = UnitFormat.getInstance().parseSingleUnit(unit, pos);
+		} catch (ParseException e) {
+			logger.log(Level.INFO, "Could not parse specified Unit!");
+		}
+		if (parsedUnit != null) {
+			this.jscienceUnit = parsedUnit;
+			setUnit(parsedUnit.toString());
+		}
+	}
+
+	public String getUnitAsString() {
+		return unit;
+	}
+
+	public Unit getUnit() {
+		return jscienceUnit;
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
+	private void setJScienceUnit(Unit unit) {
+		jscienceUnit = unit;
+		setUnit(unit.toString());
 	}
 
 }

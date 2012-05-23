@@ -53,11 +53,11 @@ public class PieChartEditorInput extends JFreeChartEditorInput<DefaultPieDataset
 	private HashMap<Double, Integer> data;
 
 	public PieChartEditorInput() {
-		super();
-		new PieChartEditorInput(null);
+		this(null);
 	}
 
 	public PieChartEditorInput(AbstractDataSource source) {
+		super();
 		setShowAbsoluteAmount(false);
 		setShowRelativeAmount(true);
 	}

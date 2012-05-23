@@ -173,25 +173,6 @@ public abstract class IVisualizationInput extends Observable implements
 				.getMeasuredObject();
 		else return "noSourceSet";
 	}
-
-	/**
-	 * Returns all {@link Unit}s, which may be used by Visualizations.
-	 * 
-	 * @return
-	 */
-	public Unit<?>[] getDefaultUnits() {
-		BaseMetricDescription[] metrics = MetricDescriptionUtility
-				.toBaseMetricDescriptions(source.getMeasurementsRange()
-						.getMeasurements().getMeasure().getMetric());
-		ArrayList<Unit<?>> units = new ArrayList<Unit<?>>();
-		for (BaseMetricDescription metric : metrics) {
-			if (metric instanceof NumericalBaseMetricDescription) {
-				units.add(((NumericalBaseMetricDescription) metric)
-						.getDefaultUnit());
-			}
-		}
-		return units.toArray(new Unit[] {});
-	}
 	
 	/*
 	 * (non-Javadoc)

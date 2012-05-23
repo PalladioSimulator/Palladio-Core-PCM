@@ -1,16 +1,14 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.edp2.visualization.wizards;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
-import de.uka.ipd.sdq.edp2.visualization.IDataSink;
+import de.uka.ipd.sdq.edp2.visualization.IDataFlow;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 
 /**
+ * Instances of {@link DefaultSequence} represent predefined sequences of {@link IDataFlow}-elements.
  * @author Dominik Ernst
  * 
  */
