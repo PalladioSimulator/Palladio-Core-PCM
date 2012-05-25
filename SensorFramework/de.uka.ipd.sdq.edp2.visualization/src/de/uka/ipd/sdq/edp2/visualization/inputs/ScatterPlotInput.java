@@ -13,14 +13,21 @@ import java.util.logging.Logger;
 import javax.measure.Measure;
 
 import org.eclipse.ui.IMemento;
+import org.jfree.chart.ChartColor;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.labels.ItemLabelAnchor;
+import org.jfree.chart.labels.ItemLabelPosition;
+import org.jfree.chart.labels.StandardXYItemLabelGenerator;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.DefaultXYItemRenderer;
+import org.jfree.chart.renderer.xy.XYBarRenderer;
 import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.statistics.HistogramDataset;
+import org.jfree.data.statistics.HistogramType;
 import org.jfree.data.xy.DefaultXYDataset;
 import org.jfree.data.xy.XYDataset;
+import org.jfree.ui.TextAnchor;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
@@ -33,18 +40,23 @@ import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
+import de.uka.ipd.sdq.edp2.visualization.util.DefaultUnitSwitch;
 
 /**
  * Input for {@link ScatterPlotEditor} .
  * 
  * @author Dominik Ernst, Roland Richter
  */
-public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
+public class ScatterPlotInput extends JFreeChartEditorInput<DefaultXYDataset> {
 
 	/**
 	 * Name constant, which is used to identify this class in properties.
 	 */
 	private static final String ELEMENT_NAME = "ScatterPlotInput";
+	public static final String DOMAIN_AXIS_LABEL_KEY = "domainAxisLabel";
+	public static final String RANGE_AXIS_LABEL_KEY = "rangeAxisLabel";
+	public static final String SHOW_RANGE_AXIS_LABEL_KEY = "showRangeAxisLabel";
+	public static final String SHOW_DOMAIN_AXIS_LABEL_KEY = "showDomainAxisLabel";
 
 	/**
 	 * Logger for this class.
@@ -59,13 +71,31 @@ public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 
 	private JFreeChart chart;
 
+	/**
+	 * Label for the number axis (= horizontal axis)
+	 */
+	private String domainAxisLabel;
+
+	/**
+	 * Label for the range axis (= vertical axis)
+	 */
+	private String rangeAxisLabel;
+
+	/**
+	 * Show different labels?
+	 */
+	private boolean showRangeAxisLabel;
+	private boolean showDomainAxisLabel;
+
 	private DefaultXYItemRenderer renderer;
 
 	public ScatterPlotInput() {
-		super();
+		this(null);
 	}
 
 	public ScatterPlotInput(AbstractDataSource source) {
+		setShowDomainAxisLabel(true);
+		setShowRangeAxisLabel(true);
 	}
 
 	/*
@@ -130,6 +160,13 @@ public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 	@Override
 	public HashMap<String, Object> getProperties() {
 		properties.put(ElementFactory.ELEMENT_KEY, ELEMENT_NAME);
+		properties.put(RANGE_AXIS_LABEL_KEY, getRangeAxisLabel());
+		properties.put(DOMAIN_AXIS_LABEL_KEY, getDomainAxisLabel());
+		properties.put(SHOW_DOMAIN_AXIS_LABEL_KEY,
+				String.valueOf(isShowDomainAxisLabel()));
+		properties.put(SHOW_RANGE_AXIS_LABEL_KEY,
+				String.valueOf(isShowRangeAxisLabel()));
+		properties.put(COLOR_KEY, getColor());
 		return properties;
 	}
 
@@ -142,40 +179,81 @@ public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 	 */
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
+		if (newProperties.get(COLOR_KEY) != null)
+			setColor(newProperties.get(COLOR_KEY).toString());
+		if (newProperties.get(RANGE_AXIS_LABEL_KEY) != null) {
+			setRangeAxisLabel(newProperties.get(RANGE_AXIS_LABEL_KEY)
+					.toString());
+		}
+		if (newProperties.get(DOMAIN_AXIS_LABEL_KEY) != null) {
+			setDomainAxisLabel(newProperties.get(DOMAIN_AXIS_LABEL_KEY)
+					.toString());
+		}
+		if (newProperties.get(SHOW_DOMAIN_AXIS_LABEL_KEY) != null) {
+			setShowDomainAxisLabel(Boolean.parseBoolean(newProperties.get(
+					SHOW_DOMAIN_AXIS_LABEL_KEY).toString()));
+		}
+		if (newProperties.get(SHOW_RANGE_AXIS_LABEL_KEY) != null) {
+			setShowRangeAxisLabel(Boolean.parseBoolean(newProperties.get(
+					SHOW_RANGE_AXIS_LABEL_KEY).toString()));
+		}
 	}
 
 	@Override
 	public JFreeChart getChart() {
-		/*NumberAxis domainAxis = new NumberAxis(getHandle()
-				.isShowDomainAxisLabel() ? getHandle()
-				.getDomainAxisLabel() : null);
-		domainAxis.setAutoRangeIncludesZero(getBasicDataset().getHandle()
-				.isIncludeZero());
-		NumberAxis rangeAxis = new NumberAxis(getBasicDataset().getHandle()
-				.isShowRangeAxisLabel() ? getBasicDataset().getHandle()
-				.getRangeAxisLabel() : null);
+		NumberAxis domainAxis = new NumberAxis(
+				isShowDomainAxisLabel() ? getDomainAxisLabel() : null);
+		NumberAxis rangeAxis = new NumberAxis(
+				isShowRangeAxisLabel() ? getRangeAxisLabel() : null);
+
+		dataset = new DefaultXYDataset();
+		// add all inputs anew
+		// assume that if the getChart()-Method of this input is called, the
+		// remaining inputs have the same type of data
+		for (int i = 0; i < getHandle().getInputsSize(); i++) {
+			dataset.addSeries(getHandle().getInputs().get(i).getInputName(),
+					(double[][]) getHandle().getInputs().get(i).getData());
+		}
 		XYPlot plot = new XYPlot();
-		plot.setDataset(getBasicDataset().getDataset());
+		plot.setDataset(getDataset());
+
+		// the renderer for the chart
 		renderer = new DefaultXYItemRenderer();
 		plot.setRenderer(renderer);
 		plot.setRangeAxis(rangeAxis);
 		plot.setDomainAxis(domainAxis);
-		for (int i = 0; i < getBasicDataset().getSeriesProperties().length; i++) {
-			if ((getBasicDataset().getSeriesProperties()[i]
-					.get(JFreeChartEditorInput.COLOR_KEY) != null)
-					&& !getBasicDataset().getSeriesProperties()[i]
-							.get(JFreeChartEditorInput.COLOR_KEY).toString()
-							.equals(NO_COLOR))
-				renderer.setSeriesPaint(i, Color.decode(getBasicDataset()
-						.getSeriesProperties()[i].get(
-						JFreeChartEditorInput.COLOR_KEY).toString()));
-		}
 
-		chart = new JFreeChart(
-				getBasicDataset().getHandle().isShowTitle() ? getBasicDataset()
-						.getHandle().getTitle() : null,
-				JFreeChart.DEFAULT_TITLE_FONT, plot, getBasicDataset()
-						.getHandle().isShowLegend()); */
+		// modifiy the colors of the data series, if there are persisted color
+		// properties
+		for (int i = 0; i < getHandle().getInputsSize(); i++) {
+			float alpha = Float.parseFloat(getHandle().getInputProperties()[i]
+					.get(JFreeChartEditorInput.ALPHA_KEY).toString());
+			if ((getHandle().getInputProperties()[i]
+					.get(JFreeChartEditorInput.COLOR_KEY) != null)
+					&& !getHandle().getInputProperties()[i]
+							.get(JFreeChartEditorInput.COLOR_KEY).toString()
+							.equals(NO_COLOR)) {
+				Color opaque = Color.decode(getHandle().getInputProperties()[i]
+						.get(JFreeChartEditorInput.COLOR_KEY).toString());
+
+				float[] comp = opaque.getRGBColorComponents(null);
+				Color col = new Color(comp[0], comp[1], comp[2], alpha);
+				renderer.setSeriesPaint(i, col);
+			} else {
+				Color defaultColor = (Color) ChartColor
+						.createDefaultPaintArray()[i];
+				float[] comp = defaultColor.getRGBColorComponents(null);
+				Color col = new Color(comp[0], comp[1], comp[2], alpha);
+				renderer.setSeriesPaint(i, col);
+			}
+		}
+		renderer.setDrawSeriesLineAsPath(false);
+
+		// finally, create the chart using the plot
+		JFreeChart chart = new JFreeChart(
+				getHandle().isShowTitle() ? getHandle().getTitle() : null,
+				JFreeChart.DEFAULT_TITLE_FONT, plot, getHandle().isShowLegend());
+
 		return chart;
 	}
 
@@ -219,7 +297,7 @@ public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 		}
 
 		defaultDataset.addSeries(getInputName(), rawData);
-		
+
 		setChanged();
 		notifyObservers();
 		logger.log(Level.INFO, "Editor input updateDataSet end");
@@ -237,21 +315,61 @@ public class ScatterPlotInput extends JFreeChartEditorInput<XYDataset> {
 	}
 
 	public String getDefaultDomainAxisLabel() {
-		return MetricDescriptionUtility.toBaseMetricDescriptions(getSource()
-				.getMeasurementsRange().getMeasurements().getMeasure()
-				.getMetric())[0].getName()
-				+ " [" + getDefaultUnits()[0].toString() + "]";
+		BaseMetricDescription metric = MetricDescriptionUtility
+				.toBaseMetricDescriptions(getSource().getMeasurementsRange()
+						.getMeasurements().getMeasure().getMetric())[0];
+		return metric.getName() + " ["
+				+ new DefaultUnitSwitch(metric).doSwitch(metric) + "]";
 	}
 
 	public String getDefaultRangeAxisLabel() {
-		return MetricDescriptionUtility.toBaseMetricDescriptions(getSource()
-				.getMeasurementsRange().getMeasurements().getMeasure()
-				.getMetric())[1].getName()
-				+ " [" + getDefaultUnits()[1].toString() + "]";
+		BaseMetricDescription metric = MetricDescriptionUtility
+				.toBaseMetricDescriptions(getSource().getMeasurementsRange()
+						.getMeasurements().getMeasure().getMetric())[1];
+		return metric.getName() + " ["
+				+ new DefaultUnitSwitch(metric).doSwitch(metric) + "]";
 	}
 
 	@Override
 	public boolean supportsMultipleInputs() {
 		return true;
+	}
+
+	public String getDomainAxisLabel() {
+		if (domainAxisLabel == null) {
+			return getDefaultDomainAxisLabel();
+		}
+		return domainAxisLabel;
+	}
+
+	public void setDomainAxisLabel(String domainAxisLabel) {
+		this.domainAxisLabel = domainAxisLabel;
+	}
+
+	public void setRangeAxisLabel(String rangeAxisLabel) {
+		this.rangeAxisLabel = rangeAxisLabel;
+	}
+
+	public String getRangeAxisLabel() {
+		if (rangeAxisLabel == null) {
+			return getDefaultRangeAxisLabel();
+		}
+		return rangeAxisLabel;
+	}
+
+	public boolean isShowRangeAxisLabel() {
+		return showRangeAxisLabel;
+	}
+
+	public void setShowRangeAxisLabel(boolean showRangeAxisLabel) {
+		this.showRangeAxisLabel = showRangeAxisLabel;
+	}
+
+	public boolean isShowDomainAxisLabel() {
+		return showDomainAxisLabel;
+	}
+
+	public void setShowDomainAxisLabel(boolean showDomainAxisLabel) {
+		this.showDomainAxisLabel = showDomainAxisLabel;
 	}
 }

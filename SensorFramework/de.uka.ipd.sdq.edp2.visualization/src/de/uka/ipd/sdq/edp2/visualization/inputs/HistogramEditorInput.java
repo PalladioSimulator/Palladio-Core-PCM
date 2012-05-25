@@ -34,6 +34,7 @@ import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.NumericalBaseMetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 import de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput;
@@ -209,7 +210,12 @@ public class HistogramEditorInput extends
 	 */
 	@Override
 	public boolean canAccept(AbstractDataSource source) {
-		return source.getOutput().size() >= 1;
+		boolean result = true;
+		result = source.getOutput().size() < 1;
+		result = (MetricDescriptionUtility.toBaseMetricDescriptions(source
+				.getMeasurementsRange().getMeasurements().getMeasure()
+				.getMetric())[0] instanceof NumericalBaseMetricDescription);
+		return result;
 	}
 
 	/*
@@ -263,6 +269,7 @@ public class HistogramEditorInput extends
 		properties.put(SHOW_ITEM_VALUES_KEY, isShowItemValues());
 		properties.put(BAR_MARGIN_KEY, getBarMargin());
 		properties.put(ABSOLUTE_FREQUENCY_KEY, isAbsoluteFrequency());
+		properties.put(UNIT_KEY, getUnitAsString());
 		return properties;
 	}
 
@@ -313,6 +320,9 @@ public class HistogramEditorInput extends
 		if (newProperties.get(INCLUDE_ZERO_KEY) != null) {
 			setIncludeZero(Boolean.parseBoolean(newProperties.get(
 					INCLUDE_ZERO_KEY).toString()));
+		}
+		if (newProperties.get(UNIT_KEY) != null) {
+			parseJScienceUnit(newProperties.get(UNIT_KEY).toString());
 		}
 	}
 
@@ -511,9 +521,6 @@ public class HistogramEditorInput extends
 					.toBaseMetricDescriptions(getSource()
 							.getMeasurementsRange().getMeasurements()
 							.getMeasure().getMetric())[0];
-			if (getUnitAsString().equals(NO_UNIT)) {
-				setUnit(new DefaultUnitSwitch(metric).doSwitch(metric));
-			}
 			return metric.getName() + " [" + getUnitAsString() + "]";
 		} else {
 			return "noDefaultLabelAvailable";
@@ -585,20 +592,30 @@ public class HistogramEditorInput extends
 	}
 
 	public String getUnitAsString() {
+		if (this.unit.equals(NO_UNIT) && getSource() != null) {
+			this.unit = getUnit().toString();
+		}
 		return unit;
 	}
 
 	public Unit getUnit() {
+		if (getSource() != null) {
+			if (properties.get(UNIT_KEY).equals(NO_UNIT)) {
+				MetricDescription metric = MetricDescriptionUtility
+						.toBaseMetricDescriptions(getSource()
+								.getMeasurementsRange().getMeasurements()
+								.getMeasure().getMetric())[0];
+				parseJScienceUnit(new DefaultUnitSwitch(metric)
+						.doSwitch(metric));
+			}
+		}
 		return jscienceUnit;
 	}
 
 	public void setUnit(String unit) {
 		this.unit = unit;
-	}
-
-	private void setJScienceUnit(Unit unit) {
-		jscienceUnit = unit;
-		setUnit(unit.toString());
+		// if unit is changed, reset label to default but with new unit
+		setDomainAxisLabel(getDefaultDomainAxisLabel());
 	}
 
 }

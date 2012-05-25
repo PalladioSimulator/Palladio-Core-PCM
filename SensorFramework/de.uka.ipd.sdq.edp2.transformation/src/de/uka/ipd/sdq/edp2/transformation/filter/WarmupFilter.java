@@ -120,7 +120,7 @@ public class WarmupFilter extends AbstractFilter {
 	 * Empty constructor.
 	 */
 	public WarmupFilter() {
-		new WarmupFilter(null);
+		this(null);
 	};
 
 	/**
@@ -163,7 +163,9 @@ public class WarmupFilter extends AbstractFilter {
 	 * edp2.visualization.IDataSource)
 	 */
 	@Override
-	public boolean canAccept(AbstractDataSource source) {
+	public boolean canAccept(AbstractDataSource source){
+		throw new RuntimeException("Currently not working");
+		/*
 		final MetricDescription sourceMetric = source.getMeasurementsRange()
 				.getMeasurements().getMeasure().getMetric();
 		// Maximum of 3 dimensions for measurements
@@ -179,7 +181,7 @@ public class WarmupFilter extends AbstractFilter {
 				|| sourceMetrics[0].getCaptureType().equals(
 						CaptureType.REAL_NUMBER))
 			return true;
-		return false;
+		return false; */
 	}
 
 	/*

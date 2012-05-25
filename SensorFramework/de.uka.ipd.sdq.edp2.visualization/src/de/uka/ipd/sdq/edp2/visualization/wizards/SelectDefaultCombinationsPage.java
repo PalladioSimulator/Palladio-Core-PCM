@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.edp2.visualization.wizards;
 
 import java.util.ArrayList;
@@ -21,7 +18,6 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
@@ -32,7 +28,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
 import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
-import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
@@ -337,11 +332,9 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 
 		choiceViewer = new TableViewer(sashForm, SWT.BORDER);
 		choiceViewer.setContentProvider(new IStructuredContentProvider() {
-
 			@Override
 			public void dispose() {
-				// TODO Auto-generated method stub
-
+				//do nothing here
 			}
 
 			@Override
@@ -352,27 +345,24 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 			@Override
 			public void inputChanged(Viewer viewer, Object oldInput,
 					Object newInput) {
-				// TODO Auto-generated method stub
-
+				//do nothing here
 			}
 		});
 		choiceViewer.setLabelProvider(new ILabelProvider() {
 
 			@Override
 			public void addListener(ILabelProviderListener listener) {
-				// TODO Auto-generated method stub
-
+				//do nothing here
 			}
 
 			@Override
 			public void dispose() {
-				// TODO Auto-generated method stub
-
+				//do nothing here
 			}
 
 			@Override
 			public Image getImage(Object element) {
-				// TODO Auto-generated method stub
+				//do nothing here
 				return null;
 			}
 
@@ -383,14 +373,7 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 					DefaultSequence sequenceElement = (DefaultSequence) element;
 					StringBuilder shownString = new StringBuilder(
 							sequenceElement.getSequenceName());
-					/*
-					 * int length = sequenceElement.getSize();
-					 * shownString.append(": [ "); for (Object ele :
-					 * sequenceElement.getSequenceElements()) {
-					 * shownString.append(ele.getClass().getSimpleName());
-					 * length--; if (length > 0) shownString.append(" + "); }
-					 * shownString.append(" ]");
-					 */
+					// return the sequenceName as labels
 					return shownString.toString();
 				}
 				return null;
@@ -398,14 +381,13 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 
 			@Override
 			public boolean isLabelProperty(Object element, String property) {
-				// TODO Auto-generated method stub
+				//not used
 				return false;
 			}
 
 			@Override
 			public void removeListener(ILabelProviderListener listener) {
-				// TODO Auto-generated method stub
-
+				//not used
 			}
 		});
 
@@ -417,6 +399,12 @@ public class SelectDefaultCombinationsPage extends WizardPage implements
 		updatePageStatus();
 	}
 
+	/**
+	 * Method that checks if a given {@link AbstractDataSource} can be processed by any registered {@link DefaultSequence}-objects and returns
+	 * the possible results as a list.
+	 * @param forSource the {@link AbstractDataSource} for which sequences are returned
+	 * @return list of {@link DefaultSequence}-objects that can process the given source.
+	 */
 	private ArrayList<DefaultSequence> getApplicableSequences(
 			AbstractDataSource forSource) {
 		ArrayList<DefaultSequence> applicableSequences = new ArrayList<DefaultSequence>();

@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.edp2.visualization.inputs;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,12 +11,7 @@ import javax.measure.Measure;
 import org.eclipse.ui.IMemento;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
-import org.jfree.data.KeyedValues;
-import org.jfree.data.general.AbstractSeriesDataset;
-import org.jfree.data.general.DatasetGroup;
 import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.general.PieDataset;
-import org.jfree.data.statistics.HistogramDataset;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
@@ -62,22 +56,38 @@ public class PieChartEditorInput extends JFreeChartEditorInput<DefaultPieDataset
 		setShowRelativeAmount(true);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#getMetricRoles()
+	 */
 	@Override
 	public ArrayList<MetricDescription> getMetricRoles() {
 		throw new RuntimeException("Not implemented!");
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#canAccept(de.uka.ipd.sdq.edp2.visualization.AbstractDataSource)
+	 */
 	@Override
 	public boolean canAccept(AbstractDataSource source) {
-		return true;
+		throw new RuntimeException("Not implemented!");
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataSink#createCopyForSource(de.uka.ipd.sdq.edp2.visualization.AbstractDataSource)
+	 */
 	@Override
 	public IDataSink createCopyForSource(AbstractDataSource source) {
 		PieChartEditorInput copy = new PieChartEditorInput(source);
 		return copy;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#getProperties()
+	 */
 	@Override
 	public HashMap<String, Object> getProperties() {
 		properties.put(ElementFactory.ELEMENT_KEY, ELEMENT_NAME);
@@ -87,6 +97,10 @@ public class PieChartEditorInput extends JFreeChartEditorInput<DefaultPieDataset
 		return properties;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#setProperties(java.util.HashMap)
+	 */
 	@Override
 	public void setProperties(HashMap<String, Object> newProperties) {
 		if (newProperties.get(SHOW_RELATIVE_AMOUNT_KEY) != null)
@@ -99,22 +113,38 @@ public class PieChartEditorInput extends JFreeChartEditorInput<DefaultPieDataset
 			setColor(newProperties.get(COLOR_KEY).toString());
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IDataFlow#getName()
+	 */
 	@Override
 	public String getName() {
 		return ELEMENT_NAME;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.ui.IPersistableElement#getFactoryId()
+	 */
 	@Override
 	public String getFactoryId() {
-		// TODO Auto-generated method stub
+		//not used
 		return null;
 	}
-
+	
+	/*
+	 * (non-Javadoc)
+	 * @see org.eclipse.ui.IPersistable#saveState(org.eclipse.ui.IMemento)
+	 */
 	@Override
 	public void saveState(IMemento memento) {
 		PieChartEditorInputFactory.saveState(memento, this);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getChart()
+	 */
 	@Override
 	public JFreeChart getChart() {
 		PiePlot plot = new PiePlot(getDataset());
@@ -125,17 +155,28 @@ public class PieChartEditorInput extends JFreeChartEditorInput<DefaultPieDataset
 		return chart;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.editors.JFreeChartEditorInput#getDefaultTitle()
+	 */
 	@Override
 	public String getDefaultTitle() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Pie Chart";
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#getData()
+	 */
 	@Override
 	public HashMap<Double, Integer> getData() {
 		return data;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#updateInputData()
+	 */
 	@Override
 	public void updateInputData() {
 		logger.log(Level.INFO, "Transformation : BEGIN");
@@ -202,6 +243,10 @@ public class PieChartEditorInput extends JFreeChartEditorInput<DefaultPieDataset
 		this.showAbsoluteAmount = showAbsoluteAmount;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.visualization.IVisualizationInput#supportsMultipleInputs()
+	 */
 	@Override
 	public boolean supportsMultipleInputs() {
 		return false;
