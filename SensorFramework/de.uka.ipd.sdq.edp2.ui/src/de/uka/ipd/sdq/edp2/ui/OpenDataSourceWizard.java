@@ -7,8 +7,6 @@ import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
 
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
-import de.uka.ipd.sdq.edp2.models.Presentation.UI.UIFactory;
-import de.uka.ipd.sdq.edp2.models.Presentation.UI.util.UISwitch;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalMemoryRepository;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalSensorFrameworkRepository;

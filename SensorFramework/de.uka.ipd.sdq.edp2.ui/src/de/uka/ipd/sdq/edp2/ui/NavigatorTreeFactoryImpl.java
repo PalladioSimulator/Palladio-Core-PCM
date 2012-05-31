@@ -88,7 +88,7 @@ public class NavigatorTreeFactoryImpl implements IObservableFactory {
 							union.addAll(sublist);
 						} else {
 							IObservableList obsList = EMFProperties.list(
-									ExperimentDataPackage.Literals.MEASUREMENTS__MEASUREMENTS_RANGE).observe(measurement);
+									ExperimentDataPackage.Literals.MEASUREMENTS__MEASUREMENTS_RANGES).observe(measurement);
 							listMap.put((Measurements) measurement, obsList);
 							union.addAll(obsList);
 						}

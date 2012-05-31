@@ -103,6 +103,12 @@ public class NavigatorTreeLabelProviderImpl extends StyledCellLabelProvider {
 				};
 				public StyledString caseBaseMetricDescription(de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription object) {
 					StyledString styledString = new StyledString(object.getName()==null? "Base Metric" : object.getName());
+					String decoration = " (" + object.getScale() + ")";
+					styledString.append(decoration, StyledString.COUNTER_STYLER);
+					return styledString;
+				};
+				public StyledString caseNumericalBaseMetricDescription(de.uka.ipd.sdq.edp2.models.ExperimentData.NumericalBaseMetricDescription object) {
+					StyledString styledString = new StyledString(object.getName()==null? "Base Metric" : object.getName());
 					String decoration = " (" + object.getScale() + ", " + object.getDefaultUnit() + ")";
 					styledString.append(decoration, StyledString.COUNTER_STYLER);
 					return styledString;
