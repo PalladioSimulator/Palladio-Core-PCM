@@ -600,7 +600,7 @@ public class HistogramEditorInput extends
 
 	public Unit getUnit() {
 		if (getSource() != null) {
-			if (properties.get(UNIT_KEY).equals(NO_UNIT)) {
+			if (properties.containsKey(UNIT_KEY) == false || properties.get(UNIT_KEY).equals(NO_UNIT)) {
 				MetricDescription metric = MetricDescriptionUtility
 						.toBaseMetricDescriptions(getSource()
 								.getMeasurementsRange().getMeasurements()
