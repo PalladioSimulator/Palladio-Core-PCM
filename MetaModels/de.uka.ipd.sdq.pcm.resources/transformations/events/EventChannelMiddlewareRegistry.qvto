@@ -31,28 +31,28 @@ library EventChannelMiddlewareRegistry;
  * Refer to getCombinedIdentifier() for more detailes about the key generation
  */	
 property middlewareRegistry : Set(	Tuple(	key:String,
-											channelDistributionPreparationContext : AssemblyContext,
+											channelSourceCommunicationContext : AssemblyContext,
 											channelEventDistributionContext : AssemblyContext,
 											channelSenderContext : AssemblyContext)) = Set{};
 
 /**
  * Register a seff
  * @param channel The channel to register the elements for 
- * @param distributionPreparationContext The middleware distribution preparation assembly context
+ * @param SourceCommunicationContext The middleware distribution preparation assembly context
  * @param eventDistributionContext The middleware assembly context
  * @param senderContext The middleware sender assembly context
  */
 helper EventChannelMiddlewareRegistry_register(	channel: EventChannel,
-												distributionPreparationContext : AssemblyContext,
+												SourceCommunicationContext : AssemblyContext,
 												eventDistributionContext : AssemblyContext,
 												senderContext : AssemblyContext){
 	var registryKey : String = EventChannelMiddlewareRegistry_getIdentifier(channel);
 	var entry : Tuple(	key:String,
-						channelDistributionPreparationContext : AssemblyContext,
+						channelSourceCommunicationContext : AssemblyContext,
 						channelEventDistributionContext : AssemblyContext,
 						channelSenderContext : AssemblyContext) = Tuple {
 		key = registryKey,
-		channelDistributionPreparationContext = distributionPreparationContext,
+		channelSourceCommunicationContext = SourceCommunicationContext,
 		channelEventDistributionContext = eventDistributionContext,
 		channelSenderContext = senderContext
 	};
@@ -67,7 +67,7 @@ helper EventChannelMiddlewareRegistry_register(	channel: EventChannel,
  * @return The ResourceDemandingSEFF found in the registry
  */
 query EventChannelMiddlewareRegistry_find(	channel: EventChannel) : Tuple(	key:String,
-											channelDistributionPreparationContext : AssemblyContext,
+											channelSourceCommunicationContext : AssemblyContext,
 											channelEventDistributionContext : AssemblyContext,
 											channelSenderContext : AssemblyContext) {	
 		var searchKey : String = EventChannelMiddlewareRegistry_getIdentifier(channel);

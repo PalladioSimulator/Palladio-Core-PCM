@@ -5,10 +5,10 @@ import InterfaceUtil;
 import Commons;
 import Source;
 import SourcePort;
-import DistributionPreparation;
+import SourceCommunication;
 import EventDistribution;
-import EventSender;
-import EventReceiver;
+import EventFilter;
+import SinkCommunication;
 import SinkPort;
 import Sink;
 
@@ -60,9 +60,9 @@ transformation events2ClassicPCM(	inout pcmAllocation : PCM_ALLOC,
 
 
 /** The central distribution role if one exists */
-property centralDistributionPreparationRole : OperationProvidedRole = null;
+property centralSourceCommunicationRole : OperationProvidedRole = null;
 /** The central distribution assembly context if one exists */
-property centralDistributionPreparationContext : AssemblyContext = null;
+property centralSourceCommunicationContext : AssemblyContext = null;
 /** The central event distribution role if one exists */
 property centralEventDistributionRole : OperationProvidedRole = null;
 /** The central event distribution assembly context if one exists */
@@ -149,20 +149,20 @@ helper setupEventChannelMiddleware(	in eventChannel: EventChannel,
 	var allocation : Allocation = Finder_findAllocation(pcmAllocation);
 		
 	// variables to store the identified components for later comparision
-	var channelDistributionPreparationComponent : RepositoryComponent = null;
+	var channelSourceCommunicationComponent : RepositoryComponent = null;
 	var channelEventDistributionComponent : RepositoryComponent = null;
 	var channelSenderComponent : RepositoryComponent = null;
-	var channelDistributionPreparationContext : AssemblyContext = null;
+	var channelSourceCommunicationContext : AssemblyContext = null;
 	var channelEventDistributionContext : AssemblyContext = null;
 	var channelSenderContext : AssemblyContext = null;
 	
 	
 		
-	// lookup DistributionPreparation
-	var channelDistributionPreparationRole := Finder_findOperationProvidedRole('IMiddlewareDistributionPreparation',mwRepository);
-	if(channelDistributionPreparationRole <> null)
+	// lookup SourceCommunication
+	var channelSourceCommunicationRole := Finder_findOperationProvidedRole('IMiddlewareSourceCommunication',mwRepository);
+	if(channelSourceCommunicationRole <> null)
 	then {
-		channelDistributionPreparationComponent := Commons_getProvidingComponent(channelDistributionPreparationRole);
+		channelSourceCommunicationComponent := Commons_getProvidingComponent(channelSourceCommunicationRole);
 	} endif;
 
 	// lookup EventDistribution		
@@ -181,9 +181,9 @@ helper setupEventChannelMiddleware(	in eventChannel: EventChannel,
 		
 		
 	// Deploy the central middleware components
-	if(channelDistributionPreparationComponent != null)
+	if(channelSourceCommunicationComponent != null)
 	then {
-		channelDistributionPreparationContext := Commons_createAssemblyContext(	channelDistributionPreparationComponent, 
+		channelSourceCommunicationContext := Commons_createAssemblyContext(	channelSourceCommunicationComponent, 
 																				system,
 																				Set{}, 
 																				system,
@@ -194,7 +194,7 @@ helper setupEventChannelMiddleware(	in eventChannel: EventChannel,
 	// if a seperate component provides the event distribution role, deploy this
 	// otherwise, if the sender implementing component is the same as one of the
 	// others, point the according reference to it
-	if(channelEventDistributionComponent <> channelDistributionPreparationComponent and channelEventDistributionComponent != null)
+	if(channelEventDistributionComponent <> channelSourceCommunicationComponent and channelEventDistributionComponent != null)
 	then {
 		channelEventDistributionContext := Commons_createAssemblyContext(	channelEventDistributionComponent, 
 																			system,
@@ -203,9 +203,9 @@ helper setupEventChannelMiddleware(	in eventChannel: EventChannel,
 																			allocation,
 																			channelResourceContainer);
 	} endif;
-	if (channelEventDistributionComponent = channelDistributionPreparationComponent) // the elif construct is not yet supported by eclipse qvto 
+	if (channelEventDistributionComponent = channelSourceCommunicationComponent) // the elif construct is not yet supported by eclipse qvto 
 	then {
-		channelEventDistributionContext := channelDistributionPreparationContext;
+		channelEventDistributionContext := channelSourceCommunicationContext;
 	} endif;		
 		
 		
@@ -213,7 +213,7 @@ helper setupEventChannelMiddleware(	in eventChannel: EventChannel,
 	// otherwise, if the sender implementing component is the same as one of the
 	// others, point the according reference to it
 	if((channelSenderComponent != null) 
-			and(channelSenderComponent <> channelDistributionPreparationComponent) 
+			and(channelSenderComponent <> channelSourceCommunicationComponent) 
 			and (channelSenderComponent <> channelEventDistributionComponent))
 	then {
 		channelSenderContext := Commons_createAssemblyContext(	channelSenderComponent, 
@@ -223,9 +223,9 @@ helper setupEventChannelMiddleware(	in eventChannel: EventChannel,
 																allocation,
 																channelResourceContainer);
 	} endif;
-	if (channelSenderComponent = channelDistributionPreparationComponent) // the elif construct is not yet supported by eclipse qvto 
+	if (channelSenderComponent = channelSourceCommunicationComponent) // the elif construct is not yet supported by eclipse qvto 
 	then {
-		channelSenderContext := channelDistributionPreparationContext;
+		channelSenderContext := channelSourceCommunicationContext;
 	} endif;		
 	if (channelSenderComponent = channelEventDistributionComponent) // the elif construct is not yet supported by eclipse qvto 
 	then {
@@ -233,7 +233,7 @@ helper setupEventChannelMiddleware(	in eventChannel: EventChannel,
 	} endif;	
 	
 	EventChannelMiddlewareRegistry_register(	eventChannel,
-												channelDistributionPreparationContext,
+												channelSourceCommunicationContext,
 												channelEventDistributionContext,
 												channelSenderContext);
 }
@@ -265,15 +265,15 @@ helper setupCentralMiddleware(repository : PCM_REP){
 		var allocation : Allocation = Finder_findAllocation(pcmAllocation);
 		
 		// variables to store the identified components for later comparision
-		var distributionPreparationComponent : RepositoryComponent = null;
+		var SourceCommunicationComponent : RepositoryComponent = null;
 		var eventDistributionComponent : RepositoryComponent = null;
 		var senderComponent : RepositoryComponent = null;
 		
-		// lookup DistributionPreparation
-		centralDistributionPreparationRole := Finder_findOperationProvidedRole('IMiddlewareDistributionPreparation',repository);
-		if(centralDistributionPreparationRole <> null)
+		// lookup SourceCommunication
+		centralSourceCommunicationRole := Finder_findOperationProvidedRole('IMiddlewareSourceCommunication',repository);
+		if(centralSourceCommunicationRole <> null)
 		then {
-			distributionPreparationComponent := Commons_getProvidingComponent(centralDistributionPreparationRole);
+			SourceCommunicationComponent := Commons_getProvidingComponent(centralSourceCommunicationRole);
 		} endif;
 
 		// lookup EventDistribution		
@@ -292,9 +292,9 @@ helper setupCentralMiddleware(repository : PCM_REP){
 		
 		
 		// Deploy the central middleware components
-		if(distributionPreparationComponent != null)
+		if(SourceCommunicationComponent != null)
 		then {
-			centralDistributionPreparationContext := Commons_createAssemblyContext(	distributionPreparationComponent, 
+			centralSourceCommunicationContext := Commons_createAssemblyContext(	SourceCommunicationComponent, 
 																					system,
 																					Set{}, 
 																					system,
@@ -305,7 +305,7 @@ helper setupCentralMiddleware(repository : PCM_REP){
 		// if a seperate component provides the event distribution role, deploy this
 		// otherwise, if the sender implementing component is the same as one of the
 		// others, point the according reference to it
-		if(eventDistributionComponent <> distributionPreparationComponent and eventDistributionComponent != null)
+		if(eventDistributionComponent <> SourceCommunicationComponent and eventDistributionComponent != null)
 		then {
 			centralEventDistributionContext := Commons_createAssemblyContext(	eventDistributionComponent, 
 																				system,
@@ -314,9 +314,9 @@ helper setupCentralMiddleware(repository : PCM_REP){
 																				allocation,
 																				centralMiddlewareContainer);
 		} endif;
-		if (eventDistributionComponent = distributionPreparationComponent) // the elif construct is not yet supported by eclipse qvto 
+		if (eventDistributionComponent = SourceCommunicationComponent) // the elif construct is not yet supported by eclipse qvto 
 		then {
-			centralEventDistributionContext := centralDistributionPreparationContext;
+			centralEventDistributionContext := centralSourceCommunicationContext;
 		} endif;		
 		
 		
@@ -324,7 +324,7 @@ helper setupCentralMiddleware(repository : PCM_REP){
 		// otherwise, if the sender implementing component is the same as one of the
 		// others, point the according reference to it
 		if((senderComponent != null) 
-				and(senderComponent <> distributionPreparationComponent) 
+				and(senderComponent <> SourceCommunicationComponent) 
 				and (senderComponent <> eventDistributionComponent))
 		then {
 			centralSenderContext := Commons_createAssemblyContext(	senderComponent, 
@@ -334,9 +334,9 @@ helper setupCentralMiddleware(repository : PCM_REP){
 																	allocation,
 																	centralMiddlewareContainer);
 		} endif;
-		if (senderComponent = distributionPreparationComponent) // the elif construct is not yet supported by eclipse qvto 
+		if (senderComponent = SourceCommunicationComponent) // the elif construct is not yet supported by eclipse qvto 
 		then {
-			centralSenderContext := centralDistributionPreparationContext;
+			centralSenderContext := centralSourceCommunicationContext;
 		} endif;		
 		if (senderComponent = eventDistributionComponent) // the elif construct is not yet supported by eclipse qvto 
 		then {
@@ -430,7 +430,7 @@ helper 	processSourceRoleChannelConnection(sourceRole : SourceRole,
 	// references to middleware components to handle if they provide 
 	// more than one middleware interface
 	var sourcePortMWComponent : RepositoryComponent = null;
-	var distributionPreparationMWComponent : RepositoryComponent = null;
+	var SourceCommunicationMWComponent : RepositoryComponent = null;
 
 	//---------------------------		
 	// Build Source Port
@@ -458,15 +458,15 @@ helper 	processSourceRoleChannelConnection(sourceRole : SourceRole,
 							
 															
 	//------------------------------		
-	// Build DistributionPreparation
+	// Build SourceCommunication
 	//------------------------------
-	log ('Build Distribution Preparation');
+	log ('Build Source Communication');
 													
 	// get the role to connect with
 	var sourcePortRequiredRole := Commons_getOperationRequiredRole(sourcePortAssemblyContext,interface);
 	
 	// create the source port component
-	var distributionPreparationAssemblyContext := DistributionPreparation_create(	sourceRole,
+	var SourceCommunicationAssemblyContext := SourceCommunication_create(	sourceRole,
 														sourcePortRequiredRole,
 														system,
 														allocation,
@@ -474,10 +474,10 @@ helper 	processSourceRoleChannelConnection(sourceRole : SourceRole,
 														sourcePortAssemblyContext);															
 
 	// connect to middleware
-	var distributionPreparationMWContext := Transformation_weaveInMiddleware(	sourceAssemblyContext,
-																				'IMiddlewareDistributionPreparation',
-																				distributionPreparationAssemblyContext,
-																				eventChannelMiddleware.channelDistributionPreparationContext,
+	var SourceCommunicationMWContext := Transformation_weaveInMiddleware(	sourceAssemblyContext,
+																				'IMiddlewareSourceCommunication',
+																				SourceCommunicationAssemblyContext,
+																				eventChannelMiddleware.channelSourceCommunicationContext,
 																				Set{sourcePortMWContext},
 																				middlewareRepository,
 																				system,
@@ -492,15 +492,15 @@ helper 	processSourceRoleChannelConnection(sourceRole : SourceRole,
 	log ('Build Event Distribution');
 													
 	// get the role to connect with
-	var distributionPreparationRequiredRole := Commons_getOperationRequiredRole(distributionPreparationAssemblyContext,interface);
+	var SourceCommunicationRequiredRole := Commons_getOperationRequiredRole(SourceCommunicationAssemblyContext,interface);
 	
 	// create the source port component
 	var eventDistributionAssemblyContext := EventDistribution_create(	sourceRole,
-														distributionPreparationRequiredRole,
+														SourceCommunicationRequiredRole,
 														system,
 														allocation,
 														OrderedSet{resourceContainerEventChannel},
-														distributionPreparationAssemblyContext);														
+														SourceCommunicationAssemblyContext);														
 
 	// connect to middleware
 	log("**************************************");
@@ -509,7 +509,7 @@ helper 	processSourceRoleChannelConnection(sourceRole : SourceRole,
 																		'IMiddlewareEventDistribution',
 																		eventDistributionAssemblyContext,
 																		eventChannelMiddleware.channelEventDistributionContext,
-																		Set{sourcePortMWContext,distributionPreparationMWContext},
+																		Set{sourcePortMWContext,SourceCommunicationMWContext},
 																		middlewareRepository,
 																		system,
 																		allocation,
@@ -521,7 +521,7 @@ helper 	processSourceRoleChannelConnection(sourceRole : SourceRole,
 		//------------------------------
 		var eventChannelSinkConnectors := eventChannel.eventChannelSinkConnector__EventChannel;
 		log('Build Event Channel Sink Connectors : ', eventChannelSinkConnectors->size());
-		var existingSenderMWContext : AssemblyContext := null;
+		var existingfilterMWContext : AssemblyContext := null;
 		
 		eventChannelSinkConnectors->forEach(connector){
 			
@@ -537,13 +537,13 @@ helper 	processSourceRoleChannelConnection(sourceRole : SourceRole,
 			var eventDistributionRequiredRole := EventDistribution_addSinkRequiredRole(eventDistributionAssemblyContext,interface);
 			
 			//------------------------------		
-			// Build EventSender
+			// Build EventFilter
 			//------------------------------
-			log ('Build Event Sender');
+			log ('Build Event Filter');
 															
 			
 			// create the event sender component
-			var eventSenderAssemblyContext := EventSender_create(	sourceRole,
+			var EventFilterAssemblyContext := EventFilter_create(	sourceRole,
 																	sinkRole,
 																	eventDistributionRequiredRole,
 																	system,
@@ -553,48 +553,48 @@ helper 	processSourceRoleChannelConnection(sourceRole : SourceRole,
 																	filterCondition);														
 
 			// connect to middleware
-			var senderMWContext := Transformation_weaveInMiddleware(	sourceAssemblyContext,
-																		'IMiddlewareSender',
-																		eventSenderAssemblyContext,
+			var filterMWContext := Transformation_weaveInMiddleware(	sourceAssemblyContext,
+																		'IMiddlewareFilter',
+																		EventFilterAssemblyContext,
 																		eventChannelMiddleware.channelSenderContext,
-																		Set{sourcePortMWContext,distributionPreparationMWContext,eventDistributionMWContext,existingSenderMWContext},
+																		Set{sourcePortMWContext,SourceCommunicationMWContext,eventDistributionMWContext,existingfilterMWContext},
 																		middlewareRepository,
 																		system,
 																		allocation,
 																		resourceContainerSource);
-			existingSenderMWContext := senderMWContext;
+			existingfilterMWContext := filterMWContext;
 			
 			// get the role to connect with
-			var eventSenderRequiredRole := Commons_getOperationRequiredRole(eventSenderAssemblyContext,interface);
+			var EventFilterRequiredRole := Commons_getOperationRequiredRole(EventFilterAssemblyContext,interface);
 			
 			//------------------------------		
-			// Build EventReceiver
+			// Build SinkCommunication
 			//------------------------------
-			log ('Build Event Receiver');
+			log ('Build Sink Communication');
 															
 			
 			// create the event sender component
-			var eventReceiverAssemblyContext := EventReceiver_create(	sourceRole,
+			var SinkCommunicationAssemblyContext := SinkCommunication_create(	sourceRole,
 																		sinkRole,
-																		eventSenderRequiredRole,
+																		EventFilterRequiredRole,
 																		system,
 																		allocation,
-																		resourceContainerSink,
-																		eventSenderAssemblyContext);														
+																		resourceContainerEventChannel,
+																		EventFilterAssemblyContext);														
 
 			// connect to middleware
-			var receiverMWContext := Transformation_weaveInMiddleware(	sinkAssemblyContext,
-																		'IMiddlewareReceiver',
-																		eventReceiverAssemblyContext,
+			var SinkCommunicationMWContext := Transformation_weaveInMiddleware(	sinkAssemblyContext,
+																		'IMiddlewareSinkCommunication',
+																		SinkCommunicationAssemblyContext,
 																		null,
 																		Set{},
 																		middlewareRepository,
 																		system,
 																		allocation,
-																		resourceContainerSink);															
+																		resourceContainerEventChannel);															
 			
 			// get the role to connect with
-			var eventReceiverRequiredRole := Commons_getOperationRequiredRole(eventReceiverAssemblyContext,interface);
+			var SinkCommunicationRequiredRole := Commons_getOperationRequiredRole(SinkCommunicationAssemblyContext,interface);
 	
 	
 			//------------------------------		
@@ -606,18 +606,18 @@ helper 	processSourceRoleChannelConnection(sourceRole : SourceRole,
 			// create the event sender component
 			var sinkPortAssemblyContext := SinkPort_create(	sourceRole,
 															sinkRole,
-															eventReceiverRequiredRole,
+															SinkCommunicationRequiredRole,
 															system,
 															allocation,
 															resourceContainerSink,
-															eventReceiverAssemblyContext);														
+															SinkCommunicationAssemblyContext);														
 
 			// connect to middleware
 			var sinkPortMWContext := Transformation_weaveInMiddleware(	sinkAssemblyContext,
 																		'IMiddlewareSinkPort',
 																		sinkPortAssemblyContext,
 																		null,
-																		Set{receiverMWContext},
+																		Set{SinkCommunicationMWContext},
 																		middlewareRepository,
 																		system,
 																		allocation,
@@ -679,7 +679,7 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 		
 		// references to detect the number of different components
 		var sourcePortMWComponent : RepositoryComponent = null;
-		var distributionPreparationMWComponent : RepositoryComponent = null;
+		var SourceCommunicationMWComponent : RepositoryComponent = null;
 
 		//---------------------------		
 		// Build Source Port
@@ -708,15 +708,15 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 							
 															
 		//------------------------------		
-		// Build DistributionPreparation
+		// Build SourceCommunication
 		//------------------------------
-		log ('Build Distribution Preparation');
+		log ('Build Source Communication');
 														
 		// get the role to connect with
 		var sourcePortRequiredRole := Commons_getOperationRequiredRole(sourcePortAssemblyContext,interface);
 		
 		// create the source port component
-		var distributionPreparationAssemblyContext := DistributionPreparation_create(	sourceRole,
+		var SourceCommunicationAssemblyContext := SourceCommunication_create(	sourceRole,
 															sourcePortRequiredRole,
 															system,
 															allocation,
@@ -724,10 +724,10 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 															sourcePortAssemblyContext);															
 
 		// connect to middleware
-		var distributionPreparationMWContext := Transformation_weaveInMiddleware(	sourceAssemblyContext,
-																					'IMiddlewareDistributionPreparation',
-																					distributionPreparationAssemblyContext,
-																					centralDistributionPreparationContext,
+		var SourceCommunicationMWContext := Transformation_weaveInMiddleware(	sourceAssemblyContext,
+																					'IMiddlewareSourceCommunication',
+																					SourceCommunicationAssemblyContext,
+																					centralSourceCommunicationContext,
 																					Set{sourcePortMWContext},
 																					middlewareRepository,
 																					system,
@@ -742,22 +742,22 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 		log ('Build Event Distribution');
 														
 		// get the role to connect with
-		var distributionPreparationRequiredRole := Commons_getOperationRequiredRole(distributionPreparationAssemblyContext,interface);
+		var SourceCommunicationRequiredRole := Commons_getOperationRequiredRole(SourceCommunicationAssemblyContext,interface);
 		
 		// create the source port component
 		var eventDistributionAssemblyContext := EventDistribution_create(	sourceRole,
-															distributionPreparationRequiredRole,
+															SourceCommunicationRequiredRole,
 															system,
 															allocation,
 															OrderedSet{resourceContainerMiddleware,resourceContainerSource},
-															distributionPreparationAssemblyContext);														
+															SourceCommunicationAssemblyContext);														
 
 		// connect to middleware
 		var eventDistributionMWContext := Transformation_weaveInMiddleware(	sourceAssemblyContext,
 																			'IMiddlewareEventDistribution',
 																			eventDistributionAssemblyContext,
 																			centralEventDistributionContext,
-																			Set{sourcePortMWContext,distributionPreparationMWContext},
+																			Set{sourcePortMWContext,SourceCommunicationMWContext},
 																			middlewareRepository,
 																			system,
 																			allocation,
@@ -767,7 +767,7 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 		// Build All Sink Connections
 		//------------------------------
 		log('Build Event Connectors : ', eventConnectors->size());
-		var existingSenderMWContext : AssemblyContext := null;
+		var existingfilterMWContext : AssemblyContext := null;
 		
 		eventConnectors->forEach(connector){
 			
@@ -787,13 +787,13 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 			var eventDistributionRequiredRole := EventDistribution_addSinkRequiredRole(eventDistributionAssemblyContext,interface);
 			
 			//------------------------------		
-			// Build EventSender
+			// Build EventFilter
 			//------------------------------
 			log ('Build Event Sender');
 															
 			
 			// create the event sender component
-			var eventSenderAssemblyContext := EventSender_create(	sourceRole,
+			var EventFilterAssemblyContext := EventFilter_create(	sourceRole,
 																	sinkRole,
 																	eventDistributionRequiredRole,
 																	system,
@@ -803,39 +803,39 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 																	filterCondition);														
 
 			// connect to middleware
-			var senderMWContext := Transformation_weaveInMiddleware(	sourceAssemblyContext,
+			var filterMWContext := Transformation_weaveInMiddleware(	sourceAssemblyContext,
 																		'IMiddlewareSender',
-																		eventSenderAssemblyContext,
+																		EventFilterAssemblyContext,
 																		centralSenderContext,
-																		Set{sourcePortMWContext,distributionPreparationMWContext,eventDistributionMWContext,existingSenderMWContext},
+																		Set{sourcePortMWContext,SourceCommunicationMWContext,eventDistributionMWContext,existingfilterMWContext},
 																		middlewareRepository,
 																		system,
 																		allocation,
 																		resourceContainerSource);
-			existingSenderMWContext := senderMWContext;
+			existingfilterMWContext := filterMWContext;
 			
 			// get the role to connect with
-			var eventSenderRequiredRole := Commons_getOperationRequiredRole(eventSenderAssemblyContext,interface);
+			var EventFilterRequiredRole := Commons_getOperationRequiredRole(EventFilterAssemblyContext,interface);
 			
 			//------------------------------		
-			// Build EventReceiver
+			// Build SinkCommunication
 			//------------------------------
 			log ('Build Event Receiver');
 															
 			
 			// create the event sender component
-			var eventReceiverAssemblyContext := EventReceiver_create(	sourceRole,
+			var SinkCommunicationAssemblyContext := SinkCommunication_create(	sourceRole,
 																		sinkRole,
-																		eventSenderRequiredRole,
+																		EventFilterRequiredRole,
 																		system,
 																		allocation,
 																		resourceContainerSink,
-																		eventSenderAssemblyContext);														
+																		EventFilterAssemblyContext);														
 
 			// connect to middleware
-			var receiverMWContext := Transformation_weaveInMiddleware(	sinkAssemblyContext,
+			var SinkCommunicationMWContext := Transformation_weaveInMiddleware(	sinkAssemblyContext,
 																		'IMiddlewareReceiver',
-																		eventReceiverAssemblyContext,
+																		SinkCommunicationAssemblyContext,
 																		null,
 																		Set{},
 																		middlewareRepository,
@@ -844,7 +844,7 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 																		resourceContainerSink);															
 			
 			// get the role to connect with
-			var eventReceiverRequiredRole := Commons_getOperationRequiredRole(eventReceiverAssemblyContext,interface);
+			var SinkCommunicationRequiredRole := Commons_getOperationRequiredRole(SinkCommunicationAssemblyContext,interface);
 	
 	
 			//------------------------------		
@@ -856,18 +856,18 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 			// create the event sender component
 			var sinkPortAssemblyContext := SinkPort_create(	sourceRole,
 															sinkRole,
-															eventReceiverRequiredRole,
+															SinkCommunicationRequiredRole,
 															system,
 															allocation,
 															resourceContainerSink,
-															eventReceiverAssemblyContext);														
+															SinkCommunicationAssemblyContext);														
 
 			// connect to middleware
 			var sinkPortMWContext := Transformation_weaveInMiddleware(	sinkAssemblyContext,
 																		'IMiddlewareSinkPort',
 																		sinkPortAssemblyContext,
 																		null,
-																		Set{receiverMWContext},
+																		Set{SinkCommunicationMWContext},
 																		middlewareRepository,
 																		system,
 																		allocation,

@@ -18,19 +18,18 @@ modeltype PCM_PARAM uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter
 modeltype PCM_STOEX uses 'http://sdq.ipd.uka.de/StochasticExpressions/1.0';
 
 /**
- * Library with helpers to handle event sender components.
+ * Library with helpers to handle SinkCommunication components.
  *
  * The operations in this section are all about the creation and 
- * management of the Event Sender elements
+ * management of the SinkCommunication elements
  *
  * @author Benjamin Klatt
- * @author Evgeniy Shin
  */
-library EventSender;
+library SinkCommunication;
 
 
 /**
- * Create the event sender context.
+ * Create the Event Receiver context.
  * 
  * This method creates the basic component and triggers the 
  * deployment of the component on the same assembly as the source component.
@@ -45,30 +44,18 @@ library EventSender;
  * @param allocation 				The allocation context to deploy this component
  * @param resourceContainer 		The resource container of the new component
  * @param predecessorAssemblyContext The predecessor component to connect with
- * @param filterCondition			The condition on which the event is sended. This passed to EventSender_createComponent
- * @return The new EventSender deployed and connected to the predecessor.
+ * @return The new SinkCommunication deployed and connected to the predecessor.
  */
-helper EventSender_create(	sourceRole : SourceRole,
-							sinkRole : SinkRole,
-							predecessorRequiredRole : OperationRequiredRole,
-							inout system : System,
-							allocation : Allocation,
-							resourceContainers : OrderedSet(ResourceContainer),
-							predecessorAssemblyContext : AssemblyContext,
-							filterCondition : PCMRandomVariable) : AssemblyContext {
-
-	// find the first available resource container
-	// we assume there is at least one
-	var resourceContainer : ResourceContainer = null;
-	resourceContainers->forEach(container){
-		if(resourceContainer = null)
-		then {
-			resourceContainer := container;
-		} endif;
-	};
+helper SinkCommunication_create(	sourceRole : SourceRole,
+								sinkRole : SinkRole,
+								predecessorRequiredRole : OperationRequiredRole,
+								inout system : System,
+								allocation : Allocation,
+								resourceContainer : ResourceContainer,
+								predecessorAssemblyContext : AssemblyContext) : AssemblyContext {
 
 	// create the component
-	var component : BasicComponent = EventSender_createComponent(sourceRole,sinkRole,predecessorRequiredRole,filterCondition);
+	var component : BasicComponent = SinkCommunication_createComponent(sourceRole,sinkRole,predecessorRequiredRole);
 	
 	// this component provides only one role so we can pick this
 	var providedRole : OperationProvidedRole = component.providedRoles_InterfaceProvidingEntity
@@ -89,27 +76,25 @@ helper EventSender_create(	sourceRole : SourceRole,
 }
 
 /**
- * Create the event sender component in the repository.
+ * Create the Event Receiver component in the repository.
  *
- * @param sourceRole	The source role this component is about
- * @param sinkRole		The sink role this component is about
+ * @param sourceRole				The source role this component is about
+ * @param sinkRole					The sink role this component is about
  * @param predecessorRequiredRole	The required role this component should be able to servce
- * @param filterCondition			The condition on which the event is sended.
  * @return the prepared basic component
  */
-helper EventSender_createComponent (	sourceRole : SourceRole,
+helper SinkCommunication_createComponent (	sourceRole : SourceRole,
 										sinkRole : SinkRole,
-										predecessorRequiredRole : OperationRequiredRole,
-										filterCondition : PCMRandomVariable) : BasicComponent {
+										predecessorRequiredRole : OperationRequiredRole) : BasicComponent {
 	
 	// create basic component
-	var basicComponent : BasicComponent = Commons_createBasicComponent('EventSender_'+sourceRole.entityName+'_'+sinkRole.entityName+Commons_getUniqueElementNameSuffix(),
+	var basicComponent : BasicComponent = Commons_createBasicComponent('SinkCommunication_'+sourceRole.entityName+'_'+sinkRole.entityName+Commons_getUniqueElementNameSuffix(),
 															sourceRole.eventGroup__SourceRole.repository__Interface);
 															
 	var interfaceToProvide := predecessorRequiredRole.requiredInterface__OperationRequiredRole;
 	
 	// create required role
-	var requiredRole : OperationRequiredRole = Commons_createOperationRequiredRole(	'OperationRequiredRole_EventSender'+Commons_getUniqueElementNameSuffix(),
+	var requiredRole : OperationRequiredRole = Commons_createOperationRequiredRole(	'OperationRequiredRole_SinkCommunication'+Commons_getUniqueElementNameSuffix(),
 																						basicComponent,
 																						interfaceToProvide);
 	basicComponent.requiredRoles_InterfaceRequiringEntity += requiredRole->asSet();
@@ -123,8 +108,8 @@ helper EventSender_createComponent (	sourceRole : SourceRole,
 	
 	// create seffs
 	basicComponent.serviceEffectSpecifications__BasicComponent := interfaceToProvide.signatures__OperationInterface
-																	->SEFFUtil_createSEFFWithBranchAction(  basicComponent,
-																											requiredRole,
-																											filterCondition);	
+																	->SEFFUtil_createForwardingSEFF(basicComponent,requiredRole);	
+	
+	
 	return basicComponent;
 }
