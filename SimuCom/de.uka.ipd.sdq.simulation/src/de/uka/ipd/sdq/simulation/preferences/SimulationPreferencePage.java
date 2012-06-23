@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simulation.preferences;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.preference.ComboFieldEditor;
@@ -44,7 +45,8 @@ public class SimulationPreferencePage extends FieldEditorPreferencePage implemen
         try {
             engineNamesAndIds = AbstractSimEngineExtensionHelper.getEngineNamesAndIds();
         } catch (CoreException e) {
-            logger.warn("Could not retrieve simulation engine names and ids.", e);
+        	if(logger.isEnabledFor(Level.WARN))
+        		logger.warn("Could not retrieve simulation engine names and ids.", e);
         }
 
         // create field editor

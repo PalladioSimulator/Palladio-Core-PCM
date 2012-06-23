@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simulation.preferences;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Platform;
@@ -25,7 +26,8 @@ public class SimulationPreferencesHelper {
                 firstEngineId = engineNamesAndIds[0][1];
             }
         } catch (CoreException e) {
-            logger.warn("Could not retrieve simulation engine names and ids.", e);
+        	if(logger.isEnabledFor(Level.WARN))
+        		logger.warn("Could not retrieve simulation engine names and ids.", e);
         }
         return firstEngineId;
     }
@@ -40,7 +42,8 @@ public class SimulationPreferencesHelper {
         try {
             engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(preferredEngineId);
         } catch (CoreException e) {
-            logger.warn("Could not retrieve simulation engine factory.", e);
+        	if(logger.isEnabledFor(Level.WARN))
+        		logger.warn("Could not retrieve simulation engine factory.", e);
         }
         
         return engineFactory;
