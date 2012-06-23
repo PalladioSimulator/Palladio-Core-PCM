@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Observer;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
@@ -44,11 +45,13 @@ public abstract class AbstractExperiment implements ISimulationControl {
 
         // start the simulator
         final double start = System.nanoTime();
-        logger.warn("Starting simulation...");
+        if(logger.isEnabledFor(Level.INFO))
+        	logger.info("Starting simulation...");
         startSimulator();
 
         // the simulation has stopped, print a log message
-        logger.warn("Simulation terminated. Took " + ((System.nanoTime() - start) / Math.pow(10, 9))
+        if(logger.isEnabledFor(Level.INFO))
+        	logger.info("Simulation terminated. Took " + ((System.nanoTime() - start) / Math.pow(10, 9))
                 + " real time seconds.");
     }
 
@@ -58,7 +61,8 @@ public abstract class AbstractExperiment implements ISimulationControl {
         // to avoid multiple accesses. Setting isRunning to false allows all
         // processes to clean up.
         if (this.isRunning.compareAndSet(true, false)) {
-            logger.info("Simulation stop requested!");
+        	if(logger.isEnabledFor(Level.INFO))
+        		logger.info("Simulation stop requested!");
 
             // This method MUST be called before all resources are deactivated,
             // otherwise new threads might request processing time after the
@@ -68,7 +72,8 @@ public abstract class AbstractExperiment implements ISimulationControl {
 
             this.model.finalise();
         } else {
-            logger.warn("Tried to stop the simulation, which has already been stopped.");
+        	if(logger.isEnabledFor(Level.WARN))
+        		logger.warn("Tried to stop the simulation, which has already been stopped.");
         }
 
     }
@@ -107,7 +112,8 @@ public abstract class AbstractExperiment implements ISimulationControl {
         @Override
         public void run() {
             if (AbstractExperiment.this.isRunning()) {
-                logger.debug("Executing Stop Event");
+            	if(logger.isDebugEnabled())
+            		logger.debug("Executing Stop Event");
                 AbstractExperiment.this.stop();
             }
         }
