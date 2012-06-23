@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -36,7 +37,8 @@ public class SimuComFactory {
 				if (configurationElement.getAttribute("id").equals(config.getEngine()))
 				factory = (ISimEngineFactory)configurationElement.createExecutableExtension("class");
 			} catch (CoreException e) {
-				logger.warn("Could not get factory for registered simulation engine.", e);
+				if(logger.isEnabledFor(Level.WARN))
+					logger.warn("Could not get factory for registered simulation engine.", e);
 				factory = null;
 			}
 		}

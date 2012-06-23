@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
@@ -81,7 +82,8 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 		this.resourceContainerID = resourceContainerID;
 		this.requiredByContainer = requiredByContainer;
 
-		logger.info("Creating Simulated Active Resource: " + this.getName());
+		if(logger.isEnabledFor(Level.INFO))
+			logger.info("Creating Simulated Active Resource: " + this.getName());
 
 		myResourceStatus = SimucomstatusFactory.eINSTANCE.createActiveResouce();
 		myResourceStatus.setId(this.getName());
@@ -89,7 +91,8 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 				.add(myResourceStatus);
 		resourceContainer = myModel.getResourceRegistry().getResourceContainer(resourceContainerID);
 		if (resourceContainer == null) {
-			logger.warn("Resource container " +resourceContainerID + " is not available!");
+			if(logger.isEnabledFor(Level.WARN))
+				logger.warn("Resource container " +resourceContainerID + " is not available!");
 		}
 
 		stateListener = new HashMap<Integer, List<IStateListener>>();
@@ -158,7 +161,8 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 	 * lifecycle
 	 */
 	public void activateResource() {
-		logger.debug("Starting resource " + this.getName());
+		if(logger.isDebugEnabled())
+			logger.debug("Starting resource " + this.getName());
 		if (canBeUnavailable) {
 			double t = getFailureTime();
 			failedEvent.schedule(this, t);
@@ -171,7 +175,8 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 	 */
 	public void deactivateResource() {
 		if (!this.isStopped) {
-			logger.debug("Stopping resource " + this.getName());
+			if(logger.isDebugEnabled())
+				logger.debug("Stopping resource " + this.getName());
 			this.isStopped = true;
 			for (int instance = 0; instance < numberOfInstances; instance++) {
 				fireStateEvent(0, instance);
@@ -198,7 +203,8 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 		double time = this.getModel().getSimulationControl()
 				.getCurrentSimulationTime();
 		String status = (this.isAvailable) ? "available" : "unavailable";
-		logger.debug("Resource " + this.getName() + " " + status
+		if(logger.isDebugEnabled())
+			logger.debug("Resource " + this.getName() + " " + status
 				+ " at sim time " + time);
 	}
 
@@ -232,7 +238,8 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 		}
 		double failureTimeSample = (Double) Context.evaluateStatic("Exp(1 / "
 				+ "(" + this.mttf + ")" + ")", Double.class);
-		logger.debug("Resource " + this.getDescription()
+		if(logger.isDebugEnabled())
+			logger.debug("Resource " + this.getDescription()
 				+ " will fail at sim time +" + failureTimeSample);
 		return failureTimeSample;
 	}
@@ -250,7 +257,8 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 		}
 		double repairTimeSample = (Double) Context.evaluateStatic("Exp(1/"
 				+ this.mttr + ")", Double.class);
-		logger.debug("Resource " + this.getDescription()
+		if(logger.isDebugEnabled())
+			logger.debug("Resource " + this.getDescription()
 				+ " will be repaired at sim time +" + repairTimeSample);
 		return repairTimeSample;
 	}

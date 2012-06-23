@@ -51,7 +51,8 @@ public class ScheduledResource extends AbstractScheduledResource {
 
 	@Override
 	protected IActiveResource createActiveResource(SimuComModel myModel) {
-		logger.debug("Creating scheduled resource with strategy "
+		if(logger.isDebugEnabled())
+			logger.debug("Creating scheduled resource with strategy "
 				+ this.schedulingStrategyID + " and "
 				+ this.numberOfInstances + " replicas!");
 		IActiveResource aResource = getScheduledResource(myModel,

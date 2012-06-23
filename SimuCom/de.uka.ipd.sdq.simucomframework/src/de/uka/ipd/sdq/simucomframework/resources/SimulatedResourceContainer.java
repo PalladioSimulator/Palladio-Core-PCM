@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Level;
+
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
@@ -219,7 +221,8 @@ public class SimulatedResourceContainer extends
 			super.loadActiveResource(requestingProcess, typeID, demand);
 		} catch (ResourceContainerIsMissingRequiredResourceType e) {
 			if (parentResourceContainer == null) {
-				logger.error("Resource container is missing a resource which was attempted to be loaded"+
+				if(logger.isEnabledFor(Level.ERROR))
+					logger.error("Resource container is missing a resource which was attempted to be loaded"+
 						" by a component and has no parent Resource Container to look in. ID of resource type was: "+typeID);
 				throw new ResourceContainerIsMissingRequiredResourceType(typeID);
 			} else {
@@ -242,7 +245,8 @@ public class SimulatedResourceContainer extends
 			super.loadActiveResource(requestingProcess, providedInterfaceID, resourceServiceID, demand);
 		} catch (ResourceContainerIsMissingRequiredResourceType e) {
 			if (parentResourceContainer == null) {
-				logger.error("Resource container is missing a resource which was attempted to be loaded"+
+				if(logger.isEnabledFor(Level.ERROR))
+					logger.error("Resource container is missing a resource which was attempted to be loaded"+
 						" by a component and has no parent Resource Container to look in. ID of resource type was: "+e.getTypeID());
 				throw new ResourceContainerIsMissingRequiredResourceType(e.getTypeID());
 			} else {

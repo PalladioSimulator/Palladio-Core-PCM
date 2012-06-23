@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -25,7 +26,8 @@ public class ExperimentRunner {
 	 * @deprecated Use run(SimuComModel) instead as time is already stored in SimuComModel
 	 */
 	public static double run(SimuComModel model, long simTime) {
-		logger.debug("Setting up experiment runner");
+		if(logger.isDebugEnabled())
+			logger.debug("Setting up experiment runner");
 		setupStopConditions(model, simTime);
 		
 		// measure elapsed time for the simulation
@@ -52,10 +54,12 @@ public class ExperimentRunner {
 	 */
 	private static void setupStopConditions(SimuComModel model, long simTime) {
 		if (model.getConfiguration().getMaxMeasurementsCount() <= 0 && simTime <= 0) {
-			logger.debug("Deactivating maximum simulation time stop condition per user request");
+			if(logger.isDebugEnabled())
+				logger.debug("Deactivating maximum simulation time stop condition per user request");
 			model.getSimulationControl().setMaxSimTime(0); 
 		} else {
-			logger.debug("Enabling simulation stop condition at maximum simulation time of "+simTime);
+			if(logger.isDebugEnabled())
+				logger.debug("Enabling simulation stop condition at maximum simulation time of "+simTime);
 			if (simTime > 0)
 				model.getSimulationControl().setMaxSimTime(simTime); // set end of simulation at 1500 time
 																	// units

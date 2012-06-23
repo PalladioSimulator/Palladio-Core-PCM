@@ -136,7 +136,8 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
 	 * @see de.uka.ipd.sdq.simucomframework.usage.IUser#startUserLife()
 	 */
 	public void startUserLife() {
-		logger.debug(this.getName() + " started! I'm alive!!!");
+		if(logger.isDebugEnabled())
+			logger.debug(this.getName() + " started! I'm alive!!!");
 		// USERCOUNT++;
 		this.scheduleAt(0);
 	}

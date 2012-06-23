@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
@@ -37,7 +38,8 @@ public abstract class AbstractSimulatedResourceContainer {
 		super();
 		this.myModel = myModel;
 		this.myContainerID = myContainerID;
-		logger.info("Simulated Resource Container created. ContainerID "+myContainerID);
+		if(logger.isEnabledFor(Level.INFO))
+			logger.info("Simulated Resource Container created. ContainerID "+myContainerID);
 	}
 
 	/**

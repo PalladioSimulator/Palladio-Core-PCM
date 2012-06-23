@@ -36,7 +36,8 @@ public class OpenWorkloadUser extends SimuComSimProcess implements IUser {
 	 */
 	@Override
 	protected void internalLifeCycle() {
-		logger.debug(getName() + " started! I'm alive!!!");
+		if(logger.isDebugEnabled())
+			logger.debug(getName() + " started! I'm alive!!!");
 		// update session id
 		updateNewSessionID();
 		try {
@@ -66,7 +67,8 @@ public class OpenWorkloadUser extends SimuComSimProcess implements IUser {
 			blackboardGarbageCollector.leaveRegion(getRequestContext()
 					.rootContext());
 		}
-		logger.debug(getName() + " done! I'm dying!!!");
+		if(logger.isDebugEnabled())
+			logger.debug(getName() + " done! I'm dying!!!");
 	}
 
 	/*

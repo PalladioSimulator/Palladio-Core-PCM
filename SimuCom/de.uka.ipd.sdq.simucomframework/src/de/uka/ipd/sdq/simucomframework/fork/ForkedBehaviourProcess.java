@@ -60,7 +60,8 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
 		if (!isAsync && !myParent.isTerminated() && simulationIsRunning())
 			myParent.scheduleAt(0);
 		else {
-			logger.debug("Asynch behaviour finished at simtime " + getModel().getSimulationControl().getCurrentSimulationTime());
+			if(logger.isDebugEnabled())
+				logger.debug("Asynch behaviour finished at simtime " + getModel().getSimulationControl().getCurrentSimulationTime());
 		}
 		
         // tell garbage collector that this process is no longer interested in measurements taken

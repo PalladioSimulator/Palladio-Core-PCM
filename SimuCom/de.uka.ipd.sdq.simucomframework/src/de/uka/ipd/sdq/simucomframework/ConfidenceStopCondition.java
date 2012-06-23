@@ -7,6 +7,7 @@ import javax.measure.quantity.Duration;
 import javax.measure.quantity.Quantity;
 import javax.measure.unit.SI;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
@@ -104,7 +105,8 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
 						.getMean(), halfWidth, confidenceLevel);
 
 				if (targetCI.contains(ci)) {
-					logger.info("Requested confidence reached.");
+					if(logger.isEnabledFor(Level.INFO))
+						logger.info("Requested confidence reached.");
 					confidenceReached = true;
 					this.confidence = ci;
 
@@ -113,13 +115,15 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
 					// actually stops.
 					minBatches = batchAlgorithm.getBatchMeans().size() + 1;
 				} else {
-					logger.info("Requested confidence not yet reached.");
+					if(logger.isEnabledFor(Level.INFO))
+						logger.info("Requested confidence not yet reached.");
 
 					// request another batch in order to reduce the confidence
 					// interval's half-width
 					minBatches = batchAlgorithm.getBatchMeans().size() + 1;
 				}
-				logger.info("Current confidence interval: Mean " + ci.getMean()
+				if(logger.isEnabledFor(Level.INFO))
+					logger.info("Current confidence interval: Mean " + ci.getMean()
 						+ ", " + confidenceLevel * 100
 						+ "% Confidence Interval " + "[" + ci.getLowerBound()
 						+ "," + ci.getUpperBound() + "]");

@@ -56,16 +56,19 @@ public class SimuComDefaultRandomNumberGenerator implements IRandomGenerator {
 		
 		this.producerThread = new Thread(new Runnable(){
 			public void run() {
-				logger.debug("Random number producer started! [Stream ID = "+myID+"]");
+				if(logger.isDebugEnabled())
+					logger.debug("Random number producer started! [Stream ID = "+myID+"]");
 				try {
 					while (!finished) {
 						producerQueue.put(rndNumberGenerator.nextDouble());
 					}
 				} catch (InterruptedException e) {
-					logger.debug("Bad concurrency problem",e);
+					if(logger.isDebugEnabled())
+						logger.debug("Bad concurrency problem",e);
 					throw new RuntimeException("Unexpected interruption of concurrent threads");
 				}
-				logger.debug("Random number producer stopped! [Stream ID = "+myID+"]");
+				if(logger.isDebugEnabled())
+					logger.debug("Random number producer stopped! [Stream ID = "+myID+"]");
 			}
 		});
 		producerThread.start();

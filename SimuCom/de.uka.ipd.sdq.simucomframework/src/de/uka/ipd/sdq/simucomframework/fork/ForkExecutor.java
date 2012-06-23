@@ -31,13 +31,15 @@ public class ForkExecutor {
 	 * Execute the child threads in parallel waiting for them to finish 
 	 */
 	public void run() {
-		logger.debug("Running parallel operations");
+		if(logger.isDebugEnabled())
+			logger.debug("Running parallel operations");
 		double start = parent.getModel().getSimulationControl().getCurrentSimulationTime();
 		for(ForkedBehaviourProcess p : forks) 
 			p.scheduleAt(0);
 		while(checkIfRemainingChildrenRun())
 			parent.passivate();
-		logger.debug("Forks took: "+(parent.getModel().getSimulationControl().getCurrentSimulationTime()-start));
+		if(logger.isDebugEnabled())
+			logger.debug("Forks took: "+(parent.getModel().getSimulationControl().getCurrentSimulationTime()-start));
 	}
 
 	/**

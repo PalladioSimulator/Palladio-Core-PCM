@@ -6,6 +6,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import javax.measure.Measure;
 import javax.measure.quantity.Quantity;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 
@@ -57,13 +58,17 @@ public class SetupConcurrentPipesAndFiltersStrategy implements ISetupDataSinkStr
 							.getRecorderName());
 			return (IRawWriteStrategy) Class.forName(writeStrategyClass).newInstance();
 		} catch (CoreException e) {
-			logger.error("Error occured during write strategy creation.", e);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("Error occured during write strategy creation.", e);
 		} catch (InstantiationException e) {
-			logger.error("Error occured during write strategy creation.", e);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("Error occured during write strategy creation.", e);
 		} catch (IllegalAccessException e) {
-			logger.error("Error occured during write strategy creation.", e);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("Error occured during write strategy creation.", e);
 		} catch (ClassNotFoundException e) {
-			logger.error("Error occured during write strategy creation.", e);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("Error occured during write strategy creation.", e);
 		}
 		return null;
 	}
@@ -86,7 +91,8 @@ public class SetupConcurrentPipesAndFiltersStrategy implements ISetupDataSinkStr
 				try {
 					pipeManager.processData(pipeQueue.take());
 				} catch (InterruptedException e) {
-					logger.error("Could not process data in the pipe.", e);
+					if(logger.isEnabledFor(Level.ERROR))
+						logger.error("Could not process data in the pipe.", e);
 				}
 			}
 		}
@@ -99,7 +105,8 @@ public class SetupConcurrentPipesAndFiltersStrategy implements ISetupDataSinkStr
 			try {
 				pipeQueue.put(data);
 			} catch (InterruptedException e) {
-				logger.error("Could not enqueue data in pipe.", e);
+				if(logger.isEnabledFor(Level.ERROR))
+					logger.error("Could not enqueue data in pipe.", e);
 			}
 		}
 

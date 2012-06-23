@@ -84,7 +84,8 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulat
 	 */
 	protected SimulationResult run(final IStatusObserver statusObserver, SimuComConfig config, boolean isRemoteRun) {
 
-		logger.info("Starting Simulation");
+		if(logger.isEnabledFor(Level.INFO))
+			logger.info("Starting Simulation");
 
 		final long SIM_STOP_TIME = config.getSimuTime();
 
@@ -104,12 +105,14 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulat
 		model.getProbeSpecContext().finish();
 		// check if there are accuracy influence analysis issues
 		if (model.getIssues().size() > 0) {
-			logger.info(model.getIssues().size() + " issues experience during the simulation run.");
+			if(logger.isEnabledFor(Level.INFO))
+				logger.info(model.getIssues().size() + " issues experience during the simulation run.");
 			DisplayIssuesDialog runner = new DisplayIssuesDialog(model.getIssues());
 			DisplayIssuesDialog.showDialogSync(runner);
 		}
 
-		logger.info("Simulation stopped. It took " + (simRealTime / Math.pow(10, 9))
+		if(logger.isEnabledFor(Level.INFO))
+			logger.info("Simulation stopped. It took " + (simRealTime / Math.pow(10, 9))
 				+ " seconds real time to terminate");
 
 		// TODO
@@ -177,7 +180,8 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulat
 				simuComLogger.setLevel(Level.INFO);
 			}
 		}
-		logger.debug("Extended Simulation Logging enabled!");
+		if(logger.isDebugEnabled())
+			logger.debug("Extended Simulation Logging enabled!");
 
 		// Set this class' log level to info to see start and stop messages of
 		// SimuCom

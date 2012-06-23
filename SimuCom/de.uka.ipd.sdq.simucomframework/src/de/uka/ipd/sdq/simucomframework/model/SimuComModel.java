@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.simucomframework.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
@@ -164,10 +165,12 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
                         if (notification.getFeature() == SimucomstatusPackage.eINSTANCE.getProcess_CurrentAction()) {
                             Process p = (Process) notification.getNotifier();
                             Action a = (Action) notification.getNewValue();
-                            logger.debug("Process "+p.getId()+" changed currentAction to "+a.getClass().getName());
+                            if(logger.isDebugEnabled())
+                            	logger.debug("Process "+p.getId()+" changed currentAction to "+a.getClass().getName());
                         }
                     } else
-                        logger.debug("Simulation Status Updated");
+                    	if(logger.isDebugEnabled())
+                    		logger.debug("Simulation Status Updated");
                 }
 
             };
@@ -301,7 +304,8 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
         this.getResourceRegistry().deactivateAllActiveResources();
         this.getResourceRegistry().deactivateAllPassiveResources();
 
-        logger.info("Simulation took " + getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
+        if(logger.isEnabledFor(Level.INFO))
+        	logger.info("Simulation took " + getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
 
         AbstractActiveResource.cleanProcesses();
 

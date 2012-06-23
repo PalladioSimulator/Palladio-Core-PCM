@@ -5,6 +5,7 @@ import java.util.Vector;
 import javax.measure.Measure;
 import javax.measure.quantity.Quantity;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 
@@ -53,13 +54,17 @@ public class SetupPipesAndFiltersStrategy implements ISetupDataSinkStrategy {
 							.getRecorderName());
 			return (IRawWriteStrategy) Class.forName(writeStrategyClass).newInstance();
 		} catch (CoreException e) {
-			logger.error("Could not create write strategy.", e);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("Could not create write strategy.", e);
 		} catch (InstantiationException e) {
-			logger.error("Could not create write strategy.", e);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("Could not create write strategy.", e);
 		} catch (IllegalAccessException e) {
-			logger.error("Could not create write strategy.", e);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("Could not create write strategy.", e);
 		} catch (ClassNotFoundException e) {
-			logger.error("Could not create write strategy.", e);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("Could not create write strategy.", e);
 		}
 		return null;
 	}

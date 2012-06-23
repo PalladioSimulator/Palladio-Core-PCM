@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
@@ -72,7 +73,8 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
 			}
 			catch (OutOfMemoryError e) {
 				// the system is overloaded. stop simulation
-				logger.info("Stopping simulation run due to memory constraints.");
+				if(logger.isEnabledFor(Level.INFO))
+					logger.info("Stopping simulation run due to memory constraints.");
 				getModel().getSimulationControl().stop();
 			}
 		}
@@ -86,13 +88,15 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
 	private void waitForNextUser() {
 		double interArrivalTimeSample = (Double) Context.evaluateStatic(
 				interArrivalTime, Double.class);
-		logger.debug("Waiting for " + interArrivalTimeSample
+		if(logger.isDebugEnabled())
+			logger.debug("Waiting for " + interArrivalTimeSample
 				+ " before spawing the next user");
 		this.hold(interArrivalTimeSample);
 	}
 
 	private IUser generateUser() {
-		logger.debug("Spawning New User...");
+		if(logger.isDebugEnabled())
+			logger.debug("Spawning New User...");
 		IUser user = userFactory.createUser(usageScenarioId);
 		user.startUserLife();
 		return user;

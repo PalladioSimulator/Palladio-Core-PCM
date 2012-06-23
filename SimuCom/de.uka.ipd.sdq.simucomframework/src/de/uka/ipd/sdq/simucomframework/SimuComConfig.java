@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.URI;
 
@@ -211,7 +212,8 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
 		try {
 			config = (SimuComConfig) clone();
 		} catch (CloneNotSupportedException e) {
-			logger.fatal("Could not clone configuration.", e);
+			if(logger.isEnabledFor(Level.FATAL))
+				logger.fatal("Could not clone configuration.", e);
 		}
 		return config;
 	}

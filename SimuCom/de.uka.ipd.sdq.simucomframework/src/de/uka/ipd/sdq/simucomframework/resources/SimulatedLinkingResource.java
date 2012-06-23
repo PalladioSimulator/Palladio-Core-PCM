@@ -80,7 +80,8 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 		double result = NumberConverter.toDouble(StackContext
 				.evaluateStatic(latencySpec))
 				+ demand / calculatedThroughput;
-		logger.debug("A network load of " + result + " has been determined.");
+		if(logger.isDebugEnabled())
+			logger.debug("A network load of " + result + " has been determined.");
 
 		return result;
 	}
