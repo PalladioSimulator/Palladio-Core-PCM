@@ -34,12 +34,14 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 			UserCanceledException {
 		ResourceSetPartition middlewareRepositoryPartition = null;
 		if (!this.blackboard.hasPartition(MIDDLEWARE_PARTITION_ID)) {
-			logger.debug("Creating Middleware Repository Partition");
+			if(logger.isDebugEnabled())
+				logger.debug("Creating Middleware Repository Partition");
 			
 			middlewareRepositoryPartition = new ResourceSetPartition();
 			this.blackboard.addPartition(MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
 			
-			logger.debug("Initialising Middleware EPackages");
+			if(logger.isDebugEnabled())
+				logger.debug("Initialising Middleware EPackages");
 			middlewareRepositoryPartition.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 		} else {
 			middlewareRepositoryPartition = this.blackboard.getPartition(MIDDLEWARE_PARTITION_ID);
@@ -49,12 +51,14 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		// load event middleware 
 		ResourceSetPartition eventMiddlewareRepositoryPartition = null;
 		if (!this.blackboard.hasPartition(EVENT_MIDDLEWARE_PARTITION_ID)) {
-			logger.debug("Creating Event Middleware Repository Partition");
+			if(logger.isDebugEnabled())
+				logger.debug("Creating Event Middleware Repository Partition");
 			
 			eventMiddlewareRepositoryPartition = new ResourceSetPartition();
 			this.blackboard.addPartition(EVENT_MIDDLEWARE_PARTITION_ID, eventMiddlewareRepositoryPartition);
 			
-			logger.debug("Initialising Event Middleware EPackages");
+			if(logger.isDebugEnabled())
+				logger.debug("Initialising Event Middleware EPackages");
 			eventMiddlewareRepositoryPartition.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 		} else {
 			eventMiddlewareRepositoryPartition = this.blackboard.getPartition(EVENT_MIDDLEWARE_PARTITION_ID);

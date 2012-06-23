@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.workflow.pcm.jobs;
 
 import java.io.IOException;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 
@@ -50,7 +51,8 @@ public class StoreAllPCMModelsJob implements IJob,
 		try {
 			partition.storeAllResources();
 		} catch (IOException e) {
-			logger.error("unable to store all resources",e);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("unable to store all resources",e);
 			throw new JobFailedException("Unable to store all Resources",e);
 		}
 	}

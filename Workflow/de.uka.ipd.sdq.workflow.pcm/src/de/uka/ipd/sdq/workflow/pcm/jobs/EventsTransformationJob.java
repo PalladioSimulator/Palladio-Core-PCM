@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.workflow.pcm.jobs;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -83,8 +84,10 @@ public class EventsTransformationJob
 		try {
 			job.execute(monitor);
 		} catch(JobFailedException e) {
-			logger.error("Failed to perform Event Transformation: "+e.getMessage());
-			logger.info("Trying to continue processing");
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("Failed to perform Event Transformation: "+e.getMessage());
+			if(logger.isEnabledFor(Level.INFO))
+				logger.info("Trying to continue processing");
 		}
 		
 		// add the event middleware model to the blackboard

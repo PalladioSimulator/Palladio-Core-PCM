@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.workflow.pcm.jobs;
 
 import java.io.File;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -139,7 +140,8 @@ public class CreatePluginProjectJob implements IJob {
 	 */
 	private void deleteProject(IProgressMonitor monitor, IProject myProject)
 			throws CoreException {
-		logger.info("Deleting project " + myProject.getName());
+		if(logger.isEnabledFor(Level.INFO))
+			logger.info("Deleting project " + myProject.getName());
 
 		myProject.close(monitor);
 		myProject.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT, monitor);
@@ -221,7 +223,8 @@ public class CreatePluginProjectJob implements IJob {
 	private void createFolder(IProject project, IFolder folder)
 			throws CoreException {
 		if (project.isOpen() && !folder.exists()) {
-			logger.debug("Creating folder " + folder.getName());
+			if(logger.isDebugEnabled())
+				logger.debug("Creating folder " + folder.getName());
 			folder.create(false, true, null);
 		}
 	}
@@ -232,7 +235,8 @@ public class CreatePluginProjectJob implements IJob {
 			throw new JobFailedException(
 					"Tried to create an existing project. Preceeding cleanup failed");
 
-		logger.debug("Creating Eclipse workspace project " + project.getName());
+		if(logger.isDebugEnabled())
+			logger.debug("Creating Eclipse workspace project " + project.getName());
 		project.create(monitor);
 		project.open(monitor);
 	}

@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.workflow.pcm.jobs;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 
@@ -45,19 +46,22 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		ResourceSetPartition eventMiddlewarePartition = this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID);
 
 		// Load the PCM model itself
-		logger.info("Loading PCM models");
+		if(logger.isEnabledFor(Level.INFO))
+			logger.info("Loading PCM models");
 		for (String modelFile : configuration.getPCMModelFiles()) {
 			pcmPartition.loadModel(modelFile);
 		}
 		pcmPartition.resolveAllProxies();
 
 		// load the middleware completion
-		logger.info("Loading middleware completion models");
+		if(logger.isEnabledFor(Level.INFO))
+			logger.info("Loading middleware completion models");
 		middlewarePartition.loadModel(configuration.getMiddlewareFile());
 		middlewarePartition.resolveAllProxies();
 
 		// load the event middleware repository
-		logger.info("Loading event middleware models");
+		if(logger.isEnabledFor(Level.INFO))
+			logger.info("Loading event middleware models");
 		eventMiddlewarePartition.loadModel(configuration.getEventMiddlewareFile());
 		eventMiddlewarePartition.resolveAllProxies();
 	}

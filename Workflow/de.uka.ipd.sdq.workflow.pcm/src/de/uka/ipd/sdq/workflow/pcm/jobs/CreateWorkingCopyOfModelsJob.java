@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.workflow.pcm.jobs;
 
 import java.io.IOException;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -68,11 +69,13 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 		// prepare the target path
 		IFolder modelFolder = project.getFolder("model");
 		if (project.isOpen() && !modelFolder.exists()) {
-			logger.debug("Creating folder " + modelFolder.getName());
+			if(logger.isDebugEnabled())
+				logger.debug("Creating folder " + modelFolder.getName());
 			try {
 				modelFolder.create(false, true, null);
 			} catch (CoreException e) {
-				logger.error("unable to create model folder");
+				if(logger.isEnabledFor(Level.ERROR))
+					logger.error("unable to create model folder");
 				throw new JobFailedException(e);
 			}
 		}
@@ -94,14 +97,16 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 					ressource.save(null);
 					partition.setContents(ressource.getURI(), ressource.getContents());
 				} catch (IOException e) {
-					logger.error("Unable to store resource "+ressource.getURI(),e);
+					if(logger.isEnabledFor(Level.ERROR))
+						logger.error("Unable to store resource "+ressource.getURI(),e);
 				}
 			}
 		}
 		try {
 			partition.storeAllResources();
 		} catch (IOException e) {
-			logger.error("unable to store all resources",e);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("unable to store all resources",e);
 			throw new JobFailedException("Unable to store all Resources",e);
 		}
 //		partition.resolveAllProxies();

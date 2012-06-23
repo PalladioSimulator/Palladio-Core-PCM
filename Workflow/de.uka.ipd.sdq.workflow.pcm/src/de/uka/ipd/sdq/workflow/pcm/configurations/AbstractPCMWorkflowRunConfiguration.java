@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.workflow.pcm.configurations;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EPackage;
@@ -318,7 +319,8 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends
 		try {
 			return (AbstractPCMWorkflowRunConfiguration) clone();
 		} catch (CloneNotSupportedException e) {
-			logger.fatal("Could not clone configuration.", e);
+			if(logger.isEnabledFor(Level.FATAL))
+				logger.fatal("Could not clone configuration.", e);
 			return null;
 		}
 	}
