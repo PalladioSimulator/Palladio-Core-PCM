@@ -48,7 +48,8 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 		eventAdmin = (EventAdmin)eventService.getService();
 		
 		logger.addAppender(new ConsoleAppender(new PatternLayout(),ConsoleAppender.SYSTEM_OUT));
-		logger.debug("Simulation Dock Started");
+		if(logger.isDebugEnabled())
+			logger.debug("Simulation Dock Started");
 	}
 	
 	@Override

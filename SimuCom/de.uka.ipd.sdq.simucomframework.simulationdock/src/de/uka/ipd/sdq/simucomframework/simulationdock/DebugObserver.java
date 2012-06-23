@@ -78,7 +78,8 @@ public class DebugObserver implements IStatusObserver {
 		
 		if (this.suspended){
 			postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_RESUMED");
-			logger.debug("------------------------- Simulation Resumed ----------------------------------");
+			if(logger.isDebugEnabled())
+				logger.debug("------------------------- Simulation Resumed ----------------------------------");
 		}
 	}
 
