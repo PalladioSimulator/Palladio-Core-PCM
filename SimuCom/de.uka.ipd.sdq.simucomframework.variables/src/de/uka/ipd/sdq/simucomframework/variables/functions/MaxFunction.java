@@ -56,7 +56,8 @@ public class MaxFunction implements IFunction {
 		} else if (parameters.get(0) instanceof Float || parameters.get(1) instanceof Float) {
 			return Math.max((Float) parameters.get(0), (Float) parameters.get(1));
 		} else if (parameters.get(0) instanceof String) {
-			logger.debug("String/Enum-based parameter was provided to Max Function. The parameter will be returned directly.");
+			if(logger.isDebugEnabled())
+				logger.debug("String/Enum-based parameter was provided to Max Function. The parameter will be returned directly.");
 			return parameters.get(0);
 		} else {
 			throw new IllegalArgumentException("Both parameters must have the same type and have one of the type Integer, Long, Float, or Double.");

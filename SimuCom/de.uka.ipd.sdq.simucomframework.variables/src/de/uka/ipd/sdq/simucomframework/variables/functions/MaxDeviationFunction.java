@@ -101,7 +101,8 @@ public class MaxDeviationFunction implements IFunction {
 				return Double.valueOf(Math.ceil(val + val * rel));
 			}
 		} else if (value instanceof String) {
-			logger.debug("String/Enum-based parameter was provided to MaxDeviation function. The parameter will be returned directly.");
+			if(logger.isDebugEnabled())
+				logger.debug("String/Enum-based parameter was provided to MaxDeviation function. The parameter will be returned directly.");
 			return value;
 		} else {
 			throw new IllegalArgumentException("Unsupported type of value argument experienced.");

@@ -57,7 +57,8 @@ public class MinDeviationFunction implements IFunction {
 	public Object evaluate(List<Object> parameters) {
 		Object value = parameters.get(0);
 		if (value instanceof String) {
-			logger.debug("String/Enum-based parameter was provided to MinDeviation Function. The parameter will be directly returned.");
+			if(logger.isDebugEnabled())
+				logger.debug("String/Enum-based parameter was provided to MinDeviation Function. The parameter will be directly returned.");
 			return value;
 		}
 		Double abs = (Double) parameters.get(1);
