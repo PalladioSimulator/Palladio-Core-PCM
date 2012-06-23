@@ -33,7 +33,8 @@ public class PCMProbfunctionEvaluationVisitor extends ProbfunctionSwitch<Object>
 	public Object caseProbabilityDensityFunction(ProbabilityDensityFunction object) {
 		IProbabilityFunction pdf = stoexCacheEntry.getProbFunction(object);
 		Object result = drawSample(pdf);
-		logger.debug("Draw Sample returned "+result);
+		if(logger.isDebugEnabled())
+			logger.debug("Draw Sample returned "+result);
 		return result;
 	}
 
@@ -41,7 +42,8 @@ public class PCMProbfunctionEvaluationVisitor extends ProbfunctionSwitch<Object>
 	public Object caseProbabilityMassFunction(ProbabilityMassFunction object) {
 		IProbabilityFunction pdf = stoexCacheEntry.getProbFunction(object);
 		Object result = drawSample(pdf);
-		logger.debug("Draw Sample returned "+result);
+		if(logger.isDebugEnabled())
+			logger.debug("Draw Sample returned "+result);
 		return result;
 	}
 	

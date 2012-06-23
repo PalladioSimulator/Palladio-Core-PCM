@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.simucomframework.variables.userdata;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
@@ -28,7 +29,8 @@ public class UserData {
 		for (UserDataEntry userDataEntry : userData) {
 			if (assemblyContext.equals(userDataEntry.getAssemblyContextID())){
 				currentStackframe.addValue(userDataEntry.getVariableName(), userDataEntry.getValue());
-				logger.info("Storing variable "+userDataEntry.getVariableName()+" for AssemblyContext "+userDataEntry.getAssemblyContextID());
+				if(logger.isEnabledFor(Level.INFO))
+					logger.info("Storing variable "+userDataEntry.getVariableName()+" for AssemblyContext "+userDataEntry.getAssemblyContextID());
 			}
 		}
 		

@@ -54,7 +54,8 @@ public class SimulatedStackframe <T> implements Serializable {
 	 */
 	public void addValue(String id, T value)
 	{
-		logger.debug("Value "+value+" added to stackframe under id "+id);
+		if(logger.isDebugEnabled())
+			logger.debug("Value "+value+" added to stackframe under id "+id);
 		contents.put(id,value);
 	}
 	
@@ -120,9 +121,11 @@ public class SimulatedStackframe <T> implements Serializable {
 	 * @param callResult The frame whose contents will be copied into this frame
 	 */
 	public void addVariables(SimulatedStackframe<T> callResult) {
-		logger.debug("Adding "+callResult.getContents().size()+" value(s) to own stackframe");
+		if(logger.isDebugEnabled())
+			logger.debug("Adding "+callResult.getContents().size()+" value(s) to own stackframe");
 		for (Entry<String,T> e : callResult.contents.entrySet()) {
-			logger.debug("Adding "+e.getKey()+" with "+e.getValue());
+			if(logger.isDebugEnabled())
+				logger.debug("Adding "+e.getKey()+" with "+e.getValue());
 			this.addValue(e.getKey(), e.getValue());
 		}
 		

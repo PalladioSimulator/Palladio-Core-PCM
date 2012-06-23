@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -47,7 +48,8 @@ public class ProbFunctionCache {
 				pdf.checkConstrains();
 			} catch(Exception ex) {
 				RuntimeException ex2 = new RuntimeException("PDF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object)+". Caused by "+ex.getMessage(), ex);
-				logger.error("PMF not valid!", ex2);
+				if(logger.isEnabledFor(Level.ERROR))
+					logger.error("PMF not valid!", ex2);
 				throw ex2; 
 			}
 			probFunctions.put(object, pdf);
@@ -82,7 +84,8 @@ public class ProbFunctionCache {
 				} 
 				sampleStringNew += "]";
 
-				logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!! Was: "+sampleString+", now is: "+sampleStringNew);
+				if(logger.isEnabledFor(Level.WARN))
+					logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!! Was: "+sampleString+", now is: "+sampleStringNew);
 			}
 			
 		}
@@ -112,7 +115,8 @@ public class ProbFunctionCache {
 				pmf.checkConstrains();
 			} catch(Exception ex) {
 				RuntimeException ex2 = new RuntimeException("PMF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object), ex);
-				logger.error("PMF not valid!", ex2);
+				if(logger.isEnabledFor(Level.ERROR))
+					logger.error("PMF not valid!", ex2);
 				throw ex2; 
 			}
 			probFunctions.put(object, pmf);
@@ -132,7 +136,8 @@ public class ProbFunctionCache {
 					if (sample.getProbability() > 0)
 						sample.setProbability(sample.getProbability()+delta);
 				}
-				logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
+				if(logger.isEnabledFor(Level.WARN))
+					logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
 			}
 		}
 	};

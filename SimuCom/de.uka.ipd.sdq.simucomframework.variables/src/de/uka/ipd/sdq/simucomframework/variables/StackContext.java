@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map.Entry;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
@@ -72,7 +73,8 @@ public class StackContext implements Serializable {
 	 * @return The value of the StoEx evaluation
 	 */
 	public Object evaluate(String stoex, SimulatedStackframe<Object> currentFrame) {
-		logger.debug("About to evaluate "+stoex);
+		if(logger.isDebugEnabled())
+			logger.debug("About to evaluate "+stoex);
 		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
 		Object result = null;
 		try {
@@ -81,7 +83,8 @@ public class StackContext implements Serializable {
 		} catch (Exception ex) {
 			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);
 		}
-		logger.debug("Result "+result);
+		if(logger.isDebugEnabled())
+			logger.debug("Result "+result);
 		return result;
 	}
 
@@ -101,7 +104,8 @@ public class StackContext implements Serializable {
 	 * @return The value of the StoEx evaluation
 	 */
 	public static Object evaluateStatic(String stoex, SimulatedStackframe<Object> currentFrame) {
-		logger.debug("About to evaluate "+stoex);
+		if(logger.isDebugEnabled())
+			logger.debug("About to evaluate "+stoex);
 		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
 		Object result = null;
 		try {
@@ -110,7 +114,8 @@ public class StackContext implements Serializable {
 		} catch (Exception ex) {
 			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);
 		}
-		logger.debug("Result "+result);
+		if(logger.isDebugEnabled())
+			logger.debug("Result "+result);
 		return result;
 	}
 
@@ -122,7 +127,8 @@ public class StackContext implements Serializable {
 	 * @return The value of the StoEx evaluation
 	 */
 	public static Object evaluateStatic(String stoex, SimulatedStackframe<Object> currentFrame, VariableMode mode) {
-		logger.debug("About to evaluate "+stoex);
+		if(logger.isDebugEnabled())
+			logger.debug("About to evaluate "+stoex);
 		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
 		Object result = null;
 		try {
@@ -131,7 +137,8 @@ public class StackContext implements Serializable {
 		} catch (Exception ex) {
 			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);
 		}
-		logger.debug("Result "+result);
+		if(logger.isDebugEnabled())
+			logger.debug("Result "+result);
 		return result;
 	}
 
@@ -260,7 +267,8 @@ public class StackContext implements Serializable {
 		}
 		UnsupportedOperationException ex = new UnsupportedOperationException("Evaluation result is of type "+result.getClass().getCanonicalName()+
 				" but expected was "+expectedType.getCanonicalName()+ " and no conversion was available..."); 
-		logger.error("Evaluation of an expression resulted in wrong type!",ex);
+		if(logger.isEnabledFor(Level.ERROR))
+			logger.error("Evaluation of an expression resulted in wrong type!",ex);
 		throw ex; 
 	}
 	
