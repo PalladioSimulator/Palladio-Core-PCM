@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -89,8 +90,8 @@ public class TransformPCMForSensitivityAnalysisJob implements
 			if (o == null) {
 				o = findEObject(r.getContents().get(0), variableToChange);
 				if (o != null) {
-					logger
-							.info("Altering PCM variable for sensitivity analysis");
+					if(logger.isEnabledFor(Level.INFO)) 
+						logger.info("Altering PCM variable for sensitivity analysis");
 					alterObject(o, sconf);
 				}
 			}

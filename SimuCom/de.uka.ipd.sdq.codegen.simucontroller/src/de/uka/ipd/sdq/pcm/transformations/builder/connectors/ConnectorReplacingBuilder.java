@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.connectors;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.featureconfig.FeatureConfig;
@@ -49,7 +50,8 @@ public class ConnectorReplacingBuilder implements IBuilder {
 		// Teste hier: Entweder sind es 2 Prozesse auf dem selben Rechner _oder_ zwei Prozesse auf verschiedenen Rechner. 
 		// Im letzten Fall ist die Konfigurationsoption "SameAddressSpace" illegal und wird somit übergangen...
 		if (FeatureUtils.hasFeature(featureConfig,"DifferentAddressSpace") || linkingRes != null) {
-			logger.info("Expanding a completion for remote connector "+connector.getEntityName());
+			if(logger.isEnabledFor(Level.INFO)) 
+				logger.info("Expanding a completion for remote connector "+connector.getEntityName());
 		
 			IClientServerConnectorCompletionComponentBuilder componentBuilder = 
 				configureCompletionComponentBuilder();

@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.pcm.transformations;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -54,7 +55,8 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		PCMResourceSetPartition pcmModels = (PCMResourceSetPartition) blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 		ResourceSetPartition middlewareRepository = blackboard.getPartition(LoadMiddlewareConfigurationIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
 		
-		logger.info("Create completion repository...");
+		if(logger.isEnabledFor(Level.INFO)) 
+			logger.info("Create completion repository...");
 		ResourceSetPartition completionRepositoryPartition = new ResourceSetPartition();
 		Repository completionRepository = RepositoryFactory.eINSTANCE.createRepository();
 		completionRepository.setEntityName("CompletionsRepository");
@@ -97,7 +99,8 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 			
 		}.transform();
 		
-		logger.info("Replace connectors with completions...");
+		if(logger.isEnabledFor(Level.INFO)) 
+			logger.info("Replace connectors with completions...");
 		new AllInstancesTransformer<AssemblyConnector>(
 				CompositionPackage.eINSTANCE.getAssemblyConnector(),
 				models.getSystem()) {
@@ -129,7 +132,8 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		allocCtx.setResourceContainer_AllocationContext(resContainer);
 		models.getAllocation().getAllocationContexts_Allocation().add(allocCtx);
 		
-		logger.info("Added middleware component >"+ctx.getEncapsulatedComponent__AssemblyContext().getEntityName()+
+		if(logger.isEnabledFor(Level.INFO)) 
+			logger.info("Added middleware component >"+ctx.getEncapsulatedComponent__AssemblyContext().getEntityName()+
 				"< to resource container >"+resContainer.getEntityName()+"<");
 	}
 

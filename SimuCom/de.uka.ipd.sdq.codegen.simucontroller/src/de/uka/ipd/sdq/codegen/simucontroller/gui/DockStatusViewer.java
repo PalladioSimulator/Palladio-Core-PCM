@@ -4,7 +4,9 @@ import java.text.DecimalFormat;
 import java.util.Observable;
 import java.util.Observer;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
@@ -182,7 +184,8 @@ public class DockStatusViewer extends Composite implements Observer {
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().bringToTop(viewer);
 					viewer.setFocus();
 				} catch (PartInitException e) {
-					logger.warn("Could not show SimuDockView and set focus to it.", e);
+					if(logger.isEnabledFor(Level.WARN)) 
+						logger.warn("Could not show SimuDockView and set focus to it.", e);
 				}
 			}
 

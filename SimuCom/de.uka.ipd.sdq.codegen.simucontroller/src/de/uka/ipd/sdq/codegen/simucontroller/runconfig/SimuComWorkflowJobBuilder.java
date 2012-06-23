@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 
@@ -34,7 +35,8 @@ public class SimuComWorkflowJobBuilder extends PCMWorkflowJobBuilder {
 		try {
 			return new SensitivityAnalysisJob((SimuComWorkflowConfiguration) config, listener);
 		} catch (CoreException e) {
-			logger.error("Core exception occured when building SensitivityAnalysisJob.", e);
+			if(logger.isEnabledFor(Level.ERROR)) 
+				logger.error("Core exception occured when building SensitivityAnalysisJob.", e);
 			return null;
 		}
 	}

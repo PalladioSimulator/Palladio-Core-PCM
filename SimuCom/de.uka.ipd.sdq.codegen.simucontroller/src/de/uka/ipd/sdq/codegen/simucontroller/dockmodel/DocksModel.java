@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.concurrent.PriorityBlockingQueue;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
@@ -141,7 +142,8 @@ public class DocksModel extends Observable implements EventHandler {
 					rserv = roserv.connect(uri);
 				} catch (Exception e) {
 					String msg = "Unable to connect to remote server ";
-					logger.error(msg, e);
+					if(logger.isEnabledFor(Level.ERROR)) 
+						logger.error(msg, e);
 					throw new RuntimeException(msg,e);
 				}
 // FIXME: Build-Eclipse and local Eclipse have a different opinion which Exceptions should be caught.
@@ -224,7 +226,8 @@ public class DocksModel extends Observable implements EventHandler {
 				this.addDock((SimulationDockService) context.getService(ref));
 			}
 		} catch (InvalidSyntaxException e1) {
-			logger.error("Dock model status could not be initializd properly. Invalid filter expression used.", e1);
+			if(logger.isEnabledFor(Level.ERROR)) 
+				logger.error("Dock model status could not be initializd properly. Invalid filter expression used.", e1);
 		}
 	}
 
@@ -284,10 +287,8 @@ public class DocksModel extends Observable implements EventHandler {
 		}
 		if (event.getTopic().endsWith("DOCK_BUSY")) {
 			dock.setIdle(false);
-			synchronized(freeDocks){
-				if (freeDocks.contains(dock)) {
-					freeDocks.remove(dock);
-				}
+			if (freeDocks.contains(dock)) {
+				freeDocks.remove(dock);
 			}
 		}
 		if (event.getTopic().endsWith("DOCK_IDLE")) {

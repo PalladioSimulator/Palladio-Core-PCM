@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.codegen.simucontroller;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.PlatformUI;
@@ -82,11 +83,13 @@ public class SimuControllerPlugin extends AbstractUIPlugin {
 							try {
 								Thread.sleep(50);
 							} catch (InterruptedException e) {
-								logger.warn("Waiting for initalization was aborted unexpectedly.", e);
+								if(logger.isEnabledFor(Level.WARN)) 
+									logger.warn("Waiting for initalization was aborted unexpectedly.", e);
 							}
 						}
 					} catch (BundleException e) {
-						logger.error("Error while starting the OSGI bundle occured.", e);
+						if(logger.isEnabledFor(Level.ERROR)) 
+							logger.error("Error while starting the OSGI bundle occured.", e);
 					}
 				}
 			}

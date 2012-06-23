@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.pcm.transformations.builder.resourceconsumer;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.repository.OperationInterface;
@@ -61,7 +62,8 @@ public class NetworkLoadingComponentBuilder extends BasicComponentBuilder {
 
 	@Override
 	public void build() {
-		logger.info("Creating a component to simulate network loads");
+		if(logger.isEnabledFor(Level.INFO)) 
+			logger.info("Creating a component to simulate network loads");
 		super.build();
 	}
 }

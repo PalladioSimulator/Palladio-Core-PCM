@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -119,7 +120,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         try {
             simulatorNames = SimulatorExtensionHelper.getSimulatorNames();
         } catch (CoreException e1) {
-            logger.warn("Could not retrieve names of simulator extensions.", e1);
+        	if(logger.isEnabledFor(Level.WARN)) 
+        		logger.warn("Could not retrieve names of simulator extensions.", e1);
         }
         simulatorCombo = new Combo(simulatorGroup, SWT.READ_ONLY);
         simulatorCombo.setItems(simulatorNames);
@@ -162,7 +164,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		try {
 			recorderNames = RecorderExtensionHelper.getRecorderNames();
 		} catch (CoreException e1) {
-			logger.warn("Could not access RecorderNames.", e1);
+			if(logger.isEnabledFor(Level.WARN)) 
+				logger.warn("Could not access RecorderNames.", e1);
 		}
 		persistenceCombo = new Combo(persistenceGroup, SWT.READ_ONLY);
 		persistenceCombo.setItems(recorderNames);
@@ -399,7 +402,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
                 }
             }
         } catch (CoreException e) {
-            logger.warn("Could not initialise simulator selection.", e);
+        	if(logger.isEnabledFor(Level.WARN)) 
+        		logger.warn("Could not initialise simulator selection.", e);
         }
 		
 		try {
@@ -434,7 +438,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				}
 			}
 		} catch (CoreException e) {
-			logger.warn("Could not access persistency recorder name.", e);
+			if(logger.isEnabledFor(Level.WARN)) 
+				logger.warn("Could not access persistency recorder name.", e);
 		}
 
 		try {
@@ -546,7 +551,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
             String simulatorId = SimulatorExtensionHelper.getSimulatorIdForName(simulatorCombo.getText());
             configuration.setAttribute(AbstractSimulationConfig.SIMULATOR_ID, simulatorId);
         } catch (CoreException e) {
-            logger.error("Failed to retrieve the id for simulator \"" + simulatorCombo.getText() + "\"");
+        	if(logger.isEnabledFor(Level.ERROR)) 
+        		logger.error("Failed to retrieve the id for simulator \"" + simulatorCombo.getText() + "\"");
         }
         
 		configuration.setAttribute(AbstractSimulationConfig.EXPERIMENT_RUN,
@@ -613,7 +619,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				configuration.setAttribute(AbstractSimulationConfig.PERSISTENCE_RECORDER_NAME, recorderNames[0]);
 			}
 		} catch (CoreException e1) {
-			logger.error("Could not set default value for persistence framework.", e1);
+			if(logger.isEnabledFor(Level.ERROR)) 
+				logger.error("Could not set default value for persistence framework.", e1);
 		}
 	}
 
