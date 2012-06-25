@@ -168,7 +168,6 @@ public class MathTools {
 		double sum = 0.0;
 		for (ISample s : list) {
 			sum += s.getProbability();
-			System.out.println(sum);
 		}
 		return sum;
 	}
