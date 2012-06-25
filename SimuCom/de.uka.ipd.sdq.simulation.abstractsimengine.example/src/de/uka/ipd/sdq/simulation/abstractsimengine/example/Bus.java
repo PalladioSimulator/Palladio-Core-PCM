@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simulation.abstractsimengine.example;
 
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimProcessDelegator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 
@@ -11,6 +13,8 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
  */
 public class Bus extends AbstractSimProcessDelegator {
 
+	private static Logger logger = Logger.getLogger(AbstractSimProcessDelegator.class);
+	
     private int currentStation;
 
     public double averageSpeed;
@@ -87,11 +91,13 @@ public class Bus extends AbstractSimProcessDelegator {
     }
 
     private void log(String msg) {
-        StringBuilder s = new StringBuilder();
-        s.append("[" + getName() + "] ");
-        s.append("(t=" + getModel().getSimulationControl().getCurrentSimulationTime() + ") ");
-        s.append(msg);
-        System.out.println(s.toString());
+    	if(logger.isDebugEnabled()) {
+	        StringBuilder s = new StringBuilder();
+	        s.append("[" + getName() + "] ");
+	        s.append("(t=" + getModel().getSimulationControl().getCurrentSimulationTime() + ") ");
+	        s.append(msg);
+	        logger.debug(s.toString());
+    	}
     }
 
 }

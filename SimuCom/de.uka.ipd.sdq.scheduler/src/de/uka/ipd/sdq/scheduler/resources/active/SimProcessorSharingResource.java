@@ -3,6 +3,9 @@ package de.uka.ipd.sdq.scheduler.resources.active;
 import java.util.Hashtable;
 import java.util.Map.Entry;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
@@ -12,6 +15,8 @@ import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 public class SimProcessorSharingResource extends AbstractActiveResource {
+	
+	private static Logger logger = Logger.getLogger(SimProcessorSharingResource.class);
 	
 	/**
 	 * The minimum amount of time used for scheduling an event 
@@ -137,8 +142,8 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 		for (Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
 			if (e.getKey().equals(process)) {
 				if (Double.isNaN(demand)) {
-				    // TODO PM: Should an exception be thrown here? At least, a log entry should be written. 
-					System.out.println();
+					if(logger.isEnabledFor(Level.INFO))
+						logger.info("Specified demand " + demand + "is not a number.");
 				}
 				e.setValue(demand);
 				updated = true;

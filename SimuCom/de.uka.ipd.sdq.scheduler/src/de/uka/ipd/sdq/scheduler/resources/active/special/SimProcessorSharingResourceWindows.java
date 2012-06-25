@@ -5,6 +5,9 @@ import java.util.Hashtable;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
@@ -23,6 +26,8 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.NullEntity;
  */
 public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 	
+	private static Logger logger = Logger.getLogger(SimProcessorSharingResourceWindows.class);
+	
 	private class DoLoadBalancingEvent extends AbstractSimEventDelegator<NullEntity> {
 		
 		public DoLoadBalancingEvent(SchedulerModel model) {
@@ -32,7 +37,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 
 		@Override
 		 public void eventRoutine(NullEntity who) {
-			//System.out.println(simulator.time() + ": Trying load balancing...");
+			//logger.info(simulator.time() + ": Trying load balancing...");
 			int coreToBalanceTo = getCoreWithShortestQueue();
 			int coreToBalanceFrom = getCoreWithLongestQueue();
 			if ((running_processesPerCore.get(coreToBalanceTo).size() == 0) && (running_processesPerCore.get(coreToBalanceFrom).size() > 0)) {
@@ -46,13 +51,14 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 				Random random = new Random();
 				ISchedulableProcess processToBalance = processes[random.nextInt(processes.length)];
 				double simTime = getModel().getSimulationControl().getCurrentSimulationTime();
-				System.out.println(simTime + ": Balancing process: " + processToBalance.getId() + " from core " + coreToBalanceFrom + " to " + coreToBalanceTo);
+				if(logger.isEnabledFor(Level.INFO))
+					logger.info(simTime + ": Balancing process: " + processToBalance.getId() + " from core " + coreToBalanceFrom + " to " + coreToBalanceTo);
 				Double processValue = runningProcesses.get(processToBalance);
 				runningProcesses.remove(processToBalance);
 				putProcessOnCore(processToBalance, processValue, coreToBalanceTo);
 				
 			} else {
-			//	System.out.println(simulator.time() + ": No load balancing needed.");
+			//	logger.info(simulator.time() + ": No load balancing needed.");
 			}
 			
 		}
@@ -90,7 +96,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 					event.schedule(IEntity.NULL, simTime+1);
 				}
 			}
-		//	System.out.println(simulator.time() + ": " + last.getId() + " finished");
+		//	logger.info(simulator.time() + ": " + last.getId() + " finished");
 			// LoggingWrapper.log(last + " finished.");
 			scheduleNextEvent();
 			last.activate();
@@ -123,11 +129,11 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 		Double shortestTime = 0.0;
 		for (Hashtable<ISchedulableProcess, Double> running_processes : running_processesPerCore) {
 			for (ISchedulableProcess process : running_processes.keySet()) {
-			//	System.out.println("Time: " + simulator.time() + ", looking for shortest time: " + process.getId() + " time: " + running_processes.get(process) + ", speed: " + getSpeed(process));
+			//	logger.info("Time: " + simulator.time() + ", looking for shortest time: " + process.getId() + " time: " + running_processes.get(process) + ", speed: " + getSpeed(process));
 				if (shortest == null || shortestTime > running_processes.get(process) * getSpeed(process)){
 					shortest = process;
 					shortestTime = running_processes.get(process) * getSpeed(process);
-				//	System.out.println("Shortest: " + shortest.getId() + ", shortest time: " + shortestTime);
+				//	logger.info("Shortest: " + shortest.getId() + ", shortest time: " + shortestTime);
 				}
 			}
 		}
@@ -137,7 +143,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 			// New: calculate time for process
 			double time = shortestTime;// * getSpeed(shortest);
 			// double time = running_processes.get(shortest) * getSpeed();
-		//	System.out.println("Time: " + simulator.time() + ", scheduling event at " + time);
+		//	logger.info("Time: " + simulator.time() + ", scheduling event at " + time);
 			if (!MathTools.less(0, time)) {
                 time = 0.0;
             }
@@ -189,7 +195,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 	private void toNow() {
 		double now = getModel().getSimulationControl().getCurrentSimulationTime();
 		double passed_time = now - last_time;
-		// System.out.println("toNow: " + now + " - " + last_time + " = " +
+		// logger.info("toNow: " + now + " - " + last_time + " = " +
 		// passed_time);
 		if (MathTools.less(0, passed_time)){
 			// passed_time /= getSpeed();
@@ -198,7 +204,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 				for (Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
 					double processPassedTime = passed_time / getSpeed(e.getKey());
 					double rem =   e.getValue() - processPassedTime;
-					// System.out.println("toNow " + e.getKey().getId() + ": " +
+					// logger.info("toNow " + e.getKey().getId() + ": " +
 					// e.getValue() + " - " + processPassedTime + " = " + rem);
 					e.setValue(rem);
 				}
@@ -268,7 +274,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 	protected void doProcessing(ISchedulableProcess process, int resourceServiceID, double demand) {
 		toNow();
 		LoggingWrapper.log("PS: " + process + " demands " + demand);
-		//System.out.println("PS: " + process.getId() + " demands " + demand);
+		//logger.info("PS: " + process.getId() + " demands " + demand);
 		int coreToPutOn = getLastCoreProcessWasRunningOn(process);
 		if (coreToPutOn == -1) {
 			// This is a new process which has issued demand for the first time.
@@ -333,7 +339,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 			all_processes.remove(process);
 		}
 		all_processes.put(process, core);
-		//System.out.println(simulator.time() + ": Putting " + process.getId() + " with demand " + demand + " on core " + core);
+		//logger.info(simulator.time() + ": Putting " + process.getId() + " with demand " + demand + " on core " + core);
 		running_processesPerCore.get(core).put(process, demand); 
 	}
 
