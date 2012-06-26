@@ -73,4 +73,12 @@ public abstract class AbstractSimulationWorkflowConfiguration extends AbstractPC
         return pcmModelFiles;
     }
     
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+    	AbstractSimulationWorkflowConfiguration config = (AbstractSimulationWorkflowConfiguration) super.clone();
+    	config.featureConfigFile = this.featureConfigFile;
+    	config.simulateLinkingResources = this.simulateLinkingResources;
+		return config;
+    }
+    
 }

@@ -96,10 +96,8 @@ public class SimuComWorkflowConfiguration extends AbstractSimulationWorkflowConf
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		SimuComWorkflowConfiguration config = (SimuComWorkflowConfiguration) super.clone();
-		config.setFeatureConfigFile(this.getFeatureConfigFile());
 		config.simuComConfig = this.simuComConfig.getClone();
 		config.simulateFailures = this.simulateFailures;
-        config.setSimulateLinkingResources(this.getSimulateLinkingResources());
 		return config;
 	}
 
