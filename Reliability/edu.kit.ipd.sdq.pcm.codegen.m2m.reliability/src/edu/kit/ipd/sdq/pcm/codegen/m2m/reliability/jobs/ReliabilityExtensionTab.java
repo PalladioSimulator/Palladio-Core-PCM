@@ -13,81 +13,89 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 
+/**
+ * This class defines a tab with reliability-specific configuration options.
+ */
 public class ReliabilityExtensionTab extends AbstractLaunchConfigurationTab {
-	
 
-	// Default values
-	private static final Boolean DEFAULT_SIMULATE_FAILURES = false;
-	
-	// UI elements
-	private Button simulateFailuresButton;
-	
-	// Configuration attribute IDs
-	public static final String SIMULATE_FAILURES = "reliability.simulateFailures";
+    /**
+     * Default configuration for simulation of failure-on-demand occurrences.
+     */
+    private static final Boolean DEFAULT_SIMULATE_FAILURES = false;
 
-	public void createControl(Composite parent) {
+    /**
+     * Name of configuration attribute for failure-on-demand simulation.
+     */
+    public static final String SIMULATE_FAILURES = "reliability.simulateFailures";
 
-		final SelectionListener selectionListener = new SelectionListener() {
+    /**
+     * Button for control of failure-on-demand simulation.
+     */
+    private Button simulateFailuresButton;
 
-			public void widgetDefaultSelected(SelectionEvent e) {
-				ReliabilityExtensionTab.this.setDirty(true);
-				ReliabilityExtensionTab.this.updateLaunchConfigurationDialog();
-			}
+    /**
+     * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
+     */
+    public final void createControl(final Composite parent) {
 
-			public void widgetSelected(SelectionEvent e) {
-				ReliabilityExtensionTab.this.setDirty(true);
-				ReliabilityExtensionTab.this.updateLaunchConfigurationDialog();
-			}
-		};
-		// Create the top-level container:
-			Composite container = new Composite(parent, SWT.NONE);
+        final SelectionListener selectionListener = new SelectionListener() {
 
-			setControl(container);
-			container.setLayout(new GridLayout());
+            public void widgetDefaultSelected(final SelectionEvent e) {
+                ReliabilityExtensionTab.this.setDirty(true);
+                ReliabilityExtensionTab.this.updateLaunchConfigurationDialog();
+            }
 
-			// Create reliability section:
-			final Group reliabilityGroup = new Group(container, SWT.NONE);
-			reliabilityGroup.setText("Reliability");
-			final GridData gd_reliabilityGroup = new GridData(SWT.FILL, SWT.CENTER,
-					true, false);
-			reliabilityGroup.setLayoutData(gd_reliabilityGroup);
-			reliabilityGroup.setLayout(new GridLayout());
-			simulateFailuresButton = new Button(reliabilityGroup, SWT.CHECK);
-			final GridData gd_simulateFailuresButton = new GridData(
-					SWT.FILL, SWT.CENTER, true, false);
-			simulateFailuresButton
-					.setLayoutData(gd_simulateFailuresButton);
-			simulateFailuresButton.setText("Simulate failures");
-			simulateFailuresButton.addSelectionListener(selectionListener);
+            public void widgetSelected(final SelectionEvent e) {
+                ReliabilityExtensionTab.this.setDirty(true);
+                ReliabilityExtensionTab.this.updateLaunchConfigurationDialog();
+            }
+        };
+        // Create the top-level container:
+        Composite container = new Composite(parent, SWT.NONE);
 
-	}
+        setControl(container);
+        container.setLayout(new GridLayout());
 
-	@Override
-	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(
-				SIMULATE_FAILURES, DEFAULT_SIMULATE_FAILURES);
-	}
+        // Create reliability section:
+        final Group reliabilityGroup = new Group(container, SWT.NONE);
+        reliabilityGroup.setText("Reliability");
+        final GridData gdReliabilityGroup = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        reliabilityGroup.setLayoutData(gdReliabilityGroup);
+        reliabilityGroup.setLayout(new GridLayout());
+        simulateFailuresButton = new Button(reliabilityGroup, SWT.CHECK);
+        final GridData gdSimulateFailuresButton = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        simulateFailuresButton.setLayoutData(gdSimulateFailuresButton);
+        simulateFailuresButton.setText("Simulate failures");
+        simulateFailuresButton.addSelectionListener(selectionListener);
 
-	@Override
-	public void initializeFrom(ILaunchConfiguration configuration) {
-		try {
-			simulateFailuresButton.setSelection(configuration.getAttribute(
-					SIMULATE_FAILURES, true));
-		} catch (CoreException e) {
-			simulateFailuresButton.setSelection(false);
-		}
-	}
+    }
 
-	@Override
-	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(
-				SIMULATE_FAILURES,
-				this.simulateFailuresButton.getSelection());
-	}
+    @Override
+    public final String getName() {
+        return "Reliability Extension";
+    }
 
-	@Override
-	public String getName() {
-		return "Reliability Extension";
-	}
+    @Override
+    public final void initializeFrom(final ILaunchConfiguration configuration) {
+        try {
+            simulateFailuresButton.setSelection(configuration.getAttribute(SIMULATE_FAILURES, true));
+        } catch (CoreException e) {
+            simulateFailuresButton.setSelection(false);
+        }
+    }
+
+    /**
+     * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+     */
+    public final void performApply(final ILaunchConfigurationWorkingCopy configuration) {
+        configuration.setAttribute(SIMULATE_FAILURES, this.simulateFailuresButton.getSelection());
+    }
+
+    /**
+     * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
+     */
+    public final void setDefaults(final ILaunchConfigurationWorkingCopy configuration) {
+        configuration.setAttribute(SIMULATE_FAILURES, DEFAULT_SIMULATE_FAILURES);
+    }
 
 }

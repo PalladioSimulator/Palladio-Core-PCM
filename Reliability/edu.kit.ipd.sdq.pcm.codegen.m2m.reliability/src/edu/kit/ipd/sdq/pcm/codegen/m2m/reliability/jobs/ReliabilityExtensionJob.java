@@ -6,20 +6,18 @@ import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.AbstractSimuComExtens
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
 
+/**
+ * This class extends a SimuCom job description with reliability aspects.
+ */
 public class ReliabilityExtensionJob extends AbstractSimuComExtensionJob {
-	
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @seede.uka.ipd.sdq.workflow.IJob#execute(org.eclipse.core.runtime.
-	 * IProgressMonitor)
-	 */
-	public void execute(final IProgressMonitor monitor)
-			throws JobFailedException, UserCanceledException {
-		ReliabilityExtensionJobConfiguration configuration = (ReliabilityExtensionJobConfiguration)getJobConfiguration();
-		if (configuration.isSimulateFailures()) {
-			addCodeGenerationAdvice("simulation_template_methods_reliability");
-		}
-	}
 
+    /**
+     * @see de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob#execute(org.eclipse.core.runtime.IProgressMonitor)
+     */
+    public final void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
+        ReliabilityExtensionJobConfiguration configuration = (ReliabilityExtensionJobConfiguration) getJobConfiguration();
+        if (configuration.isSimulateFailures()) {
+            addCodeGenerationAdvice("simulation_template_methods_reliability");
+        }
+    }
 }
