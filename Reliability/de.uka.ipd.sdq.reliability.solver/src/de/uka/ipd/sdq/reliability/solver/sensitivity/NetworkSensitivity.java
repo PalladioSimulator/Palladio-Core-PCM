@@ -13,127 +13,118 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 
 /**
- * Provides sensitivity support to alter the failure probabilities of all
- * communication links within the whole PCM Resource Environment.
+ * Provides sensitivity support to alter the failure probabilities of all communication links within
+ * the whole PCM Resource Environment.
  * 
  * @author brosch
  * 
  */
 public class NetworkSensitivity extends MarkovSensitivity {
 
-	/**
-	 * The list of base values.
-	 */
-	private List<Double> baseValues = null;
+    /**
+     * The list of base values.
+     */
+    private List<Double> baseValues = null;
 
-	/**
-	 * The list of affected communication link resource specifications.
-	 */
-	private List<CommunicationLinkResourceSpecification> resources = null;
+    /**
+     * The list of affected communication link resource specifications.
+     */
+    private List<CommunicationLinkResourceSpecification> resources = null;
 
-	/**
-	 * The constructor.
-	 * 
-	 * @param name
-	 *            the name of the sensitivity analysis
-	 * @param variation
-	 *            the parameter variation
-	 */
-	public NetworkSensitivity(final String name,
-			final DoubleParameterVariation variation) {
+    /**
+     * The constructor.
+     * 
+     * @param name
+     *            the name of the sensitivity analysis
+     * @param variation
+     *            the parameter variation
+     */
+    public NetworkSensitivity(final String name, final DoubleParameterVariation variation) {
 
-		// Initialize base variables:
-		super(name, variation);
-	}
+        // Initialize base variables:
+        super(name, variation);
+    }
 
-	/**
-	 * Alters the model according to the next sensitivity analysis step.
-	 * 
-	 * @return indicates if the model could be successfully altered
-	 */
-	protected boolean alterModel() {
+    /**
+     * Alters the model according to the next sensitivity analysis step.
+     * 
+     * @return indicates if the model could be successfully altered
+     */
+    protected boolean alterModel() {
 
-		// Set the failure probabilities:
-		for (int i = 0; i < resources.size(); i++) {
-			resources.get(i).setFailureProbability(
-					calculator.calculateCurrentDoubleValue(
-							getDoubleVariation(), getCurrentStepNumber(),
-							baseValues.get(i)));
-		}
+        // Set the failure probabilities:
+        for (int i = 0; i < resources.size(); i++) {
+            resources.get(i).setFailureProbability(
+                    calculator.calculateCurrentDoubleValue(getDoubleVariation(), getCurrentStepNumber(),
+                            baseValues.get(i)));
+        }
 
-		// Everything ok:
-		return true;
-	}
+        // Everything ok:
+        return true;
+    }
 
-	/**
-	 * Extracts the relevant sensitivity information from the given model.
-	 */
-	protected void extractSensitivityInformation() {
+    /**
+     * Extracts the relevant sensitivity information from the given model.
+     */
+    protected void extractSensitivityInformation() {
 
-		// Declare result lists:
-		resources = new BasicEList<CommunicationLinkResourceSpecification>();
-		baseValues = new ArrayList<Double>();
+        // Declare result lists:
+        resources = new BasicEList<CommunicationLinkResourceSpecification>();
+        baseValues = new ArrayList<Double>();
 
-		// Retrieve the PCM Resource Environment:
-		ResourceEnvironment resourceEnvironment = getModel()
-				.getResourceEnvironment();
-		if (resourceEnvironment == null) {
-			// No resource environment found!
-			logger.error("No PCM ResourceEnvironment found.");
-			return;
-		}
+        // Retrieve the PCM Resource Environment:
+        ResourceEnvironment resourceEnvironment = getModel().getResourceEnvironment();
+        if (resourceEnvironment == null) {
+            // No resource environment found!
+            logger.error("No PCM ResourceEnvironment found.");
+            return;
+        }
 
-		// Search for the relevant BasicComponent:
-		EList<EObject> commResources = helper.getElements(resourceEnvironment,
-				ResourceenvironmentFactory.eINSTANCE
-						.createCommunicationLinkResourceSpecification()
-						.eClass());
-		for (EObject object : commResources) {
-			resources.add((CommunicationLinkResourceSpecification) object);
-			baseValues.add(((CommunicationLinkResourceSpecification) object)
-					.getFailureProbability());
-		}
-		if (resources.size() == 0) {
-			logger
-					.error("Did not find any CommunicationLinkResourceSpecifications "
-							+ "in the PCM ResourceEnvironment");
-		}
-	}
+        // Search for the relevant BasicComponent:
+        EList<EObject> commResources = helper.getElements(resourceEnvironment, ResourceenvironmentFactory.eINSTANCE
+                .createCommunicationLinkResourceSpecification().eClass());
+        for (EObject object : commResources) {
+            resources.add((CommunicationLinkResourceSpecification) object);
+            baseValues.add(((CommunicationLinkResourceSpecification) object).getFailureProbability());
+        }
+        if (resources.size() == 0) {
+            logger.error("Did not find any CommunicationLinkResourceSpecifications " + "in the PCM ResourceEnvironment");
+        }
+    }
 
-	/**
-	 * Builds the headings strings for logging.
-	 * 
-	 * @return the log headings strings
-	 */
-	protected List<List<String>> getLogHeadingsMulti() {
+    /**
+     * Builds the headings strings for logging.
+     * 
+     * @return the log headings strings
+     */
+    protected List<List<String>> getLogHeadingsMulti() {
 
-		// Create a result list:
-		List<List<String>> resultList = new ArrayList<List<String>>();
+        // Create a result list:
+        List<List<String>> resultList = new ArrayList<List<String>>();
 
-		// Create the headings:
-		ArrayList<String> headings = new ArrayList<String>();
-		headings.add("Network Failure Probabilities");
-		resultList.add(headings);
+        // Create the headings:
+        ArrayList<String> headings = new ArrayList<String>();
+        headings.add("Network Failure Probabilities");
+        resultList.add(headings);
 
-		// Return the result:
-		return resultList;
-	}
+        // Return the result:
+        return resultList;
+    }
 
-	/**
-	 * Builds the results strings for sensitivity logging.
-	 * 
-	 * @return the results strings
-	 */
-	protected List<String> getLogSingleResultsMulti() {
+    /**
+     * Builds the results strings for sensitivity logging.
+     * 
+     * @return the results strings
+     */
+    protected List<String> getLogSingleResultsMulti() {
 
-		// Create a result list:
-		List<String> resultList = new ArrayList<String>();
+        // Create a result list:
+        List<String> resultList = new ArrayList<String>();
 
-		// Create the result strings:
-		resultList.add(calculator.getCurrentLogEntry(getDoubleVariation(),
-				getCurrentStepNumber()));
+        // Create the result strings:
+        resultList.add(calculator.getCurrentLogEntry(getDoubleVariation(), getCurrentStepNumber()));
 
-		// Return the result:
-		return resultList;
-	}
+        // Return the result:
+        return resultList;
+    }
 }

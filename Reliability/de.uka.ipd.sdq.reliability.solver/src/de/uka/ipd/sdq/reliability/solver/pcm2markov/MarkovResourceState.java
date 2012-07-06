@@ -8,13 +8,13 @@ package de.uka.ipd.sdq.reliability.solver.pcm2markov;
  */
 public enum MarkovResourceState {
 
-	/**
-	 * The resource is broken down.
-	 */
-	NA,
+    /**
+     * The resource is broken down.
+     */
+    NA,
 
-	/**
-	 * The resource is fully functional.
-	 */
-	OK,
+    /**
+     * The resource is fully functional.
+     */
+    OK,
 }

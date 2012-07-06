@@ -26,256 +26,239 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
 import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 
 /**
- * Provides sensitivity support to alter the failure probabilities of all
- * internal actions within one component.
+ * Provides sensitivity support to alter the failure probabilities of all internal actions within
+ * one component.
  * 
  * @author brosch
  * 
  */
 public class ComponentSensitivity extends MarkovSensitivity {
 
-	/**
-	 * The list of base values of this sensitivity.
-	 */
-	private List<Double> baseValues = null;
+    /**
+     * The list of base values of this sensitivity.
+     */
+    private List<Double> baseValues = null;
 
-	/**
-	 * The ID of the component to alter.
-	 */
-	private String componentId = null;
+    /**
+     * The ID of the component to alter.
+     */
+    private String componentId = null;
 
-	/**
-	 * The name of the component to alter.
-	 */
-	private String componentName = null;
+    /**
+     * The name of the component to alter.
+     */
+    private String componentName = null;
 
-	/**
-	 * The list of affected internal failure occurrence descriptions.
-	 */
-	private List<InternalFailureOccurrenceDescription> descriptions = null;
+    /**
+     * The list of affected internal failure occurrence descriptions.
+     */
+    private List<InternalFailureOccurrenceDescription> descriptions = null;
 
-	/**
-	 * The constructor.
-	 * 
-	 * @param name
-	 *            the name of the sensitivity analysis
-	 * @param componentId
-	 *            the ID of the component to alter
-	 * @param variation
-	 *            the parameter variation
-	 */
-	public ComponentSensitivity(final String name, final String componentId,
-			final DoubleParameterVariation variation) {
+    /**
+     * The constructor.
+     * 
+     * @param name
+     *            the name of the sensitivity analysis
+     * @param componentId
+     *            the ID of the component to alter
+     * @param variation
+     *            the parameter variation
+     */
+    public ComponentSensitivity(final String name, final String componentId, final DoubleParameterVariation variation) {
 
-		// Initialize base variables:
-		super(name, variation);
+        // Initialize base variables:
+        super(name, variation);
 
-		// Further initialization:
-		this.componentId = componentId;
-	}
+        // Further initialization:
+        this.componentId = componentId;
+    }
 
-	/**
-	 * Alters the model according to the next sensitivity analysis step.
-	 * 
-	 * @return indicates if the model could be successfully altered
-	 */
-	protected boolean alterModel() {
+    /**
+     * Alters the model according to the next sensitivity analysis step.
+     * 
+     * @return indicates if the model could be successfully altered
+     */
+    protected boolean alterModel() {
 
-		// Determine the current failure probability:
-		for (int i = 0; i < descriptions.size(); i++) {
-			descriptions.get(i).setFailureProbability(
-					calculator.calculateCurrentDoubleValue(
-							getDoubleVariation(), getCurrentStepNumber(),
-							baseValues.get(i)));
-		}
+        // Determine the current failure probability:
+        for (int i = 0; i < descriptions.size(); i++) {
+            descriptions.get(i).setFailureProbability(
+                    calculator.calculateCurrentDoubleValue(getDoubleVariation(), getCurrentStepNumber(),
+                            baseValues.get(i)));
+        }
 
-		// Everything ok:
-		return true;
-	}
+        // Everything ok:
+        return true;
+    }
 
-	/**
-	 * Extracts the relevant sensitivity information from the given model.
-	 */
-	protected void extractSensitivityInformation() {
+    /**
+     * Extracts the relevant sensitivity information from the given model.
+     */
+    protected void extractSensitivityInformation() {
 
-		// Declare the result variables:
-		descriptions = new BasicEList<InternalFailureOccurrenceDescription>();
-		baseValues = new ArrayList<Double>();
+        // Declare the result variables:
+        descriptions = new BasicEList<InternalFailureOccurrenceDescription>();
+        baseValues = new ArrayList<Double>();
 
-		// Retrieve the involved internal actions:
-		List<InternalAction> internalActions = getInternalActions();
-		if (internalActions == null) {
-			logger
-					.error("Did not find any InternalActions for BasicComponent \""
-							+ componentName + "\" <ID=" + componentId + ">");
-			return;
-		}
+        // Retrieve the involved internal actions:
+        List<InternalAction> internalActions = getInternalActions();
+        if (internalActions == null) {
+            logger.error("Did not find any InternalActions for BasicComponent \"" + componentName + "\" <ID="
+                    + componentId + ">");
+            return;
+        }
 
-		// Build the list of internal failure occurrence descriptions:
-		for (InternalAction action : internalActions) {
-			for (InternalFailureOccurrenceDescription description : action
-					.getInternalFailureOccurrenceDescriptions__InternalAction()) {
-				descriptions.add(description);
-				baseValues.add(description.getFailureProbability());
-			}
-		}
-	}
+        // Build the list of internal failure occurrence descriptions:
+        for (InternalAction action : internalActions) {
+            for (InternalFailureOccurrenceDescription description : action
+                    .getInternalFailureOccurrenceDescriptions__InternalAction()) {
+                descriptions.add(description);
+                baseValues.add(description.getFailureProbability());
+            }
+        }
+    }
 
-	/**
-	 * Retrieves the relevant basic component.
-	 * 
-	 * @return the basic component
-	 */
-	private BasicComponent getBasicComponent() {
+    /**
+     * Retrieves the relevant basic component.
+     * 
+     * @return the basic component
+     */
+    private BasicComponent getBasicComponent() {
 
-		// Retrieve all BasicComponents in the PCM Repository:
-		List<Repository> repositories = getModel().getRepositories();
-		if (repositories.size() == 0) {
-			// No repository found!
-			logger.error("No PCM Repositories found.");
-			return null;
-		}
+        // Retrieve all BasicComponents in the PCM Repository:
+        List<Repository> repositories = getModel().getRepositories();
+        if (repositories.size() == 0) {
+            // No repository found!
+            logger.error("No PCM Repositories found.");
+            return null;
+        }
 
-		// Search for the relevant BasicComponent:
-		for (Repository repository : repositories) {
-			EList<EObject> components = helper
-					.getElements(repository, RepositoryFactory.eINSTANCE
-							.createBasicComponent().eClass());
-			for (EObject object : components) {
-				if (((BasicComponent) object).getId().equals(componentId)) {
-					componentName = ((BasicComponent) object).getEntityName();
-					return (BasicComponent) object;
-				}
-			}
-		}
+        // Search for the relevant BasicComponent:
+        for (Repository repository : repositories) {
+            EList<EObject> components = helper.getElements(repository, RepositoryFactory.eINSTANCE
+                    .createBasicComponent().eClass());
+            for (EObject object : components) {
+                if (((BasicComponent) object).getId().equals(componentId)) {
+                    componentName = ((BasicComponent) object).getEntityName();
+                    return (BasicComponent) object;
+                }
+            }
+        }
 
-		// Nothing found:
-		logger.error("BasicComponent \"" + componentName + "\" <ID="
-				+ componentId + "> not found.");
-		return null;
-	}
+        // Nothing found:
+        logger.error("BasicComponent \"" + componentName + "\" <ID=" + componentId + "> not found.");
+        return null;
+    }
 
-	/**
-	 * Retrieves the list of involved internal actions.
-	 * 
-	 * @return the list of internal actions
-	 */
-	private List<InternalAction> getInternalActions() {
+    /**
+     * Retrieves the list of involved internal actions.
+     * 
+     * @return the list of internal actions
+     */
+    private List<InternalAction> getInternalActions() {
 
-		// Retrieve the relevant BasicComponent:
-		BasicComponent component = getBasicComponent();
-		if (component == null) {
-			return null;
-		}
+        // Retrieve the relevant BasicComponent:
+        BasicComponent component = getBasicComponent();
+        if (component == null) {
+            return null;
+        }
 
-		// Build the list of internal actions over all SEFFs of the component:
-		List<InternalAction> resultList = new BasicEList<InternalAction>();
-		for (ServiceEffectSpecification specifiction : component
-				.getServiceEffectSpecifications__BasicComponent()) {
-			if (specifiction instanceof ResourceDemandingSEFF) {
-				resultList
-						.addAll(getInternalActionsForBehaviour((ResourceDemandingSEFF) specifiction));
-			}
-		}
+        // Build the list of internal actions over all SEFFs of the component:
+        List<InternalAction> resultList = new BasicEList<InternalAction>();
+        for (ServiceEffectSpecification specifiction : component.getServiceEffectSpecifications__BasicComponent()) {
+            if (specifiction instanceof ResourceDemandingSEFF) {
+                resultList.addAll(getInternalActionsForBehaviour((ResourceDemandingSEFF) specifiction));
+            }
+        }
 
-		// Return the result:
-		return resultList;
-	}
+        // Return the result:
+        return resultList;
+    }
 
-	/**
-	 * Retrieves the list of internal actions within the given behaviour.
-	 * 
-	 * @param behaviour
-	 *            the behaviour
-	 * @return the list of contained internal actions
-	 */
-	private List<InternalAction> getInternalActionsForBehaviour(
-			final ResourceDemandingBehaviour behaviour) {
+    /**
+     * Retrieves the list of internal actions within the given behaviour.
+     * 
+     * @param behaviour
+     *            the behaviour
+     * @return the list of contained internal actions
+     */
+    private List<InternalAction> getInternalActionsForBehaviour(final ResourceDemandingBehaviour behaviour) {
 
-		// Build the list of internal actions over all steps in the behaviour:
-		List<InternalAction> resultList = new BasicEList<InternalAction>();
-		for (AbstractAction action : behaviour.getSteps_Behaviour()) {
-			if (action instanceof InternalAction) {
-				resultList.add((InternalAction) action);
-			} else if (action instanceof AbstractLoopAction) {
-				resultList
-						.addAll(getInternalActionsForBehaviour(((AbstractLoopAction) action)
-								.getBodyBehaviour_Loop()));
-			} else if (action instanceof BranchAction) {
-				for (AbstractBranchTransition transition : ((BranchAction) action)
-						.getBranches_Branch()) {
-					resultList.addAll(getInternalActionsForBehaviour(transition
-							.getBranchBehaviour_BranchTransition()));
-				}
-			} else if (action instanceof RecoveryAction) {
-				for (RecoveryActionBehaviour recoveryBehaviour : ((RecoveryAction) action)
-						.getRecoveryActionBehaviours__RecoveryAction()) {
-					resultList
-							.addAll(getInternalActionsForBehaviour(recoveryBehaviour));
-				}
-			} else if (action instanceof ForkAction) {
-				if (((ForkAction) action)
-						.getAsynchronousForkedBehaviours_ForkAction() != null) {
-					for (ForkedBehaviour forkedBehaviour : ((ForkAction) action)
-							.getAsynchronousForkedBehaviours_ForkAction()) {
-						resultList
-								.addAll(getInternalActionsForBehaviour(forkedBehaviour));
-					}
-				}
-				if (((ForkAction) action)
-						.getSynchronisingBehaviours_ForkAction() != null) {
-					for (ForkedBehaviour forkedBehaviour : ((ForkAction) action)
-							.getSynchronisingBehaviours_ForkAction()
-							.getSynchronousForkedBehaviours_SynchronisationPoint()) {
-						resultList
-								.addAll(getInternalActionsForBehaviour(forkedBehaviour));
-					}
-				}
-			}
-		}
+        // Build the list of internal actions over all steps in the behaviour:
+        List<InternalAction> resultList = new BasicEList<InternalAction>();
+        for (AbstractAction action : behaviour.getSteps_Behaviour()) {
+            if (action instanceof InternalAction) {
+                resultList.add((InternalAction) action);
+            } else if (action instanceof AbstractLoopAction) {
+                resultList
+                        .addAll(getInternalActionsForBehaviour(((AbstractLoopAction) action).getBodyBehaviour_Loop()));
+            } else if (action instanceof BranchAction) {
+                for (AbstractBranchTransition transition : ((BranchAction) action).getBranches_Branch()) {
+                    resultList.addAll(getInternalActionsForBehaviour(transition.getBranchBehaviour_BranchTransition()));
+                }
+            } else if (action instanceof RecoveryAction) {
+                for (RecoveryActionBehaviour recoveryBehaviour : ((RecoveryAction) action)
+                        .getRecoveryActionBehaviours__RecoveryAction()) {
+                    resultList.addAll(getInternalActionsForBehaviour(recoveryBehaviour));
+                }
+            } else if (action instanceof ForkAction) {
+                if (((ForkAction) action).getAsynchronousForkedBehaviours_ForkAction() != null) {
+                    for (ForkedBehaviour forkedBehaviour : ((ForkAction) action)
+                            .getAsynchronousForkedBehaviours_ForkAction()) {
+                        resultList.addAll(getInternalActionsForBehaviour(forkedBehaviour));
+                    }
+                }
+                if (((ForkAction) action).getSynchronisingBehaviours_ForkAction() != null) {
+                    for (ForkedBehaviour forkedBehaviour : ((ForkAction) action)
+                            .getSynchronisingBehaviours_ForkAction()
+                            .getSynchronousForkedBehaviours_SynchronisationPoint()) {
+                        resultList.addAll(getInternalActionsForBehaviour(forkedBehaviour));
+                    }
+                }
+            }
+        }
 
-		// Return the result:
-		return resultList;
-	}
+        // Return the result:
+        return resultList;
+    }
 
-	/**
-	 * Builds the headings strings for logging.
-	 * 
-	 * @return the log headings strings
-	 */
-	protected List<List<String>> getLogHeadingsMulti() {
+    /**
+     * Builds the headings strings for logging.
+     * 
+     * @return the log headings strings
+     */
+    protected List<List<String>> getLogHeadingsMulti() {
 
-		// Create a result list:
-		List<List<String>> resultList = new ArrayList<List<String>>();
+        // Create a result list:
+        List<List<String>> resultList = new ArrayList<List<String>>();
 
-		// Create the headings:
-		ArrayList<String> headings = new ArrayList<String>();
-		headings.add("Component Name");
-		headings.add("Component ID");
-		headings.add("Failure Probability");
-		resultList.add(headings);
+        // Create the headings:
+        ArrayList<String> headings = new ArrayList<String>();
+        headings.add("Component Name");
+        headings.add("Component ID");
+        headings.add("Failure Probability");
+        resultList.add(headings);
 
-		// Return the result:
-		return resultList;
-	}
+        // Return the result:
+        return resultList;
+    }
 
-	/**
-	 * Builds the results strings for sensitivity logging.
-	 * 
-	 * @return the results strings
-	 */
-	protected List<String> getLogSingleResultsMulti() {
+    /**
+     * Builds the results strings for sensitivity logging.
+     * 
+     * @return the results strings
+     */
+    protected List<String> getLogSingleResultsMulti() {
 
-		// Create a result list:
-		List<String> resultList = new ArrayList<String>();
+        // Create a result list:
+        List<String> resultList = new ArrayList<String>();
 
-		// Create the result strings:
-		resultList.add(componentName);
-		resultList.add(componentId);
-		resultList.add(calculator.getCurrentLogEntry(getDoubleVariation(),
-				getCurrentStepNumber()));
+        // Create the result strings:
+        resultList.add(componentName);
+        resultList.add(componentId);
+        resultList.add(calculator.getCurrentLogEntry(getDoubleVariation(), getCurrentStepNumber()));
 
-		// Return the result:
-		return resultList;
-	}
+        // Return the result:
+        return resultList;
+    }
 }

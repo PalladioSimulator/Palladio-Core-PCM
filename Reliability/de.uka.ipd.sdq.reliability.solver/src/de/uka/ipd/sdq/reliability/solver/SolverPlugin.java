@@ -7,8 +7,8 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
  */
 public class SolverPlugin extends AbstractUIPlugin {
 
-	/**
-	 * The plug-in ID.
-	 */
-	public static final String PLUGIN_ID = "de.uka.ipd.sdq.reliability.solver";
+    /**
+     * The plug-in ID.
+     */
+    public static final String PLUGIN_ID = "de.uka.ipd.sdq.reliability.solver";
 }

@@ -18,106 +18,95 @@ import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
 /**
- * Controls the PCM Reliability Solver process when launched from the eclipse
- * UI.
+ * Controls the PCM Reliability Solver process when launched from the eclipse UI.
  * 
  * @author brosch,
  * 
  */
-public class RunPCMReliabilityAnalysisJob implements
-		IBlackboardInteractingJob<MDSDBlackboard> {
+public class RunPCMReliabilityAnalysisJob implements IBlackboardInteractingJob<MDSDBlackboard> {
 
-	/**
-	 * Enables log4j logging for this class.
-	 */
-	private static Logger logger = Logger
-			.getLogger(RunPCMReliabilityAnalysisJob.class.getName());
+    /**
+     * Enables log4j logging for this class.
+     */
+    private static Logger logger = Logger.getLogger(RunPCMReliabilityAnalysisJob.class.getName());
 
-	/**
-	 * Blackboard for passing EMF model resources between jobs in the workflow.
-	 */
-	private MDSDBlackboard blackboard;
+    /**
+     * Blackboard for passing EMF model resources between jobs in the workflow.
+     */
+    private MDSDBlackboard blackboard;
 
-	/**
-	 * The strategy for reliability modelling & transformation.
-	 */
-	private Pcm2MarkovStrategy strategy;
+    /**
+     * The strategy for reliability modelling & transformation.
+     */
+    private Pcm2MarkovStrategy strategy;
 
-	/**
-	 * The constructor.
-	 * 
-	 * Configures the PCM Solver process according to the launch configuration
-	 * defined by the user.
-	 * 
-	 * @param configuration
-	 *            the solver configuration object
-	 */
-	public RunPCMReliabilityAnalysisJob(
-			final PCMSolverWorkflowRunConfiguration configuration) {
+    /**
+     * The constructor.
+     * 
+     * Configures the PCM Solver process according to the launch configuration defined by the user.
+     * 
+     * @param configuration
+     *            the solver configuration object
+     */
+    public RunPCMReliabilityAnalysisJob(final PCMSolverWorkflowRunConfiguration configuration) {
 
-		// Configure the PCM Solver process:
-		PDFConfiguration.setCurrentConfiguration(configuration.getDomainSize(),
-				configuration.getDistance(),
-				IProbabilityFunctionFactory.eINSTANCE.createDefaultUnit());
-		if (configuration.isReliabilityAnalysis()) {
-			strategy = new Pcm2MarkovStrategy(configuration);
-		} else {
-			throw new RuntimeException(
-					"Invoked reliability analysis with incompatible configuration data!");
-		}
-	}
+        // Configure the PCM Solver process:
+        PDFConfiguration.setCurrentConfiguration(configuration.getDomainSize(), configuration.getDistance(),
+                IProbabilityFunctionFactory.eINSTANCE.createDefaultUnit());
+        if (configuration.isReliabilityAnalysis()) {
+            strategy = new Pcm2MarkovStrategy(configuration);
+        } else {
+            throw new RuntimeException("Invoked reliability analysis with incompatible configuration data!");
+        }
+    }
 
-	/**
-	 * Executes the Solver workflow.
-	 * 
-	 * @param monitor
-	 *            the progress monitor
-	 * @throws JobFailedException
-	 *             indicates that one of the jobs in the workflow was not
-	 *             successfully completed
-	 * @throws UserCanceledException
-	 *             indicates that the user has canceled the workflow before
-	 *             completion
-	 */
-	public void execute(final IProgressMonitor monitor)
-			throws JobFailedException, UserCanceledException {
+    /**
+     * Executes the Solver workflow.
+     * 
+     * @param monitor
+     *            the progress monitor
+     * @throws JobFailedException
+     *             indicates that one of the jobs in the workflow was not successfully completed
+     * @throws UserCanceledException
+     *             indicates that the user has canceled the workflow before completion
+     */
+    public void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
 
-		// Determine the PCM model parts from the launch configuration:
-		PCMInstance currentModel = new PCMInstance(
-				(PCMResourceSetPartition) this.blackboard
-						.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID));
+        // Determine the PCM model parts from the launch configuration:
+        PCMInstance currentModel = new PCMInstance(
+                (PCMResourceSetPartition) this.blackboard
+                        .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID));
 
-		// Check the model for being valid:
-		if (!currentModel.isValid()) {
-			logger.error("PCM Instance invalid! Check filenames.");
-			return;
-		}
+        // Check the model for being valid:
+        if (!currentModel.isValid()) {
+            logger.error("PCM Instance invalid! Check filenames.");
+            return;
+        }
 
-		// Only a very coarse progress monitoring is supported, which assigns
-		// 50% progress to the execution of the involved transformation(s), and
-		// 50% to the final solving:
-		monitor.beginTask("Analysis", 100);
-		strategy.transform(currentModel);
-		monitor.worked(50);
-		strategy.solve();
-		monitor.worked(50);
-	}
+        // Only a very coarse progress monitoring is supported, which assigns
+        // 50% progress to the execution of the involved transformation(s), and
+        // 50% to the final solving:
+        monitor.beginTask("Analysis", 100);
+        strategy.transform(currentModel);
+        monitor.worked(50);
+        strategy.solve();
+        monitor.worked(50);
+    }
 
-	public String getName() {
-		return "Run PCM Reliability Analysis";
-	}
+    public String getName() {
+        return "Run PCM Reliability Analysis";
+    }
 
-	public SolverStrategy getStrategy() {
-		return strategy;
-	}
+    public SolverStrategy getStrategy() {
+        return strategy;
+    }
 
-	public void rollback(IProgressMonitor monitor)
-			throws RollbackFailedException {
-		// Nothing to do here
-	}
+    public void rollback(IProgressMonitor monitor) throws RollbackFailedException {
+        // Nothing to do here
+    }
 
-	@Override
-	public void setBlackboard(MDSDBlackboard blackboard) {
-		this.blackboard = blackboard;
-	}
+    @Override
+    public void setBlackboard(MDSDBlackboard blackboard) {
+        this.blackboard = blackboard;
+    }
 }

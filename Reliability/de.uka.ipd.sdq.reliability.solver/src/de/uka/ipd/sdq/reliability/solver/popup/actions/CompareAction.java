@@ -13,50 +13,50 @@ import de.uka.ipd.sdq.reliability.solver.helper.LoggingHelper;
 
 public class CompareAction implements IObjectActionDelegate {
 
-	/**
-	 * Supports logging functionality.
-	 */
-	private LoggingHelper loggingHelper = LoggingHelper.getSingletonInstance();
+    /**
+     * Supports logging functionality.
+     */
+    private LoggingHelper loggingHelper = LoggingHelper.getSingletonInstance();
 
-	/**
-	 * The user's selection.
-	 */
-	private ISelection selection;
+    /**
+     * The user's selection.
+     */
+    private ISelection selection;
 
-	/**
-	 * Constructor for CompareAction.
-	 */
-	public CompareAction() {
-		super();
-	}
+    /**
+     * Constructor for CompareAction.
+     */
+    public CompareAction() {
+        super();
+    }
 
-	/**
-	 * @see IActionDelegate#run(IAction)
-	 */
-	public void run(IAction action) {
+    /**
+     * @see IActionDelegate#run(IAction)
+     */
+    public void run(IAction action) {
 
-		// Setup logging:
-		loggingHelper.initializeLogging();
+        // Setup logging:
+        loggingHelper.initializeLogging();
 
-		// We assume exactly two *.markov files to be selected:
-		Object[] selectedObjects = ((IStructuredSelection) selection).toArray();
-		new MarkovComparator().compare(((IFile) selectedObjects[0])
-				.getLocation().toString(), // first file
-				((IFile) selectedObjects[1]).getLocation().toString()); // second
-		// file
-	}
+        // We assume exactly two *.markov files to be selected:
+        Object[] selectedObjects = ((IStructuredSelection) selection).toArray();
+        new MarkovComparator().compare(((IFile) selectedObjects[0]).getLocation().toString(), // first
+                                                                                              // file
+                ((IFile) selectedObjects[1]).getLocation().toString()); // second
+        // file
+    }
 
-	/**
-	 * @see IActionDelegate#selectionChanged(IAction, ISelection)
-	 */
-	public void selectionChanged(IAction action, ISelection selection) {
-		this.selection = selection;
-	}
+    /**
+     * @see IActionDelegate#selectionChanged(IAction, ISelection)
+     */
+    public void selectionChanged(IAction action, ISelection selection) {
+        this.selection = selection;
+    }
 
-	/**
-	 * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
-	 */
-	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
+    /**
+     * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
+     */
+    public void setActivePart(IAction action, IWorkbenchPart targetPart) {
 
-	}
+    }
 }

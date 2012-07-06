@@ -13,53 +13,51 @@ import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 /**
- * This class provides additional functionality for the Markov Test Cases. To
- * use this functionality, the Test Case has to be run as a JUnit Plug-in Test
- * (not only a JUnit Test).
+ * This class provides additional functionality for the Markov Test Cases. To use this
+ * functionality, the Test Case has to be run as a JUnit Plug-in Test (not only a JUnit Test).
  * 
  * @author brosch
  * 
  */
 public class MarkovTestHelper {
 
-	/**
-	 * Searches a tree of PCM model elements for an element with a certain GUID.
-	 * Returns a reference to this element.
-	 * 
-	 * @param root
-	 *            the root element of the tree to search
-	 * @param guid
-	 *            the guid of the element to find
-	 * @return the reference to the element
-	 */
-	public Identifier getModelElement(final Identifier root, final String guid) {
+    /**
+     * Searches a tree of PCM model elements for an element with a certain GUID. Returns a reference
+     * to this element.
+     * 
+     * @param root
+     *            the root element of the tree to search
+     * @param guid
+     *            the guid of the element to find
+     * @return the reference to the element
+     */
+    public Identifier getModelElement(final Identifier root, final String guid) {
 
-		// Search for a string which equals the given GUID:
-		Condition isGuidValue = new StringValue(guid);
+        // Search for a string which equals the given GUID:
+        Condition isGuidValue = new StringValue(guid);
 
-		// Search for an identifier whose ID equals the given GUID:
-		EObjectCondition hasGuidValue = new EObjectAttributeValueCondition(
-				IdentifierPackage.Literals.IDENTIFIER__ID, isGuidValue);
+        // Search for an identifier whose ID equals the given GUID:
+        EObjectCondition hasGuidValue = new EObjectAttributeValueCondition(IdentifierPackage.Literals.IDENTIFIER__ID,
+                isGuidValue);
 
-		// Perform an EMF Model Query:
-		IQueryResult queryResult = new SELECT(new FROM(root), new WHERE(
-				hasGuidValue)).execute();
+        // Perform an EMF Model Query:
+        IQueryResult queryResult = new SELECT(new FROM(root), new WHERE(hasGuidValue)).execute();
 
-		// Return the first element that matches the condition:
-		for (Object next : queryResult) {
-			return (Identifier) next;
-		}
+        // Return the first element that matches the condition:
+        for (Object next : queryResult) {
+            return (Identifier) next;
+        }
 
-		// Another possibility would be to use an OCL Query:
-		// OCL ocl = org.eclipse.ocl.ecore.OCL.newInstance();
-		// EObjectCondition guidCondition =
-		// new BooleanOCLCondition<EClassifier, EClass, EObject>(
-		// ocl.getEnvironment(), "self.id = '" + guid + "'",
-		// IdentifierPackage.Literals.IDENTIFIER);
-		// IQueryResult queryResult = new SELECT(new FROM(root), new WHERE(
-		// guidCondition)).execute();
+        // Another possibility would be to use an OCL Query:
+        // OCL ocl = org.eclipse.ocl.ecore.OCL.newInstance();
+        // EObjectCondition guidCondition =
+        // new BooleanOCLCondition<EClassifier, EClass, EObject>(
+        // ocl.getEnvironment(), "self.id = '" + guid + "'",
+        // IdentifierPackage.Literals.IDENTIFIER);
+        // IQueryResult queryResult = new SELECT(new FROM(root), new WHERE(
+        // guidCondition)).execute();
 
-		// Nothing found:
-		return null;
-	}
+        // Nothing found:
+        return null;
+    }
 }

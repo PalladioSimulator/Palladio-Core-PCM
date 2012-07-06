@@ -17,31 +17,29 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.PCMWorkflowJobBuilder;
  */
 public class ReliabilityWorkflowJobBuilder extends PCMWorkflowJobBuilder {
 
-	/**
-	 * Eclipse launch object which is passed to the top-level job.
-	 */
-	private ILaunch launch;
+    /**
+     * Eclipse launch object which is passed to the top-level job.
+     */
+    private ILaunch launch;
 
-	/**
-	 * The constructor.
-	 * 
-	 * @param launch
-	 *            the launch object
-	 */
-	public ReliabilityWorkflowJobBuilder(ILaunch launch) {
-		this.launch = launch;
-	}
+    /**
+     * The constructor.
+     * 
+     * @param launch
+     *            the launch object
+     */
+    public ReliabilityWorkflowJobBuilder(ILaunch launch) {
+        this.launch = launch;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.uka.ipd.sdq.workflow.pcm.jobs.PCMWorkflowJobBuilder#buildJob(de.uka
-	 * .ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration)
-	 */
-	public IJob buildJob(AbstractPCMWorkflowRunConfiguration config) {
-		return new PCMSolverReliabilityJob(
-				(PCMSolverWorkflowRunConfiguration) config, launch);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.workflow.pcm.jobs.PCMWorkflowJobBuilder#buildJob(de.uka
+     * .ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration)
+     */
+    public IJob buildJob(AbstractPCMWorkflowRunConfiguration config) {
+        return new PCMSolverReliabilityJob((PCMSolverWorkflowRunConfiguration) config, launch);
+    }
 
 }
