@@ -11,9 +11,7 @@ import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
  */
 public class ReliabilityExtensionJob extends AbstractSimuComExtensionJob {
 
-    /**
-     * @see de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob#execute(org.eclipse.core.runtime.IProgressMonitor)
-     */
+    @Override
     public final void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
         ReliabilityExtensionJobConfiguration configuration = (ReliabilityExtensionJobConfiguration) getJobConfiguration();
         if (configuration.isSimulateFailures()) {

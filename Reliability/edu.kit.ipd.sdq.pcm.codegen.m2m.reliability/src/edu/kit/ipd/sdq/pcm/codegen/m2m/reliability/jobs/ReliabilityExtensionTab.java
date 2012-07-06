@@ -33,9 +33,7 @@ public class ReliabilityExtensionTab extends AbstractLaunchConfigurationTab {
      */
     private Button simulateFailuresButton;
 
-    /**
-     * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
-     */
+    @Override
     public final void createControl(final Composite parent) {
 
         final SelectionListener selectionListener = new SelectionListener() {
@@ -84,16 +82,12 @@ public class ReliabilityExtensionTab extends AbstractLaunchConfigurationTab {
         }
     }
 
-    /**
-     * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
-     */
+    @Override
     public final void performApply(final ILaunchConfigurationWorkingCopy configuration) {
         configuration.setAttribute(SIMULATE_FAILURES, this.simulateFailuresButton.getSelection());
     }
 
-    /**
-     * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
-     */
+    @Override
     public final void setDefaults(final ILaunchConfigurationWorkingCopy configuration) {
         configuration.setAttribute(SIMULATE_FAILURES, DEFAULT_SIMULATE_FAILURES);
     }
