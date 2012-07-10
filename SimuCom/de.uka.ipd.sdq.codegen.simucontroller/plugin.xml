@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="de.uka.ipd.sdq.codegen.simucontroller.simulator" name="Palladio Simulator" schema="schema/de.uka.ipd.sdq.codegen.simucontroller.simulator.exsd"/>
+	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
+	    <launchConfigurationType
+           delegate="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimulationWorkflowLauncher"
+           id="de.uka.ipd.sdq.simucontroller.SimuLaunching"
+           modes="run, debug"
+           name="SimuBench"
+           public="true">        
+	    </launchConfigurationType>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+	    <launchConfigurationTypeImage
+	        icon="icons/app_simucim.gif"
+	        configTypeID="de.uka.ipd.sdq.simucontroller.SimuLaunching"
+	        id="de.uka.ipd.sdq.simucontroller.launchConfigurationTypeImage">
+	    </launchConfigurationTypeImage>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	        type="de.uka.ipd.sdq.simucontroller.SimuLaunching"
+	        class="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuTabGroup"
+	        id="de.uka.ipd.sdq.simucontroller.launchConfigurationTabGroup">
+	    </launchConfigurationTabGroup>
+	</extension>
+ <extension
+       point="org.eclipse.ui.views">
+    <view
+          allowMultiple="false"
+          class="de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusViewPart"
+          icon="icons/screen_blue_small.gif"
+          id="de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusViewPart"
+          name="Simulation Dock Status">
+    </view>
+ </extension>
+ <extension
+       point="de.uka.ipd.sdq.codegen.simucontroller.simulator">
+    <simulator
+          id="de.uka.ipd.sdq.codegen.simucontroller.simucom"
+          launchDelegate="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowLauncher"
+          name="SimuCom (Process-Driven Simulation)">
+    </simulator>
+ </extension>
+
+	
+</plugin>
