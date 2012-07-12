@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.simucomframework;
 
 import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
-import de.uka.ipd.sdq.probespec.framework.ProbeSetAndRequestContext;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.probespec.framework.garbagecollection.RegionBasedGarbageCollector;
 
@@ -29,8 +28,8 @@ public class SimuComGarbageCollector extends
 	}
 
 	@Override
-	public RequestContext obtainRegionId(ProbeSetAndRequestContext sampleId) {
-		return sampleId.getCtxID().rootContext();
+	public RequestContext obtainRegionId(RequestContext requestContext) {
+		return requestContext.rootContext();
 	}
 
 }

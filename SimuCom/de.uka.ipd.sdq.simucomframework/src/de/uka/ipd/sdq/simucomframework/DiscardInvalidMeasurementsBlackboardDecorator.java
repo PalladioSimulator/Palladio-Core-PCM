@@ -1,8 +1,13 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.measure.quantity.Quantity;
+
 import de.uka.ipd.sdq.probespec.framework.IBlackboardListener;
 import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
-import de.uka.ipd.sdq.probespec.framework.ProbeSetAndRequestContext;
+import de.uka.ipd.sdq.probespec.framework.ProbeSample;
 import de.uka.ipd.sdq.probespec.framework.ProbeSetSample;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
@@ -30,26 +35,46 @@ public class DiscardInvalidMeasurementsBlackboardDecorator implements
 		decorated.addBlackboardListener(l, topics);
 	}
 
-	public void addSample(ProbeSetSample pss) {
+	public void addSample(ProbeSample<?, ? extends Quantity> sample,
+			RequestContext requestContextID, Integer probeSetId) {
 		if (simControl.isRunning()) {
-			decorated.addSample(pss);
+			List<ProbeSample<?, ? extends Quantity>> samples = new ArrayList<ProbeSample<?,? extends Quantity>>();
+			samples.add(sample);
+			decorated.addSample(samples, requestContextID, probeSetId);
 		}
 	}
 	
-	public void addSampleAfterSimulationEnd(ProbeSetSample pss) {
-		decorated.addSample(pss);
+	public void addSample(List<ProbeSample<?, ? extends Quantity>> samples,
+			RequestContext requestContextID, Integer probeSetId) {
+		if (simControl.isRunning()) {
+			decorated.addSample(samples, requestContextID, probeSetId);
+		}
+	}
+	
+	public void addSampleAfterSimulationEnd(ProbeSample<?, ? extends Quantity> sample,
+			RequestContext requestContextID, Integer probeSetId) {
+		List<ProbeSample<?, ? extends Quantity>> samples = new ArrayList<ProbeSample<?,? extends Quantity>>();
+		samples.add(sample);
+		decorated.addSample(samples, requestContextID, probeSetId);
+	}
+	
+	public void addSampleAfterSimulationEnd(List<ProbeSample<?, ? extends Quantity>> samples,
+			RequestContext requestContextID, Integer probeSetId) {
+		decorated.addSample(samples, requestContextID, probeSetId);
 	}
 
-	public void deleteSample(ProbeSetAndRequestContext pss) {
-		decorated.deleteSample(pss);
+	@Override
+	public void deleteSampleSet(RequestContext requestContext, Integer probeSetID) {
+		decorated.deleteSampleSet(requestContext, probeSetID);
 	}
 
 	public void deleteSamplesInRequestContext(RequestContext requestContext) {
 		decorated.deleteSamplesInRequestContext(requestContext);
 	}
 
-	public ProbeSetSample getSample(ProbeSetAndRequestContext probeSetSampleID) {
-		return decorated.getSample(probeSetSampleID);
+	@Override
+	public ProbeSetSample getSample(RequestContext requestContext, Integer probeSetID) {
+		return decorated.getSample(requestContext, probeSetID);
 	}
 
 	public int size() {

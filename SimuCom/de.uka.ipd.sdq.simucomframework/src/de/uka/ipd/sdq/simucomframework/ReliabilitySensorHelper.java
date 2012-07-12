@@ -1,13 +1,14 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.measure.quantity.Quantity;
 
 import de.uka.ipd.sdq.probespec.framework.ProbeSample;
-import de.uka.ipd.sdq.probespec.framework.ProbeSetSample;
 import de.uka.ipd.sdq.probespec.framework.ProbeType;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategy;
-import de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
@@ -126,15 +127,17 @@ public class ReliabilitySensorHelper {
 				failureType);
 		int probeSetId = model.getProbeSpecContext().obtainProbeSetId(
 				getScenarioProbeSetId(usageScenarioId));
-		ProbeSample<?, ? extends Quantity> timeSample = takeTimeStrategy
+		
+		List<ProbeSample<?, ? extends Quantity>> samples = new ArrayList<ProbeSample<?, ? extends Quantity>>();
+		
+		samples.add(takeTimeStrategy
 				.takeSample(SCENARIO_RESULT_TIME_PROBE_ID + "/"
-						+ usageScenarioId, model.getSimulationControl());
-		ProbeSample<?, ? extends Quantity> stateSample = takeResultStrategy
+						+ usageScenarioId, model.getSimulationControl()));
+		samples.add(takeResultStrategy
 				.takeSample(SCENARIO_RESULT_STATE_PROBE_ID + "/"
-						+ usageScenarioId, stateId);
-		ProbeSetSample sample = ProbeSpecUtils.buildProbeSetSample(timeSample,
-				stateSample, requestContext, usageScenarioId, probeSetId);
-		model.getProbeSpecContext().getSampleBlackboard().addSample(sample);
+						+ usageScenarioId, stateId));
+		
+		model.getProbeSpecContext().getSampleBlackboard().addSample(samples, requestContext, probeSetId);
 	}
 
 	/**
@@ -168,14 +171,15 @@ public class ReliabilitySensorHelper {
 		int stateId = FailureStatistics.getInstance().getExecutionResultId(
 				failureType);
 		int probeSetId = model.getProbeSpecContext().obtainProbeSetId(callName);
-		ProbeSample<?, ? extends Quantity> timeSample = takeTimeStrategy
+		
+		List<ProbeSample<?, ? extends Quantity>> samples = new ArrayList<ProbeSample<?, ? extends Quantity>>();
+		samples.add(takeTimeStrategy
 				.takeSample(EXTERNAL_CALL_RESULT_TIME_PROBE_ID + "/"
-						+ probeSetId, model.getSimulationControl());
-		ProbeSample<?, ? extends Quantity> stateSample = takeResultStrategy
+						+ probeSetId, model.getSimulationControl()));
+		samples.add(takeResultStrategy
 				.takeSample(EXTERNAL_CALL_RESULT_STATE_PROBE_ID + "/"
-						+ probeSetId, stateId);
-		ProbeSetSample sample = ProbeSpecUtils.buildProbeSetSample(timeSample,
-				stateSample, requestContext, externalCallId, probeSetId);
-		model.getProbeSpecContext().getSampleBlackboard().addSample(sample);
+						+ probeSetId, stateId));
+
+		model.getProbeSpecContext().getSampleBlackboard().addSample(samples, requestContext, probeSetId);
 	}
 }

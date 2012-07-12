@@ -1,5 +1,10 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.measure.quantity.Quantity;
+
 import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
 import de.uka.ipd.sdq.probespec.framework.ProbeSample;
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
@@ -10,7 +15,6 @@ import de.uka.ipd.sdq.probespec.framework.calculator.HoldTimeCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.StateCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.WaitingTimeCalculator;
 import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategy;
-import de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
@@ -55,9 +59,8 @@ public class CalculatorHelper {
                 ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
 
                 // build ProbeSetSample and publish it on the blackboard
-                ctx.getSampleBlackboard().addSample(
-                        ProbeSpecUtils.buildProbeSetSample(currentTimeSample, ((SimuComSimProcess) process)
-                                .getRequestContext(), "", startWaitingProbeSetId));
+                ctx.getSampleBlackboard().addSample(currentTimeSample, ((SimuComSimProcess) process)
+                                .getRequestContext(), startWaitingProbeSetId);
             }
 
             @Override
@@ -66,9 +69,8 @@ public class CalculatorHelper {
                 ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
 
                 // build ProbeSetSample and publish it on the blackboard
-                ctx.getSampleBlackboard().addSample(
-                        ProbeSpecUtils.buildProbeSetSample(currentTimeSample, ((SimuComSimProcess) process)
-                                .getRequestContext(), "", stopWaitingProbeSetId));
+                ctx.getSampleBlackboard().addSample(currentTimeSample, ((SimuComSimProcess) process)
+                                .getRequestContext(), stopWaitingProbeSetId);
 
             }
 
@@ -114,9 +116,8 @@ public class CalculatorHelper {
                 ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
 
                 // build ProbeSetSample and publish it on the blackboard
-                ctx.getSampleBlackboard().addSample(
-                        ProbeSpecUtils.buildProbeSetSample(currentTimeSample, ((SimuComSimProcess) process)
-                                .getRequestContext(), "", startHoldProbeSetId));
+                ctx.getSampleBlackboard().addSample(currentTimeSample, ((SimuComSimProcess) process)
+                                .getRequestContext(), startHoldProbeSetId);
             }
 
             @Override
@@ -125,9 +126,8 @@ public class CalculatorHelper {
                 ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
 
                 // build ProbeSetSample and publish it on the blackboard
-                ctx.getSampleBlackboard().addSample(
-                        ProbeSpecUtils.buildProbeSetSample(currentTimeSample, ((SimuComSimProcess) process)
-                                .getRequestContext(), "", stopHoldProbeSetId));
+                ctx.getSampleBlackboard().addSample(currentTimeSample, ((SimuComSimProcess) process)
+                                .getRequestContext(), stopHoldProbeSetId);
             }
         });
     }
@@ -151,11 +151,14 @@ public class CalculatorHelper {
         r.addDemandListener(new IDemandListener() {
 
             public void demand(double demand) {
+            	
+            	List<ProbeSample<?, ? extends Quantity>> samples = new ArrayList<ProbeSample<?, ? extends Quantity>>();
+            	
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(r, ctx);
+                samples.add(takeCurrentTimeSample(r, ctx));
 
                 // take demanded time
-                ProbeSample demandedTimeSample = takeDemandedTimeSample(r, demand, ctx);
+                samples.add(takeDemandedTimeSample(r, demand, ctx));
 
                 // TODO Check whether the context is unique so that there is at
                 // most one job per SimProcess
@@ -165,9 +168,8 @@ public class CalculatorHelper {
 
                 // build ProbeSetSample and publish it on the blackboard
                 RequestContext context = new RequestContext("");
-                ctx.getSampleBlackboard().addSample(
-                        ProbeSpecUtils.buildProbeSetSample(currentTimeSample, demandedTimeSample, context, "",
-                                demandedTimeProbeSetId));
+                
+                ctx.getSampleBlackboard().addSample(samples, context, demandedTimeProbeSetId);
             }
             
             public void demandCompleted(ISchedulableProcess simProcess) {
@@ -203,18 +205,18 @@ public class CalculatorHelper {
                 @SuppressWarnings("unchecked")
                 @Override
                 public void stateChanged(int state, int instanceId) {
+                	
+                	List<ProbeSample<?, ? extends Quantity>> samples = new ArrayList<ProbeSample<?, ? extends Quantity>>();
                     // take current time
-                    ProbeSample currentTimeSample = takeCurrentTimeSample(r, ctx);
+                    samples.add(takeCurrentTimeSample(r, ctx));
 
                     // take state
-                    ProbeSample stateSample = takeStateProbe(state, ctx);
+                    samples.add(takeStateProbe(state, ctx));
 
                     // build ProbeSetSample and publish it on the blackboard
                     // TODO maybe null instead of empty string is better here
                     RequestContext context = new RequestContext("");
-                    ctx.getSampleBlackboard().addSample(
-                            ProbeSpecUtils.buildProbeSetSample(currentTimeSample, stateSample, context, "",
-                                    stateProbeSetID));
+                    ctx.getSampleBlackboard().addSample(samples, context, stateProbeSetID);
                 }
             }, instance);
         }
@@ -242,12 +244,21 @@ public class CalculatorHelper {
                 // build ProbeSetSamples and publish them on the blackboard
                 // TODO maybe null instead of empty string is better here
                 RequestContext context = new RequestContext("");
-                blackboard.addSampleAfterSimulationEnd(ProbeSpecUtils.buildProbeSetSample(takeTimeSample(0.0, ctx),
-                        takeStateProbe(1, ctx), context, "", stateProbeSetID));
-                blackboard.addSampleAfterSimulationEnd(ProbeSpecUtils.buildProbeSetSample(takeTimeSample(
-                        resourceDemand, ctx), takeStateProbe(0, ctx), context, "", stateProbeSetID));
-                blackboard.addSampleAfterSimulationEnd(ProbeSpecUtils.buildProbeSetSample(
-                        takeTimeSample(totalTime, ctx), takeStateProbe(1, ctx), context, "", stateProbeSetID));
+                
+                List<ProbeSample<?, ? extends Quantity>> samples = new ArrayList<ProbeSample<?, ? extends Quantity>>();
+                samples.add(takeTimeSample(0.0, ctx));
+                samples.add(takeStateProbe(1, ctx));
+                blackboard.addSampleAfterSimulationEnd(samples, context, stateProbeSetID);
+                
+                samples = new ArrayList<ProbeSample<?, ? extends Quantity>>();
+                samples.add(takeTimeSample(resourceDemand, ctx));
+                samples.add(takeStateProbe(0, ctx));
+                blackboard.addSampleAfterSimulationEnd(samples , context, stateProbeSetID);
+                
+                samples = new ArrayList<ProbeSample<?, ? extends Quantity>>();
+                samples.add(takeTimeSample(totalTime, ctx));
+                samples.add(takeStateProbe(1, ctx));
+                blackboard.addSampleAfterSimulationEnd(samples, context, stateProbeSetID);
             }
         });
     }
@@ -279,18 +290,18 @@ public class CalculatorHelper {
 
             @SuppressWarnings("unchecked")
             private void measureState() {
+            	
+            	List<ProbeSample<?, ? extends Quantity>> samples = new ArrayList<ProbeSample<?,? extends Quantity>>();
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
+            	samples.add(takeCurrentTimeSample(model.getSimulationControl(), ctx));
 
                 // take state
-                ProbeSample stateSample = takeStateProbe(resource, ctx);
+            	samples.add(takeStateProbe(resource, ctx));
 
                 // build ProbeSetSample and publish it on the blackboard
                 // TODO maybe null instead of empty string is better here
                 RequestContext context = new RequestContext("");
-                ctx.getSampleBlackboard().addSample(
-                        ProbeSpecUtils
-                                .buildProbeSetSample(currentTimeSample, stateSample, context, "", stateProbeSetID));
+                ctx.getSampleBlackboard().addSample(samples, context, stateProbeSetID);
             }
 
         });
