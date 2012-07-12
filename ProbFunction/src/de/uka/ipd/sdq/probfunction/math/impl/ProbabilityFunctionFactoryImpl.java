@@ -55,14 +55,12 @@ public class ProbabilityFunctionFactoryImpl implements
 	private IPDFFactory pdfFactory;
 	
 	/**
-	 * can be overwritten by {@link #setRandomGenerator(IRandomGenerator)}
+	 * {@link IRandomGenerator} can be overwritten by {@link #setRandomGenerator(IRandomGenerator)}
 	 * to use a predefined random generator in all methods. 
 	 * Otherwise, the default is used.  
 	 */
-	private IRandomGenerator randomGenerator = new DefaultRandomGenerator();
-	
     protected final static ProbabilityFunctionFactoryImpl factoryInstance = new ProbabilityFunctionFactoryImpl(
-            new PDFFactory());	
+            new PDFFactory(new DefaultRandomGenerator()));	
 	
 	protected ProbabilityFunctionFactoryImpl(IPDFFactory pdfFactory) {
 		this.pdfFactory = pdfFactory;
@@ -72,13 +70,9 @@ public class ProbabilityFunctionFactoryImpl implements
 		return pdfFactory;
 	}
 
-	public void setPDFFactory(IPDFFactory pdfFactory) {
-		this.pdfFactory = pdfFactory;
-	}
-
 	public IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction epdf)
 			throws ProbabilitySumNotOneException, DoubleSampleException {
-		return transformToBoxedPDF(epdf,this.randomGenerator);
+		return transformToBoxedPDF(epdf,this.getRandomGenerator());
 	}
 	
 	public IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction epdf,
@@ -105,7 +99,7 @@ public class ProbabilityFunctionFactoryImpl implements
 	public ISamplePDF transformToSamplePDF(ProbabilityDensityFunction epdf)
 	throws UnknownPDFTypeException, ProbabilitySumNotOneException,
 			DoubleSampleException {
-		return transformToSamplePDF(epdf,this.randomGenerator);
+		return transformToSamplePDF(epdf,this.getRandomGenerator());
 	}
 	
 	public ISamplePDF transformToSamplePDF(ProbabilityDensityFunction epdf, IRandomGenerator randomGenerator)
@@ -129,7 +123,7 @@ public class ProbabilityFunctionFactoryImpl implements
 	}
 
 	public IProbabilityMassFunction transformToPMF(ProbabilityMassFunction epmf) {
-		return transformToPMF(epmf,this.randomGenerator);
+		return transformToPMF(epmf,this.getRandomGenerator());
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -153,7 +147,7 @@ public class ProbabilityFunctionFactoryImpl implements
 			IUnit unit)
 			throws DoubleSampleException
 	{
-		return createBoxedPDF(samples, this.randomGenerator, unit);
+		return createBoxedPDF(samples, this.getRandomGenerator(), unit);
 	}
 
 	public IBoxedPDF createBoxedPDF(List<IContinuousSample> samples, 
@@ -208,7 +202,7 @@ public class ProbabilityFunctionFactoryImpl implements
 	public IProbabilityMassFunction createProbabilityMassFunction(
 			List<ISample> samples, IUnit unit, boolean hasOrderedDomain) {
 		return new ProbabilityMassFunctionImpl(samples, unit, hasOrderedDomain,
-				false, this.randomGenerator);
+				false, this.getRandomGenerator());
 	}
 
 	public IProbabilityMassFunction createPMFFromMeasurements(
@@ -293,14 +287,14 @@ public class ProbabilityFunctionFactoryImpl implements
 
 	public ISamplePDF createSamplePDFFromComplex(double distance,
 			List<Complex> values, IUnit unit) {
-		ISamplePDF spdf = new SamplePDFImpl(distance, unit, randomGenerator);
+		ISamplePDF spdf = new SamplePDFImpl(distance, unit, this.getRandomGenerator());
 		spdf.setValues(values, false);
 		return spdf;
 	}
 
 	public ISamplePDF createSamplePDFFromComplex(double distance,
 			List<Complex> samples, boolean isInFrequencyDomain, IUnit unit) {
-		ISamplePDF spdf = new SamplePDFImpl(distance, unit, isInFrequencyDomain, this.randomGenerator);
+		ISamplePDF spdf = new SamplePDFImpl(distance, unit, isInFrequencyDomain, this.getRandomGenerator());
 		spdf.setValues(samples, isInFrequencyDomain);
 		return spdf;
 	}
@@ -323,14 +317,14 @@ public class ProbabilityFunctionFactoryImpl implements
 
 	public ISamplePDF createSamplePDFFromDouble(double distance,
 			List<Double> values, IUnit unit) {
-		ISamplePDF spdf = new SamplePDFImpl(distance, unit, this.randomGenerator);
+		ISamplePDF spdf = new SamplePDFImpl(distance, unit, this.getRandomGenerator());
 		spdf.setValuesAsDouble(values);
 		return spdf;
 	}
 
 	public ISamplePDF createSamplePDFFromDouble(double distance,
 			List<Double> values, boolean isInFrequencyDomain, IUnit unit) {
-		ISamplePDF spdf = new SamplePDFImpl(distance, unit, isInFrequencyDomain, this.randomGenerator);
+		ISamplePDF spdf = new SamplePDFImpl(distance, unit, isInFrequencyDomain, this.getRandomGenerator());
 		spdf.setValuesAsDouble(values);
 		return spdf;
 	}
@@ -496,7 +490,7 @@ public class ProbabilityFunctionFactoryImpl implements
 	public IProbabilityDensityFunction transformToPDF(
 			ProbabilityDensityFunction ePDF) throws UnknownPDFTypeException,
 			ProbabilitySumNotOneException, DoubleSampleException {
-		return transformToPDF(ePDF,this.randomGenerator);
+		return transformToPDF(ePDF,this.getRandomGenerator());
 	}
 	
 	/**
@@ -817,13 +811,12 @@ public class ProbabilityFunctionFactoryImpl implements
 
 	public void setRandomGenerator(IRandomGenerator randomGenerator) {
 		this.pdfFactory.setRandomGenerator(randomGenerator);
-		this.randomGenerator  = randomGenerator;
 	}
 
 	@Override
 	public IRandomGenerator getRandomGenerator() {
 		
-		return this.randomGenerator;
+		return pdfFactory.getRandomGenerator();
 	}
 
 }

@@ -3,23 +3,22 @@ package de.uka.ipd.sdq.simucomframework.variables.stoexvisitor;
 import java.util.ArrayList;
 import java.util.Map.Entry;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExSwitch;
-
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
-
 import de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
-
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCacheEntry;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.TypesIncompatibleInComparisionException;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.TypesIncompatibleInProductException;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.TypesIncompatibleInTermException;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.ValueNotInFrameException;
-import de.uka.ipd.sdq.simucomframework.variables.functions.FunctionLib;
+import de.uka.ipd.sdq.simucomframework.variables.functions.FunctionLibFlyweightFactory;
+import de.uka.ipd.sdq.simucomframework.variables.functions.IFunctionLib;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
@@ -80,19 +79,19 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	 * Function lib contains functions like Exp, etc. This cannot be static as it depends on its respective
 	 * random number generator
 	 */
-	private final FunctionLib functionLib;
+	private final IFunctionLib functionLib;
 	
 	/**
 	 * Mode for evaluating variables. Determines when to throw Exceptions if some evaluation fails
 	 */
 	private VariableMode mode;
-	
 	public PCMStoExEvaluationVisitor(StoExCacheEntry cacheEntry, SimulatedStackframe<Object> frame, VariableMode initialMode, IProbabilityFunctionFactory probFunctionFactory) {
 		this.typeInferer = cacheEntry.getTypeInferer();
 		myStackFrame = frame;
 		this.mode = initialMode;
 		probfunctionVisitor = new PCMProbfunctionEvaluationVisitor(cacheEntry);
-		functionLib = new FunctionLib(probFunctionFactory.getRandomGenerator(), probFunctionFactory.getPDFFactory());
+		functionLib = FunctionLibFlyweightFactory.getFactory(probFunctionFactory.getPDFFactory())
+				.createFunctionLibFlyweight();
 	}
 
 	public void setVariableMode(VariableMode mode) {
@@ -116,7 +115,8 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 			}
 		} catch (ValueNotInFrameException e) {
 			if (mode == VariableMode.EXCEPTION_ON_NOT_FOUND) {
-				logger.error("Value should be in stackframe, but it is not!",e);
+				if(logger.isEnabledFor(Level.ERROR))
+					logger.error("Value should be in stackframe, but it is not!",e);
 				e.printStackTrace();
 			}
 		}
@@ -126,7 +126,8 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 				availableIDs += "<"+e.getKey()+"> ";
 			}
 			RuntimeException re = new RuntimeException("Architecture specification incomplete. Stackframe is missing id "+variableID+"\nAvailable IDs are "+availableIDs);
-	        logger.error("Value not found in specification",re);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("Value not found in specification",re);
 			throw re; 
 		} else if (mode == VariableMode.RETURN_NULL_ON_NOT_FOUND) {
 			return null;
@@ -140,7 +141,8 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 			if (typeInferer.getType(object) == TypeEnum.BOOL)
 				return false;
 			RuntimeException re = new RuntimeException("Architecture specification incomplete. Stackframe is missing id "+variableID);
-	        logger.error("Value not found in specification",re);
+			if(logger.isEnabledFor(Level.ERROR))
+				logger.error("Value not found in specification",re);
 			throw re; 
 		}
 	}

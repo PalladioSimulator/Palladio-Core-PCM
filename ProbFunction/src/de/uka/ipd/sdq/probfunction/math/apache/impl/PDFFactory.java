@@ -6,26 +6,36 @@ package de.uka.ipd.sdq.probfunction.math.apache.impl;
 
 import de.uka.ipd.sdq.probfunction.math.IBinomialDistribution;
 import de.uka.ipd.sdq.probfunction.math.IChiSquareDistribution;
-import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
 import de.uka.ipd.sdq.probfunction.math.IExponentialDistribution;
 import de.uka.ipd.sdq.probfunction.math.IGammaDistribution;
 import de.uka.ipd.sdq.probfunction.math.ILognormalDistribution;
 import de.uka.ipd.sdq.probfunction.math.INormalDistribution;
+import de.uka.ipd.sdq.probfunction.math.IPDFFactory;
 import de.uka.ipd.sdq.probfunction.math.IPoissonDistribution;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.IStudentTDistribution;
 import de.uka.ipd.sdq.probfunction.math.IUniformDistribution;
 import de.uka.ipd.sdq.probfunction.math.IUniformIntDistribution;
-import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
 
 /**
  * @author joerg
  *
  */
 public class PDFFactory implements IPDFFactory{
-	
-	private IRandomGenerator rng = new DefaultRandomGenerator();
 
+	private IRandomGenerator rng;
+	
+	public PDFFactory(IRandomGenerator randomGenerator) {
+		this.rng = randomGenerator;
+	}
+
+
+	@Override
+	public IRandomGenerator getRandomGenerator() {
+		return rng;
+	}
+	
+	@Override
 	public void setRandomGenerator(IRandomGenerator randomGenerator) {
 		this.rng = randomGenerator;
 	}
