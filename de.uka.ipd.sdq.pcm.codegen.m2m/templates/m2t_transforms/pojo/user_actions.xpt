@@ -1,0 +1,33 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT allocation»
+
+«DEFINE UserAction FOR Loop»
+   for (int iterationCount_«this.id.javaVariableName()» = 0, maxIterationCount_«this.id.javaVariableName()» = (Integer)ctx.evaluate("«this.loopIteration_Loop.specification.specificationString()»",Integer.class); 
+            iterationCount_«this.id.javaVariableName()» < maxIterationCount_«this.id.javaVariableName()»; iterationCount_«this.id.javaVariableName()»++){
+       «EXPAND m2t_transforms::usage::UserActions FOR this.bodyBehaviour_Loop.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+   } 
+«ENDDEFINE»
+
+«DEFINE UserAction FOR Branch»
+	{
+		«LET this.id.javaVariableName() AS counterID»
+			double u«counterID» = Math.random();
+			double sum«counterID» = 0;
+			«EXPAND BranchTransition(counterID) FOREACH this.branchTransitions_Branch SEPARATOR ""»
+		«ENDLET»
+	}
+«ENDDEFINE»
+
+«DEFINE BranchTransition(String counterNumber) FOR BranchTransition»
+	if (sum«counterNumber» <= u«counterNumber» && u«counterNumber» < sum«counterNumber» + «this.branchProbability» )
+	{
+		«EXPAND m2t_transforms::usage::UserActions FOR this.branchedBehaviour_BranchTransition.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+	}
+	sum«counterNumber» += «this.branchProbability»;
+«ENDDEFINE»

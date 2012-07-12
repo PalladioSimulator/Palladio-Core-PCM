@@ -1,0 +1,130 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::sensors»
+«IMPORT system»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT core::entity»
+
+«DEFINE ComponentConstructor FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE ComponentConstructor FOR BasicComponent» 
+	private static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(«this.javaName()».class.getName());
+			
+	//TODO: pass the assembly context id to here as it is done for the simulation. 
+	String assemblyContextID = ""; 
+	
+	«EXPAND SensorDefinition FOREACH this.getExternalCallActions()»
+	«EXPAND SEFFSensorDefinitionForInterface(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
+	
+	private de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun;
+	
+	«EXPAND m2t_transforms::resources::PassiveResourceInitTM FOREACH this.passiveResource_BasicComponent»
+	
+	public «this.javaName()»(String ip) throws java.rmi.RemoteException {
+
+        //FIXME: quick fix against circular dependency (zolynski)
+		//expRun = de.uka.ipd.sdq.prototype.framework.AbstractMain.getLatestExperimentRun();
+		
+		«EXPAND SensorInitialisation FOREACH this.getExternalCallActions()»
+		
+		«EXPAND SEFFSensorInitialisationForInterface(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
+		
+		//FIXME: quick fix to initialise component params as setComponentFrame is not called by system for ejbs.
+		this.setComponentFrame(this.myComponentStackFrame);
+		
+	}
+
+«ENDDEFINE»
+
+«DEFINE SensorInitialisation FOR ExternalCallAction»
+/*
+        tss«this.calledService_ExternalService.externalCallActionDescription(this).javaVariableName()» 
+            = de.uka.ipd.sdq.prototype.framework.AbstractMain.createAndAddTimeSpanSensor(
+                "«this.calledService_ExternalService.externalCallActionDescription(this)»"
+            );
+*/
+«ENDDEFINE»
+
+«DEFINE SensorDefinition FOR ExternalCallAction»
+    de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor tss«this.calledService_ExternalService.externalCallActionDescription(this).javaVariableName()»;
+«ENDDEFINE»
+
+«DEFINE SEFFSensorDefinitionForInterface(BasicComponent component) FOR OperationProvidedRole»
+  «EXPAND SEFFSensorDefinition(component) FOREACH this.providedInterface__OperationProvidedRole.signatures__OperationInterface»
+«ENDDEFINE»
+
+«DEFINE SEFFSensorDefinition(BasicComponent component) FOR OperationSignature»
+  de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor tss«this.seffDescription(component).javaVariableName()»;
+«ENDDEFINE»
+
+«DEFINE SEFFSensorDefinitionForInterface(BasicComponent component) FOR ProvidedRole»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/prototype/java_core.xpt]: Only OperationProvidedRoles are supported."»
+«ENDDEFINE»
+
+«DEFINE SEFFSensorInitialisationForInterface(BasicComponent component) FOR OperationProvidedRole»
+  «EXPAND SEFFSensorInitialisation(component) FOREACH this.providedInterface__OperationProvidedRole.signatures__OperationInterface»
+«ENDDEFINE»
+
+«DEFINE SEFFSensorInitialisation(BasicComponent component) FOR OperationSignature»
+/*
+        tss«this.seffDescription(component).javaVariableName()» 
+            = de.uka.ipd.sdq.prototype.framework.AbstractMain.createAndAddTimeSpanSensor(
+                "«this.seffDescription(component)»"
+            );
+*/
+«ENDDEFINE»
+
+«DEFINE SEFFSensorInitialisationForInterface(BasicComponent component) FOR ProvidedRole»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/prototype/java_core.xpt]: Only OperationProvidedRoles are supported."»
+«ENDDEFINE»
+
+«REM»Basic Components get a main function«ENDREM»
+«DEFINE MainImplementation FOR RepositoryComponent»
+	public static void main(String[] args) {
+		String ip = de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.getIpFromArguments(args);
+
+		try {
+			«this.fqn()» obj = new «this.fqn()»(ip);
+			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.registerComponent(ip, obj, "«this.javaName()»");
+
+		} catch (java.rmi.RemoteException e) {
+			logger.error("Instantiation of component «this.javaName()» failed");
+		}
+	}
+«ENDDEFINE»
+
+«REM»Composite Components get a main function«ENDREM»
+«DEFINE MainImplementation FOR ComposedProvidingRequiringEntity»
+	public static void main(String[] args) {
+		String ip = de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.getIpFromArguments(args);
+
+		try {
+			«this.fqn()» obj = new «this.fqn()»(ip);
+			«IF System.isInstance(this)»
+			obj.setContext(new «this.fqnContext()»());
+			«ENDIF»
+			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.registerComponent(ip, obj, "«this.javaName()»");
+
+		} catch (java.rmi.RemoteException e) {
+			logger.error("Instantiation of component «this.javaName()» failed");
+		}
+	}
+«ENDDEFINE»
+
+«DEFINE ComponentImplementationInterface FOR ComposedProvidingRequiringEntity»
+	«FILE this.fqnInterface().fqnToDirectoryPath()+'.java'»
+		«EXPAND m2t_transforms::java_core::ContentImplementationInterfaceHeader FOR this»
+		{
+	   		«EXPAND m2t_transforms::provided_ports::PortGetterDefinition FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole)»
+	   		«EXPAND m2t_transforms::provided_ports::PortGetterDefinition FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole)»
+	   		«IF InterfaceProvidingRequiringEntity.isInstance(this)»
+	   			«LET (InterfaceProvidingRequiringEntity)this AS requiringEntity»
+	   				«EXPAND m2t_transforms::context_pattern::ComponentContextSetterDefinition FOR requiringEntity»
+	   			«ENDLET»
+            «ENDIF»
+	    }
+	«ENDFILE»
+«ENDDEFINE»

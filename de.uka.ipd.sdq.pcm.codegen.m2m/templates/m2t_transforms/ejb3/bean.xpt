@@ -1,0 +1,60 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::ejb3::java_names»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT resourcetype»
+«IMPORT allocation»
+«IMPORT parameter»
+«IMPORT qosannotations»
+
+«DEFINE Bean FOR RepositoryComponent»
+	«EXPAND BeanInterface FOR this»
+	«FILE this.fqnBean().fqnToDirectoryPath()+".java"»
+		package «this.beanPackage()»;
+		
+		/** The Enterprise Java Bean for the component «this.entityName»
+		*/
+		//FIXME: @javax.ejb.Stateless
+		public class «this.beanName()»
+			extends «this.fqn()»
+			implements «this.fqnBeanInterface()»
+		{
+			«EXPAND Constructor FOR this»
+			«EXPAND DependencyInjection FOR this»
+		}
+	«ENDFILE»	
+«ENDDEFINE»
+ 
+«DEFINE BeanInterface FOR RepositoryComponent»
+	«FILE this.fqnBeanInterface().fqnToDirectoryPath()+".java"»
+		package «this.beanPackage()»;
+		
+		/** The Enterprise Java Bean Local Interface for the component «this.entityName»
+		*/
+		//FIXME: @javax.ejb.Local
+		public interface «this.beanInterfaceName()»
+			extends «this.fqnInterface()»
+		{
+		}
+	«ENDFILE»	
+«ENDDEFINE»
+
+«DEFINE Constructor FOR RepositoryComponent»
+	public «this.beanName()»() {
+	}
+«ENDDEFINE»
+
+«DEFINE DependencyInjection FOR RepositoryComponent»
+   // Called by the Container to inject a reference to the local interface of this components
+   // context class
+   //FIXME: @javax.ejb.EJB(name="«this.contextDependencyJNDIName()»",beanInterface=«this.fqnContextInterface()».class)
+   @Override
+   public void setContext(«this.fqnContextInterface()» context) {
+      super.setContext(context);
+   }
+«ENDDEFINE»
