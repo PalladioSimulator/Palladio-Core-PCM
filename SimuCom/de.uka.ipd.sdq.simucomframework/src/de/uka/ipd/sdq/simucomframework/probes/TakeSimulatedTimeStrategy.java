@@ -7,7 +7,6 @@ import javax.measure.quantity.Duration;
 import javax.measure.unit.SI;
 
 import de.uka.ipd.sdq.probespec.framework.ProbeSample;
-import de.uka.ipd.sdq.probespec.framework.ProbeSampleFactory;
 import de.uka.ipd.sdq.probespec.framework.ProbeType;
 import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategy;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
@@ -43,7 +42,7 @@ public class TakeSimulatedTimeStrategy implements IProbeStrategy {
 
 		// Here it is assumed that the simulation time's unit is SI.SECOND
 		Measure<Double, Duration> time = Measure.valueOf(simTime, SECOND);
-		ProbeSample<Double, Duration> sample = ProbeSampleFactory.getFactory().createSample(
+		ProbeSample<Double, Duration> sample = new ProbeSample<Double, Duration>(
 				time, probeId, ProbeType.CURRENT_TIME);
 
 		return sample;

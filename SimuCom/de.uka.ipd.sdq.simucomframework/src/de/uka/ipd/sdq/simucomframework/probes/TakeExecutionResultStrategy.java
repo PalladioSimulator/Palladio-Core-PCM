@@ -4,7 +4,6 @@ import javax.measure.Measure;
 import javax.measure.quantity.Dimensionless;
 
 import de.uka.ipd.sdq.probespec.framework.ProbeSample;
-import de.uka.ipd.sdq.probespec.framework.ProbeSampleFactory;
 import de.uka.ipd.sdq.probespec.framework.ProbeType;
 import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategy;
 
@@ -36,7 +35,7 @@ public class TakeExecutionResultStrategy implements IProbeStrategy {
 		}
 		Measure<Integer, Dimensionless> stateMeasure = Measure.valueOf(stateId,
 				Dimensionless.UNIT);
-		ProbeSample<Integer, Dimensionless> sample = ProbeSampleFactory.getFactory().createSample(
+		ProbeSample<Integer, Dimensionless> sample = new ProbeSample<Integer, Dimensionless>(
 				stateMeasure, probeId, ProbeType.EXECUTION_RESULT);
 		return sample;
 	}

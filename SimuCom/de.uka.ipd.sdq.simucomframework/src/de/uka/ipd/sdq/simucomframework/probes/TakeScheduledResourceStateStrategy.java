@@ -4,7 +4,6 @@ import javax.measure.Measure;
 import javax.measure.quantity.Dimensionless;
 
 import de.uka.ipd.sdq.probespec.framework.ProbeSample;
-import de.uka.ipd.sdq.probespec.framework.ProbeSampleFactory;
 import de.uka.ipd.sdq.probespec.framework.ProbeType;
 import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategy;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource;
@@ -35,7 +34,7 @@ public class TakeScheduledResourceStateStrategy implements IProbeStrategy {
 
 		Measure<Integer, Dimensionless> stateMeasure = Measure.valueOf(state,
 				Dimensionless.UNIT);
-		ProbeSample<Integer, Dimensionless> sample = ProbeSampleFactory.getFactory().createSample(
+		ProbeSample<Integer, Dimensionless> sample = new ProbeSample<Integer, Dimensionless>(
 				stateMeasure, probeId, ProbeType.RESOURCE_STATE);
 
 		return sample;
