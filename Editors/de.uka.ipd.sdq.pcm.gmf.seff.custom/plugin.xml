@@ -9,7 +9,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
 
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
       <?gmfgen generated="true"?>
-      <editpartProvider class="de.uka.ipd.sdq.pcm.gmf.seff.custom.providers.CumstomPalladioComponentModelEditPartProvider">
+      <editpartProvider class="de.uka.ipd.sdq.pcm.gmf.seff.custom.providers.CustomPalladioComponentModelEditPartProvider">
          <Priority name="Low"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="PCM SEFF Model"/>

@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage5EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart.ParametricParameterUsageFigure;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
@@ -30,7 +31,7 @@ public class CustomVariableUsage5EditPart extends VariableUsage5EditPart {
 		return primaryShape = figure;
 	}
 
-	public class ParametricParameterUsageFigure extends RectangleFigure {
+	public class CustomParametricParameterUsageFigure extends ParametricParameterUsageFigure {
 
 		/**
 		 * @generated
@@ -44,7 +45,7 @@ public class CustomVariableUsage5EditPart extends VariableUsage5EditPart {
 		/**
 		 * @generated
 		 */
-		public ParametricParameterUsageFigure() {
+		public CustomParametricParameterUsageFigure() {
 
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;

@@ -23,7 +23,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelEditPartProvi
 /**
  * @generated
  */
-public class CumstomPalladioComponentModelEditPartProvider extends
+public class CustomPalladioComponentModelEditPartProvider extends
 PalladioComponentModelEditPartProvider {
 
 	/**
@@ -47,7 +47,7 @@ PalladioComponentModelEditPartProvider {
 	private WeakReference cachedView;
 
 	//TODO: change to custom class
-	public CumstomPalladioComponentModelEditPartProvider() {
+	public CustomPalladioComponentModelEditPartProvider() {
 		setFactory(new CustomPalladioComponentModelEditPartFactory());
 		setAllowCaching(true);
 	}
