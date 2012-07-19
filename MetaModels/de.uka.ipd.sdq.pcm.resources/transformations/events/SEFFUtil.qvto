@@ -276,7 +276,7 @@ helper OperationSignature::SEFFUtil_createSEFFWithBranchAction(	component : Basi
 	// Setup filterCondition. If null assumed true.
 	var positiveFilterCondition := filterCondition;
 	if(filterCondition != null)
-			then {positiveFilterCondition := object PCMRandomVariable{specification := filterCondition.specification }}
+			then {positiveFilterCondition := filterCondition}
 			else {positiveFilterCondition := object PCMRandomVariable{specification := 'true'}}
 	endif;	
 	var negativeFilterCondition := object PCMRandomVariable {specification := 'NOT (' + filterCondition.specification + ')'};
