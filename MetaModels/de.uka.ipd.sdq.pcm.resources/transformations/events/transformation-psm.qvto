@@ -173,7 +173,7 @@ helper setupEventChannelMiddleware(	in eventChannel: EventChannel,
 	} endif;
 
 	// lookup EventDistribution		
-	var channelSenderRole := Finder_findOperationProvidedRole('IMiddlewareSender',mwRepository);
+	var channelSenderRole := Finder_findOperationProvidedRole('IMiddlewareFilter',mwRepository);
 	if(channelSenderRole <> null)
 	then {
 		channelSenderComponent := Commons_getProvidingComponent(channelSenderRole);
@@ -284,7 +284,7 @@ helper setupCentralMiddleware(repository : PCM_REP){
 		} endif;
 
 		// lookup EventDistribution		
-		centralSenderRole := Finder_findOperationProvidedRole('IMiddlewareSender',repository);
+		centralSenderRole := Finder_findOperationProvidedRole('IMiddlewareFilter',repository);
 		if(centralSenderRole <> null)
 		then {
 			senderComponent := Commons_getProvidingComponent(centralSenderRole);
@@ -804,7 +804,7 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 
 			// connect to middleware
 			var filterMWContext := Transformation_weaveInMiddleware(	sourceAssemblyContext,
-																		'IMiddlewareSender',
+																		'IMiddlewareFilter',
 																		EventFilterAssemblyContext,
 																		centralSenderContext,
 																		Set{sourcePortMWContext,SourceCommunicationMWContext,eventDistributionMWContext,existingfilterMWContext},
@@ -834,7 +834,7 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 
 			// connect to middleware
 			var SinkCommunicationMWContext := Transformation_weaveInMiddleware(	sinkAssemblyContext,
-																		'IMiddlewareReceiver',
+																		'IMiddlewareSinkCommunication',
 																		SinkCommunicationAssemblyContext,
 																		null,
 																		Set{},
