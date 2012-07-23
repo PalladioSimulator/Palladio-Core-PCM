@@ -34,41 +34,21 @@ public class CustomVariableUsage4EditPart extends VariableUsage4EditPart {
 	public class CustomParametricParameterUsageFigure extends ParametricParameterUsageFigure {
 
 		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureVariableUsageReferenceLabelFigure;
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fFigureParametricParameterUsageRectangleCompartment;
-
-		/**
-		 * @generated
+		 * Constructor
 		 */
 		public CustomParametricParameterUsageFigure() {
-
-			GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;
-			layoutThis.horizontalSpacing = 0;
-			layoutThis.verticalSpacing = 0;
-			layoutThis.marginWidth = 0;
-			layoutThis.marginHeight = 0;
-			this.setLayoutManager(layoutThis);
-
-			this.setLineWidth(1);
-			this.setBackgroundColor(THIS_BACK);
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0),
-					getMapMode().DPtoLP(0)));
-			createContents();
+			super();
+			//Clear super layout
+			this.removeAll();
+			createCustomContents();
 		}
 
 		/**
-		 * @generated not
+		 * Create custom labels and layout
 		 */
-		private void createContents() {
+		private void createCustomContents() {
 
-			fFigureVariableUsageReferenceLabelFigure = new WrappingLabel();
+			WrappingLabel fFigureVariableUsageReferenceLabelFigure = getFigureVariableUsageReferenceLabelFigure();
 			fFigureVariableUsageReferenceLabelFigure
 					.setText(new PCMStoExPrettyPrintVisitor()
 							.prettyPrint(((VariableUsage) resolveSemanticElement())
@@ -89,7 +69,7 @@ public class CustomVariableUsage4EditPart extends VariableUsage4EditPart {
 			this.add(fFigureVariableUsageReferenceLabelFigure,
 					constraintFFigureVariableUsageReferenceLabelFigure);
 
-			fFigureParametricParameterUsageRectangleCompartment = new RectangleFigure();
+			RectangleFigure fFigureParametricParameterUsageRectangleCompartment = getFigureParametricParameterUsageRectangleCompartment();
 			fFigureParametricParameterUsageRectangleCompartment.setFill(false);
 			fFigureParametricParameterUsageRectangleCompartment
 					.setOutline(false);
@@ -112,39 +92,7 @@ public class CustomVariableUsage4EditPart extends VariableUsage4EditPart {
 
 		}
 
-		/**
-		 * @generated
-		 */
-		private boolean myUseLocalCoordinates = false;
-
-		/**
-		 * @generated
-		 */
-		protected boolean useLocalCoordinates() {
-			return myUseLocalCoordinates;
-		}
-
-		/**
-		 * @generated
-		 */
-		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-			myUseLocalCoordinates = useLocalCoordinates;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureVariableUsageReferenceLabelFigure() {
-			return fFigureVariableUsageReferenceLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getFigureParametricParameterUsageRectangleCompartment() {
-			return fFigureParametricParameterUsageRectangleCompartment;
-		}
-
+		
 	}
 
 }
