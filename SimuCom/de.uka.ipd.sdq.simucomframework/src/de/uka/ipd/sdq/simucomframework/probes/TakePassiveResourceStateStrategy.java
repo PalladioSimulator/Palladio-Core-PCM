@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.simucomframework.probes;
 import javax.measure.Measure;
 import javax.measure.quantity.Dimensionless;
 
+import de.uka.ipd.sdq.probespec.framework.AbstractProbeSampleFactory;
 import de.uka.ipd.sdq.probespec.framework.ProbeSample;
 import de.uka.ipd.sdq.probespec.framework.ProbeType;
 import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategy;
@@ -35,7 +36,7 @@ public class TakePassiveResourceStateStrategy implements IProbeStrategy {
 		int state = r.getCapacity() - r.getAvailable();
 		Measure<Integer, Dimensionless> stateMeasure = Measure.valueOf(state,
 				Dimensionless.UNIT);
-		ProbeSample<Integer, Dimensionless> sample = new ProbeSample<Integer, Dimensionless>(
+		ProbeSample<Integer, Dimensionless> sample = AbstractProbeSampleFactory.getFactory().createSample(
 				stateMeasure, probeId, ProbeType.RESOURCE_STATE);
 
 		return sample;

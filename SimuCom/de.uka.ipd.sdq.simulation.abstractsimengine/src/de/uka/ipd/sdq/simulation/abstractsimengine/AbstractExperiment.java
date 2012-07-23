@@ -50,8 +50,8 @@ public abstract class AbstractExperiment implements ISimulationControl {
         startSimulator();
 
         // the simulation has stopped, print a log message
-        if(logger.isEnabledFor(Level.INFO))
-        	logger.info("Simulation terminated. Took " + ((System.nanoTime() - start) / Math.pow(10, 9))
+//        if(logger.isEnabledFor(Level.INFO))
+        	logger.error("Simulation terminated. Took " + ((System.nanoTime() - start) / Math.pow(10, 9))
                 + " real time seconds.");
     }
 
