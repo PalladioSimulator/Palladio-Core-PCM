@@ -27,7 +27,7 @@ public class CustomVariableUsage5EditPart extends VariableUsage5EditPart {
 	}
 
 	protected IFigure createNodeShape() {
-		ParametricParameterUsageFigure figure = new ParametricParameterUsageFigure();
+		ParametricParameterUsageFigure figure = new CustomParametricParameterUsageFigure();
 		return primaryShape = figure;
 	}
 

@@ -14,7 +14,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart.ParametricParameterUsageFigure;
+
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
@@ -27,7 +27,7 @@ public class CustomVariableUsage3EditPart extends VariableUsage3EditPart {
 	}
 
 	protected IFigure createNodeShape() {
-		ParametricParameterUsageFigure figure = new ParametricParameterUsageFigure();
+		ParametricParameterUsageFigure figure = new CustomParametricParameterUsageFigure();
 		return primaryShape = figure;
 	}
 
