@@ -113,6 +113,13 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 		
 		// Consider throughput spec and add latency to the demand.  
 		double concreteDemand = calculateDemand(abstractDemand);
+		
+		if (concreteDemand <= 0){
+			// Do nothing.
+			// TODO throw an exception or add a warning?
+			return;
+		}
+		
 		// logger.info("Recording " + concreteDemand);
 		fireDemand(concreteDemand);
 		this.totalDemandedTime += concreteDemand;
