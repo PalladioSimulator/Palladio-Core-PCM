@@ -157,18 +157,6 @@
 «ENDAROUND» 
 
 //-------------------------
-// Remote External Call TM
-//-------------------------
-
-«AROUND m2t_transforms::calls::HandleRemoteExternalCallTM(String prefix) FOR InfrastructureSignature»
-	«EXPAND m2t_transforms::sim::calls::HandleRemoteExternalCall(prefix) FOR this»
-«ENDAROUND» 
-
-«AROUND m2t_transforms::calls::HandleRemoteExternalCallTM(String prefix) FOR OperationSignature»
-	«EXPAND m2t_transforms::sim::calls::HandleRemoteExternalCall(prefix) FOR this»
-«ENDAROUND» 
-
-//-------------------------
 // Software Failures
 //-------------------------
 

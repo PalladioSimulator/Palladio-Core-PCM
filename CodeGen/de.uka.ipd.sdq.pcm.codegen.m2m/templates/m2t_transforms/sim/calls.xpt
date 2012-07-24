@@ -35,12 +35,14 @@
 		«ENDLET»
 		// end of failure handling before the call
 
+        «EXPAND HandleRemoteExternalCall(prefix) FOR this»
 	«ENDIF»
 	«EXPAND GenericPreCall(call,parameterUsages,prefix) FOR this»
 «ENDDEFINE»
 
 «DEFINE PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) FOR InfrastructureSignature»
 	«IF InternalAction.isInstance(call)»
+	    «EXPAND HandleRemoteExternalCall(prefix) FOR this»
 	«ELSE»
 		«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) does not support a call for the provided action type."»
 	«ENDIF»
@@ -51,9 +53,6 @@
 «DEFINE GenericPreCall(Object call,List[VariableUsage] parameterUsages, String prefix) FOR OperationSignature»
 	try {
 	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
-	«IF InternalAction.isInstance(call) || ExternalCallAction.isInstance(call)»
-	«EXPAND m2t_transforms::calls::HandleRemoteExternalCallTM(prefix) FOR this»
-	«ENDIF»
 	«IF ExternalCallAction.isInstance(call)»
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR this.externalCallActionDescription(call)»
 	«ELSE»
@@ -157,7 +156,7 @@
 	«EXPAND GenericPostCall(call,outParameterUsages) FOR this»
 	«IF ExternalCallAction.isInstance(call)»
 	
-		«EXPAND m2t_transforms::calls::HandleRemoteExternalCallTM(prefix) FOR this»
+		«EXPAND HandleRemoteExternalCall(prefix) FOR this»
 		
     	} // end of try block from the pre cal failure handling section
     	«LET (ExternalCallAction)call AS externalCall»
@@ -203,7 +202,7 @@
 «DEFINE PostCall(Object call, String prefix) FOR InfrastructureSignature»
 	«EXPAND GenericPostCall(call) FOR this»
 	«IF InternalAction.isInstance(call)»
-		«EXPAND m2t_transforms::calls::HandleRemoteExternalCallTM(prefix) FOR this»
+		«EXPAND HandleRemoteExternalCall(prefix) FOR this»
 	«ENDIF»
 «ENDDEFINE»
 

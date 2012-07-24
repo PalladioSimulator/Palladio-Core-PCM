@@ -55,12 +55,3 @@
 «DEFINE PostCallTM(Entity call, String prefix) FOR InfrastructureSignature»
 «ENDDEFINE»
 
-
-// ----------------------------------
-// Template method for remote external calls
-// ----------------------------------
-«DEFINE HandleRemoteExternalCallTM(String prefix) FOR OperationSignature»
-«ENDDEFINE»
-
-«DEFINE HandleRemoteExternalCallTM(String prefix) FOR InfrastructureSignature»
-«ENDDEFINE»
