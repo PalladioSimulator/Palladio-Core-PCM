@@ -104,12 +104,6 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 			}
 		}
 		
-		if (abstractDemand <= 0) {
-			// Do nothing.
-			// TODO throw an exception or add a warning?
-			return;
-		}
-
 		// throw new
 		// RuntimeException("Not supported in this branch of the simulation's code");
 		// registerProcessWindows(process, aResource);
