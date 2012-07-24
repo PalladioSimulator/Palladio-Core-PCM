@@ -7,6 +7,8 @@ import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.emf.ecore.EObject;
 
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExParser;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
@@ -42,9 +44,16 @@ public class StoExCacheEntry {
 				new ANTLRStringStream(spec));
 		Expression formula = null;
 		try {
-			formula = new PCMStoExParser(new CommonTokenStream(lexer)).expression();
-		} catch (RecognitionException e) {
-			throw new RuntimeException("Expression not parsable \""+spec+"\"",e);
+			MyPCMStoExParser parser = new MyPCMStoExParser(new CommonTokenStream(lexer));
+			formula = parser.expression();
+			if(parser.hasErrors())
+			{
+				for(ErrorEntry error : parser.getErrors())
+				{
+					throw new RuntimeException("Expression not parsable \""+spec+"\"", error.getEx());
+				}
+			}
+			
 		} catch (Exception e) {
 			throw new RuntimeException("Expression not parsable \""+spec+"\"",e);
 		}
