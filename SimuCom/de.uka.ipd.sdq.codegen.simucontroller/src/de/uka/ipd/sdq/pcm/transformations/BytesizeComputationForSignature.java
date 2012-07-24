@@ -67,11 +67,31 @@ public class BytesizeComputationForSignature {
 		}
 		
 		int length = result.length();
-		if (length > 0) 
-			result.delete(length-3, length); // remove last " + "
-		else if (length == 0)
+		if (length > 0){ 
+			// remove last " + "
+			result.delete(length-3, length);
+		}
+	
+		else if (length == 0) {
 			result.append("0");
+		}
 
+		// add closing parentheses
+		String resultString =  result.toString();
+		int numberOfParenthesesToAdd = 0;
+		for (int i = 0; i < resultString.length(); i++) {
+			if ('(' == resultString.charAt(i)) {
+				numberOfParenthesesToAdd++;
+			} else if (')' == resultString.charAt(i)){
+				numberOfParenthesesToAdd--;
+			}
+
+		}
+		for (; numberOfParenthesesToAdd > 0; numberOfParenthesesToAdd--){
+			result.append(")");
+		}
+
+		
 		return result.toString();
 	}
 
@@ -91,6 +111,7 @@ public class BytesizeComputationForSignature {
 	 */
 	private static String getCharacterisationString(DataType dataType, String name){
 		StringBuffer result = new StringBuffer();
+		result.append("(");
 		if (dataType instanceof PrimitiveDataType){
 			result.append(name+".BYTESIZE + ");
 		} else if (dataType instanceof CollectionDataType){
@@ -98,7 +119,10 @@ public class BytesizeComputationForSignature {
 			result.append(name+".BYTESIZE + ");
 			DataType innerDataType = collDataType.getInnerType_CollectionDataType();
 			String innerSize = getCharacterisationString(innerDataType, name + ".INNER");
-			result.append(name+".NUMBER_OF_ELEMENTS * "+ innerSize);
+			result.append("("+name+".NUMBER_OF_ELEMENTS * "+ innerSize);
+			// add closing parenthesis before last +
+			result.delete(result.length()-3, result.length());
+			result.append(") + ");
 		} else if (dataType instanceof CompositeDataType){
 			CompositeDataType compDataType = (CompositeDataType)dataType;
 			EList<InnerDeclaration> innerList = compDataType.getInnerDeclaration_CompositeDataType();
