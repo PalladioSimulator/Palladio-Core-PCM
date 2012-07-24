@@ -86,6 +86,10 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 		return result;
 	}
 
+
+	/**
+	 * @param abstractDemand: may be zero, in that case only the latency is considered. 
+	 */
 	@Override
 	public void consumeResource(SimuComSimProcess process, int resourceServiceID,
 			double abstractDemand) {		
@@ -104,10 +108,10 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 			}
 		}
 		
-		// throw new
-		// RuntimeException("Not supported in this branch of the simulation's code");
 		// registerProcessWindows(process, aResource);
 		// logger.info("Demanding " + abstractDemand);
+		
+		// Consider throughput spec and add latency to the demand.  
 		double concreteDemand = calculateDemand(abstractDemand);
 		// logger.info("Recording " + concreteDemand);
 		fireDemand(concreteDemand);
