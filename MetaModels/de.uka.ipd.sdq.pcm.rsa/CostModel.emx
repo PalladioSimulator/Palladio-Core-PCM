@@ -907,6 +907,9 @@ When using the Cost, you can read the initialCost to get the procurement cost fo
       <ownedAttribute xmi:id="_EAbrwCKpEd64q9HNdQ0aqw" name="annotatedElement" visibility="public" isReadOnly="true" isDerived="true">
         <type xmi:type="uml:Class" href="features/Ecore.emx#_SeWijsX_EduPJbEsMYXjUQ?Ecore/EObject?"/>
       </ownedAttribute>
+      <ownedAttribute xmi:id="_HDDYUNYmEeGoH4oH8Tc2hA" name="totalCost" visibility="public" isReadOnly="true" isDerived="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+      </ownedAttribute>
       <ownedAttribute xmi:id="_6_drgPhsEd23O5YGd3Oe8g" name="operatingCost" visibility="public" isReadOnly="true" isDerived="true">
         <ownedComment xmi:id="_oaaYgPkHEd23O5YGd3Oe8g" annotatedElement="_6_drgPhsEd23O5YGd3Oe8g">
           <body>The value of this attributes has to be derived in subclasses. </body>
@@ -1097,4 +1100,5 @@ instance.</body>
   <Default:Documentation xmi:id="_lwi3QMG_EeCcG5_UlhoSUw" base_Comment="_ltVyQMG_EeCcG5_UlhoSUw"/>
   <Default:Documentation xmi:id="_OHqcMGFGEeG1seYYX2YXPg" base_Comment="_OHgrMGFGEeG1seYYX2YXPg"/>
   <Default:Documentation xmi:id="_VsGeAGFGEeG1seYYX2YXPg" base_Comment="_Vr9UEGFGEeG1seYYX2YXPg"/>
+  <Ecore:EAttribute xmi:id="_Nmmk4NYmEeGoH4oH8Tc2hA" base_Property="_HDDYUNYmEeGoH4oH8Tc2hA"/>
 </xmi:XMI>
