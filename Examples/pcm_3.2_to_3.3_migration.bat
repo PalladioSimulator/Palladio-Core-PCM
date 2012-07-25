@@ -83,5 +83,15 @@ for /f %%a IN ('dir /b *.cost') do (
  sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/ResourceEnvironment\/..0/sdq.ipd.uka.de\/PalladioComponentModel\/ResourceEnvironment\/5.0/g" %%a
 )
 
+for /f %%a IN ('dir /b *.designdecision') do (
+ sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/Repository\/..0/sdq.ipd.uka.de\/PalladioComponentModel\/Repository\/5.0/g" %%a
+ sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/ResourceEnvironment\/..0/sdq.ipd.uka.de\/PalladioComponentModel\/ResourceEnvironment\/5.0/g" %%a
+ sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/Core\/Composition\/..0/sdq.ipd.uka.de\/PalladioComponentModel\/Core\/Composition\/5.0/g" %%a
+ sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/Repository\/..0/sdq.ipd.uka.de\/PalladioComponentModel\/Repository\/5.0/g" %%a
+ sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/System\/..0/sdq.ipd.uka.de\/PalladioComponentModel\/System\/5.0/g" %%a
+ sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/Allocation\/..0/sdq.ipd.uka.de\/PalladioComponentModel\/Allocation\/5.0/g" %%a
+ sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/UsageModel\/..0/sdq.ipd.uka.de\/PalladioComponentModel\/UsageModel\/5.0/g" %%a
+)
+
 @echo ********
 @echo Try whether your models are valid now. If not, you may have to change more things manually. Check out https://sdqweb.ipd.kit.edu/wiki/PCM_Model_Migration and https://sdqweb.ipd.kit.edu/wiki/PCM_Changelog
