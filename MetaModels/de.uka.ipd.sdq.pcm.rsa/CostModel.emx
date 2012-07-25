@@ -1100,5 +1100,5 @@ instance.</body>
   <Default:Documentation xmi:id="_lwi3QMG_EeCcG5_UlhoSUw" base_Comment="_ltVyQMG_EeCcG5_UlhoSUw"/>
   <Default:Documentation xmi:id="_OHqcMGFGEeG1seYYX2YXPg" base_Comment="_OHgrMGFGEeG1seYYX2YXPg"/>
   <Default:Documentation xmi:id="_VsGeAGFGEeG1seYYX2YXPg" base_Comment="_Vr9UEGFGEeG1seYYX2YXPg"/>
-  <Ecore:EAttribute xmi:id="_Nmmk4NYmEeGoH4oH8Tc2hA" base_Property="_HDDYUNYmEeGoH4oH8Tc2hA"/>
+  <Ecore:EAttribute xmi:id="_Nmmk4NYmEeGoH4oH8Tc2hA" isTransient="true" isVolatile="true" base_Property="_HDDYUNYmEeGoH4oH8Tc2hA"/>
 </xmi:XMI>
