@@ -149,6 +149,7 @@
 	«ELSE»
 		«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: GenericPostCall(Object call, List[VariableUsage] outParameterUsages) does not support a call for the provided action type."»
 	«ENDIF»
+	«EXPAND TidySimulatedStackFrame FOR this»
 	// END Simulate an external call
 «ENDDEFINE»
 
