@@ -317,3 +317,17 @@
 	«targetDef.proceed()»
 «ENDAROUND»
 
+// ----------------------------
+// Separate each mapped action to an own method.
+// ----------------------------
+«AROUND m2t_transforms::java_core::ComponentServiceTM(RepositoryComponent component) FOR OperationSignature»
+	«EXPAND m2t_transforms::prototype::java_core::ComponentService(component) FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::java_core::ComponentServiceTM(RepositoryComponent component) FOR InfrastructureSignature»
+	«EXPAND m2t_transforms::prototype::java_core::ComponentService(component) FOR this»
+«ENDAROUND» 
+// ----------------------------
+// End of Separate each mapped action to an own method. 
+// ----------------------------
+

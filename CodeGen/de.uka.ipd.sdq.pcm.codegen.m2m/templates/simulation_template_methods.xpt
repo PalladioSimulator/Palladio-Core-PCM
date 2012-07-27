@@ -12,6 +12,7 @@
 «IMPORT parameter»
 «IMPORT qosannotations»
 «IMPORT completions»
+«IMPORT repository»
 «IMPORT seff::seff_performance»
 
 
@@ -223,8 +224,16 @@
 «ENDAROUND»
 
 // ----------------------------
-// Action_Body Dispatcher ---> SEFF
+// Separate each mapped action to an own method.
 // ----------------------------
+«AROUND m2t_transforms::java_core::ComponentServiceTM(RepositoryComponent component) FOR OperationSignature»
+	«EXPAND m2t_transforms::sim::java_core::ComponentService(component) FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::java_core::ComponentServiceTM(RepositoryComponent component) FOR InfrastructureSignature»
+	«EXPAND m2t_transforms::sim::java_core::ComponentService(component) FOR this»
+«ENDAROUND» 
+
 «AROUND m2t_transforms::seff_body::Action FOR StartAction»
 	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
 «ENDAROUND» 
@@ -270,7 +279,7 @@
 «ENDAROUND»
 
 // ----------------------------
-// End of Action_Body Dispatcher 
+// End of Separate each mapped action to an own method. 
 // ----------------------------
 
 //-----------------------------

@@ -1,0 +1,34 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT core::entity»
+
+«DEFINE ComponentService(RepositoryComponent component) FOR OperationSignature»
+   public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
+   {
+   	  «EXPAND m2t_transforms::java_core::ContainerAvailabilityCheckTM FOR this» 
+      «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLE»
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
+    	«ENDLET»
+   	  «ENDIF»
+   	  «ENDPROTECT»
+   }   
+«ENDDEFINE»
+
+«DEFINE ComponentService(RepositoryComponent component) FOR InfrastructureSignature»
+   public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
+   { 
+      «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.infrastructureInterface__InfrastructureSignature.id DISABLE»
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
+    	«ENDLET»
+   	  «ENDIF»
+   	  «ENDPROTECT»
+   }   
+«ENDDEFINE»
+

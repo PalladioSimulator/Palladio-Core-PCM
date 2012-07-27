@@ -17,7 +17,7 @@
        	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> loopFrame = ctx.getStack().createAndPushNewStackFrame(ctx.getStack().currentStackFrame());
        	ctx.evaluateInner(loopFrame, "«this.parameter_CollectionIteratorAction.parameterName».INNER");
 
-       «EXPAND m2t_transforms::java_core::ActionsAsCalls FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
+       «EXPAND m2t_transforms::sim::java_core::ActionsAsCalls FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
 	   ctx.getStack().removeStackFrame();
    }
 «ENDDEFINE»
@@ -25,7 +25,7 @@
 «DEFINE Action FOR LoopAction»
    for (int iterationCount«id.javaVariableName()» = 0, maxIterationCount«id.javaVariableName()» = (Integer)ctx.evaluate("«this.iterationCount_LoopAction.specification.specificationString()»",Integer.class);
             iterationCount«id.javaVariableName()» < maxIterationCount«id.javaVariableName()»; iterationCount«id.javaVariableName()»++){
-       «EXPAND m2t_transforms::java_core::ActionsAsCalls FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
+       «EXPAND m2t_transforms::sim::java_core::ActionsAsCalls FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
    }
 «ENDDEFINE»
 
@@ -85,14 +85,14 @@
 «DEFINE BranchTransition(String counterNumber) FOR GuardedBranchTransition»
 	if ((Boolean)ctx.evaluate("«this.branchCondition_GuardedBranchTransition.specification.specificationString()»") == true)
 	{
-		«EXPAND m2t_transforms::java_core::ActionsAsCalls FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
+		«EXPAND m2t_transforms::sim::java_core::ActionsAsCalls FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
 	}
 «ENDDEFINE»
 
 «DEFINE BranchTransition(String counterNumber) FOR ProbabilisticBranchTransition»
 	if (sum«counterNumber» <= u«counterNumber» && u«counterNumber» < sum«counterNumber» + «this.branchProbability» )
 	{
-		«EXPAND m2t_transforms::java_core::ActionsAsCalls FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
+		«EXPAND m2t_transforms::sim::java_core::ActionsAsCalls FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
 	}
 	sum«counterNumber» += «this.branchProbability»;
 «ENDDEFINE»
@@ -164,7 +164,7 @@
 				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx,assemblyContextID,true, ctx.getThread().getPriority()){
 					public void executeBehaviour() {
 						try {
-							«EXPAND m2t_transforms::java_core::ActionsAsCalls FOR f.steps_Behaviour.findStart()»
+							«EXPAND m2t_transforms::sim::java_core::ActionsAsCalls FOR f.steps_Behaviour.findStart()»
 						} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
 							if (ctx.getModel().getConfig().getSimulateFailures()) {
 								de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
@@ -181,7 +181,7 @@
 					new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx,assemblyContextID,false){
 						public void executeBehaviour() {
 							try {
-								«EXPAND m2t_transforms::java_core::ActionsAsCalls FOR f.steps_Behaviour.findStart()»
+								«EXPAND m2t_transforms::sim::java_core::ActionsAsCalls FOR f.steps_Behaviour.findStart()»
 							} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
 								if (ctx.getModel().getConfig().getSimulateFailures()) {
 									de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
