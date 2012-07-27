@@ -16,7 +16,8 @@ public class SimuControllerImages {
 	public static final String CONFIGURATION 	= "configuration";
 	public static final String MODELS_LIST  	= "models_list";
 	public static final String SIMU_START  		= "nav_start";
-	public static final String SIMU_STOP  		= "nav_stop";
+	public static final String SIMU_STOP  		= "progress_stop";
+	public static final String SIMU_STOP_BLK  	= "progress_stop_blk";
 	public static final String SIMU_GENERATE  	= "new_plugin";
 	public static final String SIMU_DELETE  	= "del_plugin";
 	public static final String SIMUCOM_CONF  	= "simucom_conf";
@@ -59,6 +60,9 @@ public class SimuControllerImages {
 				);
 		imageRegistry.put(SIMU_STOP,
 				 getImageDescriptor(iconPath + SIMU_STOP + ".gif")
+				);
+		imageRegistry.put(SIMU_STOP_BLK,
+				 getImageDescriptor(iconPath + SIMU_STOP_BLK + ".gif")
 				);
 		imageRegistry.put(SIMU_GENERATE,
 				 getImageDescriptor(iconPath + SIMU_GENERATE + ".gif")
