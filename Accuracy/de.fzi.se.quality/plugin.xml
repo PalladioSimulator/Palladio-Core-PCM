@@ -58,7 +58,7 @@
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
-            type="pcm"
+            type="quality_parameters_pcm"
             class="de.fzi.se.quality.parameters.pcm.util.PCMResourceFactoryImpl"/>
    </extension>
 
