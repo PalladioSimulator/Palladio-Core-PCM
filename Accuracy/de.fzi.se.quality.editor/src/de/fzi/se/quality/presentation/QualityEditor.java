@@ -125,6 +125,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 import de.fzi.se.quality.parameters.pcm.provider.PCMItemProviderAdapterFactory;
 import de.fzi.se.quality.parameters.provider.ParametersItemProviderAdapterFactory;
 import de.fzi.se.quality.provider.QualityItemProviderAdapterFactory;
+import de.fzi.se.quality.qualityannotation.provider.DetailedQualityAnnotationItemProviderAdapterFactory;
 import de.fzi.se.quality.qualityannotation.provider.QualityAnnotationItemProviderAdapterFactory;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
@@ -147,6 +148,7 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.SeffReliabilityItemProv
 import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
@@ -673,7 +675,7 @@ public class QualityEditor
 	 * This sets up the editing domain for the model editor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
@@ -682,7 +684,7 @@ public class QualityEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QualityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new QualityAnnotationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new DetailedQualityAnnotationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ParametersItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PCMItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
@@ -691,12 +693,12 @@ public class QualityEditor
 		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new PalladioItemProviderAdapterFactory(new RepositoryItemProviderAdapterFactory()));
 		adapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ProtocolItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new PalladioItemProviderAdapterFactory(new SeffItemProviderAdapterFactory()));
 		adapterFactory.addAdapterFactory(new SeffPerformanceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SeffReliabilityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());

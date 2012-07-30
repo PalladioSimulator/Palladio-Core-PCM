@@ -126,6 +126,7 @@ import de.fzi.se.quality.parameters.pcm.provider.PCMItemProviderAdapterFactory;
 import de.fzi.se.quality.parameters.provider.ParametersItemProviderAdapterFactory;
 import de.fzi.se.quality.presentation.QualityEditorPlugin;
 import de.fzi.se.quality.provider.QualityItemProviderAdapterFactory;
+import de.fzi.se.quality.qualityannotation.provider.DetailedQualityAnnotationItemProviderAdapterFactory;
 import de.fzi.se.quality.qualityannotation.provider.QualityAnnotationItemProviderAdapterFactory;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
@@ -674,7 +675,7 @@ public class QualityAnnotationEditor
 	 * This sets up the editing domain for the model editor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
@@ -683,7 +684,7 @@ public class QualityAnnotationEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QualityItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new QualityAnnotationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new DetailedQualityAnnotationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ParametersItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PCMItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());

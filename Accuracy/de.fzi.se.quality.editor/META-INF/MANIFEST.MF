@@ -22,6 +22,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.pcm.edit;visibility:=reexport,
  de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
- de.uka.ipd.sdq.units.edit;visibility:=reexport
+ de.uka.ipd.sdq.units.edit;visibility:=reexport,
+ de.uka.ipd.sdq.pcmbench.ui;bundle-version="2.0.0"
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy

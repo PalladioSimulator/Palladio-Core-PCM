@@ -25,7 +25,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://fzi.de/PalladioComponentModel/Quality/QualityAnnotation/0.2"
-            class="de.fzi.se.quality.qualityannotation.provider.QualityAnnotationItemProviderAdapterFactory"
+            class="de.fzi.se.quality.qualityannotation.provider.DetailedQualityAnnotationItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
