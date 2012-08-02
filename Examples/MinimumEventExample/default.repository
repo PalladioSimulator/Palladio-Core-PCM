@@ -29,7 +29,7 @@
       <steps_Behaviour xsi:type="seff:StopAction" id="_GbNBI9yoEeGwrZa-N3RJDQ" predecessor_AbstractAction="_P5JiQNyoEeGwrZa-N3RJDQ"/>
       <steps_Behaviour xsi:type="seff:InternalAction" id="_P5JiQNyoEeGwrZa-N3RJDQ" entityName="myProcessEvent" predecessor_AbstractAction="_GbNBItyoEeGwrZa-N3RJDQ" successor_AbstractAction="_GbNBI9yoEeGwrZa-N3RJDQ">
         <resourceDemand_Action>
-          <specification_ParametericResourceDemand specification="2"/>
+          <specification_ParametericResourceDemand specification="event.VALUE ? 2 : 10"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
       </steps_Behaviour>
