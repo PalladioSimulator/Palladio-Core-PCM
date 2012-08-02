@@ -775,11 +775,7 @@ helper 	processSourceRoleDirectConnection(sourceRole : SourceRole,
 			var sinkAssemblyContext 	:= connector.sinkAssemblyContext__AssemblyEventConnector;
 			var resourceContainerSink	 := Finder_findResourceContainer(sinkAssemblyContext,pcmAllocation);
 			
-			// Setup filterCondition. If null assumed true.
-			var filterCondition := object PCMRandomVariable{specification := 'true'};			
-			if(connector.filterCondition__AssemblyEventConnector != null)
-			then {filterCondition := connector.filterCondition__AssemblyEventConnector}
-			endif;	
+	  		var filterCondition := connector.filterCondition__AssemblyEventConnector;
 			
 			//-------------------------------------		
 			// Add Connection to Event Distribution
