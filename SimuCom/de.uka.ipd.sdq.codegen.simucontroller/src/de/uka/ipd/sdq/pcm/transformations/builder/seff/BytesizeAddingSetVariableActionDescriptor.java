@@ -69,7 +69,7 @@ public class BytesizeAddingSetVariableActionDescriptor extends
 		}
 		if (bytesizeCharacterisation != null){
 			String oldSpec = bytesizeCharacterisation.getSpecification_VariableCharacterisation().getSpecification();
-			bytesizeCharacterisation.getSpecification_VariableCharacterisation().setSpecification(oldSpec + " + "+byteSizeString);
+			bytesizeCharacterisation.getSpecification_VariableCharacterisation().setSpecification("("+oldSpec + ") + "+byteSizeString);
 		}
 		List<VariableUsage> result = new ArrayList<VariableUsage>(1);
 		result.add(this.variableUsage);
