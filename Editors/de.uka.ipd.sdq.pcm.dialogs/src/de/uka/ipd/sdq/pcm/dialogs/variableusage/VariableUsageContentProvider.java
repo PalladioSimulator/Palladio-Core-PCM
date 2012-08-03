@@ -131,7 +131,9 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 		
 		if (dataType instanceof PrimitiveDataType) {
 			return dataType;
-			
+		}
+		if (dataType instanceof CompositeDataType) {
+			return dataType;
 		}
 		CollectionDataType collDataType = (CollectionDataType) dataType;
 		return collDataType.getInnerType_CollectionDataType();
