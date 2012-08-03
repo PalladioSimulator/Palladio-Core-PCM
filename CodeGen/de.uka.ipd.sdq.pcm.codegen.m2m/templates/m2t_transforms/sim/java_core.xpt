@@ -168,22 +168,19 @@ Use ActionsAsMethods to generate the mapping for exactly one AbstractAction.
 «ENDDEFINE»
 
 «DEFINE ActionsAsCalls FOR AbstractAction»
-	resultStackFrame = action«javaVariableName(this.id)»(ctx, resultStackFrame, methodBodyStackFrame);
+	action«javaVariableName(this.id)»(ctx, resultStackFrame, methodBodyStackFrame);
    «IF !StopAction.isInstance(this)»
       «EXPAND ActionsAsCalls FOR this.successor_AbstractAction»
    «ENDIF»
 «ENDDEFINE»
 
 «DEFINE ActionsAsMethods FOR AbstractAction»
-    /**    
-     * @return the possibly updated resultStackFrame
-     */
-	private de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> action«javaVariableName(this.id)»(de.uka.ipd.sdq.simucomframework.Context ctx, 
-			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame, 
+	private void action«javaVariableName(this.id)»(
+			final de.uka.ipd.sdq.simucomframework.Context ctx, 
+			final de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame, 
 			final de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame) {
 		// EntityName = «javaString(this.entityName)», Type = «javaString(this.metaType.name)»
 	   «EXPAND m2t_transforms::seff_body::Action FOR this»
-	   return resultStackFrame;
    }
    «EXPAND ActionsAsMethodsSubBehavior FOR this»
    «IF this.successor_AbstractAction != null»
