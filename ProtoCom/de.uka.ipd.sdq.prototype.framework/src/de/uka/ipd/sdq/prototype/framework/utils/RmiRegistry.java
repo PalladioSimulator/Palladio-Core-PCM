@@ -25,6 +25,8 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 	
 	private static RmiRegistry singleton;
 	
+	private static String configuredRemoteAddr;
+	
 	protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger
 		.getLogger(AbstractScenarioThread.class);
 	
@@ -45,8 +47,7 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 			Naming.lookup("//localhost/" + PCM_RMI_REGISTRY);
 		
 			logger.info("RMI binding service already running");
-			System.exit(0);
-			
+		
 		} catch (MalformedURLException e) {		
 		} catch (NotBoundException e) {
 			logger.info("Starting RMI binding service");
@@ -143,11 +144,21 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 	 */
 	public static Remote lookup(String name) {
 		Remote result = null;
-
+		
+		logger.info("RMI lookup for: " + name);
+		
+		if (getRemoteAddress() == null)
+		{
+			logger.error("Remote address of RMI registry not defined.");
+			return null;
+		}
+		
+		String addr = "//" + getRemoteAddress() + "/" + name;
+		
 		while (true) {
 			try {		
 				
-				result = java.rmi.Naming.lookup(name); 
+				result = java.rmi.Naming.lookup(addr); 
 		
 			} catch (java.net.MalformedURLException e) {
 				logger.error("Remote URI malformed. This should never happen, strange model names used?");
@@ -166,6 +177,15 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 			return result;
 		}
 	}
+	
+	
+	public static String getRemoteAddress() {
+		return configuredRemoteAddr;
+	}
+
+	public static void setRemoteAddress(String configuredRemoteAddr) {
+		RmiRegistry.configuredRemoteAddr = configuredRemoteAddr;
+	}	
 	
 	
 	public static void main(String[] args)
