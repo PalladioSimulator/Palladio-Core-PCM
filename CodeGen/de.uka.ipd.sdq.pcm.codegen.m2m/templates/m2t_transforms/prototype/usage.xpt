@@ -79,7 +79,7 @@
 		
 			«EXPAND m2t_transforms::usage::SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
 
-			public «this.javaName()»(String ip) {
+			public «this.javaName()»() {
 				«EXPAND CreateSystemVar FOREACH this.querySystemCalls().getSystemsFromCalls()»
 			
 	            «EXPAND ContextInit FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
@@ -115,29 +115,7 @@
 		«ENDREM»
 		
 		// Wait for system
-		«this.providingEntity_ProvidedRole.fqnInterface()» my«this.providingEntity_ProvidedRole.javaName()» = null;
-		
-		while (true) {
-			try {		
-				my«this.providingEntity_ProvidedRole.javaName()» = («this.providingEntity_ProvidedRole.fqnInterface()»)java.rmi.Naming.lookup("//" + ip + "/«this.providingEntity_ProvidedRole.javaName()»");
-				«this.portMemberVar()» = my«this.providingEntity_ProvidedRole.javaName()».«this.portGetter()»();
-		
-			} catch (java.net.MalformedURLException e) {
-				logger.error("Remote URI malformed. This should never happen, strange model names used?");
-			} catch (java.rmi.RemoteException e) {
-				logger.error("Error while waiting for system. " + e);
-			} catch (java.rmi.NotBoundException e) {
-				logger.info("System missing: " + e.getMessage());
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException innerE) {
-					logger.error("Error while waiting for system. " + e);
-				}
-				continue;
-			}
-			
-			break;
-		}
+		«this.portMemberVar()» = («this.providedInterface__OperationProvidedRole.fqn()»)de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.lookup("«this.portClassName()»");
 	}
 
 «ENDDEFINE»
@@ -170,7 +148,15 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractOp
 	@Override
 	protected Runnable getScenarioRunner(de.uka.ipd.sdq.prototype.framework.utils.RunProperties runProps)
 	{
-		return new «u.fqn()»((runProps.hasOption('R') ? runProps.getOptionValue('R') : de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.LOCALHOST));
+		if (runProps.hasOption('R'))
+		{
+			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
+		}
+		else
+		{
+			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.setRemoteAddress(de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.LOCALHOST);
+		}
+		return new «u.fqn()»();
 	}
 }
 
@@ -204,7 +190,15 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractCl
 	@Override
 	protected Runnable getScenarioRunner(de.uka.ipd.sdq.prototype.framework.utils.RunProperties runProps)
 	{
-		return new «u.fqn()»((runProps.hasOption('R') ? runProps.getOptionValue('R') : de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.LOCALHOST));
+		if (runProps.hasOption('R'))
+		{
+			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
+		}
+		else
+		{
+			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.setRemoteAddress(de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.LOCALHOST);
+		}
+		return new «u.fqn()»();
 	}
 }
 «ENDDEFINE»
@@ -236,13 +230,24 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractCl
 	«PROTECT CSTART '/*' CEND '*/' ID this.id»
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> outerStackframe = ctx.getStack().createAndPushNewStackFrame();
 		
+		«REM»
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaString()»
 		{
+		«ENDREM»
+		
 			«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+
+		«REM»
 		}
 		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaString()»
-
+		«ENDREM»
+		
 		ctx.getStack().removeStackFrame();
 	«ENDPROTECT»
 	}
+«ENDDEFINE»
+
+
+«DEFINE SystemMemberVar FOR OperationProvidedRole»
+   protected «this.providedInterface__OperationProvidedRole.fqn()» «this.portMemberVar()» = null;
 «ENDDEFINE»

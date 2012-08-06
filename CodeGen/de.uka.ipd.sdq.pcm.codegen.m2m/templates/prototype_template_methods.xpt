@@ -25,12 +25,6 @@
 	«EXPAND m2t_transforms::prototype::java_core::MainImplementation FOR this»
 «ENDAROUND»
 
-«AROUND m2t_transforms::java_core::ComponentImplementationChildClassTM FOR RepositoryComponent»
-	«REM» 
-	«EXPAND m2t_transforms::ejb3::bean::Bean FOR this»
-	«ENDREM» 
-«ENDAROUND»
-
 «AROUND m2t_transforms::java_core::ComponentConstructorTM FOR RepositoryComponent»
     «EXPAND m2t_transforms::prototype::java_core::ComponentConstructor FOR this»
 «ENDAROUND»
@@ -41,7 +35,9 @@
 «AROUND m2t_transforms::java_core::SpecificImplementationPartTM FOR RepositoryComponent»
 	«EXPAND m2t_transforms::sim::java_core::SpecificImplementationPartTM FOR this»
 	
-	«EXPAND m2t_transforms::prototype::java_core::MainImplementation FOR this»	
+	«IF BasicComponent.isInstance(this)»
+		«EXPAND m2t_transforms::prototype::java_core::MainImplementation FOR (BasicComponent)this»
+	«ENDIF»
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::SpecificImplementationPartForInterfaceTM FOR RepositoryComponent»
@@ -57,6 +53,35 @@
 «AROUND m2t_transforms::allocation::AllocationTM FOR Allocation»
 	«EXPAND m2t_transforms::prototype::resources::ResourceEnvironmentRoot FOR this.targetResourceEnvironment_Allocation»
 	«EXPAND m2t_transforms::prototype::allocation::AllocationRoot FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::usage::SystemMemberVar FOR OperationProvidedRole»
+	«EXPAND m2t_transforms::prototype::usage::SystemMemberVar FOR this»
+«ENDAROUND» 
+
+
+//-------------------------
+// Ports
+//-------------------------
+
+«AROUND m2t_transforms::provided_ports::PortImpl FOR OperationProvidedRole»
+   «EXPAND m2t_transforms::prototype::provided_ports::PortImpl FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortImpl FOR InfrastructureProvidedRole»
+   «EXPAND m2t_transforms::prototype::provided_ports::PortImpl FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::ComposedStructurePortImpl(ComposedProvidingRequiringEntity cs) FOR OperationProvidedRole»
+   «EXPAND m2t_transforms::prototype::provided_ports::ComposedStructurePortImpl(cs) FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortMemberVars FOR OperationProvidedRole»
+	«EXPAND m2t_transforms::prototype::provided_ports::PortMemberVars FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortMemberVars FOR InfrastructureProvidedRole»
+	«EXPAND m2t_transforms::prototype::provided_ports::PortMemberVars FOR this»
 «ENDAROUND»
 
 //-------------------------
@@ -107,20 +132,25 @@
 //-------------------------
 
 «AROUND m2t_transforms::calls::PreCallTM(Object call, String prefix, List[VariableUsage] parameterUsages) FOR OperationSignature»
-	«EXPAND m2t_transforms::sim::calls::GenericPreCall(call, parameterUsages, prefix) FOR this»
+	«EXPAND m2t_transforms::prototype::calls::GenericPreCall(call, parameterUsages, prefix) FOR this»
 «ENDAROUND»
  
 «AROUND m2t_transforms::calls::PreCallTM(Object call, String prefix, List[VariableUsage] parameterUsages) FOR InfrastructureSignature»
-	«EXPAND m2t_transforms::sim::calls::PreCall(call, prefix, parameterUsages) FOR this»
+«REM»	«EXPAND m2t_transforms::prototype::calls::GenericPreCall(call,parameterUsages) FOR this»«ENDREM»
 «ENDAROUND»
  
 «AROUND m2t_transforms::calls::PostCallTM(Object call, String prefix, List[VariableUsage] outParameterUsages) FOR OperationSignature»
-	«EXPAND m2t_transforms::sim::calls::GenericPostCall(call, outParameterUsages) FOR this»
+	«EXPAND m2t_transforms::prototype::calls::GenericPostCall(call, outParameterUsages) FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::calls::PostCallTM(Object call, String prefix) FOR InfrastructureSignature»
-	«EXPAND m2t_transforms::sim::calls::PostCall(call, prefix) FOR this»
+«REM»	«EXPAND m2t_transforms::sim::calls::PostCall(call, prefix) FOR this»«ENDREM»
 «ENDAROUND» 
+
+«AROUND m2t_transforms::calls::Call(Entity call) FOR InfrastructureCall»
+	logger.debug("ProtoCom does not simulate infrastructure calls.");
+«ENDAROUND»
+
 
 // ----------------------------
 // Resource Demand
@@ -215,6 +245,10 @@
 	«EXPAND m2t_transforms::sim::user_actions::UserAction FOR this»
 «ENDAROUND»
 
+«AROUND m2t_transforms::user_actions::UserAction FOR EntryLevelSystemCall»
+	«EXPAND m2t_transforms::prototype::user_actions::UserAction FOR this»
+«ENDAROUND»
+
 «AROUND m2t_transforms::user_actions::UserAction FOR Branch»
 	«EXPAND m2t_transforms::prototype::user_actions::UserAction FOR this»
 «ENDAROUND»
@@ -227,20 +261,9 @@
 //----------------------------
 // Repository
 //----------------------------
-«REM»
-«AROUND m2t_transforms::repository::InterfaceHeader FOR OperationInterface»
-   package «this.repository__Interface.basePackageName()»;
-           
-   public interface «this.javaName()» extends java.rmi.Remote
-«ENDAROUND»
 
-«AROUND m2t_transforms::java_core::OperationSignature FOR Entity»
+«AROUND m2t_transforms::java_core::OperationSignature FOR OperationSignature»
 	«targetDef.proceed()» throws java.rmi.RemoteException
-«ENDAROUND»
-«ENDREM»
-
-«AROUND m2t_transforms::java_core::SuperClassesTM FOR RepositoryComponent»
-	extends java.rmi.server.UnicastRemoteObject
 «ENDAROUND»
 
 «AROUND m2t_transforms::composed_structure::ChildMemberVar FOR AssemblyContext»
@@ -249,36 +272,22 @@
          my«this.javaName()» = null;
 «ENDAROUND»
 
+«AROUND m2t_transforms::repository::InterfaceHeader FOR OperationInterface»
+   «targetDef.proceed()» extends java.rmi.Remote
+«ENDAROUND»
+
 «AROUND m2t_transforms::java_core::ContentImplementationInterfaceHeader FOR InterfaceProvidingEntity»
 	package «this.implementationPackage()»;
     
-	public interface «this.interfaceName()» extends java.rmi.Remote
+	public interface «this.interfaceName()»
 «ENDAROUND»
 
-«AROUND m2t_transforms::provided_ports::PortGetterDefinition FOR OperationProvidedRole»
-	public «this.providedInterface__OperationProvidedRole.fqn()» «this.portGetter()» () throws java.rmi.RemoteException;
+«AROUND m2t_transforms::context_pattern::ComponentContextSetter FOR InterfaceRequiringEntity»
+	«EXPAND m2t_transforms::prototype::context_pattern::ComponentContextSetter FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::context_pattern::ComponentContextSetterDefinition FOR InterfaceRequiringEntity»
-   public void setContext(«this.fqnContextInterface()» myContext) throws java.rmi.RemoteException;
-«ENDAROUND»
-
-«AROUND m2t_transforms::sim::java_core::SpecificImplementationPartForInterfaceTM FOR RepositoryComponent»
-   public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame) throws java.rmi.RemoteException;
-«ENDAROUND»
-
-«AROUND m2t_transforms::java_core::ComponentServiceSignature FOR OperationSignature»
-	«targetDef.proceed()» throws java.rmi.RemoteException
-«ENDAROUND»
-
-«AROUND m2t_transforms::sim::provided_ports::PortDelegationDelegatingCall FOR OperationSignature»
-    try {
-	  return myComponent.«this.interface__OperationSignature.javaName().toFirstLower()»_«this.javaSignature()»(
-	       «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
-	} catch (java.rmi.RemoteException e) {
-       e.printStackTrace();
-    }
-	return null;
+	«EXPAND m2t_transforms::prototype::context_pattern::ComponentContextSetterDefinition FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::composed_structure::AllChildMemberVarInit FOR ComposedProvidingRequiringEntity»
@@ -307,6 +316,14 @@
 
 «AROUND m2t_transforms::composed_structure::ComposedPREConstructorStartTM FOR ComposedProvidingRequiringEntity»
 	«EXPAND m2t_transforms::prototype::composed_structure::ComposedPREConstructorStartTM FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ComponentImplementationForImplComponentTypesAndSubSystems FOR RepositoryComponent» 
+	«EXPAND m2t_transforms::prototype::java_core::ComponentImplementationForImplComponentTypesAndSubSystems FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::ContextPortGetter(ComposedStructure cs) FOR OperationProvidedRole» 
+	«EXPAND m2t_transforms::prototype::provided_ports::ContextPortGetter(cs) FOR this»
 «ENDAROUND»
 
 //----------------------------

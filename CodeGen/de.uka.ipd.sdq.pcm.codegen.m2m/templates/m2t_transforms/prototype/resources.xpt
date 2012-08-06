@@ -12,7 +12,7 @@
 // Load the resource demand on a simulated resource
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
    {
-      double demand = (Double) ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class);
+      double demand = ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»", Double.class);
 
 «REM» Should be unnecessary by now
       try {

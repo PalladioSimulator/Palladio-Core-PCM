@@ -1,6 +1,5 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
-«IMPORT provided_ports»
 «IMPORT repository»
 «IMPORT seff»
 «IMPORT system»
@@ -115,7 +114,7 @@ public class «this.javaName()»
 «DEFINE ComponentImplementationForImplComponentTypesAndSubSystems FOR RepositoryComponent»
    «FILE this.getFileName()»
 	   «EXPAND ComponentImplementationInterface FOR this»
-	   package «this.implementationPackage()»;
+	   «EXPAND ComponentPackage FOR this»
 	      
 	   «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
 	   «EXPAND SuperClassesTM FOR this»
@@ -129,6 +128,10 @@ public class «this.javaName()»
 	   }
 	   «EXPAND ComponentImplementationChildClassTM FOR this»
 	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ComponentPackage FOR RepositoryComponent»
+	   package «this.implementationPackage()»; 
 «ENDDEFINE»
 
 «DEFINE ComponentImplementationInterface FOR InterfaceProvidingEntity»

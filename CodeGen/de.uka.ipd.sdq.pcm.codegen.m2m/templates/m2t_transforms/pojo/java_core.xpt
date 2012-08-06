@@ -1,9 +1,29 @@
 «EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pojo::java_names»
 «EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::sensors»
 «IMPORT system»
 «IMPORT repository»
 «IMPORT seff»
 «IMPORT core::entity»
+
+
+«DEFINE ComponentConstructor FOR RepositoryComponent»
+«ENDDEFINE»
+
+
+«DEFINE ComponentConstructor FOR BasicComponent» 
+		
+	private static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(«this.javaName()».class.getName());	
+				
+	public «this.javaName()»() {
+
+	}
+
+«ENDDEFINE»
+
+
 
 «DEFINE ComponentService(RepositoryComponent component) FOR OperationSignature»
    public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
@@ -32,3 +52,59 @@
    }   
 «ENDDEFINE»
 
+
+
+«DEFINE AbstractInnerImplementation FOR RepositoryComponent»
+	«EXPAND ComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface»
+«REM» TODO	«EXPAND ComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole).providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface»
+«ENDREM»
+«ENDDEFINE»
+
+
+«DEFINE ComponentImplementationForImplComponentTypesAndSubSystems FOR RepositoryComponent»
+	«FILE this.getFileName()»
+	   «EXPAND m2t_transforms::java_core::ComponentImplementationInterface FOR this»
+	   «EXPAND m2t_transforms::java_core::ComponentPackage FOR this»
+	      
+	   «EXPAND AbstractClassHeader FOR this»
+	   «EXPAND m2t_transforms::java_core::SuperClassesTM FOR this»
+	   implements «this.fqnInterface()», java.io.Serializable
+	   {
+	   	  «EXPAND m2t_transforms::java_core::ComponentConstructorTM FOR this» 
+	      «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+	      «EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+	      «EXPAND AbstractInnerImplementation FOR this» «REM»change to abstarct inner«ENDREM»
+		  «EXPAND m2t_transforms::java_core::SpecificImplementationPartTM FOR this»
+		  
+		  protected abstract «this.javaName()» createInstance();
+	   }
+	   «EXPAND m2t_transforms::java_core::ComponentImplementationChildClassTM FOR this»
+	«ENDFILE»
+
+	«FILE this.getCustomFileName()»
+		package «this.customImplementationPackage()»;
+		
+	   «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
+	   «EXPAND AbstractSuperClasses FOR this»
+	   implements «this.fqnInterface()»
+	   {
+	   	  «EXPAND m2t_transforms::java_core::ComponentConstructorTM FOR this» 
+	      «EXPAND m2t_transforms::java_core::InnerImplementation FOR this» «REM»add new inner impl«ENDREM»
+		  «EXPAND m2t_transforms::java_core::SpecificImplementationPartTM FOR this»
+		  
+		  protected «this.fqn()» createInstance()
+		  {
+		  	return new «this.javaName()»(null);
+		  }
+	   }
+
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE AbstractClassHeader FOR RepositoryComponent»
+public abstract class «this.javaName()»
+«ENDDEFINE»
+
+«DEFINE AbstractSuperClasses FOR RepositoryComponent»
+	extends «this.fqn()»
+«ENDDEFINE»

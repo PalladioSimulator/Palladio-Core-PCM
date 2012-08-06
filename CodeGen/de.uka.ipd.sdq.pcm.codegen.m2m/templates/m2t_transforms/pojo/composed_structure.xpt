@@ -1,0 +1,24 @@
+«IMPORT core::composition»
+«IMPORT core::entity»
+«IMPORT repository»
+«IMPORT system»
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+
+
+
+«DEFINE ComposedStructureStart FOR ComposedProvidingRequiringEntity»
+	package «this.implementationPackage()»;
+  
+	public class «this.className()»«REM» extends java.rmi.server.UnicastRemoteObject«ENDREM» implements «this.fqnInterface()», java.io.Serializable  
+	{
+		private static final long serialVersionUID = 1L;
+
+		private static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(«this.className()».class.getName());
+  
+  
+		«EXPAND m2t_transforms::prototype::composed_structure::Constructor FOR this»		
+		«EXPAND m2t_transforms::prototype::composed_structure::InnerImplementation FOR this»
+«ENDDEFINE»

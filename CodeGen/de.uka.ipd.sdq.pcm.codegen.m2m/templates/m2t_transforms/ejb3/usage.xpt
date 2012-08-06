@@ -44,11 +44,12 @@
 «ENDDEFINE»
 
 «DEFINE ContextInit FOR OperationProvidedRole»
+	«REM»
 	/*«this.portMemberVar()» = («this.providedInterface__OperationProvidedRole.fqn()»)
 		javax.rmi.PortableRemoteObject.narrow(
 			context.lookup("ejb/«this.providedInterface__OperationProvidedRole.javaName()»"),«this.providedInterface__OperationProvidedRole.fqn()».class);
     */
-    
+    «ENDREM»
     {
 	//get the business interface
 	Object obj=context.lookup(«this.providedInterface__OperationProvidedRole.fqn()».class.getName());
@@ -59,10 +60,12 @@
 «ENDDEFINE»
 
 «DEFINE ContextInit FOR InfrastructureProvidedRole»
+	«REM»
 	/*«this.portMemberVar()» = («this.providedInterface__InfrastructureProvidedRole.fqn()»)
 		javax.rmi.PortableRemoteObject.narrow(
 			context.lookup("ejb/«this.providedInterface__InfrastructureProvidedRole.javaName()»"),«this.providedInterface__InfrastructureProvidedRole.fqn()».class);
     */
+    «ENDREM»
     
     {
 	//get the business interface

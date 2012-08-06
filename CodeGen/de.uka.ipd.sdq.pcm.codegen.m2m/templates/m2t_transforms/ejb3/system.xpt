@@ -7,6 +7,8 @@
 
 
 «DEFINE DeploymentDescriptor FOR System»
+«REM»2012-01-24, Thomas
+
 	«FILE "META-INF/ejb-jar.xml"»
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -21,6 +23,7 @@
          </enterprise-beans>
 </ejb-jar>
 	«ENDFILE»
+«ENDREM»
 «ENDDEFINE»
 
 «DEFINE SessionBeanDescriptor(System s) FOR AssemblyContext»
@@ -30,6 +33,7 @@
 «ENDDEFINE»
 
 «DEFINE SessionBeanPortBean(System s, AssemblyContext a) FOR OperationProvidedRole»
+«REM»2012-01-24, Thomas
 <session>
 	<ejb-name>«a.portSessionBeanName(this)»</ejb-name>
 	<!--
@@ -51,9 +55,11 @@
 		</injection-target>		
 	</ejb-local-ref>
 </session>
+«ENDREM»
 «ENDDEFINE»
 
 «DEFINE SessionBeanImplementationBean FOR AssemblyContext»
+«REM»2012-01-24, Thomas
 <session>
 	<ejb-name>«this.implementationSessionBeanName()»</ejb-name>
 	<business-local>«this.encapsulatedComponent__AssemblyContext.fqnInterface()»</business-local>
@@ -72,9 +78,11 @@
 		</injection-target>		
 	</ejb-local-ref>
 </session>
+«ENDREM»
 «ENDDEFINE»
 
 «DEFINE SessionBeanContextBean(System s) FOR AssemblyContext»
+«REM»2012-01-24, Thomas
 <session>
 	<ejb-name>«this.contextSessionBeanName()»</ejb-name>
 	<business-local>«this.encapsulatedComponent__AssemblyContext.fqnContextInterface()»</business-local>
@@ -82,9 +90,11 @@
 	<session-type>Stateless</session-type>
 	«EXPAND Connector(s,this) FOREACH this.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.typeSelect(OperationRequiredRole)»
 </session>
+«ENDREM»
 «ENDDEFINE»
 
 «DEFINE Connector(System s, AssemblyContext a) FOR OperationRequiredRole»
+«REM»2012-01-24, Thomas
 <ejb-ref>
 	<ejb-ref-name>«this.contextDependencyJNDIName()»</ejb-ref-name>
 	<ejb-ref-type>Session</ejb-ref-type>
@@ -99,4 +109,5 @@
 		</injection-target>		
 	«ENDIF»
 </ejb-ref>
+«ENDREM»
 «ENDDEFINE»
