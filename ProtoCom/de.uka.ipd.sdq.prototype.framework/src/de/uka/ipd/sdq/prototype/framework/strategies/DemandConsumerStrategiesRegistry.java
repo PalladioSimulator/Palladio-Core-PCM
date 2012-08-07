@@ -23,13 +23,6 @@ public class DemandConsumerStrategiesRegistry {
 	
 	public IDemandStrategy getStrategyFor(ResourceTypeEnum resource) {
 		if(!strategiesHash.containsKey(resource)) {
-			// TODO: This is a temporary J2EE hack, only simulate CPUs.
-//			double procRate = 10;
-//			System.out.println("Warning: the CPU strategy has been hard-codedly set to a processing rate of "+procRate);
-//			IDemandStrategy strategy = new FibonacciDemand();
-//			strategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM,procRate);
-//			strategiesHash.put(resource,strategy);
-//			return strategy;
 			throw new RuntimeException("Requested Resourcestrategy >"+resource+"< is not registered!");
 		}
 		

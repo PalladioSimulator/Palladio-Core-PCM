@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.prototype.framework.config;
 /**
  * Config class for protocom
  * 
+ * TODO: Not in use.
+ * 
  * @author Steffen Becker
  */
 public class ProtocomConfig {

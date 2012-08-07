@@ -7,6 +7,11 @@ import de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.FibonacciDemand;
 
+/**
+ * Registry for 
+ * 
+ * @author lehrig, zolynski
+ */
 public class StrategiesRegistry {
 
 	private HashMap<ResourceTypeEnum,IDemandStrategy> strategiesHash = new HashMap<ResourceTypeEnum, IDemandStrategy>();
