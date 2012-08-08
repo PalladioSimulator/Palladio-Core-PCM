@@ -113,5 +113,21 @@
             contributorClass="de.fzi.se.quality.parameters.pcm.presentation.PCMActionBarContributor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+            class="de.fzi.se.quality.presentation.DefaultQualityModelWizard"
+            icon="icons/full/obj16/QualityModelFile.gif"
+            id="de.fzi.se.quality.presentation.DefaultQualityModelWizardID"
+            name="%_UI_DefaultQualityModelWizard_label">
+         <description>
+            %_UI_DefaultQualityModelWizard_description
+         </description>
+         <selection
+               class="org.eclipse.core.resources.IResource">
+         </selection>
+      </wizard>
+   </extension>
 
 </plugin>
