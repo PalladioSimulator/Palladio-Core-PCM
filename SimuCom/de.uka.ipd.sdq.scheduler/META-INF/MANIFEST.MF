@@ -12,7 +12,6 @@ Require-Bundle: de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0"
 Export-Package: de.uka.ipd.sdq.scheduler,
  de.uka.ipd.sdq.scheduler.entities,
- de.uka.ipd.sdq.scheduler.events,
  de.uka.ipd.sdq.scheduler.factory,
  de.uka.ipd.sdq.scheduler.processes,
  de.uka.ipd.sdq.scheduler.resources,

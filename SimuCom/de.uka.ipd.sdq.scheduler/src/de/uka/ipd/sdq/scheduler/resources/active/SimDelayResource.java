@@ -1,15 +1,17 @@
 package de.uka.ipd.sdq.scheduler.resources.active;
 
-import de.uka.ipd.sdq.scheduler.IRunningProcess;
+import java.util.Hashtable;
+
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
-import de.uka.ipd.sdq.scheduler.events.DelayEvent;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 public class SimDelayResource extends AbstractActiveResource {
 
-	int num_running;
+	// Contains all running processes on the resource (key: process ID)
+	private Hashtable<String,ISchedulableProcess> running_processes = new Hashtable<String, ISchedulableProcess>();
 	
 	public SimDelayResource(SchedulerModel model, String name, String id) {
 		super(model, -1, name, id);
@@ -17,19 +19,39 @@ public class SimDelayResource extends AbstractActiveResource {
 
 
 	public void start() {
-		this.num_running = 0;
+		running_processes.clear();
+	}
+	
+	private class DelayEvent extends AbstractSimEventDelegator<ISchedulableProcess> {
+
+		public DelayEvent(SchedulerModel model) {
+			super(model, "DelayEvent");
+		}
+
+		@Override
+		public void eventRoutine(ISchedulableProcess process) {
+			dequeue(process);
+		}
+
 	}
 
 	@Override
 	protected void dequeue(ISchedulableProcess process) {
-		this.num_running--;
-		fireStateChange(num_running, 0);
+		if (!running_processes.containsKey(process.getId())) {
+			return;
+		}
+		running_processes.remove(process.getId());
+		fireStateChange(running_processes.size(), 0);
 		fireDemandCompleted(process);
+		process.activate();
 	}
 
 	@Override
 	protected void doProcessing(ISchedulableProcess process, int resourceServiceId, double demand) {
 		LoggingWrapper.log("Delay: " + process + " demands " + demand);
+		if (!running_processes.containsKey(process.getId())) {
+			enqueue(process);
+		}
 		new DelayEvent(getModel()).schedule(process, demand);
 		process.passivate();
 	}
@@ -46,13 +68,13 @@ public class SimDelayResource extends AbstractActiveResource {
 	
 	@Override
 	protected void enqueue(ISchedulableProcess process) {
-		this.num_running++;
-		fireStateChange(num_running, 0);
+		running_processes.put(process.getId(), process);
+		fireStateChange(running_processes.size(), 0);
 	}
 
 
 	public void stop() {
-		
+		running_processes.clear();
 	}
 
 	public void registerProcess(ISchedulableProcess process) {
@@ -61,7 +83,7 @@ public class SimDelayResource extends AbstractActiveResource {
 	
 
 	public int getQueueLengthFor(SchedulerEntity schedulerEntity) {
-		return this.num_running;
+		return running_processes.size();
 	}
 
 
