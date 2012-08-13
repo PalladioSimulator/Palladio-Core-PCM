@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0">
+<ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0">
   <resourceContainer_ResourceEnvironment id="_ATCCUXtQEd6J8YwisObTKw">
-    <activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer> <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#ProcessorSharing"/>
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_nvHX4KkREdyEA_b89s7q9w"/>
       <processingRate_ProcessingResourceSpecification specification="1"/>
     </activeResourceSpecifications_ResourceContainer>
-    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
+    <activeResourceSpecifications_ResourceContainer > <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#ProcessorSharing"/>
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
       <processingRate_ProcessingResourceSpecification specification="1"/>
     </activeResourceSpecifications_ResourceContainer>
-    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING">
+    <activeResourceSpecifications_ResourceContainer > <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#ProcessorSharing"/>
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
       <processingRate_ProcessingResourceSpecification specification="1"/>
     </activeResourceSpecifications_ResourceContainer>

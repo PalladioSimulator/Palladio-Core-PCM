@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" id="_goDo4HtQEd6J8YwisObTKw" entityName="defaultAllocation">
+<Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0" id="_goDo4HtQEd6J8YwisObTKw" entityName="defaultAllocation">
   <allocationContexts_Allocation id="_hg1D8HtQEd6J8YwisObTKw" entityName="Allocation_Assembly_Forking &lt;Forking> &lt;Forking>">
     <resourceContainer_AllocationContext href="fork_3.1.resourceenvironment#_ATCCUXtQEd6J8YwisObTKw"/>
     <assemblyContext_AllocationContext href="fork_3.1.system#_3LM7IHtPEd6J8YwisObTKw"/>
