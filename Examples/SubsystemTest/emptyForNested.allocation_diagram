@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmi:id="_vJo9oX2uEd6u9Md61yj-5Q" type="allocation" name="emptyForNested.allocation_diagram" measurementUnit="Pixel">
-  <styles xmi:type="notation:DiagramStyle" xmi:id="_vJo9on2uEd6u9Md61yj-5Q"/>
-  <element xmi:type="Allocation" href="emptyForNested.allocation#_vJo9oH2uEd6u9Md61yj-5Q"/>
-</notation:Diagram>
