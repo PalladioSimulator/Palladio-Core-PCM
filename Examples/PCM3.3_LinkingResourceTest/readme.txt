@@ -7,7 +7,7 @@ C1 sends two parameters to C2 with 3 characterisations:
 * param.BYTESIZE is 1000
 * aString.BYTESIZE is 333
 
-The middleware can decide how to handle the size of the int array. At thi time, the default glassfish model creates an additional bytesize of 2 * NUMBER_OF_ELEMENTS.
+The middleware can decide how to handle the size of the int array. At this time, the default glassfish model creates an additional bytesize of 2 * NUMBER_OF_ELEMENTS.
 
 Thus, with the glassfish model, the network should be loaded with a demand of 1353. With the network throughput of 10, that is an actual demand of 135.3 plus the latency, which is 0.01, so 135.31 is the final network load.
 
