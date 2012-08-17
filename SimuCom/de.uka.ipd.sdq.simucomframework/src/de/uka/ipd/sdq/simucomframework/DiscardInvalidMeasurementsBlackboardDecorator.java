@@ -17,12 +17,14 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 public class DiscardInvalidMeasurementsBlackboardDecorator implements
 		ISampleBlackboard {
 
-	private ISampleBlackboard decorated;
-	private ISimulationControl simControl;
+	private final ISampleBlackboard decorated;
+	private final ISimulationControl simControl;
 
 	public DiscardInvalidMeasurementsBlackboardDecorator(
 			ISampleBlackboard decorated, ISimulationControl simControl) {
-		this.decorated = decorated;
+		super();
+		
+	    this.decorated = decorated;
 		this.simControl = simControl;
 	}
 
