@@ -6,29 +6,32 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.gmf.runtime.common.core.command.AbstractCommand;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 
+/**
+ * This command is passed after a cancelled action.
+ */
 public class CanceledCommand extends AbstractCommand {
 
-	public CanceledCommand() {
-		super("Canceled Command");
-	}
+    /** Constructs a new CanceledCommand. */
+    public CanceledCommand() {
+        super("Canceled Command");
+    }
 
-	@Override
-	protected CommandResult doExecuteWithResult(
-			IProgressMonitor progressMonitor, IAdaptable info)
-			throws ExecutionException {
-		return CommandResult.newCancelledCommandResult();
-	}
+    @Override
+    protected CommandResult doExecuteWithResult(final IProgressMonitor progressMonitor, final IAdaptable info)
+            throws ExecutionException {
+        return CommandResult.newCancelledCommandResult();
+    }
 
-	@Override
-	protected CommandResult doRedoWithResult(IProgressMonitor progressMonitor,
-			IAdaptable info) throws ExecutionException {
-		return CommandResult.newCancelledCommandResult();
-	}
+    @Override
+    protected CommandResult doRedoWithResult(final IProgressMonitor progressMonitor, final IAdaptable info)
+            throws ExecutionException {
+        return CommandResult.newCancelledCommandResult();
+    }
 
-	@Override
-	protected CommandResult doUndoWithResult(IProgressMonitor progressMonitor,
-			IAdaptable info) throws ExecutionException {
-		return CommandResult.newCancelledCommandResult();
-	}
-	
+    @Override
+    protected CommandResult doUndoWithResult(final IProgressMonitor progressMonitor, final IAdaptable info)
+            throws ExecutionException {
+        return CommandResult.newCancelledCommandResult();
+    }
+
 }

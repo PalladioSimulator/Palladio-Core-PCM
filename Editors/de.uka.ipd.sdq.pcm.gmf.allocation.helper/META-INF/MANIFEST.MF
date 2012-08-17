@@ -17,4 +17,5 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.dialogs,
  org.eclipse.gmf.runtime.diagram.ui,
  de.uka.ipd.sdq.pcm.dialogs
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
