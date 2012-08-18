@@ -11,24 +11,36 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 
+/**
+ * The customized stop action2 edit part class.
+ */
 public class CustomStopAction2EditPart extends StopAction2EditPart {
 
-	public CustomStopAction2EditPart(View view) {
-		super(view);
-	}
+    /**
+     * Instantiates a new customized stop action2 edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomStopAction2EditPart(final View view) {
+        super(view);
+    }
 
-	@Override
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(30), getMapMode().DPtoLP(20)) {
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart#createNodePlate()
+     */
+    @Override
+    protected NodeFigure createNodePlate() {
+        final DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(this.getMapMode().DPtoLP(30), this.getMapMode()
+                .DPtoLP(20)) {
 
-			@Override
-			protected ConnectionAnchor createDefaultAnchor() {
-				return new EllipseAnchor(this);
-			}
+            @Override
+            protected ConnectionAnchor createDefaultAnchor() {
+                return new EllipseAnchor(this);
+            }
 
-		};
-		return result;
-	}
+        };
+        return result;
+    }
 
 }

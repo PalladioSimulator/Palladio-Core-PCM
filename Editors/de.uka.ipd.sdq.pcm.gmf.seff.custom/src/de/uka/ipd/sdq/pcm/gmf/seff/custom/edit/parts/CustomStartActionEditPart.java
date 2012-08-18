@@ -11,23 +11,35 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 
+/**
+ * The customized start action edit part class.
+ */
 public class CustomStartActionEditPart extends StartActionEditPart {
 
-	public CustomStartActionEditPart(View view) {
-		super(view);
-	}
+    /**
+     * Instantiates a new customized start action edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomStartActionEditPart(final View view) {
+        super(view);
+    }
 
-	@Override
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(20)) {
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart#createNodePlate()
+     */
+    @Override
+    protected NodeFigure createNodePlate() {
+        final DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(this.getMapMode().DPtoLP(20), this.getMapMode()
+                .DPtoLP(20)) {
 
-			@Override
-			protected ConnectionAnchor createDefaultAnchor() {
-				return new EllipseAnchor(this);
-			}
+            @Override
+            protected ConnectionAnchor createDefaultAnchor() {
+                return new EllipseAnchor(this);
+            }
 
-		};
-		return result;
-	}
+        };
+        return result;
+    }
 }

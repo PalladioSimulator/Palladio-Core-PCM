@@ -11,42 +11,49 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage4LabelEditPart;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
+/**
+ * The customized variable usage4 label edit part class.
+ */
 public class CustomVariableUsage4LabelEditPart extends VariableUsage4LabelEditPart {
 
-	public CustomVariableUsage4LabelEditPart(View view) {
-		super(view);
-	}
+    /**
+     * Instantiates a new customized variable usage4 label edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomVariableUsage4LabelEditPart(final View view) {
+        super(view);
+    }
 
-	/**
-	 * Enhanced method to present the name of the
-	 * VariableReference of the VariableUsage this
-	 * wrapping label edit part is about
-	 */
-	@Override
-	protected String getLabelText() {
-		String text = null;
-		EObject parserElement = getParserElement();
-		if (parserElement != null) {
-			if (parserElement instanceof VariableUsage) {
-				// customized
-				VariableUsage usage = (VariableUsage) this
-						.resolveSemanticElement();
-				if (usage.getNamedReference__VariableUsage() != null) {
-					text = new PCMStoExPrettyPrintVisitor().prettyPrint(usage
-							.getNamedReference__VariableUsage());
-				}
-			} else {
-				if (parserElement != null && getParser() != null) {
-					text = getParser().getPrintString(
-							new EObjectAdapter(parserElement),
-							getParserOptions().intValue());
-				}
-			}
-		}
-		if (text == null || text.length() == 0) {
-			text = getLabelTextHelper(getFigure());
-		}
-		return text;
-	}
+    /**
+     * Enhanced method to present the name of the VariableReference of the VariableUsage this
+     * wrapping label edit part is about.
+     * 
+     * @return the label text
+     */
+    @Override
+    protected String getLabelText() {
+        String text = null;
+        final EObject parserElement = this.getParserElement();
+        if (parserElement != null) {
+            if (parserElement instanceof VariableUsage) {
+                // customized
+                final VariableUsage usage = (VariableUsage) this.resolveSemanticElement();
+                if (usage.getNamedReference__VariableUsage() != null) {
+                    text = new PCMStoExPrettyPrintVisitor().prettyPrint(usage.getNamedReference__VariableUsage());
+                }
+            } else {
+                if (parserElement != null && this.getParser() != null) {
+                    text = this.getParser().getPrintString(new EObjectAdapter(parserElement),
+                            this.getParserOptions().intValue());
+                }
+            }
+        }
+        if (text == null || text.length() == 0) {
+            text = this.getLabelTextHelper(this.getFigure());
+        }
+        return text;
+    }
 
 }

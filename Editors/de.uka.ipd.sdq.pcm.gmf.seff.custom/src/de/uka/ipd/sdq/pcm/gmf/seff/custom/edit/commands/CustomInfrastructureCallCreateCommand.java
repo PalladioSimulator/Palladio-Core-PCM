@@ -14,34 +14,48 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InfrastructureCallCreateCommand;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 
-
+/**
+ * The customized infrastructure call create command class.
+ */
 public class CustomInfrastructureCallCreateCommand extends InfrastructureCallCreateCommand {
 
-	// Default number of calls to use for a infrastructure call.
-	private static final String DEFAULT_NUMBER_OF_CALLS = "1";
+    /** Default number of calls to use for a infrastructure call. */
+    private static final String DEFAULT_NUMBER_OF_CALLS = "1";
 
-	public CustomInfrastructureCallCreateCommand(CreateElementRequest req) {
-		super(req);
-	}
+    /**
+     * Instantiates a new customized infrastructure call create command.
+     * 
+     * @param req
+     *            the req
+     */
+    public CustomInfrastructureCallCreateCommand(final CreateElementRequest req) {
+        super(req);
+    }
 
-	@Override
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall newElement = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory.eINSTANCE
-				.createInfrastructureCall();
-		// add empty random variable
-		PCMRandomVariable numberOfCalls = CoreFactory.eINSTANCE
-				.createPCMRandomVariable();
-		numberOfCalls.setSpecification(DEFAULT_NUMBER_OF_CALLS);
-		newElement.setNumberOfCalls__InfrastructureCall(numberOfCalls);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InfrastructureCallCreateCommand#doExecuteWithResult
+     * (org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+     */
+    @Override
+    protected CommandResult doExecuteWithResult(final IProgressMonitor monitor, final IAdaptable info)
+            throws ExecutionException {
+        final de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall newElement = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory.eINSTANCE
+                .createInfrastructureCall();
+        // add empty random variable
+        final PCMRandomVariable numberOfCalls = CoreFactory.eINSTANCE.createPCMRandomVariable();
+        numberOfCalls.setSpecification(DEFAULT_NUMBER_OF_CALLS);
+        newElement.setNumberOfCalls__InfrastructureCall(numberOfCalls);
 
-		AbstractInternalControlFlowAction owner = (AbstractInternalControlFlowAction) getElementToEdit();
-		owner.getInfrastructureCall__Action().add(newElement);
+        final AbstractInternalControlFlowAction owner = (AbstractInternalControlFlowAction) this.getElementToEdit();
+        owner.getInfrastructureCall__Action().add(newElement);
 
-		doConfigure(newElement, monitor, info);
+        this.doConfigure(newElement, monitor, info);
 
-		((CreateElementRequest) getRequest()).setNewElement(newElement);
-		return CommandResult.newOKCommandResult(newElement);
-	}
+        ((CreateElementRequest) this.getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
+    }
 
 }

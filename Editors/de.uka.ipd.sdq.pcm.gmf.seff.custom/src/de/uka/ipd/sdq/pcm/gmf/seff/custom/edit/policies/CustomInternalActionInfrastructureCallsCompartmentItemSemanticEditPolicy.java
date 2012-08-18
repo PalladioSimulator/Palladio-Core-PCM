@@ -10,20 +10,33 @@ import de.uka.ipd.sdq.pcm.gmf.seff.custom.edit.commands.CustomInfrastructureCall
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
-public class CustomInternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy
-		extends InternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy {
+/**
+ * The customized internal action infrastructure calls compartment item semantic edit policy class.
+ */
+public class CustomInternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy extends
+        InternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy {
 
-	public CustomInternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy() {
-		super();
-	}
+    /**
+     * Instantiates a new customized internal action infrastructure calls compartment item semantic
+     * edit policy.
+     */
+    public CustomInternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy() {
+        super();
+    }
 
-	@Override
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.InfrastructureCall_3053 == req
-				.getElementType()) {
-			return getGEFWrapper(new CustomInfrastructureCallCreateCommand(req));
-		}
-		return super.getCreateCommand(req);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.
+     * InternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy
+     * #getCreateCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest)
+     */
+    @Override
+    protected Command getCreateCommand(final CreateElementRequest req) {
+        if (PalladioComponentModelElementTypes.InfrastructureCall_3053 == req.getElementType()) {
+            return this.getGEFWrapper(new CustomInfrastructureCallCreateCommand(req));
+        }
+        return super.getCreateCommand(req);
+    }
 
 }

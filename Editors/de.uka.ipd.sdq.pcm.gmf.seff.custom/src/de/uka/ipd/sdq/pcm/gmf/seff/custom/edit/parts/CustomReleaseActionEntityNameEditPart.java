@@ -10,33 +10,42 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 
+/**
+ * The customized release action entity name edit part class.
+ */
 public class CustomReleaseActionEntityNameEditPart extends ReleaseActionEntityNameEditPart {
 
-	public CustomReleaseActionEntityNameEditPart(View view) {
-		super(view);
-	}
+    /**
+     * Instantiates a new customized release action entity name edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomReleaseActionEntityNameEditPart(final View view) {
+        super(view);
+    }
 
-	@Override
-	protected String getLabelText() {
-		String text = null;
-		EObject parserElement = getParserElement();
-		if (parserElement != null && getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(parserElement),
-					getParserOptions().intValue());
-		}
-		EObject releaseAction = resolveSemanticElement();
-		if (releaseAction != null && releaseAction instanceof ReleaseAction) {
-			if (((ReleaseAction) releaseAction)
-					.getPassiveResource_ReleaseAction() != null)
-				text += " <Resource: "
-						+ ((ReleaseAction) releaseAction)
-								.getPassiveResource_ReleaseAction()
-								.getEntityName() + ">";
-		}
-		if (text == null || text.length() == 0) {
-			text = getLabelTextHelper(getFigure());
-		}
-		return text;
-	}
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart#getLabelText()
+     */
+    @Override
+    protected String getLabelText() {
+        String text = null;
+        final EObject parserElement = this.getParserElement();
+        if (parserElement != null && this.getParser() != null) {
+            text = this.getParser().getPrintString(new EObjectAdapter(parserElement),
+                    this.getParserOptions().intValue());
+        }
+        final EObject releaseAction = this.resolveSemanticElement();
+        if (releaseAction != null && releaseAction instanceof ReleaseAction) {
+            if (((ReleaseAction) releaseAction).getPassiveResource_ReleaseAction() != null) {
+                text += " <Resource: "
+                        + ((ReleaseAction) releaseAction).getPassiveResource_ReleaseAction().getEntityName() + ">";
+            }
+        }
+        if (text == null || text.length() == 0) {
+            text = this.getLabelTextHelper(this.getFigure());
+        }
+        return text;
+    }
 }

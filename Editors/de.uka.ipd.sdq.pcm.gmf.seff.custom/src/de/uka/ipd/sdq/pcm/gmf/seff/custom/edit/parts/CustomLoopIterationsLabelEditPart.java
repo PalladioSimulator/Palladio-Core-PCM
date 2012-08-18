@@ -12,7 +12,6 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gef.handles.NonResizableHandleKit;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
@@ -24,89 +23,121 @@ import de.uka.ipd.sdq.pcm.dialogs.seff.OpenLoopIterationsDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 
-
+/**
+ * The customized loop iterations label edit part class.
+ */
 public class CustomLoopIterationsLabelEditPart extends LoopIterationsLabelEditPart {
 
-	
-	public CustomLoopIterationsLabelEditPart(View view) {
-		super(view);
-	}
+    /**
+     * Instantiates a new customized loop iterations label edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomLoopIterationsLabelEditPart(final View view) {
+        super(view);
+    }
 
-	@Override
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
-				new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new NonResizableEditPolicy() {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart#createDefaultEditPolicies
+     * ()
+     */
+    @Override
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        this.installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new LabelDirectEditPolicy());
+        this.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new NonResizableEditPolicy() {
 
-					protected List createSelectionHandles() {
-						List handles = new ArrayList();
-						NonResizableHandleKit.addMoveHandle(
-								(GraphicalEditPart) getHost(), handles);
-						return handles;
-					}
+            @SuppressWarnings("rawtypes")
+            @Override
+            protected List createSelectionHandles() {
+                final List handles = new ArrayList();
+                NonResizableHandleKit.addMoveHandle((GraphicalEditPart) this.getHost(), handles);
+                return handles;
+            }
 
-					public Command getCommand(Request request) {
-						return null;
-					}
+            @Override
+            public Command getCommand(final Request request) {
+                return null;
+            }
 
-					public boolean understandsRequest(Request request) {
-						return false;
-					}
-				});
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenLoopIterationsDialog());
-	}
+            @Override
+            public boolean understandsRequest(final Request request) {
+                return false;
+            }
+        });
+        this.installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenLoopIterationsDialog());
+    }
 
-	@Override
-	protected String getLabelText() {
-		String text = null;
-		LoopAction loop = (LoopAction) resolveSemanticElement();
-		if (loop.getIterationCount_LoopAction() != null)
-			text = loop.getIterationCount_LoopAction().getSpecification();
-		if (text == null || text.length() == 0) {
-			text = getLabelTextHelper(getFigure());
-		}
-		return text;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart#getLabelText()
+     */
+    @Override
+    protected String getLabelText() {
+        String text = null;
+        final LoopAction loop = (LoopAction) this.resolveSemanticElement();
+        if (loop.getIterationCount_LoopAction() != null) {
+            text = loop.getIterationCount_LoopAction().getSpecification();
+        }
+        if (text == null || text.length() == 0) {
+            text = this.getLabelTextHelper(this.getFigure());
+        }
+        return text;
+    }
 
-	@Override
-	protected void addSemanticListeners() {
-		LoopAction loop = (LoopAction) resolveSemanticElement();
-		addListenerFilter(
-				"SemanticModel", this, loop.getIterationCount_LoopAction()); //$NON-NLS-1$
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart#addSemanticListeners()
+     */
+    @Override
+    protected void addSemanticListeners() {
+        final LoopAction loop = (LoopAction) this.resolveSemanticElement();
+        this.addListenerFilter("SemanticModel", this, loop.getIterationCount_LoopAction()); //$NON-NLS-1$
+    }
 
-	@Override
-	protected void removeSemanticListeners() {
-		removeListenerFilter("SemanticModel"); //$NON-NLS-1$
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart#removeSemanticListeners()
+     */
+    @Override
+    protected void removeSemanticListeners() {
+        this.removeListenerFilter("SemanticModel"); //$NON-NLS-1$
+    }
 
-	@Override
-	protected void handleNotificationEvent(Notification event) {
-		Object feature = event.getFeature();
-		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
-			Integer c = (Integer) event.getNewValue();
-			setFontColor(DiagramColorRegistry.getInstance().getColor(c));
-		} else if (NotationPackage.eINSTANCE.getFontStyle_Underline().equals(
-				feature)) {
-			refreshUnderline();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_StrikeThrough()
-				.equals(feature)) {
-			refreshStrikeThrough();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_FontHeight().equals(
-				feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_FontName().equals(
-						feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Bold()
-						.equals(feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Italic().equals(
-						feature)) {
-			refreshFont();
-		} else {
-			refreshLabel();
-		}
-		super.handleNotificationEvent(event);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart#handleNotificationEvent
+     * (org.eclipse.emf.common.notify.Notification)
+     */
+    @Override
+    protected void handleNotificationEvent(final Notification event) {
+        final Object feature = event.getFeature();
+        if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
+            final Integer c = (Integer) event.getNewValue();
+            this.setFontColor(DiagramColorRegistry.getInstance().getColor(c));
+        } else if (NotationPackage.eINSTANCE.getFontStyle_Underline().equals(feature)) {
+            this.refreshUnderline();
+        } else if (NotationPackage.eINSTANCE.getFontStyle_StrikeThrough().equals(feature)) {
+            this.refreshStrikeThrough();
+        } else if (NotationPackage.eINSTANCE.getFontStyle_FontHeight().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_FontName().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_Bold().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_Italic().equals(feature)) {
+            this.refreshFont();
+        } else {
+            this.refreshLabel();
+        }
+        super.handleNotificationEvent(event);
+    }
 }

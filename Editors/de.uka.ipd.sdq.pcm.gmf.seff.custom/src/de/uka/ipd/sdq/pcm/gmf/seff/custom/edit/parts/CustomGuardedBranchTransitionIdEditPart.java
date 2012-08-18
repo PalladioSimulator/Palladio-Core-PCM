@@ -23,93 +23,122 @@ import de.uka.ipd.sdq.pcm.dialogs.seff.OpenBranchConditionDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 
-
+/**
+ * The customized guarded branch transition id edit part class.
+ */
 public class CustomGuardedBranchTransitionIdEditPart extends GuardedBranchTransitionIdEditPart {
 
+    /**
+     * Instantiates a new customized guarded branch transition id edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomGuardedBranchTransitionIdEditPart(final View view) {
+        super(view);
+    }
 
-	public CustomGuardedBranchTransitionIdEditPart(View view) {
-		super(view);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#
+     * createDefaultEditPolicies()
+     */
+    @Override
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        this.installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new LabelDirectEditPolicy());
+        this.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new NonResizableEditPolicy() {
 
-	@Override
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
-				new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new NonResizableEditPolicy() {
+            @Override
+            protected List<Object> createSelectionHandles() {
+                final List<Object> handles = new ArrayList<Object>();
+                NonResizableHandleKit.addMoveHandle((GraphicalEditPart) this.getHost(), handles);
+                return handles;
+            }
 
-					protected List<Object> createSelectionHandles() {
-						List<Object> handles = new ArrayList<Object>();
-						NonResizableHandleKit.addMoveHandle(
-								(GraphicalEditPart) getHost(), handles);
-						return handles;
-					}
+            @Override
+            public Command getCommand(final Request request) {
+                return null;
+            }
 
-					public Command getCommand(Request request) {
-						return null;
-					}
+            @Override
+            public boolean understandsRequest(final Request request) {
+                return false;
+            }
+        });
+        this.installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenBranchConditionDialog());
+    }
 
-					public boolean understandsRequest(Request request) {
-						return false;
-					}
-				});
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenBranchConditionDialog());
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#getLabelText()
+     */
+    @Override
+    protected String getLabelText() {
+        String text = "Cond: ";
+        final GuardedBranchTransition transition = (GuardedBranchTransition) this.resolveSemanticElement();
+        if (transition != null && transition.getBranchCondition_GuardedBranchTransition() != null
+                && transition.getBranchCondition_GuardedBranchTransition().getSpecification() != null) {
+            text += transition.getBranchCondition_GuardedBranchTransition().getSpecification();
+        }
+        if (text == null || text.length() == 0) {
+            text = this.getLabelTextHelper(this.getFigure());
+        }
+        return text;
+    }
 
-	@Override
-	protected String getLabelText() {
-		String text = "Cond: ";
-		GuardedBranchTransition transition = (GuardedBranchTransition) resolveSemanticElement();
-		if (transition != null
-				&& transition.getBranchCondition_GuardedBranchTransition() != null
-				&& transition.getBranchCondition_GuardedBranchTransition()
-						.getSpecification() != null)
-			text += transition.getBranchCondition_GuardedBranchTransition()
-					.getSpecification();
-		if (text == null || text.length() == 0) {
-			text = getLabelTextHelper(getFigure());
-		}
-		return text;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#addSemanticListeners
+     * ()
+     */
+    @Override
+    protected void addSemanticListeners() {
+        final GuardedBranchTransition transition = (GuardedBranchTransition) this.resolveSemanticElement();
+        this.addListenerFilter("SemanticModel", this, transition.getBranchCondition_GuardedBranchTransition()); //$NON-NLS-1$
+    }
 
-	@Override
-	protected void addSemanticListeners() {
-		GuardedBranchTransition transition = (GuardedBranchTransition) resolveSemanticElement();
-		addListenerFilter(
-				"SemanticModel", this, transition.getBranchCondition_GuardedBranchTransition()); //$NON-NLS-1$
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#removeSemanticListeners
+     * ()
+     */
+    @Override
+    protected void removeSemanticListeners() {
+        this.removeListenerFilter("SemanticModel"); //$NON-NLS-1$
+    }
 
-	@Override
-	protected void removeSemanticListeners() {
-		removeListenerFilter("SemanticModel"); //$NON-NLS-1$
-	}
-
-	@Override
-	protected void handleNotificationEvent(Notification event) {
-		Object feature = event.getFeature();
-		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
-			Integer c = (Integer) event.getNewValue();
-			setFontColor(DiagramColorRegistry.getInstance().getColor(c));
-		} else if (NotationPackage.eINSTANCE.getFontStyle_Underline().equals(
-				feature)) {
-			refreshUnderline();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_StrikeThrough()
-				.equals(feature)) {
-			refreshStrikeThrough();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_FontHeight().equals(
-				feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_FontName().equals(
-						feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Bold()
-						.equals(feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Italic().equals(
-						feature)) {
-			refreshFont();
-		} else {
-			refreshLabel();
-		}
-		super.handleNotificationEvent(event);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#handleNotificationEvent
+     * (org.eclipse.emf.common.notify.Notification)
+     */
+    @Override
+    protected void handleNotificationEvent(final Notification event) {
+        final Object feature = event.getFeature();
+        if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
+            final Integer c = (Integer) event.getNewValue();
+            this.setFontColor(DiagramColorRegistry.getInstance().getColor(c));
+        } else if (NotationPackage.eINSTANCE.getFontStyle_Underline().equals(feature)) {
+            this.refreshUnderline();
+        } else if (NotationPackage.eINSTANCE.getFontStyle_StrikeThrough().equals(feature)) {
+            this.refreshStrikeThrough();
+        } else if (NotationPackage.eINSTANCE.getFontStyle_FontHeight().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_FontName().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_Bold().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_Italic().equals(feature)) {
+            this.refreshFont();
+        } else {
+            this.refreshLabel();
+        }
+        super.handleNotificationEvent(event);
+    }
 }
