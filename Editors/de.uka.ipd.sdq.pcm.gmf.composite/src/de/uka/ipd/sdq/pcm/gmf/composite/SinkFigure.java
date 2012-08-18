@@ -9,259 +9,214 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 
 /**
- * Represents the event source -|< border figure
- * which rotates depending on the side the figure
- * is located in relation to it's parent.
+ * Represents the event source -|< border figure which rotates depending on the side the figure is
+ * located in relation to it's parent.
  * 
  * @author Benjamin Klatt
  */
 public class SinkFigure extends AbstractBorderFigure {
-	
-	/**
-	 * @param size width and height of the figure in logical units (LP)
-	 * @param posType position type of the figure
-	 */
-	public SinkFigure(int logicalSize, POSITION_TYPE posType) {
-		super(logicalSize, posType);
-	}
-		
-	protected void paintFigure(Graphics graphics) {
-		super.paintFigure(graphics);
-		
-		if (getBorderItemLocator() == null) {
-			System.out.println("border item locator null in SocketFigure.paintFigure");
-		}
-		
-		// determine the side the border item is located relative to it's parent
-		int side = (getBorderItemLocator() == null ? PositionConstants.WEST : getBorderItemLocator().getCurrentSideOfParent());
-		
-		Rectangle rect = new Rectangle();
-		graphics.getClip(rect);
-	
-		// depending on the side, draw
-		// - a line from the center of the side of the bounding box touching the parent
-		// 		to the center of the bounding box. Result: "-"
-		// - a line between the centers of the orthogonal borders of the bounding box. Result: "-|"
-		// - a line for the top border of the sink
-		// - a line for the lower border of the sink
-		// - a line from the center to the right upper corner
-		// - a line from the center to the right lower corner
-		switch(side){
-		case PositionConstants.EAST:
-			// Sink Connector
-			graphics.drawLine(	rect.getLeft().x,
-								rect.getCenter().y,
-								rect.getCenter().x-rect.width/4,
-								rect.getCenter().y);
 
-			// Sink Base
-			graphics.drawLine(	rect.getCenter().x-rect.width/4,
-								rect.getTop().y+rect.height/4,
-								rect.getCenter().x-rect.width/4,
-								rect.getBottom().y-rect.height/4);
-			
-			// upper border
-			graphics.drawLine(	rect.getCenter().x-rect.width/4,
-								rect.getTop().y+rect.height/4,
-								rect.getRight().x-rect.width/4,
-								rect.getTop().y+rect.height/4);
+    /**
+     * @param size
+     *            width and height of the figure in logical units (LP)
+     * @param posType
+     *            position type of the figure
+     */
+    public SinkFigure(final int logicalSize, final POSITION_TYPE posType) {
+        super(logicalSize, posType);
+    }
 
-			// lower border
-			graphics.drawLine(	rect.getCenter().x-rect.width/4,
-								rect.getBottom().y-rect.height/4,
-								rect.getRight().x-rect.width/4,
-								rect.getBottom().y-rect.height/4);
-			
-			// upper dash
-			graphics.drawLine(	rect.getCenter().x,
-								rect.getCenter().y,
-								rect.getRight().x-rect.width/4,
-								rect.getTop().y+rect.height/4);
-			
-			// lower dash
-			graphics.drawLine(	rect.getCenter().x,
-								rect.getCenter().y,
-								rect.getRight().x-rect.width/4,
-								rect.getBottom().y-rect.height/4);
-			break;
-		case PositionConstants.WEST:
-			// Sink Connector
-			graphics.drawLine(	rect.getRight().x,
-								rect.getCenter().y,
-								rect.getCenter().x+rect.width/4,
-								rect.getCenter().y);
+    @Override
+    protected void paintFigure(final Graphics graphics) {
+        super.paintFigure(graphics);
 
-			// Sink Base
-			graphics.drawLine(	rect.getCenter().x+rect.width/4,
-								rect.getTop().y+rect.height/4,
-								rect.getCenter().x+rect.width/4,
-								rect.getBottom().y-rect.height/4);
-			
-			// upper border
-			graphics.drawLine(	rect.getLeft().x+rect.width/4,
-								rect.getTop().y+rect.height/4,
-								rect.getCenter().x+rect.width/4,
-								rect.getTop().y+rect.height/4);
+        if (this.getBorderItemLocator() == null) {
+            System.out.println("border item locator null in SocketFigure.paintFigure");
+        }
 
-			// lower border
-			graphics.drawLine(	rect.getLeft().x+rect.width/4,
-								rect.getBottom().y-rect.height/4,
-								rect.getCenter().x+rect.width/4,
-								rect.getBottom().y-rect.height/4);
-			
-			// upper dash
-			graphics.drawLine(	rect.getCenter().x,
-								rect.getCenter().y,
-								rect.getLeft().x+rect.width/4,
-								rect.getTop().y+rect.height/4);
-			
-			// lower dash
-			graphics.drawLine(	rect.getCenter().x,
-								rect.getCenter().y,
-								rect.getLeft().x+rect.width/4,
-								rect.getBottom().y-rect.height/4);
-			break;
-		case PositionConstants.NORTH:
-			// Sink Connector
-			graphics.drawLine(	rect.getCenter().x,
-								rect.getBottom().y,
-								rect.getCenter().x,
-								rect.getCenter().y+rect.height/4);
+        // determine the side the border item is located relative to it's parent
+        final int side = (this.getBorderItemLocator() == null ? PositionConstants.WEST : this.getBorderItemLocator()
+                .getCurrentSideOfParent());
 
-			// Sink Base
-			graphics.drawLine(	rect.getLeft().x+rect.width/4,
-								rect.getCenter().y+rect.height/4,
-								rect.getRight().x-rect.width/4,
-								rect.getCenter().y+rect.height/4);
-			
-			// left border
-			graphics.drawLine(	rect.getLeft().x+rect.width/4,
-								rect.getCenter().y+rect.height/4,
-								rect.getLeft().x+rect.width/4,
-								rect.getTop().y+rect.height/4);
+        final Rectangle rect = new Rectangle();
+        graphics.getClip(rect);
 
-			// right border
-			graphics.drawLine(	rect.getRight().x-rect.width/4,
-								rect.getCenter().y+rect.height/4,
-								rect.getRight().x-rect.width/4,
-								rect.getTop().y+rect.height/4);
-			
-			// left dash
-			graphics.drawLine(	rect.getCenter().x,
-								rect.getCenter().y,
-								rect.getLeft().x+rect.width/4,
-								rect.getTop().y+rect.height/4);
-			
-			// right dash
-			graphics.drawLine(	rect.getCenter().x,
-								rect.getCenter().y,
-								rect.getRight().x-rect.width/4,
-								rect.getTop().y+rect.height/4);
+        // depending on the side, draw
+        // - a line from the center of the side of the bounding box touching the parent
+        // to the center of the bounding box. Result: "-"
+        // - a line between the centers of the orthogonal borders of the bounding box. Result: "-|"
+        // - a line for the top border of the sink
+        // - a line for the lower border of the sink
+        // - a line from the center to the right upper corner
+        // - a line from the center to the right lower corner
+        switch (side) {
+        case PositionConstants.EAST:
+            // Sink Connector
+            graphics.drawLine(rect.getLeft().x, rect.getCenter().y, rect.getCenter().x - rect.width / 4,
+                    rect.getCenter().y);
 
-			break;
-		case PositionConstants.SOUTH:
-			// Sink Connector
-			graphics.drawLine(	rect.getCenter().x,
-								rect.getTop().y,
-								rect.getCenter().x,
-								rect.getCenter().y-rect.height/4);
+            // Sink Base
+            graphics.drawLine(rect.getCenter().x - rect.width / 4, rect.getTop().y + rect.height / 4,
+                    rect.getCenter().x - rect.width / 4, rect.getBottom().y - rect.height / 4);
 
-			// Sink Base
-			graphics.drawLine(	rect.getLeft().x+rect.width/4,
-								rect.getCenter().y-rect.height/4,
-								rect.getRight().x-rect.width/4,
-								rect.getCenter().y-rect.height/4);
-			
-			// left border
-			graphics.drawLine(	rect.getLeft().x+rect.width/4,
-								rect.getCenter().y+rect.height/4,
-								rect.getLeft().x+rect.width/4,
-								rect.getTop().y+rect.height/4);
+            // upper border
+            graphics.drawLine(rect.getCenter().x - rect.width / 4, rect.getTop().y + rect.height / 4, rect.getRight().x
+                    - rect.width / 4, rect.getTop().y + rect.height / 4);
 
-			// right border
-			graphics.drawLine(	rect.getRight().x-rect.width/4,
-								rect.getCenter().y+rect.height/4,
-								rect.getRight().x-rect.width/4,
-								rect.getTop().y+rect.height/4);
-			
-			// left dash
-			graphics.drawLine(	rect.getLeft().x+rect.width/4,
-								rect.getBottom().y-rect.height/4,
-								rect.getCenter().x,
-								rect.getCenter().y);
-			
-			// right dash
-			graphics.drawLine(	rect.getCenter().x,
-								rect.getCenter().y,
-								rect.getRight().x-rect.width/4,
-								rect.getBottom().y-rect.height/4);
-			break;
-		}
-	}
-	
-	/**
-	 * @return the center between the ( part of the figure
-	 * relative to the position of the figure
-	 */
-	private Point getSinkCenter() {
-		int side = (getBorderItemLocator() == null ? PositionConstants.WEST : getBorderItemLocator().getCurrentSideOfParent());
-		
-		Rectangle rect = getBounds();
-		Point result = null;
-		
-		switch(side){
-		case PositionConstants.EAST:
-			result = new Point(rect.getCenter().x, rect.getCenter().y);
-			break;
-		case PositionConstants.WEST:
-			result = new Point(rect.getCenter().x, rect.getCenter().y);
-			break;
-		case PositionConstants.NORTH:
-			result = new Point(rect.getCenter().x, rect.getCenter().y);
-			break;
-		case PositionConstants.SOUTH:
-			result = new Point(rect.getCenter().x, rect.getCenter().y);
-			break;
-		}
-		return result;
-	}	
-	
-	/**
-	 * places the anchor point at the center of the ( part of the figure
-	 */
-	private class SinkAnchor extends AbstractConnectionAnchor {
+            // lower border
+            graphics.drawLine(rect.getCenter().x - rect.width / 4, rect.getBottom().y - rect.height / 4,
+                    rect.getRight().x - rect.width / 4, rect.getBottom().y - rect.height / 4);
 
-		public SinkAnchor(IFigure owner) {
-			super(owner);
-		}
-		
-		public Point getLocation(Point reference) {
-			Point p = getSinkCenter();
-			getOwner().translateToAbsolute(p);
-			return p;
-		}
-	}
+            // upper dash
+            graphics.drawLine(rect.getCenter().x, rect.getCenter().y, rect.getRight().x - rect.width / 4,
+                    rect.getTop().y + rect.height / 4);
 
-	/**
-	 * Get the anchor for connectors linked to this figure.
-	 * The anchor internal represents the anchor if this 
-	 * sink belongs to an internal assembly context.
-	 * 
-	 *  @return The connection anchor with the appropriate position
-	 */
-	protected ConnectionAnchor createAnchorInternal() {
-		return new SinkAnchor(this);
-	}
+            // lower dash
+            graphics.drawLine(rect.getCenter().x, rect.getCenter().y, rect.getRight().x - rect.width / 4,
+                    rect.getBottom().y - rect.height / 4);
+            break;
+        case PositionConstants.WEST:
+            // Sink Connector
+            graphics.drawLine(rect.getRight().x, rect.getCenter().y, rect.getCenter().x + rect.width / 4,
+                    rect.getCenter().y);
 
+            // Sink Base
+            graphics.drawLine(rect.getCenter().x + rect.width / 4, rect.getTop().y + rect.height / 4,
+                    rect.getCenter().x + rect.width / 4, rect.getBottom().y - rect.height / 4);
 
-	/**
-	 * Get the anchor for connectors linked to this figure.
-	 * The anchor external represents the anchor if this 
-	 * sink belongs to an external system sink.
-	 * 
-	 *  @return The connection anchor with the appropriate position
-	 */
-	protected ConnectionAnchor createAnchorExternal() {
-		return new StemAnchor(this);
-	}
+            // upper border
+            graphics.drawLine(rect.getLeft().x + rect.width / 4, rect.getTop().y + rect.height / 4, rect.getCenter().x
+                    + rect.width / 4, rect.getTop().y + rect.height / 4);
+
+            // lower border
+            graphics.drawLine(rect.getLeft().x + rect.width / 4, rect.getBottom().y - rect.height / 4,
+                    rect.getCenter().x + rect.width / 4, rect.getBottom().y - rect.height / 4);
+
+            // upper dash
+            graphics.drawLine(rect.getCenter().x, rect.getCenter().y, rect.getLeft().x + rect.width / 4,
+                    rect.getTop().y + rect.height / 4);
+
+            // lower dash
+            graphics.drawLine(rect.getCenter().x, rect.getCenter().y, rect.getLeft().x + rect.width / 4,
+                    rect.getBottom().y - rect.height / 4);
+            break;
+        case PositionConstants.NORTH:
+            // Sink Connector
+            graphics.drawLine(rect.getCenter().x, rect.getBottom().y, rect.getCenter().x, rect.getCenter().y
+                    + rect.height / 4);
+
+            // Sink Base
+            graphics.drawLine(rect.getLeft().x + rect.width / 4, rect.getCenter().y + rect.height / 4,
+                    rect.getRight().x - rect.width / 4, rect.getCenter().y + rect.height / 4);
+
+            // left border
+            graphics.drawLine(rect.getLeft().x + rect.width / 4, rect.getCenter().y + rect.height / 4, rect.getLeft().x
+                    + rect.width / 4, rect.getTop().y + rect.height / 4);
+
+            // right border
+            graphics.drawLine(rect.getRight().x - rect.width / 4, rect.getCenter().y + rect.height / 4,
+                    rect.getRight().x - rect.width / 4, rect.getTop().y + rect.height / 4);
+
+            // left dash
+            graphics.drawLine(rect.getCenter().x, rect.getCenter().y, rect.getLeft().x + rect.width / 4,
+                    rect.getTop().y + rect.height / 4);
+
+            // right dash
+            graphics.drawLine(rect.getCenter().x, rect.getCenter().y, rect.getRight().x - rect.width / 4,
+                    rect.getTop().y + rect.height / 4);
+
+            break;
+        case PositionConstants.SOUTH:
+            // Sink Connector
+            graphics.drawLine(rect.getCenter().x, rect.getTop().y, rect.getCenter().x, rect.getCenter().y - rect.height
+                    / 4);
+
+            // Sink Base
+            graphics.drawLine(rect.getLeft().x + rect.width / 4, rect.getCenter().y - rect.height / 4,
+                    rect.getRight().x - rect.width / 4, rect.getCenter().y - rect.height / 4);
+
+            // left border
+            graphics.drawLine(rect.getLeft().x + rect.width / 4, rect.getCenter().y + rect.height / 4, rect.getLeft().x
+                    + rect.width / 4, rect.getTop().y + rect.height / 4);
+
+            // right border
+            graphics.drawLine(rect.getRight().x - rect.width / 4, rect.getCenter().y + rect.height / 4,
+                    rect.getRight().x - rect.width / 4, rect.getTop().y + rect.height / 4);
+
+            // left dash
+            graphics.drawLine(rect.getLeft().x + rect.width / 4, rect.getBottom().y - rect.height / 4,
+                    rect.getCenter().x, rect.getCenter().y);
+
+            // right dash
+            graphics.drawLine(rect.getCenter().x, rect.getCenter().y, rect.getRight().x - rect.width / 4,
+                    rect.getBottom().y - rect.height / 4);
+            break;
+        }
+    }
+
+    /**
+     * @return the center between the ( part of the figure relative to the position of the figure
+     */
+    private Point getSinkCenter() {
+        final int side = (this.getBorderItemLocator() == null ? PositionConstants.WEST : this.getBorderItemLocator()
+                .getCurrentSideOfParent());
+
+        final Rectangle rect = this.getBounds();
+        Point result = null;
+
+        switch (side) {
+        case PositionConstants.EAST:
+            result = new Point(rect.getCenter().x, rect.getCenter().y);
+            break;
+        case PositionConstants.WEST:
+            result = new Point(rect.getCenter().x, rect.getCenter().y);
+            break;
+        case PositionConstants.NORTH:
+            result = new Point(rect.getCenter().x, rect.getCenter().y);
+            break;
+        case PositionConstants.SOUTH:
+            result = new Point(rect.getCenter().x, rect.getCenter().y);
+            break;
+        }
+        return result;
+    }
+
+    /**
+     * places the anchor point at the center of the ( part of the figure
+     */
+    private class SinkAnchor extends AbstractConnectionAnchor {
+
+        public SinkAnchor(final IFigure owner) {
+            super(owner);
+        }
+
+        @Override
+        public Point getLocation(final Point reference) {
+            final Point p = SinkFigure.this.getSinkCenter();
+            this.getOwner().translateToAbsolute(p);
+            return p;
+        }
+    }
+
+    /**
+     * Get the anchor for connectors linked to this figure. The anchor internal represents the
+     * anchor if this sink belongs to an internal assembly context.
+     * 
+     * @return The connection anchor with the appropriate position
+     */
+    @Override
+    protected ConnectionAnchor createAnchorInternal() {
+        return new SinkAnchor(this);
+    }
+
+    /**
+     * Get the anchor for connectors linked to this figure. The anchor external represents the
+     * anchor if this sink belongs to an external system sink.
+     * 
+     * @return The connection anchor with the appropriate position
+     */
+    @Override
+    protected ConnectionAnchor createAnchorExternal() {
+        return new StemAnchor(this);
+    }
 }
