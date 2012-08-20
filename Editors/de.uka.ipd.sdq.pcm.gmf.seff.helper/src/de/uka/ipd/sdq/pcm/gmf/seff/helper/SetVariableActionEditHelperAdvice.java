@@ -17,70 +17,71 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
 /**
  * This class defines an EditHelper to handle the creation of an SetVariableAction.
- *
+ * 
  * @author Christian Busch
  */
-public class SetVariableActionEditHelperAdvice extends
-AbstractEditHelperAdvice implements IEditHelperAdvice {
+public class SetVariableActionEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getBeforeConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getBeforeConfigureCommand(ConfigureRequest request) {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getBeforeConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getBeforeConfigureCommand(final ConfigureRequest request) {
 
-		if (hasReturn(request)) {
-			return new OKCommand();
-		} else {
-			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+        if (this.hasReturn(request)) {
+            return new OKCommand();
+        } else {
+            final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 
-			MessageBox messageBox =
-				new MessageBox(shell ,
-						SWT.OK
-						| SWT.ICON_WARNING);
-			messageBox.setText("Notice");
-			messageBox.setMessage("In order to create a SetVariableAction there must be a return type specified for the signature of the interface.");
-			messageBox.open();
+            final MessageBox messageBox = new MessageBox(shell, SWT.OK | SWT.ICON_WARNING);
+            messageBox.setText("Notice");
+            messageBox
+                    .setMessage("In order to create a SetVariableAction there must be a " 
+                    		+ "return type specified for the signature of the interface.");
+            messageBox.open();
 
-			return new CanceledCommand();
-		}
-	}
+            return new CanceledCommand();
+        }
+    }
 
-	/**
-	 * Checks whether the SEFF corresponding to the request
-	 * has a signature with at least one return type specified.
-	 *
-	 * @param request to be checked
-	 * @return true if return parameter(s) of signature specified
-	 */
-	protected boolean hasReturn(ConfigureRequest request) {
+    /**
+     * Checks whether the SEFF corresponding to the request has a signature with at least one return
+     * type specified.
+     * 
+     * @param request
+     *            to be checked
+     * @return true if return parameter(s) of signature specified
+     */
+    protected boolean hasReturn(final ConfigureRequest request) {
 
-		boolean hasReturn = false;
-		EObject node = request.getElementToConfigure();
+        boolean hasReturn = false;
+        EObject node = request.getElementToConfigure();
 
-		/* walk through the tree */
-		while (!(node instanceof ResourceDemandingSEFF)) {
-			node = node.eContainer();
-			if (node == null) {
-				return false;
-			}
-		}
-		node = ((ResourceDemandingSEFF) node).getDescribedService__SEFF();
-		if (node instanceof OperationSignature) {
-			OperationSignature signature = (OperationSignature) node;
-			/* check signature */
-			for (Parameter p : signature.getParameters__OperationSignature()) {
-				if (p.getModifier__Parameter() == ParameterModifier.OUT
-						|| p.getModifier__Parameter() == ParameterModifier.INOUT) {
-					hasReturn = true;
-					break;
-				}
-			}
-			if (signature.getReturnType__OperationSignature() != null) {
-				hasReturn = true;
-			}
-		}
-		return hasReturn;
-	}
+        /* walk through the tree */
+        while (!(node instanceof ResourceDemandingSEFF)) {
+            node = node.eContainer();
+            if (node == null) {
+                return false;
+            }
+        }
+        node = ((ResourceDemandingSEFF) node).getDescribedService__SEFF();
+        if (node instanceof OperationSignature) {
+            final OperationSignature signature = (OperationSignature) node;
+            /* check signature */
+            for (final Parameter p : signature.getParameters__OperationSignature()) {
+                if (p.getModifier__Parameter() == ParameterModifier.OUT
+                        || p.getModifier__Parameter() == ParameterModifier.INOUT) {
+                    hasReturn = true;
+                    break;
+                }
+            }
+            if (signature.getReturnType__OperationSignature() != null) {
+                hasReturn = true;
+            }
+        }
+        return hasReturn;
+    }
 }
-

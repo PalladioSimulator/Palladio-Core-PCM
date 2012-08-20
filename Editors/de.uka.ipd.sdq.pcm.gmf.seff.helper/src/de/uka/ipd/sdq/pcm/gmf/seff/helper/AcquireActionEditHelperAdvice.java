@@ -23,50 +23,61 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
- * @author admin
- *
+ * The Class AcquireActionEditHelperAdvice.
+ * 
  */
-public class AcquireActionEditHelperAdvice extends AbstractEditHelperAdvice
-		implements IEditHelperAdvice {
-	
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		EObject resource = null;
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(Repository.class);
-		filterList.add(BasicComponent.class);
-		filterList.add(PassiveResource.class);
+public class AcquireActionEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, 
-				additionalReferences,
-				searchBasicComponent(request.getElementToConfigure()));
-		dialog.setProvidedService(PassiveResource.class);
-		dialog.open();
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof PassiveResource))
-			return new CanceledCommand();
-		resource = (PassiveResource) dialog.getResult();
-		
-		ICommand cmd = new SetValueCommand(
-				new SetRequest(
-						request.getElementToConfigure(), 
-						SeffPackage.eINSTANCE.getAcquireAction_Passiveresource_AcquireAction(),
-						resource));
-		return cmd;
-	}
+    /**
+     * Implements the selection and assignment of a chosen passive resource.
+     * 
+     * @param request
+     *            the request
+     *            
+     * @return the new set value command for assigning the resource.
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     *      getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
+        EObject resource = null;
+        final ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(Repository.class);
+        filterList.add(BasicComponent.class);
+        filterList.add(PassiveResource.class);
 
-	private EObject searchBasicComponent(EObject elementToConfigure) {
-		EObject o = elementToConfigure;
-		while (!(o instanceof BasicComponent))
-			o = o.eContainer();
-		return o;
-	}
+        final ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        final PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences,
+                this.searchBasicComponent(request.getElementToConfigure()));
+        dialog.setProvidedService(PassiveResource.class);
+        dialog.open();
+        if (dialog.getResult() == null) {
+            return new CanceledCommand();
+        }
+        if (!(dialog.getResult() instanceof PassiveResource)) {
+            return new CanceledCommand();
+        }
+        resource = dialog.getResult();
+
+        final ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                SeffPackage.eINSTANCE.getAcquireAction_Passiveresource_AcquireAction(), resource));
+        return cmd;
+    }
+
+    /**
+     * Searches the basic component of the element to configure.
+     * 
+     * @param elementToConfigure
+     *            the element to configure
+     * @return the basic component
+     */
+    private EObject searchBasicComponent(final EObject elementToConfigure) {
+        EObject o = elementToConfigure;
+        while (!(o instanceof BasicComponent)) {
+            o = o.eContainer();
+        }
+        return o;
+    }
 
 }

@@ -11,32 +11,31 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
- * The Class define a edit helper to create a empty loop action.
+ * This class defines an edit helper to create a empty loop action.
  * 
  * @author Roman Andrej
  */
-public class CreateLoopActionEditHelperAdvice extends
-		AbstractCreateRandomVariableEditHelperAdvice implements IEditHelperAdvice {
-	
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		PCMRandomVariable randomVariable = CoreFactory.eINSTANCE
-				.createPCMRandomVariable();
+public class CreateLoopActionEditHelperAdvice extends AbstractCreateRandomVariableEditHelperAdvice implements
+        IEditHelperAdvice {
 
-		randomVariable.setSpecification("1");
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
+        final PCMRandomVariable randomVariable = CoreFactory.eINSTANCE.createPCMRandomVariable();
 
-		SetRequest setRequest = new SetRequest(
-				(LoopAction) request.getElementToConfigure(),
-				SeffPackage.eINSTANCE.getLoopAction_IterationCount_LoopAction(),
-				randomVariable);
+        randomVariable.setSpecification("1");
 
-		return new SetValueCommand(setRequest);
-	}
+        final SetRequest setRequest = new SetRequest(request.getElementToConfigure(),
+                SeffPackage.eINSTANCE.getLoopAction_IterationCount_LoopAction(), randomVariable);
+
+        return new SetValueCommand(setRequest);
+    }
 }

@@ -23,49 +23,58 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
+ * The Class ReleaseActionEditHelperAdvice creates a dialog for selection of the passive resource to
+ * be released.
+ * 
  * @author admin
- *
  */
-public class ReleaseActionEditHelperAdvice extends AbstractEditHelperAdvice
-		implements IEditHelperAdvice {
-	
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		EObject resource = null;
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(Repository.class);
-		filterList.add(BasicComponent.class);
-		filterList.add(PassiveResource.class);
+public class ReleaseActionEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, 
-				additionalReferences,
-				searchBasicComponent(request.getElementToConfigure()));
-		dialog.setProvidedService(PassiveResource.class);
-		dialog.open();
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof PassiveResource))
-			return new CanceledCommand();
-		resource = (PassiveResource) dialog.getResult();
-		
-		ICommand cmd = new SetValueCommand(
-				new SetRequest(
-						request.getElementToConfigure(), 
-						SeffPackage.eINSTANCE.getReleaseAction_PassiveResource_ReleaseAction(),
-						resource));
-		return cmd;
-	}
-	
-	private EObject searchBasicComponent(EObject elementToConfigure) {
-		EObject o = elementToConfigure;
-		while (!(o instanceof BasicComponent))
-			o = o.eContainer();
-		return o;
-	}	
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
+        EObject resource = null;
+        final ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(Repository.class);
+        filterList.add(BasicComponent.class);
+        filterList.add(PassiveResource.class);
+
+        final ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        final PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences,
+                this.searchBasicComponent(request.getElementToConfigure()));
+        dialog.setProvidedService(PassiveResource.class);
+        dialog.open();
+        if (dialog.getResult() == null) {
+            return new CanceledCommand();
+        }
+        if (!(dialog.getResult() instanceof PassiveResource)) {
+            return new CanceledCommand();
+        }
+        resource = dialog.getResult();
+
+        final ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                SeffPackage.eINSTANCE.getReleaseAction_PassiveResource_ReleaseAction(), resource));
+        return cmd;
+    }
+
+    /**
+     * Search basic component.
+     * 
+     * @param elementToConfigure
+     *            the element to configure
+     * @return the e object
+     */
+    private EObject searchBasicComponent(final EObject elementToConfigure) {
+        EObject o = elementToConfigure;
+        while (!(o instanceof BasicComponent)) {
+            o = o.eContainer();
+        }
+        return o;
+    }
 }

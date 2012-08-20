@@ -7,26 +7,38 @@ import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 
-/** @author roman */
-public class CollectionIteratorLabelProvider extends ItemProviderDecorator
-		implements IItemLabelProvider {
+/**
+ * The Class CollectionIteratorLabelProvider.
+ * 
+ * @author roman
+ */
+public class CollectionIteratorLabelProvider extends ItemProviderDecorator implements IItemLabelProvider {
 
-	public CollectionIteratorLabelProvider(AdapterFactory adapterFactory) {
-		super(adapterFactory);
-	}
+    /**
+     * Instantiates a new collection iterator label provider.
+     * 
+     * @param adapterFactory
+     *            the adapter factory
+     */
+    public CollectionIteratorLabelProvider(final AdapterFactory adapterFactory) {
+        super(adapterFactory);
+    }
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getText(java.lang.Object)
-	 */
-	@Override
-	public String getText(Object object) {
-		if (object instanceof Parameter) {
-			Parameter parameter = (Parameter) object;
-			DataType dataType = parameter.getDataType__Parameter();
-			if (dataType == null)
-				return parameter.getParameterName() + ": null";
-			return parameter.getParameterName() + ": " + super.getText(dataType);
-		}
-		return super.getText(object);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getText(java.lang.Object)
+     */
+    @Override
+    public String getText(final Object object) {
+        if (object instanceof Parameter) {
+            final Parameter parameter = (Parameter) object;
+            final DataType dataType = parameter.getDataType__Parameter();
+            if (dataType == null) {
+                return parameter.getParameterName() + ": null";
+            }
+            return parameter.getParameterName() + ": " + super.getText(dataType);
+        }
+        return super.getText(object);
+    }
 }

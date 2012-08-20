@@ -18,70 +18,104 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 
-public class ConfigureMinimalSeffCommand  extends ConfigureElementCommand {
+/**
+ * The Class ConfigureMinimalSeffCommand.
+ */
+public class ConfigureMinimalSeffCommand extends ConfigureElementCommand {
 
-	private ConfigureRequest myRequest = null;
-	
-	public ConfigureMinimalSeffCommand(ConfigureRequest request) {
-		super(request);
-		myRequest = request;
-	}
+    /** The request. */
+    private ConfigureRequest myRequest = null;
 
-	@Override
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		StartAction startAction = null;
-		StopAction stopAction = null;
-		
-		CommandResult commandResult = createSEFFAction(PalladioComponentModelElementTypes.StartAction_2001,monitor);
-        if (!isOK(commandResult))
-        {
-        	return CommandResult.newErrorCommandResult("Create StartAction for the new SEFF failed!");
+    /**
+     * Instantiates a new configure minimal seff command.
+     * 
+     * @param request
+     *            the request
+     */
+    public ConfigureMinimalSeffCommand(final ConfigureRequest request) {
+        super(request);
+        this.myRequest = request;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand#
+     * doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor,
+     * org.eclipse.core.runtime.IAdaptable)
+     */
+    @Override
+    protected CommandResult doExecuteWithResult(final IProgressMonitor monitor, final IAdaptable info)
+            throws ExecutionException {
+        StartAction startAction = null;
+        StopAction stopAction = null;
+
+        CommandResult commandResult = this.createSEFFAction(PalladioComponentModelElementTypes.StartAction_2001,
+                monitor);
+        if (!this.isOK(commandResult)) {
+            return CommandResult.newErrorCommandResult("Create StartAction for the new SEFF failed!");
         }
         startAction = (StartAction) commandResult.getReturnValue();
-		commandResult = createSEFFAction(PalladioComponentModelElementTypes.StopAction_2002,monitor);
-        if (!isOK(commandResult))
-        {
-        	return CommandResult.newErrorCommandResult("Create StopAction for the new SEFF failed!");
+        commandResult = this.createSEFFAction(PalladioComponentModelElementTypes.StopAction_2002, monitor);
+        if (!this.isOK(commandResult)) {
+            return CommandResult.newErrorCommandResult("Create StopAction for the new SEFF failed!");
         }
         stopAction = (StopAction) commandResult.getReturnValue();
         // Removed due to recent CanonicalEditPolicy Bug in GMF
-        //commandResult = createControlFlow(startAction, stopAction, monitor);
-        //if (!isOK(commandResult))
-        //{
-        //	return CommandResult.newErrorCommandResult("Create ControlFlow for the new SEFF failed!");
-        //}
-		return CommandResult.newOKCommandResult();
-	}
+        // commandResult = createControlFlow(startAction, stopAction, monitor);
+        // if (!isOK(commandResult))
+        // {
+        // return
+        // CommandResult.newErrorCommandResult("Create ControlFlow for the new SEFF failed!");
+        // }
+        return CommandResult.newOKCommandResult();
+    }
 
-	private CommandResult createControlFlow(StartAction startAction,
-			StopAction stopAction, IProgressMonitor monitor) {
-		SetRequest setReq = new SetRequest(startAction, SeffPackage.eINSTANCE
-				.getAbstractAction_Successor_AbstractAction(), stopAction);
-        SetValueCommand createControlFlowCommand = new SetValueCommand(setReq);
+    /**
+     * Creates the control flow.
+     * 
+     * @param startAction
+     *            the start action
+     * @param stopAction
+     *            the stop action
+     * @param monitor
+     *            the monitor
+     * @return the command result
+     */
+    private CommandResult createControlFlow(final StartAction startAction, final StopAction stopAction,
+            final IProgressMonitor monitor) {
+        final SetRequest setReq = new SetRequest(startAction,
+                SeffPackage.eINSTANCE.getAbstractAction_Successor_AbstractAction(), stopAction);
+        final SetValueCommand createControlFlowCommand = new SetValueCommand(setReq);
         try {
-			createControlFlowCommand.execute(monitor, null);
-		} catch (ExecutionException e) {
-            Log.error(SEFFHelperPlugin.getDefault(),
-                    	-1, e
-                        .getLocalizedMessage());
+            createControlFlowCommand.execute(monitor, null);
+        } catch (final ExecutionException e) {
+            Log.error(SEFFHelperPlugin.getDefault(), -1, e.getLocalizedMessage());
             return CommandResult.newErrorCommandResult(e.getLocalizedMessage());
-		}
-        CommandResult commandResult = createControlFlowCommand.getCommandResult();
+        }
+        final CommandResult commandResult = createControlFlowCommand.getCommandResult();
         return commandResult;
-	}
+    }
 
-	private CommandResult createSEFFAction(IElementType typeId, IProgressMonitor monitor)
-			throws ExecutionException {
-		CreateElementRequest startRequest = new CreateElementRequest(
-				myRequest.getElementToConfigure(), 
-				typeId, 
-				SeffPackage.eINSTANCE.getResourceDemandingBehaviour_Steps_Behaviour()
-				);
-		startRequest.setLabel("Create Action");
-		CreateElementCommand createStartCommand = new CreateElementCommand(startRequest);
+    /**
+     * Creates the seff action.
+     * 
+     * @param typeId
+     *            the type id
+     * @param monitor
+     *            the monitor
+     * @return the command result
+     * @throws ExecutionException
+     *             the execution exception
+     */
+    private CommandResult createSEFFAction(final IElementType typeId, final IProgressMonitor monitor)
+            throws ExecutionException {
+        final CreateElementRequest startRequest = new CreateElementRequest(this.myRequest.getElementToConfigure(),
+                typeId, SeffPackage.eINSTANCE.getResourceDemandingBehaviour_Steps_Behaviour());
+        startRequest.setLabel("Create Action");
+        final CreateElementCommand createStartCommand = new CreateElementCommand(startRequest);
         createStartCommand.execute(monitor, null);
-        CommandResult commandResult = createStartCommand.getCommandResult();
-		return commandResult;
-	}
+        final CommandResult commandResult = createStartCommand.getCommandResult();
+        return commandResult;
+    }
 }

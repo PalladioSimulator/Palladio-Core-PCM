@@ -21,67 +21,74 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
- * Edit helper for the EmitEventAction.
- * Features are:
- * - Open EventType selection dialog when EmitEventAction is created
+ * Edit helper for the EmitEventAction. Features are: - Open EventType selection dialog when
+ * EmitEventAction is created
  * 
  * @author Benjamin Klatt
  * 
  */
-public class EmitEventActionEditHelperAdvice extends
-		AbstractEditHelperAdvice implements IEditHelperAdvice {
+public class EmitEventActionEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	/**
-	 * When an EmitEventAction is created:
-	 * - Open the dialog to select an EventType this action is able to emit
-	 * - Get the selected EventType and store it in the action
-	 * 
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		EObject eObject = searchBasicComponent(request.getElementToConfigure());
-		SourceRole sourceRole = null;
-		
-		// define the filter list
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(SourceRole.class);
-		filterList.add(EventGroup.class);
-		filterList.add(EventType.class);
-		
-		// define the additional references
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		additionalReferences.add(RepositoryPackage.eINSTANCE
-				.getSourceRole_EventGroup__SourceRole());
-		
-		// create the dialog
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, additionalReferences, eObject);
-		dialog.setProvidedService(EventType.class);
-		dialog.open();
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof EventType))
-			return new CanceledCommand();
-		
-		// set the EventType for EmitEventAction 
-		EventType eventType = (EventType) dialog.getResult();
-		
-		// set the required role for EmitEventAction 
-		if (dialog.getViewerRootElement() instanceof SourceRole) {
-			sourceRole = (SourceRole) dialog.getRootOfResult();
-		}
+    /**
+     * When an EmitEventAction is created: - Open the dialog to select an EventType this action is
+     * able to emit - Get the selected EventType and store it in the action.
+     * 
+     * @param request
+     *            the request
+     * @return the after configure command
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
+        final EObject eObject = this.searchBasicComponent(request.getElementToConfigure());
+        SourceRole sourceRole = null;
 
-		// create and execute the EmitEventActionConfigureCommand command
-		return new EmitEventActionConfigureCommand(request, eventType,
-				sourceRole);
-	}
+        // define the filter list
+        final ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(SourceRole.class);
+        filterList.add(EventGroup.class);
+        filterList.add(EventType.class);
 
-	private EObject searchBasicComponent(EObject elementToConfigure) {
-		EObject o = elementToConfigure;
-		while (!(o instanceof BasicComponent))
-			o = o.eContainer();
-		return o;
-	}
+        // define the additional references
+        final ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        additionalReferences.add(RepositoryPackage.eINSTANCE.getSourceRole_EventGroup__SourceRole());
+
+        // create the dialog
+        final PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, eObject);
+        dialog.setProvidedService(EventType.class);
+        dialog.open();
+        if (dialog.getResult() == null) {
+            return new CanceledCommand();
+        }
+        if (!(dialog.getResult() instanceof EventType)) {
+            return new CanceledCommand();
+        }
+
+        // set the EventType for EmitEventAction
+        final EventType eventType = (EventType) dialog.getResult();
+
+        // set the required role for EmitEventAction
+        if (dialog.getViewerRootElement() instanceof SourceRole) {
+            sourceRole = (SourceRole) dialog.getRootOfResult();
+        }
+
+        // create and execute the EmitEventActionConfigureCommand command
+        return new EmitEventActionConfigureCommand(request, eventType, sourceRole);
+    }
+
+    /**
+     * Search basic component.
+     * 
+     * @param elementToConfigure
+     *            the element to configure
+     * @return the e object
+     */
+    private EObject searchBasicComponent(final EObject elementToConfigure) {
+        EObject o = elementToConfigure;
+        while (!(o instanceof BasicComponent)) {
+            o = o.eContainer();
+        }
+        return o;
+    }
 }

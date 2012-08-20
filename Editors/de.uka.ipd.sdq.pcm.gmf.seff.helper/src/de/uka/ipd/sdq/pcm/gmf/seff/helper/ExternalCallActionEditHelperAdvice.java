@@ -21,59 +21,70 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
- * @author Roman Andrej
+ * The Class ExternalCallActionEditHelperAdvice constructs a command to configure newly created external call action.
  * 
+ * @author Roman Andrej
  */
-public class ExternalCallActionEditHelperAdvice extends
-		AbstractEditHelperAdvice implements IEditHelperAdvice {
+public class ExternalCallActionEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		EObject eObject = searchBasicComponent(request.getElementToConfigure());
-		OperationRequiredRole requiredRole = null;
-		
-		// define the filter list
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(OperationRequiredRole.class);
-		filterList.add(OperationInterface.class);
-		filterList.add(OperationSignature.class);
-		
-		// define the additional references
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		additionalReferences.add(RepositoryPackage.eINSTANCE
-				.getOperationRequiredRole_RequiredInterface__OperationRequiredRole());
-		
-		// create the dialog
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, additionalReferences, eObject);
-		dialog.setProvidedService(OperationSignature.class);
-		dialog.open();
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof OperationSignature))
-			return new CanceledCommand();
-		
-		// set the signature for ExternalCallAction 
-		OperationSignature signature = (OperationSignature) dialog.getResult();
-		
-		// set the required role for ExternalCallAction 
-		if (dialog.getViewerRootElement() instanceof OperationRequiredRole) {
-			requiredRole = (OperationRequiredRole) dialog.getRootOfResult();
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
+        final EObject eObject = this.searchBasicComponent(request.getElementToConfigure());
+        OperationRequiredRole requiredRole = null;
 
-		// create and execute the ExternalCallActionConfigureCommand command
-		return new ExternalCallActionConfigureCommand(request, signature,
-				requiredRole);
-	}
+        // define the filter list
+        final ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(OperationRequiredRole.class);
+        filterList.add(OperationInterface.class);
+        filterList.add(OperationSignature.class);
 
-	private EObject searchBasicComponent(EObject elementToConfigure) {
-		EObject o = elementToConfigure;
-		while (!(o instanceof BasicComponent))
-			o = o.eContainer();
-		return o;
-	}
+        // define the additional references
+        final ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        additionalReferences.add(RepositoryPackage.eINSTANCE
+                .getOperationRequiredRole_RequiredInterface__OperationRequiredRole());
+
+        // create the dialog
+        final PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, eObject);
+        dialog.setProvidedService(OperationSignature.class);
+        dialog.open();
+        if (dialog.getResult() == null) {
+            return new CanceledCommand();
+        }
+        if (!(dialog.getResult() instanceof OperationSignature)) {
+            return new CanceledCommand();
+        }
+
+        // set the signature for ExternalCallAction
+        final OperationSignature signature = (OperationSignature) dialog.getResult();
+
+        // set the required role for ExternalCallAction
+        if (dialog.getViewerRootElement() instanceof OperationRequiredRole) {
+            requiredRole = (OperationRequiredRole) dialog.getRootOfResult();
+        }
+
+        // create and execute the ExternalCallActionConfigureCommand command
+        return new ExternalCallActionConfigureCommand(request, signature, requiredRole);
+    }
+
+    /**
+     * Search basic component.
+     * 
+     * @param elementToConfigure
+     *            the element to configure
+     * @return the e object
+     */
+    private EObject searchBasicComponent(final EObject elementToConfigure) {
+        EObject o = elementToConfigure;
+        while (!(o instanceof BasicComponent)) {
+            o = o.eContainer();
+        }
+        return o;
+    }
 }

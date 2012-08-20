@@ -7,17 +7,23 @@ import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 
+/**
+ * The Class ParametricResourceDemandEditHelperAdvice creates a command for initialization of a
+ * parametric resource demand.
+ * 
+ * @author roman
+ */
+public class ParametricResourceDemandEditHelperAdvice extends AbstractCreateRandomVariableEditHelperAdvice implements
+        IEditHelperAdvice {
 
-/** @author roman */
-public class ParametricResourceDemandEditHelperAdvice 
-extends	AbstractCreateRandomVariableEditHelperAdvice 
-implements IEditHelperAdvice {
-	
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		return new ParametricResourceDemandConfigureCommand(request);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
+        return new ParametricResourceDemandConfigureCommand(request);
+    }
 }

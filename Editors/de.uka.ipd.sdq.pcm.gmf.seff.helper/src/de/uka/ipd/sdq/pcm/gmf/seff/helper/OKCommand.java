@@ -8,33 +8,41 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 
 /**
  * This class handles the OKCommand used in EditHelpers.
- *
+ * 
  */
 public class OKCommand extends AbstractCommand {
 
-	/**
-	 * Constructor for an OKCommand.
-	 */
-	public OKCommand() {
-		super("OK Command");
-	}
+    /**
+     * Constructor for an OKCommand.
+     */
+    public OKCommand() {
+        super("OK Command");
+    }
 
-	@Override
-	protected CommandResult doExecuteWithResult(
-			IProgressMonitor progressMonitor, IAdaptable info)
-			throws ExecutionException {
-		return CommandResult.newOKCommandResult();
-	}
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+     */
+    @Override
+    protected CommandResult doExecuteWithResult(final IProgressMonitor progressMonitor, final IAdaptable info)
+            throws ExecutionException {
+        return CommandResult.newOKCommandResult();
+    }
 
-	@Override
-	protected CommandResult doRedoWithResult(IProgressMonitor progressMonitor,
-			IAdaptable info) throws ExecutionException {
-		return CommandResult.newOKCommandResult();
-	}
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doRedoWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+     */
+    @Override
+    protected CommandResult doRedoWithResult(final IProgressMonitor progressMonitor, final IAdaptable info)
+            throws ExecutionException {
+        return CommandResult.newOKCommandResult();
+    }
 
-	@Override
-	protected CommandResult doUndoWithResult(IProgressMonitor progressMonitor,
-			IAdaptable info) throws ExecutionException {
-		return CommandResult.newOKCommandResult();
-	}
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doUndoWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+     */
+    @Override
+    protected CommandResult doUndoWithResult(final IProgressMonitor progressMonitor, final IAdaptable info)
+            throws ExecutionException {
+        return CommandResult.newOKCommandResult();
+    }
 }

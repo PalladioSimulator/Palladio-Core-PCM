@@ -21,79 +21,87 @@ import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
-/** @author roman */
-public class ParameterCollectionIteratorActionEditHelperAdvice extends
-		AbstractEditHelperAdvice implements IEditHelperAdvice {
+/**
+ * The Class ParameterCollectionIteratorActionEditHelperAdvice allows the selection of a parameter
+ * in a dialog.
+ * 
+ * @author roman
+ */
+public class ParameterCollectionIteratorActionEditHelperAdvice extends AbstractEditHelperAdvice implements
+        IEditHelperAdvice {
 
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		EObject parameter = null;
-		OperationSignature signature = null;
-		ResourceDemandingSEFF seff = null;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
+        EObject parameter = null;
+        OperationSignature signature = null;
+        ResourceDemandingSEFF seff = null;
 
-		seff = getSEFF(request.getElementToConfigure());
-		signature = (OperationSignature) seff.getDescribedService__SEFF();
+        seff = this.getSEFF(request.getElementToConfigure());
+        signature = (OperationSignature) seff.getDescribedService__SEFF();
 
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(ResourceDemandingSEFF.class);
-		filterList.add(OperationSignature.class);
-		filterList.add(Parameter.class);
-		filterList.add(DataType.class);
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		additionalReferences.add(RepositoryPackage.eINSTANCE
-				.getParameter_DataType__Parameter());
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, additionalReferences, signature
-						.getInterface__OperationSignature());
-		dialog
-				.setViewerContentProvider(new CollectionIteratorContentProvider());
-		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
-		adapterFactory
-				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory
-				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
-		adapterFactory
-				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-		/**
-		 * set a LabelProvider for dialog TreeViewer
-		 */
-		dialog
-				.setViewerLabelProvider(new AdapterFactoryLabelProvider(
-						new CollectionIteratorItemProviderAdapterFactory(
-								new PalladioItemProviderAdapterFactory(
-										adapterFactory))));
-		dialog.setProvidedService(Parameter.class);
-		dialog.open();
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof Parameter))
-			return new CanceledCommand();
-		parameter = (Parameter) dialog.getResult();
+        final ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(ResourceDemandingSEFF.class);
+        filterList.add(OperationSignature.class);
+        filterList.add(Parameter.class);
+        filterList.add(DataType.class);
+        final ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        additionalReferences.add(RepositoryPackage.eINSTANCE.getParameter_DataType__Parameter());
+        final PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences,
+                signature.getInterface__OperationSignature());
+        dialog.setViewerContentProvider(new CollectionIteratorContentProvider());
+        final ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
+        adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+        /**
+         * set a LabelProvider for dialog TreeViewer
+         */
+        dialog.setViewerLabelProvider(new AdapterFactoryLabelProvider(new CollectionIteratorItemProviderAdapterFactory(
+                new PalladioItemProviderAdapterFactory(adapterFactory))));
+        dialog.setProvidedService(Parameter.class);
+        dialog.open();
+        if (dialog.getResult() == null) {
+            return new CanceledCommand();
+        }
+        if (!(dialog.getResult() instanceof Parameter)) {
+            return new CanceledCommand();
+        }
+        parameter = dialog.getResult();
 
-		ICommand cmd = new SetValueCommand(
-				new SetRequest(
-						request.getElementToConfigure(),
-						SeffPackage.eINSTANCE
-								.getCollectionIteratorAction_Parameter_CollectionIteratorAction(),
-						parameter));
-		return cmd;
-	}
-	
-	private ResourceDemandingSEFF getSEFF(EObject a) {
-		EObject container = a;
-		while (!(container instanceof ResourceDemandingSEFF))
-			container = container.eContainer();
-		if (!(container instanceof ResourceDemandingSEFF)) 
-			return null;
-		ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
-		return seff;
-	}
+        final ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                SeffPackage.eINSTANCE.getCollectionIteratorAction_Parameter_CollectionIteratorAction(), parameter));
+        return cmd;
+    }
+
+    /**
+     * Gets the seff.
+     * 
+     * @param a
+     *            the container
+     * @return the seff
+     */
+    private ResourceDemandingSEFF getSEFF(final EObject a) {
+        EObject container = a;
+        while (!(container instanceof ResourceDemandingSEFF)) {
+            container = container.eContainer();
+        }
+        if (!(container instanceof ResourceDemandingSEFF)) {
+            return null;
+        }
+        final ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
+        return seff;
+    }
 
 }

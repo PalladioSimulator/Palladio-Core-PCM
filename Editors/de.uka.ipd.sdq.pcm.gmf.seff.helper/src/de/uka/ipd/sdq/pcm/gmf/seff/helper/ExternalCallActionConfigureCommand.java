@@ -18,67 +18,101 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
+ * The Class ExternalCallActionConfigureCommand configures an external call action.
+ * 
  * @author Roman Andrej
  */
 public class ExternalCallActionConfigureCommand extends ConfigureElementCommand {
 
-	private ConfigureRequest request = null;
-	private OperationSignature signature = null;
-	private OperationRequiredRole requiredRole = null;
-	
-	public ExternalCallActionConfigureCommand(ConfigureRequest request,
-			OperationSignature signature, OperationRequiredRole requiredRole) {
-		super(request);
-		this.request = request;
-		this.signature = signature;
-		this.requiredRole = requiredRole;
-	}
+    /** The request. */
+    private ConfigureRequest request = null;
+    
+    /** The signature. */
+    private OperationSignature signature = null;
+    
+    /** The required role. */
+    private OperationRequiredRole requiredRole = null;
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
-	 */
-	@Override
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		CommandResult commandResult = setOperationSignatureExternalCallAction(monitor,
-				info);
-		if (!isOK(commandResult)) {
-			return CommandResult
-					.newErrorCommandResult("Set OperationSignature for the ExternalCallAction failed!");
-		}
-		commandResult = setRequiredRoleEntryLevelSystemCall(monitor, info);
-		if (!isOK(commandResult)) {
-			return CommandResult
-					.newErrorCommandResult("Set OperationProvidedRole for the ExternalCallAction failed!");
-		}
-		return CommandResult.newOKCommandResult();
-	}
-	
-	
-	private CommandResult setOperationSignatureExternalCallAction(
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
+    /**
+     * Instantiates a new external call action configure command.
+     * 
+     * @param request
+     *            the request
+     * @param signature
+     *            the signature
+     * @param requiredRole
+     *            the required role
+     */
+    public ExternalCallActionConfigureCommand(final ConfigureRequest request, final OperationSignature signature,
+            final OperationRequiredRole requiredRole) {
+        super(request);
+        this.request = request;
+        this.signature = signature;
+        this.requiredRole = requiredRole;
+    }
 
-		ICommand cmd = new SetValueCommand(new SetRequest(request
-				.getElementToConfigure(), SeffPackage.eINSTANCE
-				.getExternalCallAction_CalledService_ExternalService(),
-				signature));
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand#
+     * doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor,
+     * org.eclipse.core.runtime.IAdaptable)
+     */
+    @Override
+    protected CommandResult doExecuteWithResult(final IProgressMonitor monitor, final IAdaptable info)
+            throws ExecutionException {
+        CommandResult commandResult = this.setOperationSignatureExternalCallAction(monitor, info);
+        if (!this.isOK(commandResult)) {
+            return CommandResult.newErrorCommandResult("Set OperationSignature for the ExternalCallAction failed!");
+        }
+        commandResult = this.setRequiredRoleEntryLevelSystemCall(monitor, info);
+        if (!this.isOK(commandResult)) {
+            return CommandResult.newErrorCommandResult("Set OperationProvidedRole for the ExternalCallAction failed!");
+        }
+        return CommandResult.newOKCommandResult();
+    }
 
-		cmd.execute(monitor, info);
+    /**
+     * Sets the operation signature external call action.
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
+     * @return the command result
+     * @throws ExecutionException
+     *             the execution exception
+     */
+    private CommandResult setOperationSignatureExternalCallAction(final IProgressMonitor monitor, final IAdaptable info)
+            throws ExecutionException {
 
-		return cmd.getCommandResult();
-	}
-	
-	private CommandResult setRequiredRoleEntryLevelSystemCall(
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
+        final ICommand cmd = new SetValueCommand(new SetRequest(this.request.getElementToConfigure(),
+                SeffPackage.eINSTANCE.getExternalCallAction_CalledService_ExternalService(), this.signature));
 
-		ICommand cmd = new SetValueCommand(new SetRequest(request
-				.getElementToConfigure(), SeffPackage.eINSTANCE
-				.getExternalCallAction_Role_ExternalService(), requiredRole));
+        cmd.execute(monitor, info);
 
-		cmd.execute(monitor, info);
+        return cmd.getCommandResult();
+    }
 
-		return cmd.getCommandResult();
-	}
+    /**
+     * Sets the required role entry level system call.
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
+     * @return the command result
+     * @throws ExecutionException
+     *             the execution exception
+     */
+    private CommandResult setRequiredRoleEntryLevelSystemCall(final IProgressMonitor monitor, final IAdaptable info)
+            throws ExecutionException {
+
+        final ICommand cmd = new SetValueCommand(new SetRequest(this.request.getElementToConfigure(),
+                SeffPackage.eINSTANCE.getExternalCallAction_Role_ExternalService(), this.requiredRole));
+
+        cmd.execute(monitor, info);
+
+        return cmd.getCommandResult();
+    }
 }

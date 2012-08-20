@@ -5,18 +5,23 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 
-public class RecoveryActionBehaviourEditHelperAdvice extends
-		AbstractEditHelperAdvice implements IEditHelperAdvice {
+/**
+ * The Class RecoveryActionBehaviourEditHelperAdvice creates a command for configuring a minimal
+ * SEFF inside the created element.
+ */
+public class RecoveryActionBehaviourEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		// Add a minimal SEFF, only Start and Stop Action
-		ConfigureMinimalSeffCommand cmd = new ConfigureMinimalSeffCommand(
-				request);
-		return cmd;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
+        // Add a minimal SEFF, only Start and Stop Action
+        final ConfigureMinimalSeffCommand cmd = new ConfigureMinimalSeffCommand(request);
+        return cmd;
+    }
 
 }

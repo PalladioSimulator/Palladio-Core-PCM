@@ -4,6 +4,7 @@ import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
@@ -22,58 +23,83 @@ import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
+/**
+ * The Class StoExParser.
+ */
 public class StoExParser implements IParser {
 
-	public IContentAssistProcessor getCompletionProcessor(IAdaptable element) {
-		return new StoExCompletionProcessor(new Parameter[]{});
-	}
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getCompletionProcessor(org.eclipse.core.runtime.IAdaptable)
+     */
+    @Override
+    public IContentAssistProcessor getCompletionProcessor(final IAdaptable element) {
+        return new StoExCompletionProcessor(new Parameter[] {});
+    }
 
-	public String getEditString(IAdaptable element, int flags) {
-		RandomVariable randomVariable = (RandomVariable) element.getAdapter(RandomVariable.class);
-		return randomVariable.getSpecification();
-	}
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getEditString(org.eclipse.core.runtime.IAdaptable, int)
+     */
+    @Override
+    public String getEditString(final IAdaptable element, final int flags) {
+        final RandomVariable randomVariable = (RandomVariable) element.getAdapter(RandomVariable.class);
+        return randomVariable.getSpecification();
+    }
 
-	public ICommand getParseCommand(IAdaptable element, String newString,
-			int flags) {
-		SetRequest req = new SetRequest((EObject)element.getAdapter(RandomVariable.class), StoexPackage.eINSTANCE.getRandomVariable_Specification(), newString);
-		SetValueCommand cmd = new SetValueCommand(req);
-		return cmd;
-	}
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getParseCommand(org.eclipse.core.runtime.IAdaptable, java.lang.String, int)
+     */
+    @Override
+    public ICommand getParseCommand(final IAdaptable element, final String newString, final int flags) {
+        final SetRequest req = new SetRequest((EObject) element.getAdapter(RandomVariable.class),
+                StoexPackage.eINSTANCE.getRandomVariable_Specification(), newString);
+        final SetValueCommand cmd = new SetValueCommand(req);
+        return cmd;
+    }
 
-	public String getPrintString(IAdaptable element, int flags) {
-		RandomVariable randomVariable = (RandomVariable) element.getAdapter(RandomVariable.class);
-		PCMStoExLexer lexer = new PCMStoExLexer(new ANTLRStringStream(randomVariable.getSpecification()));
-		Expression expr;
-		try {
-			expr = new PCMStoExParser(new CommonTokenStream(lexer)).expression();
-			String result = new PCMStoExPrettyPrintVisitor().prettyPrint(expr);
-			return result;
-		} catch (RecognitionException e) {
-			return "<invalid StoEx>";
-		} catch (Exception e) {
-			return "<invalid StoEx>";
-		}
-	}
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getPrintString(org.eclipse.core.runtime.IAdaptable, int)
+     */
+    @Override
+    public String getPrintString(final IAdaptable element, final int flags) {
+        final RandomVariable randomVariable = (RandomVariable) element.getAdapter(RandomVariable.class);
+        final PCMStoExLexer lexer = new PCMStoExLexer(new ANTLRStringStream(randomVariable.getSpecification()));
+        Expression expr;
+        try {
+            expr = new PCMStoExParser(new CommonTokenStream(lexer)).expression();
+            final String result = new PCMStoExPrettyPrintVisitor().prettyPrint(expr);
+            return result;
+        } catch (final RecognitionException e) {
+            return "<invalid StoEx>";
+        } catch (final Exception e) {
+            return "<invalid StoEx>";
+        }
+    }
 
-	public boolean isAffectingEvent(Object event, int flags) {
-		return true;
-	}
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isAffectingEvent(java.lang.Object, int)
+     */
+    @Override
+    public boolean isAffectingEvent(final Object event, final int flags) {
+        return true;
+    }
 
-	public IParserEditStatus isValidEditString(IAdaptable element,
-			String editString) {
-		PCMStoExLexer lexer = new PCMStoExLexer(new ANTLRStringStream(editString));
-		Expression expr;
-		try {
-			expr = new PCMStoExParser(new CommonTokenStream(lexer)).expression();
-			return new ParserEditStatus(
-					"de.uka.ipd.sdq.pcm.gmf.seff.helper", IParserEditStatus.EDITABLE, "");
-		} catch (RecognitionException e) {
-			return new ParserEditStatus(IParserEditStatus.ERROR,
-					"de.uka.ipd.sdq.pcm.gmf.seff.helper", IParserEditStatus.EDITABLE, "",e);
-		} catch (Exception e) {
-			return new ParserEditStatus(IParserEditStatus.ERROR,
-					"de.uka.ipd.sdq.pcm.gmf.seff.helper", IParserEditStatus.EDITABLE, "",e);
-		}
-	}
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isValidEditString(org.eclipse.core.runtime.IAdaptable, java.lang.String)
+     */
+    @Override
+    public IParserEditStatus isValidEditString(final IAdaptable element, final String editString) {
+        final PCMStoExLexer lexer = new PCMStoExLexer(new ANTLRStringStream(editString));
+        Expression expr;
+        try {
+            expr = new PCMStoExParser(new CommonTokenStream(lexer)).expression();
+            return new ParserEditStatus("de.uka.ipd.sdq.pcm.gmf.seff.helper", IParserEditStatus.EDITABLE, "");
+        } catch (final RecognitionException e) {
+            return new ParserEditStatus(IStatus.ERROR, "de.uka.ipd.sdq.pcm.gmf.seff.helper",
+                    IParserEditStatus.EDITABLE, "", e);
+        } catch (final Exception e) {
+            return new ParserEditStatus(IStatus.ERROR, "de.uka.ipd.sdq.pcm.gmf.seff.helper",
+                    IParserEditStatus.EDITABLE, "", e);
+        }
+    }
 
 }

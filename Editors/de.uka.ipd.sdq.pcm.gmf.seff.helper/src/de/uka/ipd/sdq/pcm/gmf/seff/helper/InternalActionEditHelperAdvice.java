@@ -14,23 +14,26 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class InternalActionEditHelperAdvice creates a parametric resource demand inside a newly
+ * created element.
+ * 
  * @author admin
- *
  */
-public class InternalActionEditHelperAdvice extends AbstractEditHelperAdvice
-		implements IEditHelperAdvice {
-	
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		IElementType elementType = PalladioComponentModelElementTypes.ParametricResourceDemand_3051;
+public class InternalActionEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-		CreateElementRequest createElementRequest = new CreateElementRequest(
-				request.getElementToConfigure(), elementType);
-		return new CreateElementCommand(createElementRequest);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
+        final IElementType elementType = PalladioComponentModelElementTypes.ParametricResourceDemand_3051;
 
+        final CreateElementRequest createElementRequest = new CreateElementRequest(request.getElementToConfigure(),
+                elementType);
+        return new CreateElementCommand(createElementRequest);
+    }
 
 }

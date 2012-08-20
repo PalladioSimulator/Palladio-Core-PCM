@@ -8,20 +8,28 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-public class AbstractCreateRandomVariableEditHelperAdvice extends
-		AbstractEditHelperAdvice {
+/**
+ * The Class AbstractCreateRandomVariableEditHelperAdvice.
+ */
+public class AbstractCreateRandomVariableEditHelperAdvice extends AbstractEditHelperAdvice {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getBeforeConfigureCommand(ConfigureRequest request) {
-		IElementType elementType = ElementTypeRegistry.getInstance().
-			getType("de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000");
-		
-		CreateElementRequest createElementRequest = new CreateElementRequest(
-				request.getElementToConfigure(), elementType);
-		return new CreateElementCommand(createElementRequest);
-	}
+    /**
+     * Creates a PCM random variable inside the requests element to configure.
+     * 
+     * @param request
+     *            the request
+     * @return the command for creation of the pcm random variable 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     *      getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getBeforeConfigureCommand(final ConfigureRequest request) {
+        final IElementType elementType = ElementTypeRegistry.getInstance().getType(
+                "de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000");
+
+        final CreateElementRequest createElementRequest = new CreateElementRequest(request.getElementToConfigure(),
+                elementType);
+        return new CreateElementCommand(createElementRequest);
+    }
 
 }
