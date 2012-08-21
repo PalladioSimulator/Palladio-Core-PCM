@@ -8,80 +8,47 @@ import javax.measure.quantity.Quantity;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.eclipse.core.runtime.CoreException;
 
-import de.uka.ipd.sdq.pipesandfilters.framework.MetaDataInit;
 import de.uka.ipd.sdq.pipesandfilters.framework.PipeData;
 import de.uka.ipd.sdq.pipesandfilters.framework.PipesAndFiltersManager;
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.IRawWriteStrategy;
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.RawRecorder;
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.Recorder;
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.RecorderExtensionHelper;
-import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorListener;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
-public class SetupConcurrentPipesAndFiltersStrategy implements ISetupDataSinkStrategy {
-	/** Logger for this class. */
-	private static final Logger logger = Logger.getLogger(SetupConcurrentPipesAndFiltersStrategy.class);
-
-	private SimuComModel model;
+class SetupConcurrentPipesAndFiltersStrategy extends SetupPipesAndFiltersStrategy implements ISetupDataSinkStrategy {
 
 	public SetupConcurrentPipesAndFiltersStrategy(SimuComModel model) {
-		this.model = model;
+		super(model);
 	}
 
-	public PipesAndFiltersManager setupDataSink(Calculator calculator, MetaDataInit metaData) {
-		// Initialize recorder and Pipes-and-Filters-Manger
-		Recorder recorder = new RawRecorder(createWriteStrategy());
-		final PipesAndFiltersManager pipeManager = new PipesAndFiltersManager(
-				recorder);
-		pipeManager.initialize(metaData);
+	/* (non-Javadoc)
+     * @see de.uka.ipd.sdq.simucomframework.calculator.SetupPipesAndFiltersStrategy#createCalculatorListener(de.uka.ipd.sdq.pipesandfilters.framework.PipesAndFiltersManager)
+     */
+    @Override
+    protected ICalculatorListener createCalculatorListener(PipesAndFiltersManager pipeManager) {
+        // start thread
+        final ProcessPipeData processPipeData = new ProcessPipeData(pipeManager);
+        new Thread(processPipeData).start();
 
-		// start thread
-		final ProcessPipeData processPipeData = new ProcessPipeData(pipeManager);
-		new Thread(processPipeData).start();
-
-		calculator.addCalculatorListener(new ICalculatorListener() {
-			public void calculated(Vector<Measure<?, ? extends Quantity>> resultTuple) {
-				processPipeData.enqueue(new PipeData(resultTuple));
-			}
-		});
-
-		return pipeManager;
-	}
-
-	private IRawWriteStrategy createWriteStrategy() {
-		try {
-			String writeStrategyClass = RecorderExtensionHelper
-					.getWriteStrategyClassNameForName(model.getConfig()
-							.getRecorderName());
-			return (IRawWriteStrategy) Class.forName(writeStrategyClass).newInstance();
-		} catch (CoreException e) {
-			if(logger.isEnabledFor(Level.ERROR))
-				logger.error("Error occured during write strategy creation.", e);
-		} catch (InstantiationException e) {
-			if(logger.isEnabledFor(Level.ERROR))
-				logger.error("Error occured during write strategy creation.", e);
-		} catch (IllegalAccessException e) {
-			if(logger.isEnabledFor(Level.ERROR))
-				logger.error("Error occured during write strategy creation.", e);
-		} catch (ClassNotFoundException e) {
-			if(logger.isEnabledFor(Level.ERROR))
-				logger.error("Error occured during write strategy creation.", e);
-		}
-		return null;
-	}
+        return new ICalculatorListener() {
+            public void calculated(Vector<Measure<?, ? extends Quantity>> resultTuple) {
+                processPipeData.enqueue(new PipeData(resultTuple));
+            }
+        };
+    }
 
 	private class ProcessPipeData implements Runnable {
+	    
+	    private final Logger logger = Logger.getLogger(ProcessPipeData.class);
 
-		private LinkedBlockingQueue<PipeData> pipeQueue;
+		private final LinkedBlockingQueue<PipeData> pipeQueue;
 
-		private boolean keepRunning = true;
+		private volatile boolean keepRunning = true;
 
-		private PipesAndFiltersManager pipeManager;
+		private final PipesAndFiltersManager pipeManager;
 
 		public ProcessPipeData(PipesAndFiltersManager pipeManager) {
+		    super();
+		    
 			this.pipeManager = pipeManager;
 			pipeQueue = new LinkedBlockingQueue<PipeData>();
 		}

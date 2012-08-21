@@ -91,9 +91,6 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
 		// TODO: This is not thread and hence concurrency safe...
 		// initialise Random Generators
 		StoExCache.initialiseStoExCache(probFunctionFactory);
-		
-		// TODO: This is not thread and hence concurrency safe...
-		
 
 		// set up the resource scheduler
 		schedulingFactory = new SchedulingFactory(this);

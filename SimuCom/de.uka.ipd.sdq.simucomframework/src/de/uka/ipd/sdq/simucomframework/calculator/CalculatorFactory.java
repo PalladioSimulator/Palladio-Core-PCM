@@ -20,24 +20,35 @@ import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
- * TODO: This class still depends on SensorFramework. Try to remove the
- * SensorFramework dependency.
+ * Factory class to create @see {@link Calculator}s used in a SimuCom simulation run.
  * 
  * @author Philipp Merkle
  * 
  */
 public class CalculatorFactory implements ICalculatorFactory {
 
-	private SimuComModel model;
+	/**
+	 * SimuCom model which is simulated
+	 */
+	private final SimuComModel model;
 
-	private String experimentRunName;
+	/**
+	 * Cached name of the experiment run's name
+	 */
+	private final String experimentRunName;
 	
-	private ISetupDataSinkStrategy dataSink;
+	/**
+	 * Strategy interface for initialising data sinks, i.e., pipe and filter chains with a
+	 * recorder at their end
+	 */
+	private final ISetupDataSinkStrategy dataSinkSetupStrategy;
 	
 	public CalculatorFactory(SimuComModel model, ISetupDataSinkStrategy dataSink) {
-		experimentRunName = "Run " + new Date();
+	    super();
+	    
+		this.experimentRunName = "Run " + new Date();
 		this.model = model;
-		this.dataSink = dataSink;
+		this.dataSinkSetupStrategy = dataSink;
 	}
 
 	public Calculator buildResponseTimeCalculator(String calculatorName,
@@ -54,7 +65,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 		metaData.setMeasurementName("Response Time of " + calculatorName);
 		metaData.setMetricName("Response Time"); // TODO Hard coded value!
 
-		PipesAndFiltersManager pipeManager = dataSink.setupDataSink(calculator, metaData);
+		PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
 		this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 		return calculator;
 	}
@@ -74,7 +85,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 		metaData.setMeasurementName(model.getConfiguration().getNameExperimentRun() + ": Wait time at " + calculatorName);
 		metaData.setMetricName("Waiting Time"); // TODO Hard coded value!
 
-		PipesAndFiltersManager pipeManager = dataSink.setupDataSink(calculator, metaData);
+		PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
 		this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 		
 		return calculator;
@@ -95,7 +106,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 		metaData.setMeasurementName("Wait time at " + calculatorName);
 		metaData.setMetricName("Waiting Time"); // TODO Hard coded value!
 
-		PipesAndFiltersManager pipeManager = dataSink.setupDataSink(calculator, metaData);
+		PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
 		this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 		
 		return calculator;
@@ -116,7 +127,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 		metaData.setMeasurementName("Hold time at " + calculatorName);
 		metaData.setMetricName("Hold Time"); // TODO Hard coded value!
 
-		PipesAndFiltersManager pipeManager = dataSink.setupDataSink(calculator, metaData);
+		PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
 		this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 		
 		return calculator;
@@ -135,7 +146,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 		metaData.setMeasurementName("Utilisation of " + calculatorName);
 		metaData.setMetricName("Utilisation"); // TODO Hard coded value!
 
-		PipesAndFiltersManager pipeManager = dataSink.setupDataSink(calculator, metaData);
+		PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
 		this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 		
 		return calculator;
@@ -155,7 +166,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 		metaData.setMeasurementName("Demanded time at " + calculatorName);
 		metaData.setMetricName("Demanded Time"); // TODO Hard coded value!
 
-		PipesAndFiltersManager pipeManager = dataSink.setupDataSink(calculator, metaData);
+		PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
 		this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 		
 		return calculator;
@@ -176,7 +187,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 		metaData.setMeasurementName("Overall Utilisation of " + calculatorName);
 		metaData.setMetricName("Overall Utilisation"); // TODO Hard coded value!
 
-		PipesAndFiltersManager pipeManager = dataSink.setupDataSink(calculator, metaData);
+		PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
 		this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 		
 		return calculator;
@@ -197,7 +208,7 @@ public class CalculatorFactory implements ICalculatorFactory {
         metaData.setMeasurementName("Execution result of " + calculatorName);
         metaData.setMetricName("Execution Time"); // TODO Hard coded value!
 
-        PipesAndFiltersManager pipeManager = dataSink.setupDataSink(calculator, metaData);
+        PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
         model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
 
         return calculator;
