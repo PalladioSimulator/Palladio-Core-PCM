@@ -517,8 +517,6 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Xld0UOq3EeG2iLp1vAsnsw"/>
         </ownedEnd>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_5hvrgOuGEeGevsjrMEizwA" name="Klasse1"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_9mq5gOuGEeGevsjrMEizwA" name="Klasse2"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_SuIvgDveEd-PZ70lu-zpYg" name="Input">
       <eAnnotations xmi:id="_SuvMcDveEd-PZ70lu-zpYg" source="uml2.diagrams" references="_Su7ZsDveEd-PZ70lu-zpYg">
