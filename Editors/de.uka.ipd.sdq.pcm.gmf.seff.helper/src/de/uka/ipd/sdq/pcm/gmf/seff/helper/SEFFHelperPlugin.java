@@ -8,10 +8,10 @@ import org.osgi.framework.BundleContext;
  */
 public class SEFFHelperPlugin extends AbstractUIPlugin {
 
-    /** The plug-in ID */
+    /** The plug-in ID. */
     public static final String PLUGIN_ID = "de.uka.ipd.sdq.pcm.gmf.seff.helper";
 
-    /** The shared instance */
+    /** The shared instance. */
     private static SEFFHelperPlugin plugin;
 
     /**

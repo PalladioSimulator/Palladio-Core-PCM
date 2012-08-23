@@ -71,6 +71,7 @@ public class StoExParserProvider extends AbstractProvider implements IParserProv
         }
         final GetParserOperation gpo = (GetParserOperation) operation;
         return false; // getParser(gpo.getHint()) != null;
+        // FIXME: Decide if comment above is needed. Commented out since 20.6.2007!
     }
 
 }

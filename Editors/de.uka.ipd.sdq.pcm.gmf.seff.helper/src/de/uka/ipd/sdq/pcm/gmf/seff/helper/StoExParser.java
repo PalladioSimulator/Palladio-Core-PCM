@@ -83,19 +83,16 @@ public class StoExParser implements IParser {
         return true;
     }
 
+    // FIXME: Testing via exceptions is really bad style!
     /* (non-Javadoc)
      * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isValidEditString(org.eclipse.core.runtime.IAdaptable, java.lang.String)
      */
     @Override
     public IParserEditStatus isValidEditString(final IAdaptable element, final String editString) {
         final PCMStoExLexer lexer = new PCMStoExLexer(new ANTLRStringStream(editString));
-        Expression expr;
         try {
-            expr = new PCMStoExParser(new CommonTokenStream(lexer)).expression();
+            new PCMStoExParser(new CommonTokenStream(lexer)).expression();
             return new ParserEditStatus("de.uka.ipd.sdq.pcm.gmf.seff.helper", IParserEditStatus.EDITABLE, "");
-        } catch (final RecognitionException e) {
-            return new ParserEditStatus(IStatus.ERROR, "de.uka.ipd.sdq.pcm.gmf.seff.helper",
-                    IParserEditStatus.EDITABLE, "", e);
         } catch (final Exception e) {
             return new ParserEditStatus(IStatus.ERROR, "de.uka.ipd.sdq.pcm.gmf.seff.helper",
                     IParserEditStatus.EDITABLE, "", e);
