@@ -1679,11 +1679,15 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_vpIW0OxmEeGzOsvbOdECuw" name="InstrumentedRegion">
         <generalization xmi:id="_fQClQO0mEeGhudjTzhBXTA" general="_ypRgQO0lEeGhudjTzhBXTA"/>
-        <ownedAttribute xmi:id="_1VSBUOxmEeGzOsvbOdECuw" name="startMethod" visibility="public" type="_M_eCoEZJEd-sOu4vtdvMEA"/>
+        <ownedAttribute xmi:id="_1VSBUOxmEeGzOsvbOdECuw" name="startMethod" visibility="public">
+          <type xmi:type="uml:Class" href="SissyModel.uml#_91ppsO02EeGJRuXp1oRXjA"/>
+        </ownedAttribute>
         <ownedAttribute xmi:id="_7NWA4OxmEeGzOsvbOdECuw" name="startLine" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_9K_ZUOxmEeGzOsvbOdECuw" name="stopMethod" visibility="public" type="_vpIW0OxmEeGzOsvbOdECuw"/>
+        <ownedAttribute xmi:id="_9K_ZUOxmEeGzOsvbOdECuw" name="stopMethod" visibility="public">
+          <type xmi:type="uml:Class" href="SissyModel.uml#_91ppsO02EeGJRuXp1oRXjA"/>
+        </ownedAttribute>
         <ownedAttribute xmi:id="_93iWQOxmEeGzOsvbOdECuw" name="stopLine" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
         </ownedAttribute>
