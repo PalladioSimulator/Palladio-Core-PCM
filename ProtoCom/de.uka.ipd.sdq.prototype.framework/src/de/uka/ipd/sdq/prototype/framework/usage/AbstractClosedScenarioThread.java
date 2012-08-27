@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.prototype.framework;
+package de.uka.ipd.sdq.prototype.framework.usage;
 
 import de.uka.ipd.sdq.prototype.framework.utils.RunProperties;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;

@@ -12,7 +12,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
 
-import de.uka.ipd.sdq.prototype.framework.AbstractScenarioThread;
+import de.uka.ipd.sdq.prototype.framework.usage.AbstractScenarioThread;
 
 /**
  * RMI registry service for ProtoCom. It can be started on any hardware node of
@@ -34,7 +34,7 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 
 	private static String configuredRemoteAddr;
 
-	protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(AbstractScenarioThread.class);
+	protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(RmiRegistry.class);
 
 	/**
 	 * Initializes a new RMI registry.
@@ -169,7 +169,7 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 				result = java.rmi.Naming.lookup(addr);
 
 			} catch (java.net.MalformedURLException e) {
-				logger.error("Remote URI malformed. This should never happen, strange model names used?");
+				logger.error("Remote URI malformed. This should never happen, strange model names used? (" + addr + ")");
 			} catch (java.rmi.RemoteException e) {
 				logger.error("Error while waiting for system. " + e);
 			} catch (java.rmi.NotBoundException e) {

@@ -5,9 +5,11 @@ Bundle-SymbolicName: de.uka.ipd.sdq.prototype.framework
 Bundle-Version: 1.0.0.qualifier
 Export-Package: .,
  de.uka.ipd.sdq.prototype.framework,
+ de.uka.ipd.sdq.prototype.framework.port,
  de.uka.ipd.sdq.prototype.framework.registry,
  de.uka.ipd.sdq.prototype.framework.strategies,
  de.uka.ipd.sdq.prototype.framework.tests,
+ de.uka.ipd.sdq.prototype.framework.usage,
  de.uka.ipd.sdq.prototype.framework.utils
 Require-Bundle: org.junit4,
  org.apache.log4j,
