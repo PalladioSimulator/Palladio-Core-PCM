@@ -26,9 +26,10 @@ public class CommandLineParser {
 			parserError = true;
 		}
 
-		if (parserError || runProps.hasOption('h') || !runProps.hasOption('d') || !runProps.hasOption('n') || !runProps.hasOption('m')) {
+		if (parserError || runProps.hasOption('h') || !runProps.hasOption('d') || !runProps.hasOption('n') || !runProps.hasOption('m') || !runProps.hasOption('s')) {
 			new HelpFormatter().printHelp("Main", "Prototype runner, copyright 2007-2011, SDQ, IPD, Uni Karlsruhe & MDE, Uni Paderborn\n", o,
-					"\nInitiated by Steffen Becker (steffen.becker@upb.de)");
+					"\nInitiated by Steffen Becker (steffen.becker@upb.de)\n"+
+					"For documentation consult https://sdqweb.ipd.kit.edu/wiki/ProtoCom");
 			System.exit(-1);
 		}
 		return runProps;
@@ -48,7 +49,7 @@ public class CommandLineParser {
 				.withDescription("Datadirectory used by the FileStorage Sensor DAO to store the measured times [mandatory]").create('d'));
 		o.addOption(OptionBuilder.hasArg().withArgName("user count").withLongOpt("threadcount")
 				.withDescription("Override usage scenario population (only for closed workloads)").create("c"));
-		o.addOption(OptionBuilder.hasArg().withArgName("max measurements").withLongOpt("maxmeasurement").withDescription("Maximum measurements to take")
+		o.addOption(OptionBuilder.hasArg().withArgName("max measurements").withLongOpt("maxmeasurement").withDescription("Maximum measurements to take [mandatory]")
 				.create("m"));
 		o.addOption(OptionBuilder.hasArg().withArgName("warmup runs").withLongOpt("warmup").withDescription("Warmup runs before measuring (default: 1000)")
 				.create("u"));
