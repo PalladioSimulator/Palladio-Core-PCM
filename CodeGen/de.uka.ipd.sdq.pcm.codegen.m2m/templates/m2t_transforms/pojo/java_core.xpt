@@ -12,15 +12,13 @@
 «ENDDEFINE»
 
 
-«DEFINE ComponentConstructor FOR BasicComponent» 
-		
+«DEFINE SpecificConstructor FOR RepositoryComponent» 
 	private static org.apache.log4j.Logger logger = 
 			org.apache.log4j.Logger.getLogger(«this.javaName()».class.getName());	
 				
-	public «this.javaName()»() {
-
+	public «this.javaName()»(String assemblyContextParentStructure) { 
+		super(assemblyContextParentStructure);
 	}
-
 «ENDDEFINE»
 
 
@@ -28,36 +26,41 @@
 «DEFINE ComponentService(RepositoryComponent component) FOR OperationSignature»
    public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
    {
-   	  «EXPAND m2t_transforms::java_core::ContainerAvailabilityCheckTM FOR this» 
-      «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLE»
    	  «IF this.hasSEFF(component)»
    	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
 	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
     	«ENDLET»
    	  «ENDIF»
-   	  «ENDPROTECT»
    }   
 «ENDDEFINE»
 
 «DEFINE ComponentService(RepositoryComponent component) FOR InfrastructureSignature»
    public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
    { 
-      «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.infrastructureInterface__InfrastructureSignature.id DISABLE»
    	  «IF this.hasSEFF(component)»
    	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
 	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
     	«ENDLET»
    	  «ENDIF»
-   	  «ENDPROTECT»
    }   
 «ENDDEFINE»
 
+«DEFINE AbstractComponentService(RepositoryComponent component) FOR OperationSignature»
+   abstract public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»;
+«ENDDEFINE»
+
+«DEFINE AbstractComponentService(RepositoryComponent component) FOR InfrastructureSignature»
+   abstract public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»;
+«ENDDEFINE»
 
 
 «DEFINE AbstractInnerImplementation FOR RepositoryComponent»
-	«EXPAND ComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface»
+	«EXPAND AbstractComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface»
 «REM» TODO	«EXPAND ComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole).providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface»
 «ENDREM»
+
+	public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame) {
+	}
 «ENDDEFINE»
 
 
@@ -74,9 +77,7 @@
 	      «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
 	      «EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
 	      «EXPAND AbstractInnerImplementation FOR this» «REM»change to abstarct inner«ENDREM»
-		  «EXPAND m2t_transforms::java_core::SpecificImplementationPartTM FOR this»
-		  
-		  protected abstract «this.javaName()» createInstance();
+«REM»		  «EXPAND m2t_transforms::java_core::SpecificImplementationPartTM FOR this»«ENDREM»
 	   }
 	   «EXPAND m2t_transforms::java_core::ComponentImplementationChildClassTM FOR this»
 	«ENDFILE»
@@ -86,16 +87,11 @@
 		
 	   «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
 	   «EXPAND AbstractSuperClasses FOR this»
-	   implements «this.fqnInterface()»
 	   {
-	   	  «EXPAND m2t_transforms::java_core::ComponentConstructorTM FOR this» 
+	      «EXPAND SpecificConstructor FOR this»
 	      «EXPAND m2t_transforms::java_core::InnerImplementation FOR this» «REM»add new inner impl«ENDREM»
 		  «EXPAND m2t_transforms::java_core::SpecificImplementationPartTM FOR this»
-		  
-		  protected «this.fqn()» createInstance()
-		  {
-		  	return new «this.javaName()»(null);
-		  }
+		  «EXPAND ComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface»
 	   }
 
 	«ENDFILE»
@@ -107,4 +103,43 @@ public abstract class «this.javaName()»
 
 «DEFINE AbstractSuperClasses FOR RepositoryComponent»
 	extends «this.fqn()»
+«ENDDEFINE»
+
+
+«DEFINE Type FOR DataType»
+«ENDDEFINE»
+
+«DEFINE Type FOR PrimitiveDataType»
+	«this.type.toString().toLowerCase()»
+«ENDDEFINE»
+
+«DEFINE Type FOR CompositeDataType»
+	«this.repository__DataType.basePackageName()».model.«this.entityName»
+«ENDDEFINE»
+
+«DEFINE ParameterList FOR Signature»
+«ENDDEFINE»
+
+«DEFINE ParameterList FOR OperationSignature»
+	«FOREACH this.parameters__OperationSignature AS parameter SEPARATOR ", "»
+		«EXPAND Type FOR parameter.dataType__Parameter» «parameter.parameterName»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE ParameterUsageList FOR Signature»
+«ENDDEFINE»
+
+«DEFINE ParameterUsageList FOR OperationSignature»
+	«FOREACH this.parameters__OperationSignature AS parameter SEPARATOR ", "»
+		«parameter.parameterName»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE MainImplementation FOR BasicComponent»
+	public static void main(String[] args) {
+		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
+		
+		new «this.repository__RepositoryComponent.basePackageName()».impl.custom.«this.entityName»("");
+	}
 «ENDDEFINE»

@@ -6,6 +6,9 @@
 «EXTENSION m2t_transforms::pcm»
 
 
+«DEFINE ChildMemberStartMain FOR AssemblyContext»
+	«this.encapsulatedComponent__AssemblyContext.repository__RepositoryComponent.basePackageName()».impl.custom.«this.encapsulatedComponent__AssemblyContext.entityName».main(null);
+«ENDDEFINE»
 
 
 «DEFINE ComposedStructureStart FOR ComposedProvidingRequiringEntity»

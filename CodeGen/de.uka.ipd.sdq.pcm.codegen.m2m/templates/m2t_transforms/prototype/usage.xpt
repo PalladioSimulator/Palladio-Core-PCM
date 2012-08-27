@@ -31,7 +31,7 @@
 			@Override
 			protected void setupResources()
 			{	
-				ResourceEnvironmentFactory.setUpResources(runProps.getOptionValue('p'), runProps.getOptionValue('H'), runProps.getOptionValue('s'), getAccuracy());
+				ResourceEnvironment.setUpResources(runProps.getOptionValue('p'), runProps.getOptionValue('H'), runProps.getOptionValue('s'), getAccuracy());
 			}
 			
 			@Override
@@ -115,7 +115,7 @@
 		«ENDREM»
 		
 		// Wait for system
-		«this.portMemberVar()» = («this.providedInterface__OperationProvidedRole.fqn()»)de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.lookup("«this.portClassName()»");
+		«this.portMemberVar()» = («this.providedInterface__OperationProvidedRole.fqn()»)de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.lookup("«this.portClassName()»");
 	}
 
 «ENDDEFINE»
@@ -135,7 +135,7 @@
 «ENDDEFINE»
 
 «DEFINE WorkloadDriverClass(UsageScenario u) FOR OpenWorkload»
-class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractOpenScenarioThread {
+class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.usage.AbstractOpenScenarioThread {
 
 	public «u.javaName()»Thread(
 			de.uka.ipd.sdq.sensorframework.entities.Experiment exp,
@@ -150,11 +150,11 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractOp
 	{
 		if (runProps.hasOption('R'))
 		{
-			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
+			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
 		}
 		else
 		{
-			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.setRemoteAddress(de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.LOCALHOST);
+			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.LOCALHOST);
 		}
 		return new «u.fqn()»();
 	}
@@ -177,7 +177,7 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractOp
 «ENDDEFINE»
 
 «DEFINE WorkloadDriverClass(UsageScenario u) FOR ClosedWorkload»
-class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractClosedScenarioThread {
+class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.usage.AbstractClosedScenarioThread {
 	
 	public «u.javaName()»Thread(
 			de.uka.ipd.sdq.sensorframework.entities.Experiment exp,
@@ -192,11 +192,11 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractCl
 	{
 		if (runProps.hasOption('R'))
 		{
-			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
+			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
 		}
 		else
 		{
-			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.setRemoteAddress(de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.LOCALHOST);
+			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.LOCALHOST);
 		}
 		return new «u.fqn()»();
 	}
@@ -227,23 +227,16 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.AbstractCl
 	
 	@org.junit.Test public void scenarioRunner()
 	{
-	«PROTECT CSTART '/*' CEND '*/' ID this.id»
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> outerStackframe = ctx.getStack().createAndPushNewStackFrame();
 		
-		«REM»
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaString()»
-		{
-		«ENDREM»
-		
+		{	
 			«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
 
-		«REM»
 		}
 		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaString()»
-		«ENDREM»
 		
 		ctx.getStack().removeStackFrame();
-	«ENDPROTECT»
 	}
 «ENDDEFINE»
 

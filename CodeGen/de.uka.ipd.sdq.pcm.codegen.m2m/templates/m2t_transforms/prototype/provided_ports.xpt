@@ -11,35 +11,18 @@
 	  /** 
 	   * Operation Provide Role Port class for «this.portClassName()» 
 	   */
-	  public class «this.portClassName()» extends java.rmi.server.UnicastRemoteObject implements «this.providedInterface__OperationProvidedRole.fqn()», de.uka.ipd.sdq.prototype.framework.IPort<«this.providingEntity_ProvidedRole.fqnInterface()»>, java.io.Serializable
-	  {	  
-	  	 private static org.apache.log4j.Logger logger = 
-			org.apache.log4j.Logger.getLogger(«this.portClassName()».class.getName());
-			
-	     protected «this.providingEntity_ProvidedRole.fqnInterface()» myComponent = null;
-	     
-	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent, String assemblyContextParentStructure) throws java.rmi.RemoteException {
-	        this.myComponent = myComponent;
-			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.registerComponent(de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.getRemoteAddress(), this, assemblyContextParentStructure + "«this.portClassName()»");
-	     }
-	          
-	     @Override
-	     public «this.providingEntity_ProvidedRole.fqnInterface()» getComponent() throws java.rmi.RemoteException {
-	     	return myComponent;
-	     }
-	     
-		@Override
-		public void setContext(Object myContext) throws java.rmi.RemoteException {
-			myComponent.setContext(myContext);	
-		}
+	  public class «this.portClassName()» extends de.uka.ipd.sdq.prototype.framework.port.AbstractBasicPort<«this.providingEntity_ProvidedRole.fqnInterface()»> implements «this.providedInterface__OperationProvidedRole.fqn()» {	  
 
-		@Override
-	    public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame) throws java.rmi.RemoteException {
-			myComponent.setComponentFrame(myComponentStackFrame);
-	    }
-	    
-	     «EXPAND m2t_transforms::provided_ports::ComponentPortHelperMethodsTM FOR this»
-	     «EXPAND m2t_transforms::provided_ports::PortDelegator FOREACH this.providedInterface__OperationProvidedRole.signatures__OperationInterface»
+		  protected static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(«this.portClassName()».class.getName());
+				
+		  public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent, String assemblyContextParentStructure) throws java.rmi.RemoteException {
+		  		this.myComponent = myComponent;
+				de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, assemblyContextParentStructure + "«this.portClassName()»");
+		  }
+		    
+	      «EXPAND m2t_transforms::provided_ports::ComponentPortHelperMethodsTM FOR this»
+	      «EXPAND m2t_transforms::provided_ports::PortDelegator FOREACH this.providedInterface__OperationProvidedRole.signatures__OperationInterface»
 	  }
 «ENDDEFINE»
 
@@ -47,33 +30,18 @@
 «DEFINE PortImpl FOR InfrastructureProvidedRole»
 	  /** 
 	   * Infrastructure Provide Role Port class for «this.portClassName()» 
-	   */
-	  public class «this.portClassName()» extends java.rmi.server.UnicastRemoteObject implements «this.providedInterface__InfrastructureProvidedRole.fqn()», de.uka.ipd.sdq.prototype.framework.IPort<«this.providingEntity_ProvidedRole.fqnInterface()»>, java.io.Serializable
-	  {
-	     protected «this.providingEntity_ProvidedRole.fqnInterface()» myComponent = null;
-	     
+	   */		
+	  public class «this.portClassName()» extends de.uka.ipd.sdq.prototype.framework.port.AbstractBasicPort<«this.providingEntity_ProvidedRole.fqnInterface()»> implements «this.providedInterface__InfrastructureProvidedRole.fqn()» {
+
+		  protected static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(«this.portClassName()».class.getName());
+
 	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent, String assemblyContextParentStructure) throws java.rmi.RemoteException {
 	        this.myComponent = myComponent;
-	       	de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.registerComponent(de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.getRemoteAddress(), this, assemblyContextParentStructure + "«this.portClassName()»");
+	       	de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, assemblyContextParentStructure + "«this.portClassName()»");
 	     }
-	     
-		@Override
-		public void setContext(Object myContext) {
-			myComponent.setContext(myContext);	
-		}
-
-		@Override
-	    public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame) {
-			myComponent.setComponentFrame(myComponentStackFrame);
-	    }
 	    
-	    @Override
-		public «this.providingEntity_ProvidedRole.fqnInterface()» getComponent() throws java.rmi.RemoteException {
-			return myComponent;
-		}	
-	    
-	     «EXPAND m2t_transforms::provided_ports::ComponentPortHelperMethodsTM FOR this»
-	     
+	     «EXPAND m2t_transforms::provided_ports::ComponentPortHelperMethodsTM FOR this»  
 	     «EXPAND m2t_transforms::provided_ports::PortDelegator FOREACH this.providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface»
 	  }
 «ENDDEFINE»
@@ -83,9 +51,9 @@
    /*
 	*Port class for «this.portClassName()»
 	*/
-	public class «this.portClassName()» extends java.rmi.server.UnicastRemoteObject implements «this.providedInterface__OperationProvidedRole.fqn()», de.uka.ipd.sdq.prototype.framework.IPort<«this.providingEntity_ProvidedRole.fqnInterface()»>, java.rmi.Remote, java.io.Serializable
-	{
-		private static org.apache.log4j.Logger logger = 
+	public class «this.portClassName()» extends java.rmi.server.UnicastRemoteObject implements «this.providedInterface__OperationProvidedRole.fqn()», de.uka.ipd.sdq.prototype.framework.port.IPort<«this.providingEntity_ProvidedRole.fqnInterface()»>, java.rmi.Remote, java.io.Serializable {
+
+		protected static org.apache.log4j.Logger logger = 
 			org.apache.log4j.Logger.getLogger(«this.portClassName()».class.getName());
 	  
 	  	protected «this.providingEntity_ProvidedRole.fqnInterface()» myCompositeComponent = null;
@@ -96,7 +64,7 @@
 			this.myInnerPort = myInnerPort;
 			this.myCompositeComponent = myCompositeComponent;
 		        	        
-			de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.registerComponent(de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.getRemoteAddress(), this, "«this.portClassName()»");
+			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, "«this.portClassName()»");
 			logger.info("Instantiation of port «this.portClassName()» completed");	        
 		}	     
 	     	 	

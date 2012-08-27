@@ -29,7 +29,7 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ComponentConstructorTM FOR RepositoryComponent»
-    «EXPAND m2t_transforms::pojo::java_core::ComponentConstructor FOR this»
+    «EXPAND m2t_transforms::prototype::java_core::ComponentConstructor FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ComponentConstructorTM FOR BasicComponent»
@@ -40,7 +40,9 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::SpecificImplementationPartTM FOR RepositoryComponent»
-«REM»	«EXPAND m2t_transforms::prototype::java_core::MainImplementation FOR this»	«ENDREM»
+	«IF BasicComponent.isInstance(this)»
+		«EXPAND m2t_transforms::pojo::java_core::MainImplementation FOR (BasicComponent)this»
+	«ENDIF»
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::SpecificImplementationPartForInterfaceTM FOR RepositoryComponent»
@@ -65,9 +67,42 @@
 	«EXPAND m2t_transforms::pojo::java_core::ComponentImplementationForImplComponentTypesAndSubSystems FOR this»
 «ENDAROUND»
 
+«AROUND m2t_transforms::java_core::ContentImplementationInterfaceHeader FOR InterfaceProvidingEntity»
+	package «this.implementationPackage()»;
+    
+	public interface «this.interfaceName()» 
+	«IF BasicComponent.isInstance(this)»
+		extends de.uka.ipd.sdq.prototype.framework.IComponent
+	«ENDIF»
+«ENDAROUND»
 
 «AROUND m2t_transforms::allocation::AllocationTM FOR Allocation»
 «ENDAROUND»
+
+//-------------------------
+// Ports
+//-------------------------
+
+«AROUND m2t_transforms::provided_ports::PortImpl FOR OperationProvidedRole»
+   «EXPAND m2t_transforms::prototype::provided_ports::PortImpl FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortImpl FOR InfrastructureProvidedRole»
+   «EXPAND m2t_transforms::prototype::provided_ports::PortImpl FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::ComposedStructurePortImpl(ComposedProvidingRequiringEntity cs) FOR OperationProvidedRole»
+   «EXPAND m2t_transforms::prototype::provided_ports::ComposedStructurePortImpl(cs) FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortMemberVars FOR OperationProvidedRole»
+	«EXPAND m2t_transforms::prototype::provided_ports::PortMemberVars FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortMemberVars FOR InfrastructureProvidedRole»
+	«EXPAND m2t_transforms::prototype::provided_ports::PortMemberVars FOR this»
+«ENDAROUND»
+
 
 //-------------------------
 // Sensors TM
@@ -82,15 +117,15 @@
 // Call parameter Template Methods
 //-------------------------
 «AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
-	«REM»TODO....«ENDREM»
+	«EXPAND m2t_transforms::pojo::java_core::ParameterList FOR this»	
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
-	«REM»ctx«ENDREM»
+	«EXPAND m2t_transforms::pojo::java_core::ParameterUsageList FOR this»	
 «ENDAROUND»
 
-«AROUND m2t_transforms::java_core::ReturnTypeTM FOR Signature»
-	Object 	«REM»TODO....«ENDREM»
+«AROUND m2t_transforms::java_core::ReturnTypeTM FOR OperationSignature»
+	«EXPAND m2t_transforms::pojo::java_core::Type FOR this.returnType__OperationSignature»
 «ENDAROUND»
 
 «AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR OperationSignature»
@@ -257,30 +292,23 @@
 	public «this.providedInterface__OperationProvidedRole.fqn()» «this.portGetter()» (); «REM»throws java.rmi.RemoteException;«ENDREM»
 «ENDAROUND»
 
+«AROUND m2t_transforms::context_pattern::ComponentContextSetter FOR InterfaceRequiringEntity»
+	«EXPAND m2t_transforms::prototype::context_pattern::ComponentContextSetter FOR this»
+«ENDAROUND»
+
 «AROUND m2t_transforms::context_pattern::ComponentContextSetterDefinition FOR InterfaceRequiringEntity»
-   public void setContext(«this.fqnContextInterface()» myContext); «REM»throws java.rmi.RemoteException;«ENDREM»
+	«EXPAND m2t_transforms::prototype::context_pattern::ComponentContextSetterDefinition FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::sim::java_core::SpecificImplementationPartForInterfaceTM FOR RepositoryComponent»
 «ENDAROUND»
 
-«AROUND m2t_transforms::java_core::ComponentServiceSignature FOR OperationSignature»
-	«targetDef.proceed()» «REM»throws java.rmi.RemoteException«ENDREM»
-«ENDAROUND»
-
-«AROUND m2t_transforms::sim::provided_ports::PortDelegationDelegatingCall FOR OperationSignature»
-    try {
-	  return myComponent.«this.interface__OperationSignature.javaName().toFirstLower()»_«this.javaSignature()»(
-	       «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
-	} catch (java.rmi.RemoteException e) {
-       e.printStackTrace();
-    }
-	return null;
-«ENDAROUND»
-
-
 «AROUND m2t_transforms::composed_structure::AllChildMemberVarInit FOR ComposedProvidingRequiringEntity»
 	«EXPAND m2t_transforms::prototype::composed_structure::AllChildMemberVarInit FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::prototype::composed_structure::ChildMemberStartMain FOR AssemblyContext»
+	«EXPAND m2t_transforms::pojo::composed_structure::ChildMemberStartMain FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::composed_structure::Constructor FOR ComposedProvidingRequiringEntity»

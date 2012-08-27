@@ -54,9 +54,9 @@
 // and sets up the resource strategies accordingly
 // ----------------------------
 «DEFINE ResourceEnvironmentRoot FOR resourceenvironment::ResourceEnvironment»
-	«FILE "ResourceEnvironmentFactory.java"»
+	«FILE "ResourceEnvironment.java"»
 
-		public class ResourceEnvironmentFactory extends de.uka.ipd.sdq.prototype.framework.AbstractResourceEnvironment {
+		public class ResourceEnvironment extends de.uka.ipd.sdq.prototype.framework.AbstractResourceEnvironment {
 		
 			/* All resources are located on this machine, regardless of their resource container
 			 * in the model */

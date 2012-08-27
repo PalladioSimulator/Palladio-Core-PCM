@@ -13,28 +13,35 @@
 	private static org.apache.log4j.Logger logger = 
 			org.apache.log4j.Logger.getLogger(«this.javaName()».class.getName());
 			
-	//TODO: pass the assembly context id to here as it is done for the simulation. 
-	//protected String assemblyContextID = ""; 
+	«REM»//protected String assemblyContextID = ""; «ENDREM»
+	
+	«REM»
+	Sensores are removed by now. They can be added again, however, 
+	collecting the results in one place has to be implemented first!
 	
 	«EXPAND SensorDefinition FOREACH this.getExternalCallActions()»
 	«EXPAND SEFFSensorDefinitionForInterface(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
-	
 	private de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun;
+	«ENDREM»
 	
 	«EXPAND m2t_transforms::resources::PassiveResourceInitTM FOREACH this.passiveResource_BasicComponent»
 	
 	public «this.javaName()»(String assemblyContextParentStructure) {
 
 		«REM»
-        //FIXME: quick fix against circular dependency (zolynski)
-		//expRun = de.uka.ipd.sdq.prototype.framework.AbstractMain.getLatestExperimentRun();
-		«ENDREM»
-		«EXPAND SensorInitialisation FOREACH this.getExternalCallActions()»
+		See comment above.
 		
+		expRun = de.uka.ipd.sdq.prototype.framework.AbstractMain.getLatestExperimentRun();
+		«EXPAND SensorInitialisation FOREACH this.getExternalCallActions()»		
 		«EXPAND SEFFSensorInitialisationForInterface(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
-
-		//FIXME: quick fix to initialise component params as setComponentFrame is not called by system for ejbs.
+		«ENDREM»
+		
+		«REM»
+		(Hopefully) Unneeded quick fix to initialise component params as setComponentFrame 
+		is not called by system for ejbs.
+		
 		this.setComponentFrame(this.myComponentStackFrame);
+		«ENDREM»
 		
 		«FOREACH this.providedRoles_InterfaceProvidingEntity.select(e|OperationProvidedRole.isInstance(e)) AS role»
 			«((OperationProvidedRole)role).portMemberVar()» = init_«role.javaName()»(assemblyContextParentStructure);
@@ -68,14 +75,10 @@
 
 
 «DEFINE SensorInitialisation FOR ExternalCallAction»
-«REM»
-/*
         tss«this.calledService_ExternalService.externalCallActionDescription(this).javaVariableName()» 
             = de.uka.ipd.sdq.prototype.framework.AbstractMain.createAndAddTimeSpanSensor(
                 "«this.calledService_ExternalService.externalCallActionDescription(this)»"
             );
-*/
-«ENDREM»
 «ENDDEFINE»
 
 «DEFINE SensorDefinition FOR ExternalCallAction»
@@ -99,14 +102,10 @@
 «ENDDEFINE»
 
 «DEFINE SEFFSensorInitialisation(BasicComponent component) FOR OperationSignature»
-«REM»
-/*
         tss«this.seffDescription(component).javaVariableName()» 
             = de.uka.ipd.sdq.prototype.framework.AbstractMain.createAndAddTimeSpanSensor(
                 "«this.seffDescription(component)»"
             );
-*/
-«ENDREM»
 «ENDDEFINE»
 
 «DEFINE SEFFSensorInitialisationForInterface(BasicComponent component) FOR ProvidedRole»
@@ -116,8 +115,8 @@
 «REM»Basic Components get a main function with empty "parent component" (from the AssemblyContext)«ENDREM»
 «DEFINE MainImplementation FOR BasicComponent»
 	public static void main(String[] args) {
-		String ip = de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.getIpFromArguments(args);
-		de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.setRemoteAddress(ip);
+		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
 		
 		new «this.fqn()»("");
 	}
@@ -126,12 +125,17 @@
 «REM»Composite Components get a main function«ENDREM»
 «DEFINE MainImplementation FOR ComposedProvidingRequiringEntity»
 	public static void main(String[] args) {
-		String ip = de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.getIpFromArguments(args);
-		de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.setRemoteAddress(ip);
+		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
 		
 		new «this.fqn()»();
 	}
 «ENDDEFINE»
+
+«REM»
+FIX FIX FIX!!!!
+Haupt-Interfaces müssen Remote erweitern + RemoteExceptions an die Methoden
+«ENDREM»
 
 «DEFINE ComponentImplementationInterface FOR ComposedProvidingRequiringEntity»
 	«FILE this.fqnInterface().fqnToDirectoryPath()+'.java'»
@@ -152,26 +156,24 @@
    public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
    {
    	  «EXPAND m2t_transforms::java_core::ContainerAvailabilityCheckTM FOR this» 
-      «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLE»
+      «REM»«PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLE»«ENDREM»
    	  «IF this.hasSEFF(component)»
    	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
 	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
     	«ENDLET»
    	  «ENDIF»
-   	  «ENDPROTECT»
+   	  «REM»«ENDPROTECT»«ENDREM»
    }   
 «ENDDEFINE»
 
 «DEFINE ComponentService(RepositoryComponent component) FOR InfrastructureSignature»
    public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
    { 
-      «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.infrastructureInterface__InfrastructureSignature.id DISABLE»
    	  «IF this.hasSEFF(component)»
    	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
 	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
     	«ENDLET»
    	  «ENDIF»
-   	  «ENDPROTECT»
    }   
 «ENDDEFINE»
 

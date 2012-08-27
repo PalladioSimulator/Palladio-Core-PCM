@@ -15,14 +15,6 @@
 		«REM»This is still inside the constructor.«ENDREM»
 		logger.info("Creating composed structure «this.entityName»");
 		
-		«IF System.isInstance(this)»
-		try {
-			java.rmi.registry.LocateRegistry.getRegistry();
-		} catch (java.rmi.RemoteException e) {
-			e.printStackTrace();
-		}
-		«ENDIF»	
-		
 		«EXPAND AllChildMemberVarInit FOR this»
 	    
 	    «IF System.isInstance(this)»
@@ -64,7 +56,7 @@
 
 «DEFINE AllChildMemberVarInit FOR ComposedProvidingRequiringEntity»
 	«IF System.isInstance(this)»
-	if (de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.LOCALHOST.equals(de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.getRemoteAddress())) 
+	if (de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.LOCALHOST.equals(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress())) 
 	{
 		«EXPAND ChildMemberStartMain FOREACH this.assemblyContexts__ComposedStructure»
 	}
@@ -78,33 +70,7 @@
 «ENDDEFINE»
 
 «DEFINE ChildMemberVarInit FOR AssemblyContext»
-«REM»
-		«FOREACH connectors(e) AS c»
-			«IF AssemblyConnector.isInstance(c)»
-				«c.»
-			«ENDIF»
-		«ENDFOREACH»«ENDREM»
-		
-		«REM»
-		«DEFINE PortQuery(ComposedStructure s, AssemblyContext ctx) FOR OperationRequiredRole»
-	«IF hasConnector(s,ctx,this)»
-		«LET (AssemblyConnector)getConnector(s,ctx,this) AS connector»
-			/* From Connector «connector.id» */
-			my«connector.providingAssemblyContext_AssemblyConnector.javaName()».«connector.providedRole_AssemblyConnector.portGetter()»()
-	   	«ENDLET»
-	«ELSE» «ENDREM»
-
-		my«this.javaName()» = new «this.encapsulatedComponent__AssemblyContext.fqn()»("«this.parentStructure__AssemblyContext.javaName()»");	
-
-«REM»
-	«FOREACH this.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity AS e»
-	«REM»Problem with more than one element...«ENREM»
-		«IF OperationProvidedRole.isInstance(e)»		
-			my«this.javaName()» = («((OperationProvidedRole)e).providedInterface__OperationProvidedRole.fqn()»)de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.lookup("«((OperationProvidedRole)e).portClassName()»");
-
-		«ENDIF»
-	«ENDFOREACH»
-«ENDREM»
+	my«this.javaName()» = new «this.encapsulatedComponent__AssemblyContext.fqn()»("«this.parentStructure__AssemblyContext.javaName()»");	
 «ENDDEFINE»
 
 «DEFINE ChildInitTM(ComposedStructure s) FOR AssemblyContext»
@@ -131,7 +97,7 @@
 		/**
 		 *  Port for component «this.encapsulatedComponent__AssemblyContext.javaName()»
 		 */
-		protected de.uka.ipd.sdq.prototype.framework.IPort<«this.encapsulatedComponent__AssemblyContext.fqn()»> my«this.javaName()» = null;
+		protected de.uka.ipd.sdq.prototype.framework.port.IPort<«this.encapsulatedComponent__AssemblyContext.fqn()»> my«this.javaName()» = null;
 	
 	«ELSE»
 		/**
@@ -184,7 +150,7 @@
 
 «DEFINE InitRMI(ComposedStructure s) FOR AssemblyContext»
 	«LET this.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.get(0) AS e»
-		my«this.javaName()» = (de.uka.ipd.sdq.prototype.framework.IPort<«this.encapsulatedComponent__AssemblyContext.fqn()»>) de.uka.ipd.sdq.prototype.framework.utils.RmiRegistry.lookup("«((OperationProvidedRole)e).portClassName()»");
+		my«this.javaName()» = (de.uka.ipd.sdq.prototype.framework.port.IPort<«this.encapsulatedComponent__AssemblyContext.fqn()»>) de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.lookup("«((OperationProvidedRole)e).portClassName()»");
 	«ENDLET»
 «ENDDEFINE»
 
@@ -200,7 +166,7 @@
       );
       «EXPAND m2t_transforms::composed_structure::ChildInitTM(s) FOR this»
       
-      «REM»((de.uka.ipd.sdq.prototype.framework.IPort<«this.encapsulatedComponent__AssemblyContext.fqn()»>)«this.javaName()»).setContext(context);«ENDREM»
+      «REM»((de.uka.ipd.sdq.prototype.framework.port.IPort<«this.encapsulatedComponent__AssemblyContext.fqn()»>)«this.javaName()»).setContext(context);«ENDREM»
       my«this.javaName()».setContext(context);
    }
 «ENDDEFINE»

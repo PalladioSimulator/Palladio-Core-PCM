@@ -88,11 +88,11 @@
 // Sensors TM
 //-------------------------
 «AROUND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR String»
-	«EXPAND m2t_transforms::prototype::sensors::StartResponseTimeMeasurement FOR this»	
+	«REM»«EXPAND m2t_transforms::prototype::sensors::StartResponseTimeMeasurement FOR this»	«ENDREM»
 «ENDAROUND»
  
 «AROUND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR String»
-	«EXPAND m2t_transforms::prototype::sensors::EndResponseTimeMeasurement FOR this»	
+	«REM»«EXPAND m2t_transforms::prototype::sensors::EndResponseTimeMeasurement FOR this»«ENDREM»
 «ENDAROUND»
 
 //-------------------------
@@ -279,7 +279,10 @@
 «AROUND m2t_transforms::java_core::ContentImplementationInterfaceHeader FOR InterfaceProvidingEntity»
 	package «this.implementationPackage()»;
     
-	public interface «this.interfaceName()»
+	public interface «this.interfaceName()» 
+	«IF BasicComponent.isInstance(this)»
+		extends de.uka.ipd.sdq.prototype.framework.IComponent
+	«ENDIF»
 «ENDAROUND»
 
 «AROUND m2t_transforms::context_pattern::ComponentContextSetter FOR InterfaceRequiringEntity»
