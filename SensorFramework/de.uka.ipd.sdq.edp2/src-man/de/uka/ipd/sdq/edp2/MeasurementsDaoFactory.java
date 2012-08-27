@@ -3,7 +3,7 @@
  */
 package de.uka.ipd.sdq.edp2;
 
-import javax.measure.Measure;
+import javax.measure.quantity.Quantity;
 import javax.measure.unit.Unit;
 
 import de.uka.ipd.sdq.edp2.impl.BinaryMeasurementsDao;
@@ -19,33 +19,29 @@ public interface MeasurementsDaoFactory {
 	 * @param uuid UUID of the Measurement.
 	 * @return DAO for the measurements with the specified uuid.
 	 */
-	@SuppressWarnings("unchecked")
-	public BinaryMeasurementsDao<Measure> createDoubleMeasurementsDao(String uuid);
+    public <Q extends Quantity> BinaryMeasurementsDao<Double,Q> createDoubleMeasurementsDao(String uuid);
 
 	/**Creates a DAO to access measured data of type double.
 	 * @param uuid UUID of the Measurement.
 	 * @return DAO for the measurements with the specified uuid.
 	 * @param storageUnit Unit in which the measurements will be stored.
 	 */
-	@SuppressWarnings("unchecked")
-	public BinaryMeasurementsDao<Measure> createDoubleMeasurementsDao(
-			String uuid, Unit storageUnit);
+    public <Q extends Quantity> BinaryMeasurementsDao<Double,Q> createDoubleMeasurementsDao(
+            String uuid, Unit<Q> storageUnit);
 	
 	/**Creates a DAO to access measured data of type long.
 	 * @param uuid UUID of the Measurement.
 	 * @return DAO for the measurements with the specified uuid.
 	 */
-	@SuppressWarnings("unchecked")
-	public BinaryMeasurementsDao<Measure> createLongMeasurementsDao(String uuid);
+    public <Q extends Quantity> BinaryMeasurementsDao<Long,Q> createLongMeasurementsDao(String uuid);
 
 	/**Creates a DAO to access measured data of type long.
 	 * @param uuid UUID of the Measurement.
 	 * @param storageUnit Unit in which the measurements will be stored.
 	 * @return DAO for the measurements with the specified uuid.
 	 */
-	@SuppressWarnings("unchecked")
-	public BinaryMeasurementsDao<Measure> createLongMeasurementsDao(
-			String uuid, Unit storageUnit);
+    public <Q extends Quantity> BinaryMeasurementsDao<Long,Q> createLongMeasurementsDao(
+            String uuid, Unit<Q> storageUnit);
 	
 	/**Creates a DAO to access measured data of type nominal measurement.
 	 * @param uuid UUID of the Measurement.
@@ -57,7 +53,7 @@ public interface MeasurementsDaoFactory {
 	 * @param uuid UUID of the Measurement.
 	 * @return DAO for the measurements with the specified uuid.
 	 */
-	public JScienceXmlMeasurementsDao createJScienceXmlMeasurementsDao(String uuid);
+	public <Q extends Quantity> JScienceXmlMeasurementsDao<?,Q> createJScienceXmlMeasurementsDao(String uuid);
 
 	/**Returns the DAO registry of this factory.
 	 * @return The registry in which all elements of this factory are registered.

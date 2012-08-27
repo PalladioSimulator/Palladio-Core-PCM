@@ -77,17 +77,17 @@ public class HistogramFrequencyAdapter extends AbstractAdapter {
 	@Override
 	public void transformData() {
 		logger.log(Level.INFO, "transformation BEGIN");
+		
 		//create a full copy of the data
-		measurementsRange = RepositoryUtility.copyRawMeasurements(source
-				.getMeasurementsRange().getRawMeasurements());
+		measurementsRange = RepositoryUtility.copyRawMeasurements(source.getMeasurementsRange().getRawMeasurements());
+
 		//remove all series, which do not equal the index of the selected one
-		for (int i = 0; i < measurementsRange.getRawMeasurements()
-				.getDataSeries().size(); i++) {
+		for (int i = 0; i < measurementsRange.getRawMeasurements().getDataSeries().size(); i++) {
 			if (i != dataSeriesIndex) {
-				measurementsRange.getRawMeasurements().getDataSeries()
-						.remove(i);
+				measurementsRange.getRawMeasurements().getDataSeries().remove(i);
 			}
 		}
+		
 		// important: set the reference of the dataSeries
 		this.dataSeries = measurementsRange.getRawMeasurements().getDataSeries();
 

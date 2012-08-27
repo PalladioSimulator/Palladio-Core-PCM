@@ -3,13 +3,9 @@
  */
 package de.uka.ipd.sdq.edp2.visualization.properties.sections;
 
-import java.util.ArrayList;
-
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-import de.uka.ipd.sdq.edp2.visualization.AbstractTransformation;
-import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 
 /**

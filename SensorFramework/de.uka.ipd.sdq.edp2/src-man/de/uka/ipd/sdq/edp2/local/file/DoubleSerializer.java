@@ -5,16 +5,18 @@ package de.uka.ipd.sdq.edp2.local.file;
  * A serialiser to serialise doubles
  * @author Steffen Becker
  */
-@SuppressWarnings("unchecked")
-public class DoubleSerializer implements Serializer {
-	/* do not change to <code>implements Serializer<Double></code>. This
-	 * will lead to a Object to Double conversion error by Java generics.
+class DoubleSerializer implements Serializer<Double> {
+    
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.local.file.Serializer#getElementLength()
 	 */
-
 	public long getElementLength() {
 		return 8;
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.local.file.Serializer#serialise(java.lang.Object[], int)
+	 */
 	public byte[] serialise(Object[] objects, int count){
 		byte[] block = new byte[(int)(count*getElementLength())];
 		int blockPos = 0;
@@ -28,7 +30,10 @@ public class DoubleSerializer implements Serializer {
 		return block;
 	}
 
-	public Object[] deserialise(byte[] bytes){
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.local.file.Serializer#deserialise(byte[])
+	 */
+	public Double[] deserialise(byte[] bytes){
 		Double[] doubles = new Double[(int)(bytes.length / getElementLength())];
 		int blockPos = 0;
 		for (int j = 0; j<doubles.length; j++){

@@ -22,20 +22,20 @@ import de.uka.ipd.sdq.edp2.local.file.BackgroundMemoryListImpl.BinaryRepresentat
 
 /**File-backed implementation of {@link BinaryMeasurementsDao}.
  * @author groenda
+ * @author S. Becker
  */
-@SuppressWarnings("unchecked")
-public class FileBinaryMeasurementsDaoImpl<T extends Measure> extends FileAccessDao implements BinaryMeasurementsDao<T> {
+public class FileBinaryMeasurementsDaoImpl<V,Q extends Quantity> extends FileAccessDao implements BinaryMeasurementsDao<V,Q> {
 	/** Error logger for this class. */
 	protected static final Logger logger = Logger.getLogger(FileBinaryMeasurementsDaoImpl.class.getCanonicalName());
 
 	/** Serializer to use for the background list. */
-	private Serializer<T> serializer = null;
+	private Serializer<V> serializer = null;
 	/** Background memory list used to actually handle the list. */
-	private BackgroundMemoryList<T> backgroundMemoryList;
+	private BackgroundMemoryList<V,Q> backgroundMemoryList;
 	/** Binary format of stored Measures. */
 	private BinaryRepresentation binaryRepresentation = null;
 	/** Unit in which all measurements are stored. */
-	private Unit<Quantity> unit;
+	private Unit<Q> unit;
 	
 	public void open() throws DataNotAccessibleException {
 		super.open();
@@ -55,7 +55,7 @@ public class FileBinaryMeasurementsDaoImpl<T extends Measure> extends FileAccess
 			throw new IllegalStateException(msg, null);
 		}
 		try {
-			this.backgroundMemoryList = new BackgroundMemoryListImpl<T>(
+			this.backgroundMemoryList = new BackgroundMemoryListImpl<V,Q>(
 					resourceFile.getAbsolutePath(),	serializer, binaryRepresentation, unit);
 			setOpen();
 		} catch (IOException ioe) {
@@ -77,16 +77,16 @@ public class FileBinaryMeasurementsDaoImpl<T extends Measure> extends FileAccess
 		}
 	}
 	
-	public Serializer<T> getSerializer() {
+	public Serializer<V> getSerializer() {
 		return serializer;
 	}
 
-	public void setSerializer(Serializer<T> serializer) {
+	public void setSerializer(Serializer<V> serializer) {
 		this.serializer = serializer;
 	}
 
 	@Override
-	public List<T> getMeasurements() {
+	public List<Measure<V,Q>> getMeasurements() {
 		if (!isOpen()) {
 			String msg = "Binary measurements can only be requested if state is open.";
 			logger.log(Level.WARNING, msg);
@@ -117,14 +117,14 @@ public class FileBinaryMeasurementsDaoImpl<T extends Measure> extends FileAccess
 	/**
 	 * @return the unit
 	 */
-	public Unit<Quantity> getUnit() {
+    public Unit<Q> getUnit() {
 		return unit;
 	}
 
 	/**
 	 * @param unit the unit to set
 	 */
-	public void setUnit(Unit<Quantity> unit) {
+    public void setUnit(Unit<Q> unit) {
 		if (this.unit != null) {
 			String msg = "It is not allowed to set the unit more than once.";
 			logger.log(Level.SEVERE, msg);
@@ -146,12 +146,13 @@ public class FileBinaryMeasurementsDaoImpl<T extends Measure> extends FileAccess
 		}
 	}
 	
-	@Override
+	@SuppressWarnings("unchecked")
+    @Override
 	public synchronized void deserialize(ExtendedDataInputStream input)
 			throws DataNotAccessibleException {
 		try {
 			super.deserialize(input);
-			unit = (Unit<Quantity>) Unit.valueOf(ExtendedIOUtil.readString(input));
+			unit = (Unit<Q>) Unit.valueOf(ExtendedIOUtil.readString(input));
 		} catch (IOException e) {
 			String msg = "Could not put unit name on stream.";
 			logger.log(Level.SEVERE, msg, e);

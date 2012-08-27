@@ -8,8 +8,8 @@ import org.eclipse.ui.IElementFactory;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableEditor;
 
-import de.uka.ipd.sdq.edp2.visualization.FactoryConnector;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
+import de.uka.ipd.sdq.edp2.visualization.FactoryConnector;
 import de.uka.ipd.sdq.edp2.visualization.datasource.ElementFactory;
 
 /**

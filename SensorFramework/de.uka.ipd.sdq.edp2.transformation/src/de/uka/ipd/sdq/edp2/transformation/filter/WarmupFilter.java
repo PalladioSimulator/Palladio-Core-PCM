@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.edp2.transformation.filter;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
@@ -8,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
+import javax.measure.quantity.Quantity;
 
 import org.eclipse.ui.IMemento;
 
@@ -15,9 +17,6 @@ import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.Measurement;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
-import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
@@ -232,13 +231,13 @@ public class WarmupFilter extends AbstractFilter {
 				.createRawMeasurements(measurementsRange);
 
 		// copy only relevant measurements
-		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
-		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
+		ArrayList<OrdinalMeasurementsDao<?,? extends Quantity>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<?,? extends Quantity>>();
+		ArrayList<List<?>> listOfMeasures = new ArrayList<List<?>>();
 		for (DataSeries series : source.getOutput()) {
 			listOfDaos.add(MeasurementsUtility
 					.getOrdinalMeasurementsDao(series));
 		}
-		for (OrdinalMeasurementsDao<Measure> dao : listOfDaos) {
+		for (OrdinalMeasurementsDao<?,? extends Quantity> dao : listOfDaos) {
 			if (!dao.isOpen()) {
 				try {
 					dao.open();
@@ -254,19 +253,24 @@ public class WarmupFilter extends AbstractFilter {
 		 */
 		int droppedValuesTemp = 0;
 		if (droppedValuesPercentage > 0) {
-			droppedValuesTemp = (int) (droppedValuesPercentage
-					* listOfMeasures.get(0).size() / 100);
+			droppedValuesTemp = (int) (droppedValuesPercentage * listOfMeasures.get(0).size() / 100);
 		} else if (droppedValues > 0) {
-			droppedValuesTemp = Math.min(droppedValues, listOfMeasures.get(0)
-					.size());
+			droppedValuesTemp = Math.min(droppedValues, listOfMeasures.get(0).size());
 			setDroppedValues(droppedValuesTemp);
 		}
+		// FIXME: This should not write on disk, transformation should work in memory.... Why use disk here, this is 
+		// too slow....
+		// FIXME: Copy of measurments uses the metric description to get its dimension, but other adapters may have 
+		// converted the source, e.g., to one dimension only... Then this fails...
 		MeasurementsUtility.createDAOsForRawMeasurements(rawMeasurements);
-		for (int i = droppedValuesTemp; i < listOfMeasures.get(0).size()
-				&& i > -1; i++) {
+		for (int i = droppedValuesTemp; i >= 0 && i < listOfMeasures.get(0).size(); i++) {
 			Measurement measurement = new Measurement(metricDescription);
 			for (int dimension = 0; dimension < listOfMeasures.size(); dimension++) {
-				Measure m = listOfMeasures.get(dimension).get(i);
+				Measure<?,? extends Quantity> m = (Measure<?, ? extends Quantity>) listOfMeasures.get(dimension).get(i);
+				logger.log(Level.INFO,m.toString());
+				if (m == null) {
+				    throw new RuntimeException("Null value read from DAO. This should not happen");
+				}
 				measurement.setMeasuredValue(dimension, m);
 			}
 			MeasurementsUtility.storeMeasurement(measurements, measurement);
@@ -336,7 +340,8 @@ public class WarmupFilter extends AbstractFilter {
 	 * 
 	 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
 	 */
-	@Override
+	@SuppressWarnings("rawtypes")
+    @Override
 	public Object getAdapter(Class adapter) {
 		// TODO Auto-generated method stub
 		return null;

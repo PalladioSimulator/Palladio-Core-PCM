@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.edp2.internal;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
@@ -12,13 +9,13 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.LongBinaryMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
 
-/**EMF switch to create DAOs based on a raw measurement or a lower element (e.g. data series).
+/**
+ * EMF switch to create DAOs based on a raw measurement or a lower element (e.g. data series).
  * @author groenda
  */
-public class DAOFromBelowRawMeasurementSwitch extends ExperimentDataSwitch<Boolean> {
-	/** DAO factory which is used to create measurements. */
-	private MeasurementsDaoFactory daoFactory;
-	
+public class DAOFromBelowRawMeasurementSwitch 
+    extends ExperimentDataSwitch<Boolean> 
+{
 	@Override
 	public Boolean caseRawMeasurements(RawMeasurements object) {
 		boolean success = true;
@@ -29,38 +26,41 @@ public class DAOFromBelowRawMeasurementSwitch extends ExperimentDataSwitch<Boole
 	}
 
 	@Override
-	public Boolean caseIdentifierBasedMeasurements(
-			IdentifierBasedMeasurements object) {
-		daoFactory = object.getRawMeasurements().getMeasurementsRange()
-				.getMeasurements().getMeasure().getExperimentGroup()
-				.getRepository().getMeasurementsDaoFactory();
+	public Boolean caseIdentifierBasedMeasurements(IdentifierBasedMeasurements object) {
+		MeasurementsDaoFactory daoFactory = getMeasurementsDaoFactoryFromMeasurements(object);
 		return null != daoFactory.createNominalMeasurementsDao(object.getValuesUuid());
 	}
-	
-	@Override
+
+    @SuppressWarnings("unchecked")
+    @Override
 	public Boolean caseLongBinaryMeasurements(LongBinaryMeasurements object) {
-		daoFactory = object.getRawMeasurements().getMeasurementsRange()
-				.getMeasurements().getMeasure().getExperimentGroup()
-				.getRepository().getMeasurementsDaoFactory();
+		MeasurementsDaoFactory daoFactory = getMeasurementsDaoFactoryFromMeasurements(object);
 		return null != daoFactory.createLongMeasurementsDao(object
 				.getValuesUuid(), object.getStorageUnit());
 	}
 	
-	@Override
+	@SuppressWarnings("unchecked")
+    @Override
 	public Boolean caseDoubleBinaryMeasurements(DoubleBinaryMeasurements object) {
-		daoFactory = object.getRawMeasurements().getMeasurementsRange()
-				.getMeasurements().getMeasure().getExperimentGroup()
-				.getRepository().getMeasurementsDaoFactory();
+		MeasurementsDaoFactory daoFactory = getMeasurementsDaoFactoryFromMeasurements(object);
 		return null != daoFactory.createDoubleMeasurementsDao(object
 				.getValuesUuid(), object.getStorageUnit());
 	}
 	
 	@Override
 	public Boolean caseJSXmlMeasurements(JSXmlMeasurements object) {
-		daoFactory = object.getRawMeasurements().getMeasurementsRange()
-				.getMeasurements().getMeasure().getExperimentGroup()
-				.getRepository().getMeasurementsDaoFactory();
+		MeasurementsDaoFactory daoFactory = getMeasurementsDaoFactoryFromMeasurements(object);
 		return null != daoFactory.createJScienceXmlMeasurementsDao(object
 				.getValuesUuid());
 	}
+
+    /**
+     * @param dataSeries
+     * @return
+     */
+    protected MeasurementsDaoFactory getMeasurementsDaoFactoryFromMeasurements(DataSeries dataSeries) {
+        return dataSeries.getRawMeasurements().getMeasurementsRange()
+    			.getMeasurements().getMeasure().getExperimentGroup()
+    			.getRepository().getMeasurementsDaoFactory();
+    }
 }

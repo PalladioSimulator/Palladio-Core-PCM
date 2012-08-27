@@ -11,23 +11,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
+import javax.measure.quantity.Quantity;
 
 import org.eclipse.ui.IMemento;
 import org.jfree.chart.ChartColor;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.labels.ItemLabelAnchor;
-import org.jfree.chart.labels.ItemLabelPosition;
-import org.jfree.chart.labels.StandardXYItemLabelGenerator;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.DefaultXYItemRenderer;
-import org.jfree.chart.renderer.xy.XYBarRenderer;
-import org.jfree.data.general.AbstractSeriesDataset;
-import org.jfree.data.statistics.HistogramDataset;
-import org.jfree.data.statistics.HistogramType;
 import org.jfree.data.xy.DefaultXYDataset;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.ui.TextAnchor;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
@@ -275,23 +267,23 @@ public class ScatterPlotInput extends JFreeChartEditorInput<DefaultXYDataset> {
 		DefaultXYDataset defaultDataset = new DefaultXYDataset();
 
 		logger.log(Level.INFO, "Editor input updateDataSet begin");
-		ArrayList<OrdinalMeasurementsDao<Measure>> list = new ArrayList<OrdinalMeasurementsDao<Measure>>();
+		ArrayList<OrdinalMeasurementsDao<?,? extends Quantity>> list = new ArrayList<OrdinalMeasurementsDao<?,? extends Quantity>>();
 		for (DataSeries data : getSource().getOutput()) {
 			list.add(MeasurementsUtility.getOrdinalMeasurementsDao(data));
 		}
-		OrdinalMeasurementsDao<Measure> omdSeries1 = MeasurementsUtility
+		OrdinalMeasurementsDao<?,? extends Quantity> omdSeries1 = MeasurementsUtility
 				.getOrdinalMeasurementsDao(getSource().getOutput().get(0));
-		OrdinalMeasurementsDao<Measure> omdSeries2 = MeasurementsUtility
+		OrdinalMeasurementsDao<?,? extends Quantity> omdSeries2 = MeasurementsUtility
 				.getOrdinalMeasurementsDao(getSource().getOutput().get(1));
-		List<Measure> list1 = omdSeries1.getMeasurements();
+		List<?> list1 = omdSeries1.getMeasurements();
 
-		List<Measure> list2 = omdSeries2.getMeasurements();
+		List<?> list2 = omdSeries2.getMeasurements();
 
 		rawData = new double[2][list1.size()];
 
 		for (int i = 0; i < list1.size(); i++) {
-			Measure x = list1.get(i);
-			Measure y = list2.get(i);
+			Measure x = (Measure) list1.get(i);
+			Measure y = (Measure) list2.get(i);
 			rawData[0][i] = x.doubleValue(x.getUnit());
 			rawData[1][i] = y.doubleValue(y.getUnit());
 		}

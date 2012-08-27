@@ -1,14 +1,12 @@
 package de.uka.ipd.sdq.edp2.visualization.datasource;
 
 import java.util.HashMap;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.ui.IElementFactory;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IPersistableElement;
 
-import de.uka.ipd.sdq.edp2.visualization.FactoryConnector;
 import de.uka.ipd.sdq.edp2.visualization.IDataFlow;
 import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 

@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.edp2.impl;
 import java.util.List;
 
 import javax.measure.Measure;
+import javax.measure.quantity.Quantity;
 
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 
@@ -13,8 +14,7 @@ import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
  * @author groenda
  *
  */
-@SuppressWarnings("unchecked")
-public interface JScienceXmlMeasurementsDao extends OrdinalMeasurementsDao<Measure> {
+public interface JScienceXmlMeasurementsDao<V,Q extends Quantity> extends OrdinalMeasurementsDao<V,Q> {
 
-	public List<javax.measure.Measure> getMeasurements();
+	public List<Measure<V,Q>> getMeasurements();
 }

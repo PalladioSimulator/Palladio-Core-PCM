@@ -5,9 +5,6 @@ package de.uka.ipd.sdq.edp2.impl;
 
 import javax.measure.Measure;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import de.uka.ipd.sdq.edp2.internal.BaseMetricFromMetricSwitch;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
@@ -34,7 +31,6 @@ public class MetricDescriptionUtility {
 	 * @param value The value to check.
 	 * @return <code>true</code> if the object has a valid type, <code>false</code> otherwise.
 	 */
-	@SuppressWarnings("unchecked")
 	public static boolean isValidValue(BaseMetricDescription description, Object value) {
 		if (description.getCaptureType() == CaptureType.IDENTIFIER) {
 			if (value instanceof Identifier) {

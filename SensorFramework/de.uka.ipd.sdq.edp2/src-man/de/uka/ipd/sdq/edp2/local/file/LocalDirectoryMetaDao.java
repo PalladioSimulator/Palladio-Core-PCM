@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collection;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,31 +21,31 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.EStructuralFeature.Setting;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.impl.MetaDaoImpl;
 import de.uka.ipd.sdq.edp2.internal.SerializationUtil;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
-import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
-import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
+import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
+import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;
 import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
-/**DAO to access the meta data stored in a local directory.
+/**
+ * DAO to access the meta data stored in a local directory.
  * Warning: It is not allowed to reassign a managed repository to another instance of Repositories.
  * @author groenda
  *
  */
 public class LocalDirectoryMetaDao extends MetaDaoImpl {
-	/** Logger for this class. */
+	
+    /** Logger for this class. */
 	private static Logger logger = Logger.getLogger(LocalDirectoryMetaDao.class.getCanonicalName());
 
 	/** The measurement DAO factory connected to this meta data DAO.*/
@@ -55,26 +54,27 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 	/** Repository in which the managed data is stored. */
 	private LocalDirectoryRepository managedRepo;
 	
+    private final Adapter reposAdapter = new AdapterImpl() {
+        @Override
+        public void notifyChanged(Notification msg) {
+            if (msg.getFeature().equals(RepositoryPackage.Literals.REPOSITORY__REPOSITORIES)) {
+                if (msg.getEventType() == Notification.SET) {
+                    if (msg.getOldValue() != null) {
+                        if (isOpen()) {
+                            String errMsg = "Repository was reassigned to another instance "
+                                + "of Repositories while it was still open. Data might be corrupted!";
+                            logger.log(Level.SEVERE, errMsg);
+                            throw new IllegalStateException(errMsg);
+                        }
+                    }
+                }
+            }
+        }
+    };
+
 	public LocalDirectoryMetaDao(final LocalDirectoryRepository repo) {
 		this.managedRepo = repo;
 		// observe changes on the assignment of the repository
-		Adapter reposAdapter = new AdapterImpl() {
-			@Override
-			public void notifyChanged(Notification msg) {
-				if (msg.getFeature().equals(RepositoryPackage.Literals.REPOSITORY__REPOSITORIES)) {
-					if (msg.getEventType() == Notification.SET) {
-						if (msg.getOldValue() != null) {
-							if (isOpen()) {
-								String errMsg = "Repository was reassigned to another instance "
-									+ "of Repositories while it was still open. Data might be corrupted!";
-								logger.log(Level.SEVERE, errMsg);
-								throw new IllegalStateException(errMsg);
-							}
-						}
-					}
-				}
-			}
-		};
 		managedRepo.eAdapters().add(reposAdapter);
 		// observe changes on the ExperimentGroup list
 		Adapter descAdapter = new LocalDirectoryMetaResourceAdapter(repo,
@@ -135,9 +135,8 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 	 * @param expectedRoot Expected EMF root element of each file.
 	 * @return <code>true</code> if the condition holds for all files, <code>false</code> otherwise.
 	 */
-	@SuppressWarnings("unchecked")
 	private boolean checkFilesContainEmfModel(File directory,
-			String fileExtension, Class expectedRoot) {
+			String fileExtension, Class<?> expectedRoot) {
 		assert (directory.isDirectory());
 		
 		ResourceSet resourceSet = SerializationUtil.createResourceSet();
@@ -215,72 +214,72 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 	public void delete() throws DataNotAccessibleException {
 		super.delete();
 		if (true) throw new UnsupportedOperationException("Not implemented yet");
-		assert (isOpen());
-		if (!isDeleted()) {
-			// open directory
-			URI uri;
-			try {
-				uri = URI.createURI(managedRepo.getUri());
-				File directory = new File(uri.toFileString());
-				if (!directory.isDirectory()) {
-					String msg = "URI does not point to a directory.";
-					logger.log(Level.WARNING, msg);
-					throw new DataNotAccessibleException(msg, null);
-				}
-				// load experiment groups
-				loadExperimentGroups(directory);
-				/* Find all cross references.
-				 * Delete all cross references which are in the directory of the MetaDao.
-				 */
-				Map<EObject, Collection<Setting>> references = EcoreUtil.CrossReferencer.find(managedRepo.getExperimentGroups());
-				
-//				DataSeries[] referencedDataSeries = null;
-//				// TODO Auto-generated method stub
-//				// Remove all DataSeries files
-//				for (DataSeries dataSeries : referencedDataSeries) {
-//					String dsFileLocation = directory.getAbsoluteFile()
-//							+ File.separator
-//							+ dataSeries.getValuesUuid()
-//							+ EmfModelXMIResourceFactoryImpl.EDP2_DESCRIPTIONS_EXTENSION;
-//					File dsFile = new File (dsFileLocation);
-//					boolean success = dsFile.delete();
-//					if (!success) {
-//						logger.log(Level.WARNING, "Failed to delete DataSeries file. Filename: " + dsFileLocation);
-//					}
+//		assert (isOpen());
+//		if (!isDeleted()) {
+//			// open directory
+//			URI uri;
+//			try {
+//				uri = URI.createURI(managedRepo.getUri());
+//				File directory = new File(uri.toFileString());
+//				if (!directory.isDirectory()) {
+//					String msg = "URI does not point to a directory.";
+//					logger.log(Level.WARNING, msg);
+//					throw new DataNotAccessibleException(msg, null);
 //				}
-				// Remove all ExperimentGroup files
-				deleteExperimentGroups(directory);
-				if (!directory.delete()) {
-					logger.log(Level.WARNING, "Failed to delete EDP2 directory. Might be not empty. Directory: " + directory.getAbsolutePath());
-				}
-				mmtDaoFactory = null;
-				setDeleted(true);
-			} catch (IllegalArgumentException e) {
-				String msg = "URI is not valid.";
-				logger.log(Level.WARNING, msg);
-				throw new DataNotAccessibleException(msg, e);
-			}
-		}
-		assert (isDeleted());
-}
-
-	/**Deletes all ExperimentGroup files in a directory.
-	 * @param directory The EDP2 data directory.
-	 */
-	private void deleteExperimentGroups(File directory) {
-		// ExperimentGroup files
-		File[] expGroupFiles = directory
-				.listFiles(new FilenameExtensionFiler(
-						EmfModelXMIResourceFactoryImpl.EDP2_EXPERIMENT_GROUP_EXTENSION));
-		for (File expGroupFile : expGroupFiles) {
-			boolean success = expGroupFile.delete();
-			if (!success) {
-				logger.log(Level.WARNING,
-						"Failed to delete ExperimentGroup file. Filename: "
-								+ expGroupFile.getAbsolutePath());
-			}
-		}
+//				// load experiment groups
+//				loadExperimentGroups(directory);
+//				/* Find all cross references.
+//				 * Delete all cross references which are in the directory of the MetaDao.
+//				 */
+//				Map<EObject, Collection<Setting>> references = EcoreUtil.CrossReferencer.find(managedRepo.getExperimentGroups());
+//				
+////				DataSeries[] referencedDataSeries = null;
+////				// TODO Auto-generated method stub
+////				// Remove all DataSeries files
+////				for (DataSeries dataSeries : referencedDataSeries) {
+////					String dsFileLocation = directory.getAbsoluteFile()
+////							+ File.separator
+////							+ dataSeries.getValuesUuid()
+////							+ EmfModelXMIResourceFactoryImpl.EDP2_DESCRIPTIONS_EXTENSION;
+////					File dsFile = new File (dsFileLocation);
+////					boolean success = dsFile.delete();
+////					if (!success) {
+////						logger.log(Level.WARNING, "Failed to delete DataSeries file. Filename: " + dsFileLocation);
+////					}
+////				}
+//				// Remove all ExperimentGroup files
+//				deleteExperimentGroups(directory);
+//				if (!directory.delete()) {
+//					logger.log(Level.WARNING, "Failed to delete EDP2 directory. Might be not empty. Directory: " + directory.getAbsolutePath());
+//				}
+//				mmtDaoFactory = null;
+//				setDeleted(true);
+//			} catch (IllegalArgumentException e) {
+//				String msg = "URI is not valid.";
+//				logger.log(Level.WARNING, msg);
+//				throw new DataNotAccessibleException(msg, e);
+//			}
+//		}
+//		assert (isDeleted());
 	}
+
+//	/**Deletes all ExperimentGroup files in a directory.
+//	 * @param directory The EDP2 data directory.
+//	 */
+//	private void deleteExperimentGroups(File directory) {
+//		// ExperimentGroup files
+//		File[] expGroupFiles = directory
+//				.listFiles(new FilenameExtensionFiler(
+//						EmfModelXMIResourceFactoryImpl.EDP2_EXPERIMENT_GROUP_EXTENSION));
+//		for (File expGroupFile : expGroupFiles) {
+//			boolean success = expGroupFile.delete();
+//			if (!success) {
+//				logger.log(Level.WARNING,
+//						"Failed to delete ExperimentGroup file. Filename: "
+//								+ expGroupFile.getAbsolutePath());
+//			}
+//		}
+//	}
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.edp2.IEdp2Dao#open()

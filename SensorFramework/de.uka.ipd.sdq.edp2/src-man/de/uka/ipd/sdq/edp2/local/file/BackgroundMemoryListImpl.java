@@ -10,32 +10,35 @@ import javax.measure.Measure;
 import javax.measure.quantity.Quantity;
 import javax.measure.unit.Unit;
 
-
 /**
  * A generic list implementation that consumes a constant amount of main memory regardless of the number of elements in the 
  * list. It relies on HDD memory as background storage. It uses views on the data stored in form of chunks.
  * A chunk contains a limited number of data elements. Chunks are (de-)serialized to disk depending on the
  * requested data elements. 
+ * 
  * The list has some restrictions:
  * First, all elements have to be serializable with constant memory footprint.
  * Second, deletion of elements in the list is not implemented.
  * Third, insertion is only possible at the end of the list.
- * @param <T> The generic type parameter of the list's elements
+ * Fourth, all list elements are persisted with the same unit, so unit conversion and conversion losses may apply.
+ * 
+ * @param <V> Value type of the measurements to be stored. Most often used values are Double or Long
+ * @param <Q> Quantity to be stored, see {@link Quantity}
+ *  
  * @author Henning Groenda
  * @author Steffen Becker
- */
-@SuppressWarnings("unchecked")
-public class BackgroundMemoryListImpl<T extends Measure> 
-	extends AbstractList<T>
-	implements BackgroundMemoryList<T> {
+ */ 
+class BackgroundMemoryListImpl<V,Q extends Quantity> 
+	extends AbstractList<Measure<V,Q>>
+	implements BackgroundMemoryList<V,Q> 
+{
 
 	private static final String ACCESS_MODIFIER_READ_WRITE = "rw";
-//	/**Serialization UID for this class. Change upon altered serialization. */
-//	private static final long serialVersionUID = 1L;
+
 	/** Logger for this class. */
 	transient private static Logger logger = Logger.getLogger(BackgroundMemoryListImpl.class.getName());
 
-	/** Number of data elements per chunk. */
+	/** Default Number of data elements per chunk. */
 	static final public int DEFAULT_CHUNK_SIZE = 10000;
 	
 	/**Describes the representation and storage of the values in binary format.
@@ -49,23 +52,32 @@ public class BackgroundMemoryListImpl<T extends Measure>
 	};
 	
 	/** Access to chunks. */
-	transient private ChunkedFile chunks = null;
+	transient private ChunkedFile<V> chunks = null;
+	
 	/** Name of the file which is used to store the chunks. Absolute path to the file. */
 	private String absoluteFilename = null;
+	
 	/** The link to the attached background storage in which all chunks are persisted. */
 	transient private RandomAccessFile raf = null;
+	
 	/** Status of the link to the attached file on background storage. Operations are only allowed in open state. */
 	transient boolean closed = true;
+	
 	/** The serializer for the elements of the list on the background storage. */
-	private Serializer<?> serialiser;
+	private Serializer<V> serialiser;
+	
 	/** Total number of elements in the list. */
 	private int listSize;
+	
 	/** The size of the chunk in elements */
 	private int chunkSize;
+	
 	/** Binary format of values stored in this list. */
+	
 	private BinaryRepresentation binaryRepresentation;
+	
 	/** Unit of the measurements stored in this list. */
-	private Unit unit; 
+	private Unit<Q> unit; 
 	
 	/**
 	 * Constructor for background memory lists.
@@ -73,7 +85,7 @@ public class BackgroundMemoryListImpl<T extends Measure>
 	 * @param serialiser The (de-)serializer to use upon serialization of data to the background storage.
 	 * @throws IOException Thrown if file IO fails.
 	 */
-	public BackgroundMemoryListImpl(String absoluteFilename, Serializer<?> serialiser, BinaryRepresentation binaryRepresentation, Unit unit) throws IOException {
+	public BackgroundMemoryListImpl(String absoluteFilename, Serializer<V> serialiser, BinaryRepresentation binaryRepresentation, Unit<Q> unit) throws IOException {
 		this(absoluteFilename, serialiser, DEFAULT_CHUNK_SIZE, binaryRepresentation, unit);
 	}
 
@@ -84,7 +96,7 @@ public class BackgroundMemoryListImpl<T extends Measure>
 	 * @param chunkSize The size of the chunk in elements which should be used.
 	 * @throws IOException Thrown if file IO fails.
 	 */
-	public BackgroundMemoryListImpl(String absoluteFilename, Serializer<?> serialiser, int chunkSize, BinaryRepresentation binaryRepresentation, Unit unit) throws IOException {
+	public BackgroundMemoryListImpl(String absoluteFilename, Serializer<V> serialiser, int chunkSize, BinaryRepresentation binaryRepresentation, Unit<Q> unit) throws IOException {
 		this.absoluteFilename = absoluteFilename;
 		this.serialiser = serialiser;
 		this.chunkSize = chunkSize;
@@ -101,12 +113,7 @@ public class BackgroundMemoryListImpl<T extends Measure>
 			throw new IllegalStateException(msg);
 		}
 		raf = new RandomAccessFile(absoluteFilename, ACCESS_MODIFIER_READ_WRITE);
-		if (binaryRepresentation == BinaryRepresentation.LONG) {
-			chunks = new ChunkedFile<Long>(raf, (Serializer<Long>) serialiser, chunkSize);
-		}
-		if (binaryRepresentation == BinaryRepresentation.DOUBLE) {
-			chunks = new ChunkedFile<Double>(raf, (Serializer<Double>) serialiser, chunkSize);
-		}
+		chunks = new ChunkedFile<V>(raf, serialiser, chunkSize);
 		closed = false;
 		// list size is calculated in open() and readObject() to allow error detection.
 	}
@@ -119,7 +126,7 @@ public class BackgroundMemoryListImpl<T extends Measure>
 	 * @see java.util.AbstractList#add(int, java.lang.Object)
 	 */
 	@Override
-	public synchronized void add(int index, T element) {
+	public synchronized void add(int index, Measure<V,Q> element) {
 		if (closed) {
 			String msg = "Tried to add data to a closed background list.";
 			logger.severe(msg);
@@ -137,12 +144,7 @@ public class BackgroundMemoryListImpl<T extends Measure>
 		}
 		try {
 			ensureCorrectChunkLoaded(index);
-			if (binaryRepresentation == BinaryRepresentation.LONG) {
-				chunks.add(element.longValue(unit));
-			}
-			if (binaryRepresentation == BinaryRepresentation.DOUBLE) {
-				chunks.add((Double) element.doubleValue(unit));
-			}
+			chunks.add(element.getValue());
 			this.listSize++;
 			if (chunks.isFull()) {
 				chunks.saveChunk();
@@ -158,7 +160,8 @@ public class BackgroundMemoryListImpl<T extends Measure>
 	/* (non-Javadoc)
 	 * @see java.util.AbstractList#get(int)
 	 */
-	public synchronized T get(int index) {
+	@SuppressWarnings("unchecked")
+    public synchronized Measure<V,Q> get(int index) {
 		if (closed) {
 			String msg = "Tried to get data from a closed background list.";
 			logger.severe(msg);
@@ -176,15 +179,15 @@ public class BackgroundMemoryListImpl<T extends Measure>
 		}
 		try {
 			ensureCorrectChunkLoaded(index);
-			Measure<?, Quantity> measure = null;
+			Measure<?, Q> measure = null;
 			//Measure measure;
 			if (binaryRepresentation == BinaryRepresentation.LONG) {
-				measure = Measure.valueOf((Long) chunks.get((int)(index - chunks.indexStartingElementForChunk())), unit);
+				measure = Measure.valueOf((Long)chunks.get((int)(index - chunks.indexStartingElementForChunk())), unit);
 			}
 			if (binaryRepresentation == BinaryRepresentation.DOUBLE) {
 				measure = Measure.valueOf((Double)chunks.get((int)(index - chunks.indexStartingElementForChunk())), unit);
 			}
-			return (T) measure;
+			return (Measure<V, Q>) measure;
 		} catch(IOException ex) {
 			String msg = "Error during IO of background list for file \"" + absoluteFilename +"\"";
 			logger.severe(msg);
@@ -192,7 +195,8 @@ public class BackgroundMemoryListImpl<T extends Measure>
 		}
 	}
 	
-	public T set(int index, T element) {
+	@SuppressWarnings("unchecked")
+    public Measure<V,Q> set(int index, Measure<V,Q> element) {
 		if (closed) {
 			String msg = "Tried to get data to a closed background list.";
 			logger.severe(msg);
@@ -210,15 +214,13 @@ public class BackgroundMemoryListImpl<T extends Measure>
 		}
 		try {
 			ensureCorrectChunkLoaded(index);
+            V newValue = element.getValue();
+            V oldValue = chunks.set((int)(index - chunks.indexStartingElementForChunk()), newValue);
 			if (binaryRepresentation == BinaryRepresentation.LONG) {
-				long newValue = element.longValue(unit);
-				long oldValue = (Long) chunks.set((int)(index - chunks.indexStartingElementForChunk()), newValue);
-				return (T) Measure.valueOf(oldValue, unit);
+				return (Measure<V, Q>) Measure.valueOf((Long)oldValue, unit);
 			}
 			if (binaryRepresentation == BinaryRepresentation.DOUBLE) {
-				double newValue = element.doubleValue(unit);
-				double oldValue = (Double) chunks.set((int)(index - chunks.indexStartingElementForChunk()), newValue);
-				return (T) Measure.valueOf(oldValue , unit);
+				return (Measure<V, Q>) Measure.valueOf((Double)oldValue , unit);
 			}
 			return null;
 		} catch(IOException ex) {
@@ -229,7 +231,7 @@ public class BackgroundMemoryListImpl<T extends Measure>
 	};
 	
 	@Override
-	public T remove(int index) {
+	public Measure<V,Q> remove(int index) {
 		// TODO Add support for removal of elements from background memory list.
 		throw new UnsupportedOperationException();
 	}

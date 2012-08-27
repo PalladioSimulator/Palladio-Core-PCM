@@ -1,9 +1,6 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.edp2.impl;
 
-import javax.measure.Measure;
+import javax.measure.quantity.Quantity;
 
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
 
@@ -12,16 +9,15 @@ import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
  *
  */
 public abstract class MeasurementsDaoFactory implements de.uka.ipd.sdq.edp2.MeasurementsDaoFactory {
-	/** Determines if this DAO is active (connection to data store available) or not. */
+	
+    /** Determines if this DAO is active (connection to data store available) or not. */
 	private boolean active = true;
 	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.edp2.IMeasurementsDaoFactory#createDoubleMeasurementsDao(java.lang.String)
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDao<Measure> createDoubleMeasurementsDao(
-			String uuid) {
+    public <Q extends Quantity> BinaryMeasurementsDao<Double,Q> createDoubleMeasurementsDao(String uuid) {
 		if (!active) {
 			throw new IllegalStateException("Must be in active state to create DAOs.");
 		}
@@ -32,8 +28,7 @@ public abstract class MeasurementsDaoFactory implements de.uka.ipd.sdq.edp2.Meas
 	 * @see de.uka.ipd.sdq.edp2.IMeasurementsDaoFactory#createJScienceXmlMeasurementsDao(java.lang.String)
 	 */
 	@Override
-	public JScienceXmlMeasurementsDao createJScienceXmlMeasurementsDao(
-			String uuid) {
+	public <Q extends Quantity> JScienceXmlMeasurementsDao<?,Q> createJScienceXmlMeasurementsDao(String uuid) {
 		if (!active) {
 			throw new IllegalStateException("Must be in active state to create DAOs.");
 		}
@@ -43,9 +38,8 @@ public abstract class MeasurementsDaoFactory implements de.uka.ipd.sdq.edp2.Meas
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.edp2.IMeasurementsDaoFactory#createLongMeasurementsDao(java.lang.String)
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDao<Measure> createLongMeasurementsDao(String uuid) {
+    public <Q extends Quantity> BinaryMeasurementsDao<Long,Q> createLongMeasurementsDao(String uuid) {
 		if (!active) {
 			throw new IllegalStateException("Must be in active state to create DAOs.");
 		}

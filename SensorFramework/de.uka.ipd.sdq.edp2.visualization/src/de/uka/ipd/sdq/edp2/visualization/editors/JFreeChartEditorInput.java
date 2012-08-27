@@ -9,11 +9,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.viewers.ISelection;
 import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.AbstractDataset;
-import org.jfree.data.general.AbstractSeriesDataset;
 import org.jfree.data.general.Dataset;
 
-import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.IVisualizationInput;
 
 /**

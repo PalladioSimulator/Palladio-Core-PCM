@@ -7,14 +7,10 @@ package de.uka.ipd.sdq.edp2.local.file;
 /**Serializer for long datatypes.
  * @author groenda
  */
-@SuppressWarnings("unchecked")
-public class LongSerializer implements Serializer {
-	/* do not change to <code>implements Serializer<Double></code>. This
-	 * will lead to a Object to Double conversion error by Java generics.
-	 */
+public class LongSerializer implements Serializer<Long> {
 
-	@Override
-	public Object[] deserialise(byte[] bytes) {
+    @Override
+	public Long[] deserialise(byte[] bytes) {
 		Long[] longs = new Long[(int)(bytes.length / getElementLength())];
 		int blockPos = 0;
 		for (int j = 0; j<longs.length; j++){

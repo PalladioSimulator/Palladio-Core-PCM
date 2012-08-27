@@ -1,15 +1,10 @@
 package de.uka.ipd.sdq.edp2.visualization.editors;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
-import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTarget;
 import org.eclipse.swt.dnd.Transfer;
@@ -18,27 +13,15 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IMemento;
-import org.eclipse.ui.IPersistableEditor;
-import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.experimental.chart.swt.ChartComposite;
 
-import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
-import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
-import de.uka.ipd.sdq.edp2.models.Repository.Repository;
-import de.uka.ipd.sdq.edp2.visualization.IDataSink;
-import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.IVisualization;
+import de.uka.ipd.sdq.edp2.visualization.IVisualizationInputHandle;
 import de.uka.ipd.sdq.edp2.visualization.datasource.DatasourceDropTargetAdapter;
-import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
 
 /**
  * Default implementation of an {@link EditorPart}. Provides common
@@ -49,17 +32,16 @@ import de.uka.ipd.sdq.edp2.visualization.datasource.EDP2Source;
  */
 public abstract class AbstractEditor extends EditorPart implements
 		IVisualization, ITabbedPropertySheetPageContributor {
-	/** Logger for this class */
-	private static Logger logger = Logger.getLogger(AbstractEditor.class
-			.getCanonicalName());
 
 	/** This editor's ID, e.g. for Referencing in extension points. */
 	public static final String EDITOR_ID = "de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor";
 
 	/** The input for this Editor. */
 	protected IVisualizationInputHandle input;
+	
 	/** Reference on the current {@link TabbedPropertySheetPage}. */
 	protected TabbedPropertySheetPage propertySheetPage;
+	
 	/** The composite of the parent element, for reference if a new chart is added.*/
 	protected Composite parent;
 
@@ -186,8 +168,8 @@ public abstract class AbstractEditor extends EditorPart implements
 	 * 
 	 * @see org.eclipse.ui.part.WorkbenchPart#getAdapter(java.lang.Class)
 	 */
-	@SuppressWarnings("unchecked")
-	public Object getAdapter(Class adapter) {
+	@SuppressWarnings("rawtypes")
+    public Object getAdapter(Class adapter) {
 		if (adapter == IPropertySheetPage.class)
 			return new TabbedPropertySheetPage(this);
 		return super.getAdapter(adapter);

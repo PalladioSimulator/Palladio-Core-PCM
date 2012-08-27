@@ -3,17 +3,26 @@
  */
 package de.uka.ipd.sdq.edp2.impl;
 
+import de.uka.ipd.sdq.edp2.Edp2Dao;
+
 
 /**
+ * Abstract base class of all EDP2 DAOs. Implements the basic DAO protocol all DAOs can rely on.
+ * 
  * @author groenda
  *
  */
-public abstract class Edp2DaoImpl implements de.uka.ipd.sdq.edp2.Edp2Dao {
+public abstract class Edp2DaoImpl implements Edp2Dao {
+    
 	/** Status flag. Determine if the data behind the DAO is open or not. */
 	private boolean open = false;
+	
 	/** Status flag. Determine if the data has been deleted. */
 	private boolean deleted = false;
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.Edp2Dao#open()
+	 */
 	public synchronized void open() throws DataNotAccessibleException {
 		if (isDeleted()) {
 			throw new IllegalStateException("Data has already been deleted.");
@@ -23,6 +32,9 @@ public abstract class Edp2DaoImpl implements de.uka.ipd.sdq.edp2.Edp2Dao {
 		}
 	}	
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.Edp2Dao#close()
+	 */
 	@Override
 	public synchronized void close() throws DataNotAccessibleException {
 		if (!isOpen()) {
@@ -30,6 +42,9 @@ public abstract class Edp2DaoImpl implements de.uka.ipd.sdq.edp2.Edp2Dao {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.Edp2Dao#delete()
+	 */
 	@Override
 	public synchronized void delete() throws DataNotAccessibleException {
 		if (isOpen()) {
@@ -40,16 +55,25 @@ public abstract class Edp2DaoImpl implements de.uka.ipd.sdq.edp2.Edp2Dao {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.Edp2Dao#isDeleted()
+	 */
 	@Override
 	public synchronized boolean isDeleted() {
 		return deleted;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.Edp2Dao#isOpen()
+	 */
 	@Override
 	public synchronized boolean isOpen() {
 		return open;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.Edp2Dao#canClose()
+	 */
 	@Override
 	public synchronized boolean canClose() {
 		if (open && !deleted) {
@@ -58,6 +82,9 @@ public abstract class Edp2DaoImpl implements de.uka.ipd.sdq.edp2.Edp2Dao {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.Edp2Dao#canDelete()
+	 */
 	@Override
 	public synchronized boolean canDelete() {
 		if (!deleted && !open) {
@@ -66,6 +93,9 @@ public abstract class Edp2DaoImpl implements de.uka.ipd.sdq.edp2.Edp2Dao {
 		return false;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.edp2.Edp2Dao#canOpen()
+	 */
 	@Override
 	public boolean canOpen() {
 		if (!open && !deleted) {

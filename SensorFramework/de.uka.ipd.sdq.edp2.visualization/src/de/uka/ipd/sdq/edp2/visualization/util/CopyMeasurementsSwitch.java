@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
+import javax.measure.quantity.Quantity;
 
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
@@ -68,11 +69,11 @@ public class CopyMeasurementsSwitch extends ExperimentDataSwitch<Boolean> {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Boolean caseNumericalBaseMetricDescription(
 			NumericalBaseMetricDescription object) {
-		OrdinalMeasurementsDao<Measure> dao = MeasurementsUtility
+		OrdinalMeasurementsDao<?,? extends Quantity> dao = MeasurementsUtility
 				.getOrdinalMeasurementsDao(rawMeasurementsToCopy
 						.getDataSeries().get(dimension));
-		List<Measure> measures = dao.getMeasurements();
-		Measure measure = measures.get(index);
+		List<?> measures = dao.getMeasurements();
+		Measure measure = (Measure) measures.get(index);
 		measurement.setMeasuredValue(dimension, measure);
 		return true;
 	}

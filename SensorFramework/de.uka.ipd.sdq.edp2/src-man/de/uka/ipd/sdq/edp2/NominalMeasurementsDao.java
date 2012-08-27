@@ -6,7 +6,9 @@ package de.uka.ipd.sdq.edp2;
 import de.uka.ipd.sdq.edp2.impl.EmfResourceDao;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifierBasedMeasurements;
 
-/**Interface for nominal measurements.
+/**
+ * Interface for nominal measurements DAOs
+ * 
  * @author groenda
  *
  */

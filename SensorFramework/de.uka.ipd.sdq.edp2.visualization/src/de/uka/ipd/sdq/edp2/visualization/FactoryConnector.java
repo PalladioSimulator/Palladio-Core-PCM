@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.edp2.visualization;
 
 import java.util.HashMap;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

@@ -3,8 +3,6 @@
  */
 package de.uka.ipd.sdq.edp2.visualization.wizards;
 
-import java.util.ArrayList;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -13,11 +11,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
-import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
-import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
-import de.uka.ipd.sdq.edp2.visualization.IDataSink;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
-import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 
 /**
  * A wizard which is opened upon selection/doubleclick on an element containing Experiment Data.

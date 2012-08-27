@@ -7,6 +7,8 @@ import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.measure.quantity.Quantity;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
@@ -62,7 +64,7 @@ public class MeasurementsUtility {
 				Iterator<DataSeries> iter2 = fwtemplate.getDataSeries().iterator();
 				while (iter2.hasNext()) {
 					fwam.getDataSeries().add(
-							new EmfmodelDataSeriesFromReferenceSwitch(daoFactory)
+							new EmfmodelDataSeriesFromReferenceSwitch<Quantity>(daoFactory)
 									.doSwitch(iter2.next()));
 				}
 			}
@@ -183,38 +185,37 @@ public class MeasurementsUtility {
 		}
 	}
 	
-	/**Requests a DAO for a ordinal measurement.
+	/**
+	 * Requests a DAO for a ordinal measurement.
 	 * If the DAO does not exists it is created and opened automatically (if possible).
 	 * @param ds The data series for which the DAO should be created.
 	 * @return DAO for ordinal measurements.
 	 */
 	@SuppressWarnings("unchecked")
-	public static OrdinalMeasurementsDao getOrdinalMeasurementsDao(
-			final DataSeries ds) {
+	public static <Q extends Quantity> OrdinalMeasurementsDao<?,Q> getOrdinalMeasurementsDao(final DataSeries ds) {
 		final MeasurementsDaoFactory daoFactory = ds.getRawMeasurements()
 				.getMeasurementsRange().getMeasurements().getMeasure()
 				.getExperimentGroup().getRepository()
 				.getMeasurementsDaoFactory();
 		if (daoFactory.getDaoRegistry().isRegistered(ds.getValuesUuid())) {
-			return (OrdinalMeasurementsDao) daoFactory.getDaoRegistry().getMeasurementsDao(ds
-					.getValuesUuid());
+			return (OrdinalMeasurementsDao<?,Q>) daoFactory.getDaoRegistry().getMeasurementsDao(ds.getValuesUuid());
 		} else {
-			OrdinalMeasurementsDao omd = new ExperimentDataSwitch<OrdinalMeasurementsDao>() {
-				public OrdinalMeasurementsDao caseIdentifierBasedMeasurements(de.uka.ipd.sdq.edp2.models.ExperimentData.IdentifierBasedMeasurements object) {
+			OrdinalMeasurementsDao<?,Q> omd = new ExperimentDataSwitch<OrdinalMeasurementsDao<?,Q>>() {
+				public OrdinalMeasurementsDao<?,Q> caseIdentifierBasedMeasurements(de.uka.ipd.sdq.edp2.models.ExperimentData.IdentifierBasedMeasurements object) {
 					String msg = "Tried to request ordinal measurements for a data series which should contain nominal measurements.";
 					logger.log(Level.WARNING, msg);
 					throw new IllegalArgumentException(msg);
 				};
-				public OrdinalMeasurementsDao caseJSXmlMeasurements(de.uka.ipd.sdq.edp2.models.ExperimentData.JSXmlMeasurements object) {
+				public OrdinalMeasurementsDao<?,Q> caseJSXmlMeasurements(de.uka.ipd.sdq.edp2.models.ExperimentData.JSXmlMeasurements object) {
 					return daoFactory.createJScienceXmlMeasurementsDao(ds.getValuesUuid());
 				};
-				public OrdinalMeasurementsDao caseDoubleBinaryMeasurements(de.uka.ipd.sdq.edp2.models.ExperimentData.DoubleBinaryMeasurements object) {
-					BinaryMeasurementsDao bmd = daoFactory.createDoubleMeasurementsDao(ds.getValuesUuid());
+				public OrdinalMeasurementsDao<?,Q> caseDoubleBinaryMeasurements(de.uka.ipd.sdq.edp2.models.ExperimentData.DoubleBinaryMeasurements object) {
+					BinaryMeasurementsDao<Double,Q> bmd = daoFactory.createDoubleMeasurementsDao(ds.getValuesUuid());
 					bmd.setUnit(object.getStorageUnit());
 					return bmd;
 				};
-				public OrdinalMeasurementsDao caseLongBinaryMeasurements(de.uka.ipd.sdq.edp2.models.ExperimentData.LongBinaryMeasurements object) {
-					BinaryMeasurementsDao bmd = daoFactory.createLongMeasurementsDao(ds.getValuesUuid());
+				public OrdinalMeasurementsDao<?,Q> caseLongBinaryMeasurements(de.uka.ipd.sdq.edp2.models.ExperimentData.LongBinaryMeasurements object) {
+					BinaryMeasurementsDao<Long,Q> bmd = daoFactory.createLongMeasurementsDao(ds.getValuesUuid());
 					bmd.setUnit(object.getStorageUnit());
 					return bmd;
 				};
@@ -229,6 +230,7 @@ public class MeasurementsUtility {
 			return omd;
 		}
 	}
+	
 	/**Opens the data store behind the repository if necessary.
 	 * Access is only allowed to opened repositories. Repositories may be
 	 * reopened (and the also reclosed).

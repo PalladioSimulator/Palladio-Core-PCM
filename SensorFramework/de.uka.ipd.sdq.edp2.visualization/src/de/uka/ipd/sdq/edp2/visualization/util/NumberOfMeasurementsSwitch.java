@@ -4,14 +4,13 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.measure.Measure;
+import javax.measure.quantity.Quantity;
 
 import de.uka.ipd.sdq.edp2.NominalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
 import de.uka.ipd.sdq.edp2.impl.MeasurementsUtility;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.NumericalBaseMetricDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifier;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifierBasedMeasurements;
@@ -41,13 +40,13 @@ public class NumberOfMeasurementsSwitch extends ExperimentDataSwitch<Integer> {
 		this.rawMeasurements = rawMeasurements;
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "unchecked" })
 	public Integer caseNumericalBaseMetricDescription(
 			NumericalBaseMetricDescription object) {
-		OrdinalMeasurementsDao<Measure> dao = MeasurementsUtility
+		OrdinalMeasurementsDao<?,? extends Quantity> dao = MeasurementsUtility
 				.getOrdinalMeasurementsDao(rawMeasurements.getDataSeries().get(
 						0));
-		List<Measure> measures = dao.getMeasurements();
+		List<?> measures = dao.getMeasurements();
 		return measures.size();
 	}
 

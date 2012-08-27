@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.edp2.internal;
 
+import javax.measure.quantity.Quantity;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
@@ -12,58 +14,59 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.JSXmlMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.LongBinaryMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
 
-public class EmfmodelDataSeriesFromReferenceSwitch extends ExperimentDataSwitch<DataSeries> {
-	/** Factory for Emfmodel. */
-	private static final ExperimentDataFactory factory = ExperimentDataFactory.eINSTANCE;
+public class EmfmodelDataSeriesFromReferenceSwitch<Q extends Quantity> 
+    extends ExperimentDataSwitch<DataSeries> 
+{
+	
+    /** Factory for Emfmodel. */
+	private static final ExperimentDataFactory experimentDatafactory = ExperimentDataFactory.eINSTANCE;
+	
 	/** Factory which is used to create the DAOs to access data of the DataSeries. */
-	private MeasurementsDaoFactory daoFactory;
+	private final MeasurementsDaoFactory daoFactory;
+	
 	/** String which contains the values uuid for the data series. */
-	private String valuesId;
+	private final String valuesId = EcoreUtil.generateUUID();
 	
 	public EmfmodelDataSeriesFromReferenceSwitch(MeasurementsDaoFactory daoFactory) {
+	    super();
+	    
 		this.daoFactory = daoFactory;
 	}
 	
 	@Override
-	public DataSeries caseIdentifierBasedMeasurements(
-			IdentifierBasedMeasurements object) {
-		valuesId = EcoreUtil.generateUUID();
-		IdentifierBasedMeasurements ibm = factory.createIdentifierBasedMeasurements();
+	public DataSeries caseIdentifierBasedMeasurements(IdentifierBasedMeasurements object) {
+		IdentifierBasedMeasurements ibm = experimentDatafactory.createIdentifierBasedMeasurements();
 		daoFactory.createNominalMeasurementsDao(valuesId);
 		ibm.setValuesUuid(valuesId);
 		return ibm;
 	}
 	
 	@Override
-	public DataSeries caseJSXmlMeasurements(
-			JSXmlMeasurements object) {
-		valuesId = EcoreUtil.generateUUID();
-		JSXmlMeasurements jsxml = factory.createJSXmlMeasurements();
+	public DataSeries caseJSXmlMeasurements(JSXmlMeasurements object) {
+		JSXmlMeasurements jsxml = experimentDatafactory.createJSXmlMeasurements();
 		daoFactory.createJScienceXmlMeasurementsDao(valuesId);
 		jsxml.setValuesUuid(valuesId);
 		return jsxml;
 	}
+
 	@SuppressWarnings("unchecked")
-	@Override
-	public DataSeries caseDoubleBinaryMeasurements(
-			DoubleBinaryMeasurements object) {
-		valuesId = EcoreUtil.generateUUID();
-		DoubleBinaryMeasurements dbm = factory.createDoubleBinaryMeasurements();
+    @Override
+	public DataSeries caseDoubleBinaryMeasurements(DoubleBinaryMeasurements object) {
+		DoubleBinaryMeasurements dbm = experimentDatafactory.createDoubleBinaryMeasurements();
 		dbm.setValuesUuid(valuesId);
 		dbm.setStorageUnit(object.getStorageUnit());
-		BinaryMeasurementsDao bmdao = daoFactory.createDoubleMeasurementsDao(valuesId);
+		BinaryMeasurementsDao<Double,Q> bmdao = daoFactory.<Q>createDoubleMeasurementsDao(valuesId);
 		bmdao.setUnit(dbm.getStorageUnit());
 		return dbm;
 	}
+
 	@SuppressWarnings("unchecked")
-	@Override
-	public DataSeries caseLongBinaryMeasurements(
-			LongBinaryMeasurements object) {
-		valuesId = EcoreUtil.generateUUID();
-		LongBinaryMeasurements lbm = factory.createLongBinaryMeasurements();
+    @Override
+	public DataSeries caseLongBinaryMeasurements(LongBinaryMeasurements object) {
+		LongBinaryMeasurements lbm = experimentDatafactory.createLongBinaryMeasurements();
 		lbm.setValuesUuid(valuesId);
 		lbm.setStorageUnit(object.getStorageUnit());
-		BinaryMeasurementsDao bmdao = daoFactory.createLongMeasurementsDao(valuesId);
+		BinaryMeasurementsDao<Long,Q> bmdao = daoFactory.<Q>createLongMeasurementsDao(valuesId);
 		bmdao.setUnit(lbm.getStorageUnit());
 		return lbm;
 	}

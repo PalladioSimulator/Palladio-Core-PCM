@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
+import javax.measure.quantity.Quantity;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -59,7 +60,7 @@ public class WarmupFilterSettingsPage extends WizardPage implements
 				"Press 'Finish' to create the Filter using the chosen settings.",
 				null);
 		numberStatus = statusOK;
-		OrdinalMeasurementsDao<Measure> dao = MeasurementsUtility
+		OrdinalMeasurementsDao<?,? extends Quantity> dao = MeasurementsUtility
 				.getOrdinalMeasurementsDao(source.getOutput().get(0));
 		numberOfMeasurements = dao.getMeasurements().size();
 		try {

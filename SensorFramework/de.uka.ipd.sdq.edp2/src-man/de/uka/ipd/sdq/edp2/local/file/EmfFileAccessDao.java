@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.edp2.local.file;
 
 import java.io.File;
@@ -24,8 +21,8 @@ import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
  * Help class to manage file access for DAOs to file containing EMF models.
  * 
  * @author groenda
- */
-public abstract class EmfFileAccessDao extends FileAccessDao implements
+ */ 
+abstract class EmfFileAccessDao extends FileAccessDao implements
 		EmfResourceDao {
 	/** Logger for this class. */
 	private static final Logger logger = Logger

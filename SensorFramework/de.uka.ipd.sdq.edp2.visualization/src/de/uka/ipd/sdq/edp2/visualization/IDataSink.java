@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Observer;
 
 import org.eclipse.core.runtime.IExecutableExtension;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.ui.IEditorInput;
-import org.jfree.data.general.AbstractSeriesDataset;
 
 import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;

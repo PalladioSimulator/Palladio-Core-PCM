@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.edp2.local.file;
 
 import java.io.File;
@@ -11,7 +8,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.measure.Measure;
+import javax.measure.quantity.Quantity;
 import javax.measure.unit.Unit;
 
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -105,35 +102,19 @@ public class LocalDirectoryMeasurementsDaoFactory extends de.uka.ipd.sdq.edp2.im
 				+ "." + suffix;
 	}
 
-//	@Override
-//	public ExperimentGroupDao createExperimentGroupDao(String uuid) {
-//		FileExperimentGroupDaoImpl expGroupDao = new FileExperimentGroupDaoImpl();
-//		/*
-//		 * File extension used to store file. Not correct wrt to EDP2
-//		 * definitions but works for testing.
-//		 */
-//		expGroupDao.setResourceFile(new File(getAbsolutePathToUuidFile(uuid,
-//				EmfModelXMIResourceFactoryImpl.EDP2_EXPERIMENT_GROUP_EXTENSION)));
-//		expGroupDao.setResourceSet(emfResourceSet);
-//		daoRegistry.register(expGroupDao, uuid);
-//		return expGroupDao;
-//	}
-
 	@Override
-	public JScienceXmlMeasurementsDao createJScienceXmlMeasurementsDao(
-			String uuid) {
+	public JScienceXmlMeasurementsDao<?,Quantity> createJScienceXmlMeasurementsDao(String uuid) {
 		super.createJScienceXmlMeasurementsDao(uuid);
+		
 		// TODO Implement JScienceXmlMeasurements
-		logger.log(Level.SEVERE,
-				"Unsupported Operation: JScience Measurements.");
+		logger.log(Level.SEVERE,"Unsupported Operation: JScience Measurements.");
 		throw new UnsupportedOperationException();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDao<Measure> createDoubleMeasurementsDao(String uuid) {
+	public <Q extends Quantity> BinaryMeasurementsDao<Double,Q> createDoubleMeasurementsDao(String uuid) {
 		super.createDoubleMeasurementsDao(uuid);
-		FileBinaryMeasurementsDaoImpl<Measure> fbmDao = new FileBinaryMeasurementsDaoImpl<Measure>();
+		FileBinaryMeasurementsDaoImpl<Double,Q> fbmDao = new FileBinaryMeasurementsDaoImpl<Double,Q>();
 		fbmDao.setBinaryRepresentation(BinaryRepresentation.DOUBLE);
 		fbmDao.setResourceFile(new File(getAbsolutePathToUuidFile(uuid,
 				FILE_SUFFIX)));
@@ -142,11 +123,10 @@ public class LocalDirectoryMeasurementsDaoFactory extends de.uka.ipd.sdq.edp2.im
 		return fbmDao;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDao<Measure> createLongMeasurementsDao(String uuid) {
+	public <Q extends Quantity> BinaryMeasurementsDao<Long,Q> createLongMeasurementsDao(String uuid) {
 		super.createLongMeasurementsDao(uuid);
-		FileBinaryMeasurementsDaoImpl<Measure> fbmDao = new FileBinaryMeasurementsDaoImpl<Measure>();
+		FileBinaryMeasurementsDaoImpl<Long,Q> fbmDao = new FileBinaryMeasurementsDaoImpl<Long,Q>();
 		fbmDao.setBinaryRepresentation(BinaryRepresentation.LONG);
 		fbmDao.setResourceFile(new File(getAbsolutePathToUuidFile(uuid,
 				FILE_SUFFIX)));
@@ -201,20 +181,18 @@ public class LocalDirectoryMeasurementsDaoFactory extends de.uka.ipd.sdq.edp2.im
 		return existingFileDaoFactories.get(fileToMapKey(directory));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDao<Measure> createDoubleMeasurementsDao(
-			String uuid, Unit storageUnit) {
-		BinaryMeasurementsDao<Measure> bmd = createDoubleMeasurementsDao(uuid);
+	public <Q extends Quantity> BinaryMeasurementsDao<Double,Q> createDoubleMeasurementsDao(
+			String uuid, Unit<Q> storageUnit) {
+		BinaryMeasurementsDao<Double,Q> bmd = createDoubleMeasurementsDao(uuid);
 		bmd.setUnit(storageUnit);
 		return bmd;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public BinaryMeasurementsDao<Measure> createLongMeasurementsDao(
-			String uuid, Unit storageUnit) {
-		BinaryMeasurementsDao<Measure> bmd = createLongMeasurementsDao(uuid);
+    public <Q extends Quantity> BinaryMeasurementsDao<Long,Q> createLongMeasurementsDao(
+            String uuid, Unit<Q> storageUnit) {
+	    BinaryMeasurementsDao<Long,Q> bmd = createLongMeasurementsDao(uuid);
 		bmd.setUnit(storageUnit);
 		return bmd;
 	}

@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.edp2.impl;
 
-import javax.measure.Measure;
 import javax.measure.quantity.Quantity;
 import javax.measure.unit.Unit;
 
@@ -11,16 +10,15 @@ import de.uka.ipd.sdq.edp2.OrdinalMeasurementsDao;
  * @author groenda
  * @param <T> Data type of measurements.
  */
-@SuppressWarnings("unchecked")
-public interface BinaryMeasurementsDao<T extends Measure> extends OrdinalMeasurementsDao {
+public interface BinaryMeasurementsDao<V,Q extends Quantity> extends OrdinalMeasurementsDao<V,Q> {
 	
 	/**Returns the unit in which all measurements are stored.
 	 * @return The unit.
 	 */
-	public Unit<Quantity> getUnit();
+	public Unit<Q> getUnit();
 
 	/**Sets the unit in which all measurements are stored.
 	 * @param unit The unit.
 	 */
-	public void setUnit(Unit<Quantity> unit);
+	public void setUnit(Unit<Q> unit);
 }

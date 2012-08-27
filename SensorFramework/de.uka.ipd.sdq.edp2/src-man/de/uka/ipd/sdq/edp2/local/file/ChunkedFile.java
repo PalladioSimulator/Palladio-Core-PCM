@@ -5,51 +5,64 @@ import java.io.RandomAccessFile;
 import java.util.logging.Logger;
 
 
-/**Takes care of storing and loading data arrays from and to a file on background storage.
+/**
+ * Takes care of storing and loading data arrays from and to a file on background storage.
+ * 
  * @author Henning Groenda
  * @author Steffen Becker
- * @param <T> Data elements stored in the chunk.
+ * 
+ * @param <T> Data type of the elements stored in each chunk. T has to be persistable with constant memory footprint, e.g., 
+ *            Double, Long, or Enum Ordinals
  */
-public class ChunkedFile<T> {
-	/** Logger for this class. */
-	private static Logger logger = Logger.getLogger(ChunkedFile.class.getName());
+class ChunkedFile<T> {
+	
+    /** Logger for this class. */
+	private static final Logger logger = Logger.getLogger(ChunkedFile.class.getName());
 	
 	/** Link to the file on background storage containing all chunks. */
-	private RandomAccessFile raf;
+	private final RandomAccessFile raf;
+	
 	/** Starting position of the loaded chunk in the file in bytes. 
 	 * May be after the end of the file in case the chunk is not saved yet. 
 	 * Must be valid if {@link chunkLoaded} is <code>true</code>*/
 	private long loadedChunkFilePos;
-	/** Serializer to use for the data elements. */
-	private Serializer<T> serializer;
+	
+	/** Serializer to use for storing and loading data elements. */
+	private final Serializer<T> serializer;
+	
 	/** Number of data elements stored in the file on background storage. */
 	private long elementsInFile;
 	
 	/** Size of the chunks handled by this class. */
-	private int chunkSize;
+	private final int chunkSize;
+	
 	/** Data elements in the current chunk. */
 	private T[] data = null;
-	/** Number of elements in list. */
+	
+	/** Total number of elements in the current loaded chunk. */
 	private int elementsInLoadedChunk = 0;
+	
 	/** Status of the current chunk. <code>true</code> if any element has been changed and the changes are not saved yet. */
 	private boolean changed;
-//	/** Index of the first data element of this chunk in the background list. */
-//	private long firstDataElementIndex;
+	
 	/** Determines if there is currently a valid chunk loaded. */
 	private boolean chunkLoaded;
 
-	/**Creates a new chunk representation.
+	/**
+	 * Creates a new chunked file instance
 	 * @param raf Link to the file on background storage to load/store the chunks.
 	 * @param serializer The serializer to use for the data elements.
 	 * @param chunkSize Size of each chunk.
 	 * @throws IOException Thrown if an IO error occured.
 	 */
 	public ChunkedFile(RandomAccessFile raf, Serializer<T> serializer, int chunkSize) throws IOException {
+	    super();
+	    
 		this.raf = raf;
 		this.serializer = serializer;
 		this.chunkSize = chunkSize;
-		elementsInFile = raf.length() / serializer.getElementLength();
-		chunkLoaded = false;
+		this.elementsInFile = raf.length() / serializer.getElementLength();
+		this.chunkLoaded = false;
 	}
 
 	/**Adds a data element at the end of the background list.
@@ -75,16 +88,17 @@ public class ChunkedFile<T> {
 		changed = true;
 	}
 	
-	/**Returns the index of the element with which the current chunk begins.
+	/** 
+	 * Returns the index of the element with which the current chunk begins.
 	 * The element does not have to exist if the chunk is empty.
 	 * @return Index of the starting element.
 	 */
 	public long indexStartingElementForChunk() {
-		
 		return loadedChunkFilePos / serializer.getElementLength();
 	}
 	
-	/**Returns the requested element from the chunk.
+	/**
+	 * Returns the requested element from the chunk.
 	 * @param indexInChunk Index of the element in the current chunk.
 	 * @return The requested element.
 	 */
@@ -97,7 +111,8 @@ public class ChunkedFile<T> {
 		return (T)data[indexInChunk];
 	}
 
-	/**Sets the requested element in the chznk.
+	/**
+	 * Sets the requested element in the chunk.
 	 * @param indexInChunk Index of the element in the current chunk.
 	 * @param value The new element.
 	 * @return The old element
@@ -126,7 +141,8 @@ public class ChunkedFile<T> {
 		return elementsInLoadedChunk >= chunkSize;
 	}
 	
-	/**Load chunk which contains the requested element.
+	/**
+	 * Load chunk which contains the requested element.
 	 * @param elementIndex Index of the data element with respect to all elements in the file on background storage.
 	 * @throws IOException Thrown if an IO error occurs.
 	 */
@@ -195,7 +211,8 @@ public class ChunkedFile<T> {
 		changed = false;
 	}
 
-	/**Serializes the current chunk to disc.
+	/**
+	 * Serializes the current chunk to disc.
 	 * @throws IOException Thrown if an IO error occurs.
 	 */
 	public void saveChunk() throws IOException {
@@ -217,7 +234,8 @@ public class ChunkedFile<T> {
 		}
 	}
 	
-	/**Returns the number of elements in the currently loaded chunk.
+	/**
+	 * Returns the number of elements in the currently loaded chunk.
 	 * @return the number of elements.
 	 */
 	public int getNumberElementsInLoadedChunk() {
@@ -229,7 +247,8 @@ public class ChunkedFile<T> {
 		return elementsInLoadedChunk;
 	}
 
-	/**Returns the number of elements which can still be stored in this chunk.
+	/**
+	 * Returns the number of elements which can still be stored in this chunk.
 	 * @return The number of elements. <code>0</code> if there is no chunk loaded. 
 	 */
 	public int elementCapacityLeft() {
@@ -239,7 +258,8 @@ public class ChunkedFile<T> {
 		return chunkSize - elementsInLoadedChunk;
 	}
 
-	/**Returns if the current chunk has been changed until it was last saved.
+	/**
+	 * Returns if the current chunk has been changed until it was last saved.
 	 * @return <code>true</code> if changed.
 	 */
 	public boolean isChanged() {
@@ -251,7 +271,8 @@ public class ChunkedFile<T> {
 		return changed;
 	}
 
-	/**Returns the number of serialized data elements in the file on background storage.
+	/**
+	 * Returns the number of serialized data elements in the file on background storage.
 	 * It may not be equal to the total number of elements stored and in memory.
 	 * @return The number of data elements in the file.
 	 */
@@ -259,7 +280,8 @@ public class ChunkedFile<T> {
 		return elementsInFile;
 	}
 	
-	/**Checks if the index of a data element is within the current chunk.
+	/**
+	 * Checks if the index of a data element is within the current chunk.
 	 * @param elementIndex Index of the data element with respect to all elements stored in the file on background storage.
 	 * @return <code>true</code> if the index is within the current chunk.
 	 */
@@ -270,7 +292,8 @@ public class ChunkedFile<T> {
 		return false;
 	}
 
-	/**Checks if there is currently a chunk loaded.
+	/**
+	 * Checks if there is currently a chunk loaded.
 	 * @return <code>true</code> if a chunk is loaded.
 	 */
 	public boolean isChunkLoaded() {

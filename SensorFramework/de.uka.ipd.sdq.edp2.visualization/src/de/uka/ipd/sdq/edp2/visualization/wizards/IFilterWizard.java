@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.edp2.visualization.wizards;
 
 import org.eclipse.jface.wizard.IWizard;
 
-import de.uka.ipd.sdq.edp2.visualization.AbstractAdapter;
 import de.uka.ipd.sdq.edp2.visualization.AbstractDataSource;
 import de.uka.ipd.sdq.edp2.visualization.AbstractFilter;
 

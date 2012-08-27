@@ -5,11 +5,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Observable;
 
-import javax.measure.unit.Unit;
-
-import de.uka.ipd.sdq.edp2.impl.MetricDescriptionUtility;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.NumericalBaseMetricDescription;
 import de.uka.ipd.sdq.edp2.visualization.editors.AbstractEditor;
 
 /**

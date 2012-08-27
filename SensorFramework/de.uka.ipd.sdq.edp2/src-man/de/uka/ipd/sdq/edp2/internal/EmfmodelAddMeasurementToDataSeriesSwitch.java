@@ -65,8 +65,8 @@ public class EmfmodelAddMeasurementToDataSeriesSwitch extends ExperimentDataSwit
 	@Override
 	public Boolean caseDoubleBinaryMeasurements(
 			DoubleBinaryMeasurements object) {
-		BinaryMeasurementsDao<javax.measure.Measure<Double, Quantity>> bmd = 
-			(BinaryMeasurementsDao<javax.measure.Measure<Double, Quantity>>) daoRegistry.getMeasurementsDao(object.getValuesUuid());
+		BinaryMeasurementsDao<Double, Quantity> bmd = 
+			(BinaryMeasurementsDao<Double, Quantity>) daoRegistry.getMeasurementsDao(object.getValuesUuid());
 		if (!bmd.isOpen()) {
 			try {
 				bmd.open();
@@ -83,8 +83,8 @@ public class EmfmodelAddMeasurementToDataSeriesSwitch extends ExperimentDataSwit
 	@Override
 	public Boolean caseLongBinaryMeasurements(
 			LongBinaryMeasurements object) {
-		BinaryMeasurementsDao<javax.measure.Measure<Long, Quantity>> bmd = 
-			(BinaryMeasurementsDao<javax.measure.Measure<Long, Quantity>>) daoRegistry.getMeasurementsDao(object.getValuesUuid());
+		BinaryMeasurementsDao<Long, Quantity> bmd = 
+			(BinaryMeasurementsDao<Long, Quantity>) daoRegistry.getMeasurementsDao(object.getValuesUuid());
 		if (!bmd.isOpen()) {
 			try {
 				bmd.open();

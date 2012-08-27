@@ -176,13 +176,13 @@ public class HistogramEditorInput extends
 
 		dataset = new HistogramDataset();
 
-		ArrayList<OrdinalMeasurementsDao<Measure>> listOfDaos = new ArrayList<OrdinalMeasurementsDao<Measure>>();
+		ArrayList<OrdinalMeasurementsDao> listOfDaos = new ArrayList<OrdinalMeasurementsDao>();
 		ArrayList<List<Measure>> listOfMeasures = new ArrayList<List<Measure>>();
 		for (DataSeries series : getSource().getOutput()) {
 			listOfDaos.add(MeasurementsUtility
 					.getOrdinalMeasurementsDao(series));
 		}
-		for (OrdinalMeasurementsDao<Measure> dao : listOfDaos) {
+		for (OrdinalMeasurementsDao dao : listOfDaos) {
 			listOfMeasures.add(dao.getMeasurements());
 		}
 

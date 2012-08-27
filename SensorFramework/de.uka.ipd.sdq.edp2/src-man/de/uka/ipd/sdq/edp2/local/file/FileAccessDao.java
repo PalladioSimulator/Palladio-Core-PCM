@@ -15,24 +15,30 @@ import org.eclipse.net4j.util.io.ExtendedDataOutputStream;
 import org.eclipse.net4j.util.io.ExtendedIOUtil;
 
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
-import de.uka.ipd.sdq.edp2.impl.MeasurementsDaoImpl;
+import de.uka.ipd.sdq.edp2.impl.AbstractMeasurementsDaoImpl;
 
-/**Provides the basic functionality and protocol checking for DAOs with file access.
+/**
+ * Provides the basic functionality and protocol checking for DAOs where the persisted data is managed in
+ * files on a local drive
+ * 
  * @author groenda
  */
-public abstract class FileAccessDao extends MeasurementsDaoImpl {
+abstract class FileAccessDao extends AbstractMeasurementsDaoImpl {
+    
 	/** Error logger for this class. */
 	protected static final Logger logger = Logger.getLogger(FileAccessDao.class.getCanonicalName());
 	
 	/** Denotes read-only file access. */
 	private static final String FILE_ACCESS_READ_ONLY = "r";
+	
 	/** Denotes read and write file access. */
 	private static final String FILE_ACCESS_READ_WRITE = "rw";
 
 	/** Pointer to the file containing the resource. */
 	protected File resourceFile = null;
 	
-	/**Sets the resource file from which the ExperimentGroup data is loaded.
+	/**
+	 * Sets the resource file from which the ExperimentGroup data is loaded.
 	 * Can only be set once.
 	 * @param resourceFile File in which the ExperimentGroup is stored.
 	 */
