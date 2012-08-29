@@ -52,7 +52,7 @@ public abstract class AbstractMain {
 	/**
 	 * Threads used to simulate users.
 	 */
-	protected ArrayList<Thread> threads = new ArrayList<Thread>();
+	protected List<Thread> threads = new ArrayList<Thread>();
 
 	protected RunProperties runProps;
 
@@ -111,7 +111,7 @@ public abstract class AbstractMain {
 			RmiRegistry.startRegistry();
 			AbstractAllocationStorage.setLocalMode(true);
 			setupResources();
-			startDefaultMain();
+			startLocalMode();
 		} else if (itemId == 2) {
 			// RmiRegistry
 			logger.debug("Start: RmiRegistry");
@@ -148,25 +148,22 @@ public abstract class AbstractMain {
 			for (String containerId : containers) {
 				if (itemId == i) {
 					logger.debug("Start: Container " + AbstractAllocationStorage.getContainerName(containerId));
-					Collection<Class<?>> components = AbstractAllocationStorage.getComponents(containerId);
 					AbstractAllocationStorage.setActiveContainer(containerId);
 					setupResources();
 
-					for (Class<?> component : components) {
-						logger.debug("Start: Component " + component.getName());
-						invokeMethod(getMain(component), getRMIRegistry());
-					}
+					startComponentsFromContainer(containerId);
+
 				}
 				i++;
 			}
 		}
 	}
 
-	private String[] getRMIRegistry() {
+	private String getRMIRegistry() {
 		if (runProps.hasOption("R")) {
-			return new String[] { runProps.getOptionValue("R") };
+			return runProps.getOptionValue("R");
 		}
-		return new String[] {};
+		return RmiRegistry.LOCALHOST;
 	}
 
 	private Method getMain(Class<?> mainClass) {
@@ -218,18 +215,36 @@ public abstract class AbstractMain {
 		logger.info("Created data source at event time " + (System.nanoTime() / Math.pow(10, 9)));
 	}
 
-	private void startDefaultMain() {
+	/**
+	 * Starts the prototype in a local mode. This can only be used for testing,
+	 * since all systems/components are started on one piece of hardware.
+	 */
+	private void startLocalMode() {
 		createExperiment();
 
-		if (!runProps.hasOption('R')) {
-			initialiseSystems();
+		Collection<String> containers = AbstractAllocationStorage.getContainerIds();
+
+		for (String containerId : containers) {
+			startComponentsFromContainer(containerId);
 		}
+
+		initialiseSystems();
+		
 		initMeasurement();
+	}
+
+	private void startComponentsFromContainer(String containerId) {
+		Collection<ComponentAllocation> components = AbstractAllocationStorage.getComponents(containerId);
+
+		for (ComponentAllocation component : components) {			
+			logger.info("Start: Component " + component.getComponentClass().getName() + ", assembly context: " + component.getAssemblyContext());
+			invokeMethod(getMain(component.getComponentClass()), getRMIRegistry(), component.getAssemblyContext());
+		}
 	}
 
 	protected abstract void initAllocationStorage();
 
-	private void invokeMethod(Method method, String[] params) {
+	private void invokeMethod(Method method, String... params) {
 		try {
 			method.invoke(null, (Object) params);
 		} catch (Exception e) {
@@ -337,7 +352,7 @@ public abstract class AbstractMain {
 	}
 
 	/**
-	 * Setup of resource 
+	 * Setup of resource
 	 */
 	protected abstract void setupResources();
 
@@ -345,6 +360,11 @@ public abstract class AbstractMain {
 	 * Starts all system elements by calling their main methods.
 	 */
 	protected abstract void initialiseSystems();
+
+	/**
+	 * Starts all components (for local mode!)
+	 */
+	// protected abstract void initialiseComponents();
 
 	/**
 	 * Returns an array of systems (class + name tuple).
@@ -377,4 +397,20 @@ public abstract class AbstractMain {
 	 * @param expRun
 	 */
 	protected abstract void initialiseThreads(Experiment exp, ExperimentRun expRun);
+
+	
+	
+	/**
+	 * Returns an assembly context from an argument string array.
+	 * 
+	 * @param args
+	 * @return
+	 */
+	public static String getAssemblyContextFromArguments(String[] args) {
+		if (args != null && args.length > 1) {
+			return args[1];
+		}
+		return "";
+	}
+	
 }

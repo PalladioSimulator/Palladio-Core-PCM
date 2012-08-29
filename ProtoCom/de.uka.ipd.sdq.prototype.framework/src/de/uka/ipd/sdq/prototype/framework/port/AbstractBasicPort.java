@@ -26,11 +26,6 @@ public class AbstractBasicPort<AComponent extends IComponent> extends java.rmi.s
 	
 	@Override
 	public AComponent getComponent() throws java.rmi.RemoteException {
-		
-		// cannot assign instance of $Proxy1 to field defaultrepository.impl.PaderTouristik.m_portProvided_IPOI_PaderTouristik of type defaultrepository.IPOI in instance of defaultrepository.impl.custom.PaderTouristik
-
-		
-		System.out.println("getComponent: " + this + " / " + myComponent);
 		return myComponent;
 	}
 
