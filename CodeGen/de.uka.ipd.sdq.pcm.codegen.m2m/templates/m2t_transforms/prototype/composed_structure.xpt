@@ -25,8 +25,8 @@
 			/* And finally, my ports */
 			try{
 			«EXPAND PortInit(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole)»
-			}catch(java.rmi.RemoteException e){
-			  e.printStackTrace();
+			} catch(java.rmi.RemoteException e){
+			  logger.error("Failed to initialise port for «this.entityName»");
 			}
 			
 			«EXPAND m2t_transforms::composed_structure::PortInit(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole)»
@@ -45,32 +45,27 @@
 			«ENDIF»
 		«ELSE»
 		   null
-		«ENDIF», this
+		«ENDIF», this, assemblyContext
 		);
 «ENDDEFINE»
 
 
 «DEFINE ComposedPREConstructorStartTM FOR ComposedProvidingRequiringEntity»
-   public «this.className()»() {
+   public «this.className()»(String assemblyContext) {
 «ENDDEFINE»
 
 «DEFINE AllChildMemberVarInit FOR ComposedProvidingRequiringEntity»
-	«IF System.isInstance(this)»
-	if (de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.LOCALHOST.equals(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress())) 
-	{
-		«EXPAND ChildMemberStartMain FOREACH this.assemblyContexts__ComposedStructure»
-	}
-	«ELSE»
+	«IF !System.isInstance(this)»
 		«EXPAND ChildMemberVarInit FOREACH this.assemblyContexts__ComposedStructure»
 	«ENDIF»
 «ENDDEFINE»
 
 «DEFINE ChildMemberStartMain FOR AssemblyContext»
-	«this.encapsulatedComponent__AssemblyContext.fqn()».main(null);
+	«this.encapsulatedComponent__AssemblyContext.fqn()».main("", "«this.id»");
 «ENDDEFINE»
 
 «DEFINE ChildMemberVarInit FOR AssemblyContext»
-	my«this.javaName()» = new «this.encapsulatedComponent__AssemblyContext.fqn()»("«this.parentStructure__AssemblyContext.javaName()»");	
+	my«this.javaName()» = new «this.encapsulatedComponent__AssemblyContext.fqn()»("«this.id»");	
 «ENDDEFINE»
 
 «DEFINE ChildInitTM(ComposedStructure s) FOR AssemblyContext»
@@ -121,24 +116,23 @@
       private void initInnerComponents() {
 
 		 try {
-	    	 «IF System.isInstance(this)»
-	    	 	 «EXPAND InitRMI(this) FOREACH this.assemblyContexts__ComposedStructure»
-	    	 «ENDIF»
+			«IF System.isInstance(this)»
+				«EXPAND InitRMI(this) FOREACH this.assemblyContexts__ComposedStructure»
+			«ENDIF»
 
-		  «IF this.assemblyContexts__ComposedStructure.select(c|!ComposedStructure.isInstance(c.encapsulatedComponent__AssemblyContext)).size > 0» 
-
+			«IF this.assemblyContexts__ComposedStructure.size > 0» 
 			  /* First, initialise composite child structures */
 			  «FOREACH this.assemblyContexts__ComposedStructure.select(c|ComposedStructure.isInstance(c.encapsulatedComponent__AssemblyContext)) AS child»
 				  init«child.javaName()»();
 			  «ENDFOREACH»
-			  /* Then initialise basic components */
 			  
+			  /* Then initialise basic components */
 			  «FOREACH this.assemblyContexts__ComposedStructure.select(c|!ComposedStructure.isInstance(c.encapsulatedComponent__AssemblyContext)) AS child»
 				  init«child.javaName()»();
 			  «ENDFOREACH»
-			  } 
 			  
     	  «ENDIF»
+    	  }
 			catch (java.rmi.RemoteException e) {
 				e.printStackTrace();
 			}
@@ -150,7 +144,8 @@
 
 «DEFINE InitRMI(ComposedStructure s) FOR AssemblyContext»
 	«LET this.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.get(0) AS e»
-		my«this.javaName()» = (de.uka.ipd.sdq.prototype.framework.port.IPort<«this.encapsulatedComponent__AssemblyContext.fqn()»>) de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.lookup("«((OperationProvidedRole)e).portClassName()»");
+		my«this.javaName()» = (de.uka.ipd.sdq.prototype.framework.port.IPort<«this.encapsulatedComponent__AssemblyContext.fqn()»>) de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.lookup("«((OperationProvidedRole)e).portClassName()»_«this.id»");
+«REM»		my«this.javaName()» = (de.uka.ipd.sdq.prototype.framework.port.IPort<«this.encapsulatedComponent__AssemblyContext.fqn()»>) de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.lookup("«((OperationProvidedRole)e).portClassName()»");«ENDREM»
 	«ENDLET»
 «ENDDEFINE»
 

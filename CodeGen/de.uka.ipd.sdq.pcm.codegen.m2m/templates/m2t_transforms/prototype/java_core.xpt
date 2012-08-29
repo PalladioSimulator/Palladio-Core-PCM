@@ -26,7 +26,7 @@
 	
 	«EXPAND m2t_transforms::resources::PassiveResourceInitTM FOREACH this.passiveResource_BasicComponent»
 	
-	public «this.javaName()»(String assemblyContextParentStructure) {
+	public «this.javaName()»(String assemblyContext) {
 
 		«REM»
 		See comment above.
@@ -44,11 +44,11 @@
 		«ENDREM»
 		
 		«FOREACH this.providedRoles_InterfaceProvidingEntity.select(e|OperationProvidedRole.isInstance(e)) AS role»
-			«((OperationProvidedRole)role).portMemberVar()» = init_«role.javaName()»(assemblyContextParentStructure);
+			«((OperationProvidedRole)role).portMemberVar()» = init_«role.javaName()»(assemblyContext);
 		«ENDFOREACH»
 		
 		«FOREACH this.providedRoles_InterfaceProvidingEntity.select(e|InfrastructureProvidedRole.isInstance(e)) AS role»
-			«((InfrastructureProvidedRole)role).portMemberVar()» = init_«role.javaName()»(assemblyContextParentStructure);
+			«((InfrastructureProvidedRole)role).portMemberVar()» = init_«role.javaName()»(assemblyContext);
 		«ENDFOREACH»
 	}
 «ENDDEFINE»
@@ -112,28 +112,34 @@
    «ERROR "OAW GENERATION ERROR [m2t_transforms/prototype/java_core.xpt]: Only OperationProvidedRoles are supported."»
 «ENDDEFINE»
 
-«REM»Basic Components get a main function with empty "parent component" (from the AssemblyContext)«ENDREM»
 «DEFINE MainImplementation FOR BasicComponent»
-	public static void main(String[] args) {
+	public static void main(String... args) {
+		logger.info("Main method of basic component «this.entityName» called");
+
 		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		String assemblyContext = de.uka.ipd.sdq.prototype.framework.AbstractMain.getAssemblyContextFromArguments(args);
+		
 		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
 		
-		new «this.fqn()»("");
+		new «this.fqn()»(assemblyContext);
 	}
 «ENDDEFINE»
 
-«REM»Composite Components get a main function«ENDREM»
 «DEFINE MainImplementation FOR ComposedProvidingRequiringEntity»
-	public static void main(String[] args) {
+	public static void main(String... args) {
+		logger.info("Main method of composed structure «this.entityName» called");
+
 		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		String assemblyContext = de.uka.ipd.sdq.prototype.framework.AbstractMain.getAssemblyContextFromArguments(args);
+		
 		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
 		
-		new «this.fqn()»();
+		new «this.fqn()»(assemblyContext);
 	}
 «ENDDEFINE»
 
 «REM»
-FIX FIX FIX!!!!
+FIX FIX FIX!!!! FIXME zolynski
 Haupt-Interfaces müssen Remote erweitern + RemoteExceptions an die Methoden
 «ENDREM»
 

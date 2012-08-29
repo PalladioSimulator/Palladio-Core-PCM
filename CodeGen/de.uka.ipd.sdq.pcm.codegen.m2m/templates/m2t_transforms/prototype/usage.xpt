@@ -115,7 +115,7 @@
 		«ENDREM»
 		
 		// Wait for system
-		«this.portMemberVar()» = («this.providedInterface__OperationProvidedRole.fqn()»)de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.lookup("«this.portClassName()»");
+		«this.portMemberVar()» = («this.providedInterface__OperationProvidedRole.fqn()»)de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.lookup("«this.portClassName()»_");
 	}
 
 «ENDDEFINE»

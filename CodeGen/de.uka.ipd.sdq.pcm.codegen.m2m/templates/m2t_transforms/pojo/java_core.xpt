@@ -16,8 +16,8 @@
 	private static org.apache.log4j.Logger logger = 
 			org.apache.log4j.Logger.getLogger(«this.javaName()».class.getName());	
 				
-	public «this.javaName()»(String assemblyContextParentStructure) { 
-		super(assemblyContextParentStructure);
+	public «this.javaName()»(String assemblyContext) { 
+		super(assemblyContext);
 	}
 «ENDDEFINE»
 

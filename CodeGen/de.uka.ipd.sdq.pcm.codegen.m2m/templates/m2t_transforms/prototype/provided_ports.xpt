@@ -16,9 +16,9 @@
 		  protected static org.apache.log4j.Logger logger = 
 			org.apache.log4j.Logger.getLogger(«this.portClassName()».class.getName());
 				
-		  public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent, String assemblyContextParentStructure) throws java.rmi.RemoteException {
+		  public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent, String assemblyContext) throws java.rmi.RemoteException {
 		  		this.myComponent = myComponent;
-				de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, assemblyContextParentStructure + "«this.portClassName()»");
+				de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, "«this.portClassName()»_" + assemblyContext);
 		  }
 		    
 	      «EXPAND m2t_transforms::provided_ports::ComponentPortHelperMethodsTM FOR this»
@@ -36,9 +36,9 @@
 		  protected static org.apache.log4j.Logger logger = 
 			org.apache.log4j.Logger.getLogger(«this.portClassName()».class.getName());
 
-	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent, String assemblyContextParentStructure) throws java.rmi.RemoteException {
+	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent, String assemblyContext) throws java.rmi.RemoteException {
 	        this.myComponent = myComponent;
-	       	de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, assemblyContextParentStructure + "«this.portClassName()»");
+	       	de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, "«this.portClassName()»_" + assemblyContext);
 	     }
 	    
 	     «EXPAND m2t_transforms::provided_ports::ComponentPortHelperMethodsTM FOR this»  
@@ -60,11 +60,11 @@
 	  
 		protected «this.providedInterface__OperationProvidedRole.fqn()» myInnerPort = null;
 	     
-		public «this.portClassName()»(«this.providedInterface__OperationProvidedRole.fqn()» myInnerPort, «this.providingEntity_ProvidedRole.fqnInterface()» myCompositeComponent) throws java.rmi.RemoteException {
+		public «this.portClassName()»(«this.providedInterface__OperationProvidedRole.fqn()» myInnerPort, «this.providingEntity_ProvidedRole.fqnInterface()» myCompositeComponent, String assemblyContext) throws java.rmi.RemoteException {
 			this.myInnerPort = myInnerPort;
 			this.myCompositeComponent = myCompositeComponent;
 		        	        
-			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, "«this.portClassName()»");
+			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, "«this.portClassName()»_" + assemblyContext);
 			logger.info("Instantiation of port «this.portClassName()» completed");	        
 		}	     
 	     	 	
@@ -92,10 +92,11 @@
 «DEFINE PortMemberVars FOR OperationProvidedRole»
     protected «this.providedInterface__OperationProvidedRole.fqn()» «this.portMemberVar()» = null;
 
-	private «this.fqnPort()» init_«this.javaName()»(String assemblyContextParentStructure) {
+	private «this.fqnPort()» init_«this.javaName()»(String assemblyContext) {
 		try {
-			return new «this.fqnPort()»(this, assemblyContextParentStructure);
+			return new «this.fqnPort()»(this, assemblyContext);
 		} catch (java.rmi.RemoteException e) {
+			logger.error("Failed to initialise port «this.fqnPort()»");
 		}
 		return null;
 	}
@@ -104,10 +105,11 @@
 «DEFINE PortMemberVars FOR InfrastructureProvidedRole»
     protected «this.providedInterface__InfrastructureProvidedRole.fqn()» «this.portMemberVar()» = null;
 
-	private «this.fqnPort()» init_«this.javaName()»(String assemblyContextParentStructure) {
+	private «this.fqnPort()» init_«this.javaName()»(String assemblyContext) {
 		try {
-			return new «this.fqnPort()»(this, assemblyContextParentStructure);
+			return new «this.fqnPort()»(this, assemblyContext);
 		} catch (java.rmi.RemoteException e) {
+			logger.error("Failed to initialise port «this.fqnPort()»");
 		}
 		return null;
 	}
