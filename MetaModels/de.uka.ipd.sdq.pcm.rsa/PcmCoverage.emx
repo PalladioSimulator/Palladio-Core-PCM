@@ -1864,6 +1864,28 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_JprG3sstEeGtzKs02xsY0g" fontName="Segoe UI" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JprG38stEeGtzKs02xsY0g" x="8052" y="18084"/>
         </children>
+        <children xmi:id="_6HDKUO0uEeG-fYgYogRGGg" element="_3kejgMqKEeGtzKs02xsY0g">
+          <children xmi:id="_6HE_gO0uEeG-fYgYogRGGg" type="ImageCompartment">
+            <layoutConstraint xmi:type="notation:Size" xmi:id="_6HE_ge0uEeG-fYgYogRGGg" width="1320" height="1320"/>
+          </children>
+          <children xmi:id="_6HE_gu0uEeG-fYgYogRGGg" type="Stereotype"/>
+          <children xmi:id="_6HE_g-0uEeG-fYgYogRGGg" type="Name"/>
+          <children xmi:id="_6HFmkO0uEeG-fYgYogRGGg" type="Parent"/>
+          <children xmi:id="_6HFmke0uEeG-fYgYogRGGg" type="AttributeCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_6HFmku0uEeG-fYgYogRGGg"/>
+          </children>
+          <children xmi:id="_6HFmk-0uEeG-fYgYogRGGg" type="OperationCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_6HFmlO0uEeG-fYgYogRGGg"/>
+          </children>
+          <children xmi:id="_6HGNoO0uEeG-fYgYogRGGg" visible="false" type="SignalCompartment">
+            <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_6HGNoe0uEeG-fYgYogRGGg"/>
+          </children>
+          <children xmi:id="_6HGNou0uEeG-fYgYogRGGg" visible="false" type="StructureCompartment">
+            <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_6HGNo-0uEeG-fYgYogRGGg"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_6HDKUe0uEeG-fYgYogRGGg" fontName="Segoe UI" showStereotype="Label"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6HDKUu0uEeG-fYgYogRGGg" x="10956" y="22572"/>
+        </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_EhDnEcstEeGtzKs02xsY0g"/>
         <element xsi:nil="true"/>
         <edges xmi:id="_Jpti8MstEeGtzKs02xsY0g" element="_O4UPsMqGEeGtzKs02xsY0g" source="_Jpm1SsstEeGtzKs02xsY0g" target="_JppRgMstEeGtzKs02xsY0g">
@@ -2281,6 +2303,15 @@
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_j19sEcs7EeGtzKs02xsY0g" fontName="Segoe UI" routing="Rectilinear" lineWidth="1" showStereotype="Text"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_j19sEss7EeGtzKs02xsY0g" points="[-3425, -65, 3585, 16766]$[-7164, -65, -154, 16766]$[-7164, -16210, -154, 621]"/>
+        </edges>
+        <edges xmi:id="_63Wl4O0uEeG-fYgYogRGGg" element="_608LEO0uEeG-fYgYogRGGg" source="_JprGwMstEeGtzKs02xsY0g" target="_6HDKUO0uEeG-fYgYogRGGg">
+          <children xmi:id="_63Wl4-0uEeG-fYgYogRGGg" type="NameLabel">
+            <children xmi:id="_63XM8O0uEeG-fYgYogRGGg" type="Stereotype"/>
+            <children xmi:id="_63XM8e0uEeG-fYgYogRGGg" type="Name"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_63Wl5O0uEeG-fYgYogRGGg" y="-186"/>
+          </children>
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_63Wl4e0uEeG-fYgYogRGGg" fontName="Segoe UI" lineWidth="1" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_63Wl4u0uEeG-fYgYogRGGg" points="[13, 26, -24, -56]$[35, 59, -2, -23]"/>
         </edges>
       </contents>
       <contents xmi:type="notation:Diagram" xmi:id="_PtRn4MstEeGtzKs02xsY0g" type="Class" name="ValueCoverage">
@@ -2775,13 +2806,13 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_RaDUAMqDEeGtzKs02xsY0g" name="ExactValueCoverage">
       <generalization xmi:id="_XkMQIMqFEeGtzKs02xsY0g" general="_Pr_2wMqDEeGtzKs02xsY0g"/>
-      <ownedAttribute xmi:id="_ehYWoMqDEeGtzKs02xsY0g" name="value" visibility="public">
+      <ownedAttribute xmi:id="_ehYWoMqDEeGtzKs02xsY0g" name="value" visibility="public" aggregation="composite">
         <type xmi:type="uml:Class" href="stoex.emx#_Ubf9UDhvEdy4wo8LP9zxLA?stoex/RandomVariable?"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_S_9h4MqDEeGtzKs02xsY0g" name="LowerBoundValueCoverage">
       <generalization xmi:id="_X8c_IMqFEeGtzKs02xsY0g" general="_Pr_2wMqDEeGtzKs02xsY0g"/>
-      <ownedAttribute xmi:id="_6Ri1cMqEEeGtzKs02xsY0g" name="value" visibility="public">
+      <ownedAttribute xmi:id="_6Ri1cMqEEeGtzKs02xsY0g" name="value" visibility="public" aggregation="composite">
         <type xmi:type="uml:Class" href="stoex.emx#_Ubf9UDhvEdy4wo8LP9zxLA?stoex/RandomVariable?"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_E2Cu8MqFEeGtzKs02xsY0g" name="rangeValueCoverage" visibility="public" type="_C-cUIMqFEeGtzKs02xsY0g" association="_E1-dgMqFEeGtzKs02xsY0g">
@@ -2794,7 +2825,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_UAkDQMqDEeGtzKs02xsY0g" name="UpperBoundValueCoverage">
       <generalization xmi:id="_YXeuQMqFEeGtzKs02xsY0g" general="_Pr_2wMqDEeGtzKs02xsY0g"/>
-      <ownedAttribute xmi:id="_93j54MqEEeGtzKs02xsY0g" name="value" visibility="public">
+      <ownedAttribute xmi:id="_93j54MqEEeGtzKs02xsY0g" name="value" visibility="public" aggregation="composite">
         <type xmi:type="uml:Class" href="stoex.emx#_Ubf9UDhvEdy4wo8LP9zxLA?stoex/RandomVariable?"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_FYc4cMqFEeGtzKs02xsY0g" name="rangeValueCoverage" visibility="public" type="_C-cUIMqFEeGtzKs02xsY0g" association="_FYZ1IMqFEeGtzKs02xsY0g">
@@ -2888,6 +2919,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_ZpwHEMqIEeGtzKs02xsY0g" name="AbstractLoopCoverageSpecification">
       <generalization xmi:id="_KM7h0MqKEeGtzKs02xsY0g" general="_H0S6sMqDEeGtzKs02xsY0g"/>
+      <generalization xmi:id="_608LEO0uEeG-fYgYogRGGg" general="_3kejgMqKEeGtzKs02xsY0g"/>
       <ownedAttribute xmi:id="_B1D38MqKEeGtzKs02xsY0g" name="numberOfIterations" visibility="public" type="_Pr_2wMqDEeGtzKs02xsY0g" aggregation="composite" association="_B1Cp0MqKEeGtzKs02xsY0g">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_B1EfAcqKEeGtzKs02xsY0g" value="*"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B1EfAMqKEeGtzKs02xsY0g"/>
