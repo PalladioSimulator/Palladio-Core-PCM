@@ -17,7 +17,7 @@ public class ExperimentRunner {
 	
     private static final double ONE_HUNDERT_PERCENT = 100.0;
     
-	private static final int UNLIMITED_SIMULATION_TIME = 0;
+	private static final long UNLIMITED_SIMULATION_TIME = Long.MAX_VALUE - 1;
     
     private final static Logger logger = 
 		Logger.getLogger(ExperimentRunner.class.getName());
@@ -141,7 +141,7 @@ public class ExperimentRunner {
             if (logger.isDebugEnabled()) { 
                 logger.debug("Deactivating maximum simulation time stop condition per user request");
             }
-            model.getSimulationControl().setMaxSimTime(UNLIMITED_SIMULATION_TIME); 
+            // model.getSimulationControl().setMaxSimTime(UNLIMITED_SIMULATION_TIME); 
             return false;
 		}
     }
