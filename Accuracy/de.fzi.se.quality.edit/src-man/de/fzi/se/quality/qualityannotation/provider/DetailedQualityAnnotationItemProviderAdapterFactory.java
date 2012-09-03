@@ -67,4 +67,20 @@ public class DetailedQualityAnnotationItemProviderAdapterFactory extends
 		}
 		return this.noPrecisionItemProvider;
 	}
+	
+	@Override
+	public Adapter createCharacterisedPCMParameterPartitionIntervalAdapter() {
+		if (this.characterisedPCMParameterPartitionIntervalItemProvider == null) {
+			this.characterisedPCMParameterPartitionIntervalItemProvider = new QualityCharacterisedPCMParameterPartitionIntervalItemProvider(this);
+		}
+		return this.characterisedPCMParameterPartitionIntervalItemProvider;
+	}
+	
+	@Override
+	public Adapter createCharacterisedPCMParameterPartitionRangeAdapter() {
+		if (this.characterisedPCMParameterPartitionRangeItemProvider == null) {
+			this.characterisedPCMParameterPartitionRangeItemProvider = new QualityCharacterisedPCMParameterPartitionRangeItemProvider(this);
+		}
+		return this.characterisedPCMParameterPartitionRangeItemProvider;
+	}
 }

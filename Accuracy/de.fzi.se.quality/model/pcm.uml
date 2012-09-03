@@ -98,6 +98,14 @@ PCMRandomVariable extends RandomVariable in a way, that the only type of variabl
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4YV9YQh2EeCQFc0YYtBKsw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4YV9YAh2EeCQFc0YYtBKsw"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_tx5CQ3sYEeC4F76ww26DWA" name="assemblyEventConnector__FilterCondition" visibility="public" type="_eo5REHSkEd-1jbVkuJ9Llg" association="_txlgQHsYEeC4F76ww26DWA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tx5CRXsYEeC4F76ww26DWA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tx5CRHsYEeC4F76ww26DWA"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_8lxz1LahEeCl7dogSpARwQ" name="eventChannelSinkConnector__FilterCondition" visibility="private" type="_RYsJcLafEeCl7dogSpARwQ" association="_8lxz0LahEeCl7dogSpARwQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8lxz1rahEeCl7dogSpARwQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8lxz1bahEeCl7dogSpARwQ"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_qLB6kOJQEdqxcra4qpeplw" name="entity">
         <ownedComment xmi:id="_HyECUKtgEd2iPq4SbQh7ig" annotatedElement="_qLB6kOJQEdqxcra4qpeplw">
@@ -411,6 +419,10 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rXlc0Vt4EeCiibGtttQrnQ" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rXlc0Ft4EeCiibGtttQrnQ"/>
           </ownedAttribute>
+          <ownedAttribute xmi:id="_l-33YbasEeCl7dogSpARwQ" name="eventChannel__ComposedStructure" visibility="private" type="_MN3XcLasEeCl7dogSpARwQ" aggregation="composite" association="_l-33YLasEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l-33Y7asEeCl7dogSpARwQ" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l-33YrasEeCl7dogSpARwQ"/>
+          </ownedAttribute>
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_vb6W8Gc6EduCGaQAxkcIwA" memberEnd="_vb6W8Wc6EduCGaQAxkcIwA _vb6W8mc6EduCGaQAxkcIwA"/>
         <packagedElement xmi:type="uml:Association" xmi:id="_3NG-4OJSEdqxcra4qpeplw" memberEnd="_3NG-4eJSEdqxcra4qpeplw _3NG-4uJSEdqxcra4qpeplw">
@@ -496,6 +508,10 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
           <ownedAttribute xmi:id="_5oN-QXSkEd-1jbVkuJ9Llg" name="sourceAssemblyContext__AssemblyEventConnector" visibility="public" type="_EfLuYOJSEdqxcra4qpeplw" association="_5oN-QHSkEd-1jbVkuJ9Llg">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5oUE4XSkEd-1jbVkuJ9Llg" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5oUE4HSkEd-1jbVkuJ9Llg" value="1"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_tx5CQHsYEeC4F76ww26DWA" name="filterCondition__AssemblyEventConnector" visibility="public" type="_GIDLsPdxEdqB_7dkOscBPA" aggregation="composite" association="_txlgQHsYEeC4F76ww26DWA">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tx5CQnsYEeC4F76ww26DWA" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tx5CQXsYEeC4F76ww26DWA"/>
           </ownedAttribute>
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_plMmkHSkEd-1jbVkuJ9Llg" memberEnd="_plStMHSkEd-1jbVkuJ9Llg _plStM3SkEd-1jbVkuJ9Llg">
@@ -737,6 +753,101 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
           </ownedEnd>
         </packagedElement>
         <packagedElement xmi:type="uml:Association" xmi:id="_rXgkUFt4EeCiibGtttQrnQ" memberEnd="_rXjAkFt4EeCiibGtttQrnQ _rXmD4Ft4EeCiibGtttQrnQ"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_txlgQHsYEeC4F76ww26DWA" name="" memberEnd="_tx5CQHsYEeC4F76ww26DWA _tx5CQ3sYEeC4F76ww26DWA">
+          <ownedComment xmi:id="_zvgawHsZEeC4F76ww26DWA" annotatedElement="_txlgQHsYEeC4F76ww26DWA">
+            <body>&lt;p>&#xD;
+    The filter Condition allows to specify a stochastical expression. Events are forwarded only if this expression is&#xD;
+    evaluated to true.&#xD;
+&lt;/p></body>
+          </ownedComment>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_RYsJcLafEeCl7dogSpARwQ" name="EventChannelSinkConnector">
+          <generalization xmi:id="_VPT1sLafEeCl7dogSpARwQ" general="_UkxkoJQAEdqSSImFLKDkSg"/>
+          <ownedAttribute xmi:id="_dZlTALagEeCl7dogSpARwQ" name="sinkRole__EventChannelSinkConnector" visibility="private" type="_QpyOsHSgEd-1jbVkuJ9Llg" association="_dZcJELagEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dZvEAbagEeCl7dogSpARwQ" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dZvEALagEeCl7dogSpARwQ" value="1"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_8lxz0bahEeCl7dogSpARwQ" name="filterCondition__EventChannelSinkConnector" visibility="private" type="_GIDLsPdxEdqB_7dkOscBPA" aggregation="composite" association="_8lxz0LahEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8lxz07ahEeCl7dogSpARwQ" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8lxz0rahEeCl7dogSpARwQ"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_CQKuUbajEeCl7dogSpARwQ" name="assemblyContext__EventChannelSinkConnector" visibility="private" type="_EfLuYOJSEdqxcra4qpeplw" association="_CQKuULajEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CQKuU7ajEeCl7dogSpARwQ" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CQKuUrajEeCl7dogSpARwQ" value="1"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="__mjIQfsgEeCrNPwUgW78eA" name="eventChannel__EventChannelSinkConnector" visibility="private" type="_MN3XcLasEeCl7dogSpARwQ" association="__mjIQPsgEeCrNPwUgW78eA">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__mjIQ_sgEeCrNPwUgW78eA" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__mjIQvsgEeCrNPwUgW78eA" value="1"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_VsN0ILafEeCl7dogSpARwQ" name="EventChannelSourceConnector">
+          <generalization xmi:id="_YTta0LafEeCl7dogSpARwQ" general="_UkxkoJQAEdqSSImFLKDkSg"/>
+          <ownedAttribute xmi:id="_6iNPAbagEeCl7dogSpARwQ" name="sourceRole__EventChannelSourceRole" visibility="private" type="_WFUqUHSgEd-1jbVkuJ9Llg" association="_6iNPALagEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6iNPA7agEeCl7dogSpARwQ" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6iNPAragEeCl7dogSpARwQ" value="1"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_ykjKALaiEeCl7dogSpARwQ" name="assemblyContext__EventChannelSourceConnector" visibility="private" type="_EfLuYOJSEdqxcra4qpeplw" association="_ykaAELaiEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ykjKAraiEeCl7dogSpARwQ" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ykjKAbaiEeCl7dogSpARwQ" value="1"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_kR2oAfsgEeCrNPwUgW78eA" name="eventChannel__EventChannelSourceConnector" visibility="private" type="_MN3XcLasEeCl7dogSpARwQ" association="_kR2oAPsgEeCrNPwUgW78eA">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kSAZAfsgEeCrNPwUgW78eA" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kSAZAPsgEeCrNPwUgW78eA" value="1"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_dZcJELagEeCl7dogSpARwQ" name="" memberEnd="_dZlTALagEeCl7dogSpARwQ _dZvEAragEeCl7dogSpARwQ">
+          <ownedEnd xmi:id="_dZvEAragEeCl7dogSpARwQ" name="" visibility="private" type="_RYsJcLafEeCl7dogSpARwQ" association="_dZcJELagEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dZvEBLagEeCl7dogSpARwQ" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dZvEA7agEeCl7dogSpARwQ"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_6iNPALagEeCl7dogSpARwQ" memberEnd="_6iNPAbagEeCl7dogSpARwQ _6iNPBLagEeCl7dogSpARwQ">
+          <ownedEnd xmi:id="_6iNPBLagEeCl7dogSpARwQ" name="" visibility="private" type="_VsN0ILafEeCl7dogSpARwQ" association="_6iNPALagEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6iNPBragEeCl7dogSpARwQ" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6iNPBbagEeCl7dogSpARwQ"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_8lxz0LahEeCl7dogSpARwQ" memberEnd="_8lxz0bahEeCl7dogSpARwQ _8lxz1LahEeCl7dogSpARwQ"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_ykaAELaiEeCl7dogSpARwQ" memberEnd="_ykjKALaiEeCl7dogSpARwQ _ykjKA7aiEeCl7dogSpARwQ">
+          <ownedEnd xmi:id="_ykjKA7aiEeCl7dogSpARwQ" name="eventChannelSourceConnector__AssemblyContext" visibility="private" type="_VsN0ILafEeCl7dogSpARwQ" association="_ykaAELaiEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ykjKBbaiEeCl7dogSpARwQ" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ykjKBLaiEeCl7dogSpARwQ"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_CQKuULajEeCl7dogSpARwQ" memberEnd="_CQKuUbajEeCl7dogSpARwQ _CQKuVLajEeCl7dogSpARwQ">
+          <ownedEnd xmi:id="_CQKuVLajEeCl7dogSpARwQ" name="eventChannelSinkConnector__assemblyContext" visibility="private" type="_RYsJcLafEeCl7dogSpARwQ" association="_CQKuULajEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CQKuVrajEeCl7dogSpARwQ" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CQKuVbajEeCl7dogSpARwQ"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_MN3XcLasEeCl7dogSpARwQ" name="EventChannel">
+          <generalization xmi:id="_UqMqkLasEeCl7dogSpARwQ" general="_au_WlWA_EdqdHZdhXRxKVg"/>
+          <ownedAttribute xmi:id="_l-33ZLasEeCl7dogSpARwQ" name="parentStructure__EventChannel" visibility="private" type="_n_-J0Gc6EduCGaQAxkcIwA" association="_l-33YLasEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_l_BBUbasEeCl7dogSpARwQ" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l_BBULasEeCl7dogSpARwQ" value="1"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="__MQs4basEeCl7dogSpARwQ" name="eventGroup__EventChannel" visibility="private" type="_gQ-Q4HSeEd-1jbVkuJ9Llg" association="__MQs4LasEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__MQs47asEeCl7dogSpARwQ" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__MQs4rasEeCl7dogSpARwQ" value="1"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_kSAZAvsgEeCrNPwUgW78eA" name="eventChannelSourceConnector__EventChannel" visibility="private" type="_VsN0ILafEeCl7dogSpARwQ" association="_kR2oAPsgEeCrNPwUgW78eA">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kSAZBPsgEeCrNPwUgW78eA" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kSAZA_sgEeCrNPwUgW78eA"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="__mjIRPsgEeCrNPwUgW78eA" name="eventChannelSinkConnector__EventChannel" visibility="private" type="_RYsJcLafEeCl7dogSpARwQ" association="__mjIQPsgEeCrNPwUgW78eA">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__mjIRvsgEeCrNPwUgW78eA" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__mjIRfsgEeCrNPwUgW78eA"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_l-33YLasEeCl7dogSpARwQ" memberEnd="_l-33YbasEeCl7dogSpARwQ _l-33ZLasEeCl7dogSpARwQ"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="__MQs4LasEeCl7dogSpARwQ" memberEnd="__MQs4basEeCl7dogSpARwQ __MQs5LasEeCl7dogSpARwQ">
+          <ownedEnd xmi:id="__MQs5LasEeCl7dogSpARwQ" name="" visibility="private" type="_MN3XcLasEeCl7dogSpARwQ" association="__MQs4LasEeCl7dogSpARwQ">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__MQs5rasEeCl7dogSpARwQ" value="*"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__MQs5basEeCl7dogSpARwQ"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_kR2oAPsgEeCrNPwUgW78eA" memberEnd="_kR2oAfsgEeCrNPwUgW78eA _kSAZAvsgEeCrNPwUgW78eA"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="__mjIQPsgEeCrNPwUgW78eA" memberEnd="__mjIQfsgEeCrNPwUgW78eA __mjIRPsgEeCrNPwUgW78eA"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_8EoEgCh8Edue7oeC4NTCGg" name="allocation">
@@ -752,13 +863,23 @@ However, as AssemblyContexts of ComposedStructure always contain InterfaceProvid
         <ownedComment xmi:id="_gX6b4Pw4Ed68D51GrGx7ow" annotatedElement="_9nOFcOD7Edq8ysXH3gTiEg">
           <body>Mapping between AssemblyContext and Resource. Sometimes referred to as &quot;Deployment&quot;.</body>
         </ownedComment>
+        <ownedRule xmi:id="_5TYjELauEeCl7dogSpARwQ" name="OneAssemblyContextOrOneEventChannelShouldBeReferred" constrainedElement="_9nOFcOD7Edq8ysXH3gTiEg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_5TYjEbauEeCl7dogSpARwQ">
+            <language>OCL</language>
+            <body>not(self.assemblyContext_AllocationContext.oclIsUndefined()) xor not(self.eventChannel__AllocationContext.oclIsUndefined())</body>
+          </specification>
+        </ownedRule>
         <generalization xmi:id="_Yyn7QGdNEduCGaQAxkcIwA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <ownedAttribute xmi:id="_0tQB0eEAEdq8ysXH3gTiEg" name="resourceContainer_AllocationContext" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_0tQB0OEAEdq8ysXH3gTiEg"/>
         <ownedAttribute xmi:id="__Tb3AWc_EduCGaQAxkcIwA" name="assemblyContext_AllocationContext" type="_EfLuYOJSEdqxcra4qpeplw" association="__Tb3AGc_EduCGaQAxkcIwA">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__TloAGc_EduCGaQAxkcIwA" value="1"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__Tb3A2c_EduCGaQAxkcIwA" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__Tb3A2c_EduCGaQAxkcIwA"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_CO_D8uMvEdqaQsPH3rPnBQ" name="allocation_AllocationContext" visibility="public" type="_AtO9UOMvEdqaQsPH3rPnBQ" association="_CO_D8OMvEdqaQsPH3rPnBQ"/>
+        <ownedAttribute xmi:id="_r-R_obatEeCl7dogSpARwQ" name="eventChannel__AllocationContext" visibility="private" type="_MN3XcLasEeCl7dogSpARwQ" association="_r-R_oLatEeCl7dogSpARwQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r-R_o7atEeCl7dogSpARwQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_r-R_oratEeCl7dogSpARwQ"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_AtO9UOMvEdqaQsPH3rPnBQ" name="Allocation">
         <ownedComment xmi:id="_UMSzkPw4Ed68D51GrGx7ow" annotatedElement="_AtO9UOMvEdqaQsPH3rPnBQ">
@@ -801,6 +922,12 @@ The constraint is realised wth a closure over the AssemblyContext contained in a
       <packagedElement xmi:type="uml:Association" xmi:id="_0tQB0OEAEdq8ysXH3gTiEg" name="deployedOn" memberEnd="_0tQB0eEAEdq8ysXH3gTiEg _0tQB0uEAEdq8ysXH3gTiEg">
         <ownedEnd xmi:id="_0tQB0uEAEdq8ysXH3gTiEg" name="allocationcontext" visibility="private" type="_9nOFcOD7Edq8ysXH3gTiEg" association="_0tQB0OEAEdq8ysXH3gTiEg"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_r-R_oLatEeCl7dogSpARwQ" memberEnd="_r-R_obatEeCl7dogSpARwQ _r-R_pLatEeCl7dogSpARwQ">
+        <ownedEnd xmi:id="_r-R_pLatEeCl7dogSpARwQ" name="" visibility="private" type="_9nOFcOD7Edq8ysXH3gTiEg" association="_r-R_oLatEeCl7dogSpARwQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_r-bwobatEeCl7dogSpARwQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_r-bwoLatEeCl7dogSpARwQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_BdlGMCh9Edue7oeC4NTCGg" name="repository">
       <ownedComment xmi:id="_W8M_UPxMEd68D51GrGx7ow" annotatedElement="_BdlGMCh9Edue7oeC4NTCGg">
@@ -825,6 +952,10 @@ The constraint is realised wth a closure over the AssemblyContext contained in a
         </ownedAttribute>
         <ownedAttribute xmi:id="_lJFvAjj-Edy2j_4z2PHNJQ" name="basicComponent_PassiveResource" visibility="public" type="_oz-CwJJIEdqSSImFLKDkSg" association="_lJFvADj-Edy2j_4z2PHNJQ"/>
         <ownedAttribute xmi:id="_WbmzAEveEeCDNbvXrFXPgQ" name="resourceTimeoutFailureType__PassiveResource" visibility="public" type="_8RpdAEvcEeCDNbvXrFXPgQ" association="_WbgFUEveEeCDNbvXrFXPgQ">
+          <ownedComment xmi:id="_UAJtcMcSEeCDdOneIPKwaw" annotatedElement="_WbmzAEveEeCDNbvXrFXPgQ">
+            <body>The&amp;nbsp;failure type that represents a timeout&amp;nbsp;failure of an acquiring action for this passive resource&amp;nbsp;(see the&#xD;
+documentation of the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further information).</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WboBIUveEeCDNbvXrFXPgQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WboBIEveEeCDNbvXrFXPgQ"/>
         </ownedAttribute>
@@ -1645,19 +1776,30 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
           <body>UML-like&amp;nbsp;container&amp;nbsp;of&amp;nbsp;a&amp;nbsp;number&amp;nbsp;of&amp;nbsp;processing&amp;nbsp;resources (e.g. hardware server)</body>
         </ownedComment>
         <generalization xmi:id="_aCNMEOMwEdqaQsPH3rPnBQ" general="_au_WlWA_EdqdHZdhXRxKVg"/>
-        <ownedAttribute xmi:id="_L199gDN9Ed-oDbJSXOQA-w" name="operatingSystem_ResourceContainer" visibility="public" type="_vLVlEDN8Ed-oDbJSXOQA-w">
-          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_sYOf4DXPEd-zYP5X4Q3jLQ" name="ABSTRACT" type="_vLVlEDN8Ed-oDbJSXOQA-w" instance="_x1p2QDN8Ed-oDbJSXOQA-w"/>
-        </ownedAttribute>
         <ownedAttribute xmi:id="_-zhHMeEAEdq8ysXH3gTiEg" name="activeResourceSpecifications_ResourceContainer" type="_wru2gODnEdq8ysXH3gTiEg" aggregation="composite" association="_-zhHMOEAEdq8ysXH3gTiEg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_V_hTweEBEdq8ysXH3gTiEg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_V_hTwOEBEdq8ysXH3gTiEg"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_biJdUOQLEdqeH_WIC9QRew" name="resourceEnvironment_ResourceContainer" visibility="public" type="_MrdV4OQLEdqeH_WIC9QRew" association="_bh_sUOQLEdqeH_WIC9QRew"/>
+        <ownedAttribute xmi:id="_biJdUOQLEdqeH_WIC9QRew" name="resourceEnvironment_ResourceContainer" visibility="public" type="_MrdV4OQLEdqeH_WIC9QRew" association="_bh_sUOQLEdqeH_WIC9QRew">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jg49wOK5EeCAjtHM2JahWQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jg0sUOK5EeCAjtHM2JahWQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_lHTh8OK5EeCAjtHM2JahWQ" name="nestedResourceContainers__ResourceContainer" visibility="public" type="_qdz5sOD9Edq8ysXH3gTiEg" aggregation="composite" association="_lHM0QOK5EeCAjtHM2JahWQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lHWlQOK5EeCAjtHM2JahWQ" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lHV-MOK5EeCAjtHM2JahWQ"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_lHa2sOK5EeCAjtHM2JahWQ" name="parentResourceContainer__ResourceContainer" visibility="public" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_lHM0QOK5EeCAjtHM2JahWQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lHbdweK5EeCAjtHM2JahWQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lHbdwOK5EeCAjtHM2JahWQ"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_wru2gODnEdq8ysXH3gTiEg" name="ProcessingResourceSpecification">
         <ownedComment xmi:id="_M3vwcPxPEd68D51GrGx7ow" annotatedElement="_wru2gODnEdq8ysXH3gTiEg">
           <body>Performance specification of processing resources (e.g. processing rate, scheduling policy)</body>
         </ownedComment>
+        <generalization xmi:id="_uQcX0IR3EeGQjuTqPWWIlQ">
+          <general xmi:type="uml:Class" href="identifier.uml#_UMp04JMWEdqSSImFLKDkSg"/>
+        </generalization>
         <ownedAttribute xmi:id="_1lj7QEIxEd6xDqQsjkcxUg" name="MTTR" visibility="public">
           <ownedComment xmi:id="_ON0DYEIyEd6xDqQsjkcxUg" annotatedElement="_1lj7QEIxEd6xDqQsjkcxUg">
             <body>The Mean Time To Repair (MTTR) of a physical resource is the expected timespan from breakdown of this physical resource to its repair or replacement.</body>
@@ -1678,9 +1820,25 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
             <body>0.0</body>
           </defaultValue>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_CRHygBmtEdyaJvvdhGgDYg" name="schedulingPolicy" visibility="private" type="_wuNVYBmsEdyaJvvdhGgDYg">
-          <defaultValue xmi:type="uml:InstanceValue" xmi:id="_vJiw8DXPEd-zYP5X4Q3jLQ" name="FCFS" type="_wuNVYBmsEdyaJvvdhGgDYg" instance="_6WbM0BmsEdyaJvvdhGgDYg"/>
+        <ownedAttribute xmi:id="_-svE0OAYEeCp4tHWeolwKw" name="requiredByContainer" visibility="public">
+          <ownedComment xmi:id="_Mh1-AOAaEeCp4tHWeolwKw" annotatedElement="_-svE0OAYEeCp4tHWeolwKw">
+            <body>&lt;p>&#xD;
+    This attribute controls the handling of the resource&amp;nbsp;by the&amp;nbsp;reliability prediction.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    If set to TRUE, the unavailability of the resource automatically leads to the unavailability of the surrounding&#xD;
+    resource container. Every attempt to execute a SEFF on an unavailable resource container leads to a corresponding&#xD;
+    resource failure.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    If set to FALSE, the unavailability of the resource does not make the container unavailable. An attempt to execute a&#xD;
+    SEFF on a container with an unavailable resource leads to a resource failure ONLY IF the SEFF contains an&#xD;
+    InternalAction that accesses&amp;nbsp;the resource.&#xD;
+&lt;/p></body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_CRHygBmtEdyaJvvdhGgDYg" name="schedulingPolicy" visibility="public" type="_qCvlgFZaEeGeS6ke48p2kw"/>
         <ownedAttribute xmi:id="_CPbWweDoEdq8ysXH3gTiEg" name="activeResourceType_ActiveResourceSpecification" type="_n2nAMOD4Edq8ysXH3gTiEg" association="_CPbWwODoEdq8ysXH3gTiEg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lbQGIeD6Edq8ysXH3gTiEg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lbQGIOD6Edq8ysXH3gTiEg" value="1"/>
@@ -1778,26 +1936,9 @@ cannot be expressed in the PCM, as protocols can only be specified for single in
       <packagedElement xmi:type="uml:Association" xmi:id="_bh_sUOQLEdqeH_WIC9QRew" memberEnd="_bh_sUeQLEdqeH_WIC9QRew _biJdUOQLEdqeH_WIC9QRew"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_XvtGcOQLEdqeH_WIC9QRew" memberEnd="_XvtGceQLEdqeH_WIC9QRew _XvtGcuQLEdqeH_WIC9QRew"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_Oy4cMBmoEdyaJvvdhGgDYg" memberEnd="_Oy4cMRmoEdyaJvvdhGgDYg _Oy4cMhmoEdyaJvvdhGgDYg"/>
-      <packagedElement xmi:type="uml:Enumeration" xmi:id="_wuNVYBmsEdyaJvvdhGgDYg" name="SchedulingPolicy">
-        <ownedComment xmi:id="_WSa7IPxPEd68D51GrGx7ow" annotatedElement="_wuNVYBmsEdyaJvvdhGgDYg">
-          <body>Supported scheduling policies of the PCM</body>
-        </ownedComment>
-        <ownedLiteral xmi:id="_lb32IDN8Ed-oDbJSXOQA-w" name="EXACT" classifier="_wuNVYBmsEdyaJvvdhGgDYg"/>
-        <ownedLiteral xmi:id="_--aEkBmsEdyaJvvdhGgDYg" name="DELAY" classifier="_wuNVYBmsEdyaJvvdhGgDYg"/>
-        <ownedLiteral xmi:id="_7q7hoBmsEdyaJvvdhGgDYg" name="PROCESSOR_SHARING" classifier="_wuNVYBmsEdyaJvvdhGgDYg"/>
-        <ownedLiteral xmi:id="_6WbM0BmsEdyaJvvdhGgDYg" name="FCFS" classifier="_wuNVYBmsEdyaJvvdhGgDYg"/>
-      </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_ElM9kDhwEdy4wo8LP9zxLA" memberEnd="_ElM9kThwEdy4wo8LP9zxLA _ElM9kjhwEdy4wo8LP9zxLA"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_HTP4MDhwEdy4wo8LP9zxLA" memberEnd="_HTP4MThwEdy4wo8LP9zxLA _HTP4MjhwEdy4wo8LP9zxLA"/>
-      <packagedElement xmi:type="uml:Enumeration" xmi:id="_vLVlEDN8Ed-oDbJSXOQA-w" name="ContainerOperatingSystem">
-        <ownedLiteral xmi:id="_AERREDN9Ed-oDbJSXOQA-w" name="WINDOWS_VISTA" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_8WmFcDN8Ed-oDbJSXOQA-w" name="LINUX26_CFS" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_5joOkDN8Ed-oDbJSXOQA-w" name="LINUX26_O1" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_3XHTsDN8Ed-oDbJSXOQA-w" name="WINDOWS_XP" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_DZgHgDN9Ed-oDbJSXOQA-w" name="WINDOWS_7" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_zhP1YDN8Ed-oDbJSXOQA-w" name="WINDOWS_2003" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-        <ownedLiteral xmi:id="_x1p2QDN8Ed-oDbJSXOQA-w" name="ABSTRACT" classifier="_vLVlEDN8Ed-oDbJSXOQA-w"/>
-      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_lHM0QOK5EeCAjtHM2JahWQ" memberEnd="_lHTh8OK5EeCAjtHM2JahWQ _lHa2sOK5EeCAjtHM2JahWQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_V8vSACh9Edue7oeC4NTCGg" name="usagemodel">
       <ownedComment xmi:id="_AhJkAKthEd2iPq4SbQh7ig" annotatedElement="_V8vSACh9Edue7oeC4NTCGg">
@@ -1859,26 +2000,26 @@ services&amp;nbsp;of&amp;nbsp;a&amp;nbsp;system&amp;nbsp;one&amp;nbsp;at&amp;nbs
 -&#xD;
 System&amp;nbsp;service&amp;nbsp;invocations&amp;nbsp;can&amp;nbsp;be&amp;nbsp;enhanced&amp;nbsp;with&amp;nbsp;characterisations&amp;nbsp;of&amp;nbsp;parameters&amp;nbsp;values.&lt;br />&#xD;
 &lt;br />&#xD;
-[31]&amp;nbsp;Object&amp;nbsp;Management&amp;nbsp;Group&amp;nbsp;(OMG),&amp;nbsp;“UML&amp;nbsp;Profile&amp;nbsp;for&amp;nbsp;Schedulability,&amp;nbsp;Performance&amp;nbsp;and&amp;nbsp;Time,”&lt;br />&#xD;
+[31]&amp;nbsp;Object&amp;nbsp;Management&amp;nbsp;Group&amp;nbsp;(OMG),&amp;nbsp;&quot;UML&amp;nbsp;Profile&amp;nbsp;for&amp;nbsp;Schedulability,&amp;nbsp;Performance&amp;nbsp;and&amp;nbsp;Time,&quot;&lt;br />&#xD;
 http://www.omg.org/cgi-bin/doc?formal/2005-01-02,&amp;nbsp;January&amp;nbsp;2005.&lt;br />&#xD;
 &lt;br />&#xD;
-[34]&amp;nbsp;James&amp;nbsp;A.&amp;nbsp;Whittaker&amp;nbsp;and&amp;nbsp;Michael&amp;nbsp;G.&amp;nbsp;Thomason,&amp;nbsp;“A&amp;nbsp;Markov&amp;nbsp;chain&amp;nbsp;model&amp;nbsp;for&amp;nbsp;statistical&amp;nbsp;software&lt;br />&#xD;
-testing,”&amp;nbsp;IEEE&amp;nbsp;Transactions&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;Engineering,&amp;nbsp;vol.&amp;nbsp;20,&amp;nbsp;no.&amp;nbsp;10,&amp;nbsp;pp.&amp;nbsp;812–824,&amp;nbsp;Oct.&amp;nbsp;1994.&lt;br />&#xD;
+[34]&amp;nbsp;James&amp;nbsp;A.&amp;nbsp;Whittaker&amp;nbsp;and&amp;nbsp;Michael&amp;nbsp;G.&amp;nbsp;Thomason,&amp;nbsp;&quot;A&amp;nbsp;Markov&amp;nbsp;chain&amp;nbsp;model&amp;nbsp;for&amp;nbsp;statistical&amp;nbsp;software&lt;br />&#xD;
+testing,&quot;&amp;nbsp;IEEE&amp;nbsp;Transactions&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;Engineering,&amp;nbsp;vol.&amp;nbsp;20,&amp;nbsp;no.&amp;nbsp;10,&amp;nbsp;pp.&amp;nbsp;812-824,&amp;nbsp;Oct.&amp;nbsp;1994.&lt;br />&#xD;
 &lt;br />&#xD;
-[78]&amp;nbsp;V.&amp;nbsp;Grassi,&amp;nbsp;R.&amp;nbsp;Mirandola,&amp;nbsp;and&amp;nbsp;A.&amp;nbsp;Sabetta,&amp;nbsp;“From&amp;nbsp;design&amp;nbsp;to&amp;nbsp;analysis&amp;nbsp;models:&amp;nbsp;a&amp;nbsp;kernel&amp;nbsp;language&lt;br />&#xD;
-for&amp;nbsp;performance&amp;nbsp;and&amp;nbsp;reliability&amp;nbsp;analysis&amp;nbsp;of&amp;nbsp;component-based&amp;nbsp;systems,”&amp;nbsp;in&amp;nbsp;Proc.&amp;nbsp;5th&amp;nbsp;International&lt;br />&#xD;
-Workshop&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;and&amp;nbsp;Performance&amp;nbsp;(WOSP&amp;nbsp;’05).&amp;nbsp;New&amp;nbsp;York,&amp;nbsp;NY,&amp;nbsp;USA:&amp;nbsp;ACM&amp;nbsp;Press,&amp;nbsp;2005,&lt;br />&#xD;
-pp.&amp;nbsp;25–36.&lt;br />&#xD;
+[78]&amp;nbsp;V.&amp;nbsp;Grassi,&amp;nbsp;R.&amp;nbsp;Mirandola,&amp;nbsp;and&amp;nbsp;A.&amp;nbsp;Sabetta,&amp;nbsp;&quot;From&amp;nbsp;design&amp;nbsp;to&amp;nbsp;analysis&amp;nbsp;models:&amp;nbsp;a&amp;nbsp;kernel&amp;nbsp;language&lt;br />&#xD;
+for&amp;nbsp;performance&amp;nbsp;and&amp;nbsp;reliability&amp;nbsp;analysis&amp;nbsp;of&amp;nbsp;component-based&amp;nbsp;systems,&quot;&amp;nbsp;in&amp;nbsp;Proc.&amp;nbsp;5th&amp;nbsp;International&lt;br />&#xD;
+Workshop&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;and&amp;nbsp;Performance&amp;nbsp;(WOSP&amp;nbsp;'05).&amp;nbsp;New&amp;nbsp;York,&amp;nbsp;NY,&amp;nbsp;USA:&amp;nbsp;ACM&amp;nbsp;Press,&amp;nbsp;2005,&lt;br />&#xD;
+pp.&amp;nbsp;25-36.&lt;br />&#xD;
 &lt;br />&#xD;
-[162]&amp;nbsp;D.&amp;nbsp;B.&amp;nbsp;Petriu&amp;nbsp;and&amp;nbsp;M.&amp;nbsp;Woodside,&amp;nbsp;“A&amp;nbsp;metamodel&amp;nbsp;for&amp;nbsp;generating&amp;nbsp;performance&amp;nbsp;models&amp;nbsp;from&amp;nbsp;UML&amp;nbsp;designs,”&lt;br />&#xD;
+[162]&amp;nbsp;D.&amp;nbsp;B.&amp;nbsp;Petriu&amp;nbsp;and&amp;nbsp;M.&amp;nbsp;Woodside,&amp;nbsp;&quot;A&amp;nbsp;metamodel&amp;nbsp;for&amp;nbsp;generating&amp;nbsp;performance&amp;nbsp;models&amp;nbsp;from&amp;nbsp;UML&amp;nbsp;designs,&quot;&lt;br />&#xD;
 in&amp;nbsp;UML&amp;nbsp;2004&amp;nbsp;-&amp;nbsp;The&amp;nbsp;Unified&amp;nbsp;Modeling&amp;nbsp;Language.&amp;nbsp;Model&amp;nbsp;Languages&amp;nbsp;and&amp;nbsp;Applications.&amp;nbsp;7th&lt;br />&#xD;
 International&amp;nbsp;Conference,&amp;nbsp;Lisbon,&amp;nbsp;Portugal,&amp;nbsp;October&amp;nbsp;11-15,&amp;nbsp;2004,&amp;nbsp;Proceedings,&amp;nbsp;ser.&amp;nbsp;LNCS,&amp;nbsp;T.&amp;nbsp;Baar,&lt;br />&#xD;
-A.&amp;nbsp;Strohmeier,&amp;nbsp;A.&amp;nbsp;Moreira,&amp;nbsp;and&amp;nbsp;S.&amp;nbsp;J.&amp;nbsp;Mellor,&amp;nbsp;Eds.,&amp;nbsp;vol.&amp;nbsp;3273.&amp;nbsp;Springer,&amp;nbsp;2004,&amp;nbsp;pp.&amp;nbsp;41–53.&lt;br />&#xD;
+A.&amp;nbsp;Strohmeier,&amp;nbsp;A.&amp;nbsp;Moreira,&amp;nbsp;and&amp;nbsp;S.&amp;nbsp;J.&amp;nbsp;Mellor,&amp;nbsp;Eds.,&amp;nbsp;vol.&amp;nbsp;3273.&amp;nbsp;Springer,&amp;nbsp;2004,&amp;nbsp;pp.&amp;nbsp;41-53.&lt;br />&#xD;
 &lt;br />&#xD;
-[187]&amp;nbsp;C.&amp;nbsp;U.&amp;nbsp;Smith,&amp;nbsp;C.&amp;nbsp;M.&amp;nbsp;Llado,&amp;nbsp;V.&amp;nbsp;Cortellessa,&amp;nbsp;A.&amp;nbsp;D.&amp;nbsp;Marco,&amp;nbsp;and&amp;nbsp;L.&amp;nbsp;G.&amp;nbsp;Williams,&amp;nbsp;“From&amp;nbsp;UML&amp;nbsp;models&lt;br />&#xD;
-to&amp;nbsp;software&amp;nbsp;performance&amp;nbsp;results:&amp;nbsp;an&amp;nbsp;SPE&amp;nbsp;process&amp;nbsp;based&amp;nbsp;on&amp;nbsp;XML&amp;nbsp;interchange&amp;nbsp;formats,”&amp;nbsp;in&amp;nbsp;Proc.&amp;nbsp;5th&lt;br />&#xD;
-international&amp;nbsp;workshop&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;and&amp;nbsp;performance&amp;nbsp;(WOSP’05).&amp;nbsp;New&amp;nbsp;York,&amp;nbsp;NY,&amp;nbsp;USA:&amp;nbsp;ACM&lt;br />&#xD;
-Press,&amp;nbsp;2005,&amp;nbsp;pp.&amp;nbsp;87–98.&lt;br />&#xD;
+[187]&amp;nbsp;C.&amp;nbsp;U.&amp;nbsp;Smith,&amp;nbsp;C.&amp;nbsp;M.&amp;nbsp;Llado,&amp;nbsp;V.&amp;nbsp;Cortellessa,&amp;nbsp;A.&amp;nbsp;D.&amp;nbsp;Marco,&amp;nbsp;and&amp;nbsp;L.&amp;nbsp;G.&amp;nbsp;Williams,&amp;nbsp;&quot;From&amp;nbsp;UML&amp;nbsp;models&lt;br />&#xD;
+to&amp;nbsp;software&amp;nbsp;performance&amp;nbsp;results:&amp;nbsp;an&amp;nbsp;SPE&amp;nbsp;process&amp;nbsp;based&amp;nbsp;on&amp;nbsp;XML&amp;nbsp;interchange&amp;nbsp;formats,&quot;&amp;nbsp;in&amp;nbsp;Proc.&amp;nbsp;5th&lt;br />&#xD;
+international&amp;nbsp;workshop&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;and&amp;nbsp;performance&amp;nbsp;(WOSP'05).&amp;nbsp;New&amp;nbsp;York,&amp;nbsp;NY,&amp;nbsp;USA:&amp;nbsp;ACM&lt;br />&#xD;
+Press,&amp;nbsp;2005,&amp;nbsp;pp.&amp;nbsp;87-98.&lt;br />&#xD;
 &lt;br />&#xD;
 &lt;br />&#xD;
 &lt;br /></body>
@@ -2070,6 +2211,12 @@ TODO Anne: Constraint that ensures that the referred signature is contained in t
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_L9p1AMSoEd-ocuW4j-aq6w">
             <language>OCL</language>
             <body>self.providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.oclIsTypeOf(pcm::system::System)</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="_Rb-ycEEiEeGBUKRPRG8gQQ" name="EntryLevelSystemCallSignatureMustMatchItsProvidedRole" constrainedElement="_h0hLkOQREdqeH_WIC9QRew">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_Rb-ycUEiEeGBUKRPRG8gQQ">
+            <language>OCL</language>
+            <body>self.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole.signatures__OperationInterface->includes(self.operationSignature__EntryLevelSystemCall)</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_pld_YOQREdqeH_WIC9QRew" general="_lA9SYOQREdqeH_WIC9QRew"/>
@@ -2428,6 +2575,9 @@ Each action in a ResourceDemandingBehaviour references a predecessor and a succe
             <body>not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())</body>
           </specification>
         </ownedRule>
+        <generalization xmi:id="_RqZ8wEd0EeGCjo1oTAP6DQ">
+          <general xmi:type="uml:Class" href="identifier.uml#_UMp04JMWEdqSSImFLKDkSg"/>
+        </generalization>
         <ownedAttribute xmi:id="_RrAYIeDhEdq8ysXH3gTiEg" name="steps_Behaviour" type="_6qnlsODgEdq8ysXH3gTiEg" aggregation="composite" association="_RrAYIODhEdq8ysXH3gTiEg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RrAYJODhEdq8ysXH3gTiEg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RrAYI-DhEdq8ysXH3gTiEg"/>
@@ -2505,9 +2655,9 @@ allow both asynchronously and synchronously forked behaviours. Synchronously For
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_vEMNwODjEdq8ysXH3gTiEg" name="ExternalCallAction">
         <ownedComment xmi:id="_NOSwgKc5Ed2mBdDaN9hoZQ" annotatedElement="_vEMNwODjEdq8ysXH3gTiEg">
-          <body>ExternalCallAction models the invocation of a service specified in a required interface. Therefore, it references a Role, from which the providing component can be derived, and a Signature to specify the called service. ExternalCallActions model synchronous calls to required services, i.e., the caller waits until the called service finishes execution before continuing execution itself. The PCM allows modelling asynchronous calls to required services by using an ExternalCallAction inside a ForkedBehaviour.&#xD;
-ExternalCallActions do not have resource demands by themselves. Component developers need to specify the resource demand of the called service in the RDSEFF of that service. The resource demand can also be calculated by analysing the providing component. This keeps the RDSEFF specification of different component developers independent from each other and makes them replaceable in an architectural model.&#xD;
-ExternalCallActions may contain two sets of VariableUsages specifying input parameter characterisations and output parameter characterisations respectively. VariableUsages for input parameters may only reference IN or INOUT parameters of the call’s referenced signature. The random variable characterisation inside such a VariableUsage may be constants, probability distribution functions, or include a stochastic expression involving for example arithmetic operations. The latter models a dependency between the current service’s own input parameters and the input parameters of the required service.</body>
+          <body>ExternalCallAction&amp;nbsp;models&amp;nbsp;the&amp;nbsp;invocation&amp;nbsp;of&amp;nbsp;a&amp;nbsp;service&amp;nbsp;specified&amp;nbsp;in&amp;nbsp;a&amp;nbsp;required&amp;nbsp;interface.&amp;nbsp;Therefore,&amp;nbsp;it&amp;nbsp;references&amp;nbsp;a&amp;nbsp;Role,&amp;nbsp;from&amp;nbsp;which&amp;nbsp;the&amp;nbsp;providing&amp;nbsp;component&amp;nbsp;can&amp;nbsp;be&amp;nbsp;derived,&amp;nbsp;and&amp;nbsp;a&amp;nbsp;Signature&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;called&amp;nbsp;service.&amp;nbsp;ExternalCallActions&amp;nbsp;model&amp;nbsp;synchronous&amp;nbsp;calls&amp;nbsp;to&amp;nbsp;required&amp;nbsp;services,&amp;nbsp;i.e.,&amp;nbsp;the&amp;nbsp;caller&amp;nbsp;waits&amp;nbsp;until&amp;nbsp;the&amp;nbsp;called&amp;nbsp;service&amp;nbsp;finishes&amp;nbsp;execution&amp;nbsp;before&amp;nbsp;continuing&amp;nbsp;execution&amp;nbsp;itself.&amp;nbsp;The&amp;nbsp;PCM&amp;nbsp;allows&amp;nbsp;modelling&amp;nbsp;asynchronous&amp;nbsp;calls&amp;nbsp;to&amp;nbsp;required&amp;nbsp;services&amp;nbsp;by&amp;nbsp;using&amp;nbsp;an&amp;nbsp;ExternalCallAction&amp;nbsp;inside&amp;nbsp;a&amp;nbsp;ForkedBehaviour.&lt;br />&#xD;
+ExternalCallActions&amp;nbsp;do&amp;nbsp;not&amp;nbsp;have&amp;nbsp;resource&amp;nbsp;demands&amp;nbsp;by&amp;nbsp;themselves.&amp;nbsp;Component&amp;nbsp;developers&amp;nbsp;need&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;demand&amp;nbsp;of&amp;nbsp;the&amp;nbsp;called&amp;nbsp;service&amp;nbsp;in&amp;nbsp;the&amp;nbsp;RDSEFF&amp;nbsp;of&amp;nbsp;that&amp;nbsp;service.&amp;nbsp;The&amp;nbsp;resource&amp;nbsp;demand&amp;nbsp;can&amp;nbsp;also&amp;nbsp;be&amp;nbsp;calculated&amp;nbsp;by&amp;nbsp;analysing&amp;nbsp;the&amp;nbsp;providing&amp;nbsp;component.&amp;nbsp;This&amp;nbsp;keeps&amp;nbsp;the&amp;nbsp;RDSEFF&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;different&amp;nbsp;component&amp;nbsp;developers&amp;nbsp;independent&amp;nbsp;from&amp;nbsp;each&amp;nbsp;other&amp;nbsp;and&amp;nbsp;makes&amp;nbsp;them&amp;nbsp;replaceable&amp;nbsp;in&amp;nbsp;an&amp;nbsp;architectural&amp;nbsp;model.&lt;br />&#xD;
+ExternalCallActions&amp;nbsp;may&amp;nbsp;contain&amp;nbsp;two&amp;nbsp;sets&amp;nbsp;of&amp;nbsp;VariableUsages&amp;nbsp;specifying&amp;nbsp;input&amp;nbsp;parameter&amp;nbsp;characterisations&amp;nbsp;and&amp;nbsp;output&amp;nbsp;parameter&amp;nbsp;characterisations&amp;nbsp;respectively.&amp;nbsp;VariableUsages&amp;nbsp;for&amp;nbsp;input&amp;nbsp;parameters&amp;nbsp;may&amp;nbsp;only&amp;nbsp;reference&amp;nbsp;IN&amp;nbsp;or&amp;nbsp;INOUT&amp;nbsp;parameters&amp;nbsp;of&amp;nbsp;the&amp;nbsp;call's&amp;nbsp;referenced&amp;nbsp;signature.&amp;nbsp;The&amp;nbsp;random&amp;nbsp;variable&amp;nbsp;characterisation&amp;nbsp;inside&amp;nbsp;such&amp;nbsp;a&amp;nbsp;VariableUsage&amp;nbsp;may&amp;nbsp;be&amp;nbsp;constants,&amp;nbsp;probability&amp;nbsp;distribution&amp;nbsp;functions,&amp;nbsp;or&amp;nbsp;include&amp;nbsp;a&amp;nbsp;stochastic&amp;nbsp;expression&amp;nbsp;involving&amp;nbsp;for&amp;nbsp;example&amp;nbsp;arithmetic&amp;nbsp;operations.&amp;nbsp;The&amp;nbsp;latter&amp;nbsp;models&amp;nbsp;a&amp;nbsp;dependency&amp;nbsp;between&amp;nbsp;the&amp;nbsp;current&amp;nbsp;service's&amp;nbsp;own&amp;nbsp;input&amp;nbsp;parameters&amp;nbsp;and&amp;nbsp;the&amp;nbsp;input&amp;nbsp;parameters&amp;nbsp;of&amp;nbsp;the&amp;nbsp;required&amp;nbsp;service.</body>
         </ownedComment>
         <ownedRule xmi:id="_J_sZEBA2Ed-ci5cUEz2Saw" name="SignatureBelongsToRole" constrainedElement="_vEMNwODjEdq8ysXH3gTiEg">
           <ownedComment xmi:id="_3ZTzIBA9Ed-ci5cUEz2Saw" annotatedElement="_J_sZEBA2Ed-ci5cUEz2Saw">
@@ -2575,9 +2725,16 @@ Although a probabilistic choice at a branch usually does not happen in a compute
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_BfcXYOEAEdq8ysXH3gTiEg" name="AcquireAction">
         <ownedComment xmi:id="_EbM-sKdDEd2mBdDaN9hoZQ" annotatedElement="_BfcXYOEAEdq8ysXH3gTiEg">
-          <body>In an RDSEFF, component developers can specify an AcquireAction, which references a passive resource types. Once analysis tools execute this action, they decrease the amount of items available from the referenced passive resource type by one, if at least one item is available. If none item is available, because other, concurrently executed requests have acquired all of them, analysis tools enqueue the current request (first-come&#xD;
-first-serve scheduling policy) and block it’s further execution.&#xD;
-Acquisition and release of passive resources happen instantaneously and do not consume any time except for waiting delays before actual acquisition. Resource locking may introduce deadlocks when simulating the model, however, for performance analysis with the PCM it is assumed that no deadlocks occur. Otherwise, the model first needs to be fixed accordingly before carrying out the performance prediction.</body>
+          <body>&lt;p>&#xD;
+    In&amp;nbsp;an&amp;nbsp;RDSEFF,&amp;nbsp;component&amp;nbsp;developers&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;an&amp;nbsp;AcquireAction,&amp;nbsp;which&amp;nbsp;references&amp;nbsp;a&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;types.&amp;nbsp;Once&amp;nbsp;analysis&amp;nbsp;tools&amp;nbsp;execute&amp;nbsp;this&amp;nbsp;action,&amp;nbsp;they&amp;nbsp;decrease&amp;nbsp;the&amp;nbsp;amount&amp;nbsp;of&amp;nbsp;items&amp;nbsp;available&amp;nbsp;from&amp;nbsp;the&amp;nbsp;referenced&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;type&amp;nbsp;by&amp;nbsp;one,&amp;nbsp;if&amp;nbsp;at&amp;nbsp;least&amp;nbsp;one&amp;nbsp;item&amp;nbsp;is&amp;nbsp;available.&amp;nbsp;If&amp;nbsp;none&amp;nbsp;item&amp;nbsp;is&amp;nbsp;available,&amp;nbsp;because&amp;nbsp;other,&amp;nbsp;concurrently&amp;nbsp;executed&amp;nbsp;requests&amp;nbsp;have&amp;nbsp;acquired&amp;nbsp;all&amp;nbsp;of&amp;nbsp;them,&amp;nbsp;analysis&amp;nbsp;tools&amp;nbsp;enqueue&amp;nbsp;the&amp;nbsp;current&amp;nbsp;request&amp;nbsp;(first-come-first-serve&amp;nbsp;scheduling&amp;nbsp;policy)&amp;nbsp;and&amp;nbsp;block&amp;nbsp;it's&amp;nbsp;further&amp;nbsp;execution.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    Acquisition&amp;nbsp;and&amp;nbsp;release&amp;nbsp;of&amp;nbsp;passive&amp;nbsp;resources&amp;nbsp;happen&amp;nbsp;instantaneously&amp;nbsp;and&amp;nbsp;do&amp;nbsp;not&amp;nbsp;consume&amp;nbsp;any&amp;nbsp;time&amp;nbsp;except&amp;nbsp;for&amp;nbsp;waiting&amp;nbsp;delays&amp;nbsp;before&amp;nbsp;actual&amp;nbsp;acquisition.&amp;nbsp;Resource&amp;nbsp;locking&amp;nbsp;may&amp;nbsp;introduce&amp;nbsp;deadlocks&amp;nbsp;when&amp;nbsp;simulating&amp;nbsp;the&amp;nbsp;model,&amp;nbsp;however,&amp;nbsp;for&amp;nbsp;performance&amp;nbsp;analysis&amp;nbsp;with&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;it&amp;nbsp;is&amp;nbsp;assumed&amp;nbsp;that&amp;nbsp;no&amp;nbsp;deadlocks&amp;nbsp;occur.&amp;nbsp;Otherwise,&amp;nbsp;the&amp;nbsp;model&amp;nbsp;first&amp;nbsp;needs&amp;nbsp;to&amp;nbsp;be&amp;nbsp;fixed&amp;nbsp;accordingly&amp;nbsp;before&amp;nbsp;carrying&amp;nbsp;out&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;prediction.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    A reliability-related extension is the timeout mechanism that may be associated to an AcquireAction through the&#xD;
+    &quot;timeout&quot; and &quot;timeoutValue&quot; attributes. See the documentation of the &quot;timeout&quot; attribute for further information.&#xD;
+&lt;/p></body>
         </ownedComment>
         <ownedRule xmi:id="_omUe8EjIEeC8peuLOyIDAg" name="TimeoutValueOfAcquireActionMustNotBeNegative" constrainedElement="_BfcXYOEAEdq8ysXH3gTiEg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_omVtEEjIEeC8peuLOyIDAg">
@@ -2592,18 +2749,36 @@ Acquisition and release of passive resources happen instantaneously and do not c
         </ownedAttribute>
         <ownedAttribute xmi:id="_XN1JIEjIEeC8peuLOyIDAg" name="timeout" visibility="public">
           <ownedComment xmi:id="_7wMcYEjUEeC8peuLOyIDAg" annotatedElement="_XN1JIEjIEeC8peuLOyIDAg">
-            <body>Indicates if the AcquireAction has a timeout. If yes, any acquiring thread waits no longer than the duration specified in&#xD;
-&quot;timeoutValue&quot;. If the maximum waiting time is reached, the thread is removed from the waiting queue and cancelled by a&#xD;
-timeout failure. The simulation considers timeouts and throws timeout failures only if the &quot;simulate failures&quot; option is&#xD;
-activated. As any failure-on-demand occurrence, timeout failures can be handled by RecoveryBlockActions at a higher level&#xD;
-in the caller hierarchy.</body>
+            <body>&lt;p>&#xD;
+    Indicates&amp;nbsp;if&amp;nbsp;the&amp;nbsp;AcquireAction&amp;nbsp;has&amp;nbsp;a&amp;nbsp;timeout.&amp;nbsp;If&amp;nbsp;yes, a simulation through&#xD;
+    SimuCom with the &quot;simulate failures&quot; option switched on will consider the timeout as follows:&#xD;
+    Any&amp;nbsp;acquiring&amp;nbsp;thread&amp;nbsp;waits&amp;nbsp;no&amp;nbsp;longer&amp;nbsp;than&amp;nbsp;the&amp;nbsp;duration&amp;nbsp;specified&amp;nbsp;in&#xD;
+    &quot;timeoutValue&quot;.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;maximum&amp;nbsp;waiting&amp;nbsp;time&amp;nbsp;is&amp;nbsp;reached,&amp;nbsp;the&amp;nbsp;thread&amp;nbsp;is&amp;nbsp;removed&amp;nbsp;from&amp;nbsp;the&amp;nbsp;waiting&amp;nbsp;queue&amp;nbsp;and&amp;nbsp;cancelled&amp;nbsp;by&amp;nbsp;a&#xD;
+    timeout&amp;nbsp;failure.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    The reliability Markov analysis does not consider AcquireAction timeouts.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    As&amp;nbsp;any&amp;nbsp;failure-on-demand&amp;nbsp;occurrence,&amp;nbsp;timeout&amp;nbsp;failures&amp;nbsp;can&amp;nbsp;be&amp;nbsp;handled&amp;nbsp;by&amp;nbsp;&quot;RecoveryBlockActions&quot;&amp;nbsp;at&amp;nbsp;any&amp;nbsp;higher&amp;nbsp;level&#xD;
+    in&amp;nbsp;the&amp;nbsp;caller&amp;nbsp;hierarchy. To achieve this, the modeller must specify a &quot;ResourceTimeoutFailureType&quot;&#xD;
+    pointing to the &quot;PassiveResource&quot; that the AcquireAction is related to. The specified &quot;ResourceTimeoutFailureType&quot; can&#xD;
+    then be added to the list of handled failure types of any &quot;RecoveryBlockAlternativeBehaviour&quot;.&#xD;
+&lt;/p>&#xD;
+&lt;p>&#xD;
+    Please notice the following limitation of the current implementation of timeout handling: Timeouts are only considered&#xD;
+    by SimuCom if the executing software component is allocated to a resource container with an operating system set to&#xD;
+    &quot;ABSTRACT&quot; (i.e. no specific OS schedulers are supported). The timeout handling implementation can be found in&#xD;
+    de.uka.ipd.sdq.simucomframework.resources.SimSimpleFairPassiveResource.&#xD;
+&lt;/p></body>
           </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_bqXl4EjIEeC8peuLOyIDAg" name="timeoutValue" visibility="public">
           <ownedComment xmi:id="_BXxI4EjVEeC8peuLOyIDAg" annotatedElement="_bqXl4EjIEeC8peuLOyIDAg">
             <body>&lt;p>&#xD;
-    Specifies a timeout value, in case the AcquireAction has a timeout (as specified through the &quot;timeout&quot; attribute).&#xD;
+    Specifies a timeout value, in case the AcquireAction has a timeout (see the documentation of the &quot;timeout&quot; attribute&#xD;
+    for further information).&#xD;
 &lt;/p></body>
           </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
@@ -2631,9 +2806,9 @@ in the caller hierarchy.</body>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_6qnlsODgEdq8ysXH3gTiEg" name="AbstractAction" isAbstract="true">
         <ownedComment xmi:id="_njAP4Kc4Ed2mBdDaN9hoZQ" annotatedElement="_6qnlsODgEdq8ysXH3gTiEg">
-          <body>AbstractActions model either a service’s internal computations or calls to external (i.e., required) services, or describe some form of control flow alteration (i.e., branching, loop, or fork). The following first clarifies the notions of internal and external actions, whose meta-classes both inherit from AbstractAction.&#xD;
-The RDSEFF defines the control flow between internal and external actions with the predecessor/successor relationship between AbstractActions to model sequential executions. Additionally, special actions for branching, loops, and forks allow other kinds of control flow. Other than flowcharts or UML activity diagrams, the RDSEFF language (as well as the usage model language) requires developers to make the branching, loop, fork bodies explicit using nested ResourceDemandingBehaviours. It disallows backward references in the chain of AbstractActions, which are basically&#xD;
-goto statements and can lead to ambiguities and difficult maintainability. For example, this might lead to intertwined control flows as in the example in Fig. 4.9(a), where both the sequences ’abcabcdbcd’ and ’abcdbcabcd’ could be occur if each backward reference is executed once, which might lead to different execution times. Backward references also allow the specification of loops with multiple entry points as in Fig. 4.9(b). This is not desirable, as the number of loop iterations cannot be specified directly in these cases, which is however necessary for accurate performance prediction. If a developer would specify that each backward link in Fig. 4.9(b) is executed only once, both sequences ’ababc’ and ’abcababc’ would be possible although they would have different execution times, as ’a’ is executed three times in the latter case. To avoid such ambiguities, control flow in the PCM RDSEFF and usage model must be specified without backward references in the chain of AbstractActions. Branches, loops, forks, and their respective bodies have to be made explicit in the specification using nested ResourceDemandingBehaviours.</body>
+          <body>AbstractActions&amp;nbsp;model&amp;nbsp;either&amp;nbsp;a&amp;nbsp;service's&amp;nbsp;internal&amp;nbsp;computations&amp;nbsp;or&amp;nbsp;calls&amp;nbsp;to&amp;nbsp;external&amp;nbsp;(i.e.,&amp;nbsp;required)&amp;nbsp;services,&amp;nbsp;or&amp;nbsp;describe&amp;nbsp;some&amp;nbsp;form&amp;nbsp;of&amp;nbsp;control&amp;nbsp;flow&amp;nbsp;alteration&amp;nbsp;(i.e.,&amp;nbsp;branching,&amp;nbsp;loop,&amp;nbsp;or&amp;nbsp;fork).&amp;nbsp;The&amp;nbsp;following&amp;nbsp;first&amp;nbsp;clarifies&amp;nbsp;the&amp;nbsp;notions&amp;nbsp;of&amp;nbsp;internal&amp;nbsp;and&amp;nbsp;external&amp;nbsp;actions,&amp;nbsp;whose&amp;nbsp;meta-classes&amp;nbsp;both&amp;nbsp;inherit&amp;nbsp;from&amp;nbsp;AbstractAction.&lt;br />&#xD;
+The&amp;nbsp;RDSEFF&amp;nbsp;defines&amp;nbsp;the&amp;nbsp;control&amp;nbsp;flow&amp;nbsp;between&amp;nbsp;internal&amp;nbsp;and&amp;nbsp;external&amp;nbsp;actions&amp;nbsp;with&amp;nbsp;the&amp;nbsp;predecessor/successor&amp;nbsp;relationship&amp;nbsp;between&amp;nbsp;AbstractActions&amp;nbsp;to&amp;nbsp;model&amp;nbsp;sequential&amp;nbsp;executions.&amp;nbsp;Additionally,&amp;nbsp;special&amp;nbsp;actions&amp;nbsp;for&amp;nbsp;branching,&amp;nbsp;loops,&amp;nbsp;and&amp;nbsp;forks&amp;nbsp;allow&amp;nbsp;other&amp;nbsp;kinds&amp;nbsp;of&amp;nbsp;control&amp;nbsp;flow.&amp;nbsp;Other&amp;nbsp;than&amp;nbsp;flowcharts&amp;nbsp;or&amp;nbsp;UML&amp;nbsp;activity&amp;nbsp;diagrams,&amp;nbsp;the&amp;nbsp;RDSEFF&amp;nbsp;language&amp;nbsp;(as&amp;nbsp;well&amp;nbsp;as&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;language)&amp;nbsp;requires&amp;nbsp;developers&amp;nbsp;to&amp;nbsp;make&amp;nbsp;the&amp;nbsp;branching,&amp;nbsp;loop,&amp;nbsp;fork&amp;nbsp;bodies&amp;nbsp;explicit&amp;nbsp;using&amp;nbsp;nested&amp;nbsp;ResourceDemandingBehaviours.&amp;nbsp;It&amp;nbsp;disallows&amp;nbsp;backward&amp;nbsp;references&amp;nbsp;in&amp;nbsp;the&amp;nbsp;chain&amp;nbsp;of&amp;nbsp;AbstractActions,&amp;nbsp;which&amp;nbsp;are&amp;nbsp;basically&lt;br />&#xD;
+goto&amp;nbsp;statements&amp;nbsp;and&amp;nbsp;can&amp;nbsp;lead&amp;nbsp;to&amp;nbsp;ambiguities&amp;nbsp;and&amp;nbsp;difficult&amp;nbsp;maintainability.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;this&amp;nbsp;might&amp;nbsp;lead&amp;nbsp;to&amp;nbsp;intertwined&amp;nbsp;control&amp;nbsp;flows&amp;nbsp;as&amp;nbsp;in&amp;nbsp;the&amp;nbsp;example&amp;nbsp;in&amp;nbsp;Fig.&amp;nbsp;4.9(a),&amp;nbsp;where&amp;nbsp;both&amp;nbsp;the&amp;nbsp;sequences&amp;nbsp;'abcabcdbcd'&amp;nbsp;and&amp;nbsp;'abcdbcabcd'&amp;nbsp;could&amp;nbsp;be&amp;nbsp;occur&amp;nbsp;if&amp;nbsp;each&amp;nbsp;backward&amp;nbsp;reference&amp;nbsp;is&amp;nbsp;executed&amp;nbsp;once,&amp;nbsp;which&amp;nbsp;might&amp;nbsp;lead&amp;nbsp;to&amp;nbsp;different&amp;nbsp;execution&amp;nbsp;times.&amp;nbsp;Backward&amp;nbsp;references&amp;nbsp;also&amp;nbsp;allow&amp;nbsp;the&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;loops&amp;nbsp;with&amp;nbsp;multiple&amp;nbsp;entry&amp;nbsp;points&amp;nbsp;as&amp;nbsp;in&amp;nbsp;Fig.&amp;nbsp;4.9(b).&amp;nbsp;This&amp;nbsp;is&amp;nbsp;not&amp;nbsp;desirable,&amp;nbsp;as&amp;nbsp;the&amp;nbsp;number&amp;nbsp;of&amp;nbsp;loop&amp;nbsp;iterations&amp;nbsp;cannot&amp;nbsp;be&amp;nbsp;specified&amp;nbsp;directly&amp;nbsp;in&amp;nbsp;these&amp;nbsp;cases,&amp;nbsp;which&amp;nbsp;is&amp;nbsp;however&amp;nbsp;necessary&amp;nbsp;for&amp;nbsp;accurate&amp;nbsp;performance&amp;nbsp;prediction.&amp;nbsp;If&amp;nbsp;a&amp;nbsp;developer&amp;nbsp;would&amp;nbsp;specify&amp;nbsp;that&amp;nbsp;each&amp;nbsp;backward&amp;nbsp;link&amp;nbsp;in&amp;nbsp;Fig.&amp;nbsp;4.9(b)&amp;nbsp;is&amp;nbsp;executed&amp;nbsp;only&amp;nbsp;once,&amp;nbsp;both&amp;nbsp;sequences&amp;nbsp;'ababc'&amp;nbsp;and&amp;nbsp;'abcababc'&amp;nbsp;would&amp;nbsp;be&amp;nbsp;possible&amp;nbsp;although&amp;nbsp;they&amp;nbsp;would&amp;nbsp;have&amp;nbsp;different&amp;nbsp;execution&amp;nbsp;times,&amp;nbsp;as&amp;nbsp;'a'&amp;nbsp;is&amp;nbsp;executed&amp;nbsp;three&amp;nbsp;times&amp;nbsp;in&amp;nbsp;the&amp;nbsp;latter&amp;nbsp;case.&amp;nbsp;To&amp;nbsp;avoid&amp;nbsp;such&amp;nbsp;ambiguities,&amp;nbsp;control&amp;nbsp;flow&amp;nbsp;in&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;RDSEFF&amp;nbsp;and&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;must&amp;nbsp;be&amp;nbsp;specified&amp;nbsp;without&amp;nbsp;backward&amp;nbsp;references&amp;nbsp;in&amp;nbsp;the&amp;nbsp;chain&amp;nbsp;of&amp;nbsp;AbstractActions.&amp;nbsp;Branches,&amp;nbsp;loops,&amp;nbsp;forks,&amp;nbsp;and&amp;nbsp;their&amp;nbsp;respective&amp;nbsp;bodies&amp;nbsp;have&amp;nbsp;to&amp;nbsp;be&amp;nbsp;made&amp;nbsp;explicit&amp;nbsp;in&amp;nbsp;the&amp;nbsp;specification&amp;nbsp;using&amp;nbsp;nested&amp;nbsp;ResourceDemandingBehaviours.</body>
         </ownedComment>
         <generalization xmi:id="_SUZUMOMiEdqaQsPH3rPnBQ" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <ownedAttribute xmi:id="_oJ1pceTCEdq49qz7R-l1Hg" name="predecessor_AbstractAction" type="_6qnlsODgEdq8ysXH3gTiEg" association="_oJ1pcOTCEdq49qz7R-l1Hg">
@@ -2703,7 +2878,7 @@ A ResourceDemandingBehaviour contains a chain of AbstractActions. Each action in
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_f0bz8HDLEdur9cZft9T4NQ" name="CollectionIteratorAction">
         <ownedComment xmi:id="_PA19IKdCEd2mBdDaN9hoZQ" annotatedElement="_f0bz8HDLEdur9cZft9T4NQ">
-          <body>Collection Iterator Action Models the repeated execution of its inner ResourceDemandingBehaviour for each element of a collection data type. Therefore it contains a reference to an input parameter of the service’s signature, which must be of type CollectionDataType. The NUMBER OF ELEMENTS must be specified from the outside of the component, either by another RDSEFF or by an usage model calling this service. It can be of type integer or IntPMF. Besides the source of the number of iterations, CollectionIteratorActions differ from LoopAction only in their allowed stochastic dependence of random variables inside the loop body’s ResourceDemandingBehaviour. If the same random variable occurs twice in such a loop body, analysis tools must evaluate the second occurrence in stochastic dependence to the first occurrence. This complicates the involved calculation and might lead to the intractability of the model, therefore component developers should use CollectionIteratorActions with care and only include them if they expect that the prediction results would be vastly inaccurate without it.</body>
+          <body>Collection&amp;nbsp;Iterator&amp;nbsp;Action&amp;nbsp;Models&amp;nbsp;the&amp;nbsp;repeated&amp;nbsp;execution&amp;nbsp;of&amp;nbsp;its&amp;nbsp;inner&amp;nbsp;ResourceDemandingBehaviour&amp;nbsp;for&amp;nbsp;each&amp;nbsp;element&amp;nbsp;of&amp;nbsp;a&amp;nbsp;collection&amp;nbsp;data&amp;nbsp;type.&amp;nbsp;Therefore&amp;nbsp;it&amp;nbsp;contains&amp;nbsp;a&amp;nbsp;reference&amp;nbsp;to&amp;nbsp;an&amp;nbsp;input&amp;nbsp;parameter&amp;nbsp;of&amp;nbsp;the&amp;nbsp;service's&amp;nbsp;signature,&amp;nbsp;which&amp;nbsp;must&amp;nbsp;be&amp;nbsp;of&amp;nbsp;type&amp;nbsp;CollectionDataType.&amp;nbsp;The&amp;nbsp;NUMBER&amp;nbsp;OF&amp;nbsp;ELEMENTS&amp;nbsp;must&amp;nbsp;be&amp;nbsp;specified&amp;nbsp;from&amp;nbsp;the&amp;nbsp;outside&amp;nbsp;of&amp;nbsp;the&amp;nbsp;component,&amp;nbsp;either&amp;nbsp;by&amp;nbsp;another&amp;nbsp;RDSEFF&amp;nbsp;or&amp;nbsp;by&amp;nbsp;an&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;calling&amp;nbsp;this&amp;nbsp;service.&amp;nbsp;It&amp;nbsp;can&amp;nbsp;be&amp;nbsp;of&amp;nbsp;type&amp;nbsp;integer&amp;nbsp;or&amp;nbsp;IntPMF.&amp;nbsp;Besides&amp;nbsp;the&amp;nbsp;source&amp;nbsp;of&amp;nbsp;the&amp;nbsp;number&amp;nbsp;of&amp;nbsp;iterations,&amp;nbsp;CollectionIteratorActions&amp;nbsp;differ&amp;nbsp;from&amp;nbsp;LoopAction&amp;nbsp;only&amp;nbsp;in&amp;nbsp;their&amp;nbsp;allowed&amp;nbsp;stochastic&amp;nbsp;dependence&amp;nbsp;of&amp;nbsp;random&amp;nbsp;variables&amp;nbsp;inside&amp;nbsp;the&amp;nbsp;loop&amp;nbsp;body's&amp;nbsp;ResourceDemandingBehaviour.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;same&amp;nbsp;random&amp;nbsp;variable&amp;nbsp;occurs&amp;nbsp;twice&amp;nbsp;in&amp;nbsp;such&amp;nbsp;a&amp;nbsp;loop&amp;nbsp;body,&amp;nbsp;analysis&amp;nbsp;tools&amp;nbsp;must&amp;nbsp;evaluate&amp;nbsp;the&amp;nbsp;second&amp;nbsp;occurrence&amp;nbsp;in&amp;nbsp;stochastic&amp;nbsp;dependence&amp;nbsp;to&amp;nbsp;the&amp;nbsp;first&amp;nbsp;occurrence.&amp;nbsp;This&amp;nbsp;complicates&amp;nbsp;the&amp;nbsp;involved&amp;nbsp;calculation&amp;nbsp;and&amp;nbsp;might&amp;nbsp;lead&amp;nbsp;to&amp;nbsp;the&amp;nbsp;intractability&amp;nbsp;of&amp;nbsp;the&amp;nbsp;model,&amp;nbsp;therefore&amp;nbsp;component&amp;nbsp;developers&amp;nbsp;should&amp;nbsp;use&amp;nbsp;CollectionIteratorActions&amp;nbsp;with&amp;nbsp;care&amp;nbsp;and&amp;nbsp;only&amp;nbsp;include&amp;nbsp;them&amp;nbsp;if&amp;nbsp;they&amp;nbsp;expect&amp;nbsp;that&amp;nbsp;the&amp;nbsp;prediction&amp;nbsp;results&amp;nbsp;would&amp;nbsp;be&amp;nbsp;vastly&amp;nbsp;inaccurate&amp;nbsp;without&amp;nbsp;it.</body>
         </ownedComment>
         <generalization xmi:id="_r7vkAHDLEdur9cZft9T4NQ" general="_w5WLkInnEducPr8SMhBkpQ"/>
         <ownedAttribute xmi:id="_9YcEYXDLEdur9cZft9T4NQ" name="parameter_CollectionIteratorAction" type="_8b84gJJUEdqSSImFLKDkSg" association="_9YcEYHDLEdur9cZft9T4NQ">
@@ -2737,7 +2912,7 @@ A ResourceDemandingBehaviour contains a chain of AbstractActions. Each action in
       <packagedElement xmi:type="uml:Class" xmi:id="_oVdpgInoEducPr8SMhBkpQ" name="GuardedBranchTransition">
         <ownedComment xmi:id="_HHiiwKc7Ed2mBdDaN9hoZQ" annotatedElement="_oVdpgInoEducPr8SMhBkpQ">
           <body>Guarded&amp;nbsp;Branch&amp;nbsp;Transition&amp;nbsp;Provides&amp;nbsp;a&amp;nbsp;link&amp;nbsp;between&amp;nbsp;a&amp;nbsp;BranchAction&amp;nbsp;and&amp;nbsp;a&amp;nbsp;nested&amp;nbsp;ResourceDemandingBehaviour,&amp;nbsp;which&amp;nbsp;includes&amp;nbsp;the&amp;nbsp;actions&amp;nbsp;executed&amp;nbsp;inside&amp;nbsp;the&amp;nbsp;branch.&amp;nbsp;It&amp;nbsp;uses&amp;nbsp;a&amp;nbsp;guard,&amp;nbsp;i.e.&amp;nbsp;a&amp;nbsp;boolean&amp;nbsp;expression&amp;nbsp;specified&amp;nbsp;by&amp;nbsp;a&amp;nbsp;RandomVariable,&amp;nbsp;to&amp;nbsp;determine&amp;nbsp;whether&amp;nbsp;the&amp;nbsp;transition&amp;nbsp;is&amp;nbsp;chosen.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;guard&amp;nbsp;evaluates&amp;nbsp;to&amp;nbsp;true,&amp;nbsp;the&amp;nbsp;branch&amp;nbsp;is&amp;nbsp;chosen,&amp;nbsp;otherwise&amp;nbsp;if&amp;nbsp;the&amp;nbsp;guard&amp;nbsp;evaluates&amp;nbsp;to&amp;nbsp;false&amp;nbsp;another&amp;nbsp;branch&amp;nbsp;transition&amp;nbsp;must&amp;nbsp;be&amp;nbsp;chosen.&lt;br />&#xD;
-The&amp;nbsp;guard&amp;nbsp;may&amp;nbsp;contain&amp;nbsp;references&amp;nbsp;to&amp;nbsp;the&amp;nbsp;service’s&amp;nbsp;input&amp;nbsp;parameters&amp;nbsp;or&amp;nbsp;component&amp;nbsp;parameters.&amp;nbsp;A&amp;nbsp;component&amp;nbsp;developer&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;complex&amp;nbsp;boolean&amp;nbsp;expressions&amp;nbsp;by&amp;nbsp;using&amp;nbsp;the&amp;nbsp;AND,&amp;nbsp;OR,&amp;nbsp;and&amp;nbsp;NOT&amp;nbsp;operations&amp;nbsp;provided&amp;nbsp;by&amp;nbsp;the&amp;nbsp;StoEx&amp;nbsp;framework.&amp;nbsp;As&amp;nbsp;the&amp;nbsp;domain&amp;nbsp;expert&amp;nbsp;may&amp;nbsp;have&amp;nbsp;characterised&amp;nbsp;the&amp;nbsp;parameters&amp;nbsp;used&amp;nbsp;in&amp;nbsp;a&amp;nbsp;guard&amp;nbsp;with&amp;nbsp;probability&amp;nbsp;distributions,&amp;nbsp;it&amp;nbsp;might&amp;nbsp;happen&amp;nbsp;that&amp;nbsp;a&amp;nbsp;guard&amp;nbsp;does&amp;nbsp;not&amp;nbsp;evaluate&amp;nbsp;to&amp;nbsp;true&amp;nbsp;or&amp;nbsp;false&amp;nbsp;with&amp;nbsp;a&amp;nbsp;probability&amp;nbsp;of&amp;nbsp;1.0.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;the&amp;nbsp;specification&amp;nbsp;can&amp;nbsp;express&amp;nbsp;that&amp;nbsp;a&amp;nbsp;guard&amp;nbsp;evaluates&amp;nbsp;to&amp;nbsp;true&amp;nbsp;with&amp;nbsp;a&amp;nbsp;probability&amp;nbsp;of&amp;nbsp;0.3,&amp;nbsp;and&amp;nbsp;to&amp;nbsp;false&amp;nbsp;with&amp;nbsp;a&amp;nbsp;probability&amp;nbsp;of&amp;nbsp;0.7.&amp;nbsp;In&amp;nbsp;any&amp;nbsp;case,&amp;nbsp;the&amp;nbsp;probabilities&amp;nbsp;of&amp;nbsp;the&amp;nbsp;individual&amp;nbsp;guards&amp;nbsp;attached&amp;nbsp;to&amp;nbsp;all&amp;nbsp;GuardedBranchTransitions&amp;nbsp;contained&amp;nbsp;in&amp;nbsp;a&amp;nbsp;BranchAction&amp;nbsp;must&amp;nbsp;sum&amp;nbsp;up&amp;nbsp;to&amp;nbsp;1.0.&lt;br />&#xD;
+The&amp;nbsp;guard&amp;nbsp;may&amp;nbsp;contain&amp;nbsp;references&amp;nbsp;to&amp;nbsp;the&amp;nbsp;service's&amp;nbsp;input&amp;nbsp;parameters&amp;nbsp;or&amp;nbsp;component&amp;nbsp;parameters.&amp;nbsp;A&amp;nbsp;component&amp;nbsp;developer&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;complex&amp;nbsp;boolean&amp;nbsp;expressions&amp;nbsp;by&amp;nbsp;using&amp;nbsp;the&amp;nbsp;AND,&amp;nbsp;OR,&amp;nbsp;and&amp;nbsp;NOT&amp;nbsp;operations&amp;nbsp;provided&amp;nbsp;by&amp;nbsp;the&amp;nbsp;StoEx&amp;nbsp;framework.&amp;nbsp;As&amp;nbsp;the&amp;nbsp;domain&amp;nbsp;expert&amp;nbsp;may&amp;nbsp;have&amp;nbsp;characterised&amp;nbsp;the&amp;nbsp;parameters&amp;nbsp;used&amp;nbsp;in&amp;nbsp;a&amp;nbsp;guard&amp;nbsp;with&amp;nbsp;probability&amp;nbsp;distributions,&amp;nbsp;it&amp;nbsp;might&amp;nbsp;happen&amp;nbsp;that&amp;nbsp;a&amp;nbsp;guard&amp;nbsp;does&amp;nbsp;not&amp;nbsp;evaluate&amp;nbsp;to&amp;nbsp;true&amp;nbsp;or&amp;nbsp;false&amp;nbsp;with&amp;nbsp;a&amp;nbsp;probability&amp;nbsp;of&amp;nbsp;1.0.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;the&amp;nbsp;specification&amp;nbsp;can&amp;nbsp;express&amp;nbsp;that&amp;nbsp;a&amp;nbsp;guard&amp;nbsp;evaluates&amp;nbsp;to&amp;nbsp;true&amp;nbsp;with&amp;nbsp;a&amp;nbsp;probability&amp;nbsp;of&amp;nbsp;0.3,&amp;nbsp;and&amp;nbsp;to&amp;nbsp;false&amp;nbsp;with&amp;nbsp;a&amp;nbsp;probability&amp;nbsp;of&amp;nbsp;0.7.&amp;nbsp;In&amp;nbsp;any&amp;nbsp;case,&amp;nbsp;the&amp;nbsp;probabilities&amp;nbsp;of&amp;nbsp;the&amp;nbsp;individual&amp;nbsp;guards&amp;nbsp;attached&amp;nbsp;to&amp;nbsp;all&amp;nbsp;GuardedBranchTransitions&amp;nbsp;contained&amp;nbsp;in&amp;nbsp;a&amp;nbsp;BranchAction&amp;nbsp;must&amp;nbsp;sum&amp;nbsp;up&amp;nbsp;to&amp;nbsp;1.0.&lt;br />&#xD;
 There&amp;nbsp;is&amp;nbsp;no&amp;nbsp;predefined&amp;nbsp;order&amp;nbsp;in&amp;nbsp;evaluating&amp;nbsp;the&amp;nbsp;guards&amp;nbsp;attached&amp;nbsp;to&amp;nbsp;a&amp;nbsp;BranchAction.&amp;nbsp;This&amp;nbsp;differs&amp;nbsp;from&amp;nbsp;programming&amp;nbsp;languages&amp;nbsp;such&amp;nbsp;as&amp;nbsp;C&amp;nbsp;or&amp;nbsp;Java,&amp;nbsp;where&amp;nbsp;the&amp;nbsp;conditions&amp;nbsp;on&amp;nbsp;if/then/else&amp;nbsp;statements&amp;nbsp;are&amp;nbsp;evaluated&amp;nbsp;in&amp;nbsp;the&amp;nbsp;order&amp;nbsp;of&amp;nbsp;their&amp;nbsp;appearance&amp;nbsp;in&amp;nbsp;the&amp;nbsp;code.&amp;nbsp;Such&amp;nbsp;programming&amp;nbsp;languages&amp;nbsp;allow&amp;nbsp;overlapping&amp;nbsp;branching&amp;nbsp;conditions&amp;nbsp;(for&amp;nbsp;example,&amp;nbsp;if&amp;nbsp;(X&amp;lt;10)&amp;nbsp;//...&amp;nbsp;else&amp;nbsp;if&amp;nbsp;(X&amp;lt;20)&amp;nbsp;//&amp;nbsp;...),&amp;nbsp;which&amp;nbsp;are&amp;nbsp;not&amp;nbsp;allowed&amp;nbsp;for&amp;nbsp;the&amp;nbsp;guards&amp;nbsp;in&amp;nbsp;GuardedBranchTransitions,&amp;nbsp;because&amp;nbsp;the&amp;nbsp;missing&amp;nbsp;order&amp;nbsp;specification&amp;nbsp;would&amp;nbsp;lead&amp;nbsp;to&amp;nbsp;ambiguous&amp;nbsp;boolean&amp;nbsp;expressions&amp;nbsp;and&amp;nbsp;enable&amp;nbsp;more&amp;nbsp;than&amp;nbsp;one&amp;nbsp;guard&amp;nbsp;to&amp;nbsp;become&amp;nbsp;true.&amp;nbsp;If&amp;nbsp;X&amp;nbsp;would&amp;nbsp;have&amp;nbsp;the&amp;nbsp;value&amp;nbsp;5,&amp;nbsp;both&amp;nbsp;conditions&amp;nbsp;would&amp;nbsp;evaluate&amp;nbsp;to&amp;nbsp;true&amp;nbsp;if&amp;nbsp;they&amp;nbsp;would&amp;nbsp;be&amp;nbsp;used&amp;nbsp;directly&amp;nbsp;as&amp;nbsp;guards&amp;nbsp;in&amp;nbsp;GuardedBranchTransitions.&amp;nbsp;The&amp;nbsp;correct&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;the&amp;nbsp;guards&amp;nbsp;in&amp;nbsp;this&amp;nbsp;case&amp;nbsp;would&amp;nbsp;be&amp;nbsp;X.VALUE&amp;nbsp;10&amp;nbsp;and&amp;nbsp;X.VALUE&amp;nbsp;10&amp;nbsp;AND&amp;nbsp;X.VALUE&amp;nbsp;20.&amp;nbsp;Guards&amp;nbsp;might&amp;nbsp;lead&amp;nbsp;to&amp;nbsp;stochastic&amp;nbsp;dependencies&amp;nbsp;when&amp;nbsp;evaluating&amp;nbsp;variable&amp;nbsp;characterisations&amp;nbsp;inside&amp;nbsp;a&amp;nbsp;branched&amp;nbsp;behaviour.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;if&amp;nbsp;the&amp;nbsp;guard&amp;nbsp;X.VALUE&amp;nbsp;&amp;nbsp;&amp;nbsp;10&amp;nbsp;had&amp;nbsp;formerly&amp;nbsp;evaluated&amp;nbsp;to&amp;nbsp;true,&amp;nbsp;and&amp;nbsp;the&amp;nbsp;RDSEFF&amp;nbsp;uses&amp;nbsp;X.VALUE&amp;nbsp;inside&amp;nbsp;the&amp;nbsp;branched&amp;nbsp;behaviour,&amp;nbsp;the&amp;nbsp;sample&amp;nbsp;space&amp;nbsp;of&amp;nbsp;the&amp;nbsp;random&amp;nbsp;variable&amp;nbsp;specifying&amp;nbsp;the&amp;nbsp;characterisation&amp;nbsp;must&amp;nbsp;be&amp;nbsp;restricted,&amp;nbsp;as&amp;nbsp;the&amp;nbsp;event&amp;nbsp;that&amp;nbsp;X&amp;nbsp;takes&amp;nbsp;a&amp;nbsp;values&amp;nbsp;greater&amp;nbsp;than&amp;nbsp;10&amp;nbsp;cannot&amp;nbsp;occur&amp;nbsp;anymore.&amp;nbsp;Therefore&amp;nbsp;its&amp;nbsp;probability&amp;nbsp;is&amp;nbsp;zero.&amp;nbsp;Any&amp;nbsp;variable&amp;nbsp;characterisation&amp;nbsp;always&amp;nbsp;needs&amp;nbsp;to&amp;nbsp;be&amp;nbsp;evaluated&amp;nbsp;under&amp;nbsp;the&amp;nbsp;condition&amp;nbsp;that&amp;nbsp;all&amp;nbsp;guards&amp;nbsp;in&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;scenario’s&amp;nbsp;path&amp;nbsp;to&amp;nbsp;it&amp;nbsp;have&amp;nbsp;evaluated&amp;nbsp;to&amp;nbsp;true.</body>
         </ownedComment>
         <generalization xmi:id="_rzfPkInoEducPr8SMhBkpQ" general="_eX2J0InoEducPr8SMhBkpQ"/>
@@ -2815,47 +2990,47 @@ Multiple SetVariableActions assigning to the same output parameter might occur a
         </ownedComment>
         <packagedElement xmi:type="uml:Class" xmi:id="_Y8AekOD3Edq8ysXH3gTiEg" name="ParametricResourceDemand">
           <ownedComment xmi:id="_Hiy4MKc3Ed2mBdDaN9hoZQ" annotatedElement="_Y8AekOD3Edq8ysXH3gTiEg">
-            <body>TODO (Überarbeitung durch MH)&#xD;
-Parametric Resource Demand Specifies the amount of processing requested from a certain type of resource in a parametrised way. It assigns the demand specified as a Random-Variable to an abstract ProcessingResourceType (e.g., CPU, hard disk) instead of a concrete ProcessingResourceSpecification (e.g., 5 Ghz CPU, 20 MByte/s hard disk). This keeps the RDSEFF independent from a specific resource environment, and makes the concrete resources replaceable to answer sizing questions.&#xD;
-The demand’s unit is equal for all ProcessingResourceSpecifications referencing&#xD;
-the same ProcessingResourceType. It can for example be ”WorkUnits”&#xD;
-for CPUs [Smi02] or ”BytesRead” for hard disks. Each ProcessingResource-&#xD;
-Specification contains a processing rate for demands (e.g., 1000 WorkUnits/s, 20&#xD;
-MB/s), which analysis tools use to compute an actual timing value in seconds. They&#xD;
-use this timing value for example as the service demand on a service center in a queueing&#xD;
-network or the firing delay of a transition in a Petri net. As multiple component services&#xD;
-might request processing on the same resource, these analytical or simulation models&#xD;
-allow determining the waiting delay induced by this contention effect.&#xD;
-Besides this parameterisation over different resource environments, Parametric-&#xD;
-ResourceDemands also parameterise over the usage profile. For this, the stochastic expression&#xD;
-specifying the resource demand can contain references to the service’s input&#xD;
-parameters or the component parameters. Upon evaluating the resource demand, analysis&#xD;
-tools use the current characterisation of the referenced input or component parameter&#xD;
-and substitute the reference with this characterisation in the stochastic expression.&#xD;
-Solving the stochastic expression, which can be a function involving arithmetic operators&#xD;
-(Chapter 3.3.6), then yields a constant or probability function for the resource demand.&#xD;
-As an example for solving the parameterisation over resource environment and usage&#xD;
-profile, consider an RDSEFF for a service implementing the bubblesort algorithm. It&#xD;
-might include a CPU demand specification of n2􀀀2000WorkUnits derived from complexity&#xD;
-theory (n2) and empirical measurements (2000). In this case n refers to the length of&#xD;
-the list the algorithm shall sort, which is an input parameter of the service. If the current&#xD;
-characterisation of the list’s length is 100 (as the modelled usage profile), analysis tools&#xD;
-derive 1002 􀀀 2000  12000 WorkUnits from the specification, thus resolving the usage&#xD;
-profile dependency. If the CPU ProcessingResourceSpecification the service’s&#xD;
-126&#xD;
-4.3. Resource Demanding Service Effect Specification&#xD;
-component is allocated on then contains a processing rate of 10000WorkUnits/s, analysis&#xD;
-tools derive an execution time of 12000 WorkUnits {10000 WorkUnits/s = 1:2 s from the&#xD;
-specification, thus resolving the resource environment dependency.&#xD;
-The stochastic expression for a ParametricResourceDemand depends on the implementation&#xD;
-of the service. Component developers can specify it using complexity theory,&#xD;
-estimations, or measurements. However, how to get data to define such expressions&#xD;
-accurately is beyond of the scope of this thesis. Woodside et al. [WVCB01] and Krogmann&#xD;
-[Kro07] present approaches for measuring resource demands in dependency to input parameters.&#xD;
-Meyerhoefer et al. [ML05] and Kuperberg et al. [KB07] propose methods to&#xD;
-establish resource demands independent from concrete resources. For the scope of this&#xD;
-thesis, it is assumed that these methods have been applied and an accurate specification&#xD;
-of the ParametricResourceDemand is available.</body>
+            <body>TODO&amp;nbsp;(Überarbeitung&amp;nbsp;durch&amp;nbsp;MH)&lt;br />&#xD;
+Parametric&amp;nbsp;Resource&amp;nbsp;Demand&amp;nbsp;Specifies&amp;nbsp;the&amp;nbsp;amount&amp;nbsp;of&amp;nbsp;processing&amp;nbsp;requested&amp;nbsp;from&amp;nbsp;a&amp;nbsp;certain&amp;nbsp;type&amp;nbsp;of&amp;nbsp;resource&amp;nbsp;in&amp;nbsp;a&amp;nbsp;parametrised&amp;nbsp;way.&amp;nbsp;It&amp;nbsp;assigns&amp;nbsp;the&amp;nbsp;demand&amp;nbsp;specified&amp;nbsp;as&amp;nbsp;a&amp;nbsp;Random-Variable&amp;nbsp;to&amp;nbsp;an&amp;nbsp;abstract&amp;nbsp;ProcessingResourceType&amp;nbsp;(e.g.,&amp;nbsp;CPU,&amp;nbsp;hard&amp;nbsp;disk)&amp;nbsp;instead&amp;nbsp;of&amp;nbsp;a&amp;nbsp;concrete&amp;nbsp;ProcessingResourceSpecification&amp;nbsp;(e.g.,&amp;nbsp;5&amp;nbsp;Ghz&amp;nbsp;CPU,&amp;nbsp;20&amp;nbsp;MByte/s&amp;nbsp;hard&amp;nbsp;disk).&amp;nbsp;This&amp;nbsp;keeps&amp;nbsp;the&amp;nbsp;RDSEFF&amp;nbsp;independent&amp;nbsp;from&amp;nbsp;a&amp;nbsp;specific&amp;nbsp;resource&amp;nbsp;environment,&amp;nbsp;and&amp;nbsp;makes&amp;nbsp;the&amp;nbsp;concrete&amp;nbsp;resources&amp;nbsp;replaceable&amp;nbsp;to&amp;nbsp;answer&amp;nbsp;sizing&amp;nbsp;questions.&lt;br />&#xD;
+The&amp;nbsp;demand's&amp;nbsp;unit&amp;nbsp;is&amp;nbsp;equal&amp;nbsp;for&amp;nbsp;all&amp;nbsp;ProcessingResourceSpecifications&amp;nbsp;referencing&lt;br />&#xD;
+the&amp;nbsp;same&amp;nbsp;ProcessingResourceType.&amp;nbsp;It&amp;nbsp;can&amp;nbsp;for&amp;nbsp;example&amp;nbsp;be&amp;nbsp;&quot;WorkUnits&quot;&lt;br />&#xD;
+for&amp;nbsp;CPUs&amp;nbsp;[Smi02]&amp;nbsp;or&amp;nbsp;&quot;BytesRead&quot;&amp;nbsp;for&amp;nbsp;hard&amp;nbsp;disks.&amp;nbsp;Each&amp;nbsp;ProcessingResource-&lt;br />&#xD;
+Specification&amp;nbsp;contains&amp;nbsp;a&amp;nbsp;processing&amp;nbsp;rate&amp;nbsp;for&amp;nbsp;demands&amp;nbsp;(e.g.,&amp;nbsp;1000&amp;nbsp;WorkUnits/s,&amp;nbsp;20&lt;br />&#xD;
+MB/s),&amp;nbsp;which&amp;nbsp;analysis&amp;nbsp;tools&amp;nbsp;use&amp;nbsp;to&amp;nbsp;compute&amp;nbsp;an&amp;nbsp;actual&amp;nbsp;timing&amp;nbsp;value&amp;nbsp;in&amp;nbsp;seconds.&amp;nbsp;They&lt;br />&#xD;
+use&amp;nbsp;this&amp;nbsp;timing&amp;nbsp;value&amp;nbsp;for&amp;nbsp;example&amp;nbsp;as&amp;nbsp;the&amp;nbsp;service&amp;nbsp;demand&amp;nbsp;on&amp;nbsp;a&amp;nbsp;service&amp;nbsp;center&amp;nbsp;in&amp;nbsp;a&amp;nbsp;queueing&lt;br />&#xD;
+network&amp;nbsp;or&amp;nbsp;the&amp;nbsp;firing&amp;nbsp;delay&amp;nbsp;of&amp;nbsp;a&amp;nbsp;transition&amp;nbsp;in&amp;nbsp;a&amp;nbsp;Petri&amp;nbsp;net.&amp;nbsp;As&amp;nbsp;multiple&amp;nbsp;component&amp;nbsp;services&lt;br />&#xD;
+might&amp;nbsp;request&amp;nbsp;processing&amp;nbsp;on&amp;nbsp;the&amp;nbsp;same&amp;nbsp;resource,&amp;nbsp;these&amp;nbsp;analytical&amp;nbsp;or&amp;nbsp;simulation&amp;nbsp;models&lt;br />&#xD;
+allow&amp;nbsp;determining&amp;nbsp;the&amp;nbsp;waiting&amp;nbsp;delay&amp;nbsp;induced&amp;nbsp;by&amp;nbsp;this&amp;nbsp;contention&amp;nbsp;effect.&lt;br />&#xD;
+Besides&amp;nbsp;this&amp;nbsp;parameterisation&amp;nbsp;over&amp;nbsp;different&amp;nbsp;resource&amp;nbsp;environments,&amp;nbsp;Parametric-&lt;br />&#xD;
+ResourceDemands&amp;nbsp;also&amp;nbsp;parameterise&amp;nbsp;over&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;profile.&amp;nbsp;For&amp;nbsp;this,&amp;nbsp;the&amp;nbsp;stochastic&amp;nbsp;expression&lt;br />&#xD;
+specifying&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;demand&amp;nbsp;can&amp;nbsp;contain&amp;nbsp;references&amp;nbsp;to&amp;nbsp;the&amp;nbsp;service's&amp;nbsp;input&lt;br />&#xD;
+parameters&amp;nbsp;or&amp;nbsp;the&amp;nbsp;component&amp;nbsp;parameters.&amp;nbsp;Upon&amp;nbsp;evaluating&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;demand,&amp;nbsp;analysis&lt;br />&#xD;
+tools&amp;nbsp;use&amp;nbsp;the&amp;nbsp;current&amp;nbsp;characterisation&amp;nbsp;of&amp;nbsp;the&amp;nbsp;referenced&amp;nbsp;input&amp;nbsp;or&amp;nbsp;component&amp;nbsp;parameter&lt;br />&#xD;
+and&amp;nbsp;substitute&amp;nbsp;the&amp;nbsp;reference&amp;nbsp;with&amp;nbsp;this&amp;nbsp;characterisation&amp;nbsp;in&amp;nbsp;the&amp;nbsp;stochastic&amp;nbsp;expression.&lt;br />&#xD;
+Solving&amp;nbsp;the&amp;nbsp;stochastic&amp;nbsp;expression,&amp;nbsp;which&amp;nbsp;can&amp;nbsp;be&amp;nbsp;a&amp;nbsp;function&amp;nbsp;involving&amp;nbsp;arithmetic&amp;nbsp;operators&lt;br />&#xD;
+(Chapter&amp;nbsp;3.3.6),&amp;nbsp;then&amp;nbsp;yields&amp;nbsp;a&amp;nbsp;constant&amp;nbsp;or&amp;nbsp;probability&amp;nbsp;function&amp;nbsp;for&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;demand.&lt;br />&#xD;
+As&amp;nbsp;an&amp;nbsp;example&amp;nbsp;for&amp;nbsp;solving&amp;nbsp;the&amp;nbsp;parameterisation&amp;nbsp;over&amp;nbsp;resource&amp;nbsp;environment&amp;nbsp;and&amp;nbsp;usage&lt;br />&#xD;
+profile,&amp;nbsp;consider&amp;nbsp;an&amp;nbsp;RDSEFF&amp;nbsp;for&amp;nbsp;a&amp;nbsp;service&amp;nbsp;implementing&amp;nbsp;the&amp;nbsp;bubblesort&amp;nbsp;algorithm.&amp;nbsp;It&lt;br />&#xD;
+might&amp;nbsp;include&amp;nbsp;a&amp;nbsp;CPU&amp;nbsp;demand&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;n22000WorkUnits&amp;nbsp;derived&amp;nbsp;from&amp;nbsp;complexity&lt;br />&#xD;
+theory&amp;nbsp;(n2)&amp;nbsp;and&amp;nbsp;empirical&amp;nbsp;measurements&amp;nbsp;(2000).&amp;nbsp;In&amp;nbsp;this&amp;nbsp;case&amp;nbsp;n&amp;nbsp;refers&amp;nbsp;to&amp;nbsp;the&amp;nbsp;length&amp;nbsp;of&lt;br />&#xD;
+the&amp;nbsp;list&amp;nbsp;the&amp;nbsp;algorithm&amp;nbsp;shall&amp;nbsp;sort,&amp;nbsp;which&amp;nbsp;is&amp;nbsp;an&amp;nbsp;input&amp;nbsp;parameter&amp;nbsp;of&amp;nbsp;the&amp;nbsp;service.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;current&lt;br />&#xD;
+characterisation&amp;nbsp;of&amp;nbsp;the&amp;nbsp;list's&amp;nbsp;length&amp;nbsp;is&amp;nbsp;100&amp;nbsp;(as&amp;nbsp;the&amp;nbsp;modelled&amp;nbsp;usage&amp;nbsp;profile),&amp;nbsp;analysis&amp;nbsp;tools&lt;br />&#xD;
+derive&amp;nbsp;1002&amp;nbsp;&amp;nbsp;2000&amp;nbsp;&amp;nbsp;12000&amp;nbsp;WorkUnits&amp;nbsp;from&amp;nbsp;the&amp;nbsp;specification,&amp;nbsp;thus&amp;nbsp;resolving&amp;nbsp;the&amp;nbsp;usage&lt;br />&#xD;
+profile&amp;nbsp;dependency.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;CPU&amp;nbsp;ProcessingResourceSpecification&amp;nbsp;the&amp;nbsp;service's&lt;br />&#xD;
+126&lt;br />&#xD;
+4.3.&amp;nbsp;Resource&amp;nbsp;Demanding&amp;nbsp;Service&amp;nbsp;Effect&amp;nbsp;Specification&lt;br />&#xD;
+component&amp;nbsp;is&amp;nbsp;allocated&amp;nbsp;on&amp;nbsp;then&amp;nbsp;contains&amp;nbsp;a&amp;nbsp;processing&amp;nbsp;rate&amp;nbsp;of&amp;nbsp;10000WorkUnits/s,&amp;nbsp;analysis&lt;br />&#xD;
+tools&amp;nbsp;derive&amp;nbsp;an&amp;nbsp;execution&amp;nbsp;time&amp;nbsp;of&amp;nbsp;12000&amp;nbsp;WorkUnits&amp;nbsp;{10000&amp;nbsp;WorkUnits/s&amp;nbsp;=&amp;nbsp;1:2&amp;nbsp;s&amp;nbsp;from&amp;nbsp;the&lt;br />&#xD;
+specification,&amp;nbsp;thus&amp;nbsp;resolving&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;environment&amp;nbsp;dependency.&lt;br />&#xD;
+The&amp;nbsp;stochastic&amp;nbsp;expression&amp;nbsp;for&amp;nbsp;a&amp;nbsp;ParametricResourceDemand&amp;nbsp;depends&amp;nbsp;on&amp;nbsp;the&amp;nbsp;implementation&lt;br />&#xD;
+of&amp;nbsp;the&amp;nbsp;service.&amp;nbsp;Component&amp;nbsp;developers&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;it&amp;nbsp;using&amp;nbsp;complexity&amp;nbsp;theory,&lt;br />&#xD;
+estimations,&amp;nbsp;or&amp;nbsp;measurements.&amp;nbsp;However,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;get&amp;nbsp;data&amp;nbsp;to&amp;nbsp;define&amp;nbsp;such&amp;nbsp;expressions&lt;br />&#xD;
+accurately&amp;nbsp;is&amp;nbsp;beyond&amp;nbsp;of&amp;nbsp;the&amp;nbsp;scope&amp;nbsp;of&amp;nbsp;this&amp;nbsp;thesis.&amp;nbsp;Woodside&amp;nbsp;et&amp;nbsp;al.&amp;nbsp;[WVCB01]&amp;nbsp;and&amp;nbsp;Krogmann&lt;br />&#xD;
+[Kro07]&amp;nbsp;present&amp;nbsp;approaches&amp;nbsp;for&amp;nbsp;measuring&amp;nbsp;resource&amp;nbsp;demands&amp;nbsp;in&amp;nbsp;dependency&amp;nbsp;to&amp;nbsp;input&amp;nbsp;parameters.&lt;br />&#xD;
+Meyerhoefer&amp;nbsp;et&amp;nbsp;al.&amp;nbsp;[ML05]&amp;nbsp;and&amp;nbsp;Kuperberg&amp;nbsp;et&amp;nbsp;al.&amp;nbsp;[KB07]&amp;nbsp;propose&amp;nbsp;methods&amp;nbsp;to&lt;br />&#xD;
+establish&amp;nbsp;resource&amp;nbsp;demands&amp;nbsp;independent&amp;nbsp;from&amp;nbsp;concrete&amp;nbsp;resources.&amp;nbsp;For&amp;nbsp;the&amp;nbsp;scope&amp;nbsp;of&amp;nbsp;this&lt;br />&#xD;
+thesis,&amp;nbsp;it&amp;nbsp;is&amp;nbsp;assumed&amp;nbsp;that&amp;nbsp;these&amp;nbsp;methods&amp;nbsp;have&amp;nbsp;been&amp;nbsp;applied&amp;nbsp;and&amp;nbsp;an&amp;nbsp;accurate&amp;nbsp;specification&lt;br />&#xD;
+of&amp;nbsp;the&amp;nbsp;ParametricResourceDemand&amp;nbsp;is&amp;nbsp;available.</body>
           </ownedComment>
           <ownedAttribute xmi:id="_fT2xcuD3Edq8ysXH3gTiEg" name="action_ParametricResourceDemand" type="_kmntkODhEdq8ysXH3gTiEg" association="_fT2xcOD3Edq8ysXH3gTiEg"/>
           <ownedAttribute xmi:id="_2wRHoUpCEdyyNsXlb1tNsw" name="specification_ParametericResourceDemand" type="_GIDLsPdxEdqB_7dkOscBPA" aggregation="composite" association="_2wRHoEpCEdyyNsXlb1tNsw">
@@ -3039,7 +3214,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
         </ownedEnd>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_RkttAOf7Ed-7B-w-u5ZN-g" name="seff_reliability">
-        <packagedElement xmi:type="uml:Class" xmi:id="_rCg4sDqGEd-LPs9iafFs9w" name="RecoveryBlockAlternativeBehaviour">
+        <packagedElement xmi:type="uml:Class" xmi:id="_rCg4sDqGEd-LPs9iafFs9w" name="RecoveryActionBehaviour">
           <ownedComment xmi:id="_OX1DoDqLEd-LPs9iafFs9w" annotatedElement="_rCg4sDqGEd-LPs9iafFs9w">
             <body>&lt;p>&#xD;
     Recovery block alternative haviours represent alternatives of recovery blocks. They are resource demanding behaviours,&#xD;
@@ -3051,33 +3226,55 @@ Solving the stochastic expression, which can be a function involving arithmetic 
     handle the failure type.&#xD;
 &lt;/p></body>
           </ownedComment>
+          <ownedRule xmi:id="_BJLYoP2SEeCKi4Scusrt0g" name="RecoveryActionBehaviourHasOnlyOnePredecessor" constrainedElement="_rCg4sDqGEd-LPs9iafFs9w">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_BJN04P2SEeCKi4Scusrt0g">
+              <language>OCL</language>
+              <body>not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->&#xD;&#xA;&#x9;exists(x,y:RecoveryActionBehaviour | x&lt;>y&#xD;&#xA;&#x9;&#x9;and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)&#xD;&#xA;&#x9;&#x9;and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:id="_jD6jUP2TEeCKi4Scusrt0g" name="RecoveryActionBehaviourIsNotSuccessorOfItself" constrainedElement="_rCg4sDqGEd-LPs9iafFs9w">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_jD7KYP2TEeCKi4Scusrt0g">
+              <language>OCL</language>
+              <body>not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:id="_DQR9IP2UEeCKi4Scusrt0g" name="SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes" constrainedElement="_rCg4sDqGEd-LPs9iafFs9w">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_DQSkMP2UEeCKi4Scusrt0g">
+              <language>OCL</language>
+              <body>not self.failureHandlingAlternatives__RecoveryActionBehaviour->&#xD;&#xA;&#x9;exists(x,y:RecoveryActionBehaviour | x&lt;>y and&#xD;&#xA;&#x9;x.failureTypes_FailureHandlingEntity->&#xD;&#xA;&#x9;&#x9;exists(f:pcm::reliability::FailureType |&#xD;&#xA;&#x9;&#x9;y.failureTypes_FailureHandlingEntity->includes(f)))</body>
+            </specification>
+          </ownedRule>
           <generalization xmi:id="_0AT6IDqGEd-LPs9iafFs9w" general="_NBzeIDqGEd-LPs9iafFs9w"/>
           <generalization xmi:id="_0LzYcDqGEd-LPs9iafFs9w" general="_-kKR4OKHEdq6IvzVMFpuzg"/>
-          <ownedAttribute xmi:id="_1qb5oDqGEd-LPs9iafFs9w" name="nextAlternative_RecoveryBlockAlternativeBehaviour" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" association="_1qargDqGEd-LPs9iafFs9w">
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1qcgsDqGEd-LPs9iafFs9w" value="1"/>
+          <ownedAttribute xmi:id="_1qb5oDqGEd-LPs9iafFs9w" name="failureHandlingAlternatives__RecoveryActionBehaviour" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" association="_1qargDqGEd-LPs9iafFs9w">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1qcgsDqGEd-LPs9iafFs9w" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1qb5oTqGEd-LPs9iafFs9w"/>
           </ownedAttribute>
-          <ownedAttribute xmi:id="_uIcH0DqGEd-LPs9iafFs9w" name="recoveryBlockAction_RecoveryBlockAlternativeBehaviour" visibility="public" type="_nwYZkDqGEd-LPs9iafFs9w" association="_uIZEgDqGEd-LPs9iafFs9w">
+          <ownedAttribute xmi:id="_uIcH0DqGEd-LPs9iafFs9w" name="recoveryAction__RecoveryActionBehaviour" visibility="public" type="_nwYZkDqGEd-LPs9iafFs9w" association="_uIZEgDqGEd-LPs9iafFs9w">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uIcu4TqGEd-LPs9iafFs9w" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uIcu4DqGEd-LPs9iafFs9w" value="1"/>
           </ownedAttribute>
         </packagedElement>
-        <packagedElement xmi:type="uml:Class" xmi:id="_nwYZkDqGEd-LPs9iafFs9w" name="RecoveryBlockAction">
+        <packagedElement xmi:type="uml:Class" xmi:id="_nwYZkDqGEd-LPs9iafFs9w" name="RecoveryAction">
           <ownedComment xmi:id="_LR4swDqTEd-LPs9iafFs9w" annotatedElement="_nwYZkDqGEd-LPs9iafFs9w">
             <body>Recover block actions are a generic failure handling technique. A recovery block consists of a a primary algorithm and one&#xD;
 or more alternatives that can be used in case of failure. If the primary algorithm fails, the next alternative is chosen.&#xD;
 Here the alternatives also support failure types. Alternatives may specify which kind of failures they can handle.</body>
           </ownedComment>
-          <ownedRule xmi:id="_4JlxwDqIEd-LPs9iafFs9w" name="Alternatives form a chain" constrainedElement="_nwYZkDqGEd-LPs9iafFs9w">
-            <specification xmi:type="uml:OpaqueExpression" xmi:id="_4JmY0DqIEd-LPs9iafFs9w">
+          <ownedRule xmi:id="_4qimIP2WEeCKi4Scusrt0g" name="PrimaryBehaviourOfRecoveryActionMustBeSet" constrainedElement="_nwYZkDqGEd-LPs9iafFs9w">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_4qimIf2WEeCKi4Scusrt0g">
               <language>OCL</language>
-              <body>self.recoveryBlockAlternativeBehaviours_RecoveryBlockAction->isUnique(s: RecoveryBlockAlternativeBehaviour | s.nextAlternative_RecoveryBlockAlternativeBehaviour) and&#xD;&#xA;self.recoveryBlockAlternativeBehaviours_RecoveryBlockAction->forAll(x:RecoveryBlockAlternativeBehaviour| x &lt;> x.nextAlternative_RecoveryBlockAlternativeBehaviour)&#xD;&#xA;</body>
+              <body>self.primaryBehaviour__RecoveryAction &lt;> null</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_0wNtEDqGEd-LPs9iafFs9w" general="_kmntkODhEdq8ysXH3gTiEg"/>
-          <ownedAttribute xmi:id="_uIaSoDqGEd-LPs9iafFs9w" name="recoveryBlockAlternativeBehaviours_RecoveryBlockAction" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" aggregation="composite" association="_uIZEgDqGEd-LPs9iafFs9w">
+          <ownedAttribute xmi:id="_uIaSoDqGEd-LPs9iafFs9w" name="recoveryActionBehaviours__RecoveryAction" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" aggregation="composite" association="_uIZEgDqGEd-LPs9iafFs9w">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uIbgwDqGEd-LPs9iafFs9w" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uIa5sDqGEd-LPs9iafFs9w" value="2"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_POPSAP2WEeCKi4Scusrt0g" name="primaryBehaviour__RecoveryAction" visibility="public" type="_rCg4sDqGEd-LPs9iafFs9w" association="_PNsfcP2WEeCKi4Scusrt0g">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PORHMP2WEeCKi4Scusrt0g" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_POQgIP2WEeCKi4Scusrt0g" value="1"/>
           </ownedAttribute>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_NBzeIDqGEd-LPs9iafFs9w" name="FailureHandlingEntity" isAbstract="true">
@@ -3107,6 +3304,12 @@ Here the alternatives also support failure types. Alternatives may specify which
           <ownedEnd xmi:id="_1qdHwDqGEd-LPs9iafFs9w" name="" visibility="private" type="_rCg4sDqGEd-LPs9iafFs9w" association="_1qargDqGEd-LPs9iafFs9w">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1qdu0TqGEd-LPs9iafFs9w" value="1"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1qdu0DqGEd-LPs9iafFs9w" value="1"/>
+          </ownedEnd>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_PNsfcP2WEeCKi4Scusrt0g" memberEnd="_POPSAP2WEeCKi4Scusrt0g _PORuQP2WEeCKi4Scusrt0g">
+          <ownedEnd xmi:id="_PORuQP2WEeCKi4Scusrt0g" name="" visibility="private" type="_nwYZkDqGEd-LPs9iafFs9w" association="_PNsfcP2WEeCKi4Scusrt0g">
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_POSVUf2WEeCKi4Scusrt0g" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_POSVUP2WEeCKi4Scusrt0g" value="1"/>
           </ownedEnd>
         </packagedElement>
       </packagedElement>
@@ -3175,6 +3378,10 @@ arbitrary resources in the future</body>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9PaVwAlBEeCQFc0YYtBKsw" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9PZusAlBEeCQFc0YYtBKsw"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_4jqRQFZaEeGeS6ke48p2kw" name="schedulingPolicies__ResourceRepository" visibility="public" type="_qCvlgFZaEeGeS6ke48p2kw" aggregation="composite" association="_4jocEFZaEeGeS6ke48p2kw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4kFvEVZaEeGeS6ke48p2kw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4kFvEFZaEeGeS6ke48p2kw"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_n2nAMOD4Edq8ysXH3gTiEg" name="ProcessingResourceType">
         <ownedComment xmi:id="_69swQPxPEd68D51GrGx7ow" annotatedElement="_n2nAMOD4Edq8ysXH3gTiEg">
@@ -3192,7 +3399,7 @@ arbitrary resources in the future</body>
         <ownedComment xmi:id="_3W5osPxPEd68D51GrGx7ow" annotatedElement="__zoEgOMdEdqaQsPH3rPnBQ">
           <body>ResourceType representing communication links like, LAN, WAN, WiFi etc.</body>
         </ownedComment>
-        <generalization xmi:id="_DjY60OMeEdqaQsPH3rPnBQ" general="_n2nAMOD4Edq8ysXH3gTiEg"/>
+        <generalization xmi:id="_DjY60OMeEdqaQsPH3rPnBQ" general="_F3SCEJMnEdqSSImFLKDkSg"/>
         <ownedAttribute xmi:id="_UToQMCZKEeCvwZ8FxCt6_A" name="networkInducedFailureType__CommunicationLinkResourceType" visibility="public" type="_WrmpoCZJEeCvwZ8FxCt6_A" association="_US8TsCZKEeCvwZ8FxCt6_A">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UTqscCZKEeCvwZ8FxCt6_A" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UTqFYCZKEeCvwZ8FxCt6_A"/>
@@ -3202,6 +3409,14 @@ arbitrary resources in the future</body>
       <packagedElement xmi:type="uml:Association" xmi:id="__pnGsHSpEd-1jbVkuJ9Llg" memberEnd="__pnGsXSpEd-1jbVkuJ9Llg __pnGtHSpEd-1jbVkuJ9Llg"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_5_BoIAhGEeCQFc0YYtBKsw" memberEnd="_6A4CQAhGEeCQFc0YYtBKsw _6CDuAAhGEeCQFc0YYtBKsw"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_9PIo8AlBEeCQFc0YYtBKsw" memberEnd="_9PZHoAlBEeCQFc0YYtBKsw _9Pa80AlBEeCQFc0YYtBKsw"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_qCvlgFZaEeGeS6ke48p2kw" name="SchedulingPolicy">
+        <generalization xmi:id="_3srl8FZaEeGeS6ke48p2kw" general="_au_WlWA_EdqdHZdhXRxKVg"/>
+        <ownedAttribute xmi:id="_4kHkQFZaEeGeS6ke48p2kw" name="resourceRepository__SchedulingPolicy" visibility="public" type="_diSaIOKMEdq6IvzVMFpuzg" association="_4jocEFZaEeGeS6ke48p2kw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4kILUFZaEeGeS6ke48p2kw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4kHkQVZaEeGeS6ke48p2kw" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_4jocEFZaEeGeS6ke48p2kw" memberEnd="_4jqRQFZaEeGeS6ke48p2kw _4kHkQFZaEeGeS6ke48p2kw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_ezkv0Ch9Edue7oeC4NTCGg" name="system">
       <ownedComment xmi:id="_s6888K_0Ed2327r4hBntxA" annotatedElement="_ezkv0Ch9Edue7oeC4NTCGg">
@@ -3705,6 +3920,10 @@ Example: To model a layered architecture, of which each layer is potentially spl
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_US8TsCZKEeCvwZ8FxCt6_A" memberEnd="_UTDocCZKEeCvwZ8FxCt6_A _UToQMCZKEeCvwZ8FxCt6_A"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_nfvZICbhEeCXDOePdmjSXQ" name="InternalFailureOccurrenceDescription">
+        <ownedComment xmi:id="_eZG6wMcREeCDdOneIPKwaw" annotatedElement="_nfvZICbhEeCXDOePdmjSXQ">
+          <body>Special&amp;nbsp;case&amp;nbsp;of&amp;nbsp;a&amp;nbsp;FailureOccurenceDescription&amp;nbsp;specifying the software-induced failure potential of&#xD;
+InternalActions.</body>
+        </ownedComment>
         <ownedRule xmi:id="_OB38QE1wEeC6J7U_daCwAg" name="NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription" constrainedElement="_nfvZICbhEeCXDOePdmjSXQ">
           <ownedComment xmi:id="_gCY7YE1wEeC6J7U_daCwAg" annotatedElement="_OB38QE1wEeC6J7U_daCwAg">
             <body>ResourceTimeoutFailures are software-induced failure types, but are not annotated to InternalActions (they are only meant&#xD;
@@ -3726,6 +3945,10 @@ for passive resource timeouts).</body>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_q29zoCbhEeCXDOePdmjSXQ" name="ExternalFailureOccurrenceDescription">
+        <ownedComment xmi:id="_Tn9FUMcREeCDdOneIPKwaw" annotatedElement="_q29zoCbhEeCXDOePdmjSXQ">
+          <body>Special&amp;nbsp;case&amp;nbsp;of&amp;nbsp;a&amp;nbsp;FailureOccurenceDescription&amp;nbsp;specifying&amp;nbsp;the&amp;nbsp;failure&amp;nbsp;potential&amp;nbsp;of&amp;nbsp;system-external&amp;nbsp;calls.&amp;nbsp;Can&amp;nbsp;relate&amp;nbsp;to&#xD;
+any FailureType.</body>
+        </ownedComment>
         <ownedRule xmi:id="_0st1YE1wEeC6J7U_daCwAg" name="NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription" constrainedElement="_nfvZICbhEeCXDOePdmjSXQ">
           <ownedComment xmi:id="_0st1YU1wEeC6J7U_daCwAg" annotatedElement="_0st1YE1wEeC6J7U_daCwAg">
             <body>ResourceTimeoutFailures&amp;nbsp;are&amp;nbsp;software-induced&amp;nbsp;failure&amp;nbsp;types,&amp;nbsp;but&amp;nbsp;are&amp;nbsp;not&amp;nbsp;annotated&amp;nbsp;to&amp;nbsp;system-external&#xD;
@@ -3755,8 +3978,18 @@ for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).</body>
         </ownedEnd>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_8RpdAEvcEeCDNbvXrFXPgQ" name="ResourceTimeoutFailureType">
+        <ownedComment xmi:id="_14TJEMcREeCDdOneIPKwaw" annotatedElement="_8RpdAEvcEeCDNbvXrFXPgQ">
+          <body>&lt;p>&#xD;
+    Type definition for a timeout failure-on-demand related to an AcquireAction for a certain PassiveResource (see the&#xD;
+    documentation of the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further information).&#xD;
+&lt;/p></body>
+        </ownedComment>
         <generalization xmi:id="_Gi970EvdEeCDNbvXrFXPgQ" general="_azCrUDqEEd-LPs9iafFs9w"/>
         <ownedAttribute xmi:id="_WbjIoEveEeCDNbvXrFXPgQ" name="passiveResource__ResourceTimeoutFailureType" visibility="public" type="_9APFUOD4Edq8ysXH3gTiEg" association="_WbgFUEveEeCDNbvXrFXPgQ">
+          <ownedComment xmi:id="_-FGLYMcREeCDdOneIPKwaw" annotatedElement="_WbjIoEveEeCDNbvXrFXPgQ">
+            <body>The passive resource&amp;nbsp;whose&amp;nbsp;acquiring timeout is represented by this failure type&amp;nbsp;(see the documentation of&#xD;
+the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further information).</body>
+          </ownedComment>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WbkWwUveEeCDNbvXrFXPgQ" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WbkWwEveEeCDNbvXrFXPgQ" value="1"/>
         </ownedAttribute>
@@ -3788,27 +4021,27 @@ for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).</body>
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/4.0" basePackage="de.uka.ipd.sdq" prefix="Pcm"/>
-  <Ecore:EPackage xmi:id="_U1l_MJZwEdyvM-KRcbKtDQ" base_Package="_3amlYCh8Edue7oeC4NTCGg" packageName="core" nsPrefix="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/4.0" basePackage="" prefix="Core"/>
-  <Ecore:EPackage xmi:id="_U1mmQJZwEdyvM-KRcbKtDQ" base_Package="_qLB6kOJQEdqxcra4qpeplw" packageName="entity" nsPrefix="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/4.0" basePackage="" prefix="Entity"/>
-  <Ecore:EPackage xmi:id="_U1n0YZZwEdyvM-KRcbKtDQ" base_Package="_cGFKsGc6EduCGaQAxkcIwA" packageName="composition" nsPrefix="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/4.0" basePackage="" prefix="Composition"/>
-  <Ecore:EPackage xmi:id="_U1qQoJZwEdyvM-KRcbKtDQ" base_Package="_8EoEgCh8Edue7oeC4NTCGg" packageName="allocation" nsPrefix="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/4.0" basePackage="" prefix="Allocation"/>
-  <Ecore:EPackage xmi:id="_U1q3sJZwEdyvM-KRcbKtDQ" base_Package="_BdlGMCh9Edue7oeC4NTCGg" packageName="repository" nsPrefix="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/4.0" basePackage="" prefix="Repository"/>
+  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/5.0" basePackage="de.uka.ipd.sdq" prefix="Pcm"/>
+  <Ecore:EPackage xmi:id="_U1l_MJZwEdyvM-KRcbKtDQ" base_Package="_3amlYCh8Edue7oeC4NTCGg" packageName="core" nsPrefix="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/5.0" basePackage="" prefix="Core"/>
+  <Ecore:EPackage xmi:id="_U1mmQJZwEdyvM-KRcbKtDQ" base_Package="_qLB6kOJQEdqxcra4qpeplw" packageName="entity" nsPrefix="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0" basePackage="" prefix="Entity"/>
+  <Ecore:EPackage xmi:id="_U1n0YZZwEdyvM-KRcbKtDQ" base_Package="_cGFKsGc6EduCGaQAxkcIwA" packageName="composition" nsPrefix="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0" basePackage="" prefix="Composition"/>
+  <Ecore:EPackage xmi:id="_U1qQoJZwEdyvM-KRcbKtDQ" base_Package="_8EoEgCh8Edue7oeC4NTCGg" packageName="allocation" nsPrefix="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0" basePackage="" prefix="Allocation"/>
+  <Ecore:EPackage xmi:id="_U1q3sJZwEdyvM-KRcbKtDQ" base_Package="_BdlGMCh9Edue7oeC4NTCGg" packageName="repository" nsPrefix="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0" basePackage="" prefix="Repository"/>
   <Default:Documentation xmi:id="_U2glMJZwEdyvM-KRcbKtDQ" base_Comment="_7gFgQJvjEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hMQJZwEdyvM-KRcbKtDQ" base_Comment="_pfXlcJvmEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hMQZZwEdyvM-KRcbKtDQ" base_Comment="_v8sVkJvjEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hMQpZwEdyvM-KRcbKtDQ" base_Comment="_0sfFgJvjEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hzUJZwEdyvM-KRcbKtDQ" base_Comment="_1Xd8MJvjEdqN_b565_mSbQ"/>
-  <Ecore:EPackage xmi:id="_U1vJIJZwEdyvM-KRcbKtDQ" base_Package="_HSHQoCh9Edue7oeC4NTCGg" packageName="protocol" nsPrefix="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/4.0" basePackage="" prefix="Protocol"/>
-  <Ecore:EPackage xmi:id="_U1vwMJZwEdyvM-KRcbKtDQ" base_Package="_LaA6ICh9Edue7oeC4NTCGg" packageName="resourceenvironment" nsPrefix="resourceenvironment" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/4.0" basePackage="" prefix="Resourceenvironment"/>
-  <Ecore:EPackage xmi:id="_U1xlYJZwEdyvM-KRcbKtDQ" base_Package="_V8vSACh9Edue7oeC4NTCGg" packageName="usagemodel" nsPrefix="usagemodel" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/4.0" basePackage="" prefix="Usagemodel"/>
-  <Ecore:EPackage xmi:id="_U10osJZwEdyvM-KRcbKtDQ" base_Package="_XZbScCh9Edue7oeC4NTCGg" packageName="seff" nsPrefix="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/4.0" basePackage="" prefix="Seff"/>
-  <Ecore:EPackage xmi:id="_U15hMJZwEdyvM-KRcbKtDQ" base_Package="_bpEisCh9Edue7oeC4NTCGg" packageName="resourcetype" nsPrefix="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/4.0" basePackage="" prefix="Resourcetype"/>
-  <Ecore:EPackage xmi:id="_U16IQJZwEdyvM-KRcbKtDQ" base_Package="_ezkv0Ch9Edue7oeC4NTCGg" packageName="system" nsPrefix="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/4.0" basePackage="" prefix="System"/>
-  <Ecore:EPackage xmi:id="_U16vUJZwEdyvM-KRcbKtDQ" base_Package="_t6z0sCh9Edue7oeC4NTCGg" packageName="parameter" nsPrefix="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/4.0" basePackage="" prefix="Parameter"/>
-  <Ecore:EPackage xmi:id="_U2HjoJZwEdyvM-KRcbKtDQ" base_Package="_Uvc4AHDVEdur9cZft9T4NQ" packageName="qosannotations" nsPrefix="qosannotations" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/4.0" basePackage="" prefix="Qosannotations"/>
-  <Ecore:EPackage xmi:id="_UuF1IL3lEdyGNbIQ-5Phlg" base_Package="_JwthkL3lEdyGNbIQ-5Phlg" packageName="qos_performance" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Performance/4.0" basePackage="" prefix="QosPerformance"/>
-  <Ecore:EPackage xmi:id="_aG1wkL3nEdyGNbIQ-5Phlg" base_Package="_YHJJsL3nEdyGNbIQ-5Phlg" packageName="qos_reliability" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Reliability/4.0" prefix="QosReliability"/>
+  <Ecore:EPackage xmi:id="_U1vJIJZwEdyvM-KRcbKtDQ" base_Package="_HSHQoCh9Edue7oeC4NTCGg" packageName="protocol" nsPrefix="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/5.0" basePackage="" prefix="Protocol"/>
+  <Ecore:EPackage xmi:id="_U1vwMJZwEdyvM-KRcbKtDQ" base_Package="_LaA6ICh9Edue7oeC4NTCGg" packageName="resourceenvironment" nsPrefix="resourceenvironment" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0" basePackage="" prefix="Resourceenvironment"/>
+  <Ecore:EPackage xmi:id="_U1xlYJZwEdyvM-KRcbKtDQ" base_Package="_V8vSACh9Edue7oeC4NTCGg" packageName="usagemodel" nsPrefix="usagemodel" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0" basePackage="" prefix="Usagemodel"/>
+  <Ecore:EPackage xmi:id="_U10osJZwEdyvM-KRcbKtDQ" base_Package="_XZbScCh9Edue7oeC4NTCGg" packageName="seff" nsPrefix="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0" basePackage="" prefix="Seff"/>
+  <Ecore:EPackage xmi:id="_U15hMJZwEdyvM-KRcbKtDQ" base_Package="_bpEisCh9Edue7oeC4NTCGg" packageName="resourcetype" nsPrefix="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0" basePackage="" prefix="Resourcetype"/>
+  <Ecore:EPackage xmi:id="_U16IQJZwEdyvM-KRcbKtDQ" base_Package="_ezkv0Ch9Edue7oeC4NTCGg" packageName="system" nsPrefix="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/5.0" basePackage="" prefix="System"/>
+  <Ecore:EPackage xmi:id="_U16vUJZwEdyvM-KRcbKtDQ" base_Package="_t6z0sCh9Edue7oeC4NTCGg" packageName="parameter" nsPrefix="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0" basePackage="" prefix="Parameter"/>
+  <Ecore:EPackage xmi:id="_U2HjoJZwEdyvM-KRcbKtDQ" base_Package="_Uvc4AHDVEdur9cZft9T4NQ" packageName="qosannotations" nsPrefix="qosannotations" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/5.0" basePackage="" prefix="Qosannotations"/>
+  <Ecore:EPackage xmi:id="_UuF1IL3lEdyGNbIQ-5Phlg" base_Package="_JwthkL3lEdyGNbIQ-5Phlg" packageName="qos_performance" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Performance/5.0" basePackage="" prefix="QosPerformance"/>
+  <Ecore:EPackage xmi:id="_aG1wkL3nEdyGNbIQ-5Phlg" base_Package="_YHJJsL3nEdyGNbIQ-5Phlg" packageName="qos_reliability" nsPrefix="" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Reliability/5.0" prefix="QosReliability"/>
   <Default:Documentation xmi:id="_ElYt0H5kEd2w8a0eK9hypA" base_Comment="_ElI2MH5kEd2w8a0eK9hypA"/>
   <Default:Documentation xmi:id="_qCzxkH5kEd2w8a0eK9hypA" base_Comment="_qCrOsH5kEd2w8a0eK9hypA"/>
   <Default:Documentation xmi:id="_BSN3cH5lEd2w8a0eK9hypA" base_Comment="_BSF7oH5lEd2w8a0eK9hypA"/>
@@ -3868,8 +4101,8 @@ for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).</body>
   <Default:Documentation xmi:id="_tPuW8IVeEd2pasxENQ18jg" base_Comment="_tLG8sIVeEd2pasxENQ18jg"/>
   <Default:Documentation xmi:id="_8sanEIVhEd2pasxENQ18jg" base_Comment="_8sQ2EIVhEd2pasxENQ18jg"/>
   <Default:Documentation xmi:id="_KiCdoIVjEd2pasxENQ18jg" base_Comment="_Kh5TsIVjEd2pasxENQ18jg"/>
-  <Ecore:EPackage xmi:id="_uKp1cIYfEd2Hz8WHhMU28w" base_Package="_ok5G0IYfEd2Hz8WHhMU28w" packageName="subsystem" nsPrefix="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/4.0" prefix="Subsystem"/>
-  <Ecore:EPackage xmi:id="_MXL_4JVSEd2YmvKJ8F4NuQ" base_Package="_BZwFgNTBEdy-Vtz2H2qvXw" packageName="seff_performance" nsPrefix="seff_performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/1.0" prefix="SeffPerformance"/>
+  <Ecore:EPackage xmi:id="_uKp1cIYfEd2Hz8WHhMU28w" base_Package="_ok5G0IYfEd2Hz8WHhMU28w" packageName="subsystem" nsPrefix="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/5.0" prefix="Subsystem"/>
+  <Ecore:EPackage xmi:id="_MXL_4JVSEd2YmvKJ8F4NuQ" base_Package="_BZwFgNTBEdy-Vtz2H2qvXw" packageName="seff_performance" nsPrefix="seff_performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0" prefix="SeffPerformance"/>
   <Default:Documentation xmi:id="_3vIBAaHZEd2av7jcZUzHwg" base_Comment="_3vIBAKHZEd2av7jcZUzHwg"/>
   <Default:Documentation xmi:id="_1lMqoaHaEd2av7jcZUzHwg" base_Comment="_1lMqoKHaEd2av7jcZUzHwg"/>
   <Default:Documentation xmi:id="_1W890aHbEd2av7jcZUzHwg" base_Comment="_1W890KHbEd2av7jcZUzHwg"/>
@@ -4013,7 +4246,6 @@ for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).</body>
   <Default:Documentation xmi:id="_M3xloPxPEd68D51GrGx7ow" base_Comment="_M3vwcPxPEd68D51GrGx7ow"/>
   <Default:Documentation xmi:id="_PvOT4PxPEd68D51GrGx7ow" base_Comment="_PvL3oPxPEd68D51GrGx7ow"/>
   <Default:Documentation xmi:id="_UPcWwPxPEd68D51GrGx7ow" base_Comment="_UPahkPxPEd68D51GrGx7ow"/>
-  <Default:Documentation xmi:id="_WScwUPxPEd68D51GrGx7ow" base_Comment="_WSa7IPxPEd68D51GrGx7ow"/>
   <Default:Documentation xmi:id="_3W7d4PxPEd68D51GrGx7ow" base_Comment="_3W5osPxPEd68D51GrGx7ow"/>
   <Default:Documentation xmi:id="_69vMgPxPEd68D51GrGx7ow" base_Comment="_69swQPxPEd68D51GrGx7ow"/>
   <Default:Documentation xmi:id="_FWaQgPxQEd68D51GrGx7ow" base_Comment="_FWZCYPxQEd68D51GrGx7ow"/>
@@ -4054,9 +4286,9 @@ for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).</body>
   <Default:Documentation xmi:id="_a2FwAHSzEd-1jbVkuJ9Llg" base_Comment="_a1_pYHSzEd-1jbVkuJ9Llg"/>
   <Default:Documentation xmi:id="_bOougOdUEd-cUq-NuWJH_g" base_Comment="_bOPs8OdUEd-cUq-NuWJH_g"/>
   <Default:Documentation xmi:id="_tpmHUOfrEd-7B-w-u5ZN-g" base_Comment="_tpjEAOfrEd-7B-w-u5ZN-g"/>
-  <Ecore:EPackage xmi:id="_IUEIYOf4Ed-7B-w-u5ZN-g" base_Package="_E37YsOf4Ed-7B-w-u5ZN-g" packageName="reliability" nsPrefix="reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/4.0" prefix="Reliability"/>
+  <Ecore:EPackage xmi:id="_IUEIYOf4Ed-7B-w-u5ZN-g" base_Package="_E37YsOf4Ed-7B-w-u5ZN-g" packageName="reliability" nsPrefix="reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0" prefix="Reliability"/>
   <Default:Documentation xmi:id="_WXHzcOf4Ed-7B-w-u5ZN-g" base_Comment="_WXBs0Of4Ed-7B-w-u5ZN-g"/>
-  <Ecore:EPackage xmi:id="_UKZV0Of7Ed-7B-w-u5ZN-g" base_Package="_RkttAOf7Ed-7B-w-u5ZN-g" packageName="seff_reliability" nsPrefix="seff_reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0" prefix="SeffReliability"/>
+  <Ecore:EPackage xmi:id="_UKZV0Of7Ed-7B-w-u5ZN-g" base_Package="_RkttAOf7Ed-7B-w-u5ZN-g" packageName="seff_reliability" nsPrefix="seff_reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0" prefix="SeffReliability"/>
   <Default:Documentation xmi:id="_5vh7YOgMEd-OMbuyc2jvgA" base_Comment="_5qlxAOgMEd-OMbuyc2jvgA"/>
   <Default:Documentation xmi:id="_L9Y-ACZKEeCvwZ8FxCt6_A" base_Comment="_L9V6sCZKEeCvwZ8FxCt6_A"/>
   <Default:Documentation xmi:id="_1sH4MDw-EeCN5Kjn9iQWGg" base_Comment="_1q2s4Dw-EeCN5Kjn9iQWGg"/>
@@ -4065,4 +4297,12 @@ for&amp;nbsp;passive&amp;nbsp;resource&amp;nbsp;timeouts).</body>
   <Default:Documentation xmi:id="_BX2ocEjVEeC8peuLOyIDAg" base_Comment="_BXxI4EjVEeC8peuLOyIDAg"/>
   <Default:Documentation xmi:id="_gHBjwE1wEeC6J7U_daCwAg" base_Comment="_gCY7YE1wEeC6J7U_daCwAg"/>
   <Default:Documentation xmi:id="_0sw4sE1wEeC6J7U_daCwAg" base_Comment="_0st1YU1wEeC6J7U_daCwAg"/>
+  <Default:Documentation xmi:id="_zvgawXsZEeC4F76ww26DWA" base_Comment="_zvgawHsZEeC4F76ww26DWA"/>
+  <Default:Documentation xmi:id="_ToB90McREeCDdOneIPKwaw" base_Comment="_Tn9FUMcREeCDdOneIPKwaw"/>
+  <Default:Documentation xmi:id="_eZJXAMcREeCDdOneIPKwaw" base_Comment="_eZG6wMcREeCDdOneIPKwaw"/>
+  <Default:Documentation xmi:id="_14U-QMcREeCDdOneIPKwaw" base_Comment="_14TJEMcREeCDdOneIPKwaw"/>
+  <Default:Documentation xmi:id="_-FLq8McREeCDdOneIPKwaw" base_Comment="_-FGLYMcREeCDdOneIPKwaw"/>
+  <Default:Documentation xmi:id="_UALioMcSEeCDdOneIPKwaw" base_Comment="_UAJtcMcSEeCDdOneIPKwaw"/>
+  <Ecore:EAttribute xmi:id="_egua4OAZEeCp4tHWeolwKw" base_Property="_-svE0OAYEeCp4tHWeolwKw"/>
+  <Default:Documentation xmi:id="_MkUDMOAaEeCp4tHWeolwKw" base_Comment="_Mh1-AOAaEeCp4tHWeolwKw"/>
 </xmi:XMI>

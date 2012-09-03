@@ -23,15 +23,17 @@ public class DetailedQualityAnnotationItemProvider extends
 	@Override
 	public String getText(Object object) {
 		StringBuilder text = new StringBuilder(getString("_UI_QualityAnnotation_type"));
-		if (object != null && object instanceof QualityAnnotation) {
-			QualityAnnotation target = (QualityAnnotation) object;
-			if (target.getForServiceSpecification() != null) {
-				text.append(" " + Helper.getText(adapterFactory, target.getForServiceSpecification()));
-			}
-			if (target.getId() != null) {
-				text.append(" " + target.getId());
-			}
-		} 
+		if (object != null) {
+			if (object instanceof QualityAnnotation) {
+				QualityAnnotation target = (QualityAnnotation) object;
+				if (target.getForServiceSpecification() != null) {
+					text.append(" " + Helper.getText(adapterFactory, target.getForServiceSpecification()));
+				}
+				if (target.getId() != null) {
+					text.append(" " + target.getId());
+				}
+			} 
+		}
 		return text.toString();
 	}
 }

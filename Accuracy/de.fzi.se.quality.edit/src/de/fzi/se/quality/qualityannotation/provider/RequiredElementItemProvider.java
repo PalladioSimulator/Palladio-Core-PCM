@@ -196,6 +196,16 @@ public class RequiredElementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__CHILD_RES,
+				 QualityAnnotationFactory.eINSTANCE.createPCMREResource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__CHILD_RES,
+				 QualityAnnotationFactory.eINSTANCE.createPCMREResourceRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__PRECISION,
 				 QualityAnnotationFactory.eINSTANCE.createREPrecision()));
 	}

@@ -31,7 +31,9 @@ import de.fzi.se.quality.qualityannotation.PCMParameterPartition;
 import de.fzi.se.quality.qualityannotation.PCMRECategory;
 import de.fzi.se.quality.qualityannotation.PCMREInterface;
 import de.fzi.se.quality.qualityannotation.PCMRERequestCategory;
+import de.fzi.se.quality.qualityannotation.PCMREResource;
 import de.fzi.se.quality.qualityannotation.PCMREResourceInterface;
+import de.fzi.se.quality.qualityannotation.PCMREResourceRole;
 import de.fzi.se.quality.qualityannotation.PCMREResourceSignature;
 import de.fzi.se.quality.qualityannotation.PCMRERole;
 import de.fzi.se.quality.qualityannotation.PCMRESignature;
@@ -52,6 +54,7 @@ import de.uka.ipd.sdq.pcm.PcmPackage;
 
 import de.uka.ipd.sdq.pcm.core.CorePackage;
 
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -238,6 +241,20 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * @generated
 	 */
 	private EClass pcmreResourceSignatureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pcmreResourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pcmreResourceRoleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -902,6 +919,42 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPCMREResource() {
+		return pcmreResourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPCMREResource_ProcessingResourceType() {
+		return (EReference)pcmreResourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPCMREResourceRole() {
+		return pcmreResourceRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPCMREResourceRole_ResourceRole() {
+		return (EReference)pcmreResourceRoleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPCMRERequestCategory() {
 		return pcmreRequestCategoryEEnum;
 	}
@@ -1020,6 +1073,12 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		pcmreResourceSignatureEClass = createEClass(PCMRE_RESOURCE_SIGNATURE);
 		createEReference(pcmreResourceSignatureEClass, PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE);
 
+		pcmreResourceEClass = createEClass(PCMRE_RESOURCE);
+		createEReference(pcmreResourceEClass, PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE);
+
+		pcmreResourceRoleEClass = createEClass(PCMRE_RESOURCE_ROLE);
+		createEReference(pcmreResourceRoleEClass, PCMRE_RESOURCE_ROLE__RESOURCE_ROLE);
+
 		// Create enums
 		pcmreRequestCategoryEEnum = createEEnum(PCMRE_REQUEST_CATEGORY);
 	}
@@ -1057,6 +1116,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
+		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1083,6 +1143,8 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		pcmServiceSpecificationEClass.getESuperTypes().add(this.getServiceSpecification());
 		pcmreResourceInterfaceEClass.getESuperTypes().add(this.getPCMRE());
 		pcmreResourceSignatureEClass.getESuperTypes().add(this.getPCMRE());
+		pcmreResourceEClass.getESuperTypes().add(this.getPCMRE());
+		pcmreResourceRoleEClass.getESuperTypes().add(this.getPCMRE());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(callParameterDeviationEClass, CallParameterDeviation.class, "CallParameterDeviation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1269,6 +1331,12 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
 		initEClass(pcmreResourceSignatureEClass, PCMREResourceSignature.class, "PCMREResourceSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPCMREResourceSignature_ResourceSignature(), theResourcetypePackage.getResourceSignature(), null, "resourceSignature", null, 1, 1, PCMREResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(pcmreResourceEClass, PCMREResource.class, "PCMREResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPCMREResource_ProcessingResourceType(), theResourcetypePackage.getProcessingResourceType(), null, "processingResourceType", null, 1, 1, PCMREResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(pcmreResourceRoleEClass, PCMREResourceRole.class, "PCMREResourceRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPCMREResourceRole_ResourceRole(), theEntityPackage.getResourceRequiredRole(), null, "resourceRole", null, 1, 1, PCMREResourceRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(pcmreRequestCategoryEEnum, PCMRERequestCategory.class, "PCMRERequestCategory");

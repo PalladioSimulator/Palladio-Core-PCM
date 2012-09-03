@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="quality"
-    nsURI="http://fzi.de/PalladioComponentModel/Quality/0.2" nsPrefix="quality">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="quality" nsURI="http://fzi.de/PalladioComponentModel/Quality/0.2"
+    nsPrefix="quality">
   <eClassifiers xsi:type="ecore:EClass" name="QualityRepository" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Container for quality annotations."/>
@@ -387,6 +386,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="PCMREResourceSignature" eSuperTypes="#//qualityannotation/PCMRE">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceSignature" ordered="false"
           lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourcetype/ResourceSignature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMREResource" eSuperTypes="#//qualityannotation/PCMRE">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processingResourceType"
+          lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourcetype/ProcessingResourceType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMREResourceRole" eSuperTypes="#//qualityannotation/PCMRE">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRole" lowerBound="1"
+          eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/ResourceRequiredRole"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="parameters" nsURI="http://fzi.de/PalladioComponentModel/Quality/Parameters/0.2"

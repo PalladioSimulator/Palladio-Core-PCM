@@ -61,11 +61,21 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Enumeration" xmi:id="_I5N3wPY5Ed-XX4IW1je7gw" name="PCMRERequestCategory">
-        <ownedLiteral xmi:id="_LQHdsPY5Ed-XX4IW1je7gw" name="Resource" classifier="_I5N3wPY5Ed-XX4IW1je7gw"/>
-        <ownedLiteral xmi:id="_Q-n4oPY5Ed-XX4IW1je7gw" name="Infrastructure" classifier="_I5N3wPY5Ed-XX4IW1je7gw"/>
-        <ownedLiteral xmi:id="_TJZuIPY5Ed-XX4IW1je7gw" name="Component" classifier="_I5N3wPY5Ed-XX4IW1je7gw"/>
-        <ownedLiteral xmi:id="_T-VRMGtMEeC4zdjwiDLpOQ" name="ResourceDemand" classifier="_I5N3wPY5Ed-XX4IW1je7gw"/>
-        <ownedLiteral xmi:id="_QQN5UGtPEeC4zdjwiDLpOQ" name="ComponentInternal" classifier="_I5N3wPY5Ed-XX4IW1je7gw"/>
+        <ownedLiteral xmi:id="_LQHdsPY5Ed-XX4IW1je7gw" name="Resource" classifier="_I5N3wPY5Ed-XX4IW1je7gw">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_zbz2AOh7EeG-fYgYogRGGg" value="1"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="_Q-n4oPY5Ed-XX4IW1je7gw" name="Infrastructure" classifier="_I5N3wPY5Ed-XX4IW1je7gw">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_ztNvEOh7EeG-fYgYogRGGg" value="2"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="_TJZuIPY5Ed-XX4IW1je7gw" name="Component" classifier="_I5N3wPY5Ed-XX4IW1je7gw">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_0CliIOh7EeG-fYgYogRGGg" value="3"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="_T-VRMGtMEeC4zdjwiDLpOQ" name="ResourceDemand" classifier="_I5N3wPY5Ed-XX4IW1je7gw">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_0pz6MOh7EeG-fYgYogRGGg" value="4"/>
+        </ownedLiteral>
+        <ownedLiteral xmi:id="_QQN5UGtPEeC4zdjwiDLpOQ" name="ComponentInternal" classifier="_I5N3wPY5Ed-XX4IW1je7gw">
+          <specification xmi:type="uml:LiteralInteger" xmi:id="_1U9wAOh7EeG-fYgYogRGGg" value="5"/>
+        </ownedLiteral>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_jtHpQPDBEd-kFeqitXR7Sg" name="CharacterisedPCMParameterPartition" isAbstract="true">
         <generalization xmi:id="_AwysMPZGEd-XX4IW1je7gw">
@@ -165,7 +175,7 @@
           </specification>
         </ownedRule>
         <generalization xmi:id="_vzWmkPY4Ed-XX4IW1je7gw" general="_RIgp4PY4Ed-XX4IW1je7gw"/>
-        <ownedAttribute xmi:id="_Wsc-IPY5Ed-XX4IW1je7gw" name="category" visibility="public" type="_I5N3wPY5Ed-XX4IW1je7gw"/>
+        <ownedAttribute xmi:id="_Wsc-IPY5Ed-XX4IW1je7gw" name="category" visibility="public" type="_I5N3wPY5Ed-XX4IW1je7gw" isUnique="false"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_bVgCUPY4Ed-XX4IW1je7gw" name="PCMREInterface">
         <ownedRule xmi:id="_m0DZEPfUEd-c2_ZLb5uXsw" name="NextLowerHierachyLevelIsRole" constrainedElement="_bVgCUPY4Ed-XX4IW1je7gw">
@@ -406,6 +416,34 @@ the referenced SEFF (or not).</body>
         <ownedEnd xmi:id="_G7ks4GtJEeC4zdjwiDLpOQ" name="" visibility="private" type="_XarZEGtIEeC4zdjwiDLpOQ" association="_G7iQoGtJEeC4zdjwiDLpOQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G7lT8WtJEeC4zdjwiDLpOQ" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G7lT8GtJEeC4zdjwiDLpOQ"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_BMOSwK8IEeCxI8nWz9hEHQ" name="PCMREResource">
+        <generalization xmi:id="_ULGXkK8IEeCxI8nWz9hEHQ" general="_RIgp4PY4Ed-XX4IW1je7gw"/>
+        <ownedAttribute xmi:id="_MqIggK8IEeCxI8nWz9hEHQ" name="processingResourceType" visibility="public" association="_MppYUK8IEeCxI8nWz9hEHQ">
+          <type xmi:type="uml:Class" href="pcm.uml#_n2nAMOD4Edq8ysXH3gTiEg"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MqeewK8IEeCxI8nWz9hEHQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Mqd3sK8IEeCxI8nWz9hEHQ" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MppYUK8IEeCxI8nWz9hEHQ" memberEnd="_MqIggK8IEeCxI8nWz9hEHQ _MqfF0K8IEeCxI8nWz9hEHQ">
+        <ownedEnd xmi:id="_MqfF0K8IEeCxI8nWz9hEHQ" name="" visibility="private" type="_BMOSwK8IEeCxI8nWz9hEHQ" association="_MppYUK8IEeCxI8nWz9hEHQ">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MqgT8a8IEeCxI8nWz9hEHQ" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_MqgT8K8IEeCxI8nWz9hEHQ"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_USWlMOxhEeG-fYgYogRGGg" name="PCMREResourceRole">
+        <generalization xmi:id="_uUFowOxhEeG-fYgYogRGGg" general="_RIgp4PY4Ed-XX4IW1je7gw"/>
+        <ownedAttribute xmi:id="_qdGwIOxhEeG-fYgYogRGGg" name="resourceRequiredRole" visibility="public" association="_qdFiAOxhEeG-fYgYogRGGg">
+          <type xmi:type="uml:Class" href="pcm.uml#_XT0qcJR_Ed27_9sKGvEc-Q"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qdHXMexhEeG-fYgYogRGGg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qdHXMOxhEeG-fYgYogRGGg" value="1"/>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_qdFiAOxhEeG-fYgYogRGGg" memberEnd="_qdGwIOxhEeG-fYgYogRGGg _qdIlUOxhEeG-fYgYogRGGg">
+        <ownedEnd xmi:id="_qdIlUOxhEeG-fYgYogRGGg" name="" visibility="private" type="_USWlMOxhEeG-fYgYogRGGg" association="_qdFiAOxhEeG-fYgYogRGGg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qdIlUuxhEeG-fYgYogRGGg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qdIlUexhEeG-fYgYogRGGg"/>
         </ownedEnd>
       </packagedElement>
     </packagedElement>
