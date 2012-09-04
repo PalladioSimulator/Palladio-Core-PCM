@@ -99,28 +99,6 @@
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Ryizceq3EeG2iLp1vAsnsw" fontName="Sans Serif" showStereotype="Label"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ryizcuq3EeG2iLp1vAsnsw" x="1188" y="10560"/>
           </children>
-          <children xmi:id="_YTHCYPKXEeGXcrz1WV8dqw" element="_YRiVEPKXEeGXcrz1WV8dqw">
-            <children xmi:id="_YTI3kPKXEeGXcrz1WV8dqw" type="ImageCompartment">
-              <layoutConstraint xmi:type="notation:Size" xmi:id="_YTI3kfKXEeGXcrz1WV8dqw" width="1320" height="1320"/>
-            </children>
-            <children xmi:id="_YTI3kvKXEeGXcrz1WV8dqw" type="Stereotype"/>
-            <children xmi:id="_YTJeoPKXEeGXcrz1WV8dqw" type="Name"/>
-            <children xmi:id="_YTJeofKXEeGXcrz1WV8dqw" type="Parent"/>
-            <children xmi:id="_YTJeovKXEeGXcrz1WV8dqw" type="AttributeCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_YTJeo_KXEeGXcrz1WV8dqw"/>
-            </children>
-            <children xmi:id="_YTKFsPKXEeGXcrz1WV8dqw" type="OperationCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_YTKFsfKXEeGXcrz1WV8dqw"/>
-            </children>
-            <children xmi:id="_YTKswPKXEeGXcrz1WV8dqw" visible="false" type="SignalCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_YTKswfKXEeGXcrz1WV8dqw"/>
-            </children>
-            <children xmi:id="_YTLT0PKXEeGXcrz1WV8dqw" visible="false" type="StructureCompartment">
-              <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_YTLT0fKXEeGXcrz1WV8dqw"/>
-            </children>
-            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_YTHCYfKXEeGXcrz1WV8dqw" fontName="Sans Serif" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YTHCYvKXEeGXcrz1WV8dqw" x="24684" y="5280"/>
-          </children>
           <children xmi:id="_ARJowPKYEeGXcrz1WV8dqw" element="_AQ8NYPKYEeGXcrz1WV8dqw">
             <children xmi:id="_ARJow_KYEeGXcrz1WV8dqw" type="ImageCompartment">
               <layoutConstraint xmi:type="notation:Size" xmi:id="_ARJoxPKYEeGXcrz1WV8dqw" width="1320" height="1320"/>
@@ -161,7 +139,7 @@
               <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_eJOEs_KYEeGXcrz1WV8dqw"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_eJM2kfKYEeGXcrz1WV8dqw" fontName="Sans Serif" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eJM2kvKYEeGXcrz1WV8dqw" x="13992" y="5676"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eJM2kvKYEeGXcrz1WV8dqw" x="14375" y="5000"/>
           </children>
           <children xmi:id="_7hhJgPKaEeGXcrz1WV8dqw" element="_7hdfIPKaEeGXcrz1WV8dqw">
             <children xmi:id="_7hhwkPKaEeGXcrz1WV8dqw" type="ImageCompartment">
@@ -489,55 +467,6 @@
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_Xlj68eq3EeG2iLp1vAsnsw" fontName="Sans Serif" routing="Rectilinear" lineWidth="1" showStereotype="Text"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Xlj68uq3EeG2iLp1vAsnsw" points="[2380, 0, 2380, 0]$[4165, 0, 4165, 0]$[4165, 2477, 4165, 2477]$[1935, 2477, 1935, 2477]$[1935, 688, 1935, 688]"/>
-          </edges>
-          <edges xmi:id="_hsv10PKYEeGXcrz1WV8dqw" element="_hsnS8PKYEeGXcrz1WV8dqw" source="_eJM2kPKYEeGXcrz1WV8dqw" target="_YTHCYPKXEeGXcrz1WV8dqw">
-            <children xmi:id="_hswc4PKYEeGXcrz1WV8dqw" type="NameLabel">
-              <children xmi:id="_hsxD8PKYEeGXcrz1WV8dqw" type="Stereotype"/>
-              <children xmi:id="_hsxrAPKYEeGXcrz1WV8dqw" type="Name"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hswc4fKYEeGXcrz1WV8dqw" y="-147"/>
-            </children>
-            <children xmi:id="_hsxrAfKYEeGXcrz1WV8dqw" type="ToMultiplicityLabel" element="_hsq9UPKYEeGXcrz1WV8dqw">
-              <children xmi:id="_htA7kPKYEeGXcrz1WV8dqw" type="ToMultiplicity"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_hsxrAvKYEeGXcrz1WV8dqw" y="314"/>
-            </children>
-            <children xmi:id="_htT2gPKYEeGXcrz1WV8dqw" type="ToRoleLabel" element="_hsq9UPKYEeGXcrz1WV8dqw">
-              <children xmi:id="_htUdkPKYEeGXcrz1WV8dqw" type="ToRole"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_htT2gfKYEeGXcrz1WV8dqw" x="765" y="-379"/>
-            </children>
-            <children xmi:id="_htUdkfKYEeGXcrz1WV8dqw" type="FromMultiplicityLabel" element="_hspIIPKYEeGXcrz1WV8dqw">
-              <children xmi:id="_htVrsPKYEeGXcrz1WV8dqw" type="FromMultiplicity"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_htUdkvKYEeGXcrz1WV8dqw" y="314"/>
-            </children>
-            <children xmi:id="_htVrsfKYEeGXcrz1WV8dqw" type="FromRoleLabel" element="_hspIIPKYEeGXcrz1WV8dqw">
-              <children xmi:id="_htWSwPKYEeGXcrz1WV8dqw" type="FromRole"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_htVrsvKYEeGXcrz1WV8dqw" x="-954" y="-379"/>
-            </children>
-            <children xmi:id="_htWSwfKYEeGXcrz1WV8dqw" type="ToQualifierLabel" element="_hsq9UPKYEeGXcrz1WV8dqw">
-              <children xmi:id="_htWSw_KYEeGXcrz1WV8dqw" type="QualifierCompartment">
-                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_htWSxPKYEeGXcrz1WV8dqw"/>
-              </children>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_htWSwvKYEeGXcrz1WV8dqw" y="-147"/>
-            </children>
-            <children xmi:id="_htW50PKYEeGXcrz1WV8dqw" type="FromQualifierLabel" element="_hspIIPKYEeGXcrz1WV8dqw">
-              <children xmi:id="_htW50vKYEeGXcrz1WV8dqw" type="QualifierCompartment">
-                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_htW50_KYEeGXcrz1WV8dqw"/>
-              </children>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_htW50fKYEeGXcrz1WV8dqw" y="-147"/>
-            </children>
-            <children xmi:id="_htW51PKYEeGXcrz1WV8dqw" type="ToConstraintLabel" element="_hsq9UPKYEeGXcrz1WV8dqw">
-              <children xmi:id="_htW51vKYEeGXcrz1WV8dqw" type="ToConstraintCompartment">
-                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_htW51_KYEeGXcrz1WV8dqw"/>
-              </children>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_htW51fKYEeGXcrz1WV8dqw" y="839"/>
-            </children>
-            <children xmi:id="_htXg4PKYEeGXcrz1WV8dqw" type="FromConstraintLabel" element="_hspIIPKYEeGXcrz1WV8dqw">
-              <children xmi:id="_htXg4vKYEeGXcrz1WV8dqw" type="FromConstraintCompartment">
-                <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_htXg4_KYEeGXcrz1WV8dqw"/>
-              </children>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_htXg4fKYEeGXcrz1WV8dqw" y="839"/>
-            </children>
-            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_hsv10fKYEeGXcrz1WV8dqw" fontName="Sans Serif" routing="Rectilinear" lineWidth="1" showStereotype="Text"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hsv10vKYEeGXcrz1WV8dqw" points="[67, -4, -197, -15]$[268, -21, 4, -32]"/>
           </edges>
           <edges xmi:id="_4fKdsPKYEeGXcrz1WV8dqw" element="_4fDI8PKYEeGXcrz1WV8dqw" source="_8eaugOq2EeG2iLp1vAsnsw" target="_eJM2kPKYEeGXcrz1WV8dqw">
             <children xmi:id="_4fLEwPKYEeGXcrz1WV8dqw" type="NameLabel">
@@ -948,26 +877,6 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_XlbYEOq3EeG2iLp1vAsnsw" name="" memberEnd="_Xlb_IOq3EeG2iLp1vAsnsw _XldNQOq3EeG2iLp1vAsnsw"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_YRiVEPKXEeGXcrz1WV8dqw" name="ArrayCreation">
-        <ownedAttribute xmi:id="_a4XNYPKXEeGXcrz1WV8dqw" name="typeDescriptor" visibility="public">
-          <ownedComment xmi:id="_g4bSYPKXEeGXcrz1WV8dqw" annotatedElement="_a4XNYPKXEeGXcrz1WV8dqw">
-            <body>Descriptor of the type of the array elements.</body>
-          </ownedComment>
-          <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkisX_EduPJbEsMYXjUQ?Ecore/EString?"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_dNnMgPKiEeGXcrz1WV8dqw" name="numberOfDimensions" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkZcX_EduPJbEsMYXjUQ?Ecore/EInt?"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_yXua0PKXEeGXcrz1WV8dqw" name="arrayType" visibility="public" type="_AQ8NYPKYEeGXcrz1WV8dqw">
-          <ownedComment xmi:id="_4engkPKXEeGXcrz1WV8dqw" annotatedElement="_yXua0PKXEeGXcrz1WV8dqw">
-            <body>The opcode of the array type.</body>
-          </ownedComment>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_hsq9UPKYEeGXcrz1WV8dqw" name="arrayCreationCount" visibility="public" type="_eJKaUPKYEeGXcrz1WV8dqw" association="_hsnS8PKYEeGXcrz1WV8dqw">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hsrkYPKYEeGXcrz1WV8dqw" value="1"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hsq9UfKYEeGXcrz1WV8dqw" value="1"/>
-        </ownedAttribute>
-      </packagedElement>
       <packagedElement xmi:type="uml:Enumeration" xmi:id="_AQ8NYPKYEeGXcrz1WV8dqw" name="ArrayType">
         <ownedLiteral xmi:id="_KeoJYPKYEeGXcrz1WV8dqw" name="INVALID" classifier="_AQ8NYPKYEeGXcrz1WV8dqw">
           <ownedComment xmi:id="_SxAPQPKYEeGXcrz1WV8dqw" annotatedElement="_KeoJYPKYEeGXcrz1WV8dqw">
@@ -984,10 +893,6 @@
         <ownedLiteral xmi:id="_O88u0PKYEeGXcrz1WV8dqw" name="SHORT" classifier="_AQ8NYPKYEeGXcrz1WV8dqw"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_eJKaUPKYEeGXcrz1WV8dqw" name="ArrayCreationCount">
-        <ownedAttribute xmi:id="_hspIIPKYEeGXcrz1WV8dqw" name="arrayCreation" visibility="public" type="_YRiVEPKXEeGXcrz1WV8dqw" aggregation="composite" association="_hsnS8PKYEeGXcrz1WV8dqw">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hsqWQfKYEeGXcrz1WV8dqw" value="1"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hsqWQPKYEeGXcrz1WV8dqw" value="1"/>
-        </ownedAttribute>
         <ownedAttribute xmi:id="_l2VhYPKYEeGXcrz1WV8dqw" name="count" visibility="public">
           <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkcsX_EduPJbEsMYXjUQ?Ecore/ELong?"/>
         </ownedAttribute>
@@ -995,8 +900,21 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4fHaYfKYEeGXcrz1WV8dqw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4fHaYPKYEeGXcrz1WV8dqw" value="1"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_a4XNYPKXEeGXcrz1WV8dqw" name="typeDescriptor" visibility="public">
+          <ownedComment xmi:id="_g4bSYPKXEeGXcrz1WV8dqw" annotatedElement="_a4XNYPKXEeGXcrz1WV8dqw">
+            <body>Descriptor of the type of the array elements.</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkisX_EduPJbEsMYXjUQ?Ecore/EString?"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_dNnMgPKiEeGXcrz1WV8dqw" name="numberOfDimensions" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkZcX_EduPJbEsMYXjUQ?Ecore/EInt?"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_yXua0PKXEeGXcrz1WV8dqw" name="arrayType" visibility="public" type="_AQ8NYPKYEeGXcrz1WV8dqw">
+          <ownedComment xmi:id="_4engkPKXEeGXcrz1WV8dqw" annotatedElement="_yXua0PKXEeGXcrz1WV8dqw">
+            <body>The opcode of the array type.</body>
+          </ownedComment>
+        </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_hsnS8PKYEeGXcrz1WV8dqw" memberEnd="_hspIIPKYEeGXcrz1WV8dqw _hsq9UPKYEeGXcrz1WV8dqw"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_4fDI8PKYEeGXcrz1WV8dqw" memberEnd="_4fEXEPKYEeGXcrz1WV8dqw _4fGzUPKYEeGXcrz1WV8dqw"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_7hdfIPKaEeGXcrz1WV8dqw" name="MethodCallCount">
         <ownedAttribute xmi:id="_E_AXoPKbEeGXcrz1WV8dqw" name="qualifiedFunctionName" visibility="public">
@@ -1021,7 +939,7 @@
       <packagedElement xmi:type="uml:Association" xmi:id="_ma6GsPKbEeGXcrz1WV8dqw" memberEnd="_ma7U0PKbEeGXcrz1WV8dqw _mbFF0PKbEeGXcrz1WV8dqw"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_oAM-oPKdEeGXcrz1WV8dqw" name="UUID">
         <ownedAttribute xmi:id="_o9KWIPKdEeGXcrz1WV8dqw" name="stringRepresentation" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="Ecore.uml#_91ssvO02EeGJRuXp1oRXjA"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_c68RQPWZEeGCw7rrCTZ13A" memberEnd="_c7KTsPWZEeGCw7rrCTZ13A _c7PMMPWZEeGCw7rrCTZ13A">
@@ -2502,20 +2420,6 @@ When false, only the counts for operations done in the method itself - not those
           </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_mb5bwPXpEeGJyMxspERnIw" name="internalClassesDefinition" visibility="public">
-          <ownedComment xmi:id="_y2TuAPXpEeGJyMxspERnIw" annotatedElement="_mb5bwPXpEeGJyMxspERnIw">
-            <body>The definition of internal classes. When adding up results when retrieving results recursively, this definition allows for adding up only results for classes defined as internal. A value of null means all classes are considered internal.
-For each string, specifying a '*' at the end enables prefix matching, i.e. all classes with the prefix are matched. If a string specifies a class name, non-public/internal classes are also considered internal.
-
-Examples:
-de.uka* matches de.ukap.Test, de.uka.ipd, ...
-de.uka.Test matches de.uka.Test, de.uka.Test$XXX, de.uka.Test$XXX$YYY, ...
-de.uka.Test matches de.uka.Test, but not de.uka.Test.{ENUM Y}</body>
-          </ownedComment>
-          <type xmi:type="uml:PrimitiveType" href="features/Ecore.emx#_SeWkisX_EduPJbEsMYXjUQ?Ecore/EString?"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qW1AQPXpEeGJyMxspERnIw" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qW0ZMPXpEeGJyMxspERnIw"/>
-        </ownedAttribute>
         <ownedAttribute xmi:id="_rSudQPXoEeGJyMxspERnIw" name="waitForThreadsToFinnish" visibility="public">
           <ownedComment xmi:id="_HJSUcPXpEeGJyMxspERnIw" annotatedElement="_rSudQPXoEeGJyMxspERnIw">
             <body>When true, execution tries to wait for all threads from instrumented methods to finish before returning.</body>
@@ -2575,7 +2479,6 @@ de.uka.Test matches de.uka.Test, but not de.uka.Test.{ENUM Y}</body>
   <Default:Documentation xmi:id="_V2Q7sPXoEeGJyMxspERnIw" base_Comment="_V2PGgPXoEeGJyMxspERnIw"/>
   <Default:Documentation xmi:id="_HJV-0PXpEeGJyMxspERnIw" base_Comment="_HJSUcPXpEeGJyMxspERnIw"/>
   <Default:Documentation xmi:id="_bXSe0PXpEeGJyMxspERnIw" base_Comment="_bXPbgPXpEeGJyMxspERnIw"/>
-  <Default:Documentation xmi:id="_y2XYYPXpEeGJyMxspERnIw" base_Comment="_y2TuAPXpEeGJyMxspERnIw"/>
   <Default:Documentation xmi:id="_7FcSoPXpEeGJyMxspERnIw" base_Comment="_7FadcPXpEeGJyMxspERnIw"/>
   <Default:Documentation xmi:id="_LOs1MPXqEeGJyMxspERnIw" base_Comment="_LOqY8PXqEeGJyMxspERnIw"/>
   <Default:Documentation xmi:id="_VlHPYPXqEeGJyMxspERnIw" base_Comment="_VlDlAPXqEeGJyMxspERnIw"/>
