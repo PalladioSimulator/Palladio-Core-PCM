@@ -2256,6 +2256,9 @@ entitesToInstrument that  are not Java API methods (packages java.*, javax.* sun
             <body>When true, allows ByCounter to wait for all threads spawned from instrumented methods to complete.</body>
           </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_Cy8KYPjKEeGCw7rrCTZ13A" value="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:id="_US2mIEZIEd-sOu4vtdvMEA" name="persistInstrumentedClassesToOSPath" visibility="public">
           <ownedComment xmi:id="_c2NecPXqEeGJyMxspERnIw" annotatedElement="_US2mIEZIEd-sOu4vtdvMEA">
@@ -2271,6 +2274,9 @@ entitesToInstrument that  are not Java API methods (packages java.*, javax.* sun
             <body> When true, the instrumentation for providing updates on the execution of user specified code sections is inserted.</body>
           </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_D3CrsPjKEeGCw7rrCTZ13A" value="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:id="_vFh6MEcTEd-sOu4vtdvMEA" name="traceAndIdentifyRequests" visibility="public">
           <ownedComment xmi:id="_kzLVAPXqEeGJyMxspERnIw" annotatedElement="_vFh6MEcTEd-sOu4vtdvMEA">
@@ -2419,12 +2425,18 @@ This means that results for methods that call other methods include the counts o
 When false, only the counts for operations done in the method itself - not those by called methods - are returned.</body>
           </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_Kg7JwPjKEeGCw7rrCTZ13A" value="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:id="_rSudQPXoEeGJyMxspERnIw" name="waitForThreadsToFinnish" visibility="public">
           <ownedComment xmi:id="_HJSUcPXpEeGJyMxspERnIw" annotatedElement="_rSudQPXoEeGJyMxspERnIw">
             <body>When true, execution tries to wait for all threads from instrumented methods to finish before returning.</body>
           </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_LQT_UPjKEeGCw7rrCTZ13A" value="true">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:id="_hkak4PXoEeGJyMxspERnIw" name="instrumentationProfileRepository" visibility="public" type="_ZnGycDveEd-PZ70lu-zpYg" association="_hkXhkPXoEeGJyMxspERnIw">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hkbL8fXoEeGJyMxspERnIw" value="1"/>
