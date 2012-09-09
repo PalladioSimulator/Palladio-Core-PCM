@@ -31,94 +31,118 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
+/**
+ * A Command.
+ */
 public class SetLatencyThroughputAndLanTypeCommand extends ConfigureElementCommand {
-	
-	private static final String LATENCY_DISPLAY_TITLE = "Set Latency";
-	private static final String THROUGHPUT_DISPLAY_TITLE = "Set Throughput";
-	private ConfigureRequest request = null;
-	
-	// id of LAN in PCM resource repository
-	private static final String LAN_COMMUNICATION_LINK_RESOURCE_TYPE = "_o3sScH2AEdyH8uerKnHYug";
 
-	public SetLatencyThroughputAndLanTypeCommand(ConfigureRequest request) {
-		super(request);
-		this.request = request;
-	}
+    /**
+     * The latency display title.
+     */
+    private static final String LATENCY_DISPLAY_TITLE = "Set Latency";
+    
+    /**
+     * The throughput display title.
+     */
+    private static final String THROUGHPUT_DISPLAY_TITLE = "Set Throughput";
+    
+    /**
+     * The configure request.
+     */
+    private ConfigureRequest request = null;
 
-	/**
-	 * Method opens latency and throughput StoEx-dialogs and sets attributes of
-	 * Communication Link Resource Specification accordingly
-	 */
-	@Override
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-		// get Linking Resource and Communication Link Resource Specification
-		LinkingResource linkingResource = (LinkingResource) request.getElementToConfigure();
-		// this containment was set before by AddCommunicationLinkResourceSpecificationEditHelperAdvice.getBeforeConfigureCommand()
-		CommunicationLinkResourceSpecification communicationLinkResourceSpecification = linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource();
-		
-		PCMRandomVariable latency = getRandomVariableFromStoExDialog(LATENCY_DISPLAY_TITLE);
-		if (latency == null) {
-			return CommandResult.newCancelledCommandResult();
-		}
-		communicationLinkResourceSpecification.setLatency_CommunicationLinkResourceSpecification(latency);
-		
-		PCMRandomVariable throughput = getRandomVariableFromStoExDialog(THROUGHPUT_DISPLAY_TITLE);
-		if (throughput == null) {
-			return CommandResult.newCancelledCommandResult();
-		}
-		communicationLinkResourceSpecification.setThroughput_CommunicationLinkResourceSpecification(throughput);
-		
-		CommunicationLinkResourceType lanType = getLanType();
-		communicationLinkResourceSpecification.setCommunicationLinkResourceType_CommunicationLinkResourceSpecification(lanType);
-		
-		return CommandResult.newOKCommandResult();
-	}
-	
-	/**
-	 * @return LAN type from resource repository
-	 */
-	private CommunicationLinkResourceType getLanType() {
-		EObject requestElement = (EObject) request.getElementsToEdit().get(0);
-		EditingDomain editingDomain = TransactionUtil.getEditingDomain(requestElement);		 
-		EList<Resource> resources = editingDomain.getResourceSet().getResources();
-		Collection<EObject> c = new ArrayList<EObject>();		
-		for(Resource r : resources) {			
-			c.addAll(r.getContents());			
-		}
-		SELECT statement = new SELECT(
-		new FROM(c),
-		new WHERE(
-				new EObjectAttributeValueCondition(
-						ResourcetypePackage.eINSTANCE.getCommunicationLinkResourceType().getEIDAttribute(),
-						new org.eclipse.emf.query.conditions.strings.StringValue(LAN_COMMUNICATION_LINK_RESOURCE_TYPE) 
-				))			
-		);
-		IQueryResult queryResult = statement.execute();
-		CommunicationLinkResourceType lanType = (CommunicationLinkResourceType)queryResult.iterator().next();
-		return lanType;
-	}
-	
-	/**
-	 * Opens a StoxEx dialog and returns the resulting {@link PCMRandomVariable}
-	 * @param displayTitle Title of the StoEx dialog
-	 * @return PCMRandomVariable if user entered valid data and confirmed. Will
-	 * return null if user canceled dialog
-	 */
-	private PCMRandomVariable getRandomVariableFromStoExDialog(String displayTitle) {
-		PCMRandomVariable randomVariable = CoreFactory.eINSTANCE.createPCMRandomVariable();
-		randomVariable.setSpecification("");
+    /**
+     *  id of LAN in PCM resource repository.
+     */
+    private static final String LAN_COMMUNICATION_LINK_RESOURCE_TYPE = "_o3sScH2AEdyH8uerKnHYug";
 
-		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getShell(), TypeEnum.DOUBLE, randomVariable);
-		dialog.setDisplayTitle(displayTitle);
-		dialog.open();
+    /**
+     * 
+     * @param request a request
+     */
+    public SetLatencyThroughputAndLanTypeCommand(ConfigureRequest request) {
+        super(request);
+        this.request = request;
+    }
 
-		if (dialog.getReturnCode() == Dialog.CANCEL) {
-			return null;
-		}	
-		
-		randomVariable.setSpecification(dialog.getResultText());
-		return randomVariable;
-	}
+    /**
+     * Method opens latency and throughput StoEx-dialogs and sets attributes of Communication Link
+     * Resource Specification accordingly.
+     * @param info an IAdaptable
+     * @param monitor an IProgressMonitor
+     * @throws ExecutionException an execution exception
+     * @return a CommandResult
+     */
+    @Override
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        // get Linking Resource and Communication Link Resource Specification
+        LinkingResource linkingResource = (LinkingResource) request.getElementToConfigure();
+        // this containment was set before by
+        // AddCommunicationLinkResourceSpecificationEditHelperAdvice.getBeforeConfigureCommand()
+        CommunicationLinkResourceSpecification communicationLinkResourceSpecification = linkingResource
+                .getCommunicationLinkResourceSpecifications_LinkingResource();
+
+        PCMRandomVariable latency = getRandomVariableFromStoExDialog(LATENCY_DISPLAY_TITLE);
+        if (latency == null) {
+            return CommandResult.newCancelledCommandResult();
+        }
+        communicationLinkResourceSpecification.setLatency_CommunicationLinkResourceSpecification(latency);
+
+        PCMRandomVariable throughput = getRandomVariableFromStoExDialog(THROUGHPUT_DISPLAY_TITLE);
+        if (throughput == null) {
+            return CommandResult.newCancelledCommandResult();
+        }
+        communicationLinkResourceSpecification.setThroughput_CommunicationLinkResourceSpecification(throughput);
+
+        CommunicationLinkResourceType lanType = getLanType();
+        communicationLinkResourceSpecification
+                .setCommunicationLinkResourceType_CommunicationLinkResourceSpecification(lanType);
+
+        return CommandResult.newOKCommandResult();
+    }
+
+    /**
+     * @return LAN type from resource repository
+     */
+    private CommunicationLinkResourceType getLanType() {
+        EObject requestElement = (EObject) request.getElementsToEdit().get(0);
+        EditingDomain editingDomain = TransactionUtil.getEditingDomain(requestElement);
+        EList<Resource> resources = editingDomain.getResourceSet().getResources();
+        Collection<EObject> c = new ArrayList<EObject>();
+        for (Resource r : resources) {
+            c.addAll(r.getContents());
+        }
+        SELECT statement = new SELECT(new FROM(c), new WHERE(new EObjectAttributeValueCondition(
+                ResourcetypePackage.eINSTANCE.getCommunicationLinkResourceType().getEIDAttribute(),
+                new org.eclipse.emf.query.conditions.strings.StringValue(LAN_COMMUNICATION_LINK_RESOURCE_TYPE))));
+        IQueryResult queryResult = statement.execute();
+        CommunicationLinkResourceType lanType = (CommunicationLinkResourceType) queryResult.iterator().next();
+        return lanType;
+    }
+
+    /**
+     * Opens a StoxEx dialog and returns the resulting {@link PCMRandomVariable}.
+     * 
+     * @param displayTitle
+     *            Title of the StoEx dialog
+     * @return PCMRandomVariable if user entered valid data and confirmed. Will return null if user
+     *         canceled dialog
+     */
+    private PCMRandomVariable getRandomVariableFromStoExDialog(String displayTitle) {
+        PCMRandomVariable randomVariable = CoreFactory.eINSTANCE.createPCMRandomVariable();
+        randomVariable.setSpecification("");
+
+        StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), TypeEnum.DOUBLE, randomVariable);
+        dialog.setDisplayTitle(displayTitle);
+        dialog.open();
+
+        if (dialog.getReturnCode() == Dialog.CANCEL) {
+            return null;
+        }
+
+        randomVariable.setSpecification(dialog.getResultText());
+        return randomVariable;
+    }
 
 }

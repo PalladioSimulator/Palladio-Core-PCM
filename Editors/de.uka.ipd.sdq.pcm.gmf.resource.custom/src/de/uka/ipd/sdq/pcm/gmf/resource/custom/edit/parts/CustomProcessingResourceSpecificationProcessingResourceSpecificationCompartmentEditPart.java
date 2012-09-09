@@ -9,22 +9,26 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart;
 
+/**
+ * An edit part.
+ */
+public class CustomProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart extends
+        ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart {
 
-public class CustomProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart
-		extends ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart {
+    /**
+     * 
+     * @param view a View
+     */
+    public CustomProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart(View view) {
+        super(view);
+    }
 
-	public CustomProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart(
-			View view) {
-		super(view);
-	}
-
-	@Override
-	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
-				.createFigure();
-		result.setTitleVisibility(false);
-		result.setBorder(null); // custom code
-		return result;
-	}
+    @Override
+    public IFigure createFigure() {
+        ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+        result.setTitleVisibility(false);
+        result.setBorder(null); // custom code
+        return result;
+    }
 
 }

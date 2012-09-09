@@ -5,14 +5,25 @@ import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.ITextDoubleClickStrategy;
 import org.eclipse.jface.text.ITextViewer;
 
+/**
+ * The double click strategy.
+ */
 public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
+    
+    /**
+     * An ITextViewer.
+     */
 	protected ITextViewer fText;
 
+	/**
+	 * @param part an ITextViewer
+	 */
 	public void doubleClicked(ITextViewer part) {
 		int pos = part.getSelectedRange().x;
 
-		if (pos < 0)
+		if (pos < 0) {
 			return;
+		}
 
 		fText = part;
 
@@ -20,6 +31,12 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 			selectWord(pos);
 		}
 	}
+	
+	/**
+	 * 
+	 * @param caretPos an integer
+	 * @return if comment is selected
+	 */
 	protected boolean selectComment(int caretPos) {
 		IDocument doc = fText.getDocument();
 		int startPos, endPos;
@@ -34,13 +51,15 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 					pos -= 2;
 					continue;
 				}
-				if (c == Character.LINE_SEPARATOR || c == '\"')
+				if (c == Character.LINE_SEPARATOR || c == '\"') {
 					break;
+				}
 				--pos;
 			}
 
-			if (c != '\"')
+			if (c != '\"') {
 				return false;
+			}
 
 			startPos = pos;
 
@@ -50,12 +69,14 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 
 			while (pos < length) {
 				c = doc.getChar(pos);
-				if (c == Character.LINE_SEPARATOR || c == '\"')
+				if (c == Character.LINE_SEPARATOR || c == '\"') {
 					break;
+				}
 				++pos;
 			}
-			if (c != '\"')
+			if (c != '\"') {
 				return false;
+			}
 
 			endPos = pos;
 
@@ -68,6 +89,12 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 
 		return false;
 	}
+	
+	/**
+	 * 
+	 * @param caretPos an integer
+	 * @return of word is selected
+	 */
 	protected boolean selectWord(int caretPos) {
 
 		IDocument doc = fText.getDocument();
@@ -80,8 +107,9 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 
 			while (pos >= 0) {
 				c = doc.getChar(pos);
-				if (!Character.isJavaIdentifierPart(c))
+				if (!Character.isJavaIdentifierPart(c)) {
 					break;
+				}
 				--pos;
 			}
 
@@ -92,8 +120,9 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 
 			while (pos < length) {
 				c = doc.getChar(pos);
-				if (!Character.isJavaIdentifierPart(c))
+				if (!Character.isJavaIdentifierPart(c)) {
 					break;
+				}
 				++pos;
 			}
 
@@ -107,6 +136,11 @@ public class XMLDoubleClickStrategy implements ITextDoubleClickStrategy {
 		return false;
 	}
 
+	/**
+	 * 
+	 * @param startPos the start position
+	 * @param stopPos the stop position
+	 */
 	private void selectRange(int startPos, int stopPos) {
 		int offset = startPos + 1;
 		int length = stopPos - offset;

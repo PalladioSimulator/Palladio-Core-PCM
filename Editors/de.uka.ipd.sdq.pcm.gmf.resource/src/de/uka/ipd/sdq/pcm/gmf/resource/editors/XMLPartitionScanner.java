@@ -6,10 +6,24 @@ import org.eclipse.jface.text.rules.MultiLineRule;
 import org.eclipse.jface.text.rules.RuleBasedPartitionScanner;
 import org.eclipse.jface.text.rules.Token;
 
+/**
+ * An xml partition scanner.
+ */
 public class XMLPartitionScanner extends RuleBasedPartitionScanner {
-	public final static String XML_COMMENT = "__xml_comment";
-	public final static String XML_TAG = "__xml_tag";
+    
+    /**
+     * The xml comment string.
+     */
+	public static final String XML_COMMENT = "__xml_comment";
+	
+	/**
+	 * The xml tag.
+	 */
+	public static final String XML_TAG = "__xml_tag";
 
+	/**
+	 * Initializes the partition scanner.
+	 */
 	public XMLPartitionScanner() {
 
 		IToken xmlComment = new Token(XML_COMMENT);

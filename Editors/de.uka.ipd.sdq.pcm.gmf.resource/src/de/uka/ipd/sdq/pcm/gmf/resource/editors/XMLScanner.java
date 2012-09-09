@@ -8,8 +8,15 @@ import org.eclipse.jface.text.rules.SingleLineRule;
 import org.eclipse.jface.text.rules.Token;
 import org.eclipse.jface.text.rules.WhitespaceRule;
 
+/**
+ * An xml scanner.
+ */
 public class XMLScanner extends RuleBasedScanner {
 
+    /**
+     * Initializes the xml scanner using a ColorManager.
+     * @param manager a color manager
+     */
 	public XMLScanner(ColorManager manager) {
 		IToken procInstr =
 			new Token(

@@ -21,93 +21,91 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel6EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 
-
+/**
+ * An edit part factory.
+ */
 public class CustomPalladioComponentModelEditPartFactory extends PalladioComponentModelEditPartFactory {
 
-	@Override
-	public EditPart createEditPart(EditPart context, Object model) {
-		if (model instanceof View) {
-			View view = (View) model;
-			switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+    @Override
+    public EditPart createEditPart(EditPart context, Object model) {
+        if (model instanceof View) {
+            View view = (View) model;
+            switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 
-			case ResourceEnvironmentEditPart.VISUAL_ID:
-				return new ResourceEnvironmentEditPart(view);
+            case ResourceEnvironmentEditPart.VISUAL_ID:
+                return new ResourceEnvironmentEditPart(view);
 
-			case ResourceContainerEditPart.VISUAL_ID:
-				return new ResourceContainerEditPart(view);
+            case ResourceContainerEditPart.VISUAL_ID:
+                return new ResourceContainerEditPart(view);
 
-			case ResourceContainerEntityNameEditPart.VISUAL_ID:
-				return new ResourceContainerEntityNameEditPart(view);
+            case ResourceContainerEntityNameEditPart.VISUAL_ID:
+                return new ResourceContainerEntityNameEditPart(view);
 
-			case LinkingResourceEditPart.VISUAL_ID:
-				return new LinkingResourceEditPart(view);
+            case LinkingResourceEditPart.VISUAL_ID:
+                return new LinkingResourceEditPart(view);
 
-			case ProcessingResourceSpecificationEditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationEditPart(view);
+            case ProcessingResourceSpecificationEditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationEditPart(view);
 
-			case ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationMTTFEditPart(view);
+            case ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationMTTFEditPart(view);
 
-			case ProcessingResourceSpecificationMTTREditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationMTTREditPart(view);
+            case ProcessingResourceSpecificationMTTREditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationMTTREditPart(view);
 
-			case CustomProcessingResourceSpecificationSchedulingPolicyLabelEditPart.VISUAL_ID:
-				return new CustomProcessingResourceSpecificationSchedulingPolicyLabelEditPart(
-						view);
+            case CustomProcessingResourceSpecificationSchedulingPolicyLabelEditPart.VISUAL_ID:
+                return new CustomProcessingResourceSpecificationSchedulingPolicyLabelEditPart(view);
 
-			case ProcessingResourceSpecificationNumberOfReplicasEditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationNumberOfReplicasEditPart(
-						view);
+            case ProcessingResourceSpecificationNumberOfReplicasEditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationNumberOfReplicasEditPart(view);
 
-			case CustomProcessingResourceSpecificationProcessingRateLabelEditPart.VISUAL_ID:
-				return new CustomProcessingResourceSpecificationProcessingRateLabelEditPart(view);
+            case CustomProcessingResourceSpecificationProcessingRateLabelEditPart.VISUAL_ID:
+                return new CustomProcessingResourceSpecificationProcessingRateLabelEditPart(view);
 
-			case CustomProcessingResourceSpecificationActiveResourceTypeLabelEditPart.VISUAL_ID:
-				return new CustomProcessingResourceSpecificationActiveResourceTypeLabelEditPart(
-						view);
+            case CustomProcessingResourceSpecificationActiveResourceTypeLabelEditPart.VISUAL_ID:
+                return new CustomProcessingResourceSpecificationActiveResourceTypeLabelEditPart(view);
 
-			case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-				return new CommunicationLinkResourceSpecificationEditPart(view);
+            case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+                return new CommunicationLinkResourceSpecificationEditPart(view);
 
-			case CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID:
-				return new CommunicationLinkResourceSpecificationFailureProbabilityEditPart(
-						view);
+            case CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID:
+                return new CommunicationLinkResourceSpecificationFailureProbabilityEditPart(view);
 
-			case CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart.VISUAL_ID:
-				return new CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart(
-						view);
+            case CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart.VISUAL_ID:
+                return new CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart(view);
 
-			case CustomCommunicationLinkResourceSpecificationThroughputLabelEditPart.VISUAL_ID:
-				return new CustomCommunicationLinkResourceSpecificationThroughputLabelEditPart(
-						view);
+            case CustomCommunicationLinkResourceSpecificationThroughputLabelEditPart.VISUAL_ID:
+                return new CustomCommunicationLinkResourceSpecificationThroughputLabelEditPart(view);
 
-			case WrappingLabel6EditPart.VISUAL_ID:
-				return new WrappingLabel6EditPart(view);
+            case WrappingLabel6EditPart.VISUAL_ID:
+                return new WrappingLabel6EditPart(view);
 
-			case CustomResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
-				return new CustomResourceContainerResourceContainerCompartmentEditPart(
-						view);
+            case CustomResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
+                return new CustomResourceContainerResourceContainerCompartmentEditPart(view);
 
-			case CustomProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart.VISUAL_ID:
-				return new CustomProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart(
-						view);
+            case CustomProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart.VISUAL_ID:
+                return new CustomProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart(view);
 
-			case CustomLinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID:
-				return new CustomLinkingResourceNetworkSwitchCompartmentEditPart(view);
+            case CustomLinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID:
+                return new CustomLinkingResourceNetworkSwitchCompartmentEditPart(view);
 
-			case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
-				return new LinkingResourceConnectedResourceContainers_LinkingResourceEditPart(
-						view);
+            case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
+                return new LinkingResourceConnectedResourceContainers_LinkingResourceEditPart(view);
 
-			}
-		}
-		return createUnrecognizedEditPart(context, model);
-	}
+            }
+        }
+        return createUnrecognizedEditPart(context, model);
+    }
 
-	private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
-		// Handle creation of unrecognized child node EditParts here
-		return null;
-	}
+    /**
+     * 
+     * @param context an edit part
+     * @param model and Object
+     * @return an edit part
+     */
+    private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
+        // Handle creation of unrecognized child node EditParts here
+        return null;
+    }
 
-	
 }

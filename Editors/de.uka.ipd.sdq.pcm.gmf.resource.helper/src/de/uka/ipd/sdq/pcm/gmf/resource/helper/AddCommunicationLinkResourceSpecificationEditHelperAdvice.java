@@ -12,31 +12,38 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
+/**
+ * An edit helper advice.
+ */
 public class AddCommunicationLinkResourceSpecificationEditHelperAdvice extends AbstractEditHelperAdvice implements
-		IEditHelperAdvice {
+        IEditHelperAdvice {
 
-	private static final String RESOURCE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = "de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3004";
+    /**
+     * A resource communication link resource specification.
+     */
+    private static final String RESOURCE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = "de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3004";
 
-	@Override
-	public ICommand getBeforeConfigureCommand(ConfigureRequest request) {
-		IElementType elementType = ElementTypeRegistry.getInstance().getType(
-				RESOURCE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
+    @Override
+    public ICommand getBeforeConfigureCommand(ConfigureRequest request) {
+        IElementType elementType = ElementTypeRegistry.getInstance().getType(
+                RESOURCE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
 
-		CreateElementRequest createElementRequest = new CreateElementRequest(request.getElementToConfigure(), elementType);
-		createElementRequest.setContainmentFeature(ResourceenvironmentPackage.eINSTANCE
-				.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource());
-		CreateElementCommand createElementCommand = new CreateElementCommand(createElementRequest);
+        CreateElementRequest createElementRequest = new CreateElementRequest(request.getElementToConfigure(),
+                elementType);
+        createElementRequest.setContainmentFeature(ResourceenvironmentPackage.eINSTANCE
+                .getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource());
+        CreateElementCommand createElementCommand = new CreateElementCommand(createElementRequest);
 
-		// edited object should be a single element
-		if (request.getElementsToEdit().size() != 1) {
-			throw new RuntimeException("Did not expect more than one element in request.");
-		}
+        // edited object should be a single element
+        if (request.getElementsToEdit().size() != 1) {
+            throw new RuntimeException("Did not expect more than one element in request.");
+        }
 
-		CompositeCommand compositeCommand = new CompositeCommand("");
-		compositeCommand.add(createElementCommand);
-		compositeCommand.add(new SetLatencyThroughputAndLanTypeCommand(request));
+        CompositeCommand compositeCommand = new CompositeCommand("");
+        compositeCommand.add(createElementCommand);
+        compositeCommand.add(new SetLatencyThroughputAndLanTypeCommand(request));
 
-		return compositeCommand;
-	}
+        return compositeCommand;
+    }
 
 }

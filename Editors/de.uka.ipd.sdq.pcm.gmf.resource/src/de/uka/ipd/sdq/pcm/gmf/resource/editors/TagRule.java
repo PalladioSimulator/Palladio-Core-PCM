@@ -4,11 +4,26 @@ import org.eclipse.jface.text.rules.ICharacterScanner;
 import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.MultiLineRule;
 
+/**
+ * A tag rule.
+ */
 public class TagRule extends MultiLineRule {
 
+    /**
+     * Initiates the tag rule using a token.
+     * @param token the IToken
+     */
 	public TagRule(IToken token) {
 		super("<", ">", token);
 	}
+	
+	/**
+	 * true if a sequence has been detected.
+	 * @param eofAllowed true if eof is allowed.
+	 * @param scanner an ICharacterScanner
+	 * @param sequence a char Array
+	 * @return true if sequence has beed detected
+	 */
 	protected boolean sequenceDetected(
 		ICharacterScanner scanner,
 		char[] sequence,

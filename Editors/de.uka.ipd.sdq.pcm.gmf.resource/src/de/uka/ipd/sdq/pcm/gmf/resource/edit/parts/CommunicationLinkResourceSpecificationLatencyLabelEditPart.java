@@ -198,6 +198,7 @@ public class CommunicationLinkResourceSpecificationLatencyLabelEditPart extends
 
 	/**
 	 * @generated not
+	 * @return null
 	 */
 	protected Image getLabelIcon() {
 		return null;
@@ -205,13 +206,15 @@ public class CommunicationLinkResourceSpecificationLatencyLabelEditPart extends
 
 	/**
 	 * @generated not
+	 * @return text
 	 */
 	protected String getLabelText() {
 		String text = null;
 		CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
-		if (spec.getLatency_CommunicationLinkResourceSpecification() != null)
-			text = spec.getLatency_CommunicationLinkResourceSpecification()
-					.getSpecification();
+		if (spec.getLatency_CommunicationLinkResourceSpecification() != null) {
+		    text = spec.getLatency_CommunicationLinkResourceSpecification()
+                    .getSpecification();
+		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -533,6 +536,7 @@ public class CommunicationLinkResourceSpecificationLatencyLabelEditPart extends
 
 	/**
 	 * @generated not
+	 * @param event an event Notification
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();

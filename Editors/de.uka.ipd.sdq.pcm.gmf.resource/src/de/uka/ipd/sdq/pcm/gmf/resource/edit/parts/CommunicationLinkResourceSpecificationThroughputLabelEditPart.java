@@ -19,7 +19,6 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gef.handles.NonResizableHandleKit;
 import org.eclipse.gef.requests.DirectEditRequest;
 import org.eclipse.gef.tools.DirectEditManager;
@@ -37,7 +36,6 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
@@ -201,6 +199,7 @@ public class CommunicationLinkResourceSpecificationThroughputLabelEditPart
 
 	/**
 	 * @generated not
+	 * @return null
 	 */
 	protected Image getLabelIcon() {
 		return null;
@@ -208,13 +207,15 @@ public class CommunicationLinkResourceSpecificationThroughputLabelEditPart
 
 	/**
 	 * @generated not
+	 * @return text
 	 */
 	protected String getLabelText() {
 		String text = null;
 		CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
-		if (spec.getLatency_CommunicationLinkResourceSpecification() != null)
+		if (spec.getLatency_CommunicationLinkResourceSpecification() != null) {
 			text = spec.getThroughput_CommunicationLinkResourceSpecification()
 					.getSpecification();
+		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -536,6 +537,7 @@ public class CommunicationLinkResourceSpecificationThroughputLabelEditPart
 
 	/**
 	 * @generated not
+	 * @param event an event Notification
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();

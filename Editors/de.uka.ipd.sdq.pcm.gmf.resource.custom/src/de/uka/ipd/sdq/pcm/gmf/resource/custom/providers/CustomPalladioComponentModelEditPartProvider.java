@@ -6,14 +6,17 @@ package de.uka.ipd.sdq.pcm.gmf.resource.custom.providers;
 import de.uka.ipd.sdq.pcm.gmf.resource.custom.edit.parts.CustomPalladioComponentModelEditPartFactory;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelEditPartProvider;
 
+/**
+ * Am edit part provider.
+ */
+public class CustomPalladioComponentModelEditPartProvider extends PalladioComponentModelEditPartProvider {
 
-public class CustomPalladioComponentModelEditPartProvider extends
-PalladioComponentModelEditPartProvider {
-
-	
-	public CustomPalladioComponentModelEditPartProvider() {
-		setFactory(new CustomPalladioComponentModelEditPartFactory());
-		setAllowCaching(true);
-	}
+    /**
+     * Initializes the edit part provider.
+     */
+    public CustomPalladioComponentModelEditPartProvider() {
+        setFactory(new CustomPalladioComponentModelEditPartFactory());
+        setAllowCaching(true);
+    }
 
 }

@@ -13,16 +13,20 @@ import org.eclipse.jface.text.presentation.IPresentationDamager;
 import org.eclipse.jface.text.presentation.IPresentationRepairer;
 import org.eclipse.swt.custom.StyleRange;
 
+/**
+ * A non rules based damage repairer.
+ */
 public class NonRuleBasedDamagerRepairer
 	implements IPresentationDamager, IPresentationRepairer {
 
-	/** The document this object works on */
+	/** The document this object works on. */
 	protected IDocument fDocument;
-	/** The default text attribute if non is returned as data by the current token */
+	/** The default text attribute if non is returned as data by the current token. */
 	protected TextAttribute fDefaultTextAttribute;
 	
 	/**
 	 * Constructor for NonRuleBasedDamagerRepairer.
+	 * @param defaultTextAttribute a TextAttribute
 	 */
 	public NonRuleBasedDamagerRepairer(TextAttribute defaultTextAttribute) {
 		Assert.isNotNull(defaultTextAttribute);
@@ -32,6 +36,7 @@ public class NonRuleBasedDamagerRepairer
 
 	/**
 	 * @see IPresentationRepairer#setDocument(IDocument)
+	 * @param document an IDocument
 	 */
 	public void setDocument(IDocument document) {
 		fDocument = document;
@@ -48,9 +53,9 @@ public class NonRuleBasedDamagerRepairer
 	protected int endOfLineOf(int offset) throws BadLocationException {
 
 		IRegion info = fDocument.getLineInformationOfOffset(offset);
-		if (offset <= info.getOffset() + info.getLength())
+		if (offset <= info.getOffset() + info.getLength()) {
 			return info.getOffset() + info.getLength();
-
+		}
 		int line = fDocument.getLineOfOffset(offset);
 		try {
 			info = fDocument.getLineInformation(line + 1);
@@ -62,6 +67,11 @@ public class NonRuleBasedDamagerRepairer
 
 	/**
 	 * @see IPresentationDamager#getDamageRegion(ITypedRegion, DocumentEvent, boolean)
+	 * @param partition and ITypedRegion
+	 * @param documentPartitioningChanged true if the partitioning has changed
+	 * @param event an event Notification
+	 * 
+	 * @return partition
 	 */
 	public IRegion getDamageRegion(
 		ITypedRegion partition,
@@ -84,8 +94,9 @@ public class NonRuleBasedDamagerRepairer
 					&& end <= info.getOffset() + info.getLength()) {
 					// optimize the case of the same line
 					end = info.getOffset() + info.getLength();
-				} else
-					end = endOfLineOf(end);
+				} else {
+				    end = endOfLineOf(end);
+				}
 
 				end =
 					Math.min(
@@ -94,6 +105,7 @@ public class NonRuleBasedDamagerRepairer
 				return new Region(start, end - start);
 
 			} catch (BadLocationException x) {
+			    /* a catch*/
 			}
 		}
 
@@ -102,6 +114,8 @@ public class NonRuleBasedDamagerRepairer
 
 	/**
 	 * @see IPresentationRepairer#createPresentation(TextPresentation, ITypedRegion)
+	 * @param presentation the TextPresentation
+	 * @param region an ITypedRegion
 	 */
 	public void createPresentation(
 		TextPresentation presentation,
@@ -126,7 +140,7 @@ public class NonRuleBasedDamagerRepairer
 		int offset,
 		int length,
 		TextAttribute attr) {
-		if (attr != null)
+		if (attr != null) {
 			presentation.addStyleRange(
 				new StyleRange(
 					offset,
@@ -134,5 +148,6 @@ public class NonRuleBasedDamagerRepairer
 					attr.getForeground(),
 					attr.getBackground(),
 					attr.getStyle()));
+		}
 	}
 }

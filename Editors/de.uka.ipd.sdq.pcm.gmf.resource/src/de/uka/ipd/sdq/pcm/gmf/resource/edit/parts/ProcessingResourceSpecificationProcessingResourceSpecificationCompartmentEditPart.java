@@ -49,6 +49,7 @@ public class ProcessingResourceSpecificationProcessingResourceSpecificationCompa
 
 	/**
 	 * @generated NOT
+	 * @return result
 	 */
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super

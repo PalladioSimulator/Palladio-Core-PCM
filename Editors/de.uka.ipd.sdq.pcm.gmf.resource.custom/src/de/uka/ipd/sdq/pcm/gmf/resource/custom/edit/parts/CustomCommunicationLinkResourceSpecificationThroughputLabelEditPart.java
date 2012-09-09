@@ -12,7 +12,6 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gef.handles.NonResizableHandleKit;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
@@ -25,97 +24,91 @@ import de.uka.ipd.sdq.pcm.dialogs.resource.OpenThroughputDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationThroughputLabelEditPart;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 
+/**
+ * An edit part.
+ */
+public class CustomCommunicationLinkResourceSpecificationThroughputLabelEditPart extends
+        CommunicationLinkResourceSpecificationThroughputLabelEditPart {
 
-public class CustomCommunicationLinkResourceSpecificationThroughputLabelEditPart
-		extends CommunicationLinkResourceSpecificationThroughputLabelEditPart {
+    /**
+     * 
+     * @param view a View
+     */
+    public CustomCommunicationLinkResourceSpecificationThroughputLabelEditPart(View view) {
+        super(view);
+    }
 
+    @Override
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new LabelDirectEditPolicy());
+        installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new NonResizableEditPolicy() {
 
-	public CustomCommunicationLinkResourceSpecificationThroughputLabelEditPart(
-			View view) {
-		super(view);
-	}
+            protected List createSelectionHandles() {
+                List handles = new ArrayList();
+                NonResizableHandleKit.addMoveHandle((GraphicalEditPart) getHost(), handles);
+                return handles;
+            }
 
-	@Override
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
-				new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new NonResizableEditPolicy() {
+            public Command getCommand(Request request) {
+                return null;
+            }
 
-					protected List createSelectionHandles() {
-						List handles = new ArrayList();
-						NonResizableHandleKit.addMoveHandle(
-								(GraphicalEditPart) getHost(), handles);
-						return handles;
-					}
+            public boolean understandsRequest(Request request) {
+                return false;
+            }
+        });
+        installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenThroughputDialog());
+    }
 
-					public Command getCommand(Request request) {
-						return null;
-					}
+    @Override
+    protected Image getLabelIcon() {
+        return null;
+    }
 
-					public boolean understandsRequest(Request request) {
-						return false;
-					}
-				});
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenThroughputDialog());
-	}
+    @Override
+    protected String getLabelText() {
+        String text = null;
+        CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
+        if (spec.getLatency_CommunicationLinkResourceSpecification() != null) {
+            text = spec.getThroughput_CommunicationLinkResourceSpecification().getSpecification();
+        }
+        if (text == null || text.length() == 0) {
+            text = getLabelTextHelper(getFigure());
+        }
+        return text;
+    }
 
-	@Override
-	protected Image getLabelIcon() {
-		return null;
-	}
+    @Override
+    protected void addSemanticListeners() {
+        CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
+        addListenerFilter("SemanticModel", this, spec.getThroughput_CommunicationLinkResourceSpecification()); //$NON-NLS-1$
 
-	@Override
-	protected String getLabelText() {
-		String text = null;
-		CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
-		if (spec.getLatency_CommunicationLinkResourceSpecification() != null)
-			text = spec.getThroughput_CommunicationLinkResourceSpecification()
-					.getSpecification();
-		if (text == null || text.length() == 0) {
-			text = getLabelTextHelper(getFigure());
-		}
-		return text;
-	}
+    }
 
-	@Override
-	protected void addSemanticListeners() {
-		CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
-		addListenerFilter(
-				"SemanticModel", this, spec.getThroughput_CommunicationLinkResourceSpecification()); //$NON-NLS-1$
+    @Override
+    protected void removeSemanticListeners() {
+        removeListenerFilter("SemanticModel"); //$NON-NLS-1$
+    }
 
-	}
-
-	@Override
-	protected void removeSemanticListeners() {
-		removeListenerFilter("SemanticModel"); //$NON-NLS-1$
-	}
-
-	@Override
-	protected void handleNotificationEvent(Notification event) {
-		Object feature = event.getFeature();
-		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
-			Integer c = (Integer) event.getNewValue();
-			setFontColor(DiagramColorRegistry.getInstance().getColor(c));
-		} else if (NotationPackage.eINSTANCE.getFontStyle_Underline().equals(
-				feature)) {
-			refreshUnderline();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_StrikeThrough()
-				.equals(feature)) {
-			refreshStrikeThrough();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_FontHeight().equals(
-				feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_FontName().equals(
-						feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Bold()
-						.equals(feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Italic().equals(
-						feature)) {
-			refreshFont();
-		} else {
-			refreshLabel();
-		}
-		super.handleNotificationEvent(event);
-	}
+    @Override
+    protected void handleNotificationEvent(Notification event) {
+        Object feature = event.getFeature();
+        if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
+            Integer c = (Integer) event.getNewValue();
+            setFontColor(DiagramColorRegistry.getInstance().getColor(c));
+        } else if (NotationPackage.eINSTANCE.getFontStyle_Underline().equals(feature)) {
+            refreshUnderline();
+        } else if (NotationPackage.eINSTANCE.getFontStyle_StrikeThrough().equals(feature)) {
+            refreshStrikeThrough();
+        } else if (NotationPackage.eINSTANCE.getFontStyle_FontHeight().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_FontName().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_Bold().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_Italic().equals(feature)) {
+            refreshFont();
+        } else {
+            refreshLabel();
+        }
+        super.handleNotificationEvent(event);
+    }
 }

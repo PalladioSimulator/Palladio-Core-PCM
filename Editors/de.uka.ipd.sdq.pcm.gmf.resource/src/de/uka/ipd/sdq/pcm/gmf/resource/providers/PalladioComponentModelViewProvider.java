@@ -564,8 +564,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		return edge;
 	}
 
+
 	/**
 	 * @generated not
+	 * @param containerView a View
+	 * @param index the index
+	 * @param persisted true if persisted
+	 * @param preferencesHint a PreferencesHint
+	 * @return edge
 	 */
 	public Edge createLinkingResourceConnectedResourceContainers_LinkingResource_4002(
 			View containerView, int index, boolean persisted,
@@ -620,8 +626,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		return edge;
 	}
 
+
 	/**
 	 * @generated NOT
+	 * @param containerView a View
+	 * @param index the index
+	 * @param persisted true if persisted
+	 * @param preferencesHint a PreferencesHint
+	 * @return edge
 	 */
 	public Edge createLinkingResourceFromResourceContainer_LinkingResource_4001(
 			View containerView, int index, boolean persisted,

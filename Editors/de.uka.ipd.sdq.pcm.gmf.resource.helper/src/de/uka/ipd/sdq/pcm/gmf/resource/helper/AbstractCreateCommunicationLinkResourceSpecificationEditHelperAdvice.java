@@ -8,20 +8,25 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-public class AbstractCreateCommunicationLinkResourceSpecificationEditHelperAdvice extends
-		AbstractEditHelperAdvice {
+/**
+ * An edit helper advice.
+ */
+public class AbstractCreateCommunicationLinkResourceSpecificationEditHelperAdvice extends AbstractEditHelperAdvice {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getBeforeConfigureCommand(ConfigureRequest request) {
-		IElementType elementType = ElementTypeRegistry.getInstance().
-			getType("de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3004");
-		
-		CreateElementRequest createElementRequest = new CreateElementRequest(
-				request.getElementToConfigure(), elementType);
-		return new CreateElementCommand(createElementRequest);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getBeforeConfigureCommand(ConfigureRequest request) {
+        IElementType elementType = ElementTypeRegistry.getInstance().getType(
+                "de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3004");
+
+        CreateElementRequest createElementRequest = new CreateElementRequest(request.getElementToConfigure(),
+                elementType);
+        return new CreateElementCommand(createElementRequest);
+    }
 
 }

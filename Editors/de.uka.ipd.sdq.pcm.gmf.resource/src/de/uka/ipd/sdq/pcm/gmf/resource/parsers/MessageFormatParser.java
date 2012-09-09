@@ -110,6 +110,8 @@ public class MessageFormatParser extends AbstractParser {
 	 * @generated not
 	 * Changes made to generated Method: Added internationalLocale
 	 * to ensure correct display of decimal values.
+	 * 
+	 * @return viewProcessor
 	 */
 	protected MessageFormat getViewProcessor() {
 		if (viewProcessor == null) {
@@ -124,6 +126,8 @@ public class MessageFormatParser extends AbstractParser {
 	 * @generated not
 	 * Changes made to generated Method: Added internationalLocale
 	 * to ensure correct display of decimal values.
+	 * 
+	 * @return editorProcessor
 	 */
 	protected MessageFormat getEditorProcessor() {
 		if (editorProcessor == null) {
@@ -165,6 +169,8 @@ public class MessageFormatParser extends AbstractParser {
 	 * @generated not
 	 * Changes made to generated Method: Added internationalLocale
 	 * to ensure correct display of decimal values.
+	 * 
+	 * @return editProcessor
 	 */
 	protected MessageFormat getEditProcessor() {
 		if (editProcessor == null) {

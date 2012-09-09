@@ -161,6 +161,8 @@ public class PalladioComponentModelDocumentProvider extends
 
 	/**
 	 * @generated NOT
+	 * 
+	 * @return editingDomain
 	 */
 	//FIXME: Duplicated code, see de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDocumentProvider
 	private TransactionalEditingDomain createEditingDomain() {
