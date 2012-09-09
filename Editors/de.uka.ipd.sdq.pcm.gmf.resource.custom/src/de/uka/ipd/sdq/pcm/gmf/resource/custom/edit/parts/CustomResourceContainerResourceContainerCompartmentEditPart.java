@@ -17,7 +17,8 @@ public class CustomResourceContainerResourceContainerCompartmentEditPart extends
 
     /**
      * 
-     * @param view a View
+     * @param view
+     *            a View
      */
     public CustomResourceContainerResourceContainerCompartmentEditPart(View view) {
         super(view);

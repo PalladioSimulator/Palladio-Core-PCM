@@ -18,141 +18,135 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 /**
  * @generated
  */
-public class AbstractActionSuccessor_AbstractActionReorientCommand extends
-		EditElementCommand {
+public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditElementCommand {
 
-	/**
-	 * @generated
-	 */
-	private final int reorientDirection;
+    /**
+     * @generated
+     */
+    private final int reorientDirection;
 
-	/**
-	 * @generated
-	 */
-	private final EObject referenceOwner;
+    /**
+     * @generated
+     */
+    private final EObject referenceOwner;
 
-	/**
-	 * @generated
-	 */
-	private final EObject oldEnd;
+    /**
+     * @generated
+     */
+    private final EObject oldEnd;
 
-	/**
-	 * @generated
-	 */
-	private final EObject newEnd;
+    /**
+     * @generated
+     */
+    private final EObject newEnd;
 
-	/**
-	 * @generated
-	 */
-	public AbstractActionSuccessor_AbstractActionReorientCommand(
-			ReorientReferenceRelationshipRequest request) {
-		super(request.getLabel(), null, request);
-		reorientDirection = request.getDirection();
-		referenceOwner = request.getReferenceOwner();
-		oldEnd = request.getOldRelationshipEnd();
-		newEnd = request.getNewRelationshipEnd();
-	}
+    /**
+     * @generated
+     */
+    public AbstractActionSuccessor_AbstractActionReorientCommand(ReorientReferenceRelationshipRequest request) {
+        super(request.getLabel(), null, request);
+        reorientDirection = request.getDirection();
+        referenceOwner = request.getReferenceOwner();
+        oldEnd = request.getOldRelationshipEnd();
+        newEnd = request.getNewRelationshipEnd();
+    }
 
-	/**
-	 * @generated
-	 */
-	public boolean canExecute() {
-		if (false == referenceOwner instanceof AbstractAction) {
-			return false;
-		}
-		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
-			return canReorientSource();
-		}
-		if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
-			return canReorientTarget();
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    public boolean canExecute() {
+        if (false == referenceOwner instanceof AbstractAction) {
+            return false;
+        }
+        if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
+            return canReorientSource();
+        }
+        if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
+            return canReorientTarget();
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean canReorientSource() {
-		if (!(oldEnd instanceof AbstractAction && newEnd instanceof AbstractAction)) {
-			return false;
-		}
-		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistAbstractActionSuccessor_AbstractAction_4001(
-						getNewSource(), getOldTarget());
-	}
+    /**
+     * @generated
+     */
+    protected boolean canReorientSource() {
+        if (!(oldEnd instanceof AbstractAction && newEnd instanceof AbstractAction)) {
+            return false;
+        }
+        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+                .canExistAbstractActionSuccessor_AbstractAction_4001(getNewSource(), getOldTarget());
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof AbstractAction && newEnd instanceof AbstractAction)) {
-			return false;
-		}
-		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistAbstractActionSuccessor_AbstractAction_4001(
-						getOldSource(), getNewTarget());
-	}
+    /**
+     * @generated
+     */
+    protected boolean canReorientTarget() {
+        if (!(oldEnd instanceof AbstractAction && newEnd instanceof AbstractAction)) {
+            return false;
+        }
+        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+                .canExistAbstractActionSuccessor_AbstractAction_4001(getOldSource(), getNewTarget());
+    }
 
-	/**
-	 * @generated
-	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in reorient link command"); //$NON-NLS-1$
-		}
-		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
-			return reorientSource();
-		}
-		if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
-			return reorientTarget();
-		}
-		throw new IllegalStateException();
-	}
+    /**
+     * @generated
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        if (!canExecute()) {
+            throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
+        }
+        if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
+            return reorientSource();
+        }
+        if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
+            return reorientTarget();
+        }
+        throw new IllegalStateException();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected CommandResult reorientSource() throws ExecutionException {
-		getOldSource().setSuccessor_AbstractAction(null);
-		getNewSource().setSuccessor_AbstractAction(getOldTarget());
-		return CommandResult.newOKCommandResult(referenceOwner);
-	}
+    /**
+     * @generated
+     */
+    protected CommandResult reorientSource() throws ExecutionException {
+        getOldSource().setSuccessor_AbstractAction(null);
+        getNewSource().setSuccessor_AbstractAction(getOldTarget());
+        return CommandResult.newOKCommandResult(referenceOwner);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected CommandResult reorientTarget() throws ExecutionException {
-		getOldSource().setSuccessor_AbstractAction(getNewTarget());
-		return CommandResult.newOKCommandResult(referenceOwner);
-	}
+    /**
+     * @generated
+     */
+    protected CommandResult reorientTarget() throws ExecutionException {
+        getOldSource().setSuccessor_AbstractAction(getNewTarget());
+        return CommandResult.newOKCommandResult(referenceOwner);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected AbstractAction getOldSource() {
-		return (AbstractAction) referenceOwner;
-	}
+    /**
+     * @generated
+     */
+    protected AbstractAction getOldSource() {
+        return (AbstractAction) referenceOwner;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected AbstractAction getNewSource() {
-		return (AbstractAction) newEnd;
-	}
+    /**
+     * @generated
+     */
+    protected AbstractAction getNewSource() {
+        return (AbstractAction) newEnd;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected AbstractAction getOldTarget() {
-		return (AbstractAction) oldEnd;
-	}
+    /**
+     * @generated
+     */
+    protected AbstractAction getOldTarget() {
+        return (AbstractAction) oldEnd;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected AbstractAction getNewTarget() {
-		return (AbstractAction) newEnd;
-	}
+    /**
+     * @generated
+     */
+    protected AbstractAction getNewTarget() {
+        return (AbstractAction) newEnd;
+    }
 }

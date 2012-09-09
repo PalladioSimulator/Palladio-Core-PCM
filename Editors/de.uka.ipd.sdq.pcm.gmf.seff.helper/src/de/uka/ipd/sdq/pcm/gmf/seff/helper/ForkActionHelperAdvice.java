@@ -6,6 +6,5 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 /**
  * The Class ForkActionHelperAdvice.
  */
-public class ForkActionHelperAdvice extends AbstractEditHelperAdvice implements
-		IEditHelperAdvice {
+public class ForkActionHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 }

@@ -22,186 +22,182 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 /**
  * @generated
  */
-public class PalladioComponentModelTextNonResizableEditPolicy extends
-		NonResizableEditPolicyEx {
+public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizableEditPolicyEx {
 
-	/**
-	 * @generated
-	 */
-	private IFigure selectionFeedbackFigure;
+    /**
+     * @generated
+     */
+    private IFigure selectionFeedbackFigure;
 
-	/**
-	 * @generated
-	 */
-	private IFigure focusFeedbackFigure;
+    /**
+     * @generated
+     */
+    private IFigure focusFeedbackFigure;
 
-	/**
-	 * @generated
-	 */
-	protected void showPrimarySelection() {
-		if (getHostFigure() instanceof WrapLabel) {
-			((WrapLabel) getHostFigure()).setSelected(true);
-			((WrapLabel) getHostFigure()).setFocus(true);
-		} else {
-			showSelection();
-			showFocus();
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void showPrimarySelection() {
+        if (getHostFigure() instanceof WrapLabel) {
+            ((WrapLabel) getHostFigure()).setSelected(true);
+            ((WrapLabel) getHostFigure()).setFocus(true);
+        } else {
+            showSelection();
+            showFocus();
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void showSelection() {
-		if (getHostFigure() instanceof WrapLabel) {
-			((WrapLabel) getHostFigure()).setSelected(true);
-			((WrapLabel) getHostFigure()).setFocus(false);
-		} else {
-			hideSelection();
-			addFeedback(selectionFeedbackFigure = createSelectionFeedbackFigure());
-			refreshSelectionFeedback();
-			hideFocus();
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void showSelection() {
+        if (getHostFigure() instanceof WrapLabel) {
+            ((WrapLabel) getHostFigure()).setSelected(true);
+            ((WrapLabel) getHostFigure()).setFocus(false);
+        } else {
+            hideSelection();
+            addFeedback(selectionFeedbackFigure = createSelectionFeedbackFigure());
+            refreshSelectionFeedback();
+            hideFocus();
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void hideSelection() {
-		if (getHostFigure() instanceof WrapLabel) {
-			((WrapLabel) getHostFigure()).setSelected(false);
-			((WrapLabel) getHostFigure()).setFocus(false);
-		} else {
-			if (selectionFeedbackFigure != null) {
-				removeFeedback(selectionFeedbackFigure);
-				selectionFeedbackFigure = null;
-			}
-			hideFocus();
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void hideSelection() {
+        if (getHostFigure() instanceof WrapLabel) {
+            ((WrapLabel) getHostFigure()).setSelected(false);
+            ((WrapLabel) getHostFigure()).setFocus(false);
+        } else {
+            if (selectionFeedbackFigure != null) {
+                removeFeedback(selectionFeedbackFigure);
+                selectionFeedbackFigure = null;
+            }
+            hideFocus();
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void showFocus() {
-		if (getHostFigure() instanceof WrapLabel) {
-			((WrapLabel) getHostFigure()).setFocus(true);
-		} else {
-			hideFocus();
-			addFeedback(focusFeedbackFigure = createFocusFeedbackFigure());
-			refreshFocusFeedback();
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void showFocus() {
+        if (getHostFigure() instanceof WrapLabel) {
+            ((WrapLabel) getHostFigure()).setFocus(true);
+        } else {
+            hideFocus();
+            addFeedback(focusFeedbackFigure = createFocusFeedbackFigure());
+            refreshFocusFeedback();
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void hideFocus() {
-		if (getHostFigure() instanceof WrapLabel) {
-			((WrapLabel) getHostFigure()).setFocus(false);
-		} else {
-			if (focusFeedbackFigure != null) {
-				removeFeedback(focusFeedbackFigure);
-				focusFeedbackFigure = null;
-			}
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void hideFocus() {
+        if (getHostFigure() instanceof WrapLabel) {
+            ((WrapLabel) getHostFigure()).setFocus(false);
+        } else {
+            if (focusFeedbackFigure != null) {
+                removeFeedback(focusFeedbackFigure);
+                focusFeedbackFigure = null;
+            }
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Rectangle getFeedbackBounds() {
-		Rectangle bounds;
-		if (getHostFigure() instanceof Label) {
-			bounds = ((Label) getHostFigure()).getTextBounds();
-			bounds.intersect(getHostFigure().getBounds());
-		} else {
-			bounds = getHostFigure().getBounds().getCopy();
-		}
-		getHostFigure().getParent().translateToAbsolute(bounds);
-		getFeedbackLayer().translateToRelative(bounds);
-		return bounds;
-	}
+    /**
+     * @generated
+     */
+    protected Rectangle getFeedbackBounds() {
+        Rectangle bounds;
+        if (getHostFigure() instanceof Label) {
+            bounds = ((Label) getHostFigure()).getTextBounds();
+            bounds.intersect(getHostFigure().getBounds());
+        } else {
+            bounds = getHostFigure().getBounds().getCopy();
+        }
+        getHostFigure().getParent().translateToAbsolute(bounds);
+        getFeedbackLayer().translateToRelative(bounds);
+        return bounds;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected IFigure createSelectionFeedbackFigure() {
-		if (getHostFigure() instanceof Label) {
-			Label feedbackFigure = new Label();
-			feedbackFigure.setOpaque(true);
-			feedbackFigure
-					.setBackgroundColor(ColorConstants.menuBackgroundSelected);
-			feedbackFigure
-					.setForegroundColor(ColorConstants.menuForegroundSelected);
-			return feedbackFigure;
-		} else {
-			RectangleFigure feedbackFigure = new RectangleFigure();
-			feedbackFigure.setFill(false);
-			return feedbackFigure;
-		}
-	}
+    /**
+     * @generated
+     */
+    protected IFigure createSelectionFeedbackFigure() {
+        if (getHostFigure() instanceof Label) {
+            Label feedbackFigure = new Label();
+            feedbackFigure.setOpaque(true);
+            feedbackFigure.setBackgroundColor(ColorConstants.menuBackgroundSelected);
+            feedbackFigure.setForegroundColor(ColorConstants.menuForegroundSelected);
+            return feedbackFigure;
+        } else {
+            RectangleFigure feedbackFigure = new RectangleFigure();
+            feedbackFigure.setFill(false);
+            return feedbackFigure;
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	protected IFigure createFocusFeedbackFigure() {
-		return new Figure() {
+    /**
+     * @generated
+     */
+    protected IFigure createFocusFeedbackFigure() {
+        return new Figure() {
 
-			protected void paintFigure(Graphics graphics) {
-				graphics.drawFocus(getBounds().getResized(-1, -1));
-			}
-		};
-	}
+            protected void paintFigure(Graphics graphics) {
+                graphics.drawFocus(getBounds().getResized(-1, -1));
+            }
+        };
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void updateLabel(Label target) {
-		Label source = (Label) getHostFigure();
-		target.setText(source.getText());
-		target.setTextAlignment(source.getTextAlignment());
-		target.setFont(source.getFont());
-	}
+    /**
+     * @generated
+     */
+    protected void updateLabel(Label target) {
+        Label source = (Label) getHostFigure();
+        target.setText(source.getText());
+        target.setTextAlignment(source.getTextAlignment());
+        target.setFont(source.getFont());
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void refreshSelectionFeedback() {
-		if (selectionFeedbackFigure != null) {
-			if (selectionFeedbackFigure instanceof Label) {
-				updateLabel((Label) selectionFeedbackFigure);
-				selectionFeedbackFigure.setBounds(getFeedbackBounds());
-			} else {
-				selectionFeedbackFigure.setBounds(getFeedbackBounds().expand(5,
-						5));
-			}
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void refreshSelectionFeedback() {
+        if (selectionFeedbackFigure != null) {
+            if (selectionFeedbackFigure instanceof Label) {
+                updateLabel((Label) selectionFeedbackFigure);
+                selectionFeedbackFigure.setBounds(getFeedbackBounds());
+            } else {
+                selectionFeedbackFigure.setBounds(getFeedbackBounds().expand(5, 5));
+            }
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void refreshFocusFeedback() {
-		if (focusFeedbackFigure != null) {
-			focusFeedbackFigure.setBounds(getFeedbackBounds());
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void refreshFocusFeedback() {
+        if (focusFeedbackFigure != null) {
+            focusFeedbackFigure.setBounds(getFeedbackBounds());
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	public void refreshFeedback() {
-		refreshSelectionFeedback();
-		refreshFocusFeedback();
-	}
+    /**
+     * @generated
+     */
+    public void refreshFeedback() {
+        refreshSelectionFeedback();
+        refreshFocusFeedback();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected List createSelectionHandles() {
-		MoveHandle moveHandle = new MoveHandle((GraphicalEditPart) getHost());
-		moveHandle.setBorder(null);
-		moveHandle.setDragTracker(new DragEditPartsTrackerEx(getHost()));
-		return Collections.singletonList(moveHandle);
-	}
+    /**
+     * @generated
+     */
+    protected List createSelectionHandles() {
+        MoveHandle moveHandle = new MoveHandle((GraphicalEditPart) getHost());
+        moveHandle.setBorder(null);
+        moveHandle.setDragTracker(new DragEditPartsTrackerEx(getHost()));
+        return Collections.singletonList(moveHandle);
+    }
 }

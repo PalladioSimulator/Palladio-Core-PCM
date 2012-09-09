@@ -13,23 +13,22 @@ import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElement
  * @generated
  */
 public class BasicComponentSEFFCompartmentItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+        PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public BasicComponentSEFFCompartmentItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.BasicComponent_2102);
-	}
+    /**
+     * @generated
+     */
+    public BasicComponentSEFFCompartmentItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.BasicComponent_2102);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102 == req
-				.getElementType()) {
-			return getGEFWrapper(new ResourceDemandingSEFFCreateCommand(req));
-		}
-		return super.getCreateCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateCommand(CreateElementRequest req) {
+        if (PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102 == req.getElementType()) {
+            return getGEFWrapper(new ResourceDemandingSEFFCreateCommand(req));
+        }
+        return super.getCreateCommand(req);
+    }
 }

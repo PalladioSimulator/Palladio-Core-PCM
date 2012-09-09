@@ -18,7 +18,7 @@ public class AbstractCreateRandomVariableEditHelperAdvice extends AbstractEditHe
      * 
      * @param request
      *            the request
-     * @return the command for creation of the pcm random variable 
+     * @return the command for creation of the pcm random variable
      * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
      *      getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
      */

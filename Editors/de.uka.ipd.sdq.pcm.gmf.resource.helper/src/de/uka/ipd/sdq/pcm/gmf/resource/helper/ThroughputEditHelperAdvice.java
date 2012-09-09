@@ -44,7 +44,8 @@ public class ThroughputEditHelperAdvice extends AbstractEditHelperAdvice impleme
 
     /**
      * 
-     * @param communicationLinkResourceSpecification a specification
+     * @param communicationLinkResourceSpecification
+     *            a specification
      * @return an ICommand
      */
     protected ICommand getCommand(CommunicationLinkResourceSpecification communicationLinkResourceSpecification) {

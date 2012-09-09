@@ -22,61 +22,57 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 /**
  * @generated
  */
-public class LinkingResourceNetworkSwitchCompartmentCanonicalEditPolicy extends
-		CanonicalEditPolicy {
+public class LinkingResourceNetworkSwitchCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	Set myFeaturesToSynchronize;
+    /**
+     * @generated
+     */
+    Set myFeaturesToSynchronize;
 
-	/**
-	 * @generated
-	 */
-	protected List getSemanticChildrenList() {
-		View viewObject = (View) getHost().getModel();
-		List result = new LinkedList();
-		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getLinkingResourceNetworkSwitchCompartment_7006SemanticChildren(
-						viewObject).iterator(); it.hasNext();) {
-			result.add(((PalladioComponentModelNodeDescriptor) it.next())
-					.getModelElement());
-		}
-		return result;
-	}
+    /**
+     * @generated
+     */
+    protected List getSemanticChildrenList() {
+        View viewObject = (View) getHost().getModel();
+        List result = new LinkedList();
+        for (Iterator it = PalladioComponentModelDiagramUpdater
+                .getLinkingResourceNetworkSwitchCompartment_7006SemanticChildren(viewObject).iterator(); it.hasNext();) {
+            result.add(((PalladioComponentModelNodeDescriptor) it.next()).getModelElement());
+        }
+        return result;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean isOrphaned(Collection semanticChildren, final View view) {
-		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-			if (!semanticChildren.contains(view.getElement())) {
-				return true;
-			}
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean isOrphaned(Collection semanticChildren, final View view) {
+        int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        switch (visualID) {
+        case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+            if (!semanticChildren.contains(view.getElement())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getDefaultFactoryHint() {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected String getDefaultFactoryHint() {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize
-					.add(ResourceenvironmentPackage.eINSTANCE
-							.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource());
-		}
-		return myFeaturesToSynchronize;
-	}
+    /**
+     * @generated
+     */
+    protected Set getFeaturesToSynchronize() {
+        if (myFeaturesToSynchronize == null) {
+            myFeaturesToSynchronize = new HashSet();
+            myFeaturesToSynchronize.add(ResourceenvironmentPackage.eINSTANCE
+                    .getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource());
+        }
+        return myFeaturesToSynchronize;
+    }
 
 }

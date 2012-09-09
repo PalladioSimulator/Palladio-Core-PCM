@@ -12,11 +12,10 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelAllocationDi
  */
 public class DiagramConnectionsPreferencePage extends ConnectionsPreferencePage {
 
-	/**
-	 * @generated
-	 */
-	public DiagramConnectionsPreferencePage() {
-		setPreferenceStore(PalladioComponentModelAllocationDiagramEditorPlugin
-				.getInstance().getPreferenceStore());
-	}
+    /**
+     * @generated
+     */
+    public DiagramConnectionsPreferencePage() {
+        setPreferenceStore(PalladioComponentModelAllocationDiagramEditorPlugin.getInstance().getPreferenceStore());
+    }
 }

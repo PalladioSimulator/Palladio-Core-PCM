@@ -9,16 +9,17 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 
 /** @author roman */
-public class ScenarioBehaviourEditHelperAdvice extends AbstractEditHelperAdvice
-		implements IEditHelperAdvice {
+public class ScenarioBehaviourEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		ConfigureMinimalSeffCommand cmd = new ConfigureMinimalSeffCommand(
-				request);
-		return cmd;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
+        ConfigureMinimalSeffCommand cmd = new ConfigureMinimalSeffCommand(request);
+        return cmd;
+    }
 }

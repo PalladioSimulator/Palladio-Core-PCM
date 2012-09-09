@@ -18,52 +18,43 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
  * @generated
  */
 public class ComposedProvidingRequiringEntityItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+        PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public ComposedProvidingRequiringEntityItemSemanticEditPolicy() {
-		super(
-				PalladioComponentModelElementTypes.ComposedProvidingRequiringEntity_1000);
-	}
+    /**
+     * @generated
+     */
+    public ComposedProvidingRequiringEntityItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.ComposedProvidingRequiringEntity_1000);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.ComposedProvidingRequiringEntity_2002 == req
-				.getElementType()) {
-			return getGEFWrapper(new ComposedProvidingRequiringEntityCreateCommand(
-					req));
-		}
-		return super.getCreateCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateCommand(CreateElementRequest req) {
+        if (PalladioComponentModelElementTypes.ComposedProvidingRequiringEntity_2002 == req.getElementType()) {
+            return getGEFWrapper(new ComposedProvidingRequiringEntityCreateCommand(req));
+        }
+        return super.getCreateCommand(req);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
-		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
-				.getEditingDomain();
-		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
-	}
+    /**
+     * @generated
+     */
+    protected Command getDuplicateCommand(DuplicateElementsRequest req) {
+        TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
+        return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
+    }
 
-	/**
-	 * @generated
-	 */
-	private static class DuplicateAnythingCommand extends
-			DuplicateEObjectsCommand {
+    /**
+     * @generated
+     */
+    private static class DuplicateAnythingCommand extends DuplicateEObjectsCommand {
 
-		/**
-		 * @generated
-		 */
-		public DuplicateAnythingCommand(
-				TransactionalEditingDomain editingDomain,
-				DuplicateElementsRequest req) {
-			super(editingDomain, req.getLabel(), req
-					.getElementsToBeDuplicated(), req
-					.getAllDuplicatedElementsMap());
-		}
-	}
+        /**
+         * @generated
+         */
+        public DuplicateAnythingCommand(TransactionalEditingDomain editingDomain, DuplicateElementsRequest req) {
+            super(editingDomain, req.getLabel(), req.getElementsToBeDuplicated(), req.getAllDuplicatedElementsMap());
+        }
+    }
 }

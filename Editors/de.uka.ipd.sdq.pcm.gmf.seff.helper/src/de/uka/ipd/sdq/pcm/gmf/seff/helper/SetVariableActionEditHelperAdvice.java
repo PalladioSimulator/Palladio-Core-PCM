@@ -38,9 +38,8 @@ public class SetVariableActionEditHelperAdvice extends AbstractEditHelperAdvice 
 
             final MessageBox messageBox = new MessageBox(shell, SWT.OK | SWT.ICON_WARNING);
             messageBox.setText("Notice");
-            messageBox
-                    .setMessage("In order to create a SetVariableAction there must be a " 
-                    		+ "return type specified for the signature of the interface.");
+            messageBox.setMessage("In order to create a SetVariableAction there must be a "
+                    + "return type specified for the signature of the interface.");
             messageBox.open();
 
             return new CanceledCommand();

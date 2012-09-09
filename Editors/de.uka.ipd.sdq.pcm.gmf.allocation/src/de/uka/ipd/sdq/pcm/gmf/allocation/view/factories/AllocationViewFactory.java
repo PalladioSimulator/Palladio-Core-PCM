@@ -19,20 +19,20 @@ import org.eclipse.gmf.runtime.notation.View;
  */
 public class AllocationViewFactory extends DiagramViewFactory {
 
-	/**
-	 * @generated 
-	 */
-	protected List createStyles(View view) {
-		List styles = new ArrayList();
-		styles.add(NotationFactory.eINSTANCE.createDiagramStyle());
-		return styles;
-	}
+    /**
+     * @generated
+     */
+    protected List createStyles(View view) {
+        List styles = new ArrayList();
+        styles.add(NotationFactory.eINSTANCE.createDiagramStyle());
+        return styles;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected MeasurementUnit getMeasurementUnit() {
-		return MeasurementUnit.PIXEL_LITERAL;
-	}
+    /**
+     * @generated
+     */
+    protected MeasurementUnit getMeasurementUnit() {
+        return MeasurementUnit.PIXEL_LITERAL;
+    }
 
 }

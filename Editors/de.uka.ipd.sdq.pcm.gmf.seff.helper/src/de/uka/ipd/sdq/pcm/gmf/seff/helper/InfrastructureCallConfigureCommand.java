@@ -103,8 +103,7 @@ public class InfrastructureCallConfigureCommand extends ConfigureElementCommand 
         }
 
         final ICommand cmd = new SetValueCommand(new SetRequest(this.request.getElementToConfigure(),
-                SeffPerformancePackage.eINSTANCE.getInfrastructureCall_Signature__InfrastructureCall(), 
-                this.signature));
+                SeffPerformancePackage.eINSTANCE.getInfrastructureCall_Signature__InfrastructureCall(), this.signature));
 
         cmd.execute(monitor, info);
 

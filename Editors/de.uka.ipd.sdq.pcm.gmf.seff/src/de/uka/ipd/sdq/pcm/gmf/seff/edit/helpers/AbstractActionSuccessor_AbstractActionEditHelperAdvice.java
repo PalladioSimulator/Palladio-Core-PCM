@@ -8,6 +8,5 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice
 /**
  * @generated
  */
-public class AbstractActionSuccessor_AbstractActionEditHelperAdvice extends
-		AbstractEditHelperAdvice {
+public class AbstractActionSuccessor_AbstractActionEditHelperAdvice extends AbstractEditHelperAdvice {
 }

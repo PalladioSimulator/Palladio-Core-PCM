@@ -32,7 +32,8 @@ public class CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart ex
 
     /**
      * 
-     * @param view a View
+     * @param view
+     *            a View
      */
     public CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart(View view) {
         super(view);

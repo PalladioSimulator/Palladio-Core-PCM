@@ -21,7 +21,8 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
- * The Class ExternalCallActionEditHelperAdvice constructs a command to configure newly created external call action.
+ * The Class ExternalCallActionEditHelperAdvice constructs a command to configure newly created
+ * external call action.
  * 
  * @author Roman Andrej
  */

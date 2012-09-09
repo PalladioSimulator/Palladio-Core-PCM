@@ -45,7 +45,8 @@ public class LatencyEditHelperAdvice extends AbstractEditHelperAdvice implements
 
     /**
      * 
-     * @param communicationLinkResourceSpecification a link specification
+     * @param communicationLinkResourceSpecification
+     *            a link specification
      * @return an ICommand
      */
     protected ICommand getCommand(CommunicationLinkResourceSpecification communicationLinkResourceSpecification) {

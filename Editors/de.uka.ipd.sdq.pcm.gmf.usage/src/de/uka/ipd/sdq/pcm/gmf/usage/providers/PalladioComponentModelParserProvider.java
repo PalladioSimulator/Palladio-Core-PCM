@@ -30,183 +30,175 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 /**
  * @generated
  */
-public class PalladioComponentModelParserProvider extends AbstractProvider
-		implements IParserProvider {
+public class PalladioComponentModelParserProvider extends AbstractProvider implements IParserProvider {
 
-	/**
-	 * @generated
-	 */
-	private IParser usageScenarioEntityName_5017Parser;
+    /**
+     * @generated
+     */
+    private IParser usageScenarioEntityName_5017Parser;
 
-	/**
-	 * @generated
-	 */
-	private IParser getUsageScenarioEntityName_5017Parser() {
-		if (usageScenarioEntityName_5017Parser == null) {
-			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-					.getNamedElement_EntityName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			usageScenarioEntityName_5017Parser = parser;
-		}
-		return usageScenarioEntityName_5017Parser;
-	}
+    /**
+     * @generated
+     */
+    private IParser getUsageScenarioEntityName_5017Parser() {
+        if (usageScenarioEntityName_5017Parser == null) {
+            EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE.getNamedElement_EntityName() };
+            MessageFormatParser parser = new MessageFormatParser(features);
+            usageScenarioEntityName_5017Parser = parser;
+        }
+        return usageScenarioEntityName_5017Parser;
+    }
 
-	/**
-	 * @generated
-	 */
-	private IParser variableCharacterisation_3013Parser;
+    /**
+     * @generated
+     */
+    private IParser variableCharacterisation_3013Parser;
 
-	/**
-	 * @generated
-	 */
-	private IParser getVariableCharacterisation_3013Parser() {
-		if (variableCharacterisation_3013Parser == null) {
-			EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE
-					.getVariableCharacterisation_Type() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			parser.setViewPattern("{0} = {1}"); //$NON-NLS-1$
-			parser.setEditorPattern("{0} = {1}"); //$NON-NLS-1$
-			parser.setEditPattern("{0} = {1}"); //$NON-NLS-1$
-			variableCharacterisation_3013Parser = parser;
-		}
-		return variableCharacterisation_3013Parser;
-	}
+    /**
+     * @generated
+     */
+    private IParser getVariableCharacterisation_3013Parser() {
+        if (variableCharacterisation_3013Parser == null) {
+            EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE.getVariableCharacterisation_Type() };
+            MessageFormatParser parser = new MessageFormatParser(features);
+            parser.setViewPattern("{0} = {1}"); //$NON-NLS-1$
+            parser.setEditorPattern("{0} = {1}"); //$NON-NLS-1$
+            parser.setEditPattern("{0} = {1}"); //$NON-NLS-1$
+            variableCharacterisation_3013Parser = parser;
+        }
+        return variableCharacterisation_3013Parser;
+    }
 
-	/**
-	 * @generated
-	 */
-	private IParser branchTransitionBranchProbability_5007Parser;
+    /**
+     * @generated
+     */
+    private IParser branchTransitionBranchProbability_5007Parser;
 
-	/**
-	 * @generated
-	 */
-	private IParser getBranchTransitionBranchProbability_5007Parser() {
-		if (branchTransitionBranchProbability_5007Parser == null) {
-			EAttribute[] features = new EAttribute[] { UsagemodelPackage.eINSTANCE
-					.getBranchTransition_BranchProbability() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			branchTransitionBranchProbability_5007Parser = parser;
-		}
-		return branchTransitionBranchProbability_5007Parser;
-	}
+    /**
+     * @generated
+     */
+    private IParser getBranchTransitionBranchProbability_5007Parser() {
+        if (branchTransitionBranchProbability_5007Parser == null) {
+            EAttribute[] features = new EAttribute[] { UsagemodelPackage.eINSTANCE
+                    .getBranchTransition_BranchProbability() };
+            MessageFormatParser parser = new MessageFormatParser(features);
+            branchTransitionBranchProbability_5007Parser = parser;
+        }
+        return branchTransitionBranchProbability_5007Parser;
+    }
 
-	/**
-	 * @generated
-	 */
-	private IParser delayEntityName_5018Parser;
+    /**
+     * @generated
+     */
+    private IParser delayEntityName_5018Parser;
 
-	/**
-	 * @generated
-	 */
-	private IParser getDelayEntityName_5018Parser() {
-		if (delayEntityName_5018Parser == null) {
-			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
-					.getNamedElement_EntityName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			delayEntityName_5018Parser = parser;
-		}
-		return delayEntityName_5018Parser;
-	}
+    /**
+     * @generated
+     */
+    private IParser getDelayEntityName_5018Parser() {
+        if (delayEntityName_5018Parser == null) {
+            EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE.getNamedElement_EntityName() };
+            MessageFormatParser parser = new MessageFormatParser(features);
+            delayEntityName_5018Parser = parser;
+        }
+        return delayEntityName_5018Parser;
+    }
 
-	/**
-	 * @generated
-	 */
-	private IParser closedWorkloadPopulation_5013Parser;
+    /**
+     * @generated
+     */
+    private IParser closedWorkloadPopulation_5013Parser;
 
-	/**
-	 * @generated
-	 */
-	private IParser getClosedWorkloadPopulation_5013Parser() {
-		if (closedWorkloadPopulation_5013Parser == null) {
-			EAttribute[] features = new EAttribute[] { UsagemodelPackage.eINSTANCE
-					.getClosedWorkload_Population() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			parser.setViewPattern("Population: {0}"); //$NON-NLS-1$
-			parser.setEditorPattern("{0}"); //$NON-NLS-1$
-			parser.setEditPattern("{0}"); //$NON-NLS-1$
-			closedWorkloadPopulation_5013Parser = parser;
-		}
-		return closedWorkloadPopulation_5013Parser;
-	}
+    /**
+     * @generated
+     */
+    private IParser getClosedWorkloadPopulation_5013Parser() {
+        if (closedWorkloadPopulation_5013Parser == null) {
+            EAttribute[] features = new EAttribute[] { UsagemodelPackage.eINSTANCE.getClosedWorkload_Population() };
+            MessageFormatParser parser = new MessageFormatParser(features);
+            parser.setViewPattern("Population: {0}"); //$NON-NLS-1$
+            parser.setEditorPattern("{0}"); //$NON-NLS-1$
+            parser.setEditPattern("{0}"); //$NON-NLS-1$
+            closedWorkloadPopulation_5013Parser = parser;
+        }
+        return closedWorkloadPopulation_5013Parser;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected IParser getParser(int visualID) {
-		switch (visualID) {
-		case UsageScenarioLabelEditPart.VISUAL_ID:
-			return getUsageScenarioEntityName_5017Parser();
-		case VariableCharacterisationEditPart.VISUAL_ID:
-			return getVariableCharacterisation_3013Parser();
-		case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:
-			return getBranchTransitionBranchProbability_5007Parser();
-		case DelayEntityNameEditPart.VISUAL_ID:
-			return getDelayEntityName_5018Parser();
-		case ClosedWorkloadPopulationEditPart.VISUAL_ID:
-			return getClosedWorkloadPopulation_5013Parser();
-		}
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected IParser getParser(int visualID) {
+        switch (visualID) {
+        case UsageScenarioLabelEditPart.VISUAL_ID:
+            return getUsageScenarioEntityName_5017Parser();
+        case VariableCharacterisationEditPart.VISUAL_ID:
+            return getVariableCharacterisation_3013Parser();
+        case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:
+            return getBranchTransitionBranchProbability_5007Parser();
+        case DelayEntityNameEditPart.VISUAL_ID:
+            return getDelayEntityName_5018Parser();
+        case ClosedWorkloadPopulationEditPart.VISUAL_ID:
+            return getClosedWorkloadPopulation_5013Parser();
+        }
+        return null;
+    }
 
-	/**
-	 * Utility method that consults ParserService
-	 * @generated
-	 */
-	public static IParser getParser(IElementType type, EObject object,
-			String parserHint) {
-		return ParserService.getInstance().getParser(
-				new HintAdapter(type, object, parserHint));
-	}
+    /**
+     * Utility method that consults ParserService
+     * 
+     * @generated
+     */
+    public static IParser getParser(IElementType type, EObject object, String parserHint) {
+        return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
+    }
 
-	/**
-	 * @generated
-	 */
-	public IParser getParser(IAdaptable hint) {
-		String vid = (String) hint.getAdapter(String.class);
-		if (vid != null) {
-			return getParser(PalladioComponentModelVisualIDRegistry
-					.getVisualID(vid));
-		}
-		View view = (View) hint.getAdapter(View.class);
-		if (view != null) {
-			return getParser(PalladioComponentModelVisualIDRegistry
-					.getVisualID(view));
-		}
-		return null;
-	}
+    /**
+     * @generated
+     */
+    public IParser getParser(IAdaptable hint) {
+        String vid = (String) hint.getAdapter(String.class);
+        if (vid != null) {
+            return getParser(PalladioComponentModelVisualIDRegistry.getVisualID(vid));
+        }
+        View view = (View) hint.getAdapter(View.class);
+        if (view != null) {
+            return getParser(PalladioComponentModelVisualIDRegistry.getVisualID(view));
+        }
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	public boolean provides(IOperation operation) {
-		if (operation instanceof GetParserOperation) {
-			IAdaptable hint = ((GetParserOperation) operation).getHint();
-			if (PalladioComponentModelElementTypes.getElement(hint) == null) {
-				return false;
-			}
-			return getParser(hint) != null;
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    public boolean provides(IOperation operation) {
+        if (operation instanceof GetParserOperation) {
+            IAdaptable hint = ((GetParserOperation) operation).getHint();
+            if (PalladioComponentModelElementTypes.getElement(hint) == null) {
+                return false;
+            }
+            return getParser(hint) != null;
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	private static class HintAdapter extends ParserHintAdapter {
+    /**
+     * @generated
+     */
+    private static class HintAdapter extends ParserHintAdapter {
 
-		private final IElementType elementType;
+        private final IElementType elementType;
 
-		public HintAdapter(IElementType type, EObject object, String parserHint) {
-			super(object, parserHint);
-			assert type != null;
-			elementType = type;
-		}
+        public HintAdapter(IElementType type, EObject object, String parserHint) {
+            super(object, parserHint);
+            assert type != null;
+            elementType = type;
+        }
 
-		public Object getAdapter(Class adapter) {
-			if (IElementType.class.equals(adapter)) {
-				return elementType;
-			}
-			return super.getAdapter(adapter);
-		}
-	}
+        public Object getAdapter(Class adapter) {
+            if (IElementType.class.equals(adapter)) {
+                return elementType;
+            }
+            return super.getAdapter(adapter);
+        }
+    }
 }

@@ -8,6 +8,5 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice
 /**
  * @generated
  */
-public class ComposedProvidingRequiringEntityEditHelperAdvice extends
-		AbstractEditHelperAdvice {
+public class ComposedProvidingRequiringEntityEditHelperAdvice extends AbstractEditHelperAdvice {
 }

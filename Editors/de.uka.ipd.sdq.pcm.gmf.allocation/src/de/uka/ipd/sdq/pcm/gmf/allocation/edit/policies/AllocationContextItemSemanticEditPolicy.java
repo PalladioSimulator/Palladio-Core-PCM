@@ -22,17 +22,16 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
 /**
  * @generated
  */
-public class AllocationContextItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class AllocationContextItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		CompoundCommand cc = getDestroyEdgesCommand();
-		addDestroyShortcutsCommand(cc);
-		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
-		return cc.unwrap();
-	}
+    /**
+     * @generated
+     */
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        CompoundCommand cc = getDestroyEdgesCommand();
+        addDestroyShortcutsCommand(cc);
+        cc.add(getGEFWrapper(new DestroyElementCommand(req)));
+        return cc.unwrap();
+    }
 
 }

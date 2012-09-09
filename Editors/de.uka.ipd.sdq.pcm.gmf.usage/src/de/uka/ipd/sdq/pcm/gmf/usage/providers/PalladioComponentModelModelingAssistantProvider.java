@@ -44,326 +44,277 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEdito
 /**
  * @generated
  */
-public class PalladioComponentModelModelingAssistantProvider extends
-		ModelingAssistantProvider {
+public class PalladioComponentModelModelingAssistantProvider extends ModelingAssistantProvider {
 
-	/**
-	 * @generated
-	 */
-	public List getTypesForPopupBar(IAdaptable host) {
-		IGraphicalEditPart editPart = (IGraphicalEditPart) host
-				.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof EntryLevelSystemCallEditPart) {
-			ArrayList types = new ArrayList(1);
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3012);
-			return types;
-		}
-		if (editPart instanceof VariableUsageEditPart) {
-			ArrayList types = new ArrayList(1);
-			types
-					.add(PalladioComponentModelElementTypes.VariableCharacterisation_3013);
-			return types;
-		}
-		if (editPart instanceof LoopEditPart) {
-			ArrayList types = new ArrayList(1);
-			types
-					.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3007);
-			return types;
-		}
-		if (editPart instanceof BranchTransitionEditPart) {
-			ArrayList types = new ArrayList(1);
-			types
-					.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3010);
-			return types;
-		}
-		if (editPart instanceof UsageScenarioUsageScenarioCompartmentEditPart) {
-			ArrayList types = new ArrayList(3);
-			types
-					.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3014);
-			types.add(PalladioComponentModelElementTypes.ClosedWorkload_3015);
-			types.add(PalladioComponentModelElementTypes.OpenWorkload_3016);
-			return types;
-		}
-		if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart) {
-			ArrayList types = new ArrayList(6);
-			types.add(PalladioComponentModelElementTypes.Start_3001);
-			types.add(PalladioComponentModelElementTypes.Stop_3002);
-			types
-					.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-			types.add(PalladioComponentModelElementTypes.Loop_3005);
-			types.add(PalladioComponentModelElementTypes.Branch_3008);
-			types.add(PalladioComponentModelElementTypes.Delay_3017);
-			return types;
-		}
-		if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart) {
-			ArrayList types = new ArrayList(6);
-			types.add(PalladioComponentModelElementTypes.Start_3001);
-			types.add(PalladioComponentModelElementTypes.Stop_3002);
-			types
-					.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-			types.add(PalladioComponentModelElementTypes.Loop_3005);
-			types.add(PalladioComponentModelElementTypes.Branch_3008);
-			types.add(PalladioComponentModelElementTypes.Delay_3017);
-			return types;
-		}
-		if (editPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
-			ArrayList types = new ArrayList(1);
-			types.add(PalladioComponentModelElementTypes.BranchTransition_3009);
-			return types;
-		}
-		if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart) {
-			ArrayList types = new ArrayList(6);
-			types.add(PalladioComponentModelElementTypes.Start_3001);
-			types.add(PalladioComponentModelElementTypes.Stop_3002);
-			types
-					.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-			types.add(PalladioComponentModelElementTypes.Loop_3005);
-			types.add(PalladioComponentModelElementTypes.Branch_3008);
-			types.add(PalladioComponentModelElementTypes.Delay_3017);
-			return types;
-		}
-		if (editPart instanceof UsageScenarioEditPart) {
-			ArrayList types = new ArrayList(1);
-			types.add(PalladioComponentModelElementTypes.UsageScenario_2004);
-			return types;
-		}
-		return Collections.EMPTY_LIST;
-	}
+    /**
+     * @generated
+     */
+    public List getTypesForPopupBar(IAdaptable host) {
+        IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
+        if (editPart instanceof EntryLevelSystemCallEditPart) {
+            ArrayList types = new ArrayList(1);
+            types.add(PalladioComponentModelElementTypes.VariableUsage_3012);
+            return types;
+        }
+        if (editPart instanceof VariableUsageEditPart) {
+            ArrayList types = new ArrayList(1);
+            types.add(PalladioComponentModelElementTypes.VariableCharacterisation_3013);
+            return types;
+        }
+        if (editPart instanceof LoopEditPart) {
+            ArrayList types = new ArrayList(1);
+            types.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3007);
+            return types;
+        }
+        if (editPart instanceof BranchTransitionEditPart) {
+            ArrayList types = new ArrayList(1);
+            types.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3010);
+            return types;
+        }
+        if (editPart instanceof UsageScenarioUsageScenarioCompartmentEditPart) {
+            ArrayList types = new ArrayList(3);
+            types.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3014);
+            types.add(PalladioComponentModelElementTypes.ClosedWorkload_3015);
+            types.add(PalladioComponentModelElementTypes.OpenWorkload_3016);
+            return types;
+        }
+        if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart) {
+            ArrayList types = new ArrayList(6);
+            types.add(PalladioComponentModelElementTypes.Start_3001);
+            types.add(PalladioComponentModelElementTypes.Stop_3002);
+            types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
+            types.add(PalladioComponentModelElementTypes.Loop_3005);
+            types.add(PalladioComponentModelElementTypes.Branch_3008);
+            types.add(PalladioComponentModelElementTypes.Delay_3017);
+            return types;
+        }
+        if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart) {
+            ArrayList types = new ArrayList(6);
+            types.add(PalladioComponentModelElementTypes.Start_3001);
+            types.add(PalladioComponentModelElementTypes.Stop_3002);
+            types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
+            types.add(PalladioComponentModelElementTypes.Loop_3005);
+            types.add(PalladioComponentModelElementTypes.Branch_3008);
+            types.add(PalladioComponentModelElementTypes.Delay_3017);
+            return types;
+        }
+        if (editPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
+            ArrayList types = new ArrayList(1);
+            types.add(PalladioComponentModelElementTypes.BranchTransition_3009);
+            return types;
+        }
+        if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart) {
+            ArrayList types = new ArrayList(6);
+            types.add(PalladioComponentModelElementTypes.Start_3001);
+            types.add(PalladioComponentModelElementTypes.Stop_3002);
+            types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
+            types.add(PalladioComponentModelElementTypes.Loop_3005);
+            types.add(PalladioComponentModelElementTypes.Branch_3008);
+            types.add(PalladioComponentModelElementTypes.Delay_3017);
+            return types;
+        }
+        if (editPart instanceof UsageScenarioEditPart) {
+            ArrayList types = new ArrayList(1);
+            types.add(PalladioComponentModelElementTypes.UsageScenario_2004);
+            return types;
+        }
+        return Collections.EMPTY_LIST;
+    }
 
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSource(IAdaptable source) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof StartEditPart) {
-			return ((StartEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof StopEditPart) {
-			return ((StopEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof EntryLevelSystemCallEditPart) {
-			return ((EntryLevelSystemCallEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof LoopEditPart) {
-			return ((LoopEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof BranchEditPart) {
-			return ((BranchEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof DelayEditPart) {
-			return ((DelayEditPart) sourceEditPart).getMARelTypesOnSource();
-		}
-		return Collections.EMPTY_LIST;
-	}
+    /**
+     * @generated
+     */
+    public List getRelTypesOnSource(IAdaptable source) {
+        IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+        if (sourceEditPart instanceof StartEditPart) {
+            return ((StartEditPart) sourceEditPart).getMARelTypesOnSource();
+        }
+        if (sourceEditPart instanceof StopEditPart) {
+            return ((StopEditPart) sourceEditPart).getMARelTypesOnSource();
+        }
+        if (sourceEditPart instanceof EntryLevelSystemCallEditPart) {
+            return ((EntryLevelSystemCallEditPart) sourceEditPart).getMARelTypesOnSource();
+        }
+        if (sourceEditPart instanceof LoopEditPart) {
+            return ((LoopEditPart) sourceEditPart).getMARelTypesOnSource();
+        }
+        if (sourceEditPart instanceof BranchEditPart) {
+            return ((BranchEditPart) sourceEditPart).getMARelTypesOnSource();
+        }
+        if (sourceEditPart instanceof DelayEditPart) {
+            return ((DelayEditPart) sourceEditPart).getMARelTypesOnSource();
+        }
+        return Collections.EMPTY_LIST;
+    }
 
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnTarget(IAdaptable target) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof StartEditPart) {
-			return ((StartEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof StopEditPart) {
-			return ((StopEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof EntryLevelSystemCallEditPart) {
-			return ((EntryLevelSystemCallEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof LoopEditPart) {
-			return ((LoopEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof BranchEditPart) {
-			return ((BranchEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		if (targetEditPart instanceof DelayEditPart) {
-			return ((DelayEditPart) targetEditPart).getMARelTypesOnTarget();
-		}
-		return Collections.EMPTY_LIST;
-	}
+    /**
+     * @generated
+     */
+    public List getRelTypesOnTarget(IAdaptable target) {
+        IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
+        if (targetEditPart instanceof StartEditPart) {
+            return ((StartEditPart) targetEditPart).getMARelTypesOnTarget();
+        }
+        if (targetEditPart instanceof StopEditPart) {
+            return ((StopEditPart) targetEditPart).getMARelTypesOnTarget();
+        }
+        if (targetEditPart instanceof EntryLevelSystemCallEditPart) {
+            return ((EntryLevelSystemCallEditPart) targetEditPart).getMARelTypesOnTarget();
+        }
+        if (targetEditPart instanceof LoopEditPart) {
+            return ((LoopEditPart) targetEditPart).getMARelTypesOnTarget();
+        }
+        if (targetEditPart instanceof BranchEditPart) {
+            return ((BranchEditPart) targetEditPart).getMARelTypesOnTarget();
+        }
+        if (targetEditPart instanceof DelayEditPart) {
+            return ((DelayEditPart) targetEditPart).getMARelTypesOnTarget();
+        }
+        return Collections.EMPTY_LIST;
+    }
 
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSourceAndTarget(IAdaptable source,
-			IAdaptable target) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof StartEditPart) {
-			return ((StartEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof StopEditPart) {
-			return ((StopEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof EntryLevelSystemCallEditPart) {
-			return ((EntryLevelSystemCallEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof LoopEditPart) {
-			return ((LoopEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof BranchEditPart) {
-			return ((BranchEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		if (sourceEditPart instanceof DelayEditPart) {
-			return ((DelayEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		return Collections.EMPTY_LIST;
-	}
+    /**
+     * @generated
+     */
+    public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
+        IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+        IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
+        if (sourceEditPart instanceof StartEditPart) {
+            return ((StartEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
+        }
+        if (sourceEditPart instanceof StopEditPart) {
+            return ((StopEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
+        }
+        if (sourceEditPart instanceof EntryLevelSystemCallEditPart) {
+            return ((EntryLevelSystemCallEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
+        }
+        if (sourceEditPart instanceof LoopEditPart) {
+            return ((LoopEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
+        }
+        if (sourceEditPart instanceof BranchEditPart) {
+            return ((BranchEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
+        }
+        if (sourceEditPart instanceof DelayEditPart) {
+            return ((DelayEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
+        }
+        return Collections.EMPTY_LIST;
+    }
 
-	/**
-	 * @generated
-	 */
-	public List getTypesForSource(IAdaptable target,
-			IElementType relationshipType) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof StartEditPart) {
-			return ((StartEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof StopEditPart) {
-			return ((StopEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof EntryLevelSystemCallEditPart) {
-			return ((EntryLevelSystemCallEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof LoopEditPart) {
-			return ((LoopEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof BranchEditPart) {
-			return ((BranchEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
-		if (targetEditPart instanceof DelayEditPart) {
-			return ((DelayEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
-		return Collections.EMPTY_LIST;
-	}
+    /**
+     * @generated
+     */
+    public List getTypesForSource(IAdaptable target, IElementType relationshipType) {
+        IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
+        if (targetEditPart instanceof StartEditPart) {
+            return ((StartEditPart) targetEditPart).getMATypesForSource(relationshipType);
+        }
+        if (targetEditPart instanceof StopEditPart) {
+            return ((StopEditPart) targetEditPart).getMATypesForSource(relationshipType);
+        }
+        if (targetEditPart instanceof EntryLevelSystemCallEditPart) {
+            return ((EntryLevelSystemCallEditPart) targetEditPart).getMATypesForSource(relationshipType);
+        }
+        if (targetEditPart instanceof LoopEditPart) {
+            return ((LoopEditPart) targetEditPart).getMATypesForSource(relationshipType);
+        }
+        if (targetEditPart instanceof BranchEditPart) {
+            return ((BranchEditPart) targetEditPart).getMATypesForSource(relationshipType);
+        }
+        if (targetEditPart instanceof DelayEditPart) {
+            return ((DelayEditPart) targetEditPart).getMATypesForSource(relationshipType);
+        }
+        return Collections.EMPTY_LIST;
+    }
 
-	/**
-	 * @generated
-	 */
-	public List getTypesForTarget(IAdaptable source,
-			IElementType relationshipType) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof StartEditPart) {
-			return ((StartEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof StopEditPart) {
-			return ((StopEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof EntryLevelSystemCallEditPart) {
-			return ((EntryLevelSystemCallEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof LoopEditPart) {
-			return ((LoopEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof BranchEditPart) {
-			return ((BranchEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
-		if (sourceEditPart instanceof DelayEditPart) {
-			return ((DelayEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
-		return Collections.EMPTY_LIST;
-	}
+    /**
+     * @generated
+     */
+    public List getTypesForTarget(IAdaptable source, IElementType relationshipType) {
+        IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+        if (sourceEditPart instanceof StartEditPart) {
+            return ((StartEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
+        }
+        if (sourceEditPart instanceof StopEditPart) {
+            return ((StopEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
+        }
+        if (sourceEditPart instanceof EntryLevelSystemCallEditPart) {
+            return ((EntryLevelSystemCallEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
+        }
+        if (sourceEditPart instanceof LoopEditPart) {
+            return ((LoopEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
+        }
+        if (sourceEditPart instanceof BranchEditPart) {
+            return ((BranchEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
+        }
+        if (sourceEditPart instanceof DelayEditPart) {
+            return ((DelayEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
+        }
+        return Collections.EMPTY_LIST;
+    }
 
-	/**
-	 * @generated
-	 */
-	public EObject selectExistingElementForSource(IAdaptable target,
-			IElementType relationshipType) {
-		return selectExistingElement(target, getTypesForSource(target,
-				relationshipType));
-	}
+    /**
+     * @generated
+     */
+    public EObject selectExistingElementForSource(IAdaptable target, IElementType relationshipType) {
+        return selectExistingElement(target, getTypesForSource(target, relationshipType));
+    }
 
-	/**
-	 * @generated
-	 */
-	public EObject selectExistingElementForTarget(IAdaptable source,
-			IElementType relationshipType) {
-		return selectExistingElement(source, getTypesForTarget(source,
-				relationshipType));
-	}
+    /**
+     * @generated
+     */
+    public EObject selectExistingElementForTarget(IAdaptable source, IElementType relationshipType) {
+        return selectExistingElement(source, getTypesForTarget(source, relationshipType));
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EObject selectExistingElement(IAdaptable host, Collection types) {
-		if (types.isEmpty()) {
-			return null;
-		}
-		IGraphicalEditPart editPart = (IGraphicalEditPart) host
-				.getAdapter(IGraphicalEditPart.class);
-		if (editPart == null) {
-			return null;
-		}
-		Diagram diagram = (Diagram) editPart.getRoot().getContents().getModel();
-		Collection elements = new HashSet();
-		for (Iterator it = diagram.getElement().eAllContents(); it.hasNext();) {
-			EObject element = (EObject) it.next();
-			if (isApplicableElement(element, types)) {
-				elements.add(element);
-			}
-		}
-		if (elements.isEmpty()) {
-			return null;
-		}
-		return selectElement((EObject[]) elements.toArray(new EObject[elements
-				.size()]));
-	}
+    /**
+     * @generated
+     */
+    protected EObject selectExistingElement(IAdaptable host, Collection types) {
+        if (types.isEmpty()) {
+            return null;
+        }
+        IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
+        if (editPart == null) {
+            return null;
+        }
+        Diagram diagram = (Diagram) editPart.getRoot().getContents().getModel();
+        Collection elements = new HashSet();
+        for (Iterator it = diagram.getElement().eAllContents(); it.hasNext();) {
+            EObject element = (EObject) it.next();
+            if (isApplicableElement(element, types)) {
+                elements.add(element);
+            }
+        }
+        if (elements.isEmpty()) {
+            return null;
+        }
+        return selectElement((EObject[]) elements.toArray(new EObject[elements.size()]));
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean isApplicableElement(EObject element, Collection types) {
-		IElementType type = ElementTypeRegistry.getInstance().getElementType(
-				element);
-		return types.contains(type);
-	}
+    /**
+     * @generated
+     */
+    protected boolean isApplicableElement(EObject element, Collection types) {
+        IElementType type = ElementTypeRegistry.getInstance().getElementType(element);
+        return types.contains(type);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EObject selectElement(EObject[] elements) {
-		Shell shell = Display.getCurrent().getActiveShell();
-		ILabelProvider labelProvider = new AdapterFactoryLabelProvider(
-				PalladioComponentModelUsageDiagramEditorPlugin.getInstance()
-						.getItemProvidersAdapterFactory());
-		ElementListSelectionDialog dialog = new ElementListSelectionDialog(
-				shell, labelProvider);
-		dialog
-				.setMessage(Messages.PalladioComponentModelModelingAssistantProviderMessage);
-		dialog
-				.setTitle(Messages.PalladioComponentModelModelingAssistantProviderTitle);
-		dialog.setMultipleSelection(false);
-		dialog.setElements(elements);
-		EObject selected = null;
-		if (dialog.open() == Window.OK) {
-			selected = (EObject) dialog.getFirstResult();
-		}
-		return selected;
-	}
+    /**
+     * @generated
+     */
+    protected EObject selectElement(EObject[] elements) {
+        Shell shell = Display.getCurrent().getActiveShell();
+        ILabelProvider labelProvider = new AdapterFactoryLabelProvider(PalladioComponentModelUsageDiagramEditorPlugin
+                .getInstance().getItemProvidersAdapterFactory());
+        ElementListSelectionDialog dialog = new ElementListSelectionDialog(shell, labelProvider);
+        dialog.setMessage(Messages.PalladioComponentModelModelingAssistantProviderMessage);
+        dialog.setTitle(Messages.PalladioComponentModelModelingAssistantProviderTitle);
+        dialog.setMultipleSelection(false);
+        dialog.setElements(elements);
+        EObject selected = null;
+        if (dialog.open() == Window.OK) {
+            selected = (EObject) dialog.getFirstResult();
+        }
+        return selected;
+    }
 }

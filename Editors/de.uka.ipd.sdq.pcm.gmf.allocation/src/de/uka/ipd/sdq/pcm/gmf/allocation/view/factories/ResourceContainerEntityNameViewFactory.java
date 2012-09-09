@@ -13,14 +13,13 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.BasicNodeViewFactory;
 /**
  * @generated
  */
-public class ResourceContainerEntityNameViewFactory extends
-		BasicNodeViewFactory {
+public class ResourceContainerEntityNameViewFactory extends BasicNodeViewFactory {
 
-	/**
-	 * @generated
-	 */
-	protected List createStyles(View view) {
-		List styles = new ArrayList();
-		return styles;
-	}
+    /**
+     * @generated
+     */
+    protected List createStyles(View view) {
+        List styles = new ArrayList();
+        return styles;
+    }
 }

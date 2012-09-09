@@ -12,21 +12,20 @@ import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElement
 /**
  * @generated
  */
-public class OperationProvidedRoleItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class OperationProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public OperationProvidedRoleItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.OperationProvidedRole_4105);
-	}
+    /**
+     * @generated
+     */
+    public OperationProvidedRoleItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.OperationProvidedRole_4105);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		return getGEFWrapper(new DestroyElementCommand(req));
-	}
+    /**
+     * @generated
+     */
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        return getGEFWrapper(new DestroyElementCommand(req));
+    }
 
 }

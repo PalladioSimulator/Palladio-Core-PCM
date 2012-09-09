@@ -17,87 +17,83 @@ import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 /**
  * @generated
  */
-public class ProvidedDelegationConnectorTypeLinkCreateCommand extends
-		CreateRelationshipCommand {
+public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRelationshipCommand {
 
-	/**
-	 * @generated
-	 */
-	private ComposedStructure myContainer;
+    /**
+     * @generated
+     */
+    private ComposedStructure myContainer;
 
-	/**
-	 * @generated
-	 */
-	private OperationProvidedRole mySource;
+    /**
+     * @generated
+     */
+    private OperationProvidedRole mySource;
 
-	/**
-	 * @generated
-	 */
-	private OperationProvidedRole myTarget;
+    /**
+     * @generated
+     */
+    private OperationProvidedRole myTarget;
 
-	/**
-	 * @generated
-	 */
-	public ProvidedDelegationConnectorTypeLinkCreateCommand(
-			CreateRelationshipRequest req, ComposedStructure container,
-			OperationProvidedRole source, OperationProvidedRole target) {
-		super(req);
-		super.setElementToEdit(container);
-		myContainer = container;
-		mySource = source;
-		myTarget = target;
-	}
+    /**
+     * @generated
+     */
+    public ProvidedDelegationConnectorTypeLinkCreateCommand(CreateRelationshipRequest req, ComposedStructure container,
+            OperationProvidedRole source, OperationProvidedRole target) {
+        super(req);
+        super.setElementToEdit(container);
+        myContainer = container;
+        mySource = source;
+        myTarget = target;
+    }
 
-	/**
-	 * @generated
-	 */
-	public ComposedStructure getContainer() {
-		return myContainer;
-	}
+    /**
+     * @generated
+     */
+    public ComposedStructure getContainer() {
+        return myContainer;
+    }
 
-	/**
-	 * @generated
-	 */
-	public EObject getSource() {
-		return mySource;
-	}
+    /**
+     * @generated
+     */
+    public EObject getSource() {
+        return mySource;
+    }
 
-	/**
-	 * @generated
-	 */
-	public EObject getTarget() {
-		return myTarget;
-	}
+    /**
+     * @generated
+     */
+    public EObject getTarget() {
+        return myTarget;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EClass getEClassToEdit() {
-		return CompositionPackage.eINSTANCE.getComposedStructure();
-	}
+    /**
+     * @generated
+     */
+    protected EClass getEClassToEdit() {
+        return CompositionPackage.eINSTANCE.getComposedStructure();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void setElementToEdit(EObject element) {
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * @generated
+     */
+    protected void setElementToEdit(EObject element) {
+        throw new UnsupportedOperationException();
+    }
 
-	/**
-	 * @generated not
-	 */
-	protected EObject doDefaultElementCreation() {
-		ProvidedDelegationConnector newElement = (ProvidedDelegationConnector) super
-				.doDefaultElementCreation();
-		if (newElement != null) {
-			newElement
-					.setInnerProvidedRole_ProvidedDelegationConnector(myTarget);
-			newElement
-					.setOuterProvidedRole_ProvidedDelegationConnector(mySource);
-			CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
-			newElement.setAssemblyContext_ProvidedDelegationConnector((AssemblyContext) req.getParameter("CHILD_CONTEXT"));
-		}
-		return newElement;
-	}
+    /**
+     * @generated not
+     */
+    protected EObject doDefaultElementCreation() {
+        ProvidedDelegationConnector newElement = (ProvidedDelegationConnector) super.doDefaultElementCreation();
+        if (newElement != null) {
+            newElement.setInnerProvidedRole_ProvidedDelegationConnector(myTarget);
+            newElement.setOuterProvidedRole_ProvidedDelegationConnector(mySource);
+            CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
+            newElement.setAssemblyContext_ProvidedDelegationConnector((AssemblyContext) req
+                    .getParameter("CHILD_CONTEXT"));
+        }
+        return newElement;
+    }
 
 }

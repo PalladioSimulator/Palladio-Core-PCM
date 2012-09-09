@@ -40,25 +40,26 @@ public class SetLatencyThroughputAndLanTypeCommand extends ConfigureElementComma
      * The latency display title.
      */
     private static final String LATENCY_DISPLAY_TITLE = "Set Latency";
-    
+
     /**
      * The throughput display title.
      */
     private static final String THROUGHPUT_DISPLAY_TITLE = "Set Throughput";
-    
+
     /**
      * The configure request.
      */
     private ConfigureRequest request = null;
 
     /**
-     *  id of LAN in PCM resource repository.
+     * id of LAN in PCM resource repository.
      */
     private static final String LAN_COMMUNICATION_LINK_RESOURCE_TYPE = "_o3sScH2AEdyH8uerKnHYug";
 
     /**
      * 
-     * @param request a request
+     * @param request
+     *            a request
      */
     public SetLatencyThroughputAndLanTypeCommand(ConfigureRequest request) {
         super(request);
@@ -68,9 +69,13 @@ public class SetLatencyThroughputAndLanTypeCommand extends ConfigureElementComma
     /**
      * Method opens latency and throughput StoEx-dialogs and sets attributes of Communication Link
      * Resource Specification accordingly.
-     * @param info an IAdaptable
-     * @param monitor an IProgressMonitor
-     * @throws ExecutionException an execution exception
+     * 
+     * @param info
+     *            an IAdaptable
+     * @param monitor
+     *            an IProgressMonitor
+     * @throws ExecutionException
+     *             an execution exception
      * @return a CommandResult
      */
     @Override

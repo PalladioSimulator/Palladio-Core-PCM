@@ -27,73 +27,67 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * @generated
  */
-public class ResourceContainerAllocationCompartmentCanonicalEditPolicy extends
-		CanonicalEditPolicy {
+public class ResourceContainerAllocationCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	Set myFeaturesToSynchronize;
+    /**
+     * @generated
+     */
+    Set myFeaturesToSynchronize;
 
-	/**
-	 * @generated not
-	 */
-	protected List getSemanticChildrenList() {
-		List result = new LinkedList();
-		EObject modelObject = ((View) getHost().getModel()).getElement();
-		EObject allocation = ((View) getHost().getParent().getParent()
-				.getModel()).getElement();
-		View viewObject = (View) getHost().getModel();
-		EObject nextValue;
-		int nodeVID;
-		for (Iterator values = ((Allocation) allocation)
-				.getAllocationContexts_Allocation().iterator(); values
-				.hasNext();) {
-			nextValue = (EObject) values.next();
-			AllocationContext ac = (AllocationContext) nextValue;
-			if (ac.getResourceContainer_AllocationContext() == modelObject) {
-				nodeVID = PalladioComponentModelVisualIDRegistry
-						.getNodeVisualID(viewObject, nextValue);
-				if (AllocationContextEditPart.VISUAL_ID == nodeVID) {
-					result.add(nextValue);
-				}
-			}
-		}
-		return result;
-	}
+    /**
+     * @generated not
+     */
+    protected List getSemanticChildrenList() {
+        List result = new LinkedList();
+        EObject modelObject = ((View) getHost().getModel()).getElement();
+        EObject allocation = ((View) getHost().getParent().getParent().getModel()).getElement();
+        View viewObject = (View) getHost().getModel();
+        EObject nextValue;
+        int nodeVID;
+        for (Iterator values = ((Allocation) allocation).getAllocationContexts_Allocation().iterator(); values
+                .hasNext();) {
+            nextValue = (EObject) values.next();
+            AllocationContext ac = (AllocationContext) nextValue;
+            if (ac.getResourceContainer_AllocationContext() == modelObject) {
+                nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(viewObject, nextValue);
+                if (AllocationContextEditPart.VISUAL_ID == nodeVID) {
+                    result.add(nextValue);
+                }
+            }
+        }
+        return result;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean isOrphaned(Collection semanticChildren, final View view) {
-		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case AllocationContextEditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != PalladioComponentModelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean isOrphaned(Collection semanticChildren, final View view) {
+        int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        switch (visualID) {
+        case AllocationContextEditPart.VISUAL_ID:
+            return !semanticChildren.contains(view.getElement())
+                    || visualID != PalladioComponentModelVisualIDRegistry.getNodeVisualID((View) getHost().getModel(),
+                            view.getElement());
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getDefaultFactoryHint() {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected String getDefaultFactoryHint() {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize.add(AllocationPackage.eINSTANCE
-					.getAllocation_AllocationContexts_Allocation());
-		}
-		return myFeaturesToSynchronize;
-	}
+    /**
+     * @generated
+     */
+    protected Set getFeaturesToSynchronize() {
+        if (myFeaturesToSynchronize == null) {
+            myFeaturesToSynchronize = new HashSet();
+            myFeaturesToSynchronize.add(AllocationPackage.eINSTANCE.getAllocation_AllocationContexts_Allocation());
+        }
+        return myFeaturesToSynchronize;
+    }
 
 }

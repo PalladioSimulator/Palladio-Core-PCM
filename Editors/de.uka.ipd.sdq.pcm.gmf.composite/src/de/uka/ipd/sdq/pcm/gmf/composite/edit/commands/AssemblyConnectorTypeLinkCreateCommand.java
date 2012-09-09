@@ -18,86 +18,85 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 /**
  * @generated
  */
-public class AssemblyConnectorTypeLinkCreateCommand extends
-		CreateRelationshipCommand {
+public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCommand {
 
-	/**
-	 * @generated
-	 */
-	private ComposedStructure myContainer;
+    /**
+     * @generated
+     */
+    private ComposedStructure myContainer;
 
-	/**
-	 * @generated
-	 */
-	private OperationRequiredRole mySource;
+    /**
+     * @generated
+     */
+    private OperationRequiredRole mySource;
 
-	/**
-	 * @generated
-	 */
-	private OperationProvidedRole myTarget;
+    /**
+     * @generated
+     */
+    private OperationProvidedRole myTarget;
 
-	/**
-	 * @generated
-	 */
-	public AssemblyConnectorTypeLinkCreateCommand(
-			CreateRelationshipRequest req, ComposedStructure container,
-			OperationRequiredRole source, OperationProvidedRole target) {
-		super(req);
-		super.setElementToEdit(container);
-		myContainer = container;
-		mySource = source;
-		myTarget = target;
-	}
+    /**
+     * @generated
+     */
+    public AssemblyConnectorTypeLinkCreateCommand(CreateRelationshipRequest req, ComposedStructure container,
+            OperationRequiredRole source, OperationProvidedRole target) {
+        super(req);
+        super.setElementToEdit(container);
+        myContainer = container;
+        mySource = source;
+        myTarget = target;
+    }
 
-	/**
-	 * @generated
-	 */
-	public ComposedStructure getContainer() {
-		return myContainer;
-	}
+    /**
+     * @generated
+     */
+    public ComposedStructure getContainer() {
+        return myContainer;
+    }
 
-	/**
-	 * @generated
-	 */
-	public EObject getSource() {
-		return mySource;
-	}
+    /**
+     * @generated
+     */
+    public EObject getSource() {
+        return mySource;
+    }
 
-	/**
-	 * @generated
-	 */
-	public EObject getTarget() {
-		return myTarget;
-	}
+    /**
+     * @generated
+     */
+    public EObject getTarget() {
+        return myTarget;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EClass getEClassToEdit() {
-		return CompositionPackage.eINSTANCE.getComposedStructure();
-	}
+    /**
+     * @generated
+     */
+    protected EClass getEClassToEdit() {
+        return CompositionPackage.eINSTANCE.getComposedStructure();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void setElementToEdit(EObject element) {
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * @generated
+     */
+    protected void setElementToEdit(EObject element) {
+        throw new UnsupportedOperationException();
+    }
 
-	/**
-	 * @generated not
-	 */
-	protected EObject doDefaultElementCreation() {
-		AssemblyConnector newElement = (AssemblyConnector) super
-				.doDefaultElementCreation();
-		if (newElement != null) {
-			newElement.setProvidedRole_AssemblyConnector(myTarget);
-			newElement.setRequiredRole_AssemblyConnector(mySource);
-			CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
-			newElement.setRequiringAssemblyContext_AssemblyConnector((AssemblyContext) req.getParameter("REQ_CHILD_CONTEXT"));
-			newElement.setProvidingAssemblyContext_AssemblyConnector((AssemblyContext) req.getParameter("PROV_CHILD_CONTEXT"));
-		}
-		return newElement;
-	}
+    /**
+     * @generated not
+     */
+    protected EObject doDefaultElementCreation() {
+        AssemblyConnector newElement = (AssemblyConnector) super.doDefaultElementCreation();
+        if (newElement != null) {
+            newElement.setProvidedRole_AssemblyConnector(myTarget);
+            newElement.setRequiredRole_AssemblyConnector(mySource);
+            CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
+            newElement.setRequiringAssemblyContext_AssemblyConnector((AssemblyContext) req
+                    .getParameter("REQ_CHILD_CONTEXT"));
+            newElement.setProvidingAssemblyContext_AssemblyConnector((AssemblyContext) req
+                    .getParameter("PROV_CHILD_CONTEXT"));
+        }
+        return newElement;
+    }
 
 }

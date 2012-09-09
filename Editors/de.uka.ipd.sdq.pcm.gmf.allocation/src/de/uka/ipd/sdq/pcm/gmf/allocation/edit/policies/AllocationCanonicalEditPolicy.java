@@ -64,111 +64,104 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class AllocationCanonicalEditPolicy extends
-		CanonicalConnectionEditPolicy {
+public class AllocationCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 
-	/**
-	 * @generated not
-	 */
-	protected List getSemanticChildrenList() {
-		List result = new LinkedList();
-		EObject modelObject = ((View) getHost().getModel()).getElement();
-		View viewObject = (View) getHost().getModel();
-		ResourceEnvironment re = ((Allocation) modelObject)
-				.getTargetResourceEnvironment_Allocation();
+    /**
+     * @generated not
+     */
+    protected List getSemanticChildrenList() {
+        List result = new LinkedList();
+        EObject modelObject = ((View) getHost().getModel()).getElement();
+        View viewObject = (View) getHost().getModel();
+        ResourceEnvironment re = ((Allocation) modelObject).getTargetResourceEnvironment_Allocation();
 
-		return re.getResourceContainer_ResourceEnvironment();
-	}
+        return re.getResourceContainer_ResourceEnvironment();
+    }
 
-	/**
-	 * @generated not
-	 */
-	protected boolean shouldDeleteView(View view) {
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			return view.isSetElement()
-					&& (view.getElement() == null || view.getElement()
-							.eIsProxy());
-		}
-		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		return false;
-	}
+    /**
+     * @generated not
+     */
+    protected boolean shouldDeleteView(View view) {
+        if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+            return view.isSetElement() && (view.getElement() == null || view.getElement().eIsProxy());
+        }
+        int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean isOrphaned(Collection semanticChildren, final View view) {
-		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case ResourceContainerEditPart.VISUAL_ID:
-			return !semanticChildren.contains(view.getElement())
-					|| visualID != PalladioComponentModelVisualIDRegistry
-							.getNodeVisualID((View) getHost().getModel(), view
-									.getElement());
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean isOrphaned(Collection semanticChildren, final View view) {
+        int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        switch (visualID) {
+        case ResourceContainerEditPart.VISUAL_ID:
+            return !semanticChildren.contains(view.getElement())
+                    || visualID != PalladioComponentModelVisualIDRegistry.getNodeVisualID((View) getHost().getModel(),
+                            view.getElement());
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getDefaultFactoryHint() {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected String getDefaultFactoryHint() {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected List getSemanticConnectionsList() {
-		return Collections.EMPTY_LIST;
-	}
+    /**
+     * @generated
+     */
+    protected List getSemanticConnectionsList() {
+        return Collections.EMPTY_LIST;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EObject getSourceElement(EObject relationship) {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected EObject getSourceElement(EObject relationship) {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EObject getTargetElement(EObject relationship) {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected EObject getTargetElement(EObject relationship) {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean shouldIncludeConnection(Edge connector,
-			Collection children) {
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean shouldIncludeConnection(Edge connector, Collection children) {
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void refreshSemantic() {
-		List createdViews = new LinkedList();
-		createdViews.addAll(refreshSemanticChildren());
-		List createdConnectionViews = new LinkedList();
-		createdConnectionViews.addAll(refreshSemanticConnections());
+    /**
+     * @generated
+     */
+    protected void refreshSemantic() {
+        List createdViews = new LinkedList();
+        createdViews.addAll(refreshSemanticChildren());
+        List createdConnectionViews = new LinkedList();
+        createdConnectionViews.addAll(refreshSemanticConnections());
 
-		if (createdViews.size() > 1) {
-			// perform a layout of the container
-			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host()
-					.getEditingDomain(), createdViews, host());
-			executeCommand(new ICommandProxy(layoutCmd));
-		}
+        if (createdViews.size() > 1) {
+            // perform a layout of the container
+            DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews, host());
+            executeCommand(new ICommandProxy(layoutCmd));
+        }
 
-		createdViews.addAll(createdConnectionViews);
-		makeViewsImmutable(createdViews);
-	}
+        createdViews.addAll(createdConnectionViews);
+        makeViewsImmutable(createdViews);
+    }
 
-	/**
-	 * @generated
-	 */
-	private Diagram getDiagram() {
-		return ((View) getHost().getModel()).getDiagram();
-	}
+    /**
+     * @generated
+     */
+    private Diagram getDiagram() {
+        return ((View) getHost().getModel()).getDiagram();
+    }
 
 }

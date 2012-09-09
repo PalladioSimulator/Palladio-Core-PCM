@@ -53,355 +53,322 @@ import org.eclipse.ui.model.WorkbenchLabelProvider;
  */
 public class PalladioComponentModelElementChooserDialog extends Dialog {
 
-	/**
-	 * @generated
-	 */
-	private TreeViewer myTreeViewer;
+    /**
+     * @generated
+     */
+    private TreeViewer myTreeViewer;
 
-	/**
-	 * @generated
-	 */
-	private URI mySelectedModelElementURI;
+    /**
+     * @generated
+     */
+    private URI mySelectedModelElementURI;
 
-	/**
-	 * @generated
-	 */
-	private View myView;
+    /**
+     * @generated
+     */
+    private View myView;
 
-	/**
-	 * @generated
-	 */
-	private TransactionalEditingDomain myEditingDomain = GMFEditingDomainFactory.INSTANCE
-			.createEditingDomain();
+    /**
+     * @generated
+     */
+    private TransactionalEditingDomain myEditingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
 
-	/**
-	 * @generated
-	 */
-	public PalladioComponentModelElementChooserDialog(Shell parentShell,
-			View view) {
-		super(parentShell);
-		setShellStyle(getShellStyle() | SWT.RESIZE);
-		myView = view;
-	}
+    /**
+     * @generated
+     */
+    public PalladioComponentModelElementChooserDialog(Shell parentShell, View view) {
+        super(parentShell);
+        setShellStyle(getShellStyle() | SWT.RESIZE);
+        myView = view;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Control createDialogArea(Composite parent) {
-		Composite composite = (Composite) super.createDialogArea(parent);
-		getShell()
-				.setText(
-						Messages.PalladioComponentModelElementChooserDialog_SelectModelElementTitle);
-		createModelBrowser(composite);
-		return composite;
-	}
+    /**
+     * @generated
+     */
+    protected Control createDialogArea(Composite parent) {
+        Composite composite = (Composite) super.createDialogArea(parent);
+        getShell().setText(Messages.PalladioComponentModelElementChooserDialog_SelectModelElementTitle);
+        createModelBrowser(composite);
+        return composite;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Control createButtonBar(Composite parent) {
-		Control buttonBar = super.createButtonBar(parent);
-		setOkButtonEnabled(false);
-		return buttonBar;
-	}
+    /**
+     * @generated
+     */
+    protected Control createButtonBar(Composite parent) {
+        Control buttonBar = super.createButtonBar(parent);
+        setOkButtonEnabled(false);
+        return buttonBar;
+    }
 
-	/**
-	 * @generated
-	 */
-	private void createModelBrowser(Composite composite) {
-		myTreeViewer = new TreeViewer(composite, SWT.SINGLE | SWT.H_SCROLL
-				| SWT.V_SCROLL | SWT.BORDER);
-		GridData layoutData = new GridData(GridData.FILL_BOTH);
-		layoutData.heightHint = 300;
-		layoutData.widthHint = 300;
-		myTreeViewer.getTree().setLayoutData(layoutData);
-		myTreeViewer.setContentProvider(new ModelElementsTreeContentProvider());
-		myTreeViewer.setLabelProvider(new ModelElementsTreeLabelProvider());
-		myTreeViewer.setInput(ResourcesPlugin.getWorkspace().getRoot());
-		myTreeViewer.addFilter(new ModelFilesFilter());
-		myTreeViewer.addSelectionChangedListener(new OkButtonEnabler());
-	}
+    /**
+     * @generated
+     */
+    private void createModelBrowser(Composite composite) {
+        myTreeViewer = new TreeViewer(composite, SWT.SINGLE | SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
+        GridData layoutData = new GridData(GridData.FILL_BOTH);
+        layoutData.heightHint = 300;
+        layoutData.widthHint = 300;
+        myTreeViewer.getTree().setLayoutData(layoutData);
+        myTreeViewer.setContentProvider(new ModelElementsTreeContentProvider());
+        myTreeViewer.setLabelProvider(new ModelElementsTreeLabelProvider());
+        myTreeViewer.setInput(ResourcesPlugin.getWorkspace().getRoot());
+        myTreeViewer.addFilter(new ModelFilesFilter());
+        myTreeViewer.addSelectionChangedListener(new OkButtonEnabler());
+    }
 
-	/**
-	 * @generated
-	 */
-	private void setOkButtonEnabled(boolean enabled) {
-		getButton(IDialogConstants.OK_ID).setEnabled(enabled);
-	}
+    /**
+     * @generated
+     */
+    private void setOkButtonEnabled(boolean enabled) {
+        getButton(IDialogConstants.OK_ID).setEnabled(enabled);
+    }
 
-	/**
-	 * @generated
-	 */
-	private boolean isValidModelFile(IFile file) {
-		String fileExtension = file.getFullPath().getFileExtension();
-		return "repository".equals(fileExtension); //$NON-NLS-1$
-	}
+    /**
+     * @generated
+     */
+    private boolean isValidModelFile(IFile file) {
+        String fileExtension = file.getFullPath().getFileExtension();
+        return "repository".equals(fileExtension); //$NON-NLS-1$
+    }
 
-	/**
-	 * @generated
-	 */
-	public URI getSelectedModelElementURI() {
-		return mySelectedModelElementURI;
-	}
+    /**
+     * @generated
+     */
+    public URI getSelectedModelElementURI() {
+        return mySelectedModelElementURI;
+    }
 
-	/**
-	 * @generated
-	 */
-	public int open() {
-		int result = super.open();
-		for (Iterator it = myEditingDomain.getResourceSet().getResources()
-				.iterator(); it.hasNext();) {
-			Resource resource = (Resource) it.next();
-			resource.unload();
-		}
-		myEditingDomain.dispose();
-		return result;
-	}
+    /**
+     * @generated
+     */
+    public int open() {
+        int result = super.open();
+        for (Iterator it = myEditingDomain.getResourceSet().getResources().iterator(); it.hasNext();) {
+            Resource resource = (Resource) it.next();
+            resource.unload();
+        }
+        myEditingDomain.dispose();
+        return result;
+    }
 
-	/**
-	 * @generated
-	 */
-	private class ModelElementsTreeContentProvider implements
-			ITreeContentProvider {
+    /**
+     * @generated
+     */
+    private class ModelElementsTreeContentProvider implements ITreeContentProvider {
 
-		/**
-		 * @generated
-		 */
-		private ITreeContentProvider myWorkbenchContentProvider = new WorkbenchContentProvider();
+        /**
+         * @generated
+         */
+        private ITreeContentProvider myWorkbenchContentProvider = new WorkbenchContentProvider();
 
-		/**
-		 * @generated
-		 */
-		private AdapterFactoryContentProvider myAdapterFctoryContentProvier = new AdapterFactoryContentProvider(
-				PalladioComponentModelRepositoryDiagramEditorPlugin
-						.getInstance().getItemProvidersAdapterFactory());
+        /**
+         * @generated
+         */
+        private AdapterFactoryContentProvider myAdapterFctoryContentProvier = new AdapterFactoryContentProvider(
+                PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
-		/**
-		 * @generated
-		 */
-		public Object[] getChildren(Object parentElement) {
-			Object[] result = myWorkbenchContentProvider
-					.getChildren(parentElement);
-			if (result != null && result.length > 0) {
-				return result;
-			}
-			if (parentElement instanceof IFile) {
-				IFile modelFile = (IFile) parentElement;
-				IPath resourcePath = modelFile.getFullPath();
-				ResourceSet resourceSet = myEditingDomain.getResourceSet();
-				try {
-					Resource modelResource = resourceSet.getResource(URI
-							.createPlatformResourceURI(resourcePath.toString(),
-									true), true);
-					return myAdapterFctoryContentProvier
-							.getChildren(modelResource);
-				} catch (WrappedException e) {
-					PalladioComponentModelRepositoryDiagramEditorPlugin
-							.getInstance()
-							.logError(
-									"Unable to load resource: " + resourcePath.toString(), e); //$NON-NLS-1$
-				}
-				return Collections.EMPTY_LIST.toArray();
-			}
-			return myAdapterFctoryContentProvier.getChildren(parentElement);
-		}
+        /**
+         * @generated
+         */
+        public Object[] getChildren(Object parentElement) {
+            Object[] result = myWorkbenchContentProvider.getChildren(parentElement);
+            if (result != null && result.length > 0) {
+                return result;
+            }
+            if (parentElement instanceof IFile) {
+                IFile modelFile = (IFile) parentElement;
+                IPath resourcePath = modelFile.getFullPath();
+                ResourceSet resourceSet = myEditingDomain.getResourceSet();
+                try {
+                    Resource modelResource = resourceSet.getResource(
+                            URI.createPlatformResourceURI(resourcePath.toString(), true), true);
+                    return myAdapterFctoryContentProvier.getChildren(modelResource);
+                } catch (WrappedException e) {
+                    PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().logError(
+                            "Unable to load resource: " + resourcePath.toString(), e); //$NON-NLS-1$
+                }
+                return Collections.EMPTY_LIST.toArray();
+            }
+            return myAdapterFctoryContentProvier.getChildren(parentElement);
+        }
 
-		/**
-		 * @generated
-		 */
-		public Object getParent(Object element) {
-			Object parent = myWorkbenchContentProvider.getParent(element);
-			if (parent != null) {
-				return parent;
-			}
-			if (element instanceof EObject) {
-				EObject eObject = (EObject) element;
-				if (eObject.eContainer() == null
-						&& eObject.eResource().getURI().isFile()) {
-					String path = eObject.eResource().getURI().path();
-					return ResourcesPlugin.getWorkspace().getRoot()
-							.getFileForLocation(new Path(path));
-				}
-				return myAdapterFctoryContentProvier.getParent(eObject);
-			}
-			return null;
-		}
+        /**
+         * @generated
+         */
+        public Object getParent(Object element) {
+            Object parent = myWorkbenchContentProvider.getParent(element);
+            if (parent != null) {
+                return parent;
+            }
+            if (element instanceof EObject) {
+                EObject eObject = (EObject) element;
+                if (eObject.eContainer() == null && eObject.eResource().getURI().isFile()) {
+                    String path = eObject.eResource().getURI().path();
+                    return ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(new Path(path));
+                }
+                return myAdapterFctoryContentProvier.getParent(eObject);
+            }
+            return null;
+        }
 
-		/**
-		 * @generated
-		 */
-		public boolean hasChildren(Object element) {
-			if (element instanceof IFile) {
-				return isValidModelFile((IFile) element);
-			}
-			return myWorkbenchContentProvider.hasChildren(element)
-					|| myAdapterFctoryContentProvier.hasChildren(element);
-		}
+        /**
+         * @generated
+         */
+        public boolean hasChildren(Object element) {
+            if (element instanceof IFile) {
+                return isValidModelFile((IFile) element);
+            }
+            return myWorkbenchContentProvider.hasChildren(element)
+                    || myAdapterFctoryContentProvier.hasChildren(element);
+        }
 
-		/**
-		 * @generated
-		 */
-		public Object[] getElements(Object inputElement) {
-			Object[] elements = myWorkbenchContentProvider
-					.getElements(inputElement);
-			return elements;
-		}
+        /**
+         * @generated
+         */
+        public Object[] getElements(Object inputElement) {
+            Object[] elements = myWorkbenchContentProvider.getElements(inputElement);
+            return elements;
+        }
 
-		/**
-		 * @generated
-		 */
-		public void dispose() {
-			myWorkbenchContentProvider.dispose();
-			myAdapterFctoryContentProvier.dispose();
-		}
+        /**
+         * @generated
+         */
+        public void dispose() {
+            myWorkbenchContentProvider.dispose();
+            myAdapterFctoryContentProvier.dispose();
+        }
 
-		/**
-		 * @generated
-		 */
-		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-			myWorkbenchContentProvider.inputChanged(viewer, oldInput, newInput);
-			myAdapterFctoryContentProvier.inputChanged(viewer, oldInput,
-					newInput);
-		}
+        /**
+         * @generated
+         */
+        public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+            myWorkbenchContentProvider.inputChanged(viewer, oldInput, newInput);
+            myAdapterFctoryContentProvier.inputChanged(viewer, oldInput, newInput);
+        }
 
-	}
+    }
 
-	/**
-	 * @generated
-	 */
-	private class ModelElementsTreeLabelProvider implements ILabelProvider {
+    /**
+     * @generated
+     */
+    private class ModelElementsTreeLabelProvider implements ILabelProvider {
 
-		/**
-		 * @generated
-		 */
-		private WorkbenchLabelProvider myWorkbenchLabelProvider = new WorkbenchLabelProvider();
+        /**
+         * @generated
+         */
+        private WorkbenchLabelProvider myWorkbenchLabelProvider = new WorkbenchLabelProvider();
 
-		/**
-		 * @generated
-		 */
-		private AdapterFactoryLabelProvider myAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(
-				PalladioComponentModelRepositoryDiagramEditorPlugin
-						.getInstance().getItemProvidersAdapterFactory());
+        /**
+         * @generated
+         */
+        private AdapterFactoryLabelProvider myAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(
+                PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory());
 
-		/**
-		 * @generated
-		 */
-		public Image getImage(Object element) {
-			Image result = myWorkbenchLabelProvider.getImage(element);
-			return result != null ? result : myAdapterFactoryLabelProvider
-					.getImage(element);
-		}
+        /**
+         * @generated
+         */
+        public Image getImage(Object element) {
+            Image result = myWorkbenchLabelProvider.getImage(element);
+            return result != null ? result : myAdapterFactoryLabelProvider.getImage(element);
+        }
 
-		/**
-		 * @generated
-		 */
-		public String getText(Object element) {
-			String result = myWorkbenchLabelProvider.getText(element);
-			return result != null && result.length() > 0 ? result
-					: myAdapterFactoryLabelProvider.getText(element);
-		}
+        /**
+         * @generated
+         */
+        public String getText(Object element) {
+            String result = myWorkbenchLabelProvider.getText(element);
+            return result != null && result.length() > 0 ? result : myAdapterFactoryLabelProvider.getText(element);
+        }
 
-		/**
-		 * @generated
-		 */
-		public void addListener(ILabelProviderListener listener) {
-			myWorkbenchLabelProvider.addListener(listener);
-			myAdapterFactoryLabelProvider.addListener(listener);
-		}
+        /**
+         * @generated
+         */
+        public void addListener(ILabelProviderListener listener) {
+            myWorkbenchLabelProvider.addListener(listener);
+            myAdapterFactoryLabelProvider.addListener(listener);
+        }
 
-		/**
-		 * @generated
-		 */
-		public void dispose() {
-			myWorkbenchLabelProvider.dispose();
-			myAdapterFactoryLabelProvider.dispose();
-		}
+        /**
+         * @generated
+         */
+        public void dispose() {
+            myWorkbenchLabelProvider.dispose();
+            myAdapterFactoryLabelProvider.dispose();
+        }
 
-		/**
-		 * @generated
-		 */
-		public boolean isLabelProperty(Object element, String property) {
-			return myWorkbenchLabelProvider.isLabelProperty(element, property)
-					|| myAdapterFactoryLabelProvider.isLabelProperty(element,
-							property);
-		}
+        /**
+         * @generated
+         */
+        public boolean isLabelProperty(Object element, String property) {
+            return myWorkbenchLabelProvider.isLabelProperty(element, property)
+                    || myAdapterFactoryLabelProvider.isLabelProperty(element, property);
+        }
 
-		/**
-		 * @generated
-		 */
-		public void removeListener(ILabelProviderListener listener) {
-			myWorkbenchLabelProvider.removeListener(listener);
-			myAdapterFactoryLabelProvider.removeListener(listener);
-		}
+        /**
+         * @generated
+         */
+        public void removeListener(ILabelProviderListener listener) {
+            myWorkbenchLabelProvider.removeListener(listener);
+            myAdapterFactoryLabelProvider.removeListener(listener);
+        }
 
-	}
+    }
 
-	/**
-	 * @generated
-	 */
-	private class ModelFilesFilter extends ViewerFilter {
+    /**
+     * @generated
+     */
+    private class ModelFilesFilter extends ViewerFilter {
 
-		/**
-		 * @generated
-		 */
-		public boolean select(Viewer viewer, Object parentElement,
-				Object element) {
-			if (element instanceof IContainer) {
-				return true;
-			}
-			if (element instanceof IFile) {
-				IFile file = (IFile) element;
-				return isValidModelFile(file);
-			}
-			return true;
-		}
+        /**
+         * @generated
+         */
+        public boolean select(Viewer viewer, Object parentElement, Object element) {
+            if (element instanceof IContainer) {
+                return true;
+            }
+            if (element instanceof IFile) {
+                IFile file = (IFile) element;
+                return isValidModelFile(file);
+            }
+            return true;
+        }
 
-	}
+    }
 
-	/**
-	 * @generated
-	 */
-	private class OkButtonEnabler implements ISelectionChangedListener {
+    /**
+     * @generated
+     */
+    private class OkButtonEnabler implements ISelectionChangedListener {
 
-		/**
-		 * @generated
-		 */
-		public void selectionChanged(SelectionChangedEvent event) {
-			if (event.getSelection() instanceof IStructuredSelection) {
-				IStructuredSelection selection = (IStructuredSelection) event
-						.getSelection();
-				if (selection.size() == 1) {
-					Object selectedElement = selection.getFirstElement();
-					if (selectedElement instanceof IWrapperItemProvider) {
-						selectedElement = ((IWrapperItemProvider) selectedElement)
-								.getValue();
-					}
-					if (selectedElement instanceof FeatureMap.Entry) {
-						selectedElement = ((FeatureMap.Entry) selectedElement)
-								.getValue();
-					}
-					if (selectedElement instanceof EObject) {
-						EObject selectedModelElement = (EObject) selectedElement;
-						setOkButtonEnabled(ViewService
-								.getInstance()
-								.provides(
-										Node.class,
-										new EObjectAdapter(selectedModelElement),
-										myView,
-										null,
-										ViewUtil.APPEND,
-										true,
-										PalladioComponentModelRepositoryDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
-						mySelectedModelElementURI = EcoreUtil
-								.getURI(selectedModelElement);
-						return;
-					}
-				}
-			}
-			mySelectedModelElementURI = null;
-			setOkButtonEnabled(false);
-		}
+        /**
+         * @generated
+         */
+        public void selectionChanged(SelectionChangedEvent event) {
+            if (event.getSelection() instanceof IStructuredSelection) {
+                IStructuredSelection selection = (IStructuredSelection) event.getSelection();
+                if (selection.size() == 1) {
+                    Object selectedElement = selection.getFirstElement();
+                    if (selectedElement instanceof IWrapperItemProvider) {
+                        selectedElement = ((IWrapperItemProvider) selectedElement).getValue();
+                    }
+                    if (selectedElement instanceof FeatureMap.Entry) {
+                        selectedElement = ((FeatureMap.Entry) selectedElement).getValue();
+                    }
+                    if (selectedElement instanceof EObject) {
+                        EObject selectedModelElement = (EObject) selectedElement;
+                        setOkButtonEnabled(ViewService.getInstance().provides(Node.class,
+                                new EObjectAdapter(selectedModelElement), myView, null, ViewUtil.APPEND, true,
+                                PalladioComponentModelRepositoryDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
+                        mySelectedModelElementURI = EcoreUtil.getURI(selectedModelElement);
+                        return;
+                    }
+                }
+            }
+            mySelectedModelElementURI = null;
+            setOkButtonEnabled(false);
+        }
 
-	}
+    }
 
 }

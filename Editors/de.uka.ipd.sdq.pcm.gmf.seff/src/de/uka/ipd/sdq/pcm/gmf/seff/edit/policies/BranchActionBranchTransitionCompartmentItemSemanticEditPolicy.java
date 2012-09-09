@@ -13,29 +13,26 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 /**
  * @generated
  */
-public class BranchActionBranchTransitionCompartmentItemSemanticEditPolicy
-		extends PalladioComponentModelBaseItemSemanticEditPolicy {
+public class BranchActionBranchTransitionCompartmentItemSemanticEditPolicy extends
+        PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public BranchActionBranchTransitionCompartmentItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.BranchAction_3009);
-	}
+    /**
+     * @generated
+     */
+    public BranchActionBranchTransitionCompartmentItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.BranchAction_3009);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010 == req
-				.getElementType()) {
-			return getGEFWrapper(new ProbabilisticBranchTransitionCreateCommand(
-					req));
-		}
-		if (PalladioComponentModelElementTypes.GuardedBranchTransition_3017 == req
-				.getElementType()) {
-			return getGEFWrapper(new GuardedBranchTransitionCreateCommand(req));
-		}
-		return super.getCreateCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateCommand(CreateElementRequest req) {
+        if (PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010 == req.getElementType()) {
+            return getGEFWrapper(new ProbabilisticBranchTransitionCreateCommand(req));
+        }
+        if (PalladioComponentModelElementTypes.GuardedBranchTransition_3017 == req.getElementType()) {
+            return getGEFWrapper(new GuardedBranchTransitionCreateCommand(req));
+        }
+        return super.getCreateCommand(req);
+    }
 }

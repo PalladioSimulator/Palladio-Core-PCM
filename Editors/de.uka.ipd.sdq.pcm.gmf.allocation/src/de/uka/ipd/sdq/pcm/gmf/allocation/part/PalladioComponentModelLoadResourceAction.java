@@ -16,56 +16,53 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
 /**
  * @generated
  */
-public class PalladioComponentModelLoadResourceAction implements
-		IObjectActionDelegate {
+public class PalladioComponentModelLoadResourceAction implements IObjectActionDelegate {
 
-	/**
-	 * @generated
-	 */
-	private AllocationEditPart mySelectedElement;
+    /**
+     * @generated
+     */
+    private AllocationEditPart mySelectedElement;
 
-	/**
-	 * @generated
-	 */
-	private Shell myShell;
+    /**
+     * @generated
+     */
+    private Shell myShell;
 
-	/**
-	 * @generated
-	 */
-	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
-		myShell = targetPart.getSite().getShell();
-	}
+    /**
+     * @generated
+     */
+    public void setActivePart(IAction action, IWorkbenchPart targetPart) {
+        myShell = targetPart.getSite().getShell();
+    }
 
-	/**
-	 * @generated
-	 */
-	public void run(IAction action) {
-		LoadResourceAction.LoadResourceDialog loadResourceDialog = new LoadResourceAction.LoadResourceDialog(
-				myShell, mySelectedElement.getEditingDomain());
-		loadResourceDialog.open();
-	}
+    /**
+     * @generated
+     */
+    public void run(IAction action) {
+        LoadResourceAction.LoadResourceDialog loadResourceDialog = new LoadResourceAction.LoadResourceDialog(myShell,
+                mySelectedElement.getEditingDomain());
+        loadResourceDialog.open();
+    }
 
-	/**
-	 * @generated
-	 */
-	public void selectionChanged(IAction action, ISelection selection) {
-		mySelectedElement = null;
-		if (selection instanceof IStructuredSelection) {
-			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-			if (structuredSelection.size() == 1
-					&& structuredSelection.getFirstElement() instanceof AllocationEditPart) {
-				mySelectedElement = (AllocationEditPart) structuredSelection
-						.getFirstElement();
-			}
-		}
-		action.setEnabled(isEnabled());
-	}
+    /**
+     * @generated
+     */
+    public void selectionChanged(IAction action, ISelection selection) {
+        mySelectedElement = null;
+        if (selection instanceof IStructuredSelection) {
+            IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+            if (structuredSelection.size() == 1 && structuredSelection.getFirstElement() instanceof AllocationEditPart) {
+                mySelectedElement = (AllocationEditPart) structuredSelection.getFirstElement();
+            }
+        }
+        action.setEnabled(isEnabled());
+    }
 
-	/**
-	 * @generated
-	 */
-	private boolean isEnabled() {
-		return mySelectedElement != null;
-	}
+    /**
+     * @generated
+     */
+    private boolean isEnabled() {
+        return mySelectedElement != null;
+    }
 
 }

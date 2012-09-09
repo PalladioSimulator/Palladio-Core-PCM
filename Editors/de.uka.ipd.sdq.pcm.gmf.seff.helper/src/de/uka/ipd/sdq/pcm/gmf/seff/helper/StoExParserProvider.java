@@ -18,8 +18,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
  */
 public class StoExParserProvider extends AbstractProvider implements IParserProvider {
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider#getParser(org.eclipse.core.runtime.IAdaptable)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider#getParser(org.eclipse.core
+     * .runtime.IAdaptable)
      */
     @Override
     public IParser getParser(final IAdaptable hint) {
@@ -61,8 +65,12 @@ public class StoExParserProvider extends AbstractProvider implements IParserProv
         return new StoExParser();
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.core.service.IProvider#provides(org.eclipse.gmf.runtime.common.core.service.IOperation)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.core.service.IProvider#provides(org.eclipse.gmf.runtime.common
+     * .core.service.IOperation)
      */
     @Override
     public boolean provides(final IOperation operation) {

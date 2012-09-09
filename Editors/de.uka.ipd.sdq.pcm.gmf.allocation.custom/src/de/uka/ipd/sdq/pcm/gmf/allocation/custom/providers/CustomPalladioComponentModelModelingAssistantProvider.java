@@ -12,21 +12,18 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerAllocationC
 import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelModelingAssistantProvider;
 
-
 public class CustomPalladioComponentModelModelingAssistantProvider extends
-PalladioComponentModelModelingAssistantProvider {
+        PalladioComponentModelModelingAssistantProvider {
 
-	@Override
-	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
-		List<IElementType> types = new ArrayList<IElementType>();
-		IGraphicalEditPart editPart = (IGraphicalEditPart) host
-		.getAdapter(IGraphicalEditPart.class);
-		
-		if (editPart instanceof ResourceContainerAllocationCompartmentEditPart) {
-			types
-			.add(PalladioComponentModelElementTypes.AllocationContext_3001);
-			return types;
-		}
-		return Collections.emptyList();
-	}
+    @Override
+    public List<IElementType> getTypesForPopupBar(IAdaptable host) {
+        List<IElementType> types = new ArrayList<IElementType>();
+        IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
+
+        if (editPart instanceof ResourceContainerAllocationCompartmentEditPart) {
+            types.add(PalladioComponentModelElementTypes.AllocationContext_3001);
+            return types;
+        }
+        return Collections.emptyList();
+    }
 }

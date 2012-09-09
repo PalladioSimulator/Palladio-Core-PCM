@@ -8,6 +8,5 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice
 /**
  * @generated
  */
-public class ResourceDemandingBehaviour3EditHelperAdvice extends
-		AbstractEditHelperAdvice {
+public class ResourceDemandingBehaviour3EditHelperAdvice extends AbstractEditHelperAdvice {
 }

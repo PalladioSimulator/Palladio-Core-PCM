@@ -16,51 +16,43 @@ import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes
 /**
  * @generated
  */
-public class UsageScenarioItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class UsageScenarioItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public UsageScenarioItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.UsageModel_1000);
-	}
+    /**
+     * @generated
+     */
+    public UsageScenarioItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.UsageModel_1000);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.UsageScenario_2004 == req
-				.getElementType()) {
-			return getGEFWrapper(new UsageScenarioCreateCommand(req));
-		}
-		return super.getCreateCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateCommand(CreateElementRequest req) {
+        if (PalladioComponentModelElementTypes.UsageScenario_2004 == req.getElementType()) {
+            return getGEFWrapper(new UsageScenarioCreateCommand(req));
+        }
+        return super.getCreateCommand(req);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
-		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
-				.getEditingDomain();
-		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
-	}
+    /**
+     * @generated
+     */
+    protected Command getDuplicateCommand(DuplicateElementsRequest req) {
+        TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
+        return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
+    }
 
-	/**
-	 * @generated
-	 */
-	private static class DuplicateAnythingCommand extends
-			DuplicateEObjectsCommand {
+    /**
+     * @generated
+     */
+    private static class DuplicateAnythingCommand extends DuplicateEObjectsCommand {
 
-		/**
-		 * @generated
-		 */
-		public DuplicateAnythingCommand(
-				TransactionalEditingDomain editingDomain,
-				DuplicateElementsRequest req) {
-			super(editingDomain, req.getLabel(), req
-					.getElementsToBeDuplicated(), req
-					.getAllDuplicatedElementsMap());
-		}
-	}
+        /**
+         * @generated
+         */
+        public DuplicateAnythingCommand(TransactionalEditingDomain editingDomain, DuplicateElementsRequest req) {
+            super(editingDomain, req.getLabel(), req.getElementsToBeDuplicated(), req.getAllDuplicatedElementsMap());
+        }
+    }
 }

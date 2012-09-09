@@ -19,150 +19,141 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
 /**
  * @generated
  */
-public class InfrastructureProvidedRoleReorientCommand extends
-		EditElementCommand {
+public class InfrastructureProvidedRoleReorientCommand extends EditElementCommand {
 
-	/**
-	 * @generated
-	 */
-	private final int reorientDirection;
+    /**
+     * @generated
+     */
+    private final int reorientDirection;
 
-	/**
-	 * @generated
-	 */
-	private final EObject oldEnd;
+    /**
+     * @generated
+     */
+    private final EObject oldEnd;
 
-	/**
-	 * @generated
-	 */
-	private final EObject newEnd;
+    /**
+     * @generated
+     */
+    private final EObject newEnd;
 
-	/**
-	 * @generated
-	 */
-	public InfrastructureProvidedRoleReorientCommand(
-			ReorientRelationshipRequest request) {
-		super(request.getLabel(), request.getRelationship(), request);
-		reorientDirection = request.getDirection();
-		oldEnd = request.getOldRelationshipEnd();
-		newEnd = request.getNewRelationshipEnd();
-	}
+    /**
+     * @generated
+     */
+    public InfrastructureProvidedRoleReorientCommand(ReorientRelationshipRequest request) {
+        super(request.getLabel(), request.getRelationship(), request);
+        reorientDirection = request.getDirection();
+        oldEnd = request.getOldRelationshipEnd();
+        newEnd = request.getNewRelationshipEnd();
+    }
 
-	/**
-	 * @generated
-	 */
-	public boolean canExecute() {
-		if (false == getElementToEdit() instanceof InfrastructureProvidedRole) {
-			return false;
-		}
-		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
-			return canReorientSource();
-		}
-		if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
-			return canReorientTarget();
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    public boolean canExecute() {
+        if (false == getElementToEdit() instanceof InfrastructureProvidedRole) {
+            return false;
+        }
+        if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
+            return canReorientSource();
+        }
+        if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
+            return canReorientTarget();
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean canReorientSource() {
-		if (!(oldEnd instanceof InterfaceProvidingEntity && newEnd instanceof InterfaceProvidingEntity)) {
-			return false;
-		}
-		InfrastructureInterface target = getLink()
-				.getProvidedInterface__InfrastructureProvidedRole();
-		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistInfrastructureProvidedRole_4111(getNewSource(), target);
-	}
+    /**
+     * @generated
+     */
+    protected boolean canReorientSource() {
+        if (!(oldEnd instanceof InterfaceProvidingEntity && newEnd instanceof InterfaceProvidingEntity)) {
+            return false;
+        }
+        InfrastructureInterface target = getLink().getProvidedInterface__InfrastructureProvidedRole();
+        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+                .canExistInfrastructureProvidedRole_4111(getNewSource(), target);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof InfrastructureInterface && newEnd instanceof InfrastructureInterface)) {
-			return false;
-		}
-		if (!(getLink().eContainer() instanceof InterfaceProvidingEntity)) {
-			return false;
-		}
-		InterfaceProvidingEntity source = (InterfaceProvidingEntity) getLink()
-				.eContainer();
-		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canExistInfrastructureProvidedRole_4111(source, getNewTarget());
-	}
+    /**
+     * @generated
+     */
+    protected boolean canReorientTarget() {
+        if (!(oldEnd instanceof InfrastructureInterface && newEnd instanceof InfrastructureInterface)) {
+            return false;
+        }
+        if (!(getLink().eContainer() instanceof InterfaceProvidingEntity)) {
+            return false;
+        }
+        InterfaceProvidingEntity source = (InterfaceProvidingEntity) getLink().eContainer();
+        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+                .canExistInfrastructureProvidedRole_4111(source, getNewTarget());
+    }
 
-	/**
-	 * @generated
-	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in reorient link command"); //$NON-NLS-1$
-		}
-		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
-			return reorientSource();
-		}
-		if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
-			return reorientTarget();
-		}
-		throw new IllegalStateException();
-	}
+    /**
+     * @generated
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        if (!canExecute()) {
+            throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
+        }
+        if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
+            return reorientSource();
+        }
+        if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
+            return reorientTarget();
+        }
+        throw new IllegalStateException();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected CommandResult reorientSource() throws ExecutionException {
-		getOldSource().getProvidedRoles_InterfaceProvidingEntity().remove(
-				getLink());
-		getNewSource().getProvidedRoles_InterfaceProvidingEntity().add(
-				getLink());
-		return CommandResult.newOKCommandResult(getLink());
-	}
+    /**
+     * @generated
+     */
+    protected CommandResult reorientSource() throws ExecutionException {
+        getOldSource().getProvidedRoles_InterfaceProvidingEntity().remove(getLink());
+        getNewSource().getProvidedRoles_InterfaceProvidingEntity().add(getLink());
+        return CommandResult.newOKCommandResult(getLink());
+    }
 
-	/**
-	 * @generated
-	 */
-	protected CommandResult reorientTarget() throws ExecutionException {
-		getLink().setProvidedInterface__InfrastructureProvidedRole(
-				getNewTarget());
-		return CommandResult.newOKCommandResult(getLink());
-	}
+    /**
+     * @generated
+     */
+    protected CommandResult reorientTarget() throws ExecutionException {
+        getLink().setProvidedInterface__InfrastructureProvidedRole(getNewTarget());
+        return CommandResult.newOKCommandResult(getLink());
+    }
 
-	/**
-	 * @generated
-	 */
-	protected InfrastructureProvidedRole getLink() {
-		return (InfrastructureProvidedRole) getElementToEdit();
-	}
+    /**
+     * @generated
+     */
+    protected InfrastructureProvidedRole getLink() {
+        return (InfrastructureProvidedRole) getElementToEdit();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected InterfaceProvidingEntity getOldSource() {
-		return (InterfaceProvidingEntity) oldEnd;
-	}
+    /**
+     * @generated
+     */
+    protected InterfaceProvidingEntity getOldSource() {
+        return (InterfaceProvidingEntity) oldEnd;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected InterfaceProvidingEntity getNewSource() {
-		return (InterfaceProvidingEntity) newEnd;
-	}
+    /**
+     * @generated
+     */
+    protected InterfaceProvidingEntity getNewSource() {
+        return (InterfaceProvidingEntity) newEnd;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected InfrastructureInterface getOldTarget() {
-		return (InfrastructureInterface) oldEnd;
-	}
+    /**
+     * @generated
+     */
+    protected InfrastructureInterface getOldTarget() {
+        return (InfrastructureInterface) oldEnd;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected InfrastructureInterface getNewTarget() {
-		return (InfrastructureInterface) newEnd;
-	}
+    /**
+     * @generated
+     */
+    protected InfrastructureInterface getNewTarget() {
+        return (InfrastructureInterface) newEnd;
+    }
 }

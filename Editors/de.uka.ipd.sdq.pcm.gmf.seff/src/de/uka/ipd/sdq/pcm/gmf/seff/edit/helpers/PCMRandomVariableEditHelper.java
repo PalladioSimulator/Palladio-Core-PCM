@@ -6,6 +6,5 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers;
 /**
  * @generated
  */
-public class PCMRandomVariableEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class PCMRandomVariableEditHelper extends PalladioComponentModelBaseEditHelper {
 }

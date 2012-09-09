@@ -23,93 +23,84 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.system.System;
 
 /**
- * This wizard has added pages that require the user to select a System
- * and a ResourceEnvironment, when initializing the diagram.
+ * This wizard has added pages that require the user to select a System and a ResourceEnvironment,
+ * when initializing the diagram.
  * 
  * @author Philipp Meier
- *
+ * 
  */
-public class PcmNewAllocationDiagramFileWizard 
-extends PalladioComponentModelNewDiagramFileWizard {
+public class PcmNewAllocationDiagramFileWizard extends PalladioComponentModelNewDiagramFileWizard {
 
-	private Allocation myDiagramRoot;
-	private TransactionalEditingDomain myEditingDomain;
-	private ResourceEnvironmentSelectorPage myResourceEnvironmentSelectorPage;
-	private SystemSelectorPage mySystemSelectorPage;
+    private Allocation myDiagramRoot;
+    private TransactionalEditingDomain myEditingDomain;
+    private ResourceEnvironmentSelectorPage myResourceEnvironmentSelectorPage;
+    private SystemSelectorPage mySystemSelectorPage;
 
-	public PcmNewAllocationDiagramFileWizard(org.eclipse.emf.common.util.URI domainModelURI,
-			EObject diagramRoot, TransactionalEditingDomain editingDomain) {
-		super(domainModelURI, diagramRoot, editingDomain);
+    public PcmNewAllocationDiagramFileWizard(org.eclipse.emf.common.util.URI domainModelURI, EObject diagramRoot,
+            TransactionalEditingDomain editingDomain) {
+        super(domainModelURI, diagramRoot, editingDomain);
 
-		myEditingDomain = editingDomain;
+        myEditingDomain = editingDomain;
 
-		myDiagramRoot = null;
-		if (diagramRoot instanceof Allocation) {
-			myDiagramRoot = (Allocation)diagramRoot;
-		}
-		
-		ResourceEnvironment resourceEnvironment = null;
-		System system = null;
-		if (myDiagramRoot != null) {
-			resourceEnvironment = myDiagramRoot.getTargetResourceEnvironment_Allocation();
-			system = myDiagramRoot.getSystem_Allocation();
-		}		
-		myResourceEnvironmentSelectorPage = new ResourceEnvironmentSelectorPage(resourceEnvironment);
-		mySystemSelectorPage = new SystemSelectorPage(system);
-	}
+        myDiagramRoot = null;
+        if (diagramRoot instanceof Allocation) {
+            myDiagramRoot = (Allocation) diagramRoot;
+        }
 
-	@Override
-	public void addPages() {
-		super.addPages();
-		
-		addPage(myResourceEnvironmentSelectorPage);
-		addPage(mySystemSelectorPage);
-	}
+        ResourceEnvironment resourceEnvironment = null;
+        System system = null;
+        if (myDiagramRoot != null) {
+            resourceEnvironment = myDiagramRoot.getTargetResourceEnvironment_Allocation();
+            system = myDiagramRoot.getSystem_Allocation();
+        }
+        myResourceEnvironmentSelectorPage = new ResourceEnvironmentSelectorPage(resourceEnvironment);
+        mySystemSelectorPage = new SystemSelectorPage(system);
+    }
 
-	@Override
-	public boolean performFinish() {
-		if (myDiagramRoot == null) {
-			return false;
-		}			
+    @Override
+    public void addPages() {
+        super.addPages();
 
-		// TODO retrieve the IFile handle to the allocation model and add to list of modified files for command
+        addPage(myResourceEnvironmentSelectorPage);
+        addPage(mySystemSelectorPage);
+    }
 
-		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
-				myEditingDomain, "Save allocation model.", null) { //$NON-NLS-1$
-			protected CommandResult doExecuteWithResult(
-					IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
-				myDiagramRoot.setTargetResourceEnvironment_Allocation(myResourceEnvironmentSelectorPage.getSelectedResourceEnvironment());
-				myDiagramRoot.setSystem_Allocation(mySystemSelectorPage.getSelectedSystem());
-				try {
-					Map<String,String> options = new HashMap<String,String>();
-					options.put(XMIResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
-					myDiagramRoot.eResource().save(options);
-				} catch (IOException e) {
-					PalladioComponentModelAllocationDiagramEditorPlugin
-					.getInstance()
-					.logError(
-							"Save operation failed for: " + myDiagramRoot.eResource().getURI().path(), e); //$NON-NLS-1$
-				}
-				return CommandResult.newOKCommandResult();
-			}
-		};
+    @Override
+    public boolean performFinish() {
+        if (myDiagramRoot == null) {
+            return false;
+        }
 
-		try {
-			OperationHistoryFactory.getOperationHistory().execute(command,
-					new NullProgressMonitor(), null);
-		} catch (ExecutionException e) {
-			PalladioComponentModelAllocationDiagramEditorPlugin.getInstance().logError(
-					"Unable to save allocation model.", e); //$NON-NLS-1$
-		}
+        // TODO retrieve the IFile handle to the allocation model and add to list of modified files
+        // for command
 
-		return super.performFinish();		
-	}
+        AbstractTransactionalCommand command = new AbstractTransactionalCommand(myEditingDomain,
+                "Save allocation model.", null) { //$NON-NLS-1$
+            protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+                    throws ExecutionException {
+                myDiagramRoot.setTargetResourceEnvironment_Allocation(myResourceEnvironmentSelectorPage
+                        .getSelectedResourceEnvironment());
+                myDiagramRoot.setSystem_Allocation(mySystemSelectorPage.getSelectedSystem());
+                try {
+                    Map<String, String> options = new HashMap<String, String>();
+                    options.put(XMIResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
+                    myDiagramRoot.eResource().save(options);
+                } catch (IOException e) {
+                    PalladioComponentModelAllocationDiagramEditorPlugin.getInstance().logError(
+                            "Save operation failed for: " + myDiagramRoot.eResource().getURI().path(), e); //$NON-NLS-1$
+                }
+                return CommandResult.newOKCommandResult();
+            }
+        };
 
-	
+        try {
+            OperationHistoryFactory.getOperationHistory().execute(command, new NullProgressMonitor(), null);
+        } catch (ExecutionException e) {
+            PalladioComponentModelAllocationDiagramEditorPlugin.getInstance().logError(
+                    "Unable to save allocation model.", e); //$NON-NLS-1$
+        }
 
-	
-
-	
+        return super.performFinish();
+    }
 
 }

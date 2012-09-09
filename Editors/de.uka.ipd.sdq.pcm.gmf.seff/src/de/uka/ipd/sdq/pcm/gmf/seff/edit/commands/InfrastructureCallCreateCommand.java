@@ -24,80 +24,76 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  */
 public class InfrastructureCallCreateCommand extends EditElementCommand {
 
-	/**Default number of calls to use for a infrastructure call.
-	 * @generated not
-	 */
-	private static final String DEFAULT_NUMBER_OF_CALLS = "1";
+    /**
+     * Default number of calls to use for a infrastructure call.
+     * 
+     * @generated not
+     */
+    private static final String DEFAULT_NUMBER_OF_CALLS = "1";
 
-	/**
-	 * @generated
-	 */
-	public InfrastructureCallCreateCommand(CreateElementRequest req) {
-		super(req.getLabel(), null, req);
-	}
+    /**
+     * @generated
+     */
+    public InfrastructureCallCreateCommand(CreateElementRequest req) {
+        super(req.getLabel(), null, req);
+    }
 
-	/**
-	 * FIXME: replace with setElementToEdit()
-	 * @generated
-	 */
-	protected EObject getElementToEdit() {
-		EObject container = ((CreateElementRequest) getRequest())
-				.getContainer();
-		if (container instanceof View) {
-			container = ((View) container).getElement();
-		}
-		return container;
-	}
+    /**
+     * FIXME: replace with setElementToEdit()
+     * 
+     * @generated
+     */
+    protected EObject getElementToEdit() {
+        EObject container = ((CreateElementRequest) getRequest()).getContainer();
+        if (container instanceof View) {
+            container = ((View) container).getElement();
+        }
+        return container;
+    }
 
-	/**
-	 * @generated
-	 */
-	public boolean canExecute() {
-		return true;
+    /**
+     * @generated
+     */
+    public boolean canExecute() {
+        return true;
 
-	}
+    }
 
-	/** Additionally adds number of calls to the element.
-	 * @generated not
-	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall newElement = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory.eINSTANCE
-				.createInfrastructureCall();
-		// add empty random variable
-		PCMRandomVariable numberOfCalls = CoreFactory.eINSTANCE
-				.createPCMRandomVariable();
-		numberOfCalls.setSpecification(DEFAULT_NUMBER_OF_CALLS);
-		newElement.setNumberOfCalls__InfrastructureCall(numberOfCalls);
+    /**
+     * Additionally adds number of calls to the element.
+     * 
+     * @generated not
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall newElement = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory.eINSTANCE
+                .createInfrastructureCall();
+        // add empty random variable
+        PCMRandomVariable numberOfCalls = CoreFactory.eINSTANCE.createPCMRandomVariable();
+        numberOfCalls.setSpecification(DEFAULT_NUMBER_OF_CALLS);
+        newElement.setNumberOfCalls__InfrastructureCall(numberOfCalls);
 
-		AbstractInternalControlFlowAction owner = (AbstractInternalControlFlowAction) getElementToEdit();
-		owner.getInfrastructureCall__Action().add(newElement);
+        AbstractInternalControlFlowAction owner = (AbstractInternalControlFlowAction) getElementToEdit();
+        owner.getInfrastructureCall__Action().add(newElement);
 
-		doConfigure(newElement, monitor, info);
+        doConfigure(newElement, monitor, info);
 
-		((CreateElementRequest) getRequest()).setNewElement(newElement);
-		return CommandResult.newOKCommandResult(newElement);
-	}
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void doConfigure(
-			de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall newElement,
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest())
-				.getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(
-				getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest())
-				.getClientContext());
-		configureRequest.addParameters(getRequest().getParameters());
-		ICommand configureCommand = elementType
-				.getEditCommand(configureRequest);
-		if (configureCommand != null && configureCommand.canExecute()) {
-			configureCommand.execute(monitor, info);
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void doConfigure(de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall newElement,
+            IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+        ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
+        configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
+        configureRequest.addParameters(getRequest().getParameters());
+        ICommand configureCommand = elementType.getEditCommand(configureRequest);
+        if (configureCommand != null && configureCommand.canExecute()) {
+            configureCommand.execute(monitor, info);
+        }
+    }
 
 }

@@ -28,7 +28,9 @@ public class CustomVariableCharacterisation2EditPart extends VariableCharacteris
         super(view);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart#getLabelText()
      */
     @Override
@@ -52,8 +54,12 @@ public class CustomVariableCharacterisation2EditPart extends VariableCharacteris
         return text;
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart#addSemanticListeners()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart#addSemanticListeners
+     * ()
      */
     @Override
     protected void addSemanticListeners() {
@@ -62,8 +68,12 @@ public class CustomVariableCharacterisation2EditPart extends VariableCharacteris
         this.addListenerFilter("SemanticModel2", this, characterisation);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart#removeSemanticListeners()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart#removeSemanticListeners
+     * ()
      */
     @Override
     protected void removeSemanticListeners() {

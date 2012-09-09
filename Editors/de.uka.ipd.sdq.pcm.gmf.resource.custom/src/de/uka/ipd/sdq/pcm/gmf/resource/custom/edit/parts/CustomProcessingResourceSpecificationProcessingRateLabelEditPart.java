@@ -31,7 +31,8 @@ public class CustomProcessingResourceSpecificationProcessingRateLabelEditPart ex
 
     /**
      * 
-     * @param view a View
+     * @param view
+     *            a View
      */
     public CustomProcessingResourceSpecificationProcessingRateLabelEditPart(View view) {
         super(view);

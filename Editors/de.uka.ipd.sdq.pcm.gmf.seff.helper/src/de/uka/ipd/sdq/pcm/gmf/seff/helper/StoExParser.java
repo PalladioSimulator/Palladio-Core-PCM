@@ -28,16 +28,24 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
  */
 public class StoExParser implements IParser {
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getCompletionProcessor(org.eclipse.core.runtime.IAdaptable)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getCompletionProcessor(org.eclipse
+     * .core.runtime.IAdaptable)
      */
     @Override
     public IContentAssistProcessor getCompletionProcessor(final IAdaptable element) {
         return new StoExCompletionProcessor(new Parameter[] {});
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getEditString(org.eclipse.core.runtime.IAdaptable, int)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getEditString(org.eclipse.core.
+     * runtime.IAdaptable, int)
      */
     @Override
     public String getEditString(final IAdaptable element, final int flags) {
@@ -45,8 +53,12 @@ public class StoExParser implements IParser {
         return randomVariable.getSpecification();
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getParseCommand(org.eclipse.core.runtime.IAdaptable, java.lang.String, int)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getParseCommand(org.eclipse.core
+     * .runtime.IAdaptable, java.lang.String, int)
      */
     @Override
     public ICommand getParseCommand(final IAdaptable element, final String newString, final int flags) {
@@ -56,8 +68,12 @@ public class StoExParser implements IParser {
         return cmd;
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getPrintString(org.eclipse.core.runtime.IAdaptable, int)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getPrintString(org.eclipse.core
+     * .runtime.IAdaptable, int)
      */
     @Override
     public String getPrintString(final IAdaptable element, final int flags) {
@@ -75,8 +91,12 @@ public class StoExParser implements IParser {
         }
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isAffectingEvent(java.lang.Object, int)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isAffectingEvent(java.lang.Object,
+     * int)
      */
     @Override
     public boolean isAffectingEvent(final Object event, final int flags) {
@@ -84,8 +104,12 @@ public class StoExParser implements IParser {
     }
 
     // FIXME: Testing via exceptions is really bad style!
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isValidEditString(org.eclipse.core.runtime.IAdaptable, java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isValidEditString(org.eclipse.core
+     * .runtime.IAdaptable, java.lang.String)
      */
     @Override
     public IParserEditStatus isValidEditString(final IAdaptable element, final String editString) {

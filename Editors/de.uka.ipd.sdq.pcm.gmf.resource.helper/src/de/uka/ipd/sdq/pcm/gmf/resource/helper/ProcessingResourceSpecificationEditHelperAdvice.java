@@ -36,7 +36,7 @@ public class ProcessingResourceSpecificationEditHelperAdvice extends AbstractEdi
      * The display title.
      */
     private static final String DISPLAY_TITLE = "Set Processing Rate";
-    
+
     /**
      * Displays if ongoing.
      */
@@ -54,7 +54,8 @@ public class ProcessingResourceSpecificationEditHelperAdvice extends AbstractEdi
 
     /**
      * 
-     * @param request a request
+     * @param request
+     *            a request
      * @return an ICommand
      */
     private ICommand createSchedulingPolicyCommand(ConfigureRequest request) {
@@ -93,7 +94,8 @@ public class ProcessingResourceSpecificationEditHelperAdvice extends AbstractEdi
 
     /**
      * 
-     * @param request a request
+     * @param request
+     *            a request
      * @return an ICommand
      */
     private ICommand createStoExCommand(ConfigureRequest request) {

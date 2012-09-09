@@ -13,23 +13,22 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
  * @generated
  */
 public class InternalActionResourceDemand2ItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+        PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public InternalActionResourceDemand2ItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.InternalAction_2006);
-	}
+    /**
+     * @generated
+     */
+    public InternalActionResourceDemand2ItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.InternalAction_2006);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.ParametricResourceDemand_3051 == req
-				.getElementType()) {
-			return getGEFWrapper(new ParametricResourceDemandCreateCommand(req));
-		}
-		return super.getCreateCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateCommand(CreateElementRequest req) {
+        if (PalladioComponentModelElementTypes.ParametricResourceDemand_3051 == req.getElementType()) {
+            return getGEFWrapper(new ParametricResourceDemandCreateCommand(req));
+        }
+        return super.getCreateCommand(req);
+    }
 }

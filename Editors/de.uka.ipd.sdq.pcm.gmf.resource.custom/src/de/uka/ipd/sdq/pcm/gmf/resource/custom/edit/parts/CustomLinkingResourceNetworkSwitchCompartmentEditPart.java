@@ -17,7 +17,8 @@ public class CustomLinkingResourceNetworkSwitchCompartmentEditPart extends
 
     /**
      * 
-     * @param view a View
+     * @param view
+     *            a View
      */
     public CustomLinkingResourceNetworkSwitchCompartmentEditPart(View view) {
         super(view);

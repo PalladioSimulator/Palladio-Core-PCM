@@ -12,11 +12,10 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDi
  */
 public class DiagramRulersAndGridPreferencePage extends RulerGridPreferencePage {
 
-	/**
-	 * @generated
-	 */
-	public DiagramRulersAndGridPreferencePage() {
-		setPreferenceStore(PalladioComponentModelRepositoryDiagramEditorPlugin
-				.getInstance().getPreferenceStore());
-	}
+    /**
+     * @generated
+     */
+    public DiagramRulersAndGridPreferencePage() {
+        setPreferenceStore(PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().getPreferenceStore());
+    }
 }

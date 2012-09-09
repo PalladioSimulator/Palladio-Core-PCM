@@ -26,8 +26,11 @@ public class CustomExternalCallActionEntityNameEditPart extends ExternalCallActi
         super(view);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart#getLabelText()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart#getLabelText()
      */
     @Override
     protected String getLabelText() {

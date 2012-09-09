@@ -24,197 +24,180 @@ import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegist
  */
 public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
-	/**
-	 * @generated
-	 */
-	public EditPart createEditPart(EditPart context, Object model) {
-		if (model instanceof View) {
-			View view = (View) model;
-			switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+    /**
+     * @generated
+     */
+    public EditPart createEditPart(EditPart context, Object model) {
+        if (model instanceof View) {
+            View view = (View) model;
+            switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 
-			case ResourceEnvironmentEditPart.VISUAL_ID:
-				return new ResourceEnvironmentEditPart(view);
+            case ResourceEnvironmentEditPart.VISUAL_ID:
+                return new ResourceEnvironmentEditPart(view);
 
-			case ResourceContainerEditPart.VISUAL_ID:
-				return new ResourceContainerEditPart(view);
+            case ResourceContainerEditPart.VISUAL_ID:
+                return new ResourceContainerEditPart(view);
 
-			case ResourceContainerEntityNameEditPart.VISUAL_ID:
-				return new ResourceContainerEntityNameEditPart(view);
+            case ResourceContainerEntityNameEditPart.VISUAL_ID:
+                return new ResourceContainerEntityNameEditPart(view);
 
-			case LinkingResourceEditPart.VISUAL_ID:
-				return new LinkingResourceEditPart(view);
+            case LinkingResourceEditPart.VISUAL_ID:
+                return new LinkingResourceEditPart(view);
 
-			case LinkingResourceEntityNameEditPart.VISUAL_ID:
-				return new LinkingResourceEntityNameEditPart(view);
+            case LinkingResourceEntityNameEditPart.VISUAL_ID:
+                return new LinkingResourceEntityNameEditPart(view);
 
-			case ProcessingResourceSpecificationEditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationEditPart(view);
+            case ProcessingResourceSpecificationEditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationEditPart(view);
 
-			case ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationMTTFEditPart(view);
+            case ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationMTTFEditPart(view);
 
-			case ProcessingResourceSpecificationMTTREditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationMTTREditPart(view);
+            case ProcessingResourceSpecificationMTTREditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationMTTREditPart(view);
 
-			case ProcessingResourceSpecificationSchedulingPolicyLabelEditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationSchedulingPolicyLabelEditPart(
-						view);
+            case ProcessingResourceSpecificationSchedulingPolicyLabelEditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationSchedulingPolicyLabelEditPart(view);
 
-			case ProcessingResourceSpecificationNumberOfReplicasEditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationNumberOfReplicasEditPart(
-						view);
+            case ProcessingResourceSpecificationNumberOfReplicasEditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationNumberOfReplicasEditPart(view);
 
-			case ProcessingResourceSpecificationProcessingRateLabelEditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationProcessingRateLabelEditPart(
-						view);
+            case ProcessingResourceSpecificationProcessingRateLabelEditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationProcessingRateLabelEditPart(view);
 
-			case ProcessingResourceSpecificationActiveResourceTypeLabelEditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationActiveResourceTypeLabelEditPart(
-						view);
+            case ProcessingResourceSpecificationActiveResourceTypeLabelEditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationActiveResourceTypeLabelEditPart(view);
 
-			case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
-				return new CommunicationLinkResourceSpecificationEditPart(view);
+            case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+                return new CommunicationLinkResourceSpecificationEditPart(view);
 
-			case CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID:
-				return new CommunicationLinkResourceSpecificationFailureProbabilityEditPart(
-						view);
+            case CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID:
+                return new CommunicationLinkResourceSpecificationFailureProbabilityEditPart(view);
 
-			case CommunicationLinkResourceSpecificationLatencyLabelEditPart.VISUAL_ID:
-				return new CommunicationLinkResourceSpecificationLatencyLabelEditPart(
-						view);
+            case CommunicationLinkResourceSpecificationLatencyLabelEditPart.VISUAL_ID:
+                return new CommunicationLinkResourceSpecificationLatencyLabelEditPart(view);
 
-			case CommunicationLinkResourceSpecificationThroughputLabelEditPart.VISUAL_ID:
-				return new CommunicationLinkResourceSpecificationThroughputLabelEditPart(
-						view);
+            case CommunicationLinkResourceSpecificationThroughputLabelEditPart.VISUAL_ID:
+                return new CommunicationLinkResourceSpecificationThroughputLabelEditPart(view);
 
-			case WrappingLabel6EditPart.VISUAL_ID:
-				return new WrappingLabel6EditPart(view);
+            case WrappingLabel6EditPart.VISUAL_ID:
+                return new WrappingLabel6EditPart(view);
 
-			case ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
-				return new ResourceContainerResourceContainerCompartmentEditPart(
-						view);
+            case ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
+                return new ResourceContainerResourceContainerCompartmentEditPart(view);
 
-			case ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart.VISUAL_ID:
-				return new ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart(
-						view);
+            case ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart.VISUAL_ID:
+                return new ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart(view);
 
-			case LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID:
-				return new LinkingResourceNetworkSwitchCompartmentEditPart(view);
+            case LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID:
+                return new LinkingResourceNetworkSwitchCompartmentEditPart(view);
 
-			case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
-				return new LinkingResourceConnectedResourceContainers_LinkingResourceEditPart(
-						view);
+            case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
+                return new LinkingResourceConnectedResourceContainers_LinkingResourceEditPart(view);
 
-			}
-		}
-		return createUnrecognizedEditPart(context, model);
-	}
+            }
+        }
+        return createUnrecognizedEditPart(context, model);
+    }
 
-	/**
-	 * @generated
-	 */
-	private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
-		// Handle creation of unrecognized child node EditParts here
-		return null;
-	}
+    /**
+     * @generated
+     */
+    private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
+        // Handle creation of unrecognized child node EditParts here
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	public static CellEditorLocator getTextCellEditorLocator(
-			ITextAwareEditPart source) {
-		if (source.getFigure() instanceof WrappingLabel)
-			return new TextCellEditorLocator((WrappingLabel) source.getFigure());
-		else {
-			return new LabelCellEditorLocator((Label) source.getFigure());
-		}
-	}
+    /**
+     * @generated
+     */
+    public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
+        if (source.getFigure() instanceof WrappingLabel)
+            return new TextCellEditorLocator((WrappingLabel) source.getFigure());
+        else {
+            return new LabelCellEditorLocator((Label) source.getFigure());
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	static private class TextCellEditorLocator implements CellEditorLocator {
+    /**
+     * @generated
+     */
+    static private class TextCellEditorLocator implements CellEditorLocator {
 
-		/**
-		 * @generated
-		 */
-		private WrappingLabel wrapLabel;
+        /**
+         * @generated
+         */
+        private WrappingLabel wrapLabel;
 
-		/**
-		 * @generated
-		 */
-		public TextCellEditorLocator(WrappingLabel wrapLabel) {
-			this.wrapLabel = wrapLabel;
-		}
+        /**
+         * @generated
+         */
+        public TextCellEditorLocator(WrappingLabel wrapLabel) {
+            this.wrapLabel = wrapLabel;
+        }
 
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getWrapLabel() {
-			return wrapLabel;
-		}
+        /**
+         * @generated
+         */
+        public WrappingLabel getWrapLabel() {
+            return wrapLabel;
+        }
 
-		/**
-		 * @generated
-		 */
-		public void relocate(CellEditor celleditor) {
-			Text text = (Text) celleditor.getControl();
-			Rectangle rect = getWrapLabel().getTextBounds().getCopy();
-			getWrapLabel().translateToAbsolute(rect);
-			if (getWrapLabel().isTextWrapOn()
-					&& getWrapLabel().getText().length() > 0) {
-				rect.setSize(new Dimension(text.computeSize(rect.width,
-						SWT.DEFAULT)));
-			} else {
-				int avr = FigureUtilities.getFontMetrics(text.getFont())
-						.getAverageCharWidth();
-				rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT,
-						SWT.DEFAULT)).expand(avr * 2, 0));
-			}
-			if (!rect.equals(new Rectangle(text.getBounds()))) {
-				text.setBounds(rect.x, rect.y, rect.width, rect.height);
-			}
-		}
-	}
+        /**
+         * @generated
+         */
+        public void relocate(CellEditor celleditor) {
+            Text text = (Text) celleditor.getControl();
+            Rectangle rect = getWrapLabel().getTextBounds().getCopy();
+            getWrapLabel().translateToAbsolute(rect);
+            if (getWrapLabel().isTextWrapOn() && getWrapLabel().getText().length() > 0) {
+                rect.setSize(new Dimension(text.computeSize(rect.width, SWT.DEFAULT)));
+            } else {
+                int avr = FigureUtilities.getFontMetrics(text.getFont()).getAverageCharWidth();
+                rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT, SWT.DEFAULT)).expand(avr * 2, 0));
+            }
+            if (!rect.equals(new Rectangle(text.getBounds()))) {
+                text.setBounds(rect.x, rect.y, rect.width, rect.height);
+            }
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	private static class LabelCellEditorLocator implements CellEditorLocator {
+    /**
+     * @generated
+     */
+    private static class LabelCellEditorLocator implements CellEditorLocator {
 
-		/**
-		 * @generated
-		 */
-		private Label label;
+        /**
+         * @generated
+         */
+        private Label label;
 
-		/**
-		 * @generated
-		 */
-		public LabelCellEditorLocator(Label label) {
-			this.label = label;
-		}
+        /**
+         * @generated
+         */
+        public LabelCellEditorLocator(Label label) {
+            this.label = label;
+        }
 
-		/**
-		 * @generated
-		 */
-		public Label getLabel() {
-			return label;
-		}
+        /**
+         * @generated
+         */
+        public Label getLabel() {
+            return label;
+        }
 
-		/**
-		 * @generated
-		 */
-		public void relocate(CellEditor celleditor) {
-			Text text = (Text) celleditor.getControl();
-			Rectangle rect = getLabel().getTextBounds().getCopy();
-			getLabel().translateToAbsolute(rect);
-			int avr = FigureUtilities.getFontMetrics(text.getFont())
-					.getAverageCharWidth();
-			rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT,
-					SWT.DEFAULT)).expand(avr * 2, 0));
-			if (!rect.equals(new Rectangle(text.getBounds()))) {
-				text.setBounds(rect.x, rect.y, rect.width, rect.height);
-			}
-		}
-	}
+        /**
+         * @generated
+         */
+        public void relocate(CellEditor celleditor) {
+            Text text = (Text) celleditor.getControl();
+            Rectangle rect = getLabel().getTextBounds().getCopy();
+            getLabel().translateToAbsolute(rect);
+            int avr = FigureUtilities.getFontMetrics(text.getFont()).getAverageCharWidth();
+            rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT, SWT.DEFAULT)).expand(avr * 2, 0));
+            if (!rect.equals(new Rectangle(text.getBounds()))) {
+                text.setBounds(rect.x, rect.y, rect.width, rect.height);
+            }
+        }
+    }
 }

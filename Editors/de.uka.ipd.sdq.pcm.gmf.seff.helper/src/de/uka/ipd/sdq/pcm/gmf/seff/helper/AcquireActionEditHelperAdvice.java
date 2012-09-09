@@ -33,7 +33,7 @@ public class AcquireActionEditHelperAdvice extends AbstractEditHelperAdvice impl
      * 
      * @param request
      *            the request
-     *            
+     * 
      * @return the new set value command for assigning the resource.
      * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
      *      getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)

@@ -11,25 +11,21 @@ import de.uka.ipd.sdq.pcm.gmf.repository.custom.edit.policies.CustomOpenComposit
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.CompositeComponentItemSemanticEditPolicy;
 
+public class CustomCompositeComponentEditPart extends CompositeComponentEditPart {
 
-public class CustomCompositeComponentEditPart extends CompositeComponentEditPart
-{
+    public CustomCompositeComponentEditPart(View view) {
+        super(view);
+    }
 
-
-	public CustomCompositeComponentEditPart(View view) {
-		super(view);
-	}
-
-	@Override
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new CompositeComponentItemSemanticEditPolicy());
-		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new CustomOpenCompositeDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
-	}
+    @Override
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CompositeComponentItemSemanticEditPolicy());
+        installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+        installEditPolicy(EditPolicyRoles.OPEN_ROLE, new CustomOpenCompositeDiagramEditPolicy());
+        // XXX need an SCR to runtime to have another abstract superclass that would let children
+        // add reasonable editpolicies
+        // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+    }
 
 }

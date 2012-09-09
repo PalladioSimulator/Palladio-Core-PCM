@@ -12,28 +12,27 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.usagemodel.Delay;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
-
 /**
  * @author christophrathfelder
  */
 
-public class CreateDelaySpecificationEditHelperAdvice extends
-		AbstractEditHelperAdvice implements IEditHelperAdvice {
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
+public class CreateDelaySpecificationEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
 
-		PCMRandomVariable randomVariable = CoreFactory.eINSTANCE
-				.createPCMRandomVariable();
+        PCMRandomVariable randomVariable = CoreFactory.eINSTANCE.createPCMRandomVariable();
 
-		randomVariable.setSpecification("0.0");
+        randomVariable.setSpecification("0.0");
 
-		SetRequest setRequest = new SetRequest((Delay) request
-				.getElementToConfigure(), UsagemodelPackage.eINSTANCE
-				.getDelay_TimeSpecification_Delay(), randomVariable);
+        SetRequest setRequest = new SetRequest((Delay) request.getElementToConfigure(),
+                UsagemodelPackage.eINSTANCE.getDelay_TimeSpecification_Delay(), randomVariable);
 
-		return new SetValueCommand(setRequest);
-	}
+        return new SetValueCommand(setRequest);
+    }
 }

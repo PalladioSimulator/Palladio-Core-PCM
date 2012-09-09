@@ -8,43 +8,45 @@ import org.osgi.framework.BundleContext;
  */
 public class UsageHelperPlugin extends AbstractUIPlugin {
 
-	// The plug-in ID
-	public static final String PLUGIN_ID = "de.uka.ipd.sdq.pcm.gmf.usage.helper";
+    // The plug-in ID
+    public static final String PLUGIN_ID = "de.uka.ipd.sdq.pcm.gmf.usage.helper";
 
-	// The shared instance
-	private static UsageHelperPlugin plugin;
-	
-	/**
-	 * The constructor
-	 */
-	public UsageHelperPlugin() {
-	}
+    // The shared instance
+    private static UsageHelperPlugin plugin;
 
-	/*
-	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
-	 */
-	public void start(BundleContext context) throws Exception {
-		super.start(context);
-		plugin = this;
-	}
+    /**
+     * The constructor
+     */
+    public UsageHelperPlugin() {
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
-	 */
-	public void stop(BundleContext context) throws Exception {
-		plugin = null;
-		super.stop(context);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+     */
+    public void start(BundleContext context) throws Exception {
+        super.start(context);
+        plugin = this;
+    }
 
-	/**
-	 * Returns the shared instance
-	 *
-	 * @return the shared instance
-	 */
-	public static UsageHelperPlugin getDefault() {
-		return plugin;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+     */
+    public void stop(BundleContext context) throws Exception {
+        plugin = null;
+        super.stop(context);
+    }
+
+    /**
+     * Returns the shared instance
+     * 
+     * @return the shared instance
+     */
+    public static UsageHelperPlugin getDefault() {
+        return plugin;
+    }
 
 }

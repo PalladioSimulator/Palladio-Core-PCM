@@ -10,19 +10,19 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.edit.commands.AllocationContextCreateCo
 
 public class CumstomAllocationContextCreateCommand extends AllocationContextCreateCommand {
 
-	private Allocation allocation;
+    private Allocation allocation;
 
-	public CumstomAllocationContextCreateCommand(CreateElementRequest req, Allocation a) {
-		super(req);
-		this.allocation = a;
-	}
-	
-	@Override
-	protected EObject getElementToEdit() {
-		EObject container = allocation;
-		if (container instanceof View) {
-			container = ((View) container).getElement();
-		}
-		return container;
-	}
+    public CumstomAllocationContextCreateCommand(CreateElementRequest req, Allocation a) {
+        super(req);
+        this.allocation = a;
+    }
+
+    @Override
+    protected EObject getElementToEdit() {
+        EObject container = allocation;
+        if (container instanceof View) {
+            container = ((View) container).getElement();
+        }
+        return container;
+    }
 }

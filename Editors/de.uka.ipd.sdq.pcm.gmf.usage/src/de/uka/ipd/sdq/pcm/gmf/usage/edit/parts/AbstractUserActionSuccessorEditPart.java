@@ -18,78 +18,76 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.AbstractUserActionSuccessorIte
 /**
  * @generated
  */
-public class AbstractUserActionSuccessorEditPart extends ConnectionNodeEditPart
-		implements ITreeBranchEditPart {
+public class AbstractUserActionSuccessorEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-	/**
-	 * @generated
-	 */
-	public static final int VISUAL_ID = 4002;
+    /**
+     * @generated
+     */
+    public static final int VISUAL_ID = 4002;
 
-	/**
-	 * @generated
-	 */
-	public AbstractUserActionSuccessorEditPart(View view) {
-		super(view);
-	}
+    /**
+     * @generated
+     */
+    public AbstractUserActionSuccessorEditPart(View view) {
+        super(view);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new AbstractUserActionSuccessorItemSemanticEditPolicy());
-	}
+    /**
+     * @generated
+     */
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new AbstractUserActionSuccessorItemSemanticEditPolicy());
+    }
 
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
-	protected Connection createConnectionFigure() {
-		return new ControlFlowConnectionFigure();
-	}
+    /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
+     * @generated
+     */
+    protected Connection createConnectionFigure() {
+        return new ControlFlowConnectionFigure();
+    }
 
-	/**
-	 * @generated
-	 */
-	public ControlFlowConnectionFigure getPrimaryShape() {
-		return (ControlFlowConnectionFigure) getFigure();
-	}
+    /**
+     * @generated
+     */
+    public ControlFlowConnectionFigure getPrimaryShape() {
+        return (ControlFlowConnectionFigure) getFigure();
+    }
 
-	/**
-	 * @generated
-	 */
-	public class ControlFlowConnectionFigure extends PolylineConnectionEx {
+    /**
+     * @generated
+     */
+    public class ControlFlowConnectionFigure extends PolylineConnectionEx {
 
-		/**
-		 * @generated
-		 */
-		public ControlFlowConnectionFigure() {
-			this.setLineWidth(1);
+        /**
+         * @generated
+         */
+        public ControlFlowConnectionFigure() {
+            this.setLineWidth(1);
 
-			setTargetDecoration(createTargetDecoration());
-		}
+            setTargetDecoration(createTargetDecoration());
+        }
 
-		/**
-		 * @generated
-		 */
-		private RotatableDecoration createTargetDecoration() {
-			PolylineDecoration df = new PolylineDecoration();
-			df.setLineWidth(1);
-			PointList pl = new PointList();
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
-			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
-			df.setTemplate(pl);
-			df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
-			return df;
-		}
+        /**
+         * @generated
+         */
+        private RotatableDecoration createTargetDecoration() {
+            PolylineDecoration df = new PolylineDecoration();
+            df.setLineWidth(1);
+            PointList pl = new PointList();
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
+            pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
+            df.setTemplate(pl);
+            df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
+            return df;
+        }
 
-	}
+    }
 
 }

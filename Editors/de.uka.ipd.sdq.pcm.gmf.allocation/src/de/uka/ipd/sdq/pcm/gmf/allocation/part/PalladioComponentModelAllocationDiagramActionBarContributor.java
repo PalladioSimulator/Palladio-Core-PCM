@@ -8,20 +8,19 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramActionBarContributor;
 /**
  * @generated
  */
-public class PalladioComponentModelAllocationDiagramActionBarContributor extends
-		DiagramActionBarContributor {
+public class PalladioComponentModelAllocationDiagramActionBarContributor extends DiagramActionBarContributor {
 
-	/**
-	 * @generated
-	 */
-	protected Class getEditorClass() {
-		return PalladioComponentModelAllocationDiagramEditor.class;
-	}
+    /**
+     * @generated
+     */
+    protected Class getEditorClass() {
+        return PalladioComponentModelAllocationDiagramEditor.class;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getEditorId() {
-		return PalladioComponentModelAllocationDiagramEditor.ID;
-	}
+    /**
+     * @generated
+     */
+    protected String getEditorId() {
+        return PalladioComponentModelAllocationDiagramEditor.ID;
+    }
 }

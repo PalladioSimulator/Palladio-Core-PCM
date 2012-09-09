@@ -15,32 +15,29 @@ import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes
  * @generated
  */
 public class UsageScenarioUsageScenarioCompartmentItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+        PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public UsageScenarioUsageScenarioCompartmentItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.UsageScenario_2004);
-	}
+    /**
+     * @generated
+     */
+    public UsageScenarioUsageScenarioCompartmentItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.UsageScenario_2004);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.ScenarioBehaviour_3014 == req
-				.getElementType()) {
-			return getGEFWrapper(new ScenarioBehaviourCreateCommand(req));
-		}
-		if (PalladioComponentModelElementTypes.ClosedWorkload_3015 == req
-				.getElementType()) {
-			return getGEFWrapper(new ClosedWorkloadCreateCommand(req));
-		}
-		if (PalladioComponentModelElementTypes.OpenWorkload_3016 == req
-				.getElementType()) {
-			return getGEFWrapper(new OpenWorkloadCreateCommand(req));
-		}
-		return super.getCreateCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateCommand(CreateElementRequest req) {
+        if (PalladioComponentModelElementTypes.ScenarioBehaviour_3014 == req.getElementType()) {
+            return getGEFWrapper(new ScenarioBehaviourCreateCommand(req));
+        }
+        if (PalladioComponentModelElementTypes.ClosedWorkload_3015 == req.getElementType()) {
+            return getGEFWrapper(new ClosedWorkloadCreateCommand(req));
+        }
+        if (PalladioComponentModelElementTypes.OpenWorkload_3016 == req.getElementType()) {
+            return getGEFWrapper(new OpenWorkloadCreateCommand(req));
+        }
+        return super.getCreateCommand(req);
+    }
 
 }

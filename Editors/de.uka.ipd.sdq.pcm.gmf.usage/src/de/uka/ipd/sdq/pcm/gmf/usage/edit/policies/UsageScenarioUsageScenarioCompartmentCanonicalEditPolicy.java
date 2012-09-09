@@ -24,64 +24,59 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 /**
  * @generated
  */
-public class UsageScenarioUsageScenarioCompartmentCanonicalEditPolicy extends
-		CanonicalEditPolicy {
+public class UsageScenarioUsageScenarioCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	Set myFeaturesToSynchronize;
+    /**
+     * @generated
+     */
+    Set myFeaturesToSynchronize;
 
-	/**
-	 * @generated
-	 */
-	protected List getSemanticChildrenList() {
-		View viewObject = (View) getHost().getModel();
-		List result = new LinkedList();
-		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getUsageScenarioUsageScenarioCompartment_7012SemanticChildren(
-						viewObject).iterator(); it.hasNext();) {
-			result.add(((PalladioComponentModelNodeDescriptor) it.next())
-					.getModelElement());
-		}
-		return result;
-	}
+    /**
+     * @generated
+     */
+    protected List getSemanticChildrenList() {
+        View viewObject = (View) getHost().getModel();
+        List result = new LinkedList();
+        for (Iterator it = PalladioComponentModelDiagramUpdater
+                .getUsageScenarioUsageScenarioCompartment_7012SemanticChildren(viewObject).iterator(); it.hasNext();) {
+            result.add(((PalladioComponentModelNodeDescriptor) it.next()).getModelElement());
+        }
+        return result;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean isOrphaned(Collection semanticChildren, final View view) {
-		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case ScenarioBehaviourEditPart.VISUAL_ID:
-		case ClosedWorkloadEditPart.VISUAL_ID:
-		case OpenWorkloadEditPart.VISUAL_ID:
-			if (!semanticChildren.contains(view.getElement())) {
-				return true;
-			}
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean isOrphaned(Collection semanticChildren, final View view) {
+        int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        switch (visualID) {
+        case ScenarioBehaviourEditPart.VISUAL_ID:
+        case ClosedWorkloadEditPart.VISUAL_ID:
+        case OpenWorkloadEditPart.VISUAL_ID:
+            if (!semanticChildren.contains(view.getElement())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getDefaultFactoryHint() {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected String getDefaultFactoryHint() {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize.add(UsagemodelPackage.eINSTANCE
-					.getUsageScenario_ScenarioBehaviour_UsageScenario());
-			myFeaturesToSynchronize.add(UsagemodelPackage.eINSTANCE
-					.getUsageScenario_Workload_UsageScenario());
-		}
-		return myFeaturesToSynchronize;
-	}
+    /**
+     * @generated
+     */
+    protected Set getFeaturesToSynchronize() {
+        if (myFeaturesToSynchronize == null) {
+            myFeaturesToSynchronize = new HashSet();
+            myFeaturesToSynchronize.add(UsagemodelPackage.eINSTANCE.getUsageScenario_ScenarioBehaviour_UsageScenario());
+            myFeaturesToSynchronize.add(UsagemodelPackage.eINSTANCE.getUsageScenario_Workload_UsageScenario());
+        }
+        return myFeaturesToSynchronize;
+    }
 
 }

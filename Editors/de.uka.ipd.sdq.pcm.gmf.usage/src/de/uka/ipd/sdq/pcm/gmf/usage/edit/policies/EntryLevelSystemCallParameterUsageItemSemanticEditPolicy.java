@@ -13,23 +13,22 @@ import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes
  * @generated
  */
 public class EntryLevelSystemCallParameterUsageItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+        PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public EntryLevelSystemCallParameterUsageItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-	}
+    /**
+     * @generated
+     */
+    public EntryLevelSystemCallParameterUsageItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.VariableUsage_3012 == req
-				.getElementType()) {
-			return getGEFWrapper(new VariableUsageCreateCommand(req));
-		}
-		return super.getCreateCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateCommand(CreateElementRequest req) {
+        if (PalladioComponentModelElementTypes.VariableUsage_3012 == req.getElementType()) {
+            return getGEFWrapper(new VariableUsageCreateCommand(req));
+        }
+        return super.getCreateCommand(req);
+    }
 }

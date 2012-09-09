@@ -22,61 +22,58 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 /**
  * @generated
  */
-public class EntryLevelSystemCallParameterUsageCanonicalEditPolicy extends
-		CanonicalEditPolicy {
+public class EntryLevelSystemCallParameterUsageCanonicalEditPolicy extends CanonicalEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	Set myFeaturesToSynchronize;
+    /**
+     * @generated
+     */
+    Set myFeaturesToSynchronize;
 
-	/**
-	 * @generated
-	 */
-	protected List getSemanticChildrenList() {
-		View viewObject = (View) getHost().getModel();
-		List result = new LinkedList();
-		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getEntryLevelSystemCallSystemCallVariableUsageCompartment_7002SemanticChildren(
-						viewObject).iterator(); it.hasNext();) {
-			result.add(((PalladioComponentModelNodeDescriptor) it.next())
-					.getModelElement());
-		}
-		return result;
-	}
+    /**
+     * @generated
+     */
+    protected List getSemanticChildrenList() {
+        View viewObject = (View) getHost().getModel();
+        List result = new LinkedList();
+        for (Iterator it = PalladioComponentModelDiagramUpdater
+                .getEntryLevelSystemCallSystemCallVariableUsageCompartment_7002SemanticChildren(viewObject).iterator(); it
+                .hasNext();) {
+            result.add(((PalladioComponentModelNodeDescriptor) it.next()).getModelElement());
+        }
+        return result;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean isOrphaned(Collection semanticChildren, final View view) {
-		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case VariableUsageEditPart.VISUAL_ID:
-			if (!semanticChildren.contains(view.getElement())) {
-				return true;
-			}
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean isOrphaned(Collection semanticChildren, final View view) {
+        int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        switch (visualID) {
+        case VariableUsageEditPart.VISUAL_ID:
+            if (!semanticChildren.contains(view.getElement())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getDefaultFactoryHint() {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected String getDefaultFactoryHint() {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize
-					.add(UsagemodelPackage.eINSTANCE
-							.getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall());
-		}
-		return myFeaturesToSynchronize;
-	}
+    /**
+     * @generated
+     */
+    protected Set getFeaturesToSynchronize() {
+        if (myFeaturesToSynchronize == null) {
+            myFeaturesToSynchronize = new HashSet();
+            myFeaturesToSynchronize.add(UsagemodelPackage.eINSTANCE
+                    .getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall());
+        }
+        return myFeaturesToSynchronize;
+    }
 
 }

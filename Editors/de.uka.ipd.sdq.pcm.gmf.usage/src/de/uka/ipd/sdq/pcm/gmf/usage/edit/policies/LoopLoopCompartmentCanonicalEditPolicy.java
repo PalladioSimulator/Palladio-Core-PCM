@@ -19,37 +19,35 @@ import de.uka.ipd.sdq.pcm.usagemodel.Loop;
  */
 public class LoopLoopCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	protected List getSemanticChildrenList() {
-		List result = new LinkedList();
-		EObject modelObject = ((View) getHost().getModel()).getElement();
-		View viewObject = (View) getHost().getModel();
-		EObject nextValue;
-		int nodeVID;
-		nextValue = ((Loop) modelObject).getBodyBehaviour_Loop();
-		nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
-				viewObject, nextValue);
-		if (ScenarioBehaviour2EditPart.VISUAL_ID == nodeVID) {
-			result.add(nextValue);
-		}
-		return result;
-	}
+    /**
+     * @generated
+     */
+    protected List getSemanticChildrenList() {
+        List result = new LinkedList();
+        EObject modelObject = ((View) getHost().getModel()).getElement();
+        View viewObject = (View) getHost().getModel();
+        EObject nextValue;
+        int nodeVID;
+        nextValue = ((Loop) modelObject).getBodyBehaviour_Loop();
+        nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(viewObject, nextValue);
+        if (ScenarioBehaviour2EditPart.VISUAL_ID == nodeVID) {
+            result.add(nextValue);
+        }
+        return result;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean shouldDeleteView(View view) {
-		return view.isSetElement() && view.getElement() != null
-				&& view.getElement().eIsProxy();
-	}
+    /**
+     * @generated
+     */
+    protected boolean shouldDeleteView(View view) {
+        return view.isSetElement() && view.getElement() != null && view.getElement().eIsProxy();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getDefaultFactoryHint() {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected String getDefaultFactoryHint() {
+        return null;
+    }
 
 }

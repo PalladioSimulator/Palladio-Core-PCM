@@ -15,11 +15,11 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.BasicNodeViewFactory;
  */
 public class AllocationComponentLabelViewFactory extends BasicNodeViewFactory {
 
-	/**
-	 * @generated
-	 */
-	protected List createStyles(View view) {
-		List styles = new ArrayList();
-		return styles;
-	}
+    /**
+     * @generated
+     */
+    protected List createStyles(View view) {
+        List styles = new ArrayList();
+        return styles;
+    }
 }

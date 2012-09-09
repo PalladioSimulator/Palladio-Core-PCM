@@ -19,62 +19,56 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.Messages;
 /**
  * @generated
  */
-public class ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart extends
-		ShapeCompartmentEditPart {
+public class ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart extends ShapeCompartmentEditPart {
 
-	/**
-	 * @generated
-	 */
-	public static final int VISUAL_ID = 7013;
+    /**
+     * @generated
+     */
+    public static final int VISUAL_ID = 7013;
 
-	/**
-	 * @generated
-	 */
-	public ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart(View view) {
-		super(view);
-	}
+    /**
+     * @generated
+     */
+    public ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart(View view) {
+        super(view);
+    }
 
-	/**
-	 * @generated
-	 */
-	public String getCompartmentName() {
-		return Messages.ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart_title;
-	}
+    /**
+     * @generated
+     */
+    public String getCompartmentName() {
+        return Messages.ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart_title;
+    }
 
-	/**
-	 * @generated
-	 */
-	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
-				.createFigure();
-		result.setTitleVisibility(false);
-		return result;
-	}
+    /**
+     * @generated
+     */
+    public IFigure createFigure() {
+        ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+        result.setTitleVisibility(false);
+        return result;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(
-				EditPolicyRoles.SEMANTIC_ROLE,
-				new ScenarioBehaviourScenarioBehaviourStepsCompartmentItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(
-				EditPolicyRoles.CANONICAL_ROLE,
-				new ScenarioBehaviourScenarioBehaviourStepsCompartmentCanonicalEditPolicy());
-	}
+    /**
+     * @generated
+     */
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+                new ScenarioBehaviourScenarioBehaviourStepsCompartmentItemSemanticEditPolicy());
+        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+        installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+        installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+                new ScenarioBehaviourScenarioBehaviourStepsCompartmentCanonicalEditPolicy());
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void setRatio(Double ratio) {
-		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
-			super.setRatio(ratio);
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void setRatio(Double ratio) {
+        if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
+            super.setRatio(ratio);
+        }
+    }
 
 }

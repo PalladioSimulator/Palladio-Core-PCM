@@ -6,6 +6,5 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers;
 /**
  * @generated
  */
-public class BranchActionEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class BranchActionEditHelper extends PalladioComponentModelBaseEditHelper {
 }

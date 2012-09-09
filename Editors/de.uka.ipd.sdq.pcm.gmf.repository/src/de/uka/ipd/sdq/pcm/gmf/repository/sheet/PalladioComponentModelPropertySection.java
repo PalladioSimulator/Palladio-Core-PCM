@@ -27,87 +27,82 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDi
 /**
  * @generated
  */
-public class PalladioComponentModelPropertySection extends
-		AdvancedPropertySection implements IPropertySourceProvider {
+public class PalladioComponentModelPropertySection extends AdvancedPropertySection implements IPropertySourceProvider {
 
-	/**
-	 * @generated
-	 */
-	public IPropertySource getPropertySource(Object object) {
-		if (object instanceof IPropertySource) {
-			return (IPropertySource) object;
-		}
-		AdapterFactory af = getAdapterFactory(object);
-		if (af != null) {
-			IItemPropertySource ips = (IItemPropertySource) af.adapt(object,
-					IItemPropertySource.class);
-			if (ips != null) {
-				return new PropertySource(object, ips);
-			}
-		}
-		if (object instanceof IAdaptable) {
-			return (IPropertySource) ((IAdaptable) object)
-					.getAdapter(IPropertySource.class);
-		}
-		return null;
-	}
+    /**
+     * @generated
+     */
+    public IPropertySource getPropertySource(Object object) {
+        if (object instanceof IPropertySource) {
+            return (IPropertySource) object;
+        }
+        AdapterFactory af = getAdapterFactory(object);
+        if (af != null) {
+            IItemPropertySource ips = (IItemPropertySource) af.adapt(object, IItemPropertySource.class);
+            if (ips != null) {
+                return new PropertySource(object, ips);
+            }
+        }
+        if (object instanceof IAdaptable) {
+            return (IPropertySource) ((IAdaptable) object).getAdapter(IPropertySource.class);
+        }
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected IPropertySourceProvider getPropertySourceProvider() {
-		return this;
-	}
+    /**
+     * @generated
+     */
+    protected IPropertySourceProvider getPropertySourceProvider() {
+        return this;
+    }
 
-	/**
-	 * Modify/unwrap selection.
-	 * @generated
-	 */
-	protected Object transformSelection(Object selected) {
+    /**
+     * Modify/unwrap selection.
+     * 
+     * @generated
+     */
+    protected Object transformSelection(Object selected) {
 
-		if (selected instanceof EditPart) {
-			Object model = ((EditPart) selected).getModel();
-			return model instanceof View ? ((View) model).getElement() : null;
-		}
-		if (selected instanceof View) {
-			return ((View) selected).getElement();
-		}
-		if (selected instanceof IAdaptable) {
-			View view = (View) ((IAdaptable) selected).getAdapter(View.class);
-			if (view != null) {
-				return view.getElement();
-			}
-		}
-		return selected;
-	}
+        if (selected instanceof EditPart) {
+            Object model = ((EditPart) selected).getModel();
+            return model instanceof View ? ((View) model).getElement() : null;
+        }
+        if (selected instanceof View) {
+            return ((View) selected).getElement();
+        }
+        if (selected instanceof IAdaptable) {
+            View view = (View) ((IAdaptable) selected).getAdapter(View.class);
+            if (view != null) {
+                return view.getElement();
+            }
+        }
+        return selected;
+    }
 
-	/**
-	 * @generated
-	 */
-	public void setInput(IWorkbenchPart part, ISelection selection) {
-		if (selection.isEmpty()
-				|| false == selection instanceof StructuredSelection) {
-			super.setInput(part, selection);
-			return;
-		}
-		final StructuredSelection structuredSelection = ((StructuredSelection) selection);
-		ArrayList transformedSelection = new ArrayList(structuredSelection
-				.size());
-		for (Iterator it = structuredSelection.iterator(); it.hasNext();) {
-			Object r = transformSelection(it.next());
-			if (r != null) {
-				transformedSelection.add(r);
-			}
-		}
-		super.setInput(part, new StructuredSelection(transformedSelection));
-	}
+    /**
+     * @generated
+     */
+    public void setInput(IWorkbenchPart part, ISelection selection) {
+        if (selection.isEmpty() || false == selection instanceof StructuredSelection) {
+            super.setInput(part, selection);
+            return;
+        }
+        final StructuredSelection structuredSelection = ((StructuredSelection) selection);
+        ArrayList transformedSelection = new ArrayList(structuredSelection.size());
+        for (Iterator it = structuredSelection.iterator(); it.hasNext();) {
+            Object r = transformSelection(it.next());
+            if (r != null) {
+                transformedSelection.add(r);
+            }
+        }
+        super.setInput(part, new StructuredSelection(transformedSelection));
+    }
 
-	/**
-	 * @generated not
-	 */
-	protected AdapterFactory getAdapterFactory(Object object) {
-		return PalladioComponentModelRepositoryDiagramEditorPlugin
-				.getInstance().getItemProvidersAdapterFactory();
-	}
+    /**
+     * @generated not
+     */
+    protected AdapterFactory getAdapterFactory(Object object) {
+        return PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory();
+    }
 
 }

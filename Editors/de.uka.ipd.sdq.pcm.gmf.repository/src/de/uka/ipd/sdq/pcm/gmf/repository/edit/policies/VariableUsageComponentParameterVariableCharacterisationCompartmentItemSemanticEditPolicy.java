@@ -12,25 +12,24 @@ import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElement
 /**
  * @generated
  */
-public class VariableUsageComponentParameterVariableCharacterisationCompartmentItemSemanticEditPolicy
-		extends PalladioComponentModelBaseItemSemanticEditPolicy {
+public class VariableUsageComponentParameterVariableCharacterisationCompartmentItemSemanticEditPolicy extends
+        PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public VariableUsageComponentParameterVariableCharacterisationCompartmentItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.VariableUsage_3104);
-	}
+    /**
+     * @generated
+     */
+    public VariableUsageComponentParameterVariableCharacterisationCompartmentItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.VariableUsage_3104);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.VariableCharacterisation_3105 == req
-				.getElementType()) {
-			return getGEFWrapper(new VariableCharacterisationCreateCommand(req));
-		}
-		return super.getCreateCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateCommand(CreateElementRequest req) {
+        if (PalladioComponentModelElementTypes.VariableCharacterisation_3105 == req.getElementType()) {
+            return getGEFWrapper(new VariableCharacterisationCreateCommand(req));
+        }
+        return super.getCreateCommand(req);
+    }
 
 }

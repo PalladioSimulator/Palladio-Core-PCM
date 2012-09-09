@@ -10,6 +10,6 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
  * 
  * @author admin
  */
-public class CreateBranchConditionEditHelperAdvice extends
-		AbstractCreateRandomVariableEditHelperAdvice implements IEditHelperAdvice {
+public class CreateBranchConditionEditHelperAdvice extends AbstractCreateRandomVariableEditHelperAdvice implements
+        IEditHelperAdvice {
 }

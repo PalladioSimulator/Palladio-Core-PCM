@@ -20,146 +20,143 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.SinkRoleItemSemanticEditP
 /**
  * @generated
  */
-public class SinkRoleEditPart extends ConnectionNodeEditPart implements
-		ITreeBranchEditPart {
+public class SinkRoleEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-	/**
-	 * @generated
-	 */
-	public static final int VISUAL_ID = 4109;
+    /**
+     * @generated
+     */
+    public static final int VISUAL_ID = 4109;
 
-	/**
-	 * @generated
-	 */
-	public SinkRoleEditPart(View view) {
-		super(view);
-	}
+    /**
+     * @generated
+     */
+    public SinkRoleEditPart(View view) {
+        super(view);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SinkRoleItemSemanticEditPolicy());
-	}
+    /**
+     * @generated
+     */
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new SinkRoleItemSemanticEditPolicy());
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SinkRoleLabelEditPart) {
-			((SinkRoleLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureHandlesStereotypeLabelFigure());
-			return true;
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean addFixedChild(EditPart childEditPart) {
+        if (childEditPart instanceof SinkRoleLabelEditPart) {
+            ((SinkRoleLabelEditPart) childEditPart).setLabel(getPrimaryShape().getFigureHandlesStereotypeLabelFigure());
+            return true;
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
+    /**
+     * @generated
+     */
+    protected void addChildVisual(EditPart childEditPart, int index) {
+        if (addFixedChild(childEditPart)) {
+            return;
+        }
+        super.addChildVisual(childEditPart, -1);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SinkRoleLabelEditPart) {
-			return true;
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean removeFixedChild(EditPart childEditPart) {
+        if (childEditPart instanceof SinkRoleLabelEditPart) {
+            return true;
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void removeChildVisual(EditPart childEditPart) {
-		if (removeFixedChild(childEditPart)) {
-			return;
-		}
-		super.removeChildVisual(childEditPart);
-	}
+    /**
+     * @generated
+     */
+    protected void removeChildVisual(EditPart childEditPart) {
+        if (removeFixedChild(childEditPart)) {
+            return;
+        }
+        super.removeChildVisual(childEditPart);
+    }
 
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
+    /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
+     * @generated
+     */
 
-	protected Connection createConnectionFigure() {
-		return new SinkRoleFigure();
-	}
+    protected Connection createConnectionFigure() {
+        return new SinkRoleFigure();
+    }
 
-	/**
-	 * @generated
-	 */
-	public SinkRoleFigure getPrimaryShape() {
-		return (SinkRoleFigure) getFigure();
-	}
+    /**
+     * @generated
+     */
+    public SinkRoleFigure getPrimaryShape() {
+        return (SinkRoleFigure) getFigure();
+    }
 
-	/**
-	 * @generated
-	 */
-	public class SinkRoleFigure extends PolylineConnectionEx {
+    /**
+     * @generated
+     */
+    public class SinkRoleFigure extends PolylineConnectionEx {
 
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureHandlesStereotypeLabelFigure;
+        /**
+         * @generated
+         */
+        private WrappingLabel fFigureHandlesStereotypeLabelFigure;
 
-		/**
-		 * @generated
-		 */
-		public SinkRoleFigure() {
-			this.setLineWidth(1);
+        /**
+         * @generated
+         */
+        public SinkRoleFigure() {
+            this.setLineWidth(1);
 
-			createContents();
-			setTargetDecoration(createTargetDecoration());
-		}
+            createContents();
+            setTargetDecoration(createTargetDecoration());
+        }
 
-		/**
-		 * @generated
-		 */
-		private void createContents() {
+        /**
+         * @generated
+         */
+        private void createContents() {
 
-			fFigureHandlesStereotypeLabelFigure = new WrappingLabel();
-			fFigureHandlesStereotypeLabelFigure.setText("<<Handles>>");
+            fFigureHandlesStereotypeLabelFigure = new WrappingLabel();
+            fFigureHandlesStereotypeLabelFigure.setText("<<Handles>>");
 
-			this.add(fFigureHandlesStereotypeLabelFigure);
+            this.add(fFigureHandlesStereotypeLabelFigure);
 
-		}
+        }
 
-		/**
-		 * @generated
-		 */
-		private RotatableDecoration createTargetDecoration() {
-			PolylineDecoration df = new PolylineDecoration();
-			df.setLineWidth(1);
-			PointList pl = new PointList();
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
-			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
-			df.setTemplate(pl);
-			df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
-			return df;
-		}
+        /**
+         * @generated
+         */
+        private RotatableDecoration createTargetDecoration() {
+            PolylineDecoration df = new PolylineDecoration();
+            df.setLineWidth(1);
+            PointList pl = new PointList();
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
+            pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
+            df.setTemplate(pl);
+            df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
+            return df;
+        }
 
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureHandlesStereotypeLabelFigure() {
-			return fFigureHandlesStereotypeLabelFigure;
-		}
+        /**
+         * @generated
+         */
+        public WrappingLabel getFigureHandlesStereotypeLabelFigure() {
+            return fFigureHandlesStereotypeLabelFigure;
+        }
 
-	}
+    }
 
 }

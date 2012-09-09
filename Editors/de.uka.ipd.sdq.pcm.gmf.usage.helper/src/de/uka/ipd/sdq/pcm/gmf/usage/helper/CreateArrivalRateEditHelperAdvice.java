@@ -15,25 +15,25 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 /**
  * @author Roman Andrej
  */
-public class CreateArrivalRateEditHelperAdvice extends
-		AbstractEditHelperAdvice implements IEditHelperAdvice {
+public class CreateArrivalRateEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
 
-		PCMRandomVariable randomVariable = CoreFactory.eINSTANCE
-				.createPCMRandomVariable();
+        PCMRandomVariable randomVariable = CoreFactory.eINSTANCE.createPCMRandomVariable();
 
-		randomVariable.setSpecification("0.0");
+        randomVariable.setSpecification("0.0");
 
-		SetRequest setRequest = new SetRequest((OpenWorkload) request
-				.getElementToConfigure(), UsagemodelPackage.eINSTANCE
-				.getOpenWorkload_InterArrivalTime_OpenWorkload(), randomVariable);
+        SetRequest setRequest = new SetRequest((OpenWorkload) request.getElementToConfigure(),
+                UsagemodelPackage.eINSTANCE.getOpenWorkload_InterArrivalTime_OpenWorkload(), randomVariable);
 
-		return new SetValueCommand(setRequest);
-	}
+        return new SetValueCommand(setRequest);
+    }
 
 }

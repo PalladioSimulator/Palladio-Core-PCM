@@ -12,32 +12,33 @@ import org.eclipse.swt.widgets.Display;
  * A ColorManager.
  */
 public class ColorManager {
-    
+
     /**
      * The ColorTable.
      */
-	protected Map fColorTable = new HashMap(10);
+    protected Map fColorTable = new HashMap(10);
 
-	/**
-	 * Disposes of the ColorTable.
-	 */
-	public void dispose() {
-		Iterator e = fColorTable.values().iterator();
-		while (e.hasNext()) {
-			 ((Color) e.next()).dispose();
-		}
-	}
-	
-	/**
-	 * @param rgb the Color
-	 * @return color
-	 */
-	public Color getColor(RGB rgb) {
-		Color color = (Color) fColorTable.get(rgb);
-		if (color == null) {
-			color = new Color(Display.getCurrent(), rgb);
-			fColorTable.put(rgb, color);
-		}
-		return color;
-	}
+    /**
+     * Disposes of the ColorTable.
+     */
+    public void dispose() {
+        Iterator e = fColorTable.values().iterator();
+        while (e.hasNext()) {
+            ((Color) e.next()).dispose();
+        }
+    }
+
+    /**
+     * @param rgb
+     *            the Color
+     * @return color
+     */
+    public Color getColor(RGB rgb) {
+        Color color = (Color) fColorTable.get(rgb);
+        if (color == null) {
+            color = new Color(Display.getCurrent(), rgb);
+            fColorTable.put(rgb, color);
+        }
+        return color;
+    }
 }

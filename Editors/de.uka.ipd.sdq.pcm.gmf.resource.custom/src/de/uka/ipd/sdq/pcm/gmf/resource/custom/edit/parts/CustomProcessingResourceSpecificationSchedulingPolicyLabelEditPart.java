@@ -16,7 +16,8 @@ public class CustomProcessingResourceSpecificationSchedulingPolicyLabelEditPart 
 
     /**
      * 
-     * @param view a View
+     * @param view
+     *            a View
      */
     public CustomProcessingResourceSpecificationSchedulingPolicyLabelEditPart(View view) {
         super(view);

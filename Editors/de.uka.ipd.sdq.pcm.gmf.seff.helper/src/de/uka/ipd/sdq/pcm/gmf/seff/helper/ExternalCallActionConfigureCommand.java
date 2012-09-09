@@ -26,10 +26,10 @@ public class ExternalCallActionConfigureCommand extends ConfigureElementCommand 
 
     /** The request. */
     private ConfigureRequest request = null;
-    
+
     /** The signature. */
     private OperationSignature signature = null;
-    
+
     /** The required role. */
     private OperationRequiredRole requiredRole = null;
 

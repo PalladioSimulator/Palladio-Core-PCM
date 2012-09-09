@@ -6,7 +6,6 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers;
 /**
  * @generated
  */
-public class ResourceDemandingSEFFEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class ResourceDemandingSEFFEditHelper extends PalladioComponentModelBaseEditHelper {
 
 }

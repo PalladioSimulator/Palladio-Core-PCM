@@ -32,7 +32,8 @@ public class CustomCommunicationLinkResourceSpecificationThroughputLabelEditPart
 
     /**
      * 
-     * @param view a View
+     * @param view
+     *            a View
      */
     public CustomCommunicationLinkResourceSpecificationThroughputLabelEditPart(View view) {
         super(view);

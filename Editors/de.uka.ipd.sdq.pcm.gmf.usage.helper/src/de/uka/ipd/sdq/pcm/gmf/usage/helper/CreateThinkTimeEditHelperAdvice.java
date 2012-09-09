@@ -15,26 +15,25 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 /**
  * @author Roman Andrej
  */
-public class CreateThinkTimeEditHelperAdvice extends AbstractEditHelperAdvice
-		implements IEditHelperAdvice {
+public class CreateThinkTimeEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
 
-		PCMRandomVariable randomVariable = CoreFactory.eINSTANCE
-				.createPCMRandomVariable();
+        PCMRandomVariable randomVariable = CoreFactory.eINSTANCE.createPCMRandomVariable();
 
-		randomVariable.setSpecification("0.0");
+        randomVariable.setSpecification("0.0");
 
-		SetRequest setRequest = new SetRequest(
-				(ClosedWorkload) request.getElementToConfigure(),
-				UsagemodelPackage.eINSTANCE.getClosedWorkload_ThinkTime_ClosedWorkload(),
-				randomVariable);
+        SetRequest setRequest = new SetRequest((ClosedWorkload) request.getElementToConfigure(),
+                UsagemodelPackage.eINSTANCE.getClosedWorkload_ThinkTime_ClosedWorkload(), randomVariable);
 
-		return new SetValueCommand(setRequest);
-	}
+        return new SetValueCommand(setRequest);
+    }
 
 }

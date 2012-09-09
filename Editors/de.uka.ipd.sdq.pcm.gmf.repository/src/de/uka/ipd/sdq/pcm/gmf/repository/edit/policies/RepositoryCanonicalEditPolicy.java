@@ -53,436 +53,375 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 /**
  * @generated
  */
-public class RepositoryCanonicalEditPolicy extends
-		CanonicalConnectionEditPolicy {
+public class RepositoryCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	Set myFeaturesToSynchronize;
+    /**
+     * @generated
+     */
+    Set myFeaturesToSynchronize;
 
-	/**
-	 * @generated
-	 */
-	protected List getSemanticChildrenList() {
-		View viewObject = (View) getHost().getModel();
-		List result = new LinkedList();
-		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getRepository_1000SemanticChildren(viewObject).iterator(); it
-				.hasNext();) {
-			result.add(((PalladioComponentModelNodeDescriptor) it.next())
-					.getModelElement());
-		}
-		return result;
-	}
+    /**
+     * @generated
+     */
+    protected List getSemanticChildrenList() {
+        View viewObject = (View) getHost().getModel();
+        List result = new LinkedList();
+        for (Iterator it = PalladioComponentModelDiagramUpdater.getRepository_1000SemanticChildren(viewObject)
+                .iterator(); it.hasNext();) {
+            result.add(((PalladioComponentModelNodeDescriptor) it.next()).getModelElement());
+        }
+        return result;
+    }
 
-	/**
-	 * @generated not
-	 * to fix gmf bug 189589
-	 */
-	protected boolean shouldDeleteView(View view) {
-		return view.getEAnnotation("Shortcut") == null;
-	}
+    /**
+     * @generated not to fix gmf bug 189589
+     */
+    protected boolean shouldDeleteView(View view) {
+        return view.getEAnnotation("Shortcut") == null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean isOrphaned(Collection semanticChildren, final View view) {
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			return PalladioComponentModelDiagramUpdater
-					.isShortcutOrphaned(view);
-		}
-		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case OperationInterfaceEditPart.VISUAL_ID:
-		case EventGroupEditPart.VISUAL_ID:
-		case BasicComponentEditPart.VISUAL_ID:
-		case CompositeComponentEditPart.VISUAL_ID:
-		case CompleteComponentTypeEditPart.VISUAL_ID:
-		case ProvidesComponentTypeEditPart.VISUAL_ID:
-		case SubSystemEditPart.VISUAL_ID:
-		case InfrastructureInterfaceEditPart.VISUAL_ID:
-			if (!semanticChildren.contains(view.getElement())) {
-				return true;
-			}
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean isOrphaned(Collection semanticChildren, final View view) {
+        if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+            return PalladioComponentModelDiagramUpdater.isShortcutOrphaned(view);
+        }
+        int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        switch (visualID) {
+        case OperationInterfaceEditPart.VISUAL_ID:
+        case EventGroupEditPart.VISUAL_ID:
+        case BasicComponentEditPart.VISUAL_ID:
+        case CompositeComponentEditPart.VISUAL_ID:
+        case CompleteComponentTypeEditPart.VISUAL_ID:
+        case ProvidesComponentTypeEditPart.VISUAL_ID:
+        case SubSystemEditPart.VISUAL_ID:
+        case InfrastructureInterfaceEditPart.VISUAL_ID:
+            if (!semanticChildren.contains(view.getElement())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getDefaultFactoryHint() {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected String getDefaultFactoryHint() {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize.add(RepositoryPackage.eINSTANCE
-					.getRepository_Interfaces__Repository());
-			myFeaturesToSynchronize.add(RepositoryPackage.eINSTANCE
-					.getRepository_Components__Repository());
-		}
-		return myFeaturesToSynchronize;
-	}
+    /**
+     * @generated
+     */
+    protected Set getFeaturesToSynchronize() {
+        if (myFeaturesToSynchronize == null) {
+            myFeaturesToSynchronize = new HashSet();
+            myFeaturesToSynchronize.add(RepositoryPackage.eINSTANCE.getRepository_Interfaces__Repository());
+            myFeaturesToSynchronize.add(RepositoryPackage.eINSTANCE.getRepository_Components__Repository());
+        }
+        return myFeaturesToSynchronize;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected List getSemanticConnectionsList() {
-		return Collections.EMPTY_LIST;
-	}
+    /**
+     * @generated
+     */
+    protected List getSemanticConnectionsList() {
+        return Collections.EMPTY_LIST;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EObject getSourceElement(EObject relationship) {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected EObject getSourceElement(EObject relationship) {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EObject getTargetElement(EObject relationship) {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected EObject getTargetElement(EObject relationship) {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean shouldIncludeConnection(Edge connector,
-			Collection children) {
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean shouldIncludeConnection(Edge connector, Collection children) {
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void refreshSemantic() {
-		List createdViews = new LinkedList();
-		createdViews.addAll(refreshSemanticChildren());
-		List createdConnectionViews = new LinkedList();
-		createdConnectionViews.addAll(refreshSemanticConnections());
-		createdConnectionViews.addAll(refreshConnections());
+    /**
+     * @generated
+     */
+    protected void refreshSemantic() {
+        List createdViews = new LinkedList();
+        createdViews.addAll(refreshSemanticChildren());
+        List createdConnectionViews = new LinkedList();
+        createdConnectionViews.addAll(refreshSemanticConnections());
+        createdConnectionViews.addAll(refreshConnections());
 
-		if (createdViews.size() > 1) {
-			// perform a layout of the container
-			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host()
-					.getEditingDomain(), createdViews, host());
-			executeCommand(new ICommandProxy(layoutCmd));
-		}
+        if (createdViews.size() > 1) {
+            // perform a layout of the container
+            DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host().getEditingDomain(), createdViews, host());
+            executeCommand(new ICommandProxy(layoutCmd));
+        }
 
-		createdViews.addAll(createdConnectionViews);
-		makeViewsImmutable(createdViews);
-	}
+        createdViews.addAll(createdConnectionViews);
+        makeViewsImmutable(createdViews);
+    }
 
-	/**
-	 * @generated
-	 */
-	private Collection refreshConnections() {
-		Map domain2NotationMap = new HashMap();
-		Collection linkDescriptors = collectAllLinks(getDiagram(),
-				domain2NotationMap);
-		Collection existingLinks = new LinkedList(getDiagram().getEdges());
-		for (Iterator linksIterator = existingLinks.iterator(); linksIterator
-				.hasNext();) {
-			Edge nextDiagramLink = (Edge) linksIterator.next();
-			int diagramLinkVisualID = PalladioComponentModelVisualIDRegistry
-					.getVisualID(nextDiagramLink);
-			if (diagramLinkVisualID == -1) {
-				if (nextDiagramLink.getSource() != null
-						&& nextDiagramLink.getTarget() != null) {
-					linksIterator.remove();
-				}
-				continue;
-			}
-			EObject diagramLinkObject = nextDiagramLink.getElement();
-			EObject diagramLinkSrc = nextDiagramLink.getSource().getElement();
-			EObject diagramLinkDst = nextDiagramLink.getTarget().getElement();
-			for (Iterator linkDescriptorsIterator = linkDescriptors.iterator(); linkDescriptorsIterator
-					.hasNext();) {
-				PalladioComponentModelLinkDescriptor nextLinkDescriptor = (PalladioComponentModelLinkDescriptor) linkDescriptorsIterator
-						.next();
-				if (diagramLinkObject == nextLinkDescriptor.getModelElement()
-						&& diagramLinkSrc == nextLinkDescriptor.getSource()
-						&& diagramLinkDst == nextLinkDescriptor
-								.getDestination()
-						&& diagramLinkVisualID == nextLinkDescriptor
-								.getVisualID()) {
-					linksIterator.remove();
-					linkDescriptorsIterator.remove();
-					break;
-				}
-			}
-		}
-		deleteViews(existingLinks.iterator());
-		return createConnections(linkDescriptors, domain2NotationMap);
-	}
+    /**
+     * @generated
+     */
+    private Collection refreshConnections() {
+        Map domain2NotationMap = new HashMap();
+        Collection linkDescriptors = collectAllLinks(getDiagram(), domain2NotationMap);
+        Collection existingLinks = new LinkedList(getDiagram().getEdges());
+        for (Iterator linksIterator = existingLinks.iterator(); linksIterator.hasNext();) {
+            Edge nextDiagramLink = (Edge) linksIterator.next();
+            int diagramLinkVisualID = PalladioComponentModelVisualIDRegistry.getVisualID(nextDiagramLink);
+            if (diagramLinkVisualID == -1) {
+                if (nextDiagramLink.getSource() != null && nextDiagramLink.getTarget() != null) {
+                    linksIterator.remove();
+                }
+                continue;
+            }
+            EObject diagramLinkObject = nextDiagramLink.getElement();
+            EObject diagramLinkSrc = nextDiagramLink.getSource().getElement();
+            EObject diagramLinkDst = nextDiagramLink.getTarget().getElement();
+            for (Iterator linkDescriptorsIterator = linkDescriptors.iterator(); linkDescriptorsIterator.hasNext();) {
+                PalladioComponentModelLinkDescriptor nextLinkDescriptor = (PalladioComponentModelLinkDescriptor) linkDescriptorsIterator
+                        .next();
+                if (diagramLinkObject == nextLinkDescriptor.getModelElement()
+                        && diagramLinkSrc == nextLinkDescriptor.getSource()
+                        && diagramLinkDst == nextLinkDescriptor.getDestination()
+                        && diagramLinkVisualID == nextLinkDescriptor.getVisualID()) {
+                    linksIterator.remove();
+                    linkDescriptorsIterator.remove();
+                    break;
+                }
+            }
+        }
+        deleteViews(existingLinks.iterator());
+        return createConnections(linkDescriptors, domain2NotationMap);
+    }
 
-	/**
-	 * @generated
-	 */
-	private Collection collectAllLinks(View view, Map domain2NotationMap) {
-		if (!RepositoryEditPart.MODEL_ID
-				.equals(PalladioComponentModelVisualIDRegistry.getModelID(view))) {
-			return Collections.EMPTY_LIST;
-		}
-		Collection result = new LinkedList();
-		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
-		case RepositoryEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getRepository_1000ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case OperationInterfaceEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getOperationInterface_2107ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case EventGroupEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getEventGroup_2108ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case BasicComponentEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getBasicComponent_2102ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case CompositeComponentEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getCompositeComponent_2103ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case CompleteComponentTypeEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getCompleteComponentType_2104ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case ProvidesComponentTypeEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getProvidesComponentType_2105ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case SubSystemEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getSubSystem_2106ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case InfrastructureInterfaceEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getInfrastructureInterface_2109ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case VariableUsageEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getVariableUsage_3104ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case OperationProvidedRoleEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getOperationProvidedRole_4105ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case InfrastructureProvidedRoleEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result
-						.addAll(PalladioComponentModelDiagramUpdater
-								.getInfrastructureProvidedRole_4111ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case InfrastructureRequiredRoleEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result
-						.addAll(PalladioComponentModelDiagramUpdater
-								.getInfrastructureRequiredRole_4112ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case SinkRoleEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getSinkRole_4109ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case OperationRequiredRoleEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getOperationRequiredRole_4106ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case SourceRoleEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(PalladioComponentModelDiagramUpdater
-						.getSourceRole_4110ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		}
-		for (Iterator children = view.getChildren().iterator(); children
-				.hasNext();) {
-			result.addAll(collectAllLinks((View) children.next(),
-					domain2NotationMap));
-		}
-		for (Iterator edges = view.getSourceEdges().iterator(); edges.hasNext();) {
-			result.addAll(collectAllLinks((View) edges.next(),
-					domain2NotationMap));
-		}
-		return result;
-	}
+    /**
+     * @generated
+     */
+    private Collection collectAllLinks(View view, Map domain2NotationMap) {
+        if (!RepositoryEditPart.MODEL_ID.equals(PalladioComponentModelVisualIDRegistry.getModelID(view))) {
+            return Collections.EMPTY_LIST;
+        }
+        Collection result = new LinkedList();
+        switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+        case RepositoryEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getRepository_1000ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case OperationInterfaceEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getOperationInterface_2107ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case EventGroupEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getEventGroup_2108ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case BasicComponentEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getBasicComponent_2102ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case CompositeComponentEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getCompositeComponent_2103ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case CompleteComponentTypeEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getCompleteComponentType_2104ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case ProvidesComponentTypeEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getProvidesComponentType_2105ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case SubSystemEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getSubSystem_2106ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case InfrastructureInterfaceEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getInfrastructureInterface_2109ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case VariableUsageEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getVariableUsage_3104ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case OperationProvidedRoleEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getOperationProvidedRole_4105ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case InfrastructureProvidedRoleEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater
+                        .getInfrastructureProvidedRole_4111ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case InfrastructureRequiredRoleEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater
+                        .getInfrastructureRequiredRole_4112ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case SinkRoleEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getSinkRole_4109ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case OperationRequiredRoleEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getOperationRequiredRole_4106ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        case SourceRoleEditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getSourceRole_4110ContainedLinks(view));
+            }
+            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+                domain2NotationMap.put(view.getElement(), view);
+            }
+            break;
+        }
+        }
+        for (Iterator children = view.getChildren().iterator(); children.hasNext();) {
+            result.addAll(collectAllLinks((View) children.next(), domain2NotationMap));
+        }
+        for (Iterator edges = view.getSourceEdges().iterator(); edges.hasNext();) {
+            result.addAll(collectAllLinks((View) edges.next(), domain2NotationMap));
+        }
+        return result;
+    }
 
-	/**
-	 * @generated
-	 */
-	private Collection createConnections(Collection linkDescriptors,
-			Map domain2NotationMap) {
-		List adapters = new LinkedList();
-		for (Iterator linkDescriptorsIterator = linkDescriptors.iterator(); linkDescriptorsIterator
-				.hasNext();) {
-			final PalladioComponentModelLinkDescriptor nextLinkDescriptor = (PalladioComponentModelLinkDescriptor) linkDescriptorsIterator
-					.next();
-			EditPart sourceEditPart = getEditPart(nextLinkDescriptor
-					.getSource(), domain2NotationMap);
-			EditPart targetEditPart = getEditPart(nextLinkDescriptor
-					.getDestination(), domain2NotationMap);
-			if (sourceEditPart == null || targetEditPart == null) {
-				continue;
-			}
-			CreateConnectionViewRequest.ConnectionViewDescriptor descriptor = new CreateConnectionViewRequest.ConnectionViewDescriptor(
-					nextLinkDescriptor.getSemanticAdapter(), String
-							.valueOf(nextLinkDescriptor.getVisualID()),
-					ViewUtil.APPEND, false, ((IGraphicalEditPart) getHost())
-							.getDiagramPreferencesHint());
-			CreateConnectionViewRequest ccr = new CreateConnectionViewRequest(
-					descriptor);
-			ccr.setType(RequestConstants.REQ_CONNECTION_START);
-			ccr.setSourceEditPart(sourceEditPart);
-			sourceEditPart.getCommand(ccr);
-			ccr.setTargetEditPart(targetEditPart);
-			ccr.setType(RequestConstants.REQ_CONNECTION_END);
-			Command cmd = targetEditPart.getCommand(ccr);
-			if (cmd != null && cmd.canExecute()) {
-				executeCommand(cmd);
-				IAdaptable viewAdapter = (IAdaptable) ccr.getNewObject();
-				if (viewAdapter != null) {
-					adapters.add(viewAdapter);
-				}
-			}
-		}
-		return adapters;
-	}
+    /**
+     * @generated
+     */
+    private Collection createConnections(Collection linkDescriptors, Map domain2NotationMap) {
+        List adapters = new LinkedList();
+        for (Iterator linkDescriptorsIterator = linkDescriptors.iterator(); linkDescriptorsIterator.hasNext();) {
+            final PalladioComponentModelLinkDescriptor nextLinkDescriptor = (PalladioComponentModelLinkDescriptor) linkDescriptorsIterator
+                    .next();
+            EditPart sourceEditPart = getEditPart(nextLinkDescriptor.getSource(), domain2NotationMap);
+            EditPart targetEditPart = getEditPart(nextLinkDescriptor.getDestination(), domain2NotationMap);
+            if (sourceEditPart == null || targetEditPart == null) {
+                continue;
+            }
+            CreateConnectionViewRequest.ConnectionViewDescriptor descriptor = new CreateConnectionViewRequest.ConnectionViewDescriptor(
+                    nextLinkDescriptor.getSemanticAdapter(), String.valueOf(nextLinkDescriptor.getVisualID()),
+                    ViewUtil.APPEND, false, ((IGraphicalEditPart) getHost()).getDiagramPreferencesHint());
+            CreateConnectionViewRequest ccr = new CreateConnectionViewRequest(descriptor);
+            ccr.setType(RequestConstants.REQ_CONNECTION_START);
+            ccr.setSourceEditPart(sourceEditPart);
+            sourceEditPart.getCommand(ccr);
+            ccr.setTargetEditPart(targetEditPart);
+            ccr.setType(RequestConstants.REQ_CONNECTION_END);
+            Command cmd = targetEditPart.getCommand(ccr);
+            if (cmd != null && cmd.canExecute()) {
+                executeCommand(cmd);
+                IAdaptable viewAdapter = (IAdaptable) ccr.getNewObject();
+                if (viewAdapter != null) {
+                    adapters.add(viewAdapter);
+                }
+            }
+        }
+        return adapters;
+    }
 
-	/**
-	 * @generated
-	 */
-	private EditPart getEditPart(EObject domainModelElement,
-			Map domain2NotationMap) {
-		View view = (View) domain2NotationMap.get(domainModelElement);
-		if (view != null) {
-			return (EditPart) getHost().getViewer().getEditPartRegistry().get(
-					view);
-		}
-		return null;
-	}
+    /**
+     * @generated
+     */
+    private EditPart getEditPart(EObject domainModelElement, Map domain2NotationMap) {
+        View view = (View) domain2NotationMap.get(domainModelElement);
+        if (view != null) {
+            return (EditPart) getHost().getViewer().getEditPartRegistry().get(view);
+        }
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	private Diagram getDiagram() {
-		return ((View) getHost().getModel()).getDiagram();
-	}
+    /**
+     * @generated
+     */
+    private Diagram getDiagram() {
+        return ((View) getHost().getModel()).getDiagram();
+    }
 
 }

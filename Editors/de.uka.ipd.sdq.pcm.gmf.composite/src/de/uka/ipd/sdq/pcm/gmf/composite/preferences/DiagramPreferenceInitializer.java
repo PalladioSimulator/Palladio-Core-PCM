@@ -13,24 +13,23 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStruc
  */
 public class DiagramPreferenceInitializer extends AbstractPreferenceInitializer {
 
-	/**
-	 * @generated
-	 */
-	public void initializeDefaultPreferences() {
-		IPreferenceStore store = getPreferenceStore();
-		DiagramGeneralPreferencePage.initDefaults(store);
-		DiagramAppearancePreferencePage.initDefaults(store);
-		DiagramConnectionsPreferencePage.initDefaults(store);
-		DiagramPrintingPreferencePage.initDefaults(store);
-		DiagramRulersAndGridPreferencePage.initDefaults(store);
+    /**
+     * @generated
+     */
+    public void initializeDefaultPreferences() {
+        IPreferenceStore store = getPreferenceStore();
+        DiagramGeneralPreferencePage.initDefaults(store);
+        DiagramAppearancePreferencePage.initDefaults(store);
+        DiagramConnectionsPreferencePage.initDefaults(store);
+        DiagramPrintingPreferencePage.initDefaults(store);
+        DiagramRulersAndGridPreferencePage.initDefaults(store);
 
-	}
+    }
 
-	/**
-	 * @generated
-	 */
-	protected IPreferenceStore getPreferenceStore() {
-		return PalladioComponentModelComposedStructureDiagramEditorPlugin
-				.getInstance().getPreferenceStore();
-	}
+    /**
+     * @generated
+     */
+    protected IPreferenceStore getPreferenceStore() {
+        return PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().getPreferenceStore();
+    }
 }

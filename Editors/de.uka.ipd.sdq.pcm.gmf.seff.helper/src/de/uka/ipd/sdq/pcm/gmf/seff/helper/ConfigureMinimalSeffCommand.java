@@ -61,7 +61,7 @@ public class ConfigureMinimalSeffCommand extends ConfigureElementCommand {
             return CommandResult.newErrorCommandResult("Create StopAction for the new SEFF failed!");
         }
         stopAction = (StopAction) commandResult.getReturnValue();
-        // FIXME: The following lines have been commented out on 28.5.2007. Decide if fixed/needed.  
+        // FIXME: The following lines have been commented out on 28.5.2007. Decide if fixed/needed.
         // Removed due to recent CanonicalEditPolicy Bug in GMF
         // commandResult = createControlFlow(startAction, stopAction, monitor);
         // if (!isOK(commandResult))

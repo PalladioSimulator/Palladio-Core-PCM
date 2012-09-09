@@ -11,25 +11,21 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegi
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
-public class CustomAllocationCanonicalEditPolicy extends
-AllocationCanonicalEditPolicy {
+public class CustomAllocationCanonicalEditPolicy extends AllocationCanonicalEditPolicy {
 
-	@Override
-	protected List<ResourceContainer> getSemanticChildrenList() {
-		EObject modelObject = ((View) getHost().getModel()).getElement();
-		ResourceEnvironment re = ((Allocation) modelObject)
-		.getTargetResourceEnvironment_Allocation();
-		return re.getResourceContainer_ResourceEnvironment();
-	}
+    @Override
+    protected List<ResourceContainer> getSemanticChildrenList() {
+        EObject modelObject = ((View) getHost().getModel()).getElement();
+        ResourceEnvironment re = ((Allocation) modelObject).getTargetResourceEnvironment_Allocation();
+        return re.getResourceContainer_ResourceEnvironment();
+    }
 
-	@Override
-	protected boolean shouldDeleteView(View view) {
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			return view.isSetElement()
-			&& (view.getElement() == null || view.getElement()
-							.eIsProxy());
-		}
-		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		return false;
-	}
+    @Override
+    protected boolean shouldDeleteView(View view) {
+        if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+            return view.isSetElement() && (view.getElement() == null || view.getElement().eIsProxy());
+        }
+        int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        return false;
+    }
 }

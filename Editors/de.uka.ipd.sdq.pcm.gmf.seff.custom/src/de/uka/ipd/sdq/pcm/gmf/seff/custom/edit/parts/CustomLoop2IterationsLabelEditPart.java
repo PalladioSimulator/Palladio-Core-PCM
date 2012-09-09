@@ -38,8 +38,12 @@ public class CustomLoop2IterationsLabelEditPart extends Loop2IterationsLabelEdit
         super(view);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#createDefaultEditPolicies()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#createDefaultEditPolicies
+     * ()
      */
     @Override
     protected void createDefaultEditPolicies() {
@@ -68,7 +72,9 @@ public class CustomLoop2IterationsLabelEditPart extends Loop2IterationsLabelEdit
         this.installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenLoopIterationsDialog());
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#getLabelText()
      */
     @Override
@@ -84,8 +90,11 @@ public class CustomLoop2IterationsLabelEditPart extends Loop2IterationsLabelEdit
         return text;
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#addSemanticListeners()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#addSemanticListeners()
      */
     @Override
     protected void addSemanticListeners() {
@@ -93,8 +102,11 @@ public class CustomLoop2IterationsLabelEditPart extends Loop2IterationsLabelEdit
         this.addListenerFilter("SemanticModel", this, loop.getIterationCount_LoopAction()); //$NON-NLS-1$
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#removeSemanticListeners()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#removeSemanticListeners()
      */
     @Override
     protected void removeSemanticListeners() {

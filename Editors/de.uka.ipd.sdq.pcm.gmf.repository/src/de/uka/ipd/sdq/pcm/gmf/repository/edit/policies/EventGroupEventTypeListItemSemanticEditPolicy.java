@@ -12,25 +12,23 @@ import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElement
 /**
  * @generated
  */
-public class EventGroupEventTypeListItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class EventGroupEventTypeListItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public EventGroupEventTypeListItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.EventGroup_2108);
-	}
+    /**
+     * @generated
+     */
+    public EventGroupEventTypeListItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.EventGroup_2108);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.EventType_3107 == req
-				.getElementType()) {
-			return getGEFWrapper(new EventTypeCreateCommand(req));
-		}
-		return super.getCreateCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateCommand(CreateElementRequest req) {
+        if (PalladioComponentModelElementTypes.EventType_3107 == req.getElementType()) {
+            return getGEFWrapper(new EventTypeCreateCommand(req));
+        }
+        return super.getCreateCommand(req);
+    }
 
 }

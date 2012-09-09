@@ -19,82 +19,80 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.RecoveryActionBehaviourFailureH
 /**
  * @generated
  */
-public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart
-		extends ConnectionNodeEditPart implements ITreeBranchEditPart {
+public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart extends
+        ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-	/**
-	 * @generated
-	 */
-	public static final int VISUAL_ID = 4004;
+    /**
+     * @generated
+     */
+    public static final int VISUAL_ID = 4004;
 
-	/**
-	 * @generated
-	 */
-	public RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart(
-			View view) {
-		super(view);
-	}
+    /**
+     * @generated
+     */
+    public RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart(View view) {
+        super(view);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(
-				EditPolicyRoles.SEMANTIC_ROLE,
-				new RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourItemSemanticEditPolicy());
-	}
+    /**
+     * @generated
+     */
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+                new RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourItemSemanticEditPolicy());
+    }
 
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
+    /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
+     * @generated
+     */
 
-	protected Connection createConnectionFigure() {
-		return new RecoveryFlowConnectionFigure();
-	}
+    protected Connection createConnectionFigure() {
+        return new RecoveryFlowConnectionFigure();
+    }
 
-	/**
-	 * @generated
-	 */
-	public RecoveryFlowConnectionFigure getPrimaryShape() {
-		return (RecoveryFlowConnectionFigure) getFigure();
-	}
+    /**
+     * @generated
+     */
+    public RecoveryFlowConnectionFigure getPrimaryShape() {
+        return (RecoveryFlowConnectionFigure) getFigure();
+    }
 
-	/**
-	 * @generated
-	 */
-	public class RecoveryFlowConnectionFigure extends PolylineConnectionEx {
+    /**
+     * @generated
+     */
+    public class RecoveryFlowConnectionFigure extends PolylineConnectionEx {
 
-		/**
-		 * @generated
-		 */
-		public RecoveryFlowConnectionFigure() {
-			this.setLineWidth(2);
-			this.setLineStyle(Graphics.LINE_DOT);
+        /**
+         * @generated
+         */
+        public RecoveryFlowConnectionFigure() {
+            this.setLineWidth(2);
+            this.setLineStyle(Graphics.LINE_DOT);
 
-			setTargetDecoration(createTargetDecoration());
-		}
+            setTargetDecoration(createTargetDecoration());
+        }
 
-		/**
-		 * @generated
-		 */
-		private RotatableDecoration createTargetDecoration() {
-			PolylineDecoration df = new PolylineDecoration();
-			df.setLineWidth(2);
-			PointList pl = new PointList();
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
-			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
-			df.setTemplate(pl);
-			df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
-			return df;
-		}
+        /**
+         * @generated
+         */
+        private RotatableDecoration createTargetDecoration() {
+            PolylineDecoration df = new PolylineDecoration();
+            df.setLineWidth(2);
+            PointList pl = new PointList();
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
+            pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
+            df.setTemplate(pl);
+            df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
+            return df;
+        }
 
-	}
+    }
 
 }

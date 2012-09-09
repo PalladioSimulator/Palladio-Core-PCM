@@ -33,50 +33,47 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegi
 /**
  * @generated
  */
-public class ResourceContainerItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class ResourceContainerItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		CompoundCommand cc = getDestroyEdgesCommand();
-		addDestroyChildNodesCommand(cc);
-		addDestroyShortcutsCommand(cc);
-		View view = (View) getHost().getModel();
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			req.setElementToDestroy(view);
-		}
-		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
-		return cc.unwrap();
-	}
+    /**
+     * @generated
+     */
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        CompoundCommand cc = getDestroyEdgesCommand();
+        addDestroyChildNodesCommand(cc);
+        addDestroyShortcutsCommand(cc);
+        View view = (View) getHost().getModel();
+        if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+            req.setElementToDestroy(view);
+        }
+        cc.add(getGEFWrapper(new DestroyElementCommand(req)));
+        return cc.unwrap();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void addDestroyChildNodesCommand(CompoundCommand cmd) {
-		View view = (View) getHost().getModel();
-		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-		if (annotation != null) {
-			return;
-		}
-		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
-			Node node = (Node) it.next();
-			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
-			case ResourceContainerAllocationCompartmentEditPart.VISUAL_ID:
-				for (Iterator cit = node.getChildren().iterator(); cit
-						.hasNext();) {
-					Node cnode = (Node) cit.next();
-					switch (PalladioComponentModelVisualIDRegistry
-							.getVisualID(cnode)) {
-					case AllocationContextEditPart.VISUAL_ID:
-						cmd.add(getDestroyElementCommand(cnode));
-						break;
-					}
-				}
-				break;
-			}
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void addDestroyChildNodesCommand(CompoundCommand cmd) {
+        View view = (View) getHost().getModel();
+        EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+        if (annotation != null) {
+            return;
+        }
+        for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
+            Node node = (Node) it.next();
+            switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
+            case ResourceContainerAllocationCompartmentEditPart.VISUAL_ID:
+                for (Iterator cit = node.getChildren().iterator(); cit.hasNext();) {
+                    Node cnode = (Node) cit.next();
+                    switch (PalladioComponentModelVisualIDRegistry.getVisualID(cnode)) {
+                    case AllocationContextEditPart.VISUAL_ID:
+                        cmd.add(getDestroyElementCommand(cnode));
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+    }
 
 }

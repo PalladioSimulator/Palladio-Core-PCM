@@ -10,24 +10,24 @@ public class XMLEditor extends TextEditor {
     /**
      * A color manager.
      */
-	private ColorManager colorManager;
+    private ColorManager colorManager;
 
-	/**
-	 * Initialized the xml editor.
-	 */
-	public XMLEditor() {
-		super();
-		colorManager = new ColorManager();
-		setSourceViewerConfiguration(new XMLConfiguration(colorManager));
-		setDocumentProvider(new XMLDocumentProvider());
-	}
-	
-	/**
-	 * Disposes the xml editor.
-	 */
-	public void dispose() {
-		colorManager.dispose();
-		super.dispose();
-	}
+    /**
+     * Initialized the xml editor.
+     */
+    public XMLEditor() {
+        super();
+        colorManager = new ColorManager();
+        setSourceViewerConfiguration(new XMLConfiguration(colorManager));
+        setDocumentProvider(new XMLDocumentProvider());
+    }
+
+    /**
+     * Disposes the xml editor.
+     */
+    public void dispose() {
+        colorManager.dispose();
+        super.dispose();
+    }
 
 }

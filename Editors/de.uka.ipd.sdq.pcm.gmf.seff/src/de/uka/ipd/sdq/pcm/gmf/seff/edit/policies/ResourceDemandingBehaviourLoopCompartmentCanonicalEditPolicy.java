@@ -32,70 +32,67 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 /**
  * @generated
  */
-public class ResourceDemandingBehaviourLoopCompartmentCanonicalEditPolicy
-		extends CanonicalEditPolicy {
+public class ResourceDemandingBehaviourLoopCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	Set myFeaturesToSynchronize;
+    /**
+     * @generated
+     */
+    Set myFeaturesToSynchronize;
 
-	/**
-	 * @generated
-	 */
-	protected List getSemanticChildrenList() {
-		View viewObject = (View) getHost().getModel();
-		List result = new LinkedList();
-		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getResourceDemandingBehaviourBehaviourCompartment_7004SemanticChildren(
-						viewObject).iterator(); it.hasNext();) {
-			result.add(((PalladioComponentModelNodeDescriptor) it.next())
-					.getModelElement());
-		}
-		return result;
-	}
+    /**
+     * @generated
+     */
+    protected List getSemanticChildrenList() {
+        View viewObject = (View) getHost().getModel();
+        List result = new LinkedList();
+        for (Iterator it = PalladioComponentModelDiagramUpdater
+                .getResourceDemandingBehaviourBehaviourCompartment_7004SemanticChildren(viewObject).iterator(); it
+                .hasNext();) {
+            result.add(((PalladioComponentModelNodeDescriptor) it.next()).getModelElement());
+        }
+        return result;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean isOrphaned(Collection semanticChildren, final View view) {
-		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case StartAction2EditPart.VISUAL_ID:
-		case StopAction2EditPart.VISUAL_ID:
-		case LoopAction2EditPart.VISUAL_ID:
-		case InternalActionEditPart.VISUAL_ID:
-		case BranchActionEditPart.VISUAL_ID:
-		case ExternalCallAction2EditPart.VISUAL_ID:
-		case CollectionIteratorActionEditPart.VISUAL_ID:
-		case AcquireAction2EditPart.VISUAL_ID:
-		case ReleaseActionEditPart.VISUAL_ID:
-		case ForkActionEditPart.VISUAL_ID:
-		case SetVariableActionEditPart.VISUAL_ID:
-			if (!semanticChildren.contains(view.getElement())) {
-				return true;
-			}
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean isOrphaned(Collection semanticChildren, final View view) {
+        int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        switch (visualID) {
+        case StartAction2EditPart.VISUAL_ID:
+        case StopAction2EditPart.VISUAL_ID:
+        case LoopAction2EditPart.VISUAL_ID:
+        case InternalActionEditPart.VISUAL_ID:
+        case BranchActionEditPart.VISUAL_ID:
+        case ExternalCallAction2EditPart.VISUAL_ID:
+        case CollectionIteratorActionEditPart.VISUAL_ID:
+        case AcquireAction2EditPart.VISUAL_ID:
+        case ReleaseActionEditPart.VISUAL_ID:
+        case ForkActionEditPart.VISUAL_ID:
+        case SetVariableActionEditPart.VISUAL_ID:
+            if (!semanticChildren.contains(view.getElement())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getDefaultFactoryHint() {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected String getDefaultFactoryHint() {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize.add(SeffPackage.eINSTANCE
-					.getResourceDemandingBehaviour_Steps_Behaviour());
-		}
-		return myFeaturesToSynchronize;
-	}
+    /**
+     * @generated
+     */
+    protected Set getFeaturesToSynchronize() {
+        if (myFeaturesToSynchronize == null) {
+            myFeaturesToSynchronize = new HashSet();
+            myFeaturesToSynchronize.add(SeffPackage.eINSTANCE.getResourceDemandingBehaviour_Steps_Behaviour());
+        }
+        return myFeaturesToSynchronize;
+    }
 
 }

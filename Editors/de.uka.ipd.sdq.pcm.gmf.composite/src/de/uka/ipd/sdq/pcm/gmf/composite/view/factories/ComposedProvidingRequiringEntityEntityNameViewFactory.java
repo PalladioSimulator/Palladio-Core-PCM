@@ -13,24 +13,21 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.BasicNodeViewFactory;
 /**
  * @generated
  */
-public class ComposedProvidingRequiringEntityEntityNameViewFactory extends
-		BasicNodeViewFactory {
+public class ComposedProvidingRequiringEntityEntityNameViewFactory extends BasicNodeViewFactory {
 
-	/**
-	 * @generated
-	 */
-	protected void decorateView(View containerView, View view,
-			IAdaptable semanticAdapter, String semanticHint, int index,
-			boolean persisted) {
-		super.decorateView(containerView, view, semanticAdapter, semanticHint,
-				index, persisted);
-	}
+    /**
+     * @generated
+     */
+    protected void decorateView(View containerView, View view, IAdaptable semanticAdapter, String semanticHint,
+            int index, boolean persisted) {
+        super.decorateView(containerView, view, semanticAdapter, semanticHint, index, persisted);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected List createStyles(View view) {
-		List styles = new ArrayList();
-		return styles;
-	}
+    /**
+     * @generated
+     */
+    protected List createStyles(View view) {
+        List styles = new ArrayList();
+        return styles;
+    }
 }

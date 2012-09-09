@@ -18,7 +18,7 @@ public class CustomInternalFailureOccurrenceDescriptionEditPart extends Internal
 
     /** The change listener. */
     private EContentAdapter changeListener = null;
-    
+
     /** The adapted element. */
     private EObject adaptedElement = null;
 
@@ -32,8 +32,12 @@ public class CustomInternalFailureOccurrenceDescriptionEditPart extends Internal
         super(view);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalFailureOccurrenceDescriptionEditPart#getLabelText()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalFailureOccurrenceDescriptionEditPart#getLabelText
+     * ()
      */
     @Override
     protected String getLabelText() {
@@ -55,8 +59,11 @@ public class CustomInternalFailureOccurrenceDescriptionEditPart extends Internal
         return text;
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalFailureOccurrenceDescriptionEditPart#addSemanticListeners()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalFailureOccurrenceDescriptionEditPart#
+     * addSemanticListeners()
      */
     @Override
     protected void addSemanticListeners() {

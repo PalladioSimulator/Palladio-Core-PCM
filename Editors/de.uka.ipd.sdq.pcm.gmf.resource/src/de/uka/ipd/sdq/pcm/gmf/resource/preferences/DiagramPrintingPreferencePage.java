@@ -12,11 +12,10 @@ import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramEditorP
  */
 public class DiagramPrintingPreferencePage extends PrintingPreferencePage {
 
-	/**
-	 * @generated
-	 */
-	public DiagramPrintingPreferencePage() {
-		setPreferenceStore(PalladioComponentModelDiagramEditorPlugin
-				.getInstance().getPreferenceStore());
-	}
+    /**
+     * @generated
+     */
+    public DiagramPrintingPreferencePage() {
+        setPreferenceStore(PalladioComponentModelDiagramEditorPlugin.getInstance().getPreferenceStore());
+    }
 }

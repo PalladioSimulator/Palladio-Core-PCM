@@ -12,30 +12,26 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
 
 public class CustomInfrastructureSignatureEditPart extends InfrastructureSignatureEditPart {
 
+    private static final int MAX_SIGNATURE_DISPLAY_LENGTH = 50;
 
-	private static final int MAX_SIGNATURE_DISPLAY_LENGTH = 50;
+    public CustomInfrastructureSignatureEditPart(View view) {
+        super(view);
+    }
 
-	public CustomInfrastructureSignatureEditPart(View view) {
-		super(view);
-	}
-	
-	@Override
-	protected String getLabelText() {
-		String text = "";
-		if (resolveSemanticElement() instanceof InfrastructureSignature) {
-			InfrastructureSignature sig = (InfrastructureSignature) resolveSemanticElement();
-			text = new SignaturePrinter().doSwitch(sig);
-			if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH)
-				text = text.substring(0, MAX_SIGNATURE_DISPLAY_LENGTH - 1)
-						+ "...";
-		} else if (getParserElement() != null && getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(getParserElement()),
-					getParserOptions().intValue());
-		}
-		if (text == null || text.length() == 0) {
-			text = getLabelTextHelper(figure);
-		}
-		return text;
-	}
+    @Override
+    protected String getLabelText() {
+        String text = "";
+        if (resolveSemanticElement() instanceof InfrastructureSignature) {
+            InfrastructureSignature sig = (InfrastructureSignature) resolveSemanticElement();
+            text = new SignaturePrinter().doSwitch(sig);
+            if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH)
+                text = text.substring(0, MAX_SIGNATURE_DISPLAY_LENGTH - 1) + "...";
+        } else if (getParserElement() != null && getParser() != null) {
+            text = getParser().getPrintString(new EObjectAdapter(getParserElement()), getParserOptions().intValue());
+        }
+        if (text == null || text.length() == 0) {
+            text = getLabelTextHelper(figure);
+        }
+        return text;
+    }
 }

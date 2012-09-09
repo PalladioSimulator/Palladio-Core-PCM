@@ -6,6 +6,5 @@ package de.uka.ipd.sdq.pcm.gmf.resource.edit.helpers;
 /**
  * @generated
  */
-public class CommunicationLinkResourceSpecificationEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class CommunicationLinkResourceSpecificationEditHelper extends PalladioComponentModelBaseEditHelper {
 }

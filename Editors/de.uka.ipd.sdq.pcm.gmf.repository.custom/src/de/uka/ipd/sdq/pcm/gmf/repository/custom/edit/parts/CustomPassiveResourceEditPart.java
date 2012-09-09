@@ -14,51 +14,50 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 public class CustomPassiveResourceEditPart extends PassiveResourceEditPart {
 
-	private EContentAdapter changeListener = null;
-	private EObject adaptedElement = null;
+    private EContentAdapter changeListener = null;
+    private EObject adaptedElement = null;
 
-	public CustomPassiveResourceEditPart(View view) {
-		super(view);
-	}
+    public CustomPassiveResourceEditPart(View view) {
+        super(view);
+    }
 
-	@Override
-	protected String getLabelText() {
-		String stoex = null, text = null;
-		if (resolveSemanticElement() instanceof PassiveResource) {
-			PassiveResource pr = (PassiveResource) resolveSemanticElement();
-			if (pr.getCapacity_PassiveResource() != null) {
-				stoex = new PCMStoExPrettyPrintVisitor().prettyPrint(pr
-						.getCapacity_PassiveResource().getExpression());
-			}
-			text = pr.getEntityName();
-			if (stoex == null)
-				stoex = "not set";
-			text += " <Capacity: " + stoex + ">";
-		}
-		if (text == null || text.length() == 0) {
-			text = getLabelTextHelper(figure);
-		}
-		return text;
-	}
+    @Override
+    protected String getLabelText() {
+        String stoex = null, text = null;
+        if (resolveSemanticElement() instanceof PassiveResource) {
+            PassiveResource pr = (PassiveResource) resolveSemanticElement();
+            if (pr.getCapacity_PassiveResource() != null) {
+                stoex = new PCMStoExPrettyPrintVisitor().prettyPrint(pr.getCapacity_PassiveResource().getExpression());
+            }
+            text = pr.getEntityName();
+            if (stoex == null)
+                stoex = "not set";
+            text += " <Capacity: " + stoex + ">";
+        }
+        if (text == null || text.length() == 0) {
+            text = getLabelTextHelper(figure);
+        }
+        return text;
+    }
 
-	@Override
-	protected void addSemanticListeners() {
-		PassiveResource element = (PassiveResource) resolveSemanticElement();
-		changeListener = new EContentAdapter() {
+    @Override
+    protected void addSemanticListeners() {
+        PassiveResource element = (PassiveResource) resolveSemanticElement();
+        changeListener = new EContentAdapter() {
 
-			@Override
-			public void notifyChanged(Notification notification) {
-				super.notifyChanged(notification);
-				refreshLabel();
-			}
+            @Override
+            public void notifyChanged(Notification notification) {
+                super.notifyChanged(notification);
+                refreshLabel();
+            }
 
-		};
-		adaptedElement = element;
-		element.eAdapters().add(changeListener);
-	}
+        };
+        adaptedElement = element;
+        element.eAdapters().add(changeListener);
+    }
 
-	@Override
-	protected void removeSemanticListeners() {
-		adaptedElement.eAdapters().remove(changeListener);
-	}
+    @Override
+    protected void removeSemanticListeners() {
+        adaptedElement.eAdapters().remove(changeListener);
+    }
 }

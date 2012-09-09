@@ -26,90 +26,83 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorP
 /**
  * @generated
  */
-public class PalladioComponentModelStructuralFeaturesParser extends
-		PalladioComponentModelAbstractParser {
+public class PalladioComponentModelStructuralFeaturesParser extends PalladioComponentModelAbstractParser {
 
-	/**
-	 * @generated
-	 */
-	private List features;
+    /**
+     * @generated
+     */
+    private List features;
 
-	/**
-	 * @generated
-	 */
-	public PalladioComponentModelStructuralFeaturesParser(List features) {
-		this.features = features;
-	}
+    /**
+     * @generated
+     */
+    public PalladioComponentModelStructuralFeaturesParser(List features) {
+        this.features = features;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getStringByPattern(IAdaptable adapter, int flags,
-			String pattern, MessageFormat processor) {
-		EObject element = (EObject) adapter.getAdapter(EObject.class);
-		List values = new ArrayList(features.size());
-		for (Iterator it = features.iterator(); it.hasNext();) {
-			EStructuralFeature feature = (EStructuralFeature) it.next();
-			Object value = element.eGet(feature);
-			value = getValidValue(feature, value);
-			values.add(value);
-		}
-		return processor.format(values.toArray(new Object[values.size()]),
-				new StringBuffer(), new FieldPosition(0)).toString();
-	}
+    /**
+     * @generated
+     */
+    protected String getStringByPattern(IAdaptable adapter, int flags, String pattern, MessageFormat processor) {
+        EObject element = (EObject) adapter.getAdapter(EObject.class);
+        List values = new ArrayList(features.size());
+        for (Iterator it = features.iterator(); it.hasNext();) {
+            EStructuralFeature feature = (EStructuralFeature) it.next();
+            Object value = element.eGet(feature);
+            value = getValidValue(feature, value);
+            values.add(value);
+        }
+        return processor.format(values.toArray(new Object[values.size()]), new StringBuffer(), new FieldPosition(0))
+                .toString();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected IParserEditStatus validateValues(Object[] values) {
-		if (values.length != features.size()) {
-			return ParserEditStatus.UNEDITABLE_STATUS;
-		}
-		for (int i = 0; i < values.length; i++) {
-			Object value = getValidNewValue((EStructuralFeature) features
-					.get(i), values[i]);
-			if (value instanceof InvalidValue) {
-				return new ParserEditStatus(
-						PalladioComponentModelSeffDiagramEditorPlugin.ID,
-						IParserEditStatus.UNEDITABLE, value.toString());
-			}
-		}
-		return ParserEditStatus.EDITABLE_STATUS;
-	}
+    /**
+     * @generated
+     */
+    protected IParserEditStatus validateValues(Object[] values) {
+        if (values.length != features.size()) {
+            return ParserEditStatus.UNEDITABLE_STATUS;
+        }
+        for (int i = 0; i < values.length; i++) {
+            Object value = getValidNewValue((EStructuralFeature) features.get(i), values[i]);
+            if (value instanceof InvalidValue) {
+                return new ParserEditStatus(PalladioComponentModelSeffDiagramEditorPlugin.ID,
+                        IParserEditStatus.UNEDITABLE, value.toString());
+            }
+        }
+        return ParserEditStatus.EDITABLE_STATUS;
+    }
 
-	/**
-	 * @generated
-	 */
-	public ICommand getParseCommand(IAdaptable adapter, Object[] values) {
-		EObject element = (EObject) adapter.getAdapter(EObject.class);
-		if (element == null) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		TransactionalEditingDomain editingDomain = TransactionUtil
-				.getEditingDomain(element);
-		if (editingDomain == null) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		CompositeTransactionalCommand command = new CompositeTransactionalCommand(
-				editingDomain, "Set Values"); //$NON-NLS-1$
-		for (int i = 0; i < values.length; i++) {
-			EStructuralFeature feature = (EStructuralFeature) features.get(i);
-			command
-					.compose(getModificationCommand(element, feature, values[i]));
-		}
-		return command;
-	}
+    /**
+     * @generated
+     */
+    public ICommand getParseCommand(IAdaptable adapter, Object[] values) {
+        EObject element = (EObject) adapter.getAdapter(EObject.class);
+        if (element == null) {
+            return UnexecutableCommand.INSTANCE;
+        }
+        TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(element);
+        if (editingDomain == null) {
+            return UnexecutableCommand.INSTANCE;
+        }
+        CompositeTransactionalCommand command = new CompositeTransactionalCommand(editingDomain, "Set Values"); //$NON-NLS-1$
+        for (int i = 0; i < values.length; i++) {
+            EStructuralFeature feature = (EStructuralFeature) features.get(i);
+            command.compose(getModificationCommand(element, feature, values[i]));
+        }
+        return command;
+    }
 
-	/**
-	 * @generated
-	 */
-	public boolean isAffectingEvent(Object event, int flags) {
-		if (event instanceof Notification) {
-			Object feature = ((Notification) event).getFeature();
-			if (features.contains(feature)) {
-				return true;
-			}
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    public boolean isAffectingEvent(Object event, int flags) {
+        if (event instanceof Notification) {
+            Object feature = ((Notification) event).getFeature();
+            if (features.contains(feature)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

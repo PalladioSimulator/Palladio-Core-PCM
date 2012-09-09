@@ -26,7 +26,9 @@ public class CustomStartAction2EditPart extends StartAction2EditPart {
         super(view);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart#createNodePlate()
      */
     @Override

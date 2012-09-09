@@ -15,106 +15,103 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 public class CustomVariableUsageEditPart extends VariableUsageEditPart {
 
-	public CustomVariableUsageEditPart(View view) {
-		super(view);
-		// TODO Auto-generated constructor stub
-	}
+    public CustomVariableUsageEditPart(View view) {
+        super(view);
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	protected IFigure createNodeShape() {
-		ParametricParameterUsageFigure2 figure = new ParametricParameterUsageFigure2();
-		return primaryShape = figure;
-	}
-	
-	// I left the @generated tags in, so it is clear what part(s) of the class has been modified.
-	// Somewhat dirty but the lesser evil imho.
+    @Override
+    protected IFigure createNodeShape() {
+        ParametricParameterUsageFigure2 figure = new ParametricParameterUsageFigure2();
+        return primaryShape = figure;
+    }
 
-	public class ParametricParameterUsageFigure2 extends ParametricParameterUsageFigure {
+    // I left the @generated tags in, so it is clear what part(s) of the class has been modified.
+    // Somewhat dirty but the lesser evil imho.
 
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureVariableUsageReferenceLabelFigure;
+    public class ParametricParameterUsageFigure2 extends ParametricParameterUsageFigure {
 
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fFigureParametricParameterUsageRectangleCompartment;
+        /**
+         * @generated
+         */
+        private WrappingLabel fFigureVariableUsageReferenceLabelFigure;
 
-		/**
-		 * @generated not
-		 */
-		public ParametricParameterUsageFigure2() {
+        /**
+         * @generated
+         */
+        private RectangleFigure fFigureParametricParameterUsageRectangleCompartment;
 
-			GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;
-			layoutThis.horizontalSpacing = 0;
-			layoutThis.verticalSpacing = 0;
-			layoutThis.marginWidth = 0;
-			layoutThis.marginHeight = 0;
-			this.setLayoutManager(layoutThis);
+        /**
+         * @generated not
+         */
+        public ParametricParameterUsageFigure2() {
 
-			this.setLineWidth(1);
-			// TODO: Find a better way!
-			this.setBackgroundColor(getThisBack()); 
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0),
-					getMapMode().DPtoLP(0)));
-			createContents();
-		}
+            GridLayout layoutThis = new GridLayout();
+            layoutThis.numColumns = 1;
+            layoutThis.makeColumnsEqualWidth = true;
+            layoutThis.horizontalSpacing = 0;
+            layoutThis.verticalSpacing = 0;
+            layoutThis.marginWidth = 0;
+            layoutThis.marginHeight = 0;
+            this.setLayoutManager(layoutThis);
 
-		/**
-		 * @generated not
-		 */
-		private void createContents() {
+            this.setLineWidth(1);
+            // TODO: Find a better way!
+            this.setBackgroundColor(getThisBack());
+            this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
+            createContents();
+        }
 
-			fFigureVariableUsageReferenceLabelFigure = new WrappingLabel();
-			if (resolveSemanticElement() != null) {
-				fFigureVariableUsageReferenceLabelFigure
-				.setText(new PCMStoExPrettyPrintVisitor()
-				.prettyPrint(((VariableUsage) resolveSemanticElement())
-						.getNamedReference__VariableUsage()));
-			} else {
-				fFigureVariableUsageReferenceLabelFigure.setText("<null>");
-			}
+        /**
+         * @generated not
+         */
+        private void createContents() {
 
-			this.add(fFigureVariableUsageReferenceLabelFigure);
+            fFigureVariableUsageReferenceLabelFigure = new WrappingLabel();
+            if (resolveSemanticElement() != null) {
+                fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExPrettyPrintVisitor()
+                        .prettyPrint(((VariableUsage) resolveSemanticElement()).getNamedReference__VariableUsage()));
+            } else {
+                fFigureVariableUsageReferenceLabelFigure.setText("<null>");
+            }
 
-		}
+            this.add(fFigureVariableUsageReferenceLabelFigure);
 
-		/**
-		 * @generated
-		 */
-		private boolean myUseLocalCoordinates = false;
+        }
 
-		/**
-		 * @generated
-		 */
-		protected boolean useLocalCoordinates() {
-			return myUseLocalCoordinates;
-		}
+        /**
+         * @generated
+         */
+        private boolean myUseLocalCoordinates = false;
 
-		/**
-		 * @generated
-		 */
-		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-			myUseLocalCoordinates = useLocalCoordinates;
-		}
+        /**
+         * @generated
+         */
+        protected boolean useLocalCoordinates() {
+            return myUseLocalCoordinates;
+        }
 
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureVariableUsageReferenceLabelFigure() {
-			return fFigureVariableUsageReferenceLabelFigure;
-		}
+        /**
+         * @generated
+         */
+        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
+            myUseLocalCoordinates = useLocalCoordinates;
+        }
 
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getFigureParametricParameterUsageRectangleCompartment() {
-			return fFigureParametricParameterUsageRectangleCompartment;
-		}
+        /**
+         * @generated
+         */
+        public WrappingLabel getFigureVariableUsageReferenceLabelFigure() {
+            return fFigureVariableUsageReferenceLabelFigure;
+        }
 
-	}
+        /**
+         * @generated
+         */
+        public RectangleFigure getFigureParametricParameterUsageRectangleCompartment() {
+            return fFigureParametricParameterUsageRectangleCompartment;
+        }
+
+    }
 
 }

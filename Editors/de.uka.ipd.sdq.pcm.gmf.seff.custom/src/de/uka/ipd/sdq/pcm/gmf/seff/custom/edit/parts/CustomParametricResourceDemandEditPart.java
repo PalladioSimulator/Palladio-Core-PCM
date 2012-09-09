@@ -27,7 +27,7 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
 
     /** The change listener. */
     private EContentAdapter changeListener = null;
-    
+
     /** The adapted element. */
     private EObject adaptedElement = null;
 
@@ -41,8 +41,12 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
         super(view);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#createDefaultEditPolicies()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#createDefaultEditPolicies
+     * ()
      */
     @Override
     protected void createDefaultEditPolicies() {
@@ -57,7 +61,9 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
                         .getParametricResourceDemand_Specification_ParametericResourceDemand()));
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#getLabelText()
      */
     @Override
@@ -82,8 +88,12 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
         return text;
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#addSemanticListeners()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#addSemanticListeners
+     * ()
      */
     @Override
     protected void addSemanticListeners() {
@@ -101,8 +111,12 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
         element.eAdapters().add(this.changeListener);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#removeSemanticListeners()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#removeSemanticListeners
+     * ()
      */
     @Override
     protected void removeSemanticListeners() {

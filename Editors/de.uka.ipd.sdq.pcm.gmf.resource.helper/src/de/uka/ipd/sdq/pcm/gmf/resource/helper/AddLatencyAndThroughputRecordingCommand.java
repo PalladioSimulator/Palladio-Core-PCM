@@ -26,8 +26,10 @@ public class AddLatencyAndThroughputRecordingCommand extends RecordingCommand {
 
     /**
      * 
-     * @param domain a TransactionalEditingDomain
-     * @param communicationLinkResourceSpecification a communicationLinkResourceSpecification
+     * @param domain
+     *            a TransactionalEditingDomain
+     * @param communicationLinkResourceSpecification
+     *            a communicationLinkResourceSpecification
      */
     public AddLatencyAndThroughputRecordingCommand(TransactionalEditingDomain domain,
             CommunicationLinkResourceSpecification communicationLinkResourceSpecification) {
@@ -37,7 +39,8 @@ public class AddLatencyAndThroughputRecordingCommand extends RecordingCommand {
 
     /**
      * 
-     * @param domain a TransactionalEditingDomain
+     * @param domain
+     *            a TransactionalEditingDomain
      */
     private AddLatencyAndThroughputRecordingCommand(TransactionalEditingDomain domain) {
         super(domain);

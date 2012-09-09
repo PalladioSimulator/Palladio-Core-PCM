@@ -16,34 +16,32 @@ import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElement
 /**
  * @generated
  */
-public class InfrastructureSignatureItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class InfrastructureSignatureItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public InfrastructureSignatureItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.InfrastructureSignature_3108);
-	}
+    /**
+     * @generated
+     */
+    public InfrastructureSignatureItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.InfrastructureSignature_3108);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
-		cmd.setTransactionNestingEnabled(false);
-		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-		if (annotation == null) {
-			// there are indirectly referenced children, need extra commands: false
-			addDestroyShortcutsCommand(cmd, view);
-			// delete host element
-			cmd.add(new DestroyElementCommand(req));
-		} else {
-			cmd.add(new DeleteCommand(getEditingDomain(), view));
-		}
-		return getGEFWrapper(cmd.reduce());
-	}
+    /**
+     * @generated
+     */
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        View view = (View) getHost().getModel();
+        CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+        cmd.setTransactionNestingEnabled(false);
+        EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+        if (annotation == null) {
+            // there are indirectly referenced children, need extra commands: false
+            addDestroyShortcutsCommand(cmd, view);
+            // delete host element
+            cmd.add(new DestroyElementCommand(req));
+        } else {
+            cmd.add(new DeleteCommand(getEditingDomain(), view));
+        }
+        return getGEFWrapper(cmd.reduce());
+    }
 
 }

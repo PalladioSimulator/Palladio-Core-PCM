@@ -20,147 +20,144 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.InfrastructureProvidedRol
 /**
  * @generated
  */
-public class InfrastructureProvidedRoleEditPart extends ConnectionNodeEditPart
-		implements ITreeBranchEditPart {
+public class InfrastructureProvidedRoleEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-	/**
-	 * @generated
-	 */
-	public static final int VISUAL_ID = 4111;
+    /**
+     * @generated
+     */
+    public static final int VISUAL_ID = 4111;
 
-	/**
-	 * @generated
-	 */
-	public InfrastructureProvidedRoleEditPart(View view) {
-		super(view);
-	}
+    /**
+     * @generated
+     */
+    public InfrastructureProvidedRoleEditPart(View view) {
+        super(view);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new InfrastructureProvidedRoleItemSemanticEditPolicy());
-	}
+    /**
+     * @generated
+     */
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InfrastructureProvidedRoleItemSemanticEditPolicy());
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabelEditPart) {
-			((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureInfrastructureProvidesStereotypeLabelFigure());
-			return true;
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean addFixedChild(EditPart childEditPart) {
+        if (childEditPart instanceof WrappingLabelEditPart) {
+            ((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape()
+                    .getFigureInfrastructureProvidesStereotypeLabelFigure());
+            return true;
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
+    /**
+     * @generated
+     */
+    protected void addChildVisual(EditPart childEditPart, int index) {
+        if (addFixedChild(childEditPart)) {
+            return;
+        }
+        super.addChildVisual(childEditPart, -1);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof WrappingLabelEditPart) {
-			return true;
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean removeFixedChild(EditPart childEditPart) {
+        if (childEditPart instanceof WrappingLabelEditPart) {
+            return true;
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void removeChildVisual(EditPart childEditPart) {
-		if (removeFixedChild(childEditPart)) {
-			return;
-		}
-		super.removeChildVisual(childEditPart);
-	}
+    /**
+     * @generated
+     */
+    protected void removeChildVisual(EditPart childEditPart) {
+        if (removeFixedChild(childEditPart)) {
+            return;
+        }
+        super.removeChildVisual(childEditPart);
+    }
 
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
+    /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
+     * @generated
+     */
 
-	protected Connection createConnectionFigure() {
-		return new InfrastructureProvidedRoleFigure();
-	}
+    protected Connection createConnectionFigure() {
+        return new InfrastructureProvidedRoleFigure();
+    }
 
-	/**
-	 * @generated
-	 */
-	public InfrastructureProvidedRoleFigure getPrimaryShape() {
-		return (InfrastructureProvidedRoleFigure) getFigure();
-	}
+    /**
+     * @generated
+     */
+    public InfrastructureProvidedRoleFigure getPrimaryShape() {
+        return (InfrastructureProvidedRoleFigure) getFigure();
+    }
 
-	/**
-	 * @generated
-	 */
-	public class InfrastructureProvidedRoleFigure extends PolylineConnectionEx {
+    /**
+     * @generated
+     */
+    public class InfrastructureProvidedRoleFigure extends PolylineConnectionEx {
 
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureInfrastructureProvidesStereotypeLabelFigure;
+        /**
+         * @generated
+         */
+        private WrappingLabel fFigureInfrastructureProvidesStereotypeLabelFigure;
 
-		/**
-		 * @generated
-		 */
-		public InfrastructureProvidedRoleFigure() {
-			this.setLineWidth(1);
+        /**
+         * @generated
+         */
+        public InfrastructureProvidedRoleFigure() {
+            this.setLineWidth(1);
 
-			createContents();
-			setTargetDecoration(createTargetDecoration());
-		}
+            createContents();
+            setTargetDecoration(createTargetDecoration());
+        }
 
-		/**
-		 * @generated
-		 */
-		private void createContents() {
+        /**
+         * @generated
+         */
+        private void createContents() {
 
-			fFigureInfrastructureProvidesStereotypeLabelFigure = new WrappingLabel();
-			fFigureInfrastructureProvidesStereotypeLabelFigure
-					.setText("<<Provides>>");
+            fFigureInfrastructureProvidesStereotypeLabelFigure = new WrappingLabel();
+            fFigureInfrastructureProvidesStereotypeLabelFigure.setText("<<Provides>>");
 
-			this.add(fFigureInfrastructureProvidesStereotypeLabelFigure);
+            this.add(fFigureInfrastructureProvidesStereotypeLabelFigure);
 
-		}
+        }
 
-		/**
-		 * @generated
-		 */
-		private RotatableDecoration createTargetDecoration() {
-			PolylineDecoration df = new PolylineDecoration();
-			df.setLineWidth(1);
-			PointList pl = new PointList();
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
-			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
-			df.setTemplate(pl);
-			df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
-			return df;
-		}
+        /**
+         * @generated
+         */
+        private RotatableDecoration createTargetDecoration() {
+            PolylineDecoration df = new PolylineDecoration();
+            df.setLineWidth(1);
+            PointList pl = new PointList();
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
+            pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
+            df.setTemplate(pl);
+            df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
+            return df;
+        }
 
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureInfrastructureProvidesStereotypeLabelFigure() {
-			return fFigureInfrastructureProvidesStereotypeLabelFigure;
-		}
+        /**
+         * @generated
+         */
+        public WrappingLabel getFigureInfrastructureProvidesStereotypeLabelFigure() {
+            return fFigureInfrastructureProvidesStereotypeLabelFigure;
+        }
 
-	}
+    }
 
 }

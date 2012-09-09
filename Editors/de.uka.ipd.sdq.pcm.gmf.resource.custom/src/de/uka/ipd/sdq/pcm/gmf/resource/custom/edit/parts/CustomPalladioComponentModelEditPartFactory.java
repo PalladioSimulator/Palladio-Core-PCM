@@ -99,8 +99,10 @@ public class CustomPalladioComponentModelEditPartFactory extends PalladioCompone
 
     /**
      * 
-     * @param context an edit part
-     * @param model and Object
+     * @param context
+     *            an edit part
+     * @param model
+     *            and Object
      * @return an edit part
      */
     private EditPart createUnrecognizedEditPart(EditPart context, Object model) {

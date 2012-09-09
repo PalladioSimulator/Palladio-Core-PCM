@@ -25,7 +25,9 @@ public class CustomAcquireActionEntityName2EditPart extends AcquireActionEntityN
         super(view);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityName2EditPart#getLabelText()
      */
     @Override

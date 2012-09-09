@@ -9,10 +9,10 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.RepositoryCanonicalEditPo
 
 public class CustomRepositoryCanonicalEditPolicy extends RepositoryCanonicalEditPolicy {
 
-	// To fix GMF bug #189589:
-	@Override
-	protected boolean shouldDeleteView(View view) {
-		return view.getEAnnotation("Shortcut") == null;
-	}
+    // To fix GMF bug #189589:
+    @Override
+    protected boolean shouldDeleteView(View view) {
+        return view.getEAnnotation("Shortcut") == null;
+    }
 
 }

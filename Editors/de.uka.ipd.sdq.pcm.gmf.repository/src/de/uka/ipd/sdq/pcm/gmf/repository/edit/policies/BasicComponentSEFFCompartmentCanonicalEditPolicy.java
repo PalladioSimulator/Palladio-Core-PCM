@@ -24,67 +24,63 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 /**
  * @generated
  */
-public class BasicComponentSEFFCompartmentCanonicalEditPolicy extends
-		CanonicalEditPolicy {
+public class BasicComponentSEFFCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	Set myFeaturesToSynchronize;
+    /**
+     * @generated
+     */
+    Set myFeaturesToSynchronize;
 
-	/**
-	 * @generated
-	 */
-	protected List getSemanticChildrenList() {
-		View viewObject = (View) getHost().getModel();
-		List result = new LinkedList();
-		for (Iterator it = PalladioComponentModelDiagramUpdater
-				.getBasicComponentSEFFCompartment_7102SemanticChildren(
-						viewObject).iterator(); it.hasNext();) {
-			result.add(((PalladioComponentModelNodeDescriptor) it.next())
-					.getModelElement());
-		}
-		return result;
-	}
+    /**
+     * @generated
+     */
+    protected List getSemanticChildrenList() {
+        View viewObject = (View) getHost().getModel();
+        List result = new LinkedList();
+        for (Iterator it = PalladioComponentModelDiagramUpdater.getBasicComponentSEFFCompartment_7102SemanticChildren(
+                viewObject).iterator(); it.hasNext();) {
+            result.add(((PalladioComponentModelNodeDescriptor) it.next()).getModelElement());
+        }
+        return result;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean isOrphaned(Collection semanticChildren, final View view) {
-		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case ResourceDemandingSEFFEditPart.VISUAL_ID:
-			if (!semanticChildren.contains(view.getElement())) {
-				return true;
-			}
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean isOrphaned(Collection semanticChildren, final View view) {
+        int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        switch (visualID) {
+        case ResourceDemandingSEFFEditPart.VISUAL_ID:
+            if (!semanticChildren.contains(view.getElement())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getDefaultFactoryHint() {
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected String getDefaultFactoryHint() {
+        return null;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize
-					.add(RepositoryPackage.eINSTANCE
-							.getBasicComponent_ServiceEffectSpecifications__BasicComponent());
-		}
-		return myFeaturesToSynchronize;
-	}
+    /**
+     * @generated
+     */
+    protected Set getFeaturesToSynchronize() {
+        if (myFeaturesToSynchronize == null) {
+            myFeaturesToSynchronize = new HashSet();
+            myFeaturesToSynchronize.add(RepositoryPackage.eINSTANCE
+                    .getBasicComponent_ServiceEffectSpecifications__BasicComponent());
+        }
+        return myFeaturesToSynchronize;
+    }
 
-	protected CreateViewRequest.ViewDescriptor getViewDescriptor(
-			IAdaptable elementAdapter, Class viewKind, String hint, int index) {
+    protected CreateViewRequest.ViewDescriptor getViewDescriptor(IAdaptable elementAdapter, Class viewKind,
+            String hint, int index) {
 
-		return new CreateViewRequest.ViewDescriptor(elementAdapter, viewKind,
-				hint, index, true, host().getDiagramPreferencesHint());
-	}
+        return new CreateViewRequest.ViewDescriptor(elementAdapter, viewKind, hint, index, true, host()
+                .getDiagramPreferencesHint());
+    }
 }

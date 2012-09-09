@@ -26,8 +26,12 @@ public class CustomCollectionIteratorParameterLabelEditPart extends CollectionIt
         super(view);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart#getLabelText()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart#getLabelText
+     * ()
      */
     @Override
     protected String getLabelText() {
@@ -43,8 +47,11 @@ public class CustomCollectionIteratorParameterLabelEditPart extends CollectionIt
         return text;
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart#addSemanticListeners()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart#
+     * addSemanticListeners()
      */
     @Override
     protected void addSemanticListeners() {
@@ -52,8 +59,11 @@ public class CustomCollectionIteratorParameterLabelEditPart extends CollectionIt
         this.addListenerFilter("SemanticModel", this, action); //$NON-NLS-1$
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart#removeSemanticListeners()
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart#
+     * removeSemanticListeners()
      */
     @Override
     protected void removeSemanticListeners() {

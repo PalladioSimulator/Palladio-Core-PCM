@@ -20,7 +20,8 @@ public class CustomProcessingResourceSpecificationActiveResourceTypeLabelEditPar
 
     /**
      * 
-     * @param view a View
+     * @param view
+     *            a View
      */
     public CustomProcessingResourceSpecificationActiveResourceTypeLabelEditPart(View view) {
         super(view);

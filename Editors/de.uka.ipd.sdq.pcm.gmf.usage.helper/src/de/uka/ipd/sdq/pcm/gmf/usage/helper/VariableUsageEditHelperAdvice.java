@@ -38,152 +38,131 @@ import de.uka.ipd.sdq.stoex.StoexFactory;
 
 /**
  * @author admin
- *
+ * 
  */
-public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
-		implements IEditHelperAdvice {
+public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		EObject resource = null;
-		EntryLevelSystemCall systemCall = getCall(request.getElementToConfigure());
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
+        EObject resource = null;
+        EntryLevelSystemCall systemCall = getCall(request.getElementToConfigure());
 
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(Repository.class);
-		filterList.add(Signature.class);
+        ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(Repository.class);
+        filterList.add(Signature.class);
 
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, 
-				additionalReferences,
-				systemCall.getOperationSignature__EntryLevelSystemCall());
-		/**
-		 * set a ContentProvider for dialog TreeViewer
-		 */
-		dialog.setViewerContentProvider(new VariableUsageInputParameterContentProvider());
-		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
-		adapterFactory
-				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory
-				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
-		adapterFactory
-				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-		/**
-		 * set a LabelProvider for dialog TreeViewer
-		 */
-		dialog
-				.setViewerLabelProvider(new AdapterFactoryLabelProvider(
-						new VariableUsageItemProviderAdapterFactory(
-								new PalladioItemProviderAdapterFactory(
-										adapterFactory))));
-		dialog.open();
-		
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof DataTypeContainer)
-				&& !(dialog.getResult() instanceof InnerDeclarationContainer)
-				   && !(dialog.getResult() instanceof Parameter))
-			return new CanceledCommand();
-	
-		resource = (EObject) dialog.getResult();
-		
-		AbstractNamedReference namedReference = setNamedReference(resource, null, true);
+        ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences,
+                systemCall.getOperationSignature__EntryLevelSystemCall());
+        /**
+         * set a ContentProvider for dialog TreeViewer
+         */
+        dialog.setViewerContentProvider(new VariableUsageInputParameterContentProvider());
+        ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
+        adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+        /**
+         * set a LabelProvider for dialog TreeViewer
+         */
+        dialog.setViewerLabelProvider(new AdapterFactoryLabelProvider(new VariableUsageItemProviderAdapterFactory(
+                new PalladioItemProviderAdapterFactory(adapterFactory))));
+        dialog.open();
 
-		ICommand cmd = new SetValueCommand(new SetRequest(request
-				.getElementToConfigure(), ParameterPackage.eINSTANCE
-				.getVariableUsage_NamedReference__VariableUsage(),
-				namedReference));
-		return cmd;
-	}
+        if (dialog.getResult() == null)
+            return new CanceledCommand();
+        if (!(dialog.getResult() instanceof DataTypeContainer)
+                && !(dialog.getResult() instanceof InnerDeclarationContainer)
+                && !(dialog.getResult() instanceof Parameter))
+            return new CanceledCommand();
 
-	/**
-	 * @return - String: specification of VariableCharacterisation
-	 */
-	private AbstractNamedReference setNamedReference(EObject object,
-			AbstractNamedReference namedReference, boolean last) {
-		/**
-		 * Parameter
-		 */
-		if (object instanceof Parameter) {
-			Parameter parameter = (Parameter) object;
-			AbstractNamedReference parameterReference = referenceFactory(
-					parameter.getParameterName(), last);
-			if (!last) {
-				((NamespaceReference) parameterReference)
-						.setInnerReference_NamespaceReference(namedReference);
-			}
-			return parameterReference;
-		}
+        resource = (EObject) dialog.getResult();
 
-		/**
-		 * TreeType container for CollectionDataType
-		 * 
-		 * @see de.uka.ipd.sdq.pcm.gmf.seff.helper.VariableUsageContentProvider.TreeType
-		 */
-		if (object instanceof DataTypeContainer) {
-			DataTypeContainer treeType = (DataTypeContainer) object;
-			if (treeType.getParent() != null) {
-				AbstractNamedReference treetypeReference = referenceFactory(
-						"INNER", last);
-				if (!last) {
-					((NamespaceReference) treetypeReference)
-							.setInnerReference_NamespaceReference(namedReference);
-				}
-				return setNamedReference((EObject) treeType.getParent(),
-						treetypeReference, false);
-			}
-		}
+        AbstractNamedReference namedReference = setNamedReference(resource, null, true);
 
-		/**
-		 * TreeDeclaration container for InnerDeclaration
-		 * 
-		 * @see de.uka.ipd.sdq.pcm.gmf.seff.helper.VariableUsageContentProvider.TreeDeclaration
-		 */
-		if (object instanceof InnerDeclarationContainer) {
-			InnerDeclarationContainer treeDeclaration = (InnerDeclarationContainer) object;
-			InnerDeclaration declaration = (InnerDeclaration) treeDeclaration
-					.getObject();
+        ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                ParameterPackage.eINSTANCE.getVariableUsage_NamedReference__VariableUsage(), namedReference));
+        return cmd;
+    }
 
-			AbstractNamedReference declarationReference = referenceFactory(
-					declaration.getEntityName(), last);
-			if (!last) {
-				((NamespaceReference) declarationReference)
-						.setInnerReference_NamespaceReference(namedReference);
-			}
-			return setNamedReference((EObject) treeDeclaration.getParent(),
-					declarationReference, false);
-		}
+    /**
+     * @return - String: specification of VariableCharacterisation
+     */
+    private AbstractNamedReference setNamedReference(EObject object, AbstractNamedReference namedReference, boolean last) {
+        /**
+         * Parameter
+         */
+        if (object instanceof Parameter) {
+            Parameter parameter = (Parameter) object;
+            AbstractNamedReference parameterReference = referenceFactory(parameter.getParameterName(), last);
+            if (!last) {
+                ((NamespaceReference) parameterReference).setInnerReference_NamespaceReference(namedReference);
+            }
+            return parameterReference;
+        }
 
-		return namedReference;
-	}
+        /**
+         * TreeType container for CollectionDataType
+         * 
+         * @see de.uka.ipd.sdq.pcm.gmf.seff.helper.VariableUsageContentProvider.TreeType
+         */
+        if (object instanceof DataTypeContainer) {
+            DataTypeContainer treeType = (DataTypeContainer) object;
+            if (treeType.getParent() != null) {
+                AbstractNamedReference treetypeReference = referenceFactory("INNER", last);
+                if (!last) {
+                    ((NamespaceReference) treetypeReference).setInnerReference_NamespaceReference(namedReference);
+                }
+                return setNamedReference((EObject) treeType.getParent(), treetypeReference, false);
+            }
+        }
 
-	/**
-	 * Create the AbstractNamedReference and set a string parameter
-	 */
-	private AbstractNamedReference referenceFactory(String string,
-			boolean shouldGenerateVariableReference) {
-		AbstractNamedReference parameterReference = null;
-		if (shouldGenerateVariableReference) {
-			parameterReference = StoexFactory.eINSTANCE
-					.createVariableReference();
-		} else {
-			parameterReference = StoexFactory.eINSTANCE
-					.createNamespaceReference();
-		}
-		parameterReference.setReferenceName(string);
-		return parameterReference;
-	}
+        /**
+         * TreeDeclaration container for InnerDeclaration
+         * 
+         * @see de.uka.ipd.sdq.pcm.gmf.seff.helper.VariableUsageContentProvider.TreeDeclaration
+         */
+        if (object instanceof InnerDeclarationContainer) {
+            InnerDeclarationContainer treeDeclaration = (InnerDeclarationContainer) object;
+            InnerDeclaration declaration = (InnerDeclaration) treeDeclaration.getObject();
 
-	private EntryLevelSystemCall getCall(EObject a) {
-		EObject container = a;
-		while (!(container instanceof EntryLevelSystemCall))
-			container = container.eContainer();
-		if (!(container instanceof EntryLevelSystemCall))
-			return null;
-		return (EntryLevelSystemCall) container;
-	}
+            AbstractNamedReference declarationReference = referenceFactory(declaration.getEntityName(), last);
+            if (!last) {
+                ((NamespaceReference) declarationReference).setInnerReference_NamespaceReference(namedReference);
+            }
+            return setNamedReference((EObject) treeDeclaration.getParent(), declarationReference, false);
+        }
+
+        return namedReference;
+    }
+
+    /**
+     * Create the AbstractNamedReference and set a string parameter
+     */
+    private AbstractNamedReference referenceFactory(String string, boolean shouldGenerateVariableReference) {
+        AbstractNamedReference parameterReference = null;
+        if (shouldGenerateVariableReference) {
+            parameterReference = StoexFactory.eINSTANCE.createVariableReference();
+        } else {
+            parameterReference = StoexFactory.eINSTANCE.createNamespaceReference();
+        }
+        parameterReference.setReferenceName(string);
+        return parameterReference;
+    }
+
+    private EntryLevelSystemCall getCall(EObject a) {
+        EObject container = a;
+        while (!(container instanceof EntryLevelSystemCall))
+            container = container.eContainer();
+        if (!(container instanceof EntryLevelSystemCall))
+            return null;
+        return (EntryLevelSystemCall) container;
+    }
 }

@@ -34,7 +34,9 @@ public class CustomVariableUsage4EditPart extends VariableUsage4EditPart {
         super(view);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage4EditPart#createNodeShape()
      */
     @Override

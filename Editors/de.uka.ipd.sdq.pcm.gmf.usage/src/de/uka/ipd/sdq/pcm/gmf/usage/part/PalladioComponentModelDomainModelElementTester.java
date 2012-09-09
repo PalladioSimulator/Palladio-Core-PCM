@@ -10,20 +10,18 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * @generated
  */
-public class PalladioComponentModelDomainModelElementTester extends
-		PropertyTester {
+public class PalladioComponentModelDomainModelElementTester extends PropertyTester {
 
-	/**
-	 * @generated
-	 */
-	public boolean test(Object receiver, String method, Object[] args,
-			Object expectedValue) {
-		if (false == receiver instanceof EObject) {
-			return false;
-		}
-		EObject eObject = (EObject) receiver;
-		EClass eClass = eObject.eClass();
-		return false;
-	}
+    /**
+     * @generated
+     */
+    public boolean test(Object receiver, String method, Object[] args, Object expectedValue) {
+        if (false == receiver instanceof EObject) {
+            return false;
+        }
+        EObject eObject = (EObject) receiver;
+        EClass eClass = eObject.eClass();
+        return false;
+    }
 
 }

@@ -41,447 +41,480 @@ import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes
  */
 public class BranchEditPart extends ShapeNodeEditPart {
 
-	/**
-	 * @generated
-	 */
-	public static final int VISUAL_ID = 3008;
+    /**
+     * @generated
+     */
+    public static final int VISUAL_ID = 3008;
 
-	/**
-	 * @generated
-	 */
-	protected IFigure contentPane;
+    /**
+     * @generated
+     */
+    protected IFigure contentPane;
 
-	/**
-	 * @generated
-	 */
-	protected IFigure primaryShape;
+    /**
+     * @generated
+     */
+    protected IFigure primaryShape;
 
-	/**
-	 * @generated
-	 */
-	public BranchEditPart(View view) {
-		super(view);
-	}
+    /**
+     * @generated
+     */
+    public BranchEditPart(View view) {
+        super(view);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new BranchItemSemanticEditPolicy());
-		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
-	}
+    /**
+     * @generated
+     */
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new BranchItemSemanticEditPolicy());
+        installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+        // XXX need an SCR to runtime to have another abstract superclass that would let children
+        // add reasonable editpolicies
+        // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected LayoutEditPolicy createLayoutEditPolicy() {
-		LayoutEditPolicy lep = new LayoutEditPolicy() {
+    /**
+     * @generated
+     */
+    protected LayoutEditPolicy createLayoutEditPolicy() {
+        LayoutEditPolicy lep = new LayoutEditPolicy() {
 
-			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
-				}
-				return result;
-			}
+            protected EditPolicy createChildEditPolicy(EditPart child) {
+                EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+                if (result == null) {
+                    result = new NonResizableEditPolicy();
+                }
+                return result;
+            }
 
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
+            protected Command getMoveChildrenCommand(Request request) {
+                return null;
+            }
 
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
-			}
-		};
-		return lep;
-	}
+            protected Command getCreateCommand(CreateRequest request) {
+                return null;
+            }
+        };
+        return lep;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected IFigure createNodeShape() {
-		UsageBranchFigure figure = new UsageBranchFigure();
-		return primaryShape = figure;
-	}
+    /**
+     * @generated
+     */
+    protected IFigure createNodeShape() {
+        UsageBranchFigure figure = new UsageBranchFigure();
+        return primaryShape = figure;
+    }
 
-	/**
-	 * @generated
-	 */
-	public UsageBranchFigure getPrimaryShape() {
-		return (UsageBranchFigure) primaryShape;
-	}
+    /**
+     * @generated
+     */
+    public UsageBranchFigure getPrimaryShape() {
+        return (UsageBranchFigure) primaryShape;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getFigureBranchCompartment();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane
-					.add(((BranchUsageBranchTransitionsCompartmentEditPart) childEditPart)
-							.getFigure());
-			return true;
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean addFixedChild(EditPart childEditPart) {
+        if (childEditPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
+            IFigure pane = getPrimaryShape().getFigureBranchCompartment();
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
+                                    // own way
+            pane.add(((BranchUsageBranchTransitionsCompartmentEditPart) childEditPart).getFigure());
+            return true;
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getFigureBranchCompartment();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane
-					.remove(((BranchUsageBranchTransitionsCompartmentEditPart) childEditPart)
-							.getFigure());
-			return true;
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    protected boolean removeFixedChild(EditPart childEditPart) {
+        if (childEditPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
+            IFigure pane = getPrimaryShape().getFigureBranchCompartment();
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
+                                    // own way
+            pane.remove(((BranchUsageBranchTransitionsCompartmentEditPart) childEditPart).getFigure());
+            return true;
+        }
+        return false;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
+    /**
+     * @generated
+     */
+    protected void addChildVisual(EditPart childEditPart, int index) {
+        if (addFixedChild(childEditPart)) {
+            return;
+        }
+        super.addChildVisual(childEditPart, -1);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void removeChildVisual(EditPart childEditPart) {
-		if (removeFixedChild(childEditPart)) {
-			return;
-		}
-		super.removeChildVisual(childEditPart);
-	}
+    /**
+     * @generated
+     */
+    protected void removeChildVisual(EditPart childEditPart) {
+        if (removeFixedChild(childEditPart)) {
+            return;
+        }
+        super.removeChildVisual(childEditPart);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
-			return getPrimaryShape().getFigureBranchCompartment();
-		}
-		return getContentPane();
-	}
+    /**
+     * @generated
+     */
+    protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+        if (editPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
+            return getPrimaryShape().getFigureBranchCompartment();
+        }
+        return getContentPane();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
-		return result;
-	}
+    /**
+     * @generated
+     */
+    protected NodeFigure createNodePlate() {
+        DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+        return result;
+    }
 
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
-	protected NodeFigure createNodeFigure() {
-		NodeFigure figure = createNodePlate();
-		figure.setLayoutManager(new StackLayout());
-		IFigure shape = createNodeShape();
-		figure.add(shape);
-		contentPane = setupContentPane(shape);
-		return figure;
-	}
+    /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
+     * @generated
+     */
+    protected NodeFigure createNodeFigure() {
+        NodeFigure figure = createNodePlate();
+        figure.setLayoutManager(new StackLayout());
+        IFigure shape = createNodeShape();
+        figure.add(shape);
+        contentPane = setupContentPane(shape);
+        return figure;
+    }
 
-	/**
-	 * Default implementation treats passed figure as content pane.
-	 * Respects layout one may have set for generated figure.
-	 * @param nodeShape instance of generated figure class
-	 * @generated
-	 */
-	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(5);
-			nodeShape.setLayoutManager(layout);
-		}
-		return nodeShape; // use nodeShape itself as contentPane
-	}
+    /**
+     * Default implementation treats passed figure as content pane. Respects layout one may have set
+     * for generated figure.
+     * 
+     * @param nodeShape
+     *            instance of generated figure class
+     * @generated
+     */
+    protected IFigure setupContentPane(IFigure nodeShape) {
+        if (nodeShape.getLayoutManager() == null) {
+            ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+            layout.setSpacing(5);
+            nodeShape.setLayoutManager(layout);
+        }
+        return nodeShape; // use nodeShape itself as contentPane
+    }
 
-	/**
-	 * @generated
-	 */
-	public IFigure getContentPane() {
-		if (contentPane != null) {
-			return contentPane;
-		}
-		return super.getContentPane();
-	}
+    /**
+     * @generated
+     */
+    public IFigure getContentPane() {
+        if (contentPane != null) {
+            return contentPane;
+        }
+        return super.getContentPane();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void setForegroundColor(Color color) {
-		if (primaryShape != null) {
-			primaryShape.setForegroundColor(color);
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void setForegroundColor(Color color) {
+        if (primaryShape != null) {
+            primaryShape.setForegroundColor(color);
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void setBackgroundColor(Color color) {
-		if (primaryShape != null) {
-			primaryShape.setBackgroundColor(color);
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void setBackgroundColor(Color color) {
+        if (primaryShape != null) {
+            primaryShape.setBackgroundColor(color);
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void setLineWidth(int width) {
-		if (primaryShape instanceof Shape) {
-			((Shape) primaryShape).setLineWidth(width);
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void setLineWidth(int width) {
+        if (primaryShape instanceof Shape) {
+            ((Shape) primaryShape).setLineWidth(width);
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void setLineType(int style) {
-		if (primaryShape instanceof Shape) {
-			((Shape) primaryShape).setLineStyle(style);
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void setLineType(int style) {
+        if (primaryShape instanceof Shape) {
+            ((Shape) primaryShape).setLineStyle(style);
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSource() {
-		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		types
-				.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
-		return types;
-	}
+    /**
+     * @generated
+     */
+    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
+        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
+                                                                                            * <org.
+                                                                                            * eclipse
+                                                                                            * .gmf.
+                                                                                            * runtime
+                                                                                            * .
+                                                                                            * emf.type
+                                                                                            * .core.
+                                                                                            * IElementType
+                                                                                            * >
+                                                                                            */();
+        types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
+        return types;
+    }
 
-	/**
-	 * @generated
-	 */
-	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
-		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		if (targetEditPart instanceof StartEditPart) {
-			types
-					.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
-		}
-		if (targetEditPart instanceof StopEditPart) {
-			types
-					.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
-		}
-		if (targetEditPart instanceof EntryLevelSystemCallEditPart) {
-			types
-					.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
-		}
-		if (targetEditPart instanceof LoopEditPart) {
-			types
-					.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
-		}
-		if (targetEditPart instanceof de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchEditPart) {
-			types
-					.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
-		}
-		if (targetEditPart instanceof DelayEditPart) {
-			types
-					.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
-		}
-		return types;
-	}
+    /**
+     * @generated
+     */
+    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
+            IGraphicalEditPart targetEditPart) {
+        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
+                                                                                            * <org.
+                                                                                            * eclipse
+                                                                                            * .gmf.
+                                                                                            * runtime
+                                                                                            * .
+                                                                                            * emf.type
+                                                                                            * .core.
+                                                                                            * IElementType
+                                                                                            * >
+                                                                                            */();
+        if (targetEditPart instanceof StartEditPart) {
+            types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
+        }
+        if (targetEditPart instanceof StopEditPart) {
+            types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
+        }
+        if (targetEditPart instanceof EntryLevelSystemCallEditPart) {
+            types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
+        }
+        if (targetEditPart instanceof LoopEditPart) {
+            types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
+        }
+        if (targetEditPart instanceof de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchEditPart) {
+            types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
+        }
+        if (targetEditPart instanceof DelayEditPart) {
+            types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
+        }
+        return types;
+    }
 
-	/**
-	 * @generated
-	 */
-	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForTarget(
-			IElementType relationshipType) {
-		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types.add(PalladioComponentModelElementTypes.Start_3001);
-		}
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types.add(PalladioComponentModelElementTypes.Stop_3002);
-		}
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types
-					.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-		}
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types.add(PalladioComponentModelElementTypes.Loop_3005);
-		}
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types.add(PalladioComponentModelElementTypes.Branch_3008);
-		}
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types.add(PalladioComponentModelElementTypes.Delay_3017);
-		}
-		return types;
-	}
+    /**
+     * @generated
+     */
+    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
+            IElementType relationshipType) {
+        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
+                                                                                            * <org.
+                                                                                            * eclipse
+                                                                                            * .gmf.
+                                                                                            * runtime
+                                                                                            * .
+                                                                                            * emf.type
+                                                                                            * .core.
+                                                                                            * IElementType
+                                                                                            * >
+                                                                                            */();
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.Start_3001);
+        }
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.Stop_3002);
+        }
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
+        }
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.Loop_3005);
+        }
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.Branch_3008);
+        }
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.Delay_3017);
+        }
+        return types;
+    }
 
-	/**
-	 * @generated
-	 */
-	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnTarget() {
-		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		types
-				.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
-		return types;
-	}
+    /**
+     * @generated
+     */
+    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
+        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
+                                                                                            * <org.
+                                                                                            * eclipse
+                                                                                            * .gmf.
+                                                                                            * runtime
+                                                                                            * .
+                                                                                            * emf.type
+                                                                                            * .core.
+                                                                                            * IElementType
+                                                                                            * >
+                                                                                            */();
+        types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
+        return types;
+    }
 
-	/**
-	 * @generated
-	 */
-	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForSource(
-			IElementType relationshipType) {
-		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types.add(PalladioComponentModelElementTypes.Start_3001);
-		}
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types.add(PalladioComponentModelElementTypes.Stop_3002);
-		}
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types
-					.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-		}
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types.add(PalladioComponentModelElementTypes.Loop_3005);
-		}
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types.add(PalladioComponentModelElementTypes.Branch_3008);
-		}
-		if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
-			types.add(PalladioComponentModelElementTypes.Delay_3017);
-		}
-		return types;
-	}
+    /**
+     * @generated
+     */
+    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
+            IElementType relationshipType) {
+        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
+                                                                                            * <org.
+                                                                                            * eclipse
+                                                                                            * .gmf.
+                                                                                            * runtime
+                                                                                            * .
+                                                                                            * emf.type
+                                                                                            * .core.
+                                                                                            * IElementType
+                                                                                            * >
+                                                                                            */();
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.Start_3001);
+        }
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.Stop_3002);
+        }
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
+        }
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.Loop_3005);
+        }
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.Branch_3008);
+        }
+        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
+            types.add(PalladioComponentModelElementTypes.Delay_3017);
+        }
+        return types;
+    }
 
-	/**
-	 * @generated
-	 */
-	public class UsageBranchFigure extends RoundedRectangle {
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureUsageBranchStereotypeLabelFigure;
+    /**
+     * @generated
+     */
+    public class UsageBranchFigure extends RoundedRectangle {
+        /**
+         * @generated
+         */
+        private WrappingLabel fFigureUsageBranchStereotypeLabelFigure;
 
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fFigureBranchCompartment;
+        /**
+         * @generated
+         */
+        private RectangleFigure fFigureBranchCompartment;
 
-		/**
-		 * @generated
-		 */
-		public UsageBranchFigure() {
+        /**
+         * @generated
+         */
+        public UsageBranchFigure() {
 
-			GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;
-			layoutThis.horizontalSpacing = 0;
-			layoutThis.verticalSpacing = 0;
-			layoutThis.marginWidth = 0;
-			layoutThis.marginHeight = 0;
-			this.setLayoutManager(layoutThis);
+            GridLayout layoutThis = new GridLayout();
+            layoutThis.numColumns = 1;
+            layoutThis.makeColumnsEqualWidth = true;
+            layoutThis.horizontalSpacing = 0;
+            layoutThis.verticalSpacing = 0;
+            layoutThis.marginWidth = 0;
+            layoutThis.marginHeight = 0;
+            this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
-			this.setLineWidth(1);
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0),
-					getMapMode().DPtoLP(0)));
-			createContents();
-		}
+            this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
+            this.setLineWidth(1);
+            this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
+            createContents();
+        }
 
-		/**
-		 * @generated
-		 */
-		private void createContents() {
+        /**
+         * @generated
+         */
+        private void createContents() {
 
-			fFigureUsageBranchStereotypeLabelFigure = new WrappingLabel();
-			fFigureUsageBranchStereotypeLabelFigure.setText("<<Branch>>");
-			fFigureUsageBranchStereotypeLabelFigure.setBorder(new MarginBorder(
-					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
-					getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
+            fFigureUsageBranchStereotypeLabelFigure = new WrappingLabel();
+            fFigureUsageBranchStereotypeLabelFigure.setText("<<Branch>>");
+            fFigureUsageBranchStereotypeLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
+                    .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			GridData constraintFFigureUsageBranchStereotypeLabelFigure = new GridData();
-			constraintFFigureUsageBranchStereotypeLabelFigure.verticalAlignment = GridData.BEGINNING;
-			constraintFFigureUsageBranchStereotypeLabelFigure.horizontalAlignment = GridData.CENTER;
-			constraintFFigureUsageBranchStereotypeLabelFigure.horizontalIndent = 0;
-			constraintFFigureUsageBranchStereotypeLabelFigure.horizontalSpan = 1;
-			constraintFFigureUsageBranchStereotypeLabelFigure.verticalSpan = 1;
-			constraintFFigureUsageBranchStereotypeLabelFigure.grabExcessHorizontalSpace = true;
-			constraintFFigureUsageBranchStereotypeLabelFigure.grabExcessVerticalSpace = false;
-			this.add(fFigureUsageBranchStereotypeLabelFigure,
-					constraintFFigureUsageBranchStereotypeLabelFigure);
+            GridData constraintFFigureUsageBranchStereotypeLabelFigure = new GridData();
+            constraintFFigureUsageBranchStereotypeLabelFigure.verticalAlignment = GridData.BEGINNING;
+            constraintFFigureUsageBranchStereotypeLabelFigure.horizontalAlignment = GridData.CENTER;
+            constraintFFigureUsageBranchStereotypeLabelFigure.horizontalIndent = 0;
+            constraintFFigureUsageBranchStereotypeLabelFigure.horizontalSpan = 1;
+            constraintFFigureUsageBranchStereotypeLabelFigure.verticalSpan = 1;
+            constraintFFigureUsageBranchStereotypeLabelFigure.grabExcessHorizontalSpace = true;
+            constraintFFigureUsageBranchStereotypeLabelFigure.grabExcessVerticalSpace = false;
+            this.add(fFigureUsageBranchStereotypeLabelFigure, constraintFFigureUsageBranchStereotypeLabelFigure);
 
-			fFigureBranchCompartment = new RectangleFigure();
-			fFigureBranchCompartment.setFill(false);
-			fFigureBranchCompartment.setOutline(false);
-			fFigureBranchCompartment.setLineWidth(1);
-			fFigureBranchCompartment.setMinimumSize(new Dimension(getMapMode()
-					.DPtoLP(0), getMapMode().DPtoLP(0)));
+            fFigureBranchCompartment = new RectangleFigure();
+            fFigureBranchCompartment.setFill(false);
+            fFigureBranchCompartment.setOutline(false);
+            fFigureBranchCompartment.setLineWidth(1);
+            fFigureBranchCompartment.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 
-			GridData constraintFFigureBranchCompartment = new GridData();
-			constraintFFigureBranchCompartment.verticalAlignment = GridData.FILL;
-			constraintFFigureBranchCompartment.horizontalAlignment = GridData.FILL;
-			constraintFFigureBranchCompartment.horizontalIndent = 0;
-			constraintFFigureBranchCompartment.horizontalSpan = 1;
-			constraintFFigureBranchCompartment.verticalSpan = 1;
-			constraintFFigureBranchCompartment.grabExcessHorizontalSpace = true;
-			constraintFFigureBranchCompartment.grabExcessVerticalSpace = true;
-			this.add(fFigureBranchCompartment,
-					constraintFFigureBranchCompartment);
+            GridData constraintFFigureBranchCompartment = new GridData();
+            constraintFFigureBranchCompartment.verticalAlignment = GridData.FILL;
+            constraintFFigureBranchCompartment.horizontalAlignment = GridData.FILL;
+            constraintFFigureBranchCompartment.horizontalIndent = 0;
+            constraintFFigureBranchCompartment.horizontalSpan = 1;
+            constraintFFigureBranchCompartment.verticalSpan = 1;
+            constraintFFigureBranchCompartment.grabExcessHorizontalSpace = true;
+            constraintFFigureBranchCompartment.grabExcessVerticalSpace = true;
+            this.add(fFigureBranchCompartment, constraintFFigureBranchCompartment);
 
-		}
+        }
 
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureUsageBranchStereotypeLabelFigure() {
-			return fFigureUsageBranchStereotypeLabelFigure;
-		}
+        /**
+         * @generated
+         */
+        public WrappingLabel getFigureUsageBranchStereotypeLabelFigure() {
+            return fFigureUsageBranchStereotypeLabelFigure;
+        }
 
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getFigureBranchCompartment() {
-			return fFigureBranchCompartment;
-		}
+        /**
+         * @generated
+         */
+        public RectangleFigure getFigureBranchCompartment() {
+            return fFigureBranchCompartment;
+        }
 
-		/**
-		 * @generated
-		 */
-		private boolean myUseLocalCoordinates = false;
+        /**
+         * @generated
+         */
+        private boolean myUseLocalCoordinates = false;
 
-		/**
-		 * @generated
-		 */
-		protected boolean useLocalCoordinates() {
-			return myUseLocalCoordinates;
-		}
+        /**
+         * @generated
+         */
+        protected boolean useLocalCoordinates() {
+            return myUseLocalCoordinates;
+        }
 
-		/**
-		 * @generated
-		 */
-		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-			myUseLocalCoordinates = useLocalCoordinates;
-		}
+        /**
+         * @generated
+         */
+        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
+            myUseLocalCoordinates = useLocalCoordinates;
+        }
 
-	}
+    }
 
 }

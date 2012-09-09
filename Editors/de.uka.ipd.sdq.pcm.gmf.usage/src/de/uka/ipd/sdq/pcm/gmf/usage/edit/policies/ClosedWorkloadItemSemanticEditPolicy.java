@@ -16,33 +16,31 @@ import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes
 /**
  * @generated
  */
-public class ClosedWorkloadItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class ClosedWorkloadItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public ClosedWorkloadItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.ClosedWorkload_3015);
-	}
+    /**
+     * @generated
+     */
+    public ClosedWorkloadItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.ClosedWorkload_3015);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
-		cmd.setTransactionNestingEnabled(false);
-		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-		if (annotation == null) {
-			// there are indirectly referenced children, need extra commands: false
-			addDestroyShortcutsCommand(cmd, view);
-			// delete host element
-			cmd.add(new DestroyElementCommand(req));
-		} else {
-			cmd.add(new DeleteCommand(getEditingDomain(), view));
-		}
-		return getGEFWrapper(cmd.reduce());
-	}
+    /**
+     * @generated
+     */
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        View view = (View) getHost().getModel();
+        CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+        cmd.setTransactionNestingEnabled(false);
+        EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+        if (annotation == null) {
+            // there are indirectly referenced children, need extra commands: false
+            addDestroyShortcutsCommand(cmd, view);
+            // delete host element
+            cmd.add(new DestroyElementCommand(req));
+        } else {
+            cmd.add(new DeleteCommand(getEditingDomain(), view));
+        }
+        return getGEFWrapper(cmd.reduce());
+    }
 }

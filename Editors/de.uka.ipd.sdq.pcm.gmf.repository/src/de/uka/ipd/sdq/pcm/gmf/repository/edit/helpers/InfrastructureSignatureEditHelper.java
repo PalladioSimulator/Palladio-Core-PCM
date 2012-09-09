@@ -6,6 +6,5 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers;
 /**
  * @generated
  */
-public class InfrastructureSignatureEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class InfrastructureSignatureEditHelper extends PalladioComponentModelBaseEditHelper {
 }

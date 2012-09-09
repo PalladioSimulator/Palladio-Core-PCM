@@ -25,7 +25,9 @@ public class CustomReleaseActionEntityName2EditPart extends ReleaseActionEntityN
         super(view);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityName2EditPart#getLabelText()
      */
     @Override

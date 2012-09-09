@@ -12,14 +12,13 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDi
  */
 public class DiagramAppearancePreferencePage extends AppearancePreferencePage {
 
-	/**
-	 * @generated
-	 */
-	/**
-	 * @generated
-	 */
-	public DiagramAppearancePreferencePage() {
-		setPreferenceStore(PalladioComponentModelRepositoryDiagramEditorPlugin
-				.getInstance().getPreferenceStore());
-	}
+    /**
+     * @generated
+     */
+    /**
+     * @generated
+     */
+    public DiagramAppearancePreferencePage() {
+        setPreferenceStore(PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().getPreferenceStore());
+    }
 }

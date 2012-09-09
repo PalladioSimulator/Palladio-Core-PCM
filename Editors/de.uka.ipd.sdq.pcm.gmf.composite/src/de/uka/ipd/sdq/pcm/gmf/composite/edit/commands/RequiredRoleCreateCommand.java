@@ -26,68 +26,62 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  */
 public class RequiredRoleCreateCommand extends EditElementCommand {
 
-	/**
-	 * @generated
-	 */
-	public RequiredRoleCreateCommand(CreateElementRequest req) {
-		super(req.getLabel(), null, req);
-	}
+    /**
+     * @generated
+     */
+    public RequiredRoleCreateCommand(CreateElementRequest req) {
+        super(req.getLabel(), null, req);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EObject getElementToEdit() {
-		EObject container = ((CreateElementRequest) getRequest())
-				.getContainer();
-		if (container instanceof View) {
-			container = ((View) container).getElement();
-		}
-		return container;
-	}
+    /**
+     * @generated
+     */
+    protected EObject getElementToEdit() {
+        EObject container = ((CreateElementRequest) getRequest()).getContainer();
+        if (container instanceof View) {
+            container = ((View) container).getElement();
+        }
+        return container;
+    }
 
-	/**
-	 * @generated
-	 */
-	public boolean canExecute() {
-		return true;
+    /**
+     * @generated
+     */
+    public boolean canExecute() {
+        return true;
 
-	}
+    }
 
-	/**
-	 * @generated NOT
-	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		RequiredRole newElement = RepositoryFactory.eINSTANCE
-				.createOperationRequiredRole(); // changed createRequiredRole to 
+    /**
+     * @generated NOT
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        RequiredRole newElement = RepositoryFactory.eINSTANCE.createOperationRequiredRole(); // changed
+                                                                                             // createRequiredRole
+                                                                                             // to
 
-		InterfaceRequiringEntity owner = (InterfaceRequiringEntity) getElementToEdit();
-		owner.getRequiredRoles_InterfaceRequiringEntity().add(newElement);
+        InterfaceRequiringEntity owner = (InterfaceRequiringEntity) getElementToEdit();
+        owner.getRequiredRoles_InterfaceRequiringEntity().add(newElement);
 
-		doConfigure(newElement, monitor, info);
+        doConfigure(newElement, monitor, info);
 
-		((CreateElementRequest) getRequest()).setNewElement(newElement);
-		return CommandResult.newOKCommandResult(newElement);
-	}
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void doConfigure(RequiredRole newElement,
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest())
-				.getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(
-				getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest())
-				.getClientContext());
-		configureRequest.addParameters(getRequest().getParameters());
-		ICommand configureCommand = elementType
-				.getEditCommand(configureRequest);
-		if (configureCommand != null && configureCommand.canExecute()) {
-			configureCommand.execute(monitor, info);
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void doConfigure(RequiredRole newElement, IProgressMonitor monitor, IAdaptable info)
+            throws ExecutionException {
+        IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+        ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
+        configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
+        configureRequest.addParameters(getRequest().getParameters());
+        ICommand configureCommand = elementType.getEditCommand(configureRequest);
+        if (configureCommand != null && configureCommand.canExecute()) {
+            configureCommand.execute(monitor, info);
+        }
+    }
 
 }

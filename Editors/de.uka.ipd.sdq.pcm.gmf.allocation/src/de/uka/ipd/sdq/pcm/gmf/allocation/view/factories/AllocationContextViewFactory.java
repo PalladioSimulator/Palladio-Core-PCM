@@ -32,46 +32,36 @@ import org.eclipse.gmf.runtime.notation.View;
  */
 public class AllocationContextViewFactory extends AbstractShapeViewFactory {
 
-	/**
-	 * @generated 
-	 */
-	protected List createStyles(View view) {
-		List styles = new ArrayList();
-		styles.add(NotationFactory.eINSTANCE.createShapeStyle());
-		return styles;
-	}
+    /**
+     * @generated
+     */
+    protected List createStyles(View view) {
+        List styles = new ArrayList();
+        styles.add(NotationFactory.eINSTANCE.createShapeStyle());
+        return styles;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void decorateView(View containerView, View view,
-			IAdaptable semanticAdapter, String semanticHint, int index,
-			boolean persisted) {
-		if (semanticHint == null) {
-			semanticHint = PalladioComponentModelVisualIDRegistry
-					.getType(AllocationContextEditPart.VISUAL_ID);
-			view.setType(semanticHint);
-		}
-		super.decorateView(containerView, view, semanticAdapter, semanticHint,
-				index, persisted);
-		IAdaptable eObjectAdapter = null;
-		EObject eObject = (EObject) semanticAdapter.getAdapter(EObject.class);
-		if (eObject != null) {
-			eObjectAdapter = new EObjectAdapter(eObject);
-		}
-		getViewService()
-				.createNode(
-						eObjectAdapter,
-						view,
-						PalladioComponentModelVisualIDRegistry
-								.getType(AllocationContextEntityNameEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
-		getViewService().createNode(
-				eObjectAdapter,
-				view,
-				PalladioComponentModelVisualIDRegistry
-						.getType(AllocationComponentLabelEditPart.VISUAL_ID),
-				ViewUtil.APPEND, true, getPreferencesHint());
-	}
+    /**
+     * @generated
+     */
+    protected void decorateView(View containerView, View view, IAdaptable semanticAdapter, String semanticHint,
+            int index, boolean persisted) {
+        if (semanticHint == null) {
+            semanticHint = PalladioComponentModelVisualIDRegistry.getType(AllocationContextEditPart.VISUAL_ID);
+            view.setType(semanticHint);
+        }
+        super.decorateView(containerView, view, semanticAdapter, semanticHint, index, persisted);
+        IAdaptable eObjectAdapter = null;
+        EObject eObject = (EObject) semanticAdapter.getAdapter(EObject.class);
+        if (eObject != null) {
+            eObjectAdapter = new EObjectAdapter(eObject);
+        }
+        getViewService().createNode(eObjectAdapter, view,
+                PalladioComponentModelVisualIDRegistry.getType(AllocationContextEntityNameEditPart.VISUAL_ID),
+                ViewUtil.APPEND, true, getPreferencesHint());
+        getViewService().createNode(eObjectAdapter, view,
+                PalladioComponentModelVisualIDRegistry.getType(AllocationComponentLabelEditPart.VISUAL_ID),
+                ViewUtil.APPEND, true, getPreferencesHint());
+    }
 
 }

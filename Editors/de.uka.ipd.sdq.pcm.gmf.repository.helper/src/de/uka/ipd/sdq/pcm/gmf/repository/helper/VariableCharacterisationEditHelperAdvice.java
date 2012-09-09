@@ -15,29 +15,25 @@ import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
-public class VariableCharacterisationEditHelperAdvice extends
-		AbstractEditHelperAdvice implements IEditHelperAdvice {
+public class VariableCharacterisationEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		PCMRandomVariable rv = CoreFactory.eINSTANCE.createPCMRandomVariable();
-		rv.setSpecification("");
-		
-		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				TypeEnum.ANY, rv);
-		dialog.open();
+    @Override
+    protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
+        PCMRandomVariable rv = CoreFactory.eINSTANCE.createPCMRandomVariable();
+        rv.setSpecification("");
 
-		if (dialog.getReturnCode() == Dialog.CANCEL)
-			return new CanceledCommand();
+        StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), TypeEnum.ANY, rv);
+        dialog.open();
 
-		rv.setSpecification(dialog.getResultText());
-		
-		ICommand cmd = new SetValueCommand(
-				new SetRequest(request.getElementToConfigure(),
-				ParameterPackage.eINSTANCE.getVariableCharacterisation_Specification_VariableCharacterisation(),
-				rv));
-		
-		return cmd;
-	}	
+        if (dialog.getReturnCode() == Dialog.CANCEL)
+            return new CanceledCommand();
+
+        rv.setSpecification(dialog.getResultText());
+
+        ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                ParameterPackage.eINSTANCE.getVariableCharacterisation_Specification_VariableCharacterisation(), rv));
+
+        return cmd;
+    }
 }

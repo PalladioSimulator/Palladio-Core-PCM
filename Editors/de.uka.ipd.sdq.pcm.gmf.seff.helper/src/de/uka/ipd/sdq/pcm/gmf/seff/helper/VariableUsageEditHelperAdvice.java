@@ -89,7 +89,8 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice impl
     }
 
     // FIXME: Unusual usage of method names.
-    // Method names should express the function of the method, not the circumstances under which they are called.
+    // Method names should express the function of the method, not the circumstances under which
+    // they are called.
     /**
      * Case external call action output parameter.
      * 

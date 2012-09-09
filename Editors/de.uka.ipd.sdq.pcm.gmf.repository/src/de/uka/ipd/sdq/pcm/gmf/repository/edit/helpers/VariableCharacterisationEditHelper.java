@@ -6,6 +6,5 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers;
 /**
  * @generated
  */
-public class VariableCharacterisationEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class VariableCharacterisationEditHelper extends PalladioComponentModelBaseEditHelper {
 }

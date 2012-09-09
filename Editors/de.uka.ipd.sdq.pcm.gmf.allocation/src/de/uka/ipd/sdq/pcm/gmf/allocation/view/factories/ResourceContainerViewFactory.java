@@ -33,57 +33,45 @@ import org.eclipse.gmf.runtime.notation.View;
  */
 public class ResourceContainerViewFactory extends AbstractShapeViewFactory {
 
-	/**
-	 * @generated 
-	 */
-	protected List createStyles(View view) {
-		List styles = new ArrayList();
-		styles.add(NotationFactory.eINSTANCE.createShapeStyle());
-		return styles;
-	}
+    /**
+     * @generated
+     */
+    protected List createStyles(View view) {
+        List styles = new ArrayList();
+        styles.add(NotationFactory.eINSTANCE.createShapeStyle());
+        return styles;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void decorateView(View containerView, View view,
-			IAdaptable semanticAdapter, String semanticHint, int index,
-			boolean persisted) {
-		if (semanticHint == null) {
-			semanticHint = PalladioComponentModelVisualIDRegistry
-					.getType(ResourceContainerEditPart.VISUAL_ID);
-			view.setType(semanticHint);
-		}
-		super.decorateView(containerView, view, semanticAdapter, semanticHint,
-				index, persisted);
-		if (!AllocationEditPart.MODEL_ID
-				.equals(PalladioComponentModelVisualIDRegistry
-						.getModelID(containerView))) {
-			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE
-					.createEAnnotation();
-			shortcutAnnotation.setSource("Shortcut"); //$NON-NLS-1$
-			shortcutAnnotation.getDetails().put(
-					"modelID", AllocationEditPart.MODEL_ID); //$NON-NLS-1$
-			view.getEAnnotations().add(shortcutAnnotation);
-		}
-		IAdaptable eObjectAdapter = null;
-		EObject eObject = (EObject) semanticAdapter.getAdapter(EObject.class);
-		if (eObject != null) {
-			eObjectAdapter = new EObjectAdapter(eObject);
-		}
-		getViewService()
-				.createNode(
-						eObjectAdapter,
-						view,
-						PalladioComponentModelVisualIDRegistry
-								.getType(ResourceContainerEntityNameEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
-		getViewService()
-				.createNode(
-						eObjectAdapter,
-						view,
-						PalladioComponentModelVisualIDRegistry
-								.getType(ResourceContainerAllocationCompartmentEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
-	}
+    /**
+     * @generated
+     */
+    protected void decorateView(View containerView, View view, IAdaptable semanticAdapter, String semanticHint,
+            int index, boolean persisted) {
+        if (semanticHint == null) {
+            semanticHint = PalladioComponentModelVisualIDRegistry.getType(ResourceContainerEditPart.VISUAL_ID);
+            view.setType(semanticHint);
+        }
+        super.decorateView(containerView, view, semanticAdapter, semanticHint, index, persisted);
+        if (!AllocationEditPart.MODEL_ID.equals(PalladioComponentModelVisualIDRegistry.getModelID(containerView))) {
+            EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE.createEAnnotation();
+            shortcutAnnotation.setSource("Shortcut"); //$NON-NLS-1$
+            shortcutAnnotation.getDetails().put("modelID", AllocationEditPart.MODEL_ID); //$NON-NLS-1$
+            view.getEAnnotations().add(shortcutAnnotation);
+        }
+        IAdaptable eObjectAdapter = null;
+        EObject eObject = (EObject) semanticAdapter.getAdapter(EObject.class);
+        if (eObject != null) {
+            eObjectAdapter = new EObjectAdapter(eObject);
+        }
+        getViewService().createNode(eObjectAdapter, view,
+                PalladioComponentModelVisualIDRegistry.getType(ResourceContainerEntityNameEditPart.VISUAL_ID),
+                ViewUtil.APPEND, true, getPreferencesHint());
+        getViewService().createNode(
+                eObjectAdapter,
+                view,
+                PalladioComponentModelVisualIDRegistry
+                        .getType(ResourceContainerAllocationCompartmentEditPart.VISUAL_ID), ViewUtil.APPEND, true,
+                getPreferencesHint());
+    }
 
 }

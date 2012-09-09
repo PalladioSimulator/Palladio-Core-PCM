@@ -22,49 +22,47 @@ import org.eclipse.gmf.runtime.notation.View;
  */
 public class AllocationContextCreateCommand extends CreateElementCommand {
 
-	/**
-	 * @generated
-	 */
-	public AllocationContextCreateCommand(CreateElementRequest req) {
-		super(req);
-	}
+    /**
+     * @generated
+     */
+    public AllocationContextCreateCommand(CreateElementRequest req) {
+        super(req);
+    }
 
-	private Allocation allocation;
+    private Allocation allocation;
 
-	/**
-	 * @generated not
-	 */
-	public AllocationContextCreateCommand(CreateElementRequest req, Allocation a) {
-		super(req);
-		this.allocation = a;
-	}
+    /**
+     * @generated not
+     */
+    public AllocationContextCreateCommand(CreateElementRequest req, Allocation a) {
+        super(req);
+        this.allocation = a;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EClass getEClassToEdit() {
-		return AllocationPackage.eINSTANCE.getAllocation();
-	}
+    /**
+     * @generated
+     */
+    protected EClass getEClassToEdit() {
+        return AllocationPackage.eINSTANCE.getAllocation();
+    }
 
-	/**
-	 * @generated not
-	 */
-	protected EObject getElementToEdit() {
-		EObject container = allocation;
-		if (container instanceof View) {
-			container = ((View) container).getElement();
-		}
-		return container;
-	}
+    /**
+     * @generated not
+     */
+    protected EObject getElementToEdit() {
+        EObject container = allocation;
+        if (container instanceof View) {
+            container = ((View) container).getElement();
+        }
+        return container;
+    }
 
-	@Override
-	protected EObject doDefaultElementCreation() {
-		AllocationContext ctx = (AllocationContext) super
-				.doDefaultElementCreation();
-		ctx
-				.setResourceContainer_AllocationContext((ResourceContainer) ((CreateElementRequest) this
-						.getRequest()).getContainer());
-		return ctx;
-	}
+    @Override
+    protected EObject doDefaultElementCreation() {
+        AllocationContext ctx = (AllocationContext) super.doDefaultElementCreation();
+        ctx.setResourceContainer_AllocationContext((ResourceContainer) ((CreateElementRequest) this.getRequest())
+                .getContainer());
+        return ctx;
+    }
 
 }

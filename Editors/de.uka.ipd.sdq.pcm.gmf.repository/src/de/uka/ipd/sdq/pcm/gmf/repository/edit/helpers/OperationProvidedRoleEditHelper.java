@@ -6,6 +6,5 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers;
 /**
  * @generated
  */
-public class OperationProvidedRoleEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class OperationProvidedRoleEditHelper extends PalladioComponentModelBaseEditHelper {
 }

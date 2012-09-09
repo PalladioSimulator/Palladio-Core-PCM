@@ -13,28 +13,25 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 /**
  * @generated
  */
-public class ForkActionForkedBehaviours2ItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class ForkActionForkedBehaviours2ItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public ForkActionForkedBehaviours2ItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.ForkAction_2011);
-	}
+    /**
+     * @generated
+     */
+    public ForkActionForkedBehaviours2ItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.ForkAction_2011);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PalladioComponentModelElementTypes.ForkedBehaviour_3027 == req
-				.getElementType()) {
-			return getGEFWrapper(new ForkedBehaviourCreateCommand(req));
-		}
-		if (PalladioComponentModelElementTypes.SynchronisationPoint_3038 == req
-				.getElementType()) {
-			return getGEFWrapper(new SynchronisationPointCreateCommand(req));
-		}
-		return super.getCreateCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateCommand(CreateElementRequest req) {
+        if (PalladioComponentModelElementTypes.ForkedBehaviour_3027 == req.getElementType()) {
+            return getGEFWrapper(new ForkedBehaviourCreateCommand(req));
+        }
+        if (PalladioComponentModelElementTypes.SynchronisationPoint_3038 == req.getElementType()) {
+            return getGEFWrapper(new SynchronisationPointCreateCommand(req));
+        }
+        return super.getCreateCommand(req);
+    }
 }

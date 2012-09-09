@@ -30,93 +30,81 @@ import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 
 class ConfigureSEFFCommand extends ConfigureElementCommand {
-	private ConfigureRequest myRequest;
+    private ConfigureRequest myRequest;
 
-	public ConfigureSEFFCommand(ConfigureRequest request) {
-		super(request);
-		myRequest = request;
-	}
+    public ConfigureSEFFCommand(ConfigureRequest request) {
+        super(request);
+        myRequest = request;
+    }
 
-	@Override
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
+    @Override
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 
         ResourceDemandingSEFF seff = (ResourceDemandingSEFF) myRequest.getElementToConfigure();
-        StartAction start = SeffFactory.eINSTANCE.createStartAction(); 
+        StartAction start = SeffFactory.eINSTANCE.createStartAction();
         SetRequest setter2 = new SetRequest(seff,
-        		SeffPackage.eINSTANCE.getResourceDemandingBehaviour_Steps_Behaviour(), 
-        		start);
+                SeffPackage.eINSTANCE.getResourceDemandingBehaviour_Steps_Behaviour(), start);
         SetValueCommand setCommand2 = new SetValueCommand(setter2);
         setCommand2.execute(monitor, info);
         CommandResult result = setCommand2.getCommandResult();
-        if (!isOK(result))
-        {
-        	return CommandResult.newErrorCommandResult("Create SEFF failed!");
+        if (!isOK(result)) {
+            return CommandResult.newErrorCommandResult("Create SEFF failed!");
         }
-        StopAction stop = SeffFactory.eINSTANCE.createStopAction(); 
+        StopAction stop = SeffFactory.eINSTANCE.createStopAction();
         SetRequest setter3 = new SetRequest(seff,
-        		SeffPackage.eINSTANCE.getResourceDemandingBehaviour_Steps_Behaviour(), 
-        		stop);
+                SeffPackage.eINSTANCE.getResourceDemandingBehaviour_Steps_Behaviour(), stop);
         SetValueCommand setCommand3 = new SetValueCommand(setter3);
         setCommand3.execute(monitor, info);
         result = setCommand3.getCommandResult();
-        if (!isOK(result))
-        {
-        	return CommandResult.newErrorCommandResult("Create SEFF failed!");
+        if (!isOK(result)) {
+            return CommandResult.newErrorCommandResult("Create SEFF failed!");
         }
-        SetRequest setter4 = new SetRequest(start,
-        		SeffPackage.eINSTANCE.getAbstractAction_Successor_AbstractAction(), 
-        		stop);
+        SetRequest setter4 = new SetRequest(start, SeffPackage.eINSTANCE.getAbstractAction_Successor_AbstractAction(),
+                stop);
         SetValueCommand setCommand4 = new SetValueCommand(setter4);
         setCommand4.execute(monitor, info);
         result = setCommand4.getCommandResult();
-        if (!isOK(result))
-        {
-        	return CommandResult.newErrorCommandResult("Create SEFF failed!");
+        if (!isOK(result)) {
+            return CommandResult.newErrorCommandResult("Create SEFF failed!");
         }
         return CommandResult.newOKCommandResult();
-	}
+    }
 }
 
-public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvice implements
-		IEditHelperAdvice {
+public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	@Override
-	/**
-	 * Sets signature of a provided role
-	 */
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		EObject signature = null;
-		ArrayList<Object> filterList = new ArrayList<Object>();	// positive filter
-		// Set types to show and their super types
-		filterList.add(ProvidedRole.class);
-		filterList.add(Interface.class);
-		filterList.add(Signature.class);
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		// set EReference that should be set (in this case: provided role)
-		additionalReferences.add(RepositoryPackage.eINSTANCE.getOperationProvidedRole_ProvidedInterface__OperationProvidedRole());
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, 
-				additionalReferences,
-				request.getElementToConfigure().eContainer());
-		dialog.setProvidedService(Signature.class);
-		dialog.open();
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof Signature))
-			return new CanceledCommand();
-		signature = (Signature) dialog.getResult();
-		
-		ICommand cmd = new SetValueCommand(
-				new SetRequest(
-						request.getElementToConfigure(), 
-						SeffPackage.eINSTANCE.getServiceEffectSpecification_DescribedService__SEFF(),
-						signature));
-		CompositeCommand cc = new CompositeCommand("Configure SEFF");
-		cc.add(cmd);
-		cc.add(new ConfigureSEFFCommand(request));
-		return cc;
-	}	
-	
+    @Override
+    /**
+     * Sets signature of a provided role
+     */
+    protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
+        EObject signature = null;
+        ArrayList<Object> filterList = new ArrayList<Object>(); // positive filter
+        // Set types to show and their super types
+        filterList.add(ProvidedRole.class);
+        filterList.add(Interface.class);
+        filterList.add(Signature.class);
+        ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        // set EReference that should be set (in this case: provided role)
+        additionalReferences.add(RepositoryPackage.eINSTANCE
+                .getOperationProvidedRole_ProvidedInterface__OperationProvidedRole());
+        PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, request
+                .getElementToConfigure().eContainer());
+        dialog.setProvidedService(Signature.class);
+        dialog.open();
+        if (dialog.getResult() == null)
+            return new CanceledCommand();
+        if (!(dialog.getResult() instanceof Signature))
+            return new CanceledCommand();
+        signature = (Signature) dialog.getResult();
+
+        ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                SeffPackage.eINSTANCE.getServiceEffectSpecification_DescribedService__SEFF(), signature));
+        CompositeCommand cc = new CompositeCommand("Configure SEFF");
+        cc.add(cmd);
+        cc.add(new ConfigureSEFFCommand(request));
+        return cc;
+    }
+
 }

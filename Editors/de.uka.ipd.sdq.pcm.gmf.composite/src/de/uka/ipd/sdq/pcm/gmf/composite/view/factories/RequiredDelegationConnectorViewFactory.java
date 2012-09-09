@@ -24,45 +24,37 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class RequiredDelegationConnectorViewFactory extends
-		ConnectionViewFactory {
+public class RequiredDelegationConnectorViewFactory extends ConnectionViewFactory {
 
-	/**
-	 * @generated 
-	 */
-	protected List createStyles(View view) {
-		List styles = new ArrayList();
-		styles.add(NotationFactory.eINSTANCE.createRoutingStyle());
-		styles.add(NotationFactory.eINSTANCE.createFontStyle());
-		styles.add(NotationFactory.eINSTANCE.createLineStyle());
-		return styles;
-	}
+    /**
+     * @generated
+     */
+    protected List createStyles(View view) {
+        List styles = new ArrayList();
+        styles.add(NotationFactory.eINSTANCE.createRoutingStyle());
+        styles.add(NotationFactory.eINSTANCE.createFontStyle());
+        styles.add(NotationFactory.eINSTANCE.createLineStyle());
+        return styles;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void decorateView(View containerView, View view,
-			IAdaptable semanticAdapter, String semanticHint, int index,
-			boolean persisted) {
-		if (semanticHint == null) {
-			semanticHint = PalladioComponentModelVisualIDRegistry
-					.getType(RequiredDelegationConnectorEditPart.VISUAL_ID);
-			view.setType(semanticHint);
-		}
-		super.decorateView(containerView, view, semanticAdapter, semanticHint,
-				index, persisted);
-		if (!ComposedProvidingRequiringEntityEditPart.MODEL_ID
-				.equals(PalladioComponentModelVisualIDRegistry
-						.getModelID(containerView))) {
-			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE
-					.createEAnnotation();
-			shortcutAnnotation.setSource("Shortcut"); //$NON-NLS-1$
-			shortcutAnnotation
-					.getDetails()
-					.put(
-							"modelID", ComposedProvidingRequiringEntityEditPart.MODEL_ID); //$NON-NLS-1$
-			view.getEAnnotations().add(shortcutAnnotation);
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void decorateView(View containerView, View view, IAdaptable semanticAdapter, String semanticHint,
+            int index, boolean persisted) {
+        if (semanticHint == null) {
+            semanticHint = PalladioComponentModelVisualIDRegistry
+                    .getType(RequiredDelegationConnectorEditPart.VISUAL_ID);
+            view.setType(semanticHint);
+        }
+        super.decorateView(containerView, view, semanticAdapter, semanticHint, index, persisted);
+        if (!ComposedProvidingRequiringEntityEditPart.MODEL_ID.equals(PalladioComponentModelVisualIDRegistry
+                .getModelID(containerView))) {
+            EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE.createEAnnotation();
+            shortcutAnnotation.setSource("Shortcut"); //$NON-NLS-1$
+            shortcutAnnotation.getDetails().put("modelID", ComposedProvidingRequiringEntityEditPart.MODEL_ID); //$NON-NLS-1$
+            view.getEAnnotations().add(shortcutAnnotation);
+        }
+    }
 
 }

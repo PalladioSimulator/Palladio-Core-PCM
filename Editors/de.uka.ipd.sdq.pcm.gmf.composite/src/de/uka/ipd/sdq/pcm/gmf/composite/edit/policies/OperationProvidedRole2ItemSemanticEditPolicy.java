@@ -28,133 +28,117 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 /**
  * Semantic Edit Policy for Operation Provided Role Delegation connectors.
  * 
- * This edit policy has to ensure that operation provided delegation connectors
- * can not connect system provided roles with system provided roles again.
+ * This edit policy has to ensure that operation provided delegation connectors can not connect
+ * system provided roles with system provided roles again.
  * 
  * @generated
  */
-public class OperationProvidedRole2ItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public OperationProvidedRole2ItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.OperationProvidedRole_3011);
-	}
+    /**
+     * @generated
+     */
+    public OperationProvidedRole2ItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.OperationProvidedRole_3011);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
-		cmd.setTransactionNestingEnabled(false);
-		for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
-			Edge incomingLink = (Edge) it.next();
-			if (PalladioComponentModelVisualIDRegistry
-					.getVisualID(incomingLink) == AssemblyConnectorEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						incomingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
-			if (PalladioComponentModelVisualIDRegistry
-					.getVisualID(incomingLink) == ProvidedDelegationConnectorEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						incomingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
-		}
-		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
-			Edge outgoingLink = (Edge) it.next();
-			if (PalladioComponentModelVisualIDRegistry
-					.getVisualID(outgoingLink) == ProvidedDelegationConnectorEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						outgoingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-				continue;
-			}
-		}
-		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-		if (annotation == null) {
-			// there are indirectly referenced children, need extra commands: false
-			addDestroyShortcutsCommand(cmd, view);
-			// delete host element
-			cmd.add(new DestroyElementCommand(req));
-		} else {
-			cmd.add(new DeleteCommand(getEditingDomain(), view));
-		}
-		return getGEFWrapper(cmd.reduce());
-	}
+    /**
+     * @generated
+     */
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        View view = (View) getHost().getModel();
+        CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+        cmd.setTransactionNestingEnabled(false);
+        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+            Edge incomingLink = (Edge) it.next();
+            if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AssemblyConnectorEditPart.VISUAL_ID) {
+                DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
+                cmd.add(new DestroyElementCommand(r));
+                cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+                continue;
+            }
+            if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == ProvidedDelegationConnectorEditPart.VISUAL_ID) {
+                DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
+                cmd.add(new DestroyElementCommand(r));
+                cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+                continue;
+            }
+        }
+        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+            Edge outgoingLink = (Edge) it.next();
+            if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == ProvidedDelegationConnectorEditPart.VISUAL_ID) {
+                DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
+                cmd.add(new DestroyElementCommand(r));
+                cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+                continue;
+            }
+        }
+        EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+        if (annotation == null) {
+            // there are indirectly referenced children, need extra commands: false
+            addDestroyShortcutsCommand(cmd, view);
+            // delete host element
+            cmd.add(new DestroyElementCommand(req));
+        } else {
+            cmd.add(new DeleteCommand(getEditingDomain(), view));
+        }
+        return getGEFWrapper(cmd.reduce());
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
-		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
-				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super
-				.getCreateRelationshipCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+        Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+                : getCompleteCreateRelationshipCommand(req);
+        return command != null ? command : super.getCreateRelationshipCommand(req);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getStartCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req
-				.getElementType()) {
-			return null;
-		}
-		if (PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006 == req
-				.getElementType()) {
-			return getGEFWrapper(new ProvidedDelegationConnectorCreateCommand(
-					req, req.getSource(), req.getTarget()));
-		}
-		return null;
-	}
+    /**
+     * @generated
+     */
+    protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
+        if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
+            return null;
+        }
+        if (PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006 == req.getElementType()) {
+            return getGEFWrapper(new ProvidedDelegationConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+        }
+        return null;
+    }
 
-	/**
-	 * @generated not
-	 */
-	protected Command getCompleteCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		return null;
-		//		if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req
-		//				.getElementType()) {
-		//			return getGEFWrapper(new AssemblyConnectorCreateCommand(req, req
-		//					.getSource(), req.getTarget()));
-		//		}
-		//		if (PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006 == req
-		//				.getElementType()) {
-		//			return getGEFWrapper(new ProvidedDelegationConnectorCreateCommand(
-		//					req, req.getSource(), req.getTarget()));
-		//		}
-		//		return null;
-	}
+    /**
+     * @generated not
+     */
+    protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
+        return null;
+        // if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req
+        // .getElementType()) {
+        // return getGEFWrapper(new AssemblyConnectorCreateCommand(req, req
+        // .getSource(), req.getTarget()));
+        // }
+        // if (PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006 == req
+        // .getElementType()) {
+        // return getGEFWrapper(new ProvidedDelegationConnectorCreateCommand(
+        // req, req.getSource(), req.getTarget()));
+        // }
+        // return null;
+    }
 
-	/**
-	 * Returns command to reorient EClass based link. New link target or source
-	 * should be the domain model element associated with this node.
-	 * 
-	 * @generated
-	 */
-	protected Command getReorientRelationshipCommand(
-			ReorientRelationshipRequest req) {
-		switch (getVisualID(req)) {
-		case AssemblyConnectorEditPart.VISUAL_ID:
-			return getGEFWrapper(new AssemblyConnectorReorientCommand(req));
-		case ProvidedDelegationConnectorEditPart.VISUAL_ID:
-			return getGEFWrapper(new ProvidedDelegationConnectorReorientCommand(
-					req));
-		}
-		return super.getReorientRelationshipCommand(req);
-	}
+    /**
+     * Returns command to reorient EClass based link. New link target or source should be the domain
+     * model element associated with this node.
+     * 
+     * @generated
+     */
+    protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
+        switch (getVisualID(req)) {
+        case AssemblyConnectorEditPart.VISUAL_ID:
+            return getGEFWrapper(new AssemblyConnectorReorientCommand(req));
+        case ProvidedDelegationConnectorEditPart.VISUAL_ID:
+            return getGEFWrapper(new ProvidedDelegationConnectorReorientCommand(req));
+        }
+        return super.getReorientRelationshipCommand(req);
+    }
 
 }

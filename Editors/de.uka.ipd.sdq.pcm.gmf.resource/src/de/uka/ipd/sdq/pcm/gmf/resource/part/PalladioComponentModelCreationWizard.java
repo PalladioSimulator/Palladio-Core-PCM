@@ -20,166 +20,149 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 /**
  * @generated
  */
-public class PalladioComponentModelCreationWizard extends Wizard implements
-		INewWizard {
+public class PalladioComponentModelCreationWizard extends Wizard implements INewWizard {
 
-	/**
-	 * @generated
-	 */
-	private IWorkbench workbench;
+    /**
+     * @generated
+     */
+    private IWorkbench workbench;
 
-	/**
-	 * @generated
-	 */
-	protected IStructuredSelection selection;
+    /**
+     * @generated
+     */
+    protected IStructuredSelection selection;
 
-	/**
-	 * @generated
-	 */
-	protected PalladioComponentModelCreationWizardPage diagramModelFilePage;
+    /**
+     * @generated
+     */
+    protected PalladioComponentModelCreationWizardPage diagramModelFilePage;
 
-	/**
-	 * @generated
-	 */
-	protected PalladioComponentModelCreationWizardPage domainModelFilePage;
+    /**
+     * @generated
+     */
+    protected PalladioComponentModelCreationWizardPage domainModelFilePage;
 
-	/**
-	 * @generated
-	 */
-	protected Resource diagram;
+    /**
+     * @generated
+     */
+    protected Resource diagram;
 
-	/**
-	 * @generated
-	 */
-	private boolean openNewlyCreatedDiagramEditor = true;
+    /**
+     * @generated
+     */
+    private boolean openNewlyCreatedDiagramEditor = true;
 
-	/**
-	 * @generated
-	 */
-	public IWorkbench getWorkbench() {
-		return workbench;
-	}
+    /**
+     * @generated
+     */
+    public IWorkbench getWorkbench() {
+        return workbench;
+    }
 
-	/**
-	 * @generated
-	 */
-	public IStructuredSelection getSelection() {
-		return selection;
-	}
+    /**
+     * @generated
+     */
+    public IStructuredSelection getSelection() {
+        return selection;
+    }
 
-	/**
-	 * @generated
-	 */
-	public final Resource getDiagram() {
-		return diagram;
-	}
+    /**
+     * @generated
+     */
+    public final Resource getDiagram() {
+        return diagram;
+    }
 
-	/**
-	 * @generated
-	 */
-	public final boolean isOpenNewlyCreatedDiagramEditor() {
-		return openNewlyCreatedDiagramEditor;
-	}
+    /**
+     * @generated
+     */
+    public final boolean isOpenNewlyCreatedDiagramEditor() {
+        return openNewlyCreatedDiagramEditor;
+    }
 
-	/**
-	 * @generated
-	 */
-	public void setOpenNewlyCreatedDiagramEditor(
-			boolean openNewlyCreatedDiagramEditor) {
-		this.openNewlyCreatedDiagramEditor = openNewlyCreatedDiagramEditor;
-	}
+    /**
+     * @generated
+     */
+    public void setOpenNewlyCreatedDiagramEditor(boolean openNewlyCreatedDiagramEditor) {
+        this.openNewlyCreatedDiagramEditor = openNewlyCreatedDiagramEditor;
+    }
 
-	/**
-	 * @generated
-	 */
-	public void init(IWorkbench workbench, IStructuredSelection selection) {
-		this.workbench = workbench;
-		this.selection = selection;
-		setWindowTitle(Messages.PalladioComponentModelCreationWizardTitle);
-		setDefaultPageImageDescriptor(PalladioComponentModelDiagramEditorPlugin
-				.getBundledImageDescriptor("icons/wizban/NewResourceenvironmentWizard.gif")); //$NON-NLS-1$
-		setNeedsProgressMonitor(true);
-	}
+    /**
+     * @generated
+     */
+    public void init(IWorkbench workbench, IStructuredSelection selection) {
+        this.workbench = workbench;
+        this.selection = selection;
+        setWindowTitle(Messages.PalladioComponentModelCreationWizardTitle);
+        setDefaultPageImageDescriptor(PalladioComponentModelDiagramEditorPlugin
+                .getBundledImageDescriptor("icons/wizban/NewResourceenvironmentWizard.gif")); //$NON-NLS-1$
+        setNeedsProgressMonitor(true);
+    }
 
-	/**
-	 * @generated
-	 */
-	public void addPages() {
-		diagramModelFilePage = new PalladioComponentModelCreationWizardPage(
-				"DiagramModelFile", getSelection(), "resourceenvironment_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
-		diagramModelFilePage
-				.setTitle(Messages.PalladioComponentModelCreationWizard_DiagramModelFilePageTitle);
-		diagramModelFilePage
-				.setDescription(Messages.PalladioComponentModelCreationWizard_DiagramModelFilePageDescription);
-		addPage(diagramModelFilePage);
+    /**
+     * @generated
+     */
+    public void addPages() {
+        diagramModelFilePage = new PalladioComponentModelCreationWizardPage(
+                "DiagramModelFile", getSelection(), "resourceenvironment_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+        diagramModelFilePage.setTitle(Messages.PalladioComponentModelCreationWizard_DiagramModelFilePageTitle);
+        diagramModelFilePage
+                .setDescription(Messages.PalladioComponentModelCreationWizard_DiagramModelFilePageDescription);
+        addPage(diagramModelFilePage);
 
-		domainModelFilePage = new PalladioComponentModelCreationWizardPage(
-				"DomainModelFile", getSelection(), "resourceenvironment") { //$NON-NLS-1$ //$NON-NLS-2$
+        domainModelFilePage = new PalladioComponentModelCreationWizardPage(
+                "DomainModelFile", getSelection(), "resourceenvironment") { //$NON-NLS-1$ //$NON-NLS-2$
 
-			public void setVisible(boolean visible) {
-				if (visible) {
-					String fileName = diagramModelFilePage.getFileName();
-					fileName = fileName.substring(0, fileName.length()
-							- ".resourceenvironment_diagram".length()); //$NON-NLS-1$
-					setFileName(PalladioComponentModelDiagramEditorUtil
-							.getUniqueFileName(getContainerFullPath(),
-									fileName, "resourceenvironment")); //$NON-NLS-1$
-				}
-				super.setVisible(visible);
-			}
-		};
-		domainModelFilePage
-				.setTitle(Messages.PalladioComponentModelCreationWizard_DomainModelFilePageTitle);
-		domainModelFilePage
-				.setDescription(Messages.PalladioComponentModelCreationWizard_DomainModelFilePageDescription);
-		addPage(domainModelFilePage);
-	}
+            public void setVisible(boolean visible) {
+                if (visible) {
+                    String fileName = diagramModelFilePage.getFileName();
+                    fileName = fileName.substring(0, fileName.length() - ".resourceenvironment_diagram".length()); //$NON-NLS-1$
+                    setFileName(PalladioComponentModelDiagramEditorUtil.getUniqueFileName(getContainerFullPath(),
+                            fileName, "resourceenvironment")); //$NON-NLS-1$
+                }
+                super.setVisible(visible);
+            }
+        };
+        domainModelFilePage.setTitle(Messages.PalladioComponentModelCreationWizard_DomainModelFilePageTitle);
+        domainModelFilePage
+                .setDescription(Messages.PalladioComponentModelCreationWizard_DomainModelFilePageDescription);
+        addPage(domainModelFilePage);
+    }
 
-	/**
-	 * @generated
-	 */
-	public boolean performFinish() {
-		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
+    /**
+     * @generated
+     */
+    public boolean performFinish() {
+        IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
-			protected void execute(IProgressMonitor monitor)
-					throws CoreException, InterruptedException {
-				diagram = PalladioComponentModelDiagramEditorUtil
-						.createDiagram(diagramModelFilePage.getURI(),
-								domainModelFilePage.getURI(), monitor);
-				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
-					try {
-						PalladioComponentModelDiagramEditorUtil
-								.openDiagram(diagram);
-					} catch (PartInitException e) {
-						ErrorDialog
-								.openError(
-										getContainer().getShell(),
-										Messages.PalladioComponentModelCreationWizardOpenEditorError,
-										null, e.getStatus());
-					}
-				}
-			}
-		};
-		try {
-			getContainer().run(false, true, op);
-		} catch (InterruptedException e) {
-			return false;
-		} catch (InvocationTargetException e) {
-			if (e.getTargetException() instanceof CoreException) {
-				ErrorDialog
-						.openError(
-								getContainer().getShell(),
-								Messages.PalladioComponentModelCreationWizardCreationError,
-								null, ((CoreException) e.getTargetException())
-										.getStatus());
-			} else {
-				PalladioComponentModelDiagramEditorPlugin
-						.getInstance()
-						.logError(
-								"Error creating diagram", e.getTargetException()); //$NON-NLS-1$
-			}
-			return false;
-		}
-		return diagram != null;
-	}
+            protected void execute(IProgressMonitor monitor) throws CoreException, InterruptedException {
+                diagram = PalladioComponentModelDiagramEditorUtil.createDiagram(diagramModelFilePage.getURI(),
+                        domainModelFilePage.getURI(), monitor);
+                if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
+                    try {
+                        PalladioComponentModelDiagramEditorUtil.openDiagram(diagram);
+                    } catch (PartInitException e) {
+                        ErrorDialog.openError(getContainer().getShell(),
+                                Messages.PalladioComponentModelCreationWizardOpenEditorError, null, e.getStatus());
+                    }
+                }
+            }
+        };
+        try {
+            getContainer().run(false, true, op);
+        } catch (InterruptedException e) {
+            return false;
+        } catch (InvocationTargetException e) {
+            if (e.getTargetException() instanceof CoreException) {
+                ErrorDialog.openError(getContainer().getShell(),
+                        Messages.PalladioComponentModelCreationWizardCreationError, null,
+                        ((CoreException) e.getTargetException()).getStatus());
+            } else {
+                PalladioComponentModelDiagramEditorPlugin.getInstance().logError(
+                        "Error creating diagram", e.getTargetException()); //$NON-NLS-1$
+            }
+            return false;
+        }
+        return diagram != null;
+    }
 }

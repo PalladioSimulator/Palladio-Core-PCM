@@ -19,8 +19,12 @@ public class OKCommand extends AbstractCommand {
         super("OK Command");
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doExecuteWithResult(org.eclipse
+     * .core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
      */
     @Override
     protected CommandResult doExecuteWithResult(final IProgressMonitor progressMonitor, final IAdaptable info)
@@ -28,8 +32,12 @@ public class OKCommand extends AbstractCommand {
         return CommandResult.newOKCommandResult();
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doRedoWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doRedoWithResult(org.eclipse.
+     * core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
      */
     @Override
     protected CommandResult doRedoWithResult(final IProgressMonitor progressMonitor, final IAdaptable info)
@@ -37,8 +45,12 @@ public class OKCommand extends AbstractCommand {
         return CommandResult.newOKCommandResult();
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doUndoWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doUndoWithResult(org.eclipse.
+     * core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
      */
     @Override
     protected CommandResult doUndoWithResult(final IProgressMonitor progressMonitor, final IAdaptable info)

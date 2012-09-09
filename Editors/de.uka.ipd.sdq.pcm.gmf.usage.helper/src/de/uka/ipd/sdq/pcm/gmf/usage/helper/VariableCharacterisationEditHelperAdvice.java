@@ -23,27 +23,27 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @author Roman Andrej
- *
+ * 
  */
-public class VariableCharacterisationEditHelperAdvice extends
-	AbstractEditHelperAdvice implements
-		IEditHelperAdvice {
+public class VariableCharacterisationEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
 
-		IElementType elementType = ElementTypeRegistry.getInstance().
-		getType("de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000");
-	
-		
-		CreateElementRequest createElementRequest = new CreateElementRequest(
-				request.getElementToConfigure(), elementType, ParameterPackage.eINSTANCE
-				.getVariableCharacterisation_Specification_VariableCharacterisation());
-		return new CreateElementCommand(createElementRequest);
-		
-	}
+        IElementType elementType = ElementTypeRegistry.getInstance().getType(
+                "de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000");
+
+        CreateElementRequest createElementRequest = new CreateElementRequest(request.getElementToConfigure(),
+                elementType,
+                ParameterPackage.eINSTANCE.getVariableCharacterisation_Specification_VariableCharacterisation());
+        return new CreateElementCommand(createElementRequest);
+
+    }
 
 }

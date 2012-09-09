@@ -19,79 +19,76 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.RequiredDelegationConnecto
 /**
  * @generated
  */
-public class RequiredDelegationConnectorEditPart extends ConnectionNodeEditPart
-		implements ITreeBranchEditPart {
+public class RequiredDelegationConnectorEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-	/**
-	 * @generated
-	 */
-	public static final int VISUAL_ID = 4005;
+    /**
+     * @generated
+     */
+    public static final int VISUAL_ID = 4005;
 
-	/**
-	 * @generated
-	 */
-	public RequiredDelegationConnectorEditPart(View view) {
-		super(view);
-	}
+    /**
+     * @generated
+     */
+    public RequiredDelegationConnectorEditPart(View view) {
+        super(view);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new RequiredDelegationConnectorItemSemanticEditPolicy());
-	}
+    /**
+     * @generated
+     */
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new RequiredDelegationConnectorItemSemanticEditPolicy());
+    }
 
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
-	protected Connection createConnectionFigure() {
-		return new OperationRequiredDelegationConnectorFigure();
-	}
+    /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
+     * @generated
+     */
+    protected Connection createConnectionFigure() {
+        return new OperationRequiredDelegationConnectorFigure();
+    }
 
-	/**
-	 * @generated
-	 */
-	public OperationRequiredDelegationConnectorFigure getPrimaryShape() {
-		return (OperationRequiredDelegationConnectorFigure) getFigure();
-	}
+    /**
+     * @generated
+     */
+    public OperationRequiredDelegationConnectorFigure getPrimaryShape() {
+        return (OperationRequiredDelegationConnectorFigure) getFigure();
+    }
 
-	/**
-	 * @generated
-	 */
-	public class OperationRequiredDelegationConnectorFigure extends
-			PolylineConnectionEx {
+    /**
+     * @generated
+     */
+    public class OperationRequiredDelegationConnectorFigure extends PolylineConnectionEx {
 
-		/**
-		 * @generated
-		 */
-		public OperationRequiredDelegationConnectorFigure() {
-			this.setLineWidth(1);
+        /**
+         * @generated
+         */
+        public OperationRequiredDelegationConnectorFigure() {
+            this.setLineWidth(1);
 
-			setTargetDecoration(createTargetDecoration());
-		}
+            setTargetDecoration(createTargetDecoration());
+        }
 
-		/**
-		 * @generated
-		 */
-		private RotatableDecoration createTargetDecoration() {
-			PolylineDecoration df = new PolylineDecoration();
-			df.setLineWidth(1);
-			PointList pl = new PointList();
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
-			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
-			df.setTemplate(pl);
-			df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
-			return df;
-		}
+        /**
+         * @generated
+         */
+        private RotatableDecoration createTargetDecoration() {
+            PolylineDecoration df = new PolylineDecoration();
+            df.setLineWidth(1);
+            PointList pl = new PointList();
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
+            pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
+            df.setTemplate(pl);
+            df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
+            return df;
+        }
 
-	}
+    }
 
 }

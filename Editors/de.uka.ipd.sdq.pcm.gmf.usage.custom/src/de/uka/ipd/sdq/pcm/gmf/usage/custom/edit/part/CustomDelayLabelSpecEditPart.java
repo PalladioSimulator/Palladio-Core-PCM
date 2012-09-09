@@ -13,64 +13,56 @@ import de.uka.ipd.sdq.pcm.usagemodel.Delay;
 
 public class CustomDelayLabelSpecEditPart extends DelayLabelSpecEditPart {
 
-	public CustomDelayLabelSpecEditPart(View view) {
-		super(view);
-	}
+    public CustomDelayLabelSpecEditPart(View view) {
+        super(view);
+    }
 
-	@Override
-	protected String getLabelText() {
-		String text = null;
+    @Override
+    protected String getLabelText() {
+        String text = null;
 
-		Delay d = (Delay) resolveSemanticElement();
-		if (d.getTimeSpecification_Delay() != null) {
-			text = "Delay Time: "
-					+ d.getTimeSpecification_Delay().getSpecification();
-		}
+        Delay d = (Delay) resolveSemanticElement();
+        if (d.getTimeSpecification_Delay() != null) {
+            text = "Delay Time: " + d.getTimeSpecification_Delay().getSpecification();
+        }
 
-		if (text == null || text.length() == 0) {
-			text = getLabelTextHelper(getFigure());
-		}
-		return text;
+        if (text == null || text.length() == 0) {
+            text = getLabelTextHelper(getFigure());
+        }
+        return text;
 
-	}
+    }
 
+    @Override
+    protected void addSemanticListeners() {
+        Delay d = (Delay) resolveSemanticElement();
+        addListenerFilter("SemanticModel", this, d.getTimeSpecification_Delay()); //$NON-NLS-1$
+    }
 
-	@Override
-	protected void addSemanticListeners() {
-		Delay d = (Delay) resolveSemanticElement();
-		addListenerFilter("SemanticModel", this, d.getTimeSpecification_Delay()); //$NON-NLS-1$
-	}
+    @Override
+    protected void removeSemanticListeners() {
+        removeListenerFilter("SemanticModel"); //$NON-NLS-1$
+    }
 
-	@Override
-	protected void removeSemanticListeners() {
-		removeListenerFilter("SemanticModel"); //$NON-NLS-1$
-	}
-
-	@Override
-	protected void handleNotificationEvent(final Notification event) {
-		Object feature = event.getFeature();
-		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
-			Integer c = (Integer) event.getNewValue();
-			setFontColor(DiagramColorRegistry.getInstance().getColor(c));
-		} else if (NotationPackage.eINSTANCE.getFontStyle_Underline().equals(
-				feature)) {
-			refreshUnderline();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_StrikeThrough()
-				.equals(feature)) {
-			refreshStrikeThrough();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_FontHeight().equals(
-				feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_FontName().equals(
-						feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Bold()
-						.equals(feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Italic().equals(
-						feature)) {
-			refreshFont();
-		} else {
-			refreshLabel();
-		}
-		super.handleNotificationEvent(event);
-	}
+    @Override
+    protected void handleNotificationEvent(final Notification event) {
+        Object feature = event.getFeature();
+        if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
+            Integer c = (Integer) event.getNewValue();
+            setFontColor(DiagramColorRegistry.getInstance().getColor(c));
+        } else if (NotationPackage.eINSTANCE.getFontStyle_Underline().equals(feature)) {
+            refreshUnderline();
+        } else if (NotationPackage.eINSTANCE.getFontStyle_StrikeThrough().equals(feature)) {
+            refreshStrikeThrough();
+        } else if (NotationPackage.eINSTANCE.getFontStyle_FontHeight().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_FontName().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_Bold().equals(feature)
+                || NotationPackage.eINSTANCE.getFontStyle_Italic().equals(feature)) {
+            refreshFont();
+        } else {
+            refreshLabel();
+        }
+        super.handleNotificationEvent(event);
+    }
 
 }

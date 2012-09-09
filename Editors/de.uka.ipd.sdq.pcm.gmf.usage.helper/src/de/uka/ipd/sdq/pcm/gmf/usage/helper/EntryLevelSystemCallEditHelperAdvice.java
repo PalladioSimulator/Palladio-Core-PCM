@@ -23,58 +23,55 @@ import de.uka.ipd.sdq.pcm.system.System;
  * @author roman, Christian Busch
  * @generated NOT
  */
-public class EntryLevelSystemCallEditHelperAdvice extends
-		AbstractEditHelperAdvice implements IEditHelperAdvice {
+public class EntryLevelSystemCallEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	/** 
-	 * This command opens two selection dialogs for choosing the system operation provided role and interface.
-	 * 
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		
-		OperationSignature signature = null;
-		OperationProvidedRole providedRole = null;
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(System.class);
-		filterList.add(OperationProvidedRole.class);
+    /**
+     * This command opens two selection dialogs for choosing the system operation provided role and
+     * interface.
+     * 
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
 
-		/* first dialog for selection of the operation provided role */
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		additionalReferences.add(RepositoryPackage.eINSTANCE
-				.getOperationProvidedRole_ProvidedInterface__OperationProvidedRole());
+        OperationSignature signature = null;
+        OperationProvidedRole providedRole = null;
+        ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(System.class);
+        filterList.add(OperationProvidedRole.class);
 
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, additionalReferences, request.getEditingDomain()
-						.getResourceSet());
-		dialog.setProvidedService(OperationProvidedRole.class);
-		dialog.open();
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof OperationProvidedRole))	
-			return new CanceledCommand();
-		
-		providedRole = (OperationProvidedRole)dialog.getResult();
-		
-		/* second dialog for selection of the signature of the interface */
-		filterList.clear();
-		filterList.add(OperationProvidedRole.class);
-		filterList.add(OperationInterface.class);
-		filterList.add(OperationSignature.class);
-		
-		dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, additionalReferences, providedRole);
-		dialog.setProvidedService(OperationSignature.class);
-		dialog.open();
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof OperationSignature))
-			return new CanceledCommand();
-		signature = (OperationSignature) dialog.getResult();
-		
-		
-		return new EntryLevelSystemCallConfigureCommand(request,signature,providedRole);
-	}
+        /* first dialog for selection of the operation provided role */
+        ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        additionalReferences.add(RepositoryPackage.eINSTANCE
+                .getOperationProvidedRole_ProvidedInterface__OperationProvidedRole());
+
+        PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, request.getEditingDomain()
+                .getResourceSet());
+        dialog.setProvidedService(OperationProvidedRole.class);
+        dialog.open();
+        if (dialog.getResult() == null)
+            return new CanceledCommand();
+        if (!(dialog.getResult() instanceof OperationProvidedRole))
+            return new CanceledCommand();
+
+        providedRole = (OperationProvidedRole) dialog.getResult();
+
+        /* second dialog for selection of the signature of the interface */
+        filterList.clear();
+        filterList.add(OperationProvidedRole.class);
+        filterList.add(OperationInterface.class);
+        filterList.add(OperationSignature.class);
+
+        dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+                filterList, additionalReferences, providedRole);
+        dialog.setProvidedService(OperationSignature.class);
+        dialog.open();
+        if (dialog.getResult() == null)
+            return new CanceledCommand();
+        if (!(dialog.getResult() instanceof OperationSignature))
+            return new CanceledCommand();
+        signature = (OperationSignature) dialog.getResult();
+
+        return new EntryLevelSystemCallConfigureCommand(request, signature, providedRole);
+    }
 }

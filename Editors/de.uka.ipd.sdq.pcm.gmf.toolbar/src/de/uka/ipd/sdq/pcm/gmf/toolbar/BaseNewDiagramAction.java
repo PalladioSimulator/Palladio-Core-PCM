@@ -6,32 +6,27 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.INewWizard;
 
 /**
- * Baseclass for the new diagram actions.
- * A factory method is used to retrieve the new wizard
- * of the appropriate package.
- *
+ * Baseclass for the new diagram actions. A factory method is used to retrieve the new wizard of the
+ * appropriate package.
+ * 
  * @author Philipp Meier
  */
-public abstract class BaseNewDiagramAction
-	extends BaseDiagramAction {
+public abstract class BaseNewDiagramAction extends BaseDiagramAction {
 
-	public void run(final IAction action) {
-		INewWizard wizard = getNewWizard();
-		assert (wizard != null);
+    public void run(final IAction action) {
+        INewWizard wizard = getNewWizard();
+        assert (wizard != null);
 
-		wizard.init(
-				getWindow().getWorkbench(),
-				new StructuredSelection());
+        wizard.init(getWindow().getWorkbench(), new StructuredSelection());
 
-		WizardDialog dialog = new WizardDialog(
-				getWindow().getShell(),
-				wizard);
-		dialog.open();
-	}
+        WizardDialog dialog = new WizardDialog(getWindow().getShell(), wizard);
+        dialog.open();
+    }
 
-	/**
-	 * Template method for the new wizard to open.
-	 *  @return the new wizard to open. must not be null
-	 */
-	protected abstract INewWizard getNewWizard();
+    /**
+     * Template method for the new wizard to open.
+     * 
+     * @return the new wizard to open. must not be null
+     */
+    protected abstract INewWizard getNewWizard();
 }

@@ -6,6 +6,5 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers;
 /**
  * @generated
  */
-public class InfrastructureRequiredRoleEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class InfrastructureRequiredRoleEditHelper extends PalladioComponentModelBaseEditHelper {
 }

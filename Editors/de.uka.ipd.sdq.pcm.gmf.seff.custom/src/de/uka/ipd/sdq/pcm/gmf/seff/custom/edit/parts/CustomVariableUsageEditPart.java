@@ -33,7 +33,9 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
         super(view);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart#createNodeShape()
      */
     @Override
@@ -47,7 +49,7 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
      * The customized parametric parameter usage figure classe.
      */
     public class CustomParametricParameterUsageFigure extends ParametricParameterUsageFigure {
-        
+
         /**
          * Constructor.
          */

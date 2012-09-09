@@ -17,7 +17,8 @@ public class CustomProcessingResourceSpecificationProcessingResourceSpecificatio
 
     /**
      * 
-     * @param view a View
+     * @param view
+     *            a View
      */
     public CustomProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart(View view) {
         super(view);

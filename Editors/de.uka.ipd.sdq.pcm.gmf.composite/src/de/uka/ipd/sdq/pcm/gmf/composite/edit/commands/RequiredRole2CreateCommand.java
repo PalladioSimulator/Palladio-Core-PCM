@@ -21,30 +21,29 @@ import org.eclipse.gmf.runtime.notation.View;
  */
 public class RequiredRole2CreateCommand extends CreateElementCommand {
 
-	/**
-	 * @generated
-	 */
-	public RequiredRole2CreateCommand(CreateElementRequest req) {
-		super(req);
-	}
+    /**
+     * @generated
+     */
+    public RequiredRole2CreateCommand(CreateElementRequest req) {
+        super(req);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EClass getEClassToEdit() {
-		return EntityPackage.eINSTANCE.getInterfaceRequiringEntity();
-	}
+    /**
+     * @generated
+     */
+    protected EClass getEClassToEdit() {
+        return EntityPackage.eINSTANCE.getInterfaceRequiringEntity();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EObject getElementToEdit() {
-		EObject container = ((CreateElementRequest) getRequest())
-				.getContainer();
-		if (container instanceof View) {
-			container = ((View) container).getElement();
-		}
-		return container;
-	}
+    /**
+     * @generated
+     */
+    protected EObject getElementToEdit() {
+        EObject container = ((CreateElementRequest) getRequest()).getContainer();
+        if (container instanceof View) {
+            container = ((View) container).getElement();
+        }
+        return container;
+    }
 
 }

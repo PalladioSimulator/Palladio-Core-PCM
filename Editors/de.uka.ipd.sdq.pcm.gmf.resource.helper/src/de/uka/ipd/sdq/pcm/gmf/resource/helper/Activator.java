@@ -9,12 +9,12 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
     /**
-     *  The plug-in ID.
+     * The plug-in ID.
      */
     public static final String PLUGIN_ID = "de.uka.ipd.sdq.pcm.gmf.resources.helper";
 
     /**
-     *  The shared instance.
+     * The shared instance.
      */
     private static Activator plugin;
 
@@ -26,8 +26,10 @@ public class Activator extends AbstractUIPlugin {
 
     /**
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
-     * @param context a BundleContext
-     * @throws Exception an exception
+     * @param context
+     *            a BundleContext
+     * @throws Exception
+     *             an exception
      */
     public void start(BundleContext context) throws Exception {
         super.start(context);
@@ -36,8 +38,10 @@ public class Activator extends AbstractUIPlugin {
 
     /**
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
-     * @param context a BundleContext
-     * @throws Exception an exception
+     * @param context
+     *            a BundleContext
+     * @throws Exception
+     *             an exception
      */
     public void stop(BundleContext context) throws Exception {
         plugin = null;

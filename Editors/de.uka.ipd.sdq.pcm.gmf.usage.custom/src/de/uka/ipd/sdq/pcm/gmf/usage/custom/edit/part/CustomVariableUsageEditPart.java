@@ -17,133 +17,124 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
-
 public class CustomVariableUsageEditPart extends VariableUsageEditPart {
 
-	// ATTENTION This value is likely to break. But there was no way to get access in parent.
-	static final Color THIS_BACK = new Color(null, 220, 220, 220);
-	
-	public CustomVariableUsageEditPart(View view) {
-		super(view);
-	}
+    // ATTENTION This value is likely to break. But there was no way to get access in parent.
+    static final Color THIS_BACK = new Color(null, 220, 220, 220);
 
-	@Override
-	protected IFigure createNodeShape() {
-		CustomParametricParameterUsageFigure figure = new CustomParametricParameterUsageFigure();
-		return primaryShape = figure;
-	}
+    public CustomVariableUsageEditPart(View view) {
+        super(view);
+    }
 
-	/**
-	 * @generated
-	 */
-	public class CustomParametricParameterUsageFigure extends ParametricParameterUsageFigure {
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureVariableUsageReferenceLabelFigure;
+    @Override
+    protected IFigure createNodeShape() {
+        CustomParametricParameterUsageFigure figure = new CustomParametricParameterUsageFigure();
+        return primaryShape = figure;
+    }
 
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fFigureParametricParameterUsageRectangleCompartment;
+    /**
+     * @generated
+     */
+    public class CustomParametricParameterUsageFigure extends ParametricParameterUsageFigure {
+        /**
+         * @generated
+         */
+        private WrappingLabel fFigureVariableUsageReferenceLabelFigure;
 
-		/**
-		 * @generated
-		 */
-		public CustomParametricParameterUsageFigure() {
+        /**
+         * @generated
+         */
+        private RectangleFigure fFigureParametricParameterUsageRectangleCompartment;
 
-			GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;
-			layoutThis.horizontalSpacing = 0;
-			layoutThis.verticalSpacing = 0;
-			layoutThis.marginWidth = 0;
-			layoutThis.marginHeight = 0;
-			this.setLayoutManager(layoutThis);
+        /**
+         * @generated
+         */
+        public CustomParametricParameterUsageFigure() {
 
-			this.setLineWidth(1);
-			this.setBackgroundColor(THIS_BACK);
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0),
-					getMapMode().DPtoLP(0)));
-			createContents();
-		}
+            GridLayout layoutThis = new GridLayout();
+            layoutThis.numColumns = 1;
+            layoutThis.makeColumnsEqualWidth = true;
+            layoutThis.horizontalSpacing = 0;
+            layoutThis.verticalSpacing = 0;
+            layoutThis.marginWidth = 0;
+            layoutThis.marginHeight = 0;
+            this.setLayoutManager(layoutThis);
 
-		/**
-		 * @generated not
-		 */
-		private void createContents() {
+            this.setLineWidth(1);
+            this.setBackgroundColor(THIS_BACK);
+            this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
+            createContents();
+        }
 
-			fFigureVariableUsageReferenceLabelFigure = new WrappingLabel();
-			fFigureVariableUsageReferenceLabelFigure
-					.setText(new PCMStoExPrettyPrintVisitor()
-							.prettyPrint(((VariableUsage) resolveSemanticElement())
-									.getNamedReference__VariableUsage()));
-			fFigureVariableUsageReferenceLabelFigure
-					.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
-							getMapMode().DPtoLP(0), getMapMode().DPtoLP(2),
-							getMapMode().DPtoLP(0)));
+        /**
+         * @generated not
+         */
+        private void createContents() {
 
-			GridData constraintFFigureVariableUsageReferenceLabelFigure = new GridData();
-			constraintFFigureVariableUsageReferenceLabelFigure.verticalAlignment = GridData.CENTER;
-			constraintFFigureVariableUsageReferenceLabelFigure.horizontalAlignment = GridData.CENTER;
-			constraintFFigureVariableUsageReferenceLabelFigure.horizontalIndent = 0;
-			constraintFFigureVariableUsageReferenceLabelFigure.horizontalSpan = 1;
-			constraintFFigureVariableUsageReferenceLabelFigure.verticalSpan = 1;
-			constraintFFigureVariableUsageReferenceLabelFigure.grabExcessHorizontalSpace = false;
-			constraintFFigureVariableUsageReferenceLabelFigure.grabExcessVerticalSpace = false;
-			this.add(fFigureVariableUsageReferenceLabelFigure,
-					constraintFFigureVariableUsageReferenceLabelFigure);
+            fFigureVariableUsageReferenceLabelFigure = new WrappingLabel();
+            fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExPrettyPrintVisitor()
+                    .prettyPrint(((VariableUsage) resolveSemanticElement()).getNamedReference__VariableUsage()));
+            fFigureVariableUsageReferenceLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
+                    .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
-			fFigureParametricParameterUsageRectangleCompartment = new RectangleFigure();
-			fFigureParametricParameterUsageRectangleCompartment.setFill(false);
-			fFigureParametricParameterUsageRectangleCompartment
-					.setOutline(false);
+            GridData constraintFFigureVariableUsageReferenceLabelFigure = new GridData();
+            constraintFFigureVariableUsageReferenceLabelFigure.verticalAlignment = GridData.CENTER;
+            constraintFFigureVariableUsageReferenceLabelFigure.horizontalAlignment = GridData.CENTER;
+            constraintFFigureVariableUsageReferenceLabelFigure.horizontalIndent = 0;
+            constraintFFigureVariableUsageReferenceLabelFigure.horizontalSpan = 1;
+            constraintFFigureVariableUsageReferenceLabelFigure.verticalSpan = 1;
+            constraintFFigureVariableUsageReferenceLabelFigure.grabExcessHorizontalSpace = false;
+            constraintFFigureVariableUsageReferenceLabelFigure.grabExcessVerticalSpace = false;
+            this.add(fFigureVariableUsageReferenceLabelFigure, constraintFFigureVariableUsageReferenceLabelFigure);
 
-			GridData constraintFFigureParametricParameterUsageRectangleCompartment = new GridData();
-			constraintFFigureParametricParameterUsageRectangleCompartment.verticalAlignment = GridData.FILL;
-			constraintFFigureParametricParameterUsageRectangleCompartment.horizontalAlignment = GridData.FILL;
-			constraintFFigureParametricParameterUsageRectangleCompartment.horizontalIndent = 0;
-			constraintFFigureParametricParameterUsageRectangleCompartment.horizontalSpan = 1;
-			constraintFFigureParametricParameterUsageRectangleCompartment.verticalSpan = 1;
-			constraintFFigureParametricParameterUsageRectangleCompartment.grabExcessHorizontalSpace = true;
-			constraintFFigureParametricParameterUsageRectangleCompartment.grabExcessVerticalSpace = true;
-			this
-					.add(fFigureParametricParameterUsageRectangleCompartment,
-							constraintFFigureParametricParameterUsageRectangleCompartment);
+            fFigureParametricParameterUsageRectangleCompartment = new RectangleFigure();
+            fFigureParametricParameterUsageRectangleCompartment.setFill(false);
+            fFigureParametricParameterUsageRectangleCompartment.setOutline(false);
 
-		}
+            GridData constraintFFigureParametricParameterUsageRectangleCompartment = new GridData();
+            constraintFFigureParametricParameterUsageRectangleCompartment.verticalAlignment = GridData.FILL;
+            constraintFFigureParametricParameterUsageRectangleCompartment.horizontalAlignment = GridData.FILL;
+            constraintFFigureParametricParameterUsageRectangleCompartment.horizontalIndent = 0;
+            constraintFFigureParametricParameterUsageRectangleCompartment.horizontalSpan = 1;
+            constraintFFigureParametricParameterUsageRectangleCompartment.verticalSpan = 1;
+            constraintFFigureParametricParameterUsageRectangleCompartment.grabExcessHorizontalSpace = true;
+            constraintFFigureParametricParameterUsageRectangleCompartment.grabExcessVerticalSpace = true;
+            this.add(fFigureParametricParameterUsageRectangleCompartment,
+                    constraintFFigureParametricParameterUsageRectangleCompartment);
 
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureVariableUsageReferenceLabelFigure() {
-			return fFigureVariableUsageReferenceLabelFigure;
-		}
+        }
 
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getFigureParametricParameterUsageRectangleCompartment() {
-			return fFigureParametricParameterUsageRectangleCompartment;
-		}
+        /**
+         * @generated
+         */
+        public WrappingLabel getFigureVariableUsageReferenceLabelFigure() {
+            return fFigureVariableUsageReferenceLabelFigure;
+        }
 
-		/**
-		 * @generated
-		 */
-		private boolean myUseLocalCoordinates = false;
+        /**
+         * @generated
+         */
+        public RectangleFigure getFigureParametricParameterUsageRectangleCompartment() {
+            return fFigureParametricParameterUsageRectangleCompartment;
+        }
 
-		/**
-		 * @generated
-		 */
-		protected boolean useLocalCoordinates() {
-			return myUseLocalCoordinates;
-		}
+        /**
+         * @generated
+         */
+        private boolean myUseLocalCoordinates = false;
 
-		/**
-		 * @generated
-		 */
-		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-			myUseLocalCoordinates = useLocalCoordinates;
-		}
-	}
+        /**
+         * @generated
+         */
+        protected boolean useLocalCoordinates() {
+            return myUseLocalCoordinates;
+        }
+
+        /**
+         * @generated
+         */
+        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
+            myUseLocalCoordinates = useLocalCoordinates;
+        }
+    }
 }

@@ -6,6 +6,5 @@ package de.uka.ipd.sdq.pcm.gmf.usage.edit.helpers;
 /**
  * @generated
  */
-public class EntryLevelSystemCallEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class EntryLevelSystemCallEditHelper extends PalladioComponentModelBaseEditHelper {
 }

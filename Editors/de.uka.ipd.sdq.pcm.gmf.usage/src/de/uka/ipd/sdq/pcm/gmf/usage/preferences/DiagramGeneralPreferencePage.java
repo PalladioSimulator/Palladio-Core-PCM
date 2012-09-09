@@ -12,11 +12,10 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEdito
  */
 public class DiagramGeneralPreferencePage extends DiagramsPreferencePage {
 
-	/**
-	 * @generated
-	 */
-	public DiagramGeneralPreferencePage() {
-		setPreferenceStore(PalladioComponentModelUsageDiagramEditorPlugin
-				.getInstance().getPreferenceStore());
-	}
+    /**
+     * @generated
+     */
+    public DiagramGeneralPreferencePage() {
+        setPreferenceStore(PalladioComponentModelUsageDiagramEditorPlugin.getInstance().getPreferenceStore());
+    }
 }

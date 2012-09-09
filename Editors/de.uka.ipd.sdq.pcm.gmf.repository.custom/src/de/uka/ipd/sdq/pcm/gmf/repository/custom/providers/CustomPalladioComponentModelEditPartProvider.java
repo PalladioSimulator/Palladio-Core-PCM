@@ -8,9 +8,9 @@ import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelEditPar
 
 public class CustomPalladioComponentModelEditPartProvider extends PalladioComponentModelEditPartProvider {
 
-	public CustomPalladioComponentModelEditPartProvider() {
-		super();
-		setFactory(new CustomPalladioComponentModelEditPartFactory());
-		setAllowCaching(true);
-	}
+    public CustomPalladioComponentModelEditPartProvider() {
+        super();
+        setFactory(new CustomPalladioComponentModelEditPartFactory());
+        setAllowCaching(true);
+    }
 }

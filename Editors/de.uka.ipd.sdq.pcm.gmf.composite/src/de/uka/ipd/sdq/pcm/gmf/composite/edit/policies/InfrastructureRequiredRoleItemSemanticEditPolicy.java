@@ -31,116 +31,102 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 /**
  * @generated
  */
-public class InfrastructureRequiredRoleItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class InfrastructureRequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public InfrastructureRequiredRoleItemSemanticEditPolicy() {
-		super(
-				PalladioComponentModelElementTypes.InfrastructureRequiredRole_3016);
-	}
+    /**
+     * @generated
+     */
+    public InfrastructureRequiredRoleItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.InfrastructureRequiredRole_3016);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
-		cmd.setTransactionNestingEnabled(false);
-		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
-			Edge outgoingLink = (Edge) it.next();
-			if (PalladioComponentModelVisualIDRegistry
-					.getVisualID(outgoingLink) == AssemblyInfrastructureConnectorEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						outgoingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-				continue;
-			}
-		}
-		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-		if (annotation == null) {
-			// there are indirectly referenced children, need extra commands: false
-			addDestroyShortcutsCommand(cmd, view);
-			// delete host element
-			cmd.add(new DestroyElementCommand(req));
-		} else {
-			cmd.add(new DeleteCommand(getEditingDomain(), view));
-		}
-		return getGEFWrapper(cmd.reduce());
-	}
+    /**
+     * @generated
+     */
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        View view = (View) getHost().getModel();
+        CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+        cmd.setTransactionNestingEnabled(false);
+        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+            Edge outgoingLink = (Edge) it.next();
+            if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AssemblyInfrastructureConnectorEditPart.VISUAL_ID) {
+                DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
+                cmd.add(new DestroyElementCommand(r));
+                cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+                continue;
+            }
+        }
+        EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+        if (annotation == null) {
+            // there are indirectly referenced children, need extra commands: false
+            addDestroyShortcutsCommand(cmd, view);
+            // delete host element
+            cmd.add(new DestroyElementCommand(req));
+        } else {
+            cmd.add(new DeleteCommand(getEditingDomain(), view));
+        }
+        return getGEFWrapper(cmd.reduce());
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
-		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
-				: getCompleteCreateRelationshipCommand(req);
-		return command != null ? command : super
-				.getCreateRelationshipCommand(req);
-	}
+    /**
+     * @generated
+     */
+    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+        Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+                : getCompleteCreateRelationshipCommand(req);
+        return command != null ? command : super.getCreateRelationshipCommand(req);
+    }
 
-	/**
-	 * @generated not
-	 */
-	protected Command getStartCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		if (PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008 == req
-				.getElementType()) {
-			EObject sourceEObject = req.getSource();
-			if (false == sourceEObject instanceof InfrastructureRequiredRole) {
-				return UnexecutableCommand.INSTANCE;
-			}
-			InfrastructureRequiredRole source = (InfrastructureRequiredRole) sourceEObject;
-			ComposedStructure container = (ComposedStructure) getRelationshipContainer(
-					source, CompositionPackage.eINSTANCE.getComposedStructure(),
-					req.getElementType());
-			if (container == null) {
-				return UnexecutableCommand.INSTANCE;
-			}
-			if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-					.canCreateAssemblyInfrastructureConnector_4008(container, source, null)) {
-				return UnexecutableCommand.INSTANCE;
-			}
-			// added to provide assembly context in addition to source and target role
-			req.setParameter("SOURCE_ASSEMBLY_CONTEXT", ((View) getHost().getParent()
-					.getModel()).getElement());
-			
-			return new Command() {
-			}; 
-		}
-		return null;
-	}
-	
-	/**
-	 * @generated
-	 */
-	protected Command getCompleteCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		if (PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008 == req
-				.getElementType()) {
-			return null;
-		}
-		return null;
-	}
+    /**
+     * @generated not
+     */
+    protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
+        if (PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008 == req.getElementType()) {
+            EObject sourceEObject = req.getSource();
+            if (false == sourceEObject instanceof InfrastructureRequiredRole) {
+                return UnexecutableCommand.INSTANCE;
+            }
+            InfrastructureRequiredRole source = (InfrastructureRequiredRole) sourceEObject;
+            ComposedStructure container = (ComposedStructure) getRelationshipContainer(source,
+                    CompositionPackage.eINSTANCE.getComposedStructure(), req.getElementType());
+            if (container == null) {
+                return UnexecutableCommand.INSTANCE;
+            }
+            if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+                    .canCreateAssemblyInfrastructureConnector_4008(container, source, null)) {
+                return UnexecutableCommand.INSTANCE;
+            }
+            // added to provide assembly context in addition to source and target role
+            req.setParameter("SOURCE_ASSEMBLY_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
 
-	/**
-	 * Returns command to reorient EClass based link. New link target or source
-	 * should be the domain model element associated with this node.
-	 * 
-	 * @generated
-	 */
-	protected Command getReorientRelationshipCommand(
-			ReorientRelationshipRequest req) {
-		switch (getVisualID(req)) {
-		case AssemblyInfrastructureConnectorEditPart.VISUAL_ID:
-			return getGEFWrapper(new AssemblyInfrastructureConnectorReorientCommand(
-					req));
-		}
-		return super.getReorientRelationshipCommand(req);
-	}
+            return new Command() {
+            };
+        }
+        return null;
+    }
+
+    /**
+     * @generated
+     */
+    protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
+        if (PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008 == req.getElementType()) {
+            return null;
+        }
+        return null;
+    }
+
+    /**
+     * Returns command to reorient EClass based link. New link target or source should be the domain
+     * model element associated with this node.
+     * 
+     * @generated
+     */
+    protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
+        switch (getVisualID(req)) {
+        case AssemblyInfrastructureConnectorEditPart.VISUAL_ID:
+            return getGEFWrapper(new AssemblyInfrastructureConnectorReorientCommand(req));
+        }
+        return super.getReorientRelationshipCommand(req);
+    }
 
 }

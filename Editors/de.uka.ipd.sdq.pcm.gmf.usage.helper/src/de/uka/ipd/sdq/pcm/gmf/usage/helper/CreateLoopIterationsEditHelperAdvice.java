@@ -19,45 +19,43 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
-public class CreateLoopIterationsEditHelperAdvice extends
-		AbstractEditHelperAdvice implements IEditHelperAdvice {
+public class CreateLoopIterationsEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
-		ConfigureElementCommand confElementReq = new ConfigureElementCommand(request) {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getAfterConfigureCommand(final ConfigureRequest request) {
+        ConfigureElementCommand confElementReq = new ConfigureElementCommand(request) {
 
-			@Override
-			protected CommandResult doExecuteWithResult(
-					IProgressMonitor monitor, IAdaptable info)
-					throws ExecutionException {
+            @Override
+            protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+                    throws ExecutionException {
 
-				IElementType elementType = ElementTypeRegistry.getInstance().
-							getType("de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000");
-				CreateElementRequest createRequest = new CreateElementRequest(request.getElementToConfigure(),elementType);
-				CreateElementCommand createCommand = new CreateElementCommand(createRequest);
-				createCommand.execute(monitor, info);
-				
-				SetRequest setSpecReq = new SetRequest(createCommand.getNewElement(),
-						StoexPackage.eINSTANCE.getRandomVariable_Specification(),
-						"1");
-				SetValueCommand setRndVarCmd = new SetValueCommand(setSpecReq);
-				setRndVarCmd.execute(monitor, info);
-				
-				SetRequest setRequest = new SetRequest(request.getElementToConfigure(), 
-						UsagemodelPackage.eINSTANCE.getLoop_LoopIteration_Loop(),
-						createCommand.getNewElement());
-				SetValueCommand cmd = new SetValueCommand(setRequest);
-				cmd.execute(monitor, info);
-				
-				return CommandResult.newOKCommandResult();
-			}
-			
-		};
-		return confElementReq;
-	}
+                IElementType elementType = ElementTypeRegistry.getInstance().getType(
+                        "de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000");
+                CreateElementRequest createRequest = new CreateElementRequest(request.getElementToConfigure(),
+                        elementType);
+                CreateElementCommand createCommand = new CreateElementCommand(createRequest);
+                createCommand.execute(monitor, info);
+
+                SetRequest setSpecReq = new SetRequest(createCommand.getNewElement(),
+                        StoexPackage.eINSTANCE.getRandomVariable_Specification(), "1");
+                SetValueCommand setRndVarCmd = new SetValueCommand(setSpecReq);
+                setRndVarCmd.execute(monitor, info);
+
+                SetRequest setRequest = new SetRequest(request.getElementToConfigure(),
+                        UsagemodelPackage.eINSTANCE.getLoop_LoopIteration_Loop(), createCommand.getNewElement());
+                SetValueCommand cmd = new SetValueCommand(setRequest);
+                cmd.execute(monitor, info);
+
+                return CommandResult.newOKCommandResult();
+            }
+
+        };
+        return confElementReq;
+    }
 }

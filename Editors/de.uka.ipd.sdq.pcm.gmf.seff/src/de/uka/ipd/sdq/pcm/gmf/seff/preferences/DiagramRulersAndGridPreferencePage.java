@@ -12,11 +12,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorP
  */
 public class DiagramRulersAndGridPreferencePage extends RulerGridPreferencePage {
 
-	/**
-	 * @generated
-	 */
-	public DiagramRulersAndGridPreferencePage() {
-		setPreferenceStore(PalladioComponentModelSeffDiagramEditorPlugin
-				.getInstance().getPreferenceStore());
-	}
+    /**
+     * @generated
+     */
+    public DiagramRulersAndGridPreferencePage() {
+        setPreferenceStore(PalladioComponentModelSeffDiagramEditorPlugin.getInstance().getPreferenceStore());
+    }
 }
